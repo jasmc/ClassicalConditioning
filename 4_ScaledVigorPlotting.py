@@ -100,8 +100,8 @@ retraining_trial_names = ["Re-Train trial 11", "Re-Train trial 25"]
 # region Plot Formatting Defaults
 # Defaults moved to plotting_style_new.py
 from plotting_style import (HEATMAP_FIGSIZE, HEATMAP_GRIDSPACE,
-                                HEATMAP_STYLE_KW, HEATMAP_TICK_KW, LEGEND_KW,
-                                LINEPLOT_FIG_KW, LINEPLOT_STYLE_KW, SAVEFIG_KW)
+                            HEATMAP_STYLE_KW, HEATMAP_TICK_KW, LEGEND_KW,
+                            LINEPLOT_FIG_KW, LINEPLOT_STYLE_KW, SAVEFIG_KW)
 
 # endregion
 
@@ -734,7 +734,7 @@ def run_count_heatmap():
             text=f"Time relative to {csus} onset (s)",
             anchor_h="center",
             anchor_v="bottom",
-            pad_pt=(0.0, -plot_cfg.axes_labelpad),
+            pad_pt=(0.0, plot_cfg.axes_labelpad),
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize, "color": "k"},
         ),
     )
@@ -910,7 +910,7 @@ def run_sv_heatmap_rendering():
             text=f"Time relative to {csus} onset (s)",
             anchor_h="center",
             anchor_v="bottom",
-            pad_pt=(0.0, -plot_cfg.axes_labelpad),
+            pad_pt=(0, 5),
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize, "color": "k"},
         ),
     )
@@ -1207,7 +1207,7 @@ def run_sv_lineplot_all_catch_trials():
             text=f"Time relative to\n{csus} onset (s)",
             anchor_h="center",
             anchor_v="bottom",
-            pad_pt=plot_cfg.pad_supxlabel,         
+            pad_pt=(0, 5),         
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
         ),
     )
@@ -1384,6 +1384,11 @@ def run_sv_lineplots_per_block():
         ),
     )
 
+
+    fig.canvas.draw()
+    plot_cfg = get_plot_config()
+
+
     analysis_utils.add_component(
         fig,
         analysis_utils.AddTextSpec(
@@ -1395,8 +1400,14 @@ def run_sv_lineplots_per_block():
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
         ),
     )
+    
+    
+    fig.canvas.draw()
+    plot_cfg = get_plot_config()
 
     # return
+
+
 
     # add_condition_legend(fig, handles, cond_types_here)
 

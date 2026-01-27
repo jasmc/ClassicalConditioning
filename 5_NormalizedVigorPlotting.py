@@ -47,9 +47,9 @@ RUN_TRIAL_BY_TRIAL = True
 # ==============================================================================
 # GLOBAL SETTINGS
 # ==============================================================================
-EXPERIMENT = ExperimentType.ALL_10S_TRACE.value
-# ExperimentType.ALL_3S_TRACE.value
-# ExperimentType.ALL_DELAY.value
+# EXPERIMENT = ExperimentType.ALL_10S_TRACE.value
+# EXPERIMENT = ExperimentType.ALL_3S_TRACE.value
+EXPERIMENT =ExperimentType.ALL_DELAY.value
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
 STATS = True  # Enable statistical tests.
@@ -100,7 +100,7 @@ APPLY_FISH_DISCARD_LME = False  # Apply excluded-fish filter to trial-by-trial p
 SAVEFIG_KW = {"dpi": 600, "transparent": False, "bbox_inches": "tight"}
 FIGURE_KW = {"facecolor": "white", "clip_on": False, "constrained_layout": True}
 
-BASELINE_LINE_KW = {"color": "k", "alpha": 0.5, "lw": 0.5}
+BASELINE_LINE_KW = {"color": "k", "alpha": 1, "lw": plt.rcParams["ytick.major.width"], "zorder": 0}
 BLOCK_DIVIDER_KW = {"color": "gray", "alpha": 0.95, "linestyle": "-", "linewidth": 0.5}
 
 BLOCK_FIG_HEIGHT = 4 / 2.54
@@ -570,6 +570,7 @@ def run_block_summary_lines():
     if data.empty:
         print("Skipping block summary lines (No pooled data file found).")
     else:
+        plot_cfg = plotting_style.get_plot_config()
         data = data.copy()
         blocks_chosen = block_cfg["blocks_chosen"]
         blocks_chosen_labels = block_cfg["blocks_chosen_labels"]
@@ -691,6 +692,139 @@ def run_block_summary_lines():
                 )
                 annotator_b.apply_test().annotate()
 
+
+        # Cross-condition statistical tests (Mann-Whitney U since fish are different across conditions)
+        if STATS and EXPERIMENT != ExperimentType.MOVING_CS_4COND.value and len(cond_types) > 1:
+            from scipy.stats import mannwhitneyu
+            print("\n--- Cross-condition Mann-Whitney U tests (Block Summary Lines) ---")
+            
+            # Build pairs of conditions to compare
+            cross_cond_pairs = []
+            if len(cond_types) == 2:
+                cross_cond_pairs = [(cond_types[0], cond_types[1])]
+            elif len(cond_types) == 3:
+                cross_cond_pairs = [(cond_types[0], cond_types[1]), (cond_types[0], cond_types[2])]
+            elif len(cond_types) >= 4:
+                cross_cond_pairs = [(cond_types[i], cond_types[i + 1]) for i in range(0, len(cond_types) - 1, 2)]
+            
+            # Collect p-values for multiple comparison correction
+            all_pvals = []
+            all_comparisons = []
+            
+            for block in blocks_chosen:
+                for cond1, cond2 in cross_cond_pairs:
+                    data_cond1 = data_agg_block[
+                        (data_agg_block["Exp."] == cond1) & (data_agg_block["Block name"] == block)
+                    ]["Normalized vigor"].dropna()
+                    data_cond2 = data_agg_block[
+                        (data_agg_block["Exp."] == cond2) & (data_agg_block["Block name"] == block)
+                    ]["Normalized vigor"].dropna()
+                    
+                    if len(data_cond1) > 0 and len(data_cond2) > 0:
+                        stat, pval = mannwhitneyu(data_cond1, data_cond2, alternative="two-sided")
+                        all_pvals.append(pval)
+                        all_comparisons.append((block, cond1, cond2, stat, pval))
+            
+            # Apply Holm-Bonferroni correction
+            if all_pvals:
+                reject, pvals_corrected, _, _ = multipletests(all_pvals, alpha=0.05, method="holm")
+                
+                print(f"{'Block':<20} {'Comparison':<30} {'Stat':>10} {'p-raw':>12} {'p-corr':>12} {'Sig':>6}")
+                print("-" * 95)
+                for i, (block, cond1, cond2, stat, pval) in enumerate(all_comparisons):
+                    sig_marker = "*" if reject[i] else ""
+                    if pvals_corrected[i] < 0.0001:
+                        sig_marker = "****"
+                    elif pvals_corrected[i] < 0.001:
+                        sig_marker = "***"
+                    elif pvals_corrected[i] < 0.01:
+                        sig_marker = "**"
+                    elif pvals_corrected[i] < 0.05:
+                        sig_marker = "*"
+                    else:
+                        sig_marker = "ns" if not Hide_non_significant else ""
+                    
+                    print(f"{block:<20} {cond1} vs {cond2:<15} {stat:>10.2f} {pval:>12.4e} {pvals_corrected[i]:>12.4e} {sig_marker:>6}")
+                
+                # Add visual annotation for significant cross-condition comparisons
+                from matplotlib.patches import ConnectionPatch
+
+                # Track vertical offset for stacking annotations per block
+                block_annotation_offset = {}
+                annotation_height_step = 0.04  # Fraction of y-range for stacking
+                
+                for i, (block, cond1, cond2, stat, pval) in enumerate(all_comparisons):
+                    if not reject[i] and Hide_non_significant:
+                        continue
+                    
+                    # Determine significance marker
+                    if pvals_corrected[i] < 0.0001:
+                        sig_text = "****"
+                    elif pvals_corrected[i] < 0.001:
+                        sig_text = "***"
+                    elif pvals_corrected[i] < 0.01:
+                        sig_text = "**"
+                    elif pvals_corrected[i] < 0.05:
+                        sig_text = "*"
+                    else:
+                        sig_text = "ns"
+                    
+                    # Get axis indices for the two conditions
+                    try:
+                        ax_idx1 = cond_types.index(cond1)
+                        ax_idx2 = cond_types.index(cond2)
+                    except ValueError:
+                        continue
+                    
+                    # Get block x-position
+                    block_idx = blocks_chosen.index(block)
+                    
+                    # Calculate vertical position (above the data, stacked if multiple annotations)
+                    y_range = y_lim[1] - y_lim[0]
+                    base_y = y_lim[1] + 0.02 * y_range
+                    
+                    # Track offsets per block to stack annotations
+                    block_key = block_idx
+                    if block_key not in block_annotation_offset:
+                        block_annotation_offset[block_key] = 0
+                    
+                    y_pos = base_y + block_annotation_offset[block_key] * annotation_height_step * y_range
+                    block_annotation_offset[block_key] += 1
+                    
+                    # Draw bracket connecting the two conditions at the same block
+                    # Left side of bracket (on ax_idx1)
+                    ax_b[ax_idx1].plot([block_idx, block_idx], [y_lim[1], y_pos], 
+                                       color='k', lw=0.5, clip_on=False)
+                    
+                    # Right side of bracket (on ax_idx2)
+                    ax_b[ax_idx2].plot([block_idx, block_idx], [y_lim[1], y_pos], 
+                                       color='k', lw=0.5, clip_on=False)
+                    
+                    # Horizontal line connecting the two axes using ConnectionPatch
+                    con = ConnectionPatch(
+                        xyA=(block_idx, y_pos), coordsA=ax_b[ax_idx1].transData,
+                        xyB=(block_idx, y_pos), coordsB=ax_b[ax_idx2].transData,
+                        color='k', lw=0.5, clip_on=False
+                    )
+                    fig_b.add_artist(con)
+                    
+                    # Add significance text at midpoint (on the figure)
+                    # Get positions in figure coordinates
+                    fig_b.canvas.draw()
+                    pos1 = ax_b[ax_idx1].transData.transform((block_idx, y_pos))
+                    pos2 = ax_b[ax_idx2].transData.transform((block_idx, y_pos))
+                    mid_fig_x = (pos1[0] + pos2[0]) / 2
+                    mid_fig_y = pos1[1]
+                    
+                    # Convert back to figure coordinates
+                    inv_transform = fig_b.transFigure.inverted()
+                    mid_x, mid_y = inv_transform.transform((mid_fig_x, mid_fig_y))
+                    
+                    fig_b.text(mid_x, mid_y + 0.005, sig_text, ha='center', va='bottom', fontsize=8, fontweight='normal', transform=fig_b.transFigure)
+                                        
+
+        for e_i, cond in enumerate(cond_types):
+
             ax_b[e_i].set_xticks(list(np.arange(len(blocks_chosen))))
             ax_b[e_i].set_xticklabels(blocks_chosen_labels, rotation=0, ha="center", fontweight="bold", fontsize=10)
             ax_b[e_i].tick_params(axis="x", bottom=False)
@@ -700,14 +834,28 @@ def run_block_summary_lines():
                 ax_b[e_i].set_ylabel(None, fontweight="bold")
                 ax_b[e_i].spines["left"].set_visible(False)
                 ax_b[e_i].set_yticks([])
-            else:
-                ax_b[0].set_ylabel("Normalized vigor (AU)", fontweight="bold")
-                ax_b[0].spines["left"].set_visible(True)
-                ax_b[0].spines["left"].set_position(("outward", 3))
-                apply_y_limits(ax_b[0], y_lim)
+            # else:
+            ax_b[0].set_ylabel("Normalized vigor (AU)", fontweight="bold")
+            ax_b[0].spines["left"].set_visible(True)
+            ax_b[0].spines["left"].set_position(("outward", 3))
+            apply_y_limits(ax_b[0], y_lim)
             if e_i != 0:
                 ax_b[e_i].set_ylim(y_lim)
-            ax_b[e_i].set_title(cond_titles[e_i], loc="left", fontsize=6)
+            analysis_utils.add_component(
+                ax_b[e_i],
+                analysis_utils.AddTextSpec(
+                    component="axis_title",
+                    text=cond_titles[e_i],
+                    anchor_h="right",
+                    anchor_v="top",
+                    pad_pt=(0, 0),
+                    text_kwargs={
+                        "fontsize": plot_cfg.figure_titlesize,
+                        "backgroundcolor": "none",
+                        "color": "k",
+                    },
+                ),
+            )
             ax_b[e_i].set_xlabel("")
         for i in range(len(cond_types), len(ax_b)):
             fig_b.delaxes(ax_b[i])
@@ -742,8 +890,6 @@ def run_block_summary_boxplot():
     number_trials_block = block_cfg["number_trials_block"]
 
     data_box = data_box.copy()
-    if DISCARD_FISH_IDS_BOXPLOT:
-        data_box = data_box[~data_box["Fish"].isin(DISCARD_FISH_IDS_BOXPLOT)]
     data_box = data_box[data_box["Block name"].isin(blocks_chosen)]
     data_box["Block name"] = data_box["Block name"].astype(
         CategoricalDtype(categories=blocks_chosen, ordered=True)
@@ -905,8 +1051,17 @@ def run_block_summary_boxplot():
             print("Wilcoxon test")
             pairs_within_exp = build_within_condition_pairs(blocks_chosen, cond_types_box)
             if pairs_within_exp:
+                # Filter data to only include fish with complete data in all blocks
+                # This is required for paired Wilcoxon test
+                fish_block_counts = data_box.groupby(['Fish', 'Exp.'], observed=True)['Block name'].nunique()
+                complete_fish = fish_block_counts[fish_block_counts == len(blocks_chosen)].reset_index()[['Fish', 'Exp.']]
+                data_box_complete = data_box.merge(complete_fish, on=['Fish', 'Exp.'], how='inner')
+                
+                hue_plot_params_complete = hue_plot_params.copy()
+                hue_plot_params_complete['data'] = data_box_complete
+                
                 ax_a.set_ylim((y_lim[0], y_lim[1] + 0.1))
-                annotator = Annotator(ax_a, pairs_within_exp, **hue_plot_params)
+                annotator = Annotator(ax_a, pairs_within_exp, **hue_plot_params_complete)
                 annotator.configure(
                     test="Wilcoxon",
                     text_format="star",
@@ -1101,7 +1256,22 @@ def run_phase_summary():
                 ax[cond_i].set_ylabel("Normalized vigor (AU)\nrelative to US")
             apply_y_limits(ax[cond_i], y_lim, labels=[f"<={y_lim[0]}", "1", f">={y_lim[1]}"])
 
-            ax[cond_i].set_title(cond_titles[cond_i], loc="left")
+            plot_cfg = plotting_style.get_plot_config()
+            analysis_utils.add_component(
+                ax[cond_i],
+                analysis_utils.AddTextSpec(
+                    component="axis_title",
+                    text=cond_titles[cond_i],
+                    anchor_h="right",
+                    anchor_v="top",
+                    pad_pt=(0, 0),
+                    text_kwargs={
+                        "fontsize": plot_cfg.figure_titlesize,
+                        "backgroundcolor": "none",
+                        "color": "k",
+                    },
+                ),
+            )
         for i in range(len(cond_types), len(ax)):
             fig.delaxes(ax[i])
 

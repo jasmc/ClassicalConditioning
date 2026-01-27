@@ -45,8 +45,8 @@ import file_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 from general_configuration import config as gen_config
-from plotting_style import (configure_axes_for_pipeline,
-                                configure_trace_axes, get_plot_config)
+from plotting_style import (configure_axes_for_pipeline, configure_trace_axes,
+                            get_plot_config)
 
 # Apply shared plotting aesthetics (fonts, sizes, etc.)
 plotting_style.set_plot_style(use_constrained_layout=False)
@@ -58,8 +58,8 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 # ==============================================================================
 # PIPELINE CONTROL FLAGS
 # ==============================================================================
-RUN_TRACES = True             # Generate tail angle + vigor traces
-RUN_INDIVIDUAL_TRIALS = False  # Generate individual-trial plots for selected fish
+RUN_TRACES = False             # Generate tail angle + vigor traces
+RUN_INDIVIDUAL_TRIALS = True  # Generate individual-trial plots for selected fish
 RUN_BOUT_ZOOM = False           # Generate zoomed bout plots
 RUN_TRAJECTORY = False         # Generate tail trajectory heatmaps
 
@@ -81,25 +81,25 @@ FIG_DPI = 600
 # ]
 # '20221123_09'
 TRACES_EXPERIMENT_TYPE = [
-    # ExperimentType.ALL_DELAY.value,
-    # ExperimentType.ALL_3S_TRACE.value,
-    # ExperimentType.ALL_10S_TRACE.value,
+    ExperimentType.ALL_DELAY.value,
+    ExperimentType.ALL_3S_TRACE.value,
+    ExperimentType.ALL_10S_TRACE.value,
     ExperimentType.ALL_DELAY.value,
 ]
 TRACES_FISH_ID = [
     # '20221123_09',
-    # '20221115_07', # delay
-    # '20230307_12', # 3sTrace
-    # '20230307_04', # 10sTrace
+    '20221115_07', # delay
+    '20230307_12', # 3sTrace
+    '20230307_04', # 10sTrace
     '20221115_09', # control
 ]
 TRACES_TRIAL_NUMBER_OFFSET = 4      # Subtract from trial numbers for display
 TRACES_TRIALS = [
-    # [5, 13, 59, 62, 89], # delay
-    # [],
-    # [],
-    # []
-    [5, 21, 59, 62, 89] # control
+    [5, 13, 59, 62, 89], # delay
+    [],
+    [],
+    []
+    # [5, 21, 59, 62, 89] # control
 ]
 TRACES_TRIAL_NAMES = ["Pre-Train trial", "Early Train trial", "Late Train trial", "Early Test trial", "Late Test trial"]
 
@@ -794,7 +794,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                 ha="left",
                 x=0,   
                 y=0.7,           
-                backgroundcolor="none",
                 fontsize=10,
             )
 
@@ -806,7 +805,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             #         transform=ax.transAxes,
             #         va="bottom",
             #         ha="right",
-            #         backgroundcolor="none",
             #         fontsize=11,
             #     )
 
@@ -817,8 +815,8 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
     fig_raw.subplots_adjust(hspace=TRACES_SUBPLOT_HSPACE)
     fig_vigor.subplots_adjust(hspace=TRACES_SUBPLOT_HSPACE)
 
-    # fig_raw.canvas.draw()
-    # fig_vigor.canvas.draw()
+    fig_raw.canvas.draw()
+    fig_vigor.canvas.draw()
 
     # region supylabel
     # Add shared labels and titles
@@ -886,7 +884,7 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             anchor_h="right",
             anchor_v="top",
             pad_pt=plot_config.pad_fig_title,
-            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "backgroundcolor": "none", "va": "bottom"},
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "va": "bottom"},
         ),
     )
     analysis_utils.add_component(
@@ -897,7 +895,7 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             anchor_h="right",
             anchor_v="top",
             pad_pt=plot_config.pad_fig_title,
-            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "backgroundcolor": "none", "va": "bottom"},
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "va": "bottom"},
         ),
     )
 
@@ -914,7 +912,7 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             anchor_h="left",
             anchor_v="top",
             pad_pt=plot_config.pad_panel_label,
-            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold", "backgroundcolor": "none"},
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
         ),
     )
 
@@ -926,21 +924,21 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             anchor_h="left",
             anchor_v="top",
             pad_pt=plot_config.pad_panel_label,
-            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold", "backgroundcolor": "none"},
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
         ),
     )
 
     # Save figures
     fig_raw.savefig(
         str(output_dir / f"raw_{cond}.svg"),
-        # bbox_inches="tight",
+        bbox_inches="tight",
         dpi=FIG_DPI,
         format="svg",
         transparent=False,
     )
     fig_vigor.savefig(
         str(output_dir / f"vigor_{cond}.svg"),
-        # bbox_inches="tight",
+        bbox_inches="tight",
         dpi=FIG_DPI,
         format="svg",
         transparent=False,
@@ -1265,7 +1263,7 @@ def run_individual_trials() -> None:
 
                         # Per-axis styling
                         axs[t_i].spines[:].set_visible(False)
-                        axs[t_i].set_title(t, fontsize="small", loc="left", backgroundcolor="none")
+                        axs[t_i].set_title(t, fontsize="small", loc="left")
                         axs[t_i].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
                         axs[t_i].set_xlim((gen_config.time_bef_s, gen_config.time_aft_s))
                         axs[t_i].set_xticks([])
@@ -1324,7 +1322,7 @@ def run_individual_trials() -> None:
                             anchor_h="right",
                             anchor_v="top",
                             pad_pt=plot_config.pad_fig_title,
-                            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "backgroundcolor": "none"},
+                            text_kwargs={"fontsize": plot_config.fontsize_axis_label},
                         ),
                     )
 
@@ -1337,7 +1335,7 @@ def run_individual_trials() -> None:
                                 anchor_h="left",
                                 anchor_v="top",
                                 pad_pt=plot_config.pad_panel_label,
-                                text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold", "backgroundcolor": "none"},
+                                text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
                             ),
                         )
 
@@ -1347,7 +1345,7 @@ def run_individual_trials() -> None:
                         format=INDIVIDUAL_TRIALS_FIG_FORMAT,
                         dpi=300,
                         transparent=False,
-                        # bbox_inches="tight",
+                        bbox_inches="tight",
                     )
                 
 
@@ -1474,7 +1472,7 @@ def run_individual_trials() -> None:
                             anchor_h="right",
                             anchor_v="top",
                             pad_pt=plot_config.pad_fig_title,
-                            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "backgroundcolor": "none"},
+                            text_kwargs={"fontsize": plot_config.fontsize_axis_label},
                         ),
                     )
                     # No global supylabel stored easily. Skipping dynamic "C" placement to avoid overlap errors if not standard.
@@ -1489,7 +1487,7 @@ def run_individual_trials() -> None:
                         format=INDIVIDUAL_TRIALS_FIG_FORMAT,
                         dpi=300,
                         transparent=False,
-                        # bbox_inches="tight",
+                        bbox_inches="tight",
                     )
                 
 # region Scaled vigor
@@ -1723,6 +1721,16 @@ def run_individual_trials() -> None:
                         )
 
 
+                    # Capture tick labels as strings before clearing (Text objects become stale)
+                    fig.canvas.draw()  # Need to draw first to populate the tick labels
+                    xlabels = [t.get_text() for t in axs[-1][0].get_xticklabels()]
+                    axs[-1][0].xaxis.label.set_visible(False)
+                    axs[-1][0].set_xticklabels([])
+                    axs[-1][0].tick_params(axis="x", which="both", bottom=False, labelbottom=False)
+                    
+                    fig.canvas.draw()
+
+
                     for b_i, b in enumerate(phases_block_names):
                         analysis_utils.add_component(
                             axs[b_i][0],
@@ -1736,6 +1744,10 @@ def run_individual_trials() -> None:
                             ),
                         )
 
+                    # Restore x-axis labels on bottom row
+                    axs[-1][0].set_xticklabels(xlabels)
+                    axs[-1][0].tick_params(axis="x", which="both", bottom=True, labelbottom=True)
+
                     # Add shared title and panel label
                     analysis_utils.add_component(
                         axs[title_ax_idx][0],
@@ -1745,7 +1757,7 @@ def run_individual_trials() -> None:
                             anchor_h="right",
                             anchor_v="top",
                             pad_pt=(0, 0),
-                            text_kwargs={"fontsize": plot_config.figure_titlesize, "backgroundcolor": "none", "color": "k"},
+                            text_kwargs={"fontsize": plot_config.figure_titlesize, "color": "k"},
                         ),
                     )
 
@@ -1757,7 +1769,7 @@ def run_individual_trials() -> None:
                             anchor_h="left",
                             anchor_v="top",
                             pad_pt=plot_config.pad_panel_label,
-                            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold", "backgroundcolor": "none"},
+                            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
                         ),
                     )
 
@@ -1767,7 +1779,7 @@ def run_individual_trials() -> None:
                         format=INDIVIDUAL_TRIALS_FIG_FORMAT,
                         dpi=1000,
                         transparent=False,
-                        # bbox_inches="tight",
+                        bbox_inches="tight",
                     )
     # endregion                
 
@@ -1870,9 +1882,10 @@ def run_individual_trials() -> None:
                             text_kwargs={"fontweight": "bold"},
                         ),
                     )
-                    fig.savefig(str(fig_path_norm), format=INDIVIDUAL_TRIALS_FIG_FORMAT, dpi=300, transparent=False)
+                    return
+                    # fig.savefig(str(fig_path_norm), format=INDIVIDUAL_TRIALS_FIG_FORMAT, dpi=300, transparent=False)
     # Cleanup
-    plt.close("all")
+    # plt.close("all")
     print("INDIVIDUAL TRIALS FINISHED")
 # endregion Heatmaps
 

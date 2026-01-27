@@ -939,13 +939,20 @@ def add_component(
             else:  # center
                 x_px = (spine_bbox.x0 + spine_bbox.x1) / 2.0
             
-            # Anchor vertically to the very edge (ticks)
+            # Anchor vertically to fixed offset from figure edge in points.
+            # We compute the y position directly so that the offset (in points)
+            # is independent of figure height.
+            dpi = fig.dpi
+            pad_y_px = _pt_to_px(spec.pad_pt[1] + spec.xy_pt[1], dpi)
+            
             if spec.anchor_v == "top":
-                y_px = tight_bbox.y1
+                # Position at top: offset downward from top edge
+                y_px = fig.bbox.y1 - pad_y_px
             elif spec.anchor_v == "bottom":
-                y_px = tight_bbox.y0
-            else:
-                y_px = (tight_bbox.y0 + tight_bbox.y1) / 2.0
+                # Position at bottom: offset upward from bottom edge
+                y_px = fig.bbox.y0 + pad_y_px
+            else:  # center
+                y_px = (fig.bbox.y0 + fig.bbox.y1) / 2.0
 
         elif spec.component == "fig_title":
             # Horizontal: relative to plot area (spines) to align with axes
@@ -996,6 +1003,21 @@ def add_component(
     dx_px = _pt_to_px(spec.pad_pt[0] + spec.xy_pt[0], dpi)
     dy_px = _pt_to_px(spec.pad_pt[1] + spec.xy_pt[1], dpi)
 
+    # For sup-labels, invert padding direction so positive values move text AWAY from content:
+    # - supxlabel anchored at "bottom": positive pad_pt[1] should move text DOWN (subtract)
+    # - supxlabel anchored at "top": positive pad_pt[1] should move text UP (add)
+    # - supylabel anchored at "left": positive pad_pt[0] should move text LEFT (subtract)
+    # - supylabel anchored at "right": positive pad_pt[0] should move text RIGHT (add)
+    # NOTE: For supxlabel, y padding is already applied directly in the branch above
+    # to ensure figure-size-independent positioning
+    if spec.component == "supxlabel":
+        # Y padding already applied; only apply x offset
+        dy_px = 0
+    elif spec.component == "supylabel":
+        if spec.anchor_h == "left":
+            dx_px = -dx_px
+        # anchor_h == "right" keeps positive direction (rightward)
+
     x_px += dx_px
     y_px += dy_px
 
@@ -1008,17 +1030,14 @@ def add_component(
 
     # For supylabel/supxlabel, invert alignment so text extends AWAY from the content:
     # - supylabel anchored at "left" should have ha="right" (text goes leftward)
-    # - supxlabel anchored at "bottom" should have va="top" (text goes downward)
+    # - supxlabel is anchored to the *figure edge* (see branch above), so keep
+    #   its vertical alignment matching the anchor so the distance to the figure
+    #   edge is stable and intuitive (e.g. anchor_v="bottom" => va="bottom").
     if spec.component == "supylabel":
         if spec.anchor_h == "left":
             ha = "right"
         elif spec.anchor_h == "right":
             ha = "left"
-    elif spec.component == "supxlabel":
-        if spec.anchor_v == "bottom":
-            va = "top"
-        elif spec.anchor_v == "top":
-            va = "bottom"
     elif spec.component == "axis_title":
         # Axis titles anchored at "top" should sit above (va="bottom")
         # Axis titles anchored at "bottom" should sit below (va="top")

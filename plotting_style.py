@@ -39,8 +39,10 @@ class PlotStyleConfig:
     fontsize_axis_label: int = 11
 
     # Positioning
-    pad_supylabel: Tuple[float, float] = (-5, 0)
-    pad_supxlabel: Tuple[float, float] = (0, -5)
+    # NOTE: Positive values move labels AWAY from content (outward from the figure)
+    # supylabel: positive x moves left; supxlabel: positive y moves down
+    pad_supylabel: Tuple[float, float] = (5, 0)
+    pad_supxlabel: Tuple[float, float] = (0, 5)
     pad_fig_title: Tuple[float, float] = (0, 5)
     pad_panel_label: Tuple[float, float] = (0, 5)
 
