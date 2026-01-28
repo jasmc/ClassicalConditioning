@@ -45,7 +45,7 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
 RUN_BUILD_POOLED_OUTPUTS = False
-RUN_COUNT_HEATMAP = False
+RUN_COUNT_HEATMAP = True
 RUN_SV_HEATMAP_RENDERING = True
 RUN_SV_LINEPLOTS_INDIVIDUAL = False
 RUN_SV_LINEPLOTS_CATCH_TRIALS = True
@@ -55,6 +55,9 @@ RUN_SV_LINEPLOTS_BLOCKS = True
 # Shared Parameters
 # ------------------------------------------------------------------------------
 EXPERIMENT = ExperimentType.ALL_DELAY.value
+
+# Apply per-experiment discarded fish list if present under "Processed data".
+APPLY_FISH_DISCARD = True
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
 x_lim = (-20, 20)
@@ -117,7 +120,7 @@ config = get_experiment_config(EXPERIMENT)
     _,
     _,
     _,
-    _,
+    path_processed_data,
     _,
     _,
     _,
@@ -129,7 +132,7 @@ config = get_experiment_config(EXPERIMENT)
     _,
     path_pooled_vigor_fig,
     _,
-    _,
+    path_orig_pkl,
     path_all_fish,
     path_pooled_data,
 ) = file_utils.create_folders(config.path_save)
@@ -137,6 +140,56 @@ config = get_experiment_config(EXPERIMENT)
 stim_duration = config.cs_duration if csus == "CS" else gen_config.us_duration
 stim_color = gen_config.plotting.cs_color if csus == "CS" else gen_config.plotting.us_color
 time_frame_col = gen_config.time_trial_frame_label
+
+# Load discarded fish IDs (if configured)
+discard_file = path_processed_data / "Discarded_fish_IDs.txt"
+
+fish_ids_to_discard: list[str] = []
+discard_source: Path | None = None
+
+if APPLY_FISH_DISCARD and discard_file.exists():
+    fish_ids_to_discard = file_utils.load_discarded_fish_ids(discard_file)
+    discard_source = discard_file
+
+if discard_source is not None:
+    try:
+        src_str = str(discard_source)
+    except Exception:
+        src_str = "<unknown>"
+    print(f"  Loaded {len(fish_ids_to_discard)} discarded fish IDs from: {src_str}")
+
+
+def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFrame:
+    """Drop rows whose Fish ID is in the discarded list (if present).
+    
+    Prints unique fish count before and after discarding.
+    """
+    if df is None or df.empty:
+        return df
+    
+    print(df.columns)
+    
+    # Find the fish ID column
+    fish_col = None
+    for col in ("Fish", "Fish_ID"):
+        if col in df.columns:
+            fish_col = col
+            break
+    
+    if fish_col is None:
+        return df
+    
+    before = df[fish_col].nunique()
+    prefix = f"  [{source}] " if source else "  "
+    print(f"{prefix}Fish unique before discard: {before}")
+    
+    if not APPLY_FISH_DISCARD or not fish_ids_to_discard:
+        return df
+    
+    df_filtered = df[~df[fish_col].isin(fish_ids_to_discard)].copy()
+    after = df_filtered[fish_col].nunique()
+    print(f"{prefix}Fish unique after discard: {after}")
+    return df_filtered
 # endregion Context Setup
 
 
@@ -472,6 +525,8 @@ def run_build_pooled_outputs():
             print(f"Skipping {path.name}: {exc}")
             continue
 
+        df = filter_discarded_fish_ids(df, source=path.stem)
+
         if "Block name" in df.columns and df["Block name"].isna().all():
             df["Trial type"] = csus
             df = analysis_utils.identify_blocks_trials(df, config.blocks_dict)
@@ -651,9 +706,19 @@ def run_count_heatmap():
     cond_types = data_plot["Exp."].unique()
     cond_titles = [cond_title(e) for e in cond_types]
 
-    # Use LogNorm for logarithmic color scaling. 
-    # vmin is set to a small positive value (e.g., 0.01) to handle zeros/low values gracefully.
-    norm = LogNorm(vmin=0.01, vmax=1)
+    # Compute actual data range for better color scaling
+    numeric_cols = [c for c in data_plot.columns if c != "Exp."]
+    data_values = data_plot[numeric_cols].values.flatten()
+    data_values = data_values[~np.isnan(data_values)]
+    data_min = np.nanmin(data_values) if len(data_values) > 0 else 0
+    data_max = np.nanmax(data_values) if len(data_values) > 0 else 1
+    data_p95 = np.nanpercentile(data_values, 95) if len(data_values) > 0 else 1
+    print(f"  Count heatmap data range: min={data_min:.4f}, max={data_max:.4f}, p95={data_p95:.4f}")
+
+    # Use data-driven scaling: vmax at 95th percentile for better contrast
+    cmap = "hot"
+    vmin_count = 0
+    vmax_count = max(data_p95, 0.01)  # Use 95th percentile, minimum 0.01
 
     fig, axs = make_heatmap_axes(phases_trial_numbers, ncols=len(cond_types), sharey="row", sharex=True)
     xlabels = []
@@ -682,8 +747,9 @@ def run_count_heatmap():
             window_data_plot,
             show_ylabel=(col_i == 0),
             show_yticklabels=(col_i == 0),
-            norm=norm,
-            cmap="magma",
+            vmin=vmin_count,
+            vmax=vmax_count,
+            cmap=cmap,
         )
 
         if col_i > 0:
@@ -814,19 +880,25 @@ def run_sv_heatmap_rendering():
     binning_window = np.diff(data_plot.columns[1:3])[0]
     ticks = int(np.round(interval_between_xticks_heatmap / binning_window))
 
+    phases_trial_numbers = None
+    phases_block_names = None
+
     if csus == "CS":
         phases_trial_numbers = config.trials_cs_blocks_phases
         phases_block_names = config.names_cs_blocks_phases
     else:
+        # US-aligned plots: prefer the configured phase blocks; otherwise fall back to all trials.
         if config.trials_us_blocks_phases:
             phases_trial_numbers = config.trials_us_blocks_phases
             phases_block_names = config.names_us_blocks_phases or ["Train"]
-            phases_block_names = ["Train"]
+        else:
             if not data_plot.empty:
                 phases_trial_numbers = [data_plot.index.unique()]
-            if phases_trial_numbers is None:
-                print("Skipping SV heatmap rendering (no trials found).")
-                return
+                phases_block_names = ["Train"]
+
+        if phases_trial_numbers is None or phases_block_names is None:
+            print("Skipping SV heatmap rendering (no trials found).")
+            return
     cond_types = data_plot["Exp."].unique()
     cond_titles = [cond_title(e) for e in cond_types]
 
@@ -963,6 +1035,7 @@ def run_sv_lineplots_individual_catch_trials():
     data_original = []
     for p in all_data_csus_paths:
         df = pd.read_pickle(str(p), compression="gzip").reset_index()
+        df = filter_discarded_fish_ids(df, source=p.stem)
         df = densify_sparse(df)
         df = ensure_time_seconds(df)
         cond = df["Exp."].unique()[0] if "Exp." in df.columns else p.stem.split("_")[-2]

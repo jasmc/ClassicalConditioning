@@ -448,8 +448,8 @@ def main():
         ]
         condition_paths = filter_paths_by_subset(condition_paths, FISH_SUBSET)
 
-        path_all_fish_condition_cs = path_all_fish / f'{condition}_CS.pkl'
-        path_all_fish_condition_us = path_all_fish / f'{condition}_US.pkl'
+        path_all_fish_condition_cs = path_all_fish / f'{condition}_CS_new.pkl'
+        path_all_fish_condition_us = path_all_fish / f'{condition}_US_new.pkl'
 
         if not condition_paths:
             continue

@@ -1,6 +1,9 @@
 """File and path helpers shared across preprocessing and plotting."""
+
+import re
 from pathlib import Path
-from typing import Any, List, Tuple, Union
+from typing import Any, Iterable, List, Tuple, Union
+
 
 def create_folders(path_home: Path) -> Tuple[Path, ...]:
     """
@@ -113,10 +116,66 @@ def fish_id_from_path(fish_path: Path) -> str:
     return '_'.join(fish_path.stem.split('_')[:2])
 
 
-def load_excluded_fish_ids(excluded_dir: Path, filename: str = "excluded_fish_ids.txt") -> List[str]:
-    """Load excluded fish IDs from the Excluded new folder."""
-    excluded_path = excluded_dir / filename
-    if not excluded_path.exists():
+def _unique_preserve_order(items: Iterable[str]) -> List[str]:
+    seen = set()
+    out: List[str] = []
+    for x in items:
+        if x in seen:
+            continue
+        seen.add(x)
+        out.append(x)
+    return out
+
+
+def load_fish_ids_from_text_file(path: Path) -> List[str]:
+    """Load fish IDs from a plain-text file.
+
+    Supports:
+    - one ID per line
+    - comma/semicolon/tab/space separated IDs
+    - comments starting with '#'
+    - optional quotes around tokens
+
+    Returns IDs in first-seen order with duplicates removed.
+    """
+    if path is None or not Path(path).exists():
         return []
-    lines = excluded_path.read_text(encoding="utf-8").splitlines()
-    return [line.strip() for line in lines if line.strip()]
+
+    text = Path(path).read_text(encoding="utf-8", errors="ignore")
+    tokens: List[str] = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        # Strip inline comments.
+        if "#" in line:
+            line = line.split("#", 1)[0].strip()
+        if not line:
+            continue
+        # Normalize separators to whitespace.
+        line = re.sub(r"[;,\t]", " ", line)
+        for tok in line.split():
+            tok = tok.strip().strip('"').strip("'")
+            if not tok:
+                continue
+            # Skip common header-like tokens.
+            if tok.lower() in {"fish", "fish_id", "fishid", "id", "ids"}:
+                continue
+            tokens.append(tok)
+    return _unique_preserve_order(tokens)
+
+
+def load_discarded_fish_ids(discarded_file: Path) -> List[str]:
+    """Load discarded fish IDs from a dedicated text file.
+
+    The repository historically stored excluded IDs under "Excluded new".
+    Newer pipelines may store discarded IDs in a shared file under
+    "Processed data/Discarded_fish_IDs.txt".
+    """
+    return load_fish_ids_from_text_file(discarded_file)
+
+
+def load_excluded_fish_ids(excluded_dir: Path, filename: str = "excluded_fish_ids.txt") -> List[str]:
+    """Load excluded fish IDs from the legacy "Excluded new" folder."""
+    excluded_path = excluded_dir / filename
+    return load_fish_ids_from_text_file(excluded_path)

@@ -1,10 +1,27 @@
 """
-Multivariate Learner Classification Pipeline
-===========================================
+Multivariate Learner Classification Pipeline (Probabilistic Version)
+======================================================================
 
 PURPOSE:
     Identify individual learners in behavioral experiments by extracting subject-level features
     from trial data using mixed-effects models, and classifying them via robust multivariate statistics.
+
+KEY CHANGE: PROBABILISTIC CLASSIFICATION
+    This version replaces the "Conservative" hard-threshold voting (CI < control mean) with a
+    **Probability of Learning (P_learn)** approach. This avoids "double penalization" since the
+    LME model already shrinks noisy fish towards the control mean.
+
+    For each feature, we calculate:
+        Z = (BLUP - Control_Mean) / SE
+        P_learn = norm.cdf(-Z) for negative direction features (acquisition; learning = BLUP < control)
+        P_learn = norm.cdf(Z)  for positive direction features (extinction; learning = BLUP > control)
+
+    A fish "passes" a feature if P_learn > probability_threshold (default: 0.95).
+
+    Benefits:
+    - No double jeopardy: SE is used exactly once (to calculate certainty)
+    - Continuity: handles effect size vs. noise trade-off smoothly
+    - Interpretability: "classified as learner if >95% probability of exceeding control"
 
 WORKFLOW:
     1. Load and preprocess trial-level behavioral data, including block/trial structure and filtering.
@@ -18,11 +35,12 @@ WORKFLOW:
     5. Determine a classification threshold (percentile of control distances, with bootstrap CI).
     6. Classify subjects as "learners" using two voting systems:
         - Point Estimate: BLUP passes directional test vs. control mean
-        - Conservative: CI passes directional test vs. control mean (stricter)
+        - Probabilistic: P_learn > probability_threshold (replaces old "Conservative")
     7. Visualize results: individual and summary plots, feature space, diagnostics, and export results.
 
 KEY OUTPUTS:
     - Per-subject classification (learner/non-learner, outlier status, votes)
+    - Per-subject P_learn probabilities for each feature
     - Individual and summary behavioral plots with feature pass/fail details
     - Diagnostic plots (normality, correlation, PCA, distance distributions)
     - Exported results and summary tables
@@ -35,7 +53,8 @@ ASSUMPTIONS:
 
 CUSTOMIZATION:
     - Select features: config.features_to_use = ['acquisition'], ['extinction'], or any combination
-    - Adjust voting thresholds: config.voting_threshold_point, config.voting_threshold_conservative
+    - Adjust voting thresholds: config.voting_threshold_point, config.voting_threshold_probabilistic
+    - Set probability threshold: config.probability_threshold (e.g., 0.95 for 95% certainty)
     - Set classification percentile: config.threshold_percentile (e.g., 75 for upper quartile)
     - Modify block definitions and trial requirements in AnalysisConfig
 
@@ -44,6 +63,7 @@ REFERENCES:
     - Robust covariance: sklearn.covariance.LedoitWolf
     - Mahalanobis distance: scipy.spatial.distance
     - Bootstrap CI: numpy.random, np.percentile
+    - Probabilistic classification: scipy.stats.norm
 """
 # %%
 # region Imports & Configuration
@@ -53,7 +73,7 @@ import sys
 import warnings
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -66,6 +86,7 @@ from matplotlib.lines import Line2D
 from pandas.api.types import CategoricalDtype
 from scipy import stats
 from scipy.spatial import distance
+from scipy.stats import norm
 from sklearn.covariance import LedoitWolf
 from sklearn.decomposition import PCA
 
@@ -80,18 +101,73 @@ import file_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 
-# Configuration
-pd.set_option("mode.copy_on_write", True)
-# pd.options.mode.chained_assignment = None
-warnings.filterwarnings("ignore")
-
-# Set plotting style (shared across analysis scripts)
-plotting_style.set_plot_style()
-sns.color_palette("colorblind")
+# NOTE: Runtime configuration (pandas/warnings/plot styling, IO naming, etc.)
+# is defined in the `# region Parameters` section below.
 
 # endregion
 
 # region Parameters
+# ==============================================================================
+# GENERAL RUNTIME SETTINGS
+# ==============================================================================
+
+# Pandas / warnings / plotting defaults
+PANDAS_COPY_ON_WRITE: bool = True
+IGNORE_WARNINGS: bool = True
+SEABORN_PALETTE: str = "colorblind"
+
+# Data-loading column/name conventions
+POOLED_DATA_GLOB: str = "*.pkl"
+POOLED_DATA_REQUIRED_SUBSTRING: str = "NV per trial per fish"
+BASELINE_COLUMN_SUBSTRING: str = "s before"
+RESPONSE_COLUMN_NAME: str = "Mean CR"
+
+# Core numeric constants
+EPOCH_BLOCK_TRIALS: int = 5
+Z_FALLBACK_MAGNITUDE: float = 10.0
+MIN_FISH_WITH_ALL_FEATURES: int = 10
+
+# Figure export defaults
+FIG_DPI_DEFAULT: int = 200
+FIG_DPI_INDIVIDUAL_FISH: int = 150
+FIG_DPI_SUMMARY_GRID: int = 200
+FIG_DPI_BLUP_OVERLAY: int = 200
+
+# Output naming
+FNAME_DIAGNOSTICS: str = "Multivariate_Diagnostics.png"
+FNAME_TRAJECTORIES: str = "Learner_Classification_Trajectories.png"
+FNAME_FEATURE_SPACE: str = "Feature_Space_Scatter.png"
+FNAME_BLUP_OVERLAY: str = "BLUP_Trajectories_Overlay.png"
+FNAME_BLUP_CATERPILLAR_TEMPLATE: str = "BLUP_Caterpillar_{feat}.png"
+DIR_INDIVIDUAL_PLOTS_COMBINED: str = "Individual_Fish_Plots_Combined"
+
+# Export filename templates
+FNAME_DETAILED_SUMMARY_TEMPLATE: str = "Fish_Detailed_Summary_{csus}.csv"
+FNAME_CLASSIFICATION_RESULTS_TEMPLATE: str = "Fish_Learner_Classification_{csus}.csv"
+
+# Plotting options used by the main pipeline
+BLUP_OVERLAY_SPLIT_BY_CONDITION: bool = True
+BLUP_OVERLAY_SHOW_UNCERTAINTY_BANDS: bool = True
+
+# Plot colors (centralized to keep plots consistent)
+COLOR_PROB_LEARNER: str = "red"
+COLOR_POINT_LEARNER: str = "gold"  # requested: point learners should be yellow
+COLOR_OUTLIER_WRONG_DIR: str = "gray"  # requested: wrong-direction outliers should be grey
+COLOR_CTRL_NONLEARNER: str = "blue"  # requested: control non-learner should be blue
+COLOR_EXP_NONLEARNER: str = "blue"
+COLOR_BLUP_TRAJECTORY: str = "purple"
+COLOR_GROUP_MEDIAN: str = "black"
+
+# Apply global runtime configuration
+pd.set_option("mode.copy_on_write", bool(PANDAS_COPY_ON_WRITE))
+# pd.options.mode.chained_assignment = None
+if IGNORE_WARNINGS:
+    warnings.filterwarnings("ignore")
+
+# Set plotting style (shared across analysis scripts)
+plotting_style.set_plot_style()
+sns.color_palette(SEABORN_PALETTE)
+
 # ==============================================================================
 # EXPERIMENT SELECTION
 # ==============================================================================
@@ -104,13 +180,14 @@ exp_config = config
 # ==============================================================================
 # Toggle analysis stages to mirror Pipeline_Analysis.py behavior.
 RUN_PIPELINE = True
-RUN_DIAGNOSTICS = True
+RUN_DIAGNOSTICS = False
 RUN_PLOT_DIAGNOSTICS = False
 RUN_PLOT_TRAJECTORIES = False
 RUN_PLOT_FEATURE_SPACE = False
 RUN_PLOT_BLUP_CATERPILLAR = False
 RUN_PLOT_INDIVIDUALS = True
-RUN_PLOT_BLUP_OVERLAY = True
+RUN_PLOT_BLUP_OVERLAY = False
+RUN_PLOT_HEATMAP_GRID = True  # New: Generate heatmap grid from pre-saved SVG/PNG files
 RUN_EXPORT_DETAILED_SUMMARY = False
 RUN_EXPORT_RESULTS = False
 
@@ -145,14 +222,21 @@ class AnalysisConfig:
     features_to_use: List[str] = field(default_factory=lambda: ['acquisition', 'extinction'])
     
     # Voting thresholds
-    voting_threshold_point: int = 3        # For point estimate method
-    voting_threshold_conservative: int = 3  # For conservative CI method
+    voting_threshold_point: int = 3              # For point estimate method
+    voting_threshold_probabilistic: int = 3      # For probabilistic P_learn method (replaces conservative)
     
-    # IMPORTANT:
-    # - se_multiplier_for_voting controls the conservative voting rule ("k * SE"), and does NOT have to be 1.96.
-    # - ci_multiplier_for_reporting controls what you print/plot as a "CI" (typically 1.96 for ~95%).
-    se_multiplier_for_voting: float = 1.96
+    # Probability threshold for P_learn classification
+    # A fish "passes" a feature if P(learning | BLUP, SE) > probability_threshold
+    # This replaces the old se_multiplier_for_voting approach
+    probability_threshold: float = 0.5  # 95% certainty that fish exceeds control
+    
+    # CI multiplier for reporting only (does NOT affect classification)
     ci_multiplier_for_reporting: float = 1.96
+    
+    # Threshold method for outlier detection
+    # If True, use theoretical chi-square threshold instead of bootstrap percentile
+    use_theoretical_threshold: bool = False
+    theoretical_threshold_alpha: float = 0.5  # e.g., 0.95 for 95th percentile of chi-square
 
     # Feature definitions
     feature_configs: Dict[str, FeatureConfig] = field(default_factory=lambda: {
@@ -177,7 +261,8 @@ class AnalysisConfig:
     )
     
     # Derived from experiment type
-    cr_window: List[int] = field(default_factory=list)
+    # Experiment-specific CR window; can be float depending on experiment configuration.
+    cr_window: List[float] = field(default_factory=list)
     cond_types: List[str] = field(default_factory=list)
     
     def __post_init__(self):
@@ -189,9 +274,9 @@ class AnalysisConfig:
         if self.voting_threshold_point > n_features:
             print(f"  [WARN] Adjusting voting_threshold_point: {self.voting_threshold_point} -> {n_features}")
             self.voting_threshold_point = n_features
-        if self.voting_threshold_conservative > n_features:
-            print(f"  [WARN] Adjusting voting_threshold_conservative: {self.voting_threshold_conservative} -> {n_features}")
-            self.voting_threshold_conservative = n_features
+        if self.voting_threshold_probabilistic > n_features:
+            print(f"  [WARN] Adjusting voting_threshold_probabilistic: {self.voting_threshold_probabilistic} -> {n_features}")
+            self.voting_threshold_probabilistic = n_features
     
     def print_summary(self):
         """Print configuration summary."""
@@ -203,9 +288,9 @@ class AnalysisConfig:
             cfg = self.feature_configs[feat]
             print(f"    {feat}: {cfg.name} (expect {cfg.direction})")
         print(f"  Voting threshold (Point):        {self.voting_threshold_point}/{len(self.features_to_use)}")
-        print(f"  Voting threshold (Conservative): {self.voting_threshold_conservative}/{len(self.features_to_use)}")
+        print(f"  Voting threshold (Probabilistic): {self.voting_threshold_probabilistic}/{len(self.features_to_use)}")
+        print(f"  Probability threshold (P_learn): {self.probability_threshold:.0%}")
         print(f"  Distance percentile:             {self.threshold_percentile}th")
-        print(f"  Voting rule (k*SE):              k={self.se_multiplier_for_voting}")
         print(f"  Reporting CI multiplier:         z={self.ci_multiplier_for_reporting}")
         print(f"  Bootstrap seed:                  {self.random_seed}")
         print(f"  Min trials per 5-trial block:    {self.min_trials_per_5trial_block_in_epoch}")
@@ -233,10 +318,11 @@ class ClassificationResult:
     feature_names: List[str]
     distances: np.ndarray
     votes_point: np.ndarray
-    votes_conservative: np.ndarray
+    votes_probabilistic: np.ndarray  # Renamed from votes_conservative
+    p_learning: np.ndarray           # NEW: P_learn for each fish x feature (shape: n_fish, n_features)
     is_outlier: np.ndarray
     is_learner_point: np.ndarray
-    is_learner_conservative: np.ndarray
+    is_learner_probabilistic: np.ndarray  # Renamed from is_learner_conservative
     threshold: float
     threshold_ci: Tuple[float, float]
     mu_ctrl: np.ndarray           # Control group means
@@ -254,14 +340,19 @@ analysis_cfg = AnalysisConfig(
     min_latetraindearlytest_trials=6,
     min_late_test_trials=6,
     voting_threshold_point=2,
-    voting_threshold_conservative=2,
+    # Relax probabilistic vote requirement: 1 of 2 features is enough.
+    voting_threshold_probabilistic=1,
     threshold_percentile=75,
-    se_multiplier_for_voting=0.5,
+    # Relaxed further to recover sensitivity.
+    probability_threshold=0.60,
     ci_multiplier_for_reporting=1.96,
     random_seed=0,
     min_trials_per_5trial_block_in_epoch=3,
     n_bootstrap=1000,
     y_lim_plot=(0.8, 1.2),
+    # Threshold method: set to True to use theoretical chi-square instead of bootstrap
+    use_theoretical_threshold=False,
+    theoretical_threshold_alpha=0.95,
 )
 
 # endregion
@@ -311,6 +402,16 @@ def get_blups_with_uncertainty(
         # from per-fish deviations (random effects) on the epoch term.
         model = smf.mixedlm(formula, df, groups=df[groups_col], re_formula=f"~{re_var}")
         result = model.fit(reml=True, method=method)
+        
+        # Convergence diagnostics
+        if hasattr(result, 'converged') and not result.converged:
+            warnings.warn(f"[DIAG] Model convergence failed for {groups_col}")
+        
+        # Check condition number of random effects covariance
+        if hasattr(result, 'cov_re') and result.cov_re is not None:
+            cond_num = np.linalg.cond(result.cov_re.values)
+            if cond_num > 1e10:
+                warnings.warn(f"[DIAG] Ill-conditioned covariance (κ={cond_num:.2e})")
         
         # Fixed effect represents the average epoch change across all fish.
         fixed_val = result.params[re_var]
@@ -413,17 +514,17 @@ def _get_fish_style(
     try:
         idx = list(result.fish_ids).index(fish)
     except ValueError:
-        return 'gray', {'alpha': 0.3, 'linewidth': 1}
+        return COLOR_OUTLIER_WRONG_DIR, {'alpha': 0.3, 'linewidth': 1}
 
     # Encode learner/outlier status into color and emphasis for plotting.
-    if result.is_learner_conservative[idx]:
-        return 'red', {'alpha': 0.8, 'linewidth': 2, 'zorder': 4}
+    if result.is_learner_probabilistic[idx]:
+        return COLOR_PROB_LEARNER, {'alpha': 0.8, 'linewidth': 2, 'zorder': 4}
     elif result.is_learner_point[idx]:
-        return 'orange', {'alpha': 0.6, 'linewidth': 1.5, 'zorder': 3}
+        return COLOR_POINT_LEARNER, {'alpha': 0.6, 'linewidth': 1.5, 'zorder': 3}
     elif result.is_outlier[idx]:
-        return 'goldenrod', {'alpha': 0.4, 'linewidth': 1, 'zorder': 2}
+        return COLOR_OUTLIER_WRONG_DIR, {'alpha': 0.4, 'linewidth': 1, 'zorder': 2}
     else:
-        color = 'lightgray' if is_ref else 'lightblue'
+        color = COLOR_CTRL_NONLEARNER if is_ref else COLOR_EXP_NONLEARNER
         return color, {'alpha': 0.3, 'linewidth': 1, 'zorder': 1}
 
 def check_multivariate_normality(
@@ -678,6 +779,52 @@ def bootstrap_threshold(
     return thresh_median, thresh_ci
 
 
+def get_theoretical_chi2_threshold(
+    n_features: int,
+    alpha: float = 0.95,
+    verbose: bool = True
+) -> Tuple[float, Tuple[float, float]]:
+    """
+    Calculate theoretical Mahalanobis distance threshold based on chi-square distribution.
+    
+    For Mahalanobis distances, D^2 follows a chi-square distribution with df = n_features
+    under the null hypothesis (i.e., the fish comes from the same distribution as the reference).
+    
+    The threshold is: sqrt(chi2.ppf(alpha, df))
+    
+    Parameters
+    ----------
+    n_features : int
+        Number of features (degrees of freedom for chi-square)
+    alpha : float
+        Percentile for threshold (e.g., 0.95 for 95th percentile)
+    verbose : bool
+        Whether to print diagnostic information
+        
+    Returns
+    -------
+    Tuple[float, Tuple[float, float]]
+        Threshold and CI (CI is just the point estimate repeated since theoretical)
+    """
+    # Chi-square quantile for squared Mahalanobis distance
+    chi2_threshold_sq = stats.chi2.ppf(alpha, n_features)
+    threshold = float(np.sqrt(chi2_threshold_sq))
+    
+    # For theoretical threshold, CI is just the point estimate (no uncertainty)
+    threshold_ci = (threshold, threshold)
+    
+    if verbose:
+        print(f"\n{'='*60}")
+        print(f"--- Theoretical χ² Threshold ({alpha:.0%} percentile) ---")
+        print(f"{'='*60}")
+        print(f"  Degrees of freedom:  {n_features}")
+        print(f"  χ²({alpha:.0%}, df={n_features}):   {chi2_threshold_sq:.4f}")
+        print(f"  Mahalanobis threshold: {threshold:.4f}")
+        print(f"{'='*60}\n")
+    
+    return threshold, threshold_ci
+
+
 def classify_learners(
     X: np.ndarray,
     X_se: np.ndarray,
@@ -685,49 +832,76 @@ def classify_learners(
     threshold: float,
     mu_ctrl: np.ndarray,
     config: 'AnalysisConfig'
-) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """
-    Classify subjects using point estimate and conservative voting.
+    Classify subjects using point estimate and probabilistic voting (VECTORIZED).
+    
+    The probabilistic approach calculates P_learn for each feature:
+        Z = (BLUP - Control_Mean) / SE
+        If learning is below control (negative direction):  P_learn = P(true < Control_Mean) = norm.cdf(-Z)
+        If learning is above control (positive direction):  P_learn = P(true > Control_Mean) = norm.cdf(Z)
+    
+    A fish "passes" a feature if P_learn > config.probability_threshold.
     
     Returns
     -------
-    Tuple: (is_outlier, votes_point, votes_conservative, is_learner_point, is_learner_conservative)
+    Tuple: (is_outlier, votes_point, votes_probabilistic, is_learner_point, is_learner_probabilistic, p_learning)
+        p_learning has shape (n_samples, n_features)
     """
     n_samples = len(X)
     n_features = len(config.features_to_use)
     
+    # Initialize arrays
     votes_point = np.zeros(n_samples, dtype=int)
-    votes_conservative = np.zeros(n_samples, dtype=int)
+    votes_probabilistic = np.zeros(n_samples, dtype=int)
+    p_learning = np.zeros((n_samples, n_features), dtype=float)
     
-    for i in range(n_samples):
-        for feat_idx, feat in enumerate(config.features_to_use):
-            # Compare each fish's BLUP to the control mean in the expected direction.
-            feat_cfg = config.feature_configs[feat]
-            blup = X[i, feat_idx]
-            se = X_se[i, feat_idx]
-            ctrl_mean = mu_ctrl[feat_idx]
-            
-            if feat_cfg.direction == 'negative':
-                # Point: BLUP < control mean
-                if blup < ctrl_mean:
-                    votes_point[i] += 1
-                # Conservative: upper CI < control mean
-                if (blup + config.se_multiplier_for_voting * se) < ctrl_mean:
-                    votes_conservative[i] += 1
-            else:  # positive direction
-                # Point: BLUP > control mean
-                if blup > ctrl_mean:
-                    votes_point[i] += 1
-                # Conservative: lower CI > control mean
-                if (blup - config.se_multiplier_for_voting * se) > ctrl_mean:
-                    votes_conservative[i] += 1
+    # VECTORIZED classification loop (operates on all fish at once per feature)
+    for feat_idx, feat in enumerate(config.features_to_use):
+        feat_cfg = config.feature_configs[feat]
+        
+        # Extract feature column for all fish
+        blup = X[:, feat_idx]
+        se = X_se[:, feat_idx]
+        ctrl_mean = mu_ctrl[feat_idx]
+        
+        # Calculate Z-scores (vectorized)
+        # Handle zero/invalid SE by using a large-magnitude z-score based on sign.
+        # z = (BLUP - ctrl_mean) / SE
+        z_score = np.where(
+            se > 0,
+            (blup - ctrl_mean) / se,
+            np.sign(blup - ctrl_mean) * float(Z_FALLBACK_MAGNITUDE)
+        )
+
+        if feat_cfg.direction == 'negative':
+            # Learning means true effect is below control mean.
+            # P_learn = P(true < ctrl_mean) = norm.cdf((ctrl_mean - blup)/se) = norm.cdf(-z)
+            p_learn = norm.cdf(-z_score)
+
+            # Point vote: BLUP < control mean (vectorized)
+            votes_point += (blup < ctrl_mean).astype(int)
+
+        else:  # positive direction
+            # Learning means true effect is above control mean.
+            # P_learn = P(true > ctrl_mean) = 1 - norm.cdf((ctrl_mean - blup)/se) = norm.cdf(z)
+            p_learn = norm.cdf(z_score)
+
+            # Point vote: BLUP > control mean (vectorized)
+            votes_point += (blup > ctrl_mean).astype(int)
+        
+        # Store P_learn for this feature (all fish)
+        p_learning[:, feat_idx] = p_learn
+        
+        # Probabilistic vote: P_learn > threshold (vectorized)
+        votes_probabilistic += (p_learn > config.probability_threshold).astype(int)
     
     # Outliers must exceed the Mahalanobis threshold and pass voting criteria.
     is_outlier = distances > threshold
     is_learner_point = is_outlier & (votes_point >= config.voting_threshold_point)
-    is_learner_conservative = is_outlier & (votes_conservative >= config.voting_threshold_conservative)
+    is_learner_probabilistic = is_outlier & (votes_probabilistic >= config.voting_threshold_probabilistic)
     
-    return is_outlier, votes_point, votes_conservative, is_learner_point, is_learner_conservative
+    return is_outlier, votes_point, votes_probabilistic, is_learner_point, is_learner_probabilistic, p_learning
 
 
 # ============================================================================
@@ -738,12 +912,12 @@ def load_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataFrame:
     """Load and validate the most recent pooled dataset for the selected CS/US."""
     # Use the newest pooled file matching the requested CS/US label.
     paths = sorted(
-        [*Path(path_pooled_data).glob("*.pkl")],
+        [*Path(path_pooled_data).glob(POOLED_DATA_GLOB)],
         key=lambda x: x.stat().st_mtime,
         reverse=True
     )
     paths = [p for p in paths
-             if "NV per trial per fish" in p.stem
+             if POOLED_DATA_REQUIRED_SUBSTRING in p.stem
              and p.stem.split("_")[-1] == config.csus]
     
     if not paths:
@@ -771,8 +945,8 @@ def prepare_data(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:
     df = _create_5_trial_blocks(df)
     
     # Rename columns into consistent analysis labels.
-    baseline_col = [c for c in df.columns if 's before' in c][0]
-    response_col = 'Mean CR'
+    baseline_col = [c for c in df.columns if BASELINE_COLUMN_SUBSTRING in c][0]
+    response_col = RESPONSE_COLUMN_NAME
     
     df = df.rename(columns={'Exp.': 'Condition', 'Fish': 'Fish_ID'})
     df = df[df['Condition'].isin(config.cond_types)]
@@ -795,7 +969,7 @@ def prepare_data(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:
 def _create_5_trial_blocks(df: pd.DataFrame) -> pd.DataFrame:
     """Create 5-trial block structure."""
     number_blocks_original = df['Block name'].nunique()
-    number_trials_block = 5
+    number_trials_block = int(EPOCH_BLOCK_TRIALS)
     
     # Map experiment-specific block counts into standardized 5-trial block names.
     if number_blocks_original == 9:
@@ -991,6 +1165,17 @@ def extract_change_feature(
             re_formula="~Epoch"
         )
         res_ctrl = model_ctrl.fit(reml=True, method='powell')
+        
+        # Convergence diagnostics
+        if hasattr(res_ctrl, 'converged') and not res_ctrl.converged:
+            warnings.warn(f"[DIAG] Control model convergence failed for anchor estimation")
+        
+        # Check condition number of random effects covariance
+        if hasattr(res_ctrl, 'cov_re') and res_ctrl.cov_re is not None:
+            cond_num = np.linalg.cond(res_ctrl.cov_re.values)
+            if cond_num > 1e10:
+                warnings.warn(f"[DIAG] Ill-conditioned covariance in control model (κ={cond_num:.2e})")
+        
         ctrl_epoch_effect = res_ctrl.params['Epoch']
         ctrl_epoch_se = res_ctrl.bse.get('Epoch', np.nan)
         print(f"    Control Epoch Anchor: {ctrl_epoch_effect:.6f}")
@@ -1014,7 +1199,17 @@ def extract_change_feature(
         )
         result = model.fit(reml=True, method='powell')
         
+        # Convergence diagnostics for main model
+        if hasattr(result, 'converged') and not result.converged:
+            warnings.warn(f"[DIAG] Main model convergence failed")
+        
         random_effects_cov = result.cov_re
+        
+        # Check condition number of random effects covariance
+        if random_effects_cov is not None:
+            cond_num = np.linalg.cond(random_effects_cov.values)
+            if cond_num > 1e10:
+                warnings.warn(f"[DIAG] Ill-conditioned covariance in main model (κ={cond_num:.2e})")
 
         # Conditional variance for the random Epoch effect (prediction error variance)
         # Var(u|y) = (G^-1 + (1/sigma^2) Z'Z)^-1
@@ -1090,7 +1285,8 @@ def plot_behavioral_trajectories(
     data: pd.DataFrame,
     result: ClassificationResult,
     config: AnalysisConfig,
-    save_path: Optional[Path] = None
+    save_path: Optional[Path] = None,
+    include_axis_key_panel: bool = True,
 ) -> Figure:
     """Create behavioral trajectory visualization."""
     # Order blocks by mean trial number so plots follow the experimental timeline.
@@ -1100,6 +1296,18 @@ def plot_behavioral_trajectories(
     # Collapse to per-fish median vigor per block for a clean trajectory plot.
     df_viz = (data.groupby(['Fish_ID', 'Block name 10 trials', 'Condition'], observed=True)
               ['Normalized vigor'].median().reset_index())
+
+    # Prevent clipping: if any traces exceed the configured y-limits, expand them.
+    y_lo, y_hi = float(config.y_lim_plot[0]), float(config.y_lim_plot[1])
+    try:
+        y_min = float(np.nanmin(df_viz['Normalized vigor'].to_numpy(dtype=float)))
+        y_max = float(np.nanmax(df_viz['Normalized vigor'].to_numpy(dtype=float)))
+        y_lo2 = min(y_lo, y_min)
+        y_hi2 = max(y_hi, y_max)
+        pad = max(0.01, 0.02 * (y_hi2 - y_lo2))
+        y_lim_used = (y_lo2 - pad, y_hi2 + pad)
+    except Exception:
+        y_lim_used = (y_lo, y_hi)
     
     # Filter result conditions to only those present in the data passed
     present_conditions = df_viz['Condition'].unique()
@@ -1107,11 +1315,31 @@ def plot_behavioral_trajectories(
     
     n_conds = len(unique_conds)
     ref_cond = config.cond_types[0]
-    
-    fig, axes = plt.subplots(1, n_conds, figsize=(6*n_conds, 6), 
-                             sharex=True, sharey=True, facecolor='white')
-    if n_conds == 1:
+
+    # Add an extra panel on the right as an "axis key" so figures are self-contained
+    # (explicitly shows primary vs. secondary y-axis intent even if secondary axis
+    # data are not drawn in this plot).
+    n_panels = n_conds + (1 if include_axis_key_panel else 0)
+    fig_w = (6 * n_conds) + (4.2 if include_axis_key_panel else 0)
+    fig, axes = plt.subplots(
+        1,
+        n_panels,
+        figsize=(fig_w, 6),
+        sharex=True,
+        sharey=True,
+        facecolor='white',
+    )
+    if n_panels == 1:
         axes = [axes]
+    else:
+        axes = list(axes)
+
+    if include_axis_key_panel:
+        cond_axes = axes[:-1]
+        key_ax = axes[-1]
+    else:
+        cond_axes = axes
+        key_ax = None
     
     fig.suptitle('Learner Classification: Behavioral Trajectories', 
                  fontsize=5+14, fontweight='bold', y=0.98)
@@ -1119,9 +1347,9 @@ def plot_behavioral_trajectories(
     fish_list = list(result.fish_ids)
     
     # Prepare detailed vote info for text box
-    vote_details = ["Vote Details (Point/Cons):"]
+    vote_details = ["Vote Details (Point/Prob):"]
     
-    for i, (ax, cond) in enumerate(zip(axes, unique_conds)):
+    for i, (ax, cond) in enumerate(zip(cond_axes, unique_conds)):
         ax.set_facecolor('white')
         df_cond = df_viz[df_viz['Condition'] == cond]
         is_ref = (cond == ref_cond)
@@ -1133,13 +1361,13 @@ def plot_behavioral_trajectories(
         
         fish_indices = [fish_list.index(f) for f in fish_in_result]
         
-        # Sort by status: Non-learner < Outlier < Point < Conservative
+        # Sort by status: Non-learner < Outlier < Point < Probabilistic
         status_score = []
         for idx in fish_indices:
             score = 0
             if result.is_outlier[idx]: score = 1
             if result.is_learner_point[idx]: score = 2
-            if result.is_learner_conservative[idx]: score = 3
+            if result.is_learner_probabilistic[idx]: score = 3
             status_score.append(score)
             
         sorted_fish = [x for _, x in sorted(zip(status_score, fish_in_result))]
@@ -1147,7 +1375,7 @@ def plot_behavioral_trajectories(
         # Plot fish not in result first (background, faded)
         for fish in fish_not_in_result:
             fish_data = df_cond[df_cond['Fish_ID'] == fish]
-            color = 'lightgray' if is_ref else 'lightblue'
+            color = COLOR_CTRL_NONLEARNER if is_ref else COLOR_EXP_NONLEARNER
             sns.lineplot(data=fish_data, x='Block name 10 trials', y='Normalized vigor',
                         color=color, ax=ax, legend=False, alpha=0.2, linewidth=0.5, zorder=0)
         
@@ -1165,28 +1393,27 @@ def plot_behavioral_trajectories(
                 for f_idx, feat in enumerate(config.features_to_use):
                     cfg = config.feature_configs[feat]
                     val = result.features[idx, f_idx]
-                    se = result.features_se[idx, f_idx]
+                    p_learn = result.p_learning[idx, f_idx]
                     mu = result.mu_ctrl[f_idx]
                     
                     # Check pass/fail
                     if cfg.direction == 'negative':
                         p_pass = val < mu
-                        c_pass = (val + config.se_multiplier_for_voting * se) < mu
                     else:
                         p_pass = val > mu
-                        c_pass = (val - config.se_multiplier_for_voting * se) > mu
+                    prob_pass = p_learn > config.probability_threshold
                     
                     p_mark = "Y" if p_pass else "N"
-                    c_mark = "Y" if c_pass else "N"
-                    feat_str.append(f"{feat}:{p_mark}{c_mark}")
+                    prob_mark = "Y" if prob_pass else "N"
+                    feat_str.append(f"{feat}:{p_mark}{prob_mark}")
                 
-                symbol = "*" if result.is_learner_conservative[idx] else ("o" if result.is_learner_point[idx] else "-")
+                symbol = "*" if result.is_learner_probabilistic[idx] else ("o" if result.is_learner_point[idx] else "-")
                 vote_details.append(f"{symbol} {fish}: {' '.join(feat_str)}")
 
         # Group median
         grp = df_cond.groupby('Block name 10 trials', observed=True)['Normalized vigor'].median().reset_index()
         sns.lineplot(data=grp, x='Block name 10 trials', y='Normalized vigor',
-                    color='black', marker='o', markersize=6, ax=ax,
+                    color=COLOR_GROUP_MEDIAN, marker='o', markersize=6, ax=ax,
                     linewidth=2.5, zorder=10, label='Group Median')
         
         # Labels
@@ -1194,34 +1421,84 @@ def plot_behavioral_trajectories(
         n_fish_in_result = len(fish_in_result)
         n_fish_total = len(fish_in_cond)
         n_learn_p = (cond_mask & result.is_learner_point).sum()
-        n_learn_c = (cond_mask & result.is_learner_conservative).sum()
+        n_learn_prob = (cond_mask & result.is_learner_probabilistic).sum()
         
-        ax.set_title(f"{cond.capitalize()} (n={n_fish_in_result}/{n_fish_total})\nLearners: {n_learn_p} point, {n_learn_c} conservative",
+        ax.set_title(f"{cond.capitalize()} (n={n_fish_in_result}/{n_fish_total})\nLearners: {n_learn_p} point, {n_learn_prob} probabilistic",
                     fontsize=5+11, fontweight='bold')
         ax.set_xlabel('Block', fontsize=5+10)
         ax.set_ylabel('Normalized Vigor' if i == 0 else '', fontsize=5+10)
         ax.axhline(1.0, linestyle=':', color='black', alpha=0.5)
         ax.set_xticklabels(block_order, rotation=45, ha='right', fontsize=5+9)
         ax.grid(alpha=0.3)
-        ax.set_ylim(config.y_lim_plot)
+        ax.set_ylim(y_lim_used)
     
     # Legend
     legend_elements = [
-        Line2D([0], [0], color='lightgray', lw=1, label='Non-Learner'),
-        Line2D([0], [0], color='black', lw=2.5, marker='o', label='Group Median')
+        Line2D([0], [0], color=COLOR_PROB_LEARNER, lw=2, label='* Probabilistic Learner'),
+        Line2D([0], [0], color=COLOR_POINT_LEARNER, lw=2, label='o Point Learner'),
+        Line2D([0], [0], color=COLOR_OUTLIER_WRONG_DIR, lw=1, label='- Outlier (Wrong Direction)'),
+        Line2D([0], [0], color=COLOR_CTRL_NONLEARNER, lw=1, label='Ctrl. (Non-learner)'),
+        Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1, label='Exp. (Non-learner)'),
+        Line2D([0], [0], color=COLOR_GROUP_MEDIAN, lw=2.5, marker='o', label='Group Median'),
+        Line2D([0], [0], color=COLOR_BLUP_TRAJECTORY, lw=1.8, linestyle='--', label='BLUP (secondary y-axis)')
     ]
-    axes[-1].legend(handles=legend_elements, loc='upper right', fontsize=5+9, framealpha=0.9)
+
+    # Axis key panel (optional): shows what x/y/secondary-y represent.
+    if include_axis_key_panel and key_ax is not None:
+        key_ax.set_facecolor('white')
+        key_ax.set_title('Axis / Legend Key', fontsize=5+11, fontweight='bold')
+        key_ax.set_xlabel('Block (10-trial blocks)', fontsize=5+10)
+        key_ax.set_ylabel('Normalized vigor (median per block)', fontsize=5+10)
+        key_ax.set_xticks([])
+        key_ax.grid(alpha=0.15)
+        key_ax.set_ylim(y_lim_used)
+
+        # Secondary y-axis label (representation only for clarity).
+        key_ax2 = key_ax.twinx()
+        key_ax2.set_ylabel('BLUP (Δ log response; secondary y-axis)', fontsize=5+10)
+        key_ax2.set_yticks([])
+        for spine in ['top', 'bottom']:
+            key_ax2.spines[spine].set_visible(False)
+
+        # Small visual cue lines (no data meaning, just an example mapping).
+        key_ax.plot([0.15, 0.85], [float(np.mean(y_lim_used))] * 2,
+                    color=COLOR_GROUP_MEDIAN, lw=2.0, marker='o', markersize=4, alpha=0.8)
+        key_ax2.plot([0.15, 0.85], [0.0, 0.0],
+                     color=COLOR_BLUP_TRAJECTORY, lw=1.8, linestyle='--', alpha=0.9)
+
+        key_ax.legend(handles=legend_elements, loc='upper left', fontsize=5+9, framealpha=0.95)
+
+        # Add vote details text inside the key panel (keeps figure self-contained without
+        # squeezing panels via subplots_adjust).
+        if len(vote_details) > 1:
+            text_str = "\n".join(vote_details)
+            key_ax.text(
+                0.02,
+                0.02,
+                text_str,
+                transform=key_ax.transAxes,
+                fontsize=5 + 7,
+                va='bottom',
+                ha='left',
+                fontfamily='monospace',
+                bbox=dict(boxstyle='round', facecolor='white', alpha=0.9, edgecolor='lightgray'),
+            )
+    else:
+        # No key panel: attach legend to last condition axis.
+        cond_axes[-1].legend(handles=legend_elements, loc='upper right', fontsize=5+9, framealpha=0.9)
     
-    # Add text box with vote details
-    if len(vote_details) > 1:
-        # Split into columns if too long
+    # Add text box with vote details (legacy placement if key panel is disabled)
+    if (not include_axis_key_panel) and len(vote_details) > 1:
         text_str = "\n".join(vote_details)
         props = dict(boxstyle='round', facecolor='white', alpha=0.9, edgecolor='lightgray')
-        fig.text(0.99, 0.5, text_str, fontsize=5+8, va='center', ha='right', 
+        fig.text(0.99, 0.5, text_str, fontsize=5+8, va='center', ha='right',
                  bbox=props, fontfamily='monospace')
         plt.subplots_adjust(right=0.8)
     # else:
         # plt.tight_layout()
+
+    # Tighten panel spacing to reduce whitespace.
+    plt.subplots_adjust(wspace=0.1, hspace=0.2)
     
     # if save_path:
     #     # fig.savefig(str(save_path), dpi=300, facecolor='white', bbox_inches='tight')
@@ -1277,8 +1554,8 @@ def plot_diagnostics(
     is_ref = (conds == ref_cond)
     
     # Plot points
-    ax3.scatter(X_pca[is_ref, 0], X_pca[is_ref, 1], c='gray', alpha=0.6, label=ref_cond)
-    ax3.scatter(X_pca[~is_ref, 0], X_pca[~is_ref, 1], c='steelblue', alpha=0.6, label='Experimental')
+    ax3.scatter(X_pca[is_ref, 0], X_pca[is_ref, 1], c=COLOR_CTRL_NONLEARNER, alpha=0.6, label=ref_cond)
+    ax3.scatter(X_pca[~is_ref, 0], X_pca[~is_ref, 1], c=COLOR_EXP_NONLEARNER, alpha=0.6, label='Experimental')
     
     # Plot loading vectors
     loadings = pca.components_.T
@@ -1300,9 +1577,9 @@ def plot_diagnostics(
     ax4 = fig.add_subplot(gs[1, :])
     
     # Plot distributions
-    sns.histplot(distances[is_ref], color='gray', label=f'{ref_cond} (Reference)', 
+    sns.histplot(distances[is_ref], color=COLOR_CTRL_NONLEARNER, label=f'{ref_cond} (Reference)', 
                 kde=True, stat='density', alpha=0.4, ax=ax4, bins=15)
-    sns.histplot(distances[~is_ref], color='steelblue', label='Experimental', 
+    sns.histplot(distances[~is_ref], color=COLOR_EXP_NONLEARNER, label='Experimental', 
                 kde=True, stat='density', alpha=0.4, ax=ax4, bins=15)
     
     # Add theoretical Chi-square distribution
@@ -1350,30 +1627,29 @@ def _get_grid_info_text(
     for feat_idx, feat in enumerate(config.features_to_use):
         cfg = config.feature_configs[feat]
         blup = result.features[fish_idx, feat_idx]
-        se = result.features_se[fish_idx, feat_idx]
+        p_learn = result.p_learning[fish_idx, feat_idx]
         mu = result.mu_ctrl[feat_idx]
         
         if cfg.direction == 'negative':
             passed_pt = blup < mu
-            passed_cons = (blup + config.se_multiplier_for_voting * se) < mu
         else:
             passed_pt = blup > mu
-            passed_cons = (blup - config.se_multiplier_for_voting * se) > mu
+        passed_prob = p_learn > config.probability_threshold
         
-        # Compact status: P=Point, C=Conservative
+        # Compact status: P=Point, Pr=Probabilistic
         # e.g. "YY" (both), "YN" (point only), "NN" (neither)
         pt_mark = "Y" if passed_pt else "N"
-        cons_mark = "Y" if passed_cons else "N"
-        feat_status.append(f"{feat}:{pt_mark}{cons_mark}")
+        prob_mark = "Y" if passed_prob else "N"
+        feat_status.append(f"{feat}:{pt_mark}{prob_mark}")
     
     # Votes
     vp = result.votes_point[fish_idx]
-    vc = result.votes_conservative[fish_idx]
+    vprob = result.votes_probabilistic[fish_idx]
     n_feat = len(config.features_to_use)
     
     lines.append(f"{cond_abbr} D:{dist:.1f}{outlier_mark}")
     lines.append(" ".join(feat_status))
-    lines.append(f"V:{vp}/{n_feat}P {vc}/{n_feat}C")
+    lines.append(f"V:{vp}/{n_feat}P {vprob}/{n_feat}Pr")
     
     return "\n".join(lines)
 
@@ -1407,15 +1683,15 @@ def plot_feature_space(
         # Plot points
         for i in range(len(result.fish_ids)):
             # Determine style
-            if result.is_learner_conservative[i]:
-                color, marker, size, zorder = 'red', '*', 200, 5
+            if result.is_learner_probabilistic[i]:
+                color, marker, size, zorder = COLOR_PROB_LEARNER, '*', 200, 5
             elif result.is_learner_point[i]:
-                color, marker, size, zorder = 'orange', 'o', 100, 4
+                color, marker, size, zorder = COLOR_POINT_LEARNER, 'o', 100, 4
             elif result.is_outlier[i]:
-                color, marker, size, zorder = 'goldenrod', 's', 80, 3
+                color, marker, size, zorder = COLOR_OUTLIER_WRONG_DIR, 's', 80, 3
             else:
                 is_ref = result.conditions[i] == config.cond_types[0]
-                color = 'gray' if is_ref else 'lightblue'
+                color = COLOR_CTRL_NONLEARNER if is_ref else COLOR_EXP_NONLEARNER
                 marker, size, zorder = 'o', 40, 2
                 
             ax.scatter(result.features[i, idx_x], result.features[i, idx_y],
@@ -1460,11 +1736,11 @@ def plot_feature_space(
         
     # Create custom legend
     legend_elements = [
-        Line2D([0], [0], color='red', lw=2.5, label='* Conservative Learner'),
-        Line2D([0], [0], color='orange', lw=2, label='o Point Learner'),
-        Line2D([0], [0], color='goldenrod', lw=1, label='- Outlier (Wrong Direction)'),
-        Line2D([0], [0], color='steelblue', lw=1, label='Exp. (Non-learner)'),
-        Line2D([0], [0], color='gray', lw=1, label='Ctrl. (Non-Learner)'),
+        Line2D([0], [0], color=COLOR_PROB_LEARNER, lw=2.5, label='* Probabilistic Learner'),
+        Line2D([0], [0], color=COLOR_POINT_LEARNER, lw=2, label='o Point Learner'),
+        Line2D([0], [0], color=COLOR_OUTLIER_WRONG_DIR, lw=1, label='- Outlier (Wrong Direction)'),
+        Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1, label='Exp. (Non-learner)'),
+        Line2D([0], [0], color=COLOR_CTRL_NONLEARNER, lw=1, label='Ctrl. (Non-Learner)'),
         Line2D([0], [0], color='black', linestyle='--', label='Control Mean')
     ]
     
@@ -1487,11 +1763,29 @@ def plot_blup_trajectory_overlay(
     save_path: Optional[Path] = None,
     alpha: float = 0.18,
     lw: float = 1.0,
+    show_uncertainty_bands: bool = False,
 ) -> Figure:
     """Overlay per-fish BLUP trajectories (the purple dashed lines) in a single plot.
 
     This visualizes exactly what the per-fish secondary-axis "purple" BLUP trajectories show,
     but stacked across all fish to make comparison easier.
+    
+    Parameters
+    ----------
+    result : ClassificationResult
+        Classification results containing BLUPs and SEs
+    config : AnalysisConfig
+        Analysis configuration
+    split_by_condition : bool
+        Whether to split by condition into separate panels
+    save_path : Optional[Path]
+        Path to save the figure
+    alpha : float
+        Base transparency for trajectories
+    lw : float
+        Base line width for trajectories
+    show_uncertainty_bands : bool
+        If True, add BLUP ± SE * ci_multiplier_for_reporting uncertainty bands
 
     Notes
     -----
@@ -1543,6 +1837,7 @@ def plot_blup_trajectory_overlay(
         n_panels,
         figsize=(6.5 * n_panels, 5.5),
         facecolor="white",
+        sharex=True,
         sharey=True,
     )
     if n_panels == 1:
@@ -1561,17 +1856,25 @@ def plot_blup_trajectory_overlay(
     for i, fish in enumerate(result.fish_ids):
         cond = str(result.conditions[i])
 
-        # Build y trajectory
+        # Build y trajectory and SE trajectory for uncertainty bands
         if j_acq is not None and j_ext is not None:
             acq = float(result.features[i, j_acq])
             ext = float(result.features[i, j_ext])
+            acq_se = float(result.features_se[i, j_acq])
+            ext_se = float(result.features_se[i, j_ext])
             y = np.array([0.0, acq, acq + ext], dtype=float)
+            # Propagate SE for cumulative trajectory: SE at point 2 is sqrt(acq_se^2 + ext_se^2)
+            y_se = np.array([0.0, acq_se, np.sqrt(acq_se**2 + ext_se**2)], dtype=float)
         elif j_acq is not None:
             acq = float(result.features[i, j_acq])
+            acq_se = float(result.features_se[i, j_acq])
             y = np.array([0.0, acq], dtype=float)
+            y_se = np.array([0.0, acq_se], dtype=float)
         else:
             ext = float(result.features[i, j_ext])
+            ext_se = float(result.features_se[i, j_ext])
             y = np.array([0.0, ext], dtype=float)
+            y_se = np.array([0.0, ext_se], dtype=float)
 
         if split_by_condition:
             if cond not in conds_order:
@@ -1582,26 +1885,40 @@ def plot_blup_trajectory_overlay(
             ax = axes[0]
             panel_y["all"].append(y)
 
-        # Slight emphasis for learners, but keep the "all purple" look
-        if bool(result.is_learner_conservative[i]):
-            a_i, lw_i = min(0.55, alpha * 2.5), max(1.8, lw * 1.8)
+        # Keep uniform thickness across fish (requested). Optionally nudge alpha for learners.
+        if bool(result.is_learner_probabilistic[i]):
+            a_i, lw_i = min(0.55, alpha * 2.5), lw
         elif bool(result.is_learner_point[i]):
-            a_i, lw_i = min(0.40, alpha * 2.0), max(1.4, lw * 1.4)
+            a_i, lw_i = min(0.40, alpha * 2.0), lw
         else:
             a_i, lw_i = alpha, lw
 
+        # Plot the trajectory line
         ax.plot(
             x,
             y,
             "--",
-            color="purple",
+            color=COLOR_BLUP_TRAJECTORY,
             alpha=a_i,
             linewidth=lw_i,
         )
+        
+        # Add uncertainty bands if requested
+        if show_uncertainty_bands:
+            ci_mult = config.ci_multiplier_for_reporting
+            y_lower = y - ci_mult * y_se
+            y_upper = y + ci_mult * y_se
+            ax.fill_between(
+                x,
+                y_lower,
+                y_upper,
+                color=COLOR_BLUP_TRAJECTORY,
+                alpha=a_i * 0.15,  # Much lighter than line
+            )
 
     # Decorate panels
     for ax, cond in zip(axes, conds_order):
-        ax.axhline(0.0, linestyle=":", color="purple", alpha=0.35, linewidth=1)
+        ax.axhline(0.0, linestyle=":", color=COLOR_BLUP_TRAJECTORY, alpha=0.35, linewidth=1)
         ax.set_xticks(x)
         ax.set_xticklabels(x_labels, rotation=30, ha="right", fontsize=5 + 9)
         ax.set_xlabel("Epoch", fontsize=5 + 10)
@@ -1621,7 +1938,7 @@ def plot_blup_trajectory_overlay(
                 x,
                 y_med,
                 "o-",
-                color="black",
+                color=COLOR_GROUP_MEDIAN,
                 linewidth=2.2,
                 markersize=6,
                 alpha=0.85,
@@ -1637,92 +1954,103 @@ def plot_blup_trajectory_overlay(
     if save_path is not None:
         save_path = Path(save_path)
         save_path.parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, dpi=200, bbox_inches="tight", facecolor="white")
+        fig.savefig(save_path, dpi=int(FIG_DPI_BLUP_OVERLAY), bbox_inches="tight", facecolor="white")
         print(f"  Saved: {save_path.name}")
 
     return fig
 
 
-# def plot_blup_caterpillar(
-#     result: ClassificationResult,
-#     config: AnalysisConfig,
-#     feat_code: str,
-#     save_path: Optional[Path] = None,
-#     sort_by_blup: bool = True,
-# ) -> plt.Figure:
-#     """Plot per-fish BLUP ± CI (caterpillar plot) for one feature.
+def plot_blup_caterpillar(
+    result: ClassificationResult,
+    config: AnalysisConfig,
+    feat_code: str,
+    save_path: Optional[Path] = None,
+    sort_by_blup: bool = True,
+) -> Figure:
+    """Plot per-fish BLUP ± CI (caterpillar plot) for one feature.
 
-#     This is the most literal visualization of what the classifier uses:
-#     - BLUP point estimate per fish
-#     - Uncertainty via result.features_se and config.ci_multiplier
-#     - Control mean reference line (result.mu_ctrl)
-#     """
-#     if feat_code not in config.features_to_use:
-#         raise ValueError(f"Feature '{feat_code}' not in config.features_to_use={config.features_to_use}")
+    This is the most literal visualization of what the classifier uses:
+    - BLUP point estimate per fish
+    - Uncertainty via result.features_se and config.ci_multiplier_for_reporting
+    - Control mean reference line (result.mu_ctrl)
+    """
+    if feat_code not in config.features_to_use:
+        raise ValueError(f"Feature '{feat_code}' not in config.features_to_use={config.features_to_use}")
 
-#     j = config.features_to_use.index(feat_code)
-#     feat_cfg = config.feature_configs[feat_code]
-#     mu = float(result.mu_ctrl[j])
+    j = config.features_to_use.index(feat_code)
+    feat_cfg = config.feature_configs[feat_code]
+    mu = float(result.mu_ctrl[j])
 
-#     blup_all = result.features[:, j].astype(float)
-#     se_all = result.features_se[:, j].astype(float)
+    blup_all = result.features[:, j].astype(float)
+    se_all = result.features_se[:, j].astype(float)
 
-#     if sort_by_blup:
-#         order = np.argsort(blup_all)
-#     else:
-#         order = np.arange(len(result.fish_ids))
+    if sort_by_blup:
+        order = np.argsort(blup_all)
+    else:
+        order = np.arange(len(result.fish_ids))
 
-#     fish = result.fish_ids[order]
-#     blup = blup_all[order]
-#     se = se_all[order]
-#     lo = blup - float(config.ci_multiplier) * se
-#     hi = blup + float(config.ci_multiplier) * se
+    fish = result.fish_ids[order]
+    blup = blup_all[order]
+    se = se_all[order]
+    ci_mult = float(config.ci_multiplier_for_reporting)
+    lo = blup - ci_mult * se
+    hi = blup + ci_mult * se
 
-#     # Colors by status
-#     colors: List[str] = []
-#     for idx in order:
-#         if bool(result.is_learner_conservative[idx]):
-#             colors.append("red")
-#         elif bool(result.is_learner_point[idx]):
-#             colors.append("orange")
-#         elif bool(result.is_outlier[idx]):
-#             colors.append("goldenrod")
-#         else:
-#             is_ref = str(result.conditions[idx]) == str(config.cond_types[0])
-#             colors.append("gray" if is_ref else "steelblue")
+    # Colors by status (aligned with the rest of the pipeline)
+    colors: List[str] = []
+    for idx in order:
+        if bool(result.is_learner_probabilistic[idx]):
+            colors.append(COLOR_PROB_LEARNER)
+        elif bool(result.is_learner_point[idx]):
+            colors.append(COLOR_POINT_LEARNER)
+        elif bool(result.is_outlier[idx]):
+            colors.append(COLOR_OUTLIER_WRONG_DIR)
+        else:
+            is_ref = str(result.conditions[idx]) == str(config.cond_types[0])
+            colors.append(COLOR_CTRL_NONLEARNER if is_ref else COLOR_EXP_NONLEARNER)
 
-#     # Figure sizing: keep readable for many fish
-#     fig_h = max(4, 0.18 * len(fish))
-#     fig, ax = plt.subplots(figsize=(10, fig_h), facecolor="white")
+    # Figure sizing: keep readable for many fish
+    fig_h = max(4, 0.18 * len(fish))
+    fig, ax = plt.subplots(figsize=(10, fig_h), facecolor="white")
 
-#     y = np.arange(len(fish))
-#     for yi, l, h, c in zip(y, lo, hi, colors):
-#         ax.plot([l, h], [yi, yi], color=c, alpha=0.75, lw=1.2)
+    y = np.arange(len(fish))
+    for yi, l, h, c in zip(y, lo, hi, colors):
+        ax.plot([l, h], [yi, yi], color=c, alpha=0.75, lw=1.2)
 
-#     ax.scatter(blup, y, c=colors, s=25, edgecolors="black", linewidths=0.4, zorder=3)
-#     ax.axvline(mu, color="black", linestyle="--", alpha=0.7, label=f"Control mean = {mu:.3f}")
+    ax.scatter(blup, y, c=colors, s=25, edgecolors="black", linewidths=0.4, zorder=3)
+    ax.axvline(mu, color="black", linestyle="--", alpha=0.7, label=f"Control mean = {mu:.3f}")
 
-#     # Directional hint
-#     if feat_cfg.direction == "negative":
-#         dir_text = "learning: BLUP < control mean"
-#     else:
-#         dir_text = "learning: BLUP > control mean"
+    # Directional hint
+    if feat_cfg.direction == "negative":
+        dir_text = "learning: BLUP < control mean"
+    else:
+        dir_text = "learning: BLUP > control mean"
 
-#     ax.set_title(f"{feat_cfg.name} ({feat_code}) - {dir_text}", fontsize=5 + 12, fontweight="bold")
-#     ax.set_yticks(y)
-#     ax.set_yticklabels([str(f) for f in fish], fontsize=5 + 7)
-#     ax.set_xlabel("BLUP (feature scale used in extraction)", fontsize=5 + 10)
-#     ax.grid(alpha=0.25)
-#     ax.legend(loc="lower right", fontsize=5 + 9)
-#     plt.tight_layout()
+    ax.set_title(f"{feat_cfg.name} ({feat_code}) - {dir_text}", fontsize=5 + 12, fontweight="bold")
+    ax.set_yticks(y)
+    ax.set_yticklabels([str(f) for f in fish], fontsize=5 + 7)
+    ax.set_xlabel(f"BLUP ± {ci_mult:.2f}×SE (feature scale)", fontsize=5 + 10)
+    ax.grid(alpha=0.25)
 
-#     if save_path is not None:
-#         save_path = Path(save_path)
-#         save_path.parent.mkdir(parents=True, exist_ok=True)
-#         fig.savefig(save_path, dpi=200, bbox_inches="tight")
-#         print(f"[OK] Saved: {save_path.name}")
+    # Compact legend matching pipeline colors
+    legend_elements = [
+        Line2D([0], [0], color=COLOR_PROB_LEARNER, lw=2, label='* Probabilistic Learner'),
+        Line2D([0], [0], color=COLOR_POINT_LEARNER, lw=2, label='o Point Learner'),
+        Line2D([0], [0], color=COLOR_OUTLIER_WRONG_DIR, lw=1.5, label='- Outlier (Wrong Direction)'),
+        Line2D([0], [0], color=COLOR_CTRL_NONLEARNER, lw=1.5, label='Ctrl. (Non-learner)'),
+        Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1.5, label='Exp. (Non-learner)'),
+        Line2D([0], [0], color='black', lw=1.5, linestyle='--', label='Control mean'),
+    ]
+    ax.legend(handles=legend_elements, loc="lower right", fontsize=5 + 9, framealpha=0.95)
+    plt.tight_layout()
 
-#     return fig
+    if save_path is not None:
+        save_path = Path(save_path)
+        save_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(save_path, dpi=200, bbox_inches="tight", facecolor="white")
+        print(f"[OK] Saved: {save_path.name}")
+
+    return fig
 
 def save_combined_plots_and_grid(
     data: pd.DataFrame,
@@ -1745,6 +2073,24 @@ def save_combined_plots_and_grid(
         - extinction:  Late Train + Early Test -> Late Test
     """
     output_dir.mkdir(parents=True, exist_ok=True)
+
+    def _set_ylim_no_clip(ax: Axes, y_values: Iterable[float], default_lim: Sequence[float], pad_frac: float = 0.02) -> Tuple[float, float]:
+        """Set y-limits that include the data (prevents clipping) while respecting the default limits."""
+        y_lo, y_hi = float(default_lim[0]), float(default_lim[1])
+        try:
+            arr = np.asarray(list(y_values), dtype=float)
+            arr = arr[np.isfinite(arr)]
+            if arr.size:
+                y_min = float(arr.min())
+                y_max = float(arr.max())
+                y_lo2 = min(y_lo, y_min)
+                y_hi2 = max(y_hi, y_max)
+                pad = max(0.01, float(pad_frac) * (y_hi2 - y_lo2))
+                y_lo, y_hi = (y_lo2 - pad, y_hi2 + pad)
+        except Exception:
+            pass
+        ax.set_ylim((y_lo, y_hi))
+        return (y_lo, y_hi)
 
     def _feat_index(feat_code: str) -> Optional[int]:
         # Map feature code to its index in the result arrays.
@@ -1916,17 +2262,17 @@ def save_combined_plots_and_grid(
         fig, ax = plt.subplots(figsize=(8, 5), facecolor="white")
 
         # Style
-        if result.is_learner_conservative[idx]:
-            color, lw = "red", 2.5
-            status = "* CONSERVATIVE LEARNER"
+        if result.is_learner_probabilistic[idx]:
+            color, lw = COLOR_PROB_LEARNER, 2.5
+            status = "* PROBABILISTIC LEARNER"
         elif result.is_learner_point[idx]:
-            color, lw = "orange", 2
+            color, lw = COLOR_POINT_LEARNER, 2
             status = "o POINT LEARNER"
         elif result.is_outlier[idx]:
-            color, lw = "goldenrod", 1.5
+            color, lw = COLOR_OUTLIER_WRONG_DIR, 1.5
             status = "- OUTLIER (Wrong Direction)"
         else:
-            color = "gray" if cond == config.cond_types[0] else "steelblue"
+            color = COLOR_CTRL_NONLEARNER if cond == config.cond_types[0] else COLOR_EXP_NONLEARNER
             lw = 1
             status = "Non-learner"
 
@@ -1958,7 +2304,14 @@ def save_combined_plots_and_grid(
         ax.axhline(1.0, linestyle=":", color="black", alpha=0.3, label="Baseline")
         ax.set_xlabel("Trial Number", fontsize=5+9)
         ax.set_ylabel("Normalized Vigor", fontsize=5+9)
-        ax.set_ylim(config.y_lim_plot)
+        _ = _set_ylim_no_clip(
+            ax,
+            pd.concat([
+                fish_trial_data["Normalized vigor"],
+                fish_block_data["Normalized vigor"],
+            ], ignore_index=True).to_list(),
+            tuple(config.y_lim_plot),
+        )
         ax.set_title(f"{fish} ({cond})\n{status}", fontsize=5+10, fontweight="bold")
         ax.grid(alpha=0.3)
         ax.legend(fontsize=5+8, loc="upper right")
@@ -1996,19 +2349,19 @@ def save_combined_plots_and_grid(
                 [x_pre, x_mid, x_late],
                 [blup_pre, blup_mid, blup_late],
                 "s--",
-                color="purple",
+                color=COLOR_BLUP_TRAJECTORY,
                 markersize=8,
                 markerfacecolor="white",
-                markeredgecolor="purple",
+                markeredgecolor=COLOR_BLUP_TRAJECTORY,
                 markeredgewidth=1.5,
-                linewidth=2,
+                linewidth=lw,
                 alpha=0.85,
                 label="BLUP trajectory",
                 zorder=15,
             )
-            ax2.axhline(0.0, linestyle=":", color="purple", alpha=0.4)
-            ax2.set_ylabel("BLUP (Delta Log Response)", fontsize=5+9, color="purple")
-            ax2.tick_params(axis="y", labelcolor="purple")
+            ax2.axhline(0.0, linestyle=":", color=COLOR_BLUP_TRAJECTORY, alpha=0.4)
+            ax2.set_ylabel("BLUP (Delta Log Response)", fontsize=5+9, color=COLOR_BLUP_TRAJECTORY)
+            ax2.tick_params(axis="y", labelcolor=COLOR_BLUP_TRAJECTORY)
             # Set symmetric y-limits around 0 for clarity
             blup_range = max(abs(blup_pre), abs(blup_mid), abs(blup_late), 0.05) * 1.5
             ax2.set_ylim(-blup_range, blup_range)
@@ -2023,27 +2376,26 @@ def save_combined_plots_and_grid(
         for feat_idx, feat in enumerate(config.features_to_use):
             feat_cfg = config.feature_configs[feat]
             val = float(result.features[idx, feat_idx])
-            se = float(result.features_se[idx, feat_idx])
+            p_learn = float(result.p_learning[idx, feat_idx])
             mu = float(result.mu_ctrl[feat_idx])
 
             # Check pass/fail
             if feat_cfg.direction == "negative":
                 p_pass = val < mu
-                c_pass = (val + config.se_multiplier_for_voting * se) < mu
             else:
                 p_pass = val > mu
-                c_pass = (val - config.se_multiplier_for_voting * se) > mu
+            prob_pass = p_learn > config.probability_threshold
 
             p_mark = "Y" if p_pass else "N"
-            c_mark = "Y" if c_pass else "N"
+            prob_mark = "Y" if prob_pass else "N"
             feat_name = feat_cfg.name.split()[0]
             info_lines.append(f"{feat_name}: {val:.3f} {'<' if feat_cfg.direction == 'negative' else '>'} {mu:.3f}")
-            info_lines.append(f"   Point:{p_mark} Cons:{c_mark}")
+            info_lines.append(f"   Point:{p_mark} P_learn:{p_learn:.1%} ({prob_mark})")
 
         info_lines.append("")
         info_lines.append(
             f"Votes: {int(result.votes_point[idx])}/{len(config.features_to_use)}P, "
-            f"{int(result.votes_conservative[idx])}/{len(config.features_to_use)}C"
+            f"{int(result.votes_probabilistic[idx])}/{len(config.features_to_use)}Pr"
         )
 
         info_text = "\n".join(info_lines)
@@ -2059,7 +2411,7 @@ def save_combined_plots_and_grid(
             fontfamily="monospace",
         )
 
-        fig.savefig(output_dir / f"Fish_{fish}_{cond}_combined.png", dpi=150)
+        fig.savefig(output_dir / f"Fish_{fish}_{cond}_combined.png", dpi=int(FIG_DPI_INDIVIDUAL_FISH))
         plt.close(fig)
 
     # 2. Summary Grid
@@ -2070,6 +2422,8 @@ def save_combined_plots_and_grid(
         print(f"  [WARN] No fish to plot for condition: {condition}")
         return
 
+    # Grid layout: do NOT create extra subplots just for keys.
+    # Use the existing subplot (0,0) to show axis labels/ticks/ticklabels.
     n_cols = 6
     n_rows = (n_fish + n_cols - 1) // n_cols
 
@@ -2098,17 +2452,17 @@ def save_combined_plots_and_grid(
         cond = str(result.conditions[idx])
 
         # Style
-        if result.is_learner_conservative[idx]:
-            color = "red"
+        if result.is_learner_probabilistic[idx]:
+            color = COLOR_PROB_LEARNER
             lw = 2
         elif result.is_learner_point[idx]:
-            color = "orange"
+            color = COLOR_POINT_LEARNER
             lw = 1.5
         elif result.is_outlier[idx]:
-            color = "goldenrod"
+            color = COLOR_OUTLIER_WRONG_DIR
             lw = 1
         else:
-            color = "gray" if cond == config.cond_types[0] else "steelblue"
+            color = COLOR_CTRL_NONLEARNER if cond == config.cond_types[0] else COLOR_EXP_NONLEARNER
             lw = 1
 
         # Plot trials
@@ -2157,24 +2511,65 @@ def save_combined_plots_and_grid(
                 [x_pre, x_mid, x_late],
                 [blup_pre, blup_mid, blup_late],
                 "s--",
-                color="purple",
+                color=COLOR_BLUP_TRAJECTORY,
                 markersize=5,
                 markerfacecolor="white",
-                markeredgecolor="purple",
+                markeredgecolor=COLOR_BLUP_TRAJECTORY,
                 markeredgewidth=1,
-                linewidth=1.5,
+                linewidth=lw,
                 alpha=0.8,
                 zorder=15,
             )
-            ax2.axhline(0.0, linestyle=":", color="purple", alpha=0.3, linewidth=0.8)
-            ax2.set_yticks([])
+            ax2.axhline(0.0, linestyle=":", color=COLOR_BLUP_TRAJECTORY, alpha=0.3, linewidth=0.8)
             blup_range = max(abs(blup_pre), abs(blup_mid), abs(blup_late), 0.05) * 1.5
             ax2.set_ylim(-blup_range, blup_range)
 
+            # Only the first panel (0,0) should show the secondary-axis label + ticklabels.
+            if plot_idx == 0:
+                ax2.set_ylabel("BLUP (Δ Log Response)", fontsize=5 + 9, color=COLOR_BLUP_TRAJECTORY)
+                ax2.tick_params(axis="y", labelcolor=COLOR_BLUP_TRAJECTORY)
+                ax2.set_yticks([-blup_range, 0.0, blup_range])
+                ax2.set_yticklabels(
+                    [f"{-blup_range:.2f}", "0", f"{blup_range:.2f}"],
+                    fontsize=5 + 7,
+                )
+            else:
+                ax2.set_yticks([])
+
         ax.axhline(1.0, linestyle=":", color="black", alpha=0.3)
-        ax.set_ylim(config.y_lim_plot)
-        ax.set_xticks([])
-        ax.set_yticks([])
+        y_lim_used = _set_ylim_no_clip(
+            ax,
+            pd.concat([
+                fish_trial_data["Normalized vigor"],
+                fish_block_data["Normalized vigor"],
+            ], ignore_index=True).to_list(),
+            tuple(config.y_lim_plot),
+        )
+
+        # Use the first subplot (0,0) as the "axes key" by keeping labels and ticks.
+        if plot_idx == 0:
+            ax.set_xlabel("Trial Number", fontsize=5 + 9)
+            ax.set_ylabel("Normalized Vigor", fontsize=5 + 9)
+
+            # Representative x ticks based on this fish's trial range
+            try:
+                x_min = float(fish_trial_data["Trial number"].min())
+                x_max = float(fish_trial_data["Trial number"].max())
+                x_mid = (x_min + x_max) / 2.0
+                ax.set_xticks([x_min, x_mid, x_max])
+                ax.set_xticklabels([f"{int(x_min)}", f"{int(x_mid)}", f"{int(x_max)}"], fontsize=5 + 7)
+            except Exception:
+                ax.set_xticks([])
+
+            ax.set_yticks([float(y_lim_used[0]), 1.0, float(y_lim_used[1])])
+            ax.set_yticklabels(
+                [f"{float(y_lim_used[0]):.2f}", "1.00", f"{float(y_lim_used[1]):.2f}"],
+                fontsize=5 + 7,
+            )
+
+        else:
+            ax.set_xticks([])
+            ax.set_yticks([])
 
         # Title
         ax.set_title(f"{fish}", fontsize=5+9, color=color, fontweight="bold")
@@ -2189,38 +2584,39 @@ def save_combined_plots_and_grid(
         for feat_idx, feat in enumerate(config.features_to_use):
             cfg = config.feature_configs[feat]
             blup = float(result.features[idx, feat_idx])
-            se = float(result.features_se[idx, feat_idx])
+            p_learn = float(result.p_learning[idx, feat_idx])
             mu = float(result.mu_ctrl[feat_idx])
 
             if cfg.direction == "negative":
                 passed_pt = blup < mu
-                passed_cons = (blup + config.se_multiplier_for_voting * se) < mu
             else:
                 passed_pt = blup > mu
-                passed_cons = (blup - config.se_multiplier_for_voting * se) > mu
+            passed_prob = p_learn > config.probability_threshold
 
             pt_mark = "Y" if passed_pt else "N"
-            cons_mark = "Y" if passed_cons else "N"
+            prob_mark = "Y" if passed_prob else "N"
             name_short = cfg.name.split()[0][:5]
-            feat_status.append(f"{name_short}:{pt_mark}{cons_mark}")
+            feat_status.append(f"{name_short}:{pt_mark}{prob_mark}")
 
         vp = int(result.votes_point[idx])
-        vc = int(result.votes_conservative[idx])
+        vprob = int(result.votes_probabilistic[idx])
         n_feat = len(config.features_to_use)
 
         lines.append(f"{cond_abbr} D:{dist:.1f}{outlier_mark}")
         lines.append(" ".join(feat_status))
-        lines.append(f"V:{vp}/{n_feat}P {vc}/{n_feat}C")
+        lines.append(f"V:{vp}/{n_feat}P {vprob}/{n_feat}Pr")
 
-        # Add compact feature BLUP+CI lines (if present)
-        acq_ci = _blup_ci(idx, "acquisition")
-        if acq_ci is not None:
-            blup, ci_lo, ci_hi = acq_ci
-            lines.append(f"acq:{blup:.2f}[{ci_lo:.2f},{ci_hi:.2f}]")
-        ext_ci = _blup_ci(idx, "extinction")
-        if ext_ci is not None:
-            blup, ci_lo, ci_hi = ext_ci
-            lines.append(f"ext:{blup:.2f}[{ci_lo:.2f},{ci_hi:.2f}]")
+        # Add compact feature BLUP+P_learn lines (if present)
+        acq_idx = _feat_index("acquisition")
+        if acq_idx is not None:
+            blup = float(result.features[idx, acq_idx])
+            p_learn = float(result.p_learning[idx, acq_idx])
+            lines.append(f"acq:{blup:.2f} P:{p_learn:.0%}")
+        ext_idx = _feat_index("extinction")
+        if ext_idx is not None:
+            blup = float(result.features[idx, ext_idx])
+            p_learn = float(result.p_learning[idx, ext_idx])
+            lines.append(f"ext:{blup:.2f} P:{p_learn:.0%}")
 
         info_text = "\n".join(lines)
         props = dict(boxstyle="round", facecolor="white", alpha=0.85, edgecolor="lightgray", pad=0.3)
@@ -2240,38 +2636,40 @@ def save_combined_plots_and_grid(
             spine.set_color(color)
             spine.set_linewidth(
                 2.5
-                if bool(result.is_learner_conservative[idx])
+                if bool(result.is_learner_probabilistic[idx])
                 else (2 if bool(result.is_learner_point[idx]) else 0.5)
             )
 
-    # Hide empty subplots
+    # Hide empty subplots (no dedicated key panel).
     for plot_idx in range(n_fish, n_rows * n_cols):
         row, col = divmod(plot_idx, n_cols)
         axes[row, col].set_visible(False)
 
     # Legend
     legend_elements = [
-        Line2D([0], [0], color="red", lw=2.5, label="* Conservative Learner"),
-        Line2D([0], [0], color="orange", lw=2, label="o Point Learner"),
-        Line2D([0], [0], color="goldenrod", lw=1, label="- Outlier (Wrong Direction)"),
+        Line2D([0], [0], color=COLOR_PROB_LEARNER, lw=2.5, label="* Probabilistic Learner"),
+        Line2D([0], [0], color=COLOR_POINT_LEARNER, lw=2, label="o Point Learner"),
+        Line2D([0], [0], color=COLOR_OUTLIER_WRONG_DIR, lw=1, label="- Outlier (Wrong Direction)"),
     ]
 
     if condition is None:
-        legend_elements.append(Line2D([0], [0], color="steelblue", lw=1, label="Exp. (Non-learner)"))
-        legend_elements.append(Line2D([0], [0], color="gray", lw=1, label="Ctrl. (Non-learner)"))
+        legend_elements.append(Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1, label="Exp. (Non-learner)"))
+        legend_elements.append(Line2D([0], [0], color=COLOR_CTRL_NONLEARNER, lw=1, label="Ctrl. (Non-learner)"))
     elif condition == config.cond_types[0]:
-        legend_elements.append(Line2D([0], [0], color="gray", lw=1, label=f"{str(condition).capitalize()} (Non-learner)"))
+        legend_elements.append(
+            Line2D([0], [0], color=COLOR_CTRL_NONLEARNER, lw=1, label=f"{str(condition).capitalize()} (Non-learner)")
+        )
     else:
         legend_elements.append(
-            Line2D([0], [0], color="steelblue", lw=1, label=f"{str(condition).capitalize()} (Non-Learner)")
+            Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1, label=f"{str(condition).capitalize()} (Non-Learner)")
         )
 
     info_legend = (
         "Info Box Legend:\n"
         "  Name: Feature pass/fail (Y/N)\n"
         "  D: Mahalanobis distance, O=Outlier\n"
-        "  V: Votes (P=Point, C=Conservative)\n"
-        "  acq/ext: BLUP and CI for the 10-trial epoch changes"
+        "  V: Votes (P=Point, Pr=Probabilistic)\n"
+        "  acq/ext: BLUP and P_learn probability"
     )
 
     fig.legend(handles=legend_elements, loc="lower left", ncol=3, bbox_to_anchor=(0.02, 0.01), fontsize=5+10, frameon=True)
@@ -2287,11 +2685,242 @@ def save_combined_plots_and_grid(
     )
 
     plt.tight_layout(rect=(0, 0.08, 1, 0.96))
+    # Reduce whitespace between subplots in the summary grid.
+    plt.subplots_adjust(wspace=0.12, hspace=0.22)
 
     cond_suffix = f"_{condition}" if condition else ""
     grid_path = output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}.png"
-    fig.savefig(grid_path, dpi=200, bbox_inches="tight")
+    fig.savefig(grid_path, dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
     print(f"  Saved: {grid_path.name}")
+
+
+def save_heatmap_grid(
+    result: ClassificationResult,
+    config: AnalysisConfig,
+    path_scaled_vigor_fig_cs: Path,
+    output_dir: Path,
+    condition: Optional[str] = None
+) -> None:
+    """
+    Generate a grid figure with pre-saved heatmaps (SVG/PNG) for each fish.
+    
+    Mirrors the grid layout of the combined summary grid (Learner_Classification_Trajectories).
+    For each fish, the corresponding heatmap is loaded from path_scaled_vigor_fig_cs.
+    Fish IDs are extracted as: "_".join(filename.split("_")[:2])
+    
+    Parameters
+    ----------
+    result : ClassificationResult
+        Classification result containing fish IDs and conditions
+    config : AnalysisConfig
+        Analysis configuration
+    path_scaled_vigor_fig_cs : Path
+        Directory containing the heatmap SVG/PNG files
+    output_dir : Path
+        Directory to save the output grid
+    condition : Optional[str]
+        If specified, only include fish from this condition
+    """
+    import io
+
+    from PIL import Image
+    
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Filter result indices if condition is specified
+    if condition is not None:
+        cond_mask = result.conditions == condition
+        fish_indices = np.where(cond_mask)[0]
+    else:
+        fish_indices = np.arange(len(result.fish_ids))
+    
+    n_fish = len(fish_indices)
+    if n_fish == 0:
+        print(f"  [WARN] No fish to plot for condition: {condition}")
+        return
+    
+    # Build a mapping of fish_id -> image_path from the heatmap directory
+    # List all SVG and PNG files
+    heatmap_files = list(path_scaled_vigor_fig_cs.glob("*.svg")) + list(path_scaled_vigor_fig_cs.glob("*.png"))
+    
+    print(f"  Found {len(heatmap_files)} heatmap files in {path_scaled_vigor_fig_cs}")
+    
+    # Create mapping: fish_id -> file_path
+    # Fish ID is extracted as: "_".join(path.name.split("_")[:2])
+    fish_to_heatmap: Dict[str, Path] = {}
+    for fpath in heatmap_files:
+        parts = fpath.stem.split("_")
+        if len(parts) >= 2:
+            fish_id = "_".join(parts[:2]).lower()
+            # Prefer PNG over SVG if both exist (PNG is faster to load)
+            if fish_id not in fish_to_heatmap or fpath.suffix.lower() == '.png':
+                fish_to_heatmap[fish_id] = fpath
+    
+    print(f"  Mapped {len(fish_to_heatmap)} unique fish IDs to heatmap files")
+    
+    # Grid layout matching save_combined_plots_and_grid
+    n_cols = 6
+    n_rows = (n_fish + n_cols - 1) // n_cols
+    
+    fig, axes = plt.subplots(
+        n_rows,
+        n_cols,
+        figsize=(4 * n_cols, 3.5 * n_rows + 1.5),
+        facecolor="white",
+        squeeze=False,
+    )
+    
+    title_suffix = f" - {str(condition).capitalize()}" if condition else ""
+    fig.suptitle(
+        f"Scaled Vigor Heatmaps (aligned to CS){title_suffix}",
+        fontsize=5+16,
+        y=0.99,
+    )
+
+    def _crop_border(img: np.ndarray, frac: float = 0.02) -> np.ndarray:
+        """Crop a fraction of pixels from each edge (e.g., 0.02 = 2%)."""
+        if img is None:
+            return img
+        if not hasattr(img, "shape") or len(img.shape) < 2:
+            return img
+        h, w = int(img.shape[0]), int(img.shape[1])
+        if h <= 2 or w <= 2:
+            return img
+
+        # Crop a fixed percentage from each side; guard against over-cropping.
+        dy = int(round(h * float(frac)))
+        dx = int(round(w * float(frac)))
+        dy = max(dy, 0)
+        dx = max(dx, 0)
+        if (h - 2 * dy) < 2 or (w - 2 * dx) < 2:
+            return img
+        return img[dy:h - dy, dx:w - dx, ...]
+    
+    def _load_image(img_path: Path) -> Optional[np.ndarray]:
+        """Load an image file (SVG or PNG) and return as numpy array."""
+        try:
+            if img_path.suffix.lower() == '.svg':
+                # Convert SVG to PNG using cairosvg if available, otherwise try other methods
+                try:
+                    import cairosvg
+                    png_data = cairosvg.svg2png(url=str(img_path))
+                    img = Image.open(io.BytesIO(png_data))
+                    return _crop_border(np.array(img), frac=0.02)
+                except ImportError:
+                    # Fallback: try using svglib + reportlab if available
+                    try:
+                        from reportlab.graphics import renderPM
+                        from svglib.svglib import svg2rlg
+                        drawing = svg2rlg(str(img_path))
+                        png_data = renderPM.drawToString(drawing, fmt="PNG")
+                        img = Image.open(io.BytesIO(png_data))
+                        return _crop_border(np.array(img), frac=0.02)
+                    except ImportError:
+                        print(f"    [WARN] Cannot load SVG (install cairosvg or svglib): {img_path.name}")
+                        return None
+            else:
+                # PNG or other raster format
+                img = Image.open(img_path)
+                return _crop_border(np.array(img), frac=0.02)
+        except Exception as e:
+            print(f"    [WARN] Failed to load image {img_path.name}: {e}")
+            return None
+    
+    missing_fish = []
+    loaded_count = 0
+    
+    for plot_idx, idx in enumerate(fish_indices):
+        row, col = divmod(plot_idx, n_cols)
+        ax = axes[row, col]
+        
+        fish = str(result.fish_ids[idx])
+        fish_lower = fish.lower()
+        cond = str(result.conditions[idx])
+        
+        # Style based on classification
+        if result.is_learner_probabilistic[idx]:
+            border_color = COLOR_PROB_LEARNER
+            border_lw = 2.5
+        elif result.is_learner_point[idx]:
+            border_color = COLOR_POINT_LEARNER
+            border_lw = 2
+        elif result.is_outlier[idx]:
+            border_color = COLOR_OUTLIER_WRONG_DIR
+            border_lw = 1.5
+        else:
+            border_color = COLOR_CTRL_NONLEARNER if cond == config.cond_types[0] else COLOR_EXP_NONLEARNER
+            border_lw = 1
+        
+        # Find and load heatmap
+        heatmap_path = fish_to_heatmap.get(fish_lower)
+        
+        if heatmap_path is not None:
+            img_array = _load_image(heatmap_path)
+            if img_array is not None:
+                # Keep original image aspect (no stretching).
+                ax.imshow(img_array)
+                ax.set_aspect('equal', adjustable='box')
+                ax.axis('off')
+                loaded_count += 1
+            else:
+                ax.text(0.5, 0.5, f"Load Error\n{fish}", ha='center', va='center',
+                        transform=ax.transAxes, fontsize=5+8, color='red')
+                ax.axis('off')
+        else:
+            missing_fish.append(fish)
+            ax.text(0.5, 0.5, f"No heatmap\n{fish}", ha='center', va='center',
+                    transform=ax.transAxes, fontsize=5+8, color='gray')
+            ax.axis('off')
+        
+        # Title with fish ID
+        ax.set_title(f"{fish}", fontsize=5+9, color=border_color, fontweight="bold")
+        
+        # Border based on classification
+        for spine in ax.spines.values():
+            spine.set_visible(True)
+            spine.set_color(border_color)
+            spine.set_linewidth(border_lw)
+    
+    # Hide empty subplots
+    for plot_idx in range(n_fish, n_rows * n_cols):
+        row, col = divmod(plot_idx, n_cols)
+        axes[row, col].set_visible(False)
+    
+    # Legend
+    legend_elements = [
+        Line2D([0], [0], color=COLOR_PROB_LEARNER, lw=2.5, label="* Probabilistic Learner"),
+        Line2D([0], [0], color=COLOR_POINT_LEARNER, lw=2, label="o Point Learner"),
+        Line2D([0], [0], color=COLOR_OUTLIER_WRONG_DIR, lw=1, label="- Outlier (Wrong Direction)"),
+    ]
+    
+    if condition is None:
+        legend_elements.append(Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1, label="Exp. (Non-learner)"))
+        legend_elements.append(Line2D([0], [0], color=COLOR_CTRL_NONLEARNER, lw=1, label="Ctrl. (Non-learner)"))
+    elif condition == config.cond_types[0]:
+        legend_elements.append(
+            Line2D([0], [0], color=COLOR_CTRL_NONLEARNER, lw=1, label=f"{str(condition).capitalize()} (Non-learner)")
+        )
+    else:
+        legend_elements.append(
+            Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1, label=f"{str(condition).capitalize()} (Non-Learner)")
+        )
+    
+    fig.legend(handles=legend_elements, loc="lower left", ncol=3, bbox_to_anchor=(0.02, 0.01), fontsize=5+10, frameon=True)
+    
+    plt.tight_layout(rect=(0, 0.05, 1, 0.96))
+    # Reduce whitespace between subplots in the heatmap grid.
+    plt.subplots_adjust(wspace=0.08, hspace=0.14)
+    
+    cond_suffix = f"_{condition}" if condition else ""
+    grid_path = output_dir / f"Heatmap_Grid_CS{cond_suffix}.png"
+    fig.savefig(grid_path, dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
+    plt.close(fig)
+    
+    print(f"  Saved heatmap grid: {grid_path.name}")
+    print(f"    Loaded: {loaded_count}/{n_fish} heatmaps")
+    if missing_fish:
+        print(f"    Missing heatmaps for: {missing_fish[:10]}{'...' if len(missing_fish) > 10 else ''}")
+
 
 def save_individual_plots_and_grid(
     data: pd.DataFrame,
@@ -2328,9 +2957,9 @@ def create_detailed_summary_df(
             'Mahalanobis_Distance': result.distances[i],
             'Is_Outlier': result.is_outlier[i],
             'Vote_Point': result.votes_point[i],
-            'Vote_Conservative': result.votes_conservative[i],
+            'Vote_Probabilistic': result.votes_probabilistic[i],
             'Is_Learner_Point': result.is_learner_point[i],
-            'Is_Learner_Conservative': result.is_learner_conservative[i]
+            'Is_Learner_Probabilistic': result.is_learner_probabilistic[i]
         }
         
         # Add feature details
@@ -2338,6 +2967,7 @@ def create_detailed_summary_df(
             # From result arrays
             row[f'{feat}_BLUP'] = result.features[i, feat_idx]
             row[f'{feat}_SE'] = result.features_se[i, feat_idx]
+            row[f'{feat}_P_learn'] = result.p_learning[i, feat_idx]
 
             # Reporting CI (typically ~95%) computed from SE
             blup_val = float(row[f'{feat}_BLUP'])
@@ -2354,19 +2984,16 @@ def create_detailed_summary_df(
             # Pass/Fail status
             cfg = config.feature_configs[feat]
             mu = result.mu_ctrl[feat_idx]
+            p_learn = result.p_learning[i, feat_idx]
             
             if cfg.direction == 'negative':
                 pass_point = row[f'{feat}_BLUP'] < mu
-                pass_cons_vote = (row[f'{feat}_BLUP'] + config.se_multiplier_for_voting * row[f'{feat}_SE']) < mu
-                pass_cons_ci95 = row[f'{feat}_CI_upper'] < mu
             else:
                 pass_point = row[f'{feat}_BLUP'] > mu
-                pass_cons_vote = (row[f'{feat}_BLUP'] - config.se_multiplier_for_voting * row[f'{feat}_SE']) > mu
-                pass_cons_ci95 = row[f'{feat}_CI_lower'] > mu
+            pass_prob = p_learn > config.probability_threshold
                 
             row[f'{feat}_Pass_Point'] = pass_point
-            row[f'{feat}_Pass_ConservativeVoting'] = pass_cons_vote
-            row[f'{feat}_Pass_ConservativeCI'] = pass_cons_ci95
+            row[f'{feat}_Pass_Probabilistic'] = pass_prob
             
         rows.append(row)
         
@@ -2387,23 +3014,22 @@ def print_fish_details(fish_id: str, summary_df: pd.DataFrame, config: AnalysisC
     print(f"  Condition: {row['Condition']}")
     print(f"  Distance:  {row['Mahalanobis_Distance']:.4f}")
     print(f"  Outlier:   {'YES' if row['Is_Outlier'] else 'NO'}")
-    print(f"  Learner:   {'* CONSERVATIVE' if row['Is_Learner_Conservative'] else ('o POINT' if row['Is_Learner_Point'] else 'NO')}")
+    print(f"  Learner:   {'* PROBABILISTIC' if row['Is_Learner_Probabilistic'] else ('o POINT' if row['Is_Learner_Point'] else 'NO')}")
     
     print(
-        f"\n  {'Feature':<15} {'BLUP':>8} {'CI (~95%)':>20} {'Ref':>8} {'Point':>5} {'VoteC':>5} {'CI_C':>5}"
+        f"\n  {'Feature':<15} {'BLUP':>8} {'P_learn':>10} {'Ref':>8} {'Point':>5} {'Prob':>5}"
     )
-    print("  " + "-" * 68)
+    print("  " + "-" * 60)
     
     for i, feat in enumerate(config.features_to_use):
         name = config.feature_configs[feat].name
         blup = row[f'{feat}_BLUP']
-        ci = f"[{row[f'{feat}_CI_lower']:.2f}, {row[f'{feat}_CI_upper']:.2f}]"
+        p_learn = row.get(f'{feat}_P_learn', 0.0)
         ref = mu_ctrl[i]
         pp = "Y" if row[f'{feat}_Pass_Point'] else "N"
-        pv = "Y" if row.get(f'{feat}_Pass_ConservativeVoting', False) else "N"
-        pc = "Y" if row.get(f'{feat}_Pass_ConservativeCI', False) else "N"
+        prob = "Y" if row.get(f'{feat}_Pass_Probabilistic', False) else "N"
         
-        print(f"  {name:<15} {blup:>8.4f} {ci:>20} {ref:>8.4f} {pp:>5} {pv:>5} {pc:>5}")
+        print(f"  {name:<15} {blup:>8.4f} {p_learn:>10.1%} {ref:>8.4f} {pp:>5} {prob:>5}")
     print(f"{'='*60}\n")
 
 
@@ -2434,8 +3060,8 @@ def print_learning_vs_performance_safeguards(
     fish_set = set(map(str, result.fish_ids))
     df = df[df['Fish_ID'].astype(str).isin(fish_set)].copy()
 
-    # Learner label (use conservative learner as the primary "learner" definition)
-    learner_map = {str(f): bool(result.is_learner_conservative[i]) for i, f in enumerate(result.fish_ids)}
+    # Learner label (use probabilistic learner as the primary "learner" definition)
+    learner_map = {str(f): bool(result.is_learner_probabilistic[i]) for i, f in enumerate(result.fish_ids)}
 
     def _batch_from_fish_id(fid: str) -> str:
         # Extract batch/date prefix so batch effects can be inspected quickly.
@@ -2480,8 +3106,8 @@ def print_learning_vs_performance_safeguards(
     print(f"\n{'='*60}")
     print("--- Learning vs Performance Safeguards ---")
     print(f"{'='*60}")
-    print(f"  Learner definition used: conservative (votes >= {config.voting_threshold_conservative})")
-    print(f"  Voting k*SE: k={config.se_multiplier_for_voting}; Reporting CI z={config.ci_multiplier_for_reporting}")
+    print(f"  Learner definition used: probabilistic (votes >= {config.voting_threshold_probabilistic})")
+    print(f"  Probability threshold: {config.probability_threshold:.0%}; Reporting CI z={config.ci_multiplier_for_reporting}")
 
     # Compare baseline/vigor by learner status within each condition
     for cond in sorted(fish_stats['Condition'].unique()):
@@ -2515,9 +3141,13 @@ def print_learning_vs_performance_safeguards(
     # Batch clustering check
     batch_tab = pd.crosstab(fish_stats['Batch'], fish_stats['Is_Learner'])
     if not batch_tab.empty:
+        # Ensure both columns exist even if there are zero learners/non-learners.
         batch_tab = batch_tab.rename(columns={False: 'NonLearner', True: 'Learner'})
+        batch_tab = batch_tab.reindex(columns=['Learner', 'NonLearner'], fill_value=0)
+
         batch_tab['Total'] = batch_tab.sum(axis=1)
-        batch_tab['LearnerRate'] = batch_tab.get('Learner', 0) / batch_tab['Total']
+        # Guard against divide-by-zero (shouldn't happen, but keep it robust).
+        batch_tab['LearnerRate'] = np.where(batch_tab['Total'] > 0, batch_tab['Learner'] / batch_tab['Total'], 0.0)
         batch_tab = batch_tab.sort_values('LearnerRate', ascending=False)
 
         print(f"\n  Batch clustering (from Fish_ID prefix):")
@@ -2552,11 +3182,18 @@ def print_classification_summary(
         pct = n / len(result.votes_point) * 100
         print(f"    {v}/{n_features} features: {n:3d} fish ({pct:5.1f}%)")
     
-    print(f"\n  Voting distribution (Conservative):")
+    print(f"\n  Voting distribution (Probabilistic, P_learn > {config.probability_threshold:.0%}):")
     for v in range(n_features + 1):
-        n = (result.votes_conservative == v).sum()
-        pct = n / len(result.votes_conservative) * 100
+        n = (result.votes_probabilistic == v).sum()
+        pct = n / len(result.votes_probabilistic) * 100
         print(f"    {v}/{n_features} features: {n:3d} fish ({pct:5.1f}%)")
+    
+    # Show P_learn distribution summary
+    print(f"\n  P_learn distribution by feature:")
+    for i, feat in enumerate(config.features_to_use):
+        p_vals = result.p_learning[:, i]
+        p_above = (p_vals > config.probability_threshold).sum()
+        print(f"    {feat}: median={np.median(p_vals):.1%}, >{config.probability_threshold:.0%}: {p_above}/{len(p_vals)}")
     
     print(f"\n{'='*60}")
     print("--- Classification Results ---")
@@ -2572,26 +3209,26 @@ def print_classification_summary(
         label = "(Reference)" if cond == ref_cond else "(Experimental)"
         print(f"    {cond:15s} {label:15s}: {n_learners:3d} / {n_total:3d} ({pct:5.1f}%)")
     
-    print(f"\n  METHOD 2: Conservative (>={config.voting_threshold_conservative} features)")
+    print(f"\n  METHOD 2: Probabilistic (>={config.voting_threshold_probabilistic} features, P_learn > {config.probability_threshold:.0%})")
     print("  " + "-" * 58)
     for cond in unique_conds:
         mask = result.conditions == cond
         n_total = mask.sum()
-        n_learners = (mask & result.is_learner_conservative).sum()
+        n_learners = (mask & result.is_learner_probabilistic).sum()
         pct = n_learners / n_total * 100 if n_total > 0 else 0
         label = "(Reference)" if cond == ref_cond else "(Experimental)"
         print(f"    {cond:15s} {label:15s}: {n_learners:3d} / {n_total:3d} ({pct:5.1f}%)")
     
     # False positive rates
     ctrl_fp_point = (is_ctrl & result.is_learner_point).sum()
-    ctrl_fp_cons = (is_ctrl & result.is_learner_conservative).sum()
+    ctrl_fp_prob = (is_ctrl & result.is_learner_probabilistic).sum()
     n_ctrl = is_ctrl.sum()
     
     print(f"\n{'='*60}")
     print("--- False Positive Analysis ---")
     print(f"  Expected FP rate: ~{100 - config.threshold_percentile:.0f}%")
-    print(f"  Observed (Point):       {ctrl_fp_point}/{n_ctrl} ({ctrl_fp_point/n_ctrl*100:.1f}%)")
-    print(f"  Observed (Conservative): {ctrl_fp_cons}/{n_ctrl} ({ctrl_fp_cons/n_ctrl*100:.1f}%)")
+    print(f"  Observed (Point):         {ctrl_fp_point}/{n_ctrl} ({ctrl_fp_point/n_ctrl*100:.1f}%)")
+    print(f"  Observed (Probabilistic): {ctrl_fp_prob}/{n_ctrl} ({ctrl_fp_prob/n_ctrl*100:.1f}%)")
     
     print(f"{'='*60}")
 
@@ -2632,7 +3269,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
         _path_tail_angle_fig_us,
         _path_raw_vigor_fig_cs,
         _path_raw_vigor_fig_us,
-        _path_scaled_vigor_fig_cs,
+        path_scaled_vigor_fig_cs,  # Used for heatmap grid
         _path_scaled_vigor_fig_us,
         _path_normalized_fig_cs,
         _path_normalized_fig_us,
@@ -2665,19 +3302,21 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     blup_dicts: Dict[str, Dict[str, BLUPResult]] = {}
     if 'acquisition' in config.features_to_use:
         blup_dicts['acquisition'] = extract_change_feature(
-            data, config, number_trials=5, name_blocks=config.pretrain_to_train_end_earlytest_blocks
+            data, config, number_trials=int(EPOCH_BLOCK_TRIALS), name_blocks=config.pretrain_to_train_end_earlytest_blocks
         )
     if 'extinction' in config.features_to_use:
         blup_dicts['extinction'] = extract_change_feature(
-            data, config, number_trials=5, name_blocks=config.train_end_earlytest_to_late_test_blocks
+            data, config, number_trials=int(EPOCH_BLOCK_TRIALS), name_blocks=config.train_end_earlytest_to_late_test_blocks
         )
 
     # Find common fish with all selected features.
     common_fish_sets = [set(blup_dicts[feat].keys()) for feat in config.features_to_use]
     common_fish = sorted(list(set.intersection(*common_fish_sets)))
 
-    if len(common_fish) < 10:
-        raise ValueError(f"Only {len(common_fish)} fish have all features. Need at least 10.")
+    if len(common_fish) < int(MIN_FISH_WITH_ALL_FEATURES):
+        raise ValueError(
+            f"Only {len(common_fish)} fish have all features. Need at least {int(MIN_FISH_WITH_ALL_FEATURES)}."
+        )
 
     print(f"  {len(common_fish)} fish with complete feature sets")
 
@@ -2714,21 +3353,32 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     X_ctrl = X[is_ctrl]
     distances, _, _, _ = get_robust_mahalanobis(X, X_ctrl)
 
-    # Step 5: Bootstrap threshold
+    # Step 5: Bootstrap threshold (or theoretical chi-square threshold)
     ctrl_distances = distances[is_ctrl]
-    thresh_median, thresh_ci = bootstrap_threshold(
-        ctrl_distances,
-        percentile=config.threshold_percentile,
-        n_boot=config.n_bootstrap,
-        seed=config.random_seed,
-    )
+    
+    if config.use_theoretical_threshold:
+        # Use theoretical chi-square threshold instead of bootstrap
+        n_features = len(config.features_to_use)
+        thresh_median, thresh_ci = get_theoretical_chi2_threshold(
+            n_features,
+            alpha=config.theoretical_threshold_alpha,
+            verbose=True
+        )
+    else:
+        # Use bootstrap threshold (original method)
+        thresh_median, thresh_ci = bootstrap_threshold(
+            ctrl_distances,
+            percentile=config.threshold_percentile,
+            n_boot=config.n_bootstrap,
+            seed=config.random_seed,
+        )
 
     # Step 6: Classification
     print("\n--- STEP 5: Classification ---")
 
     # Classify learners using distance outliers + directional voting.
     mu_ctrl = np.mean(X_ctrl, axis=0)
-    is_outlier, votes_point, votes_conservative, is_learner_point, is_learner_conservative = classify_learners(
+    is_outlier, votes_point, votes_probabilistic, is_learner_point, is_learner_probabilistic, p_learning = classify_learners(
         X, X_se, distances, thresh_median, mu_ctrl, config
     )
 
@@ -2741,10 +3391,11 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
         feature_names=feature_names,
         distances=distances,
         votes_point=votes_point,
-        votes_conservative=votes_conservative,
+        votes_probabilistic=votes_probabilistic,
+        p_learning=p_learning,
         is_outlier=is_outlier,
         is_learner_point=is_learner_point,
-        is_learner_conservative=is_learner_conservative,
+        is_learner_probabilistic=is_learner_probabilistic,
         threshold=thresh_median,
         threshold_ci=thresh_ci,
         mu_ctrl=mu_ctrl,
@@ -2758,7 +3409,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     print("\n--- STEP 6: Visualization ---")
 
     if RUN_PLOT_DIAGNOSTICS and corr_matrix is not None and pca is not None and X_pca is not None:
-        diag_path = path_pooled_vigor_fig / "Multivariate_Diagnostics.png"
+        diag_path = path_pooled_vigor_fig / FNAME_DIAGNOSTICS
         plot_diagnostics(
             X,
             feature_names,
@@ -2775,28 +3426,58 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
         )
 
     if RUN_PLOT_TRAJECTORIES:
-        traj_path = path_pooled_vigor_fig / "Learner_Classification_Trajectories.png"
+        traj_path = path_pooled_vigor_fig / FNAME_TRAJECTORIES
         plot_behavioral_trajectories(data, result, config, save_path=traj_path)
 
     if RUN_PLOT_FEATURE_SPACE and len(config.features_to_use) > 1:
-        feat_plot_path = path_pooled_vigor_fig / "Feature_Space_Scatter.png"
+        feat_plot_path = path_pooled_vigor_fig / FNAME_FEATURE_SPACE
         plot_feature_space(result, config, save_path=feat_plot_path)
 
     if RUN_PLOT_INDIVIDUALS:
-        combined_indiv_dir = path_pooled_vigor_fig / "Individual_Fish_Plots_Combined"
+        combined_indiv_dir = path_pooled_vigor_fig / DIR_INDIVIDUAL_PLOTS_COMBINED
         for cond in config.cond_types:
             cond_dir = combined_indiv_dir / cond
             save_combined_plots_and_grid(data, result, config, cond_dir, condition=cond)
 
+    if RUN_PLOT_BLUP_CATERPILLAR:
+        # One caterpillar plot per selected feature.
+        for feat_code in config.features_to_use:
+            cater_path = path_pooled_vigor_fig / FNAME_BLUP_CATERPILLAR_TEMPLATE.format(feat=str(feat_code))
+            plot_blup_caterpillar(
+                result,
+                config,
+                feat_code=str(feat_code),
+                save_path=cater_path,
+                sort_by_blup=True,
+            )
+
     if RUN_PLOT_BLUP_OVERLAY:
-        blup_overlay_path = path_pooled_vigor_fig / "BLUP_Trajectories_Overlay.png"
-        plot_blup_trajectory_overlay(result, config, split_by_condition=True, save_path=blup_overlay_path)
+        blup_overlay_path = path_pooled_vigor_fig / FNAME_BLUP_OVERLAY
+        plot_blup_trajectory_overlay(
+            result,
+            config,
+            split_by_condition=bool(BLUP_OVERLAY_SPLIT_BY_CONDITION),
+            save_path=blup_overlay_path,
+            show_uncertainty_bands=bool(BLUP_OVERLAY_SHOW_UNCERTAINTY_BANDS),
+        )
+
+    if RUN_PLOT_HEATMAP_GRID:
+        # Generate heatmap grid from pre-saved SVG/PNG files in scaled vigor directory
+        heatmap_grid_dir = path_pooled_vigor_fig / "Heatmap_Grids"
+        for cond in config.cond_types:
+            save_heatmap_grid(
+                result,
+                config,
+                path_scaled_vigor_fig_cs,
+                heatmap_grid_dir,
+                condition=cond,
+            )
 
     # Step 8: Optional exports
     summary_df = None
     if RUN_EXPORT_DETAILED_SUMMARY:
         summary_df = create_detailed_summary_df(result, blup_dicts, config)
-        detailed_path = path_pooled_data / f"Fish_Detailed_Summary_{config.csus}.csv"
+        detailed_path = path_pooled_data / FNAME_DETAILED_SUMMARY_TEMPLATE.format(csus=config.csus)
         summary_df.to_csv(detailed_path, index=False)
         print(f"  Saved detailed summary: {detailed_path.name}")
 
@@ -2805,19 +3486,20 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
         'Condition': result.conditions,
         'Mahalanobis_Distance': result.distances,
         'Vote_Point': result.votes_point,
-        'Vote_Conservative': result.votes_conservative,
+        'Vote_Probabilistic': result.votes_probabilistic,
         'Is_Outlier': result.is_outlier,
         'Is_Learner_Point': result.is_learner_point,
-        'Is_Learner_Conservative': result.is_learner_conservative,
+        'Is_Learner_Probabilistic': result.is_learner_probabilistic,
     }
 
     # Add features dynamically
     for i, feat in enumerate(config.features_to_use):
         results_dict[f'Feature_{feat}'] = result.features[:, i]
         results_dict[f'Feature_{feat}_SE'] = result.features_se[:, i]
+        results_dict[f'Feature_{feat}_P_learn'] = result.p_learning[:, i]
 
     if RUN_EXPORT_RESULTS:
-        results_path = path_pooled_data / f"Fish_Learner_Classification_{config.csus}.csv"
+        results_path = path_pooled_data / FNAME_CLASSIFICATION_RESULTS_TEMPLATE.format(csus=config.csus)
         pd.DataFrame(results_dict).to_csv(results_path, index=False)
         print(f"  Saved classification results: {results_path.name}")
 

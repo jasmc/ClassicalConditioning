@@ -45,10 +45,10 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 RUN_PREPROCESS = False
 RUN_PLOT_INDIVIDUALS = False
 RUN_PLOT_PROTOCOLS = False
-RUN_DISCARD = False
+RUN_DISCARD = True
 
 FILTER_FISH_ID = None
-EXPERIMENT_TYPE = ExperimentType.FIRST_DELAY.value
+EXPERIMENT_TYPE = ExperimentType.ALL_10S_TRACE.value
 
 # ------------------------------------------------------------------------------
 # Preprocess Parameters
@@ -1515,7 +1515,11 @@ def run_discard():
             data_cs = data[trial_type.eq('CS') & valid_block_mask(data)].copy()
             data_cs = analysis_utils.change_block_names(data_cs, blocks, block_names).copy()
             data_cs = data_cs[data_cs['Block name'].isin(blocks_chosen_set)].copy()
-            data_cs.loc[:, 'Trial number'] = data_cs['Trial number'].cat.remove_unused_categories()
+            trial_num = data_cs['Trial number']
+            if pd.api.types.is_categorical_dtype(trial_num):
+                data_cs['Trial number'] = trial_num.cat.remove_unused_categories().astype('int32')
+            else:
+                data_cs['Trial number'] = trial_num.astype('int32', copy=False)
         else:
             data_cs = pd.DataFrame()
 

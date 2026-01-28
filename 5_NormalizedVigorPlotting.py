@@ -30,6 +30,10 @@ if "__file__" in globals():
 else:
     module_root = Path.cwd()
 
+import warnings
+
+from statsmodels.tools.sm_exceptions import ConvergenceWarning
+
 import analysis_utils
 import file_utils
 import plotting_style
@@ -47,16 +51,19 @@ plotting_style.set_plot_style(rc_overrides={"figure.constrained_layout.use": Fal
 # ------------------------------------------------------------------------------
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
-RUN_PROCESS = False
-RUN_BLOCK_SUMMARY_LINES = False
-RUN_BLOCK_SUMMARY_BOXPLOT = False
-RUN_PHASE_SUMMARY = False
+RUN_PROCESS = True
+RUN_BLOCK_SUMMARY_LINES = True
+RUN_BLOCK_SUMMARY_BOXPLOT = True
+RUN_PHASE_SUMMARY = True
 RUN_TRIAL_BY_TRIAL = True
 
 # ------------------------------------------------------------------------------
 # Global Settings
 # ------------------------------------------------------------------------------
 EXPERIMENT = ExperimentType.ALL_DELAY.value
+
+# Apply per-experiment discarded fish list if present under "Processed data".
+APPLY_FISH_DISCARD = True
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
 STATS = True  # Enable statistical tests.
@@ -106,8 +113,50 @@ HIGHLIGHT_FISH_ID = [
 n_boot = 1000
 y_lim_plot = (0.7, 1.4)
 lme_frmt = "png"
-APPLY_FISH_DISCARD_LME = True
-DISCARD_FISH_IDS_LME = []
+APPLY_FISH_DISCARD_LME = False
+
+
+
+#! CHANGE THIS
+DISCARD_FISH_IDS_LME = [
+        # '20221115_10', '20221115_12', '20221116_03', '20221116_05', '20221116_08', '20221116_09', '20221116_11', '20221117_02', '20221117_05', '20221117_07', '20221117_08', '20221117_10', '20221117_11', '20221118_01', '20221118_06', '20221118_07', '20221118_09', '20221118_10', '20221118_12', '20221122_09', '20221123_10', '20221123_11', '20221124_01', '20221124_03', '20221124_04', '20221124_06', '20221124_12', '20221125_02', '20221125_03', '20221125_06', '20221125_08', '20221125_09', '20221125_11', '20221125_12', '20240611_05', '20240620_06', '20240624_06', '20240625_04', '20240626_01', '20240626_02', '20240703_08'
+    ]
+
+# %% Suppress statsmodels MixedLM convergence warnings (boundary / singular fits)
+
+warnings.filterwarnings(
+    "ignore",
+    # message=r".*MLE may be on the boundary of the parameter space.*",
+    category=ConvergenceWarning,
+)
+
+# LME Model Configuration
+# -----------------------
+# Random effects formula options:
+#   - "~Log_Baseline": Random slope by baseline (default, ANCOVA-style adjustment)
+#   - "~Condition": Random slope by condition (use if conditions have systematically
+#                   different variances; matches old implementation)
+#   - None: Random intercept only (simplest model)
+LME_RE_FORMULA = "~Log_Baseline"
+# LME_RE_FORMULA = None
+# "~Condition"
+
+# Jitter for singular-fit-prone datasets:
+#   Adds microscopic noise to break ties when identical values cause singular fits.
+#   Set to 0 to disable. Typical value: 1e-4 (0.0001)
+LME_JITTER_SCALE = 0.0
+LME_JITTER_SEED = 10  # For reproducibility
+
+# Optimizer for LME models:
+#   - "lbfgs": Faster, better for large global models (old code used this for global)
+#   - "powell": More robust for singular/small datasets (block-level, trial-by-trial)
+LME_GLOBAL_METHOD = "lbfgs"  # Optimizer for global ANCOVA model
+LME_LOCAL_METHOD = "powell"  # Optimizer for block-level and trial-by-trial models
+
+# Debug printing
+#   If True, prints a compact post-hoc table including raw and FDR-corrected p-values.
+#   This is useful to verify that plotted "Rate" markers match the FDR thresholding.
+LME_DEBUG_POSTHOC_TABLE = False
 # endregion Parameters
 
 
@@ -131,6 +180,8 @@ TRIAL_LINE_KW = {
     "estimator": "median",
     "errorbar": ("ci", 95),
     "err_style": "band",
+    "err_kws": {"alpha": 0.3},
+    "seed": 10,
 }
 # endregion Plot Formatting
 
@@ -169,7 +220,7 @@ def initialize_context():
         _path_lost_frames,
         _path_summary_exp,
         _path_summary_beh,
-        _path_processed_data,
+        path_processed_data,
         _path_cropped_exp_with_bout_detection,
         _path_tail_angle_fig_cs,
         _path_tail_angle_fig_us,
@@ -186,8 +237,34 @@ def initialize_context():
         path_pooled_data,
     ) = file_utils.create_folders(config.path_save)
 
-    excluded_dir = path_orig_pkl / "Excluded new"
-    fish_ids_to_discard = file_utils.load_excluded_fish_ids(excluded_dir)
+    # Prefer a per-experiment discarded IDs file in the Processed data folder.
+    # Special case requested: ALL_DELAY uses the canonical location under
+    # F:\Results (paper)\2025_delay\Processed data\Discarded_fish_IDs.txt
+    candidate_discard_files  = [
+        path_processed_data / "Discarded_fish_IDs.txt",
+    ]
+
+    fish_ids_to_discard = []
+    discard_source = None
+    for p in candidate_discard_files:
+        if p.exists():
+            fish_ids_to_discard = file_utils.load_discarded_fish_ids(p)
+            discard_source = p
+            break
+
+    # Fallback to the legacy location ("Excluded new/excluded_fish_ids.txt").
+    if not fish_ids_to_discard:
+        excluded_dir = path_orig_pkl / "Excluded new"
+        fish_ids_to_discard = file_utils.load_excluded_fish_ids(excluded_dir)
+        if fish_ids_to_discard:
+            discard_source = excluded_dir
+
+    if discard_source is not None:
+        try:
+            src_str = str(discard_source)
+        except Exception:
+            src_str = "<unknown>"
+        print(f"  Loaded {len(fish_ids_to_discard)} discarded fish IDs from: {src_str}")
 
     skip_block_stats = EXPERIMENT == ExperimentType.MOVING_CS_4COND.value
 
@@ -195,6 +272,39 @@ def initialize_context():
 def ensure_context():
     if config is None:
         initialize_context()
+
+
+def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFrame:
+    """Drop rows whose Fish ID is in the discarded list (if present).
+    
+    Prints unique fish count before and after discarding.
+    """
+    if df is None or df.empty:
+        return df
+    
+    print(df.columns)
+    
+    # Find the fish ID column
+    fish_col = None
+    for col in ("Fish", "Fish_ID"):
+        if col in df.columns:
+            fish_col = col
+            break
+    
+    if fish_col is None:
+        return df
+    
+    before = df[fish_col].nunique()
+    prefix = f"  [{source}] " if source else "  "
+    print(f"{prefix}Fish unique before discard: {before}")
+    
+    if not APPLY_FISH_DISCARD or not fish_ids_to_discard:
+        return df
+    
+    df_filtered = df[~df[fish_col].isin(fish_ids_to_discard)].copy()
+    after = df_filtered[fish_col].nunique()
+    print(f"{prefix}Fish unique after discard: {after}")
+    return df_filtered
 # endregion Context Setup
 
 
@@ -253,16 +363,34 @@ def load_first_pooled():
     ensure_context()
     paths = [*Path(path_pooled_data).glob("*.pkl")]
     paths = [p for p in paths if "NV per trial per fish" in p.stem and p.stem.split("_")[-1] == csus]
+    print(paths)
     if not paths:
         return pd.DataFrame()
     return pd.read_pickle(paths[0], compression="gzip")
 
 
-def filter_pooled_data(data, apply_fish_discard=True):
+def filter_pooled_data(data, apply_fish_discard=True, source: str = ""):
     ensure_context()
     # Apply global filters shared across plots and stats.
-    if apply_fish_discard:
-        data = data[~data["Fish"].isin(fish_ids_to_discard)]
+    
+    # Find the fish ID column
+    fish_col = None
+    for col in ("Fish", "Fish_ID"):
+        if col in data.columns:
+            fish_col = col
+            break
+    
+    prefix = f"  [{source}] " if source else "  "
+    
+    if fish_col is not None:
+        before = data[fish_col].nunique()
+        print(f"{prefix}Fish unique before discard: {before}")
+    
+    if apply_fish_discard and APPLY_FISH_DISCARD and fish_ids_to_discard and fish_col is not None:
+        data = data[~data[fish_col].isin(fish_ids_to_discard)]
+        after = data[fish_col].nunique()
+        print(f"{prefix}Fish unique after discard: {after}")
+    
     if age_filter != ["all"]:
         data = data[data["Age (dpf)"].isin(age_filter)]
     if setup_color_filter != ["all"]:
@@ -276,7 +404,7 @@ def load_phase_plot_data():
     data = load_first_pooled()
     if data.empty:
         return data
-    return filter_pooled_data(data)
+    return filter_pooled_data(data, source="load_phase_plot_data")
 
 
 def run_mixed_model(
@@ -317,8 +445,8 @@ def select_baseline_response_columns(df):
     return baseline_col, response_col
 
 
-def prepare_main_df(data, apply_fish_discard=True):
-    data = filter_pooled_data(data, apply_fish_discard=apply_fish_discard)
+def prepare_main_df(data, apply_fish_discard=True, jitter_scale=0.0, jitter_seed=42):
+    data = filter_pooled_data(data, apply_fish_discard=apply_fish_discard, source="prepare_main_df")
 
     baseline_col, response_col = select_baseline_response_columns(data)
 
@@ -332,6 +460,15 @@ def prepare_main_df(data, apply_fish_discard=True):
     df["Normalized vigor plot"] = df["Normalized vigor"]
     df["Log_Baseline"] = np.log(df[baseline_col] + 1)
     df["Log_Response"] = np.log(df[response_col] + 1)
+
+    # Optional jitter for singular-fit-prone datasets:
+    # Adds microscopic noise to break ties if you have identical values.
+    if jitter_scale > 0:
+        np.random.seed(jitter_seed)
+        noise = np.random.normal(0, jitter_scale, size=len(df))
+        df["Log_Response"] = df["Log_Response"] + noise
+        print(f"  Applied jitter (scale={jitter_scale}, seed={jitter_seed}) to Log_Response")
+
     df["Trial number"] = df["Trial number"].astype("int")
     df["Trial number"] = df["Trial number"] - df["Trial number"].min() + 1
 
@@ -416,7 +553,7 @@ def load_block_plot_data():
     if data.empty:
         return data, None
 
-    data = filter_pooled_data(data)
+    data = filter_pooled_data(data, source="load_block_plot_data")
     if data.empty:
         return data, None
 
@@ -515,6 +652,10 @@ def run_data_aggregation():
             continue
 
         data.drop(columns=["Angle of point 15 (deg)", "Bout beg", "Bout end"], inplace=True, errors="ignore")
+        
+        # Apply fish discarding
+        data = filter_discarded_fish_ids(data, source=path.stem)
+        
         cond_actual = data["Exp."].unique()[0]
         print(f"  Processing {cond_actual}: {len(data['Fish'].unique())} fish")
 
@@ -597,8 +738,12 @@ def run_block_summary_lines():
         return
 
     if DISCARD_FISH_IDS_LINES:
+        before = data["Fish"].nunique()
+        print(f"  [run_block_summary_lines] Fish unique before manual discard: {before}")
         print(f"  Discarding fish: {DISCARD_FISH_IDS_LINES}")
         data = data[~data["Fish"].isin(DISCARD_FISH_IDS_LINES)]
+        after = data["Fish"].nunique()
+        print(f"  [run_block_summary_lines] Fish unique after manual discard: {after}")
     
     if data.empty:
         print("  [SKIP] All fish discarded")
@@ -899,8 +1044,12 @@ def run_block_summary_boxplot():
         return
 
     if DISCARD_FISH_IDS_BOXPLOT:
+        before = data_box["Fish"].nunique()
+        print(f"  [run_block_summary_boxplot] Fish unique before manual discard: {before}")
         print(f"  Discarding fish: {DISCARD_FISH_IDS_BOXPLOT}")
         data_box = data_box[~data_box["Fish"].isin(DISCARD_FISH_IDS_BOXPLOT)]
+        after = data_box["Fish"].nunique()
+        print(f"  [run_block_summary_boxplot] Fish unique after manual discard: {after}")
         if data_box.empty:
             print("  [SKIP] All fish discarded")
             return
@@ -1139,8 +1288,12 @@ def run_phase_summary():
         return
 
     if DISCARD_FISH_IDS_PHASE:
+        before = data["Fish"].nunique()
+        print(f"  [run_phase_summary] Fish unique before manual discard: {before}")
         print(f"  Discarding fish: {DISCARD_FISH_IDS_PHASE}")
         data = data[~data["Fish"].isin(DISCARD_FISH_IDS_PHASE)]
+        after = data["Fish"].nunique()
+        print(f"  [run_phase_summary] Fish unique after manual discard: {after}")
 
     if data.empty:
         print("  [SKIP] All fish discarded")
@@ -1314,6 +1467,7 @@ def run_phase_summary():
 
 
 # %%
+# region LME
 def run_trial_by_trial(data_pooled=None):
     """Plot trial-by-trial median trajectories with LME significance annotations.
 
@@ -1330,12 +1484,26 @@ def run_trial_by_trial(data_pooled=None):
         print("  [SKIP] No pooled data file found")
         return
 
-    if DISCARD_FISH_IDS_LME:
-        print(f"  Discarding fish (manual): {DISCARD_FISH_IDS_LME}")
-        data_plot = data_plot[~data_plot["Fish"].isin(DISCARD_FISH_IDS_LME)]
+    # Print initial fish count
+    before_any_discard = data_plot['Fish'].nunique()
+    print(f"  [run_trial_by_trial] Fish unique before any discard: {before_any_discard}")
     
-    if APPLY_FISH_DISCARD_LME and fish_ids_to_discard:
-        print(f"  Discarding fish (global): {fish_ids_to_discard}")
+    # Apply manual discard list (always applied if non-empty)
+    if DISCARD_FISH_IDS_LME:
+        print(f"  Discarding fish (manual list): {len(DISCARD_FISH_IDS_LME)} fish")
+        data_plot = data_plot[~data_plot["Fish"].isin(DISCARD_FISH_IDS_LME)]
+        after_manual = data_plot['Fish'].nunique()
+        print(f"  [run_trial_by_trial] Fish unique after manual discard: {after_manual}")
+    
+    # Apply global discard list (from Discarded_fish_IDs.txt)
+    if APPLY_FISH_DISCARD_LME and APPLY_FISH_DISCARD and fish_ids_to_discard:
+        before_global = data_plot['Fish'].nunique()
+        print(f"  [run_trial_by_trial] Discarding fish (from Discarded_fish_IDs.txt): {len(fish_ids_to_discard)} fish")
+        data_plot = data_plot[~data_plot["Fish"].isin(fish_ids_to_discard)]
+        after_global = data_plot['Fish'].nunique()
+        print(f"  [run_trial_by_trial] Fish unique after global discard: {after_global}")
+    
+    print(f"  Fish remaining after all discards: {data_plot['Fish'].nunique()}")
 
     if EXPORT_TEXT:
         output_path = path_pooled_data / "data_output.txt"
@@ -1344,7 +1512,12 @@ def run_trial_by_trial(data_pooled=None):
         )
 
     try:
-        df_main = prepare_main_df(data_plot, apply_fish_discard=APPLY_FISH_DISCARD_LME)
+        df_main = prepare_main_df(
+            data_plot,
+            apply_fish_discard=APPLY_FISH_DISCARD_LME,
+            jitter_scale=LME_JITTER_SCALE,
+            jitter_seed=LME_JITTER_SEED,
+        )
     except ValueError as exc:
         print(f"  [SKIP] {exc}")
         return
@@ -1363,6 +1536,11 @@ def run_trial_by_trial(data_pooled=None):
         for b in block_order
     }
     block_boundaries = block_boundaries_from_data(df_main, block_order)
+
+
+    print(df_main['Fish_ID'].nunique())
+
+    # return
 
     # Containers for statistical results
     global_interactions = None
@@ -1419,10 +1597,14 @@ def run_trial_by_trial(data_pooled=None):
         #   - Condition:Block_name: interaction terms indicating that the condition
         #     effect differs by block (what we primarily want here)
         print("  --- LME: Global ANCOVA ---")
+        print(f"  Using re_formula: {LME_RE_FORMULA}, method: {LME_GLOBAL_METHOD}")
         f_global = f"Log_Response ~ Log_Baseline + C(Condition, Treatment('{ref_cond}')) * C(Block_name)"
-        res_global, err = run_mixed_model(df_main, f_global, "Fish_ID", re_formula="~Log_Baseline")
+        res_global, err = run_mixed_model(df_main, f_global, "Fish_ID", re_formula=LME_RE_FORMULA, method=LME_GLOBAL_METHOD)
 
         if res_global:
+            # Print full summary for transparency (useful for debugging/reporting).
+            print(res_global.summary())
+            
             # statsmodels MixedLM summary contains coefficient table as a pandas-like
             # object in tables[1]. We extract only interaction rows (contain ':').
             summary_table = res_global.summary().tables[1]
@@ -1475,7 +1657,7 @@ def run_trial_by_trial(data_pooled=None):
 
             # Fit mixed model within the block.
             # If convergence/singularity occurs, run_mixed_model returns (None, error).
-            res_local, err = run_mixed_model(df_blk, f_local, "Fish_ID", re_formula="~Log_Baseline", reml=True)
+            res_local, err = run_mixed_model(df_blk, f_local, "Fish_ID", re_formula=LME_RE_FORMULA, method=LME_LOCAL_METHOD, reml=False)
 
             if res_local:
                 params = res_local.params   # coefficient estimates (fixed effects + possibly variance terms)
@@ -1490,6 +1672,11 @@ def run_trial_by_trial(data_pooled=None):
                 main_terms = [t for t in params.index if "Condition" in t and ":" not in t]
                 slope_terms = [t for t in params.index if "Condition" in t and ":" in t]
 
+                # NOTE:
+                #   The console prints *raw* p-values here, but the plot's "Rate" marker
+                #   is driven by FDR-corrected p-values computed *after* looping over blocks.
+                #   (See ph_df["P_Slope_FDR"] and ph_df["Sig_Slope"].)
+
                 # Print slope output results (per block, per term)
                 if slope_terms:
                     print(f"    [Block {block}] Slope (Condition × Trial_Centered) terms:")
@@ -1498,26 +1685,36 @@ def run_trial_by_trial(data_pooled=None):
                 else:
                     print(f"    [Block {block}] No slope terms found.")
 
-                # Only store results if we can find both:
+                # Store results if we can find both:
                 #   - a condition main effect term (mean difference)
                 #   - a condition-by-trial interaction term (slope difference)
                 #
-                # Note:
-                #   Current logic takes the first term only. If you want *all*
-                #   non-reference conditions, you would loop over all matching terms.
+                # With >2 conditions, there can be multiple terms. We summarize by taking the
+                # strongest (smallest p) mean term and strongest slope term within the block.
                 if main_terms and slope_terms:
-                    term_main = main_terms[0]
-                    term_slope = slope_terms[0]
+                    def _extract_level(term: str) -> str:
+                        m = re.search(r"\[T\.(.+?)\]", term)
+                        return m.group(1) if m else term
+
+                    main_terms_sorted = sorted(main_terms)
+                    slope_terms_sorted = sorted(slope_terms)
+
+                    best_main = min(main_terms_sorted, key=lambda t: float(pvals.get(t, 1.0)))
+                    best_slope = min(slope_terms_sorted, key=lambda t: float(pvals.get(t, 1.0)))
 
                     posthoc_res.append(
                         {
                             "Block": block,
+                            "Term_Main": best_main,
+                            "CondLevel_Main": _extract_level(best_main),
                             # Mean effect: log-scale mean difference vs reference at block center
-                            "Coef_Mean": params[term_main],
-                            "P_Mean": pvals[term_main],
+                            "Coef_Mean": params[best_main],
+                            "P_Mean": pvals[best_main],
+                            "Term_Slope": best_slope,
+                            "CondLevel_Slope": _extract_level(best_slope),
                             # Slope effect: log-scale slope difference vs reference within block
-                            "Coef_Slope": params[term_slope],
-                            "P_Slope": pvals[term_slope],
+                            "Coef_Slope": params[best_slope],
+                            "P_Slope": pvals[best_slope],
                         }
                     )
                 else:
@@ -1538,9 +1735,29 @@ def run_trial_by_trial(data_pooled=None):
             _, ph_df["P_Mean_FDR"], _, _ = multipletests(ph_df["P_Mean"], alpha=0.05, method="fdr_bh")
             _, ph_df["P_Slope_FDR"], _, _ = multipletests(ph_df["P_Slope"], alpha=0.05, method="fdr_bh")
 
-            # These boolean flags drive silver ("Mean") and firebrick ("Rate") markers on the plot.
+            # These boolean flags drive plot markers.
             ph_df["Sig_Mean"] = ph_df["P_Mean_FDR"] < 0.05
+            # Slope significance shown both before and after FDR correction
+            ph_df["Sig_Slope_Raw"] = ph_df["P_Slope"] < 0.05
             ph_df["Sig_Slope"] = ph_df["P_Slope_FDR"] < 0.05
+
+            if LME_DEBUG_POSTHOC_TABLE:
+                cols = [
+                    "Block",
+                    "CondLevel_Main",
+                    "Coef_Mean",
+                    "P_Mean",
+                    "P_Mean_FDR",
+                    "Sig_Mean",
+                    "CondLevel_Slope",
+                    "Coef_Slope",
+                    "P_Slope",
+                    "P_Slope_FDR",
+                    "Sig_Slope",
+                ]
+                cols = [c for c in cols if c in ph_df.columns]
+                print("  --- LME: Post-Hoc Block Summary (raw + FDR) ---")
+                print(ph_df[cols].to_string(index=False))
 
         # ---------------------------------------------------------------------
         # 3) Trial-by-Trial Analysis: per-trial condition differences
@@ -1565,7 +1782,7 @@ def run_trial_by_trial(data_pooled=None):
                 continue
 
             f_trial = f"Log_Response ~ Log_Baseline + C(Condition, Treatment('{ref_cond}'))"
-            res_t, err = run_mixed_model(df_t, f_trial, "Fish_ID")
+            res_t, err = run_mixed_model(df_t, f_trial, "Fish_ID", method=LME_LOCAL_METHOD)
 
             if res_t:
                 # Pick the condition coefficient term (first non-reference).
@@ -1607,10 +1824,13 @@ def run_trial_by_trial(data_pooled=None):
             ax=ax_c,
         )
 
-    # Statistical annotations: three lanes of markers above the plot.
+    # Statistical annotations: lanes of markers above the plot.
     # Gold = global interaction, Silver = block effects, Black = trial significance.
-    y_gold = y_lim_plot[1] + 0.25
-    y_silver = y_lim_plot[1] + 0.15
+    y_top = y_lim[1]
+    y_gold = y_top + 0.25
+    y_silver = y_top + 0.15
+    y_silver_raw = y_silver - 0.05
+    y_silver_fdr = y_silver - 0.10
     # y_black = y_lim_plot[1] + 0.05
 
     # Global interactions (gold markers).
@@ -1627,6 +1847,7 @@ def run_trial_by_trial(data_pooled=None):
                         ha="center",
                         fontsize=7,
                         fontweight="bold",
+                        clip_on=False,
                     )
 
     # Post-hoc block effects (silver/firebrick markers).
@@ -1636,45 +1857,65 @@ def run_trial_by_trial(data_pooled=None):
             if blk in block_centers:
                 if row["Sig_Mean"]:
                     ax_c.text(
-                        block_centers[blk], y_silver, "Mean", color="gray", ha="center", fontsize=6
+                        block_centers[blk],
+                        y_silver,
+                        "Mean",
+                        color="gray",
+                        ha="center",
+                        fontsize=6,
+                        clip_on=False,
+                    )
+                if row.get("Sig_Slope_Raw", False):
+                    ax_c.text(
+                        block_centers[blk],
+                        y_silver_raw,
+                        "Rate (raw)",
+                        color="firebrick",
+                        ha="center",
+                        fontsize=6,
+                        clip_on=False,
                     )
                 if row["Sig_Slope"]:
                     ax_c.text(
                         block_centers[blk],
-                        y_silver - 0.05,
-                        "Rate",
+                        y_silver_fdr,
+                        "Rate (FDR)",
                         color="firebrick",
                         ha="center",
                         fontsize=6,
                         fontweight="bold",
+                        clip_on=False,
                     )
 
-    # # Trial-by-trial significance (black stars).
-    # if sig_trials:
-    #     ax_c.scatter(
-    #         sig_trials,
-    #         [y_black] * len(sig_trials),
-    #         color="black",
-    #         marker="*",
-    #         s=8,
-    #         zorder=10,
-    #         linewidths=0,
-    #     )
+    # Trial-by-trial significance (black stars).
+    y_black = y_top + 0.01
+    if sig_trials:
+        ax_c.scatter(
+            sig_trials,
+            [y_black] * len(sig_trials),
+            color="black",
+            marker="*",
+            s=10,
+            zorder=10,
+            linewidths=0,
+            label="p < 0.05 (FDR)",
+            clip_on=False,
+        )
 
     # Add vertical lines for block boundaries.
     for boundary in block_boundaries:
         ax_c.axvline(boundary, color="gray", alpha=0.5, linewidth=0.5)
 
     ax_c.set_xlim(0, df_main["Trial number"].max() + 1)
-    ax_c.set_ylim(y_lim_plot[0], y_lim_plot[1] + 0.3)
+    ax_c.set_ylim(y_lim[0], y_lim[1])
     ax_c.set_ylabel("Normalized vigor (ratio)")
     ax_c.legend().remove()
 
     save_path = path_pooled_vigor_fig / f"NV_LME_Visualized_Raw_{cond_types}.{lme_frmt}"
     save_figure(fig_c, save_path, lme_frmt)
     print(f"  Saved: {save_path.name}")
+# endregion LME
 # endregion Pipeline Functions
-
 
 # region Main
 def main():
