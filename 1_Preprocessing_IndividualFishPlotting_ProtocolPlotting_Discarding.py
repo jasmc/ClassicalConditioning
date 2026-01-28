@@ -1,34 +1,15 @@
 """
-Merged Analysis Pipeline Script
-===============================
+Preprocessing and Individual Fish Analysis Pipeline
+===================================================
 
-This script consolidates the data processing and quality control workflow for zebrafish behavior analysis.
-It merges functionality from four standalone scripts into a single, configurable pipeline:
-
-1.  **Preprocessing (`Process data/Single fish/Prepocess.py`)**:
-    -   Reads raw tail tracking and camera data.
-    -   Synchronizes and interpolates data to a common framerate.
-    -   Detects behavioral bouts and computes vigor metrics.
-    -   Saves processed data as `.pkl` files.
-
-2.  **Individual Trial Plotting (`Plot/Single fish/Fig1_Individual trials_angle, vigor, SR.py`)**:
-    -   Generates diagnostic plots for each fish: Tail angle traces, Vigor heatmaps, and Normalized vigor summaries.
-
-3.  **Protocol Visualization (`Plot/Single fish/Protocols actually run_single fish.py`)**:
-    -   Plots the actual stimulus protocol experienced by each fish to verify experimental timing.
-
-4.  **Quality Control / Discard (`Discard/Discard fish.py`)**:
-    -   Applies exclusion criteria based on viability, training performance, and baseline activity.
-    -   Moves excluded fish data to an 'Excluded' directory.
-
-**Usage:**
-    -   Adjust the boolean flags in the **Parameters** region to enable/disable specific stages.
-    -   Ensure `experiment_configuration.py` and `general_configuration.py` are correctly set up for your dataset.
-    -   Run this script directly: `python Pipeline_Analysis.py`
+Consolidated data processing and quality control workflow:
+- Preprocessing: Read, synchronize, and process raw tracking data
+- Individual Plotting: Generate per-fish diagnostic plots
+- Protocol Visualization: Verify stimulus timing
+- Quality Control: Apply exclusion criteria and manage discarded fish
 """
-# pip install pandas numpy matplotlib seaborn tqdm scipy plotly
 # %%
-# region Imports & Configuration
+# region Imports
 import gc
 import sys
 from pathlib import Path
@@ -40,7 +21,6 @@ import seaborn as sns
 from tqdm import tqdm
 
 # Add the repository root containing shared modules to the Python path.
-# This ensures that imports like 'analysis_utils' work regardless of where this script is located relative to the root.
 if "__file__" in globals():
     module_root = Path(__file__).resolve()
 else:
@@ -54,36 +34,30 @@ from experiment_configuration import ExperimentType, get_experiment_config
 from general_configuration import config as gen_config
 from plotting_style import configure_axes_for_pipeline
 
-# Apply shared plotting aesthetics (fonts, sizes, etc.)
 plotting_style.set_plot_style(use_constrained_layout=False)
-# endregion
+# endregion Imports
 
 
 # region Parameters
-# ==============================================================================
-# PIPELINE CONTROL FLAGS
-# ==============================================================================
-# Set these flags to True/False to enable or disable specific stages of the pipeline.
-
-RUN_PREPROCESS = False          # Stage 1: Raw data processing -> .pkl files
-RUN_PLOT_INDIVIDUALS = False    # Stage 2: Generate per-fish diagnostic plots
-RUN_PLOT_PROTOCOLS = False      # Stage 3: Verify stimulus protocols
-RUN_DISCARD = False             # Stage 4: Automatic quality control and file exclusion
+# ------------------------------------------------------------------------------
+# Pipeline Control Flags
+# ------------------------------------------------------------------------------
+RUN_PREPROCESS = False
+RUN_PLOT_INDIVIDUALS = False
+RUN_PLOT_PROTOCOLS = False
+RUN_DISCARD = False
 
 FILTER_FISH_ID = None
-# '20221115_05'
-# '20221116_09'
-# '20221115_01'          # Set to a string (e.g., '20221115_01') to process only matching fish
 EXPERIMENT_TYPE = ExperimentType.FIRST_DELAY.value
 
-# ==============================================================================
-# PREPROCESS PARAMETERS
-# ==============================================================================
-PREPROCESS_OVERWRITE = True    # If False, skips existing .pkl files
+# ------------------------------------------------------------------------------
+# Preprocess Parameters
+# ------------------------------------------------------------------------------
+PREPROCESS_OVERWRITE = True
 
-# ==============================================================================
-# PLOT INDIVIDUAL TRIALS PARAMETERS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Plot Individual Trials Parameters
+# ------------------------------------------------------------------------------
 PLOT_INDIVIDUALS_OVERWRITE = True
 RAW_TAIL_ANGLE = True
 RAW_VIGOR = True
@@ -92,26 +66,21 @@ NORMALIZED_VIGOR_TRIAL = True
 METRIC_SINGLE_TRIALS = gen_config.tail_angle_label
 WINDOW_DATA_PLOT_S = 40
 INTERVAL_BETWEEN_XTICKS_S = 20
-FIG_FORMAT = 'png'             # 'png', 'pdf', 'svg', etc.
+FIG_FORMAT = 'png'
 
-# ==============================================================================
-# PLOT PROTOCOLS PARAMETERS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Plot Protocols Parameters
+# ------------------------------------------------------------------------------
 PLOT_PROTOCOLS_OVERWRITE = True
 PLOT_FROM_STIM_CONTROL = True
 PLOT_FROM_PROCESSED_DATA = True
 PROTOCOLS_FIG_FORMAT = 'png'
-# endregion
+# endregion Parameters
 
 
 # region Pipeline Functions
 
-# region Preprocess
-
-# TODO if OVERWRITE is False, confirm whether pkl exists in 'pkl files\1. Original' and its subfolders
-
-
-# Function: Entry point for preprocessing stage.
+# %%
 def run_preprocess(params: dict = None):
     """
     Executes the raw data preprocessing pipeline.
@@ -136,19 +105,13 @@ def run_preprocess(params: dict = None):
     print("RUNNING PREPROCESS")
     print("="*80)
 
-    # Load experiment-specific configuration.
-    # Load experiment-specific configuration.
     config = get_experiment_config(EXPERIMENT_TYPE)
-    
-    # --- Helper Functions ---
-    # Function: Helper to list tail angle columns in order.
+
     def angle_columns(data: pd.DataFrame) -> list:
         """Identifies and sorts columns representing tail point angles."""
-        # Collect angle columns from tracking output and sort by point index.
         cols = [c for c in data.columns if c.startswith('Angle of point')]
-        # Function: Helper to sort angle column names numerically.
+
         def key(c):
-            # Extract the point index used in the column name for stable ordering.
             try:
                 return int(c.split('Angle of point ')[1].split(' ')[0])
             except Exception:
@@ -156,10 +119,8 @@ def run_preprocess(params: dict = None):
                 return c
         return sorted(cols, key=key)
 
-    # Function: Helper to plot long-timescale tail activity for QC.
     def plot_behavior_overview(data, fish_name, save_path):
         """Generates a long-timescale plot of tail activity for validity checking."""
-        # Choose the tail angle column and build a long timescale axis.
         angle_col = gen_config.tail_angle_label
         if angle_col not in data.columns:
             cols = [c for c in data.columns if c.startswith('Angle of point')]
@@ -169,10 +130,8 @@ def run_preprocess(params: dict = None):
                 print(f"No angle columns found for behavior overview: {fish_name}")
                 return
         if 'AbsoluteTime' in data.columns:
-            # Use absolute timestamps if available for long experiments.
             time_h = data['AbsoluteTime'] / 1000 / 3600
         else:
-            # Fall back to frame count if absolute time is missing.
             time_h = np.arange(len(data)) / gen_config.expected_framerate / 3600
             
         plt.figure(figsize=(28, 14))
@@ -183,7 +142,6 @@ def run_preprocess(params: dict = None):
         plt.savefig(save_path, dpi=100, bbox_inches='tight')
         plt.close()
 
-    # --- Setup Directories ---
     if not config.path_home:
         raise ValueError('config.path_home is empty; set a valid experiment path before running')
 
@@ -199,7 +157,6 @@ def run_preprocess(params: dict = None):
         all_fish_raw_data_paths = [p for p in all_fish_raw_data_paths if FILTER_FISH_ID in p.name]
     print('Found %d fish files' % len(all_fish_raw_data_paths))
 
-    # --- Main Preprocessing Loop ---
     for fish_path in tqdm(all_fish_raw_data_paths, desc='Preprocessing fish'):
         gc.collect()
         stem_fish_path_orig = fish_path.stem.replace('_mp tail tracking', '').lower()
@@ -369,10 +326,9 @@ def run_preprocess(params: dict = None):
         data.to_pickle(pkl_path, compression='gzip')
 
     print('PREPROCESS FINISHED')
-# endregion
 
-# region Plot Individual Trials
-# Function: Entry point for per-fish diagnostic plots.
+
+# %%
 def run_plot_individual_trials():
     """
     Generates single-fish diagnostic plots to visualize behavior during trials.
@@ -391,8 +347,6 @@ def run_plot_individual_trials():
 
     config = get_experiment_config(EXPERIMENT_TYPE)
 
-    # Constants
-    # QC thresholds and block selection parameters.
     cr_window = config.cr_window
     if isinstance(cr_window, (int, float, np.integer, np.floating)): cr_window = [0, cr_window]
     
@@ -411,13 +365,11 @@ def run_plot_individual_trials():
     xtick_step_raw = max(1, int(interval_between_xticks_frames / gen_config.plotting.downsampling_step))
     xtick_step_scaled = max(1, int(interval_between_xticks_frames))
 
-    # --- Setup Output Directories ---
     if not config.path_save: raise ValueError('config.path_save is empty')
     (_, _, _, _, _, path_tail_angle_fig_cs, path_tail_angle_fig_us, path_raw_vigor_fig_cs, path_raw_vigor_fig_us,
      path_scaled_vigor_fig_cs, path_scaled_vigor_fig_us, path_normalized_fig_cs, path_normalized_fig_us,
      _, _, path_orig_pkl, _, _) = file_utils.create_folders(config.path_save)
 
-    # --- Main Plotting Loop ---
     for csus in ['CS', 'US']:
         print(f"Processing {csus} trials...")
         try:
@@ -438,11 +390,11 @@ def run_plot_individual_trials():
             path_tail_fig, path_raw_fig = path_tail_angle_fig_us, path_raw_vigor_fig_us
             path_sc_fig, path_norm_fig = path_scaled_vigor_fig_us, path_normalized_fig_us
             stim_duration = gen_config.us_duration
-        # print(path_orig_pkl)
+
         all_fish_data_paths = list(Path(path_orig_pkl).glob('*.pkl'))
         if FILTER_FISH_ID:
             all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]
-            # print(all_fish_data_paths)
+
         for fish_path in reversed(all_fish_data_paths):
             stem_fish_path_orig = fish_path.stem.lower()
             stem_split = stem_fish_path_orig.split('_')
@@ -773,8 +725,6 @@ def run_plot_individual_trials():
                     figsize=(5 / 2.54, 6 / 2.54),
                 )
 
-# TODO confirm scaling
-
                 if csus == 'CS':
                     for b_i, b in enumerate(phases_block_names):
                         show_xticks = (b_i == len(phases_block_names) - 1)
@@ -943,10 +893,9 @@ def run_plot_individual_trials():
                 plt.close(fig)
             
     print("PLOT INDIVIDUAL TRIALS FINISHED")
-# endregion
 
-# region Plot Protocols
-# Function: Entry point for protocol visualization plots.
+
+# %%
 def run_plot_protocols():
     """
     Plots the stimulus protocol as experienced by the fish.
@@ -976,11 +925,8 @@ def run_plot_protocols():
     path_sc = path_analysis_protocols / 'Single fish' / 'From stim control files'
     path_sc.mkdir(parents=True, exist_ok=True)
 
-    # Helper function for protocol plotting from stim control
-    # Function: Helper to render protocol plots from stim control files.
     def plot_protocol_from_stimcontrol(protocol: pd.DataFrame, fig_path: Path, time_bef_first_stim_ms: int) -> None:
         """Plot protocol timeline from stim control file."""
-        # Build a cumulative time axis from inter-stimulus intervals.
         protocol = protocol.copy()
         protocol['ISI'] = list(np.diff(protocol['beg (ms)'].to_numpy())) + [0]
         protocol['Time'] = [time_bef_first_stim_ms] + (
@@ -988,9 +934,8 @@ def run_plot_protocols():
         ).to_list()
         protocol.loc[protocol.index[1:], 'Time'] /= (1000 * 60)
 
-        # Function: Helper to convert protocol times into event list.
         def to_event_list(values) -> list:
-            # Normalize scalars/series to a simple list of event times.
+            """Convert protocol times into event list."""
             if isinstance(values, pd.Series):
                 return values.to_list()
             if np.isscalar(values):
@@ -1249,42 +1194,37 @@ def run_plot_protocols():
                 plt.close(fig)
 
     print("PLOT PROTOCOLS FINISHED")
-# endregion
 
-# region Discard & Quality Control
-# Function: Entry point for discard/QC stage.
+
+# %%
 def run_discard():
     """
     Canonical discard flow (aligned to `Discard/Discard fish.py`).
     """
     config = get_experiment_config(EXPERIMENT_TYPE)
 
-    # Function: Helper to extract fish ID from path.
     def fish_id_from_path(fish_path: Path) -> str:
-        # Map file path to the standard day_fishID format.
+        """Extract fish ID from path."""
         return file_utils.fish_id_from_path(fish_path)
 
-    # Function: Helper to log discard reasons.
     def write_to_txt(fish_name, reason):
-        # Record discard reason in text logs for QC tracking.
+        """Log discard reasons to text files."""
         print(fish_name)
         with open(path_processed_data / 'Fish to discard.txt', 'a') as file:
             file.write(f'{fish_name}  {reason}\n')
         with open(path_processed_data / 'Discarded_fish_IDs.txt', 'a') as file:
             file.write(f"'{fish_name}', ")
 
-    # Function: Helper to track excluded IDs.
     def record_excluded_fish(fish_name):
-        # Maintain a unique list of excluded fish IDs.
+        """Track excluded fish IDs."""
         if fish_name in excluded_fish_ids:
             return
         excluded_fish_ids.add(fish_name)
         with open(excluded_ids_path, 'a') as file:
             file.write(f"{fish_name}\n")
 
-    # Function: Helper to move matching raw files to Excluded.
     def move_raw_data_files(fish_name, raw_excluded_dir, path_home):
-        # Move any raw files that share the fish ID into Excluded/.
+        """Move matching raw files to Excluded directory."""
         if raw_excluded_dir is None or not path_home or not Path(path_home).exists():
             return
         raw_excluded_dir.mkdir(exist_ok=True)
@@ -1302,9 +1242,8 @@ def run_discard():
                 target = raw_excluded_dir / f"{stem}_{idx}{suffix}"
             raw_path.replace(target)
 
-    # Function: Helper to log and move excluded data.
     def exclude(fish_path, reason, cleanup_refs=None):
-        # Apply exclusion: log reason, move pkl, and move raw files.
+        """Apply exclusion: log reason, move pkl, and move raw files."""
         fish_name = fish_id_from_path(fish_path)
         write_to_txt(fish_name, reason)
         record_excluded_fish(fish_name)
@@ -1318,34 +1257,29 @@ def run_discard():
                 if hasattr(ref, "clear"):
                     ref.clear()
 
-    # Function: Helper to filter rows with valid block names.
     def valid_block_mask(df):
-        # Keep rows that have a non-empty block label.
+        """Filter rows with valid block names."""
         return df['Block name'].notna() & df['Block name'].ne('')
 
-    # Function: Helper to select trial-time window.
     def window_mask(df, start_s, end_s):
-        # Time window selector in seconds.
+        """Select trial-time window."""
         return df['Trial time (s)'].ge(start_s) & df['Trial time (s)'].le(end_s)
 
-    # Function: Helper to filter a block and time window.
     def select_block_window(df, block_name, start_s, end_s):
-        # Filter by block label and time window.
+        """Filter a block and time window."""
         return df[
             valid_block_mask(df)
             & df['Block name'].str.contains(block_name)
             & window_mask(df, start_s, end_s)
         ]
 
-    # Function: Helper to find trials without bouts.
     def trials_with_no_bout(df):
-        # Identify trials with zero detected bouts.
+        """Find trials without bouts."""
         trials_sum = df.groupby('Trial number', observed=True)['Bout'].sum()
         return trials_sum[trials_sum == 0].index.tolist()
 
-    # Function: Check viability in last US trial.
     def check_viability(data_us, us_window):
-        # Require activity after US in the final trial and adequate US duration.
+        """Check viability in last US trial."""
         if data_us.empty:
             return False, 'no US trials found'
         max_trial = int(data_us['Trial number'].max())
@@ -1365,9 +1299,8 @@ def run_discard():
             return False, 'failed viability test'
         return True, None
 
-    # Function: Check Train block bouts.
     def check_train(data_us, us_window):
-        # Require bouts in the US window for every Train trial.
+        """Check Train block bouts."""
         data_us_train = select_block_window(data_us, 'Train', 0, us_window)
         if data_us_train.empty:
             return False, 'no Train block found'
@@ -1376,9 +1309,8 @@ def run_discard():
             return False, f'no bouts in Train for trial(s): {trials_no_bout}'
         return True, None
 
-    # Function: Check Re-Train block bouts.
     def check_retrain(data_us, us_window):
-        # If Re-Train exists, require bouts in the US window for every trial.
+        """Check Re-Train block bouts."""
         data_us_retrain = select_block_window(data_us, 'Re-Train', 0, us_window)
         if data_us_retrain.empty:
             return True, None
@@ -1387,9 +1319,8 @@ def run_discard():
             return False, f'no bouts in Retrain for trial(s): {trials_no_bout}'
         return True, None
 
-    # Function: Check baseline bouts per block.
     def check_baseline(data_cs, blocks_trials_sets, blocks_chosen, min_trials, baseline_window):
-        # Count trials with bouts in the baseline (pre-CS) window.
+        """Check baseline bouts per block."""
         data_cs_pre = data_cs[window_mask(data_cs, -baseline_window, 0) & data_cs['Bout']]
         for block_name, trials_block_set in zip(blocks_chosen, blocks_trials_sets):
             trials_with_bouts = data_cs_pre.loc[
@@ -1402,9 +1333,8 @@ def run_discard():
                 )
         return True, None
 
-    # Function: Check CR window bouts per block.
     def check_cr(data_cs, blocks_trials_sets, blocks_chosen, min_trials, cr_window):
-        # Count trials with bouts in the CR window.
+        """Check CR window bouts per block."""
         data_cs_cr = data_cs[window_mask(data_cs, cr_window[0], cr_window[1]) & data_cs['Bout']]
         for block_name, trials_block_set in zip(blocks_chosen, blocks_trials_sets):
             trials_with_bouts = data_cs_cr.loc[
@@ -1438,7 +1368,7 @@ def run_discard():
         ]
     else:
         blocks = []
-    # Resolve block names, expanding 10-trial labels if block size changes.
+
     base_block_names = []
     if config.names_cs_blocks_10 and len(config.names_cs_blocks_10) == len(config.trials_cs_blocks_10):
         base_block_names = list(config.names_cs_blocks_10)
@@ -1624,26 +1554,20 @@ def run_discard():
         print(f"Warning: missing excluded PKL files for {len(missing)} fish.")
 
     print('Done')
-# endregion
-
-# endregion
+# endregion Pipeline Functions
 
 
 # region Main
 if __name__ == "__main__":
     if RUN_PREPROCESS:
-        try: run_preprocess()
-        except Exception as e: print(f"Error in Preprocess: {e}")
+        run_preprocess()
 
     if RUN_PLOT_INDIVIDUALS:
-        try: run_plot_individual_trials()
-        except Exception as e: print(f"Error in Plot Individual Trials: {e}")
+        run_plot_individual_trials()
 
     if RUN_PLOT_PROTOCOLS:
-        try: run_plot_protocols()
-        except Exception as e: print(f"Error in Plot Protocols: {e}")
+        run_plot_protocols()
 
     if RUN_DISCARD:
-        try: run_discard()
-        except Exception as e: print(f"Error in Discard: {e}")
-# endregion
+        run_discard()
+# endregion Main

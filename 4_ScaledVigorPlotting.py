@@ -1,6 +1,12 @@
-"""Build and plot scaled-vigor heatmaps and lineplots from pooled all-fish data."""
+"""
+Scaled Vigor Plotting Pipeline
+===============================
+
+Build and plot scaled-vigor heatmaps and lineplots from pooled all-fish data.
+"""
+
 # %%
-# region Imports & Configuration
+# region Imports
 import sys
 from pathlib import Path
 from typing import Literal
@@ -27,18 +33,17 @@ from general_configuration import config as gen_config
 from plotting_style import get_plot_config
 
 pd.set_option("mode.copy_on_write", True)
-# pd.options.mode.chained_assignment = None
 
 # Set plotting style (shared across analysis scripts).
 plotting_style.set_plot_style(use_constrained_layout=False)
-# endregion
+# endregion Imports
 
 
 # %%
 # region Parameters
-# ==============================================================================
-# PIPELINE CONTROL FLAGS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Pipeline Control Flags
+# ------------------------------------------------------------------------------
 RUN_BUILD_POOLED_OUTPUTS = False
 RUN_COUNT_HEATMAP = False
 RUN_SV_HEATMAP_RENDERING = True
@@ -46,14 +51,12 @@ RUN_SV_LINEPLOTS_INDIVIDUAL = False
 RUN_SV_LINEPLOTS_CATCH_TRIALS = True
 RUN_SV_LINEPLOTS_BLOCKS = True
 
-# ==============================================================================
-# SHARED PARAMETERS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Shared Parameters
+# ------------------------------------------------------------------------------
 EXPERIMENT = ExperimentType.ALL_DELAY.value
-# EXPERIMENT = ExperimentType.ALL_3S_TRACE.value
-# EXPERIMENT = ExperimentType.ALL_10S_TRACE.value
 
-csus = "CS"  # Stimulus alignment: "CS" or "US"
+csus = "CS"  # Stimulus alignment: "CS" or "US".
 x_lim = (-20, 20)
 window_data_plot = [-20, 20]
 
@@ -61,30 +64,31 @@ y_lim = (-0.15, 0.15)
 y_clip = [-0.14, 0.14]
 n_boot = 10
 
-# ==============================================================================
-# BUILD POOLED OUTPUTS PARAMETERS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Build Pooled Outputs Parameters
+# ------------------------------------------------------------------------------
 binning_windows = [0.5, 1.0]
 default_binning_window = 1.0
 
-# ==============================================================================
-# HEATMAP PARAMETERS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Heatmap Parameters
+# ------------------------------------------------------------------------------
 interval_between_xticks_heatmap = 20
 
-# ==============================================================================
-# COUNT HEATMAP PARAMETERS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# Count Heatmap Parameters
+# ------------------------------------------------------------------------------
 count_heatmap_binning_window = 0.5
-# ==============================================================================
-# SV HEATMAP RENDERING PARAMETERS
-# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# SV Heatmap Rendering Parameters
+# ------------------------------------------------------------------------------
 binning_window_heatmap = 0.5
 frmt_heatmap = "svg"
 
-# ==============================================================================
-# SV LINEPLOT PARAMETERS
-# ==============================================================================
+# ------------------------------------------------------------------------------
+# SV Lineplot Parameters
+# ------------------------------------------------------------------------------
 DO_TIME_BIN = True
 DO_BASELINE_SUBTRACT = True
 
@@ -93,17 +97,16 @@ catch_trials_training = [25, 39, 53, 59]
 catch_trials_test = 65
 catch_trials_retraining = [11 + 30 + 64, 25 + 30 + 64]
 retraining_trial_names = ["Re-Train trial 11", "Re-Train trial 25"]
-# endregion
+# endregion Parameters
 
 
 # %%
-# region Plot Formatting Defaults
-# Defaults moved to plotting_style_new.py
+# region Plot Formatting
 from plotting_style import (HEATMAP_FIGSIZE, HEATMAP_GRIDSPACE,
                             HEATMAP_STYLE_KW, HEATMAP_TICK_KW, LEGEND_KW,
                             LINEPLOT_FIG_KW, LINEPLOT_STYLE_KW, SAVEFIG_KW)
 
-# endregion
+# endregion Plot Formatting
 
 
 # %%
@@ -134,11 +137,11 @@ config = get_experiment_config(EXPERIMENT)
 stim_duration = config.cs_duration if csus == "CS" else gen_config.us_duration
 stim_color = gen_config.plotting.cs_color if csus == "CS" else gen_config.plotting.us_color
 time_frame_col = gen_config.time_trial_frame_label
-# endregion
+# endregion Context Setup
 
 
 # %%
-# region Helpers
+# region Helper Functions
 def densify_sparse(df: pd.DataFrame) -> pd.DataFrame:
     """Convert any SparseDtype columns to dense; robust across pandas versions."""
     # Some pooled outputs are stored with pandas SparseDtype to reduce disk size.
@@ -432,18 +435,14 @@ def find_heatmap_paths(patterns):
         if matched:
             return matched
     return []
-
-
-# endregion
+# endregion Helper Functions
 
 
 # %%
-# region Data Aggregation & Pooled Outputs
+# region Pipeline Functions
+
 def run_build_pooled_outputs():
-    # Load per-fish .pkl files for the selected alignment (CS/US), then aggregate:
-    # 1) per-trial count (normalized by number of fish)
-    # 2) normalized scaled-vigor heatmap values
-    # 3) binned lineplot data
+    """Load per-fish data and aggregate into pooled heatmap/lineplot outputs."""
     all_data_csus_paths = sorted(
         [path for path in Path(path_all_fish).glob("*.pkl") if path.stem.split("_")[-1] == csus]
     )
@@ -587,11 +586,9 @@ def run_build_pooled_outputs():
 
     if data_plot_line is not None:
         print(data_plot_line.max())
-# endregion
 
 
 # %%
-# region Count heatmap
 def run_count_heatmap():
     """Plot stacked per-block count heatmaps.
 
@@ -773,11 +770,8 @@ def run_count_heatmap():
     path_part = f"Percentage all fish_{cond_label}_{csus}.{frmt_heatmap}"
     fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
 
-# endregion
-
 
 # %%
-# region SV Heatmap Rendering (Normalized SV)
 def run_sv_heatmap_rendering():
     """Render normalized SV heatmaps in stacked block layout.
 
@@ -951,11 +945,8 @@ def run_sv_heatmap_rendering():
     path_part = f"SV all fish_{cond_label}_{csus}.{frmt_heatmap}"
     fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
 
-# endregion
-
 
 # %%
-# region SV Line Plots per Individual Catch Trial
 def run_sv_lineplots_individual_catch_trials():
     """Plot one row per catch trial with condition lines and CI bands.
 
@@ -1117,11 +1108,9 @@ def run_sv_lineplots_individual_catch_trials():
     )
     
     fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
-# endregion
 
 
 # %%
-# region SV Line Plots for All Catch Trials Together
 def run_sv_lineplot_all_catch_trials():
     """Plot a single panel with all catch trials per condition and CI bands.
 
@@ -1245,11 +1234,9 @@ def run_sv_lineplot_all_catch_trials():
 
     path_part = f"SV lineplot all catch trials_{pooled_paths[0].stem.split('_')[:-2]}_{cond_types_here}.{frmt_heatmap}"
     fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
-# endregion
 
 
 # %%
-# region SV Line Plots per Block
 def run_sv_lineplots_per_block():
     """Plot one row per block with condition-wise median SV traces.
 
@@ -1439,7 +1426,7 @@ def run_sv_lineplots_per_block():
 
     path_part = f"SV per 10-trial blocks_{pooled_data_path.stem}_{cond_types_here}.{frmt_heatmap}"
     fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
-# endregion
+# endregion Pipeline Functions
 
 
 # %%
@@ -1484,4 +1471,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-# endregion
+# endregion Main

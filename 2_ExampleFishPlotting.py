@@ -1,25 +1,16 @@
 """
-Pipeline for Example Fish Figure Generation
-============================================
+Example Fish Plotting Pipeline
+==============================
 
-This script consolidates multiple plotting scripts for generating publication-quality
-figures of individual fish behavior:
-
-1. **Fig1 Traces**: Tail angle and vigor traces for selected trials
-2. **Tail Trajectory Heatmaps**: 2D density plots of tail positions before/after stimuli
-3. **Bout Zoom**: Detailed view of individual bouts around US onset
-4. **Individual Trials**: Tail angle traces, vigor heatmaps, and normalized vigor plots
-
-**Usage:**
-    - Set the boolean flags to enable/disable specific figure types
-    - Configure the experiment types and fish IDs for each stage
-    - Output directories are derived from each experiment's configured path_save
-    - Run: `python Pipeline_Example_Fish.py`
+Generate publication-quality figures of individual fish behavior:
+- Traces: Tail angle and vigor traces for selected trials
+- Individual Trials: Heatmaps and normalized vigor plots
+- Bout Zoom: Detailed view of individual bouts around US onset
+- Trajectory: 2D density plots of tail positions
 """
-
 import sys
 # %%
-# region Imports & Configuration
+# region Imports
 from pathlib import Path
 from typing import Sequence
 
@@ -48,38 +39,29 @@ from general_configuration import config as gen_config
 from plotting_style import (configure_axes_for_pipeline, configure_trace_axes,
                             get_plot_config)
 
-# Apply shared plotting aesthetics (fonts, sizes, etc.)
 plotting_style.set_plot_style(use_constrained_layout=False)
-
-# endregion
+# endregion Imports
 
 
 # region Parameters
-# ==============================================================================
-# PIPELINE CONTROL FLAGS
-# ==============================================================================
-RUN_TRACES = False             # Generate tail angle + vigor traces
-RUN_INDIVIDUAL_TRIALS = True  # Generate individual-trial plots for selected fish
-RUN_BOUT_ZOOM = False           # Generate zoomed bout plots
-RUN_TRAJECTORY = False         # Generate tail trajectory heatmaps
+# ------------------------------------------------------------------------------
+# Pipeline Control Flags
+# ------------------------------------------------------------------------------
+RUN_TRACES = False
+RUN_INDIVIDUAL_TRIALS = True
+RUN_BOUT_ZOOM = False
+RUN_TRAJECTORY = False
 
-# ==============================================================================
-# GENERAL PARAMETERS
-# ==============================================================================
-OVERWRITE_FIGURES = True            # Regenerate existing figures
+# ------------------------------------------------------------------------------
+# General Parameters
+# ------------------------------------------------------------------------------
+OVERWRITE_FIGURES = True
 FIG_SIZE_IN = (5 / 2.54, 6 / 2.54)
 FIG_DPI = 600
 
-# ==============================================================================
-# TRACES PARAMETERS
-# ==============================================================================
-# Reference: Plot\Single fish\Example fish.py and Example fish_MK.py
-# TRACES_EXPERIMENT_TYPE = ExperimentType.ALL_DELAY.value
-# TRACES_FISH_ID = [
-#     '20221115_07', # delay
-#     '20221115_09', # control
-# ]
-# '20221123_09'
+# ------------------------------------------------------------------------------
+# Traces Parameters
+# ------------------------------------------------------------------------------
 TRACES_EXPERIMENT_TYPE = [
     ExperimentType.ALL_DELAY.value,
     ExperimentType.ALL_3S_TRACE.value,
@@ -87,23 +69,19 @@ TRACES_EXPERIMENT_TYPE = [
     ExperimentType.ALL_DELAY.value,
 ]
 TRACES_FISH_ID = [
-    # '20221123_09',
-    '20221115_07', # delay
-    '20230307_12', # 3sTrace
-    '20230307_04', # 10sTrace
-    '20221115_09', # control
+    '20221115_07',
+    '20230307_12',
+    '20230307_04',
+    '20221115_09',
 ]
-TRACES_TRIAL_NUMBER_OFFSET = 4      # Subtract from trial numbers for display
+TRACES_TRIAL_NUMBER_OFFSET = 4
 TRACES_TRIALS = [
-    [5, 13, 59, 62, 89], # delay
+    [5, 13, 59, 62, 89],
     [],
     [],
-    []
-    # [5, 21, 59, 62, 89] # control
+    [],
 ]
 TRACES_TRIAL_NAMES = ["Pre-Train trial", "Early Train trial", "Late Train trial", "Early Test trial", "Late Test trial"]
-
-# Plot limits and styling
 TRACES_Y_TICKS_RAW = [-150, 0, 150]
 TRACES_Y_TICKS_VIGOR = [-15, 15]
 TRACES_Y_CLIP_RAW = (-180, 180)
@@ -114,11 +92,9 @@ TRACES_Y_TICKS_RAW = [-150, 0, 150]
 TRACES_Y_TICKS_VIGOR = [0, 10]
 TRACES_SUBPLOT_HSPACE = 0.9
 
-# ==============================================================================
-# INDIVIDUAL TRIALS PARAMETERS
-# ==============================================================================
-# Reference: Pipeline_Analysis.py -> run_plot_individual_trials()
-
+# ------------------------------------------------------------------------------
+# Individual Trials Parameters
+# ------------------------------------------------------------------------------
 INDIVIDUAL_TRIALS_OVERWRITE = True
 INDIVIDUAL_TRIALS_RAW_TAIL_ANGLE = False
 INDIVIDUAL_TRIALS_RAW_VIGOR = False
@@ -128,15 +104,13 @@ INDIVIDUAL_TRIALS_METRIC = gen_config.tail_angle_label
 INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S = 40
 INDIVIDUAL_TRIALS_INTERVAL_BETWEEN_XTICKS_S = 20
 INDIVIDUAL_TRIALS_FIG_FORMAT = 'svg'
-INDIVIDUAL_TRIALS_STIMULI = ["CS", "US"]  # "US"
+INDIVIDUAL_TRIALS_STIMULI = ["CS", "US"]
 
-# ==============================================================================
-# BOUT ZOOM PARAMETERS
-# ==============================================================================
-# Reference: Plot\Example bouts before and after US.py
+# ------------------------------------------------------------------------------
+# Bout Zoom Parameters
+# ------------------------------------------------------------------------------
 BOUT_ZOOM_EXPERIMENT_TYPE = ExperimentType.RESP_TO_US.value
 BOUT_ZOOM_FISH_ID = '20220809_24'
-
 BOUT_ZOOM_CSUS = 'US'
 BOUT_ZOOM_TRIAL_NUMBER = 2
 BOUT_ZOOM_TIME_BEF = -5
@@ -144,12 +118,11 @@ BOUT_ZOOM_TIME_AFT = 5
 BOUT_ZOOM_Y_LIM = (-150, 150)
 BOUT_ZOOM_FORMAT = 'svg'
 
-# ==============================================================================
-# TAIL TRAJECTORY PARAMETERS
-# ==============================================================================
-# Reference: Fig1_sign of potential learning.py
+# ------------------------------------------------------------------------------
+# Tail Trajectory Parameters
+# ------------------------------------------------------------------------------
 TRAJ_EXPERIMENT_TYPE = ExperimentType.FIRST_DELAY.value
-TRAJ_FISH_ID = '20221115_09'  # Prefix of the .pkl file
+TRAJ_FISH_ID = '20221115_09'
 
 TRAJ_CSUS = "CS"
 TRAJ_TRIAL_NUMBER_OFFSET = 4
@@ -172,62 +145,48 @@ TRAJ_SINGLE_VMIN_DIV = 10_000_000
 TRAJ_SINGLE_VMAX_DIV = 100_000
 TRAJ_POOLED_VMIN_DIV = 50_000_000
 TRAJ_POOLED_VMAX_DIV = 100_000
-# endregion
+# endregion Parameters
+
+
 # region Helper Functions
 def resolve_experiment_paths(experiment_type: str) -> tuple:
-    """
-    Resolve the experiment configuration along with standard output and input paths.
-    """
-    # Load experiment-specific configuration
+    """Resolve the experiment configuration along with standard output and input paths."""
     config = get_experiment_config(experiment_type)
-    # Validate that the output path is configured
     if not config.path_save:
         raise ValueError("config.path_save is empty; set a valid experiment path before running.")
 
-    # Create folder structure and collect paths
     (
         _, _, _, path_processed_data, _, _, _, _, _, _, _, _, _, _, _,
         path_orig_pkl, _, _
     ) = file_utils.create_folders(config.path_save)
-    # Return config and key paths used by the pipeline
     return config, path_processed_data, path_orig_pkl
 
 
 def resolve_fish_path(path_orig_pkl: Path, fish_id: str | Path) -> Path:
-    """
-    Find the processed .pkl file for a fish based on its ID prefix.
-    """
-    # Normalize and validate fish ID
+    """Find the processed .pkl file for a fish based on its ID prefix."""
     fish_id_str = str(fish_id).strip()
     if not fish_id_str:
         raise ValueError("fish_id is empty; set a valid fish ID.")
 
-    # Support direct absolute paths
     candidate = Path(fish_id_str)
     if candidate.is_absolute() and candidate.exists():
         return candidate
 
-    # If a filename was provided, check within the expected folder
     if candidate.suffix == ".pkl":
         candidate = path_orig_pkl / candidate.name
         if candidate.exists():
             return candidate
 
-    # Fallback: prefix match inside the folder
     matches = sorted(path_orig_pkl.glob(f"{fish_id_str}*.pkl"))
     if not matches:
         raise FileNotFoundError(f"No fish file matching '{fish_id_str}' in {path_orig_pkl}")
     if len(matches) > 1:
         print(f"Multiple fish files matched '{fish_id_str}'; using {matches[0].name}")
-    # Return the first match (deterministic due to sorting)
     return matches[0]
 
 
 def resolve_fish_paths(path_orig_pkl: Path, fish_ids: Sequence[str | Path]) -> list[Path]:
-    """
-    Resolve multiple fish IDs into a list of .pkl paths, preserving input order.
-    """
-    # Resolve each fish ID and deduplicate while preserving order
+    """Resolve multiple fish IDs into a list of .pkl paths, preserving input order."""
     fish_paths = []
     seen = set()
     for fish_id in fish_ids:
@@ -240,41 +199,29 @@ def resolve_fish_paths(path_orig_pkl: Path, fish_ids: Sequence[str | Path]) -> l
             continue
         seen.add(fish_path)
         fish_paths.append(fish_path)
-    # Return resolved paths for downstream processing
     return fish_paths
 
 
 def flatten_fish_ids(fish_ids: object) -> list[str]:
-    """
-    Flatten nested fish ID lists while preserving order.
-    """
-    # Handle a single string/path input
+    """Flatten nested fish ID lists while preserving order."""
     if isinstance(fish_ids, (str, Path)):
         return [str(fish_ids)]
-    # Normalize non-list inputs to a single-item list
     if not isinstance(fish_ids, (list, tuple)):
         return [str(fish_ids)]
-    # Flatten nested lists
     if fish_ids and all(isinstance(item, (list, tuple)) for item in fish_ids):
         return [str(fish_id) for sublist in fish_ids for fish_id in sublist]
-    # Return a normalized list of strings
     return [str(fish_id) for fish_id in fish_ids]
 
 
 def normalize_fish_groups(fish_ids: object) -> list[list[str]]:
-    """
-    Normalize fish ID input into a list of fish-id groups.
-    """
-    # Wrap single items into a single group
+    """Normalize fish ID input into a list of fish-id groups."""
     if isinstance(fish_ids, (str, Path)):
         return [[str(fish_ids)]]
     if isinstance(fish_ids, np.ndarray):
         fish_ids = fish_ids.tolist()
-    # Ensure input is list-like
     if not isinstance(fish_ids, (list, tuple)):
         return [[str(fish_ids)]]
 
-    # If nested groups are provided, normalize each group
     if fish_ids and all(isinstance(item, (list, tuple, np.ndarray)) for item in fish_ids):
         groups = []
         for item in fish_ids:
@@ -283,19 +230,14 @@ def normalize_fish_groups(fish_ids: object) -> list[list[str]]:
             groups.append([str(fish_id) for fish_id in item])
         return groups
 
-    # Otherwise, treat each item as its own group
     return [[str(fish_id)] for fish_id in fish_ids]
 
 
 def get_axes_padding(fig, axes) -> dict:
-    """
-    Compute padding around a set of axes in figure-relative units.
-    """
-    # Render once to ensure layout positions are available
+    """Compute padding around a set of axes in figure-relative units."""
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
 
-    # Flatten possible nested axes structures into a list
     def flatten_axes(items):
         if items is None:
             return []
@@ -309,7 +251,6 @@ def get_axes_padding(fig, axes) -> dict:
         return [items]
 
     axes_list = flatten_axes(axes)
-    # Collect tight bounding boxes for visible axes
     bboxes = [
         ax.get_tightbbox(renderer)
         for ax in axes_list
@@ -318,13 +259,11 @@ def get_axes_padding(fig, axes) -> dict:
     if not bboxes:
         return {"left": 0, "right": 0, "bottom": 0, "top": 0}
 
-    # Compute global bounds across axes
     x0 = min(bbox.x0 for bbox in bboxes)
     y0 = min(bbox.y0 for bbox in bboxes)
     x1 = max(bbox.x1 for bbox in bboxes)
     y1 = max(bbox.y1 for bbox in bboxes)
 
-    # Convert pixel bounds to figure-relative padding
     fig_bbox = fig.bbox
     fw, fh = fig.get_size_inches() * fig.dpi
 
@@ -337,14 +276,10 @@ def get_axes_padding(fig, axes) -> dict:
 
 
 def get_axes_bounds(fig, axes) -> dict:
-    """
-    Compute the tight bounding box around a set of axes in figure-relative units.
-    """
-    # Render once to ensure layout positions are available
+    """Compute the tight bounding box around a set of axes in figure-relative units."""
     fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
 
-    # Flatten possible nested axes structures into a list
     def flatten_axes(items):
         if items is None:
             return []
@@ -358,7 +293,6 @@ def get_axes_bounds(fig, axes) -> dict:
         return [items]
 
     axes_list = flatten_axes(axes)
-    # Collect tight bounding boxes for visible axes
     bboxes = [
         ax.get_tightbbox(renderer)
         for ax in axes_list
@@ -367,13 +301,11 @@ def get_axes_bounds(fig, axes) -> dict:
     if not bboxes:
         return {"left": 0, "right": 1, "bottom": 0, "top": 1}
 
-    # Compute global bounds across axes
     x0 = min(bbox.x0 for bbox in bboxes)
     y0 = min(bbox.y0 for bbox in bboxes)
     x1 = max(bbox.x1 for bbox in bboxes)
     y1 = max(bbox.y1 for bbox in bboxes)
 
-    # Convert pixel bounds to figure-relative coordinates
     fig_bbox = fig.bbox
     fw, fh = fig.get_size_inches() * fig.dpi
 
@@ -386,31 +318,21 @@ def get_axes_bounds(fig, axes) -> dict:
 
 
 def pts_to_fig_frac(fig, pts, axis="x"):
-    """
-    Convert points to figure fraction along the given axis.
-    """
-    # Convert points to inches
+    """Convert points to figure fraction along the given axis."""
     inches = float(pts) / 72.0
-    # Pick figure dimension along desired axis
     size_in = fig.get_size_inches()[0] if axis == "x" else fig.get_size_inches()[1]
-    # Convert inches to fraction of figure
     return inches / size_in
 
 
 def resolve_trials_list(trials_spec: list, fish_id=None, fish_id_order=None) -> list:
-    """
-    Normalize trial selections to a flat list for a single fish.
-    """
-    # Normalize numpy input
+    """Normalize trial selections to a flat list for a single fish."""
     if isinstance(trials_spec, np.ndarray):
         trials_spec = trials_spec.tolist()
-    # Guard against invalid input
     if not isinstance(trials_spec, (list, tuple)):
         return []
     if not trials_spec:
         return []
 
-    # Detect nested trial lists
     is_nested = all(isinstance(item, (list, tuple, np.ndarray)) for item in trials_spec)
     if is_nested:
         nested_trials = []
@@ -420,7 +342,6 @@ def resolve_trials_list(trials_spec: list, fish_id=None, fish_id_order=None) -> 
             else:
                 nested_trials.append(list(item))
 
-        # If fish order is known, match trials by fish index
         if fish_id is not None and fish_id_order:
             fish_id_str = str(fish_id)
             try:
@@ -430,62 +351,46 @@ def resolve_trials_list(trials_spec: list, fish_id=None, fish_id_order=None) -> 
             if idx is not None and idx < len(nested_trials):
                 return list(nested_trials[idx])
 
-        # Fallback: return the first non-empty group
         for item in nested_trials:
             if item:
                 return list(item)
         return list(nested_trials[0]) if nested_trials else []
 
-    # Non-nested case: return as list
     return list(trials_spec)
-# endregion
+# endregion Helper Functions
 
 
-# region Pipeline functions
+# region Pipeline Functions
 
-# region Tail angle and vigor Traces
+# %%
 def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_status=True, _fish_id_order=None) -> None:
-    """
-    Generate tail angle and vigor trace plots for selected trials.
-    
-    Creates two figures:
-    - Raw tail angle traces
-    - Vigor traces
-    
-    Each figure shows multiple trials as subplots with stimulus markers.
-    """
-    # Entry banner for the pipeline stage
+    """Generate tail angle and vigor trace plots for selected trials."""
     if _emit_status:
         print("\n" + "="*80)
-        print("RUNNING  TRACES")
+        print("RUNNING TRACES")
         print("="*80)
 
-    # Resolve default inputs
     if experiment_type is None:
         experiment_type = TRACES_EXPERIMENT_TYPE
     if fish_id is None:
         fish_id = TRACES_FISH_ID
 
-    # Normalize numpy inputs to lists
     if isinstance(experiment_type, np.ndarray):
         experiment_type = experiment_type.tolist()
     if isinstance(fish_id, np.ndarray):
         fish_id = fish_id.tolist()
 
-    # Track fish order to map trials if needed
     if _fish_id_order is None:
         try:
             _fish_id_order = flatten_fish_ids(TRACES_FISH_ID)
         except Exception:
             _fish_id_order = None
 
-    # Handle multi-experiment inputs by delegating per experiment
     if isinstance(experiment_type, (list, tuple)):
         experiment_types = list(experiment_type)
         if not experiment_types:
             raise ValueError("TRACES_EXPERIMENT_TYPE must be a non-empty list.")
 
-        # Resolve fish IDs relative to experiment list shape
         if isinstance(fish_id, (str, Path)) or not isinstance(fish_id, (list, tuple)):
             if len(experiment_types) > 1:
                 raise ValueError(
@@ -513,7 +418,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                     "TRACES_EXPERIMENT_TYPE must have length 1 or match TRACES_FISH_ID."
                 )
 
-            # Delegate each experiment run
             for exp_type in experiment_types:
                 exp_fish_ids = fish_ids_by_exp.get(exp_type, [])
                 if not exp_fish_ids:
@@ -526,22 +430,18 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                     _fish_id_order=_fish_id_order,
                 )
 
-            # Emit completion for multi-experiment call
             if _emit_status:
-                print(" TRACES FINISHED")
+                print("TRACES FINISHED")
             return
 
-    # Resolve experiment paths for the current experiment
     config, output_dir, path_orig_pkl = resolve_experiment_paths(experiment_type)
 
-    # Handle grouped fish IDs by delegating per fish
     if isinstance(fish_id, (list, tuple)):
         fish_groups = normalize_fish_groups(fish_id)
         if not fish_groups:
             print("No fish IDs configured for traces; skipping.")
             return
 
-        # Resolve trials per group
         trials_spec = TRACES_TRIALS
         if isinstance(trials_spec, np.ndarray):
             trials_spec = trials_spec.tolist()
@@ -563,7 +463,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             print("No trials configured for traces; skipping.")
             return
 
-        # Use fish order to map nested trial selections
         fish_id_order = _fish_id_order or flatten_fish_ids(fish_groups)
         for group_idx, fish_group in enumerate(fish_groups):
             if not fish_group:
@@ -580,7 +479,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                 print("No trials configured for traces; skipping.")
                 continue
 
-            # Delegate per fish in the group
             for group_fish_id in fish_group:
                 run_traces(
                     group_fish_id,
@@ -590,12 +488,10 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                     _fish_id_order=fish_id_order,
                 )
 
-        # Emit completion after grouped processing
         if _emit_status:
-            print(" TRACES FINISHED")
+            print("TRACES FINISHED")
         return
 
-    # Resolve trials if not provided
     if trials_list is None:
         fish_id_order = _fish_id_order or flatten_fish_ids(TRACES_FISH_ID)
         trials_list = resolve_trials_list(TRACES_TRIALS, fish_id, fish_id_order)
@@ -603,14 +499,11 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             print("No trials configured for traces; skipping.")
             return
 
-    # Resolve the fish data path
     fish_path = resolve_fish_path(path_orig_pkl, fish_id)
 
-    # Infer condition from the filename convention: <date>_<fish>_<condition>_... .pkl
     name_parts = fish_path.name.split("_")
     cond = name_parts[2].capitalize() if len(name_parts) > 2 else fish_path.stem
 
-    # Normalize trial names to match trial count
     trials_list_names = list(TRACES_TRIAL_NAMES)
     if len(trials_list_names) < len(trials_list):
         trials_list_names.extend([f"Trial {t}" for t in trials_list[len(trials_list_names):]])
@@ -705,11 +598,9 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         # Tail angle trace.
         axs_raw[index].plot(data_trial[time_col], data_trial[tail_angle_col], "k", clip_on=False, lw=0.4)
 
-        # Vigor trace (clipped so rare spikes don't dominate the y-axis).
         data_trial["Vigor (deg/ms)"] = data_trial["Vigor (deg/ms)"].clip(TRACES_Y_CLIP_VIGOR[0], TRACES_Y_CLIP_VIGOR[1])
         axs_vigor[index].plot(data_trial[time_col], data_trial["Vigor (deg/ms)"], "k", clip_on=False, lw=0.4)
 
-        # Add US marker for training trials (here, rows 2–3 correspond to training).
         if index in [1, 2] and stim_onset is not None:
             axs_raw[index].axvline(
                 x=stim_onset,
@@ -734,7 +625,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                 zorder=10,
             )
 
-    # Style all axes
     # Style all axes
     for i, axs in enumerate([axs_raw, axs_vigor]):
         for ax_i, ax in enumerate(axs):
@@ -786,7 +676,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                 zorder=10,
             )
 
-            # Per-row label: human-readable trial name.
             ax.set_title(
                 trials_list_names[ax_i],
                 loc="left",
@@ -797,18 +686,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                 fontsize=10,
             )
 
-            # if ax_i == 0:
-            #     ax.text(
-            #         1,
-            #         2,
-            #         f"Example {cond.capitalize()} fish",
-            #         transform=ax.transAxes,
-            #         va="bottom",
-            #         ha="right",
-            #         fontsize=11,
-            #     )
-
-        # Only the last row shows x ticks.
         axs[-1].tick_params(axis="x", top=False, bottom=True, direction="out")
 
     # Layout adjustments
@@ -818,8 +695,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
     fig_raw.canvas.draw()
     fig_vigor.canvas.draw()
 
-    # region supylabel
-    # Add shared labels and titles
     plot_config = get_plot_config()
     analysis_utils.add_component(
         fig_raw,
@@ -833,7 +708,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         ),
     )
 
-    # NOTE: Keep vigor label units explicit (deg/ms) to match upstream processing.
     analysis_utils.add_component(
         fig_vigor,
         analysis_utils.AddTextSpec(
@@ -928,7 +802,6 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         ),
     )
 
-    # Save figures
     fig_raw.savefig(
         str(output_dir / f"raw_{cond}.svg"),
         bbox_inches="tight",
@@ -943,35 +816,25 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         format="svg",
         transparent=False,
     )
-    # Cleanup
-    # plt.close("all")
 
-    # Emit completion
     if _emit_status:
-        print(" TRACES FINISHED")
-# endregion Tail angle and vigor Traces
+        print("TRACES FINISHED")
 
-# region Heatmaps
+
 def run_individual_trials() -> None:
-    """
-    Generate the same individual-trial plots as Pipeline_Analysis.run_plot_individual_trials
-    for a selected list of fish.
-    """
-    # Entry banner for the pipeline stage
+    """Generate individual-trial plots for a selected list of fish."""
     print("\n" + "=" * 80)
     print("RUNNING INDIVIDUAL TRIALS")
     print("=" * 80)
 
     plot_config = get_plot_config()
 
-    # Resolve experiment types and fish IDs
     experiment_types = TRACES_EXPERIMENT_TYPE
     if isinstance(experiment_types, (str, Path)):
         experiment_types = [experiment_types]
     if not isinstance(experiment_types, (list, tuple)) or not experiment_types:
         raise ValueError("INDIVIDUAL_TRIALS_EXPERIMENT_TYPE must be a non-empty list.")
 
-    # Normalize experiment identifiers to strings (safe for dict keys and path resolution).
     experiment_types = [str(e) for e in experiment_types]
 
     fish_ids = TRACES_FISH_ID
@@ -981,7 +844,6 @@ def run_individual_trials() -> None:
         print("No fish IDs provided for individual trials.")
         return
 
-    # Map fish IDs to experiment types
     if len(experiment_types) == 1:
         fish_ids_by_exp = {experiment_types[0]: list(fish_ids)}
     elif all(isinstance(item, (list, tuple)) for item in fish_ids):
@@ -1003,16 +865,11 @@ def run_individual_trials() -> None:
             "INDIVIDUAL_TRIALS_EXPERIMENT_TYPE must have length 1 or match INDIVIDUAL_TRIALS_FISH_IDS."
         )
 
-    # Process each experiment separately. This mirrors the structure in Pipeline_Analysis.py,
-    # but restricts outputs to a curated set of "example fish".
-
-    # Process each experiment separately
     for experiment_type in experiment_types:
         _, traces_output_dir, _ = resolve_experiment_paths(experiment_type)
         config, _, path_orig_pkl = resolve_experiment_paths(experiment_type)
         file_utils.create_folders(config.path_save)
 
-        # Resolve fish paths for this experiment
         exp_fish_ids = fish_ids_by_exp.get(experiment_type, [])
         if not exp_fish_ids:
             print(f"No fish IDs provided for individual trials in {experiment_type}.")
@@ -1023,19 +880,16 @@ def run_individual_trials() -> None:
             print(f"No matching fish files found for individual trials in {experiment_type}.")
             continue
 
-        # Normalize CR window for downstream logic
         cr_window = config.cr_window
         if isinstance(cr_window, (int, float, np.integer, np.floating)):
             cr_window = [0, cr_window]
 
-        # Compute tick spacing in frame units
         interval_between_xticks_frames = int(
             INDIVIDUAL_TRIALS_INTERVAL_BETWEEN_XTICKS_S * gen_config.expected_framerate
         )
         xtick_step_raw = max(1, int(interval_between_xticks_frames / gen_config.plotting.downsampling_step))
         xtick_step_scaled = max(1, int(interval_between_xticks_frames))
 
-        # Process CS and/or US aligned trials
         for csus in INDIVIDUAL_TRIALS_STIMULI:
             print(f"Processing {csus} trials for {experiment_type}...")
             try:
@@ -1047,22 +901,18 @@ def run_individual_trials() -> None:
                 print(f"Failed to extract trial block info for {csus}: {exc}")
                 continue
 
-            # Select stimulus duration based on alignment
             if csus == "CS":
                 stim_duration = config.cs_duration
             else:
                 stim_duration = gen_config.us_duration
 
-            # Keep a stable fish order for trial selection
             fish_id_order = flatten_fish_ids(TRACES_FISH_ID)
 
-            # Process each fish file
             for fish_path in fish_paths:
                 cond = fish_path.name.split("_")[2].capitalize()
                 stem_fish_path_orig = fish_path.stem.lower()
                 stem_split = stem_fish_path_orig.split("_")
                 fish_id = "_".join(stem_split[:2]) if len(stem_split) >= 2 else stem_fish_path_orig
-                # Resolve which trials to mark
                 trials_list = resolve_trials_list(TRACES_TRIALS, fish_id, fish_id_order)
                 trials_to_mark = [t + TRACES_TRIAL_NUMBER_OFFSET for t in trials_list]
 
@@ -1083,7 +933,6 @@ def run_individual_trials() -> None:
                     + f"_normalized vigor trial aligned to {csus}.{INDIVIDUAL_TRIALS_FIG_FORMAT}"
                 )
 
-                # Decide which plots need to be generated
                 do_tail = INDIVIDUAL_TRIALS_RAW_TAIL_ANGLE and (
                     INDIVIDUAL_TRIALS_OVERWRITE or not fig_path_tail.exists()
                 )
@@ -1097,12 +946,10 @@ def run_individual_trials() -> None:
                     INDIVIDUAL_TRIALS_OVERWRITE or not fig_path_norm.exists()
                 )
 
-                # Skip if no outputs are required
                 if not any([do_tail, do_raw, do_sc, do_norm]):
                     print(f"Skip {csus} {fish_id}: all figures exist")
                     continue
 
-                # Load data for this fish
                 try:
                     data = pd.read_pickle(str(fish_path), compression="gzip")
                 except Exception:
@@ -1110,13 +957,11 @@ def run_individual_trials() -> None:
                     continue
                 data.reset_index(drop=True, inplace=True)
 
-                # Identify tail angle column
                 tail_col = analysis_utils.get_tail_angle_col(data)
                 if tail_col is None:
                     print(f"Skip {csus} {fish_id}: missing tail angle col")
                     continue
 
-                # Ensure time column is in frames
                 time_col = gen_config.time_trial_frame_label
                 if time_col not in data.columns and "Trial time (s)" in data.columns:
                     data = analysis_utils.convert_time_from_s_to_frame(data)
@@ -1124,12 +969,10 @@ def run_individual_trials() -> None:
                     print(f"Skip {csus} {fish_id}: missing time col")
                     continue
 
-                # Resolve metric to plot
                 metric = INDIVIDUAL_TRIALS_METRIC
                 if metric == gen_config.tail_angle_label:
                     metric = tail_col
 
-                # Build required column list
                 needed_cols = [
                     time_col,
                     "CS beg",
@@ -1148,14 +991,12 @@ def run_individual_trials() -> None:
                 if metric not in needed_cols:
                     needed_cols.append(metric)
 
-                # Filter to required columns
                 try:
                     data = data.loc[:, needed_cols].copy()
                 except Exception:
                     print(f"Skip {csus} {fish_id}: missing required columns")
                     continue
 
-                # Filter to selected stimulus type
                 data = data.loc[data["Trial type"] == csus, :]
                 if data.empty:
                     print(f"Skip {csus} {fish_id}: no trials for csus")
@@ -1163,13 +1004,11 @@ def run_individual_trials() -> None:
 
                 print(f"Analyze {csus} {fish_id}")
 
-                # Convert time to seconds and window the data
                 data = analysis_utils.convert_time_from_frame_to_s(data)
                 data = data.loc[
                     data["Trial time (s)"].between(-INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S, INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S)
                 ]
 
-                # Densify sparse columns if present
                 for col in ["Vigor (deg/ms)", "Bout beg", "Bout end", "Bout"]:
                     if col in data.columns:
                         try:
@@ -1177,7 +1016,6 @@ def run_individual_trials() -> None:
                         except:
                             pass
 
-                # Tail-angle and/or metric traces
                 if do_tail:
                     data_plot = data[["Trial time (s)", "Trial number", metric]].copy()
                     trials = data_plot["Trial number"].unique().astype("int")
@@ -1186,7 +1024,6 @@ def run_individual_trials() -> None:
                     if len(trials) == 1:
                         axs = [axs]
 
-                    # Render each trial as a row
                     for t_i, t in enumerate(trials):
                         data_trial = data[data["Trial number"] == t]
 
@@ -1204,7 +1041,6 @@ def run_individual_trials() -> None:
                             print(f"Failed to find US events for trial {t} in {fish_id}: {exc}")
                             us_b, us_e = [], []
 
-                        # Plot either a continuous trace or an event raster
                         if metric in [tail_col, "Vigor (deg/ms)"]:
                             axs[t_i].plot(
                                 data_trial["Trial time (s)"],
@@ -1223,7 +1059,6 @@ def run_individual_trials() -> None:
                                 linelengths=1,
                             )
 
-                        # Add CS markers
                         for cs_beg_, cs_end_ in zip(cs_b, cs_e):
                             axs[t_i].axvline(
                                 cs_beg_,
@@ -1242,7 +1077,6 @@ def run_individual_trials() -> None:
                                 zorder=10,
                             )
 
-                        # Add US markers
                         for us_beg_, us_end_ in zip(us_b, us_e):
                             axs[t_i].axvline(
                                 us_beg_,
@@ -1261,7 +1095,6 @@ def run_individual_trials() -> None:
                                 zorder=10,
                             )
 
-                        # Per-axis styling
                         axs[t_i].spines[:].set_visible(False)
                         axs[t_i].set_title(t, fontsize="small", loc="left")
                         axs[t_i].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
@@ -1275,21 +1108,16 @@ def run_individual_trials() -> None:
                     axs[-1].set_xlim((gen_config.time_bef_s, gen_config.time_aft_s))
                     axs[-1].set_xticks([gen_config.time_bef_s, 0, 10, gen_config.time_aft_s])
 
-                    # Final axis limits based on metric
                     if metric == tail_col:
                         axs[-1].set_ylim((-50, 50))
                         axs[-1].set_yticks([-50, 50])
                     elif metric == "Vigor (deg/ms)":
-                        # Use the pooled per-fish windowed data for baseline scaling.
-                        # (At this point, `data_trial` refers to a loop-local variable and may not exist
-                        # if trials were empty/skipped.)
                         baseline_mask = data_plot["Trial time (s)"].between(-gen_config.baseline_window, 0)
                         baseline_q95 = data_plot.loc[baseline_mask, metric].quantile(0.95)
                         axs[-1].set_ylim((0, baseline_q95))
                     elif metric in ["Bout", "Bout beg", "Bout end"]:
                         axs[-1].set_ylim((0.5, 1))
 
-                    # Add shared labels/titles
                     fig.set_size_inches(fig.get_size_inches()[0], 20)
                     analysis_utils.add_component(
                         fig,
@@ -1380,7 +1208,6 @@ def run_individual_trials() -> None:
                         squeeze=False,
                     )
 
-                    # Render heatmap blocks
                     for b_i, b in enumerate(phases_names):
                         sns.heatmap(
                             data_plot[data_plot.index.isin(phases_trials[b_i])],
@@ -1457,13 +1284,7 @@ def run_individual_trials() -> None:
                             text_kwargs={"fontweight": "bold"},
                         ),
                     )
-                    
-                    # Note: We rely on the last added supylabel mostly being aligned or needing a stable reference.
-                    # Creating a dummy supylabel for Title/A-Label alignment if one doesn't exist globally?
-                    # But we added per-block labels. Let's try to capture one.
-                    # Ideally we should refrain from adding "C" if logic is fragile, but instruction says "make like run_traces".
-                    # For consistency, we'll assume the top block's label is a good anchor.
-                    
+
                     suptitle = analysis_utils.add_component(
                         fig,
                         analysis_utils.AddTextSpec(
@@ -1475,13 +1296,7 @@ def run_individual_trials() -> None:
                             text_kwargs={"fontsize": plot_config.fontsize_axis_label},
                         ),
                     )
-                    # No global supylabel stored easily. Skipping dynamic "C" placement to avoid overlap errors if not standard.
-                    # Or we can insert just the suptitle logic as requested? 
-                    # User asked for ".text and suptitle".
-                    # I will simply place C at (0, 1) like typical if robust alignment isn't easy, 
-                    # OR try to get the first axes ylabel.
-                    
-                    # Save raw heatmap
+
                     fig.savefig(
                         str(fig_path_raw),
                         format=INDIVIDUAL_TRIALS_FIG_FORMAT,
@@ -1489,9 +1304,7 @@ def run_individual_trials() -> None:
                         transparent=False,
                         bbox_inches="tight",
                     )
-                
-# region Scaled vigor
-                # Scaled vigor heatmap
+
                 if do_sc:
                     data_plot = data.copy(deep=True)
                     data_plot = data_plot[data_plot["Block name"] != ""]
@@ -1500,7 +1313,6 @@ def run_individual_trials() -> None:
                     ]
                     data_plot.loc[~data_plot["Bout"], "Vigor (deg/ms)"] = np.nan
 
-                    # Normalize vigor within trials
                     for t in data_plot["Trial number"].unique():
                         mask_trial = data_plot["Trial number"] == t
                         data_trial = data_plot.loc[mask_trial].copy(deep=True)
@@ -1545,7 +1357,6 @@ def run_individual_trials() -> None:
 
                     data_plot.columns = data_plot.columns.astype("int")
 
-                    # Configure phase blocks based on stimulus type
                     if csus == "CS":
                         phases_trial_numbers = config.trials_cs_blocks_phases
                         phases_block_names = config.names_cs_blocks_phases
@@ -1569,7 +1380,6 @@ def run_individual_trials() -> None:
                     supylabel = None
                     title_ax_idx = 0
 
-                    # Render heatmap blocks with markers
                     if csus == "CS":
                         for b_i, b in enumerate(phases_block_names):
                             show_xticks = b_i == len(phases_block_names) - 1
@@ -1656,7 +1466,6 @@ def run_individual_trials() -> None:
                         )
 
                         trials_in_this_block = data_plot[data_plot.index.isin(phases_trial_numbers[train_idx])].index
-                        # TODO: trial numbers need to be adjusted as the indicated refer to CS-aligned data
                         for tr_i, tr in enumerate(trials_in_this_block):
                             if tr in trials_to_mark:
                                 axs[train_idx][0].plot(
@@ -1699,7 +1508,6 @@ def run_individual_trials() -> None:
                         train_rows = len(trials_in_this_block)
                         train_block_len = len(phases_trial_numbers[train_idx])
                         if cs_rows_total > 0 and us_rows_total > 0 and train_rows > 0 and train_block_len > 0:
-                            # Match CS row height by resizing the US train axis.
                             pos = axs[train_idx][0].get_position()
                             total_height = pos.height * (us_rows_total / train_block_len)
                             target_height = total_height * (train_rows / cs_rows_total)
@@ -1744,11 +1552,9 @@ def run_individual_trials() -> None:
                             ),
                         )
 
-                    # Restore x-axis labels on bottom row
                     axs[-1][0].set_xticklabels(xlabels)
                     axs[-1][0].tick_params(axis="x", which="both", bottom=True, labelbottom=True)
 
-                    # Add shared title and panel label
                     analysis_utils.add_component(
                         axs[title_ax_idx][0],
                         analysis_utils.AddTextSpec(
@@ -1773,7 +1579,6 @@ def run_individual_trials() -> None:
                         ),
                     )
 
-                    # Save scaled heatmap
                     fig.savefig(
                         str(fig_path_sc),
                         format=INDIVIDUAL_TRIALS_FIG_FORMAT,
@@ -1781,9 +1586,7 @@ def run_individual_trials() -> None:
                         transparent=False,
                         bbox_inches="tight",
                     )
-    # endregion                
 
-                # Normalized vigor summary plot
                 if do_norm:
                     data_plot = data.copy(deep=True)
                     data_plot = data_plot[data_plot["Block name"] != ""]
@@ -1847,7 +1650,6 @@ def run_individual_trials() -> None:
                     axs[1].axhline(1, color="k", alpha=0.8, lw=1)
                     axs[1].axhline(0, color="k", alpha=0.8, lw=1)
 
-                    # Add shared labels and save
                     fig.set_size_inches(fig.get_size_inches()[0], 7)
                     analysis_utils.add_component(
                         fig,
@@ -1883,29 +1685,18 @@ def run_individual_trials() -> None:
                         ),
                     )
                     return
-                    # fig.savefig(str(fig_path_norm), format=INDIVIDUAL_TRIALS_FIG_FORMAT, dpi=300, transparent=False)
-    # Cleanup
-    # plt.close("all")
     print("INDIVIDUAL TRIALS FINISHED")
-# endregion Heatmaps
 
-# region Bouts before and after US
+
 def run_bout_zoom() -> None:
-    """
-    Generate a zoomed-in plot of tail angle around a specific bout.
-    
-    Useful for detailed examination of individual behavioral responses.
-    """
-    # Entry banner for the pipeline stage
+    """Generate a zoomed-in plot of tail angle around a specific bout."""
     print("\n" + "="*80)
     print("RUNNING BOUT ZOOM")
     print("="*80)
 
     plot_config = get_plot_config()
 
-    # Resolve experiment paths and fish file
     config, _, path_orig_pkl = resolve_experiment_paths(BOUT_ZOOM_EXPERIMENT_TYPE)
-    # Use the first traces experiment to resolve the output directory when multiple are configured.
     traces_exp = TRACES_EXPERIMENT_TYPE
     if isinstance(traces_exp, (list, tuple, np.ndarray)):
         traces_exp = traces_exp[0] if traces_exp else BOUT_ZOOM_EXPERIMENT_TYPE
@@ -1916,11 +1707,9 @@ def run_bout_zoom() -> None:
         print(str(exc))
         return
 
-    # Build output path
     stem_fish_path_orig = fish_path.stem
     save_path = traces_output_dir / f'{stem_fish_path_orig}.{BOUT_ZOOM_FORMAT}'
 
-    # Load data for selected trial
     data = pd.read_pickle(fish_path, compression='infer')
     data = data[data['Trial type'] == BOUT_ZOOM_CSUS]
     data = data[data['Trial number'] == BOUT_ZOOM_TRIAL_NUMBER]
@@ -1931,31 +1720,25 @@ def run_bout_zoom() -> None:
 
     data.reset_index(drop=True, inplace=True)
     
-    # Time conversion
     time_col = 'Trial time (s)'
     if gen_config.time_trial_frame_label in data.columns:
         data[time_col] = data[gen_config.time_trial_frame_label] / gen_config.expected_framerate
     
-    # Filter time window
     data = data.loc[data[time_col].between(BOUT_ZOOM_TIME_BEF, BOUT_ZOOM_TIME_AFT)]
     
-    # Baseline subtraction
     tail_angle = gen_config.tail_angle_label
     if tail_angle in data.columns:
         data[tail_angle] -= data[tail_angle].mean()
 
-    # Determine stimulus color for marker
     stim_color = (
         gen_config.plotting.us_color if BOUT_ZOOM_CSUS == 'US' 
         else gen_config.plotting.cs_color
     )
 
-    # Plotting
     fig, ax = plt.subplots(1, 1, sharex=False, sharey=False, facecolor='white', figsize=(6.5/2.54, 3.7/2.54))
     
     ax.plot(data[time_col], data[tail_angle], 'k', alpha=1, lw=1, zorder=0, clip_on=False)
 
-    # Highlight bouts
     if 'Bout' in data.columns:
         ax.fill_between(
             data[time_col],
@@ -1969,16 +1752,13 @@ def run_bout_zoom() -> None:
             zorder=-1
         )
     
-    # Add stimulus onset marker at t=0
     ax.axvline(x=0, color=stim_color, alpha=0.75, lw=2, linestyle='--', zorder=10)
     
-    # Axis Styling
     ax.tick_params(axis='both', which='both', bottom=True, top=False, right=False, direction='out')
     ax.set_xlim((BOUT_ZOOM_TIME_BEF, BOUT_ZOOM_TIME_AFT))
     ax.set_ylim(BOUT_ZOOM_Y_LIM)
     ax.set_xticks([BOUT_ZOOM_TIME_BEF, -2.5, 0, 2.5, BOUT_ZOOM_TIME_AFT])
     ax.set_yticks([BOUT_ZOOM_Y_LIM[0], 0, BOUT_ZOOM_Y_LIM[1]])
-    # Add shared labels
     analysis_utils.add_component(
         fig,
         analysis_utils.AddTextSpec(
@@ -2002,27 +1782,18 @@ def run_bout_zoom() -> None:
         ),
     )
 
-    # Save output
     fig.savefig(str(save_path), format=BOUT_ZOOM_FORMAT, dpi=100, transparent=False, bbox_inches="tight")
     plt.close("all")
     print(f"Saved: {save_path}")
-# endregion Bouts before and after US
 
-# region Tail trajectory
+
 def run_trajectory() -> None:
-    """
-    Generate tail trajectory heatmaps showing spatial distribution of tail positions.
-    
-    Creates before/after heatmaps for single fish and pooled data.
-    """
-    # Entry banner for the pipeline stage
+    """Generate tail trajectory heatmaps showing spatial distribution of tail positions."""
     print("\n" + "="*80)
-    print("RUNNING  TRAJECTORY")
+    print("RUNNING TRAJECTORY")
     print("="*80)
 
-    # Resolve paths and output directory
     config, _, path_orig_pkl = resolve_experiment_paths(TRAJ_EXPERIMENT_TYPE)
-    # Use the first traces experiment to resolve the output directory when multiple are configured.
     traces_exp = TRACES_EXPERIMENT_TYPE
     if isinstance(traces_exp, (list, tuple, np.ndarray)):
         traces_exp = traces_exp[0] if traces_exp else TRAJ_EXPERIMENT_TYPE
@@ -2031,48 +1802,39 @@ def run_trajectory() -> None:
     trajectory_dir = traces_output_dir / "tail_trajectories"
     trajectory_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load and prepare data
     data = pd.read_pickle(str(fish_path), compression="infer")
     data = analysis_utils.standardize_stim_cols(data)
-    # Filter by trial type if present
     if "Trial type" in data.columns:
         data = data[data["Trial type"] == TRAJ_CSUS].copy()
     
-    # Ensure time is in seconds
     if "Trial time (s)" not in data.columns:
         data = analysis_utils.convert_time_from_frame_to_s(data)
     
-    # Identify tail angle columns
     angle_cols = analysis_utils.sorted_angle_cols(data)
     if not angle_cols:
         raise ValueError("No angle columns found for tail trajectory plot.")
 
-    # Optional: keep only bout frames
     if "Bout" in data.columns:
         data = data.loc[data["Bout"]].copy()
         data.drop(columns=["Bout"], inplace=True, errors="ignore")
 
-    # Adjust trial numbers
     trial_numbers = pd.to_numeric(data["Trial number"], errors="coerce")
     data = data.loc[trial_numbers.notna()].copy()
     data["Trial number"] = trial_numbers.loc[trial_numbers.notna()].astype(int) - TRAJ_TRIAL_NUMBER_OFFSET
     data = data.loc[data["Trial number"] > 0]
 
-    # Filter to target trials and time window
     data = data.loc[
         data["Trial number"].between(TRAJ_TRIALS_SINGLE[0], TRAJ_TRIALS_SINGLE[1])
         & data["Trial time (s)"].between(-TRAJ_TIME_INTERVAL_S, TRAJ_TIME_INTERVAL_S),
         angle_cols + ["Trial time (s)"],
     ].reset_index(drop=True)
 
-    # Split before/after
     data_bef = data.loc[data["Trial time (s)"].between(*TRAJ_BEFORE_WINDOW_S), angle_cols]
     data_aft = data.loc[data["Trial time (s)"].between(*TRAJ_AFTER_WINDOW_S), angle_cols]
 
     data_bef = np.deg2rad(data_bef.to_numpy(dtype=np.float32))
     data_aft = np.deg2rad(data_aft.to_numpy(dtype=np.float32))
 
-    # Generate heatmaps
     for label, angle_data in zip(("before", "after"), (data_bef, data_aft)):
         if angle_data.size == 0:
             continue
@@ -2089,47 +1851,40 @@ def run_trajectory() -> None:
             TRAJ_SINGLE_VMAX_DIV,
             TRAJ_HIST_BINS,
         )
-    # Cleanup
     plt.close("all")
-    print(" TRAJECTORY FINISHED")
-# endregion Tail trajectory
-
-# endregion Pipeline functions
+    print("TRAJECTORY FINISHED")
+# endregion Pipeline Functions
 
 
 # region Main
 def main() -> None:
     """Execute the selected pipeline stages."""
-    # Dispatch selected pipeline stages. Each stage is wrapped so one failure doesn't
-    # prevent running the remaining stages during exploratory work.
-
-    # Fig 1C,D
     if RUN_TRACES:
         try:
             run_traces()
         except Exception as e:
-            print(f"Error in  TRACES: {e}")
+            print(f"Error in TRACES: {e}")
 
-    # Fig 1E-H
     if RUN_INDIVIDUAL_TRIALS:
         try:
             run_individual_trials()
         except Exception as e:
             print(f"Error in INDIVIDUAL TRIALS: {e}")
 
-    # Optional/extra figures
     if RUN_BOUT_ZOOM:
         try:
             run_bout_zoom()
         except Exception as e:
             print(f"Error in BOUT ZOOM: {e}")
+
     if RUN_TRAJECTORY:
         try:
             run_trajectory()
         except Exception as e:
-            print(f"Error in  TRAJECTORY: {e}")
+            print(f"Error in TRAJECTORY: {e}")
+
 
 if __name__ == "__main__":
     main()
-# endregion
+# endregion Main
 

@@ -30,7 +30,7 @@ KEY OUTPUTS:
 ASSUMPTIONS:
     - Multivariate normality (tested via Shapiro-Wilk and Mardia's tests)
     - Homogeneity of variance (robustified via shrinkage)
-    - Sufficient sample size per group (≥10 recommended)
+    - Sufficient sample size per group (>=10 recommended)
     - Linear relationships for LME modeling
 
 CUSTOMIZATION:
@@ -149,7 +149,7 @@ class AnalysisConfig:
     voting_threshold_conservative: int = 3  # For conservative CI method
     
     # IMPORTANT:
-    # - se_multiplier_for_voting controls the conservative voting rule ("k × SE"), and does NOT have to be 1.96.
+    # - se_multiplier_for_voting controls the conservative voting rule ("k * SE"), and does NOT have to be 1.96.
     # - ci_multiplier_for_reporting controls what you print/plot as a "CI" (typically 1.96 for ~95%).
     se_multiplier_for_voting: float = 1.96
     ci_multiplier_for_reporting: float = 1.96
@@ -187,28 +187,28 @@ class AnalysisConfig:
         # Validate and adjust voting thresholds
         n_features = len(self.features_to_use)
         if self.voting_threshold_point > n_features:
-            print(f"⚠️  Adjusting voting_threshold_point: {self.voting_threshold_point} → {n_features}")
+            print(f"  [WARN] Adjusting voting_threshold_point: {self.voting_threshold_point} -> {n_features}")
             self.voting_threshold_point = n_features
         if self.voting_threshold_conservative > n_features:
-            print(f"⚠️  Adjusting voting_threshold_conservative: {self.voting_threshold_conservative} → {n_features}")
+            print(f"  [WARN] Adjusting voting_threshold_conservative: {self.voting_threshold_conservative} -> {n_features}")
             self.voting_threshold_conservative = n_features
     
     def print_summary(self):
         """Print configuration summary."""
         print(f"\n{'='*60}")
-        print("ANALYSIS CONFIGURATION")
+        print("--- Analysis Configuration ---")
         print(f"{'='*60}")
-        print(f"Features selected: {self.features_to_use}")
+        print(f"  Features selected: {self.features_to_use}")
         for feat in self.features_to_use:
             cfg = self.feature_configs[feat]
-            print(f"   {feat}: {cfg.name} (expect {cfg.direction})")
-        print(f"Voting threshold (Point):        {self.voting_threshold_point}/{len(self.features_to_use)}")
-        print(f"Voting threshold (Conservative): {self.voting_threshold_conservative}/{len(self.features_to_use)}")
-        print(f"Distance percentile:             {self.threshold_percentile}th")
-        print(f"Voting rule (k×SE):              k={self.se_multiplier_for_voting}")
-        print(f"Reporting CI multiplier:         z={self.ci_multiplier_for_reporting}")
-        print(f"Bootstrap seed:                  {self.random_seed}")
-        print(f"Min trials per 5-trial block:    {self.min_trials_per_5trial_block_in_epoch}")
+            print(f"    {feat}: {cfg.name} (expect {cfg.direction})")
+        print(f"  Voting threshold (Point):        {self.voting_threshold_point}/{len(self.features_to_use)}")
+        print(f"  Voting threshold (Conservative): {self.voting_threshold_conservative}/{len(self.features_to_use)}")
+        print(f"  Distance percentile:             {self.threshold_percentile}th")
+        print(f"  Voting rule (k*SE):              k={self.se_multiplier_for_voting}")
+        print(f"  Reporting CI multiplier:         z={self.ci_multiplier_for_reporting}")
+        print(f"  Bootstrap seed:                  {self.random_seed}")
+        print(f"  Min trials per 5-trial block:    {self.min_trials_per_5trial_block_in_epoch}")
         print(f"{'='*60}\n")
 
 
@@ -381,7 +381,7 @@ def get_blups_with_uncertainty(
         return blups
     
     except Exception as e:
-        print(f"⚠️  BLUP Extraction Error: {e}")
+        print(f"  [ERROR] BLUP extraction failed: {e}")
         return {}
 
 
@@ -440,27 +440,27 @@ def check_multivariate_normality(
     
     if verbose:
         print(f"\n{'='*60}")
-        print("MULTIVARIATE NORMALITY DIAGNOSTICS")
+        print("--- Multivariate Normality Diagnostics ---")
         print(f"{'='*60}")
     
     # Univariate Shapiro-Wilk Tests
     shapiro_results = []
     if verbose:
-        print("\n1. Univariate Shapiro-Wilk Tests:")
+        print("\n  1. Univariate Shapiro-Wilk Tests:")
     
     for i, name in enumerate(feature_names):
         # Shapiro-Wilk tests each feature for univariate normality.
         stat, pval = stats.shapiro(X[:, i])
         shapiro_results.append(pval)
         if verbose:
-            sig = "❌ Non-normal" if pval < 0.05 else "✓ Normal"
-            print(f"   {name:20s}: W={stat:.4f}, p={pval:.4f} {sig}")
+            sig = "[FAIL] Non-normal" if pval < 0.05 else "[OK] Normal"
+            print(f"    {name:20s}: W={stat:.4f}, p={pval:.4f} {sig}")
     
     # Mardia's Tests (only for multivariate case)
     mardia_ok = True
     if p > 1:
         if verbose:
-            print("\n2. Mardia's Multivariate Tests:")
+            print("\n  2. Mardia's Multivariate Tests:")
         
         # Mardia's tests evaluate multivariate skewness and kurtosis.
         X_centered = X - np.mean(X, axis=0)
@@ -477,8 +477,8 @@ def check_multivariate_normality(
             skew_pval = 1 - stats.chi2.cdf(skew_stat, skew_df)
             
             if verbose:
-                skew_sig = "❌ Reject" if skew_pval < 0.05 else "✓ OK"
-                print(f"   Skewness:  β={skewness:.4f}, χ²={skew_stat:.2f}, p={skew_pval:.4f} {skew_sig}")
+                skew_sig = "[FAIL] Reject" if skew_pval < 0.05 else "[OK]"
+                print(f"    Skewness:  b={skewness:.4f}, X2={skew_stat:.2f}, p={skew_pval:.4f} {skew_sig}")
             
             # Kurtosis
             d = np.diag(m)
@@ -488,14 +488,14 @@ def check_multivariate_normality(
             kurt_pval = 2 * (1 - stats.norm.cdf(abs(kurt_stat)))
             
             if verbose:
-                kurt_sig = "❌ Reject" if kurt_pval < 0.05 else "✓ OK"
-                print(f"   Kurtosis:  β={kurtosis:.4f}, Z={kurt_stat:.2f}, p={kurt_pval:.4f} {kurt_sig}")
+                kurt_sig = "[FAIL] Reject" if kurt_pval < 0.05 else "[OK]"
+                print(f"    Kurtosis:  b={kurtosis:.4f}, Z={kurt_stat:.2f}, p={kurt_pval:.4f} {kurt_sig}")
             
             mardia_ok = (skew_pval > 0.05) and (kurt_pval > 0.05)
             
         except np.linalg.LinAlgError:
             if verbose:
-                print("   ⚠️  Singular covariance - cannot compute Mardia's test")
+                print("  [WARN] Singular covariance - cannot compute Mardia's test")
             mardia_ok = False
     
     univariate_ok = all(p > 0.05 for p in shapiro_results)
@@ -503,8 +503,8 @@ def check_multivariate_normality(
     
     if verbose:
         print(f"\n{'='*60}")
-        status = "✓ SATISFIED" if normality_ok else "❌ VIOLATED"
-        print(f"OVERALL: Multivariate normality {status}")
+        status = "[OK] SATISFIED" if normality_ok else "[FAIL] VIOLATED"
+        print(f"  OVERALL: Multivariate normality {status}")
         print(f"{'='*60}\n")
     
     return bool(normality_ok)
@@ -518,14 +518,14 @@ def analyze_feature_correlation(
     """Analyze correlation structure of features."""
     if verbose:
         print(f"\n{'='*60}")
-        print("FEATURE CORRELATION ANALYSIS")
+        print("--- Feature Correlation Analysis ---")
         print(f"{'='*60}\n")
     
     # Correlation matrix summarizes redundancy across features.
     corr_matrix = np.corrcoef(X, rowvar=False)
     
     if verbose:
-        print("Correlation Matrix:")
+        print("  Correlation Matrix:")
         corr_df = pd.DataFrame(corr_matrix, index=feature_names, columns=feature_names)
         print(corr_df.round(3))
     
@@ -534,11 +534,11 @@ def analyze_feature_correlation(
     high_corr = np.where((np.abs(corr_matrix) > 0.7) & (corr_matrix != 1))
     
     if len(high_corr[0]) > 0 and verbose:
-        print("\n⚠️  HIGH CORRELATIONS DETECTED (|r| > 0.7):")
+        print("  [WARN] High correlations detected (|r| > 0.7):")
         for i, j in zip(high_corr[0], high_corr[1]):
             if i < j:
                 high_corr_pairs.append((feature_names[i], feature_names[j], corr_matrix[i,j]))
-                print(f"   {feature_names[i]:20s} ↔ {feature_names[j]:20s}: r={corr_matrix[i,j]:.3f}")
+                print(f"    {feature_names[i]:20s} <-> {feature_names[j]:20s}: r={corr_matrix[i,j]:.3f}")
     
     if verbose:
         print(f"\n{'='*60}\n")
@@ -554,7 +554,7 @@ def perform_pca(
     """Perform Principal Component Analysis."""
     if verbose:
         print(f"\n{'='*60}")
-        print("PRINCIPAL COMPONENT ANALYSIS")
+        print("--- Principal Component Analysis ---")
         print(f"{'='*60}\n")
     
     # PCA is a diagnostic tool to check variance structure and feature redundancy.
@@ -562,14 +562,14 @@ def perform_pca(
     X_pca = pca.fit_transform(X)
     
     if verbose:
-        print("Variance Explained:")
+        print("  Variance Explained:")
         cumulative = 0
         for i, var in enumerate(pca.explained_variance_ratio_):
             cumulative += var
-            print(f"   PC{i+1}: {var*100:5.1f}% (cumulative: {cumulative*100:5.1f}%)")
+            print(f"    PC{i+1}: {var*100:5.1f}% (cumulative: {cumulative*100:5.1f}%)")
         
         # Loadings indicate how each feature contributes to each component.
-        print("\nLoadings:")
+        print("\n  Loadings:")
         loadings = pd.DataFrame(
             pca.components_.T,
             columns=[f'PC{i+1}' for i in range(len(feature_names))],
@@ -592,7 +592,7 @@ def get_robust_mahalanobis(
     """
     if verbose:
         print(f"\n{'='*60}")
-        print("ROBUST COVARIANCE ESTIMATION")
+        print("--- Robust Covariance Estimation ---")
         print(f"{'='*60}\n")
     
     # Use the reference group's mean and covariance as the baseline distribution.
@@ -600,14 +600,14 @@ def get_robust_mahalanobis(
     n_ref, p = X_ref.shape
     
     if verbose:
-        print(f"Reference group: n={n_ref}, p={p}, n/p={n_ref/p:.2f}")
+        print(f"  Reference group: n={n_ref}, p={p}, n/p={n_ref/p:.2f}")
     
     # Standard covariance diagnostics
     cov_standard = np.cov(X_ref, rowvar=False)
     if p > 1:
         condition_number = np.linalg.cond(cov_standard)
         if verbose:
-            print(f"Condition number: {condition_number:.2e}")
+            print(f"  Condition number: {condition_number:.2e}")
     
     # Ledoit-Wolf shrinkage stabilizes covariance when n is small relative to p.
     lw = LedoitWolf()
@@ -615,19 +615,19 @@ def get_robust_mahalanobis(
     shrinkage = lw.shrinkage_
     
     if verbose:
-        print(f"Ledoit-Wolf shrinkage: δ = {shrinkage:.4f}")
+        print(f"  Ledoit-Wolf shrinkage: d = {shrinkage:.4f}")
     
     # Invert the covariance; fall back to pseudoinverse if needed.
     try:
         inv_cov = np.linalg.inv(cov_shrunk)
         method_used = "Direct inversion (Ledoit-Wolf)"
         if verbose:
-            print("✓ Successfully inverted covariance")
+            print("  [OK] Successfully inverted covariance")
     except np.linalg.LinAlgError:
         inv_cov = np.linalg.pinv(cov_shrunk, rcond=1e-10)
         method_used = "Moore-Penrose pseudoinverse"
         if verbose:
-            print("⚠️  Using pseudoinverse")
+            print("  [WARN] Using pseudoinverse")
     
     if verbose:
         print(f"{'='*60}\n")
@@ -668,11 +668,11 @@ def bootstrap_threshold(
     if verbose:
         thresh_point = float(np.percentile(distances_ref, percentile))
         print(f"\n{'='*60}")
-        print(f"CLASSIFICATION THRESHOLD ({percentile}th percentile)")
+        print(f"--- Classification Threshold ({percentile}th percentile) ---")
         print(f"{'='*60}")
-        print(f"Point estimate:    {thresh_point:.4f}")
-        print(f"Bootstrap median:  {thresh_median:.4f}")
-        print(f"Bootstrap 95% CI:  [{thresh_ci[0]:.4f}, {thresh_ci[1]:.4f}]")
+        print(f"  Point estimate:    {thresh_point:.4f}")
+        print(f"  Bootstrap median:  {thresh_median:.4f}")
+        print(f"  Bootstrap 95% CI:  [{thresh_ci[0]:.4f}, {thresh_ci[1]:.4f}]")
         print(f"{'='*60}\n")
     
     return thresh_median, thresh_ci
@@ -749,7 +749,7 @@ def load_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataFrame:
     if not paths:
         raise FileNotFoundError("No matching pooled data file found.")
     
-    print(f"Loading: {paths[0].name}")
+    print(f"  Loading: {paths[0].name}")
     data = pd.read_pickle(paths[0], compression='gzip')
     
     if data.empty:
@@ -933,7 +933,7 @@ def _filter_fish_by_trials(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataF
     else:
         valid_fish = set(df['Fish_ID'].unique())
 
-    print(f"Fish filtering: {len(df['Fish_ID'].unique())} → {len(valid_fish)} (based on selected features: {config.features_to_use})")
+    print(f"  Fish filtering: {len(df['Fish_ID'].unique())} -> {len(valid_fish)} (based on selected features: {config.features_to_use})")
     return df[df['Fish_ID'].isin(valid_fish)]
 
 
@@ -951,7 +951,7 @@ def extract_change_feature(
     Extract Feature B/C: Epoch change (Control-Anchored).
     Noisy fish are shrunk toward Control's epoch difference.
     """
-    print(f"\n[B/C] Extracting Epoch Change: {name_blocks[0]} → {name_blocks[1]} (Control-Anchored)...")
+    print(f"\n  [B/C] Extracting Epoch Change: {name_blocks[0]} -> {name_blocks[1]} (Control-Anchored)...")
     
     # Build a per-fish dataset with two epochs (pre vs test) to estimate the change.
     frames = []
@@ -964,7 +964,7 @@ def extract_change_feature(
             frames.append(pd.concat([pre, test]))
     
     if not frames:
-        print("   ⚠️  Insufficient data")
+        print("  [WARN] Insufficient data")
         return {}
     
     df_B = pd.concat(frames)
@@ -974,13 +974,13 @@ def extract_change_feature(
     df_ctrl = df_B[df_B['Condition'] == ref_cond].copy()
     
     if df_ctrl['Fish_ID'].nunique() < 3:
-        print("   ⚠️  Not enough control fish for anchoring, using standard method")
+        print("  [WARN] Not enough control fish for anchoring, using standard method")
         return get_blups_with_uncertainty(
             df_B, "Log_Response ~ Log_Baseline + Epoch",
             "Fish_ID", "Epoch", ci_multiplier=config.ci_multiplier_for_reporting
         )
     
-    print(f"   ...calculating anchor from {df_ctrl['Fish_ID'].nunique()} {ref_cond} fish")
+    print(f"    Calculating anchor from {df_ctrl['Fish_ID'].nunique()} {ref_cond} fish")
     
     try:
         # Fit control-only LME to get the population-level epoch change.
@@ -993,9 +993,9 @@ def extract_change_feature(
         res_ctrl = model_ctrl.fit(reml=True, method='powell')
         ctrl_epoch_effect = res_ctrl.params['Epoch']
         ctrl_epoch_se = res_ctrl.bse.get('Epoch', np.nan)
-        print(f"   ...Control Epoch Anchor: {ctrl_epoch_effect:.6f}")
+        print(f"    Control Epoch Anchor: {ctrl_epoch_effect:.6f}")
     except Exception as e:
-        print(f"   ⚠️  Control model failed ({e}), using standard method")
+        print(f"  [WARN] Control model failed ({e}), using standard method")
         return get_blups_with_uncertainty(
             df_B, "Log_Response ~ Log_Baseline + Epoch",
             "Fish_ID", "Epoch", ci_multiplier=config.ci_multiplier_for_reporting
@@ -1070,11 +1070,11 @@ def extract_change_feature(
                 random=random_epoch
             )
             
-        print(f"   ✓ Extracted for {len(blups)} fish (anchored to control)")
+        print(f"  [OK] Extracted for {len(blups)} fish (anchored to control)")
         return blups
 
     except Exception as e:
-        print(f"⚠️  Anchored BLUP Extraction Error: {e}")
+        print(f"  [ERROR] Anchored BLUP extraction failed: {e}")
         return get_blups_with_uncertainty(
             df_B, "Log_Response ~ Log_Baseline + Epoch",
             "Fish_ID", "Epoch", ci_multiplier=config.ci_multiplier_for_reporting
@@ -1176,11 +1176,11 @@ def plot_behavioral_trajectories(
                         p_pass = val > mu
                         c_pass = (val - config.se_multiplier_for_voting * se) > mu
                     
-                    p_mark = "✓" if p_pass else "✗"
-                    c_mark = "✓" if c_pass else "✗"
+                    p_mark = "Y" if p_pass else "N"
+                    c_mark = "Y" if c_pass else "N"
                     feat_str.append(f"{feat}:{p_mark}{c_mark}")
                 
-                symbol = "★" if result.is_learner_conservative[idx] else ("●" if result.is_learner_point[idx] else "○")
+                symbol = "*" if result.is_learner_conservative[idx] else ("o" if result.is_learner_point[idx] else "-")
                 vote_details.append(f"{symbol} {fish}: {' '.join(feat_str)}")
 
         # Group median
@@ -1225,7 +1225,7 @@ def plot_behavioral_trajectories(
     
     # if save_path:
     #     # fig.savefig(str(save_path), dpi=300, facecolor='white', bbox_inches='tight')
-    #     # print(f"✓ Saved: {save_path.name}")
+    #     # print(f"[OK] Saved: {save_path.name}")
     
     return fig
 
@@ -1323,7 +1323,7 @@ def plot_diagnostics(
     
     if save_path:
         # fig.savefig(str(save_path), dpi=300, facecolor='white', bbox_inches='tight')
-        # print(f"✓ Saved: {save_path.name}")
+        # print(f"[OK] Saved: {save_path.name}")
         pass
         
     return fig
@@ -1361,9 +1361,9 @@ def _get_grid_info_text(
             passed_cons = (blup - config.se_multiplier_for_voting * se) > mu
         
         # Compact status: P=Point, C=Conservative
-        # e.g. "✓✓" (both), "✓✗" (point only), "✗✗" (neither)
-        pt_mark = "✓" if passed_pt else "✗"
-        cons_mark = "✓" if passed_cons else "✗"
+        # e.g. "YY" (both), "YN" (point only), "NN" (neither)
+        pt_mark = "Y" if passed_pt else "N"
+        cons_mark = "Y" if passed_cons else "N"
         feat_status.append(f"{feat}:{pt_mark}{cons_mark}")
     
     # Votes
@@ -1450,8 +1450,8 @@ def plot_feature_space(
         ax.axhline(result.mu_ctrl[idx_y], color='black', linestyle='--', alpha=0.5)
         
         # Axis labels with learning direction
-        x_arrow = "←" if cfg_x.direction == 'negative' else "→"
-        y_arrow = "↓" if cfg_y.direction == 'negative' else "↑"
+        x_arrow = "<-" if cfg_x.direction == 'negative' else "->"
+        y_arrow = "v" if cfg_y.direction == 'negative' else "^"
         
         ax.set_xlabel(f"{cfg_x.name} ({feat_x})\n{x_arrow} Learning direction", fontsize=5+10)
         ax.set_ylabel(f"{cfg_y.name} ({feat_y})\n{y_arrow} Learning direction", fontsize=5+10)
@@ -1460,9 +1460,9 @@ def plot_feature_space(
         
     # Create custom legend
     legend_elements = [
-        Line2D([0], [0], color='red', lw=2.5, label='★ Conservative Learner'),
-        Line2D([0], [0], color='orange', lw=2, label='● Point Learner'),
-        Line2D([0], [0], color='goldenrod', lw=1, label='○ Outlier (Wrong Direction)'),
+        Line2D([0], [0], color='red', lw=2.5, label='* Conservative Learner'),
+        Line2D([0], [0], color='orange', lw=2, label='o Point Learner'),
+        Line2D([0], [0], color='goldenrod', lw=1, label='- Outlier (Wrong Direction)'),
         Line2D([0], [0], color='steelblue', lw=1, label='Exp. (Non-learner)'),
         Line2D([0], [0], color='gray', lw=1, label='Ctrl. (Non-Learner)'),
         Line2D([0], [0], color='black', linestyle='--', label='Control Mean')
@@ -1475,7 +1475,7 @@ def plot_feature_space(
     
     # if save_path:
     #     fig.savefig(str(save_path), dpi=300, facecolor='white', bbox_inches='tight')
-    #     print(f"✓ Saved: {save_path.name}")
+    #     print(f"[OK] Saved: {save_path.name}")
         
     return fig
 
@@ -1630,7 +1630,7 @@ def plot_blup_trajectory_overlay(
             )
             ax.legend(loc="best", fontsize=5 + 9, framealpha=0.9)
 
-    axes[0].set_ylabel("BLUP (Δ Log Response) — cumulative", fontsize=5 + 10)
+    axes[0].set_ylabel("BLUP (Delta Log Response) - cumulative", fontsize=5 + 10)
 
     plt.tight_layout(rect=(0, 0.02, 1, 0.95))
 
@@ -1638,7 +1638,7 @@ def plot_blup_trajectory_overlay(
         save_path = Path(save_path)
         save_path.parent.mkdir(parents=True, exist_ok=True)
         fig.savefig(save_path, dpi=200, bbox_inches="tight", facecolor="white")
-        print(f"✓ Saved: {save_path.name}")
+        print(f"  Saved: {save_path.name}")
 
     return fig
 
@@ -1708,7 +1708,7 @@ def plot_blup_trajectory_overlay(
 #     else:
 #         dir_text = "learning: BLUP > control mean"
 
-#     ax.set_title(f"{feat_cfg.name} ({feat_code}) — {dir_text}", fontsize=5 + 12, fontweight="bold")
+#     ax.set_title(f"{feat_cfg.name} ({feat_code}) - {dir_text}", fontsize=5 + 12, fontweight="bold")
 #     ax.set_yticks(y)
 #     ax.set_yticklabels([str(f) for f in fish], fontsize=5 + 7)
 #     ax.set_xlabel("BLUP (feature scale used in extraction)", fontsize=5 + 10)
@@ -1720,7 +1720,7 @@ def plot_blup_trajectory_overlay(
 #         save_path = Path(save_path)
 #         save_path.parent.mkdir(parents=True, exist_ok=True)
 #         fig.savefig(save_path, dpi=200, bbox_inches="tight")
-#         print(f"✓ Saved: {save_path.name}")
+#         print(f"[OK] Saved: {save_path.name}")
 
 #     return fig
 
@@ -1905,7 +1905,7 @@ def save_combined_plots_and_grid(
 
     # 1. Individual Plots
     cond_label = f" ({condition})" if condition else ""
-    print(f"Generating combined individual plots{cond_label} in {output_dir.name}...")
+    print(f"  Generating combined individual plots{cond_label} in {output_dir.name}...")
 
     for idx in fish_indices:
         fish = str(result.fish_ids[idx])
@@ -1918,13 +1918,13 @@ def save_combined_plots_and_grid(
         # Style
         if result.is_learner_conservative[idx]:
             color, lw = "red", 2.5
-            status = "★ CONSERVATIVE LEARNER"
+            status = "* CONSERVATIVE LEARNER"
         elif result.is_learner_point[idx]:
             color, lw = "orange", 2
-            status = "● POINT LEARNER"
+            status = "o POINT LEARNER"
         elif result.is_outlier[idx]:
             color, lw = "goldenrod", 1.5
-            status = "○ OUTLIER (Wrong Direction)"
+            status = "- OUTLIER (Wrong Direction)"
         else:
             color = "gray" if cond == config.cond_types[0] else "steelblue"
             lw = 1
@@ -2007,7 +2007,7 @@ def save_combined_plots_and_grid(
                 zorder=15,
             )
             ax2.axhline(0.0, linestyle=":", color="purple", alpha=0.4)
-            ax2.set_ylabel("BLUP (Δ Log Response)", fontsize=5+9, color="purple")
+            ax2.set_ylabel("BLUP (Delta Log Response)", fontsize=5+9, color="purple")
             ax2.tick_params(axis="y", labelcolor="purple")
             # Set symmetric y-limits around 0 for clarity
             blup_range = max(abs(blup_pre), abs(blup_mid), abs(blup_late), 0.05) * 1.5
@@ -2034,8 +2034,8 @@ def save_combined_plots_and_grid(
                 p_pass = val > mu
                 c_pass = (val - config.se_multiplier_for_voting * se) > mu
 
-            p_mark = "✓" if p_pass else "✗"
-            c_mark = "✓" if c_pass else "✗"
+            p_mark = "Y" if p_pass else "N"
+            c_mark = "Y" if c_pass else "N"
             feat_name = feat_cfg.name.split()[0]
             info_lines.append(f"{feat_name}: {val:.3f} {'<' if feat_cfg.direction == 'negative' else '>'} {mu:.3f}")
             info_lines.append(f"   Point:{p_mark} Cons:{c_mark}")
@@ -2063,11 +2063,11 @@ def save_combined_plots_and_grid(
         plt.close(fig)
 
     # 2. Summary Grid
-    print(f"Generating combined summary grid{cond_label}...")
+    print(f"  Generating combined summary grid{cond_label}...")
     n_fish = len(fish_indices)
 
     if n_fish == 0:
-        print(f"   ⚠️  No fish to plot for condition: {condition}")
+        print(f"  [WARN] No fish to plot for condition: {condition}")
         return
 
     n_cols = 6
@@ -2199,8 +2199,8 @@ def save_combined_plots_and_grid(
                 passed_pt = blup > mu
                 passed_cons = (blup - config.se_multiplier_for_voting * se) > mu
 
-            pt_mark = "✓" if passed_pt else "✗"
-            cons_mark = "✓" if passed_cons else "✗"
+            pt_mark = "Y" if passed_pt else "N"
+            cons_mark = "Y" if passed_cons else "N"
             name_short = cfg.name.split()[0][:5]
             feat_status.append(f"{name_short}:{pt_mark}{cons_mark}")
 
@@ -2251,9 +2251,9 @@ def save_combined_plots_and_grid(
 
     # Legend
     legend_elements = [
-        Line2D([0], [0], color="red", lw=2.5, label="★ Conservative Learner"),
-        Line2D([0], [0], color="orange", lw=2, label="● Point Learner"),
-        Line2D([0], [0], color="goldenrod", lw=1, label="○ Outlier (Wrong Direction)"),
+        Line2D([0], [0], color="red", lw=2.5, label="* Conservative Learner"),
+        Line2D([0], [0], color="orange", lw=2, label="o Point Learner"),
+        Line2D([0], [0], color="goldenrod", lw=1, label="- Outlier (Wrong Direction)"),
     ]
 
     if condition is None:
@@ -2268,7 +2268,7 @@ def save_combined_plots_and_grid(
 
     info_legend = (
         "Info Box Legend:\n"
-        "  Name: Feature pass/fail (✓/✗)\n"
+        "  Name: Feature pass/fail (Y/N)\n"
         "  D: Mahalanobis distance, O=Outlier\n"
         "  V: Votes (P=Point, C=Conservative)\n"
         "  acq/ext: BLUP and CI for the 10-trial epoch changes"
@@ -2291,7 +2291,7 @@ def save_combined_plots_and_grid(
     cond_suffix = f"_{condition}" if condition else ""
     grid_path = output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}.png"
     fig.savefig(grid_path, dpi=200, bbox_inches="tight")
-    print(f"✓ Saved: {grid_path.name}")
+    print(f"  Saved: {grid_path.name}")
 
 def save_individual_plots_and_grid(
     data: pd.DataFrame,
@@ -2376,34 +2376,34 @@ def create_detailed_summary_df(
 def print_fish_details(fish_id: str, summary_df: pd.DataFrame, config: AnalysisConfig, mu_ctrl: np.ndarray):
     """Interactive helper to inspect a specific fish."""
     if fish_id not in summary_df['Fish_ID'].values:
-        print(f"Fish {fish_id} not found.")
+        print(f"  [WARN] Fish {fish_id} not found.")
         return
         
     row = summary_df[summary_df['Fish_ID'] == fish_id].iloc[0]
     
     print(f"\n{'='*60}")
-    print(f"DETAILED ANALYSIS: {fish_id}")
+    print(f"--- Detailed Analysis: {fish_id} ---")
     print(f"{'='*60}")
-    print(f"Condition: {row['Condition']}")
-    print(f"Distance:  {row['Mahalanobis_Distance']:.4f}")
-    print(f"Outlier:   {'YES' if row['Is_Outlier'] else 'NO'}")
-    print(f"Learner:   {'★ CONSERVATIVE' if row['Is_Learner_Conservative'] else ('● POINT' if row['Is_Learner_Point'] else 'NO')}")
+    print(f"  Condition: {row['Condition']}")
+    print(f"  Distance:  {row['Mahalanobis_Distance']:.4f}")
+    print(f"  Outlier:   {'YES' if row['Is_Outlier'] else 'NO'}")
+    print(f"  Learner:   {'* CONSERVATIVE' if row['Is_Learner_Conservative'] else ('o POINT' if row['Is_Learner_Point'] else 'NO')}")
     
     print(
-        f"\n{'Feature':<15} {'BLUP':>8} {'CI (~95%)':>20} {'Ref':>8} {'Point':>5} {'VoteC':>5} {'CI_C':>5}"
+        f"\n  {'Feature':<15} {'BLUP':>8} {'CI (~95%)':>20} {'Ref':>8} {'Point':>5} {'VoteC':>5} {'CI_C':>5}"
     )
-    print("-" * 70)
+    print("  " + "-" * 68)
     
     for i, feat in enumerate(config.features_to_use):
         name = config.feature_configs[feat].name
         blup = row[f'{feat}_BLUP']
         ci = f"[{row[f'{feat}_CI_lower']:.2f}, {row[f'{feat}_CI_upper']:.2f}]"
         ref = mu_ctrl[i]
-        pp = "✓" if row[f'{feat}_Pass_Point'] else "✗"
-        pv = "✓" if row.get(f'{feat}_Pass_ConservativeVoting', False) else "✗"
-        pc = "✓" if row.get(f'{feat}_Pass_ConservativeCI', False) else "✗"
+        pp = "Y" if row[f'{feat}_Pass_Point'] else "N"
+        pv = "Y" if row.get(f'{feat}_Pass_ConservativeVoting', False) else "N"
+        pc = "Y" if row.get(f'{feat}_Pass_ConservativeCI', False) else "N"
         
-        print(f"{name:<15} {blup:>8.4f} {ci:>20} {ref:>8.4f} {pp:>5} {pv:>5} {pc:>5}")
+        print(f"  {name:<15} {blup:>8.4f} {ci:>20} {ref:>8.4f} {pp:>5} {pv:>5} {pc:>5}")
     print(f"{'='*60}\n")
 
 
@@ -2428,7 +2428,7 @@ def print_learning_vs_performance_safeguards(
     if 'Fish_ID' not in df.columns or 'Condition' not in df.columns:
         return
     if 'Log_Baseline' not in df.columns or 'Normalized vigor' not in df.columns:
-        print("⚠️  Safeguards skipped: required columns missing (Log_Baseline / Normalized vigor)")
+        print("  [WARN] Safeguards skipped: required columns missing (Log_Baseline / Normalized vigor)")
         return
 
     fish_set = set(map(str, result.fish_ids))
@@ -2478,10 +2478,10 @@ def print_learning_vs_performance_safeguards(
     fish_stats['Batch'] = fish_stats['Fish_ID'].map(_batch_from_fish_id)
 
     print(f"\n{'='*60}")
-    print("LEARNING vs PERFORMANCE SAFEGUARDS")
+    print("--- Learning vs Performance Safeguards ---")
     print(f"{'='*60}")
-    print(f"Learner definition used: conservative (votes >= {config.voting_threshold_conservative})")
-    print(f"Voting k×SE: k={config.se_multiplier_for_voting}; Reporting CI z={config.ci_multiplier_for_reporting}")
+    print(f"  Learner definition used: conservative (votes >= {config.voting_threshold_conservative})")
+    print(f"  Voting k*SE: k={config.se_multiplier_for_voting}; Reporting CI z={config.ci_multiplier_for_reporting}")
 
     # Compare baseline/vigor by learner status within each condition
     for cond in sorted(fish_stats['Condition'].unique()):
@@ -2490,7 +2490,7 @@ def print_learning_vs_performance_safeguards(
             continue
         n_learn = int(sub['Is_Learner'].sum())
         n_total = len(sub)
-        print(f"\nCondition: {cond}  (learners {n_learn}/{n_total})")
+        print(f"\n  Condition: {cond}  (learners {n_learn}/{n_total})")
 
         def _summ(col: str) -> str:
             # Summarize learner vs non-learner medians and optionally a Mann-Whitney U test.
@@ -2508,9 +2508,9 @@ def print_learning_vs_performance_safeguards(
             except Exception:
                 return f"learn median={np.median(a):.3f} vs non={np.median(b):.3f}"
 
-        print(f"  Log_Baseline median:   {_summ('baseline_median')}")
-        print(f"  Pretrain vigor median: {_summ('pretrain_vigor_median')}")
-        print(f"  Overall vigor median:   {_summ('vigor_median')}")
+        print(f"    Log_Baseline median:   {_summ('baseline_median')}")
+        print(f"    Pretrain vigor median: {_summ('pretrain_vigor_median')}")
+        print(f"    Overall vigor median:   {_summ('vigor_median')}")
 
     # Batch clustering check
     batch_tab = pd.crosstab(fish_stats['Batch'], fish_stats['Is_Learner'])
@@ -2520,7 +2520,7 @@ def print_learning_vs_performance_safeguards(
         batch_tab['LearnerRate'] = batch_tab.get('Learner', 0) / batch_tab['Total']
         batch_tab = batch_tab.sort_values('LearnerRate', ascending=False)
 
-        print(f"\nBatch clustering (from Fish_ID prefix):")
+        print(f"\n  Batch clustering (from Fish_ID prefix):")
         with pd.option_context('display.max_rows', 30, 'display.width', 120):
             print(batch_tab[['Learner', 'NonLearner', 'Total', 'LearnerRate']].round({'LearnerRate': 3}))
 
@@ -2538,49 +2538,49 @@ def print_classification_summary(
     n_features = len(config.features_to_use)
     
     print(f"\n{'='*60}")
-    print("DIRECTIONAL VOTING")
+    print("--- Directional Voting ---")
     print(f"{'='*60}")
-    print(f"\nExpected learning signatures (control means):")
+    print(f"\n  Expected learning signatures (control means):")
     for i, feat in enumerate(config.features_to_use):
         cfg = config.feature_configs[feat]
         direction = "<" if cfg.direction == 'negative' else ">"
-        print(f"   Feature {feat} ({cfg.name}): {direction} {result.mu_ctrl[i]:.4f}")
+        print(f"    Feature {feat} ({cfg.name}): {direction} {result.mu_ctrl[i]:.4f}")
     
-    print(f"\nVoting distribution (Point Estimate):")
+    print(f"\n  Voting distribution (Point Estimate):")
     for v in range(n_features + 1):
         n = (result.votes_point == v).sum()
         pct = n / len(result.votes_point) * 100
-        print(f"   {v}/{n_features} features: {n:3d} fish ({pct:5.1f}%)")
+        print(f"    {v}/{n_features} features: {n:3d} fish ({pct:5.1f}%)")
     
-    print(f"\nVoting distribution (Conservative):")
+    print(f"\n  Voting distribution (Conservative):")
     for v in range(n_features + 1):
         n = (result.votes_conservative == v).sum()
         pct = n / len(result.votes_conservative) * 100
-        print(f"   {v}/{n_features} features: {n:3d} fish ({pct:5.1f}%)")
+        print(f"    {v}/{n_features} features: {n:3d} fish ({pct:5.1f}%)")
     
     print(f"\n{'='*60}")
-    print("CLASSIFICATION RESULTS")
+    print("--- Classification Results ---")
     print(f"{'='*60}")
     
-    print(f"\nMETHOD 1: Point Estimate (≥{config.voting_threshold_point} features)")
-    print("─" * 60)
+    print(f"\n  METHOD 1: Point Estimate (>={config.voting_threshold_point} features)")
+    print("  " + "-" * 58)
     for cond in unique_conds:
         mask = result.conditions == cond
         n_total = mask.sum()
         n_learners = (mask & result.is_learner_point).sum()
         pct = n_learners / n_total * 100 if n_total > 0 else 0
         label = "(Reference)" if cond == ref_cond else "(Experimental)"
-        print(f"   {cond:15s} {label:15s}: {n_learners:3d} / {n_total:3d} ({pct:5.1f}%)")
+        print(f"    {cond:15s} {label:15s}: {n_learners:3d} / {n_total:3d} ({pct:5.1f}%)")
     
-    print(f"\nMETHOD 2: Conservative (≥{config.voting_threshold_conservative} features)")
-    print("─" * 60)
+    print(f"\n  METHOD 2: Conservative (>={config.voting_threshold_conservative} features)")
+    print("  " + "-" * 58)
     for cond in unique_conds:
         mask = result.conditions == cond
         n_total = mask.sum()
         n_learners = (mask & result.is_learner_conservative).sum()
         pct = n_learners / n_total * 100 if n_total > 0 else 0
         label = "(Reference)" if cond == ref_cond else "(Experimental)"
-        print(f"   {cond:15s} {label:15s}: {n_learners:3d} / {n_total:3d} ({pct:5.1f}%)")
+        print(f"    {cond:15s} {label:15s}: {n_learners:3d} / {n_total:3d} ({pct:5.1f}%)")
     
     # False positive rates
     ctrl_fp_point = (is_ctrl & result.is_learner_point).sum()
@@ -2588,12 +2588,12 @@ def print_classification_summary(
     n_ctrl = is_ctrl.sum()
     
     print(f"\n{'='*60}")
-    print(f"FALSE POSITIVE ANALYSIS")
-    print(f"Expected FP rate: ~{100 - config.threshold_percentile:.0f}%")
-    print(f"Observed (Point):       {ctrl_fp_point}/{n_ctrl} ({ctrl_fp_point/n_ctrl*100:.1f}%)")
-    print(f"Observed (Conservative): {ctrl_fp_cons}/{n_ctrl} ({ctrl_fp_cons/n_ctrl*100:.1f}%)")
+    print("--- False Positive Analysis ---")
+    print(f"  Expected FP rate: ~{100 - config.threshold_percentile:.0f}%")
+    print(f"  Observed (Point):       {ctrl_fp_point}/{n_ctrl} ({ctrl_fp_point/n_ctrl*100:.1f}%)")
+    print(f"  Observed (Conservative): {ctrl_fp_cons}/{n_ctrl} ({ctrl_fp_cons/n_ctrl*100:.1f}%)")
     
-    print("="*60)
+    print(f"{'='*60}")
 
 
 
@@ -2645,26 +2645,21 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
 
     config.print_summary()
 
-    print("\n" + "=" * 80)
-    print("MULTIVARIATE LEARNER CLASSIFICATION PIPELINE")
-    print("=" * 80)
+    print(f"{'='*60}")
     print(f"Experiment: {EXPERIMENT}")
     print(f"Conditions: {config.cond_types}")
+    print(f"{'='*60}")
 
     # Step 1: Load and prepare data
-    print("\n" + "=" * 80)
-    print("STEP 1: DATA LOADING AND PREPARATION")
-    print("=" * 80)
+    print("\n--- STEP 1: Data Loading and Preparation ---")
 
     # Load pooled per-trial data and enforce block/trial filters.
     raw_data = load_data(config, path_pooled_data)
     data = prepare_data(raw_data, config)
-    print(f"Data prepared: {len(data)} trials, {data['Fish_ID'].nunique()} fish")
+    print(f"  Data prepared: {len(data)} trials, {data['Fish_ID'].nunique()} fish")
 
     # Step 2: Feature extraction
-    print("\n" + "=" * 80)
-    print("STEP 2: FEATURE EXTRACTION (BLUPS WITH UNCERTAINTY)")
-    print("=" * 80)
+    print("\n--- STEP 2: Feature Extraction (BLUPs with Uncertainty) ---")
 
     # Extract BLUP-based features for the selected learning epochs.
     blup_dicts: Dict[str, Dict[str, BLUPResult]] = {}
@@ -2684,7 +2679,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     if len(common_fish) < 10:
         raise ValueError(f"Only {len(common_fish)} fish have all features. Need at least 10.")
 
-    print(f"{len(common_fish)} fish with complete feature sets")
+    print(f"  {len(common_fish)} fish with complete feature sets")
 
     # Build the feature matrix used for multivariate classification.
     X = np.array([[blup_dicts[feat][f].blup for feat in config.features_to_use] for f in common_fish])
@@ -2696,13 +2691,11 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     ref_cond = config.cond_types[0]
     is_ctrl = conds == ref_cond
 
-    print(f"   Reference: {ref_cond} (n={is_ctrl.sum()})")
-    print(f"   Experimental: (n={(~is_ctrl).sum()})")
+    print(f"    Reference: {ref_cond} (n={is_ctrl.sum()})")
+    print(f"    Experimental: (n={(~is_ctrl).sum()})")
 
     # Step 3: Statistical diagnostics
-    print("\n" + "=" * 80)
-    print("STEP 3: STATISTICAL DIAGNOSTICS")
-    print("=" * 80)
+    print("\n--- STEP 3: Statistical Diagnostics ---")
 
     feature_names = [config.feature_configs[feat].name for feat in config.features_to_use]
 
@@ -2715,9 +2708,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
         pca, X_pca = perform_pca(X, feature_names)
 
     # Step 4: Mahalanobis distance calculation
-    print("\n" + "=" * 80)
-    print("STEP 4: DISTANCE CALCULATION")
-    print("=" * 80)
+    print("\n--- STEP 4: Distance Calculation ---")
 
     # Compute robust Mahalanobis distances against the control-group covariance.
     X_ctrl = X[is_ctrl]
@@ -2733,9 +2724,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     )
 
     # Step 6: Classification
-    print("\n" + "=" * 80)
-    print("STEP 5: CLASSIFICATION")
-    print("=" * 80)
+    print("\n--- STEP 5: Classification ---")
 
     # Classify learners using distance outliers + directional voting.
     mu_ctrl = np.mean(X_ctrl, axis=0)
@@ -2766,9 +2755,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     print_learning_vs_performance_safeguards(data, result, config)
 
     # Step 7: Visualization
-    print("\n" + "=" * 80)
-    print("STEP 6: VISUALIZATION")
-    print("=" * 80)
+    print("\n--- STEP 6: Visualization ---")
 
     if RUN_PLOT_DIAGNOSTICS and corr_matrix is not None and pca is not None and X_pca is not None:
         diag_path = path_pooled_vigor_fig / "Multivariate_Diagnostics.png"
@@ -2811,7 +2798,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
         summary_df = create_detailed_summary_df(result, blup_dicts, config)
         detailed_path = path_pooled_data / f"Fish_Detailed_Summary_{config.csus}.csv"
         summary_df.to_csv(detailed_path, index=False)
-        print(f"Saved detailed summary: {detailed_path.name}")
+        print(f"  Saved detailed summary: {detailed_path.name}")
 
     results_dict = {
         'Fish_ID': result.fish_ids,
@@ -2832,7 +2819,7 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
     if RUN_EXPORT_RESULTS:
         results_path = path_pooled_data / f"Fish_Learner_Classification_{config.csus}.csv"
         pd.DataFrame(results_dict).to_csv(results_path, index=False)
-        print(f"Saved classification results: {results_path.name}")
+        print(f"  Saved classification results: {results_path.name}")
 
     return result, results_dict
 
@@ -2842,5 +2829,5 @@ if __name__ == "__main__":
         try:
             run_multivariate_lme_pipeline(analysis_cfg)
         except Exception as e:
-            print(f"Error in Multivariate LME pipeline: {e}")
+            print(f"[ERROR] Multivariate LME pipeline failed: {e}")
 # endregion
