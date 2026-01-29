@@ -35,6 +35,7 @@ import warnings
 from statsmodels.tools.sm_exceptions import ConvergenceWarning
 
 import analysis_utils
+import figure_saving
 import file_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
@@ -51,7 +52,7 @@ plotting_style.set_plot_style(rc_overrides={"figure.constrained_layout.use": Fal
 # ------------------------------------------------------------------------------
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
-RUN_PROCESS = True
+RUN_PROCESS = False
 RUN_BLOCK_SUMMARY_LINES = True
 RUN_BLOCK_SUMMARY_BOXPLOT = True
 RUN_PHASE_SUMMARY = True
@@ -87,19 +88,8 @@ Hide_non_significant = True
 y_lim = (0.7, 1.3)
 
 # ------------------------------------------------------------------------------
-# Block Summary (Lines) Parameters
-# ------------------------------------------------------------------------------
-DISCARD_FISH_IDS_LINES = []
-
-# ------------------------------------------------------------------------------
-# Block Summary (Boxplot) Parameters
-# ------------------------------------------------------------------------------
-DISCARD_FISH_IDS_BOXPLOT = []
-
-# ------------------------------------------------------------------------------
 # Phase Summary Parameters
 # ------------------------------------------------------------------------------
-DISCARD_FISH_IDS_PHASE = []
 HIGHLIGHT_FISH_ID = [
     '20221115_07',  # delay
     '20230307_12',  # 3s trace
@@ -113,14 +103,6 @@ HIGHLIGHT_FISH_ID = [
 n_boot = 1000
 y_lim_plot = (0.7, 1.4)
 lme_frmt = "png"
-APPLY_FISH_DISCARD_LME = False
-
-
-
-#! CHANGE THIS
-DISCARD_FISH_IDS_LME = [
-        # '20221115_10', '20221115_12', '20221116_03', '20221116_05', '20221116_08', '20221116_09', '20221116_11', '20221117_02', '20221117_05', '20221117_07', '20221117_08', '20221117_10', '20221117_11', '20221118_01', '20221118_06', '20221118_07', '20221118_09', '20221118_10', '20221118_12', '20221122_09', '20221123_10', '20221123_11', '20221124_01', '20221124_03', '20221124_04', '20221124_06', '20221124_12', '20221125_02', '20221125_03', '20221125_06', '20221125_08', '20221125_09', '20221125_11', '20221125_12', '20240611_05', '20240620_06', '20240624_06', '20240625_04', '20240626_01', '20240626_02', '20240703_08'
-    ]
 
 # %% Suppress statsmodels MixedLM convergence warnings (boundary / singular fits)
 
@@ -194,6 +176,7 @@ color_palette = []
 cr_window = None
 blocks_dict = {}
 path_pooled_vigor_fig = None
+path_scaled_vigor_fig = None
 path_orig_pkl = None
 path_all_fish = None
 path_pooled_data = None
@@ -203,7 +186,7 @@ skip_block_stats = False
 
 def initialize_context():
     global config, cond_types, cond_titles, color_palette, cr_window, blocks_dict
-    global path_pooled_vigor_fig, path_orig_pkl, path_all_fish, path_pooled_data
+    global path_pooled_vigor_fig, path_orig_pkl, path_all_fish, path_pooled_data, path_scaled_vigor_fig
     global fish_ids_to_discard, skip_block_stats
 
     config = get_experiment_config(EXPERIMENT)
@@ -237,27 +220,19 @@ def initialize_context():
         path_pooled_data,
     ) = file_utils.create_folders(config.path_save)
 
-    # Prefer a per-experiment discarded IDs file in the Processed data folder.
-    # Special case requested: ALL_DELAY uses the canonical location under
-    # F:\Results (paper)\2025_delay\Processed data\Discarded_fish_IDs.txt
-    candidate_discard_files  = [
-        path_processed_data / "Discarded_fish_IDs.txt",
-    ]
+    # All figures from this script should be saved under a "Scaled vigor" subfolder
+    # inside the experiment's pooled-figure output directory.
+    path_scaled_vigor_fig = path_pooled_vigor_fig / "Scaled vigor"
+    path_scaled_vigor_fig.mkdir(parents=True, exist_ok=True)
+
+    # Single discard list source: Processed data/Discarded_fish_IDs.txt
+    discard_file = path_processed_data / "Discarded_fish_IDs.txt"
 
     fish_ids_to_discard = []
     discard_source = None
-    for p in candidate_discard_files:
-        if p.exists():
-            fish_ids_to_discard = file_utils.load_discarded_fish_ids(p)
-            discard_source = p
-            break
-
-    # Fallback to the legacy location ("Excluded new/excluded_fish_ids.txt").
-    if not fish_ids_to_discard:
-        excluded_dir = path_orig_pkl / "Excluded new"
-        fish_ids_to_discard = file_utils.load_excluded_fish_ids(excluded_dir)
-        if fish_ids_to_discard:
-            discard_source = excluded_dir
+    if APPLY_FISH_DISCARD and discard_file.exists():
+        fish_ids_to_discard = file_utils.load_discarded_fish_ids(discard_file)
+        discard_source = discard_file
 
     if discard_source is not None:
         try:
@@ -284,15 +259,7 @@ def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFram
     
     print(df.columns)
     
-    # Find the fish ID column
-    fish_col = None
-    for col in ("Fish", "Fish_ID"):
-        if col in df.columns:
-            fish_col = col
-            break
-    
-    if fish_col is None:
-        return df
+    fish_col = "Fish"
     
     before = df[fish_col].nunique()
     prefix = f"  [{source}] " if source else "  "
@@ -314,9 +281,8 @@ def apply_panel_label(fig, label, x=0, y=1, ha="right"):
 
 
 def save_figure(fig, path_out, frmt, **overrides):
-    save_kwargs = dict(SAVEFIG_KW)
-    save_kwargs.update(overrides)
-    fig.savefig(str(path_out), format=frmt, **save_kwargs)
+    # Centralized save: mkdir + Windows-safe names + enforce suffix to match frmt.
+    figure_saving.save_figure(fig, path_out, frmt=frmt, savefig_kw=SAVEFIG_KW, **overrides)
 
 
 def add_baseline_line(ax, y=1):
@@ -373,12 +339,7 @@ def filter_pooled_data(data, apply_fish_discard=True, source: str = ""):
     ensure_context()
     # Apply global filters shared across plots and stats.
     
-    # Find the fish ID column
-    fish_col = None
-    for col in ("Fish", "Fish_ID"):
-        if col in data.columns:
-            fish_col = col
-            break
+    fish_col = "Fish"
     
     prefix = f"  [{source}] " if source else "  "
     
@@ -605,6 +566,7 @@ def build_within_condition_pairs(blocks, conditions):
 # region Pipeline Functions
 
 # %%
+# region data_aggregation
 def run_data_aggregation():
     """Aggregate trial-level data into per-fish, per-block normalized vigor."""
     ensure_context()
@@ -653,8 +615,22 @@ def run_data_aggregation():
 
         data.drop(columns=["Angle of point 15 (deg)", "Bout beg", "Bout end"], inplace=True, errors="ignore")
         
+
+
+        print(data)
+        print(data.columns)
+        print(data["Fish"].nunique())
+
+
+
         # Apply fish discarding
         data = filter_discarded_fish_ids(data, source=path.stem)
+
+
+        print(data["Fish"].nunique())
+
+
+
         
         cond_actual = data["Exp."].unique()[0]
         print(f"  Processing {cond_actual}: {len(data['Fish'].unique())} fish")
@@ -722,8 +698,11 @@ def run_data_aggregation():
 
     return data_pooled
 
+# endregion run_data_aggregation
+
 
 # %%
+# region block_summary_lines
 def run_block_summary_lines():
     """Plot per-fish block medians with a median overlay per condition.
 
@@ -737,14 +716,6 @@ def run_block_summary_lines():
         print("  [SKIP] No pooled data file found")
         return
 
-    if DISCARD_FISH_IDS_LINES:
-        before = data["Fish"].nunique()
-        print(f"  [run_block_summary_lines] Fish unique before manual discard: {before}")
-        print(f"  Discarding fish: {DISCARD_FISH_IDS_LINES}")
-        data = data[~data["Fish"].isin(DISCARD_FISH_IDS_LINES)]
-        after = data["Fish"].nunique()
-        print(f"  [run_block_summary_lines] Fish unique after manual discard: {after}")
-    
     if data.empty:
         print("  [SKIP] All fish discarded")
         return
@@ -1024,11 +995,14 @@ def run_block_summary_lines():
     path_part_b = (
         f"SV lineplot single catch trials_{block_cfg['number_trials_block']}_{age_filter}_{setup_color_filter}_{cond_types}.{frmt}"
     )
-    save_figure(fig_b, path_pooled_vigor_fig / path_part_b, frmt)
+    save_figure(fig_b, path_scaled_vigor_fig / path_part_b, frmt)
     print(f"  Saved: {path_part_b}")
+
+# endregion run_block_summary_lines
 
 
 # %%
+# region block_summary_boxplot
 def run_block_summary_boxplot():
     """Plot block-wise boxplots of per-fish medians with stats overlays.
 
@@ -1042,17 +1016,6 @@ def run_block_summary_boxplot():
     if data_box.empty:
         print("  [SKIP] No pooled data file found")
         return
-
-    if DISCARD_FISH_IDS_BOXPLOT:
-        before = data_box["Fish"].nunique()
-        print(f"  [run_block_summary_boxplot] Fish unique before manual discard: {before}")
-        print(f"  Discarding fish: {DISCARD_FISH_IDS_BOXPLOT}")
-        data_box = data_box[~data_box["Fish"].isin(DISCARD_FISH_IDS_BOXPLOT)]
-        after = data_box["Fish"].nunique()
-        print(f"  [run_block_summary_boxplot] Fish unique after manual discard: {after}")
-        if data_box.empty:
-            print("  [SKIP] All fish discarded")
-            return
 
     blocks_chosen = block_cfg["blocks_chosen"]
     blocks_chosen_labels = block_cfg["blocks_chosen_labels"]
@@ -1269,11 +1232,14 @@ def run_block_summary_boxplot():
         fig_a.set_size_inches(5/2.54, 5/2.54)
 
     path_part = f"3.1_{number_trials_block}_{age_filter}_{setup_color_filter}_{cond_types_box}.{frmt}"
-    save_figure(fig_a, path_pooled_vigor_fig / path_part, frmt)
+    save_figure(fig_a, path_scaled_vigor_fig / path_part, frmt)
     print(f"  Saved: {path_part}")
+
+# endregion run_block_summary_boxplot
 
 
 # %%
+# region phase_summary
 def run_phase_summary():
     """Plot phase-level medians per condition with per-fish trajectories.
 
@@ -1286,14 +1252,6 @@ def run_phase_summary():
     if data.empty:
         print("  [SKIP] No pooled data file found")
         return
-
-    if DISCARD_FISH_IDS_PHASE:
-        before = data["Fish"].nunique()
-        print(f"  [run_phase_summary] Fish unique before manual discard: {before}")
-        print(f"  Discarding fish: {DISCARD_FISH_IDS_PHASE}")
-        data = data[~data["Fish"].isin(DISCARD_FISH_IDS_PHASE)]
-        after = data["Fish"].nunique()
-        print(f"  [run_phase_summary] Fish unique after manual discard: {after}")
 
     if data.empty:
         print("  [SKIP] All fish discarded")
@@ -1462,12 +1420,15 @@ def run_phase_summary():
 
     apply_panel_label(fig, "B")
     path_part = f"NV single fish median of trials_{cond_types}_{csus}.{frmt}"
-    save_figure(fig, path_pooled_vigor_fig / path_part, frmt)
+    save_figure(fig, path_scaled_vigor_fig / path_part, frmt)
     print(f"  Saved: {path_part}")
+
+# endregion run_phase_summary
 
 
 # %%
 # region LME
+# region trial_by_trial
 def run_trial_by_trial(data_pooled=None):
     """Plot trial-by-trial median trajectories with LME significance annotations.
 
@@ -1485,25 +1446,13 @@ def run_trial_by_trial(data_pooled=None):
         return
 
     # Print initial fish count
-    before_any_discard = data_plot['Fish'].nunique()
-    print(f"  [run_trial_by_trial] Fish unique before any discard: {before_any_discard}")
-    
-    # Apply manual discard list (always applied if non-empty)
-    if DISCARD_FISH_IDS_LME:
-        print(f"  Discarding fish (manual list): {len(DISCARD_FISH_IDS_LME)} fish")
-        data_plot = data_plot[~data_plot["Fish"].isin(DISCARD_FISH_IDS_LME)]
-        after_manual = data_plot['Fish'].nunique()
-        print(f"  [run_trial_by_trial] Fish unique after manual discard: {after_manual}")
-    
-    # Apply global discard list (from Discarded_fish_IDs.txt)
-    if APPLY_FISH_DISCARD_LME and APPLY_FISH_DISCARD and fish_ids_to_discard:
-        before_global = data_plot['Fish'].nunique()
-        print(f"  [run_trial_by_trial] Discarding fish (from Discarded_fish_IDs.txt): {len(fish_ids_to_discard)} fish")
-        data_plot = data_plot[~data_plot["Fish"].isin(fish_ids_to_discard)]
-        after_global = data_plot['Fish'].nunique()
-        print(f"  [run_trial_by_trial] Fish unique after global discard: {after_global}")
-    
-    print(f"  Fish remaining after all discards: {data_plot['Fish'].nunique()}")
+    before_any_discard = data_plot["Fish"].nunique()
+    print(f"  [run_trial_by_trial] Fish unique before discard: {before_any_discard}")
+
+    # Apply shared discard list (from Discarded_fish_IDs.txt)
+    data_plot = filter_discarded_fish_ids(data_plot, source="run_trial_by_trial")
+
+    print(f"  Fish remaining after discard: {data_plot['Fish'].nunique()}")
 
     if EXPORT_TEXT:
         output_path = path_pooled_data / "data_output.txt"
@@ -1514,7 +1463,7 @@ def run_trial_by_trial(data_pooled=None):
     try:
         df_main = prepare_main_df(
             data_plot,
-            apply_fish_discard=APPLY_FISH_DISCARD_LME,
+            apply_fish_discard=APPLY_FISH_DISCARD,
             jitter_scale=LME_JITTER_SCALE,
             jitter_seed=LME_JITTER_SEED,
         )
@@ -1911,13 +1860,15 @@ def run_trial_by_trial(data_pooled=None):
     ax_c.set_ylabel("Normalized vigor (ratio)")
     ax_c.legend().remove()
 
-    save_path = path_pooled_vigor_fig / f"NV_LME_Visualized_Raw_{cond_types}.{lme_frmt}"
+    save_path = path_scaled_vigor_fig / f"NV_LME_Visualized_Raw_{cond_types}.{lme_frmt}"
     save_figure(fig_c, save_path, lme_frmt)
     print(f"  Saved: {save_path.name}")
+# endregion run_trial_by_trial
 # endregion LME
 # endregion Pipeline Functions
 
 # region Main
+# region main
 def main():
     initialize_context()
     print(f"{'='*60}")
@@ -1947,6 +1898,8 @@ def main():
         run_trial_by_trial(data_pooled=data_pooled if RUN_PROCESS else None)
 
     print("\n--- Done ---")
+
+# endregion main
 
 
 if __name__ == "__main__":

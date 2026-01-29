@@ -904,8 +904,12 @@ def add_component(
         
         # 1. Determine Spine BBox (for centering/alignment relative to axes)
         visible_axes = [ax for ax in fig.axes if ax.get_visible()]
-        if visible_axes:
-            spine_bbox = Bbox.union([ax.bbox for ax in visible_axes])
+        # Prefer "main" axes (exclude colorbars/auxiliary axes when possible)
+        main_axes = [ax for ax in visible_axes if getattr(ax, "get_in_layout", lambda: True)() and ax.has_data()]
+        axes_for_layout = main_axes or visible_axes
+
+        if axes_for_layout:
+            spine_bbox = Bbox.union([ax.bbox for ax in axes_for_layout])
         else:
             spine_bbox = _get_target_bbox_px(target, fig, use_tight=spec.use_tight_bbox, include_fig_texts=False)
 
@@ -931,28 +935,116 @@ def add_component(
                 x_px = (tight_bbox.x0 + tight_bbox.x1) / 2.0
 
         elif spec.component == "supxlabel":  # supxlabel
-            # Center horizontally relative to plot area (spines)
-            if spec.anchor_h == "left":
-                x_px = spine_bbox.x0
-            elif spec.anchor_h == "right":
-                x_px = spine_bbox.x1
-            else:  # center
-                x_px = (spine_bbox.x0 + spine_bbox.x1) / 2.0
-            
-            # Anchor vertically to fixed offset from figure edge in points.
-            # We compute the y position directly so that the offset (in points)
-            # is independent of figure height.
-            dpi = fig.dpi
-            pad_y_px = _pt_to_px(spec.pad_pt[1] + spec.xy_pt[1], dpi)
-            
-            if spec.anchor_v == "top":
-                # Position at top: offset downward from top edge
-                y_px = fig.bbox.y1 - pad_y_px
-            elif spec.anchor_v == "bottom":
-                # Position at bottom: offset upward from bottom edge
-                y_px = fig.bbox.y0 + pad_y_px
-            else:  # center
-                y_px = (fig.bbox.y0 + fig.bbox.y1) / 2.0
+            # For figure-level supxlabel we want two things simultaneously:
+            # 1) be positioned relative to the bottom subplot (so it tracks multi-row layouts)
+            # 2) avoid being pushed *into* the plot area when the figure is short or ticklabels
+            #    extend beyond the canvas.
+            #
+            # Instead of clamping the text upward (which can overlap the plot), we
+            # preferentially increase the figure's bottom margin to make room.
+
+            def _compute_supxlabel_xy_px() -> tuple[float, float, Bbox]:
+                # Center horizontally relative to plot area (spines)
+                if spec.anchor_h == "left":
+                    x = spine_bbox.x0
+                elif spec.anchor_h == "right":
+                    x = spine_bbox.x1
+                else:  # center
+                    x = (spine_bbox.x0 + spine_bbox.x1) / 2.0
+
+                # Anchor vertically relative to the *bottom subplot* tight bbox
+                if axes_for_layout:
+                    tight_bboxes_local = [
+                        _get_target_bbox_px(ax, fig, use_tight=True, include_fig_texts=False)
+                        for ax in axes_for_layout
+                    ]
+                    bottom_bb = tight_bboxes_local[int(np.argmin([bb.y0 for bb in tight_bboxes_local]))]
+                else:
+                    bottom_bb = tight_bbox
+
+                dpi_local = fig.dpi
+                pad_y = _pt_to_px(spec.pad_pt[1] + spec.xy_pt[1], dpi_local)
+
+                if spec.anchor_v == "top":
+                    y = bottom_bb.y1 + pad_y
+                elif spec.anchor_v == "bottom":
+                    y = bottom_bb.y0 - pad_y
+                else:
+                    y = (bottom_bb.y0 + bottom_bb.y1) / 2.0
+
+                return x, y, bottom_bb
+
+            x_px, y_px, bottom_tight_bbox = _compute_supxlabel_xy_px()
+
+            # If anchored at the bottom, estimate whether the label would be clipped.
+            # If so, expand the subplot bottom margin (once) and recompute.
+            if spec.anchor_v == "bottom":
+                try:
+                    renderer = _get_renderer(fig)
+                    dpi = fig.dpi
+                    margin_px = _pt_to_px(2.0, dpi)
+
+                    # Determine actual text bbox at the intended location.
+                    # Use the same alignment logic that will be used below.
+                    tmp_text_kwargs = dict(spec.text_kwargs or {})
+                    # Fill fontsize default consistent with later logic.
+                    if "fontsize" not in tmp_text_kwargs:
+                        plot_config = get_plot_config()
+                        tmp_text_kwargs["fontsize"] = plot_config.fontsize_axis_label
+
+                    # For supxlabel anchored at bottom we invert va to "top"
+                    tmp_text_kwargs.setdefault("ha", spec.anchor_h)
+                    tmp_text_kwargs.setdefault("va", "top")
+
+                    x_fig_tmp, y_fig_tmp = fig.transFigure.inverted().transform((x_px, y_px))
+                    tmp = fig.text(
+                        x_fig_tmp,
+                        y_fig_tmp,
+                        spec.text,
+                        fontdict=spec.fontdict,
+                        transform=fig.transFigure,
+                        alpha=0.0,
+                        **tmp_text_kwargs,
+                    )
+                    fig.canvas.draw()
+                    bb_txt = tmp.get_window_extent(renderer=renderer)
+                    tmp.remove()
+
+                    # If bottom of text would be clipped inside the current canvas,
+                    # expand the subplot bottom margin rather than pushing text up.
+                    if bb_txt.y0 < fig.bbox.y0 + margin_px:
+                        delta_px = (fig.bbox.y0 + margin_px) - bb_txt.y0
+                        delta_frac = float(delta_px) / float(fig.bbox.height) if fig.bbox.height else 0.0
+
+                        subplotpars = getattr(fig, "subplotpars", None)
+                        current_bottom = float(getattr(subplotpars, "bottom", 0.0)) if subplotpars is not None else 0.0
+                        # Cap to avoid pathological layouts; if we hit the cap, fall back to clamping.
+                        new_bottom = min(0.45, current_bottom + delta_frac)
+
+                        if subplotpars is not None and (new_bottom > current_bottom + 1e-4):
+                            fig.subplots_adjust(bottom=new_bottom)
+                            fig.canvas.draw()
+
+                            # Recompute bboxes after layout shift
+                            visible_axes = [ax for ax in fig.axes if ax.get_visible()]
+                            main_axes = [
+                                ax
+                                for ax in visible_axes
+                                if getattr(ax, "get_in_layout", lambda: True)() and ax.has_data()
+                            ]
+                            axes_for_layout = main_axes or visible_axes
+                            spine_bbox = Bbox.union([ax.bbox for ax in axes_for_layout]) if axes_for_layout else spine_bbox
+                            tight_bbox = _get_target_bbox_px(target, fig, use_tight=True, include_fig_texts=False)
+
+                            x_px, y_px, bottom_tight_bbox = _compute_supxlabel_xy_px()
+                        else:
+                            # Fallback: clamp just enough to keep visible.
+                            x_fig_tmp, y_fig_tmp = fig.transFigure.inverted().transform((x_px, y_px))
+                            # bb_txt.height is in px
+                            y_px = max(y_px, fig.bbox.y0 + margin_px + bb_txt.height)
+
+                except Exception:
+                    pass
 
         elif spec.component == "fig_title":
             # Horizontal: relative to plot area (spines) to align with axes
@@ -974,23 +1066,25 @@ def add_component(
                 y_px = (fig_bbox.y0 + fig_bbox.y1) / 2.0
 
     elif isinstance(target, Axes) and spec.component == "axis_title":
-        # Hybrid anchoring for Axes: align centers to spines (plot area), edges to tight box
+        # Axis titles in this project are typically used as panel/block labels.
+        # They should be anchored to the *axes plot area* (spines), not to the
+        # tight bbox (which includes tick labels). Otherwise yticklabels will
+        # shift left/right placement, which is not desired.
         spine_bbox = target.bbox
-        tight_bbox = _get_target_bbox_px(target, fig, use_tight=spec.use_tight_bbox)
 
-        # Horizontal
+        # Horizontal (always relative to spines)
         if spec.anchor_h == "left":
-            x_px = tight_bbox.x0
+            x_px = spine_bbox.x0
         elif spec.anchor_h == "right":
-            x_px = tight_bbox.x1
+            x_px = spine_bbox.x1
         else:  # center
             x_px = (spine_bbox.x0 + spine_bbox.x1) / 2.0
 
-        # Vertical
+        # Vertical (also relative to spines for consistent placement across panels)
         if spec.anchor_v == "top":
-            y_px = tight_bbox.y1
+            y_px = spine_bbox.y1
         elif spec.anchor_v == "bottom":
-            y_px = tight_bbox.y0
+            y_px = spine_bbox.y0
         else:  # center
             y_px = (spine_bbox.y0 + spine_bbox.y1) / 2.0
 
@@ -1030,14 +1124,18 @@ def add_component(
 
     # For supylabel/supxlabel, invert alignment so text extends AWAY from the content:
     # - supylabel anchored at "left" should have ha="right" (text goes leftward)
-    # - supxlabel is anchored to the *figure edge* (see branch above), so keep
-    #   its vertical alignment matching the anchor so the distance to the figure
-    #   edge is stable and intuitive (e.g. anchor_v="bottom" => va="bottom").
+    # - supxlabel anchored at "bottom" should have va="top" (text goes downward)
+    #   and anchored at "top" should have va="bottom".
     if spec.component == "supylabel":
         if spec.anchor_h == "left":
             ha = "right"
         elif spec.anchor_h == "right":
             ha = "left"
+    elif spec.component == "supxlabel":
+        if spec.anchor_v == "bottom":
+            va = "top"
+        elif spec.anchor_v == "top":
+            va = "bottom"
     elif spec.component == "axis_title":
         # Axis titles anchored at "top" should sit above (va="bottom")
         # Axis titles anchored at "bottom" should sit below (va="top")

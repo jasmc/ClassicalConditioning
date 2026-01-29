@@ -97,6 +97,7 @@ else:
     module_root = Path.cwd()
 
 import analysis_utils
+import figure_saving
 import file_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
@@ -1953,8 +1954,14 @@ def plot_blup_trajectory_overlay(
 
     if save_path is not None:
         save_path = Path(save_path)
-        save_path.parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, dpi=int(FIG_DPI_BLUP_OVERLAY), bbox_inches="tight", facecolor="white")
+        figure_saving.save_figure(
+            fig,
+            save_path,
+            frmt=save_path.suffix.lstrip(".") or "png",
+            dpi=int(FIG_DPI_BLUP_OVERLAY),
+            bbox_inches="tight",
+            facecolor="white",
+        )
         print(f"  Saved: {save_path.name}")
 
     return fig
@@ -2046,8 +2053,14 @@ def plot_blup_caterpillar(
 
     if save_path is not None:
         save_path = Path(save_path)
-        save_path.parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, dpi=200, bbox_inches="tight", facecolor="white")
+        figure_saving.save_figure(
+            fig,
+            save_path,
+            frmt=save_path.suffix.lstrip(".") or "png",
+            dpi=200,
+            bbox_inches="tight",
+            facecolor="white",
+        )
         print(f"[OK] Saved: {save_path.name}")
 
     return fig
@@ -2411,7 +2424,12 @@ def save_combined_plots_and_grid(
             fontfamily="monospace",
         )
 
-        fig.savefig(output_dir / f"Fish_{fish}_{cond}_combined.png", dpi=int(FIG_DPI_INDIVIDUAL_FISH))
+        figure_saving.save_figure(
+            fig,
+            output_dir / f"Fish_{fish}_{cond}_combined.png",
+            frmt="png",
+            dpi=int(FIG_DPI_INDIVIDUAL_FISH),
+        )
         plt.close(fig)
 
     # 2. Summary Grid
@@ -2690,7 +2708,13 @@ def save_combined_plots_and_grid(
 
     cond_suffix = f"_{condition}" if condition else ""
     grid_path = output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}.png"
-    fig.savefig(grid_path, dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
+    figure_saving.save_figure(
+        fig,
+        grid_path,
+        frmt="png",
+        dpi=int(FIG_DPI_SUMMARY_GRID),
+        bbox_inches="tight",
+    )
     print(f"  Saved: {grid_path.name}")
 
 
@@ -2913,7 +2937,13 @@ def save_heatmap_grid(
     
     cond_suffix = f"_{condition}" if condition else ""
     grid_path = output_dir / f"Heatmap_Grid_CS{cond_suffix}.png"
-    fig.savefig(grid_path, dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
+    figure_saving.save_figure(
+        fig,
+        grid_path,
+        frmt="png",
+        dpi=int(FIG_DPI_SUMMARY_GRID),
+        bbox_inches="tight",
+    )
     plt.close(fig)
     
     print(f"  Saved heatmap grid: {grid_path.name}")
@@ -3251,6 +3281,7 @@ def print_classification_summary(
 # ============================================================================
 
 # Function: Entry point for the multivariate LME learner classification pipeline.
+# region run_multivariate_lme_pipeline
 def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[ClassificationResult, Dict[str, Any]]:
     """
     Run the full multivariate learner classification pipeline.
@@ -3504,6 +3535,8 @@ def run_multivariate_lme_pipeline(config: AnalysisConfig) -> Tuple[Classificatio
         print(f"  Saved classification results: {results_path.name}")
 
     return result, results_dict
+
+# endregion run_multivariate_lme_pipeline
 
 
 if __name__ == "__main__":

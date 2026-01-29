@@ -28,6 +28,7 @@ else:
 
 import analysis_utils
 import data_io
+import figure_saving
 import file_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
@@ -81,6 +82,7 @@ PROTOCOLS_FIG_FORMAT = 'png'
 # region Pipeline Functions
 
 # %%
+# region preprocess
 def run_preprocess(params: dict = None):
     """
     Executes the raw data preprocessing pipeline.
@@ -134,12 +136,19 @@ def run_preprocess(params: dict = None):
         else:
             time_h = np.arange(len(data)) / gen_config.expected_framerate / 3600
             
-        plt.figure(figsize=(28, 14))
+        fig = plt.figure(figsize=(28, 14))
         plt.plot(time_h, data[angle_col], 'k', lw=0, markersize=0.1, marker='.')
         plt.xlabel('Time (h)')
         plt.ylabel('Tail end angle (deg)')
         plt.suptitle('Behavior overview\n' + fish_name)
-        plt.savefig(save_path, dpi=100, bbox_inches='tight')
+        save_path = Path(save_path)
+        figure_saving.save_figure(
+            fig,
+            save_path,
+            frmt=save_path.suffix.lstrip("."),
+            dpi=100,
+            bbox_inches="tight",
+        )
         plt.close()
 
     if not config.path_home:
@@ -327,8 +336,11 @@ def run_preprocess(params: dict = None):
 
     print('PREPROCESS FINISHED')
 
+# endregion run_preprocess
+
 
 # %%
+# region plot_individual_trials
 def run_plot_individual_trials():
     """
     Generates single-fish diagnostic plots to visualize behavior during trials.
@@ -577,11 +589,49 @@ def run_plot_individual_trials():
                 elif metric in ['Bout', 'Bout beg', 'Bout end']:
                     axs[-1].set_ylim((0.5, 1))
 
-                axs[-1].set_xlabel('Time relative to CS onset (s)')
+                axs[-1].set_xlabel('')
                 fig.subplots_adjust(hspace=1.5)
-                fig.supylabel('Tail angle (deg)')
                 fig.set_size_inches(fig.get_size_inches()[0], 20)
-                fig.savefig(str(fig_path_tail), format=FIG_FORMAT, dpi=300, transparent=False, bbox_inches="tight")
+
+                plot_cfg = plotting_style.get_plot_config()
+                analysis_utils.add_component(
+                    fig,
+                    analysis_utils.AddTextSpec(
+                        component="supxlabel",
+                        text="Time relative to CS onset (s)",
+                        anchor_h="center",
+                        anchor_v="bottom",
+                        pad_pt=plot_cfg.pad_supxlabel,
+                        text_kwargs={
+                            "fontweight": plot_cfg.axes_labelweight,
+                            "fontsize": plot_cfg.axes_labelsize,
+                        },
+                    ),
+                )
+                analysis_utils.add_component(
+                    fig,
+                    analysis_utils.AddTextSpec(
+                        component="supylabel",
+                        text="Tail angle (deg)",
+                        anchor_h="left",
+                        anchor_v="center",
+                        pad_pt=plot_cfg.pad_supylabel,
+                        text_kwargs={
+                            "rotation": 90,
+                            "fontweight": plot_cfg.axes_labelweight,
+                            "fontsize": plot_cfg.axes_labelsize,
+                        },
+                    ),
+                )
+
+                figure_saving.save_figure(
+                    fig,
+                    fig_path_tail,
+                    frmt=FIG_FORMAT,
+                    dpi=300,
+                    transparent=False,
+                    bbox_inches="tight",
+                )
                 plt.close(fig)
 
             # Plot 2: Raw Vigor Heatmap
@@ -646,10 +696,34 @@ def run_plot_individual_trials():
                     show_yticks=True,
                     hide_spines=('top', 'right'),
                 )
-                axs[-1][0].set_xlabel(f'Time relative to \n{csus} onset (s)')
+                axs[-1][0].set_xlabel('')
 
                 fig.set_size_inches(fig.get_size_inches()[0], len(phases_trials) * 4)
-                fig.savefig(str(fig_path_raw), format=FIG_FORMAT, dpi=300, transparent=False, bbox_inches='tight')
+
+                plot_cfg = plotting_style.get_plot_config()
+                analysis_utils.add_component(
+                    fig,
+                    analysis_utils.AddTextSpec(
+                        component="supxlabel",
+                        text=f"Time relative to\n{csus} onset (s)",
+                        anchor_h="center",
+                        anchor_v="bottom",
+                        pad_pt=plot_cfg.pad_supxlabel,
+                        text_kwargs={
+                            "fontweight": plot_cfg.axes_labelweight,
+                            "fontsize": plot_cfg.axes_labelsize,
+                        },
+                    ),
+                )
+
+                figure_saving.save_figure(
+                    fig,
+                    fig_path_raw,
+                    frmt=FIG_FORMAT,
+                    dpi=300,
+                    transparent=False,
+                    bbox_inches="tight",
+                )
                 plt.close(fig)
 
             # Plot 3: Scaled Vigor Heatmap
@@ -770,7 +844,7 @@ def run_plot_individual_trials():
                         show_yticks=True,
                         hide_spines=('top', 'right'),
                     )
-                    axs[-1][0].set_xlabel(f'Time relative to \n{csus} onset (s)')
+                    axs[-1][0].set_xlabel('')
                     axs[0][0].set_title(fish_id, loc='left')
 
                 else:
@@ -811,11 +885,34 @@ def run_plot_individual_trials():
                         show_yticks=True,
                         hide_spines=('top', 'right'),
                     )
-                    axs[train_idx][0].set_xlabel(f'Time relative to \n{csus} onset (s)')
+                    axs[train_idx][0].set_xlabel('')
                     axs[train_idx][0].set_title(fish_id, loc='left')
 
+                plot_cfg = plotting_style.get_plot_config()
+                analysis_utils.add_component(
+                    fig,
+                    analysis_utils.AddTextSpec(
+                        component="supxlabel",
+                        text=f"Time relative to\n{csus} onset (s)",
+                        anchor_h="center",
+                        anchor_v="bottom",
+                        pad_pt=plot_cfg.pad_supxlabel,
+                        text_kwargs={
+                            "fontweight": plot_cfg.axes_labelweight,
+                            "fontsize": plot_cfg.axes_labelsize,
+                        },
+                    ),
+                )
+
                 fig.suptitle('A', fontsize=11, fontweight='bold', x=0, y=1, va='bottom', ha='left')
-                fig.savefig(str(fig_path_sc), format=FIG_FORMAT, dpi=1000, transparent=False, bbox_inches='tight')
+                figure_saving.save_figure(
+                    fig,
+                    fig_path_sc,
+                    frmt=FIG_FORMAT,
+                    dpi=1000,
+                    transparent=False,
+                    bbox_inches="tight",
+                )
                 plt.close(fig)
 
             # Plot 4: Normalized Vigor
@@ -889,13 +986,22 @@ def run_plot_individual_trials():
                 axs[1].set_xlabel('Trial number')
 
                 fig.set_size_inches(fig.get_size_inches()[0], 7)
-                fig.savefig(str(fig_path_norm), format=FIG_FORMAT, dpi=300, transparent=False)
+                figure_saving.save_figure(
+                    fig,
+                    fig_path_norm,
+                    frmt=FIG_FORMAT,
+                    dpi=300,
+                    transparent=False,
+                )
                 plt.close(fig)
             
     print("PLOT INDIVIDUAL TRIALS FINISHED")
 
+# endregion run_plot_individual_trials
+
 
 # %%
+# region plot_protocols
 def run_plot_protocols():
     """
     Plots the stimulus protocol as experienced by the fish.
@@ -965,7 +1071,13 @@ def run_plot_protocols():
 
         fig.legend()
         fig.suptitle('Total duration: ' + str(round(protocol.loc[:, 'Time'].iloc[-1] / 60, 2)) + ' h')
-        fig.savefig(str(fig_path), format=PROTOCOLS_FIG_FORMAT, dpi=100, facecolor='white')
+        figure_saving.save_figure(
+            fig,
+            fig_path,
+            frmt=PROTOCOLS_FIG_FORMAT,
+            dpi=100,
+            facecolor="white",
+        )
         plt.close(fig)
 
     # Constants for protocol plotting
@@ -1132,8 +1244,14 @@ def run_plot_protocols():
                 axs[0][0].legend(loc='center left', bbox_to_anchor=(1, 0.5), frameon=False)
                 fig.set_facecolor('white')
 
-                fig.savefig(str(fig_protocol_individual.with_suffix(f'.{PROTOCOLS_FIG_FORMAT}')), 
-                           format=PROTOCOLS_FIG_FORMAT, dpi=150, transparent=False, bbox_inches="tight")
+                figure_saving.save_figure(
+                    fig,
+                    fig_protocol_individual,
+                    frmt=PROTOCOLS_FIG_FORMAT,
+                    dpi=150,
+                    transparent=False,
+                    bbox_inches="tight",
+                )
                 plt.close(fig)
 
             # Plot 2: Blocks of trials
@@ -1189,14 +1307,23 @@ def run_plot_protocols():
                 axs[0][0].legend(loc='center left', bbox_to_anchor=(1, 0.5), frameon=False)
                 fig.set_facecolor('white')
 
-                fig.savefig(str(fig_protocol_blocks.with_suffix(f'.{PROTOCOLS_FIG_FORMAT}')), 
-                           format=PROTOCOLS_FIG_FORMAT, dpi=150, transparent=False, bbox_inches="tight")
+                figure_saving.save_figure(
+                    fig,
+                    fig_protocol_blocks,
+                    frmt=PROTOCOLS_FIG_FORMAT,
+                    dpi=150,
+                    transparent=False,
+                    bbox_inches="tight",
+                )
                 plt.close(fig)
 
     print("PLOT PROTOCOLS FINISHED")
 
+# endregion run_plot_protocols
+
 
 # %%
+# region discard
 def run_discard():
     """
     Canonical discard flow (aligned to `Discard/Discard fish.py`).
@@ -1558,6 +1685,8 @@ def run_discard():
         print(f"Warning: missing excluded PKL files for {len(missing)} fish.")
 
     print('Done')
+
+# endregion run_discard
 # endregion Pipeline Functions
 
 

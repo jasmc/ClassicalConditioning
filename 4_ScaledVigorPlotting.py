@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from matplotlib.colors import LogNorm
+from matplotlib.figure import Figure
 from matplotlib.ticker import MultipleLocator
 from tqdm import tqdm
 
@@ -87,7 +88,7 @@ count_heatmap_binning_window = 0.5
 # SV Heatmap Rendering Parameters
 # ------------------------------------------------------------------------------
 binning_window_heatmap = 0.5
-frmt_heatmap = "svg"
+frmt = "svg"
 
 # ------------------------------------------------------------------------------
 # SV Lineplot Parameters
@@ -137,6 +138,11 @@ config = get_experiment_config(EXPERIMENT)
     path_pooled_data,
 ) = file_utils.create_folders(config.path_save)
 
+# All figures from this script should be saved under a "Scaled vigor" subfolder
+# inside the experiment's pooled-figure output directory.
+path_scaled_vigor_fig = path_pooled_vigor_fig / "Scaled vigor"
+path_scaled_vigor_fig.mkdir(parents=True, exist_ok=True)
+
 stim_duration = config.cs_duration if csus == "CS" else gen_config.us_duration
 stim_color = gen_config.plotting.cs_color if csus == "CS" else gen_config.plotting.us_color
 time_frame_col = gen_config.time_trial_frame_label
@@ -169,15 +175,7 @@ def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFram
     
     print(df.columns)
     
-    # Find the fish ID column
-    fish_col = None
-    for col in ("Fish", "Fish_ID"):
-        if col in df.columns:
-            fish_col = col
-            break
-    
-    if fish_col is None:
-        return df
+    fish_col = "Fish"
     
     before = df[fish_col].nunique()
     prefix = f"  [{source}] " if source else "  "
@@ -488,12 +486,44 @@ def find_heatmap_paths(patterns):
         if matched:
             return matched
     return []
+
+
+def _stringify_for_filename(value) -> str:
+    """Convert common objects (lists/arrays) into filename-friendly strings."""
+    if value is None:
+        return ""
+    if isinstance(value, (list, tuple, set, np.ndarray)):
+        return "-".join(str(v) for v in value)
+    return str(value)
+
+
+def _sanitize_filename(name: str) -> str:
+    """Sanitize a filename component for Windows filesystems."""
+    # Windows disallowed characters: <>:"/\|?*
+    invalid = '<>:"/\\|?*'
+    out = "".join("_" if ch in invalid else ch for ch in str(name))
+    # Avoid trailing spaces/dots which Windows strips/blocks.
+    out = out.strip().rstrip(".")
+    # Keep filenames reasonably compact.
+    out = " ".join(out.split())
+    return out if out else "figure"
+
+
+def save_fig(fig: Figure, stem: str, frmt: str) -> Path:
+    """Save a figure under path_scaled_vigor_fig with consistent naming."""
+    safe_stem = _sanitize_filename(stem)
+    safe_frmt = str(frmt).lstrip(".")
+    save_path = path_scaled_vigor_fig / f"{safe_stem}.{safe_frmt}"
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(str(save_path), format=safe_frmt, **SAVEFIG_KW)
+    return save_path
 # endregion Helper Functions
 
 
 # %%
 # region Pipeline Functions
 
+# region build_pooled_outputs
 def run_build_pooled_outputs():
     """Load per-fish data and aggregate into pooled heatmap/lineplot outputs."""
     all_data_csus_paths = sorted(
@@ -519,14 +549,22 @@ def run_build_pooled_outputs():
     print(csus)
     datasets = []
     for path in tqdm(all_data_csus_paths, desc="Loading Data"):
+
+        print(path)
         try:
             df = pd.read_pickle(path, compression="gzip")
+            print(df)
+            print(df.columns)
+            print(df["Fish"].nunique())
         except Exception as exc:
             print(f"Skipping {path.name}: {exc}")
             continue
 
         df = filter_discarded_fish_ids(df, source=path.stem)
+        print(df["Fish"].nunique())
 
+        # return
+    
         if "Block name" in df.columns and df["Block name"].isna().all():
             df["Trial type"] = csus
             df = analysis_utils.identify_blocks_trials(df, config.blocks_dict)
@@ -542,7 +580,7 @@ def run_build_pooled_outputs():
         num_fish = df["Fish"].nunique() if "Fish" in df.columns else np.nan
         print(f"Processing condition: {cond}, Fish: {num_fish}")
 
-        with open(path_pooled_vigor_fig / "1_Heatmap notes.txt", "a") as file:
+        with open(path_scaled_vigor_fig / "1_Heatmap notes.txt", "a") as file:
             file.write(f"Number fish in {cond}: {num_fish}\n\n")
 
         df = ensure_time_seconds(df)
@@ -642,8 +680,11 @@ def run_build_pooled_outputs():
     if data_plot_line is not None:
         print(data_plot_line.max())
 
+# endregion run_build_pooled_outputs
+
 
 # %%
+# region count_heatmap
 def run_count_heatmap():
     """Plot stacked per-block count heatmaps.
 
@@ -715,10 +756,24 @@ def run_count_heatmap():
     data_p95 = np.nanpercentile(data_values, 95) if len(data_values) > 0 else 1
     print(f"  Count heatmap data range: min={data_min:.4f}, max={data_max:.4f}, p95={data_p95:.4f}")
 
-    # Use data-driven scaling: vmax at 95th percentile for better contrast
+    # Use LogNorm to improve contrast at low counts.
+    # Note: LogNorm requires strictly positive values, so we compute a small
+    # positive floor and clip zeros up to that floor.
     cmap = "hot"
-    vmin_count = 0
-    vmax_count = max(data_p95, 0.01)  # Use 95th percentile, minimum 0.01
+
+    positive = data_values[data_values > 0]
+    if positive.size == 0:
+        vmin_count = 1e-3
+        vmax_count = 1.0
+    else:
+        # Use robust percentiles so a few outliers don't dominate.
+        vmin_count = float(np.nanpercentile(positive, 5))
+        vmax_count = float(np.nanpercentile(positive, 95))
+        vmin_count = max(vmin_count, float(np.nanmin(positive)), 1e-4)
+        # Ensure vmax > vmin for LogNorm.
+        vmax_count = max(vmax_count, vmin_count * 10)
+
+    count_norm = LogNorm(vmin=vmin_count, vmax=vmax_count)
 
     fig, axs = make_heatmap_axes(phases_trial_numbers, ncols=len(cond_types), sharey="row", sharex=True)
     xlabels = []
@@ -736,6 +791,9 @@ def run_count_heatmap():
         data_cond = data_cond.loc[:, mask_time]
         data_cond.columns = [float(s) + binning_window / 2 for s in data_cond.columns]
 
+        # Clip to positive floor for LogNorm (keeps zeros visible as the lowest color).
+        data_cond = data_cond.clip(lower=vmin_count)
+
         render_heatmap_blocks(
             axs[:, [col_i]],
             data_cond,
@@ -747,8 +805,7 @@ def run_count_heatmap():
             window_data_plot,
             show_ylabel=(col_i == 0),
             show_yticklabels=(col_i == 0),
-            vmin=vmin_count,
-            vmax=vmax_count,
+            norm=count_norm,
             cmap=cmap,
         )
 
@@ -797,7 +854,7 @@ def run_count_heatmap():
             text=f"Time relative to {csus} onset (s)",
             anchor_h="center",
             anchor_v="bottom",
-            pad_pt=(0.0, plot_cfg.axes_labelpad),
+            pad_pt=plot_cfg.pad_supxlabel,
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize, "color": "k"},
         ),
     )
@@ -832,12 +889,14 @@ def run_count_heatmap():
         ),
     )
 
-    cond_label = cond_types.tolist() if hasattr(cond_types, "tolist") else list(cond_types)
-    path_part = f"Percentage all fish_{cond_label}_{csus}.{frmt_heatmap}"
-    fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
+    cond_label = _stringify_for_filename(cond_types.tolist() if hasattr(cond_types, "tolist") else list(cond_types))
+    save_fig(fig, f"Percentage all fish_{cond_label}_{csus}", frmt)
+
+# endregion run_count_heatmap
 
 
 # %%
+# region sv_heatmap_rendering
 def run_sv_heatmap_rendering():
     """Render normalized SV heatmaps in stacked block layout.
 
@@ -976,7 +1035,7 @@ def run_sv_heatmap_rendering():
             text=f"Time relative to {csus} onset (s)",
             anchor_h="center",
             anchor_v="bottom",
-            pad_pt=(0, 5),
+            pad_pt=plot_cfg.pad_supxlabel,
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize, "color": "k"},
         ),
     )
@@ -1013,12 +1072,14 @@ def run_sv_heatmap_rendering():
         ),
     )
 
-    cond_label = cond_types.tolist() if hasattr(cond_types, "tolist") else list(cond_types)
-    path_part = f"SV all fish_{cond_label}_{csus}.{frmt_heatmap}"
-    fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
+    cond_label = _stringify_for_filename(cond_types.tolist() if hasattr(cond_types, "tolist") else list(cond_types))
+    save_fig(fig, f"SV all fish_{cond_label}_{csus}", frmt)
+
+# endregion run_sv_heatmap_rendering
 
 
 # %%
+# region sv_lineplots_individual_catch_trials
 def run_sv_lineplots_individual_catch_trials():
     """Plot one row per catch trial with condition lines and CI bands.
 
@@ -1122,10 +1183,9 @@ def run_sv_lineplots_individual_catch_trials():
 
     add_condition_legend(fig, handles, cond_types_here)
 
-    path_part = (
-        f"SV lineplot all individual catch trials {trials_to_use}_"
-        f"{all_data_csus_paths[0].stem.split('_')[:-2]}_{cond_types_here}.{frmt_heatmap}"
-    )
+    cond_label = _stringify_for_filename(cond_types_here)
+    stem_bits = "_".join(all_data_csus_paths[0].stem.split("_")[:-2])
+    path_part = f"SV lineplot all individual catch trials {trials_to_use}_{stem_bits}_{cond_label}"
     
     fig.canvas.draw()
     plot_cfg = get_plot_config()
@@ -1180,10 +1240,13 @@ def run_sv_lineplots_individual_catch_trials():
         ),
     )
     
-    fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
+    save_fig(fig, path_part, frmt)
+
+# endregion run_sv_lineplots_individual_catch_trials
 
 
 # %%
+# region sv_lineplot_all_catch_trials
 def run_sv_lineplot_all_catch_trials():
     """Plot a single panel with all catch trials per condition and CI bands.
 
@@ -1269,7 +1332,7 @@ def run_sv_lineplot_all_catch_trials():
             text=f"Time relative to\n{csus} onset (s)",
             anchor_h="center",
             anchor_v="bottom",
-            pad_pt=(0, 5),         
+            pad_pt=plot_cfg.pad_supxlabel,
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
         ),
     )
@@ -1305,11 +1368,15 @@ def run_sv_lineplot_all_catch_trials():
         ),
     )
 
-    path_part = f"SV lineplot all catch trials_{pooled_paths[0].stem.split('_')[:-2]}_{cond_types_here}.{frmt_heatmap}"
-    fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
+    cond_label = _stringify_for_filename(cond_types_here)
+    stem_bits = "_".join(pooled_paths[0].stem.split("_")[:-2])
+    save_fig(fig, f"SV lineplot all catch trials_{stem_bits}_{cond_label}", frmt)
+
+# endregion run_sv_lineplot_all_catch_trials
 
 
 # %%
+# region sv_lineplots_per_block
 def run_sv_lineplots_per_block():
     """Plot one row per block with condition-wise median SV traces.
 
@@ -1429,21 +1496,8 @@ def run_sv_lineplots_per_block():
         # )
 
 
-    fig.canvas.draw()
-    plot_cfg = get_plot_config()
 
-    analysis_utils.add_component(
-        fig,
-        analysis_utils.AddTextSpec(
-            component="supylabel",
-            text="Scaled vigor (AU)",
-            anchor_h="left",
-            anchor_v="center",
-            pad_pt=plot_cfg.pad_supylabel,
-            text_kwargs={"rotation": 90, "fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
-        ),
-    )
-
+    # return
 
     fig.canvas.draw()
     plot_cfg = get_plot_config()
@@ -1461,12 +1515,24 @@ def run_sv_lineplots_per_block():
         ),
     )
     
-    
     fig.canvas.draw()
     plot_cfg = get_plot_config()
 
-    # return
 
+    fig.canvas.draw()
+    plot_cfg = get_plot_config()
+
+    analysis_utils.add_component(
+        fig,
+        analysis_utils.AddTextSpec(
+            component="supylabel",
+            text="Scaled vigor (AU)",
+            anchor_h="left",
+            anchor_v="center",
+            pad_pt=plot_cfg.pad_supylabel,
+            text_kwargs={"rotation": 90, "fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
+        ),
+    )
 
 
     # add_condition_legend(fig, handles, cond_types_here)
@@ -1497,13 +1563,16 @@ def run_sv_lineplots_per_block():
         ),
     )
 
-    path_part = f"SV per 10-trial blocks_{pooled_data_path.stem}_{cond_types_here}.{frmt_heatmap}"
-    fig.savefig(str(path_pooled_vigor_fig / path_part), format=frmt_heatmap, **SAVEFIG_KW)
+    cond_label = _stringify_for_filename(cond_types_here)
+    save_fig(fig, f"SV per 10-trial blocks_{pooled_data_path.stem}_{cond_label}", frmt)
+
+# endregion run_sv_lineplots_per_block
 # endregion Pipeline Functions
 
 
 # %%
 # region Main
+# region main
 def main():
     if RUN_BUILD_POOLED_OUTPUTS:
         try:
@@ -1540,6 +1609,8 @@ def main():
             run_sv_lineplots_per_block()
         except Exception as exc:
             print(f"Error in SV lineplots (per block): {exc}")
+
+# endregion main
 
 
 if __name__ == "__main__":

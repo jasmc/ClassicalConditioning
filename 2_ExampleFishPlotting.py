@@ -30,6 +30,7 @@ if str(module_root) not in sys.path:
 import importlib
 
 import analysis_utils
+import figure_saving
 
 analysis_utils = importlib.reload(analysis_utils)
 import file_utils
@@ -363,6 +364,7 @@ def resolve_trials_list(trials_spec: list, fish_id=None, fish_id_order=None) -> 
 # region Pipeline Functions
 
 # %%
+# region run_traces
 def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_status=True, _fish_id_order=None) -> None:
     """Generate tail angle and vigor trace plots for selected trials."""
     if _emit_status:
@@ -802,25 +804,30 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         ),
     )
 
-    fig_raw.savefig(
-        str(output_dir / f"raw_{cond}.svg"),
-        bbox_inches="tight",
+    figure_saving.save_figure(
+        fig_raw,
+        output_dir / f"raw_{cond}.svg",
+        frmt="svg",
         dpi=FIG_DPI,
-        format="svg",
         transparent=False,
+        bbox_inches="tight",
     )
-    fig_vigor.savefig(
-        str(output_dir / f"vigor_{cond}.svg"),
-        bbox_inches="tight",
+    figure_saving.save_figure(
+        fig_vigor,
+        output_dir / f"vigor_{cond}.svg",
+        frmt="svg",
         dpi=FIG_DPI,
-        format="svg",
         transparent=False,
+        bbox_inches="tight",
     )
 
     if _emit_status:
         print("TRACES FINISHED")
 
+# endregion run_traces
 
+
+# region run_individual_trials
 def run_individual_trials() -> None:
     """Generate individual-trial plots for a selected list of fish."""
     print("\n" + "=" * 80)
@@ -1168,9 +1175,10 @@ def run_individual_trials() -> None:
                         )
 
                     # Save tail angle figure
-                    fig.savefig(
-                        str(fig_path_tail),
-                        format=INDIVIDUAL_TRIALS_FIG_FORMAT,
+                    figure_saving.save_figure(
+                        fig,
+                        fig_path_tail,
+                        frmt=INDIVIDUAL_TRIALS_FIG_FORMAT,
                         dpi=300,
                         transparent=False,
                         bbox_inches="tight",
@@ -1297,9 +1305,10 @@ def run_individual_trials() -> None:
                         ),
                     )
 
-                    fig.savefig(
-                        str(fig_path_raw),
-                        format=INDIVIDUAL_TRIALS_FIG_FORMAT,
+                    figure_saving.save_figure(
+                        fig,
+                        fig_path_raw,
+                        frmt=INDIVIDUAL_TRIALS_FIG_FORMAT,
                         dpi=300,
                         transparent=False,
                         bbox_inches="tight",
@@ -1579,9 +1588,10 @@ def run_individual_trials() -> None:
                         ),
                     )
 
-                    fig.savefig(
-                        str(fig_path_sc),
-                        format=INDIVIDUAL_TRIALS_FIG_FORMAT,
+                    figure_saving.save_figure(
+                        fig,
+                        fig_path_sc,
+                        frmt=INDIVIDUAL_TRIALS_FIG_FORMAT,
                         dpi=1000,
                         transparent=False,
                         bbox_inches="tight",
@@ -1687,7 +1697,10 @@ def run_individual_trials() -> None:
                     return
     print("INDIVIDUAL TRIALS FINISHED")
 
+# endregion run_individual_trials
 
+
+# region run_bout_zoom
 def run_bout_zoom() -> None:
     """Generate a zoomed-in plot of tail angle around a specific bout."""
     print("\n" + "="*80)
@@ -1782,11 +1795,21 @@ def run_bout_zoom() -> None:
         ),
     )
 
-    fig.savefig(str(save_path), format=BOUT_ZOOM_FORMAT, dpi=100, transparent=False, bbox_inches="tight")
+    figure_saving.save_figure(
+        fig,
+        save_path,
+        frmt=BOUT_ZOOM_FORMAT,
+        dpi=100,
+        transparent=False,
+        bbox_inches="tight",
+    )
     plt.close("all")
     print(f"Saved: {save_path}")
 
+# endregion run_bout_zoom
 
+
+# region run_trajectory
 def run_trajectory() -> None:
     """Generate tail trajectory heatmaps showing spatial distribution of tail positions."""
     print("\n" + "="*80)
@@ -1853,10 +1876,13 @@ def run_trajectory() -> None:
         )
     plt.close("all")
     print("TRAJECTORY FINISHED")
+
+# endregion run_trajectory
 # endregion Pipeline Functions
 
 
 # region Main
+# region main
 def main() -> None:
     """Execute the selected pipeline stages."""
     if RUN_TRACES:
@@ -1882,6 +1908,8 @@ def main() -> None:
             run_trajectory()
         except Exception as e:
             print(f"Error in TRAJECTORY: {e}")
+
+# endregion main
 
 
 if __name__ == "__main__":

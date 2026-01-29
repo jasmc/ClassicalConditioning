@@ -233,11 +233,18 @@ def process_data(
     return df_downsampled
 
 
+# region block_categories_from_config
 def block_categories_from_config() -> list[str]:
     """Extract ordered block category names from experiment configuration."""
     cs_names = list(config.blocks_dict['blocks 10 trials']['CS']['names of blocks'])
     us_names = list(config.blocks_dict['blocks 10 trials']['US']['names of blocks'])
     return list(dict.fromkeys(cs_names + us_names))
+
+
+# endregion block_categories_from_config
+
+
+# region harmonize_and_concat
 
 
 def harmonize_and_concat(data_list: list[pd.DataFrame], block_categories: list[str]) -> pd.DataFrame | None:
@@ -247,6 +254,12 @@ def harmonize_and_concat(data_list: list[pd.DataFrame], block_categories: list[s
 
     try:
         return pd.concat(data_list, ignore_index=False, copy=False)
+
+
+    # endregion harmonize_and_concat
+
+
+    # region clean_and_save
     except (ValueError, TypeError):
         int_cols = [CS_BEG_COL, CS_END_COL, US_BEG_COL, US_END_COL, TRIAL_NUMBER_COL]
 
@@ -281,6 +294,12 @@ def clean_and_save(
     data.drop(columns=['index', 'level_0', BOUT_BEG_COL, BOUT_END_COL], inplace=True, errors='ignore')
     data.to_pickle(path, compression='gzip')
     return data
+
+
+# endregion clean_and_save
+
+
+# region load_fish_data
 
 
 def load_fish_data(
@@ -353,6 +372,12 @@ def load_fish_data(
         return None
 
 
+    # endregion load_fish_data
+
+
+    # region process_subset
+
+
 def process_subset(
     data: pd.DataFrame,
     mask: pd.Series,
@@ -376,6 +401,9 @@ def process_subset(
         time_col,
         baseline_window_frames,
     )
+
+
+# endregion process_subset
 # endregion Helper Functions
 
 
@@ -384,6 +412,7 @@ def matches_subset(value: str, tokens: list[str]) -> bool:
     return any(token in value for token in tokens)
 
 
+# region filter_paths_by_subset
 def filter_paths_by_subset(paths: list[Path], fish_subset: list[str] | None) -> list[Path]:
     """Filter file paths to those matching the fish subset tokens."""
     if not fish_subset:
@@ -406,7 +435,11 @@ def filter_paths_by_subset(paths: list[Path], fish_subset: list[str] | None) -> 
     return selected
 
 
+# endregion filter_paths_by_subset
+
+
 # region Main
+# region main
 def main():
     """Process all fish files and create pooled per-condition datasets."""
     (
@@ -511,6 +544,8 @@ def main():
         gc.collect()
 
     print('\n\ndone')
+
+# endregion main
 
 
 if __name__ == '__main__':
