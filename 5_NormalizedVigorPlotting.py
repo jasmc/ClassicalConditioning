@@ -54,9 +54,9 @@ plotting_style.set_plot_style(rc_overrides={"figure.constrained_layout.use": Fal
 # ------------------------------------------------------------------------------
 RUN_PROCESS = False
 RUN_BLOCK_SUMMARY_LINES = True
-RUN_BLOCK_SUMMARY_BOXPLOT = True
+RUN_BLOCK_SUMMARY_BOXPLOT = False
 RUN_PHASE_SUMMARY = True
-RUN_TRIAL_BY_TRIAL = True
+RUN_TRIAL_BY_TRIAL = False
 
 # ------------------------------------------------------------------------------
 # Global Settings
@@ -64,7 +64,7 @@ RUN_TRIAL_BY_TRIAL = True
 EXPERIMENT = ExperimentType.ALL_DELAY.value
 
 # Apply per-experiment discarded fish list if present under "Processed data".
-APPLY_FISH_DISCARD = True
+APPLY_FISH_DISCARD = False
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
 STATS = True  # Enable statistical tests.
@@ -85,16 +85,16 @@ TRIAL_WINDOW_S = (-21, 21)
 # ------------------------------------------------------------------------------
 frmt = "svg"
 Hide_non_significant = True
-y_lim = (0.7, 1.3)
+y_lim = (0.8, 1.2)
 
 # ------------------------------------------------------------------------------
 # Phase Summary Parameters
 # ------------------------------------------------------------------------------
 HIGHLIGHT_FISH_ID = [
-    '20221115_07',  # delay
-    '20230307_12',  # 3s trace
-    '20230307_04',  # 10s trace
-    '20221115_09',  # control
+    # '20221115_07',  # delay
+    # '20230307_12',  # 3s trace
+    # '20230307_04',  # 10s trace
+    # '20221115_09',  # control
 ]
 
 # ------------------------------------------------------------------------------
@@ -102,7 +102,6 @@ HIGHLIGHT_FISH_ID = [
 # ------------------------------------------------------------------------------
 n_boot = 1000
 y_lim_plot = (0.7, 1.4)
-lme_frmt = "png"
 
 # %% Suppress statsmodels MixedLM convergence warnings (boundary / singular fits)
 
@@ -152,7 +151,7 @@ BLOCK_DIVIDER_KW = {"color": "gray", "alpha": 0.95, "linestyle": "-", "linewidth
 BLOCK_FIG_HEIGHT = 4 / 2.54
 BLOCK_WIDTH_PER_COND = 2
 BOXPLOT_FIGSIZE = (6 / 2.54, 6 / 2.54)
-TRIAL_BY_TRIAL_FIGSIZE = (14 / 2.54, 9 / 2.54)
+TRIAL_BY_TRIAL_FIGSIZE = (6 / 2.54, 6 / 2.54)
 
 LEGEND_OUTSIDE_KW = {"frameon": False, "bbox_to_anchor": (1.02, 1.0), "loc": "upper left", "borderaxespad": 0}
 
@@ -220,9 +219,9 @@ def initialize_context():
         path_pooled_data,
     ) = file_utils.create_folders(config.path_save)
 
-    # All figures from this script should be saved under a "Scaled vigor" subfolder
+    # All figures from this script should be saved under a "Normalized vigor" subfolder
     # inside the experiment's pooled-figure output directory.
-    path_scaled_vigor_fig = path_pooled_vigor_fig / "Scaled vigor"
+    path_scaled_vigor_fig = path_pooled_vigor_fig / "Normalized vigor"
     path_scaled_vigor_fig.mkdir(parents=True, exist_ok=True)
 
     # Single discard list source: Processed data/Discarded_fish_IDs.txt
@@ -280,6 +279,40 @@ def apply_panel_label(fig, label, x=0, y=1, ha="right"):
     fig.suptitle(label, fontsize=11, fontweight="bold", x=x, y=y, va="bottom", ha=ha)
 
 
+def _stringify_for_filename(value) -> str:
+    """Convert common objects (lists/arrays) into filename-friendly strings."""
+    if value is None:
+        return ""
+    if isinstance(value, (list, tuple, set, np.ndarray)):
+        return "-".join(str(v) for v in value)
+    return str(value)
+
+
+def _sanitize_filename(name: str) -> str:
+    """Sanitize a filename component for Windows filesystems."""
+    # Windows disallowed characters: <>:"/\|?*
+    invalid = '<>:"/\\|?*'
+    out = "".join("_" if ch in invalid else ch for ch in str(name))
+    # Avoid trailing spaces/dots which Windows strips/blocks.
+    out = out.strip().rstrip(".")
+    # Keep filenames reasonably compact.
+    out = " ".join(out.split())
+    return out if out else "figure"
+
+
+def save_fig(fig, stem: str, frmt: str) -> Path:
+    """Save a figure under path_scaled_vigor_fig with consistent naming."""
+    ensure_context()
+    if path_scaled_vigor_fig is None:
+        raise RuntimeError("Context not initialized: path_scaled_vigor_fig is None")
+    safe_stem = _sanitize_filename(stem)
+    safe_frmt = str(frmt).lstrip(".")
+    save_path = path_scaled_vigor_fig / f"{safe_stem}.{safe_frmt}"
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(str(save_path), format=safe_frmt, **SAVEFIG_KW)
+    return save_path
+
+
 def save_figure(fig, path_out, frmt, **overrides):
     # Centralized save: mkdir + Windows-safe names + enforce suffix to match frmt.
     figure_saving.save_figure(fig, path_out, frmt=frmt, savefig_kw=SAVEFIG_KW, **overrides)
@@ -310,14 +343,15 @@ def add_outside_legend(fig, handles, labels, **overrides):
 
 def load_latest_pooled():
     ensure_context()
+    fish_suffix = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
     paths = [*Path(path_pooled_data).glob("*.pkl")]
-    paths = [p for p in paths if "NV per trial per fish" in p.stem]
+    paths = [p for p in paths if "NV per trial per fish" in p.stem and fish_suffix in p.stem]
     paths_csus = [
         p for p in paths
         if len(p.stem.split("_")) > 3 and p.stem.split("_")[3] == csus
     ]
     if not paths_csus:
-        paths_csus = [p for p in paths if p.stem.split("_")[-1] == csus]
+        paths_csus = [p for p in paths if p.stem.split("_")[-1].replace(fish_suffix, "") == csus]
     paths = paths_csus
     if not paths:
         return pd.DataFrame()
@@ -327,8 +361,11 @@ def load_latest_pooled():
 
 def load_first_pooled():
     ensure_context()
+    fish_suffix = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
     paths = [*Path(path_pooled_data).glob("*.pkl")]
-    paths = [p for p in paths if "NV per trial per fish" in p.stem and p.stem.split("_")[-1] == csus]
+    paths = [p for p in paths if "NV per trial per fish" in p.stem and fish_suffix in p.stem]
+    # Filter by csus: the suffix pattern is ..._{csus}{fish_suffix}.pkl
+    paths = [p for p in paths if p.stem.endswith(f"_{csus}{fish_suffix}")]
     print(paths)
     if not paths:
         return pd.DataFrame()
@@ -688,8 +725,9 @@ def run_data_aggregation():
 
     if data_plot_list:
         data_pooled = pd.concat(data_plot_list)
+        fish_suffix = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
         output_filename = (
-            f"NV per trial per fish_CR window {cr_window} s all fish, clean_{cond_types}_{csus}.pkl"
+            f"NV per trial per fish_CR window {cr_window} s, clean_{cond_types}_{csus}{fish_suffix}.pkl"
         )
         data_pooled.to_pickle(path_pooled_data / output_filename, compression="gzip")
         print(f"  Saved: {output_filename}")
@@ -736,8 +774,9 @@ def run_block_summary_lines():
     n_cols = max(1, len(cond_types))
     fig_width = n_cols * BLOCK_WIDTH_PER_COND
     fig_b, ax_b = plt.subplots(
-        1, n_cols, figsize=(fig_width, BLOCK_FIG_HEIGHT), sharex=True, sharey=True, **FIGURE_KW
+        1, n_cols, figsize=(5 / 2.54, 4 / 2.54), sharex=True, sharey=True, **FIGURE_KW
     )
+    # (fig_width, BLOCK_FIG_HEIGHT)
     if not isinstance(ax_b, np.ndarray):
         ax_b = [ax_b]
 
@@ -992,11 +1031,12 @@ def run_block_summary_lines():
         fig_b.delaxes(ax_b[i])
 
     apply_panel_label(fig_b, "A")
-    path_part_b = (
-        f"SV lineplot single catch trials_{block_cfg['number_trials_block']}_{age_filter}_{setup_color_filter}_{cond_types}.{frmt}"
-    )
-    save_figure(fig_b, path_scaled_vigor_fig / path_part_b, frmt)
-    print(f"  Saved: {path_part_b}")
+    cond_label = _stringify_for_filename(cond_types)
+    age_label = _stringify_for_filename(age_filter)
+    setup_label = _stringify_for_filename(setup_color_filter)
+    stem = f"SV lineplot single catch trials_{block_cfg['number_trials_block']}_{age_label}_{setup_label}_{cond_label}"
+    save_path = save_fig(fig_b, stem, frmt)
+    print(f"  Saved: {save_path.name}")
 
 # endregion run_block_summary_lines
 
@@ -1218,7 +1258,7 @@ def run_block_summary_boxplot():
     ax_a.set_xticks(list(np.arange(len(blocks_chosen))))
     ax_a.set_xticklabels(blocks_chosen_labels, rotation=0, ha="center", fontweight="bold", fontsize=10)
     ax_a.set_ylabel("Normalized vigor (AU)")
-    apply_y_limits(ax_a, y_lim, labels=[f"<={y_lim[0]}", "1.0", f">={y_lim[1]}"])
+    apply_y_limits(ax_a, y_lim, labels=[f"{y_lim[0]}", "1.0", f"{y_lim[1]}"])
     ax_a.locator_params(axis="y", tight=False, nbins=4)
     ax_a.tick_params(axis="both", which="both", bottom=False, top=False, right=False)
     ax_a.set_xlabel("")
@@ -1231,9 +1271,12 @@ def run_block_summary_boxplot():
     if EXPERIMENT == ExperimentType.MOVING_CS_4COND.value:
         fig_a.set_size_inches(5/2.54, 5/2.54)
 
-    path_part = f"3.1_{number_trials_block}_{age_filter}_{setup_color_filter}_{cond_types_box}.{frmt}"
-    save_figure(fig_a, path_scaled_vigor_fig / path_part, frmt)
-    print(f"  Saved: {path_part}")
+    cond_label = _stringify_for_filename(cond_types_box)
+    age_label = _stringify_for_filename(age_filter)
+    setup_label = _stringify_for_filename(setup_color_filter)
+    stem = f"3.1_{number_trials_block}_{age_label}_{setup_label}_{cond_label}"
+    save_path = save_fig(fig_a, stem, frmt)
+    print(f"  Saved: {save_path.name}")
 
 # endregion run_block_summary_boxplot
 
@@ -1397,7 +1440,7 @@ def run_phase_summary():
             ax[cond_i].set_ylabel("Normalized vigor (AU)")
         else:
             ax[cond_i].set_ylabel("Normalized vigor (AU)\nrelative to US")
-        apply_y_limits(ax[cond_i], y_lim, labels=[f"<={y_lim[0]}", "1", f">={y_lim[1]}"])
+        apply_y_limits(ax[cond_i], y_lim, labels=[f"{y_lim[0]}", "1", f"{y_lim[1]}"])
 
         plot_cfg = plotting_style.get_plot_config()
         analysis_utils.add_component(
@@ -1419,9 +1462,10 @@ def run_phase_summary():
         fig.delaxes(ax[i])
 
     apply_panel_label(fig, "B")
-    path_part = f"NV single fish median of trials_{cond_types}_{csus}.{frmt}"
-    save_figure(fig, path_scaled_vigor_fig / path_part, frmt)
-    print(f"  Saved: {path_part}")
+    cond_label = _stringify_for_filename(cond_types)
+    stem = f"NV single fish median of trials_{cond_label}_{csus}"
+    save_path = save_fig(fig, stem, frmt)
+    print(f"  Saved: {save_path.name}")
 
 # endregion run_phase_summary
 
@@ -1553,17 +1597,18 @@ def run_trial_by_trial(data_pooled=None):
         if res_global:
             # Print full summary for transparency (useful for debugging/reporting).
             print(res_global.summary())
-            
-            # statsmodels MixedLM summary contains coefficient table as a pandas-like
-            # object in tables[1]. We extract only interaction rows (contain ':').
-            summary_table = res_global.summary().tables[1]
 
-            # Keep only Condition:Block interactions (and potentially other ':' terms).
-            # These indicate block-specific condition differences vs the reference condition.
-            global_interactions = summary_table.loc[lambda x: x.index.str.contains(":")]
-
-            # Ensure p-values are numeric so we can threshold them for annotation.
-            global_interactions["P>|z|"] = pd.to_numeric(global_interactions["P>|z|"], errors="coerce")
+            # Extract interaction terms from the fitted model directly.
+            # Using the summary tables here is brittle (they are often SimpleTable, not pandas).
+            pvals = res_global.pvalues
+            interaction_terms = [t for t in pvals.index if ":" in t]
+            if interaction_terms:
+                global_interactions = pd.DataFrame(
+                    {"P>|z|": pd.to_numeric(pvals.loc[interaction_terms], errors="coerce")},
+                    index=interaction_terms,
+                )
+            else:
+                global_interactions = pd.DataFrame(columns=["P>|z|"])
         else:
             # Record model fit failures rather than crashing the pipeline.
             model_errors.append({"Type": "Global", "Unit": "All", "Error": err})
@@ -1606,41 +1651,36 @@ def run_trial_by_trial(data_pooled=None):
 
             # Fit mixed model within the block.
             # If convergence/singularity occurs, run_mixed_model returns (None, error).
-            res_local, err = run_mixed_model(df_blk, f_local, "Fish_ID", re_formula=LME_RE_FORMULA, method=LME_LOCAL_METHOD, reml=False)
+            res_local, err = run_mixed_model(
+                df_blk,
+                f_local,
+                "Fish_ID",
+                re_formula=LME_RE_FORMULA,
+                method=LME_LOCAL_METHOD,
+                reml=False,
+            )
 
             if res_local:
-                params = res_local.params   # coefficient estimates (fixed effects + possibly variance terms)
-                pvals = res_local.pvalues   # p-values for the corresponding coefficients
+                params = res_local.params
+                pvals = res_local.pvalues
 
                 # Identify fixed-effect terms for condition mean differences:
                 #   e.g. "C(Condition, Treatment('ref'))[T.OTHER]"
                 # and for slope differences:
                 #   e.g. "C(Condition,...)[T.OTHER]:Trial_Centered"
-                #
-                # With multiple non-reference conditions, there may be multiple terms.
                 main_terms = [t for t in params.index if "Condition" in t and ":" not in t]
                 slope_terms = [t for t in params.index if "Condition" in t and ":" in t]
 
-                # NOTE:
-                #   The console prints *raw* p-values here, but the plot's "Rate" marker
-                #   is driven by FDR-corrected p-values computed *after* looping over blocks.
-                #   (See ph_df["P_Slope_FDR"] and ph_df["Sig_Slope"].)
-
-                # Print slope output results (per block, per term)
+                # Print slope output results (per block, per term) with RAW p-values
                 if slope_terms:
-                    print(f"    [Block {block}] Slope (Condition × Trial_Centered) terms:")
+                    print(f"    [Block {block}] Slope (Condition × Trial_Centered) terms (raw p):")
                     for t in slope_terms:
-                        print(f"      {t}: coef={params[t]: .6f}, p={pvals[t]: .4e}")
+                        print(f"      {t}: coef={params[t]: .6f}, p_slope_raw={pvals[t]: .4e}")
                 else:
                     print(f"    [Block {block}] No slope terms found.")
 
-                # Store results if we can find both:
-                #   - a condition main effect term (mean difference)
-                #   - a condition-by-trial interaction term (slope difference)
-                #
-                # With >2 conditions, there can be multiple terms. We summarize by taking the
-                # strongest (smallest p) mean term and strongest slope term within the block.
                 if main_terms and slope_terms:
+
                     def _extract_level(term: str) -> str:
                         m = re.search(r"\[T\.(.+?)\]", term)
                         return m.group(1) if m else term
@@ -1651,29 +1691,34 @@ def run_trial_by_trial(data_pooled=None):
                     best_main = min(main_terms_sorted, key=lambda t: float(pvals.get(t, 1.0)))
                     best_slope = min(slope_terms_sorted, key=lambda t: float(pvals.get(t, 1.0)))
 
+                    # Explicitly print the RAW p-value used for P_Slope in posthoc_res
+                    print(
+                        f"    [Block {block}] Selected P_Slope raw: "
+                        f"{best_slope} -> {float(pvals[best_slope]):.4e}"
+                    )
+
                     posthoc_res.append(
                         {
                             "Block": block,
                             "Term_Main": best_main,
                             "CondLevel_Main": _extract_level(best_main),
-                            # Mean effect: log-scale mean difference vs reference at block center
                             "Coef_Mean": params[best_main],
                             "P_Mean": pvals[best_main],
                             "Term_Slope": best_slope,
                             "CondLevel_Slope": _extract_level(best_slope),
-                            # Slope effect: log-scale slope difference vs reference within block
                             "Coef_Slope": params[best_slope],
-                            "P_Slope": pvals[best_slope],
+                            "P_Slope": pvals[best_slope],  # raw p-value
                         }
                     )
                 else:
-                    # Model converged, but expected terms were not present (e.g., coding differences
-                    # or degenerate design). Record for debugging.
                     model_errors.append(
-                        {"Type": "Block-TermsMissing", "Unit": block, "Error": "Missing condition mean/slope terms"}
+                        {
+                            "Type": "Block-TermsMissing",
+                            "Unit": block,
+                            "Error": "Missing condition mean/slope terms",
+                        }
                     )
             else:
-                # Model fit failed for this block.
                 model_errors.append({"Type": "Block-Fit", "Unit": block, "Error": err})
 
         # Multiple-comparisons correction across blocks:
@@ -1791,7 +1836,8 @@ def run_trial_by_trial(data_pooled=None):
                     ax_c.text(
                         block_centers[match.group(1)],
                         y_gold,
-                        match.group(1),
+                        "D",
+                        # match.group(1),
                         color="gold",
                         ha="center",
                         fontsize=7,
@@ -1808,7 +1854,7 @@ def run_trial_by_trial(data_pooled=None):
                     ax_c.text(
                         block_centers[blk],
                         y_silver,
-                        "Mean",
+                        "M",
                         color="gray",
                         ha="center",
                         fontsize=6,
@@ -1818,7 +1864,7 @@ def run_trial_by_trial(data_pooled=None):
                     ax_c.text(
                         block_centers[blk],
                         y_silver_raw,
-                        "Rate (raw)",
+                        "R (raw)",
                         color="firebrick",
                         ha="center",
                         fontsize=6,
@@ -1828,7 +1874,7 @@ def run_trial_by_trial(data_pooled=None):
                     ax_c.text(
                         block_centers[blk],
                         y_silver_fdr,
-                        "Rate (FDR)",
+                        "R (FDR)",
                         color="firebrick",
                         ha="center",
                         fontsize=6,
@@ -1854,14 +1900,16 @@ def run_trial_by_trial(data_pooled=None):
     # Add vertical lines for block boundaries.
     for boundary in block_boundaries:
         ax_c.axvline(boundary, color="gray", alpha=0.5, linewidth=0.5)
-
+        # ax_c.spines["bottom"].set_visible(False)
+        # ax_c.tick_params(axis="x", bottom=False)
     ax_c.set_xlim(0, df_main["Trial number"].max() + 1)
     ax_c.set_ylim(y_lim[0], y_lim[1])
-    ax_c.set_ylabel("Normalized vigor (ratio)")
+    ax_c.set_ylabel("Normalized vigor (AU)")
     ax_c.legend().remove()
 
-    save_path = path_scaled_vigor_fig / f"NV_LME_Visualized_Raw_{cond_types}.{lme_frmt}"
-    save_figure(fig_c, save_path, lme_frmt)
+    cond_label = _stringify_for_filename(cond_types)
+    fish_suffix = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
+    save_path = save_fig(fig_c, f"NV_LME_Visualized_Raw_{cond_label}" + f"_{csus}_{fish_suffix}", frmt)
     print(f"  Saved: {save_path.name}")
 # endregion run_trial_by_trial
 # endregion LME
@@ -1905,3 +1953,5 @@ def main():
 if __name__ == "__main__":
     main()
 # endregion Main
+
+# %%

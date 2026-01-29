@@ -125,7 +125,7 @@ RESPONSE_COLUMN_NAME: str = "Mean CR"
 
 # Core numeric constants
 EPOCH_BLOCK_TRIALS: int = 5
-Z_FALLBACK_MAGNITUDE: float = 10.0
+Z_FALLBACK_MAGNITUDE: float = 10
 MIN_FISH_WITH_ALL_FEATURES: int = 10
 
 # Figure export defaults
@@ -136,7 +136,7 @@ FIG_DPI_BLUP_OVERLAY: int = 200
 
 # Output naming
 FNAME_DIAGNOSTICS: str = "Multivariate_Diagnostics.png"
-FNAME_TRAJECTORIES: str = "Learner_Classification_Trajectories.png"
+FNAME_TRAJECTORIES: str = "Learner_Classification_Trajectories clean.png"
 FNAME_FEATURE_SPACE: str = "Feature_Space_Scatter.png"
 FNAME_BLUP_OVERLAY: str = "BLUP_Trajectories_Overlay.png"
 FNAME_BLUP_CATERPILLAR_TEMPLATE: str = "BLUP_Caterpillar_{feat}.png"
@@ -158,6 +158,8 @@ COLOR_CTRL_NONLEARNER: str = "blue"  # requested: control non-learner should be 
 COLOR_EXP_NONLEARNER: str = "blue"
 COLOR_BLUP_TRAJECTORY: str = "purple"
 COLOR_GROUP_MEDIAN: str = "black"
+COLOR_BASELINE_VIGOR: str = "green"  # raw baseline vigor (before log)
+COLOR_RESPONSE_VIGOR: str = "deeppink"  # raw response vigor
 
 # Apply global runtime configuration
 pd.set_option("mode.copy_on_write", bool(PANDAS_COPY_ON_WRITE))
@@ -187,10 +189,10 @@ RUN_PLOT_TRAJECTORIES = False
 RUN_PLOT_FEATURE_SPACE = False
 RUN_PLOT_BLUP_CATERPILLAR = False
 RUN_PLOT_INDIVIDUALS = True
-RUN_PLOT_BLUP_OVERLAY = False
+RUN_PLOT_BLUP_OVERLAY = True
 RUN_PLOT_HEATMAP_GRID = True  # New: Generate heatmap grid from pre-saved SVG/PNG files
-RUN_EXPORT_DETAILED_SUMMARY = False
-RUN_EXPORT_RESULTS = False
+RUN_EXPORT_DETAILED_SUMMARY = True
+RUN_EXPORT_RESULTS = True
 
 # ==============================================================================
 # ANALYSIS CONFIGURATION
@@ -919,7 +921,7 @@ def load_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataFrame:
     )
     paths = [p for p in paths
              if POOLED_DATA_REQUIRED_SUBSTRING in p.stem
-             and p.stem.split("_")[-1] == config.csus]
+             and p.stem.split("_")[-2] == config.csus]
     
     if not paths:
         raise FileNotFoundError("No matching pooled data file found.")
@@ -1495,15 +1497,15 @@ def plot_behavioral_trajectories(
         fig.text(0.99, 0.5, text_str, fontsize=5+8, va='center', ha='right',
                  bbox=props, fontfamily='monospace')
         plt.subplots_adjust(right=0.8)
-    # else:
-        # plt.tight_layout()
+    else:
+        plt.tight_layout()
 
     # Tighten panel spacing to reduce whitespace.
     plt.subplots_adjust(wspace=0.1, hspace=0.2)
     
-    # if save_path:
-    #     # fig.savefig(str(save_path), dpi=300, facecolor='white', bbox_inches='tight')
-    #     # print(f"[OK] Saved: {save_path.name}")
+    if save_path:
+        fig.savefig(str(save_path), dpi=300, facecolor='white', bbox_inches='tight')
+        print(f"[OK] Saved: {save_path.name}")
     
     return fig
 
@@ -2249,10 +2251,21 @@ def save_combined_plots_and_grid(
     if condition is not None:
         df_trials = df_trials[df_trials["Condition"] == condition]
 
+    # Identify baseline and response columns (raw, before log transform)
+    baseline_col = [c for c in df_trials.columns if BASELINE_COLUMN_SUBSTRING in c]
+    baseline_col = baseline_col[0] if baseline_col else None
+    response_col = RESPONSE_COLUMN_NAME if RESPONSE_COLUMN_NAME in df_trials.columns else None
+
     # Calculate block medians for overlay
+    agg_dict = {"Normalized vigor": "median", "Trial number": "mean"}
+    if baseline_col and baseline_col in df_trials.columns:
+        agg_dict[baseline_col] = "median"
+    if response_col and response_col in df_trials.columns:
+        agg_dict[response_col] = "median"
+
     df_blocks = (
         df_trials.groupby(["Fish_ID", "Block name 5 trials"], observed=True)
-        .agg({"Normalized vigor": "median", "Trial number": "mean"})
+        .agg(agg_dict)
         .reset_index()
         .sort_values("Trial number")
     )
@@ -2308,8 +2321,32 @@ def save_combined_plots_and_grid(
             color=color,
             linewidth=lw,
             alpha=0.95,
-            label="Block Median",
+            label="Block Median (NV)",
         )
+
+        # B2. Plot baseline vigor (raw, before log) - green
+        if baseline_col and baseline_col in fish_block_data.columns:
+            ax.plot(
+                fish_block_data["Trial number"],
+                fish_block_data[baseline_col],
+                "-",
+                color=COLOR_BASELINE_VIGOR,
+                linewidth=lw * 0.8,
+                alpha=0.75,
+                label="Baseline Vigor",
+            )
+
+        # B3. Plot response vigor (raw) - pink
+        if response_col and response_col in fish_block_data.columns:
+            ax.plot(
+                fish_block_data["Trial number"],
+                fish_block_data[response_col],
+                "-",
+                color=COLOR_RESPONSE_VIGOR,
+                linewidth=lw * 0.8,
+                alpha=0.75,
+                label="Response Vigor",
+            )
 
         # C. Add epoch medians ('o') + feature BLUP arrows
         _annotate_key_blocks_and_features(ax, int(idx), fish_block_data, color)
@@ -2317,12 +2354,18 @@ def save_combined_plots_and_grid(
         ax.axhline(1.0, linestyle=":", color="black", alpha=0.3, label="Baseline")
         ax.set_xlabel("Trial Number", fontsize=5+9)
         ax.set_ylabel("Normalized Vigor", fontsize=5+9)
+        # Collect all y-values for y-limits (including baseline and response if present)
+        y_values_for_ylim = [
+            fish_trial_data["Normalized vigor"],
+            fish_block_data["Normalized vigor"],
+        ]
+        if baseline_col and baseline_col in fish_block_data.columns:
+            y_values_for_ylim.append(fish_block_data[baseline_col])
+        if response_col and response_col in fish_block_data.columns:
+            y_values_for_ylim.append(fish_block_data[response_col])
         _ = _set_ylim_no_clip(
             ax,
-            pd.concat([
-                fish_trial_data["Normalized vigor"],
-                fish_block_data["Normalized vigor"],
-            ], ignore_index=True).to_list(),
+            pd.concat(y_values_for_ylim, ignore_index=True).to_list(),
             tuple(config.y_lim_plot),
         )
         ax.set_title(f"{fish} ({cond})\n{status}", fontsize=5+10, fontweight="bold")
@@ -2503,6 +2546,28 @@ def save_combined_plots_and_grid(
             alpha=0.9,
         )
 
+        # Plot baseline vigor (raw) - green
+        if baseline_col and baseline_col in fish_block_data.columns:
+            ax.plot(
+                fish_block_data["Trial number"],
+                fish_block_data[baseline_col],
+                "-",
+                color=COLOR_BASELINE_VIGOR,
+                linewidth=lw * 0.7,
+                alpha=0.65,
+            )
+
+        # Plot response vigor (raw) - pink
+        if response_col and response_col in fish_block_data.columns:
+            ax.plot(
+                fish_block_data["Trial number"],
+                fish_block_data[response_col],
+                "-",
+                color=COLOR_RESPONSE_VIGOR,
+                linewidth=lw * 0.7,
+                alpha=0.65,
+            )
+
         # Also show epoch medians ('o') + feature BLUP arrows (small) in grid
         _annotate_key_blocks_and_features(ax, idx, fish_block_data, color)
 
@@ -2555,12 +2620,18 @@ def save_combined_plots_and_grid(
                 ax2.set_yticks([])
 
         ax.axhline(1.0, linestyle=":", color="black", alpha=0.3)
+        # Collect all y-values for y-limits (including baseline and response if present)
+        y_values_for_ylim_grid = [
+            fish_trial_data["Normalized vigor"],
+            fish_block_data["Normalized vigor"],
+        ]
+        if baseline_col and baseline_col in fish_block_data.columns:
+            y_values_for_ylim_grid.append(fish_block_data[baseline_col])
+        if response_col and response_col in fish_block_data.columns:
+            y_values_for_ylim_grid.append(fish_block_data[response_col])
         y_lim_used = _set_ylim_no_clip(
             ax,
-            pd.concat([
-                fish_trial_data["Normalized vigor"],
-                fish_block_data["Normalized vigor"],
-            ], ignore_index=True).to_list(),
+            pd.concat(y_values_for_ylim_grid, ignore_index=True).to_list(),
             tuple(config.y_lim_plot),
         )
 
@@ -2668,6 +2739,8 @@ def save_combined_plots_and_grid(
         Line2D([0], [0], color=COLOR_PROB_LEARNER, lw=2.5, label="* Probabilistic Learner"),
         Line2D([0], [0], color=COLOR_POINT_LEARNER, lw=2, label="o Point Learner"),
         Line2D([0], [0], color=COLOR_OUTLIER_WRONG_DIR, lw=1, label="- Outlier (Wrong Direction)"),
+        Line2D([0], [0], color=COLOR_BASELINE_VIGOR, lw=1.2, label="Baseline Vigor (raw)"),
+        Line2D([0], [0], color=COLOR_RESPONSE_VIGOR, lw=1.2, label="Response Vigor (raw)"),
     ]
 
     if condition is None:

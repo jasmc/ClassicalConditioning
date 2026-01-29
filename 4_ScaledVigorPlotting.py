@@ -46,8 +46,8 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
 RUN_BUILD_POOLED_OUTPUTS = False
-RUN_COUNT_HEATMAP = True
-RUN_SV_HEATMAP_RENDERING = True
+RUN_COUNT_HEATMAP = False
+RUN_SV_HEATMAP_RENDERING = False
 RUN_SV_LINEPLOTS_INDIVIDUAL = False
 RUN_SV_LINEPLOTS_CATCH_TRIALS = True
 RUN_SV_LINEPLOTS_BLOCKS = True
@@ -55,7 +55,7 @@ RUN_SV_LINEPLOTS_BLOCKS = True
 # ------------------------------------------------------------------------------
 # Shared Parameters
 # ------------------------------------------------------------------------------
-EXPERIMENT = ExperimentType.ALL_DELAY.value
+EXPERIMENT = ExperimentType.ALL_10S_TRACE.value
 
 # Apply per-experiment discarded fish list if present under "Processed data".
 APPLY_FISH_DISCARD = True
@@ -64,7 +64,7 @@ csus = "CS"  # Stimulus alignment: "CS" or "US".
 x_lim = (-20, 20)
 window_data_plot = [-20, 20]
 
-y_lim = (-0.15, 0.15)
+y_lim = (-0.1, 0.1)
 y_clip = [-0.14, 0.14]
 n_boot = 10
 
@@ -767,8 +767,8 @@ def run_count_heatmap():
         vmax_count = 1.0
     else:
         # Use robust percentiles so a few outliers don't dominate.
-        vmin_count = float(np.nanpercentile(positive, 5))
-        vmax_count = float(np.nanpercentile(positive, 95))
+        vmin_count = float(np.nanpercentile(positive, 20))
+        vmax_count = float(np.nanpercentile(positive, 80))
         vmin_count = max(vmin_count, float(np.nanmin(positive)), 1e-4)
         # Ensure vmax > vmin for LogNorm.
         vmax_count = max(vmax_count, vmin_count * 10)
@@ -1269,7 +1269,7 @@ def run_sv_lineplot_all_catch_trials():
     cond_types_here = data_original["Exp."].unique()
     trials_to_use, _ = resolve_catch_trials()
 
-    fig, ax = make_lineplot_axes(1, (2.5 / 2.54, 4 / 2.54), sharex=True, sharey=True)
+    fig, ax = make_lineplot_axes(1, (4 / 2.54, 4 / 2.54), sharex=True, sharey=True)
 
     for cond in cond_types_here:
         data_cond = data_original[data_original["Exp."] == cond].copy(deep=True)
@@ -1409,7 +1409,7 @@ def run_sv_lineplots_per_block():
 
     cond_types_here = data_original["Exp."].unique()
 
-    fig, axs = make_lineplot_axes(len(block_names), (2.5 / 2.54, 16.5 / 2.54))
+    fig, axs = make_lineplot_axes(len(block_names), (4 / 2.54, 16.5 / 2.54))
 
     # Collect legend handles once (first axis) so we can place a shared legend.
     handles = []
@@ -1462,7 +1462,7 @@ def run_sv_lineplots_per_block():
 
 
 
-    fig.subplots_adjust(hspace=1.5)
+    fig.subplots_adjust(hspace=1)
 
     # return
 

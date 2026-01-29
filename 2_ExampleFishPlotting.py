@@ -48,8 +48,8 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 # ------------------------------------------------------------------------------
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
-RUN_TRACES = False
-RUN_INDIVIDUAL_TRIALS = True
+RUN_TRACES = True
+RUN_INDIVIDUAL_TRIALS = False
 RUN_BOUT_ZOOM = False
 RUN_TRAJECTORY = False
 
@@ -65,31 +65,29 @@ FIG_DPI = 600
 # ------------------------------------------------------------------------------
 TRACES_EXPERIMENT_TYPE = [
     ExperimentType.ALL_DELAY.value,
-    ExperimentType.ALL_3S_TRACE.value,
-    ExperimentType.ALL_10S_TRACE.value,
-    ExperimentType.ALL_DELAY.value,
+    # ExperimentType.ALL_3S_TRACE.value,
+    # ExperimentType.ALL_10S_TRACE.value,
+    # ExperimentType.ALL_DELAY.value,
 ]
 TRACES_FISH_ID = [
     '20221115_07',
-    '20230307_12',
-    '20230307_04',
-    '20221115_09',
+    # '20230307_12',
+    # '20230307_04',
+    # '20221115_09',
 ]
 TRACES_TRIAL_NUMBER_OFFSET = 4
 TRACES_TRIALS = [
     [5, 13, 59, 62, 89],
-    [],
-    [],
-    [],
+    # [],
+    # [],
+    # [],
 ]
 TRACES_TRIAL_NAMES = ["Pre-Train trial", "Early Train trial", "Late Train trial", "Early Test trial", "Late Test trial"]
-TRACES_Y_TICKS_RAW = [-150, 0, 150]
-TRACES_Y_TICKS_VIGOR = [-15, 15]
-TRACES_Y_CLIP_RAW = (-180, 180)
 TRACES_Y_CLIP_VIGOR = (0, 18)
 TRACES_X_LIM = (-20, 20)
 TRACES_X_TICKS = [-20, -10, 0, 10, 20]
-TRACES_Y_TICKS_RAW = [-150, 0, 150]
+TRACES_Y_TICKS_RAW = [-60, 0, 60]
+TRACES_Y_CLIP_RAW = (-72, 72)
 TRACES_Y_TICKS_VIGOR = [0, 10]
 TRACES_SUBPLOT_HSPACE = 0.9
 
