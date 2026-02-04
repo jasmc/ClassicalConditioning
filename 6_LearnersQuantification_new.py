@@ -111,12 +111,65 @@ from experiment_configuration import ExperimentType, get_experiment_config
 # ==============================================================================
 # GENERAL RUNTIME SETTINGS
 # ==============================================================================
+warnings.filterwarnings("ignore")
 
-# Pandas / warnings / plotting defaults
-PANDAS_COPY_ON_WRITE: bool = True
-IGNORE_WARNINGS: bool = True
-SEABORN_PALETTE: str = "colorblind"
+# Set plotting style (shared across analysis scripts)
+plotting_style.set_plot_style()
+sns.color_palette("colorblind")
 
+# ==============================================================================
+# EXPERIMENT SELECTION
+# ==============================================================================
+EXPERIMENT = ExperimentType.ALL_DELAY.value
+config = get_experiment_config(EXPERIMENT)
+exp_config = config
+
+# ==============================================================================
+# PIPELINE CONTROL FLAGS
+# ==============================================================================
+# Toggle analysis stages to mirror Pipeline_Analysis.py behavior.
+RUN_PIPELINE = True
+RUN_DIAGNOSTICS = False
+RUN_PLOT_DIAGNOSTICS = False
+RUN_PLOT_TRAJECTORIES = False
+RUN_PLOT_FEATURE_SPACE = False
+RUN_PLOT_BLUP_CATERPILLAR = False
+RUN_PLOT_INDIVIDUALS = True
+RUN_PLOT_BLUP_OVERLAY = False
+RUN_PLOT_HEATMAP_GRID = False  # New: Generate heatmap grid from pre-saved SVG/PNG files
+RUN_EXPORT_DETAILED_SUMMARY = False
+RUN_EXPORT_RESULTS = True
+
+
+# === CORE ANALYSIS CONFIGURATION PARAMETERS (used by analysis_cfg below) ===
+FEATURES_TO_USE: List[str] = ['acquisition', 'extinction']
+PRETRAIN_TO_TRAIN_END_EARLYTEST_BLOCKS: Tuple[List[str], List[str]] = (
+    ['Early Pre-Train', 'Late Pre-Train'],
+    # ['Late Train', 'Early Test'],
+    ['Train 6', 'Train 7', 'Train 8',
+     'Train 9', 'Late Train', 'Early Test']
+)
+TRAIN_END_EARLYTEST_TO_LATE_TEST_BLOCKS: Tuple[List[str], List[str]] = (
+    # ['Late Train', 'Early Test'],
+    ['Train 6', 'Train 7', 'Train 8', 'Train 9', 'Late Train', 'Early Test'],
+    ['Test 5', 'Late Test']
+)
+MIN_PRETRAIN_TRIALS: int = 6
+MIN_LATETRAINDEARLYTEST_TRIALS: int = 6
+MIN_LATE_TEST_TRIALS: int = 6
+MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH: int = 3
+VOTING_THRESHOLD_POINT: int = 2
+VOTING_THRESHOLD_PROBABILISTIC: int = 2
+PROBABILITY_THRESHOLD: float = 0.60
+CI_MULTIPLIER_FOR_REPORTING: float = 1.96
+THRESHOLD_PERCENTILE: float = 75
+USE_THEORETICAL_THRESHOLD: bool = False
+THEORETICAL_THRESHOLD_ALPHA: float = 0.95
+ANALYSIS_RANDOM_SEED: Optional[int] = 0
+N_BOOTSTRAP: int = 50
+Y_LIM_PLOT: Tuple[float, float] = (0.8, 1.2)
+
+# === GENERAL RUNTIME SETTINGS ===
 # Data-loading column/name conventions
 POOLED_DATA_GLOB: str = "*.pkl"
 POOLED_DATA_REQUIRED_SUBSTRING: str = "NV per trial per fish"
@@ -161,38 +214,6 @@ COLOR_GROUP_MEDIAN: str = "black"
 COLOR_BASELINE_VIGOR: str = "green"  # raw baseline vigor (before log)
 COLOR_RESPONSE_VIGOR: str = "deeppink"  # raw response vigor
 
-# Apply global runtime configuration
-pd.set_option("mode.copy_on_write", bool(PANDAS_COPY_ON_WRITE))
-# pd.options.mode.chained_assignment = None
-if IGNORE_WARNINGS:
-    warnings.filterwarnings("ignore")
-
-# Set plotting style (shared across analysis scripts)
-plotting_style.set_plot_style()
-sns.color_palette(SEABORN_PALETTE)
-
-# ==============================================================================
-# EXPERIMENT SELECTION
-# ==============================================================================
-EXPERIMENT = ExperimentType.ALL_DELAY.value
-config = get_experiment_config(EXPERIMENT)
-exp_config = config
-
-# ==============================================================================
-# PIPELINE CONTROL FLAGS
-# ==============================================================================
-# Toggle analysis stages to mirror Pipeline_Analysis.py behavior.
-RUN_PIPELINE = True
-RUN_DIAGNOSTICS = False
-RUN_PLOT_DIAGNOSTICS = False
-RUN_PLOT_TRAJECTORIES = False
-RUN_PLOT_FEATURE_SPACE = False
-RUN_PLOT_BLUP_CATERPILLAR = False
-RUN_PLOT_INDIVIDUALS = True
-RUN_PLOT_BLUP_OVERLAY = True
-RUN_PLOT_HEATMAP_GRID = True  # New: Generate heatmap grid from pre-saved SVG/PNG files
-RUN_EXPORT_DETAILED_SUMMARY = True
-RUN_EXPORT_RESULTS = True
 
 # ==============================================================================
 # ANALYSIS CONFIGURATION
@@ -335,27 +356,23 @@ class ClassificationResult:
 # ANALYSIS CONFIGURATION (DEFAULTS)
 # ==============================================================================
 analysis_cfg = AnalysisConfig(
-    # Modify these to experiment with different settings.
-    features_to_use=['acquisition', 'extinction'],
-    pretrain_to_train_end_earlytest_blocks=(['Early Pre-Train', 'Late Pre-Train'], ['Late Train', 'Early Test']),
-    train_end_earlytest_to_late_test_blocks=(['Late Train', 'Early Test'], ['Test 5', 'Late Test']),
-    min_pretrain_trials=6,
-    min_latetraindearlytest_trials=6,
-    min_late_test_trials=6,
-    voting_threshold_point=2,
-    # Relax probabilistic vote requirement: 1 of 2 features is enough.
-    voting_threshold_probabilistic=1,
-    threshold_percentile=75,
-    # Relaxed further to recover sensitivity.
-    probability_threshold=0.60,
-    ci_multiplier_for_reporting=1.96,
-    random_seed=0,
-    min_trials_per_5trial_block_in_epoch=3,
-    n_bootstrap=1000,
-    y_lim_plot=(0.8, 1.2),
-    # Threshold method: set to True to use theoretical chi-square instead of bootstrap
-    use_theoretical_threshold=False,
-    theoretical_threshold_alpha=0.95,
+    features_to_use=FEATURES_TO_USE,
+    pretrain_to_train_end_earlytest_blocks=PRETRAIN_TO_TRAIN_END_EARLYTEST_BLOCKS,
+    train_end_earlytest_to_late_test_blocks=TRAIN_END_EARLYTEST_TO_LATE_TEST_BLOCKS,
+    min_pretrain_trials=MIN_PRETRAIN_TRIALS,
+    min_latetraindearlytest_trials=MIN_LATETRAINDEARLYTEST_TRIALS,
+    min_late_test_trials=MIN_LATE_TEST_TRIALS,
+    voting_threshold_point=VOTING_THRESHOLD_POINT,
+    voting_threshold_probabilistic=VOTING_THRESHOLD_PROBABILISTIC,
+    threshold_percentile=THRESHOLD_PERCENTILE,
+    probability_threshold=PROBABILITY_THRESHOLD,
+    ci_multiplier_for_reporting=CI_MULTIPLIER_FOR_REPORTING,
+    random_seed=ANALYSIS_RANDOM_SEED,
+    min_trials_per_5trial_block_in_epoch=MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH,
+    n_bootstrap=N_BOOTSTRAP,
+    y_lim_plot=Y_LIM_PLOT,
+    use_theoretical_threshold=USE_THEORETICAL_THRESHOLD,
+    theoretical_threshold_alpha=THEORETICAL_THRESHOLD_ALPHA,
 )
 
 # endregion
@@ -912,27 +929,81 @@ def classify_learners(
 # ============================================================================
 
 def load_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataFrame:
-    """Load and validate the most recent pooled dataset for the selected CS/US."""
-    # Use the newest pooled file matching the requested CS/US label.
-    paths = sorted(
-        [*Path(path_pooled_data).glob(POOLED_DATA_GLOB)],
-        key=lambda x: x.stat().st_mtime,
-        reverse=True
-    )
-    paths = [p for p in paths
-             if POOLED_DATA_REQUIRED_SUBSTRING in p.stem
-             and p.stem.split("_")[-2] == config.csus]
-    
-    if not paths:
-        raise FileNotFoundError("No matching pooled data file found.")
-    
-    print(f"  Loading: {paths[0].name}")
-    data = pd.read_pickle(paths[0], compression='gzip')
-    
-    if data.empty:
-        raise ValueError("Loaded dataframe is empty.")
-    
-    return data
+    """Load newest pooled dataset for the selected CS/US label.
+
+    Notes:
+        - Pooled pickles may be incompatible across pandas versions (e.g., categoricals).
+          We therefore try multiple candidates and common legacy subfolders (e.g. `old/`).
+        - CSV is preferred when present.
+    """
+
+    def _matches_csus(stem: str, csus: str) -> bool:
+        # Supports "..._CS_allFish", "..._CS_selectedFish", and "..._CS" patterns.
+        return stem.endswith(f"_{csus}") or (f"_{csus}_" in stem)
+
+    def _read_pickle_robust(path: Path) -> pd.DataFrame:
+        # Try pandas loader first.
+        try:
+            return pd.read_pickle(path, compression="gzip")
+        except Exception:
+            pass
+        try:
+            return pd.read_pickle(path)
+        except Exception:
+            pass
+
+        # Try pandas pickle compatibility loader.
+        try:
+            import gzip
+            from pandas.compat import pickle_compat
+
+            with gzip.open(path, "rb") as f:
+                obj = pickle_compat.load(f)
+            return obj if isinstance(obj, pd.DataFrame) else pd.DataFrame(obj)
+        except Exception:
+            raise
+
+    # Search both the main pooled-data folder and common legacy subfolders.
+    search_roots = [Path(path_pooled_data)]
+    for rel in ["old", "old/all fish", "old/all_fish"]:
+        p = Path(path_pooled_data) / rel
+        if p.exists():
+            search_roots.append(p)
+
+    all_files: List[Path] = []
+    for root in search_roots:
+        all_files.extend([p for p in root.glob("*") if p.is_file()])
+
+    candidates = sorted(all_files, key=lambda x: x.stat().st_mtime, reverse=True)
+    candidates = [
+        p
+        for p in candidates
+        if (POOLED_DATA_REQUIRED_SUBSTRING in p.stem)
+        and _matches_csus(p.stem, str(config.csus))
+        and p.suffix.lower() in {".csv", ".pkl", ".pickle"}
+    ]
+
+    if not candidates:
+        raise FileNotFoundError("No matching pooled data file found (csv/pkl).")
+
+    # Prefer CSV when present (pickle compatibility is fragile across pandas versions).
+    candidates = sorted(candidates, key=lambda p: (p.suffix.lower() != ".csv", -p.stat().st_mtime))
+
+    last_err: Optional[Exception] = None
+    for p in candidates:
+        try:
+            print(f"  Loading: {p.name}")
+            if p.suffix.lower() == ".csv":
+                df = pd.read_csv(p)
+            else:
+                df = _read_pickle_robust(p)
+            if df is not None and not df.empty:
+                return df
+        except Exception as e:
+            last_err = e
+            continue
+
+    raise RuntimeError(f"Failed to load pooled data. Last error: {last_err}")
 
 
 def prepare_data(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:
@@ -2256,12 +2327,44 @@ def save_combined_plots_and_grid(
     baseline_col = baseline_col[0] if baseline_col else None
     response_col = RESPONSE_COLUMN_NAME if RESPONSE_COLUMN_NAME in df_trials.columns else None
 
+    # Normalize baseline and response by dividing by pre-training mean per fish
+    # (similar to how Normalized vigor is computed)
+    norm_baseline_col = "Normalized_Baseline" if baseline_col else None
+    norm_response_col = "Normalized_Response" if response_col else None
+
+    if baseline_col or response_col:
+        # Get pre-training trials (first 10 trials per fish)
+        pretrain_blocks = config.pretrain_blocks_5  # e.g., ['Early Pre-Train', 'Late Pre-Train']
+        pretrain_mask = df_trials["Block name 5 trials"].isin(pretrain_blocks)
+        
+        for fish_id in df_trials["Fish_ID"].unique():
+            fish_mask = df_trials["Fish_ID"] == fish_id
+            fish_pretrain_mask = fish_mask & pretrain_mask
+            
+            if baseline_col and baseline_col in df_trials.columns:
+                pretrain_baseline_mean = df_trials.loc[fish_pretrain_mask, baseline_col].mean()
+                if pretrain_baseline_mean > 0:
+                    df_trials.loc[fish_mask, norm_baseline_col] = (
+                        df_trials.loc[fish_mask, baseline_col] / pretrain_baseline_mean
+                    )
+                else:
+                    df_trials.loc[fish_mask, norm_baseline_col] = 1.0
+            
+            if response_col and response_col in df_trials.columns:
+                pretrain_response_mean = df_trials.loc[fish_pretrain_mask, response_col].mean()
+                if pretrain_response_mean > 0:
+                    df_trials.loc[fish_mask, norm_response_col] = (
+                        df_trials.loc[fish_mask, response_col] / pretrain_response_mean
+                    )
+                else:
+                    df_trials.loc[fish_mask, norm_response_col] = 1.0
+
     # Calculate block medians for overlay
     agg_dict = {"Normalized vigor": "median", "Trial number": "mean"}
-    if baseline_col and baseline_col in df_trials.columns:
-        agg_dict[baseline_col] = "median"
-    if response_col and response_col in df_trials.columns:
-        agg_dict[response_col] = "median"
+    if norm_baseline_col and norm_baseline_col in df_trials.columns:
+        agg_dict[norm_baseline_col] = "median"
+    if norm_response_col and norm_response_col in df_trials.columns:
+        agg_dict[norm_response_col] = "median"
 
     df_blocks = (
         df_trials.groupby(["Fish_ID", "Block name 5 trials"], observed=True)
@@ -2324,11 +2427,11 @@ def save_combined_plots_and_grid(
             label="Block Median (NV)",
         )
 
-        # B2. Plot baseline vigor (raw, before log) - green
-        if baseline_col and baseline_col in fish_block_data.columns:
+        # B2. Plot baseline vigor (normalized) - green
+        if norm_baseline_col and norm_baseline_col in fish_block_data.columns:
             ax.plot(
                 fish_block_data["Trial number"],
-                fish_block_data[baseline_col],
+                fish_block_data[norm_baseline_col],
                 "-",
                 color=COLOR_BASELINE_VIGOR,
                 linewidth=lw * 0.8,
@@ -2336,11 +2439,11 @@ def save_combined_plots_and_grid(
                 label="Baseline Vigor",
             )
 
-        # B3. Plot response vigor (raw) - pink
-        if response_col and response_col in fish_block_data.columns:
+        # B3. Plot response vigor (normalized) - pink
+        if norm_response_col and norm_response_col in fish_block_data.columns:
             ax.plot(
                 fish_block_data["Trial number"],
-                fish_block_data[response_col],
+                fish_block_data[norm_response_col],
                 "-",
                 color=COLOR_RESPONSE_VIGOR,
                 linewidth=lw * 0.8,
@@ -2359,10 +2462,10 @@ def save_combined_plots_and_grid(
             fish_trial_data["Normalized vigor"],
             fish_block_data["Normalized vigor"],
         ]
-        if baseline_col and baseline_col in fish_block_data.columns:
-            y_values_for_ylim.append(fish_block_data[baseline_col])
-        if response_col and response_col in fish_block_data.columns:
-            y_values_for_ylim.append(fish_block_data[response_col])
+        if norm_baseline_col and norm_baseline_col in fish_block_data.columns:
+            y_values_for_ylim.append(fish_block_data[norm_baseline_col])
+        if norm_response_col and norm_response_col in fish_block_data.columns:
+            y_values_for_ylim.append(fish_block_data[norm_response_col])
         _ = _set_ylim_no_clip(
             ax,
             pd.concat(y_values_for_ylim, ignore_index=True).to_list(),
@@ -2423,49 +2526,49 @@ def save_combined_plots_and_grid(
             ax2.set_ylim(-blup_range, blup_range)
             ax2.legend(fontsize=5+7, loc="lower right")
 
-        # Add detailed info box
-        info_lines = [f"Condition: {cond}"]
-        info_lines.append(f"Distance: {float(result.distances[idx]):.2f} (thresh: {float(result.threshold):.2f})")
-        info_lines.append(f"Outlier: {'Yes' if bool(result.is_outlier[idx]) else 'No'}")
-        info_lines.append("")
+        # # Add detailed info box
+        # info_lines = [f"Condition: {cond}"]
+        # info_lines.append(f"Distance: {float(result.distances[idx]):.2f} (thresh: {float(result.threshold):.2f})")
+        # info_lines.append(f"Outlier: {'Yes' if bool(result.is_outlier[idx]) else 'No'}")
+        # info_lines.append("")
 
-        for feat_idx, feat in enumerate(config.features_to_use):
-            feat_cfg = config.feature_configs[feat]
-            val = float(result.features[idx, feat_idx])
-            p_learn = float(result.p_learning[idx, feat_idx])
-            mu = float(result.mu_ctrl[feat_idx])
+        # for feat_idx, feat in enumerate(config.features_to_use):
+        #     feat_cfg = config.feature_configs[feat]
+        #     val = float(result.features[idx, feat_idx])
+        #     p_learn = float(result.p_learning[idx, feat_idx])
+        #     mu = float(result.mu_ctrl[feat_idx])
 
-            # Check pass/fail
-            if feat_cfg.direction == "negative":
-                p_pass = val < mu
-            else:
-                p_pass = val > mu
-            prob_pass = p_learn > config.probability_threshold
+        #     # Check pass/fail
+        #     if feat_cfg.direction == "negative":
+        #         p_pass = val < mu
+        #     else:
+        #         p_pass = val > mu
+        #     prob_pass = p_learn > config.probability_threshold
 
-            p_mark = "Y" if p_pass else "N"
-            prob_mark = "Y" if prob_pass else "N"
-            feat_name = feat_cfg.name.split()[0]
-            info_lines.append(f"{feat_name}: {val:.3f} {'<' if feat_cfg.direction == 'negative' else '>'} {mu:.3f}")
-            info_lines.append(f"   Point:{p_mark} P_learn:{p_learn:.1%} ({prob_mark})")
+        #     p_mark = "Y" if p_pass else "N"
+        #     prob_mark = "Y" if prob_pass else "N"
+        #     feat_name = feat_cfg.name.split()[0]
+        #     info_lines.append(f"{feat_name}: {val:.3f} {'<' if feat_cfg.direction == 'negative' else '>'} {mu:.3f}")
+        #     info_lines.append(f"   Point:{p_mark} P_learn:{p_learn:.1%} ({prob_mark})")
 
-        info_lines.append("")
-        info_lines.append(
-            f"Votes: {int(result.votes_point[idx])}/{len(config.features_to_use)}P, "
-            f"{int(result.votes_probabilistic[idx])}/{len(config.features_to_use)}Pr"
-        )
+        # info_lines.append("")
+        # info_lines.append(
+        #     f"Votes: {int(result.votes_point[idx])}/{len(config.features_to_use)}P, "
+        #     f"{int(result.votes_probabilistic[idx])}/{len(config.features_to_use)}Pr"
+        # )
 
-        info_text = "\n".join(info_lines)
-        props = dict(boxstyle="round", facecolor="white", alpha=0.9, edgecolor="lightgray")
-        ax.text(
-            0.02,
-            0.98,
-            info_text,
-            transform=ax.transAxes,
-            fontsize=5+6,
-            verticalalignment="top",
-            bbox=props,
-            fontfamily="monospace",
-        )
+        # info_text = "\n".join(info_lines)
+        # props = dict(boxstyle="round", facecolor="white", alpha=0.9, edgecolor="lightgray")
+        # ax.text(
+        #     0.02,
+        #     0.98,
+        #     info_text,
+        #     transform=ax.transAxes,
+        #     fontsize=5+6,
+        #     verticalalignment="top",
+        #     bbox=props,
+        #     fontfamily="monospace",
+        # )
 
         figure_saving.save_figure(
             fig,
@@ -2546,22 +2649,22 @@ def save_combined_plots_and_grid(
             alpha=0.9,
         )
 
-        # Plot baseline vigor (raw) - green
-        if baseline_col and baseline_col in fish_block_data.columns:
+        # Plot baseline vigor (normalized) - green
+        if norm_baseline_col and norm_baseline_col in fish_block_data.columns:
             ax.plot(
                 fish_block_data["Trial number"],
-                fish_block_data[baseline_col],
+                fish_block_data[norm_baseline_col],
                 "-",
                 color=COLOR_BASELINE_VIGOR,
                 linewidth=lw * 0.7,
                 alpha=0.65,
             )
 
-        # Plot response vigor (raw) - pink
-        if response_col and response_col in fish_block_data.columns:
+        # Plot response vigor (normalized) - pink
+        if norm_response_col and norm_response_col in fish_block_data.columns:
             ax.plot(
                 fish_block_data["Trial number"],
-                fish_block_data[response_col],
+                fish_block_data[norm_response_col],
                 "-",
                 color=COLOR_RESPONSE_VIGOR,
                 linewidth=lw * 0.7,
@@ -2663,62 +2766,8 @@ def save_combined_plots_and_grid(
         # Title
         ax.set_title(f"{fish}", fontsize=5+9, color=color, fontweight="bold")
 
-        # Info text
-        lines: List[str] = []
-        cond_abbr = str(cond)[:3].upper()
-        dist = float(result.distances[idx])
-        outlier_mark = "O" if bool(result.is_outlier[idx]) else ""
-
-        feat_status = []
-        for feat_idx, feat in enumerate(config.features_to_use):
-            cfg = config.feature_configs[feat]
-            blup = float(result.features[idx, feat_idx])
-            p_learn = float(result.p_learning[idx, feat_idx])
-            mu = float(result.mu_ctrl[feat_idx])
-
-            if cfg.direction == "negative":
-                passed_pt = blup < mu
-            else:
-                passed_pt = blup > mu
-            passed_prob = p_learn > config.probability_threshold
-
-            pt_mark = "Y" if passed_pt else "N"
-            prob_mark = "Y" if passed_prob else "N"
-            name_short = cfg.name.split()[0][:5]
-            feat_status.append(f"{name_short}:{pt_mark}{prob_mark}")
-
-        vp = int(result.votes_point[idx])
-        vprob = int(result.votes_probabilistic[idx])
-        n_feat = len(config.features_to_use)
-
-        lines.append(f"{cond_abbr} D:{dist:.1f}{outlier_mark}")
-        lines.append(" ".join(feat_status))
-        lines.append(f"V:{vp}/{n_feat}P {vprob}/{n_feat}Pr")
-
-        # Add compact feature BLUP+P_learn lines (if present)
-        acq_idx = _feat_index("acquisition")
-        if acq_idx is not None:
-            blup = float(result.features[idx, acq_idx])
-            p_learn = float(result.p_learning[idx, acq_idx])
-            lines.append(f"acq:{blup:.2f} P:{p_learn:.0%}")
-        ext_idx = _feat_index("extinction")
-        if ext_idx is not None:
-            blup = float(result.features[idx, ext_idx])
-            p_learn = float(result.p_learning[idx, ext_idx])
-            lines.append(f"ext:{blup:.2f} P:{p_learn:.0%}")
-
-        info_text = "\n".join(lines)
-        props = dict(boxstyle="round", facecolor="white", alpha=0.85, edgecolor="lightgray", pad=0.3)
-        ax.text(
-            0.02,
-            0.02,
-            info_text,
-            transform=ax.transAxes,
-            fontsize=5+6,
-            verticalalignment="bottom",
-            bbox=props,
-            fontfamily="monospace",
-        )
+        # Info text box removed for cleaner plots
+        # (Classification info is available in exported CSV files)
 
         # Border
         for spine in ax.spines.values():
@@ -2739,8 +2788,8 @@ def save_combined_plots_and_grid(
         Line2D([0], [0], color=COLOR_PROB_LEARNER, lw=2.5, label="* Probabilistic Learner"),
         Line2D([0], [0], color=COLOR_POINT_LEARNER, lw=2, label="o Point Learner"),
         Line2D([0], [0], color=COLOR_OUTLIER_WRONG_DIR, lw=1, label="- Outlier (Wrong Direction)"),
-        Line2D([0], [0], color=COLOR_BASELINE_VIGOR, lw=1.2, label="Baseline Vigor (raw)"),
-        Line2D([0], [0], color=COLOR_RESPONSE_VIGOR, lw=1.2, label="Response Vigor (raw)"),
+        Line2D([0], [0], color=COLOR_BASELINE_VIGOR, lw=1.2, label="Baseline Vigor (norm)"),
+        Line2D([0], [0], color=COLOR_RESPONSE_VIGOR, lw=1.2, label="Response Vigor (norm)"),
     ]
 
     if condition is None:
@@ -2755,29 +2804,11 @@ def save_combined_plots_and_grid(
             Line2D([0], [0], color=COLOR_EXP_NONLEARNER, lw=1, label=f"{str(condition).capitalize()} (Non-Learner)")
         )
 
-    info_legend = (
-        "Info Box Legend:\n"
-        "  Name: Feature pass/fail (Y/N)\n"
-        "  D: Mahalanobis distance, O=Outlier\n"
-        "  V: Votes (P=Point, Pr=Probabilistic)\n"
-        "  acq/ext: BLUP and P_learn probability"
-    )
-
     fig.legend(handles=legend_elements, loc="lower left", ncol=3, bbox_to_anchor=(0.02, 0.01), fontsize=5+10, frameon=True)
 
-    fig.text(
-        0.75,
-        0.01,
-        info_legend,
-        fontsize=5+9,
-        fontfamily="monospace",
-        verticalalignment="bottom",
-        bbox=dict(boxstyle="round", facecolor="lightyellow", alpha=0.9, edgecolor="gray"),
-    )
-
     plt.tight_layout(rect=(0, 0.08, 1, 0.96))
-    # Reduce whitespace between subplots in the summary grid.
-    plt.subplots_adjust(wspace=0.12, hspace=0.22)
+    # Adjust whitespace between subplots in the summary grid.
+    plt.subplots_adjust(wspace=0.22, hspace=0.35)
 
     cond_suffix = f"_{condition}" if condition else ""
     grid_path = output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}.png"

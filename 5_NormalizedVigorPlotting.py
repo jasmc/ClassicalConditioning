@@ -52,11 +52,11 @@ plotting_style.set_plot_style(rc_overrides={"figure.constrained_layout.use": Fal
 # ------------------------------------------------------------------------------
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
-RUN_PROCESS = False
+RUN_PROCESS = True
 RUN_BLOCK_SUMMARY_LINES = True
-RUN_BLOCK_SUMMARY_BOXPLOT = False
+RUN_BLOCK_SUMMARY_BOXPLOT = True
 RUN_PHASE_SUMMARY = True
-RUN_TRIAL_BY_TRIAL = False
+RUN_TRIAL_BY_TRIAL = True
 
 # ------------------------------------------------------------------------------
 # Global Settings
@@ -64,7 +64,7 @@ RUN_TRIAL_BY_TRIAL = False
 EXPERIMENT = ExperimentType.ALL_DELAY.value
 
 # Apply per-experiment discarded fish list if present under "Processed data".
-APPLY_FISH_DISCARD = False
+APPLY_FISH_DISCARD = True
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
 STATS = True  # Enable statistical tests.
@@ -1591,6 +1591,9 @@ def run_trial_by_trial(data_pooled=None):
         #     effect differs by block (what we primarily want here)
         print("  --- LME: Global ANCOVA ---")
         print(f"  Using re_formula: {LME_RE_FORMULA}, method: {LME_GLOBAL_METHOD}")
+
+
+#! why not? f_local = "Log_Response ~ Log_Baseline + C(Condition, Treatment('{ref_cond}')) * C(Trial_Number)"
         f_global = f"Log_Response ~ Log_Baseline + C(Condition, Treatment('{ref_cond}')) * C(Block_name)"
         res_global, err = run_mixed_model(df_main, f_global, "Fish_ID", re_formula=LME_RE_FORMULA, method=LME_GLOBAL_METHOD)
 

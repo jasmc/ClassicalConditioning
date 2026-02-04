@@ -48,14 +48,14 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 RUN_BUILD_POOLED_OUTPUTS = False
 RUN_COUNT_HEATMAP = False
 RUN_SV_HEATMAP_RENDERING = False
-RUN_SV_LINEPLOTS_INDIVIDUAL = False
-RUN_SV_LINEPLOTS_CATCH_TRIALS = True
-RUN_SV_LINEPLOTS_BLOCKS = True
+RUN_SV_LINEPLOTS_INDIVIDUAL = True
+RUN_SV_LINEPLOTS_CATCH_TRIALS = False
+RUN_SV_LINEPLOTS_BLOCKS = False
 
 # ------------------------------------------------------------------------------
 # Shared Parameters
 # ------------------------------------------------------------------------------
-EXPERIMENT = ExperimentType.ALL_10S_TRACE.value
+EXPERIMENT = ExperimentType.ALL_DELAY.value
 
 # Apply per-experiment discarded fish list if present under "Processed data".
 APPLY_FISH_DISCARD = True
