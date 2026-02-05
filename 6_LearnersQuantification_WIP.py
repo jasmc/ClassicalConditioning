@@ -14,11 +14,11 @@ Data Model:
 - Extracts per-fish BLUP features for learning epochs using control-anchored MixedLM
 
 Statistical Approach:
-The LME models log-transformed absolute vigor values:
-    Log_Response ~ Log_Baseline + Epoch
-This is equivalent to modeling multiplicative/proportional changes in vigor.
-The log transform stabilizes variance (appropriate for strictly positive vigor data)
-and makes the Epoch effect interpretable as a proportional change.
+The LME models (optionally log-transformed) normalized vigor by epoch:
+    [log](Normalized vigor) ~ Epoch
+When USE_LOG_TRANSFORM is True, the response is log(normalized vigor); BLUPs are then
+log-fold changes (e.g. BLUP = -0.1 ≈ 10% decrease). Otherwise the model uses raw normalized
+vigor and BLUPs are absolute changes in the ratio.
 
 Classification Method:
 - Computes directional z-scores per feature where "learning direction" = positive z
@@ -84,6 +84,7 @@ plotting_style.set_plot_style()
 # ==============================================================================
 # EXPERIMENT SELECTION
 # ==============================================================================
+
 EXPERIMENT: str = ExperimentType.ALL_DELAY.value
 exp_config = get_experiment_config(EXPERIMENT)
 
@@ -101,6 +102,7 @@ RUN_EXPORT_RESULTS: bool = True
 # ==============================================================================
 # CORE ANALYSIS CONFIGURATION PARAMETERS (used by analysis_cfg below)
 # ==============================================================================
+
 FEATURES_TO_USE: List[str] = ["acquisition", "extinction"]
 PRETRAIN_TO_TRAIN_END_EARLYTEST_BLOCKS: Tuple[List[str], List[str]] = (
     ["Early Pre-Train", "Late Pre-Train"],
@@ -115,9 +117,11 @@ MIN_PRETRAIN_TRIALS: int = 6
 MIN_LATETRAINDEARLYTEST_TRIALS: int = 6
 MIN_LATE_TEST_TRIALS: int = 6
 MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH: int = 3
-CI_MULTIPLIER_FOR_REPORTING: float = 1.96
-ANALYSIS_RANDOM_SEED: Optional[int] = 0
-Y_LIM_PLOT: Tuple[float, float] = (0.8, 1.2)
+
+# Active parameters
+CI_MULTIPLIER_FOR_REPORTING: float = 1.96  # For display: 1.96 = 95% CI (z_{0.975})
+ANALYSIS_RANDOM_SEED: Optional[int] = 0  # For reproducibility in any stochastic operations
+Y_LIM_PLOT: Tuple[float, float] = (0.8, 1.2)  # Default y-axis limits for plots
 
 # ==============================================================================
 # DATA LOADING / COLUMN CONVENTIONS
@@ -127,6 +131,15 @@ BASELINE_COLUMN_SUBSTRING: str = "s before"
 RESPONSE_COLUMN_NAME: str = "Mean CR"
 EPOCH_BLOCK_TRIALS: int = 5
 MIN_FISH_WITH_ALL_FEATURES: int = 10
+
+# Which pooled data file to load (must match 5_NormalizedVigorPlotting output):
+# - "nanFracFilt": require _nanFracFilt in filename (APPLY_MAX_NAN_FRAC_PER_WINDOW was True)
+# - "no_nanFracFilt": require filename WITHOUT _nanFracFilt
+# - "auto": accept either, prefer newest by mtime
+POOLED_DATA_NAN_FILTER: str = "no_nanFracFilt"  # or "no_nanFracFilt" | "auto"
+
+# Optional: explicit path to load (overrides search; set to None for auto-discovery)
+POOLED_DATA_PATH: Optional[Path] = None
 
 # ==============================================================================
 # FIGURE EXPORT + OUTPUT NAMING
@@ -159,7 +172,7 @@ COLOR_RESPONSE_VIGOR: str = "deeppink"
 # Target control false-positive rate for the *binary* learner label.
 # The threshold is empirically calibrated so that ~alpha fraction of controls
 # are classified as learners (false positives).
-ALPHA_TARGET: float = 0.1
+ALPHA_TARGET: float = 0.05
 
 # Joint statistic: always use a whitened quadratic form (Mahalanobis-like) on
 # positive-direction z-scores:  T = z_pos^T Σ^{-1} z_pos
@@ -173,6 +186,10 @@ USE_PER_FISH_SE_IN_SCORING: bool = True
 
 # Numerical stability constant for division
 EPS: float = 1e-12
+
+# Fit LME on log(normalized vigor) when True (recommended: ratios are multiplicative,
+# log stabilizes variance and yields BLUPs as log-fold changes).
+USE_LOG_TRANSFORM: bool = True
 
 # endregion
 
@@ -234,6 +251,7 @@ class AnalysisConfig:
     earlytest_block: List[str] = field(default_factory=lambda: ["Late Train", "Early Test"])
     late_test_blocks_5: List[str] = field(default_factory=lambda: ["Test 5", "Late Test"])
     cond_types: List[str] = field(default_factory=list)
+    use_log_transform: bool = True  # Fit LME on log(normalized vigor) when True
 
     def __post_init__(self) -> None:
         self.cond_types = list(exp_config.cond_types)
@@ -252,6 +270,7 @@ analysis_cfg = AnalysisConfig(
     random_seed=ANALYSIS_RANDOM_SEED,
     y_lim_plot=Y_LIM_PLOT,
     ci_multiplier_for_reporting=CI_MULTIPLIER_FOR_REPORTING,
+    use_log_transform=USE_LOG_TRANSFORM,
 )
 
 
@@ -288,6 +307,24 @@ def _read_pickle_robust(path: Path) -> pd.DataFrame:
 def load_pooled_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataFrame:
     """Load newest pooled dataset for the selected CS/US, preferring CSV if pickles fail."""
 
+    # Early exit: explicit path override
+    if POOLED_DATA_PATH is not None:
+        p = Path(POOLED_DATA_PATH)
+        if not p.exists():
+            raise FileNotFoundError(f"POOLED_DATA_PATH does not exist: {p}")
+        try:
+            print(f"  Loading (explicit path): {p.name}")
+            if p.suffix.lower() == ".csv":
+                df = pd.read_csv(p)
+            else:
+                df = _read_pickle_robust(p)
+            if df is not None and not df.empty:
+                print(f"  Read data from: {p.resolve()}")
+                return df
+            raise RuntimeError(f"File is empty or invalid: {p}")
+        except Exception as e:
+            raise RuntimeError(f"Failed to load POOLED_DATA_PATH: {e}") from e
+
     def _matches_csus(stem: str, csus: str) -> bool:
         # Supports "..._CS_allFish", "..._CS_selectedFish", and "..._CS" patterns.
         return stem.endswith(f"_{csus}") or (f"_{csus}_" in stem)
@@ -312,8 +349,19 @@ def load_pooled_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataF
         and _matches_csus(p.stem, str(config.csus))
         and p.suffix.lower() in {".csv", ".pkl", ".pickle"}
     ]
+
+    if POOLED_DATA_NAN_FILTER == "nanFracFilt":
+        candidates = [p for p in candidates if "_nanFracFilt" in p.stem]
+    elif POOLED_DATA_NAN_FILTER == "no_nanFracFilt":
+        candidates = [p for p in candidates if "_nanFracFilt" not in p.stem]
+    # "auto": no extra filter
+
     if not candidates:
-        raise FileNotFoundError("No matching pooled data file found (csv/pkl).")
+        raise FileNotFoundError(
+            f"No matching pooled data file found (csv/pkl) for CS/US={config.csus} "
+            f"with POOLED_DATA_NAN_FILTER={POOLED_DATA_NAN_FILTER}. "
+            f"Try 'auto' to accept either nanFracFilt or non-nanFracFilt files."
+        )
 
     # Prefer CSV when present (pickle compatibility is fragile across pandas versions).
     candidates = sorted(candidates, key=lambda p: (p.suffix.lower() != ".csv", -p.stat().st_mtime))
@@ -327,6 +375,7 @@ def load_pooled_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataF
             else:
                 df = _read_pickle_robust(p)
             if df is not None and not df.empty:
+                print(f"  Read data from: {p.resolve()}")
                 return df
         except Exception as e:
             last_err = e
@@ -532,10 +581,18 @@ def prepare_data(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:
         inplace=True,
     )
 
+    # When using log transform, we need strictly positive values for Normalized vigor.
+    # Filter out non-positive or non-finite values early so downstream LME sees clean data.
+    if config.use_log_transform:
+        nv = df["Normalized vigor"].to_numpy(dtype=float)
+        valid_nv = (nv > 0) & np.isfinite(nv)
+        n_invalid = int((~valid_nv).sum())
+        if n_invalid > 0:
+            print(f"  [prepare_data] Dropping {n_invalid} rows with Normalized vigor <= 0 or non-finite (required for log transform)")
+            df = df.loc[valid_nv].copy()
+
     df = _filter_fish_by_trials(df, config)
 
-    df["Log_Baseline"] = np.log(df[baseline_col])
-    df["Log_Response"] = np.log(df[response_col])
     df["Trial number"] = df["Trial number"].astype(int)
     df["Trial number"] = df["Trial number"] - df["Trial number"].min() + 1
 
@@ -634,22 +691,19 @@ def extract_change_feature(
     
     Statistical Model:
     -----------------
-    The LME models LOG-TRANSFORMED absolute vigor values:
-        Log_Response ~ Log_Baseline + Epoch
-        
-    Where:
-    - Log_Response = log(Mean CR), Mean CR is mean vigor in CR window (deg/ms)
-    - Log_Baseline = log(Mean baseline), mean vigor in baseline window
+    When config.use_log_transform is True (default), the LME fits log(normalized vigor):
+        log(Normalized vigor) ~ Epoch
+    so BLUPs are log-fold changes (e.g. BLUP = -0.1 ≈ 10% decrease). Otherwise:
+        Normalized vigor ~ Epoch
+    and BLUPs are absolute changes in the ratio.
+    - Normalized vigor = Mean CR / Mean baseline (already a relative measure)
     - Epoch = 0 (pre-epoch blocks) or 1 (post-epoch blocks)
-    
-    This is equivalent to modeling MULTIPLICATIVE/PROPORTIONAL changes:
-        log(Response) - log(Baseline) ≈ log(Response/Baseline)
     
     Control-Anchoring:
     -----------------
     1. Fit model on control fish only to get fixed Epoch effect (μ_ctrl)
-    2. Adjust all responses: Log_Response_Adj = Log_Response - μ_ctrl × Epoch
-    3. Fit second model on adjusted data to get individual random deviations
+    2. Adjust all responses: Vigor_Adj = response - μ_ctrl × Epoch  (response = log(NV) or NV)
+    3. Fit second model on adjusted data to get individual random Epoch deviations
     4. Final BLUP = μ_ctrl + random_effect_i (individual deviation from control)
     
     This centers the control group at zero deviation, making experimental fish
@@ -659,7 +713,7 @@ def extract_change_feature(
     Consider trial-by-trial analysis if acquisition dynamics are important.
     
     Args:
-        data: DataFrame with Log_Response, Log_Baseline, Fish_ID, Block name columns
+        data: DataFrame with Normalized vigor, Fish_ID, Block name columns
         config: Analysis configuration
         number_trials: Block size (default 5)
         name_blocks: Tuple of (pre_blocks, post_blocks) names
@@ -691,13 +745,31 @@ def extract_change_feature(
 
     df_B = pd.concat(frames)
 
+    # Optionally fit on log(normalized vigor) for multiplicative effects and variance stabilization
+    if config.use_log_transform:
+        # Log is only valid for strictly positive values; drop non-positive or non-finite
+        nv = df_B["Normalized vigor"].to_numpy(dtype=float)
+        valid = (nv > 0) & np.isfinite(nv)
+        if not np.all(valid):
+            n_dropped = int((~valid).sum())
+            df_B = df_B.loc[valid].copy()
+            if df_B.empty or df_B["Fish_ID"].nunique() < 2:
+                print(f"  [WARN] After dropping {n_dropped} rows with non-positive/non-finite Normalized vigor, insufficient data for log-scale LME. Returning empty.")
+                return {}
+        df_B["Log_Normalized_Vigor"] = np.log(df_B["Normalized vigor"])
+        response_col = "Log_Normalized_Vigor"
+        formula_response = "Log_Normalized_Vigor ~ Epoch"
+    else:
+        response_col = "Normalized vigor"
+        formula_response = "Q('Normalized vigor') ~ Epoch"
+
     ref_cond = config.cond_types[0]
     df_ctrl = df_B[df_B["Condition"] == ref_cond].copy()
     if df_ctrl["Fish_ID"].nunique() < 3:
         print("  [WARN] Not enough control fish for anchoring, using standard method")
         return get_blups_with_uncertainty(
             df_B,
-            "Log_Response ~ Log_Baseline + Epoch",
+            formula_response,
             "Fish_ID",
             "Epoch",
             ci_multiplier=config.ci_multiplier_for_reporting,
@@ -706,7 +778,7 @@ def extract_change_feature(
     print(f"    Calculating anchor from {df_ctrl['Fish_ID'].nunique()} {ref_cond} fish")
     try:
         model_ctrl = smf.mixedlm(
-            "Log_Response ~ Log_Baseline + Epoch",
+            formula_response,
             df_ctrl,
             groups=df_ctrl["Fish_ID"],
             re_formula="~Epoch",
@@ -714,22 +786,23 @@ def extract_change_feature(
         res_ctrl = model_ctrl.fit(reml=True, method="powell")
         ctrl_epoch_effect = float(res_ctrl.params["Epoch"])
         ctrl_epoch_se = float(res_ctrl.bse.get("Epoch", np.nan))
-        print(f"    Control Epoch Anchor: {ctrl_epoch_effect:.6f}")
+        anchor_unit = "log-scale" if config.use_log_transform else "ratio"
+        print(f"    Control Epoch Anchor: {ctrl_epoch_effect:.6f} ({anchor_unit})")
     except Exception as e:
         print(f"  [WARN] Control model failed ({e}), using standard method")
         return get_blups_with_uncertainty(
             df_B,
-            "Log_Response ~ Log_Baseline + Epoch",
+            formula_response,
             "Fish_ID",
             "Epoch",
             ci_multiplier=config.ci_multiplier_for_reporting,
         )
 
-    df_B["Log_Response_Adj"] = df_B["Log_Response"] - (ctrl_epoch_effect * df_B["Epoch"])
+    df_B["Vigor_Adj"] = df_B[response_col] - (ctrl_epoch_effect * df_B["Epoch"])
 
     try:
         model = smf.mixedlm(
-            "Log_Response_Adj ~ Log_Baseline",
+            "Q('Vigor_Adj') ~ 1",
             df_B,
             groups=df_B["Fish_ID"],
             re_formula="~Epoch",
@@ -790,7 +863,7 @@ def extract_change_feature(
         print(f"  [ERROR] Anchored BLUP extraction failed: {e}")
         return get_blups_with_uncertainty(
             df_B,
-            "Log_Response ~ Log_Baseline + Epoch",
+            formula_response,
             "Fish_ID",
             "Epoch",
             ci_multiplier=config.ci_multiplier_for_reporting,
@@ -1446,6 +1519,7 @@ def save_combined_plots_and_grid(
     config: AnalysisConfig,
     output_dir: Path,
     condition: Optional[str] = None,
+    filename_suffix: str = "",
 ) -> None:
     """Save per-fish combined plots and summary grids."""
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -1703,7 +1777,7 @@ def save_combined_plots_and_grid(
             ax2.set_ylim(-blup_range, blup_range)
             ax2.legend(fontsize=5 + 7, loc="lower right")
 
-        save_path = output_dir / f"{fish}_combined.png"
+        save_path = output_dir / f"{fish}_combined{filename_suffix}.png"
         figure_saving.save_figure(fig, save_path, frmt="png", dpi=int(FIG_DPI_INDIVIDUAL_FISH), bbox_inches="tight", facecolor="white")
         plt.close(fig)
 
@@ -1844,7 +1918,7 @@ def save_combined_plots_and_grid(
     plt.subplots_adjust(wspace=0.22, hspace=0.35)
 
     cond_suffix = f"_{condition}" if condition else ""
-    grid_path = output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}.png"
+    grid_path = output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}{filename_suffix}.png"
     figure_saving.save_figure(fig, grid_path, frmt="png", dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
     # plt.close(fig)
     print(f"  Saved: {grid_path.name}")
@@ -1856,14 +1930,10 @@ def save_heatmap_grid(
     path_heatmap_fig_cs: Path,
     output_dir: Path,
     condition: Optional[str] = None,
-    *,
-    title: Optional[str] = None,
-    output_basename: Optional[str] = None,
+    filename_suffix: str = "",
+    heatmap_variant: str = "scaled",
 ) -> None:
-    """Grid figure with pre-saved heatmaps (SVG/PNG) for each fish.
-    path_heatmap_fig_cs: directory containing per-fish heatmap images (scaled or raw vigor).
-    title/output_basename: when None, defaults to scaled vigor; set for raw vigor grid.
-    """
+    """Grid figure with pre-saved heatmaps (SVG/PNG) for each fish. heatmap_variant: 'scaled' or 'raw'."""
     import io
 
     from PIL import Image
@@ -1899,8 +1969,8 @@ def save_heatmap_grid(
         squeeze=False,
     )
     title_suffix = f" - {str(condition).capitalize()}" if condition else ""
-    fig_title = (title or "Scaled Vigor Heatmaps (aligned to CS)") + title_suffix
-    fig.suptitle(fig_title, fontsize=5 + 16, y=0.99)
+    title_label = "Raw Vigor Heatmaps" if heatmap_variant == "raw" else "Scaled Vigor Heatmaps"
+    fig.suptitle(f"{title_label} (aligned to CS){title_suffix}", fontsize=5 + 16, y=0.99)
 
     def _crop_border(img: np.ndarray, frac: float = 0.02) -> np.ndarray:
         if img is None or not hasattr(img, "shape") or len(img.shape) < 2:
@@ -1997,8 +2067,8 @@ def save_heatmap_grid(
     plt.subplots_adjust(wspace=0.08, hspace=0.14)
 
     cond_suffix = f"_{condition}" if condition else ""
-    basename = output_basename or "Heatmap_Grid_CS"
-    grid_path = Path(output_dir) / f"{basename}{cond_suffix}.png"
+    grid_name_prefix = "Heatmap_Grid_Raw_CS" if heatmap_variant == "raw" else "Heatmap_Grid_CS"
+    grid_path = Path(output_dir) / f"{grid_name_prefix}{cond_suffix}{filename_suffix}.png"
     figure_saving.save_figure(fig, grid_path, frmt="png", dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
     # plt.close(fig)
 
@@ -2219,7 +2289,7 @@ def run_multivariate_lme_pipeline(
         _path_cropped_exp_with_bout_detection,
         _path_tail_angle_fig_cs,
         _path_tail_angle_fig_us,
-        _path_raw_vigor_fig_cs,
+        path_raw_vigor_fig_cs,
         _path_raw_vigor_fig_us,
         path_scaled_vigor_fig_cs,
         _path_scaled_vigor_fig_us,
@@ -2257,7 +2327,12 @@ def run_multivariate_lme_pipeline(
     common_fish_sets = [set(blup_dicts[feat].keys()) for feat in config.features_to_use]
     common_fish = sorted(list(set.intersection(*common_fish_sets)))
     if len(common_fish) < int(MIN_FISH_WITH_ALL_FEATURES):
-        raise ValueError(f"Only {len(common_fish)} fish have all features. Need at least {MIN_FISH_WITH_ALL_FEATURES}.")
+        per_feat = ", ".join(f"{feat}: {len(blup_dicts[feat])} fish" for feat in config.features_to_use)
+        raise ValueError(
+            f"Only {len(common_fish)} fish have all features (need at least {MIN_FISH_WITH_ALL_FEATURES}). "
+            f"Per-feature counts: {per_feat}. "
+            f"Check that BLUP extraction succeeded and that Normalized vigor is strictly positive when using log transform."
+        )
 
     X = np.array([[blup_dicts[feat][f].blup for feat in config.features_to_use] for f in common_fish], dtype=float)
     X_se = np.array([[blup_dicts[feat][f].se for feat in config.features_to_use] for f in common_fish], dtype=float)
@@ -2314,7 +2389,8 @@ def run_multivariate_lme_pipeline(
     print("=" * 60 + "\n")
 
     if RUN_EXPORT_RESULTS:
-        results_path = Path(path_pooled_data) / FNAME_CLASSIFICATION_RESULTS_TEMPLATE.format(csus=config.csus)
+        fname = FNAME_CLASSIFICATION_RESULTS_TEMPLATE.format(csus=config.csus)
+        results_path = Path(path_pooled_data) / (Path(fname).stem + "_wip" + Path(fname).suffix)
         out.to_csv(results_path, index=False)
         print(f"  Saved improved classification results: {results_path.name}")
 
@@ -2343,20 +2419,20 @@ def run_multivariate_lme_pipeline(
         p_empirical=scores.p_empirical,
     )
 
-    # Optional plotting
+    # Optional plotting (save with _wip in filename)
     if RUN_PLOT_TRAJECTORIES:
-        traj_path = Path(path_pooled_vigor_fig) / FNAME_TRAJECTORIES
+        traj_path = Path(path_pooled_vigor_fig) / (Path(FNAME_TRAJECTORIES).stem + "_wip" + Path(FNAME_TRAJECTORIES).suffix)
         fig = plot_behavioral_trajectories(data, result_obj, config, save_path=traj_path)
         plt.close(fig)
 
     if RUN_PLOT_FEATURE_SPACE and len(config.features_to_use) > 1:
-        feat_path = Path(path_pooled_vigor_fig) / FNAME_FEATURE_SPACE
+        feat_path = Path(path_pooled_vigor_fig) / (Path(FNAME_FEATURE_SPACE).stem + "_wip" + Path(FNAME_FEATURE_SPACE).suffix)
         fig = plot_feature_space(result_obj, config, save_path=feat_path)
         if fig is not None:
             plt.close(fig)
 
     if RUN_PLOT_BLUP_OVERLAY:
-        overlay_path = Path(path_pooled_vigor_fig) / FNAME_BLUP_OVERLAY
+        overlay_path = Path(path_pooled_vigor_fig) / (Path(FNAME_BLUP_OVERLAY).stem + "_wip" + Path(FNAME_BLUP_OVERLAY).suffix)
         fig = plot_blup_trajectory_overlay(
             result_obj,
             config,
@@ -2368,7 +2444,8 @@ def run_multivariate_lme_pipeline(
 
     if RUN_PLOT_BLUP_CATERPILLAR:
         for feat_code in config.features_to_use:
-            cater_path = Path(path_pooled_vigor_fig) / FNAME_BLUP_CATERPILLAR_TEMPLATE.format(feat=str(feat_code))
+            fname = FNAME_BLUP_CATERPILLAR_TEMPLATE.format(feat=str(feat_code))
+            cater_path = Path(path_pooled_vigor_fig) / (Path(fname).stem + "_wip" + Path(fname).suffix)
             fig = plot_blup_caterpillar(result_obj, config, feat_code=str(feat_code), save_path=cater_path, sort_by_blup=True)
             plt.close(fig)
 
@@ -2376,19 +2453,13 @@ def run_multivariate_lme_pipeline(
         combined_indiv_dir = Path(path_pooled_vigor_fig) / DIR_INDIVIDUAL_PLOTS_COMBINED
         for cond in config.cond_types:
             cond_dir = combined_indiv_dir / str(cond)
-            save_combined_plots_and_grid(data, result_obj, config, cond_dir, condition=str(cond))
+            save_combined_plots_and_grid(data, result_obj, config, cond_dir, condition=str(cond), filename_suffix="_wip")
 
     if RUN_PLOT_HEATMAP_GRID:
         heatmap_grid_dir = Path(path_pooled_vigor_fig) / "Heatmap_Grids"
         for cond in config.cond_types:
-            save_heatmap_grid(
-                result_obj, config, Path(path_scaled_vigor_fig_cs), heatmap_grid_dir, condition=str(cond),
-                title="Scaled Vigor Heatmaps (aligned to CS)", output_basename="Heatmap_Grid_CS",
-            )
-            save_heatmap_grid(
-                result_obj, config, Path(_path_raw_vigor_fig_cs), heatmap_grid_dir, condition=str(cond),
-                title="Raw Vigor Heatmaps (aligned to CS)", output_basename="RawVigor_Heatmap_Grid_CS",
-            )
+            save_heatmap_grid(result_obj, config, Path(path_scaled_vigor_fig_cs), heatmap_grid_dir, condition=str(cond), filename_suffix="_wip", heatmap_variant="scaled")
+            save_heatmap_grid(result_obj, config, Path(path_raw_vigor_fig_cs), heatmap_grid_dir, condition=str(cond), filename_suffix="_wip", heatmap_variant="raw")
 
     return out
 

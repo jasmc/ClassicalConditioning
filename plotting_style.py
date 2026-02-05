@@ -26,10 +26,8 @@ import seaborn as sns
 from cycler import cycler
 
 # ==============================================================================
-# PLOTTING CONSTANTS
+# PLOTTING CONSTANTS (moved to PlotStyleConfig)
 # ==============================================================================
-pass # Removed constants, moved to PlotStyleConfig
-
 
 
 @dataclass
@@ -255,6 +253,7 @@ def set_plot_style(
 
     sns.set_context(context)
     sns.set_style(style)
+    sns.set_palette(sns.color_palette("colorblind"))
 
     # Enable LaTeX rendering for text in the figure
     plt.rcParams['text.usetex'] = False

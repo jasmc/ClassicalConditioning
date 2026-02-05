@@ -1,5 +1,4 @@
 import itertools
-import os
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -11,7 +10,6 @@ import seaborn as sns
 import statsmodels.formula.api as smf
 from matplotlib.lines import Line2D
 from pandas.api.types import CategoricalDtype
-from scipy import stats
 from scipy.spatial import distance
 from sklearn.covariance import LedoitWolf
 from sklearn.decomposition import PCA

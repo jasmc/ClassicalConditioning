@@ -7,7 +7,6 @@ Build and plot scaled-vigor heatmaps and lineplots from pooled all-fish data.
 
 # %%
 # region Imports
-import sys
 from pathlib import Path
 from typing import Literal
 

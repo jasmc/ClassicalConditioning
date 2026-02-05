@@ -69,7 +69,6 @@ REFERENCES:
 # region Imports & Configuration
 
 import itertools
-import sys
 import warnings
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -115,14 +114,12 @@ warnings.filterwarnings("ignore")
 
 # Set plotting style (shared across analysis scripts)
 plotting_style.set_plot_style()
-sns.color_palette("colorblind")
 
 # ==============================================================================
 # EXPERIMENT SELECTION
 # ==============================================================================
 EXPERIMENT = ExperimentType.ALL_DELAY.value
-config = get_experiment_config(EXPERIMENT)
-exp_config = config
+exp_config = get_experiment_config(EXPERIMENT)
 
 # ==============================================================================
 # PIPELINE CONTROL FLAGS

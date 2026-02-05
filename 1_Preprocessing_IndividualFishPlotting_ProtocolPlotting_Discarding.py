@@ -11,7 +11,6 @@ Consolidated data processing and quality control workflow:
 # %%
 # region Imports
 import gc
-import sys
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -44,12 +43,12 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
 RUN_PREPROCESS = False
-RUN_PLOT_INDIVIDUALS = False
+RUN_PLOT_INDIVIDUALS = True
 RUN_PLOT_PROTOCOLS = False
-RUN_DISCARD = True
+RUN_DISCARD = False
 
 FILTER_FISH_ID = None
-EXPERIMENT_TYPE = ExperimentType.ALL_10S_TRACE.value
+EXPERIMENT_TYPE = ExperimentType.ALL_DELAY.value
 
 # ------------------------------------------------------------------------------
 # Preprocess Parameters
@@ -60,10 +59,10 @@ PREPROCESS_OVERWRITE = True
 # Plot Individual Trials Parameters
 # ------------------------------------------------------------------------------
 PLOT_INDIVIDUALS_OVERWRITE = True
-RAW_TAIL_ANGLE = True
+RAW_TAIL_ANGLE = False
 RAW_VIGOR = True
-SCALED_VIGOR = True
-NORMALIZED_VIGOR_TRIAL = True
+SCALED_VIGOR = False
+NORMALIZED_VIGOR_TRIAL = False
 METRIC_SINGLE_TRIALS = gen_config.tail_angle_label
 WINDOW_DATA_PLOT_S = 40
 INTERVAL_BETWEEN_XTICKS_S = 20
@@ -634,7 +633,7 @@ def run_plot_individual_trials():
                 )
                 plt.close(fig)
 
-            # Plot 2: Raw Vigor Heatmap
+            # Plot 2: Raw Vigor Heatmap (matches scaled vigor dimensions, aspect ratio, styling)
             if do_raw:
                 data_plot = data.copy(deep=True)
                 data_plot = data_plot[data_plot['Trial time (s)'].between(-WINDOW_DATA_PLOT_S, WINDOW_DATA_PLOT_S)]
@@ -645,60 +644,119 @@ def run_plot_individual_trials():
                     data_plot[['Trial time (s)', 'Trial number', 'Vigor (deg/ms)']]
                     .pivot(index='Trial time (s)', columns='Trial number')
                     .reset_index()
-                    .iloc[::gen_config.plotting.downsampling_step]
                     .set_index('Trial time (s)')
                     .droplevel(0, axis=1)
                     .T
                 )
+                data_plot.columns = data_plot.columns.astype('int')
 
-                phases_trials = config.blocks_dict['blocks phases'][csus]['trials in each block']
-                phases_names = config.blocks_dict['blocks phases'][csus]['names of blocks']
+                if csus == 'CS':
+                    phases_trial_numbers = config.trials_cs_blocks_phases
+                    phases_block_names = config.names_cs_blocks_phases
+                else:
+                    phases_trial_numbers = config.trials_us_blocks_phases
+                    phases_block_names = config.names_us_blocks_phases
 
                 fig, axs = plt.subplots(
-                    len(phases_trials),
+                    len(phases_trial_numbers),
                     1,
                     facecolor='white',
-                    gridspec_kw={'height_ratios': [len(x) for x in phases_trials], 'hspace': 0},
-                    sharex=True,
+                    gridspec_kw={
+                        'height_ratios': [len(b) for b in phases_trial_numbers],
+                        'hspace': 0.025,
+                    },
                     squeeze=False,
+                    constrained_layout=False,
+                    figsize=(5 / 2.54, 6 / 2.54),
                 )
 
-                for b_i, b in enumerate(phases_names):
+                if csus == 'CS':
+                    for b_i, b in enumerate(phases_block_names):
+                        show_xticks = (b_i == len(phases_block_names) - 1)
+                        sns.heatmap(
+                            data_plot[data_plot.index.isin(phases_trial_numbers[b_i])],
+                            cbar=False,
+                            robust=False,
+                            xticklabels=xtick_step_scaled if show_xticks else False,
+                            yticklabels=False,
+                            ax=axs[b_i][0],
+                            clip_on=False,
+                            vmin=v_min,
+                            vmax=v_max,
+                            rasterized=True,
+                        )
+
+                        if not show_xticks:
+                            axs[b_i][0].set_xlabel('')
+
+                        axs[b_i][0].set_ylabel(b, va='center', ha='center')
+
+                        xlims = axs[b_i][0].get_xlim()
+                        middle = np.mean(xlims)
+                        factor = (xlims[-1] - xlims[0]) / (WINDOW_DATA_PLOT_S * 2)
+
+                        axs[b_i][0].axvline(
+                            middle, color=gen_config.plotting.cs_color, alpha=0.7, lw=1.5, linestyle='-'
+                        )
+                        axs[b_i][0].axvline(
+                            middle + config.cs_duration * factor,
+                            color=gen_config.plotting.cs_color,
+                            alpha=0.7,
+                            lw=1.5,
+                            linestyle='-',
+                        )
+
+                        axs[b_i][0].set_facecolor('k')
+                        axs[b_i][0].set_rasterization_zorder(0)
+
+                    configure_axes_for_pipeline(
+                        axs[-1][0],
+                        show_xticks=True,
+                        show_yticks=True,
+                        hide_spines=('top', 'right'),
+                    )
+                    axs[-1][0].set_xlabel('')
+                    axs[0][0].set_title(fish_id, loc='left')
+
+                else:
+                    train_idx = 1 if len(phases_trial_numbers) > 1 else 0
                     sns.heatmap(
-                        data_plot[data_plot.index.isin(phases_trials[b_i])],
-                        cbar=False,
+                        data_plot[data_plot.index.isin(phases_trial_numbers[train_idx])],
+                        cbar=True,
                         robust=False,
-                        xticklabels=xtick_step_raw,
+                        xticklabels=xtick_step_scaled,
                         yticklabels=False,
-                        ax=axs[b_i][0],
+                        ax=axs[train_idx][0],
                         clip_on=False,
                         vmin=v_min,
                         vmax=v_max,
+                        rasterized=True,
                     )
 
-                    xlims = axs[b_i][0].get_xlim()
+                    axs[train_idx][0].set_xlabel('')
+                    xlims = axs[train_idx][0].get_xlim()
                     middle = np.mean(xlims)
-                    factor = (xlims[-1] - xlims[0]) / (2 * WINDOW_DATA_PLOT_S)
 
-                    axs[b_i][0].set_ylabel(b, color='k', rotation=90, loc='center')
-                    axs[b_i][0].axvline(middle, color='white', alpha=0.95, lw=1, linestyle='-')
+                    axs[train_idx][0].set_facecolor('k')
+                    axs[train_idx][0].set_rasterization_zorder(0)
+                    axs[train_idx][0].set_ylabel('Train', va='center', ha='center')
 
-                    if csus == 'CS':
-                        axs[b_i][0].axvline(
-                            middle + stim_duration * factor, color='white', alpha=0.95, lw=1, linestyle='-'
-                        )
+                    for i in range(len(phases_trial_numbers)):
+                        if i != train_idx:
+                            axs[i][0].set_visible(False)
 
-                    axs[b_i][0].axhline(axs[b_i][0].get_ylim()[0], color='white', alpha=0.95, lw=2, linestyle='-')
+                    axs[train_idx][0].axvline(
+                        middle, color=gen_config.plotting.us_color, alpha=0.7, lw=1.5, linestyle='-'
+                    )
 
-                configure_axes_for_pipeline(
-                    axs[-1][0],
-                    show_xticks=True,
-                    show_yticks=True,
-                    hide_spines=('top', 'right'),
-                )
-                axs[-1][0].set_xlabel('')
-
-                fig.set_size_inches(fig.get_size_inches()[0], len(phases_trials) * 4)
+                    configure_axes_for_pipeline(
+                        axs[train_idx][0],
+                        show_xticks=True,
+                        show_yticks=True,
+                        hide_spines=('top', 'right'),
+                    )
+                    axs[train_idx][0].set_xlabel('')
+                    axs[train_idx][0].set_title(fish_id, loc='left')
 
                 plot_cfg = plotting_style.get_plot_config()
                 analysis_utils.add_component(
@@ -720,7 +778,7 @@ def run_plot_individual_trials():
                     fig,
                     fig_path_raw,
                     frmt=FIG_FORMAT,
-                    dpi=300,
+                    dpi=1000,
                     transparent=False,
                     bbox_inches="tight",
                 )

@@ -504,7 +504,7 @@ def get_experiment_config(experiment_name: str) -> ExperimentConfig:
             min_number_us_trials=78,
             time_aft_last_trial=1,
             cs_duration=10,
-            cr_window=[10,20],
+            cr_window=[0, 20],	
             trials_cs_blocks_10=[
                 [*range(5,15)], [*range(15,25)], [*range(25,35)], [*range(35,45)], [*range(45,55)],
                 [*range(55,65)], [*range(65,75)], [*range(75,85)], [*range(85,95)]

@@ -64,7 +64,7 @@ RUN_TRIAL_BY_TRIAL = True
 EXPERIMENT = ExperimentType.ALL_DELAY.value
 
 # Apply per-experiment discarded fish list if present under "Processed data".
-APPLY_FISH_DISCARD = True
+APPLY_FISH_DISCARD = False
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
 STATS = True  # Enable statistical tests.
@@ -79,6 +79,10 @@ setup_color_filter = ["all"]
 # Data Aggregation Parameters
 # ------------------------------------------------------------------------------
 TRIAL_WINDOW_S = (-21, 21)
+# Invalidate per-trial metrics if NaN fraction exceeds this in either window.
+# (I.e., if more than this fraction of time has missing vigor in baseline and/or CR window.)
+MAX_NAN_FRAC_PER_WINDOW = 0.90
+APPLY_MAX_NAN_FRAC_PER_WINDOW = False  # If False, skip NaN-fraction invalidation; paths get no _nanFracFilt suffix.
 
 # ------------------------------------------------------------------------------
 # Shared Plot Parameters
@@ -100,16 +104,16 @@ HIGHLIGHT_FISH_ID = [
 # ------------------------------------------------------------------------------
 # Trial-by-Trial Parameters
 # ------------------------------------------------------------------------------
-n_boot = 1000
+n_boot = 100
 y_lim_plot = (0.7, 1.4)
 
 # %% Suppress statsmodels MixedLM convergence warnings (boundary / singular fits)
 
-warnings.filterwarnings(
-    "ignore",
-    # message=r".*MLE may be on the boundary of the parameter space.*",
-    category=ConvergenceWarning,
-)
+# warnings.filterwarnings(
+#     # "ignore",
+#     # message=r".*MLE may be on the boundary of the parameter space.*",
+#     category=ConvergenceWarning,
+# )
 
 # LME Model Configuration
 # -----------------------
@@ -221,7 +225,8 @@ def initialize_context():
 
     # All figures from this script should be saved under a "Normalized vigor" subfolder
     # inside the experiment's pooled-figure output directory.
-    path_scaled_vigor_fig = path_pooled_vigor_fig / "Normalized vigor"
+    nan_suffix = "_nanFracFilt" if APPLY_MAX_NAN_FRAC_PER_WINDOW else ""
+    path_scaled_vigor_fig = path_pooled_vigor_fig / (f"Normalized vigor{nan_suffix}")
     path_scaled_vigor_fig.mkdir(parents=True, exist_ok=True)
 
     # Single discard list source: Processed data/Discarded_fish_IDs.txt
@@ -346,6 +351,7 @@ def load_latest_pooled():
     fish_suffix = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
     paths = [*Path(path_pooled_data).glob("*.pkl")]
     paths = [p for p in paths if "NV per trial per fish" in p.stem and fish_suffix in p.stem]
+    paths = [p for p in paths if ("_nanFracFilt" in p.stem) == APPLY_MAX_NAN_FRAC_PER_WINDOW]
     paths_csus = [
         p for p in paths
         if len(p.stem.split("_")) > 3 and p.stem.split("_")[3] == csus
@@ -362,10 +368,12 @@ def load_latest_pooled():
 def load_first_pooled():
     ensure_context()
     fish_suffix = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
+    nan_suffix = "_nanFracFilt" if APPLY_MAX_NAN_FRAC_PER_WINDOW else ""
     paths = [*Path(path_pooled_data).glob("*.pkl")]
     paths = [p for p in paths if "NV per trial per fish" in p.stem and fish_suffix in p.stem]
-    # Filter by csus: the suffix pattern is ..._{csus}{fish_suffix}.pkl
-    paths = [p for p in paths if p.stem.endswith(f"_{csus}{fish_suffix}")]
+    paths = [p for p in paths if ("_nanFracFilt" in p.stem) == APPLY_MAX_NAN_FRAC_PER_WINDOW]
+    # Filter by csus: the suffix pattern is ..._{csus}{fish_suffix}[_nanFracFilt].pkl
+    paths = [p for p in paths if p.stem.endswith(f"_{csus}{fish_suffix}{nan_suffix}")]
     print(paths)
     if not paths:
         return pd.DataFrame()
@@ -597,6 +605,49 @@ def build_within_condition_pairs(blocks, conditions):
         for b_i in range(len(blocks) - 1):
             pairs += [[(blocks[b_i], cond), (blocks[b_i + 1], cond)]]
     return pairs
+
+
+def filter_pairs_in_data_no_hue(pairs, data: pd.DataFrame, x_col: str):
+    """Filter (x1, x2) pairs to only those present in `data[x_col]`."""
+    if not pairs or data is None or data.empty or x_col not in data.columns:
+        return []
+
+    x_values = set(data[x_col].dropna().unique().tolist())
+    kept = []
+    for pair in pairs:
+        if not isinstance(pair, (list, tuple)) or len(pair) != 2:
+            continue
+        a, b = pair
+        if a in x_values and b in x_values:
+            kept.append(pair)
+    return kept
+
+
+def filter_pairs_in_data_with_hue(pairs, data: pd.DataFrame, x_col: str, hue_col: str):
+    """Filter ((x, hue), (x, hue)) pairs to only those present in `data`."""
+    if not pairs or data is None or data.empty or x_col not in data.columns or hue_col not in data.columns:
+        return []
+
+    existing = set(
+        data[[x_col, hue_col]]
+        .dropna()
+        .drop_duplicates()
+        .itertuples(index=False, name=None)
+    )
+
+    kept = []
+    for pair in pairs:
+        if not isinstance(pair, (list, tuple)) or len(pair) != 2:
+            continue
+        left, right = pair
+        try:
+            left_t = tuple(left)
+            right_t = tuple(right)
+        except TypeError:
+            continue
+        if left_t in existing and right_t in existing:
+            kept.append(pair)
+    return kept
 # endregion Helper Functions
 
 
@@ -689,26 +740,62 @@ def run_data_aggregation():
             print(f"  [WARN] Discarding {mask_us_beg.sum()} trials with US before CS")
             data.loc[mask_us_beg, "Vigor (deg/ms)"] = np.nan
 
+        time_col = "Trial time (s)"
+        vigor_col = "Vigor (deg/ms)"
+
         if csus == "CS":
-            trials_bef_onset = data.loc[
-                data["Trial time (s)"].between(-gen_config.baseline_window, 0), :
-            ].groupby(columns_groupby, observed=True)["Vigor (deg/ms)"].agg("mean")
-            trials_aft_onset = data.loc[
-                data["Trial time (s)"].between(cr_window[0], cr_window[1]), :
-            ].groupby(columns_groupby, observed=True)["Vigor (deg/ms)"].agg("mean")
+            baseline_mask = data[time_col].between(-gen_config.baseline_window, 0)
+            cr_mask = data[time_col].between(cr_window[0], cr_window[1])
         elif csus == "US":
-            trials_bef_onset = data.loc[
-                data["Trial time (s)"].between(-gen_config.baseline_window - cr_window[1], -cr_window[1]), :
-            ].groupby(columns_groupby, observed=True)["Vigor (deg/ms)"].agg("mean")
-            trials_aft_onset = data.loc[
-                data["Trial time (s)"].between(cr_window[0] - cr_window[1], 0), :
-            ].groupby(columns_groupby, observed=True)["Vigor (deg/ms)"].agg("mean")
+            baseline_mask = data[time_col].between(-gen_config.baseline_window - cr_window[1], -cr_window[1])
+            cr_mask = data[time_col].between(cr_window[0] - cr_window[1], 0)
+        else:
+            raise ValueError(f"Unknown csus value: {csus!r}")
+
+        # Window means (baseline and CR)
+        trials_bef_onset = data.loc[baseline_mask, :].groupby(columns_groupby, observed=True)[vigor_col].agg("mean")
+        trials_aft_onset = data.loc[cr_mask, :].groupby(columns_groupby, observed=True)[vigor_col].agg("mean")
+
+        # Per-trial non-NaN fractions in each window (used to invalidate trial metrics)
+        baseline_non_nan_frac = (
+            data.loc[baseline_mask, columns_groupby + [vigor_col]]
+            .assign(__notna=lambda d: d[vigor_col].notna())
+            .groupby(columns_groupby, observed=True)["__notna"]
+            .mean()
+            .rename("__baseline_non_nan_frac")
+        )
+        cr_non_nan_frac = (
+            data.loc[cr_mask, columns_groupby + [vigor_col]]
+            .assign(__notna=lambda d: d[vigor_col].notna())
+            .groupby(columns_groupby, observed=True)["__notna"]
+            .mean()
+            .rename("__cr_non_nan_frac")
+        )
 
         data_agg = pd.concat(
             [trials_bef_onset, trials_aft_onset, trials_aft_onset / trials_bef_onset],
             axis=1,
             keys=column_names,
         ).reset_index()
+
+        # Invalidate trial metrics if either window has too many NaNs (nan_frac > max allowed).
+        # Missing fractions (no samples in the window) are treated as 1.0 (i.e., invalidated by this rule).
+        data_agg = data_agg.merge(baseline_non_nan_frac.reset_index(), on=columns_groupby, how="left")
+        data_agg = data_agg.merge(cr_non_nan_frac.reset_index(), on=columns_groupby, how="left")
+        if APPLY_MAX_NAN_FRAC_PER_WINDOW:
+            baseline_nan_frac = 1.0 - data_agg["__baseline_non_nan_frac"].fillna(0.0)
+            cr_nan_frac = 1.0 - data_agg["__cr_non_nan_frac"].fillna(0.0)
+            invalid = (
+                baseline_nan_frac.gt(MAX_NAN_FRAC_PER_WINDOW)
+                | cr_nan_frac.gt(MAX_NAN_FRAC_PER_WINDOW)
+            )
+            if invalid.any():
+                data_agg.loc[invalid, column_names] = np.nan
+                print(
+                    f"  Invalidated {int(invalid.sum())}/{len(invalid)} trials "
+                    f"(NaN frac > {MAX_NAN_FRAC_PER_WINDOW:.2f})"
+                )
+        data_agg.drop(columns=["__baseline_non_nan_frac", "__cr_non_nan_frac"], inplace=True, errors="ignore")
 
         data_agg["Trial type"] = csus
         data_agg = analysis_utils.identify_blocks_trials(data_agg, blocks_dict)
@@ -726,8 +813,9 @@ def run_data_aggregation():
     if data_plot_list:
         data_pooled = pd.concat(data_plot_list)
         fish_suffix = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
+        nan_suffix = "_nanFracFilt" if APPLY_MAX_NAN_FRAC_PER_WINDOW else ""
         output_filename = (
-            f"NV per trial per fish_CR window {cr_window} s, clean_{cond_types}_{csus}{fish_suffix}.pkl"
+            f"NV per trial per fish_CR window {cr_window} s, clean_{cond_types}_{csus}{fish_suffix}{nan_suffix}.pkl"
         )
         data_pooled.to_pickle(path_pooled_data / output_filename, compression="gzip")
         print(f"  Saved: {output_filename}")
@@ -741,6 +829,13 @@ def run_data_aggregation():
 
 # %%
 # region block_summary_lines
+
+
+#todo why some fish do not have data across all blocks?
+
+
+
+
 def run_block_summary_lines():
     """Plot per-fish block medians with a median overlay per condition.
 
@@ -865,23 +960,31 @@ def run_block_summary_lines():
                 )
 
         if STATS and len(blocks_chosen) > 1 and not skip_block_stats:
-            pairs_within_cond = [
-                (blocks_chosen[b_i], blocks_chosen[b_i + 1]) for b_i in range(len(blocks_chosen) - 1)
-            ]
-            plot_params_b = {"data": data_cond, "x": "Block name", "y": "Normalized vigor", "order": blocks_chosen}
-            annotator_b = Annotator(ax_b[e_i], pairs_within_cond, **plot_params_b)
-            annotator_b.configure(
-                test="Mann-Whitney",
-                text_format="star",
-                comparisons_correction="holm-bonferroni",
-                loc="inside",
-                fontsize="8",
-                line_width=0.5,
-                line_height=0.01,
-                hide_non_significant=Hide_non_significant,
-                verbose=False,
-            )
-            annotator_b.apply_test().annotate()
+            blocks_present = [b for b in blocks_chosen if b in data_cond["Block name"].dropna().unique().tolist()]
+            if len(blocks_present) < 2:
+                print(f"  [SKIP] Not enough blocks for within-condition stats in {cond}.")
+            else:
+                pairs_within_cond = [
+                    (blocks_present[b_i], blocks_present[b_i + 1]) for b_i in range(len(blocks_present) - 1)
+                ]
+                pairs_within_cond = filter_pairs_in_data_no_hue(pairs_within_cond, data_cond, "Block name")
+                if not pairs_within_cond:
+                    print(f"  [SKIP] No valid within-condition pairs for stats in {cond}.")
+                else:
+                    plot_params_b = {"data": data_cond, "x": "Block name", "y": "Normalized vigor", "order": blocks_present}
+                    annotator_b = Annotator(ax_b[e_i], pairs_within_cond, **plot_params_b)
+                    annotator_b.configure(
+                        test="Mann-Whitney",
+                        text_format="star",
+                        comparisons_correction="holm-bonferroni",
+                        loc="inside",
+                        fontsize="8",
+                        line_width=0.5,
+                        line_height=0.01,
+                        hide_non_significant=Hide_non_significant,
+                        verbose=False,
+                    )
+                    annotator_b.apply_test().annotate()
 
 
     # Cross-condition statistical tests (Mann-Whitney U since fish are different across conditions)
@@ -1094,6 +1197,7 @@ def run_block_summary_boxplot():
         f"{cond_title_map[cond]} (n={cond_number_fish[idx]})"
         for idx, cond in enumerate(cond_types_box)
     ]
+    palette_box = [color_palette[cond_types.index(cond)] for cond in cond_types_box]
 
     fig_a, ax_a = plt.subplots(1, 1, figsize=BOXPLOT_FIGSIZE, **FIGURE_KW)
     add_baseline_line(ax_a)
@@ -1106,7 +1210,7 @@ def run_block_summary_boxplot():
         fill=True,
         showfliers=False,
         dodge=True,
-        palette=color_palette,
+        palette=palette_box,
         data=data_box,
         notch=False,
         showmeans=False,
@@ -1144,7 +1248,7 @@ def run_block_summary_boxplot():
             ax_a.scatter(
                 x_vals,
                 outliers,
-                color=color_palette[i],
+                color=palette_box[i],
                 marker=".",
                 alpha=0.8,
                 edgecolor="k",
@@ -1155,20 +1259,24 @@ def run_block_summary_boxplot():
 
     if STATS:
         print("  --- Mann-Whitney U test (boxplot) ---")
+        blocks_for_stats = [b for b in blocks_chosen if b in data_box["Block name"].dropna().unique().tolist()]
+        if len(blocks_for_stats) < 1:
+            print("  [SKIP] No blocks available for stats after filtering.")
+            blocks_for_stats = []
         hue_plot_params = {
             "data": data_box,
             "x": "Block name",
             "y": "Normalized vigor",
-            "order": blocks_chosen,
+            "order": blocks_for_stats if blocks_for_stats else blocks_chosen,
             "hue": "Exp.",
             "hue_order": list(cond_types_box),
-            "palette": color_palette,
+            "palette": palette_box,
         }
 
         pairs_between_exp = []
 
         def add_pairs(cond_pairs):
-            for bl in blocks_chosen:
+            for bl in (blocks_for_stats if blocks_for_stats else blocks_chosen):
                 for left_idx, right_idx in cond_pairs:
                     if left_idx < len(cond_types_box) and right_idx < len(cond_types_box):
                         pairs_between_exp.append(
@@ -1203,6 +1311,7 @@ def run_block_summary_boxplot():
         elif exp_name == ExperimentType.CA8_ABLATION.value:
             add_pairs([(0, 2), (1, 3)])
 
+        pairs_between_exp = filter_pairs_in_data_with_hue(pairs_between_exp, data_box, "Block name", "Exp.")
         if pairs_between_exp:
             ax_a.set_ylim((y_lim[0], y_lim[1]))
             annotator = Annotator(ax_a, pairs_between_exp, **hue_plot_params)
@@ -1218,40 +1327,59 @@ def run_block_summary_boxplot():
                 hide_non_significant=Hide_non_significant,
                 pvalue_thresholds=[[1e-4, "****"], [1e-3, "***"], [1e-2, "**"], [0.05, "*"], [1, "ns"]],
             ).apply_test().annotate()
+        else:
+            print("  [SKIP] No valid between-condition pairs found in data.")
 
         if EXPERIMENT != ExperimentType.MOVING_CS_4COND.value:
             print("  --- Wilcoxon test (boxplot) ---")
-            pairs_within_exp = build_within_condition_pairs(blocks_chosen, cond_types_box)
-            if pairs_within_exp:
+            if blocks_for_stats and len(blocks_for_stats) != len(blocks_chosen):
+                print("  [SKIP] Wilcoxon requires complete block coverage; missing blocks after filtering.")
+            else:
                 # Filter data to only include fish with complete data in all blocks
                 # This is required for paired Wilcoxon test
                 fish_block_counts = data_box.groupby(['Fish', 'Exp.'], observed=True)['Block name'].nunique()
                 complete_fish = fish_block_counts[fish_block_counts == len(blocks_chosen)].reset_index()[['Fish', 'Exp.']]
                 data_box_complete = data_box.merge(complete_fish, on=['Fish', 'Exp.'], how='inner')
+
+                pairs_within_exp = []
+                cond_types_complete = [cond for cond in cond_types_box if cond in data_box_complete["Exp."].unique()]
+                if not cond_types_complete:
+                    print("  [SKIP] No conditions with complete data for Wilcoxon.")
+                else:
+                    pairs_within_exp = build_within_condition_pairs(blocks_chosen, cond_types_complete)
+                    pairs_within_exp = filter_pairs_in_data_with_hue(
+                        pairs_within_exp, data_box_complete, "Block name", "Exp."
+                    )
                 
                 hue_plot_params_complete = hue_plot_params.copy()
                 hue_plot_params_complete['data'] = data_box_complete
+                hue_plot_params_complete["hue_order"] = list(cond_types_complete)
+                hue_plot_params_complete["palette"] = [color_palette[cond_types.index(c)] for c in cond_types_complete]
+                hue_plot_params_complete["order"] = blocks_chosen
                 
-                ax_a.set_ylim((y_lim[0], y_lim[1] + 0.1))
-                annotator = Annotator(ax_a, pairs_within_exp, **hue_plot_params_complete)
-                annotator.configure(
-                    test="Wilcoxon",
-                    text_format="star",
-                    comparisons_correction="holm-bonferroni",
-                    verbose=2,
-                    loc="outside",
-                    fontsize="9",
-                    line_width=0.5,
-                    line_height=0.02,
-                    hide_non_significant=Hide_non_significant,
-                    pvalue_thresholds=[
-                        [1e-4, "****"],
-                        [1e-3, "***"],
-                        [1e-2, "**"],
-                        [0.05, "*"],
-                        [1, "ns"],
-                    ],
-                ).apply_test().annotate()
+                if pairs_within_exp:
+                    ax_a.set_ylim((y_lim[0], y_lim[1] + 0.1))
+                    annotator = Annotator(ax_a, pairs_within_exp, **hue_plot_params_complete)
+                    annotator.configure(
+                        test="Wilcoxon",
+                        text_format="star",
+                        comparisons_correction="holm-bonferroni",
+                        verbose=2,
+                        loc="outside",
+                        fontsize="9",
+                        line_width=0.5,
+                        line_height=0.02,
+                        hide_non_significant=Hide_non_significant,
+                        pvalue_thresholds=[
+                            [1e-4, "****"],
+                            [1e-3, "***"],
+                            [1e-2, "**"],
+                            [0.05, "*"],
+                            [1, "ns"],
+                        ],
+                    ).apply_test().annotate()
+                else:
+                    print("  [SKIP] No valid within-condition (Wilcoxon) pairs found in data.")
 
     ax_a.spines["bottom"].set_visible(False)
     ax_a.grid(False)

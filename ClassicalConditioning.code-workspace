@@ -4,5 +4,9 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"workbench.editor.wrapTabs": false,
+		"workbench.editor.pinnedTabsOnSeparateRow": true,
+		"workbench.editor.tabSizing": "fixed"
+	}
 }
