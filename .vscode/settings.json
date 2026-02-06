@@ -15,5 +15,6 @@
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.lintOnSave": true,
-    "python.linting.mypyEnabled": true
+    "python.linting.mypyEnabled": true,
+    "editor.foldingImportsByDefault": true
 }

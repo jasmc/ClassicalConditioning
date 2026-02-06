@@ -305,12 +305,34 @@ def _sanitize_filename(name: str) -> str:
     return out if out else "figure"
 
 
+SELECTED_FISH_SUFFIX = "_selectedFish"
+
+
+def _maybe_append_selected_fish_stem(stem: str) -> str:
+    """Append `_selectedFish` to a filename stem when discard is enabled."""
+    if not APPLY_FISH_DISCARD:
+        return str(stem)
+    stem = str(stem)
+    return stem if stem.endswith(SELECTED_FISH_SUFFIX) else f"{stem}{SELECTED_FISH_SUFFIX}"
+
+
+def _maybe_selected_fish_path(path_out: Path | str) -> Path:
+    """Append `_selectedFish` to a Path name when discard is enabled."""
+    p = Path(path_out)
+    if not APPLY_FISH_DISCARD:
+        return p
+    if p.stem.endswith(SELECTED_FISH_SUFFIX):
+        return p
+    # Preserve suffix (single-suffix paths used throughout this repo).
+    return p.with_name(f"{p.stem}{SELECTED_FISH_SUFFIX}{p.suffix}")
+
+
 def save_fig(fig, stem: str, frmt: str) -> Path:
     """Save a figure under path_scaled_vigor_fig with consistent naming."""
     ensure_context()
     if path_scaled_vigor_fig is None:
         raise RuntimeError("Context not initialized: path_scaled_vigor_fig is None")
-    safe_stem = _sanitize_filename(stem)
+    safe_stem = _maybe_append_selected_fish_stem(_sanitize_filename(stem))
     safe_frmt = str(frmt).lstrip(".")
     save_path = path_scaled_vigor_fig / f"{safe_stem}.{safe_frmt}"
     save_path.parent.mkdir(parents=True, exist_ok=True)
@@ -320,7 +342,7 @@ def save_fig(fig, stem: str, frmt: str) -> Path:
 
 def save_figure(fig, path_out, frmt, **overrides):
     # Centralized save: mkdir + Windows-safe names + enforce suffix to match frmt.
-    figure_saving.save_figure(fig, path_out, frmt=frmt, savefig_kw=SAVEFIG_KW, **overrides)
+    figure_saving.save_figure(fig, _maybe_selected_fish_path(path_out), frmt=frmt, savefig_kw=SAVEFIG_KW, **overrides)
 
 
 def add_baseline_line(ax, y=1):
@@ -723,7 +745,8 @@ def run_data_aggregation():
         cond_actual = data["Exp."].unique()[0]
         print(f"  Processing {cond_actual}: {len(data['Fish'].unique())} fish")
 
-        with open(path_pooled_data / "NV per trial per fish.txt", "a") as file:
+        selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else ""
+        with open(path_pooled_data / f"NV per trial per fish{selected_suffix}.txt", "a") as file:
             file.write(f"Number fish in {cond_actual}: {len(data['Fish'].unique())}\n\n")
 
         if isinstance(data["Scaled vigor (AU)"].dtype, pd.SparseDtype):
@@ -1627,7 +1650,8 @@ def run_trial_by_trial(data_pooled=None):
     print(f"  Fish remaining after discard: {data_plot['Fish'].nunique()}")
 
     if EXPORT_TEXT:
-        output_path = path_pooled_data / "data_output.txt"
+        selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else ""
+        output_path = path_pooled_data / f"data_output{selected_suffix}.txt"
         data_plot[["Exp.", "Fish", "Block name", "Trial number", "Normalized vigor"]].to_csv(
             output_path, sep="\t", index=False
         )

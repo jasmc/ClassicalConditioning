@@ -99,6 +99,23 @@ RUN_PLOT_BLUP_OVERLAY: bool = True
 RUN_PLOT_HEATMAP_GRID: bool = True
 RUN_EXPORT_RESULTS: bool = True
 
+# If True, treat inputs/outputs as operating on the "selected fish" subset and
+# append `_selectedFish` to all saved figures/files from this script.
+# (This matches the naming convention used by `5_NormalizedVigorPlotting.py`.)
+APPLY_FISH_DISCARD: bool = False
+
+SELECTED_FISH_SUFFIX = "_selectedFish"
+
+
+def _maybe_selected_fish_path(path_out: Path | str) -> Path:
+    """Append `_selectedFish` to a Path name when discard is enabled."""
+    p = Path(path_out)
+    if not APPLY_FISH_DISCARD:
+        return p
+    if p.stem.endswith(SELECTED_FISH_SUFFIX):
+        return p
+    return p.with_name(f"{p.stem}{SELECTED_FISH_SUFFIX}{p.suffix}")
+
 # ==============================================================================
 # CORE ANALYSIS CONFIGURATION PARAMETERS (used by analysis_cfg below)
 # ==============================================================================
@@ -355,6 +372,18 @@ def load_pooled_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataF
     elif POOLED_DATA_NAN_FILTER == "no_nanFracFilt":
         candidates = [p for p in candidates if "_nanFracFilt" not in p.stem]
     # "auto": no extra filter
+
+    # Prefer pooled data matching selected-fish mode when possible.
+    if APPLY_FISH_DISCARD:
+        selected = [p for p in candidates if SELECTED_FISH_SUFFIX in p.stem]
+        if selected:
+            candidates = selected
+    else:
+        non_selected = [p for p in candidates if SELECTED_FISH_SUFFIX not in p.stem]
+        if non_selected:
+            # Keep only non-selected candidates; selectedFish files remain as a fallback
+            # only when no non-selected files exist.
+            candidates = non_selected
 
     if not candidates:
         raise FileNotFoundError(
@@ -1167,7 +1196,7 @@ def plot_behavioral_trajectories(
         plt.tight_layout()
 
     if save_path is not None:
-        save_path = Path(save_path)
+        save_path = _maybe_selected_fish_path(Path(save_path))
         figure_saving.save_figure(fig, save_path, frmt="png", dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
         print(f"  Saved: {save_path.name}")
 
@@ -1308,7 +1337,7 @@ def plot_feature_space(
     plt.tight_layout(rect=(0, 0.12, 1, 0.95))
 
     if save_path is not None:
-        save_path = Path(save_path)
+        save_path = _maybe_selected_fish_path(Path(save_path))
         figure_saving.save_figure(fig, save_path, frmt="png", dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
         print(f"  Saved: {save_path.name}")
     return fig
@@ -1439,7 +1468,7 @@ def plot_blup_trajectory_overlay(
     plt.tight_layout(rect=(0, 0.02, 1, 0.95))
 
     if save_path is not None:
-        save_path = Path(save_path)
+        save_path = _maybe_selected_fish_path(Path(save_path))
         figure_saving.save_figure(fig, save_path, frmt="png", dpi=int(FIG_DPI_BLUP_OVERLAY), bbox_inches="tight", facecolor="white")
         print(f"  Saved: {save_path.name}")
     return fig
@@ -1507,7 +1536,7 @@ def plot_blup_caterpillar(
     plt.tight_layout()
 
     if save_path is not None:
-        save_path = Path(save_path)
+        save_path = _maybe_selected_fish_path(Path(save_path))
         figure_saving.save_figure(fig, save_path, frmt="png", dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight", facecolor="white")
         print(f"  Saved: {save_path.name}")
     return fig
@@ -1777,7 +1806,7 @@ def save_combined_plots_and_grid(
             ax2.set_ylim(-blup_range, blup_range)
             ax2.legend(fontsize=5 + 7, loc="lower right")
 
-        save_path = output_dir / f"{fish}_combined{filename_suffix}.png"
+        save_path = _maybe_selected_fish_path(output_dir / f"{fish}_combined{filename_suffix}.png")
         figure_saving.save_figure(fig, save_path, frmt="png", dpi=int(FIG_DPI_INDIVIDUAL_FISH), bbox_inches="tight", facecolor="white")
         plt.close(fig)
 
@@ -1918,7 +1947,7 @@ def save_combined_plots_and_grid(
     plt.subplots_adjust(wspace=0.22, hspace=0.35)
 
     cond_suffix = f"_{condition}" if condition else ""
-    grid_path = output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}{filename_suffix}.png"
+    grid_path = _maybe_selected_fish_path(output_dir.parent / f"All_Fish_Combined_Summary_Grid{cond_suffix}{filename_suffix}.png")
     figure_saving.save_figure(fig, grid_path, frmt="png", dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
     # plt.close(fig)
     print(f"  Saved: {grid_path.name}")
@@ -2068,7 +2097,7 @@ def save_heatmap_grid(
 
     cond_suffix = f"_{condition}" if condition else ""
     grid_name_prefix = "Heatmap_Grid_Raw_CS" if heatmap_variant == "raw" else "Heatmap_Grid_CS"
-    grid_path = Path(output_dir) / f"{grid_name_prefix}{cond_suffix}{filename_suffix}.png"
+    grid_path = _maybe_selected_fish_path(Path(output_dir) / f"{grid_name_prefix}{cond_suffix}{filename_suffix}.png")
     figure_saving.save_figure(fig, grid_path, frmt="png", dpi=int(FIG_DPI_SUMMARY_GRID), bbox_inches="tight")
     # plt.close(fig)
 
@@ -2390,7 +2419,7 @@ def run_multivariate_lme_pipeline(
 
     if RUN_EXPORT_RESULTS:
         fname = FNAME_CLASSIFICATION_RESULTS_TEMPLATE.format(csus=config.csus)
-        results_path = Path(path_pooled_data) / (Path(fname).stem + "_wip" + Path(fname).suffix)
+        results_path = _maybe_selected_fish_path(Path(path_pooled_data) / (Path(fname).stem + "_wip" + Path(fname).suffix))
         out.to_csv(results_path, index=False)
         print(f"  Saved improved classification results: {results_path.name}")
 

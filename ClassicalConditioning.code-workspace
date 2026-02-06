@@ -7,6 +7,8 @@
 	"settings": {
 		"workbench.editor.wrapTabs": false,
 		"workbench.editor.pinnedTabsOnSeparateRow": true,
-		"workbench.editor.tabSizing": "fixed"
+		"workbench.editor.tabSizing": "fixed",
+		"editor.folding": true,
+		"editor.foldingImportsByDefault": true
 	}
 }

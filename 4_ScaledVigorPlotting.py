@@ -480,7 +480,7 @@ def find_heatmap_paths(patterns):
     for pattern in patterns:
         matched = [
             path for path in paths
-            if pattern in path.stem and path.stem.split("_")[-1] == csus
+            if pattern in path.stem and _stem_matches_csus(path.stem, csus)
         ]
         if matched:
             return matched
@@ -508,9 +508,31 @@ def _sanitize_filename(name: str) -> str:
     return out if out else "figure"
 
 
+SELECTED_FISH_SUFFIX = "_selectedFish"
+
+
+def _maybe_append_selected_fish_stem(stem: str) -> str:
+    """Append `_selectedFish` to a filename stem when discard is enabled."""
+    if not APPLY_FISH_DISCARD:
+        return str(stem)
+    stem = str(stem)
+    return stem if stem.endswith(SELECTED_FISH_SUFFIX) else f"{stem}{SELECTED_FISH_SUFFIX}"
+
+
+def _stem_matches_csus(stem: str, csus_value: str) -> bool:
+    """Match stems ending with _{CSUS}[_{selected/allFish}] without fragile splits."""
+    stem = str(stem)
+    csus_value = str(csus_value)
+    return (
+        stem.endswith(f"_{csus_value}")
+        or stem.endswith(f"_{csus_value}{SELECTED_FISH_SUFFIX}")
+        or stem.endswith(f"_{csus_value}_allFish")
+    )
+
+
 def save_fig(fig: Figure, stem: str, frmt: str) -> Path:
     """Save a figure under path_scaled_vigor_fig with consistent naming."""
-    safe_stem = _sanitize_filename(stem)
+    safe_stem = _maybe_append_selected_fish_stem(_sanitize_filename(stem))
     safe_frmt = str(frmt).lstrip(".")
     save_path = path_scaled_vigor_fig / f"{safe_stem}.{safe_frmt}"
     save_path.parent.mkdir(parents=True, exist_ok=True)
@@ -525,8 +547,9 @@ def save_fig(fig: Figure, stem: str, frmt: str) -> Path:
 # region build_pooled_outputs
 def run_build_pooled_outputs():
     """Load per-fish data and aggregate into pooled heatmap/lineplot outputs."""
+    selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else ""
     all_data_csus_paths = sorted(
-        [path for path in Path(path_all_fish).glob("*.pkl") if path.stem.split("_")[-1] == csus]
+        [path for path in Path(path_all_fish).glob("*.pkl") if _stem_matches_csus(path.stem, csus)]
     )
     if not all_data_csus_paths:
         print(f"No data found in {path_all_fish} for {csus}.")
@@ -579,7 +602,7 @@ def run_build_pooled_outputs():
         num_fish = df["Fish"].nunique() if "Fish" in df.columns else np.nan
         print(f"Processing condition: {cond}, Fish: {num_fish}")
 
-        with open(path_scaled_vigor_fig / "1_Heatmap notes.txt", "a") as file:
+        with open(path_scaled_vigor_fig / f"1_Heatmap notes{selected_suffix}.txt", "a") as file:
             file.write(f"Number fish in {cond}: {num_fish}\n\n")
 
         df = ensure_time_seconds(df)
@@ -659,20 +682,20 @@ def run_build_pooled_outputs():
         if list_heatmap_count:
             pd.concat(list_heatmap_count).to_pickle(
                 path_pooled_data
-                / f"Count heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}.pkl",
+                / f"Count heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
         if list_heatmap_sv:
             pd.concat(list_heatmap_sv).to_pickle(
                 path_pooled_data
-                / f"SV heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}.pkl",
+                / f"SV heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
         if list_line:
             data_plot_line = pd.concat(list_line)
             data_plot_line.to_pickle(
                 path_pooled_data
-                / f"SV lineplot {binning_window}s bins all fish_{cond_types_here}_{csus}.pkl",
+                / f"SV lineplot {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
 
@@ -703,7 +726,7 @@ def run_count_heatmap():
         for path in all_data_csus_paths
         if f"Count heatmap {count_heatmap_binning_window}s bins all fish_" in path.stem
     ]
-    all_data_csus_paths = [path for path in all_data_csus_paths if path.stem.split("_")[-1] == csus]
+    all_data_csus_paths = [path for path in all_data_csus_paths if _stem_matches_csus(path.stem, csus)]
 
     if not all_data_csus_paths:
         print("Skipping Count heatmap (no pooled count files found).")
@@ -914,7 +937,7 @@ def run_sv_heatmap_rendering():
     all_data_csus_paths = [
         path for path in all_data_csus_paths if f"SV heatmap {binning_window_heatmap}s bins all fish_" in path.stem
     ]
-    all_data_csus_paths = [path for path in all_data_csus_paths if path.stem.split("_")[-1] == csus]
+    all_data_csus_paths = [path for path in all_data_csus_paths if _stem_matches_csus(path.stem, csus)]
 
     if not all_data_csus_paths:
         print("Skipping SV heatmap rendering (no pooled heatmap files found).")
@@ -1086,7 +1109,7 @@ def run_sv_lineplots_individual_catch_trials():
     clipped, stimulus lines on each axis, and a shared legend outside the panel.
     """
     all_data_csus_paths = [*Path(path_all_fish).glob("*.pkl")]
-    all_data_csus_paths = [path for path in all_data_csus_paths if path.stem.split("_")[-1] == csus]
+    all_data_csus_paths = [path for path in all_data_csus_paths if _stem_matches_csus(path.stem, csus)]
 
     if not all_data_csus_paths:
         print("Skipping individual catch trials (no per-condition pooled files found).")
@@ -1256,7 +1279,7 @@ def run_sv_lineplot_all_catch_trials():
     pooled_paths = [
         p for p in pooled_paths if f"SV lineplot {default_binning_window}s bins all fish_" in p.stem
     ]
-    pooled_paths = [p for p in pooled_paths if p.stem.split("_")[-1] == csus]
+    pooled_paths = [p for p in pooled_paths if _stem_matches_csus(p.stem, csus)]
 
     if not pooled_paths:
         print("Skipping catch trials line plot (no pooled lineplot files found).")
@@ -1386,7 +1409,7 @@ def run_sv_lineplots_per_block():
     pooled_paths = [
         p for p in pooled_data_files if f"SV lineplot {default_binning_window}s bins all fish_" in p.stem
     ]
-    pooled_paths = [p for p in pooled_paths if p.stem.split("_")[-1] == csus]
+    pooled_paths = [p for p in pooled_paths if _stem_matches_csus(p.stem, csus)]
 
     if not pooled_paths:
         print("Skipping block line plots (no pooled lineplot files found).")
