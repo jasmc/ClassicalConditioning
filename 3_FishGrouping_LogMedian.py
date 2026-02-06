@@ -527,22 +527,9 @@ def main():
         _,
         _,
         _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        path_orig_pkl,
-        path_all_fish,
-        _,
-    ) = file_utils.create_folders(config.path_save)
+    paths = file_utils.create_folders(config.path_save)
 
-    all_fish_data_paths = list(path_orig_pkl.glob('**/*.pkl'))
+    all_fish_data_paths = list(paths.orig_pkl.glob('**/*.pkl'))
     all_fish_data_paths_lower = {path: path.stem.lower() for path in all_fish_data_paths}
 
     print(config)
@@ -560,8 +547,8 @@ def main():
         ]
         condition_paths = filter_paths_by_subset(condition_paths, FISH_SUBSET)
 
-        path_all_fish_condition_cs = path_all_fish / f'{condition}_CS_new_logmedian.pkl'
-        path_all_fish_condition_us = path_all_fish / f'{condition}_US_new_logmedian.pkl'
+        path_all_fish_condition_cs = paths.all_fish / f'{condition}_CS_new_logmedian.pkl'
+        path_all_fish_condition_us = paths.all_fish / f'{condition}_US_new_logmedian.pkl'
 
         if not condition_paths:
             continue

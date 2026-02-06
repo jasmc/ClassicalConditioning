@@ -73,6 +73,7 @@ else:
 
 import analysis_utils
 import file_utils
+import pipeline_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 from general_configuration import config as gen_config
@@ -145,30 +146,11 @@ from plotting_style import (HEATMAP_FIGSIZE, HEATMAP_GRIDSPACE,
 # region Context Setup
 config = get_experiment_config(EXPERIMENT)
 
-(
-    _,
-    _,
-    _,
-    path_processed_data,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    path_pooled_vigor_fig,
-    _,
-    path_orig_pkl,
-    path_all_fish,
-    path_pooled_data,
-) = file_utils.create_folders(config.path_save)
+paths = file_utils.create_folders(config.path_save)
 
 # All figures from this script should be saved under a "Scaled vigor" subfolder
 # inside the experiment's pooled-figure output directory.
-path_scaled_vigor_fig = path_pooled_vigor_fig / "Scaled vigor"
+path_scaled_vigor_fig = paths.pooled_vigor_fig / "Scaled vigor"
 path_scaled_vigor_fig.mkdir(parents=True, exist_ok=True)
 
 stim_duration = config.cs_duration if csus == "CS" else gen_config.us_duration
@@ -176,7 +158,7 @@ stim_color = gen_config.plotting.cs_color if csus == "CS" else gen_config.plotti
 time_frame_col = gen_config.time_trial_frame_label
 
 # Load discarded fish IDs (if configured)
-discard_file = path_orig_pkl / "Excluded" / "excluded_fish_ids.txt"
+discard_file = paths.orig_pkl / "Excluded" / "excluded_fish_ids.txt"
 
 fish_ids_to_discard: list[str] = []
 discard_source: Path | None = None
@@ -194,26 +176,10 @@ if discard_source is not None:
 
 
 def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFrame:
-    """Drop rows whose Fish ID is in the discarded list (if present).
-
-    Prints unique fish count before and after discarding.
-    """
-    if df is None or df.empty:
-        return df
-
-    fish_col = "Fish"
-
-    before = df[fish_col].nunique()
-    prefix = f"  [{source}] " if source else "  "
-    print(f"{prefix}Fish unique before discard: {before}")
-
-    if not APPLY_FISH_DISCARD or not fish_ids_to_discard:
-        return df
-
-    df_filtered = df[~df[fish_col].isin(fish_ids_to_discard)].copy()
-    after = df_filtered[fish_col].nunique()
-    print(f"{prefix}Fish unique after discard: {after}")
-    return df_filtered
+    """Drop rows whose Fish ID is in the discarded list (delegates to pipeline_utils)."""
+    return pipeline_utils.filter_discarded_fish(
+        df, fish_ids_to_discard, source=source, apply_discard=APPLY_FISH_DISCARD,
+    )
 # endregion Context Setup
 
 
@@ -367,32 +333,18 @@ def select_trials(df, trials):
 
 
 def _stringify_for_filename(value) -> str:
-    """Convert common objects (lists/arrays) into filename-friendly strings."""
-    if value is None:
-        return ""
-    if isinstance(value, (list, tuple, set, np.ndarray)):
-        return "-".join(str(v) for v in value)
-    return str(value)
+    return pipeline_utils.stringify_for_filename(value)
 
 
 def _sanitize_filename(name: str) -> str:
-    """Sanitize a filename component for Windows filesystems."""
-    invalid = '<>:"/\\|?*'
-    out = "".join("_" if ch in invalid else ch for ch in str(name))
-    out = out.strip().rstrip(".")
-    out = " ".join(out.split())
-    return out if out else "figure"
+    return pipeline_utils.sanitize_filename(name)
 
 
-SELECTED_FISH_SUFFIX = "_selectedFish"
+SELECTED_FISH_SUFFIX = pipeline_utils.SELECTED_FISH_SUFFIX
 
 
 def _maybe_append_selected_fish_stem(stem: str) -> str:
-    """Append `_selectedFish` to a filename stem when discard is enabled."""
-    if not APPLY_FISH_DISCARD:
-        return str(stem)
-    stem = str(stem)
-    return stem if stem.endswith(SELECTED_FISH_SUFFIX) else f"{stem}{SELECTED_FISH_SUFFIX}"
+    return pipeline_utils.maybe_append_selected_fish_stem(stem, APPLY_FISH_DISCARD)
 
 
 def _stem_matches_csus(stem: str, csus_value: str) -> bool:
@@ -430,10 +382,10 @@ def run_build_pooled_outputs():
     """
     selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else ""
     all_data_csus_paths = sorted(
-        [path for path in Path(path_all_fish).glob(f"*_{csus}{INPUT_PKL_SUFFIX}.pkl")]
+        [path for path in Path(paths.all_fish).glob(f"*_{csus}{INPUT_PKL_SUFFIX}.pkl")]
     )
     if not all_data_csus_paths:
-        print(f"No data found in {path_all_fish} for {csus}.")
+        print(f"No data found in {paths.all_fish} for {csus}.")
 
     cond_types_here = sorted({path.stem.split("_")[0] for path in all_data_csus_paths})
 
@@ -544,13 +496,13 @@ def run_build_pooled_outputs():
 
         if list_heatmap_count:
             pd.concat(list_heatmap_count).to_pickle(
-                path_pooled_data
+                paths.pooled_data
                 / f"Count heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
         if list_heatmap_sv:
             pd.concat(list_heatmap_sv).to_pickle(
-                path_pooled_data
+                paths.pooled_data
                 / f"SV heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
@@ -571,7 +523,7 @@ def run_count_heatmap():
         count_heatmap_binning_window / 2,
     ]
 
-    all_data_csus_paths = [*Path(path_pooled_data).glob("*.pkl")]
+    all_data_csus_paths = [*Path(paths.pooled_data).glob("*.pkl")]
     all_data_csus_paths = [
         path
         for path in all_data_csus_paths
@@ -776,7 +728,7 @@ def run_sv_heatmap_rendering():
         binning_window_heatmap / 2,
     ]
 
-    all_data_csus_paths = [*Path(path_pooled_data).glob("*.pkl")]
+    all_data_csus_paths = [*Path(paths.pooled_data).glob("*.pkl")]
     all_data_csus_paths = [
         path for path in all_data_csus_paths if f"SV heatmap {binning_window_heatmap}s bins all fish_" in path.stem
     ]

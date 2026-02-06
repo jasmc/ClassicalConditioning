@@ -91,6 +91,7 @@ import importlib
 
 import analysis_utils
 import figure_saving
+import pipeline_utils
 
 analysis_utils = importlib.reload(analysis_utils)
 import file_utils
@@ -214,11 +215,8 @@ def resolve_experiment_paths(experiment_type: str) -> tuple:
     if not config.path_save:
         raise ValueError("config.path_save is empty; set a valid experiment path before running.")
 
-    (
-        _, _, _, path_processed_data, _, _, _, _, _, _, _, _, _, _, _,
-        path_orig_pkl, _, _
-    ) = file_utils.create_folders(config.path_save)
-    return config, path_processed_data, path_orig_pkl
+    paths = file_utils.create_folders(config.path_save)
+    return config, paths.processed_data, paths.orig_pkl
 
 
 def resolve_fish_path(path_orig_pkl: Path, fish_id: str | Path) -> Path:
@@ -1074,12 +1072,7 @@ def run_individual_trials() -> None:
                     data["Trial time (s)"].between(-INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S, INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S)
                 ]
 
-                for col in ["Vigor (deg/ms)", "Bout beg", "Bout end", "Bout"]:
-                    if col in data.columns:
-                        try:
-                            data[col] = data[col].sparse.to_dense()
-                        except:
-                            pass
+                data = pipeline_utils.densify_sparse_columns(data)
 
                 if do_tail:
                     data_plot = data[["Trial time (s)", "Trial number", metric]].copy()

@@ -2,77 +2,95 @@
 
 import re
 from pathlib import Path
-from typing import Any, Iterable, List, Tuple, Union
+from typing import Any, Iterable, List, NamedTuple, Tuple, Union
 
 
-def create_folders(path_home: Path) -> Tuple[Path, ...]:
+class PipelinePaths(NamedTuple):
+    """Named container for every directory created by ``create_folders``.
+
+    Attribute names match the variable names formerly unpacked from the raw
+    tuple, so callers can migrate at their own pace:
+    ``paths = create_folders(home); paths.orig_pkl`` instead of index [15].
     """
-    Creates necessary directories for the experiment analysis.
+    lost_frames: Path
+    summary_exp: Path
+    summary_beh: Path
+    processed_data: Path
+    cropped_exp_with_bout_detection: Path
+    tail_angle_fig_cs: Path
+    tail_angle_fig_us: Path
+    raw_vigor_fig_cs: Path
+    raw_vigor_fig_us: Path
+    scaled_vigor_fig_cs: Path
+    scaled_vigor_fig_us: Path
+    normalized_fig_cs: Path
+    normalized_fig_us: Path
+    pooled_vigor_fig: Path
+    analysis_protocols: Path
+    orig_pkl: Path
+    all_fish: Path
+    pooled_data: Path
+
+
+def create_folders(path_home: Path) -> PipelinePaths:
+    """Create all pipeline directories under *path_home*.
+
+    Returns a :class:`PipelinePaths` named-tuple so callers can access
+    directories by name instead of positional index.
     """
-    # Keep the return tuple order aligned with existing callers.
     path_lost_frames = path_home / 'Lost frames'
-    path_lost_frames.mkdir(parents=True, exist_ok=True)
-
     path_summary_exp = path_home / 'Summary of protocol actually run'
-    path_summary_exp.mkdir(parents=True, exist_ok=True)
-
     path_summary_beh = path_home / 'Summary of behavior'
-    path_summary_beh.mkdir(parents=True, exist_ok=True)
-
     path_processed_data = path_home / 'Processed data'
-    path_processed_data.mkdir(parents=True, exist_ok=True)
-
     path_cropped_exp_with_bout_detection = path_processed_data / '1. summary of exp.'
-    path_cropped_exp_with_bout_detection.mkdir(parents=True, exist_ok=True)
-
     path_tail_angle_fig_cs = path_processed_data / '2. single fish_tail angle' / 'aligned to CS'
-    path_tail_angle_fig_cs.mkdir(parents=True, exist_ok=True)
-
     path_tail_angle_fig_us = path_processed_data / '2. single fish_tail angle' / 'aligned to US'
-    path_tail_angle_fig_us.mkdir(parents=True, exist_ok=True)
-
     path_raw_vigor_fig_cs = path_processed_data / '3. single fish_raw vigor heatmap' / 'aligned to CS'
-    path_raw_vigor_fig_cs.mkdir(parents=True, exist_ok=True)
-    
     path_raw_vigor_fig_us = path_processed_data / '3. single fish_raw vigor heatmap' / 'aligned to US'
-    path_raw_vigor_fig_us.mkdir(parents=True, exist_ok=True)
-
     path_scaled_vigor_fig_cs = path_processed_data / '4. single fish_scaled vigor heatmap' / 'aligned to CS'
-    path_scaled_vigor_fig_cs.mkdir(parents=True, exist_ok=True)
-    
     path_scaled_vigor_fig_us = path_processed_data / '4. single fish_scaled vigor heatmap' / 'aligned to US'
-    path_scaled_vigor_fig_us.mkdir(parents=True, exist_ok=True)
-
     path_normalized_fig_cs = path_processed_data / '5. single fish_suppression ratio vigor trial' / 'aligned to CS'
-    path_normalized_fig_cs.mkdir(parents=True, exist_ok=True)
-
     path_normalized_fig_us = path_processed_data / '5. single fish_suppression ratio vigor trial' / 'aligned to US'
-    path_normalized_fig_us.mkdir(parents=True, exist_ok=True)
-    
     path_pooled_vigor_fig = path_processed_data / 'All fish'
-    path_pooled_vigor_fig.mkdir(parents=True, exist_ok=True)
-
     path_analysis_protocols = path_processed_data / 'Analysis of protocols'
-    path_analysis_protocols.mkdir(parents=True, exist_ok=True)
-
     path_pkl = path_processed_data / 'pkl files'
-    path_pkl.mkdir(parents=True, exist_ok=True)
-
     path_orig_pkl = path_pkl / '1. Original'
-    path_orig_pkl.mkdir(parents=True, exist_ok=True)
-
     path_all_fish = path_pkl / '2. All fish by condition'
-    path_all_fish.mkdir(parents=True, exist_ok=True)
-
     path_pooled_data = path_pkl / '3. Pooled data'
-    path_pooled_data.mkdir(parents=True, exist_ok=True)
 
-    return (path_lost_frames, path_summary_exp, path_summary_beh, path_processed_data, 
-            path_cropped_exp_with_bout_detection, path_tail_angle_fig_cs, path_tail_angle_fig_us, 
-            path_raw_vigor_fig_cs, path_raw_vigor_fig_us, path_scaled_vigor_fig_cs, 
-            path_scaled_vigor_fig_us, path_normalized_fig_cs, path_normalized_fig_us, 
-            path_pooled_vigor_fig, path_analysis_protocols, path_orig_pkl, 
-            path_all_fish, path_pooled_data)
+    # Create all directories in one pass.
+    for p in [
+        path_lost_frames, path_summary_exp, path_summary_beh,
+        path_processed_data, path_cropped_exp_with_bout_detection,
+        path_tail_angle_fig_cs, path_tail_angle_fig_us,
+        path_raw_vigor_fig_cs, path_raw_vigor_fig_us,
+        path_scaled_vigor_fig_cs, path_scaled_vigor_fig_us,
+        path_normalized_fig_cs, path_normalized_fig_us,
+        path_pooled_vigor_fig, path_analysis_protocols,
+        path_pkl, path_orig_pkl, path_all_fish, path_pooled_data,
+    ]:
+        p.mkdir(parents=True, exist_ok=True)
+
+    return PipelinePaths(
+        lost_frames=path_lost_frames,
+        summary_exp=path_summary_exp,
+        summary_beh=path_summary_beh,
+        processed_data=path_processed_data,
+        cropped_exp_with_bout_detection=path_cropped_exp_with_bout_detection,
+        tail_angle_fig_cs=path_tail_angle_fig_cs,
+        tail_angle_fig_us=path_tail_angle_fig_us,
+        raw_vigor_fig_cs=path_raw_vigor_fig_cs,
+        raw_vigor_fig_us=path_raw_vigor_fig_us,
+        scaled_vigor_fig_cs=path_scaled_vigor_fig_cs,
+        scaled_vigor_fig_us=path_scaled_vigor_fig_us,
+        normalized_fig_cs=path_normalized_fig_cs,
+        normalized_fig_us=path_normalized_fig_us,
+        pooled_vigor_fig=path_pooled_vigor_fig,
+        analysis_protocols=path_analysis_protocols,
+        orig_pkl=path_orig_pkl,
+        all_fish=path_all_fish,
+        pooled_data=path_pooled_data,
+    )
 
 def msg(stem_fish_path_orig: Union[str, Path], message: Union[str, List[Any]]) -> List[str]:
     """Formats a message for logging."""

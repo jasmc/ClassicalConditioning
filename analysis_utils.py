@@ -96,7 +96,7 @@ def framerate_and_reference_frame(camera: pd.DataFrame,
     # Refined IFI
     try:
          ifi = camera_diff.iloc[reference_frame_id - camera['FrameID'].iloc[0] : last_frame_id - camera['FrameID'].iloc[0]].mean()
-    except:
+    except (IndexError, KeyError, ValueError):
          pass # fallback to median if indices invalid
 
     print(f"Second estimate of IFI: {ifi} ms")
@@ -180,8 +180,8 @@ def number_frames_discard(data_path: Path, reference_frame_id: int) -> int:
              while reference_frame_id != int(first_line[0]):
                  tracking_frames_to_discard += 1
                  first_line = f.readline().split(' ')
-        except Exception:
-             pass # EOF or error
+        except (ValueError, IndexError, EOFError):
+             pass # EOF or malformed line
     return tracking_frames_to_discard
 
 def tracking_errors(data: pd.DataFrame, single_point_tracking_error_thr: float) -> bool:
@@ -383,14 +383,14 @@ def stim_in_data(data_: pd.DataFrame, protocol: pd.DataFrame) -> pd.DataFrame:
         for i, p in enumerate(protocol_sub):
             try:
                 ind_beg = data[data['AbsoluteTime'] > p[0]].index[0]
-            except Exception:
+            except (IndexError, KeyError):
                 continue
 
             try:
                 ind_end = data[data['AbsoluteTime'] <= p[1]].index[-1]
                 data.loc[ind_beg, cs_us + ' beg'] = i + 1
                 data.loc[ind_end, cs_us + ' end'] = i + 1
-            except Exception:
+            except (IndexError, KeyError):
                 continue
 
     for col in ['CS beg', 'US beg', 'CS end', 'US end']:
@@ -495,7 +495,7 @@ def get_tail_angle_col(data: pd.DataFrame) -> Optional[str]:
     def key(name: str):
         try:
             return int(name.split("Angle of point ")[1].split(" ")[0])
-        except Exception:
+        except (ValueError, IndexError):
             return name
 
     return sorted(angle_cols, key=key)[-1]
@@ -539,7 +539,7 @@ def sorted_angle_cols(data: pd.DataFrame) -> list[str]:
     def key(name: str):
         try:
             return int(name.split("Angle of point ")[1].split(" ")[0])
-        except Exception:
+        except (ValueError, IndexError):
             return name
 
     return sorted(cols, key=key)

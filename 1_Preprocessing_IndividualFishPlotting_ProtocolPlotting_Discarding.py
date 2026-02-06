@@ -235,11 +235,7 @@ def run_preprocess(params: dict = None):
     if not config.path_home:
         raise ValueError('config.path_home is empty; set a valid experiment path before running')
 
-    (
-        path_lost_frames, path_summary_exp, path_summary_beh, path_processed_data,
-        path_cropped_exp_with_bout_detection, _, _, _, _, _, _, _, _, _, _,
-        path_orig_pkl, _, _
-    ) = file_utils.create_folders(config.path_save)
+    paths = file_utils.create_folders(config.path_save)
 
     # Collect raw fish files (optionally filtered by ID).
     all_fish_raw_data_paths = list(Path(config.path_home).glob('*mp tail tracking.txt'))
@@ -250,7 +246,7 @@ def run_preprocess(params: dict = None):
     for fish_path in tqdm(all_fish_raw_data_paths, desc='Preprocessing fish'):
         gc.collect()
         stem_fish_path_orig = fish_path.stem.replace('_mp tail tracking', '').lower()
-        pkl_path = path_orig_pkl / f'{stem_fish_path_orig}.pkl'
+        pkl_path = paths.orig_pkl / f'{stem_fish_path_orig}.pkl'
 
         if not PREPROCESS_OVERWRITE and pkl_path.exists():
             print('Skipping existing: %s' % stem_fish_path_orig)
@@ -261,8 +257,8 @@ def run_preprocess(params: dict = None):
         # Define related file paths
         protocol_path = str(fish_path).replace('mp tail tracking', 'stim control')
         camera_path = str(fish_path).replace('mp tail tracking', 'cam')
-        fig_camera_name = str(path_lost_frames / f'{stem_fish_path_orig}_camera.png')
-        fig_behavior_name = str(path_summary_beh / f'{stem_fish_path_orig}_behavior.png')
+        fig_camera_name = str(paths.lost_frames / f'{stem_fish_path_orig}_camera.png')
+        fig_behavior_name = str(paths.summary_beh / f'{stem_fish_path_orig}_behavior.png')
 
         # Parse Fish ID metadata
         day, strain, age, cond_type, rig, fish_number = file_utils.fish_id(stem_fish_path_orig)
@@ -459,9 +455,7 @@ def run_plot_individual_trials():
     xtick_step_scaled = max(1, int(interval_between_xticks_frames))
 
     if not config.path_save: raise ValueError('config.path_save is empty')
-    (_, _, _, _, _, path_tail_angle_fig_cs, path_tail_angle_fig_us, path_raw_vigor_fig_cs, path_raw_vigor_fig_us,
-     path_scaled_vigor_fig_cs, path_scaled_vigor_fig_us, path_normalized_fig_cs, path_normalized_fig_us,
-     _, _, path_orig_pkl, _, _) = file_utils.create_folders(config.path_save)
+    paths = file_utils.create_folders(config.path_save)
 
     for csus in ['CS', 'US']:
         print(f"Processing {csus} trials...")
@@ -476,15 +470,19 @@ def run_plot_individual_trials():
             continue
 
         if csus == 'CS':
-            path_tail_fig, path_raw_fig = path_tail_angle_fig_cs, path_raw_vigor_fig_cs
-            path_sc_fig, path_norm_fig = path_scaled_vigor_fig_cs, path_normalized_fig_cs
+            path_tail_fig = paths.tail_angle_fig_cs
+            path_raw_fig = paths.raw_vigor_fig_cs
+            path_sc_fig = paths.scaled_vigor_fig_cs
+            path_norm_fig = paths.normalized_fig_cs
             stim_duration = config.cs_duration
         else:
-            path_tail_fig, path_raw_fig = path_tail_angle_fig_us, path_raw_vigor_fig_us
-            path_sc_fig, path_norm_fig = path_scaled_vigor_fig_us, path_normalized_fig_us
+            path_tail_fig = paths.tail_angle_fig_us
+            path_raw_fig = paths.raw_vigor_fig_us
+            path_sc_fig = paths.scaled_vigor_fig_us
+            path_norm_fig = paths.normalized_fig_us
             stim_duration = gen_config.us_duration
 
-        all_fish_data_paths = list(Path(path_orig_pkl).glob('*.pkl'))
+        all_fish_data_paths = list(paths.orig_pkl.glob('*.pkl'))
         if FILTER_FISH_ID:
             all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]
 
@@ -1158,17 +1156,14 @@ def run_plot_protocols():
 
     config = get_experiment_config(EXPERIMENT_TYPE)
     
-    (
-     _, _, _, _, _, _, _, _, _, _, _, _, _, _,
-     path_analysis_protocols, path_orig_pkl, _, _
-    ) = file_utils.create_folders(config.path_save)
+    paths = file_utils.create_folders(config.path_save)
 
     # Prepare output folders for protocol figures.
-    path_fish = path_analysis_protocols / 'Single fish' / 'From processed data'
+    path_fish = paths.analysis_protocols / 'Single fish' / 'From processed data'
     path_fish.mkdir(parents=True, exist_ok=True)
     (path_fish / 'Individual trials').mkdir(exist_ok=True)
     (path_fish / 'Blocks of trials').mkdir(exist_ok=True)
-    path_sc = path_analysis_protocols / 'Single fish' / 'From stim control files'
+    path_sc = paths.analysis_protocols / 'Single fish' / 'From stim control files'
     path_sc.mkdir(parents=True, exist_ok=True)
 
     def plot_protocol_from_stimcontrol(protocol: pd.DataFrame, fig_path: Path, time_bef_first_stim_ms: int) -> None:
@@ -1246,7 +1241,7 @@ def run_plot_protocols():
 
     # Iterate processed data
     if PLOT_FROM_PROCESSED_DATA:
-        all_fish_data_paths = list(Path(path_orig_pkl).glob('*.pkl'))
+        all_fish_data_paths = list(paths.orig_pkl.glob('*.pkl'))
         if FILTER_FISH_ID:
             all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]
         
@@ -1681,31 +1676,12 @@ def run_discard():
     name_to_trials = {name: set(trials) for name, trials in zip(block_names, blocks)}
     blocks_trials_sets = [name_to_trials[name] for name in blocks_chosen]
 
-    (
-        _,
-        _,
-        _,
-        path_processed_data,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        path_orig_pkl,
-        _,
-        _,
-    ) = file_utils.create_folders(config.path_save)
-    all_fish_data_paths = list(path_orig_pkl.glob('*.pkl'))
+    paths = file_utils.create_folders(config.path_save)
+    all_fish_data_paths = list(paths.orig_pkl.glob('*.pkl'))
     if FILTER_FISH_ID:
         all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]
 
-    excluded_dir = path_orig_pkl / 'Excluded'
+    excluded_dir = paths.orig_pkl / 'Excluded'
     excluded_dir.mkdir(exist_ok=True)
     raw_excluded_dir = None
     if config.path_home:
@@ -1719,6 +1695,7 @@ def run_discard():
     excluded_fish_ids = set()
 
     # Write analysis parameters as header to discard file.
+    path_processed_data = paths.processed_data
     with open(path_processed_data / 'Fish to discard.txt', 'a') as file:
         file.write("Analysis Parameters:\n")
         file.write(f"  Experiment type: {EXPERIMENT_TYPE}\n")

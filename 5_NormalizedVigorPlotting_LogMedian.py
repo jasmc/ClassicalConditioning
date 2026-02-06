@@ -142,6 +142,7 @@ from statsmodels.tools.sm_exceptions import ConvergenceWarning
 import analysis_utils
 import figure_saving
 import file_utils
+import pipeline_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 from general_configuration import config as gen_config
@@ -274,26 +275,11 @@ def initialize_context():
         cr_window = [0, cr_window]
     blocks_dict = config.blocks_dict
 
-    (
-        _path_lost_frames,
-        _path_summary_exp,
-        _path_summary_beh,
-        path_processed_data,
-        _path_cropped_exp_with_bout_detection,
-        _path_tail_angle_fig_cs,
-        _path_tail_angle_fig_us,
-        _path_raw_vigor_fig_cs,
-        _path_raw_vigor_fig_us,
-        _path_scaled_vigor_fig_cs,
-        _path_scaled_vigor_fig_us,
-        _path_normalized_fig_cs,
-        _path_normalized_fig_us,
-        path_pooled_vigor_fig,
-        _path_analysis_protocols,
-        path_orig_pkl,
-        path_all_fish,
-        path_pooled_data,
-    ) = file_utils.create_folders(config.path_save)
+    _paths = file_utils.create_folders(config.path_save)
+    path_pooled_vigor_fig = _paths.pooled_vigor_fig
+    path_orig_pkl = _paths.orig_pkl
+    path_all_fish = _paths.all_fish
+    path_pooled_data = _paths.pooled_data
 
     nan_suffix = "_nanFracFilt" if APPLY_MAX_NAN_FRAC_PER_WINDOW else ""
     path_scaled_vigor_fig = path_pooled_vigor_fig / (f"Normalized vigor{nan_suffix}")
@@ -323,28 +309,10 @@ def ensure_context():
 
 
 def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFrame:
-    """Drop rows whose Fish ID is in the discarded list (if present).
-    
-    Prints unique fish count before and after discarding.
-    """
-    if df is None or df.empty:
-        return df
-    
-    print(df.columns)
-    
-    fish_col = "Fish"
-    
-    before = df[fish_col].nunique()
-    prefix = f"  [{source}] " if source else "  "
-    print(f"{prefix}Fish unique before discard: {before}")
-    
-    if not APPLY_FISH_DISCARD or not fish_ids_to_discard:
-        return df
-    
-    df_filtered = df[~df[fish_col].isin(fish_ids_to_discard)].copy()
-    after = df_filtered[fish_col].nunique()
-    print(f"{prefix}Fish unique after discard: {after}")
-    return df_filtered
+    """Drop rows whose Fish ID is in the discarded list (delegates to pipeline_utils)."""
+    return pipeline_utils.filter_discarded_fish(
+        df, fish_ids_to_discard, source=source, apply_discard=APPLY_FISH_DISCARD,
+    )
 # endregion Context Setup
 
 
@@ -354,42 +322,22 @@ def apply_panel_label(fig, label, x=0, y=1, ha="right"):
 
 
 def _stringify_for_filename(value) -> str:
-    """Convert common objects (lists/arrays) into filename-friendly strings."""
-    if value is None:
-        return ""
-    if isinstance(value, (list, tuple, set, np.ndarray)):
-        return "-".join(str(v) for v in value)
-    return str(value)
+    return pipeline_utils.stringify_for_filename(value)
 
 
 def _sanitize_filename(name: str) -> str:
-    """Sanitize a filename component for Windows filesystems."""
-    invalid = '<>:"/\\|?*'
-    out = "".join("_" if ch in invalid else ch for ch in str(name))
-    out = out.strip().rstrip(".")
-    out = " ".join(out.split())
-    return out if out else "figure"
+    return pipeline_utils.sanitize_filename(name)
 
 
-SELECTED_FISH_SUFFIX = "_selectedFish"
+SELECTED_FISH_SUFFIX = pipeline_utils.SELECTED_FISH_SUFFIX
 
 
 def _maybe_append_selected_fish_stem(stem: str) -> str:
-    """Append `_selectedFish` to a filename stem when discard is enabled."""
-    if not APPLY_FISH_DISCARD:
-        return str(stem)
-    stem = str(stem)
-    return stem if stem.endswith(SELECTED_FISH_SUFFIX) else f"{stem}{SELECTED_FISH_SUFFIX}"
+    return pipeline_utils.maybe_append_selected_fish_stem(stem, APPLY_FISH_DISCARD)
 
 
 def _maybe_selected_fish_path(path_out: Path | str) -> Path:
-    """Append `_selectedFish` to a Path name when discard is enabled."""
-    p = Path(path_out)
-    if not APPLY_FISH_DISCARD:
-        return p
-    if p.stem.endswith(SELECTED_FISH_SUFFIX):
-        return p
-    return p.with_name(f"{p.stem}{SELECTED_FISH_SUFFIX}{p.suffix}")
+    return pipeline_utils.maybe_selected_fish_path(path_out, APPLY_FISH_DISCARD)
 
 
 def save_fig(fig, stem: str, frmt: str) -> Path:
@@ -582,40 +530,11 @@ def block_boundaries_from_data(df, block_order):
 
 
 def get_block_config(number_blocks_original):
-    number_trials_block = 1
-    blocks_chosen = ["Train"]
-    blocks_chosen_labels = []
-    block_names = []
+    """Return (block_names, blocks_chosen, blocks_chosen_labels, n_trials_per_block).
 
-    if number_blocks_original == 7:
-        block_names = ["Pre-Train", "Early Train", "Train 2", "Train 3", "Train 4", "Late Train", "Test"]
-        number_trials_block = 10
-        blocks_chosen = ["Pre-Train", "Test"]
-        blocks_chosen_labels = blocks_chosen
-    elif number_blocks_original == 9:
-        block_names = [
-            "Early Pre-Train", "Late Pre-Train", "Early Train", "Train 2", "Train 3", "Train 4",
-            "Train 5", "Train 6", "Train 7", "Train 8", "Train 9", "Late Train",
-            "Early Test", "Test 2", "Test 3", "Test 4", "Test 5", "Late Test",
-        ]
-        number_trials_block = 5
-        blocks_chosen = ["Early Pre-Train", "Early Test", "Late Test"]
-        blocks_chosen_labels = ["PTr", "ETe", "LTe"]
-    elif number_blocks_original == 12:
-        block_names = [
-            "Early Pre-Train", "Late Pre-Train", "Early Train", "Train 2", "Train 3", "Train 4",
-            "Train 5", "Train 6", "Train 7", "Train 8", "Train 9", "Late Train",
-            "Early Test", "Test 2", "Test 3", "Test 4", "Test 5", "Late Test",
-            "Early Re-Train", "Re-Train 2", "Re-Train 3", "Re-Train 4", "Re-Train 5", "Late Re-Train",
-        ]
-        number_trials_block = 5
-        blocks_chosen = ["Late Pre-Train", "Early Test", "Late Test"]
-        blocks_chosen_labels = ["PT", "ET", "LT"]
-
-    if not blocks_chosen_labels:
-        blocks_chosen_labels = blocks_chosen
-
-    return block_names, blocks_chosen, blocks_chosen_labels, number_trials_block
+    Delegates to ``pipeline_utils.get_block_config`` for the canonical mapping.
+    """
+    return pipeline_utils.get_block_config(number_blocks_original)
 
 
 def prepare_block_data(data, block_names, number_trials_block):

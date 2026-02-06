@@ -41,26 +41,11 @@ BORDER_COLOR_INCLUDED = "#336699"
 # ==============================================================================
 config = get_experiment_config(EXPERIMENT)
 
-(
-    _,
-    _,
-    _,
-    path_processed_data,
-    _,
-    _,
-    _,
-    _,
-    _,
-    path_scaled_vigor_fig_cs,
-    _,
-    _,
-    _,
-    path_pooled_vigor_fig,
-    _,
-    path_orig_pkl,
-    _,
-    _,
-) = file_utils.create_folders(config.path_save)
+_paths = file_utils.create_folders(config.path_save)
+path_processed_data = _paths.processed_data
+path_scaled_vigor_fig_cs = _paths.scaled_vigor_fig_cs
+path_pooled_vigor_fig = _paths.pooled_vigor_fig
+path_orig_pkl = _paths.orig_pkl
 
 
 # ==============================================================================

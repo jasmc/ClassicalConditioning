@@ -86,6 +86,7 @@ from sklearn.covariance import LedoitWolf
 import analysis_utils
 import figure_saving
 import file_utils
+import pipeline_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 
@@ -120,17 +121,12 @@ RUN_EXPORT_RESULTS: bool = True
 # (This matches the naming convention used by `5_NormalizedVigorPlotting_LogMedian.py`.)
 APPLY_FISH_DISCARD: bool = False
 
-SELECTED_FISH_SUFFIX = "_selectedFish"
+SELECTED_FISH_SUFFIX = pipeline_utils.SELECTED_FISH_SUFFIX
 
 
 def _maybe_selected_fish_path(path_out: Path | str) -> Path:
     """Append `_selectedFish` to a Path name when discard is enabled."""
-    p = Path(path_out)
-    if not APPLY_FISH_DISCARD:
-        return p
-    if p.stem.endswith(SELECTED_FISH_SUFFIX):
-        return p
-    return p.with_name(f"{p.stem}{SELECTED_FISH_SUFFIX}{p.suffix}")
+    return pipeline_utils.maybe_selected_fish_path(path_out, APPLY_FISH_DISCARD)
 
 # ==============================================================================
 # CORE ANALYSIS CONFIGURATION PARAMETERS (used by analysis_cfg below)
@@ -424,11 +420,8 @@ def _create_5_trial_blocks(df: pd.DataFrame) -> pd.DataFrame:
     """Create 5-trial block structure from 10-trial blocks.
     
     This function subdivides the original 10-trial blocks into 5-trial blocks
-    for finer-grained epoch analysis. Block names are hardcoded based on the
-    expected experimental design (9 or 12 original blocks).
-    
-    LIMITATION: Block names are hardcoded and assume specific experimental designs.
-    To support other designs, modify the block_names lists or make them configurable.
+    for finer-grained epoch analysis. Block names are derived from the number
+    of original blocks via ``pipeline_utils.build_5_trial_block_names``.
     
     Args:
         df: DataFrame with 'Block name' and 'Trial number' columns
@@ -439,56 +432,7 @@ def _create_5_trial_blocks(df: pd.DataFrame) -> pd.DataFrame:
     number_blocks_original = df["Block name"].nunique()
     number_trials_block = int(EPOCH_BLOCK_TRIALS)
 
-    if number_blocks_original == 9:
-        block_names = [
-            "Early Pre-Train",
-            "Late Pre-Train",
-            "Early Train",
-            "Train 2",
-            "Train 3",
-            "Train 4",
-            "Train 5",
-            "Train 6",
-            "Train 7",
-            "Train 8",
-            "Train 9",
-            "Late Train",
-            "Early Test",
-            "Test 2",
-            "Test 3",
-            "Test 4",
-            "Test 5",
-            "Late Test",
-        ]
-    elif number_blocks_original == 12:
-        block_names = [
-            "Early Pre-Train",
-            "Late Pre-Train",
-            "Early Train",
-            "Train 2",
-            "Train 3",
-            "Train 4",
-            "Train 5",
-            "Train 6",
-            "Train 7",
-            "Train 8",
-            "Train 9",
-            "Late Train",
-            "Early Test",
-            "Test 2",
-            "Test 3",
-            "Test 4",
-            "Test 5",
-            "Late Test",
-            "Early Re-Train",
-            "Re-Train 2",
-            "Re-Train 3",
-            "Re-Train 4",
-            "Re-Train 5",
-            "Late Re-Train",
-        ]
-    else:
-        raise ValueError(f"Unexpected number of blocks: {number_blocks_original}")
+    block_names = pipeline_utils.build_5_trial_block_names(number_blocks_original)
 
     # Keep only valid 10-trial blocks before splitting into 5-trial blocks.
     df = df[df["Block name"].isin(exp_config.names_cs_blocks_10)].copy()
@@ -2294,26 +2238,11 @@ def run_multivariate_lme_pipeline(
     alpha: float = ALPHA_TARGET,
     use_per_fish_se_in_scoring: bool = USE_PER_FISH_SE_IN_SCORING,
 ) -> pd.DataFrame:
-    (
-        _path_lost_frames,
-        _path_summary_exp,
-        _path_summary_beh,
-        _path_processed_data,
-        _path_cropped_exp_with_bout_detection,
-        _path_tail_angle_fig_cs,
-        _path_tail_angle_fig_us,
-        path_raw_vigor_fig_cs,
-        _path_raw_vigor_fig_us,
-        path_scaled_vigor_fig_cs,
-        _path_scaled_vigor_fig_us,
-        _path_normalized_fig_cs,
-        _path_normalized_fig_us,
-        path_pooled_vigor_fig,
-        _path_analysis_protocols,
-        _path_orig_pkl,
-        _path_all_fish,
-        path_pooled_data,
-    ) = file_utils.create_folders(exp_config.path_save)
+    _paths = file_utils.create_folders(exp_config.path_save)
+    path_raw_vigor_fig_cs = _paths.raw_vigor_fig_cs
+    path_scaled_vigor_fig_cs = _paths.scaled_vigor_fig_cs
+    path_pooled_vigor_fig = _paths.pooled_vigor_fig
+    path_pooled_data = _paths.pooled_data
 
     print(f"\nExperiment: {EXPERIMENT}")
     print(f"Conditions: {config.cond_types}")
