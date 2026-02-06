@@ -1,49 +1,138 @@
 """
 Multivariate Learner Classification Pipeline
-===========================================
+=============================================
 
-PURPOSE:
-    Identify individual learners in behavioral experiments by extracting subject-level features
-    from trial data using mixed-effects models, and classifying them via robust multivariate statistics.
+Pipeline context — Step 6 of 6
+-------------------------------
+This is the final analysis step. It takes the per-fish, per-trial normalized-
+vigor (NV) table produced in Step 5 and determines which individual fish
+qualify as "learners" — i.e., animals that acquired a conditioned response
+and/or showed extinction. The classification is based on subject-level
+behavioral features extracted with mixed-effects models and evaluated through
+robust multivariate statistics, providing a principled, data-driven definition
+of learning at the single-subject level.
 
-WORKFLOW:
-    1. Load and preprocess trial-level behavioral data, including block/trial structure and filtering.
-    2. Extract behavioral features for each subject using Linear Mixed-Effects (LME) models:
-        - Feature B: Outcome Drop (change from Pre-Train (10 trials) to Train End + Early Test)
-        - Feature C: Recovery Increase (change from Train End + Early Test to Late Test (last 10 trials))
-       Features are "anchored" to the control group to improve robustness.
-    3. Compute BLUPs (Best Linear Unbiased Predictors) and uncertainty (SE, CI) for each feature.
-    4. Build a multivariate feature matrix and calculate Mahalanobis distances from the control group,
-       using Ledoit-Wolf shrinkage for robust covariance estimation.
-    5. Determine a classification threshold (percentile of control distances, with bootstrap CI).
-    6. Classify subjects as "learners" using two voting systems:
-        - Point Estimate: BLUP passes directional test vs. control mean
-        - Conservative: CI passes directional test vs. control mean (stricter)
-    7. Visualize results: individual and summary plots, feature space, diagnostics, and export results.
+Scientific background
+---------------------
+Group-level statistics (Step 5) can show that a conditioned group diverges from
+controls on average, but they do not reveal *which* individuals learned. This
+script addresses that gap by:
 
-KEY OUTPUTS:
-    - Per-subject classification (learner/non-learner, outlier status, votes)
-    - Individual and summary behavioral plots with feature pass/fail details
-    - Diagnostic plots (normality, correlation, PCA, distance distributions)
-    - Exported results and summary tables
+1. Fitting Linear Mixed-Effects (LME) models that compare two experimental
+   epochs (e.g., Pre-Train vs. late Training) while controlling for baseline
+   vigor. The per-fish random effects — Best Linear Unbiased Predictors
+   (BLUPs) — capture each subject's deviation from the population trend.
 
-ASSUMPTIONS:
-    - Multivariate normality (tested via Shapiro-Wilk and Mardia's tests)
-    - Homogeneity of variance (robustified via shrinkage)
-    - Sufficient sample size per group (>=10 recommended)
-    - Linear relationships for LME modeling
+2. Assembling the BLUPs into a multivariate feature space (e.g., acquisition
+   drop + extinction recovery) and computing each fish's Mahalanobis distance
+   from the control-group centroid, using Ledoit-Wolf shrinkage for robust
+   covariance estimation.
 
-CUSTOMIZATION:
-    - Select features: config.features_to_use = ['acquisition'], ['extinction'], or any combination
-    - Adjust voting thresholds: config.voting_threshold_point, config.voting_threshold_conservative
-    - Set classification percentile: config.threshold_percentile (e.g., 75 for upper quartile)
-    - Modify block definitions and trial requirements in AnalysisConfig
+3. Classifying a fish as a "learner" when it is both (a) a multivariate
+   outlier (distance exceeds a configurable percentile of the control
+   distribution, with bootstrap CI) and (b) its features pass a directional
+   test (the BLUP, or its confidence interval, deviates from the control mean
+   in the expected direction for learning).
 
-REFERENCES:
-    - Mixed-effects modeling: statsmodels.formula.api.mixedlm
-    - Robust covariance: sklearn.covariance.LedoitWolf
-    - Mahalanobis distance: scipy.spatial.distance
-    - Bootstrap CI: numpy.random, np.percentile
+Two strictness levels are provided: a *point-estimate* vote (BLUP alone) and a
+*conservative* vote (entire BLUP +/- k * SE must clear the control mean).
+
+Steps
+-----
+1. **Load and prepare data** (``load_data``, ``prepare_data``):
+   - Load the pooled per-condition NV pickle produced by Step 5, apply the
+     fish discard list, and rebuild the block / trial structure.
+   - Create finer 5-trial sub-blocks from the original 10-trial blocks and
+     filter out fish that lack the minimum number of trials per block (default
+     >= 3 per 5-trial block, >= 6 per epoch).
+
+2. **Extract behavioral features** (``extract_change_feature``):
+   - For each feature (e.g., *acquisition*: Pre-Train -> late Train + early
+     Test; *extinction*: late Train + early Test -> late Test), fit an LME
+     model: ``Log_Response ~ Log_Baseline + Epoch``, with random intercepts
+     and Epoch slopes grouped by Fish_ID.
+   - Features are "control-anchored": the control-group Epoch fixed effect is
+     the reference, and random effects measure individual deviations.
+   - Extract BLUPs with uncertainty (SE from conditional variance, CI via
+     configurable multiplier, default 1.96 for ~95 %).
+
+3. **Multivariate classification** (``get_robust_mahalanobis``,
+   ``classify_learners``):
+   - Assemble the per-subject feature matrix (one column per feature).
+   - Estimate the control-group covariance with Ledoit-Wolf shrinkage
+     (``sklearn.covariance.LedoitWolf``) and compute Mahalanobis distances
+     from the control centroid.
+   - Determine a threshold from the control-distance distribution (default
+     75th percentile, bootstrap CI with 1 000 iterations).
+   - Apply a two-stage classification:
+     a. *Outlier gate* — distance > threshold.
+     b. *Directional voting* — for each feature, check whether the BLUP
+        (point estimate) or the BLUP +/- k * SE (conservative) deviates from
+        the control mean in the expected direction. Require >=
+        ``voting_threshold`` features to pass.
+   - Final labels: ``is_learner_point`` (outlier AND point votes pass),
+     ``is_learner_conservative`` (outlier AND conservative votes pass).
+
+4. **Diagnostics** (``RUN_DIAGNOSTICS``):
+   - Shapiro-Wilk per feature + Mardia's multivariate skewness / kurtosis.
+   - Inter-feature Pearson correlation matrix and effect-size report.
+   - PCA on the feature matrix: explained variance, loadings, biplots.
+
+5. **Visualize results** (toggled by individual ``RUN_PLOT_*`` flags):
+   - *Behavioral trajectories* — per-condition median NV with CI, learner
+     trajectories highlighted.
+   - *Diagnostics panel* — QQ plots, correlation heatmaps, PCA scree +
+     biplots, Mahalanobis distance histograms.
+   - *Feature space scatter* — 2D BLUP plot with control ellipse and
+     classification boundary.
+   - *BLUP caterpillar* — per-fish BLUPs with CI, sorted and colored by
+     learner / non-learner status.
+   - *Individual fish grids* — per-fish NV trajectories with feature
+     pass / fail annotations, assembled into summary image grids.
+   - *BLUP overlay* — NV trajectories with a secondary axis showing the
+     cumulative BLUP trajectory.
+
+6. **Export results** (``RUN_EXPORT_DETAILED_SUMMARY``,
+   ``RUN_EXPORT_RESULTS``):
+   - Write per-subject tables (learner / non-learner, outlier status, feature
+     votes, Mahalanobis distance, BLUPs + CIs) as pickle and CSV.
+   - Print a formatted classification summary with group counts and
+     learning-vs-performance safeguard checks (Mann-Whitney U on baseline
+     vigor).
+
+Inputs
+------
+- Per-fish, per-trial NV pickle from Step 5
+  (``NV per trial per fish_*.pkl`` in ``path_pooled_data``).
+- Optional: excluded fish ID list from the ``Excluded/`` directory.
+
+Outputs
+-------
+- Classification CSV / pickle:
+  ``Fish_Detailed_Summary_{csus}.csv``,
+  ``Fish_Learner_Classification_{csus}.csv``.
+- Diagnostic and summary figures (PNG) saved to the experiment's figure output
+  directory.
+- Console output: formatted classification summary and safeguard reports.
+
+Assumptions
+-----------
+- Approximate multivariate normality of the BLUP feature space (tested via
+  the built-in diagnostics).
+- Homogeneity of covariance across groups (robustified by Ledoit-Wolf
+  shrinkage).
+- Sufficient sample size per group (>= 10 fish recommended).
+- Linear relationship between log-baseline and log-response in the LME.
+
+Customization
+-------------
+- Select features: ``config.features_to_use`` = ['acquisition'],
+  ['extinction'], or any combination.
+- Adjust voting thresholds: ``config.voting_threshold_point``,
+  ``config.voting_threshold_conservative``.
+- Set classification percentile: ``config.threshold_percentile`` (default 75).
+- Modify block definitions and minimum trial requirements in
+  ``AnalysisConfig``.
 """
 # %%
 # region Imports & Configuration

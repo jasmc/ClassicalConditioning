@@ -169,8 +169,8 @@ def load_discarded_fish_ids(discarded_file: Path) -> List[str]:
     """Load discarded fish IDs from a dedicated text file.
 
     The repository historically stored excluded IDs under "Excluded new".
-    Newer pipelines may store discarded IDs in a shared file under
-    "Processed data/Discarded_fish_IDs.txt".
+    Newer pipelines store discarded IDs under
+    "Processed data/pkl files/1. Original/Excluded/excluded_fish_ids.txt".
     """
     return load_fish_ids_from_text_file(discarded_file)
 

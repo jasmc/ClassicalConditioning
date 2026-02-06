@@ -1,24 +1,40 @@
 """
-Improved learner quantification pipeline (standalone)
-=====================================================
+Improved learner quantification pipeline — Log-Median Variant (standalone)
+==========================================================================
 
-This is a standalone analysis script that implements improved learner classification
-for `6_LearnersQuantification_new.py`, without importing or loading that script.
+This is a standalone variant of ``6_LearnersQuantification_WIP.py`` designed
+to work with the output of ``5_NormalizedVigorPlotting_LogMedian.py``.
+
+Key differences from the standard Step 6 WIP pipeline
+------------------------------------------------------
+- **Median-based columns** — expects ``"Median CR"`` and ``"Median X s before"``
+  columns instead of ``"Mean CR"`` / ``"Mean X s before"``.
+- **Subtraction-based NV** — Normalized vigor = median CR − median baseline
+  (difference in log-space, not a ratio).  A value of 0.0 indicates no change;
+  positive values reflect increased activity during the CR window.
+- **No additional log-transform** — Because vigor is already log-transformed by
+  Step 3 (``3_FishGrouping_LogMedian.py``), the LME directly models the
+  log-space difference: ``Normalized vigor ~ Epoch``.  BLUPs are changes in
+  log-space (equivalent to log-fold changes of raw medians).
+- **Baseline reference at 0** — All horizontal reference lines are at 0.0 instead
+  of 1.0, and y-axis limits are centered around 0.
+- **Per-fish normalization uses subtraction** — In combined individual plots,
+  baseline/response vigor is normalized by subtracting the pre-train mean (since
+  values are already in log-space) rather than dividing.
 
 Data Model:
 - Loads pooled per-trial behavioral data (CSV or gzipped pickle) containing:
-  - "Mean CR": mean raw vigor (deg/ms) in the conditioned response window
-  - "Mean X s before": mean raw vigor in the baseline window  
-  - "Normalized vigor": ratio of Mean CR / Mean baseline (already a relative measure)
+  - "Median CR": median log-vigor in the conditioned response window
+  - "Median X s before": median log-vigor in the baseline window
+  - "Normalized vigor": Median CR − Median baseline (log-space difference)
 - Preprocesses into consistent 5-trial block structure and filters fish by trial coverage
 - Extracts per-fish BLUP features for learning epochs using control-anchored MixedLM
 
 Statistical Approach:
-The LME models (optionally log-transformed) normalized vigor by epoch:
-    [log](Normalized vigor) ~ Epoch
-When USE_LOG_TRANSFORM is True, the response is log(normalized vigor); BLUPs are then
-log-fold changes (e.g. BLUP = -0.1 ≈ 10% decrease). Otherwise the model uses raw normalized
-vigor and BLUPs are absolute changes in the ratio.
+The LME models normalized vigor (already a log-space difference) by epoch:
+    Normalized vigor ~ Epoch
+BLUPs are changes in the log-space difference (e.g. BLUP = -0.1 ≈ 10% decrease
+in the ratio of raw medians).
 
 Classification Method:
 - Computes directional z-scores per feature where "learning direction" = positive z
@@ -101,7 +117,7 @@ RUN_EXPORT_RESULTS: bool = True
 
 # If True, treat inputs/outputs as operating on the "selected fish" subset and
 # append `_selectedFish` to all saved figures/files from this script.
-# (This matches the naming convention used by `5_NormalizedVigorPlotting.py`.)
+# (This matches the naming convention used by `5_NormalizedVigorPlotting_LogMedian.py`.)
 APPLY_FISH_DISCARD: bool = False
 
 SELECTED_FISH_SUFFIX = "_selectedFish"
@@ -138,22 +154,21 @@ MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH: int = 3
 # Active parameters
 CI_MULTIPLIER_FOR_REPORTING: float = 1.96  # For display: 1.96 = 95% CI (z_{0.975})
 ANALYSIS_RANDOM_SEED: Optional[int] = 0  # For reproducibility in any stochastic operations
-Y_LIM_PLOT: Tuple[float, float] = (0.8, 1.2)  # Default y-axis limits for plots
+Y_LIM_PLOT: Tuple[float, float] = (-0.2, 0.2)  # Default y-axis limits for plots (centered on 0 for log-space difference)
 
 # ==============================================================================
 # DATA LOADING / COLUMN CONVENTIONS
 # ==============================================================================
 POOLED_DATA_REQUIRED_SUBSTRING: str = "NV per trial per fish"
 BASELINE_COLUMN_SUBSTRING: str = "s before"
-RESPONSE_COLUMN_NAME: str = "Mean CR"
+RESPONSE_COLUMN_NAME: str = "Median CR"
 EPOCH_BLOCK_TRIALS: int = 5
 MIN_FISH_WITH_ALL_FEATURES: int = 10
 
-# Which pooled data file to load (must match 5_NormalizedVigorPlotting output):
+# Which pooled data file to load (must match 5_NormalizedVigorPlotting_LogMedian output):
 # - "nanFracFilt": require _nanFracFilt in filename (APPLY_MAX_NAN_FRAC_PER_WINDOW was True)
 # - "no_nanFracFilt": require filename WITHOUT _nanFracFilt
-# - "auto": accept either, prefer newest by mtime
-POOLED_DATA_NAN_FILTER: str = "no_nanFracFilt"  # or "no_nanFracFilt" | "auto"
+POOLED_DATA_NAN_FILTER: str = "no_nanFracFilt"
 
 # Optional: explicit path to load (overrides search; set to None for auto-discovery)
 POOLED_DATA_PATH: Optional[Path] = None
@@ -204,10 +219,6 @@ USE_PER_FISH_SE_IN_SCORING: bool = True
 # Numerical stability constant for division
 EPS: float = 1e-12
 
-# Fit LME on log(normalized vigor) when True (recommended: ratios are multiplicative,
-# log stabilizes variance and yields BLUPs as log-fold changes).
-USE_LOG_TRANSFORM: bool = True
-
 # endregion
 
 
@@ -241,7 +252,7 @@ class AnalysisConfig:
     min_latetraindearlytest_trials: int = 15
     min_late_test_trials: int = 10
     min_trials_per_5trial_block_in_epoch: int = 3
-    y_lim_plot: Tuple[float, float] = (0.8, 1.2)
+    y_lim_plot: Tuple[float, float] = (-0.2, 0.2)
     features_to_use: List[str] = field(default_factory=lambda: ["acquisition", "extinction"])
     ci_multiplier_for_reporting: float = 1.96  # For 95% CI display (1.96 = z_{0.975})
     feature_configs: Dict[str, FeatureConfig] = field(
@@ -268,7 +279,6 @@ class AnalysisConfig:
     earlytest_block: List[str] = field(default_factory=lambda: ["Late Train", "Early Test"])
     late_test_blocks_5: List[str] = field(default_factory=lambda: ["Test 5", "Late Test"])
     cond_types: List[str] = field(default_factory=list)
-    use_log_transform: bool = True  # Fit LME on log(normalized vigor) when True
 
     def __post_init__(self) -> None:
         self.cond_types = list(exp_config.cond_types)
@@ -287,7 +297,6 @@ analysis_cfg = AnalysisConfig(
     random_seed=ANALYSIS_RANDOM_SEED,
     y_lim_plot=Y_LIM_PLOT,
     ci_multiplier_for_reporting=CI_MULTIPLIER_FOR_REPORTING,
-    use_log_transform=USE_LOG_TRANSFORM,
 )
 
 
@@ -371,7 +380,6 @@ def load_pooled_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataF
         candidates = [p for p in candidates if "_nanFracFilt" in p.stem]
     elif POOLED_DATA_NAN_FILTER == "no_nanFracFilt":
         candidates = [p for p in candidates if "_nanFracFilt" not in p.stem]
-    # "auto": no extra filter
 
     # Prefer pooled data matching selected-fish mode when possible.
     if APPLY_FISH_DISCARD:
@@ -388,8 +396,7 @@ def load_pooled_data(config: AnalysisConfig, path_pooled_data: Path) -> pd.DataF
     if not candidates:
         raise FileNotFoundError(
             f"No matching pooled data file found (csv/pkl) for CS/US={config.csus} "
-            f"with POOLED_DATA_NAN_FILTER={POOLED_DATA_NAN_FILTER}. "
-            f"Try 'auto' to accept either nanFracFilt or non-nanFracFilt files."
+            f"with POOLED_DATA_NAN_FILTER={POOLED_DATA_NAN_FILTER}."
         )
 
     # Prefer CSV when present (pickle compatibility is fragile across pandas versions).
@@ -610,16 +617,6 @@ def prepare_data(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:
         inplace=True,
     )
 
-    # When using log transform, we need strictly positive values for Normalized vigor.
-    # Filter out non-positive or non-finite values early so downstream LME sees clean data.
-    if config.use_log_transform:
-        nv = df["Normalized vigor"].to_numpy(dtype=float)
-        valid_nv = (nv > 0) & np.isfinite(nv)
-        n_invalid = int((~valid_nv).sum())
-        if n_invalid > 0:
-            print(f"  [prepare_data] Dropping {n_invalid} rows with Normalized vigor <= 0 or non-finite (required for log transform)")
-            df = df.loc[valid_nv].copy()
-
     df = _filter_fish_by_trials(df, config)
 
     df["Trial number"] = df["Trial number"].astype(int)
@@ -718,20 +715,20 @@ def extract_change_feature(
 ) -> Dict[str, BLUPResult]:
     """Extract per-fish BLUP for epoch change using control-anchored mixed-effects model.
     
-    Statistical Model:
-    -----------------
-    When config.use_log_transform is True (default), the LME fits log(normalized vigor):
-        log(Normalized vigor) ~ Epoch
-    so BLUPs are log-fold changes (e.g. BLUP = -0.1 ≈ 10% decrease). Otherwise:
+    Statistical Model (LogMedian variant):
+    --------------------------------------
+    Since vigor is already log-transformed and NV is a log-space difference,
+    the LME directly models:
         Normalized vigor ~ Epoch
-    and BLUPs are absolute changes in the ratio.
-    - Normalized vigor = Mean CR / Mean baseline (already a relative measure)
+    BLUPs are changes in the log-space difference (equivalent to log-fold changes
+    of raw medians, e.g. BLUP = -0.1 ≈ 10% decrease in the raw median ratio).
+    - Normalized vigor = Median CR − Median baseline (log-space difference)
     - Epoch = 0 (pre-epoch blocks) or 1 (post-epoch blocks)
     
     Control-Anchoring:
     -----------------
     1. Fit model on control fish only to get fixed Epoch effect (μ_ctrl)
-    2. Adjust all responses: Vigor_Adj = response - μ_ctrl × Epoch  (response = log(NV) or NV)
+    2. Adjust all responses: Vigor_Adj = NV - μ_ctrl × Epoch
     3. Fit second model on adjusted data to get individual random Epoch deviations
     4. Final BLUP = μ_ctrl + random_effect_i (individual deviation from control)
     
@@ -774,23 +771,9 @@ def extract_change_feature(
 
     df_B = pd.concat(frames)
 
-    # Optionally fit on log(normalized vigor) for multiplicative effects and variance stabilization
-    if config.use_log_transform:
-        # Log is only valid for strictly positive values; drop non-positive or non-finite
-        nv = df_B["Normalized vigor"].to_numpy(dtype=float)
-        valid = (nv > 0) & np.isfinite(nv)
-        if not np.all(valid):
-            n_dropped = int((~valid).sum())
-            df_B = df_B.loc[valid].copy()
-            if df_B.empty or df_B["Fish_ID"].nunique() < 2:
-                print(f"  [WARN] After dropping {n_dropped} rows with non-positive/non-finite Normalized vigor, insufficient data for log-scale LME. Returning empty.")
-                return {}
-        df_B["Log_Normalized_Vigor"] = np.log(df_B["Normalized vigor"])
-        response_col = "Log_Normalized_Vigor"
-        formula_response = "Log_Normalized_Vigor ~ Epoch"
-    else:
-        response_col = "Normalized vigor"
-        formula_response = "Q('Normalized vigor') ~ Epoch"
+    # Data is already in log-space (log-median from Step 3), so model NV directly.
+    response_col = "Normalized vigor"
+    formula_response = "Q('Normalized vigor') ~ Epoch"
 
     ref_cond = config.cond_types[0]
     df_ctrl = df_B[df_B["Condition"] == ref_cond].copy()
@@ -815,8 +798,7 @@ def extract_change_feature(
         res_ctrl = model_ctrl.fit(reml=True, method="powell")
         ctrl_epoch_effect = float(res_ctrl.params["Epoch"])
         ctrl_epoch_se = float(res_ctrl.bse.get("Epoch", np.nan))
-        anchor_unit = "log-scale" if config.use_log_transform else "ratio"
-        print(f"    Control Epoch Anchor: {ctrl_epoch_effect:.6f} ({anchor_unit})")
+        print(f"    Control Epoch Anchor: {ctrl_epoch_effect:.6f} (log-scale)")
     except Exception as e:
         print(f"  [WARN] Control model failed ({e}), using standard method")
         return get_blups_with_uncertainty(
@@ -1155,7 +1137,7 @@ def plot_behavioral_trajectories(
 
         ax.set_xlabel("Block", fontsize=5 + 10)
         ax.set_ylabel("Normalized Vigor", fontsize=5 + 10)
-        ax.axhline(1.0, linestyle=":", color="black", alpha=0.5)
+        ax.axhline(0.0, linestyle=":", color="black", alpha=0.5)
         ax.set_xticklabels(block_order, rotation=45, ha="right", fontsize=5 + 9)
         ax.grid(alpha=0.3)
         ax.set_ylim(y_lim_used)
@@ -1638,10 +1620,12 @@ def save_combined_plots_and_grid(
             fish_pretrain_mask = fish_mask & pretrain_mask
             if baseline_col and baseline_col in df_trials.columns:
                 m = float(df_trials.loc[fish_pretrain_mask, baseline_col].mean())
-                df_trials.loc[fish_mask, norm_baseline_col] = df_trials.loc[fish_mask, baseline_col] / m if m > 0 else 1.0
+                # Subtraction (not division) because values are already in log-space
+                df_trials.loc[fish_mask, norm_baseline_col] = df_trials.loc[fish_mask, baseline_col] - m
             if response_col and response_col in df_trials.columns:
                 m = float(df_trials.loc[fish_pretrain_mask, response_col].mean())
-                df_trials.loc[fish_mask, norm_response_col] = df_trials.loc[fish_mask, response_col] / m if m > 0 else 1.0
+                # Subtraction (not division) because values are already in log-space
+                df_trials.loc[fish_mask, norm_response_col] = df_trials.loc[fish_mask, response_col] - m
 
     agg_dict: Dict[str, Any] = {"Normalized vigor": "median", "Trial number": "mean"}
     if norm_baseline_col and norm_baseline_col in df_trials.columns:
@@ -1719,7 +1703,7 @@ def save_combined_plots_and_grid(
 
         _annotate_key_blocks(ax, fish_block_data, color)
 
-        ax.axhline(1.0, linestyle=":", color="black", alpha=0.3, label="Baseline")
+        ax.axhline(0.0, linestyle=":", color="black", alpha=0.3, label="Baseline")
         ax.set_xlabel("Trial Number", fontsize=5 + 9)
         ax.set_ylabel("Normalized Vigor", fontsize=5 + 9)
 
@@ -1905,7 +1889,7 @@ def save_combined_plots_and_grid(
                 max(abs(blup_pre), abs(blup_mid), abs(blup_late), 0.05) * 1.5,
             )
 
-        ax.axhline(1.0, linestyle=":", color="black", alpha=0.25)
+        ax.axhline(0.0, linestyle=":", color="black", alpha=0.25)
         ax.set_title(f"{fish}", fontsize=5 + 9, color=color, fontweight="bold")
         ax.set_xticks([])
         ax.set_yticks([])
@@ -2360,7 +2344,7 @@ def run_multivariate_lme_pipeline(
         raise ValueError(
             f"Only {len(common_fish)} fish have all features (need at least {MIN_FISH_WITH_ALL_FEATURES}). "
             f"Per-feature counts: {per_feat}. "
-            f"Check that BLUP extraction succeeded and that Normalized vigor is strictly positive when using log transform."
+            f"Check that BLUP extraction succeeded."
         )
 
     X = np.array([[blup_dicts[feat][f].blup for feat in config.features_to_use] for f in common_fish], dtype=float)

@@ -2,11 +2,71 @@
 Example Fish Plotting Pipeline
 ==============================
 
-Generate publication-quality figures of individual fish behavior:
-- Traces: Tail angle and vigor traces for selected trials
-- Individual Trials: Heatmaps and normalized vigor plots
-- Bout Zoom: Detailed view of individual bouts around US onset
-- Trajectory: 2D density plots of tail positions
+Pipeline context — Step 2 of 6
+-------------------------------
+After preprocessing (Step 1), this script produces publication-quality figures
+for hand-picked individual fish. These "example fish" panels illustrate the
+raw behavioral data that underlie the group-level summaries generated in later
+steps (4–6) and are typically featured in a paper's representative-animal
+figure.
+
+Scientific background
+---------------------
+Showing single-subject data alongside group statistics is important for
+transparency in behavioral neuroscience. The plots produced here let the reader
+inspect the raw tail-angle waveform, the derived vigor signal, the time course
+of swim bouts, and even the spatial tail trajectory before and after stimulus
+delivery — providing direct visual evidence of conditioned responding.
+
+Steps
+-----
+1. **Traces** (``RUN_TRACES``):
+   - For each selected fish and trial list, load the processed pickle, keep
+     only CS-aligned trials, and adjust trial numbering.
+   - Produce two vertically-stacked subplot figures (one per fish):
+     a. Tail angle trace — baseline-subtracted (median pre-stimulus), clipped
+        raw tail angle with CS and US onset markers overlaid.
+     b. Vigor trace — clipped vigor (deg/ms) with the same stimulus markers.
+   - Each row corresponds to one trial spanning key experimental phases (e.g.,
+     Pre-Train, Early Train, Late Train, Early Test, Late Test). Panel labels
+     and condition titles are added automatically.
+   - Default time window: ±20 s around CS onset; vigor clipped to 0–18 deg/ms.
+
+2. **Individual trials** (``RUN_INDIVIDUAL_TRIALS``):
+   - For each selected fish, generate the same four diagnostic plot types used
+     in the preprocessing pipeline (tail angle traces, raw vigor heatmap,
+     scaled vigor heatmap, normalized vigor) but with publication styling.
+   - Heatmaps are split by experimental phase (Pre-Train / Train / Test) with
+     trial markers indicating the traces shown in Step 1.
+   - Supports both CS- and US-aligned views (configurable via
+     ``INDIVIDUAL_TRIALS_STIMULI``).
+
+3. **Bout zoom** (``RUN_BOUT_ZOOM``):
+   - Load a single fish and trial, then plot a detailed, zoomed-in view
+     (default ±5 s) of the raw tail angle around the US (or CS) onset.
+   - Detected bouts are shaded in gray, and the stimulus onset is marked with
+     a dashed vertical line.
+   - Useful for illustrating the fine temporal structure of individual swim
+     bouts and verifying the bout-detection algorithm.
+
+4. **Trajectory** (``RUN_TRAJECTORY``):
+   - Reconstruct 2D tail trajectories from per-point angle columns using
+     cumulative segment geometry and fine interpolation.
+   - Render a 2D density histogram (heatmap) of tail-tip positions for a
+     before-stimulus window (default −9 to 0 s) vs. an after-stimulus window
+     (default 0 to 9 s), showing how the spatial distribution of tail posture
+     shifts as the fish begins to respond to the CS.
+   - Saved as PNG images in a ``tail_trajectories/`` subdirectory.
+
+Inputs
+------
+- Per-fish compressed pickles (``.pkl.gz``) produced by Step 1.
+
+Outputs
+-------
+- High-resolution (600 DPI) SVG / PNG figures for traces, heatmaps, bout
+  zooms, and trajectory density maps, saved to the experiment's output
+  directory.
 """
 import sys
 # %%

@@ -1,26 +1,27 @@
 """
-Fish Grouping Pipeline
-======================
+Fish Grouping Pipeline — Log-Median Variant
+=============================================
 
-Pipeline context — Step 3 of 6
--------------------------------
-This script bridges individual-animal preprocessing (Step 1) and group-level
-visualization / statistics (Steps 4–6). It aggregates all per-fish DataFrames
-into pooled, per-condition datasets that are activity-filtered, baseline-scaled,
-smoothed, and downsampled — ready for the scaled-vigor heatmaps (Step 4),
-normalized-vigor analysis (Step 5), and learner classification (Step 6).
+Pipeline context — Step 3 of 6 (log-median variant)
+-----------------------------------------------------
+This script is a standalone variant of ``3_FishGrouping.py``.  It bridges
+individual-animal preprocessing (Step 1) and group-level visualization /
+statistics (Steps 4–6) by aggregating all per-fish DataFrames into pooled,
+per-condition datasets that are activity-filtered, smoothed, downsampled,
+log-transformed, and baseline-normalised — ready for the scaled-vigor
+heatmaps (Step 4), normalized-vigor analysis (Step 5), and learner
+classification (Step 6).
 
-Scientific background
----------------------
-Raw vigor traces contain periods of quiescence between swim bouts, and
-absolute vigor levels vary across individuals. To enable meaningful
-cross-subject comparisons, this script (a) masks non-bout segments so only
-active swimming contributes to group summaries, (b) re-scales vigor within
-each trial to that trial's pre-stimulus baseline (10th–90th percentile),
-producing a 0–1 "scaled vigor" metric, and (c) applies rolling-mean smoothing
-to reduce frame-to-frame noise. Downsampling (every 10th row) then shrinks file
-size without sacrificing the temporal resolution needed for the time windows
-used in later analyses.
+Differences from the standard pipeline
+---------------------------------------
+1. **Rolling median** instead of rolling mean for vigor smoothing.
+2. **Downsampling immediately after smoothing** (before any scaling).
+3. **No within-trial P10–P90 baseline scaling** — removed entirely.
+4. **Log transform** of vigor values after downsampling.
+5. **Baseline median subtraction** — per (Fish, Trial), the median of
+   log-vigor in the pre-stimulus baseline window is subtracted from all
+   time points, yielding a baseline-centred log-vigor metric stored in
+   the ``Scaled vigor (AU)`` column.
 
 Workflow
 --------
@@ -28,29 +29,32 @@ Workflow
    pickle files (``*.pkl.gz``), skip any in the ``Excluded/`` subdirectory or
    with missing required columns.
 
-2. **Activity filtering (bout masking)** — For every trial, set vigor and
-   scaled vigor to NaN outside detected swim bouts so that quiescent
-   baseline periods do not inflate group averages.
+2. **Activity filtering (bout masking)** — For every trial, set vigor to NaN
+   outside detected swim bouts so that quiescent baseline periods do not
+   inflate group averages.
 
-3. **Vigor smoothing** — Apply a rolling mean (window = 10 frames, with
-   optional Numba acceleration) to suppress high-frequency noise in the
-   vigor signal.
+3. **Vigor smoothing** — Apply a right-aligned rolling median (window = 10
+   frames, with optional Numba acceleration) to suppress high-frequency
+   noise in the vigor signal.
 
-4. **Within-trial baseline scaling** — For each trial, compute the 10th and
-   90th percentiles of vigor in the pre-stimulus baseline window, then scale
-   vigor into the [0, 1] range: ``(vigor − P10) / (P90 − P10)``.
-
-5. **Downsampling** — Keep every *N*-th row (default *N* = 10) to reduce file
+4. **Downsampling** — Keep every *N*-th row (default *N* = 10) to reduce file
    size while retaining sufficient temporal resolution for downstream
    time-binned analyses.
 
-6. **Concatenation and harmonization** — Merge all fish DataFrames within each
+5. **Log transform** — Compute ``log(vigor)`` for all positive vigor values;
+   zeros and negatives become NaN.
+
+6. **Baseline median subtraction** — For each (Fish, Trial), compute the
+   median of log-vigor in the pre-stimulus baseline window and subtract it
+   from all time points.  The result is stored in ``Scaled vigor (AU)``.
+
+7. **Concatenation and harmonization** — Merge all fish DataFrames within each
    experimental condition, standardize categorical columns (block names, trial
    types), and ensure consistent dtypes across fish.
 
-7. **Saving** — Write one compressed pickle per condition × trial type
-   (e.g., ``Paired_CS_new.pkl``, ``Paired_US_new.pkl``), verifying column
-   consistency before saving.
+8. **Saving** — Write one compressed pickle per condition × trial type
+   (e.g., ``Paired_CS_new_logmedian.pkl``, ``Paired_US_new_logmedian.pkl``),
+   verifying column consistency before saving.
 
 Inputs
 ------
@@ -61,10 +65,11 @@ Inputs
 Outputs
 -------
 - Pooled per-condition pickles in ``path_all_fish``:
-  ``{condition}_CS_new.pkl`` and ``{condition}_US_new.pkl``.
-  Each contains a single DataFrame with harmonized, activity-filtered, scaled,
-  smoothed, and downsampled data for all included fish, suitable for the
-  group-level plotting and statistical analyses in Steps 4–6.
+  ``{condition}_CS_new_logmedian.pkl`` and ``{condition}_US_new_logmedian.pkl``.
+  Each contains a single DataFrame with harmonized, activity-filtered,
+  median-smoothed, downsampled, log-transformed, and baseline-subtracted data
+  for all included fish, suitable for group-level plotting and statistical
+  analyses in Steps 4–6.
 """
 
 
@@ -177,37 +182,44 @@ def get_tail_angle_col(data: pd.DataFrame) -> str | None:
     return sorted(angle_cols, key=_angle_sort_key)[-1]
 
 
+# ---------------------------------------------------------------------------
+# Rolling median (right-aligned / trailing window)
+# ---------------------------------------------------------------------------
 if HAS_NUMBA:
     @njit
-    def rolling_mean_numba(arr, window):
-        result = np.empty_like(arr)
-        for i in range(len(arr)):
-            start = 0
-            if i - window + 1 > 0:
-                start = i - window + 1
-            total = 0.0
+    def rolling_median_numba(arr, window):
+        n = len(arr)
+        result = np.empty(n, dtype=arr.dtype)
+        buf = np.empty(window, dtype=arr.dtype)
+        for i in range(n):
+            start = max(0, i - window + 1)
             count = 0
             for j in range(start, i + 1):
-                val = arr[j]
-                if not np.isnan(val):
-                    total += val
+                if not np.isnan(arr[j]):
+                    buf[count] = arr[j]
                     count += 1
             if count > 0:
-                result[i] = total / count
+                sub = buf[:count].copy()
+                sub.sort()
+                if count % 2 == 0:
+                    result[i] = (sub[count // 2 - 1] + sub[count // 2]) / 2.0
+                else:
+                    result[i] = sub[count // 2]
             else:
                 result[i] = np.nan
         return result
 else:
-    def rolling_mean_numba(arr, window):
-        result = np.empty_like(arr)
-        for i in range(len(arr)):
+    def rolling_median_numba(arr, window):
+        n = len(arr)
+        result = np.empty(n, dtype=arr.dtype)
+        for i in range(n):
             start = max(0, i - window + 1)
-            result[i] = np.nanmean(arr[start:i + 1])
+            result[i] = np.nanmedian(arr[start:i + 1])
         return result
 
 
 def apply_rolling_numba(x, window_size):
-    return rolling_mean_numba(x.to_numpy(), window_size)
+    return rolling_median_numba(x.to_numpy(), window_size)
 
 
 def arrange_data(data: pd.DataFrame, time_col: str, tail_angle_col: str | None, skip_reset=False) -> pd.DataFrame:
@@ -252,46 +264,52 @@ def process_data(
     time_col: str,
     baseline_window_frames: int,
 ) -> pd.DataFrame:
-    """Apply smoothing, scaling, and downsampling to vigor data."""
+    """Apply rolling-median smoothing, downsampling, log-transform, and baseline-median subtraction.
+
+    Pipeline order:
+    1. Bout masking — set vigor to NaN outside bouts.
+    2. Sort by grouping columns + time.
+    3. Rolling median (right-aligned, *window_size* frames) on VIGOR_COL.
+    4. Downsample (every *downsample_factor*-th row).
+    5. Log-transform positive vigor values (zeros/negatives → NaN).
+    6. Baseline median subtraction — per (Fish, Trial), subtract the median
+       of log-vigor in the pre-stimulus baseline window.  Result stored in
+       SCALED_VIGOR_COL.
+    """
+    # 1. Bout masking
     df.loc[~df[BOUT_COL], VIGOR_COL] = np.nan
 
-    baseline_mask = df[time_col] < -baseline_window_frames
-    baseline_stats = (
-        df.loc[baseline_mask]
-        .groupby(grouping_cols, observed=True)[VIGOR_COL]
-        .quantile([0.1, 0.9])
-        .unstack()
-    )
-
-    if baseline_stats.shape[1] == 2:
-        baseline_stats.columns = ['min_pre', 'max_pre']
-        df = df.merge(baseline_stats, on=grouping_cols, how='left')
-
-        numerator = df[VIGOR_COL] - df['min_pre']
-        denominator = df['max_pre'] - df['min_pre']
-
-        df[SCALED_VIGOR_COL] = np.nan
-        valid_mask = (denominator > 0) & (denominator.notna())
-        df.loc[valid_mask, SCALED_VIGOR_COL] = numerator[valid_mask] / denominator[valid_mask]
-
-        df.drop(columns=['min_pre', 'max_pre'], inplace=True)
-    else:
-        df[SCALED_VIGOR_COL] = np.nan
-
+    # 2. Sort
     df = df.sort_values(grouping_cols + [time_col])
 
-    for col in [VIGOR_COL, SCALED_VIGOR_COL]:
-        if col in df.columns:
-            df[col] = df.groupby(grouping_cols, observed=True, sort=False)[col].transform(
-                apply_rolling_numba, window_size=window_size
-            )
+    # 3. Rolling median on VIGOR_COL only
+    df[VIGOR_COL] = df.groupby(grouping_cols, observed=True, sort=False)[VIGOR_COL].transform(
+        apply_rolling_numba, window_size=window_size
+    )
 
-    df_downsampled = df.groupby(grouping_cols, observed=True, group_keys=False, sort=False).nth(
+    # 4. Downsample
+    df = df.groupby(grouping_cols, observed=True, group_keys=False, sort=False).nth(
         slice(None, None, downsample_factor)
     )
 
-    df_downsampled.drop(columns=['index', 'level_0'], inplace=True, errors='ignore')
-    return df_downsampled
+    # 5. Log transform (NaN-safe; zeros/negatives → NaN)
+    vigor = df[VIGOR_COL].to_numpy(dtype='float64')
+    df[VIGOR_COL] = np.where(vigor > 0, np.log(vigor), np.nan)
+
+    # 6. Baseline median subtraction per (Fish, Trial)
+    baseline_mask = df[time_col] < -baseline_window_frames
+    baseline_medians = (
+        df.loc[baseline_mask]
+        .groupby(grouping_cols, observed=True)[VIGOR_COL]
+        .median()
+    )
+    df = df.merge(baseline_medians.rename('_bl_median'),
+                  on=grouping_cols, how='left')
+    df[SCALED_VIGOR_COL] = df[VIGOR_COL] - df['_bl_median']
+    df.drop(columns=['_bl_median'], inplace=True)
+
+    df.drop(columns=['index', 'level_0'], inplace=True, errors='ignore')
+    return df
 
 
 # region block_categories_from_config
@@ -448,7 +466,7 @@ def process_subset(
     time_col: str,
     baseline_window_frames: int,
 ) -> pd.DataFrame | None:
-    """Process a subset of trials (CS or US) through the smoothing/scaling pipeline."""
+    """Process a subset of trials (CS or US) through the smoothing/log-median pipeline."""
     if not mask.any():
         return None
 
@@ -524,7 +542,7 @@ def main():
         _,
     ) = file_utils.create_folders(config.path_save)
 
-    all_fish_data_paths = list(path_orig_pkl.glob('*.pkl'))
+    all_fish_data_paths = list(path_orig_pkl.glob('**/*.pkl'))
     all_fish_data_paths_lower = {path: path.stem.lower() for path in all_fish_data_paths}
 
     print(config)
@@ -542,8 +560,8 @@ def main():
         ]
         condition_paths = filter_paths_by_subset(condition_paths, FISH_SUBSET)
 
-        path_all_fish_condition_cs = path_all_fish / f'{condition}_CS_new.pkl'
-        path_all_fish_condition_us = path_all_fish / f'{condition}_US_new.pkl'
+        path_all_fish_condition_cs = path_all_fish / f'{condition}_CS_new_logmedian.pkl'
+        path_all_fish_condition_us = path_all_fish / f'{condition}_US_new_logmedian.pkl'
 
         if not condition_paths:
             continue

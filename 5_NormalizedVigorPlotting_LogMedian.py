@@ -1,26 +1,44 @@
 """
-Normalized Vigor Plotting Pipeline
-===================================
+Normalized Vigor Plotting Pipeline — Log-Median Variant
+========================================================
 
-Pipeline context — Step 5 of 6
--------------------------------
+Pipeline context — Step 5 of 6 (log-median variant)
+-----------------------------------------------------
+This script is a standalone variant of ``5_NormalizedVigorPlotting.py``
+designed to work with the output of ``3_FishGrouping_LogMedian.py``.
 While Step 4 visualizes time-resolved scaled-vigor heatmaps and traces, this
 script collapses each trial into a single scalar — the *normalized vigor*
 (NV) — and uses it for group-level summary plots and formal statistical
 inference. The NV metric and the per-fish / per-trial table produced here are
 also the primary input for the multivariate learner classification in Step 6.
 
+Key differences from the standard Step 5 pipeline
+---------------------------------------------------
+- **Median instead of mean** — NV is computed as the *difference* of the
+  *median* vigor in the CR window minus the *median* vigor in the baseline
+  window:
+
+      NV = median vigor in CR window  −  median vigor in baseline window
+
+  Because vigor is already log-transformed by Step 3, subtraction in
+  log-space is equivalent to the ratio of raw medians.  A value of 0
+  indicates no change; positive values reflect increased activity during
+  the CR window.
+- **Designed for log-median input** — the ``INPUT_PKL_SUFFIX`` is set to
+  ``_new_logmedian`` to match the output of ``3_FishGrouping_LogMedian.py``.
+
 Scientific background
 ---------------------
 Normalized vigor quantifies the magnitude of a fish's response in the
 conditioned-response (CR) window relative to its own pre-stimulus baseline:
 
-    NV = mean vigor in CR window  /  mean vigor in baseline window
+    NV = median vigor in CR window  −  median vigor in baseline window
 
-An NV of 1.0 indicates no change; values > 1.0 reflect increased activity
-during the CR window (potential conditioned response), and values < 1.0
-reflect suppression. By taking a ratio, NV controls for individual differences
-in spontaneous swim rate. The script then groups trials into 5- or 10-trial
+Since vigor is already log-transformed, subtraction in log-space is
+equivalent to the ratio of raw medians.  An NV of 0.0 indicates no change;
+values > 0.0 reflect increased activity during the CR window (potential
+conditioned response), and values < 0.0 reflect suppression.  This
+controls for individual differences in spontaneous swim rate. The script then groups trials into 5- or 10-trial
 blocks (or broader experimental phases) and applies non-parametric statistical
 tests (Mann-Whitney U, Wilcoxon signed-rank) as well as Linear Mixed-Effects
 (LME) models to ask whether and when the conditioned group diverges from
@@ -32,10 +50,11 @@ Steps
    - Load pooled CS (or US) pickle files for each condition.
    - Optionally discard fish using the experiment's discard list.
    - For each trial, compute:
-     a. Mean vigor in the baseline window (pre-stimulus).
-     b. Mean vigor in the CR window (conditioned-response period, from
+     a. Median vigor in the baseline window (pre-stimulus).
+     b. Median vigor in the CR window (conditioned-response period, from
         ``config.cr_window``).
-     c. Normalized vigor = CR mean / baseline mean.
+     c. Normalized vigor = CR median − baseline median (subtraction in
+        log-space).
    - Optionally invalidate trials where the NaN fraction exceeds a threshold
      (default 90 %) in either window (``APPLY_MAX_NAN_FRAC_PER_WINDOW``).
    - Save the aggregated per-fish, per-trial NV table as a compressed pickle.
@@ -80,7 +99,8 @@ Steps
 
 Inputs
 ------
-- Pooled per-condition pickles from Step 3: ``{condition}_{CS|US}_new.pkl``.
+- Pooled per-condition pickles from Step 3 (log-median variant):
+  ``{condition}_{CS|US}_new_logmedian.pkl``.
 - (For rendering steps) The pre-built NV pickle from Step 5a.
 - Optional: excluded fish ID list from the ``Excluded/`` directory.
 
@@ -166,67 +186,33 @@ setup_color_filter = ["all"]
 # ------------------------------------------------------------------------------
 TRIAL_WINDOW_S = (-21, 21)
 # Invalidate per-trial metrics if NaN fraction exceeds this in either window.
-# (I.e., if more than this fraction of time has missing vigor in baseline and/or CR window.)
 MAX_NAN_FRAC_PER_WINDOW = 0.90
-APPLY_MAX_NAN_FRAC_PER_WINDOW = False  # If False, skip NaN-fraction invalidation; paths get no _nanFracFilt suffix.
+APPLY_MAX_NAN_FRAC_PER_WINDOW = False
 
 # ------------------------------------------------------------------------------
 # Shared Plot Parameters
 # ------------------------------------------------------------------------------
 frmt = "svg"
 Hide_non_significant = True
-y_lim = (0.8, 1.2)
+y_lim = (-0.2, 0.2)
 
 # ------------------------------------------------------------------------------
 # Phase Summary Parameters
 # ------------------------------------------------------------------------------
-HIGHLIGHT_FISH_ID = [
-    # '20221115_07',  # delay
-    # '20230307_12',  # 3s trace
-    # '20230307_04',  # 10s trace
-    # '20221115_09',  # control
-]
+HIGHLIGHT_FISH_ID = []
 
 # ------------------------------------------------------------------------------
 # Trial-by-Trial Parameters
 # ------------------------------------------------------------------------------
 n_boot = 100
-y_lim_plot = (0.7, 1.4)
-
-# %% Suppress statsmodels MixedLM convergence warnings (boundary / singular fits)
-
-# warnings.filterwarnings(
-#     # "ignore",
-#     # message=r".*MLE may be on the boundary of the parameter space.*",
-#     category=ConvergenceWarning,
-# )
+y_lim_plot = (-0.3, 0.4)
 
 # LME Model Configuration
-# -----------------------
-# Random effects formula options:
-#   - "~Log_Baseline": Random slope by baseline (default, ANCOVA-style adjustment)
-#   - "~Condition": Random slope by condition (use if conditions have systematically
-#                   different variances; matches old implementation)
-#   - None: Random intercept only (simplest model)
 LME_RE_FORMULA = "~Log_Baseline"
-# LME_RE_FORMULA = None
-# "~Condition"
-
-# Jitter for singular-fit-prone datasets:
-#   Adds microscopic noise to break ties when identical values cause singular fits.
-#   Set to 0 to disable. Typical value: 1e-4 (0.0001)
 LME_JITTER_SCALE = 0.0
-LME_JITTER_SEED = 10  # For reproducibility
-
-# Optimizer for LME models:
-#   - "lbfgs": Faster, better for large global models (old code used this for global)
-#   - "powell": More robust for singular/small datasets (block-level, trial-by-trial)
-LME_GLOBAL_METHOD = "lbfgs"  # Optimizer for global ANCOVA model
-LME_LOCAL_METHOD = "powell"  # Optimizer for block-level and trial-by-trial models
-
-# Debug printing
-#   If True, prints a compact post-hoc table including raw and FDR-corrected p-values.
-#   This is useful to verify that plotted "Rate" markers match the FDR thresholding.
+LME_JITTER_SEED = 10
+LME_GLOBAL_METHOD = "lbfgs"
+LME_LOCAL_METHOD = "powell"
 LME_DEBUG_POSTHOC_TABLE = False
 # endregion Parameters
 
@@ -309,13 +295,10 @@ def initialize_context():
         path_pooled_data,
     ) = file_utils.create_folders(config.path_save)
 
-    # All figures from this script should be saved under a "Normalized vigor" subfolder
-    # inside the experiment's pooled-figure output directory.
     nan_suffix = "_nanFracFilt" if APPLY_MAX_NAN_FRAC_PER_WINDOW else ""
     path_scaled_vigor_fig = path_pooled_vigor_fig / (f"Normalized vigor{nan_suffix}")
     path_scaled_vigor_fig.mkdir(parents=True, exist_ok=True)
 
-    # Single discard list source: pkl files/1. Original/Excluded/excluded_fish_ids.txt
     discard_file = path_orig_pkl / "Excluded" / "excluded_fish_ids.txt"
 
     fish_ids_to_discard = []
@@ -381,12 +364,9 @@ def _stringify_for_filename(value) -> str:
 
 def _sanitize_filename(name: str) -> str:
     """Sanitize a filename component for Windows filesystems."""
-    # Windows disallowed characters: <>:"/\|?*
     invalid = '<>:"/\\|?*'
     out = "".join("_" if ch in invalid else ch for ch in str(name))
-    # Avoid trailing spaces/dots which Windows strips/blocks.
     out = out.strip().rstrip(".")
-    # Keep filenames reasonably compact.
     out = " ".join(out.split())
     return out if out else "figure"
 
@@ -409,7 +389,6 @@ def _maybe_selected_fish_path(path_out: Path | str) -> Path:
         return p
     if p.stem.endswith(SELECTED_FISH_SUFFIX):
         return p
-    # Preserve suffix (single-suffix paths used throughout this repo).
     return p.with_name(f"{p.stem}{SELECTED_FISH_SUFFIX}{p.suffix}")
 
 
@@ -427,11 +406,10 @@ def save_fig(fig, stem: str, frmt: str) -> Path:
 
 
 def save_figure(fig, path_out, frmt, **overrides):
-    # Centralized save: mkdir + Windows-safe names + enforce suffix to match frmt.
     figure_saving.save_figure(fig, _maybe_selected_fish_path(path_out), frmt=frmt, savefig_kw=SAVEFIG_KW, **overrides)
 
 
-def add_baseline_line(ax, y=1):
+def add_baseline_line(ax, y=0):
     ax.axhline(y, **BASELINE_LINE_KW)
 
 
@@ -443,7 +421,7 @@ def add_block_dividers(ax, blocks):
 
 def apply_y_limits(ax, y_limits, labels=None):
     ax.set_ylim(y_limits)
-    ax.set_yticks([y_limits[0], 1, y_limits[1]])
+    ax.set_yticks([y_limits[0], 0, y_limits[1]])
     if labels is not None:
         ax.set_yticklabels(labels)
 
@@ -480,7 +458,6 @@ def load_first_pooled():
     paths = [*Path(path_pooled_data).glob("*.pkl")]
     paths = [p for p in paths if "NV per trial per fish" in p.stem and fish_suffix in p.stem]
     paths = [p for p in paths if ("_nanFracFilt" in p.stem) == APPLY_MAX_NAN_FRAC_PER_WINDOW]
-    # Filter by csus: the suffix pattern is ..._{csus}{fish_suffix}[_nanFracFilt].pkl
     paths = [p for p in paths if p.stem.endswith(f"_{csus}{fish_suffix}{nan_suffix}")]
     print(paths)
     if not paths:
@@ -490,7 +467,6 @@ def load_first_pooled():
 
 def filter_pooled_data(data, apply_fish_discard=True, source: str = ""):
     ensure_context()
-    # Apply global filters shared across plots and stats.
     
     fish_col = "Fish"
     
@@ -531,8 +507,6 @@ def run_mixed_model(
     rmel=None,
 ):
     try:
-        # Backwards/typo compatibility: allow callers to pass `rmel=` (common typo)
-        # while the actual statsmodels argument is `reml=`.
         if rmel is not None:
             reml = rmel
         model = smf.mixedlm(formula, df, groups=df[groups_col], re_formula=re_formula)
@@ -548,12 +522,12 @@ def select_baseline_response_columns(df):
         raise ValueError("No baseline column found (expected '* s before').")
     baseline_col = baseline_candidates[0]
 
-    if "Mean CR" in df.columns:
-        response_col = "Mean CR"
+    if "Median CR" in df.columns:
+        response_col = "Median CR"
     else:
-        response_candidates = [c for c in df.columns if "Mean" in c and "CR" in c]
+        response_candidates = [c for c in df.columns if "CR" in c and "Median" in c]
         if not response_candidates:
-            raise ValueError("No response column found (expected 'Mean CR').")
+            raise ValueError("No response column found (expected 'Median CR').")
         response_col = response_candidates[0]
 
     return baseline_col, response_col
@@ -575,8 +549,6 @@ def prepare_main_df(data, apply_fish_discard=True, jitter_scale=0.0, jitter_seed
     df["Log_Baseline"] = np.log(df[baseline_col] + 1)
     df["Log_Response"] = np.log(df[response_col] + 1)
 
-    # Optional jitter for singular-fit-prone datasets:
-    # Adds microscopic noise to break ties if you have identical values.
     if jitter_scale > 0:
         np.random.seed(jitter_seed)
         noise = np.random.normal(0, jitter_scale, size=len(df))
@@ -764,21 +736,27 @@ def filter_pairs_in_data_with_hue(pairs, data: pd.DataFrame, x_col: str, hue_col
 # %%
 # region data_aggregation
 def run_data_aggregation():
-    """Aggregate trial-level data into per-fish, per-block normalized vigor."""
+    """Aggregate trial-level data into per-fish, per-block normalized vigor.
+
+    Uses MEDIAN (not mean) to compute baseline and CR vigor, and SUBTRACTION
+    (not division) since vigor is already log-transformed.  This makes NV
+    more robust to outliers.
+    """
     ensure_context()
     if not RUN_PROCESS:
         return pd.DataFrame()
 
     data_pooled = pd.DataFrame()
 
+    column_names = [
+        f"Median {gen_config.baseline_window} s before",
+        "Median CR",
+        "Normalized vigor",
+    ]
+
     columns_groupby = [
         "Strain", "Age (dpf)", "Exp.", "ProtocolRig", "Day", "Fish no.",
         "Fish", "Block name", "Trial number",
-    ]
-    column_names = [
-        f"Mean {gen_config.baseline_window} s before",
-        "Mean CR",
-        "Normalized vigor",
     ]
 
     all_data_csus_paths = [*Path(path_all_fish).glob(f"*_{csus}{INPUT_PKL_SUFFIX}.pkl")]
@@ -806,24 +784,16 @@ def run_data_aggregation():
             continue
 
         data.drop(columns=["Angle of point 15 (deg)", "Bout beg", "Bout end"], inplace=True, errors="ignore")
-        
-
 
         print(data)
         print(data.columns)
         print(data["Fish"].nunique())
 
-
-
         # Apply fish discarding
         data = filter_discarded_fish_ids(data, source=path.stem)
 
-
         print(data["Fish"].nunique())
 
-
-
-        
         cond_actual = data["Exp."].unique()[0]
         print(f"  Processing {cond_actual}: {len(data['Fish'].unique())} fish")
 
@@ -857,9 +827,9 @@ def run_data_aggregation():
         else:
             raise ValueError(f"Unknown csus value: {csus!r}")
 
-        # Window means (baseline and CR)
-        trials_bef_onset = data.loc[baseline_mask, :].groupby(columns_groupby, observed=True)[vigor_col].agg("mean")
-        trials_aft_onset = data.loc[cr_mask, :].groupby(columns_groupby, observed=True)[vigor_col].agg("mean")
+        # --- KEY CHANGE: use median instead of mean ---
+        trials_bef_onset = data.loc[baseline_mask, :].groupby(columns_groupby, observed=True)[vigor_col].agg("median")
+        trials_aft_onset = data.loc[cr_mask, :].groupby(columns_groupby, observed=True)[vigor_col].agg("median")
 
         # Per-trial non-NaN fractions in each window (used to invalidate trial metrics)
         baseline_non_nan_frac = (
@@ -877,14 +847,14 @@ def run_data_aggregation():
             .rename("__cr_non_nan_frac")
         )
 
+        # Subtraction in log-space (equivalent to ratio of raw medians)
         data_agg = pd.concat(
-            [trials_bef_onset, trials_aft_onset, trials_aft_onset / trials_bef_onset],
+            [trials_bef_onset, trials_aft_onset, trials_aft_onset - trials_bef_onset],
             axis=1,
             keys=column_names,
         ).reset_index()
 
-        # Invalidate trial metrics if either window has too many NaNs (nan_frac > max allowed).
-        # Missing fractions (no samples in the window) are treated as 1.0 (i.e., invalidated by this rule).
+        # Invalidate trial metrics if either window has too many NaNs
         data_agg = data_agg.merge(baseline_non_nan_frac.reset_index(), on=columns_groupby, how="left")
         data_agg = data_agg.merge(cr_non_nan_frac.reset_index(), on=columns_groupby, how="left")
         if APPLY_MAX_NAN_FRAC_PER_WINDOW:
@@ -934,13 +904,6 @@ def run_data_aggregation():
 
 # %%
 # region block_summary_lines
-
-
-#todo why some fish do not have data across all blocks?
-
-
-
-
 def run_block_summary_lines():
     """Plot per-fish block medians with a median overlay per condition.
 
@@ -976,7 +939,6 @@ def run_block_summary_lines():
     fig_b, ax_b = plt.subplots(
         1, n_cols, figsize=(5 / 2.54, 4 / 2.54), sharex=True, sharey=True, **FIGURE_KW
     )
-    # (fig_width, BLOCK_FIG_HEIGHT)
     if not isinstance(ax_b, np.ndarray):
         ax_b = [ax_b]
 
@@ -1092,11 +1054,10 @@ def run_block_summary_lines():
                     annotator_b.apply_test().annotate()
 
 
-    # Cross-condition statistical tests (Mann-Whitney U since fish are different across conditions)
+    # Cross-condition statistical tests
     if STATS and EXPERIMENT != ExperimentType.MOVING_CS_4COND.value and len(cond_types) > 1:
         print("  --- Cross-condition Mann-Whitney U tests ---")
         
-        # Build pairs of conditions to compare
         cross_cond_pairs = []
         if len(cond_types) == 2:
             cross_cond_pairs = [(cond_types[0], cond_types[1])]
@@ -1105,7 +1066,6 @@ def run_block_summary_lines():
         elif len(cond_types) >= 4:
             cross_cond_pairs = [(cond_types[i], cond_types[i + 1]) for i in range(0, len(cond_types) - 1, 2)]
         
-        # Collect p-values for multiple comparison correction
         all_pvals = []
         all_comparisons = []
         
@@ -1123,7 +1083,6 @@ def run_block_summary_lines():
                     all_pvals.append(pval)
                     all_comparisons.append((block, cond1, cond2, stat, pval))
         
-        # Apply Holm-Bonferroni correction
         if all_pvals:
             reject, pvals_corrected, _, _ = multipletests(all_pvals, alpha=0.05, method="holm")
             
@@ -1143,7 +1102,6 @@ def run_block_summary_lines():
                 
                 print(f"  {block:<20} {cond1} vs {cond2:<10} {stat:>8.1f} {pval:>10.4e} {pvals_corrected[i]:>10.4e} {sig_marker:>5}")
             
-            # Add visual annotation for significant cross-condition comparisons
             block_annotation_offset = {}
             annotation_height_step = 0.04
             
@@ -1440,8 +1398,6 @@ def run_block_summary_boxplot():
             if blocks_for_stats and len(blocks_for_stats) != len(blocks_chosen):
                 print("  [SKIP] Wilcoxon requires complete block coverage; missing blocks after filtering.")
             else:
-                # Filter data to only include fish with complete data in all blocks
-                # This is required for paired Wilcoxon test
                 fish_block_counts = data_box.groupby(['Fish', 'Exp.'], observed=True)['Block name'].nunique()
                 complete_fish = fish_block_counts[fish_block_counts == len(blocks_chosen)].reset_index()[['Fish', 'Exp.']]
                 data_box_complete = data_box.merge(complete_fish, on=['Fish', 'Exp.'], how='inner')
@@ -1491,7 +1447,7 @@ def run_block_summary_boxplot():
     ax_a.set_xticks(list(np.arange(len(blocks_chosen))))
     ax_a.set_xticklabels(blocks_chosen_labels, rotation=0, ha="center", fontweight="bold", fontsize=10)
     ax_a.set_ylabel("Normalized vigor (AU)")
-    apply_y_limits(ax_a, y_lim, labels=[f"{y_lim[0]}", "1.0", f"{y_lim[1]}"])
+    apply_y_limits(ax_a, y_lim, labels=[f"{y_lim[0]}", "0", f"{y_lim[1]}"])
     ax_a.locator_params(axis="y", tight=False, nbins=4)
     ax_a.tick_params(axis="both", which="both", bottom=False, top=False, right=False)
     ax_a.set_xlabel("")
@@ -1673,7 +1629,7 @@ def run_phase_summary():
             ax[cond_i].set_ylabel("Normalized vigor (AU)")
         else:
             ax[cond_i].set_ylabel("Normalized vigor (AU)\nrelative to US")
-        apply_y_limits(ax[cond_i], y_lim, labels=[f"{y_lim[0]}", "1", f"{y_lim[1]}"])
+        apply_y_limits(ax[cond_i], y_lim, labels=[f"{y_lim[0]}", "0", f"{y_lim[1]}"])
 
         plot_cfg = plotting_style.get_plot_config()
         analysis_utils.add_component(
@@ -1722,11 +1678,9 @@ def run_trial_by_trial(data_pooled=None):
         print("  [SKIP] No pooled data file found")
         return
 
-    # Print initial fish count
     before_any_discard = data_plot["Fish"].nunique()
     print(f"  [run_trial_by_trial] Fish unique before discard: {before_any_discard}")
 
-    # Apply shared discard list (from excluded_fish_ids.txt)
     data_plot = filter_discarded_fish_ids(data_plot, source="run_trial_by_trial")
 
     print(f"  Fish remaining after discard: {data_plot['Fish'].nunique()}")
@@ -1754,7 +1708,6 @@ def run_trial_by_trial(data_pooled=None):
         return
 
     # Setup & Metadata
-    # Define reference condition and extract block structure.
     print(f"  Data prepared: {len(df_main)} rows, {df_main['Fish_ID'].nunique()} subjects")
     ref_cond = cond_types[0]
     block_order = block_order_from_data(df_main)
@@ -1764,10 +1717,7 @@ def run_trial_by_trial(data_pooled=None):
     }
     block_boundaries = block_boundaries_from_data(df_main, block_order)
 
-
     print(df_main['Fish_ID'].nunique())
-
-    # return
 
     # Containers for statistical results
     global_interactions = None
@@ -1776,67 +1726,15 @@ def run_trial_by_trial(data_pooled=None):
     model_errors = []
 
     if RUN_LME and STATS:
-        # ---------------------------------------------------------------------
-        # Statistical Analysis (LME)
-        # ---------------------------------------------------------------------
-        # This section performs three levels of inference using Linear Mixed
-        # Effects (LME) models (statsmodels MixedLM):
-        #
-        #  1) Global ANCOVA-style model across ALL blocks:
-        #       Tests whether the relationship between Condition and response
-        #       differs across blocks (Condition × Block interaction), while
-        #       controlling for baseline vigor (Log_Baseline).
-        #
-        #  2) Post-hoc per-block models:
-        #       For each block separately, tests:
-        #         (a) Mean difference between conditions at the block "center"
-        #         (b) Learning-rate (slope) difference within that block
-        #
-        #  3) Trial-by-trial models:
-        #       Fits a separate model for each trial number to localize
-        #       condition differences at specific trials (with FDR correction).
-        #
-        # Notes on variables:
-        #   - Log_Response = log(response + 1)  (stabilizes variance / reduces skew)
-        #   - Log_Baseline = log(baseline + 1)  (covariate; ANCOVA adjustment)
-        #
-        # Notes on mixed effects:
-        #   - Fish_ID is used as the grouping variable to account for repeated
-        #     measurements within fish (correlated observations).
-        #   - re_formula controls random effects structure (here trying to allow
-        #     fish-specific baseline-related deviations).
-        # ---------------------------------------------------------------------
-
-        # ---------------------------------------------------------------------
-        # 1) Global ANCOVA: Condition × Block interaction
-        # ---------------------------------------------------------------------
-        # Goal:
-        #   Test whether the effect of Condition depends on Block, after adjusting
-        #   for baseline vigor. This is a global "is there any interaction?"
-        #   question rather than a block-localized question.
-        #
-        # Model interpretation (fixed effects):
-        #   Log_Response ~ Log_Baseline + Condition * Block
-        #
-        #   - Log_Baseline: covariate adjustment (ANCOVA)
-        #   - Condition: differences vs reference condition (ref_cond)
-        #   - Block_name: differences vs reference block level (statsmodels chooses)
-        #   - Condition:Block_name: interaction terms indicating that the condition
-        #     effect differs by block (what we primarily want here)
         print("  --- LME: Global ANCOVA ---")
         print(f"  Using re_formula: {LME_RE_FORMULA}, method: {LME_GLOBAL_METHOD}")
 
-
-#! why not? f_local = "Log_Response ~ Log_Baseline + C(Condition, Treatment('{ref_cond}')) * C(Trial_Number)"
         f_global = f"Log_Response ~ Log_Baseline + C(Condition, Treatment('{ref_cond}')) * C(Block_name)"
         res_global, err = run_mixed_model(df_main, f_global, "Fish_ID", re_formula=LME_RE_FORMULA, method=LME_GLOBAL_METHOD)
 
         if res_global:
-            # Print full summary for transparency (useful for debugging/reporting).
             print(res_global.summary())
 
-            # Extract interaction terms from the fitted model directly.
-            # Using the summary tables here is brittle (they are often SimpleTable, not pandas).
             pvals = res_global.pvalues
             interaction_terms = [t for t in pvals.index if ":" in t]
             if interaction_terms:
@@ -1847,47 +1745,21 @@ def run_trial_by_trial(data_pooled=None):
             else:
                 global_interactions = pd.DataFrame(columns=["P>|z|"])
         else:
-            # Record model fit failures rather than crashing the pipeline.
             model_errors.append({"Type": "Global", "Unit": "All", "Error": err})
 
-        # ---------------------------------------------------------------------
-        # 2) Post-Hoc Block Analysis: per-block mean + slope differences
-        # ---------------------------------------------------------------------
-        # Goal:
-        #   Localize effects within blocks. Even if the global interaction suggests
-        #   differences somewhere, this step estimates:
-        #     - Mean offset at block center (Condition main effect)
-        #     - Difference in within-block learning rate (Condition × Trial slope)
-        #
-        # Why "Trial_Centered"?
-        #   We subtract the mean trial number within each block:
-        #       Trial_Centered = Trial - mean(Trial in block)
-        #   This makes the Condition main-effect interpretable as the difference
-        #   at the middle of the block, and reduces collinearity between main and
-        #   interaction terms.
         print("  --- LME: Post-Hoc Block Analysis ---")
         posthoc_res = []
 
         for block in block_order:
-            # Subset to a single block. This isolates within-block trajectories.
             df_blk = df_main[df_main["Block_name"] == block].copy()
 
-            # If there is only one condition represented in this block subset,
-            # there is no between-condition comparison to be made.
             if df_blk["Condition"].nunique() < 2:
                 continue
 
-            # Center trial number within the block for interpretability and stability.
             df_blk["Trial_Centered"] = df_blk["Trial number"] - df_blk["Trial number"].mean()
 
-            # Local (per-block) model:
-            #   - Condition term: mean difference at Trial_Centered == 0 (block center)
-            #   - Trial_Centered term: slope in the reference condition
-            #   - Condition:Trial_Centered: slope difference vs reference condition
             f_local = f"Log_Response ~ Log_Baseline + C(Condition, Treatment('{ref_cond}')) * Trial_Centered"
 
-            # Fit mixed model within the block.
-            # If convergence/singularity occurs, run_mixed_model returns (None, error).
             res_local, err = run_mixed_model(
                 df_blk,
                 f_local,
@@ -1901,16 +1773,11 @@ def run_trial_by_trial(data_pooled=None):
                 params = res_local.params
                 pvals = res_local.pvalues
 
-                # Identify fixed-effect terms for condition mean differences:
-                #   e.g. "C(Condition, Treatment('ref'))[T.OTHER]"
-                # and for slope differences:
-                #   e.g. "C(Condition,...)[T.OTHER]:Trial_Centered"
                 main_terms = [t for t in params.index if "Condition" in t and ":" not in t]
                 slope_terms = [t for t in params.index if "Condition" in t and ":" in t]
 
-                # Print slope output results (per block, per term) with RAW p-values
                 if slope_terms:
-                    print(f"    [Block {block}] Slope (Condition × Trial_Centered) terms (raw p):")
+                    print(f"    [Block {block}] Slope (Condition x Trial_Centered) terms (raw p):")
                     for t in slope_terms:
                         print(f"      {t}: coef={params[t]: .6f}, p_slope_raw={pvals[t]: .4e}")
                 else:
@@ -1928,7 +1795,6 @@ def run_trial_by_trial(data_pooled=None):
                     best_main = min(main_terms_sorted, key=lambda t: float(pvals.get(t, 1.0)))
                     best_slope = min(slope_terms_sorted, key=lambda t: float(pvals.get(t, 1.0)))
 
-                    # Explicitly print the RAW p-value used for P_Slope in posthoc_res
                     print(
                         f"    [Block {block}] Selected P_Slope raw: "
                         f"{best_slope} -> {float(pvals[best_slope]):.4e}"
@@ -1944,7 +1810,7 @@ def run_trial_by_trial(data_pooled=None):
                             "Term_Slope": best_slope,
                             "CondLevel_Slope": _extract_level(best_slope),
                             "Coef_Slope": params[best_slope],
-                            "P_Slope": pvals[best_slope],  # raw p-value
+                            "P_Slope": pvals[best_slope],
                         }
                     )
                 else:
@@ -1958,17 +1824,13 @@ def run_trial_by_trial(data_pooled=None):
             else:
                 model_errors.append({"Type": "Block-Fit", "Unit": block, "Error": err})
 
-        # Multiple-comparisons correction across blocks:
-        #   We correct mean tests and slope tests separately using Benjamini-Hochberg FDR.
         if posthoc_res:
             ph_df = pd.DataFrame(posthoc_res)
 
             _, ph_df["P_Mean_FDR"], _, _ = multipletests(ph_df["P_Mean"], alpha=0.05, method="fdr_bh")
             _, ph_df["P_Slope_FDR"], _, _ = multipletests(ph_df["P_Slope"], alpha=0.05, method="fdr_bh")
 
-            # These boolean flags drive plot markers.
             ph_df["Sig_Mean"] = ph_df["P_Mean_FDR"] < 0.05
-            # Slope significance shown both before and after FDR correction
             ph_df["Sig_Slope_Raw"] = ph_df["P_Slope"] < 0.05
             ph_df["Sig_Slope"] = ph_df["P_Slope_FDR"] < 0.05
 
@@ -1990,25 +1852,12 @@ def run_trial_by_trial(data_pooled=None):
                 print("  --- LME: Post-Hoc Block Summary (raw + FDR) ---")
                 print(ph_df[cols].to_string(index=False))
 
-        # ---------------------------------------------------------------------
-        # 3) Trial-by-Trial Analysis: per-trial condition differences
-        # ---------------------------------------------------------------------
-        # Goal:
-        #   Identify specific trials where conditions differ (after baseline adjustment).
-        #
-        # Approach:
-        #   For each trial number, fit:
-        #       Log_Response ~ Log_Baseline + Condition
-        #   and extract the p-value of the Condition term (vs reference).
-        #
-        # Then apply FDR correction across all trials (multiple testing problem).
         print("  --- LME: Trial-by-Trial Analysis ---")
         trial_res = []
 
         for trial in sorted(df_main["Trial number"].unique()):
             df_t = df_main[df_main["Trial number"] == trial].copy()
 
-            # If only one condition appears at this trial, cannot compare conditions.
             if df_t["Condition"].nunique() < 2:
                 continue
 
@@ -2016,24 +1865,18 @@ def run_trial_by_trial(data_pooled=None):
             res_t, err = run_mixed_model(df_t, f_trial, "Fish_ID", method=LME_LOCAL_METHOD)
 
             if res_t:
-                # Pick the condition coefficient term (first non-reference).
-                # With >2 conditions, there may be multiple terms; current logic uses the first.
                 term = [x for x in res_t.params.index if "Condition" in x][0]
                 trial_res.append({"Trial": trial, "P_raw": res_t.pvalues[term]})
             else:
-                # Optional: record failures per trial (not required for plotting).
                 model_errors.append({"Type": "Trial-Fit", "Unit": trial, "Error": err})
 
         if trial_res:
             t_df = pd.DataFrame(trial_res)
 
-            # FDR correction across all tested trials.
             reject, _, _, _ = multipletests(t_df["P_raw"], alpha=0.05, method="fdr_bh")
 
-            # Trials marked True in `reject` are significant after correction.
             sig_trials = t_df[reject]["Trial"].tolist()
 
-        # Report any warnings/errors encountered during model fitting.
         if model_errors:
             print("  [WARN] LME fit warnings:")
             for err in model_errors:
@@ -2042,7 +1885,6 @@ def run_trial_by_trial(data_pooled=None):
     # Plotting
     fig_c, ax_c = plt.subplots(1, 1, facecolor="white", figsize=TRIAL_BY_TRIAL_FIGSIZE, layout="tight")
 
-    # Main trajectories: median normalized vigor with bootstrap CI.
     for i, cond in enumerate(cond_types):
         sns.lineplot(
             data=df_main[df_main["Condition"] == cond],
@@ -2055,14 +1897,11 @@ def run_trial_by_trial(data_pooled=None):
             ax=ax_c,
         )
 
-    # Statistical annotations: lanes of markers above the plot.
-    # Gold = global interaction, Silver = block effects, Black = trial significance.
     y_top = y_lim[1]
     y_gold = y_top + 0.25
     y_silver = y_top + 0.15
     y_silver_raw = y_silver - 0.05
     y_silver_fdr = y_silver - 0.10
-    # y_black = y_lim_plot[1] + 0.05
 
     # Global interactions (gold markers).
     if global_interactions is not None:
@@ -2074,7 +1913,6 @@ def run_trial_by_trial(data_pooled=None):
                         block_centers[match.group(1)],
                         y_gold,
                         "D",
-                        # match.group(1),
                         color="gold",
                         ha="center",
                         fontsize=7,
@@ -2137,8 +1975,6 @@ def run_trial_by_trial(data_pooled=None):
     # Add vertical lines for block boundaries.
     for boundary in block_boundaries:
         ax_c.axvline(boundary, color="gray", alpha=0.5, linewidth=0.5)
-        # ax_c.spines["bottom"].set_visible(False)
-        # ax_c.tick_params(axis="x", bottom=False)
     ax_c.set_xlim(0, df_main["Trial number"].max() + 1)
     ax_c.set_ylim(y_lim[0], y_lim[1])
     ax_c.set_ylabel("Normalized vigor (AU)")

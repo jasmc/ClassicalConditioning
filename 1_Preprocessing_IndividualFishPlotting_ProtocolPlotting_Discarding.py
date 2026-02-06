@@ -2,11 +2,93 @@
 Preprocessing and Individual Fish Analysis Pipeline
 ===================================================
 
-Consolidated data processing and quality control workflow:
-- Preprocessing: Read, synchronize, and process raw tracking data
-- Individual Plotting: Generate per-fish diagnostic plots
-- Protocol Visualization: Verify stimulus timing
-- Quality Control: Apply exclusion criteria and manage discarded fish
+Pipeline context — Step 1 of 6
+-------------------------------
+This is the entry point of the classical conditioning analysis pipeline. It
+ingests raw behavioral tracking data collected from larval zebrafish during a
+Pavlovian delay-conditioning protocol (CS-US pairings) and converts them into
+clean, trial-segmented, per-fish DataFrames. Downstream scripts (2–6) consume
+the compressed pickle files produced here.
+
+Scientific background
+---------------------
+In a classical conditioning paradigm, a conditioned stimulus (CS, e.g., a
+light) is repeatedly paired with an aversive unconditioned stimulus (US, e.g.,
+a mild electric shock). Over training, the animal develops a conditioned
+response (CR) — anticipatory tail movements during the CS that precede the US.
+To quantify this learning, the pipeline converts raw multi-point tail tracking
+into a single *vigor* metric (deg/ms), detects discrete swim *bouts*, and
+normalizes vigor to each trial's pre-stimulus baseline so that individual
+differences in spontaneous activity are factored out.
+
+Steps
+-----
+1. **Preprocess** (``RUN_PREPROCESS``):
+   - Discover raw tracking files (``*mp tail tracking.txt``) and their
+     companion camera (``*cam.txt``) and protocol (``*stim control.txt``) files.
+   - Load camera data, detect dropped frames, and determine the reference frame.
+   - Load tail tracking data, check for single-point tracking errors
+     (threshold ≈ 114.6 deg), and synchronize with camera timestamps via
+     interpolation to the expected framerate (700 fps).
+   - Integrate protocol (stimulus) data into the tracking DataFrame to label
+     CS/US onset and offset times.
+   - Compute cumulative tail angles across tracked segments, apply spatial and
+     temporal band-pass filtering, and derive vigor (|d(angle)/dt| in deg/ms).
+   - Detect behavioral bouts using a two-stage threshold algorithm: a primary
+     onset threshold (4 deg/ms), a secondary validation threshold (1 deg/ms),
+     minimum bout duration (40 frames), and minimum inter-bout interval
+     (10 frames).
+   - Identify individual trials and assign them to experimental blocks
+     (Pre-Train, Train, Test, and optionally Re-Train / Re-Test).
+   - Scale vigor within each trial to the 10th–90th percentile range of the
+     pre-stimulus baseline, yielding a 0–1 "scaled vigor" metric.
+   - Save the processed per-fish DataFrame as a gzip-compressed pickle
+     (``{fish_id}.pkl``).
+
+2. **Plot individual trials** (``RUN_PLOT_INDIVIDUALS``):
+   - For each processed fish, generate diagnostic plots aligned to CS and US:
+     a. Tail angle traces — raw tail angle over time for every trial.
+     b. Raw vigor heatmaps — vigor intensity across trials (seaborn heatmap).
+     c. Scaled vigor heatmaps — vigor normalized to baseline activity.
+     d. Normalized vigor summary — average vigor change (Post / Pre) per trial.
+   - Figures are saved per-fish in the configured output directory.
+
+3. **Plot protocols** (``RUN_PLOT_PROTOCOLS``):
+   - Verify the timing of CS and US delivery by plotting:
+     a. Protocol timelines from raw ``stim control`` text files.
+     b. Event histograms (per-block) from the processed DataFrames.
+   - Useful for quality control to ensure stimuli were delivered as programmed.
+
+4. **Discard** (``RUN_DISCARD``):
+   - Apply sequential exclusion criteria to identify unreliable fish:
+     a. *Viability* — the fish must have at least one bout during the US
+        window (0 to ``us_window_qc`` s) of the last US trial.
+     b. *Train-block bouts* — every Train trial must contain at least one bout
+        in the US window.
+     c. *Re-Train bouts* (if applicable) — same as (b) for Re-Train trials.
+     d. *Baseline bouts* — at least ``min_number_trials_with_bouts_per_block``
+        trials in each evaluated block must contain bouts in the pre-CS
+        baseline window (−baseline_window to 0 s).
+     e. *CR-window bouts* — same requirement during the conditioned-response
+        window (default 0–9 s post-CS).
+   - Excluded fish are logged to ``Fish to discard.txt`` /
+     ``Discarded_fish_IDs.txt``, their pickle files moved to an ``Excluded/``
+     subdirectory, and matching raw data files are relocated.
+
+Inputs
+------
+- Raw tail tracking files : ``*mp tail tracking.txt``
+- Camera frame-timing files : ``*cam.txt``
+- Protocol (stimulus) files : ``*stim control.txt``
+
+Outputs
+-------
+- Per-fish compressed pickles (``{fish_id}.pkl``) containing a DataFrame with
+  columns for tail angles, vigor, scaled vigor, bout flags, trial / block
+  identifiers, and stimulus timing markers.
+- Per-fish diagnostic figures (PNG) for each plot type selected.
+- Protocol verification figures.
+- Exclusion logs and relocated files for discarded fish.
 """
 # %%
 # region Imports
@@ -48,7 +130,7 @@ RUN_PLOT_PROTOCOLS = False
 RUN_DISCARD = False
 
 FILTER_FISH_ID = None
-EXPERIMENT_TYPE = ExperimentType.ALL_DELAY.value
+EXPERIMENT_TYPE = ExperimentType.ALL_3S_TRACE.value
 
 # ------------------------------------------------------------------------------
 # Preprocess Parameters
@@ -60,8 +142,8 @@ PREPROCESS_OVERWRITE = True
 # ------------------------------------------------------------------------------
 PLOT_INDIVIDUALS_OVERWRITE = True
 RAW_TAIL_ANGLE = False
-RAW_VIGOR = True
-SCALED_VIGOR = False
+RAW_VIGOR = False
+SCALED_VIGOR = True
 NORMALIZED_VIGOR_TRIAL = False
 METRIC_SINGLE_TRIALS = gen_config.tail_angle_label
 WINDOW_DATA_PLOT_S = 40
