@@ -99,7 +99,7 @@ pd.set_option("mode.copy_on_write", True)
 plotting_style.set_plot_style()
 # endregion Imports
 
-config = get_experiment_config(ExperimentType.ALL_DELAY.value)
+config = get_experiment_config(ExperimentType.ALL_3S_TRACE.value)
 
 # region Parameters
 # ------------------------------------------------------------------------------
@@ -521,12 +521,6 @@ def filter_paths_by_subset(paths: list[Path], fish_subset: list[str] | None) -> 
 # region main
 def main():
     """Process all fish files and create pooled per-condition datasets."""
-    (
-        _,
-        _,
-        _,
-        _,
-        _,
     paths = file_utils.create_folders(config.path_save)
 
     all_fish_data_paths = list(paths.orig_pkl.glob('**/*.pkl'))

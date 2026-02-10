@@ -340,7 +340,7 @@ def _sanitize_filename(name: str) -> str:
     return pipeline_utils.sanitize_filename(name)
 
 
-SELECTED_FISH_SUFFIX = pipeline_utils.SELECTED_FISH_SUFFIX
+SELECTED_FISH_SUFFIX = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
 
 
 def _maybe_append_selected_fish_stem(stem: str) -> str:
@@ -728,9 +728,11 @@ def run_sv_heatmap_rendering():
         binning_window_heatmap / 2,
     ]
 
+    selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else ""
     all_data_csus_paths = [*Path(paths.pooled_data).glob("*.pkl")]
     all_data_csus_paths = [
-        path for path in all_data_csus_paths if f"SV heatmap {binning_window_heatmap}s bins all fish_" in path.stem
+        path for path in all_data_csus_paths
+        if f"SV heatmap {binning_window_heatmap}s bins all fish_" in path.stem and (not selected_suffix or selected_suffix in path.stem)
     ]
     all_data_csus_paths = [path for path in all_data_csus_paths if _stem_matches_csus(path.stem, csus)]
 
@@ -789,6 +791,8 @@ def run_sv_heatmap_rendering():
 
         data_cond.drop(columns="Exp.", inplace=True)
 
+
+        cmap = "inferno"
         time = data_cond.columns.to_numpy().astype("float")
         mask_time = (time >= window_data_plot_heatmap[0]) & (time <= window_data_plot_heatmap[1])
         data_cond = data_cond.loc[:, mask_time]
@@ -807,6 +811,7 @@ def run_sv_heatmap_rendering():
             show_yticklabels=(col_i == 0),
             vmin=SV_HEATMAP_VMIN,
             vmax=SV_HEATMAP_VMAX,
+            cmap=cmap,
         )
 
         if col_i > 0:
