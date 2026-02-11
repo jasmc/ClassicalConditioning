@@ -72,22 +72,18 @@ Outputs
   analyses in Steps 4–6.
 """
 
-
 # %%
 # region Imports
 import gc
+import shutil
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 from pandas.api.types import CategoricalDtype
 from tqdm import tqdm
-
-try:
-    from numba import njit
-    HAS_NUMBA = True
-except Exception:
-    HAS_NUMBA = False
+from numba import njit
+HAS_NUMBA = True
 
 import analysis_utils
 import file_utils
@@ -95,11 +91,11 @@ import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 from general_configuration import config as gen_config
 
-pd.set_option("mode.copy_on_write", True)
 plotting_style.set_plot_style()
 # endregion Imports
 
-config = get_experiment_config(ExperimentType.ALL_3S_TRACE.value)
+EXPERIMENT = ExperimentType.ALL_INC_TRACE.value
+config = get_experiment_config(EXPERIMENT)
 
 # region Parameters
 # ------------------------------------------------------------------------------
@@ -236,17 +232,17 @@ def arrange_data(data: pd.DataFrame, time_col: str, tail_angle_col: str | None, 
 
     dtype_dict = {
         time_col: 'int32',
-        CS_BEG_COL: pd.SparseDtype('int32', 0),
-        CS_END_COL: pd.SparseDtype('int32', 0),
-        US_BEG_COL: pd.SparseDtype('int32', 0),
-        US_END_COL: pd.SparseDtype('int32', 0),
+        CS_BEG_COL: 'int32',
+        CS_END_COL: 'int32',
+        US_BEG_COL: 'int32',
+        US_END_COL: 'int32',
         TRIAL_NUMBER_COL: 'int32',
         tail_angle_col: 'float32' if tail_angle_col else None,
         VIGOR_COL: 'float32',
         SCALED_VIGOR_COL: 'float32',
-        BOUT_BEG_COL: pd.SparseDtype('bool'),
-        BOUT_END_COL: pd.SparseDtype('bool'),
-        BOUT_COL: pd.SparseDtype('bool'),
+        BOUT_BEG_COL: bool,
+        BOUT_END_COL: bool,
+        BOUT_COL: bool,
     }
 
     existing_cols = {k: v for k, v in dtype_dict.items() if k and k in data.columns}
@@ -365,13 +361,44 @@ def clean_and_save(
     if data is None or len(data) == 0:
         return data
 
-    data.loc[~data[BOUT_COL], [VIGOR_COL, SCALED_VIGOR_COL]] = np.nan
+    mask = data[BOUT_COL].to_numpy(dtype=bool)
+    data[VIGOR_COL] = np.where(mask, data[VIGOR_COL], np.nan)
+    data[SCALED_VIGOR_COL] = np.where(mask, data[SCALED_VIGOR_COL], np.nan)
 
     if DAY_COL not in data.columns:
         data = arrange_data(data, time_col, tail_angle_col, skip_reset=True)
 
     data.drop(columns=['index', 'level_0', BOUT_BEG_COL, BOUT_END_COL], inplace=True, errors='ignore')
-    data.to_pickle(path, compression='gzip')
+
+    if EXP_COL in data.columns:
+        print(f"Exp. unique BEFORE: {data[EXP_COL].unique()}")
+        if data[EXP_COL].nunique() > 1:
+            exp_names = [str(x).lower() for x in data[EXP_COL].unique()]
+            if EXPERIMENT == ExperimentType.ALL_DELAY.value:
+                if "delay" in exp_names:
+                    data[EXP_COL] = "delay"
+                elif "control" in exp_names:
+                    data[EXP_COL] = "control"
+            elif EXPERIMENT == ExperimentType.ALL_3S_TRACE.value:
+                if "trace" in exp_names:
+                    data[EXP_COL] = "3sTrace"
+                elif "control" in exp_names:
+                    data[EXP_COL] = "control"
+            elif EXPERIMENT == ExperimentType.ALL_10S_TRACE.value:
+                if "trace" in exp_names:
+                    data[EXP_COL] = "10sTrace"
+                elif "control" in exp_names:
+                    data[EXP_COL] = "control"
+            elif EXPERIMENT == ExperimentType.ALL_INC_TRACE.value:
+                if "trace" in exp_names:
+                    data[EXP_COL] = "incTrace"
+                elif "control" in exp_names:
+                    data[EXP_COL] = "control"
+        print(f"Exp. unique AFTER: {data[EXP_COL].unique()}")
+        if data[EXP_COL].nunique() != 1:
+            print(f"ERROR: Exp. has multiple names: {data[EXP_COL].unique().tolist()}")
+
+    data.to_pickle(path)
     return data
 
 
@@ -585,12 +612,18 @@ def main():
             condition_all_data_cs = clean_and_save(
                 condition_all_data_cs, path_all_fish_condition_cs, TIME_COL, TAIL_ANGLE_LABEL
             )
+            if path_all_fish_condition_cs.exists():
+                backup_path = path_all_fish_condition_cs.parent / f"{path_all_fish_condition_cs.stem}_backup{path_all_fish_condition_cs.suffix}"
+                shutil.copy2(path_all_fish_condition_cs, backup_path)
 
         if condition_all_data_us:
             condition_all_data_us = harmonize_and_concat(condition_all_data_us, block_categories)
             condition_all_data_us = clean_and_save(
                 condition_all_data_us, path_all_fish_condition_us, TIME_COL, TAIL_ANGLE_LABEL
             )
+            if path_all_fish_condition_us.exists():
+                backup_path = path_all_fish_condition_us.parent / f"{path_all_fish_condition_us.stem}_backup{path_all_fish_condition_us.suffix}"
+                shutil.copy2(path_all_fish_condition_us, backup_path)
 
         num_fish = 0
         if condition_all_data_cs is not None and len(condition_all_data_cs) > 0:

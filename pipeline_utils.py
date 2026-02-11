@@ -26,8 +26,6 @@ from general_configuration import config as gen_config
 # Filename helpers (thin wrappers around figure_saving to avoid duplication)
 # ---------------------------------------------------------------------------
 
-SELECTED_FISH_SUFFIX = "_selectedFish"
-
 
 def stringify_for_filename(value: object) -> str:
     """Convert common objects (lists/arrays) into filename-friendly strings."""

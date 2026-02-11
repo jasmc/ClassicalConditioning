@@ -21,7 +21,6 @@ import numpy as np
 from PIL import Image
 
 import figure_saving
-import file_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 
@@ -41,11 +40,26 @@ BORDER_COLOR_INCLUDED = "#336699"
 # ==============================================================================
 config = get_experiment_config(EXPERIMENT)
 
-_paths = file_utils.create_folders(config.path_save)
-path_processed_data = _paths.processed_data
-path_scaled_vigor_fig_cs = _paths.scaled_vigor_fig_cs
-path_pooled_vigor_fig = _paths.pooled_vigor_fig
-path_orig_pkl = _paths.orig_pkl
+(
+    _,
+    _,
+    _,
+    path_processed_data,
+    _,
+    _,
+    _,
+    _,
+    _,
+    path_scaled_vigor_fig_cs,
+    _,
+    _,
+    _,
+    path_pooled_vigor_fig,
+    _,
+    path_orig_pkl,
+    _,
+    _,
+) = file_utils.create_folders(config.path_save)
 
 
 # ==============================================================================
@@ -267,7 +281,7 @@ def save_heatmap_grid(
 
     grid_path = output_dir / filename
     figure_saving.save_figure(fig, grid_path, frmt="png", dpi=FIG_DPI, bbox_inches="tight")
-    plt.close(fig)
+    # plt.close(fig)
 
     print(f"  Saved heatmap grid: {grid_path.name}")
     print(f"    Loaded: {loaded_count}/{n_fish} heatmaps")

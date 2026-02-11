@@ -147,12 +147,9 @@ import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 from general_configuration import config as gen_config
 
-pd.set_option("mode.copy_on_write", True)
-
 # Apply shared plotting style with script-specific overrides.
 plotting_style.set_plot_style(rc_overrides={"figure.constrained_layout.use": False})
 # endregion Imports
-
 
 # region Parameters
 # ------------------------------------------------------------------------------
@@ -167,10 +164,12 @@ RUN_TRIAL_BY_TRIAL = True
 # ------------------------------------------------------------------------------
 # Global Settings
 # ------------------------------------------------------------------------------
-EXPERIMENT = ExperimentType.ALL_DELAY.value
+EXPERIMENT = ExperimentType.ALL_10S_TRACE.value
 
 # Apply per-experiment discarded fish list if present under "Processed data".
 APPLY_FISH_DISCARD = False
+
+SELECTED_FISH_SUFFIX = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
 INPUT_PKL_SUFFIX = "_new_logmedian"  # suffix of grouped pkl files from Step 3
@@ -328,8 +327,6 @@ def _stringify_for_filename(value) -> str:
 def _sanitize_filename(name: str) -> str:
     return pipeline_utils.sanitize_filename(name)
 
-
-SELECTED_FISH_SUFFIX = pipeline_utils.SELECTED_FISH_SUFFIX
 
 
 def _maybe_append_selected_fish_stem(stem: str) -> str:
@@ -697,7 +694,33 @@ def run_data_aggregation():
 
         path = current_cond_paths[0]
         try:
-            data = pd.read_pickle(str(path), compression="gzip")
+            data = pd.read_pickle(str(path))
+            print(f"Exp. unique BEFORE: {data['Exp.'].unique()}")
+            if data["Exp."].nunique() > 1:
+                exp_names = [str(x).lower() for x in data["Exp."].unique()]
+                if EXPERIMENT == ExperimentType.ALL_DELAY.value:
+                    if "delay" in exp_names:
+                        data["Exp."] = "delay"
+                    elif "control" in exp_names:
+                        data["Exp."] = "control"
+                elif EXPERIMENT == ExperimentType.ALL_3S_TRACE.value:
+                    if "trace" in exp_names:
+                        data["Exp."] = "3sTrace"
+                    elif "control" in exp_names:
+                        data["Exp."] = "control"
+                elif EXPERIMENT == ExperimentType.ALL_10S_TRACE.value:
+                    if "trace" in exp_names:
+                        data["Exp."] = "10sTrace"
+                    elif "control" in exp_names:
+                        data["Exp."] = "control"
+                elif EXPERIMENT == ExperimentType.ALL_INC_TRACE.value:
+                    if "trace" in exp_names:
+                        data["Exp."] = "incTrace"
+                    elif "control" in exp_names:
+                        data["Exp."] = "control"
+            print(f"Exp. unique AFTER: {data['Exp.'].unique()}")
+            if data["Exp."].nunique() != 1:
+                print(f"ERROR: Exp. has multiple names: {data['Exp.'].unique().tolist()}")
         except Exception as exc:
             print(f"  [ERROR] Reading {path.name}: {exc}")
             continue

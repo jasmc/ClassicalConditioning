@@ -82,7 +82,6 @@ from pandas.api.types import CategoricalDtype
 from scipy.spatial import distance
 from scipy.stats import norm
 from sklearn.covariance import LedoitWolf
-
 import analysis_utils
 import figure_saving
 import file_utils
@@ -108,9 +107,9 @@ exp_config = get_experiment_config(EXPERIMENT)
 # ==============================================================================
 # PIPELINE CONTROL FLAGS
 # ==============================================================================
-RUN_PLOT_TRAJECTORIES: bool = False
-RUN_PLOT_FEATURE_SPACE: bool = False
-RUN_PLOT_BLUP_CATERPILLAR: bool = False
+RUN_PLOT_TRAJECTORIES: bool = True
+RUN_PLOT_FEATURE_SPACE: bool = True
+RUN_PLOT_BLUP_CATERPILLAR: bool = True
 RUN_PLOT_INDIVIDUALS_AND_GRID: bool = True
 RUN_PLOT_BLUP_OVERLAY: bool = True
 RUN_PLOT_HEATMAP_GRID: bool = True
@@ -121,7 +120,7 @@ RUN_EXPORT_RESULTS: bool = True
 # (This matches the naming convention used by `5_NormalizedVigorPlotting_LogMedian.py`.)
 APPLY_FISH_DISCARD: bool = False
 
-SELECTED_FISH_SUFFIX = pipeline_utils.SELECTED_FISH_SUFFIX
+SELECTED_FISH_SUFFIX = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
 
 
 def _maybe_selected_fish_path(path_out: Path | str) -> Path:
@@ -157,7 +156,7 @@ Y_LIM_PLOT: Tuple[float, float] = (-0.2, 0.2)  # Default y-axis limits for plots
 # ==============================================================================
 POOLED_DATA_REQUIRED_SUBSTRING: str = "NV per trial per fish"
 BASELINE_COLUMN_SUBSTRING: str = "s before"
-RESPONSE_COLUMN_NAME: str = "Median CR"
+RESPONSE_COLUMN_NAME: str = "Mean CR"
 EPOCH_BLOCK_TRIALS: int = 5
 MIN_FISH_WITH_ALL_FEATURES: int = 10
 
@@ -316,6 +315,7 @@ def _read_pickle_robust(path: Path) -> pd.DataFrame:
 
     try:
         import gzip
+
         from pandas.compat import pickle_compat
 
         with gzip.open(path, "rb") as f:
