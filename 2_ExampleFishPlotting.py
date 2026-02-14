@@ -109,8 +109,8 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 # ------------------------------------------------------------------------------
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
-RUN_TRACES = True
-RUN_INDIVIDUAL_TRIALS = False
+RUN_TRACES = False
+RUN_INDIVIDUAL_TRIALS = True
 RUN_BOUT_ZOOM = False
 RUN_TRAJECTORY = False
 
@@ -125,10 +125,10 @@ FIG_DPI = 600
 # Traces Parameters
 # ------------------------------------------------------------------------------
 TRACES_EXPERIMENT_TYPE = [
-    ExperimentType.ALL_DELAY.value,
+    # ExperimentType.ALL_DELAY.value,
     # ExperimentType.ALL_3S_TRACE.value,
     # ExperimentType.ALL_10S_TRACE.value,
-    # ExperimentType.ALL_DELAY.value,
+    ExperimentType.ALL_DELAY.value,
 ]
 TRACES_FISH_ID = [
     '20221115_07',
@@ -145,11 +145,12 @@ TRACES_TRIALS = [
 ]
 TRACES_TRIAL_NAMES = ["Pre-Train trial", "Early Train trial", "Late Train trial", "Early Test trial", "Late Test trial"]
 TRACES_Y_CLIP_VIGOR = (0, 18)
-TRACES_X_LIM = (-20, 20)
-TRACES_X_TICKS = [-20, -10, 0, 10, 20]
+TRACES_X_LIM = (-15, 15)
+TRACES_X_TICKS = [-15, -10, 0, 10, 15]
 TRACES_Y_TICKS_RAW = [-60, 0, 60]
 TRACES_Y_CLIP_RAW = (-72, 72)
 TRACES_Y_TICKS_VIGOR = [0, 10]
+TRACES_Y_TICKS_SCALED_VIGOR = [-5, 0, 1]
 TRACES_SUBPLOT_HSPACE = 0.9
 
 # ------------------------------------------------------------------------------
@@ -158,13 +159,19 @@ TRACES_SUBPLOT_HSPACE = 0.9
 INDIVIDUAL_TRIALS_OVERWRITE = True
 INDIVIDUAL_TRIALS_RAW_TAIL_ANGLE = False
 INDIVIDUAL_TRIALS_RAW_VIGOR = False
-INDIVIDUAL_TRIALS_SCALED_VIGOR = True
+INDIVIDUAL_TRIALS_SCALED_VIGOR_NEW = True
+INDIVIDUAL_TRIALS_SCALED_VIGOR_OLD = False
 INDIVIDUAL_TRIALS_NORMALIZED_VIGOR_TRIAL = False
 INDIVIDUAL_TRIALS_METRIC = gen_config.tail_angle_label
 INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S = 40
 INDIVIDUAL_TRIALS_INTERVAL_BETWEEN_XTICKS_S = 20
-INDIVIDUAL_TRIALS_FIG_FORMAT = 'svg'
-INDIVIDUAL_TRIALS_STIMULI = ["CS", "US"]
+INDIVIDUAL_TRIALS_FIG_FORMAT = 'png'
+INDIVIDUAL_TRIALS_STIMULI = ["CS"]
+SCALED_VIGOR_FIGSIZE = (5 / 2.54, 6 / 2.54)
+# Scaled vigor heatmap (do_sc_new): colormap and value range for log(median vigor) - median(baseline)
+INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP = "spring"
+INDIVIDUAL_TRIALS_SCALED_VIGOR_VMIN = -0.5
+INDIVIDUAL_TRIALS_SCALED_VIGOR_VMAX = 0.25
 
 # ------------------------------------------------------------------------------
 # Bout Zoom Parameters
@@ -379,6 +386,46 @@ def pts_to_fig_frac(fig, pts, axis="x"):
     inches = float(pts) / 72.0
     size_in = fig.get_size_inches()[0] if axis == "x" else fig.get_size_inches()[1]
     return inches / size_in
+
+
+def _trial_vigor_to_heatmap_matrix(df: pd.DataFrame) -> pd.DataFrame:
+    """Reshape long-format trial vigor (Trial time, Trial number, Vigor) to heatmap matrix (trials x time)."""
+    out = (
+        df[["Trial time (s)", "Trial number", "Vigor (deg/ms)"]]
+        .pivot(index="Trial time (s)", columns="Trial number")
+        .reset_index()
+        .set_index("Trial time (s)")
+        .droplevel(0, axis=1)
+        .T
+    )
+    out.columns = out.columns.astype("int")
+    return out
+
+
+def _compute_blockwise_symmetric_vlims(
+    heatmap_df: pd.DataFrame,
+    phases_trial_numbers: Sequence[Sequence[int]],
+) -> tuple[float | None, float | None]:
+    """Compute vmin as the minimum across block minima, then set vmax = -vmin."""
+    block_mins: list[float] = []
+    for block_trials in phases_trial_numbers:
+        block_matrix = heatmap_df[heatmap_df.index.isin(block_trials)]
+        if block_matrix.empty:
+            continue
+        block_values = block_matrix.to_numpy(dtype="float64")
+        if block_values.size == 0:
+            continue
+        finite_values = block_values[np.isfinite(block_values)]
+        if finite_values.size == 0:
+            continue
+        block_mins.append(float(np.min(finite_values)))
+
+    if not block_mins:
+        return None, None
+
+    vmin = float(min(block_mins))
+    vmax = float(-vmin)
+    return vmin, vmax
 
 
 def resolve_trials_list(trials_spec: list, fish_id=None, fish_id_order=None) -> list:
@@ -605,6 +652,8 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         "US end",
         "Trial number",
     ]
+    if "Bout" in data.columns:
+        required_cols = required_cols + ["Bout"]
     missing_cols = [col for col in required_cols if col not in data.columns]
     if missing_cols:
         raise ValueError(f"Missing required columns: {missing_cols}")
@@ -621,6 +670,15 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         constrained_layout=False,
     )
     fig_vigor, axs_vigor = plt.subplots(
+        len(trials_list),
+        1,
+        facecolor="white",
+        sharex=False,
+        sharey=True,
+        figsize=fig_size,
+        constrained_layout=False,
+    )
+    fig_scaled_vigor, axs_scaled_vigor = plt.subplots(
         len(trials_list),
         1,
         facecolor="white",
@@ -656,6 +714,18 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
         # Tail angle trace.
         axs_raw[index].plot(data_trial[time_col], data_trial[tail_angle_col], "k", clip_on=False, lw=0.4)
 
+        # Scaled vigor: log-transform, baseline median subtraction (mirroring 3_FishGrouping_LogMedian).
+        vigor_raw = data_trial["Vigor (deg/ms)"].to_numpy(dtype="float64").copy()
+        if "Bout" in data_trial.columns:
+            vigor_raw = np.where(data_trial["Bout"].to_numpy(dtype=bool), vigor_raw, np.nan)
+        log_vigor = np.where(vigor_raw > 0, np.log(vigor_raw), np.nan)
+        baseline_mask = data_trial[time_col].between(-gen_config.baseline_window, 0)
+        bl_median = np.nanmedian(log_vigor[baseline_mask.to_numpy()])
+        if np.isnan(bl_median):
+            print(f"Warning: No valid baseline for trial {trial}; scaled vigor will be NaN.")
+        scaled_vigor = log_vigor - bl_median
+        axs_scaled_vigor[index].plot(data_trial[time_col], scaled_vigor, "k", clip_on=False, lw=0.4)
+
         data_trial["Vigor (deg/ms)"] = data_trial["Vigor (deg/ms)"].clip(TRACES_Y_CLIP_VIGOR[0], TRACES_Y_CLIP_VIGOR[1])
         axs_vigor[index].plot(data_trial[time_col], data_trial["Vigor (deg/ms)"], "k", clip_on=False, lw=0.4)
 
@@ -682,11 +752,26 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
                 ymax=1.4,
                 zorder=10,
             )
+            axs_scaled_vigor[index].axvline(
+                x=stim_onset,
+                color=gen_config.plotting.us_color,
+                clip_on=False,
+                alpha=0.75,
+                lw=2,
+                linestyle="-",
+                ymin=-0.15,
+                ymax=1.4,
+                zorder=10,
+            )
 
     # Style all axes
-    for i, axs in enumerate([axs_raw, axs_vigor]):
+    for i, axs in enumerate([axs_raw, axs_vigor, axs_scaled_vigor]):
         for ax_i, ax in enumerate(axs):
-            yticks = TRACES_Y_TICKS_RAW if i == 0 else TRACES_Y_TICKS_VIGOR
+            yticks = (
+                TRACES_Y_TICKS_RAW
+                if i == 0
+                else (TRACES_Y_TICKS_VIGOR if i == 1 else TRACES_Y_TICKS_SCALED_VIGOR)
+            )
             is_last = ax_i == len(trials_list) - 1
 
             if is_last:
@@ -749,9 +834,11 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
     # Layout adjustments
     fig_raw.subplots_adjust(hspace=TRACES_SUBPLOT_HSPACE)
     fig_vigor.subplots_adjust(hspace=TRACES_SUBPLOT_HSPACE)
+    fig_scaled_vigor.subplots_adjust(hspace=TRACES_SUBPLOT_HSPACE)
 
     fig_raw.canvas.draw()
     fig_vigor.canvas.draw()
+    fig_scaled_vigor.canvas.draw()
 
     plot_config = get_plot_config()
     analysis_utils.add_component(
@@ -777,9 +864,21 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold",  "rotation": 90},
         ),
     )
+    analysis_utils.add_component(
+        fig_scaled_vigor,
+        analysis_utils.AddTextSpec(
+            component="supylabel",
+            text="Scaled vigor (AU)",
+            anchor_h="left",
+            anchor_v="center",
+            pad_pt=plot_config.pad_supylabel,
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold",  "rotation": 90},
+        ),
+    )
 
     fig_raw.canvas.draw()
     fig_vigor.canvas.draw()
+    fig_scaled_vigor.canvas.draw()
 
     analysis_utils.add_component(
         fig_raw,
@@ -803,9 +902,21 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
         ),
     )
+    analysis_utils.add_component(
+        fig_scaled_vigor,
+        analysis_utils.AddTextSpec(
+            component="supxlabel",
+            text="Time relative to CS onset (s)",
+            anchor_h="center",
+            anchor_v="bottom",
+            pad_pt=plot_config.pad_supxlabel,
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
+        ),
+    )
 
     fig_raw.canvas.draw()
     fig_vigor.canvas.draw()
+    fig_scaled_vigor.canvas.draw()
 
     # Add figure titles
     analysis_utils.add_component(
@@ -830,10 +941,22 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             text_kwargs={"fontsize": plot_config.fontsize_axis_label, "va": "bottom"},
         ),
     )
+    analysis_utils.add_component(
+        fig_scaled_vigor,
+        analysis_utils.AddTextSpec(
+            component="fig_title",
+            text=f"Example {cond.capitalize()} fish",
+            anchor_h="right",
+            anchor_v="top",
+            pad_pt=plot_config.pad_fig_title,
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "va": "bottom"},
+        ),
+    )
 
     # Render once so text extents are available for consistent panel-label placement.
     fig_raw.canvas.draw()
     fig_vigor.canvas.draw()
+    fig_scaled_vigor.canvas.draw()
 
     # Panel labels
     analysis_utils.add_component(
@@ -859,6 +982,17 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
             text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
         ),
     )
+    analysis_utils.add_component(
+        fig_scaled_vigor,
+        analysis_utils.AddTextSpec(
+            component="text",
+            text="E",
+            anchor_h="left",
+            anchor_v="top",
+            pad_pt=plot_config.pad_panel_label,
+            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
+        ),
+    )
 
     figure_saving.save_figure(
         fig_raw,
@@ -871,6 +1005,14 @@ def run_traces(fish_id=None, trials_list=None, experiment_type=None, _emit_statu
     figure_saving.save_figure(
         fig_vigor,
         output_dir / f"vigor_{cond}.svg",
+        frmt="svg",
+        dpi=FIG_DPI,
+        transparent=False,
+        bbox_inches="tight",
+    )
+    figure_saving.save_figure(
+        fig_scaled_vigor,
+        output_dir / f"scaled_vigor_{cond}.svg",
         frmt="svg",
         dpi=FIG_DPI,
         transparent=False,
@@ -989,7 +1131,11 @@ def run_individual_trials() -> None:
                 )
                 fig_path_sc = Path(
                     str(traces_output_dir / stem_fish_path_orig)
-                    + f"_scaled vigor heatmap aligned to {csus}.{INDIVIDUAL_TRIALS_FIG_FORMAT}"
+                    + f"_scaled vigor heatmap aligned to {csus}_cmap_{INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP}_vlim_auto.{INDIVIDUAL_TRIALS_FIG_FORMAT}"
+                )
+                fig_path_sc_legacy = Path(
+                    str(traces_output_dir / stem_fish_path_orig)
+                    + f"_scaled vigor heatmap (P10-P90) aligned to {csus}_cmap_{INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP}_vlim_auto.{INDIVIDUAL_TRIALS_FIG_FORMAT}"
                 )
                 fig_path_norm = Path(
                     str(traces_output_dir / stem_fish_path_orig)
@@ -1002,14 +1148,17 @@ def run_individual_trials() -> None:
                 do_raw = INDIVIDUAL_TRIALS_RAW_VIGOR and (
                     INDIVIDUAL_TRIALS_OVERWRITE or not fig_path_raw.exists()
                 )
-                do_sc = INDIVIDUAL_TRIALS_SCALED_VIGOR and (
+                do_sc_new = INDIVIDUAL_TRIALS_SCALED_VIGOR_NEW and (
                     INDIVIDUAL_TRIALS_OVERWRITE or not fig_path_sc.exists()
+                )
+                do_sc_old = INDIVIDUAL_TRIALS_SCALED_VIGOR_OLD and (
+                    INDIVIDUAL_TRIALS_OVERWRITE or not fig_path_sc_legacy.exists()
                 )
                 do_norm = INDIVIDUAL_TRIALS_NORMALIZED_VIGOR_TRIAL and (
                     INDIVIDUAL_TRIALS_OVERWRITE or not fig_path_norm.exists()
                 )
 
-                if not any([do_tail, do_raw, do_sc, do_norm]):
+                if not any([do_tail, do_raw, do_sc_new, do_sc_old, do_norm]):
                     print(f"Skip {csus} {fish_id}: all figures exist")
                     continue
 
@@ -1270,7 +1419,7 @@ def run_individual_trials() -> None:
                     for b_i, b in enumerate(phases_names):
                         sns.heatmap(
                             data_plot[data_plot.index.isin(phases_trials[b_i])],
-                            cbar=False,
+                            cbar=True,
                             robust=False,
                             xticklabels=xtick_step_raw,
                             yticklabels=False,
@@ -1365,57 +1514,77 @@ def run_individual_trials() -> None:
                         bbox_inches="tight",
                     )
 
-                if do_sc:
-                    data_plot = data.copy(deep=True)
-                    data_plot = data_plot[data_plot["Block name"] != ""]
-                    data_plot = data_plot[
-                        data_plot["Trial time (s)"].between(-INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S, INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S)
+                if do_sc_new or do_sc_old:
+                    data_base = data.copy(deep=True)
+                    data_base = data_base[data_base["Block name"] != ""]
+                    data_base = data_base[
+                        data_base["Trial time (s)"].between(-INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S, INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S)
                     ]
-                    data_plot.loc[~data_plot["Bout"], "Vigor (deg/ms)"] = np.nan
+                    data_base["Vigor (deg/ms)"] = data_base["Vigor (deg/ms)"].astype("float64")
+                    data_base.loc[~data_base["Bout"], "Vigor (deg/ms)"] = np.nan
+                    data_plot = pd.DataFrame()
+                    data_plot_legacy = pd.DataFrame()
 
-                    for t in data_plot["Trial number"].unique():
-                        mask_trial = data_plot["Trial number"] == t
-                        data_trial = data_plot.loc[mask_trial].copy(deep=True)
+                    if do_sc_new:
+                        data_plot = data_base.copy(deep=True)
+                        for t in data_plot["Trial number"].unique():
+                            mask_trial = data_plot["Trial number"] == t
+                            data_trial = data_plot.loc[mask_trial].copy(deep=True)
+                            vigor_raw = data_trial["Vigor (deg/ms)"].to_numpy(dtype="float64")
+                            data_trial["Vigor (deg/ms)"] = np.where(
+                                vigor_raw > 0, np.log(vigor_raw), np.nan
+                            )
+                            mask_baseline = data_trial["Trial time (s)"] < -gen_config.baseline_window
+                            baseline_vigor = data_trial.loc[mask_baseline, "Vigor (deg/ms)"].dropna().values
+                            if baseline_vigor.size == 0:
+                                data_plot.loc[mask_trial, "Vigor (deg/ms)"] = np.nan
+                                continue  # Skip this trial if no baseline data
+                            median_baseline_vigor = np.nanmedian(baseline_vigor)
+                            data_trial["Vigor (deg/ms)"] = data_trial["Vigor (deg/ms)"] - median_baseline_vigor
+                            beg_bouts_trial, end_bouts_trial = analysis_utils.find_events(
+                                data_trial, "Bout beg", "Bout end", "Trial time (s)"
+                            )
+                            for bout_b, bout_e in zip(beg_bouts_trial, end_bouts_trial):
+                                mask_bout = data_trial["Trial time (s)"].between(bout_b, bout_e)
+                                median_vigor = data_trial.loc[mask_bout, "Vigor (deg/ms)"].median()
+                                data_trial.loc[mask_bout, "Vigor (deg/ms)"] = median_vigor
+                            data_plot.loc[mask_trial] = data_trial
 
-                        beg_bouts_trial, end_bouts_trial = analysis_utils.find_events(
-                            data_trial, "Bout beg", "Bout end", "Trial time (s)"
-                        )
+                        data_plot.loc[~data_plot["Bout"], "Vigor (deg/ms)"] = np.nan
+                        data_plot = _trial_vigor_to_heatmap_matrix(data_plot)
 
-                        for bout_b, bout_e in zip(beg_bouts_trial, end_bouts_trial):
-                            mask_bout = data_trial["Trial time (s)"].between(bout_b, bout_e)
-                            mean_vigor = data_trial.loc[mask_bout, "Vigor (deg/ms)"].mean()
-                            data_trial.loc[mask_bout, "Vigor (deg/ms)"] = mean_vigor
+                    if do_sc_old:
+                        data_plot_legacy = data_base.copy(deep=True)
+                        for t in data_plot_legacy["Trial number"].unique():
+                            mask_trial = data_plot_legacy["Trial number"] == t
+                            data_trial = data_plot_legacy.loc[mask_trial].copy(deep=True)
 
-                        mask_baseline = data_trial["Trial time (s)"] < -gen_config.baseline_window
-                        baseline_vigor = data_trial.loc[mask_baseline, "Vigor (deg/ms)"].dropna().values
+                            beg_bouts_trial, end_bouts_trial = analysis_utils.find_events(
+                                data_trial, "Bout beg", "Bout end", "Trial time (s)"
+                            )
+                            for bout_b, bout_e in zip(beg_bouts_trial, end_bouts_trial):
+                                mask_bout = data_trial["Trial time (s)"].between(bout_b, bout_e)
+                                median_vigor = data_trial.loc[mask_bout, "Vigor (deg/ms)"].median()
+                                data_trial.loc[mask_bout, "Vigor (deg/ms)"] = median_vigor
 
-                        if baseline_vigor.size == 0:
-                            continue
+                            mask_baseline = data_trial["Trial time (s)"] < -gen_config.baseline_window
+                            baseline_vigor = data_trial.loc[mask_baseline, "Vigor (deg/ms)"].dropna().values
+                            if baseline_vigor.size == 0:
+                                data_plot_legacy.loc[mask_trial, "Vigor (deg/ms)"] = np.nan
+                                continue
+                            min_vigor_pre_stim, max_vigor_pre_stim = np.quantile(baseline_vigor, [0.1, 0.9])
+                            if np.isnan(max_vigor_pre_stim) or min_vigor_pre_stim == max_vigor_pre_stim:
+                                data_plot_legacy.loc[mask_trial, "Vigor (deg/ms)"] = np.nan
+                                continue
+                            data_trial.loc[mask_trial, "Vigor (deg/ms)"] = (
+                                (data_trial.loc[mask_trial, "Vigor (deg/ms)"] - min_vigor_pre_stim)
+                                / (max_vigor_pre_stim - min_vigor_pre_stim)
+                            )
+                            data_trial["Vigor (deg/ms)"] = data_trial["Vigor (deg/ms)"].clip(0, 1)
+                            data_plot_legacy.loc[mask_trial] = data_trial
 
-                        min_vigor_pre_stim, max_vigor_pre_stim = np.quantile(baseline_vigor, [0.1, 0.9])
-
-                        if np.isnan(max_vigor_pre_stim) or min_vigor_pre_stim == max_vigor_pre_stim:
-                            continue
-
-                        data_trial.loc[mask_trial, "Vigor (deg/ms)"] = (
-                            (data_trial.loc[mask_trial, "Vigor (deg/ms)"] - min_vigor_pre_stim)
-                            / (max_vigor_pre_stim - min_vigor_pre_stim)
-                        )
-
-                        data_trial["Vigor (deg/ms)"] = data_trial["Vigor (deg/ms)"].clip(0, 1)
-                        data_plot.loc[mask_trial] = data_trial
-
-                    data_plot.loc[~data_plot["Bout"], "Vigor (deg/ms)"] = np.nan
-                    data_plot = (
-                        data_plot[["Trial time (s)", "Trial number", "Vigor (deg/ms)"]]
-                        .pivot(index="Trial time (s)", columns="Trial number")
-                        .reset_index()
-                        .set_index("Trial time (s)")
-                        .droplevel(0, axis=1)
-                        .T
-                    )
-
-                    data_plot.columns = data_plot.columns.astype("int")
+                        data_plot_legacy.loc[~data_plot_legacy["Bout"], "Vigor (deg/ms)"] = np.nan
+                        data_plot_legacy = _trial_vigor_to_heatmap_matrix(data_plot_legacy)
 
                     if csus == "CS":
                         phases_trial_numbers = config.trials_cs_blocks_phases
@@ -1423,230 +1592,414 @@ def run_individual_trials() -> None:
                     else:
                         phases_trial_numbers = config.trials_us_blocks_phases
                         phases_block_names = config.names_us_blocks_phases or ["Train"]
+                    scaled_vigor_gridspec_kw = {
+                        "height_ratios": [len(b) for b in phases_trial_numbers],
+                        "hspace": 0.025,
+                    }
 
-                    fig, axs = plt.subplots(
-                        len(phases_trial_numbers),
-                        1,
-                        facecolor="white",
-                        gridspec_kw={
-                            "height_ratios": [len(b) for b in phases_trial_numbers],
-                            "hspace": 0.025,
-                        },
-                        squeeze=False,
-                        constrained_layout=False,
-                        figsize=(5 / 2.54, 6 / 2.54),
-                    )
+                    if do_sc_new:
+                        scaled_vigor_vmin, scaled_vigor_vmax = _compute_blockwise_symmetric_vlims(
+                            data_plot,
+                            phases_trial_numbers,
+                        )
+                        fig, axs = plt.subplots(
+                            len(phases_trial_numbers),
+                            1,
+                            facecolor="black",
+                            gridspec_kw=scaled_vigor_gridspec_kw,
+                            squeeze=False,
+                            constrained_layout=False,
+                            figsize=SCALED_VIGOR_FIGSIZE,
+                        )
+                        supylabel = None
+                        title_ax_idx = 0
 
-                    supylabel = None
-                    title_ax_idx = 0
-
-                    if csus == "CS":
-                        for b_i, b in enumerate(phases_block_names):
-                            show_xticks = b_i == len(phases_block_names) - 1
+                        if csus == "CS":
+                            for b_i, b in enumerate(phases_block_names):
+                                show_xticks = b_i == len(phases_block_names) - 1
+                                sns.heatmap(
+                                    data_plot[data_plot.index.isin(phases_trial_numbers[b_i])],
+                                    cbar=True,
+                                    robust=False,
+                                    xticklabels=xtick_step_scaled if show_xticks else False,
+                                    yticklabels=False,
+                                    ax=axs[b_i][0],
+                                    clip_on=False,
+                                    vmin=INDIVIDUAL_TRIALS_SCALED_VIGOR_VMIN,
+                                    vmax=INDIVIDUAL_TRIALS_SCALED_VIGOR_VMAX,
+                                    cmap=INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP,
+                                    rasterized=True,
+                                )
+                                trials_in_this_block = data_plot[data_plot.index.isin(phases_trial_numbers[b_i])].index
+                                for tr_i, tr in enumerate(trials_in_this_block):
+                                    if tr in trials_to_mark:
+                                        axs[b_i][0].plot(
+                                            1.025,
+                                            tr_i + 0.5,
+                                            marker="<",
+                                            color="k",
+                                            transform=axs[b_i][0].get_yaxis_transform(),
+                                            clip_on=False,
+                                            zorder=20,
+                                            markersize=3,
+                                        )
+                                axs[b_i][0].set_xlabel("")
+                                axs[b_i][0].set_ylabel("")
+                                xlims = axs[b_i][0].get_xlim()
+                                middle = np.mean(xlims)
+                                factor = (xlims[-1] - xlims[0]) / (INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S * 2)
+                                axs[b_i][0].axvline(
+                                    middle,
+                                    color=gen_config.plotting.cs_color,
+                                    alpha=0.75,
+                                    lw=2,
+                                    linestyle="-",
+                                    zorder=10,
+                                )
+                                axs[b_i][0].axvline(
+                                    middle + config.cs_duration * factor,
+                                    color=gen_config.plotting.cs_color,
+                                    alpha=0.75,
+                                    lw=2,
+                                    linestyle="-",
+                                    zorder=10,
+                                )
+                                axs[b_i][0].set_facecolor("black")
+                                axs[b_i][0].set_rasterization_zorder(0)
+                            axs[-1][0].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
+                            analysis_utils.add_component(
+                                fig,
+                                analysis_utils.AddTextSpec(
+                                    component="supxlabel",
+                                    text=f"Time relative to \n{csus} onset (s)",
+                                    anchor_h="center",
+                                    anchor_v="bottom",
+                                    pad_pt=plot_config.pad_supxlabel,
+                                    text_kwargs={"fontweight": "bold"},
+                                ),
+                            )
+                        else:
+                            train_idx = 1 if len(phases_trial_numbers) > 1 else 0
                             sns.heatmap(
-                                data_plot[data_plot.index.isin(phases_trial_numbers[b_i])],
-                                cbar=False,
+                                data_plot[data_plot.index.isin(phases_trial_numbers[train_idx])],
+                                cbar=True,
                                 robust=False,
-                                xticklabels=xtick_step_scaled if show_xticks else False,
+                                xticklabels=xtick_step_scaled,
                                 yticklabels=False,
-                                ax=axs[b_i][0],
+                                ax=axs[train_idx][0],
                                 clip_on=False,
-                                vmin=0,
-                                vmax=1,
+                                vmin=scaled_vigor_vmin,
+                                vmax=scaled_vigor_vmax,
+                                cmap=INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP,
                                 rasterized=True,
                             )
-
-                            trials_in_this_block = data_plot[data_plot.index.isin(phases_trial_numbers[b_i])].index
+                            trials_in_this_block = data_plot[data_plot.index.isin(phases_trial_numbers[train_idx])].index
                             for tr_i, tr in enumerate(trials_in_this_block):
                                 if tr in trials_to_mark:
-                                    axs[b_i][0].plot(
+                                    axs[train_idx][0].plot(
                                         1.025,
                                         tr_i + 0.5,
                                         marker="<",
                                         color="k",
-                                        transform=axs[b_i][0].get_yaxis_transform(),
+                                        transform=axs[train_idx][0].get_yaxis_transform(),
                                         clip_on=False,
                                         zorder=20,
                                         markersize=3,
                                     )
-
-                            axs[b_i][0].set_xlabel("")
-                            axs[b_i][0].set_ylabel("")
-
-                            xlims = axs[b_i][0].get_xlim()
+                            xlims = axs[train_idx][0].get_xlim()
                             middle = np.mean(xlims)
-                            factor = (xlims[-1] - xlims[0]) / (INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S * 2)
-
-                            axs[b_i][0].axvline(
+                            axs[train_idx][0].set_facecolor("black")
+                            axs[train_idx][0].set_rasterization_zorder(0)
+                            axs[train_idx][0].set_xlabel("")
+                            axs[train_idx][0].set_ylabel("")
+                            title_ax_idx = train_idx
+                            for i in range(len(phases_trial_numbers)):
+                                if i != train_idx:
+                                    axs[i][0].set_visible(False)
+                            axs[train_idx][0].axvline(
                                 middle,
-                                color=gen_config.plotting.cs_color,
+                                color=gen_config.plotting.us_color,
                                 alpha=0.75,
                                 lw=2,
                                 linestyle="-",
                                 zorder=10,
                             )
-                            axs[b_i][0].axvline(
-                                middle + config.cs_duration * factor,
-                                color=gen_config.plotting.cs_color,
-                                alpha=0.75,
-                                lw=2,
-                                linestyle="-",
-                                zorder=10,
+                            cs_rows_total = sum(len(block) for block in config.trials_cs_blocks_phases)
+                            us_rows_total = sum(len(block) for block in phases_trial_numbers)
+                            train_rows = len(trials_in_this_block)
+                            train_block_len = len(phases_trial_numbers[train_idx])
+                            if cs_rows_total > 0 and us_rows_total > 0 and train_rows > 0 and train_block_len > 0:
+                                pos = axs[train_idx][0].get_position()
+                                total_height = pos.height * (us_rows_total / train_block_len)
+                                target_height = total_height * (train_rows / cs_rows_total)
+                                new_y0 = pos.y0 + (pos.height - target_height) / 2
+                                new_y0 = max(0, min(new_y0, 1 - target_height))
+                                axs[train_idx][0].set_position([pos.x0, new_y0, pos.width, target_height])
+                            axs[train_idx][0].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
+                            analysis_utils.add_component(
+                                fig,
+                                analysis_utils.AddTextSpec(
+                                    component="supxlabel",
+                                    text=f"Time relative to \n{csus} onset (s)",
+                                    anchor_h="center",
+                                    anchor_v="bottom",
+                                    pad_pt=plot_config.pad_supxlabel,
+                                    text_kwargs={"fontweight": "bold"},
+                                ),
                             )
-
-                            axs[b_i][0].set_facecolor("k")
-                            axs[b_i][0].set_rasterization_zorder(0)
-
-                        axs[-1][0].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
+                        fig.canvas.draw()
+                        xlabels = [t.get_text() for t in axs[-1][0].get_xticklabels()]
+                        axs[-1][0].xaxis.label.set_visible(False)
+                        axs[-1][0].set_xticklabels([])
+                        axs[-1][0].tick_params(axis="x", which="both", bottom=False, labelbottom=False)
+                        fig.canvas.draw()
+                        for b_i, b in enumerate(phases_block_names):
+                            analysis_utils.add_component(
+                                axs[b_i][0],
+                                analysis_utils.AddTextSpec(
+                                    component="supylabel",
+                                    text=b,
+                                    anchor_h="left",
+                                    anchor_v="center",
+                                    pad_pt=(0, 0),
+                                    text_kwargs={"rotation": 90, "fontweight": "bold", "color": "k"},
+                                ),
+                            )
+                        axs[-1][0].set_xticklabels(xlabels)
+                        axs[-1][0].tick_params(axis="x", which="both", bottom=True, labelbottom=True)
                         analysis_utils.add_component(
-                            fig,
+                            axs[title_ax_idx][0],
                             analysis_utils.AddTextSpec(
-                                component="supxlabel",
-                                text=f"Time relative to \n{csus} onset (s)",
-                                anchor_h="center",
-                                anchor_v="bottom",
-                                pad_pt=plot_config.pad_supxlabel,
-                                text_kwargs={"fontweight": "bold"},
-                            ),
-                        )
-
-                    else:
-                        train_idx = 1 if len(phases_trial_numbers) > 1 else 0
-                        sns.heatmap(
-                            data_plot[data_plot.index.isin(phases_trial_numbers[train_idx])],
-                            cbar=False,
-                            robust=False,
-                            xticklabels=xtick_step_scaled,
-                            yticklabels=False,
-                            ax=axs[train_idx][0],
-                            clip_on=False,
-                            vmin=0,
-                            vmax=1,
-                            rasterized=True,
-                        )
-
-                        trials_in_this_block = data_plot[data_plot.index.isin(phases_trial_numbers[train_idx])].index
-                        for tr_i, tr in enumerate(trials_in_this_block):
-                            if tr in trials_to_mark:
-                                axs[train_idx][0].plot(
-                                    1.025,
-                                    tr_i + 0.5,
-                                    marker="<",
-                                    color="k",
-                                    transform=axs[train_idx][0].get_yaxis_transform(),
-                                    clip_on=False,
-                                    zorder=20,
-                                    markersize=3,
-                                )
-
-                        xlims = axs[train_idx][0].get_xlim()
-                        middle = np.mean(xlims)
-
-                        axs[train_idx][0].set_facecolor("k")
-                        axs[train_idx][0].set_rasterization_zorder(0)
-                        
-                        axs[train_idx][0].set_xlabel("")
-                        axs[train_idx][0].set_ylabel("")
-
-                        title_ax_idx = train_idx
-
-                        for i in range(len(phases_trial_numbers)):
-                            if i != train_idx:
-                                axs[i][0].set_visible(False)
-
-                        axs[train_idx][0].axvline(
-                            middle,
-                            color=gen_config.plotting.us_color,
-                            alpha=0.75,
-                            lw=2,
-                            linestyle="-",
-                            zorder=10,
-                        )
-
-                        cs_rows_total = sum(len(block) for block in config.trials_cs_blocks_phases)
-                        us_rows_total = sum(len(block) for block in phases_trial_numbers)
-                        train_rows = len(trials_in_this_block)
-                        train_block_len = len(phases_trial_numbers[train_idx])
-                        if cs_rows_total > 0 and us_rows_total > 0 and train_rows > 0 and train_block_len > 0:
-                            pos = axs[train_idx][0].get_position()
-                            total_height = pos.height * (us_rows_total / train_block_len)
-                            target_height = total_height * (train_rows / cs_rows_total)
-                            new_y0 = pos.y0 + (pos.height - target_height) / 2
-                            new_y0 = max(0, min(new_y0, 1 - target_height))
-                            axs[train_idx][0].set_position([pos.x0, new_y0, pos.width, target_height])
-
-                        axs[train_idx][0].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
-                        analysis_utils.add_component(
-                            fig,
-                            analysis_utils.AddTextSpec(
-                                component="supxlabel",
-                                text=f"Time relative to \n{csus} onset (s)",
-                                anchor_h="center",
-                                anchor_v="bottom",
-                                pad_pt=plot_config.pad_supxlabel,
-                                text_kwargs={"fontweight": "bold"},
-                            ),
-                        )
-
-
-                    # Capture tick labels as strings before clearing (Text objects become stale)
-                    fig.canvas.draw()  # Need to draw first to populate the tick labels
-                    xlabels = [t.get_text() for t in axs[-1][0].get_xticklabels()]
-                    axs[-1][0].xaxis.label.set_visible(False)
-                    axs[-1][0].set_xticklabels([])
-                    axs[-1][0].tick_params(axis="x", which="both", bottom=False, labelbottom=False)
-                    
-                    fig.canvas.draw()
-
-
-                    for b_i, b in enumerate(phases_block_names):
-                        analysis_utils.add_component(
-                            axs[b_i][0],
-                            analysis_utils.AddTextSpec(
-                                component="supylabel",
-                                text=b,
-                                anchor_h="left",
-                                anchor_v="center",
+                                component="axis_title",
+                                text=f"Example {cond.capitalize()} fish",
+                                anchor_h="right",
+                                anchor_v="top",
                                 pad_pt=(0, 0),
-                                text_kwargs={"rotation": 90, "fontweight": "bold", "color": "k"},
+                                text_kwargs={"fontsize": plot_config.figure_titlesize, "color": "k"},
                             ),
                         )
+                        analysis_utils.add_component(
+                            fig,
+                            analysis_utils.AddTextSpec(
+                                component="text",
+                                text="E",
+                                anchor_h="left",
+                                anchor_v="top",
+                                pad_pt=plot_config.pad_panel_label,
+                                text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
+                            ),
+                        )
+                        figure_saving.save_figure(
+                            fig,
+                            fig_path_sc,
+                            frmt=INDIVIDUAL_TRIALS_FIG_FORMAT,
+                            dpi=1000,
+                            transparent=False,
+                            bbox_inches="tight",
+                        )
+                        plt.close(fig)
 
-                    axs[-1][0].set_xticklabels(xlabels)
-                    axs[-1][0].tick_params(axis="x", which="both", bottom=True, labelbottom=True)
+                    if do_sc_old:
+                        scaled_vigor_legacy_vmin, scaled_vigor_legacy_vmax = _compute_blockwise_symmetric_vlims(
+                            data_plot_legacy,
+                            phases_trial_numbers,
+                        )
+                        fig, axs = plt.subplots(
+                            len(phases_trial_numbers),
+                            1,
+                            facecolor="white",
+                            gridspec_kw=scaled_vigor_gridspec_kw,
+                            squeeze=False,
+                            constrained_layout=False,
+                            figsize=SCALED_VIGOR_FIGSIZE,
+                        )
+                        supylabel = None
+                        title_ax_idx = 0
 
-                    analysis_utils.add_component(
-                        axs[title_ax_idx][0],
-                        analysis_utils.AddTextSpec(
-                            component="axis_title",
-                            text=f"Example {cond.capitalize()} fish",
-                            anchor_h="right",
-                            anchor_v="top",
-                            pad_pt=(0, 0),
-                            text_kwargs={"fontsize": plot_config.figure_titlesize, "color": "k"},
-                        ),
-                    )
-
-                    analysis_utils.add_component(
-                        fig,
-                        analysis_utils.AddTextSpec(
-                            component="text",
-                            text="E",
-                            anchor_h="left",
-                            anchor_v="top",
-                            pad_pt=plot_config.pad_panel_label,
-                            text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
-                        ),
-                    )
-
-                    figure_saving.save_figure(
-                        fig,
-                        fig_path_sc,
-                        frmt=INDIVIDUAL_TRIALS_FIG_FORMAT,
-                        dpi=1000,
-                        transparent=False,
-                        bbox_inches="tight",
-                    )
+                        if csus == "CS":
+                            for b_i, b in enumerate(phases_block_names):
+                                show_xticks = b_i == len(phases_block_names) - 1
+                                sns.heatmap(
+                                    data_plot_legacy[data_plot_legacy.index.isin(phases_trial_numbers[b_i])],
+                                    cbar=True,
+                                    robust=False,
+                                    xticklabels=xtick_step_scaled if show_xticks else False,
+                                    yticklabels=False,
+                                    ax=axs[b_i][0],
+                                    clip_on=False,
+                                    vmin=scaled_vigor_legacy_vmin,
+                                    vmax=scaled_vigor_legacy_vmax,
+                                    cmap=INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP,
+                                    rasterized=True,
+                                )
+                                trials_in_this_block = data_plot_legacy[data_plot_legacy.index.isin(phases_trial_numbers[b_i])].index
+                                for tr_i, tr in enumerate(trials_in_this_block):
+                                    if tr in trials_to_mark:
+                                        axs[b_i][0].plot(
+                                            1.025,
+                                            tr_i + 0.5,
+                                            marker="<",
+                                            color="k",
+                                            transform=axs[b_i][0].get_yaxis_transform(),
+                                            clip_on=False,
+                                            zorder=20,
+                                            markersize=3,
+                                        )
+                                axs[b_i][0].set_xlabel("")
+                                axs[b_i][0].set_ylabel("")
+                                xlims = axs[b_i][0].get_xlim()
+                                middle = np.mean(xlims)
+                                factor = (xlims[-1] - xlims[0]) / (INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S * 2)
+                                axs[b_i][0].axvline(
+                                    middle,
+                                    color=gen_config.plotting.cs_color,
+                                    alpha=0.75,
+                                    lw=2,
+                                    linestyle="-",
+                                    zorder=10,
+                                )
+                                axs[b_i][0].axvline(
+                                    middle + config.cs_duration * factor,
+                                    color=gen_config.plotting.cs_color,
+                                    alpha=0.75,
+                                    lw=2,
+                                    linestyle="-",
+                                    zorder=10,
+                                )
+                                axs[b_i][0].set_facecolor("k")
+                                axs[b_i][0].set_rasterization_zorder(0)
+                            axs[-1][0].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
+                            analysis_utils.add_component(
+                                fig,
+                                analysis_utils.AddTextSpec(
+                                    component="supxlabel",
+                                    text=f"Time relative to \n{csus} onset (s)",
+                                    anchor_h="center",
+                                    anchor_v="bottom",
+                                    pad_pt=plot_config.pad_supxlabel,
+                                    text_kwargs={"fontweight": "bold"},
+                                ),
+                            )
+                        else:
+                            train_idx = 1 if len(phases_trial_numbers) > 1 else 0
+                            sns.heatmap(
+                                data_plot_legacy[data_plot_legacy.index.isin(phases_trial_numbers[train_idx])],
+                                cbar=True,
+                                robust=False,
+                                xticklabels=xtick_step_scaled,
+                                yticklabels=False,
+                                ax=axs[train_idx][0],
+                                clip_on=False,
+                                vmin=scaled_vigor_legacy_vmin,
+                                vmax=scaled_vigor_legacy_vmax,
+                                cmap=INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP,
+                                rasterized=True,
+                            )
+                            trials_in_this_block = data_plot_legacy[data_plot_legacy.index.isin(phases_trial_numbers[train_idx])].index
+                            for tr_i, tr in enumerate(trials_in_this_block):
+                                if tr in trials_to_mark:
+                                    axs[train_idx][0].plot(
+                                        1.025,
+                                        tr_i + 0.5,
+                                        marker="<",
+                                        color="k",
+                                        transform=axs[train_idx][0].get_yaxis_transform(),
+                                        clip_on=False,
+                                        zorder=20,
+                                        markersize=3,
+                                    )
+                            xlims = axs[train_idx][0].get_xlim()
+                            middle = np.mean(xlims)
+                            axs[train_idx][0].set_facecolor("k")
+                            axs[train_idx][0].set_rasterization_zorder(0)
+                            axs[train_idx][0].set_xlabel("")
+                            axs[train_idx][0].set_ylabel("")
+                            title_ax_idx = train_idx
+                            for i in range(len(phases_trial_numbers)):
+                                if i != train_idx:
+                                    axs[i][0].set_visible(False)
+                            axs[train_idx][0].axvline(
+                                middle,
+                                color=gen_config.plotting.us_color,
+                                alpha=0.75,
+                                lw=2,
+                                linestyle="-",
+                                zorder=10,
+                            )
+                            cs_rows_total = sum(len(block) for block in config.trials_cs_blocks_phases)
+                            us_rows_total = sum(len(block) for block in phases_trial_numbers)
+                            train_rows = len(trials_in_this_block)
+                            train_block_len = len(phases_trial_numbers[train_idx])
+                            if cs_rows_total > 0 and us_rows_total > 0 and train_rows > 0 and train_block_len > 0:
+                                pos = axs[train_idx][0].get_position()
+                                total_height = pos.height * (us_rows_total / train_block_len)
+                                target_height = total_height * (train_rows / cs_rows_total)
+                                new_y0 = pos.y0 + (pos.height - target_height) / 2
+                                new_y0 = max(0, min(new_y0, 1 - target_height))
+                                axs[train_idx][0].set_position([pos.x0, new_y0, pos.width, target_height])
+                            axs[train_idx][0].tick_params(axis="both", which="both", bottom=True, top=False, right=False, direction="out")
+                            analysis_utils.add_component(
+                                fig,
+                                analysis_utils.AddTextSpec(
+                                    component="supxlabel",
+                                    text=f"Time relative to \n{csus} onset (s)",
+                                    anchor_h="center",
+                                    anchor_v="bottom",
+                                    pad_pt=plot_config.pad_supxlabel,
+                                    text_kwargs={"fontweight": "bold"},
+                                ),
+                            )
+                        fig.canvas.draw()
+                        xlabels = [t.get_text() for t in axs[-1][0].get_xticklabels()]
+                        axs[-1][0].xaxis.label.set_visible(False)
+                        axs[-1][0].set_xticklabels([])
+                        axs[-1][0].tick_params(axis="x", which="both", bottom=False, labelbottom=False)
+                        fig.canvas.draw()
+                        for b_i, b in enumerate(phases_block_names):
+                            analysis_utils.add_component(
+                                axs[b_i][0],
+                                analysis_utils.AddTextSpec(
+                                    component="supylabel",
+                                    text=b,
+                                    anchor_h="left",
+                                    anchor_v="center",
+                                    pad_pt=(0, 0),
+                                    text_kwargs={"rotation": 90, "fontweight": "bold", "color": "k"},
+                                ),
+                            )
+                        axs[-1][0].set_xticklabels(xlabels)
+                        axs[-1][0].tick_params(axis="x", which="both", bottom=True, labelbottom=True)
+                        analysis_utils.add_component(
+                            axs[title_ax_idx][0],
+                            analysis_utils.AddTextSpec(
+                                component="axis_title",
+                                text=f"Example {cond.capitalize()} fish",
+                                anchor_h="right",
+                                anchor_v="top",
+                                pad_pt=(0, 0),
+                                text_kwargs={"fontsize": plot_config.figure_titlesize, "color": "k"},
+                            ),
+                        )
+                        analysis_utils.add_component(
+                            fig,
+                            analysis_utils.AddTextSpec(
+                                component="text",
+                                text="E",
+                                anchor_h="left",
+                                anchor_v="top",
+                                pad_pt=plot_config.pad_panel_label,
+                                text_kwargs={"fontsize": plot_config.fontsize_axis_label, "fontweight": "bold"},
+                            ),
+                        )
+                        figure_saving.save_figure(
+                            fig,
+                            fig_path_sc_legacy,
+                            frmt=INDIVIDUAL_TRIALS_FIG_FORMAT,
+                            dpi=1000,
+                            transparent=False,
+                            bbox_inches="tight",
+                        )
+                        plt.close(fig)
 
                 if do_norm:
                     data_plot = data.copy(deep=True)
@@ -1966,4 +2319,6 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 # endregion Main
+
+
 
