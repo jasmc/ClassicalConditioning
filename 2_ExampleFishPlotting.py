@@ -118,17 +118,17 @@ RUN_TRAJECTORY = False
 # General Parameters
 # ------------------------------------------------------------------------------
 OVERWRITE_FIGURES = True
-FIG_SIZE_IN = (5 / 2.54, 6 / 2.54)
+FIG_SIZE_IN = (5 / 2.54, 6 / 2.54) 
 FIG_DPI = 600
 
 # ------------------------------------------------------------------------------
 # Traces Parameters
 # ------------------------------------------------------------------------------
 TRACES_EXPERIMENT_TYPE = [
-    # ExperimentType.ALL_DELAY.value,
+    ExperimentType.ALL_DELAY.value,
     # ExperimentType.ALL_3S_TRACE.value,
     # ExperimentType.ALL_10S_TRACE.value,
-    ExperimentType.ALL_DELAY.value,
+    # ExperimentType.ALL_DELAY.value,
 ]
 TRACES_FISH_ID = [
     '20221115_07',
@@ -163,14 +163,14 @@ INDIVIDUAL_TRIALS_SCALED_VIGOR_NEW = True
 INDIVIDUAL_TRIALS_SCALED_VIGOR_OLD = False
 INDIVIDUAL_TRIALS_NORMALIZED_VIGOR_TRIAL = False
 INDIVIDUAL_TRIALS_METRIC = gen_config.tail_angle_label
-INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S = 40
+INDIVIDUAL_TRIALS_WINDOW_DATA_PLOT_S = 20
 INDIVIDUAL_TRIALS_INTERVAL_BETWEEN_XTICKS_S = 20
-INDIVIDUAL_TRIALS_FIG_FORMAT = 'png'
-INDIVIDUAL_TRIALS_STIMULI = ["CS"]
-SCALED_VIGOR_FIGSIZE = (5 / 2.54, 6 / 2.54)
+INDIVIDUAL_TRIALS_FIG_FORMAT = 'svg'
+INDIVIDUAL_TRIALS_STIMULI = ["CS", "US"]
+SCALED_VIGOR_FIGSIZE = (2.5 / 2.54, 6 / 2.54)
 # Scaled vigor heatmap (do_sc_new): colormap and value range for log(median vigor) - median(baseline)
-INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP = "spring"
-INDIVIDUAL_TRIALS_SCALED_VIGOR_VMIN = -0.5
+INDIVIDUAL_TRIALS_SCALED_VIGOR_CMAP = "managua_r"
+INDIVIDUAL_TRIALS_SCALED_VIGOR_VMIN = -0.25
 INDIVIDUAL_TRIALS_SCALED_VIGOR_VMAX = 0.25
 
 # ------------------------------------------------------------------------------
