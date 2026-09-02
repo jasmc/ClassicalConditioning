@@ -73,7 +73,7 @@ def read_protocol(protocol_path: Path) -> Optional[pd.DataFrame]:
         protocol = pd.read_csv(str(protocol_path), sep=' ', header=0, 
                                names=['Experiment type', 'beg (ms)', 'end (ms)'], 
                                usecols=[0, 1, 2], index_col=0)
-    except:
+    except (pd.errors.ParserError, ValueError):
         protocol = pd.read_csv(str(protocol_path), sep='\t', header=0, 
                                names=['Experiment type', 'beg (ms)', 'end (ms)'], 
                                usecols=[0, 1, 2], index_col=0)

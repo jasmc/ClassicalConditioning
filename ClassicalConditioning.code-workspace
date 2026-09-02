@@ -9,6 +9,7 @@
 		"workbench.editor.pinnedTabsOnSeparateRow": true,
 		"workbench.editor.tabSizing": "fixed",
 		"editor.folding": true,
-		"editor.foldingImportsByDefault": true
+		"editor.foldingImportsByDefault": true,
+		"workbench.editor.closeEmptyGroups": false
 	}
 }

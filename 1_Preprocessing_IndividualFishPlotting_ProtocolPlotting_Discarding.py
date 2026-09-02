@@ -2,11 +2,93 @@
 Preprocessing and Individual Fish Analysis Pipeline
 ===================================================
 
-Consolidated data processing and quality control workflow:
-- Preprocessing: Read, synchronize, and process raw tracking data
-- Individual Plotting: Generate per-fish diagnostic plots
-- Protocol Visualization: Verify stimulus timing
-- Quality Control: Apply exclusion criteria and manage discarded fish
+Pipeline context — Step 1 of 6
+-------------------------------
+This is the entry point of the classical conditioning analysis pipeline. It
+ingests raw behavioral tracking data collected from larval zebrafish during a
+Pavlovian delay-conditioning protocol (CS-US pairings) and converts them into
+clean, trial-segmented, per-fish DataFrames. Downstream scripts (2–6) consume
+the compressed pickle files produced here.
+
+Scientific background
+---------------------
+In a classical conditioning paradigm, a conditioned stimulus (CS, e.g., a
+light) is repeatedly paired with an aversive unconditioned stimulus (US, e.g.,
+a mild electric shock). Over training, the animal develops a conditioned
+response (CR) — anticipatory tail movements during the CS that precede the US.
+To quantify this learning, the pipeline converts raw multi-point tail tracking
+into a single *vigor* metric (deg/ms), detects discrete swim *bouts*, and
+normalizes vigor to each trial's pre-stimulus baseline so that individual
+differences in spontaneous activity are factored out.
+
+Steps
+-----
+1. **Preprocess** (``RUN_PREPROCESS``):
+   - Discover raw tracking files (``*mp tail tracking.txt``) and their
+     companion camera (``*cam.txt``) and protocol (``*stim control.txt``) files.
+   - Load camera data, detect dropped frames, and determine the reference frame.
+   - Load tail tracking data, check for single-point tracking errors
+     (threshold ≈ 114.6 deg), and synchronize with camera timestamps via
+     interpolation to the expected framerate (700 fps).
+   - Integrate protocol (stimulus) data into the tracking DataFrame to label
+     CS/US onset and offset times.
+   - Compute cumulative tail angles across tracked segments, apply spatial and
+     temporal band-pass filtering, and derive vigor (|d(angle)/dt| in deg/ms).
+   - Detect behavioral bouts using a two-stage threshold algorithm: a primary
+     onset threshold (4 deg/ms), a secondary validation threshold (1 deg/ms),
+     minimum bout duration (40 frames), and minimum inter-bout interval
+     (10 frames).
+   - Identify individual trials and assign them to experimental blocks
+     (Pre-Train, Train, Test, and optionally Re-Train / Re-Test).
+   - Scale vigor within each trial to the 10th–90th percentile range of the
+     pre-stimulus baseline, yielding a 0–1 "scaled vigor" metric.
+   - Save the processed per-fish DataFrame as a gzip-compressed pickle
+     (``{fish_id}.pkl``).
+
+2. **Plot individual trials** (``RUN_PLOT_INDIVIDUALS``):
+   - For each processed fish, generate diagnostic plots aligned to CS and US:
+     a. Tail angle traces — raw tail angle over time for every trial.
+     b. Raw vigor heatmaps — vigor intensity across trials (seaborn heatmap).
+     c. Scaled vigor heatmaps — vigor normalized to baseline activity.
+     d. Normalized vigor summary — average vigor change (Post / Pre) per trial.
+   - Figures are saved per-fish in the configured output directory.
+
+3. **Plot protocols** (``RUN_PLOT_PROTOCOLS``):
+   - Verify the timing of CS and US delivery by plotting:
+     a. Protocol timelines from raw ``stim control`` text files.
+     b. Event histograms (per-block) from the processed DataFrames.
+   - Useful for quality control to ensure stimuli were delivered as programmed.
+
+4. **Discard** (``RUN_DISCARD``):
+   - Apply sequential exclusion criteria to identify unreliable fish:
+     a. *Viability* — the fish must have at least one bout during the US
+        window (0 to ``us_window_qc`` s) of the last US trial.
+     b. *Train-block bouts* — every Train trial must contain at least one bout
+        in the US window.
+     c. *Re-Train bouts* (if applicable) — same as (b) for Re-Train trials.
+     d. *Baseline bouts* — at least ``min_number_trials_with_bouts_per_block``
+        trials in each evaluated block must contain bouts in the pre-CS
+        baseline window (−baseline_window to 0 s).
+     e. *CR-window bouts* — same requirement during the conditioned-response
+        window (default 0–9 s post-CS).
+   - Excluded fish are logged to ``Fish to discard.txt`` /
+     ``Discarded_fish_IDs.txt``, their pickle files moved to an ``Excluded/``
+     subdirectory, and matching raw data files are relocated.
+
+Inputs
+------
+- Raw tail tracking files : ``*mp tail tracking.txt``
+- Camera frame-timing files : ``*cam.txt``
+- Protocol (stimulus) files : ``*stim control.txt``
+
+Outputs
+-------
+- Per-fish compressed pickles (``{fish_id}.pkl``) containing a DataFrame with
+  columns for tail angles, vigor, scaled vigor, bout flags, trial / block
+  identifiers, and stimulus timing markers.
+- Per-fish diagnostic figures (PNG) for each plot type selected.
+- Protocol verification figures.
+- Exclusion logs and relocated files for discarded fish.
 """
 # %%
 # region Imports
@@ -48,7 +130,7 @@ RUN_PLOT_PROTOCOLS = False
 RUN_DISCARD = False
 
 FILTER_FISH_ID = None
-EXPERIMENT_TYPE = ExperimentType.ALL_DELAY.value
+EXPERIMENT_TYPE = ExperimentType.ALL_3S_TRACE.value
 
 # ------------------------------------------------------------------------------
 # Preprocess Parameters
@@ -60,8 +142,8 @@ PREPROCESS_OVERWRITE = True
 # ------------------------------------------------------------------------------
 PLOT_INDIVIDUALS_OVERWRITE = True
 RAW_TAIL_ANGLE = False
-RAW_VIGOR = True
-SCALED_VIGOR = False
+RAW_VIGOR = False
+SCALED_VIGOR = True
 NORMALIZED_VIGOR_TRIAL = False
 METRIC_SINGLE_TRIALS = gen_config.tail_angle_label
 WINDOW_DATA_PLOT_S = 40
@@ -153,11 +235,7 @@ def run_preprocess(params: dict = None):
     if not config.path_home:
         raise ValueError('config.path_home is empty; set a valid experiment path before running')
 
-    (
-        path_lost_frames, path_summary_exp, path_summary_beh, path_processed_data,
-        path_cropped_exp_with_bout_detection, _, _, _, _, _, _, _, _, _, _,
-        path_orig_pkl, _, _
-    ) = file_utils.create_folders(config.path_save)
+    paths = file_utils.create_folders(config.path_save)
 
     # Collect raw fish files (optionally filtered by ID).
     all_fish_raw_data_paths = list(Path(config.path_home).glob('*mp tail tracking.txt'))
@@ -168,7 +246,7 @@ def run_preprocess(params: dict = None):
     for fish_path in tqdm(all_fish_raw_data_paths, desc='Preprocessing fish'):
         gc.collect()
         stem_fish_path_orig = fish_path.stem.replace('_mp tail tracking', '').lower()
-        pkl_path = path_orig_pkl / f'{stem_fish_path_orig}.pkl'
+        pkl_path = paths.orig_pkl / f'{stem_fish_path_orig}.pkl'
 
         if not PREPROCESS_OVERWRITE and pkl_path.exists():
             print('Skipping existing: %s' % stem_fish_path_orig)
@@ -179,8 +257,8 @@ def run_preprocess(params: dict = None):
         # Define related file paths
         protocol_path = str(fish_path).replace('mp tail tracking', 'stim control')
         camera_path = str(fish_path).replace('mp tail tracking', 'cam')
-        fig_camera_name = str(path_lost_frames / f'{stem_fish_path_orig}_camera.png')
-        fig_behavior_name = str(path_summary_beh / f'{stem_fish_path_orig}_behavior.png')
+        fig_camera_name = str(paths.lost_frames / f'{stem_fish_path_orig}_camera.png')
+        fig_behavior_name = str(paths.summary_beh / f'{stem_fish_path_orig}_behavior.png')
 
         # Parse Fish ID metadata
         day, strain, age, cond_type, rig, fish_number = file_utils.fish_id(stem_fish_path_orig)
@@ -377,9 +455,7 @@ def run_plot_individual_trials():
     xtick_step_scaled = max(1, int(interval_between_xticks_frames))
 
     if not config.path_save: raise ValueError('config.path_save is empty')
-    (_, _, _, _, _, path_tail_angle_fig_cs, path_tail_angle_fig_us, path_raw_vigor_fig_cs, path_raw_vigor_fig_us,
-     path_scaled_vigor_fig_cs, path_scaled_vigor_fig_us, path_normalized_fig_cs, path_normalized_fig_us,
-     _, _, path_orig_pkl, _, _) = file_utils.create_folders(config.path_save)
+    paths = file_utils.create_folders(config.path_save)
 
     for csus in ['CS', 'US']:
         print(f"Processing {csus} trials...")
@@ -394,15 +470,19 @@ def run_plot_individual_trials():
             continue
 
         if csus == 'CS':
-            path_tail_fig, path_raw_fig = path_tail_angle_fig_cs, path_raw_vigor_fig_cs
-            path_sc_fig, path_norm_fig = path_scaled_vigor_fig_cs, path_normalized_fig_cs
+            path_tail_fig = paths.tail_angle_fig_cs
+            path_raw_fig = paths.raw_vigor_fig_cs
+            path_sc_fig = paths.scaled_vigor_fig_cs
+            path_norm_fig = paths.normalized_fig_cs
             stim_duration = config.cs_duration
         else:
-            path_tail_fig, path_raw_fig = path_tail_angle_fig_us, path_raw_vigor_fig_us
-            path_sc_fig, path_norm_fig = path_scaled_vigor_fig_us, path_normalized_fig_us
+            path_tail_fig = paths.tail_angle_fig_us
+            path_raw_fig = paths.raw_vigor_fig_us
+            path_sc_fig = paths.scaled_vigor_fig_us
+            path_norm_fig = paths.normalized_fig_us
             stim_duration = gen_config.us_duration
 
-        all_fish_data_paths = list(Path(path_orig_pkl).glob('*.pkl'))
+        all_fish_data_paths = list(paths.orig_pkl.glob('*.pkl'))
         if FILTER_FISH_ID:
             all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]
 
@@ -1076,17 +1156,14 @@ def run_plot_protocols():
 
     config = get_experiment_config(EXPERIMENT_TYPE)
     
-    (
-     _, _, _, _, _, _, _, _, _, _, _, _, _, _,
-     path_analysis_protocols, path_orig_pkl, _, _
-    ) = file_utils.create_folders(config.path_save)
+    paths = file_utils.create_folders(config.path_save)
 
     # Prepare output folders for protocol figures.
-    path_fish = path_analysis_protocols / 'Single fish' / 'From processed data'
+    path_fish = paths.analysis_protocols / 'Single fish' / 'From processed data'
     path_fish.mkdir(parents=True, exist_ok=True)
     (path_fish / 'Individual trials').mkdir(exist_ok=True)
     (path_fish / 'Blocks of trials').mkdir(exist_ok=True)
-    path_sc = path_analysis_protocols / 'Single fish' / 'From stim control files'
+    path_sc = paths.analysis_protocols / 'Single fish' / 'From stim control files'
     path_sc.mkdir(parents=True, exist_ok=True)
 
     def plot_protocol_from_stimcontrol(protocol: pd.DataFrame, fig_path: Path, time_bef_first_stim_ms: int) -> None:
@@ -1164,7 +1241,7 @@ def run_plot_protocols():
 
     # Iterate processed data
     if PLOT_FROM_PROCESSED_DATA:
-        all_fish_data_paths = list(Path(path_orig_pkl).glob('*.pkl'))
+        all_fish_data_paths = list(paths.orig_pkl.glob('*.pkl'))
         if FILTER_FISH_ID:
             all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]
         
@@ -1599,31 +1676,12 @@ def run_discard():
     name_to_trials = {name: set(trials) for name, trials in zip(block_names, blocks)}
     blocks_trials_sets = [name_to_trials[name] for name in blocks_chosen]
 
-    (
-        _,
-        _,
-        _,
-        path_processed_data,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        _,
-        path_orig_pkl,
-        _,
-        _,
-    ) = file_utils.create_folders(config.path_save)
-    all_fish_data_paths = list(path_orig_pkl.glob('*.pkl'))
+    paths = file_utils.create_folders(config.path_save)
+    all_fish_data_paths = list(paths.orig_pkl.glob('*.pkl'))
     if FILTER_FISH_ID:
         all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]
 
-    excluded_dir = path_orig_pkl / 'Excluded'
+    excluded_dir = paths.orig_pkl / 'Excluded'
     excluded_dir.mkdir(exist_ok=True)
     raw_excluded_dir = None
     if config.path_home:
@@ -1637,6 +1695,7 @@ def run_discard():
     excluded_fish_ids = set()
 
     # Write analysis parameters as header to discard file.
+    path_processed_data = paths.processed_data
     with open(path_processed_data / 'Fish to discard.txt', 'a') as file:
         file.write("Analysis Parameters:\n")
         file.write(f"  Experiment type: {EXPERIMENT_TYPE}\n")

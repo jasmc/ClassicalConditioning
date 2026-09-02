@@ -1,0 +1,374 @@
+"""
+================================================================================
+CLASSICAL CONDITIONING ANALYSIS PIPELINE — DATA FLOW DESCRIPTION
+================================================================================
+
+DOCUMENTATION BASELINE
+----------------------
+- LogMedian baseline: bf46bf7b02baaf6d8138d9772f255881f86c3c78
+- Learner-stratified source commits: 505e29a and 88fe4fc
+- Cherry-picked equivalents: 4d6939f and f372101
+- LogMedian compatibility adaptations: working tree dated 2026-08-28
+
+This document describes in detail how raw behavioral tracking data from individual
+larval zebrafish is processed, merged across fish, and subsequently analyzed and
+visualized in the classical conditioning analysis pipeline. The core pipeline uses
+Steps 1 and 3-6; Step 2 is an optional example-fish figure branch, and the
+learner-stratified pipeline is an optional integrated downstream analysis.
+
+Scientific context: In a Pavlovian delay-conditioning paradigm, a conditioned
+stimulus (CS, e.g., light) is paired with an aversive unconditioned stimulus
+(US, optovin activated by violet light). Over training, the animal can develop a
+conditioned response (CR) expressed as predictive suppression of tail movement.
+The pipeline
+quantifies this learning by converting raw tail tracking into a vigor metric
+(deg/ms), detecting swim bouts, and normalizing activity to baseline.
+
+================================================================================
+STEP 1: PREPROCESSING AND INDIVIDUAL FISH ANALYSIS
+Script: 1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py
+================================================================================
+
+INPUTS
+------
+- Raw tail tracking files:  *mp tail tracking.txt
+- Camera frame-timing files: *cam.txt
+- Protocol (stimulus) files: *stim control.txt
+
+RAW DATA PROCESSING (run_preprocess)
+-----------------------------------
+
+1. FILE DISCOVERY AND METADATA
+   - Scans the experiment directory for '*mp tail tracking.txt' files.
+   - Infers companion paths: *_stim control.txt (protocol) and *_cam.txt
+     (camera timing).
+   - Parses fish ID metadata (day, strain, age, condition type, rig, fish number)
+     from filename via file_utils.fish_id().
+
+2. CAMERA AND FRAME SYNCHRONIZATION
+   - Loads camera data via data_io.read_camera().
+   - Computes predicted framerate and reference frame; detects dropped frames.
+   - Fish with high frame loss are skipped.
+   - Filters both camera and tracking data to rows with FrameID >= reference_frame_id.
+
+3. TRACKING DATA LOADING AND VALIDATION
+   - Loads tail tracking via data_io.read_tail_tracking_data().
+   - Checks for single-point tracking errors (threshold ≈ 114.6 deg) via
+     analysis_utils.tracking_errors(); fish with errors are skipped.
+   - Merges tracking with camera timestamps via analysis_utils.merge_camera_with_data().
+   - Interpolates data to the expected framerate (700 fps) via
+     analysis_utils.interpolate_data().
+
+4. PROTOCOL INTEGRATION
+   - Loads protocol via data_io.read_protocol().
+   - Verifies that tracking covers the full experiment duration.
+   - Integrates stimulus timing (CS/US onset and offset) into the tracking
+     DataFrame via analysis_utils.stim_in_data().
+   - Recomputes AbsoluteTime as a regular grid based on framerate.
+
+5. TAIL ANGLE AND VIGOR COMPUTATION
+   - Identifies angle columns ("Angle of point N (deg)") and applies cumulative
+     sum across segments.
+   - Applies spatial and temporal band-pass filtering via
+     analysis_utils.filter_data().
+   - Computes vigor as |d(angle)/dt| in deg/ms via
+     analysis_utils.calculate_vigor_fast().
+   - Computes an auxiliary "Vigor for bout detection" metric (rolling max − min)
+     for robust bout detection.
+   - Drops NaN rows introduced by rolling operations.
+
+6. BOUT DETECTION
+   - Uses a two-stage threshold algorithm: primary onset threshold (4 deg/ms),
+     secondary validation (1 deg/ms), minimum bout duration (40 frames), minimum
+     inter-bout interval (10 frames).
+   - Flags bout onsets, offsets, and within-bout samples via
+     analysis_utils.find_beg_and_end_of_bouts().
+
+7. TRIAL AND BLOCK IDENTIFICATION
+   - Identifies individual trials via analysis_utils.identify_trials() using
+     time_bef_frame and time_aft_frame.
+   - Assigns trials to experimental blocks (Pre-Train, Train, Test, Re-Train,
+     Re-Test) via analysis_utils.identify_blocks_trials() and config.blocks_dict.
+
+8. SCALED VIGOR (0–1 BASELINE NORMALIZATION)
+   - For each trial, computes the 10th and 90th percentiles of vigor in the
+     pre-stimulus baseline window (frames before -baseline_window).
+   - Scales vigor to [0, 1] within each trial: (vigor − P10) / (P90 − P10).
+   - Results stored in 'Scaled vigor (AU)'.
+
+9. COLUMN ORGANIZATION AND METADATA
+   - Selects and orders columns: frame, time, CS/US markers, trial/block IDs,
+     vigor, scaled vigor, bout flags, angle columns.
+   - Adds metadata: Exp., ProtocolRig, Age (dpf), Day, Fish no., Strain.
+   - Sets MultiIndex: Strain, Age (dpf), Exp., ProtocolRig, Day, Fish no.
+
+10. SAVING
+    - Saves each fish's DataFrame as a gzip-compressed pickle: {fish_id}.pkl.
+
+OUTPUTS
+-------
+- Per-fish pickles: {fish_id}.pkl in config.path_save / orig_pkl.
+- Columns include: Original frame number, Trial time (frames), CS beg/end,
+  US beg/end, Trial type, Trial number, Block name, Vigor (deg/ms),
+  Scaled vigor (AU), Bout beg/end/Bout, tail angle columns.
+
+ADDITIONAL STEPS (可选)
+- run_plot_individual_trials: Per-fish diagnostic plots (tail angle, raw vigor
+  heatmap, scaled vigor heatmap, normalized vigor summary).
+- run_plot_protocols: Verifies stimulus timing from stim control and processed data.
+- run_discard: Applies QC criteria (viability, train-block bouts, baseline bouts,
+  CR-window bouts) and moves excluded fish to Excluded/.
+
+
+================================================================================
+STEP 3: FISH GROUPING (LOG-MEDIAN VARIANT)
+Script: 3_FishGrouping_LogMedian.py
+================================================================================
+
+INPUTS
+------
+- Per-fish compressed pickles from Step 1: {fish_id}.pkl in paths.orig_pkl.
+- Experiment configuration (condition types, block structure, timing parameters).
+
+PURPOSE
+-------
+Bridges individual preprocessing and group-level visualization by aggregating
+all per-fish DataFrames into pooled, per-condition datasets. The log-median
+variant uses rolling median (not mean), log transform, and baseline median
+subtraction instead of within-trial P10–P90 scaling.
+
+WORKFLOW (per condition, per trial type CS/US)
+----------------------------------------------
+
+1. LOAD AND VALIDATE
+   - Scans for *.pkl files; skips files in Excluded/ subdirectory.
+   - Filters fish paths by condition name (e.g., "Paired", "Control").
+   - For each fish: loads pickle, checks for required columns (time, trial type,
+     block name, vigor, bout flags, tail angle, etc.).
+   - Converts time to frames if stored in seconds.
+   - Ensures block names are set; calls identify_blocks_trials if missing.
+   - Drops rows with empty/invalid Block name.
+   - Builds Fish ID from Day + Fish no. or existing Fish column.
+
+2. ACTIVITY FILTERING (BOUT MASKING)
+   - Sets vigor to NaN outside detected swim bouts so quiescent periods do not
+     inflate group averages: df.loc[~df['Bout'], 'Vigor (deg/ms)'] = np.nan
+
+3. SORT
+   - Sorts by [Fish, Trial number, Trial time (frames)].
+
+4. ROLLING MEDIAN SMOOTHING
+   - Applies a right-aligned rolling median (window = 10 frames) to vigor,
+     per (Fish, Trial number).
+   - Uses Numba-accelerated rolling_median_numba when available.
+
+5. DOWNSAMPLING
+   - Keeps every 10th row (DOWNSAMPLE_FACTOR = 10) per (Fish, Trial).
+   - Reduces file size while retaining temporal resolution.
+
+6. LOG TRANSFORM
+   - Computes log(vigor) for positive vigor values.
+   - Zeros and negatives become NaN.
+
+7. BASELINE MEDIAN SUBTRACTION
+   - For each (Fish, Trial), computes the median of log-vigor in the
+     pre-stimulus baseline window (frames < -baseline_window_frames).
+   - Subtracts this baseline median from all time points.
+   - Result stored in 'Scaled vigor (AU)' — this is baseline-centred log-vigor.
+
+8. HARMONIZATION AND CONCATENATION
+   - Harmonizes dtypes and block categories across fish.
+   - Concatenates all fish DataFrames within each condition × trial type.
+
+9. CLEAN AND SAVE
+   - Re-applies bout masking to vigor columns.
+   - Drops auxiliary columns (Bout beg, Bout end, index).
+   - Unifies Exp. column to a single value per file (e.g., "delay", "control").
+   - Saves to path_all_fish: {condition}_CS_new_logmedian.pkl and
+     {condition}_US_new_logmedian.pkl.
+
+OUTPUTS
+-------
+- {condition}_CS_new_logmedian.pkl: Pooled CS trials for the condition.
+- {condition}_US_new_logmedian.pkl: Pooled US trials for the condition.
+- Each contains: Fish, Trial number, Block name, Trial time (frames),
+  Scaled vigor (AU) [baseline-subtracted log-vigor], Vigor (deg/ms) [log-transformed],
+  Bout, stimulus markers, metadata.
+
+
+================================================================================
+STEP 4: SCALED VIGOR PLOTTING (LOG-MEDIAN VARIANT)
+Script: 4_ScaledVigorPlotting_LogMedian.py
+================================================================================
+
+INPUTS
+------
+- Pooled per-condition pickles from Step 3: {condition}_{CS|US}_new_logmedian.pkl.
+
+PURPOSE
+-------
+Generates heatmap and lineplot visualizations of the log-median-transformed
+vigor signal. Key difference from standard Step 4: no within-trial 0–1 scaling;
+raw baseline-subtracted log-median vigor is preserved. SV heatmap uses fixed
+color scale (e.g., vmax=0.05) instead of 0–1.
+
+WORKFLOW
+--------
+
+1. BUILD POOLED OUTPUTS (run_build_pooled_outputs)
+   - Loads all *_{CS|US}_new_logmedian.pkl files for the selected csus (CS or US).
+   - Optionally filters out discarded fish (from Excluded/excluded_fish_ids.txt).
+   - For each condition:
+     a. Subsets to needed columns (Exp., time, trial, block, Scaled vigor, Fish, Bout).
+     b. Converts frame time to seconds if needed.
+     c. Sets vigor to NaN outside bouts.
+     d. Aggregates by (Trial time (s), Trial number, Block name): median of
+        Scaled vigor (AU), count of non-NaN observations.
+     e. Time-bins data using bin_edges (e.g., 0.5 s or 1.0 s bins).
+     f. Within each bin: mean of median vigor, sum of counts.
+     g. Normalizes count by number of fish → fraction of fish with behavior.
+   - Creates pivot tables:
+     - Count heatmap: Trial number × Trial time (s) → fraction of fish active.
+     - SV heatmap: Trial number × Trial time (s) → median Scaled vigor.
+   - Saves to path_pooled_data:
+     - Count heatmap {bin_width}s bins all fish_{conds}_{csus}.pkl
+     - SV heatmap {bin_width}s bins all fish_{conds}_{csus}.pkl
+     - SV lineplot {bin_width}s bins all fish_{conds}_{csus}.pkl
+
+2. COUNT HEATMAP RENDERING (run_count_heatmap)
+   - Loads the count heatmap pickle.
+   - Renders stacked per-block heatmaps (one row per experimental phase).
+   - Uses LogNorm for color scaling to improve contrast at low counts.
+   - Adds stimulus onset/offset lines, block labels, time axis.
+   - Saves SVG to path_scaled_vigor_fig.
+
+3. SV HEATMAP RENDERING (run_sv_heatmap_rendering)
+   - Loads the SV heatmap pickle.
+   - Renders stacked per-block heatmaps with black background.
+   - Uses fixed color scale (e.g., vmax=0.05); no 0–1 rescaling.
+   - Adds stimulus lines, block labels.
+   - Saves SVG to path_scaled_vigor_fig.
+
+4. SV LINEPLOTS (optional)
+   - Individual catch trials: one row per trial, median traces with CI.
+   - All catch trials: single panel with all catch trials per condition.
+   - Per 10-trial blocks: one row per block with median traces.
+
+OUTPUTS
+-------
+- Intermediate pickles: Count heatmap, SV heatmap, SV lineplot in path_pooled_data.
+- Publication-quality SVG figures in Scaled vigor/ subfolder.
+
+
+================================================================================
+STEP 5: NORMALIZED VIGOR PLOTTING (LOG-MEDIAN VARIANT)
+Script: 5_NormalizedVigorPlotting_LogMedian.py
+================================================================================
+
+INPUTS
+------
+- Pooled per-condition pickles from Step 3: {condition}_{CS|US}_new_logmedian.pkl.
+- Optional: excluded fish ID list from Excluded/excluded_fish_ids.txt.
+
+PURPOSE
+-------
+Collapses each trial into a single scalar — Normalized Vigor (NV) — for
+group-level summary plots and statistical inference. NV = median vigor in CR
+window − median vigor in baseline window. Because vigor is already log-transform-
+ed, subtraction in log-space is equivalent to the ratio of raw medians. NV = 0
+means no change; NV > 0 means increased activity during CR window.
+
+WORKFLOW
+--------
+
+1. DATA AGGREGATION (run_data_aggregation / RUN_PROCESS)
+   - Loads pooled CS (or US) pickle files for each condition.
+   - Optionally drops discarded fish.
+   - Converts time to seconds and restricts to TRIAL_WINDOW_S (e.g., −21 to 21 s).
+   - Defines baseline and CR windows:
+     - CS trials: baseline = (−baseline_window, 0), CR = (cr_window[0], cr_window[1]).
+     - US trials: baseline = (−baseline_window − cr_window[1], −cr_window[1]),
+       CR = (cr_window[0] − cr_window[1], 0).
+   - For each (Fish, Trial, Block, ...):
+     a. Median vigor in baseline window.
+     b. Median vigor in CR window.
+     c. NV = CR median − baseline median (subtraction in log-space).
+   - Optionally invalidates trials where NaN fraction exceeds MAX_NAN_FRAC_PER_WINDOW.
+   - Saves per-fish, per-trial NV table: NV per trial per fish_CR window {cr}s, clean_{conds}_{csus}.pkl.
+
+2. BLOCK SUMMARY — LINE PLOTS (run_block_summary_lines)
+   - Groups trials into 5- or 10-trial blocks.
+   - Computes per-fish block median NV.
+   - Plots scatter + line per fish, bold median overlay per condition.
+   - Adds baseline at 0, block dividers.
+   - Annotates within-condition Mann-Whitney U tests (adjacent blocks).
+   - Annotates cross-condition Mann-Whitney U tests with Holm-Bonferroni correction.
+   - Saves SVG.
+
+3. BLOCK SUMMARY — BOXPLOTS (run_block_summary_boxplot)
+   - Same block-level data rendered as grouped boxplots.
+   - One box per condition × block.
+   - Mann-Whitney U between conditions, Wilcoxon signed-rank within conditions.
+   - Holm-Bonferroni correction, star notation (*, **, ***, ****).
+   - Saves SVG.
+
+4. PHASE SUMMARY (run_phase_summary)
+   - Collapses 10-trial blocks into broader phases (Pre-Train, Train, Test,
+     Re-Train, Re-Test).
+   - Plots per-fish scatter + line across phases.
+   - Optional highlighted fish, phase-boundary dividers.
+   - Saves SVG.
+
+5. TRIAL-BY-TRIAL LME ANALYSIS (run_trial_by_trial)
+   - Prepares subject-level DataFrame: Log_Baseline = log(baseline + 1),
+     Log_Response = log(CR median + 1).
+   - Fits three levels of Linear Mixed-Effects models:
+     a. Global ANCOVA: Condition × Block interaction.
+     b. Post-hoc per-block models: mean offset and slope (Condition × Trial)
+        differences, with Benjamini-Hochberg FDR correction.
+     c. Trial-by-trial models: one model per trial for Condition effect, FDR corrected.
+   - Plots median NV trajectories with bootstrap CI.
+   - Annotates significance: gold = global interaction, gray = block mean, red =
+     block slope, black stars = individual-trial significance.
+   - Saves SVG.
+
+OUTPUTS
+-------
+- NV per trial per fish pickle in path_pooled_data.
+- Publication-quality SVG figures in Normalized vigor/ subfolder.
+- Optional: exported text table of trial-level data.
+
+
+================================================================================
+END-TO-END DATA FLOW SUMMARY
+================================================================================
+
+Raw (*mp tail tracking.txt, *cam.txt, *stim control.txt)
+    ↓
+[Step 1] Preprocess: sync, interpolate, filter, vigor, bouts, trials, scaled vigor
+    ↓
+Per-fish pickle ({fish_id}.pkl): frame-level vigor, scaled vigor, bouts, trials, blocks
+    ↓
+[Step 3] Group: bout mask → rolling median → downsample → log → baseline subtract
+    ↓
+Pooled pickle ({condition}_{CS|US}_new_logmedian.pkl): baseline-centred log-vigor
+    ↓
+[Step 4] Build pooled outputs: time-bin, aggregate (median, count) → heatmaps/lineplots
+    ↓
+Count heatmap, SV heatmap, SV lineplot pickles → render SVG figures
+    ↓
+[Step 5] Aggregate NV: median(CR) - median(baseline) per trial -> per-fish NV table
+    ↓
+Block/phase summaries, boxplots, trial-by-trial LME → render SVG figures
+    ↓
+[Step 6] LogMedian learner classification: control-anchored features,
+directional joint score, empirical control threshold
+    ↓
+Fish-level classification table
+    ↓
+[Optional integrated stage] Attach reference/learner/non-learner/unclassified
+labels to CS-aligned temporal data; build block, catch-trial, movement-probability,
+conditional-vigor, and catch-timing outputs
+
+================================================================================
+"""

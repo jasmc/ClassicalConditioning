@@ -383,7 +383,7 @@ def get_experiment_config(experiment_name: str) -> ExperimentConfig:
                     'name': 'Control',
                     'name in original path': 'control',
                 },
-                'trace': {
+                'incTrace': {
                     'color': (255, 135, 94),
                     'name': 'incTrace',
                     'name in original path': 'increasingTrace',
@@ -437,7 +437,7 @@ def get_experiment_config(experiment_name: str) -> ExperimentConfig:
             path_save=Path(r'F:\Results (paper)\2025_3sTrace'),
             cond_dict={
                 'control': {'color': (0,174,239), 'name': 'Control', 'name in original path': 'control'},
-                'trace': {'color': (241,90,41), 'name': '3sTrace', 'name in original path': 'trace', 'US latency': [9]*46}
+                '3sTrace': {'color': (241,90,41), 'name': '3sTrace', 'name in original path': 'trace', 'US latency': [9]*46}
             },
             min_number_cs_trials=94,
             min_number_us_trials=78,
@@ -468,7 +468,7 @@ def get_experiment_config(experiment_name: str) -> ExperimentConfig:
             cond_dict={
                 'control': {'color': (0,174,239), 'name': 'Control', 'name in original path': 'control'},
                 '3sfixedtrace': {'color': (241,90,41), 'name': 'Trace (3 s)', 'name in original path': '3sFixedTrace', 'US latency': [13]*46},
-                'trace': {'color': (145,54,25), 'name': '10sTrace', 'name in original path': '10sFixedTrace', 'US latency': [20]*46}
+                '10sTrace': {'color': (145,54,25), 'name': '10sTrace', 'name in original path': '10sFixedTrace', 'US latency': [20]*46}
             },
             min_number_cs_trials=94,
             min_number_us_trials=78,

@@ -1,8 +1,54 @@
 """
-Scaled Vigor Plotting Pipeline
-===============================
+Scaled Vigor Heatmap Plotting — Log-Median Variant
+====================================================
 
-Build and plot scaled-vigor heatmaps and lineplots from pooled all-fish data.
+Pipeline context — Step 4 of 6 (log-median variant)
+-----------------------------------------------------
+This script is a standalone variant of ``4_ScaledVigorPlotting.py`` designed to
+work with the output of ``3_FishGrouping_LogMedian.py``.  It generates
+heatmap-only visualizations (count heatmaps and SV heatmaps) of the
+log-median-transformed vigor signal.
+
+Key differences from the standard Step 4 pipeline
+---------------------------------------------------
+- **No within-trial 0–1 scaling** — the SV heatmap displays raw
+  baseline-subtracted log-median vigor values, preserving the natural scale
+  produced by Step 3.
+- **Fixed color scale 0–1.5** — the SV heatmap uses ``vmin=0, vmax=1.5``
+  instead of a normalized 0–1 range.
+- **Heatmaps only** — lineplot rendering is omitted; use the standard
+  ``4_ScaledVigorPlotting.py`` for line-plot analyses.
+
+Steps
+-----
+1. **Build pooled outputs** (``RUN_BUILD_POOLED_OUTPUTS``):
+   - Load pooled CS (or US) pickle files for each condition.
+   - Optionally discard fish using the experiment's discard list.
+   - Time-bin the data at one or more bin widths.
+   - Aggregate scaled vigor by trial x time-bin (median across fish) and count
+     the number of contributing observations per bin.
+   - Save two pooled outputs per bin width as compressed pickles:
+     a. *Count heatmap* — fraction of fish with behavior per trial / time-bin.
+     b. *SV heatmap* — unscaled median vigor per trial / time-bin.
+
+2. **Count heatmap** (``RUN_COUNT_HEATMAP``):
+   - Load the pre-built count-heatmap pickle.
+   - Render a stacked-block heatmap with LogNorm color scaling.
+
+3. **SV heatmap** (``RUN_SV_HEATMAP_RENDERING``):
+   - Same stacked-block layout, showing baseline-subtracted log-median vigor
+     with a fixed 0–1.5 color scale and black background.
+
+Inputs
+------
+- Pooled per-condition pickles from Step 3 (log-median variant):
+  ``{condition}_{CS|US}_new_logmedian.pkl``.
+
+Outputs
+-------
+- Intermediate compressed pickles (count heatmap, SV heatmap) stored in
+  ``path_pooled_data``, one set per bin width.
+- Publication-quality SVG figures saved to a ``Scaled vigor`` subfolder.
 """
 
 # %%
@@ -27,12 +73,13 @@ else:
 
 import analysis_utils
 import file_utils
+import pipeline_utils
 import plotting_style
 from experiment_configuration import ExperimentType, get_experiment_config
 from general_configuration import config as gen_config
 from plotting_style import get_plot_config
 
-pd.set_option("mode.copy_on_write", True)
+
 
 # Set plotting style (shared across analysis scripts).
 plotting_style.set_plot_style(use_constrained_layout=False)
@@ -44,28 +91,27 @@ plotting_style.set_plot_style(use_constrained_layout=False)
 # ------------------------------------------------------------------------------
 # Pipeline Control Flags
 # ------------------------------------------------------------------------------
-RUN_BUILD_POOLED_OUTPUTS = False
-RUN_COUNT_HEATMAP = False
-RUN_SV_HEATMAP_RENDERING = False
+RUN_BUILD_POOLED_OUTPUTS = True
+RUN_COUNT_HEATMAP = True
+RUN_SV_HEATMAP_RENDERING = True
 RUN_SV_LINEPLOTS_INDIVIDUAL = True
-RUN_SV_LINEPLOTS_CATCH_TRIALS = False
-RUN_SV_LINEPLOTS_BLOCKS = False
+RUN_SV_LINEPLOTS_CATCH_TRIALS = True
+RUN_SV_LINEPLOTS_BLOCKS = True
 
 # ------------------------------------------------------------------------------
 # Shared Parameters
 # ------------------------------------------------------------------------------
-EXPERIMENT = ExperimentType.ALL_DELAY.value
+EXPERIMENT = ExperimentType.ALL_10S_TRACE.value
 
 # Apply per-experiment discarded fish list if present under "Processed data".
-APPLY_FISH_DISCARD = True
+APPLY_FISH_DISCARD = False
+
+SELECTED_FISH_SUFFIX = "_selectedFish" if APPLY_FISH_DISCARD else "_allFish"
 
 csus = "CS"  # Stimulus alignment: "CS" or "US".
+INPUT_PKL_SUFFIX = "_new_logmedian"  # suffix of grouped pkl files from Step 3
 x_lim = (-20, 20)
 window_data_plot = [-20, 20]
-
-y_lim = (-0.1, 0.1)
-y_clip = [-0.14, 0.14]
-n_boot = 10
 
 # ------------------------------------------------------------------------------
 # Build Pooled Outputs Parameters
@@ -87,6 +133,8 @@ count_heatmap_binning_window = 0.5
 # SV Heatmap Rendering Parameters
 # ------------------------------------------------------------------------------
 binning_window_heatmap = 0.5
+SV_HEATMAP_VMIN = 0
+SV_HEATMAP_VMAX = 1.5
 frmt = "svg"
 
 # ------------------------------------------------------------------------------
@@ -100,46 +148,32 @@ catch_trials_training = [25, 39, 53, 59]
 catch_trials_test = 65
 catch_trials_retraining = [11 + 30 + 64, 25 + 30 + 64]
 retraining_trial_names = ["Re-Train trial 11", "Re-Train trial 25"]
+
+y_lim = (-0.1, 0.1)
+y_clip = [-0.14, 0.14]
+n_boot = 1000
+
 # endregion Parameters
 
 
 # %%
 # region Plot Formatting
 from plotting_style import (HEATMAP_FIGSIZE, HEATMAP_GRIDSPACE,
-                            HEATMAP_STYLE_KW, HEATMAP_TICK_KW, LEGEND_KW,
-                            LINEPLOT_FIG_KW, LINEPLOT_STYLE_KW, SAVEFIG_KW)
+                            HEATMAP_STYLE_KW, HEATMAP_TICK_KW,
+                            LEGEND_KW, LINEPLOT_FIG_KW, LINEPLOT_STYLE_KW,
+                            SAVEFIG_KW)
 
 # endregion Plot Formatting
-
 
 # %%
 # region Context Setup
 config = get_experiment_config(EXPERIMENT)
 
-(
-    _,
-    _,
-    _,
-    path_processed_data,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    _,
-    path_pooled_vigor_fig,
-    _,
-    path_orig_pkl,
-    path_all_fish,
-    path_pooled_data,
-) = file_utils.create_folders(config.path_save)
+paths = file_utils.create_folders(config.path_save)
 
 # All figures from this script should be saved under a "Scaled vigor" subfolder
 # inside the experiment's pooled-figure output directory.
-path_scaled_vigor_fig = path_pooled_vigor_fig / "Scaled vigor"
+path_scaled_vigor_fig = paths.pooled_vigor_fig / "Scaled vigor"
 path_scaled_vigor_fig.mkdir(parents=True, exist_ok=True)
 
 stim_duration = config.cs_duration if csus == "CS" else gen_config.us_duration
@@ -147,7 +181,7 @@ stim_color = gen_config.plotting.cs_color if csus == "CS" else gen_config.plotti
 time_frame_col = gen_config.time_trial_frame_label
 
 # Load discarded fish IDs (if configured)
-discard_file = path_processed_data / "Discarded_fish_IDs.txt"
+discard_file = paths.orig_pkl / "Excluded" / "excluded_fish_ids.txt"
 
 fish_ids_to_discard: list[str] = []
 discard_source: Path | None = None
@@ -165,28 +199,10 @@ if discard_source is not None:
 
 
 def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFrame:
-    """Drop rows whose Fish ID is in the discarded list (if present).
-    
-    Prints unique fish count before and after discarding.
-    """
-    if df is None or df.empty:
-        return df
-    
-    print(df.columns)
-    
-    fish_col = "Fish"
-    
-    before = df[fish_col].nunique()
-    prefix = f"  [{source}] " if source else "  "
-    print(f"{prefix}Fish unique before discard: {before}")
-    
-    if not APPLY_FISH_DISCARD or not fish_ids_to_discard:
-        return df
-    
-    df_filtered = df[~df[fish_col].isin(fish_ids_to_discard)].copy()
-    after = df_filtered[fish_col].nunique()
-    print(f"{prefix}Fish unique after discard: {after}")
-    return df_filtered
+    """Drop rows whose Fish ID is in the discarded list (delegates to pipeline_utils)."""
+    return pipeline_utils.filter_discarded_fish(
+        df, fish_ids_to_discard, source=source, apply_discard=APPLY_FISH_DISCARD,
+    )
 # endregion Context Setup
 
 
@@ -194,9 +210,6 @@ def filter_discarded_fish_ids(df: pd.DataFrame, source: str = "") -> pd.DataFram
 # region Helper Functions
 def densify_sparse(df: pd.DataFrame) -> pd.DataFrame:
     """Convert any SparseDtype columns to dense; robust across pandas versions."""
-    # Some pooled outputs are stored with pandas SparseDtype to reduce disk size.
-    # Downstream plotting (seaborn/matplotlib) and some groupby operations can behave
-    # inconsistently with sparse columns, so we densify defensively.
     try:
         return df.sparse.to_dense()
     except Exception:
@@ -210,7 +223,6 @@ def densify_sparse(df: pd.DataFrame) -> pd.DataFrame:
                 try:
                     df[col] = ser.sparse.to_dense()
                 except Exception:
-                    # Some pandas versions don't expose .subtype in type stubs; use getattr for robustness.
                     subtype = getattr(dtype, "subtype", None) if isinstance(dtype, pd.SparseDtype) else None
                     if subtype is not None:
                         df[col] = ser.astype(subtype)
@@ -223,8 +235,6 @@ def densify_sparse(df: pd.DataFrame) -> pd.DataFrame:
 
 def compute_time_bins(x_lim, binning_window):
     """Compute time bins once and reuse."""
-    # We extend the requested window slightly so binning covers edges cleanly.
-    # Bins are built separately for negative and positive time to guarantee a bin edge at 0.
     bin_start_target = x_lim[0] - 1
     bin_end_target = x_lim[1] + 2
     start_neg = np.floor(bin_start_target / binning_window) * binning_window
@@ -232,94 +242,6 @@ def compute_time_bins(x_lim, binning_window):
     end_pos = np.ceil(bin_end_target / binning_window) * binning_window
     pos_bins = np.arange(0, end_pos + binning_window / 2, binning_window)
     return np.unique(np.concatenate((neg_bins, pos_bins))).tolist()
-
-
-def plot_cond_line(ax, data, x_col, y_col, cond, color_rgb_list, n_boot, ci=95):
-    """Centralized seaborn line plot for consistency."""
-    return sns.lineplot(
-        data=data,
-        x=x_col,
-        y=y_col,
-        color=color_rgb_list,
-        markerfacecolor=color_rgb_list,
-        label=cond,
-        errorbar=("ci", ci),
-        n_boot=n_boot,
-        **LINEPLOT_STYLE_KW,
-        ax=ax,
-    )
-
-
-def style_axes(ax, stim_color, stim_duration, x_lim, y_lim, show_xlabel=False, outward=0):
-    """Apply consistent axis styling."""
-    # Reference lines: baseline and stimulus on/off.
-    ax.axhline(0, color="k", alpha=0.5, lw=0.5)
-    ax.axvline(0, color=stim_color, alpha=0.7, lw=1, linestyle="-")
-    ax.axvline(stim_duration, color=stim_color, alpha=0.7, lw=1, linestyle="-")
-
-    ax.set_ylim(y_lim[0], y_lim[1])
-    ax.set_yticks([y_lim[0], 0, y_lim[1]])
-
-    ax.set_xlim(x_lim[0] - 0.5, x_lim[1] + 0.5)
-    ax.set_xticks(ticks=np.arange(x_lim[0], x_lim[1] + 1, 20))
-    # Minor ticks improve temporal readability without adding label clutter.
-    ax.xaxis.set_minor_locator(MultipleLocator(5))
-    ax.tick_params(which="minor", length=1, width=0.3)
-    ax.tick_params(axis="x", which="both", bottom=True, top=False)
-
-    ax.spines["bottom"].set_position(("outward", outward))
-    ax.set_xlabel("")
-    ax.set_ylabel("")
-
-    if not show_xlabel:
-        ax.set_xticklabels([])
-        ax.spines["bottom"].set_visible(False)
-
-
-def apply_baseline_and_clip(df, y_clip):
-    """Apply optional baseline subtraction and clip scaled vigor for display."""
-    # For line plots, subtract the pre-stimulus baseline median to focus on modulation,
-    # and clip to keep axes comparable across conditions.
-    if DO_BASELINE_SUBTRACT:
-        baseline_mask = df["Trial time (s)"].between(-gen_config.baseline_window, 0)
-        if baseline_mask.any():
-            df["Scaled vigor (AU)"] -= df.loc[baseline_mask, "Scaled vigor (AU)"].median()
-    df["Scaled vigor (AU)"] = df["Scaled vigor (AU)"].clip(y_clip[0], y_clip[1])
-    return df
-
-
-def make_lineplot_axes(nrows, figsize, sharex=False, sharey=True):
-    """Create lineplot figures with shared defaults."""
-    return plt.subplots(
-        nrows,
-        1,
-        sharex=sharex,
-        sharey=sharey,
-        figsize=figsize,
-        **LINEPLOT_FIG_KW,
-    )
-
-
-def add_condition_legend(fig, handles, cond_types):
-    """Add a shared legend for condition lines outside the axes."""
-    # If nothing was drawn (e.g., missing data), don't add an empty legend.
-    if not handles:
-        return
-    
-    kwargs = LEGEND_KW.copy()
-    kwargs.update({
-        "bbox_to_anchor": (1, 1),
-        "loc": "upper left",
-        "bbox_transform": fig.transFigure,
-    })
-    
-    fig.legend(handles, [cond_title(c) for c in cond_types], **kwargs)
-
-
-def remove_axis_legend(ax):
-    legend = ax.get_legend()
-    if legend is not None:
-        legend.remove()
 
 
 def make_heatmap_axes(
@@ -354,6 +276,89 @@ def add_heatmap_stimulus_lines(ax, stim_color, stim_duration, window_data_plot):
     ax.axvline(middle + stim_duration * factor, color=stim_color, alpha=0.7, lw=1.5, linestyle="-")
 
 
+def plot_cond_line(ax, data, x_col, y_col, cond, color_rgb_list, n_boot, ci=95):
+    """Centralized seaborn line plot for consistency."""
+    return sns.lineplot(
+        data=data,
+        x=x_col,
+        y=y_col,
+        color=color_rgb_list,
+        markerfacecolor=color_rgb_list,
+        label=cond,
+        errorbar=("ci", ci),
+        n_boot=n_boot,
+        **LINEPLOT_STYLE_KW,
+        ax=ax,
+    )
+
+
+def style_axes(ax, stim_color, stim_duration, x_lim, y_lim, show_xlabel=False, outward=0):
+    """Apply consistent axis styling."""
+    ax.axhline(0, color="k", alpha=0.5, lw=0.5)
+    ax.axvline(0, color=stim_color, alpha=0.7, lw=1, linestyle="-")
+    ax.axvline(stim_duration, color=stim_color, alpha=0.7, lw=1, linestyle="-")
+
+    ax.set_ylim(y_lim[0], y_lim[1])
+    ax.set_yticks([y_lim[0], 0, y_lim[1]])
+
+    ax.set_xlim(x_lim[0] - 0.5, x_lim[1] + 0.5)
+    ax.set_xticks(ticks=np.arange(x_lim[0], x_lim[1] + 1, 20))
+    ax.xaxis.set_minor_locator(MultipleLocator(5))
+    ax.tick_params(which="minor", length=1, width=0.3)
+    ax.tick_params(axis="x", which="both", bottom=True, top=False)
+
+    ax.spines["bottom"].set_position(("outward", outward))
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+
+    if not show_xlabel:
+        ax.set_xticklabels([])
+        ax.spines["bottom"].set_visible(False)
+
+
+def apply_baseline_and_clip(df, y_clip):
+    """Apply optional baseline subtraction and clip scaled vigor for display."""
+    if DO_BASELINE_SUBTRACT:
+        baseline_mask = df["Trial time (s)"].between(-gen_config.baseline_window, 0)
+        if baseline_mask.any():
+            df["Scaled vigor (AU)"] -= df.loc[baseline_mask, "Scaled vigor (AU)"].median()
+    df["Scaled vigor (AU)"] = df["Scaled vigor (AU)"].clip(y_clip[0], y_clip[1])
+    return df
+
+
+def make_lineplot_axes(nrows, figsize, sharex=False, sharey=True):
+    """Create lineplot figures with shared defaults."""
+    return plt.subplots(
+        nrows,
+        1,
+        sharex=sharex,
+        sharey=sharey,
+        figsize=figsize,
+        **LINEPLOT_FIG_KW,
+    )
+
+
+def add_condition_legend(fig, handles, cond_types):
+    """Add a shared legend for condition lines outside the axes."""
+    if not handles:
+        return
+
+    kwargs = LEGEND_KW.copy()
+    kwargs.update({
+        "bbox_to_anchor": (1, 1),
+        "loc": "upper left",
+        "bbox_transform": fig.transFigure,
+    })
+
+    fig.legend(handles, [cond_title(c) for c in cond_types], **kwargs)
+
+
+def remove_axis_legend(ax):
+    legend = ax.get_legend()
+    if legend is not None:
+        legend.remove()
+
+
 def render_heatmap_blocks(
     axs,
     data_cond,
@@ -368,9 +373,6 @@ def render_heatmap_blocks(
     **heatmap_kwargs,
 ):
     """Render stacked heatmap blocks with consistent formatting."""
-    # Each block corresponds to a training phase (e.g. Pre-train / Train / Test).
-    # Only the bottom block shows x tick labels to reduce clutter.
-
     kwargs = {k: v for k, v in HEATMAP_STYLE_KW.items() if k != "yticklabels"}
     kwargs.update(heatmap_kwargs)
 
@@ -389,7 +391,6 @@ def render_heatmap_blocks(
             **kwargs,
         )
         if show_xticks:
-            # Normalize tick label formatting (avoid long float strings).
             labels = []
             for lbl in axs[b_i][0].get_xticklabels():
                 text = lbl.get_text()
@@ -402,18 +403,10 @@ def render_heatmap_blocks(
                     labels.append(text)
             axs[b_i][0].set_xticklabels(labels)
 
-
         axs[b_i][0].set_xlabel("")
         axs[b_i][0].set_ylabel("")
         add_heatmap_stimulus_lines(axs[b_i][0], stim_color, stim_duration, window_data_plot)
         axs[b_i][0].set_facecolor("k")
-
-
-
-
-
-
-
 
 
 def cond_color(cond):
@@ -476,10 +469,11 @@ def infer_binning_window_from_columns(columns, fallback):
 
 
 def find_heatmap_paths(patterns):
-    paths = [*Path(path_pooled_data).glob("*.pkl")]
+    path_pooled = paths.pooled_data
+    path_list = [*Path(path_pooled).glob("*.pkl")]
     for pattern in patterns:
         matched = [
-            path for path in paths
+            path for path in path_list
             if pattern in path.stem and _stem_matches_csus(path.stem, csus)
         ]
         if matched:
@@ -488,35 +482,18 @@ def find_heatmap_paths(patterns):
 
 
 def _stringify_for_filename(value) -> str:
-    """Convert common objects (lists/arrays) into filename-friendly strings."""
-    if value is None:
-        return ""
-    if isinstance(value, (list, tuple, set, np.ndarray)):
-        return "-".join(str(v) for v in value)
-    return str(value)
+    return pipeline_utils.stringify_for_filename(value)
 
 
 def _sanitize_filename(name: str) -> str:
-    """Sanitize a filename component for Windows filesystems."""
-    # Windows disallowed characters: <>:"/\|?*
-    invalid = '<>:"/\\|?*'
-    out = "".join("_" if ch in invalid else ch for ch in str(name))
-    # Avoid trailing spaces/dots which Windows strips/blocks.
-    out = out.strip().rstrip(".")
-    # Keep filenames reasonably compact.
-    out = " ".join(out.split())
-    return out if out else "figure"
+    return pipeline_utils.sanitize_filename(name)
 
 
-SELECTED_FISH_SUFFIX = "_selectedFish"
+
 
 
 def _maybe_append_selected_fish_stem(stem: str) -> str:
-    """Append `_selectedFish` to a filename stem when discard is enabled."""
-    if not APPLY_FISH_DISCARD:
-        return str(stem)
-    stem = str(stem)
-    return stem if stem.endswith(SELECTED_FISH_SUFFIX) else f"{stem}{SELECTED_FISH_SUFFIX}"
+    return pipeline_utils.maybe_append_selected_fish_stem(stem, APPLY_FISH_DISCARD)
 
 
 def _stem_matches_csus(stem: str, csus_value: str) -> bool:
@@ -546,15 +523,20 @@ def save_fig(fig: Figure, stem: str, frmt: str) -> Path:
 
 # region build_pooled_outputs
 def run_build_pooled_outputs():
-    """Load per-fish data and aggregate into pooled heatmap/lineplot outputs."""
-    selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else ""
+    """Load per-fish data and aggregate into pooled heatmap outputs.
+
+    Unlike the standard pipeline, this version does NOT apply within-trial
+    0–1 normalization to the SV heatmap.  The raw baseline-subtracted
+    log-median vigor values are preserved.
+    """
+    selected_suffix = SELECTED_FISH_SUFFIX 
     all_data_csus_paths = sorted(
-        [path for path in Path(path_all_fish).glob("*.pkl") if _stem_matches_csus(path.stem, csus)]
+        [path for path in Path(paths.all_fish).glob(f"*_{csus}{INPUT_PKL_SUFFIX}.pkl")]
     )
     if not all_data_csus_paths:
-        print(f"No data found in {path_all_fish} for {csus}.")
+        print(f"No data found in {paths.all_fish} for {csus}.")
 
-    cond_types_here = sorted({path.stem.split("_")[-2] for path in all_data_csus_paths})
+    cond_types_here = sorted({path.stem.split("_")[0] for path in all_data_csus_paths})
 
     cols_to_use = [
         "Exp.",
@@ -571,13 +553,35 @@ def run_build_pooled_outputs():
     print(csus)
     datasets = []
     for path in tqdm(all_data_csus_paths, desc="Loading Data"):
-
         print(path)
         try:
-            df = pd.read_pickle(path, compression="gzip")
-            print(df)
-            print(df.columns)
-            print(df["Fish"].nunique())
+            df = pd.read_pickle(path)
+            print(f"Exp. unique BEFORE: {df['Exp.'].unique()}")
+            if df["Exp."].nunique() > 1:
+                exp_names = [str(x).lower() for x in df["Exp."].unique()]
+                if EXPERIMENT == ExperimentType.ALL_DELAY.value:
+                    if "delay" in exp_names:
+                        df["Exp."] = "delay"
+                    elif "control" in exp_names:
+                        df["Exp."] = "control"
+                elif EXPERIMENT == ExperimentType.ALL_3S_TRACE.value:
+                    if "trace" in exp_names:
+                        df["Exp."] = "3sTrace"
+                    elif "control" in exp_names:
+                        df["Exp."] = "control"
+                elif EXPERIMENT == ExperimentType.ALL_10S_TRACE.value:
+                    if "trace" in exp_names:
+                        df["Exp."] = "10sTrace"
+                    elif "control" in exp_names:
+                        df["Exp."] = "control"
+                elif EXPERIMENT == ExperimentType.ALL_INC_TRACE.value:
+                    if "trace" in exp_names:
+                        df["Exp."] = "incTrace"
+                    elif "control" in exp_names:
+                        df["Exp."] = "control"
+            print(f"Exp. unique AFTER: {df['Exp.'].unique()}")
+            if "Exp." in df.columns and df["Exp."].nunique() != 1:
+                print(f"ERROR: Exp. has multiple names: {df['Exp.'].unique().tolist()}")
         except Exception as exc:
             print(f"Skipping {path.name}: {exc}")
             continue
@@ -585,8 +589,6 @@ def run_build_pooled_outputs():
         df = filter_discarded_fish_ids(df, source=path.stem)
         print(df["Fish"].nunique())
 
-        # return
-    
         if "Block name" in df.columns and df["Block name"].isna().all():
             df["Trial type"] = csus
             df = analysis_utils.identify_blocks_trials(df, config.blocks_dict)
@@ -596,7 +598,7 @@ def run_build_pooled_outputs():
 
         df = subset_columns(df, cols_to_use)
         if "Exp." not in df.columns:
-            df["Exp."] = path.stem.split("_")[-2]
+            df["Exp."] = path.stem.split("_")[0]
 
         cond = df["Exp."].unique()[0]
         num_fish = df["Fish"].nunique() if "Fish" in df.columns else np.nan
@@ -652,28 +654,15 @@ def run_build_pooled_outputs():
             df_binned["Exp."] = cond
             list_line.append(df_binned.copy(deep=True))
 
+            # --- Count heatmap pivot ---
             pivot_count = df_binned.pivot_table(
                 index="Trial number", columns="Trial time (s)", values="Count"
             )
             pivot_count["Exp."] = cond
             list_heatmap_count.append(pivot_count)
 
-            baseline_data = df_binned[df_binned["Trial time (s)"] < 0]
-            baseline_stats = (
-                baseline_data.groupby("Trial number")["Scaled vigor (AU)"].quantile([0.1, 0.9]).unstack()
-            )
-            if baseline_stats.empty:
-                df_norm = df_binned.copy()
-                df_norm["Scaled vigor (AU)"] = np.nan
-            else:
-                baseline_stats.columns = ["min_pre", "max_pre"]
-                df_norm = df_binned.merge(baseline_stats, on="Trial number", how="left")
-                numerator = df_norm["Scaled vigor (AU)"] - df_norm["min_pre"]
-                denominator = df_norm["max_pre"] - df_norm["min_pre"]
-                valid = (denominator > 0) & (denominator.notna())
-                df_norm["Scaled vigor (AU)"] = np.nan
-                df_norm.loc[valid, "Scaled vigor (AU)"] = (numerator[valid] / denominator[valid]).clip(0, 1)
-            pivot_sv = df_norm.pivot_table(
+            # --- SV heatmap pivot (NO scaling — keep raw values) ---
+            pivot_sv = df_binned.pivot_table(
                 index="Trial number", columns="Trial time (s)", values="Scaled vigor (AU)"
             )
             pivot_sv["Exp."] = cond
@@ -681,26 +670,23 @@ def run_build_pooled_outputs():
 
         if list_heatmap_count:
             pd.concat(list_heatmap_count).to_pickle(
-                path_pooled_data
+                paths.pooled_data
                 / f"Count heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
         if list_heatmap_sv:
             pd.concat(list_heatmap_sv).to_pickle(
-                path_pooled_data
+                paths.pooled_data
                 / f"SV heatmap {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
         if list_line:
             data_plot_line = pd.concat(list_line)
             data_plot_line.to_pickle(
-                path_pooled_data
+                paths.pooled_data
                 / f"SV lineplot {binning_window}s bins all fish_{cond_types_here}_{csus}{selected_suffix}.pkl",
                 compression="gzip",
             )
-
-    if data_plot_line is not None:
-        print(data_plot_line.max())
 
 # endregion run_build_pooled_outputs
 
@@ -713,14 +699,12 @@ def run_count_heatmap():
     Format mirrors SV heatmap rendering: stacked blocks, stimulus lines, black background,
     and bottom-row x-ticks with a shared time label.
     """
-    # These heatmaps visualize the fraction of fish showing behavior per trial/time-bin.
-    # The layout is stacked by experimental phase, with one column per condition.
     window_data_plot_heatmap = np.array(window_data_plot) + [
         -count_heatmap_binning_window / 2,
         count_heatmap_binning_window / 2,
     ]
 
-    all_data_csus_paths = [*Path(path_pooled_data).glob("*.pkl")]
+    all_data_csus_paths = [*Path(paths.pooled_data).glob("*.pkl")]
     all_data_csus_paths = [
         path
         for path in all_data_csus_paths
@@ -779,8 +763,6 @@ def run_count_heatmap():
     print(f"  Count heatmap data range: min={data_min:.4f}, max={data_max:.4f}, p95={data_p95:.4f}")
 
     # Use LogNorm to improve contrast at low counts.
-    # Note: LogNorm requires strictly positive values, so we compute a small
-    # positive floor and clip zeros up to that floor.
     cmap = "hot"
 
     positive = data_values[data_values > 0]
@@ -788,11 +770,9 @@ def run_count_heatmap():
         vmin_count = 1e-3
         vmax_count = 1.0
     else:
-        # Use robust percentiles so a few outliers don't dominate.
         vmin_count = float(np.nanpercentile(positive, 20))
         vmax_count = float(np.nanpercentile(positive, 80))
         vmin_count = max(vmin_count, float(np.nanmin(positive)), 1e-4)
-        # Ensure vmax > vmin for LogNorm.
         vmax_count = max(vmax_count, vmin_count * 10)
 
     count_norm = LogNorm(vmin=vmin_count, vmax=vmax_count)
@@ -813,7 +793,7 @@ def run_count_heatmap():
         data_cond = data_cond.loc[:, mask_time]
         data_cond.columns = [float(s) + binning_window / 2 for s in data_cond.columns]
 
-        # Clip to positive floor for LogNorm (keeps zeros visible as the lowest color).
+        # Clip to positive floor for LogNorm
         data_cond = data_cond.clip(lower=vmin_count)
 
         render_heatmap_blocks(
@@ -837,14 +817,13 @@ def run_count_heatmap():
                 ax.set_yticklabels([])
                 ax.tick_params(axis="y", which="both", left=False, labelleft=False)
 
-        # Capture tick labels as strings before clearing (Text objects become stale)
         if col_i == 0:
-            fig.canvas.draw()  # Need to draw first to populate the tick labels
+            fig.canvas.draw()
             xlabels = [t.get_text() for t in axs[-1][col_i].get_xticklabels()]
         axs[-1][col_i].xaxis.label.set_visible(False)
         axs[-1][col_i].set_xticklabels([])
         axs[-1][col_i].tick_params(axis="x", which="both", bottom=False, labelbottom=False)
-    
+
     fig.canvas.draw()
 
     for b_i in range(len(phases_trial_numbers)):
@@ -856,11 +835,11 @@ def run_count_heatmap():
                 text=phases_block_names[b_i],
                 anchor_h="left",
                 anchor_v="center",
-                pad_pt=(0,0),
+                pad_pt=(0, 0),
                 text_kwargs={"rotation": 90, "fontweight": "bold", "color": "k"},
             ),
         )
-    
+
     # Restore x-axis labels on bottom row
     for col_i, cond_type in enumerate(cond_types):
         axs[-1][col_i].set_xticklabels(xlabels)
@@ -884,7 +863,6 @@ def run_count_heatmap():
     fig.canvas.draw()
 
     for col_i, cond_type in enumerate(cond_types):
-
         analysis_utils.add_component(
             axs[0, col_i],
             analysis_utils.AddTextSpec(
@@ -906,7 +884,7 @@ def run_count_heatmap():
             text="A",
             anchor_h="left",
             anchor_v="top",
-            pad_pt=(-5,10),
+            pad_pt=(-5, 10),
             text_kwargs={"fontsize": plot_cfg.figure_titlesize, "fontweight": "bold", "backgroundcolor": "none", "color": "k"},
         ),
     )
@@ -920,22 +898,22 @@ def run_count_heatmap():
 # %%
 # region sv_heatmap_rendering
 def run_sv_heatmap_rendering():
-    """Render normalized SV heatmaps in stacked block layout.
+    """Render unscaled SV heatmaps in stacked block layout.
 
-    Format mirrors count heatmaps: stacked blocks, stimulus lines, black background,
-    and bottom-row x-ticks with a shared time label.
+    Unlike the standard pipeline, vigor values are NOT normalized to 0–1.
+    The color scale is fixed to 0–1.5 to display the raw baseline-subtracted
+    log-median vigor from Step 3.
     """
-    # This renders the precomputed pooled SV heatmap files. Values are normalized within
-    # each trial using pre-stimulus quantiles (see build step), then shown as a stacked
-    # heatmap per phase with stimulus markers.
     window_data_plot_heatmap = np.array(window_data_plot) + [
         -binning_window_heatmap / 2,
         binning_window_heatmap / 2,
     ]
 
-    all_data_csus_paths = [*Path(path_pooled_data).glob("*.pkl")]
+    selected_suffix = SELECTED_FISH_SUFFIX 
+    all_data_csus_paths = [*Path(paths.pooled_data).glob("*.pkl")]
     all_data_csus_paths = [
-        path for path in all_data_csus_paths if f"SV heatmap {binning_window_heatmap}s bins all fish_" in path.stem
+        path for path in all_data_csus_paths
+        if f"SV heatmap {binning_window_heatmap}s bins all fish_" in path.stem and (not selected_suffix or selected_suffix in path.stem)
     ]
     all_data_csus_paths = [path for path in all_data_csus_paths if _stem_matches_csus(path.stem, csus)]
 
@@ -968,7 +946,6 @@ def run_sv_heatmap_rendering():
         phases_trial_numbers = config.trials_cs_blocks_phases
         phases_block_names = config.names_cs_blocks_phases
     else:
-        # US-aligned plots: prefer the configured phase blocks; otherwise fall back to all trials.
         if config.trials_us_blocks_phases:
             phases_trial_numbers = config.trials_us_blocks_phases
             phases_block_names = config.names_us_blocks_phases or ["Train"]
@@ -980,6 +957,7 @@ def run_sv_heatmap_rendering():
         if phases_trial_numbers is None or phases_block_names is None:
             print("Skipping SV heatmap rendering (no trials found).")
             return
+
     cond_types = data_plot["Exp."].unique()
     cond_titles = [cond_title(e) for e in cond_types]
 
@@ -994,6 +972,8 @@ def run_sv_heatmap_rendering():
 
         data_cond.drop(columns="Exp.", inplace=True)
 
+
+        cmap = "inferno_r"
         time = data_cond.columns.to_numpy().astype("float")
         mask_time = (time >= window_data_plot_heatmap[0]) & (time <= window_data_plot_heatmap[1])
         data_cond = data_cond.loc[:, mask_time]
@@ -1010,6 +990,10 @@ def run_sv_heatmap_rendering():
             window_data_plot,
             show_ylabel=(col_i == 0),
             show_yticklabels=(col_i == 0),
+            # vmin=SV_HEATMAP_VMIN,
+            vmax=0.05,
+            cmap=cmap,
+            # cbar=True,            
         )
 
         if col_i > 0:
@@ -1018,14 +1002,13 @@ def run_sv_heatmap_rendering():
                 ax.set_yticklabels([])
                 ax.tick_params(axis="y", which="both", left=False, labelleft=False)
 
-        # Capture tick labels as strings before clearing (Text objects become stale)
         if col_i == 0:
-            fig.canvas.draw()  # Need to draw first to populate the tick labels
+            fig.canvas.draw()
             xlabels = [t.get_text() for t in axs[-1][col_i].get_xticklabels()]
         axs[-1][col_i].xaxis.label.set_visible(False)
         axs[-1][col_i].set_xticklabels([])
         axs[-1][col_i].tick_params(axis="x", which="both", bottom=False, labelbottom=False)
-    
+
     fig.canvas.draw()
 
     for b_i in range(len(phases_trial_numbers)):
@@ -1037,11 +1020,11 @@ def run_sv_heatmap_rendering():
                 text=phases_block_names[b_i],
                 anchor_h="left",
                 anchor_v="center",
-                pad_pt=(0,0),
+                pad_pt=(0, 0),
                 text_kwargs={"rotation": 90, "fontweight": "bold", "color": "k"},
             ),
         )
-    
+
     # Restore x-axis labels on bottom row
     for col_i, cond_type in enumerate(cond_types):
         axs[-1][col_i].set_xticklabels(xlabels)
@@ -1065,7 +1048,6 @@ def run_sv_heatmap_rendering():
     fig.canvas.draw()
 
     for col_i, cond_type in enumerate(cond_types):
-
         analysis_utils.add_component(
             axs[0, col_i],
             analysis_utils.AddTextSpec(
@@ -1073,7 +1055,7 @@ def run_sv_heatmap_rendering():
                 text=cond_titles[col_i],
                 anchor_h="right",
                 anchor_v="top",
-                pad_pt=(0,0),
+                pad_pt=(0, 0),
                 text_kwargs={"fontsize": plot_cfg.figure_titlesize, "backgroundcolor": "none", "color": "k"},
             ),
         )
@@ -1089,7 +1071,7 @@ def run_sv_heatmap_rendering():
             text="A",
             anchor_h="left",
             anchor_v="top",
-            pad_pt=(-5,10),
+            pad_pt=(-5, 10),
             text_kwargs={"fontsize": plot_cfg.figure_titlesize, "fontweight": "bold", "backgroundcolor": "none", "color": "k"},
         ),
     )
@@ -1108,8 +1090,9 @@ def run_sv_lineplots_individual_catch_trials():
     Format: per-trial rows, median traces with CI bands, baseline-subtracted and
     clipped, stimulus lines on each axis, and a shared legend outside the panel.
     """
-    all_data_csus_paths = [*Path(path_all_fish).glob("*.pkl")]
-    all_data_csus_paths = [path for path in all_data_csus_paths if _stem_matches_csus(path.stem, csus)]
+    all_data_csus_paths = sorted(
+        [path for path in Path(paths.all_fish).glob(f"*_{csus}{INPUT_PKL_SUFFIX}.pkl")]
+    )
 
     if not all_data_csus_paths:
         print("Skipping individual catch trials (no per-condition pooled files found).")
@@ -1117,11 +1100,11 @@ def run_sv_lineplots_individual_catch_trials():
 
     data_original = []
     for p in all_data_csus_paths:
-        df = pd.read_pickle(str(p), compression="gzip").reset_index()
+        df = pd.read_pickle(str(p)).reset_index()
         df = filter_discarded_fish_ids(df, source=p.stem)
         df = densify_sparse(df)
         df = ensure_time_seconds(df)
-        cond = df["Exp."].unique()[0] if "Exp." in df.columns else p.stem.split("_")[-2]
+        cond = df["Exp."].unique()[0] if "Exp." in df.columns else p.stem.split("_")[0]
         data_original.append({"cond": cond, "data": df})
 
     cond_types_here = [d["cond"] for d in data_original]
@@ -1130,7 +1113,6 @@ def run_sv_lineplots_individual_catch_trials():
 
     fig, axs = make_lineplot_axes(len(trials_to_use), (2.5 / 2.54, 17 / 2.54))
 
-    # Collect legend handles once (first axis) so we can place a shared legend.
     handles = []
 
     for item in data_original:
@@ -1184,7 +1166,6 @@ def run_sv_lineplots_individual_catch_trials():
             style_axes(
                 ax, stim_color, stim_duration, x_lim, y_lim, show_xlabel=(ax_i == len(trials_to_use) - 1), outward=0
             )
-            # Use add_component for axis title instead of ax.set_title
             plot_cfg = get_plot_config()
             analysis_utils.add_component(
                 ax,
@@ -1208,7 +1189,7 @@ def run_sv_lineplots_individual_catch_trials():
     cond_label = _stringify_for_filename(cond_types_here)
     stem_bits = "_".join(all_data_csus_paths[0].stem.split("_")[:-2])
     path_part = f"SV lineplot all individual catch trials {trials_to_use}_{stem_bits}_{cond_label}"
-    
+
     fig.canvas.draw()
     plot_cfg = get_plot_config()
 
@@ -1261,7 +1242,7 @@ def run_sv_lineplots_individual_catch_trials():
             text_kwargs={"fontsize": plot_cfg.figure_titlesize, "fontweight": "bold", "backgroundcolor": "none", "color": "k"},
         ),
     )
-    
+
     save_fig(fig, path_part, frmt)
 
 # endregion run_sv_lineplots_individual_catch_trials
@@ -1275,9 +1256,12 @@ def run_sv_lineplot_all_catch_trials():
     Format: one axis, median traces with CI bands, baseline-subtracted and clipped,
     stimulus lines, and a shared legend outside the panel.
     """
-    pooled_paths = [*Path(path_pooled_data).glob("*.pkl")]
+    selected_suffix = SELECTED_FISH_SUFFIX 
+    pooled_paths = [*Path(paths.pooled_data).glob("*.pkl")]
     pooled_paths = [
-        p for p in pooled_paths if f"SV lineplot {default_binning_window}s bins all fish_" in p.stem
+        p for p in pooled_paths
+        if f"SV lineplot {default_binning_window}s bins all fish_" in p.stem
+        and (not selected_suffix or selected_suffix in p.stem)
     ]
     pooled_paths = [p for p in pooled_paths if _stem_matches_csus(p.stem, csus)]
 
@@ -1292,6 +1276,8 @@ def run_sv_lineplot_all_catch_trials():
     trials_to_use, _ = resolve_catch_trials()
 
     fig, ax = make_lineplot_axes(1, (4 / 2.54, 4 / 2.54), sharex=True, sharey=True)
+    if hasattr(ax, "__len__"):
+        ax = ax[0]
 
     for cond in cond_types_here:
         data_cond = data_original[data_original["Exp."] == cond].copy(deep=True)
@@ -1314,20 +1300,6 @@ def run_sv_lineplot_all_catch_trials():
             n_boot=n_boot,
             ci=95,
         )
-
-        # Use add_component for axis title instead of ax.set_title
-        plot_cfg = get_plot_config()
-        # analysis_utils.add_component(
-        #     ax,
-        #     analysis_utils.AddTextSpec(
-        #         component="axis_title",
-        #         text="All catch trials",
-        #         anchor_h="left",
-        #         anchor_v="center",
-        #         pad_pt=(0.0, 0.0),
-        #         text_kwargs={"fontsize": plot_cfg.axes_titlesize},
-        #     ),
-        # )
         remove_axis_legend(ax)
 
     style_axes(ax, stim_color, stim_duration, x_lim, y_lim, show_xlabel=True, outward=0)
@@ -1358,8 +1330,6 @@ def run_sv_lineplot_all_catch_trials():
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
         ),
     )
-
-    # return
 
     handles, _ = ax.get_legend_handles_labels()
     add_condition_legend(fig, handles, cond_types_here)
@@ -1405,9 +1375,12 @@ def run_sv_lineplots_per_block():
     Format: stacked block rows, median traces with CI bands, baseline-subtracted and
     clipped, stimulus lines, and a shared legend outside the panel.
     """
-    pooled_data_files = [*Path(path_pooled_data).glob("*.pkl")]
+    selected_suffix = SELECTED_FISH_SUFFIX 
+    pooled_data_files = [*Path(paths.pooled_data).glob("*.pkl")]
     pooled_paths = [
-        p for p in pooled_data_files if f"SV lineplot {default_binning_window}s bins all fish_" in p.stem
+        p for p in pooled_data_files
+        if f"SV lineplot {default_binning_window}s bins all fish_" in p.stem
+        and (not selected_suffix or selected_suffix in p.stem)
     ]
     pooled_paths = [p for p in pooled_paths if _stem_matches_csus(p.stem, csus)]
 
@@ -1433,7 +1406,6 @@ def run_sv_lineplots_per_block():
 
     fig, axs = make_lineplot_axes(len(block_names), (4 / 2.54, 16.5 / 2.54))
 
-    # Collect legend handles once (first axis) so we can place a shared legend.
     handles = []
 
     for cond in cond_types_here:
@@ -1473,24 +1445,13 @@ def run_sv_lineplots_per_block():
                 ax, stim_color, stim_duration, x_lim, y_lim, show_xlabel=(ax_i == len(block_names) - 1), outward=5
             )
 
-            # return
-        
-
-
-
             if ax_i == 0 and not handles:
                 handles, _ = ax.get_legend_handles_labels()
             remove_axis_legend(ax)
 
-
-
     fig.subplots_adjust(hspace=1)
 
-    # return
-
     for ax_i, block_name in enumerate(block_names):
-
-        # Use add_component for axis title instead of ax.set_title
         plot_cfg = get_plot_config()
         analysis_utils.add_component(
             axs[ax_i],
@@ -1499,31 +1460,14 @@ def run_sv_lineplots_per_block():
                 text=block_name,
                 anchor_h="left",
                 anchor_v="top",
-                pad_pt=(0,0),
+                pad_pt=(0, 0),
                 text_kwargs={"fontsize": plot_cfg.axes_titlesize},
                 use_tight_bbox=False,
             ),
         )
 
-
-        # axs[ax_i].set_title(
-        #     block_name,
-        #     loc="left",
-        #     va="bottom",
-        #     ha="left",
-        #     x=0,   
-        #     y=0.7,           
-        #     backgroundcolor="none",
-        #     fontsize=10,
-        # )
-
-
-
-    # return
-
     fig.canvas.draw()
     plot_cfg = get_plot_config()
-
 
     analysis_utils.add_component(
         fig,
@@ -1536,13 +1480,6 @@ def run_sv_lineplots_per_block():
             text_kwargs={"fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
         ),
     )
-    
-    fig.canvas.draw()
-    plot_cfg = get_plot_config()
-
-
-    fig.canvas.draw()
-    plot_cfg = get_plot_config()
 
     analysis_utils.add_component(
         fig,
@@ -1555,9 +1492,6 @@ def run_sv_lineplots_per_block():
             text_kwargs={"rotation": 90, "fontweight": plot_cfg.axes_labelweight, "fontsize": plot_cfg.axes_labelsize},
         ),
     )
-
-
-    # add_condition_legend(fig, handles, cond_types_here)
 
     analysis_utils.add_component(
         fig,
