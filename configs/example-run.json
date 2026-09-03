@@ -1,6 +1,6 @@
 {
-  "raw_dir": "D:\\path\\to\\raw\\delay_fish",
-  "save_dir": "E:\\path\\to\\project\\Paper data",
+  "raw_dir": "J:\\Raw Data\\allDelay",
+  "save_dir": "F:\\Results_refactored",
   "experiment": "allDelay",
   "analysis_id": "delay-cohort-v1",
   "keep_conditions": ["control", "delay"],
@@ -15,3 +15,6 @@
   "legacy_alignment": "CS",
   "legacy_run_statistics": true
 }
+
+
+

@@ -6,8 +6,9 @@ to run new analysis. Numbered root scripts remain for legacy reproduction only.
 
 ## Install
 
-Supported runtime: **CPython ≥ 3.12** on 64-bit Windows. Dependencies are pinned
-in `uv.lock`.
+Supported runtime: **CPython 3.12 or 3.13** on 64-bit Windows. Dependencies are
+pinned in `uv.lock`. Python 3.14 is not supported because the locked `pyarrow`
+release does not provide a compatible native extension for it.
 
 ### Prerequisites
 

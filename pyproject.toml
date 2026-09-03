@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "classical-conditioning"
 version = "0.1.0"
 description = "Local, reproducible analysis for larval zebrafish classical conditioning"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.14"
 dependencies = [
     "matplotlib>=3.9,<3.11",
     "numpy>=2.0,<3",
