@@ -34,6 +34,7 @@ from classical_conditioning.paths import (
     is_reserved_derived_path,
 )
 from classical_conditioning.ingestion.schemas import (
+    normalize_camera_columns,
     validate_camera_columns,
     validate_protocol_columns,
     validate_tracking_columns,
@@ -398,10 +399,13 @@ def _read_chunks(
     schema: pa.Schema,
     chunk_rows: int,
 ) -> Iterator[pd.DataFrame]:
+    names = schema.names if kind == "camera" else None
     yield from pd.read_csv(
         path,
         sep=r"\s+",
         dtype=_dtype_for(schema),
+        names=names,
+        header=0 if names is not None else "infer",
         chunksize=chunk_rows,
         engine="c",
     )
@@ -441,6 +445,8 @@ def _convert_table(
     source_hash = _sha256_file(source_path)
     structure = inspect_table_structure(source_path, rows=preview_rows)
     schema = _schema_for(kind, structure["columns"])
+    if kind == "camera":
+        structure["columns"] = normalize_camera_columns(structure["columns"])
     schema = schema.with_metadata(
         {
             b"source_path": str(source_path.resolve()).encode("utf-8"),

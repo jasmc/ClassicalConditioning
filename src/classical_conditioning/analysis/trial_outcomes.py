@@ -14,26 +14,19 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from classical_conditioning.analysis.movement_state import (
-    CandidateMetricSource,
-    METRIC_IDS,
-    resolve_candidate_metric_source,
-)
-from classical_conditioning.artifacts import (
-    VerifiedArtifactSet,
-    artifact_staging,
-    load_and_verify_source_manifest,
-    publish_transaction,
-    sha256_file,
-    verify_completed_parquet_set,
-    write_json_atomic,
-)
+    METRIC_IDS, CandidateMetricSource, resolve_candidate_metric_source)
+from classical_conditioning.artifacts import (VerifiedArtifactSet,
+                                              artifact_staging,
+                                              load_and_verify_source_manifest,
+                                              publish_transaction, sha256_file,
+                                              verify_completed_parquet_set,
+                                              write_json_atomic)
 from classical_conditioning.config import get_experiment_spec
-from classical_conditioning.exceptions import (
-    ArtifactIntegrityError,
-    ConfigurationError,
-    SchemaValidationError,
-)
-from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
+from classical_conditioning.exceptions import (ArtifactIntegrityError,
+                                               ConfigurationError,
+                                               SchemaValidationError)
+from classical_conditioning.preprocessing.candidates_v1 import \
+    CANDIDATE_COLUMNS
 
 DEFAULT_TRIAL_RECIPE_ID = "candidate-trial-outcomes-v1"
 RECIPE_ID = DEFAULT_TRIAL_RECIPE_ID  # retained for development-route callers
@@ -476,11 +469,11 @@ def verify_candidate_trial_outcomes(
         recipe=source.trial_recipe,
         recording_id=recording_id,
     )
-    _, _, _, _, current_inputs, _ = _verify_inputs(
+    current_inputs = _verify_inputs(
         project_dir,
         recording_id,
         metric_recipe=metric_recipe,
-    )
+    )[4]
     if verified.summary.get("inputs") != current_inputs:
         raise ArtifactIntegrityError(
             f"{source.trial_recipe} uses stale upstream artifacts for {recording_id}."

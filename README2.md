@@ -1,3 +1,14 @@
+
+movement_state.py makes no sense. bouts are not dependent on the metrics analyzed. keep the legacy way of identifying bouts. movement_state.py to identify bouts per metric is wrong. lets discuss it
+
+
+
+
+
+
+
+
+
 The repository trace is complete enough to follow the command without running the full data-heavy pipeline. I’m now reading the detailed call-chain report and will cross-check the key cohort boundary against the implementation and tests.
 
 Read 

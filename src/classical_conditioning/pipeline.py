@@ -7,22 +7,25 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from classical_conditioning.analysis.candidate_runner import (
-    run_candidate_development_pipeline,
-)
-from classical_conditioning.analysis.legacy_runner import run_legacy_analysis_pipeline
-from classical_conditioning.analysis.movement_state import RUNNER_RECIPE_TO_METRIC_SOURCE
+from classical_conditioning.analysis.candidate_runner import \
+    run_candidate_development_pipeline
+from classical_conditioning.analysis.legacy_runner import \
+    run_legacy_analysis_pipeline
+from classical_conditioning.analysis.movement_state import (
+    RUNNER_RECIPE_TO_METRIC_SOURCE, resolve_candidate_metric_source)
 from classical_conditioning.artifacts import write_json_atomic
 from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.figures.export import FigureMode
-from classical_conditioning.figures.metric_comparison import (
-    build_metric_comparison_figure,
-)
-from classical_conditioning.intake import discover_recordings, intake_recordings
+from classical_conditioning.figures.metric_comparison import \
+    build_metric_comparison_figure
+from classical_conditioning.intake import (discover_recordings,
+                                           intake_recordings)
 from classical_conditioning.inventory import write_recording_inventory
 from classical_conditioning.paths import condition_from_recording_name
-from classical_conditioning.preprocessing.legacy_v1 import preprocess_legacy_recording
-from classical_conditioning.run_config import PipelineRunConfig, pipeline_config_to_dict
+from classical_conditioning.preprocessing.legacy_v1 import \
+    preprocess_legacy_recording
+from classical_conditioning.run_config import (PipelineRunConfig,
+                                               pipeline_config_to_dict)
 
 
 @dataclass(frozen=True)
@@ -36,6 +39,36 @@ class PipelineRunResult:
     candidate_runner_status: str | None = None
     figure_paths: tuple[Path, ...] = ()
     summary_path: Path | None = None
+
+
+def _metric_comparison_figure_outputs(
+    project_dir: Path,
+    analysis_id: str,
+    comparison_recipe: str,
+    mode: FigureMode,
+    trial_type: str,
+    outcome_id: str,
+) -> tuple[Path, ...]:
+    version = (
+        "corrected-v1"
+        if comparison_recipe.endswith("-corrected-v1")
+        else "v1"
+    )
+    output_root = (
+        project_dir
+        / "Figures"
+        / ("Publication" if mode == FigureMode.PUBLICATION else "PNG")
+        / "Analyses"
+        / analysis_id
+    )
+    output_base = output_root / (
+        f"metric-comparison_{trial_type.lower()}_{outcome_id}-{version}"
+    )
+    extensions = ("svg", "pdf") if mode == FigureMode.PUBLICATION else ("png",)
+    return tuple(
+        tuple(output_base.with_suffix(f".{extension}") for extension in extensions)
+        + (output_base.with_suffix(".figure.json"),)
+    )
 
 
 def resolve_pipeline_recording_ids(config: PipelineRunConfig) -> tuple[str, ...]:
@@ -79,12 +112,13 @@ def run_pipeline(config: PipelineRunConfig) -> PipelineRunResult:
         inventory_path = (
             config.save_dir / "Metadata" / "recording_inventory.json"
         )
-        write_recording_inventory(
-            config.raw_dir,
-            inventory_path,
-            hash_files=True,
-            overwrite=config.overwrite,
-        )
+        if config.overwrite or not inventory_path.exists():
+            write_recording_inventory(
+                config.raw_dir,
+                inventory_path,
+                hash_files=True,
+                overwrite=config.overwrite,
+            )
 
     if config.run_intake:
         intake_result = intake_recordings(
@@ -158,6 +192,9 @@ def run_pipeline(config: PipelineRunConfig) -> PipelineRunResult:
 
     if "candidate" in config.routes:
         metric_recipe = RUNNER_RECIPE_TO_METRIC_SOURCE[config.candidate_runner_recipe]
+        candidate_source = resolve_candidate_metric_source(
+            runner_recipe=config.candidate_runner_recipe,
+        )
         candidate_result = run_candidate_development_pipeline(
             config.save_dir,
             recording_ids,
@@ -172,19 +209,29 @@ def run_pipeline(config: PipelineRunConfig) -> PipelineRunResult:
         candidate_runner_status = candidate_result.manifest_path.name
 
         if config.run_figures:
-            comparison_recipe = (
-                "candidate-metric-comparison-corrected-v1"
-                if config.candidate_runner_recipe.endswith("-corrected-v1")
-                else "candidate-metric-comparison-v1"
-            )
             for outcome in config.figure_outcomes:
+                figure_outputs = _metric_comparison_figure_outputs(
+                    config.save_dir,
+                    config.resolved_candidate_analysis_id(),
+                    candidate_source.comparison_recipe,
+                    FigureMode(config.figure_mode),
+                    "CS",
+                    outcome,
+                )
+                if not config.overwrite and all(
+                    path.is_file() for path in figure_outputs
+                ):
+                    figure_paths.extend(
+                        path for path in figure_outputs if path.suffix == ".png"
+                    )
+                    continue
                 figure_result = build_metric_comparison_figure(
                     config.save_dir,
                     config.resolved_candidate_analysis_id(),
                     mode=FigureMode(config.figure_mode),
                     trial_type="CS",
                     outcome_id=outcome,
-                    comparison_recipe=comparison_recipe,
+                    comparison_recipe=candidate_source.comparison_recipe,
                     overwrite=config.overwrite,
                 )
                 figure_paths.extend(

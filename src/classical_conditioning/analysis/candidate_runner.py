@@ -515,6 +515,7 @@ def run_candidate_development_pipeline(
         / "Metadata"
         / f"{analysis_id}_{route.runner_recipe}_manifest.json"
     )
+    cohort_overwrite = overwrite
     if manifest_path.exists():
         try:
             previous = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -526,7 +527,6 @@ def run_candidate_development_pipeline(
             "recipe": route.runner_recipe,
             "analysis_id": analysis_id,
             "experiment_name": experiment_name,
-            "recording_ids": list(recording_ids),
         }
         previous_metric = previous.get(
             "metric_recipe",
@@ -535,11 +535,13 @@ def run_candidate_development_pipeline(
         if (
             any(previous.get(key) != value for key, value in identity.items())
             or previous_metric != route.metric_recipe
+            or not set(previous.get("recording_ids", [])).issubset(recording_ids)
         ):
             raise ArtifactIntegrityError(
                 "Existing candidate runner identity differs from the requested run. "
                 "Use a new analysis ID."
             )
+        cohort_overwrite = cohort_overwrite or set(previous.get("recording_ids", [])) != set(recording_ids)
 
     steps: dict[str, dict[str, str]] = {}
     lineage: dict[str, str] = {}
@@ -573,7 +575,7 @@ def run_candidate_development_pipeline(
         / "Metadata"
         / f"{analysis_id}_{route.comparison_recipe}_complete.json"
     )
-    if not overwrite and comparison_marker.exists():
+    if not cohort_overwrite and comparison_marker.exists():
         state = "existing"
     else:
         build_candidate_metric_comparison(
@@ -582,7 +584,7 @@ def run_candidate_development_pipeline(
             analysis_id=analysis_id,
             experiment_name=experiment_name,
             metric_recipe=route.metric_recipe,
-            overwrite=overwrite,
+            overwrite=cohort_overwrite,
         )
         state = "completed"
     lineage["cohort:five-metric-comparison"] = _verify_comparison(
