@@ -51,7 +51,35 @@ class MetricComparisonFigureTests(unittest.TestCase):
             self.assertEqual(panel_ids, ["A"])
             self.assertIn("bars__control", mappings)
             self.assertIn("bars__fixedtrace", mappings)
-            self.assertEqual(len(figure.axes[0].collections), 10)
+            self.assertEqual(len(figure.axes[0].collections), 2 * len(METRIC_LABELS))
+        finally:
+            __import__("matplotlib.pyplot").pyplot.close(figure)
+
+    def test_delay_only_cohort_uses_delay_condition(self) -> None:
+        rows = []
+        for recording_id, offset in (("20221115_04", 0.4), ("20221116_12", 0.6)):
+            for metric in METRIC_LABELS:
+                rows.append(
+                    {
+                        "Recording ID": recording_id,
+                        "Condition ID": "delay",
+                        "Trial type": "CS",
+                        "Metric ID": metric,
+                        "Outcome ID": "movement-probability",
+                        "Standardized difference": offset,
+                    }
+                )
+        figure, panel_ids, mappings = _cohort_standardized_figure(
+            pd.DataFrame(rows),
+            trial_type="CS",
+            outcome_id="movement-probability",
+            experiment_name="allDelay",
+        )
+        try:
+            self.assertEqual(panel_ids, ["A"])
+            self.assertIn("bars__delay", mappings)
+            self.assertNotIn("bars__control", mappings)
+            self.assertEqual(len(figure.axes[0].collections), len(METRIC_LABELS))
         finally:
             __import__("matplotlib.pyplot").pyplot.close(figure)
 
@@ -109,12 +137,12 @@ class MetricComparisonFigureTests(unittest.TestCase):
                 "--mode",
                 "static",
                 "--recipe",
-                "candidate-temporal-outcomes-corrected-v2",
+                "candidate-temporal-outcomes-corrected-v3",
             ]
         )
         self.assertEqual(
             profile.recipe,
-            "candidate-temporal-outcomes-corrected-v2",
+            "candidate-temporal-outcomes-corrected-v3",
         )
 
 

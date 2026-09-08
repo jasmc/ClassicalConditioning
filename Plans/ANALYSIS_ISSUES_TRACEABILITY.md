@@ -40,7 +40,7 @@ was written.
 | 4 | Current scaled vigor differs from documented immediate-baseline proportional change | Steps 03, 05, 07, 09-10, 13 | O, S | Legacy formula regression; explicit documented formula; bounded baseline test; display transforms separated; sensitivity comparison | Methods and figures identify analytical versus display scaling and version |
 | 5 | Immobility is encoded as missing, conflating movement probability and conditional intensity | Steps 05, 07-10 | C0, O, S | Rest/invalidity distinction tests; total activity, movement probability, fraction moving, and conditional intensity; two-part sensitivity | R1 labels conditional legacy meaning; corrected release reports complementary outcomes |
 | 6 | Response-window movement inclusion may condition on the hypothesized outcome | Steps 00, 08, 10, 13 | C0, C1, S | Primary intention-to-analyze policy independent of response suppression; behavioral-engagement sensitivity cohort; flow and effect comparison | Corrected release reports both population definitions and impact |
-| 7 | Minimum-trial logic may retain fish passing any block rather than all required blocks | Steps 05, 09-11 | O, S, L | Legacy regression; fish-by-required-block completeness table; tests where one block passes and another fails; corrected eligible counts | Statistics/classification artifacts record exact block-completeness rule |
+| 7 | Minimum-trial logic may retain fish passing any block rather than all required blocks | Steps 08 (primary), 05 for legacy characterization | C0 (primary), C1 | Legacy regression; fish-by-required-block completeness table; tests where one block passes and another fails; corrected eligible counts under both OR and AND rules | Cohort and statistics artifacts record exact block-completeness rule; Gate C0 decides the corrected rule with paper-scale numbers |
 | 8 | Bootstrap iteration defaults differ from manuscript and may be unstable | Steps 00, 03, 10, 12-13 | S, F | Legacy counts captured; frozen paper iteration count and seed; Monte Carlo stability check; methods/legend agreement | R1 reports current values; R4 records approved value and seed |
 | 9 | Bootstrap may resample rows/trials rather than fish | Steps 09-10, 12-13 | S, F | Fish-level or hierarchical resampler tests; equal-fish-weight property test; uncertainty comparison | Final intervals and legends state resampling hierarchy and unit |
 | 10 | Mixed-effects inference has weak prespecification and incomplete diagnostics | Steps 00, 10, 12-13 | S | Frozen estimand/model/contrasts; convergence, boundary, singularity, Hessian and sample-count outputs; joint interaction test; robust sensitivity | Failed diagnostics block confirmatory success; R4 includes model inputs and diagnostics |
@@ -54,15 +54,8 @@ was written.
 
 ### Issue 1 adds a required benchmark
 
-The tail-dynamics plan proposes four alternatives to the current distal-point
-metric. The audit separately identifies the manuscript-described measure:
-
-```text
-sum across segments(abs(segment angular speed))
-```
-
-This measure is not equivalent to all-point angular RMS. It must therefore be
-implemented as its own metric identity:
+The six-metric candidate set (DECISIONS Gate T1) includes the manuscript
+segment-speed sum as its own identity, distinct from all-point angular RMS:
 
 ```text
 segment_absolute_angular_speed_sum
@@ -70,14 +63,15 @@ segment_absolute_angular_speed_sum
 
 The full candidate set contains:
 
-1. legacy distal-point angular speed;
-2. manuscript segment-speed sum;
-3. all-point angular RMS;
-4. whole-tail XY RMS speed;
-5. whole-tail XY mean speed;
-6. curvature-change RMS.
+1. manuscript segment-speed sum;
+2. all-point angular RMS;
+3. whole-tail XY RMS speed;
+4. whole-tail XY mean speed;
+5. curvature-change RMS;
+6. legacy distal-point angular speed (historical benchmark on measured time).
 
-Gate T0 must first establish source-angle semantics.
+Gate T0 raw-angle semantics are decided (radians, local bends, pixels). Gate T1
+selection remains open.
 
 ### Issues 5 and 6 are related but distinct
 
@@ -120,6 +114,11 @@ Before closing any implementation step:
 
 ## Current state
 
-At plan creation, all 15 issues remain open as scientific/reproducibility risks.
-The plan assigns ownership and acceptance evidence; it does not claim that any
-issue has been corrected or that any paper conclusion has been confirmed.
+All 15 issues remain open as scientific/reproducibility risks for
+paper-authoritative release. Fixture-scoped engineering progress (local
+two-fish intake, legacy equivalence, corrected candidate plumbing, cohort
+freeze tools, model-input/LME/permutation/bootstrap scaffolds) does not close
+any issue. Partial/plumbing progress is tracked in
+[IMPLEMENTATION_STEP_INDEX.md](./IMPLEMENTATION_STEP_INDEX.md); this register
+records scientific ownership and acceptance evidence only. No paper conclusion
+is confirmed.

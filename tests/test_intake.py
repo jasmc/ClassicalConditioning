@@ -198,28 +198,6 @@ class IntakeTests(unittest.TestCase):
             1,
         )
 
-    def test_normalizes_legacy_camera_header_aliases(self) -> None:
-        camera = self.raw / f"{RECORDING}_cam.txt"
-        camera.write_text(
-            "ID TotalTime AbsoluteTime\n"
-            "10 0.0 1000\n"
-            "11 1.5 1002\n",
-            encoding="utf-8",
-        )
-        intake_recording(
-            self.raw,
-            self.project,
-            chunk_rows=1,
-            preview_rows=2,
-        )
-        result = pq.read_table(
-            self.project / "Processed data" / "20260101_01" / "camera.parquet"
-        ).to_pandas()
-        self.assertEqual(
-            list(result.columns), ["FrameID", "ElapsedTime", "AbsoluteTime"]
-        )
-        self.assertEqual(result["FrameID"].tolist(), [10, 11])
-
     def test_disjoint_stream_ranges_report_actual_nonoverlap_span(self) -> None:
         tracking = self.raw / f"{RECORDING}_mp tail tracking.txt"
         tracking.write_text(

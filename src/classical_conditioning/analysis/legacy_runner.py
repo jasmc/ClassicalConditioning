@@ -210,7 +210,6 @@ def run_legacy_analysis_pipeline(
         / "Metadata"
         / f"{analysis_id}_{RUNNER_RECIPE_ID}_manifest.json"
     )
-    cohort_overwrite = overwrite
     if manifest_path.exists():
         try:
             previous_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -223,16 +222,16 @@ def run_legacy_analysis_pipeline(
             "analysis_id": analysis_id,
             "experiment_name": experiment_name,
             "alignment": alignment,
+            "recording_ids": list(ordered_ids),
         }
         if any(
             previous_manifest.get(key) != value
             for key, value in expected_identity.items()
-        ) or not set(previous_manifest.get("recording_ids", [])).issubset(ordered_ids):
+        ):
             raise ArtifactIntegrityError(
                 "Existing runner manifest identity differs from the requested run. "
                 "Use a new analysis ID."
             )
-        cohort_overwrite = cohort_overwrite or set(previous_manifest.get("recording_ids", [])) != set(ordered_ids)
 
     step_status: dict[str, dict[str, str]] = {}
     lineage: dict[str, str] = {}
@@ -279,7 +278,7 @@ def run_legacy_analysis_pipeline(
     scaled_marker = (
         project_dir / "Metadata" / f"{analysis_id}_{SCALED_VIGOR_RECIPE_ID}_complete.json"
     )
-    if not cohort_overwrite and scaled_marker.exists():
+    if not overwrite and scaled_marker.exists():
         _verify_scaled_vigor(
             project_dir,
             analysis_id,
@@ -292,7 +291,7 @@ def run_legacy_analysis_pipeline(
             project_dir,
             ordered_ids,
             analysis_id=analysis_id,
-            overwrite=cohort_overwrite,
+            overwrite=overwrite,
         )
         _verify_scaled_vigor(
             project_dir,
@@ -305,7 +304,7 @@ def run_legacy_analysis_pipeline(
 
     if run_statistics:
         statistics_marker = _statistics_marker_path(project_dir, analysis_id, alignment)
-        if not cohort_overwrite and statistics_marker.exists():
+        if not overwrite and statistics_marker.exists():
             _verify_statistics(
                 project_dir,
                 analysis_id,
@@ -320,7 +319,7 @@ def run_legacy_analysis_pipeline(
                 analysis_id=analysis_id,
                 alignment=alignment,
                 experiment_name=experiment_name,
-                overwrite=cohort_overwrite,
+                overwrite=overwrite,
             )
             _verify_statistics(
                 project_dir,

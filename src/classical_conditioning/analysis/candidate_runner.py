@@ -48,8 +48,8 @@ from classical_conditioning.preprocessing.corrected_v1 import (
 RUNNER_RECIPE_ID = "candidate-development-runner-v1"
 CORRECTED_RUNNER_RECIPE_ID = "candidate-corrected-runner-v1"
 METRIC_RECIPE_ID = "tail-candidate-development-v1"
-MOVEMENT_RECIPE_ID = "movement-candidate-v1"
-TEMPORAL_RECIPE_ID = "candidate-temporal-outcomes-v2"
+MOVEMENT_RECIPE_ID = "movement-candidate-v2"
+TEMPORAL_RECIPE_ID = "candidate-temporal-outcomes-v3"
 
 
 @dataclass(frozen=True)
@@ -372,7 +372,11 @@ def _run_recording_candidate_stages(
     route: CandidateMetricSource,
     steps: dict[str, dict[str, str]],
     lineage: dict[str, str],
+    progress: "PipelineProgress | None" = None,
 ) -> None:
+    from classical_conditioning.progress import default_progress
+
+    progress = progress or default_progress(enabled=False)
     if route.requires_corrected_preprocess:
         preprocess_marker = (
             project_dir
@@ -380,14 +384,16 @@ def _run_recording_candidate_stages(
             / f"{recording_id}_corrected-preprocess-v1_complete.json"
         )
         if not overwrite and preprocess_marker.exists():
+            progress.step("corrected-preprocess", status="existing")
             state = "existing"
         else:
-            build_corrected_preprocessing(
-                project_dir,
-                recording_id,
-                batch_size=batch_size,
-                overwrite=overwrite,
-            )
+            with progress.step_timer("corrected-preprocess"):
+                build_corrected_preprocessing(
+                    project_dir,
+                    recording_id,
+                    batch_size=batch_size,
+                    overwrite=overwrite,
+                )
             state = "completed"
         lineage[f"{recording_id}:corrected-preprocess"] = (
             _verify_corrected_preprocess(project_dir, recording_id)
@@ -398,22 +404,24 @@ def _run_recording_candidate_stages(
         project_dir / "Metadata" / f"{recording_id}_{route.metric_marker_suffix}"
     )
     if not overwrite and metric_marker.exists():
+        progress.step("activity-metrics", status="existing")
         state = "existing"
     else:
-        if route.requires_corrected_preprocess:
-            build_candidate_activity_metrics_from_corrected(
-                project_dir,
-                recording_id,
-                batch_size=batch_size,
-                overwrite=overwrite,
-            )
-        else:
-            build_candidate_activity_metrics(
-                project_dir,
-                recording_id,
-                batch_size=batch_size,
-                overwrite=overwrite,
-            )
+        with progress.step_timer("activity-metrics"):
+            if route.requires_corrected_preprocess:
+                build_candidate_activity_metrics_from_corrected(
+                    project_dir,
+                    recording_id,
+                    batch_size=batch_size,
+                    overwrite=overwrite,
+                )
+            else:
+                build_candidate_activity_metrics(
+                    project_dir,
+                    recording_id,
+                    batch_size=batch_size,
+                    overwrite=overwrite,
+                )
         state = "completed"
     lineage[f"{recording_id}:activity-metrics"] = _verify_metrics(
         project_dir,
@@ -426,14 +434,16 @@ def _run_recording_candidate_stages(
         project_dir / "Metadata" / f"{recording_id}_{route.movement_marker_suffix}"
     )
     if not overwrite and movement_marker.exists():
+        progress.step("movement-state", status="existing")
         state = "existing"
     else:
-        build_candidate_movement_state(
-            project_dir,
-            recording_id,
-            metric_recipe=route.metric_recipe,
-            overwrite=overwrite,
-        )
+        with progress.step_timer("movement-state"):
+            build_candidate_movement_state(
+                project_dir,
+                recording_id,
+                metric_recipe=route.metric_recipe,
+                overwrite=overwrite,
+            )
         state = "completed"
     lineage[f"{recording_id}:movement-state"] = _verify_movement(
         project_dir,
@@ -446,15 +456,17 @@ def _run_recording_candidate_stages(
         project_dir / "Metadata" / f"{recording_id}_{route.temporal_marker_suffix}"
     )
     if not overwrite and temporal_marker.exists():
+        progress.step("temporal-profiles", status="existing")
         state = "existing"
     else:
-        build_candidate_temporal_profiles(
-            project_dir,
-            recording_id,
-            experiment_name=experiment_name,
-            metric_recipe=route.metric_recipe,
-            overwrite=overwrite,
-        )
+        with progress.step_timer("temporal-profiles"):
+            build_candidate_temporal_profiles(
+                project_dir,
+                recording_id,
+                experiment_name=experiment_name,
+                metric_recipe=route.metric_recipe,
+                overwrite=overwrite,
+            )
         state = "completed"
     lineage[f"{recording_id}:temporal-profiles"] = _verify_temporal(
         project_dir,
@@ -468,15 +480,17 @@ def _run_recording_candidate_stages(
         project_dir / "Metadata" / f"{recording_id}_{route.trial_marker_suffix}"
     )
     if not overwrite and trial_marker.exists():
+        progress.step("trial-outcomes", status="existing")
         state = "existing"
     else:
-        build_candidate_trial_outcomes(
-            project_dir,
-            recording_id,
-            experiment_name=experiment_name,
-            metric_recipe=route.metric_recipe,
-            overwrite=overwrite,
-        )
+        with progress.step_timer("trial-outcomes"):
+            build_candidate_trial_outcomes(
+                project_dir,
+                recording_id,
+                experiment_name=experiment_name,
+                metric_recipe=route.metric_recipe,
+                overwrite=overwrite,
+            )
         state = "completed"
     lineage[f"{recording_id}:trial-outcomes"] = _verify_trial_outcomes(
         project_dir,
@@ -497,8 +511,12 @@ def run_candidate_development_pipeline(
     metric_recipe: str | None = None,
     runner_recipe: str | None = None,
     continue_on_error: bool = False,
+    progress: "PipelineProgress | None" = None,
 ) -> CandidateRunnerResult:
     """Run candidate metrics through identical non-approved outcomes."""
+    from classical_conditioning.progress import default_progress
+
+    progress = progress or default_progress(enabled=False)
     _validate_analysis_id(analysis_id)
     if batch_size <= 0:
         raise ConfigurationError("Candidate metric batch size must be positive.")
@@ -515,7 +533,6 @@ def run_candidate_development_pipeline(
         / "Metadata"
         / f"{analysis_id}_{route.runner_recipe}_manifest.json"
     )
-    cohort_overwrite = overwrite
     if manifest_path.exists():
         try:
             previous = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -527,6 +544,7 @@ def run_candidate_development_pipeline(
             "recipe": route.runner_recipe,
             "analysis_id": analysis_id,
             "experiment_name": experiment_name,
+            "recording_ids": list(recording_ids),
         }
         previous_metric = previous.get(
             "metric_recipe",
@@ -535,19 +553,22 @@ def run_candidate_development_pipeline(
         if (
             any(previous.get(key) != value for key, value in identity.items())
             or previous_metric != route.metric_recipe
-            or not set(previous.get("recording_ids", [])).issubset(recording_ids)
         ):
             raise ArtifactIntegrityError(
                 "Existing candidate runner identity differs from the requested run. "
                 "Use a new analysis ID."
             )
-        cohort_overwrite = cohort_overwrite or set(previous.get("recording_ids", [])) != set(recording_ids)
 
     steps: dict[str, dict[str, str]] = {}
     lineage: dict[str, str] = {}
     successful: list[str] = []
-    for recording_id in recording_ids:
+    total = len(recording_ids)
+    for index, recording_id in enumerate(
+        progress.iter_items(recording_ids, description="candidate recordings"),
+        start=1,
+    ):
         steps[recording_id] = {}
+        progress.info(f"recording {recording_id} [{index}/{total}]")
         try:
             _run_recording_candidate_stages(
                 project_dir,
@@ -558,9 +579,16 @@ def run_candidate_development_pipeline(
                 route=route,
                 steps=steps,
                 lineage=lineage,
+                progress=progress,
             )
             successful.append(recording_id)
+            progress.item_done(
+                index, total, recording_id, status="completed"
+            )
         except Exception as error:
+            progress.item_done(
+                index, total, recording_id, status=f"failed: {error}"
+            )
             if not continue_on_error:
                 raise
             steps[recording_id]["failed"] = str(error)
@@ -575,17 +603,19 @@ def run_candidate_development_pipeline(
         / "Metadata"
         / f"{analysis_id}_{route.comparison_recipe}_complete.json"
     )
-    if not cohort_overwrite and comparison_marker.exists():
+    if not overwrite and comparison_marker.exists():
+        progress.step("cohort metric comparison", status="existing")
         state = "existing"
     else:
-        build_candidate_metric_comparison(
-            project_dir,
-            successful,
-            analysis_id=analysis_id,
-            experiment_name=experiment_name,
-            metric_recipe=route.metric_recipe,
-            overwrite=cohort_overwrite,
-        )
+        with progress.step_timer("cohort metric comparison"):
+            build_candidate_metric_comparison(
+                project_dir,
+                successful,
+                analysis_id=analysis_id,
+                experiment_name=experiment_name,
+                metric_recipe=route.metric_recipe,
+                overwrite=overwrite,
+            )
         state = "completed"
     lineage["cohort:five-metric-comparison"] = _verify_comparison(
         project_dir,

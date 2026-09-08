@@ -15,33 +15,47 @@ numbered entry point when needed.
 
 ## Target structure
 
+Target layout (add modules only when migrating real behavior):
+
 ```text
 ClassicalConditioning/
 |-- pyproject.toml
 |-- src/classical_conditioning/
-|   |-- domain/
-|   |-- config/
-|   |-- schemas/
-|   |-- io/
-|   |-- preprocessing/
-|   |-- analysis/
-|   |-- statistics/
-|   |-- learners/
-|   |-- figures/
-|   |-- artifacts/
-|   `-- cli/
+|   |-- config/                 # experiments, recipes, trial map, identity
+|   |-- ingestion/              # readers, schemas, validation, audits
+|   |-- preprocessing/          # legacy and corrected recipes
+|   |-- analysis/               # metrics, movement, outcomes, stats runners
+|   |-- figures/                # theme, panels, export
+|   |-- artifacts.py            # hashing, transactional publish
+|   |-- cohort.py
+|   |-- pipeline.py
+|   |-- cli.py
+|   `-- ...                     # paths, intake, inventory, progress, etc.
 |-- scripts/
-|   `-- compatibility/
+|   `-- compatibility/          # thin wrappers after numbered scripts move
 |-- legacy/
-|   |-- scripts/
-|   |-- modules/
+|   |-- scripts/                # full numbered implementations after wrappers
+|   |-- modules/                # archived my_* helpers
 |   `-- variants/
 |       `-- logmedian/
 |-- tests/
+|   `-- characterization/
 |-- docs/
 |   `-- analysis/
-`-- Plans/
+|-- Plans/
+`-- configs/
 ```
+
+Longer aspirational trees from the archived CODEBASE plan (separate
+`domain/`, `schemas/`, `io/`, `pipelines/`, `statistics/`, `learners/`
+packages) remain optional future splits; do not create empty architecture
+ahead of migrated behavior. Current code already uses flat modules plus the
+folders above.
+
+Numbered root scripts stay until replacements have characterization tests,
+equivalence evidence, migrated consumers or wrappers, and the relevant
+scientific gate. Then Git-move implementations under `legacy/scripts/` and
+leave thin wrappers at the familiar entry points when needed.
 
 ## Numbered scripts
 
@@ -82,7 +96,7 @@ legacy/modules/my_functions.py
 
 Important historical experiments, the LogMedian branch, and learner variants
 have now been checked, with evidence in
-`Notes/HISTORICAL_LOGMEDIAN_PIPELINE.md` and
+`Archive/HISTORICAL_LOGMEDIAN_PIPELINE.md` and
 `../docs/analysis/LEARNER_VARIANT_BEHAVIOR_MATRIX.md`. The modules were moved
 together to `legacy/modules/`; an executable repository-organization test
 prevents new active imports.

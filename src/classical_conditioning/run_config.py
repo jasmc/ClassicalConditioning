@@ -34,7 +34,7 @@ class PipelineRunConfig:
     save_dir: Path
     experiment: str
     analysis_id: str
-    routes: tuple[str, ...] = ("legacy", "candidate")
+    routes: tuple[str, ...] = ("candidate",)
     keep_conditions: tuple[str, ...] | None = None
     recording_ids: tuple[str, ...] | None = None
     overwrite: bool = False
@@ -50,6 +50,7 @@ class PipelineRunConfig:
     batch_size: int = 250_000
     figure_mode: str = "static"
     figure_outcomes: tuple[str, ...] = ("movement-probability",)
+    show_progress: bool = True
 
     @property
     def input_dir(self) -> Path:
@@ -105,7 +106,7 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
         raise ConfigurationError("analysis_id is required.")
     _validate_analysis_id(analysis_id)
 
-    routes_raw = payload.get("routes", ["legacy", "candidate"])
+    routes_raw = payload.get("routes", ["candidate"])
     if not isinstance(routes_raw, list) or not routes_raw:
         raise ConfigurationError("routes must be a non-empty list.")
     routes = tuple(str(item).strip().lower() for item in routes_raw)
@@ -169,6 +170,7 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
             field_name="figure_outcomes",
         )
         or ("movement-probability",),
+        show_progress=bool(payload.get("show_progress", True)),
     )
     assert_project_dir_allowed(config.raw_dir, config.save_dir)
     return config
@@ -197,4 +199,5 @@ def pipeline_config_to_dict(config: PipelineRunConfig) -> dict[str, Any]:
         "batch_size": config.batch_size,
         "figure_mode": config.figure_mode,
         "figure_outcomes": list(config.figure_outcomes),
+        "show_progress": config.show_progress,
     }

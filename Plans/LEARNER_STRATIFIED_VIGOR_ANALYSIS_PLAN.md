@@ -1129,7 +1129,7 @@ At least one learner-stratified result is evaluated on behavior that did not def
 
 ## Phase 6: Build paper panels
 
-1. Integrate the analysis with `SCIENTIFIC_FIGURE_PIPELINE_PLAN.md`.
+1. Integrate the analysis with `Plans/12_FIGURES_CLI_AND_NOTEBOOKS.md`.
 2. Create reusable learner-profile panel renderers.
 3. Compose:
    - Classification flow

@@ -14,19 +14,27 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 from classical_conditioning.analysis.movement_state import (
-    METRIC_IDS, CandidateMetricSource, resolve_candidate_metric_source)
-from classical_conditioning.artifacts import (VerifiedArtifactSet,
-                                              artifact_staging,
-                                              load_and_verify_source_manifest,
-                                              publish_transaction, sha256_file,
-                                              verify_completed_parquet_set,
-                                              write_json_atomic)
+    CandidateMetricSource,
+    DETECTOR_COLUMNS,
+    METRIC_IDS,
+    resolve_candidate_metric_source,
+)
+from classical_conditioning.artifacts import (
+    VerifiedArtifactSet,
+    artifact_staging,
+    load_and_verify_source_manifest,
+    publish_transaction,
+    sha256_file,
+    verify_completed_parquet_set,
+    write_json_atomic,
+)
 from classical_conditioning.config import get_experiment_spec
-from classical_conditioning.exceptions import (ArtifactIntegrityError,
-                                               ConfigurationError,
-                                               SchemaValidationError)
-from classical_conditioning.preprocessing.candidates_v1 import \
-    CANDIDATE_COLUMNS
+from classical_conditioning.exceptions import (
+    ArtifactIntegrityError,
+    ConfigurationError,
+    SchemaValidationError,
+)
+from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
 
 DEFAULT_TRIAL_RECIPE_ID = "candidate-trial-outcomes-v1"
 RECIPE_ID = DEFAULT_TRIAL_RECIPE_ID  # retained for development-route callers
@@ -146,15 +154,7 @@ def aggregate_trial_outcomes(
         raise SchemaValidationError(
             f"Candidate frames are missing columns: {sorted(missing_frames)}"
         )
-    required_movement = {"FrameID", "AbsoluteTime"}
-    for metric_id in METRIC_IDS.values():
-        required_movement.update(
-            {
-                f"{metric_id}__valid",
-                f"{metric_id}__moving",
-                f"{metric_id}__bout_id",
-            }
-        )
+    required_movement = {"FrameID", "AbsoluteTime", *DETECTOR_COLUMNS}
     missing_movement = required_movement.difference(movement.columns)
     if missing_movement:
         raise SchemaValidationError(
@@ -212,11 +212,13 @@ def aggregate_trial_outcomes(
         event_id = f"{alignment}-{trial_number:03d}-{event_start}"
         trial_id = f"{identity['recording_id']}:{alignment}:{trial_number:03d}"
 
+        # The detector is shared, so validity, movement, and bout identity are
+        # read once and reused for every metric.
+        valid = movement["valid"].to_numpy(dtype=bool)
+        moving = movement["moving"].to_numpy(dtype=bool)
+        bout_ids = movement["bout_id"].to_numpy(dtype=np.int64)
         for source_column, metric_id in METRIC_IDS.items():
             values = frames[source_column].to_numpy(dtype=float)
-            valid = movement[f"{metric_id}__valid"].to_numpy(dtype=bool)
-            moving = movement[f"{metric_id}__moving"].to_numpy(dtype=bool)
-            bout_ids = movement[f"{metric_id}__bout_id"].to_numpy(dtype=np.int64)
             bout_start = (bout_ids > 0) & np.concatenate(
                 ([True], bout_ids[1:] != bout_ids[:-1])
             )
@@ -469,11 +471,11 @@ def verify_candidate_trial_outcomes(
         recipe=source.trial_recipe,
         recording_id=recording_id,
     )
-    current_inputs = _verify_inputs(
+    _, _, _, _, current_inputs, _ = _verify_inputs(
         project_dir,
         recording_id,
         metric_recipe=metric_recipe,
-    )[4]
+    )
     if verified.summary.get("inputs") != current_inputs:
         raise ArtifactIntegrityError(
             f"{source.trial_recipe} uses stale upstream artifacts for {recording_id}."
@@ -490,7 +492,7 @@ def build_candidate_trial_outcomes(
     metric_recipe: str = "tail-candidate-development-v1",
     overwrite: bool = False,
 ) -> TrialOutcomeResult:
-    """Publish exact five-metric trial outcomes and coverage."""
+    """Publish exact candidate trial outcomes and coverage."""
     if config != TrialOutcomeConfig():
         raise ConfigurationError(
             "Candidate trial outcomes use a frozen configuration. "

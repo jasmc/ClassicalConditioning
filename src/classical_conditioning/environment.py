@@ -6,6 +6,7 @@ import importlib.metadata
 import json
 import os
 import platform
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -14,7 +15,11 @@ import matplotlib.ft2font
 import numpy as np
 
 from classical_conditioning.artifacts import write_json_atomic
+from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.figures.theme import resolve_sans_serif_fonts
+
+# PyArrow does not yet ship usable Windows wheels for CPython 3.14.
+_SUPPORTED_PYTHON = ((3, 12), (3, 13))
 
 LOCKED_DISTRIBUTIONS = (
     "matplotlib",
@@ -62,6 +67,27 @@ def _numerical_libraries() -> dict[str, dict[str, Any]]:
         for library, details in build_dependencies.items()
         if library in {"blas", "lapack"}
     }
+
+
+def ensure_supported_runtime() -> None:
+    """Fail fast on Python builds that cannot import the locked PyArrow wheel."""
+    version = sys.version_info[:2]
+    if version not in _SUPPORTED_PYTHON:
+        raise ConfigurationError(
+            "classical-conditioning requires CPython 3.12 or 3.13. "
+            f"This interpreter is {platform.python_version()}. "
+            "Python 3.14 is not supported yet because pyarrow has no compatible "
+            "wheel (pyarrow.lib import fails). Create/use the project 3.12 venv, "
+            "for example: uv sync --python 3.12"
+        )
+    try:
+        import pyarrow  # noqa: F401
+    except Exception as error:  # pragma: no cover - depends on local install
+        raise ConfigurationError(
+            "PyArrow failed to import. Install the project environment with "
+            "Python 3.12 or 3.13 (uv sync --python 3.12). "
+            f"Original error: {error}"
+        ) from error
 
 
 def build_environment_report() -> dict[str, Any]:

@@ -3,16 +3,43 @@ from __future__ import annotations
 import unittest
 
 import numpy as np
+import pandas as pd
 
 from classical_conditioning.analysis.movement_state import (
     MovementCalibrationConfig,
     _positive_control,
-    calibrate_quiet_window_thresholds,
-    detect_hysteresis_bouts,
+    detect_legacy_envelope_bouts,
     evaluate_smoothing_sensitivity,
     resolve_candidate_metric_source,
+    rolling_extreme_envelope,
     smooth_contiguous_median,
 )
+from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
+
+
+def _detector_frame(rows: int, elapsed: np.ndarray | None = None) -> pd.DataFrame:
+    return pd.DataFrame(
+        {
+            "FrameID": np.arange(rows),
+            "ElapsedTime": (
+                np.arange(rows, dtype=float) if elapsed is None else elapsed
+            ),
+            "AbsoluteTime": np.arange(rows, dtype=np.int64),
+            "FrameStep": np.concatenate([[0], np.ones(rows - 1)]),
+            "DeltaTimeMs": np.ones(rows),
+            "valid_derivative": np.concatenate(
+                [[False], np.ones(rows - 1, dtype=bool)]
+            ),
+            "xy_valid_tail_fraction": np.ones(rows),
+            "angular_valid_tail_fraction": np.ones(rows),
+            "curvature_valid_tail_fraction": np.ones(rows),
+            **{
+                column: np.linspace(0.1, 1.0, rows)
+                + 0.01 * np.sin(np.arange(rows))
+                for column in CANDIDATE_COLUMNS
+            },
+        }
+    )
 
 
 class MovementStateTests(unittest.TestCase):
@@ -20,9 +47,9 @@ class MovementStateTests(unittest.TestCase):
         development = resolve_candidate_metric_source(
             metric_recipe="tail-candidate-development-v1"
         )
-        self.assertEqual(development.movement_recipe, "movement-candidate-v1")
+        self.assertEqual(development.movement_recipe, "movement-candidate-v2")
         corrected = resolve_candidate_metric_source(
-            movement_recipe="movement-candidate-corrected-v1"
+            movement_recipe="movement-candidate-corrected-v2"
         )
         self.assertEqual(
             corrected.metric_recipe,
@@ -39,8 +66,9 @@ class MovementStateTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "frozen pairing"):
             resolve_candidate_metric_source(
                 metric_recipe="tail-candidate-development-v1",
-                movement_recipe="movement-candidate-corrected-v1",
+                movement_recipe="movement-candidate-corrected-v2",
             )
+
     def test_smoothing_does_not_cross_frame_gap(self) -> None:
         values = np.array([0.0, 0.0, 100.0, 10.0, 10.0, 10.0])
         frame_steps = np.array([0, 1, 1, 2, 1, 1])
@@ -53,62 +81,54 @@ class MovementStateTests(unittest.TestCase):
         self.assertTrue(np.isnan(smoothed[3]))
         self.assertEqual(smoothed[4], 10.0)
 
-    def test_quiet_window_calibration_is_deterministic_and_ordered(self) -> None:
-        rng = np.random.default_rng(10)
-        quiet = rng.normal(1.0, 0.05, 1_000)
-        active = rng.normal(5.0, 0.5, 1_000)
-        values = np.concatenate([quiet, active])
-        elapsed = np.arange(len(values), dtype=float)
-        config = MovementCalibrationConfig(
-            quiet_window_ms=100.0,
-            quiet_window_fraction=0.5,
-            low_threshold_quantile=0.90,
-            high_threshold_quantile=0.99,
+    def test_historical_thresholds_are_converted_from_degrees(self) -> None:
+        config = MovementCalibrationConfig()
+        self.assertAlmostEqual(
+            config.envelope_threshold_rad_per_ms,
+            4.0 * np.pi / 180.0,
         )
-        calibration = calibrate_quiet_window_thresholds(
-            values,
-            elapsed,
-            np.ones(len(values), dtype=bool),
-            config=config,
+        self.assertAlmostEqual(
+            config.bout_amplitude_threshold_rad_per_ms,
+            1.0 * np.pi / 180.0,
         )
-        self.assertLess(
-            calibration["low_threshold"],
-            calibration["high_threshold"],
-        )
-        self.assertLess(calibration["high_threshold"], 2.0)
-        self.assertEqual(
-            calibration["quiet_window_count"],
-            int(np.ceil(calibration["total_window_count"] * 0.5)),
-        )
+        # Historical frame counts at the interpolated 700 FPS rate.
+        self.assertAlmostEqual(config.envelope_max_window_ms, 20 / 700 * 1_000)
+        self.assertAlmostEqual(config.envelope_min_window_ms, 400 / 700 * 1_000)
 
-    def test_quiet_window_ties_do_not_expand_selection_or_connect_zeros(self) -> None:
-        values = np.zeros(1_000)
-        values[500] = 1.0
-        elapsed = np.arange(len(values), dtype=float)
-        config = MovementCalibrationConfig(
-            quiet_window_ms=10.0,
-            quiet_window_fraction=0.2,
-            low_threshold_quantile=0.90,
-            high_threshold_quantile=0.99,
-        )
-        with self.assertRaisesRegex(ValueError, "Invalid candidate thresholds"):
-            calibrate_quiet_window_thresholds(
-                values,
-                elapsed,
-                np.ones(len(values), dtype=bool),
-                config=config,
-            )
-
-    def test_hysteresis_keeps_weak_support_connected_to_strong_seed(self) -> None:
-        values = np.array([0.0, 2.0, 5.0, 2.0, 0.0])
-        moving, bout_ids = detect_hysteresis_bouts(
+    def test_envelope_is_rolling_max_minus_rolling_min(self) -> None:
+        values = np.array([0.0, 0.0, 10.0, 0.0, 0.0])
+        envelope = rolling_extreme_envelope(
             values,
-            np.arange(5, dtype=float) * 10,
+            np.array([0, 1, 1, 1, 1]),
+            max_window_samples=3,
+            min_window_samples=3,
+        )
+        self.assertTrue(np.isnan(envelope[0]))
+        self.assertTrue(np.isnan(envelope[4]))
+        self.assertEqual(envelope[1:4].tolist(), [10.0, 10.0, 10.0])
+
+    def test_envelope_never_spans_a_frame_discontinuity(self) -> None:
+        values = np.array([0.0, 0.0, 10.0, 0.0, 0.0])
+        envelope = rolling_extreme_envelope(
+            values,
+            np.array([0, 1, 2, 1, 1]),
+            max_window_samples=3,
+            min_window_samples=3,
+        )
+        # The gap splits the trace into a 2-sample and a 3-sample segment, so
+        # only the center of the second segment has a full window.
+        self.assertTrue(np.all(np.isnan(envelope[[0, 1, 2, 4]])))
+        self.assertEqual(envelope[3], 10.0)
+
+    def test_envelope_above_threshold_becomes_a_bout(self) -> None:
+        moving, bout_ids = detect_legacy_envelope_bouts(
+            np.array([0.0, 5.0, 5.0, 5.0, 0.0]),
+            np.ones(5),
             np.full(5, 10.0),
             np.array([0, 1, 1, 1, 1]),
             np.ones(5, dtype=bool),
-            low_threshold=1.0,
-            high_threshold=4.0,
+            envelope_threshold=4.0,
+            amplitude_threshold=0.5,
             minimum_bout_duration_ms=0.0,
             maximum_interbout_gap_ms=0.0,
         )
@@ -116,93 +136,103 @@ class MovementStateTests(unittest.TestCase):
         self.assertEqual(int(bout_ids.max()), 1)
 
     def test_short_bout_is_removed(self) -> None:
-        moving, _ = detect_hysteresis_bouts(
+        moving, _ = detect_legacy_envelope_bouts(
             np.array([0.0, 5.0, 0.0]),
-            np.array([0.0, 10.0, 20.0]),
+            np.ones(3),
             np.full(3, 10.0),
             np.array([0, 1, 1]),
             np.ones(3, dtype=bool),
-            low_threshold=1.0,
-            high_threshold=4.0,
+            envelope_threshold=4.0,
+            amplitude_threshold=0.5,
             minimum_bout_duration_ms=20.0,
             maximum_interbout_gap_ms=0.0,
         )
         self.assertFalse(moving.any())
 
-    def test_short_valid_gap_is_merged_but_frame_gap_is_not(self) -> None:
-        values = np.array([5.0, 5.0, 0.0, 5.0, 5.0])
-        elapsed = np.arange(5, dtype=float) * 5
-        valid_steps = np.array([0, 1, 1, 1, 1])
-        merged, _ = detect_hysteresis_bouts(
-            values,
-            elapsed,
+    def test_short_gap_is_merged_but_frame_gap_is_not(self) -> None:
+        envelope = np.array([5.0, 5.0, 0.0, 5.0, 5.0])
+        merged, _ = detect_legacy_envelope_bouts(
+            envelope,
+            np.ones(5),
             np.full(5, 5.0),
-            valid_steps,
+            np.array([0, 1, 1, 1, 1]),
             np.ones(5, dtype=bool),
-            low_threshold=1.0,
-            high_threshold=4.0,
+            envelope_threshold=4.0,
+            amplitude_threshold=0.5,
             minimum_bout_duration_ms=0.0,
             maximum_interbout_gap_ms=15.0,
         )
         self.assertTrue(merged.all())
 
-        gap_steps = np.array([0, 1, 2, 1, 1])
-        not_merged, _ = detect_hysteresis_bouts(
-            values,
-            elapsed,
+        not_merged, _ = detect_legacy_envelope_bouts(
+            envelope,
+            np.ones(5),
             np.full(5, 5.0),
-            gap_steps,
+            np.array([0, 1, 2, 1, 1]),
             np.ones(5, dtype=bool),
-            low_threshold=1.0,
-            high_threshold=4.0,
+            envelope_threshold=4.0,
+            amplitude_threshold=0.5,
             minimum_bout_duration_ms=0.0,
             maximum_interbout_gap_ms=15.0,
         )
         self.assertFalse(not_merged[2])
 
-    def test_values_equal_to_low_threshold_are_not_weak_support(self) -> None:
-        moving, _ = detect_hysteresis_bouts(
-            np.array([0.0, 1.0, 5.0, 1.0, 0.0]),
-            np.arange(5, dtype=float) * 10,
+    def test_weak_bout_below_amplitude_threshold_is_removed(self) -> None:
+        envelope = np.array([0.0, 5.0, 5.0, 5.0, 0.0])
+        weak, _ = detect_legacy_envelope_bouts(
+            envelope,
+            np.full(5, 0.1),
             np.full(5, 10.0),
             np.array([0, 1, 1, 1, 1]),
             np.ones(5, dtype=bool),
-            low_threshold=1.0,
-            high_threshold=4.0,
+            envelope_threshold=4.0,
+            amplitude_threshold=1.0,
             minimum_bout_duration_ms=0.0,
             maximum_interbout_gap_ms=0.0,
         )
-        self.assertEqual(moving.tolist(), [False, False, True, False, False])
+        self.assertFalse(weak.any())
+
+        # A single sample reaching the amplitude threshold keeps the bout.
+        strong, _ = detect_legacy_envelope_bouts(
+            envelope,
+            np.array([0.1, 0.1, 1.5, 0.1, 0.1]),
+            np.full(5, 10.0),
+            np.array([0, 1, 1, 1, 1]),
+            np.ones(5, dtype=bool),
+            envelope_threshold=4.0,
+            amplitude_threshold=1.0,
+            minimum_bout_duration_ms=0.0,
+            maximum_interbout_gap_ms=0.0,
+        )
+        self.assertEqual(strong.tolist(), [False, True, True, True, False])
 
     def test_exact_legacy_duration_boundaries_are_retained_and_merged(self) -> None:
         interval = 1_000 / 700
-        moving_values = np.concatenate(
-            [np.zeros(2), np.full(40, 5.0), np.zeros(2)]
-        )
-        moving, _ = detect_hysteresis_bouts(
-            moving_values,
-            np.arange(len(moving_values)) * interval,
-            np.full(len(moving_values), interval),
-            np.concatenate([[0], np.ones(len(moving_values) - 1)]),
-            np.ones(len(moving_values), dtype=bool),
-            low_threshold=1.0,
-            high_threshold=4.0,
+        envelope = np.concatenate([np.zeros(2), np.full(40, 5.0), np.zeros(2)])
+        moving, _ = detect_legacy_envelope_bouts(
+            envelope,
+            np.ones(len(envelope)),
+            np.full(len(envelope), interval),
+            np.concatenate([[0], np.ones(len(envelope) - 1)]),
+            np.ones(len(envelope), dtype=bool),
+            envelope_threshold=4.0,
+            amplitude_threshold=0.5,
             minimum_bout_duration_ms=40 / 700 * 1_000,
             maximum_interbout_gap_ms=0.0,
         )
         self.assertEqual(int(moving.sum()), 40)
 
-        gap_values = np.concatenate(
+        gap_envelope = np.concatenate(
             [np.full(20, 5.0), np.zeros(10), np.full(20, 5.0)]
         )
-        merged, _ = detect_hysteresis_bouts(
-            gap_values,
-            np.arange(len(gap_values)) * interval,
-            np.full(len(gap_values), interval),
-            np.concatenate([[0], np.ones(len(gap_values) - 1)]),
-            np.ones(len(gap_values), dtype=bool),
-            low_threshold=1.0,
-            high_threshold=4.0,
+        merged, _ = detect_legacy_envelope_bouts(
+            gap_envelope,
+            np.ones(len(gap_envelope)),
+            np.full(len(gap_envelope), interval),
+            np.concatenate([[0], np.ones(len(gap_envelope) - 1)]),
+            np.ones(len(gap_envelope), dtype=bool),
+            envelope_threshold=4.0,
+            amplitude_threshold=0.5,
             minimum_bout_duration_ms=0.0,
             maximum_interbout_gap_ms=10 / 700 * 1_000,
         )
@@ -214,83 +244,40 @@ class MovementStateTests(unittest.TestCase):
             np.array([0, 1, 3, 4]),
             np.ones(4, dtype=bool),
             np.ones(4, dtype=bool),
-            __import__("pandas").DataFrame(
-                {"Type": ["Reinforcer"], "Beg": [0], "End": [1]}
-            ),
+            pd.DataFrame({"Type": ["Reinforcer"], "Beg": [0], "End": [1]}),
             MovementCalibrationConfig(positive_control_window_ms=4.0),
         )
         self.assertEqual(result["post_us_evaluated_event_count"], 1)
         self.assertEqual(result["post_us_valid_fraction"], 0.75)
 
-    def test_smoothing_sensitivity_returns_only_compact_summaries(self) -> None:
-        rows = 1_000
-        frame = __import__("pandas").DataFrame(
-            {
-                "FrameID": np.arange(rows),
-                "ElapsedTime": np.arange(rows, dtype=float),
-                "AbsoluteTime": np.arange(rows, dtype=np.int64),
-                "FrameStep": np.concatenate([[0], np.ones(rows - 1)]),
-                "DeltaTimeMs": np.ones(rows),
-                "valid_derivative": np.concatenate([[False], np.ones(rows - 1, dtype=bool)]),
-                "xy_valid_tail_fraction": np.ones(rows),
-                "angular_valid_tail_fraction": np.ones(rows),
-                "curvature_valid_tail_fraction": np.ones(rows),
-                **{
-                    column: np.linspace(0.1, 1.0, rows)
-                    + 0.01 * np.sin(np.arange(rows))
-                    for column in __import__(
-                        "classical_conditioning.preprocessing.candidates_v1",
-                        fromlist=["CANDIDATE_COLUMNS"],
-                    ).CANDIDATE_COLUMNS
-                },
-            }
-        )
-        protocol = __import__("pandas").DataFrame(
-            {"Type": ["Reinforcer"], "Beg": [500], "End": [510]}
-        )
+    def test_smoothing_sensitivity_reports_one_shared_detector(self) -> None:
         result = evaluate_smoothing_sensitivity(
-            frame,
-            protocol,
+            _detector_frame(1_000),
+            pd.DataFrame({"Type": ["Reinforcer"], "Beg": [500], "End": [510]}),
             smoothing_windows_ms=(0.0, 10.0),
             base_config=MovementCalibrationConfig(
-                quiet_window_ms=100.0,
-                low_threshold_quantile=0.90,
-                high_threshold_quantile=0.99,
                 minimum_bout_duration_ms=0.0,
             ),
         )
         self.assertEqual(set(result), {"0ms", "10ms"})
-        self.assertIn("whole_tail_xy_rms_speed", result["10ms"])
-        self.assertIn("positive_control", result["10ms"]["whole_tail_xy_rms_speed"])
+        # Sensitivity is reported per smoothing window, not per metric, because
+        # one detector serves every metric.
+        self.assertIn("positive_control", result["10ms"])
+        self.assertIn("bout_count", result["10ms"])
+        self.assertEqual(
+            result["10ms"]["detector_source_column"],
+            CANDIDATE_COLUMNS[5],
+        )
+        for metric_id in ("whole_tail_xy_rms_speed", "curvature_change_rms"):
+            self.assertNotIn(metric_id, result["10ms"])
 
     def test_sensitivity_rejects_unordered_timeline(self) -> None:
         rows = 200
-        frame = __import__("pandas").DataFrame(
-            {
-                "FrameID": np.arange(rows),
-                "ElapsedTime": np.concatenate(
-                    [np.arange(rows - 1, dtype=float), [1.0]]
-                ),
-                "AbsoluteTime": np.arange(rows, dtype=np.int64),
-                "FrameStep": np.concatenate([[0], np.ones(rows - 1)]),
-                "DeltaTimeMs": np.ones(rows),
-                "valid_derivative": np.ones(rows, dtype=bool),
-                "xy_valid_tail_fraction": np.ones(rows),
-                "angular_valid_tail_fraction": np.ones(rows),
-                "curvature_valid_tail_fraction": np.ones(rows),
-                **{
-                    column: np.linspace(0.1, 1.0, rows)
-                    for column in __import__(
-                        "classical_conditioning.preprocessing.candidates_v1",
-                        fromlist=["CANDIDATE_COLUMNS"],
-                    ).CANDIDATE_COLUMNS
-                },
-            }
-        )
+        elapsed = np.concatenate([np.arange(rows - 1, dtype=float), [1.0]])
         with self.assertRaisesRegex(ValueError, "increasing elapsed time"):
             evaluate_smoothing_sensitivity(
-                frame,
-                __import__("pandas").DataFrame(
+                _detector_frame(rows, elapsed=elapsed),
+                pd.DataFrame(
                     {"Type": ["Reinforcer"], "Beg": [100], "End": [110]}
                 ),
             )

@@ -70,6 +70,7 @@ class CorrectedCandidateAdapterTests(unittest.TestCase):
                 CANDIDATE_COLUMNS[2]: [0.1, 0.2],
                 CANDIDATE_COLUMNS[3]: [0.1, 0.2],
                 CANDIDATE_COLUMNS[4]: [0.1, 0.2],
+                CANDIDATE_COLUMNS[5]: [0.1, 0.2],
             }
         )
         with self.assertRaisesRegex(ValueError, "length"):

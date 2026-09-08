@@ -1,4 +1,10 @@
-"""Candidate movement-state calibration and bout detection."""
+"""Shared, metric-independent bout detection for the candidate route.
+
+One detector runs per recording, on the distal cumulative-angle speed, using
+the historical envelope rule and thresholds. Every candidate metric inherits
+that segmentation, so bout-derived outcomes describe the animal's behavior
+rather than the metric used to measure it.
+"""
 
 from __future__ import annotations
 
@@ -32,7 +38,18 @@ METRIC_IDS = {
     CANDIDATE_COLUMNS[2]: "whole_tail_xy_rms_speed",
     CANDIDATE_COLUMNS[3]: "whole_tail_xy_mean_speed",
     CANDIDATE_COLUMNS[4]: "curvature_change_rms",
+    CANDIDATE_COLUMNS[5]: "legacy_distal_angular_speed",
 }
+
+# Bout detection is a property of the animal's behavior, not of the metric used
+# to describe it. One detector runs on the distal cumulative-angle speed, which
+# is the signal the historical pipeline used, and every metric shares its
+# segmentation.
+DETECTOR_SOURCE_COLUMN = CANDIDATE_COLUMNS[5]
+DETECTOR_COVERAGE_COLUMN = "angular_valid_tail_fraction"
+DETECTOR_COLUMNS = ("valid", "moving", "bout_id")
+
+_DEGREES_TO_RADIANS = np.pi / 180.0
 
 
 @dataclass(frozen=True)
@@ -68,14 +85,14 @@ CANDIDATE_METRIC_SOURCES: dict[str, CandidateMetricSource] = {
         metrics_name="frame_activity_candidates-v1.parquet",
         metric_summary_name="candidate-v1_activity_summary.json",
         metric_marker_suffix="candidate-v1_complete.json",
-        movement_recipe="movement-candidate-v1",
-        movement_artifact_name="movement_state_candidates-v1.parquet",
-        movement_summary_name="movement-candidate-v1_summary.json",
-        movement_marker_suffix="movement-candidate-v1_complete.json",
-        temporal_recipe="candidate-temporal-outcomes-v2",
-        temporal_artifact_name="candidate_temporal_outcomes-v2.parquet",
-        temporal_summary_name="candidate-v2_temporal_outcomes_summary.json",
-        temporal_marker_suffix="candidate-temporal-outcomes-v2_complete.json",
+        movement_recipe="movement-candidate-v2",
+        movement_artifact_name="movement_state_candidates-v2.parquet",
+        movement_summary_name="movement-candidate-v2_summary.json",
+        movement_marker_suffix="movement-candidate-v2_complete.json",
+        temporal_recipe="candidate-temporal-outcomes-v3",
+        temporal_artifact_name="candidate_temporal_outcomes-v3.parquet",
+        temporal_summary_name="candidate-v3_temporal_outcomes_summary.json",
+        temporal_marker_suffix="candidate-temporal-outcomes-v3_complete.json",
         trial_recipe="candidate-trial-outcomes-v1",
         trial_outcomes_name="candidate-trial-outcomes-v1.parquet",
         trial_coverage_name="candidate-trial-outcomes-v1_coverage.parquet",
@@ -90,14 +107,14 @@ CANDIDATE_METRIC_SOURCES: dict[str, CandidateMetricSource] = {
         metrics_name="frame_activity_candidates-corrected-v1.parquet",
         metric_summary_name="candidate-corrected-v1_activity_summary.json",
         metric_marker_suffix="candidate-corrected-v1_complete.json",
-        movement_recipe="movement-candidate-corrected-v1",
-        movement_artifact_name="movement_state_candidates-corrected-v1.parquet",
-        movement_summary_name="movement-candidate-corrected-v1_summary.json",
-        movement_marker_suffix="movement-candidate-corrected-v1_complete.json",
-        temporal_recipe="candidate-temporal-outcomes-corrected-v2",
-        temporal_artifact_name="candidate_temporal_outcomes-corrected-v2.parquet",
-        temporal_summary_name="candidate-corrected-v2_temporal_outcomes_summary.json",
-        temporal_marker_suffix="candidate-temporal-outcomes-corrected-v2_complete.json",
+        movement_recipe="movement-candidate-corrected-v2",
+        movement_artifact_name="movement_state_candidates-corrected-v2.parquet",
+        movement_summary_name="movement-candidate-corrected-v2_summary.json",
+        movement_marker_suffix="movement-candidate-corrected-v2_complete.json",
+        temporal_recipe="candidate-temporal-outcomes-corrected-v3",
+        temporal_artifact_name="candidate_temporal_outcomes-corrected-v3.parquet",
+        temporal_summary_name="candidate-corrected-v3_temporal_outcomes_summary.json",
+        temporal_marker_suffix="candidate-temporal-outcomes-corrected-v3_complete.json",
         trial_recipe="candidate-trial-outcomes-corrected-v1",
         trial_outcomes_name="candidate-trial-outcomes-corrected-v1.parquet",
         trial_coverage_name="candidate-trial-outcomes-corrected-v1_coverage.parquet",
@@ -229,17 +246,33 @@ def resolve_candidate_metric_source(
 
 @dataclass(frozen=True)
 class MovementCalibrationConfig:
+    """Frozen shared-detector parameters ported from the historical pipeline.
+
+    Historical values were expressed in frames at the interpolated 700 FPS rate
+    (max window 20, min window 400, minimum duration 40, interbout gap 10) and
+    in deg/ms. They are stored here in milliseconds and degrees so the detector
+    can run on measured timestamps rather than assuming a fixed frame rate.
+    """
+
     smoothing_window_ms: float = 10.0
-    quiet_window_ms: float = 100.0
-    quiet_window_fraction: float = 0.20
-    low_threshold_quantile: float = 0.99
-    high_threshold_quantile: float = 0.999
+    envelope_max_window_ms: float = 20 / 700 * 1_000
+    envelope_min_window_ms: float = 400 / 700 * 1_000
+    envelope_threshold_deg_per_ms: float = 4.0
+    bout_amplitude_threshold_deg_per_ms: float = 1.0
     minimum_valid_tail_fraction: float = 0.80
     minimum_bout_duration_ms: float = 40 / 700 * 1_000
     maximum_interbout_gap_ms: float = 10 / 700 * 1_000
     positive_control_window_ms: float = 500.0
     control_baseline_start_ms: float = -5_000.0
     control_baseline_end_ms: float = -1_000.0
+
+    @property
+    def envelope_threshold_rad_per_ms(self) -> float:
+        return self.envelope_threshold_deg_per_ms * _DEGREES_TO_RADIANS
+
+    @property
+    def bout_amplitude_threshold_rad_per_ms(self) -> float:
+        return self.bout_amplitude_threshold_deg_per_ms * _DEGREES_TO_RADIANS
 
 
 @dataclass(frozen=True)
@@ -293,159 +326,181 @@ def smooth_contiguous_median(
     return smoothed.to_numpy(dtype=np.float64)
 
 
-def calibrate_quiet_window_thresholds(
+def rolling_extreme_envelope(
     values: np.ndarray,
-    elapsed_time_ms: np.ndarray,
-    valid: np.ndarray,
+    frame_steps: np.ndarray,
     *,
-    config: MovementCalibrationConfig,
-) -> dict[str, float | int]:
-    """Estimate candidate thresholds from the quietest fixed-duration windows."""
+    max_window_samples: int,
+    min_window_samples: int,
+) -> np.ndarray:
+    """Historical bout-detection envelope: rolling max minus rolling min.
+
+    Both windows are centered and require full occupancy, matching the legacy
+    ``rolling(...).max() - rolling(...).min()`` followed by ``dropna``. Windows
+    never span a frame discontinuity, so a tracking gap yields NaN instead of
+    an envelope computed across missing time.
+    """
     values = np.asarray(values, dtype=np.float64)
-    elapsed_time_ms = np.asarray(elapsed_time_ms, dtype=np.float64)
-    valid = np.asarray(valid, dtype=bool) & np.isfinite(values)
-    if not np.any(valid):
-        raise ValueError("No valid samples are available for threshold calibration.")
-    window_id = np.floor(
-        (elapsed_time_ms - elapsed_time_ms[0]) / config.quiet_window_ms
-    ).astype(np.int64)
-    calibration = pd.DataFrame(
-        {
-            "window_id": window_id[valid],
-            "value": values[valid],
-        }
+    frame_steps = np.asarray(frame_steps, dtype=np.int64)
+    if values.shape != frame_steps.shape:
+        raise ValueError("Values and frame steps must have identical shapes.")
+    if max_window_samples < 1 or min_window_samples < 1:
+        raise ValueError("Envelope windows must be positive.")
+    boundaries = (frame_steps != 1) & (frame_steps != 0)
+    segment_id = np.cumsum(boundaries)
+    frame = pd.DataFrame({"value": values, "segment": segment_id})
+    grouped = frame.groupby("segment", sort=False)["value"]
+    rolling_max = grouped.transform(
+        lambda group: group.rolling(
+            window=max_window_samples,
+            center=True,
+            min_periods=max_window_samples,
+        ).max()
     )
-    window_medians = calibration.groupby("window_id", sort=False)["value"].median()
-    quiet_window_count = max(
-        1,
-        int(np.ceil(len(window_medians) * config.quiet_window_fraction)),
+    rolling_min = grouped.transform(
+        lambda group: group.rolling(
+            window=min_window_samples,
+            center=True,
+            min_periods=min_window_samples,
+        ).min()
     )
-    ranked_windows = (
-        window_medians.rename("median")
-        .reset_index()
-        .sort_values(["median", "window_id"], kind="stable")
+    return (rolling_max - rolling_min).to_numpy(dtype=np.float64)
+
+
+def _merge_short_gaps(
+    active: np.ndarray,
+    delta_time_ms: np.ndarray,
+    barriers: np.ndarray,
+    maximum_interbout_gap_ms: float,
+) -> np.ndarray:
+    inactive_labels, inactive_count = ndimage.label(~active)
+    if not inactive_count:
+        return active
+    indices = np.arange(len(active), dtype=np.int64)
+    first = np.full(inactive_count + 1, len(active), dtype=np.int64)
+    last = np.full(inactive_count + 1, -1, dtype=np.int64)
+    np.minimum.at(first, inactive_labels, indices)
+    np.maximum.at(last, inactive_labels, indices)
+    safe_delta = np.where(np.isfinite(delta_time_ms), delta_time_ms, 0.0)
+    gap_duration = np.bincount(
+        inactive_labels,
+        weights=safe_delta,
+        minlength=inactive_count + 1,
     )
-    quiet_selection = ranked_windows.iloc[:quiet_window_count]
-    quiet_cutoff = float(quiet_selection["median"].max())
-    quiet_ids = set(
-        quiet_selection["window_id"].to_numpy(dtype=np.int64)
+    barrier_count = np.bincount(
+        inactive_labels,
+        weights=barriers.astype(np.int8),
+        minlength=inactive_count + 1,
     )
-    quiet = valid & np.fromiter(
-        (identifier in quiet_ids for identifier in window_id),
-        dtype=bool,
-        count=len(window_id),
-    )
-    quiet_values = values[quiet]
-    if quiet_values.size < 100:
-        raise ValueError("Too few putative quiet samples for calibration.")
-    low = float(np.quantile(quiet_values, config.low_threshold_quantile))
-    high = float(np.quantile(quiet_values, config.high_threshold_quantile))
-    if not np.isfinite(low) or not np.isfinite(high) or high <= low:
-        raise ValueError(
-            f"Invalid candidate thresholds: low={low}, high={high}."
+    fill = (
+        (np.arange(inactive_count + 1) != 0)
+        & (first > 0)
+        & (last < len(active) - 1)
+        & (barrier_count == 0)
+        & (
+            (gap_duration <= maximum_interbout_gap_ms)
+            | np.isclose(
+                gap_duration,
+                maximum_interbout_gap_ms,
+                rtol=1e-12,
+                atol=1e-12,
+            )
         )
-    return {
-        "quiet_window_count": quiet_window_count,
-        "total_window_count": int(len(window_medians)),
-        "quiet_sample_count": int(quiet_values.size),
-        "quiet_window_median_cutoff": quiet_cutoff,
-        "low_threshold": low,
-        "high_threshold": high,
-    }
+    )
+    return active | fill[inactive_labels]
 
 
-def detect_hysteresis_bouts(
-    values: np.ndarray,
-    elapsed_time_ms: np.ndarray,
+def _drop_short_bouts(
+    active: np.ndarray,
+    delta_time_ms: np.ndarray,
+    minimum_bout_duration_ms: float,
+) -> np.ndarray:
+    labels, count = ndimage.label(active)
+    if not count:
+        return active
+    safe_delta = np.where(np.isfinite(delta_time_ms), delta_time_ms, 0.0)
+    duration = np.bincount(labels, weights=safe_delta, minlength=count + 1)
+    keep = (duration >= minimum_bout_duration_ms) | np.isclose(
+        duration,
+        minimum_bout_duration_ms,
+        rtol=1e-12,
+        atol=1e-12,
+    )
+    keep[0] = False
+    return keep[labels]
+
+
+def _drop_weak_bouts(
+    active: np.ndarray,
+    peak_values: np.ndarray,
+    amplitude_threshold: float,
+) -> np.ndarray:
+    labels, count = ndimage.label(active)
+    if not count:
+        return active
+    safe_peak = np.where(np.isfinite(peak_values), peak_values, -np.inf)
+    peak = np.full(count + 1, -np.inf, dtype=np.float64)
+    np.maximum.at(peak, labels, safe_peak)
+    keep = peak >= amplitude_threshold
+    keep[0] = False
+    return keep[labels]
+
+
+def detect_legacy_envelope_bouts(
+    envelope: np.ndarray,
+    peak_values: np.ndarray,
     delta_time_ms: np.ndarray,
     frame_steps: np.ndarray,
     valid: np.ndarray,
     *,
-    low_threshold: float,
-    high_threshold: float,
+    envelope_threshold: float,
+    amplitude_threshold: float,
     minimum_bout_duration_ms: float,
     maximum_interbout_gap_ms: float,
 ) -> tuple[np.ndarray, np.ndarray]:
-    """Detect bouts from high-threshold seeds and low-threshold support."""
-    values = np.asarray(values, dtype=np.float64)
-    elapsed_time_ms = np.asarray(elapsed_time_ms, dtype=np.float64)
+    """Detect bouts with the historical four-step envelope rule.
+
+    1. Threshold the max-minus-min envelope.
+    2. Merge bouts separated by a gap shorter than the interbout minimum.
+    3. Drop bouts shorter than the minimum duration.
+    4. Drop bouts whose peak instantaneous angular speed is too weak.
+
+    Steps 2 and 3 are measured in milliseconds of elapsed time rather than in
+    frame counts, and gaps spanning a tracking discontinuity are never merged.
+    """
+    envelope = np.asarray(envelope, dtype=np.float64)
+    peak_values = np.asarray(peak_values, dtype=np.float64)
     delta_time_ms = np.asarray(delta_time_ms, dtype=np.float64)
     frame_steps = np.asarray(frame_steps, dtype=np.int64)
     if not (
-        values.shape
-        == elapsed_time_ms.shape
+        envelope.shape
+        == peak_values.shape
         == delta_time_ms.shape
         == frame_steps.shape
         == np.asarray(valid).shape
     ):
         raise ValueError("Detector arrays must have identical shapes.")
+    if not np.isfinite(envelope_threshold) or envelope_threshold <= 0:
+        raise ValueError("Envelope threshold must be positive and finite.")
+    if not np.isfinite(amplitude_threshold) or amplitude_threshold <= 0:
+        raise ValueError("Amplitude threshold must be positive and finite.")
     valid = (
         np.asarray(valid, dtype=bool)
-        & np.isfinite(values)
+        & np.isfinite(envelope)
         & np.isfinite(delta_time_ms)
         & (delta_time_ms > 0)
     )
-    if not (low_threshold < high_threshold):
-        raise ValueError("Low threshold must be below high threshold.")
     barriers = ~valid | ((frame_steps != 1) & (frame_steps != 0))
-    weak = valid & (values > low_threshold)
-    strong = valid & (values > high_threshold)
-    weak_labels, _ = ndimage.label(weak)
-    seeded_labels = np.unique(weak_labels[strong])
-    seeded_labels = seeded_labels[seeded_labels != 0]
-    active = np.isin(weak_labels, seeded_labels)
 
-    inactive_labels, inactive_count = ndimage.label(~active)
-    if inactive_count:
-        indices = np.arange(len(active), dtype=np.int64)
-        first = np.full(inactive_count + 1, len(active), dtype=np.int64)
-        last = np.full(inactive_count + 1, -1, dtype=np.int64)
-        np.minimum.at(first, inactive_labels, indices)
-        np.maximum.at(last, inactive_labels, indices)
-        safe_delta = np.where(np.isfinite(delta_time_ms), delta_time_ms, 0.0)
-        gap_duration = np.bincount(
-            inactive_labels,
-            weights=safe_delta,
-            minlength=inactive_count + 1,
-        )
-        barrier_count = np.bincount(
-            inactive_labels,
-            weights=barriers.astype(np.int8),
-            minlength=inactive_count + 1,
-        )
-        fill = (
-            (np.arange(inactive_count + 1) != 0)
-            & (first > 0)
-            & (last < len(active) - 1)
-            & (barrier_count == 0)
-            & (
-                (gap_duration <= maximum_interbout_gap_ms)
-                | np.isclose(
-                    gap_duration,
-                    maximum_interbout_gap_ms,
-                    rtol=1e-12,
-                    atol=1e-12,
-                )
-            )
-        )
-        active |= fill[inactive_labels]
-
-    active_labels, active_count = ndimage.label(active)
-    if active_count:
-        safe_delta = np.where(np.isfinite(delta_time_ms), delta_time_ms, 0.0)
-        bout_duration = np.bincount(
-            active_labels,
-            weights=safe_delta,
-            minlength=active_count + 1,
-        )
-        keep = (bout_duration >= minimum_bout_duration_ms) | np.isclose(
-            bout_duration,
-            minimum_bout_duration_ms,
-            rtol=1e-12,
-            atol=1e-12,
-        )
-        keep[0] = False
-        active = keep[active_labels]
+    active = valid & (envelope >= envelope_threshold)
+    active = _merge_short_gaps(
+        active,
+        delta_time_ms,
+        barriers,
+        maximum_interbout_gap_ms,
+    )
+    active = _drop_short_bouts(active, delta_time_ms, minimum_bout_duration_ms)
+    active = _drop_weak_bouts(active, peak_values, amplitude_threshold)
 
     bout_ids, _ = ndimage.label(active)
     return active, bout_ids.astype(np.int32)
@@ -663,66 +718,73 @@ def build_candidate_movement_state(
         }
     )
     protocol = pq.read_table(protocol_path).to_pandas()
-    calibration_results: dict[str, dict[str, Any]] = {}
-    coverage_columns = {
-        CANDIDATE_COLUMNS[0]: "angular_valid_tail_fraction",
-        CANDIDATE_COLUMNS[1]: "angular_valid_tail_fraction",
-        CANDIDATE_COLUMNS[2]: "xy_valid_tail_fraction",
-        CANDIDATE_COLUMNS[3]: "xy_valid_tail_fraction",
-        CANDIDATE_COLUMNS[4]: "curvature_valid_tail_fraction",
-    }
+    envelope_max_samples = _odd_window_samples(
+        config.envelope_max_window_ms,
+        median_interval_ms,
+    )
+    envelope_min_samples = _odd_window_samples(
+        config.envelope_min_window_ms,
+        median_interval_ms,
+    )
     base_valid = frames["valid_derivative"].to_numpy(dtype=bool)
 
-    for column, metric_id in METRIC_IDS.items():
-        values = frames[column].to_numpy(dtype=np.float64)
-        smoothed = smooth_contiguous_median(
-            values,
-            frame_steps,
-            window_samples=smoothing_samples,
-        )
-        coverage = frames[coverage_columns[column]].to_numpy(dtype=float)
-        valid = (
-            base_valid
-            & np.isfinite(smoothed)
-            & (coverage >= config.minimum_valid_tail_fraction)
-        )
-        thresholds = calibrate_quiet_window_thresholds(
-            smoothed,
-            elapsed,
+    detector_values = frames[DETECTOR_SOURCE_COLUMN].to_numpy(dtype=np.float64)
+    smoothed = smooth_contiguous_median(
+        detector_values,
+        frame_steps,
+        window_samples=smoothing_samples,
+    )
+    envelope = rolling_extreme_envelope(
+        smoothed,
+        frame_steps,
+        max_window_samples=envelope_max_samples,
+        min_window_samples=envelope_min_samples,
+    )
+    coverage = frames[DETECTOR_COVERAGE_COLUMN].to_numpy(dtype=float)
+    valid = (
+        base_valid
+        & np.isfinite(envelope)
+        & (coverage >= config.minimum_valid_tail_fraction)
+    )
+    moving, bout_ids = detect_legacy_envelope_bouts(
+        envelope,
+        detector_values,
+        delta_time,
+        frame_steps,
+        valid,
+        envelope_threshold=config.envelope_threshold_rad_per_ms,
+        amplitude_threshold=config.bout_amplitude_threshold_rad_per_ms,
+        minimum_bout_duration_ms=config.minimum_bout_duration_ms,
+        maximum_interbout_gap_ms=config.maximum_interbout_gap_ms,
+    )
+    movement["valid"] = valid
+    movement["moving"] = moving
+    movement["bout_id"] = bout_ids
+    detector_report: dict[str, Any] = {
+        "source_column": DETECTOR_SOURCE_COLUMN,
+        "coverage_column": DETECTOR_COVERAGE_COLUMN,
+        "shared_across_metrics": True,
+        "applies_to_metrics": sorted(METRIC_IDS.values()),
+        "envelope_max_window_samples": envelope_max_samples,
+        "envelope_min_window_samples": envelope_min_samples,
+        "envelope_threshold_rad_per_ms": config.envelope_threshold_rad_per_ms,
+        "bout_amplitude_threshold_rad_per_ms": (
+            config.bout_amplitude_threshold_rad_per_ms
+        ),
+        "movement_fraction": (
+            float(np.mean(moving[valid])) if bool(np.any(valid)) else None
+        ),
+        "valid_fraction": float(np.mean(valid)),
+        "bout_count": int(bout_ids.max()),
+        "positive_control": _positive_control(
+            frame_ids,
+            absolute,
+            moving,
             valid,
-            config=config,
-        )
-        moving, bout_ids = detect_hysteresis_bouts(
-            smoothed,
-            elapsed,
-            delta_time,
-            frame_steps,
-            valid,
-            low_threshold=float(thresholds["low_threshold"]),
-            high_threshold=float(thresholds["high_threshold"]),
-            minimum_bout_duration_ms=config.minimum_bout_duration_ms,
-            maximum_interbout_gap_ms=config.maximum_interbout_gap_ms,
-        )
-        movement[f"{metric_id}__moving"] = moving
-        movement[f"{metric_id}__valid"] = valid
-        movement[f"{metric_id}__bout_id"] = bout_ids
-        bout_count = int(bout_ids.max())
-        calibration_results[metric_id] = {
-            **thresholds,
-            "source_column": column,
-            "coverage_column": coverage_columns[column],
-            "movement_fraction": float(np.mean(moving[valid])),
-            "valid_fraction": float(np.mean(valid)),
-            "bout_count": bout_count,
-            "positive_control": _positive_control(
-                frame_ids,
-                absolute,
-                moving,
-                valid,
-                protocol,
-                config,
-            ),
-        }
+            protocol,
+            config,
+        ),
+    }
 
     metric_state = (metric_path.stat().st_size, metric_path.stat().st_mtime_ns)
     if (
@@ -764,10 +826,15 @@ def build_candidate_movement_state(
             "metric_source_recipe": source.metric_recipe,
             "resolved_smoothing_window_samples": smoothing_samples,
             "median_adjacent_frame_interval_ms": median_interval_ms,
-            "calibration": calibration_results,
+            "detector": detector_report,
             "known_limitations": [
-                "Thresholds are calibrated from putative quiet windows, not video labels.",
-                "This single-fish calibration is exploratory and not transferable by default.",
+                "One shared detector segments bouts for every metric; bout "
+                "outcomes are metric-independent by construction.",
+                "Thresholds are the historical constants, not values validated "
+                "against video labels on this data.",
+                "Historical windows and durations were frame counts at an "
+                "assumed 700 FPS; here they are applied as milliseconds of "
+                "measured time.",
                 "The detector has not been selected for paper inference.",
                 "Threshold sensitivity and blinded/manual validation remain required.",
             ],
@@ -823,8 +890,12 @@ def evaluate_smoothing_sensitivity(
     *,
     smoothing_windows_ms: tuple[float, ...] = (0.0, 10.0, 20.0),
     base_config: MovementCalibrationConfig | None = None,
-) -> dict[str, dict[str, dict[str, Any]]]:
-    """Evaluate compact detector summaries without saving duplicate frame states."""
+) -> dict[str, dict[str, Any]]:
+    """Evaluate compact detector summaries without saving duplicate frame states.
+
+    The detector is shared across metrics, so sensitivity is reported once per
+    smoothing window rather than once per metric.
+    """
     base_config = base_config or MovementCalibrationConfig()
     frame_ids = frames["FrameID"].to_numpy(dtype=np.int64)
     elapsed = frames["ElapsedTime"].to_numpy(dtype=np.float64)
@@ -845,14 +916,9 @@ def evaluate_smoothing_sensitivity(
         raise ValueError("No adjacent frame intervals are available.")
     median_interval_ms = float(np.median(adjacent))
     base_valid = frames["valid_derivative"].to_numpy(dtype=bool)
-    coverage_columns = {
-        CANDIDATE_COLUMNS[0]: "angular_valid_tail_fraction",
-        CANDIDATE_COLUMNS[1]: "angular_valid_tail_fraction",
-        CANDIDATE_COLUMNS[2]: "xy_valid_tail_fraction",
-        CANDIDATE_COLUMNS[3]: "xy_valid_tail_fraction",
-        CANDIDATE_COLUMNS[4]: "curvature_valid_tail_fraction",
-    }
-    results: dict[str, dict[str, dict[str, Any]]] = {}
+    detector_values = frames[DETECTOR_SOURCE_COLUMN].to_numpy(dtype=np.float64)
+    coverage = frames[DETECTOR_COVERAGE_COLUMN].to_numpy(dtype=float)
+    results: dict[str, dict[str, Any]] = {}
     for smoothing_ms in smoothing_windows_ms:
         if smoothing_ms < 0:
             raise ValueError("Smoothing windows must be non-negative.")
@@ -862,53 +928,56 @@ def evaluate_smoothing_sensitivity(
             else _odd_window_samples(smoothing_ms, median_interval_ms)
         )
         config = replace(base_config, smoothing_window_ms=smoothing_ms)
-        window_result: dict[str, dict[str, Any]] = {}
-        for column, metric_id in METRIC_IDS.items():
-            values = frames[column].to_numpy(dtype=np.float64)
-            smoothed = smooth_contiguous_median(
-                values,
-                frame_steps,
-                window_samples=smoothing_samples,
-            )
-            coverage = frames[coverage_columns[column]].to_numpy(dtype=float)
-            valid = (
-                base_valid
-                & np.isfinite(smoothed)
-                & (coverage >= config.minimum_valid_tail_fraction)
-            )
-            thresholds = calibrate_quiet_window_thresholds(
-                smoothed,
-                elapsed,
+        smoothed = smooth_contiguous_median(
+            detector_values,
+            frame_steps,
+            window_samples=smoothing_samples,
+        )
+        envelope = rolling_extreme_envelope(
+            smoothed,
+            frame_steps,
+            max_window_samples=_odd_window_samples(
+                config.envelope_max_window_ms,
+                median_interval_ms,
+            ),
+            min_window_samples=_odd_window_samples(
+                config.envelope_min_window_ms,
+                median_interval_ms,
+            ),
+        )
+        valid = (
+            base_valid
+            & np.isfinite(envelope)
+            & (coverage >= config.minimum_valid_tail_fraction)
+        )
+        moving, bout_ids = detect_legacy_envelope_bouts(
+            envelope,
+            detector_values,
+            delta_time,
+            frame_steps,
+            valid,
+            envelope_threshold=config.envelope_threshold_rad_per_ms,
+            amplitude_threshold=config.bout_amplitude_threshold_rad_per_ms,
+            minimum_bout_duration_ms=config.minimum_bout_duration_ms,
+            maximum_interbout_gap_ms=config.maximum_interbout_gap_ms,
+        )
+        results[f"{smoothing_ms:g}ms"] = {
+            "smoothing_window_samples": smoothing_samples,
+            "detector_source_column": DETECTOR_SOURCE_COLUMN,
+            "valid_fraction": float(np.mean(valid)),
+            "movement_fraction": (
+                float(np.mean(moving[valid])) if bool(np.any(valid)) else None
+            ),
+            "bout_count": int(bout_ids.max()),
+            "positive_control": _positive_control(
+                frame_ids,
+                absolute,
+                moving,
                 valid,
-                config=config,
-            )
-            moving, bout_ids = detect_hysteresis_bouts(
-                smoothed,
-                elapsed,
-                delta_time,
-                frame_steps,
-                valid,
-                low_threshold=float(thresholds["low_threshold"]),
-                high_threshold=float(thresholds["high_threshold"]),
-                minimum_bout_duration_ms=config.minimum_bout_duration_ms,
-                maximum_interbout_gap_ms=config.maximum_interbout_gap_ms,
-            )
-            window_result[metric_id] = {
-                **thresholds,
-                "smoothing_window_samples": smoothing_samples,
-                "valid_fraction": float(np.mean(valid)),
-                "movement_fraction": float(np.mean(moving[valid])),
-                "bout_count": int(bout_ids.max()),
-                "positive_control": _positive_control(
-                    frame_ids,
-                    absolute,
-                    moving,
-                    valid,
-                    protocol,
-                    config,
-                ),
-            }
-        results[f"{smoothing_ms:g}ms"] = window_result
+                protocol,
+                config,
+            ),
+        }
     return results
 
 

@@ -34,7 +34,6 @@ from classical_conditioning.paths import (
     is_reserved_derived_path,
 )
 from classical_conditioning.ingestion.schemas import (
-    normalize_camera_columns,
     validate_camera_columns,
     validate_protocol_columns,
     validate_tracking_columns,
@@ -399,13 +398,10 @@ def _read_chunks(
     schema: pa.Schema,
     chunk_rows: int,
 ) -> Iterator[pd.DataFrame]:
-    names = schema.names if kind == "camera" else None
     yield from pd.read_csv(
         path,
         sep=r"\s+",
         dtype=_dtype_for(schema),
-        names=names,
-        header=0 if names is not None else "infer",
         chunksize=chunk_rows,
         engine="c",
     )
@@ -445,8 +441,6 @@ def _convert_table(
     source_hash = _sha256_file(source_path)
     structure = inspect_table_structure(source_path, rows=preview_rows)
     schema = _schema_for(kind, structure["columns"])
-    if kind == "camera":
-        structure["columns"] = normalize_camera_columns(structure["columns"])
     schema = schema.with_metadata(
         {
             b"source_path": str(source_path.resolve()).encode("utf-8"),
@@ -1039,8 +1033,12 @@ def intake_recordings(
     chunk_rows: int = 250_000,
     preview_rows: int = 25,
     overwrite: bool = False,
+    progress: "PipelineProgress | None" = None,
 ) -> IntakeBatchResult:
     """Intake every selected complete triplet, skipping existing unless overwrite."""
+    from classical_conditioning.progress import default_progress
+
+    progress = progress or default_progress(enabled=False)
     keep = (
         {token.strip().lower() for token in keep_conditions}
         if keep_conditions
@@ -1070,7 +1068,11 @@ def intake_recordings(
     completed: list[str] = []
     skipped: list[str] = []
     failed: list[tuple[str, str]] = []
-    for sources in selected:
+    total = len(selected)
+    for index, sources in enumerate(
+        progress.iter_items(selected, description="Intake"),
+        start=1,
+    ):
         marker = (
             project_dir.resolve()
             / "Metadata"
@@ -1078,6 +1080,9 @@ def intake_recordings(
         )
         if marker.exists() and not overwrite:
             skipped.append(sources.recording_id)
+            progress.item_done(
+                index, total, sources.recording_id, status="skipped"
+            )
             continue
         try:
             intake_recording(
@@ -1089,8 +1094,17 @@ def intake_recordings(
                 overwrite=overwrite,
             )
             completed.append(sources.recording_id)
+            progress.item_done(
+                index, total, sources.recording_id, status="completed"
+            )
         except Exception as error:
             failed.append((sources.recording_id, str(error)))
+            progress.item_done(
+                index,
+                total,
+                sources.recording_id,
+                status=f"failed: {error}",
+            )
     return IntakeBatchResult(
         recording_ids=tuple(item.recording_id for item in selected),
         completed=tuple(completed),

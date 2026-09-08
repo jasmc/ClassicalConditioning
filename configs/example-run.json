@@ -1,10 +1,10 @@
 {
-  "raw_dir": "J:\\Raw Data\\allDelay",
-  "save_dir": "F:\\Results_refactored",
+  "raw_dir": "D:\\path\\to\\raw\\delay_fish",
+  "save_dir": "E:\\path\\to\\project\\Paper data",
   "experiment": "allDelay",
   "analysis_id": "delay-cohort-v1",
   "keep_conditions": ["control", "delay"],
-  "routes": ["legacy", "candidate"],
+  "routes": ["candidate"],
   "candidate_runner_recipe": "candidate-corrected-runner-v1",
   "run_inventory": true,
   "run_intake": true,
@@ -15,6 +15,3 @@
   "legacy_alignment": "CS",
   "legacy_run_statistics": true
 }
-
-
-

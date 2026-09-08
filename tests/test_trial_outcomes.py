@@ -39,18 +39,9 @@ class TrialOutcomeTests(unittest.TestCase):
             {
                 "FrameID": [0, 1, 2, 3, 4],
                 "AbsoluteTime": [0, 500, 1_000, 1_500, 2_000],
-                **{
-                    f"{metric_id}__valid": [True, False, True, True, True]
-                    for metric_id in METRIC_IDS.values()
-                },
-                **{
-                    f"{metric_id}__moving": [True, False, False, True, True]
-                    for metric_id in METRIC_IDS.values()
-                },
-                **{
-                    f"{metric_id}__bout_id": [0, 0, 0, 1, 1]
-                    for metric_id in METRIC_IDS.values()
-                },
+                "valid": [True, False, True, True, True],
+                "moving": [True, False, False, True, True],
+                "bout_id": [0, 0, 0, 1, 1],
             }
         )
         self.protocol = pd.DataFrame(
@@ -136,6 +127,7 @@ class TrialOutcomeTests(unittest.TestCase):
                 "movement_state": "current-movement",
                 "protocol": "current-protocol",
             },
+            None,
         ),
     )
     @patch(

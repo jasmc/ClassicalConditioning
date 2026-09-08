@@ -1059,7 +1059,9 @@ Filename sanitization, selected-fish suffixes, DPI, bounding boxes, transparency
 
 ### Recommendation
 
-Complete the migration to `figure_saving.py`, following `Plans/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md`.
+Complete the migration to `figure_saving.py`, following
+`Plans/12_FIGURES_CLI_AND_NOTEBOOKS.md` (detail archived in
+`Plans/Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md`).
 
 ## Learner-classification versions
 
@@ -1337,7 +1339,7 @@ The decision should be based on statistical validation, not filename.
 | `ANALYSIS_ISSUES.md` | Audit of scientific and statistical issues |
 | `IMAGING_PIPELINE_CRITIQUE.md` | Cross-repository audit of the inherited optional imaging workflow |
 | `Plans/BEHAVIOR_IMAGING_INTEGRATION_PLAN.md` | Deferred plan for one canonical behavior pipeline plus optional imaging |
-| `Plans/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md` | Plan for reproducible scientific-paper figures |
+| `Plans/12_FIGURES_CLI_AND_NOTEBOOKS.md` | Plan for reproducible scientific-paper figures (archived detail under `Plans/Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md`) |
 | `Plans/LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md` | Plan for labeling and analyzing learner/non-learner temporal profiles |
 | `ANALYSIS_FILES_INDEX.md` | This file |
 

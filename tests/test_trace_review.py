@@ -31,14 +31,21 @@ class TraceReviewTests(unittest.TestCase):
         )
         self.frames.loc[1_000:1_999, CANDIDATE_COLUMNS[2]] = 0.0
         self.frames.loc[3_000, CANDIDATE_COLUMNS[2]] = 10.0
-        movement_data = {"FrameID": np.arange(rows)}
-        for index, metric_id in enumerate(METRIC_IDS.values()):
-            moving = np.zeros(rows, dtype=bool)
-            moving[2_000 + index : 2_100 + index] = True
-            movement_data[f"{metric_id}__valid"] = np.ones(rows, dtype=bool)
-            movement_data[f"{metric_id}__moving"] = moving
-            movement_data[f"{metric_id}__bout_id"] = moving.astype(np.int32)
-        self.movement = pd.DataFrame(movement_data)
+        # One shared segmentation with several bouts, so boundary windows exist.
+        moving = np.zeros(rows, dtype=bool)
+        moving[2_000:2_100] = True
+        moving[2_150:2_200] = True
+        bout_id = np.zeros(rows, dtype=np.int32)
+        bout_id[2_000:2_100] = 1
+        bout_id[2_150:2_200] = 2
+        self.movement = pd.DataFrame(
+            {
+                "FrameID": np.arange(rows),
+                "valid": np.ones(rows, dtype=bool),
+                "moving": moving,
+                "bout_id": bout_id,
+            }
+        )
         self.protocol = pd.DataFrame(
             {
                 "Type": ["Reinforcer", "Reinforcer", "Reinforcer"],
@@ -56,7 +63,7 @@ class TraceReviewTests(unittest.TestCase):
         )
         self.assertIn("quiet", set(windows["Window ID"]))
         self.assertIn("strong", set(windows["Window ID"]))
-        self.assertIn("disagreement", set(windows["Window ID"]))
+        self.assertIn("boundary", set(windows["Window ID"]))
         self.assertEqual(
             windows["Center absolute time (ms)"].nunique(),
             len(windows),
@@ -70,8 +77,8 @@ class TraceReviewTests(unittest.TestCase):
             half_window_ms=200,
         ).iloc[:1]
         calibration = {
-            metric_id: {"low_threshold": 0.5, "high_threshold": 1.0}
-            for metric_id in METRIC_IDS.values()
+            "envelope_threshold_rad_per_ms": 1.0,
+            "bout_amplitude_threshold_rad_per_ms": 0.5,
         }
         traces = extract_review_traces(
             self.frames,
@@ -93,8 +100,8 @@ class TraceReviewTests(unittest.TestCase):
             half_window_ms=200,
         )
         calibration = {
-            metric_id: {"low_threshold": 0.5, "high_threshold": 1.0}
-            for metric_id in METRIC_IDS.values()
+            "envelope_threshold_rad_per_ms": 1.0,
+            "bout_amplitude_threshold_rad_per_ms": 0.5,
         }
         traces = extract_review_traces(
             self.frames,

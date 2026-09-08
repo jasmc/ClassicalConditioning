@@ -13,6 +13,7 @@ dependencies = [
     "pandas>=2.2,<3",
     "pyarrow>=18,<22",
     "scipy>=1.14,<2",
+    "tqdm>=4.67,<5",
 ]
 
 [project.optional-dependencies]
@@ -23,7 +24,6 @@ legacy = [
     "seaborn>=0.13,<0.14",
     "statannotations>=0.7,<0.8",
     "statsmodels>=0.14,<0.15",
-    "tqdm>=4.67,<5",
 ]
 interactive = [
     "plotly>=6,<7",

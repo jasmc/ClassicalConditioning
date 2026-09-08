@@ -316,6 +316,7 @@ def execute_batch_work(
     experiment_name: str = "allDelay",
     batch_size: int = 250_000,
     overwrite_failed: bool = True,
+    progress: "PipelineProgress | None" = None,
 ) -> BatchExecuteResult:
     """Execute pending or failed per-recording stages, then refresh the work manifest.
 
@@ -323,6 +324,9 @@ def execute_batch_work(
     recordings when ``overwrite_failed`` is true. Cohort comparison is always
     refreshed through the candidate runner for the selected recordings.
     """
+    from classical_conditioning.progress import default_progress
+
+    progress = progress or default_progress(enabled=False)
     if selection not in ("pending", "failed", "all"):
         raise ConfigurationError(
             "Batch execute selection must be one of: pending, failed, all."
@@ -374,27 +378,35 @@ def execute_batch_work(
         if resolved_analysis_id is None:
             resolved_analysis_id = f"{batch_id}-run"
         _validate_identifier(resolved_analysis_id, "Analysis ID")
-        runner = run_candidate_development_pipeline(
-            project_dir,
-            target_ids,
-            analysis_id=resolved_analysis_id,
-            experiment_name=experiment_name,
-            batch_size=batch_size,
-            overwrite=overwrite,
-            metric_recipe=source.metric_recipe,
-            runner_recipe=source.runner_recipe,
-            continue_on_error=True,
-        )
+        with progress.stage_timer(
+            "Batch candidate runner",
+            detail=f"{len(target_ids)} recording(s), selection={selection}",
+        ):
+            runner = run_candidate_development_pipeline(
+                project_dir,
+                target_ids,
+                analysis_id=resolved_analysis_id,
+                experiment_name=experiment_name,
+                batch_size=batch_size,
+                overwrite=overwrite,
+                metric_recipe=source.metric_recipe,
+                runner_recipe=source.runner_recipe,
+                continue_on_error=True,
+                progress=progress,
+            )
         runner_manifest = runner.manifest_path
+    else:
+        progress.info(f"no recordings matched selection={selection}")
 
-    refreshed = write_batch_work_manifest(
-        project_dir,
-        recording_ids,
-        batch_id=batch_id,
-        metric_recipe=metric_recipe,
-        selection="all",
-        overwrite=True,
-    )
+    with progress.stage_timer("Refreshing batch work manifest"):
+        refreshed = write_batch_work_manifest(
+            project_dir,
+            recording_ids,
+            batch_id=batch_id,
+            metric_recipe=metric_recipe,
+            selection="all",
+            overwrite=True,
+        )
     after = plan_batch_work(
         project_dir,
         recording_ids,

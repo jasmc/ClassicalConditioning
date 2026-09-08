@@ -53,8 +53,8 @@ class MetricComparisonTests(unittest.TestCase):
         recording = summarize_candidate_metric_windows(profiles)
         cohort = summarize_candidate_metric_cohort(recording)
 
-        self.assertEqual(len(recording), 2 * 5 * 5)
-        self.assertEqual(len(cohort), 5 * 5)
+        self.assertEqual(len(recording), 2 * len(METRIC_IDS) * len(OUTCOME_COLUMNS))
+        self.assertEqual(len(cohort), len(METRIC_IDS) * len(OUTCOME_COLUMNS))
         self.assertEqual(set(recording["Metric ID"]), set(METRIC_IDS.values()))
         self.assertEqual(set(recording["Outcome ID"]), set(OUTCOME_COLUMNS))
         self.assertTrue(
@@ -116,7 +116,7 @@ class MetricComparisonTests(unittest.TestCase):
 
         with self.assertRaisesRegex(
             SchemaValidationError,
-            "does not contain exactly the five",
+            "does not contain exactly the expected",
         ):
             summarize_candidate_metric_windows(
                 pd.concat([complete, incomplete], ignore_index=True)
@@ -134,7 +134,7 @@ class MetricComparisonTests(unittest.TestCase):
             metadata_dir.mkdir(parents=True)
 
             profiles_path = (
-                processed_dir / "candidate_temporal_outcomes-v2.parquet"
+                processed_dir / "candidate_temporal_outcomes-v3.parquet"
             )
             pq.write_table(
                 pa.Table.from_pandas(
@@ -146,12 +146,12 @@ class MetricComparisonTests(unittest.TestCase):
             )
             profiles_hash = sha256_file(profiles_path)
             summary_path = (
-                quality_dir / "candidate-v2_temporal_outcomes_summary.json"
+                quality_dir / "candidate-v3_temporal_outcomes_summary.json"
             )
             summary_path.write_text(
                 json.dumps(
                     {
-                        "recipe": "candidate-temporal-outcomes-v2",
+                        "recipe": "candidate-temporal-outcomes-v3",
                         "recording_id": recording_id,
                         "artifact": {"sha256": profiles_hash},
                     }
@@ -160,13 +160,13 @@ class MetricComparisonTests(unittest.TestCase):
             )
             marker_path = (
                 metadata_dir
-                / f"{recording_id}_candidate-temporal-outcomes-v2_complete.json"
+                / f"{recording_id}_candidate-temporal-outcomes-v3_complete.json"
             )
             marker_path.write_text(
                 json.dumps(
                     {
                         "status": "complete",
-                        "recipe": "candidate-temporal-outcomes-v2",
+                        "recipe": "candidate-temporal-outcomes-v3",
                         "recording_id": recording_id,
                         "profiles_sha256": profiles_hash,
                         "summary_sha256": sha256_file(summary_path),

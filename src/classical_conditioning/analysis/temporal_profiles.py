@@ -22,11 +22,16 @@ from classical_conditioning.artifacts import (
     write_json_atomic,
 )
 from classical_conditioning.analysis.movement_state import (
+    DETECTOR_COLUMNS,
     METRIC_IDS,
     resolve_candidate_metric_source,
 )
 from classical_conditioning.config import get_trial_block_lookup
 from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
+
+# Identity of the one metric-independent detector whose segmentation every
+# bout-derived outcome in this table uses.
+SHARED_DETECTOR_ID = "legacy-envelope-shared-v1"
 
 
 @dataclass(frozen=True)
@@ -36,6 +41,14 @@ class TemporalProfileConfig:
     bin_width_s: float = 0.5
     interval_closure: str = "left"
     aggregation: str = "mean_total_activity"
+    # Historical two-layer scaling constants: layer 1 uses frames earlier than
+    # -15 s, layer 2 uses every pre-onset bin, and the result is clipped to
+    # the unit interval.
+    scaling_baseline_end_s: float = -15.0
+    scaling_onset_s: float = 0.0
+    scaling_lower_quantile: float = 0.1
+    scaling_upper_quantile: float = 0.9
+    scaling_clip: tuple[float, float] = (0.0, 1.0)
 
 
 @dataclass(frozen=True)
@@ -53,6 +66,79 @@ def _block_lookup(experiment_name: str) -> dict[tuple[str, int], str]:
     return get_trial_block_lookup(experiment_name)
 
 
+def _quantile_range_scale(
+    values: np.ndarray,
+    reference: np.ndarray,
+    *,
+    lower_quantile: float,
+    upper_quantile: float,
+) -> np.ndarray:
+    """Map values onto a reference window's quantile range.
+
+    Returns all-NaN when the reference window is empty or degenerate, so a
+    trial with no usable baseline is never silently rescaled against itself.
+    """
+    finite_reference = reference[np.isfinite(reference)]
+    if finite_reference.size == 0:
+        return np.full(values.shape, np.nan)
+    low = float(np.quantile(finite_reference, lower_quantile))
+    high = float(np.quantile(finite_reference, upper_quantile))
+    if not np.isfinite(low) or not np.isfinite(high) or high <= low:
+        return np.full(values.shape, np.nan)
+    return (values - low) / (high - low)
+
+
+def _two_layer_scaled_activity(
+    values: np.ndarray,
+    valid: np.ndarray,
+    bin_indices: np.ndarray,
+    trial_seconds: np.ndarray,
+    bin_centers: np.ndarray,
+    *,
+    bin_count: int,
+    config: TemporalProfileConfig,
+) -> np.ndarray:
+    """Reproduce the historical two-layer per-trial scaling.
+
+    Layer 1 runs on frames, before binning, against the P10-P90 range of the
+    samples earlier than ``scaling_baseline_end_s`` in this trial. Layer 2 runs
+    on the binned result against the P10-P90 range of every pre-onset bin, then
+    clips to the unit interval. Both layers are per trial and per metric, which
+    is what the pre-refactor pipeline did.
+    """
+    frame_reference = values[
+        valid & (trial_seconds < config.scaling_baseline_end_s)
+    ]
+    scaled_frames = _quantile_range_scale(
+        values,
+        frame_reference,
+        lower_quantile=config.scaling_lower_quantile,
+        upper_quantile=config.scaling_upper_quantile,
+    )
+    usable = valid & np.isfinite(scaled_frames)
+    if not np.any(usable):
+        return np.full(bin_count, np.nan)
+    scaled_count = np.bincount(bin_indices[usable], minlength=bin_count)
+    scaled_sum = np.bincount(
+        bin_indices[usable],
+        weights=scaled_frames[usable],
+        minlength=bin_count,
+    )
+    binned = np.divide(
+        scaled_sum,
+        scaled_count,
+        out=np.full(bin_count, np.nan),
+        where=scaled_count > 0,
+    )
+    normalized = _quantile_range_scale(
+        binned,
+        binned[bin_centers < config.scaling_onset_s],
+        lower_quantile=config.scaling_lower_quantile,
+        upper_quantile=config.scaling_upper_quantile,
+    )
+    return np.clip(normalized, *config.scaling_clip)
+
+
 def aggregate_event_profiles(
     frames: pd.DataFrame,
     protocol: pd.DataFrame,
@@ -68,7 +154,7 @@ def aggregate_event_profiles(
         raise ValueError("Profile bin width must be positive.")
     if config.interval_closure != "left":
         raise ValueError(
-            "candidate-temporal-outcomes-v2 uses left-closed, right-open bins."
+            "candidate-temporal-outcomes-v3 uses left-closed, right-open bins."
         )
     required_frame_columns = {
         "AbsoluteTime",
@@ -93,7 +179,10 @@ def aggregate_event_profiles(
         column: frames[column].to_numpy(dtype=np.float64)
         for column in CANDIDATE_COLUMNS
     }
-    movement_arrays: dict[str, dict[str, np.ndarray]] = {}
+    # One shared segmentation serves every metric, so bout-derived outcomes are
+    # metric-independent: they differ across metric rows only in that the raw
+    # intensity averaged inside those bouts differs.
+    shared_movement: dict[str, np.ndarray] | None = None
     if movement_state is not None:
         if not np.array_equal(
             frames["AbsoluteTime"].to_numpy(dtype=np.int64),
@@ -101,31 +190,38 @@ def aggregate_event_profiles(
         ):
             raise ValueError("Movement-state rows do not align with candidate frames.")
         delta_time_all = frames["DeltaTimeMs"].to_numpy(dtype=np.float64)
-        for metric_id in METRIC_IDS.values():
-            valid = movement_state[f"{metric_id}__valid"].to_numpy(dtype=bool)
-            moving = movement_state[f"{metric_id}__moving"].to_numpy(dtype=bool)
-            bout_id = movement_state[f"{metric_id}__bout_id"].to_numpy(
-                dtype=np.int32
+        missing_detector = [
+            column
+            for column in DETECTOR_COLUMNS
+            if column not in movement_state.columns
+        ]
+        if missing_detector:
+            raise KeyError(
+                "Movement state is missing shared detector columns: "
+                f"{missing_detector}"
             )
-            bout_start = (bout_id > 0) & np.concatenate(
-                [[True], bout_id[1:] != bout_id[:-1]]
-            )
-            bout_duration = np.bincount(
-                bout_id,
-                weights=np.where(
-                    valid & np.isfinite(delta_time_all),
-                    delta_time_all,
-                    0.0,
-                ),
-                minlength=int(bout_id.max()) + 1,
-            )
-            movement_arrays[metric_id] = {
-                "valid": valid,
-                "moving": moving,
-                "bout_id": bout_id,
-                "bout_start": bout_start,
-                "bout_duration": bout_duration,
-            }
+        valid = movement_state["valid"].to_numpy(dtype=bool)
+        moving = movement_state["moving"].to_numpy(dtype=bool)
+        bout_id = movement_state["bout_id"].to_numpy(dtype=np.int32)
+        bout_start = (bout_id > 0) & np.concatenate(
+            [[True], bout_id[1:] != bout_id[:-1]]
+        )
+        bout_duration = np.bincount(
+            bout_id,
+            weights=np.where(
+                valid & np.isfinite(delta_time_all),
+                delta_time_all,
+                0.0,
+            ),
+            minlength=int(bout_id.max()) + 1,
+        )
+        shared_movement = {
+            "valid": valid,
+            "moving": moving,
+            "bout_id": bout_id,
+            "bout_start": bout_start,
+            "bout_duration": bout_duration,
+        }
     delta_time = frames["DeltaTimeMs"].to_numpy(dtype=float)
     frame_step = frames["FrameStep"].to_numpy(dtype=np.int64)
     valid_delta_time = delta_time[
@@ -172,6 +268,11 @@ def aggregate_event_profiles(
         in_range = (bin_indices >= 0) & (bin_indices < bin_count)
         bin_indices = bin_indices[in_range]
         sample_count = np.bincount(bin_indices, minlength=bin_count)
+        trial_seconds = relative_seconds[in_range]
+        bin_centers = (
+            config.window_start_s
+            + (np.arange(bin_count) + 0.5) * config.bin_width_s
+        )
 
         for column, metric_id in METRIC_IDS.items():
             values = metric_values[column][start_index:end_index][in_range]
@@ -197,6 +298,15 @@ def aggregate_event_profiles(
                 out=np.zeros(bin_count, dtype=float),
                 where=sample_count > 0,
             )
+            scaled_means = _two_layer_scaled_activity(
+                values,
+                valid,
+                bin_indices,
+                trial_seconds,
+                bin_centers,
+                bin_count=bin_count,
+                config=config,
+            )
             movement_probability = np.full(bin_count, np.nan)
             fraction_time_moving = np.full(bin_count, np.nan)
             conditional_intensity = np.full(bin_count, np.nan)
@@ -204,8 +314,8 @@ def aggregate_event_profiles(
             bout_rate = np.full(bin_count, np.nan)
             mean_bout_duration = np.full(bin_count, np.nan)
             detector_valid_fraction = np.full(bin_count, np.nan)
-            if metric_id in movement_arrays:
-                movement_metric = movement_arrays[metric_id]
+            if shared_movement is not None:
+                movement_metric = shared_movement
                 detector_valid = movement_metric["valid"][
                     start_index:end_index
                 ][in_range]
@@ -320,11 +430,12 @@ def aggregate_event_profiles(
                         ),
                         "Metric ID": metric_id,
                         "Movement detector ID": (
-                            "quiet-window-hysteresis-v1"
-                            if metric_id in movement_arrays
+                            SHARED_DETECTOR_ID
+                            if shared_movement is not None
                             else None
                         ),
                         "Total activity mean": means[bin_index],
+                        "Scaled total activity": scaled_means[bin_index],
                         "Movement probability": movement_probability[bin_index],
                         "Fraction time moving": fraction_time_moving[bin_index],
                         "Conditional intensity mean": conditional_intensity[bin_index],
@@ -360,6 +471,7 @@ def aggregate_event_profiles(
         "Metric ID",
         "Movement detector ID",
         "Total activity mean",
+        "Scaled total activity",
         "Movement probability",
         "Fraction time moving",
         "Conditional intensity mean",
@@ -512,15 +624,7 @@ def build_candidate_temporal_profiles(
         *CANDIDATE_COLUMNS,
     ]
     frames = pq.read_table(frame_path, columns=frame_columns).to_pandas()
-    movement_columns = ["FrameID", "AbsoluteTime"]
-    for metric_id in METRIC_IDS.values():
-        movement_columns.extend(
-            [
-                f"{metric_id}__valid",
-                f"{metric_id}__moving",
-                f"{metric_id}__bout_id",
-            ]
-        )
+    movement_columns = ["FrameID", "AbsoluteTime", *DETECTOR_COLUMNS]
     movement_state = pq.read_table(
         movement_path,
         columns=movement_columns,

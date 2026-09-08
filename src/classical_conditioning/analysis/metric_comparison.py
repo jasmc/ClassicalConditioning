@@ -35,7 +35,7 @@ from classical_conditioning.exceptions import (
 from classical_conditioning.paths import condition_from_recording_name
 
 RECIPE_ID = "candidate-metric-comparison-v1"
-SOURCE_RECIPE_ID = "candidate-temporal-outcomes-v2"
+SOURCE_RECIPE_ID = "candidate-temporal-outcomes-v3"
 CORRECTED_RECIPE_ID = "candidate-metric-comparison-corrected-v1"
 OUTCOME_COLUMNS = {
     "total-activity": "Total activity mean",
@@ -195,7 +195,7 @@ def summarize_candidate_metric_windows(
     expected_metrics = set(METRIC_IDS.values())
     if observed_metrics != expected_metrics:
         raise SchemaValidationError(
-            "Candidate temporal profiles do not contain exactly the five "
+            "Candidate temporal profiles do not contain exactly the expected "
             f"candidate metrics: {sorted(observed_metrics)}"
         )
     for recording_id, recording in profiles.groupby(
@@ -206,7 +206,7 @@ def summarize_candidate_metric_windows(
         recording_metrics = set(recording["Metric ID"].astype(str).unique())
         if recording_metrics != expected_metrics:
             raise SchemaValidationError(
-                f"Recording {recording_id!r} does not contain exactly the five "
+                f"Recording {recording_id!r} does not contain exactly the expected "
                 f"candidate metrics: {sorted(recording_metrics)}"
             )
 
@@ -442,7 +442,7 @@ def build_candidate_metric_comparison(
     comparison_recipe: str | None = None,
     overwrite: bool = False,
 ) -> MetricComparisonResult:
-    """Publish a non-inferential five-metric comparison over explicit recordings."""
+    """Publish a non-inferential candidate metric comparison over explicit recordings."""
     _validate_analysis_id(analysis_id)
     recording_ids = tuple(dict.fromkeys(recording_ids))
     if not recording_ids:
@@ -546,7 +546,7 @@ def build_candidate_metric_comparison(
                 "paper_approved": False,
                 "reason": (
                     "This artifact applies identical descriptive summaries to all "
-                    "five metrics. Metric selection requires prespecified weights, "
+                    "candidate metrics. Metric selection requires prespecified weights, "
                     "reviewed trace annotations, independent validation, and a "
                     "multi-recording cohort."
                 ),

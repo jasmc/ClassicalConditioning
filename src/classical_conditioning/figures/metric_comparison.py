@@ -39,10 +39,12 @@ SHORT_METRIC_LABELS = {
     "whole_tail_xy_rms_speed": "XY RMS speed",
     "whole_tail_xy_mean_speed": "XY mean speed",
     "curvature_change_rms": "Curvature RMS",
+    "legacy_distal_angular_speed": "Legacy distal speed",
 }
 
 CONDITION_DISPLAY = {
     "control": "Control",
+    "delay": "Delay",
     "fixedtrace": "3 s Trace",
 }
 
@@ -61,9 +63,18 @@ def _condition_colors(experiment_name: str | None) -> dict[str, tuple[float, flo
             colors[condition.condition_id] = condition_color(condition)
     if "control" not in colors:
         colors["control"] = (0 / 255, 174 / 255, 239 / 255)
+    if "delay" not in colors:
+        colors["delay"] = (236 / 255, 0 / 255, 140 / 255)
     if "fixedtrace" not in colors:
         colors["fixedtrace"] = (241 / 255, 90 / 255, 41 / 255)
     return colors
+
+
+def _preferred_conditions(experiment_name: str | None) -> tuple[str, ...]:
+    if experiment_name:
+        spec = get_experiment_spec(experiment_name)
+        return tuple(condition.condition_id for condition in spec.conditions)
+    return ("control", "delay", "fixedtrace")
 
 
 def _cohort_standardized_figure(
@@ -97,10 +108,15 @@ def _cohort_standardized_figure(
             f"No recording rows for {trial_type} {outcome_id}."
         )
     metrics = [metric for metric in METRIC_LABELS if metric in set(selected["Metric ID"])]
+    if not metrics:
+        raise ConfigurationError(
+            f"No recognized metrics for {trial_type} {outcome_id}."
+        )
+    present = set(selected["Condition ID"].astype(str))
     conditions = [
         condition
-        for condition in ("control", "fixedtrace")
-        if condition in set(selected["Condition ID"].astype(str))
+        for condition in _preferred_conditions(experiment_name)
+        if condition in present
     ]
     if not conditions:
         conditions = sorted(
@@ -109,6 +125,10 @@ def _cohort_standardized_figure(
                 for value in selected["Condition ID"]
                 if str(value).strip() and str(value) != "all"
             }
+        )
+    if not conditions:
+        raise ConfigurationError(
+            f"No plottable conditions for {trial_type} {outcome_id}."
         )
     colors = _condition_colors(experiment_name)
     apply_theme(DEFAULT_THEME)

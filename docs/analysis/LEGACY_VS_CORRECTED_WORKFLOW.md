@@ -78,7 +78,7 @@ learning effect.
 | Frame loss | Accumulated timestamp drift | Direct FrameID plus timestamp-gap validation |
 | Timing | Uniform 700 FPS interpolation/extrapolation | Measured timing with bounded gap policy |
 | Filtering | Temporal mean only | Approved spatial and temporal filtering |
-| Activity | Distal cumulative-angle speed | Six explicit candidate metrics |
+| Activity | Distal cumulative-angle speed | Six explicit candidate metrics (five whole-tail/segment candidates + one legacy-derived benchmark) |
 | Bout detection | Primary threshold only | Calibrated versioned detector |
 | Rest | Often converted to missing | Total activity plus movement probability and conditional intensity |
 | Scaling | Early-baseline P10/P90 | Approved bounded analytical baseline definition |
@@ -86,6 +86,22 @@ learning effect.
 | Uncertainty | Potential row/trial bootstrap | Fish-level or hierarchical bootstrap |
 | Statistics | Multiple fragile local models | Prespecified diagnosed longitudinal model |
 | Learners | Four incompatible variants | One versioned validation-aware classifier, if retained |
+
+## Rebuilding existing candidate artifacts
+
+Because `legacy_distal_angular_speed_rad_per_ms` is a sixth column in `CANDIDATE_COLUMNS`,
+existing `frame_activity_candidates*.parquet` and downstream candidate Parquet tables
+created prior to this addition lack the column. Run candidate rebuilds with `--overwrite`
+to re-extract all six columns uniformly:
+
+```powershell
+python -m classical_conditioning candidate-runner `
+  --project-dir <project_dir> `
+  --recording-id <recording_id> `
+  --analysis-id <analysis_id> `
+  --recipe candidate-corrected-runner-v1 `
+  --overwrite
+```
 
 ## Comparison command
 

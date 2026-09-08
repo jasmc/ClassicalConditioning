@@ -92,7 +92,7 @@ def compare_legacy_candidate_outcomes(
     expected_metrics = set(METRIC_IDS.values())
     if metric_ids != expected_metrics:
         raise SchemaValidationError(
-            "Candidate comparison requires all five metrics; "
+            "Candidate comparison requires all candidate metrics; "
             f"found={sorted(metric_ids)}"
         )
 

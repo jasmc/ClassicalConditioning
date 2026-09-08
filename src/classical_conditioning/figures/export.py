@@ -175,14 +175,11 @@ def assign_axes_semantic_ids(
             "required_in_svg": "true",
         }
     for artist_id, mapping in (artist_mappings or {}).items():
-        registry_id = artist_id
-        if artist_id == "colorbar" and "axes__colorbar__main" in registry:
-            registry_id = "axes__colorbar__main"
-        if registry_id not in registry:
+        if artist_id not in registry:
             raise ValueError(
                 f"Artist mapping references an unknown semantic ID: {artist_id}"
             )
-        registry[registry_id].update(mapping)
+        registry[artist_id].update(mapping)
     return registry
 
 

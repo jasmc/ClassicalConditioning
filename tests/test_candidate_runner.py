@@ -142,8 +142,8 @@ class CandidateRunnerTests(unittest.TestCase):
             metadata.mkdir()
             for name in (
                 "recording-a_candidate-v1_complete.json",
-                "recording-a_movement-candidate-v1_complete.json",
-                "recording-a_candidate-temporal-outcomes-v2_complete.json",
+                "recording-a_movement-candidate-v2_complete.json",
+                "recording-a_candidate-temporal-outcomes-v3_complete.json",
                 "recording-a_candidate-trial-outcomes-v1_complete.json",
                 "candidate-a_candidate-metric-comparison-v1_complete.json",
             ):
@@ -214,14 +214,14 @@ class CandidateRunnerTests(unittest.TestCase):
             quality.mkdir(parents=True)
             metadata.mkdir(parents=True)
 
-            movement_path = processed / "movement_state_candidates-v1.parquet"
+            movement_path = processed / "movement_state_candidates-v2.parquet"
             movement_path.write_bytes(b"movement")
             movement_hash = sha256_file(movement_path)
-            movement_summary = quality / "movement-candidate-v1_summary.json"
+            movement_summary = quality / "movement-candidate-v2_summary.json"
             movement_summary.write_text(
                 json.dumps(
                     {
-                        "recipe": "movement-candidate-v1",
+                        "recipe": "movement-candidate-v2",
                         "recording_id": recording_id,
                         "artifact": {"sha256": movement_hash},
                         "inputs": {
@@ -232,12 +232,12 @@ class CandidateRunnerTests(unittest.TestCase):
                 encoding="utf-8",
             )
             (
-                metadata / f"{recording_id}_movement-candidate-v1_complete.json"
+                metadata / f"{recording_id}_movement-candidate-v2_complete.json"
             ).write_text(
                 json.dumps(
                     {
                         "status": "complete",
-                        "recipe": "movement-candidate-v1",
+                        "recipe": "movement-candidate-v2",
                         "recording_id": recording_id,
                         "movement_sha256": movement_hash,
                         "summary_sha256": sha256_file(movement_summary),

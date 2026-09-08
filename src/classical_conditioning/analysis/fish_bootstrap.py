@@ -261,7 +261,7 @@ def build_candidate_fish_bootstrap(
             "config": asdict(config),
             "config_sha256": _config_hash(config),
             "coverage": coverage,
-            "workshop_note": "Plans/Notes/STATISTICS_METHODOLOGY_WORKSHOP.md",
+            "workshop_note": "Plans/STATISTICS_METHODOLOGY_WORKSHOP.md",
             "estimand": (
                 "Percentile CI for the mean fish-level (late - early) "
                 "baseline-adjusted log activity; fish are the resample unit."

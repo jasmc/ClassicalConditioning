@@ -36,7 +36,7 @@ graph TD
     XS["Cross-modal associations<br/>fish/trial/plane/ROI aware"]
     LEARN["Optional learner analysis<br/>separately validation-gated"]
     PANEL["Frozen table, model<br/>and panel-data artifacts"]
-    FIG["Publication SVG/PDF, review PNG,<br/>local HTML/notebooks"]:::success
+    FIG["Publication SVG/PDF, review PNG<br/>(interactive HTML frozen)"]:::success
     REL["Immutable behavior release<br/>with optional multimodal extension"]:::dark
 
     GOV --> CAP
@@ -157,7 +157,7 @@ graph TD
     FIG{"Figure mode"}
     F1["Publication<br/>SVG + PDF"]:::success
     F2["Static review<br/>PNG"]
-    F3["Interactive local<br/>self-contained HTML/notebook"]
+    F3["Interactive local HTML<br/>frozen; no further investment"]
 
     RAW --> IN --> CHECK
     CHECK -->|No / uncertain| REVIEW
@@ -239,7 +239,7 @@ graph LR
     TABLES["Outcomes, cohorts,<br/>statistics and panel data"]
     PUB["Publication<br/>SVG + PDF"]:::success
     PNG["Static<br/>PNG"]
-    HTML["Interactive local<br/>HTML/notebook"]
+    HTML["Interactive local HTML<br/>frozen; no further investment"]
 
     BRAW --> PARQUET
     IRAW --> DENSE
@@ -279,4 +279,4 @@ graph LR
 | Imaging response | Pixel maps, Suite2p cells, correlation-grown ROIs | Distinct scientific methods with separate recipe IDs and gates |
 | Multimodal cohort | Imaging-acquired, imaging-valid, multimodal | Never replace or redefine the behavior-primary cohort |
 | Multimodal join | Behavior-primary left join | Missing imaging remains unavailable, not zero; reject one-to-many expansion |
-| Figure | Publication, static, interactive | Same panel data; presentation mode cannot change science |
+| Figure | Publication, static; interactive frozen | Same panel data; presentation mode cannot change science |

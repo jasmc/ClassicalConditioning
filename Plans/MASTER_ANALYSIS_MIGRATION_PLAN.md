@@ -106,53 +106,43 @@ docs(plans): archive completed ingestion step
 Do not mix behavior-preserving and scientific-correction work in one commit.
 Do not push unless explicitly requested.
 
+### 3.3 Migration method (absorbed from former CODEBASE plan)
+
+Use an incremental strangler migration, not a big-bang rewrite:
+
+- Frozen dataclasses for identities, configurations, artifacts, and result
+  bundles; enums for finite scientific categories.
+- DataFrames and NumPy arrays for observations; pure functions for scientific
+  transforms; small orchestrators for stage execution.
+- Explicit adapters for file I/O; compatibility wrappers while numbered scripts
+  retire.
+- Characterization tests freeze current/legacy behavior first; scientific
+  reference tests prove approved corrections separately. Never let a
+  characterization fixture silently become a scientific approval.
+- Package-first path wins. The former Lane-1 “script-side correction” shortcut
+  is retired: corrected behavior is implemented and tested in
+  `src/classical_conditioning`, not as another undocumented root-script path.
+- File organization and script-move rules live in
+  [REPOSITORY_MIGRATION_MAP.md](./REPOSITORY_MIGRATION_MAP.md). Historical
+  detail of the old dual-lane plan is archived at
+  [Archive/CODEBASE_MIGRATION_PLAN.md](./Archive/CODEBASE_MIGRATION_PLAN.md).
+
 ## 4. Integrated analysis architecture
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F6F6FA', 'primaryTextColor': '#2E2E38', 'primaryBorderColor': '#C4C4CD', 'lineColor': '#747480', 'secondaryColor': '#FFE600', 'tertiaryColor': '#4696FF', 'fontFamily': 'Arial, Noto Sans, sans-serif'}}}%%
-flowchart TD
-    A["Paper scope, source inventory,<br/>recipes and acquisition capabilities"]:::dark
-    B["Lossless behavior intake<br/>camera + tracking + protocol"]
-    C["Canonical behavior processing<br/>legacy or approved corrected"]
-    D["Tail representation, activity,<br/>movement and trial outcomes"]
-    E["Behavior-primary cohort,<br/>statistics and optional learners"]
-    IC{"Imaging declared?"}
-    IN["Record imaging<br/>not applicable"]
-    II["Imaging intake<br/>galvo + TIFF + anatomy"]
-    SY["Behavior-imaging synchronization<br/>and acquisition-order mapping"]
-    IR["Registration, frame QC,<br/>pixel and approved ROI routes"]
-    IO["Imaging outcomes"]
-    J["Behavior-primary multimodal join"]:::highlight
-    MC["Imaging-valid cohort and<br/>cross-modal statistics"]
-    P["Frozen tables, models<br/>and panel data"]
-    F["Publication, review and<br/>interactive figures"]:::success
-    R["Immutable behavior release<br/>with optional multimodal extension"]:::dark
+Canonical behavior and optional imaging architecture diagrams, route matrix,
+and figure-mode rules live in
+[ANALYSIS_ARCHITECTURE.md](./ANALYSIS_ARCHITECTURE.md). This master plan keeps
+only the invariants:
 
-    A --> B --> C --> D --> E
-    A --> IC
-    IC -->|No| IN
-    IC -->|Yes| II
-    B --> SY
-    II --> SY --> IR --> IO
-    D --> J
-    IO -. optional .-> J
-    IN -. availability state .-> J
-    J --> MC
-    E --> P
-    MC --> P
-    P --> F --> R
-
-    classDef highlight fill:#FFE600,stroke:#2E2E38,stroke-width:2px,color:#2E2E38
-    classDef success fill:#2DB757,stroke:#2DB757,stroke-width:1px,color:#FFFFFF
-    classDef dark fill:#2E2E38,stroke:#1A1A24,stroke-width:1px,color:#F6F6FA
-```
+1. behavior hashes must remain invariant when imaging is enabled or disabled;
+2. legacy and corrected behavior routes share the same artifact contracts;
+3. maintained figure modes are publication SVG/PDF and static PNG; interactive
+   local HTML is frozen (Gate F in [DECISIONS.md](./DECISIONS.md)).
 
 The behavior branch is authoritative and does not depend on imaging
 availability. The optional imaging and multimodal stages are deferred and
 specified in
 [the behavior and imaging integration plan](./BEHAVIOR_IMAGING_INTEGRATION_PLAN.md).
-The more detailed behavior alternatives and final multimodal architecture are
-shown in [the architecture plan](./ANALYSIS_ARCHITECTURE.md).
 
 Mechanistic analyses branch from the common tail representation:
 
@@ -258,7 +248,7 @@ Canonical trial and window summaries include:
 - bout count, initiation rate, duration, and interbout interval;
 - conditional movement intensity;
 - legacy scaled and normalized vigor where needed for equivalence;
-- approved corrected outcomes;
+- candidate corrected outcomes (after Gate O);
 - valid-sample and valid-tail coverage.
 
 ### 5.7 Results and figures
@@ -279,7 +269,7 @@ recalculating scientific outcomes while drawing.
 | Statistical model summaries | Parquet plus JSON metadata | CSV/text summaries |
 | Publication figures | SVG and PDF | None |
 | Static review figures | PNG | None |
-| Interactive figures | Self-contained local HTML | Optional notebook view |
+| Interactive figures | Self-contained local HTML (frozen; no further investment) | Optional notebook view |
 | Existing pandas artifacts | Read-only legacy pickle | Conversion/comparison input only |
 
 New code does not write pickle. During legacy equivalence, the new in-memory
@@ -606,18 +596,38 @@ Required selectors:
 
 ### 12.3 Figure modes
 
-All modes consume the same saved panel data:
+Maintained modes consume the same saved panel data:
 
 ```text
 publication  -> SVG + PDF
 static       -> PNG
-interactive  -> self-contained local HTML or local notebook
 ```
 
-The mode changes presentation only. It cannot change cohorts, windows,
-statistics, binning, or scientific values. Full-resolution exploration reads
-local Parquet/HDF5 on demand; large recordings are not embedded wholesale in
-HTML.
+Interactive self-contained local HTML is implemented and frozen (Gate F); it
+receives no further investment. The mode changes presentation only. It cannot
+change cohorts, windows, statistics, binning, or scientific values.
+Full-resolution exploration reads local Parquet/HDF5 on demand; large
+recordings are not embedded wholesale in HTML.
+
+Operational figure workstreams, QC, and CLI exposure:
+[12_FIGURES_CLI_AND_NOTEBOOKS.md](./12_FIGURES_CLI_AND_NOTEBOOKS.md).
+Historical detail:
+[Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md](./Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md).
+
+### 12.4 Notebooks
+
+Recommended notebooks:
+
+```text
+01_preprocessing_qc.ipynb
+02_cohort_review.ipynb
+03_metric_validation.ipynb
+04_population_exploration.ipynb
+05_learner_diagnostics.ipynb
+06_figure_review.ipynb
+```
+
+They are clients of the package and do not own canonical calculations.
 
 ## 13. Local artifact structure
 
@@ -635,7 +645,7 @@ Paper data/
 |-- Figures/
 |   |-- Publication/
 |   |-- PNG/
-|   `-- Interactive/
+|   `-- Interactive/           # frozen HTML outputs only
 `-- Metadata/
     |-- source-manifest.json
     |-- analysis-config.json
@@ -646,22 +656,7 @@ Paper data/
 Scientific changes create artifact-level versions, not duplicate trees for
 ordinary executions.
 
-### 12.3 Notebooks
-
-Recommended notebooks:
-
-```text
-01_preprocessing_qc.ipynb
-02_cohort_review.ipynb
-03_metric_validation.ipynb
-04_population_exploration.ipynb
-05_learner_diagnostics.ipynb
-06_figure_review.ipynb
-```
-
-They are clients of the package and do not own canonical calculations.
-
-## 13. Scientific correction rules
+## 14. Scientific correction rules
 
 Every correction requires:
 
@@ -678,7 +673,7 @@ Examples include vigor, filtering, frame loss, bout detection, missingness,
 cohort construction, scaling, normalized vigor, bootstrap, longitudinal
 models, and learner classification.
 
-## 14. Candidate metric selection safeguards
+## 15. Candidate metric selection safeguards
 
 Selecting the metric that produces the smallest p-value would invalidate
 confirmatory interpretation. Candidate development therefore uses:
@@ -721,7 +716,7 @@ A naive model fitted to the full cohort after effect-informed metric selection
 is reported as descriptive estimation, not as the primary confirmatory
 p-value.
 
-## 15. Cohort and missing-data policy
+## 16. Cohort and missing-data policy
 
 Technical validity and behavioral engagement are separate fields.
 
@@ -734,7 +729,7 @@ Rest is a valid behavioral state, not generic missing data. Tracking absence,
 insufficient valid tail length, unavailable frames, and invalid protocol
 coverage remain explicit missingness/validity states.
 
-## 16. Statistical policy
+## 17. Statistical policy
 
 Fish is the biological replication unit. Frames and trials are repeated
 observations.
@@ -762,7 +757,7 @@ The preferred outcome decomposition is:
 
 Ratios with unstable or near-zero baselines are not default primary outcomes.
 
-## 17. Learner-analysis policy
+## 18. Learner-analysis policy
 
 Learner labels record their input metric, classifier, features, cohort, and
 validation mode. A classifier trained from distal-point vigor is not
@@ -772,7 +767,7 @@ Using the same behavior to define labels and test learner/non-learner
 differences is descriptive, not confirmatory. Confirmatory learner analysis
 requires held-out trials/phases, cross-fitting, or independent data.
 
-## 18. Paper release contents
+## 19. Paper release contents
 
 The final release contains:
 
@@ -797,7 +792,7 @@ reproduction log
 The release must be reconstructible from immutable raw sources or verified
 upstream artifacts plus the recorded code and environment.
 
-## 19. Implementation sequence
+## 20. Implementation sequence
 
 Follow the detailed documents in [the implementation step
 index](./IMPLEMENTATION_STEP_INDEX.md):
@@ -817,7 +812,7 @@ index](./IMPLEMENTATION_STEP_INDEX.md):
 13. Figures, CLI, and notebooks
 14. Releases and legacy retirement
 
-## 20. Definition of complete
+## 21. Definition of complete
 
 The programme is complete only when:
 

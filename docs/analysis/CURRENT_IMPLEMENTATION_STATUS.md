@@ -73,8 +73,8 @@ Frozen in `CandidateMetricSource` as `tail-candidate-corrected-v1`:
 | --- | --- |
 | Preprocess | `corrected-preprocess-v1` |
 | Metrics | `tail-candidate-corrected-v1` |
-| Movement | `movement-candidate-corrected-v1` |
-| Temporal | `candidate-temporal-outcomes-corrected-v2` |
+| Movement | `movement-candidate-corrected-v2` (one shared detector) |
+| Temporal | `candidate-temporal-outcomes-corrected-v3` |
 | Trial outcomes | `candidate-trial-outcomes-corrected-v1` |
 | Comparison | `candidate-metric-comparison-corrected-v1` |
 | Runner | `candidate-corrected-runner-v1` |
@@ -84,7 +84,7 @@ Frozen in `CandidateMetricSource` as `tail-candidate-corrected-v1`:
 Development (intake-sourced) pairing remains available and is still the default
 on several single-step CLIs. Pass corrected recipes explicitly when needed.
 `figure-candidate-profiles` defaults to the development temporal recipe; use
-`--recipe candidate-temporal-outcomes-corrected-v2` for corrected fish.
+`--recipe candidate-temporal-outcomes-corrected-v3` for corrected fish.
 `figure-metric-comparison` defaults to the corrected comparison recipe.
 
 ## Recent engineering (2026-08-31 → 2026-09-01)
@@ -195,8 +195,8 @@ enough free space (C: Paper data was already space-constrained after the
 | --- | --- |
 | [Plans/DECISIONS.md](../../Plans/DECISIONS.md) | Locked decisions |
 | [Plans/IMPLEMENTATION_STEP_INDEX.md](../../Plans/IMPLEMENTATION_STEP_INDEX.md) | Step index |
-| [Plans/Notes/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md](../../Plans/Notes/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md) | Two-fish candidate handoff |
-| [Plans/Archive/Notes/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md](../../Plans/Archive/Notes/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md) | Pickle timebase classification |
+| [Plans/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md](../../Plans/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md) | Two-fish candidate handoff |
+| [Plans/Archive/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md](../../Plans/Archive/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md) | Pickle timebase classification |
 | [docs/analysis/LEGACY_VS_CORRECTED_WORKFLOW.md](LEGACY_VS_CORRECTED_WORKFLOW.md) | Route pairing |
 
 Engineering focus for Trace work: unlock or re-run into a clean save tree,

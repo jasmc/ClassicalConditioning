@@ -43,7 +43,7 @@ exists; writing the plan does not complete any implementation step.
 | 09. Outcomes and temporal profiles | In progress | Step 08 plumbing | Figures on fixtures | **Done:** development + corrected temporal/trial + corrected metric comparison. **Open:** cohort-scale canonicalization / Gate O |
 | 10. Statistics and sensitivity | In progress | Step 09 and Gate S | Rendering from frozen synthetic results | **Done:** workshop; model-input; LME; fish-permutation; fish-bootstrap. **Open:** Gate S; planned contrasts |
 | 11. Learner classification | Not started | Fully implemented non-learner refactor, Steps 09-10, and Gate L | Descriptive legacy reproduction | End-to-end methodology review plus versioned method and validation-mode report, if classification is retained |
-| 12. Figures, CLI, notebooks | In progress | Steps 02-11 as applicable | Incrementally throughout | Candidate PNG, local interactive HTML, and semantic SVG/PDF modes implemented |
+| 12. Figures, CLI, notebooks | In progress | Steps 02-11 as applicable | Incrementally throughout | **Done:** candidate PNG, frozen interactive HTML, semantic SVG/PDF pilots. **Open:** Gate F dimensions/panels; notebooks; visual regression |
 | 13. Releases and retirement | Not started | All required paper steps | None for final release | Immutable release and reproduction verification |
 
 ## Deferred optional imaging track
@@ -60,24 +60,28 @@ The inherited code risks that must not be copied are in
 ## Critical path
 
 ```text
-00 baseline
-  -> 00A first executable single-fish intake
+00 baseline (required before paper-authoritative claims)
+  -> 00A intake [complete]
   -> 01 package foundation completion
-  -> 02 artifacts
-  -> 03 configuration
-  -> 04 ingestion
-  -> 05 legacy equivalence
-  -> 06 candidate metrics
-  -> 07 metric selection
-  -> 08 corrected reprocessing and cohort
-  -> 09 outcomes
-  -> 10 inference
-  -> 11 learner analysis, if used
-  -> 12 final figures and interfaces
-  -> 13 paper release
+  -> 02 artifacts (current-path hashing; schema registry deferred)
+  -> 03 configuration [complete, allDelay fixtures]
+  -> 04 ingestion [complete, local fixtures]
+  -> 05 legacy equivalence [complete, local fixtures]
+  -> 06 candidate metrics (Gate P open)
+  -> 07 metric selection (Gate T1 open)
+  -> 08 corrected reprocessing and cohort (Gates P/T1/C0 open for paper)
+  -> 09 outcomes (Gate O open)
+  -> 10 inference (Gate S open)
+  -> 11 learner analysis, if used (deferred)
+  -> 12 final figures and interfaces (PNG + publication; HTML frozen)
+  -> 13 paper release (lightweight interim OK)
 ```
 
 ## Scientific gates
+
+Gate meanings below are reference only. Current answers and deferred items
+live in [DECISIONS.md](./DECISIONS.md). Do not re-ask gates per step; revisit
+only when new information changes a decision.
 
 | Gate | Required decision | Blocks |
 | --- | --- | --- |
@@ -128,7 +132,8 @@ For each implementation pull request or change set:
 4. List upstream artifact IDs and expected invalidation.
 5. Run the step's required tests and comparisons.
 6. Attach exit evidence without marking unrelated steps complete.
-7. After the exit gate passes, move the plan to `Plans/Archive/steps/` and
+7. After the exit gate passes, move the plan to `Plans/Archive/`
+   (`git mv Plans/<STEPFILE>.md Plans/Archive/<STEPFILE>.md`) and
    update both README files and this index in an atomic documentation commit.
 
 ## Git implementation protocol

@@ -103,6 +103,40 @@ class CandidateMetricTests(unittest.TestCase):
             0,
         )
 
+    def test_opposite_segment_rotations_cancel_in_legacy_distal_speed_but_not_manuscript_sum(self) -> None:
+        # Mathematical identity: |sum dtheta| != sum |dphi|
+        # When segments rotate in opposite directions, the distal cumulative angle
+        # change cancels to zero, but segment angular speed sum retains the full motion.
+        moved_x = self.x.copy()
+        moved_y = self.y.copy()
+        moved_angles = self.angles.copy()
+        orientations = np.array([0.0, 0.5, -0.5])
+        moved_x[1] = np.concatenate(
+            [[0.0], np.cumsum(np.cos(orientations))]
+        )
+        moved_y[1] = np.concatenate(
+            [[0.0], np.cumsum(np.sin(orientations))]
+        )
+        moved_angles[1] = np.array([0.0, 0.5, -0.5, 0.0])
+        result, _ = calculate_candidate_metrics(
+            self.frame_ids,
+            self.time,
+            moved_x,
+            moved_y,
+            moved_angles,
+            config=self.config,
+        )
+        self.assertAlmostEqual(
+            float(result.loc[1, "legacy_distal_angular_speed_rad_per_ms"]),
+            0.0,
+            places=6,
+        )
+        self.assertAlmostEqual(
+            float(result.loc[1, "segment_absolute_angular_speed_sum_rad_per_ms"]),
+            1.0,
+            places=6,
+        )
+
     def test_frame_gap_invalidates_only_cross_gap_derivative(self) -> None:
         result, _ = calculate_candidate_metrics(
             np.array([1, 3, 4]),

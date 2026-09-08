@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -45,76 +46,195 @@ METRIC_LABELS = {
     "whole_tail_xy_rms_speed": "Whole-tail XY RMS (px/ms)",
     "whole_tail_xy_mean_speed": "Whole-tail XY mean (px/ms)",
     "curvature_change_rms": "Curvature-change RMS (rad/px/ms)",
+    "legacy_distal_angular_speed": "Legacy distal angular speed (rad/ms)",
 }
 
-OUTCOME_SPECS = {
-    "total-activity": {
-        "column": "Total activity mean",
-        "title": "total activity",
-        "coverage": "Valid expected fraction",
-        "cmap_family": "intensity",
-        "plotly_colorscale": "Viridis",
-        "scale": "quantile-0.99",
-        "colorbar": "Relative intensity (panel 99th percentile)",
-    },
-    "movement-probability": {
-        "column": "Movement probability",
-        "title": "movement probability",
-        "coverage": "Detector valid fraction",
-        "cmap_family": "probability",
-        "plotly_colorscale": "Magma",
-        "scale": "fixed",
-        "colorbar": "Movement probability",
-        "vmin": 0.0,
-        "vmax": 1.0,
-    },
-    "fraction-time-moving": {
-        "column": "Fraction time moving",
-        "title": "fraction time moving",
-        "coverage": "Detector valid fraction",
-        "cmap_family": "probability",
-        "plotly_colorscale": "Magma",
-        "scale": "fixed",
-        "colorbar": "Fraction time moving",
-        "vmin": 0.0,
-        "vmax": 1.0,
-    },
-    "conditional-intensity": {
-        "column": "Conditional intensity mean",
-        "title": "conditional movement intensity",
-        "coverage": "Detector valid fraction",
-        "cmap_family": "intensity",
-        "plotly_colorscale": "Viridis",
-        "scale": "quantile-0.99",
-        "colorbar": "Relative intensity (panel 99th percentile)",
-    },
-    "bout-rate": {
-        "column": "Bout rate per minute",
-        "title": "bout initiation rate",
-        "coverage": "Detector valid fraction",
-        "cmap_family": "intensity",
-        "plotly_colorscale": "Plasma",
-        "scale": "quantile-0.99",
-        "colorbar": "Relative intensity (panel 99th percentile)",
-    },
+METRIC_UNITS = {
+    "segment_absolute_angular_speed_sum": "rad/ms",
+    "all_segment_angular_rms": "rad/ms",
+    "whole_tail_xy_rms_speed": "px/ms",
+    "whole_tail_xy_mean_speed": "px/ms",
+    "curvature_change_rms": "rad/px/ms",
+    "legacy_distal_angular_speed": "rad/ms",
+}
+
+DETECTOR_COVERAGE = "Detector valid fraction"
+COVERAGE_THRESHOLD = 0.9
+
+
+@dataclass(frozen=True)
+class PanelSpec:
+    """One heatmap row: which column to draw and how to scale its colour."""
+
+    key: str
+    title: str
+    column: str
+    coverage: str
+    colorbar_label: str
+    cmap_family: str = "intensity"
+    plotly_colorscale: str = "Viridis"
+    scale: str = "quantile-0.99"
+    vmin: float = 0.0
+    vmax: float | None = None
+    metric_id: str | None = None
+
+
+@dataclass(frozen=True)
+class FigureSpec:
+    """One figure: its rows, its title, and whether rows share a colour scale."""
+
+    figure_id: str
+    title: str
+    panels: tuple[PanelSpec, ...]
+    shared_colorbar: bool
+    description: str
+
+
+def _metric_panels(
+    column: str,
+    coverage: str,
+    *,
+    scaled: bool,
+) -> tuple[PanelSpec, ...]:
+    """One row per metric, in registry order."""
+    panels = []
+    for metric_id, label in METRIC_LABELS.items():
+        if scaled:
+            colorbar_label = "Scaled activity (0-1)"
+            spec = PanelSpec(
+                key=metric_id,
+                title=label,
+                column=column,
+                coverage=coverage,
+                colorbar_label=colorbar_label,
+                scale="fixed",
+                vmax=1.0,
+                metric_id=metric_id,
+            )
+        else:
+            # The row title already names the metric and its unit, so the
+            # per-row colorbar carries only the unit and stays legible.
+            spec = PanelSpec(
+                key=metric_id,
+                title=label,
+                column=column,
+                coverage=coverage,
+                colorbar_label=METRIC_UNITS[metric_id],
+                scale="quantile-0.99",
+                metric_id=metric_id,
+            )
+        panels.append(spec)
+    return tuple(panels)
+
+
+# Bout-derived outcomes come from the single shared detector, so they are rows
+# of one metric-free figure rather than six per-metric variants.
+BOUT_OUTCOME_PANELS = (
+    PanelSpec(
+        key="movement-probability",
+        title="Movement probability",
+        column="Movement probability",
+        coverage=DETECTOR_COVERAGE,
+        colorbar_label="Probability (0-1)",
+        cmap_family="probability",
+        plotly_colorscale="Magma",
+        scale="fixed",
+        vmax=1.0,
+    ),
+    PanelSpec(
+        key="fraction-time-moving",
+        title="Fraction time moving",
+        column="Fraction time moving",
+        coverage=DETECTOR_COVERAGE,
+        colorbar_label="Fraction (0-1)",
+        cmap_family="probability",
+        plotly_colorscale="Magma",
+        scale="fixed",
+        vmax=1.0,
+    ),
+    PanelSpec(
+        key="bout-rate",
+        title="Bout initiation rate",
+        column="Bout rate per minute",
+        coverage=DETECTOR_COVERAGE,
+        colorbar_label="Bouts per minute",
+        plotly_colorscale="Plasma",
+        scale="quantile-0.99",
+    ),
+)
+
+FIGURE_SPECS = {
+    "total-activity-raw": FigureSpec(
+        figure_id="total-activity-raw",
+        title="total activity (raw)",
+        panels=_metric_panels(
+            "Total activity mean",
+            "Valid expected fraction",
+            scaled=False,
+        ),
+        shared_colorbar=False,
+        description=(
+            "Mean metric value per trial and time bin, in native units. Each "
+            "row has its own colour scale because the metrics are not "
+            "commensurable."
+        ),
+    ),
+    "total-activity-scaled": FigureSpec(
+        figure_id="total-activity-scaled",
+        title="total activity (two-layer scaled)",
+        panels=_metric_panels(
+            "Scaled total activity",
+            "Valid expected fraction",
+            scaled=True,
+        ),
+        shared_colorbar=True,
+        description=(
+            "Per-trial two-layer scaled activity on a common 0-1 scale: "
+            "frame-level P10-P90 from samples earlier than -15 s, then a "
+            "second P10-P90 over pre-onset bins, clipped to the unit interval."
+        ),
+    ),
+    "conditional-intensity-raw": FigureSpec(
+        figure_id="conditional-intensity-raw",
+        title="conditional movement intensity (raw)",
+        panels=_metric_panels(
+            "Conditional intensity mean",
+            DETECTOR_COVERAGE,
+            scaled=False,
+        ),
+        shared_colorbar=False,
+        description=(
+            "Mean metric value over frames inside a detected bout: intensity "
+            "given that the animal was moving, in native units."
+        ),
+    ),
+    "bout-outcomes": FigureSpec(
+        figure_id="bout-outcomes",
+        title="bout-detection outcomes",
+        panels=BOUT_OUTCOME_PANELS,
+        shared_colorbar=False,
+        description=(
+            "Outcomes that depend only on the shared metric-independent "
+            "detector. Rows are different outcomes, not different metrics."
+        ),
+    ),
 }
 
 
-def _outcome_scale(
+def _panel_scale(
     values: np.ndarray,
-    outcome: dict[str, str | float],
+    panel: PanelSpec,
 ) -> tuple[float, float, str]:
     finite = values[np.isfinite(values)]
-    vmin = float(outcome.get("vmin", 0.0))
-    if outcome["scale"] == "fixed":
-        vmax = float(outcome["vmax"])
+    vmin = float(panel.vmin)
+    if panel.scale == "fixed":
+        vmax = float(panel.vmax if panel.vmax is not None else 1.0)
         description = f"linear, fixed [{vmin:g}, {vmax:g}]"
     else:
         vmax = float(np.quantile(finite, 0.99)) if finite.size else 1.0
         vmax = max(vmax, np.finfo(float).eps)
         description = (
-            f"linear, vmin={vmin:g}, vmax={vmax:g} "
-            "(metric 99th percentile)"
+            f"linear, vmin={vmin:g}, vmax={vmax:g} (panel 99th percentile)"
         )
     return vmin, vmax, description
 
@@ -188,55 +308,70 @@ def _verify_profile_unchanged(
         raise RuntimeError("Candidate temporal profile changed during figure build.")
 
 
-def _outcome_cmap_name(outcome: dict[str, str | float], theme) -> str:
-    if outcome["cmap_family"] == "probability":
+def _panel_cmap_name(panel: PanelSpec, theme) -> str:
+    if panel.cmap_family == "probability":
         return theme.probability_cmap
     return theme.intensity_cmap
+
+
+def _panel_pivot(
+    selected: pd.DataFrame,
+    panel: PanelSpec,
+) -> pd.DataFrame:
+    """Pivot one panel's values into trials x time bins, masking low coverage."""
+    if panel.metric_id is not None:
+        rows = selected[selected["Metric ID"].astype(str) == panel.metric_id]
+    else:
+        # Bout outcomes are identical for every metric because one detector
+        # produced them; take a single metric's rows to avoid duplicates.
+        metric_ids = [
+            metric_id
+            for metric_id in METRIC_LABELS
+            if metric_id in set(selected["Metric ID"].astype(str))
+        ]
+        if not metric_ids:
+            raise ValueError("Profiles contain no recognized metric rows.")
+        rows = selected[selected["Metric ID"].astype(str) == metric_ids[0]]
+    rows = rows.copy()
+    rows.loc[rows[panel.coverage] < COVERAGE_THRESHOLD, panel.column] = np.nan
+    return rows.pivot(
+        index="Trial number",
+        columns="Time bin center (s)",
+        values=panel.column,
+    )
 
 
 def _candidate_heatmap_figure(
     profiles: pd.DataFrame,
     trial_type: str,
-    outcome_id: str,
+    figure_id: str,
 ) -> tuple[plt.Figure, list[str], dict[str, dict[str, str]]]:
-    if outcome_id not in OUTCOME_SPECS:
-        raise ValueError(f"Unknown candidate outcome: {outcome_id}")
-    outcome = OUTCOME_SPECS[outcome_id]
+    if figure_id not in FIGURE_SPECS:
+        raise ValueError(f"Unknown candidate figure: {figure_id}")
+    spec = FIGURE_SPECS[figure_id]
     theme = apply_theme()
     selected = profiles[profiles["Trial type"].astype(str) == trial_type]
-    metrics = list(METRIC_LABELS)
     figure, axes = stacked_subplots(
-        len(metrics),
+        len(spec.panels),
         width_mm=DOUBLE_COLUMN_MM,
         row_height_mm=26.0,
         sharex=True,
         theme=theme,
     )
-    cmap = heatmap_cmap(_outcome_cmap_name(outcome, theme), theme)
     duration_s = stimulus_duration_s(trial_type)
     panel_ids: list[str] = []
     artist_mappings: dict[str, dict[str, str]] = {}
-    last_scale: tuple[float, float] | None = None
-    for index, (axis, metric_id) in enumerate(zip(axes, metrics)):
+    images: list[tuple[str, object, PanelSpec, tuple[float, float]]] = []
+    for index, (axis, panel) in enumerate(zip(axes, spec.panels)):
         panel_id = chr(ord("A") + index)
         panel_ids.append(panel_id)
-        metric = selected[selected["Metric ID"].astype(str) == metric_id]
-        metric = metric.copy()
-        metric.loc[
-            metric[outcome["coverage"]] < 0.9,
-            outcome["column"],
-        ] = np.nan
-        pivot = metric.pivot(
-            index="Trial number",
-            columns="Time bin center (s)",
-            values=outcome["column"],
-        )
+        cmap = heatmap_cmap(_panel_cmap_name(panel, theme), theme)
+        pivot = _panel_pivot(selected, panel)
         values = np.ma.masked_invalid(pivot.to_numpy(dtype=float))
-        vmin, vmax, scale_description = _outcome_scale(
+        vmin, vmax, scale_description = _panel_scale(
             np.asarray(values.filled(np.nan)),
-            outcome,
+            panel,
         )
-        last_scale = (vmin, vmax)
         time_centers = pivot.columns.to_numpy(dtype=float)
         trial_centers = pivot.index.to_numpy(dtype=float)
         time_step = (
@@ -265,18 +400,18 @@ def _candidate_heatmap_figure(
             cmap=cmap,
             rasterized=True,
         )
-        heatmap_id = (
-            f"heatmap__{panel_id.lower()}__{metric_id}__{outcome_id}"
-        )
+        heatmap_id = f"heatmap__{panel_id.lower()}__{panel.key}__{figure_id}"
         image.set_gid(heatmap_id)
+        images.append((heatmap_id, image, panel, (vmin, vmax)))
         artist_mappings[heatmap_id] = {
             "x_field": "Time bin center (s)",
             "y_field": "Trial number",
-            "value_field": outcome["column"],
-            "coverage_field": outcome["coverage"],
-            "coverage_threshold": "0.9",
+            "value_field": panel.column,
+            "coverage_field": panel.coverage,
+            "coverage_threshold": str(COVERAGE_THRESHOLD),
             "display_scale": scale_description,
             "cmap": cmap.name if hasattr(cmap, "name") else str(cmap),
+            "shared_detector": str(panel.metric_id is None).lower(),
         }
         stimulus_id = f"stimulus__{panel_id.lower()}__window"
         add_stimulus_window(
@@ -293,43 +428,62 @@ def _candidate_heatmap_figure(
             "duration_s": str(duration_s),
             "alignment": trial_type,
         }
-        is_last = index == len(metrics) - 1
         style_axes(
             axis,
             theme=theme,
-            show_xticks=is_last,
+            show_xticks=index == len(spec.panels) - 1,
             show_yticks=True,
             xlabel=f"Time from {trial_type} onset (s)",
             ylabel="Trial",
         )
-        axis.set_title(METRIC_LABELS[metric_id], loc="left")
-    if last_scale is None:
-        raise ValueError("Candidate heatmap has no metric panels.")
-    if outcome["scale"] == "fixed":
-        colorbar_norm = Normalize(vmin=last_scale[0], vmax=last_scale[1])
+        axis.set_title(panel.title, loc="left")
+
+    if not images:
+        raise ValueError("Candidate heatmap has no panels.")
+    if spec.shared_colorbar:
+        # Every row is already on the same scale, so one colorbar is honest.
+        heatmap_id, image, panel, _ = images[0]
+        colorbar = figure.colorbar(
+            image,
+            ax=list(axes),
+            fraction=0.035,
+            pad=0.02,
+        )
+        colorbar.set_label(panel.colorbar_label)
+        colorbar.ax.set_gid("axes__colorbar__main")
+        artist_mappings["colorbar"] = {
+            "role": "colorbar",
+            "label": panel.colorbar_label,
+            "shared": "true",
+        }
+        colorbar_ids = ["colorbar"]
     else:
-        colorbar_norm = Normalize(vmin=0.0, vmax=1.0)
-    mappable = ScalarMappable(cmap=cmap, norm=colorbar_norm)
-    mappable.set_array([])
-    colorbar = figure.colorbar(
-        mappable,
-        ax=list(axes),
-        fraction=0.035,
-        pad=0.02,
-    )
-    colorbar.set_label(str(outcome["colorbar"]))
-    colorbar.ax.set_gid("axes__colorbar__main")
-    artist_mappings["colorbar"] = {
-        "role": "colorbar",
-        "label": str(outcome["colorbar"]),
-        "cmap": cmap.name if hasattr(cmap, "name") else str(cmap),
-        "shared": "true",
-    }
+        # Rows carry different units or scales, so each gets its own colorbar
+        # and no cross-row colour comparison is implied.
+        colorbar_ids = []
+        for axis, (heatmap_id, image, panel, scale) in zip(axes, images):
+            colorbar = figure.colorbar(
+                image,
+                ax=axis,
+                fraction=0.035,
+                pad=0.02,
+            )
+            colorbar.set_label(panel.colorbar_label)
+            colorbar_id = f"colorbar__{panel.key}"
+            colorbar.ax.set_gid(f"axes__{colorbar_id}")
+            artist_mappings[colorbar_id] = {
+                "role": "colorbar",
+                "label": panel.colorbar_label,
+                "shared": "false",
+                "vmin": f"{scale[0]:g}",
+                "vmax": f"{scale[1]:g}",
+            }
+            colorbar_ids.append(colorbar_id)
     figure.suptitle(
         f"{recording_id_from_profiles(profiles)} — {trial_type}-aligned "
-        f"{outcome['title']}"
+        f"{spec.title}"
     )
-    return figure, panel_ids + ["colorbar"], artist_mappings
+    return figure, panel_ids + colorbar_ids, artist_mappings
 
 
 def recording_id_from_profiles(profiles: pd.DataFrame) -> str:
@@ -345,7 +499,7 @@ def build_candidate_profile_figure(
     *,
     mode: FigureMode,
     trial_type: str = "CS",
-    outcome_id: str = "total-activity",
+    figure_id: str = "total-activity-raw",
     metric_recipe: str | None = None,
     temporal_recipe: str | None = None,
     overwrite: bool = False,
@@ -363,15 +517,15 @@ def build_candidate_profile_figure(
     )
     if trial_type not in {"CS", "US"}:
         raise ValueError("Trial type must be CS or US.")
-    if outcome_id not in OUTCOME_SPECS:
-        raise ValueError(f"Unknown candidate outcome: {outcome_id}")
-    outcome = OUTCOME_SPECS[outcome_id]
+    if figure_id not in FIGURE_SPECS:
+        raise ValueError(f"Unknown candidate figure: {figure_id}")
+    spec = FIGURE_SPECS[figure_id]
     source_path = Path(__file__).resolve()
     version = figure_version_tag(route)
     reproduction = (
         "python -m classical_conditioning figure-candidate-profiles "
         f"--project-dir \"{project_dir}\" --recording-id {recording_id} "
-        f"--trial-type {trial_type} --outcome {outcome_id} --mode {mode.value} "
+        f"--trial-type {trial_type} --figure {figure_id} --mode {mode.value} "
         f"--recipe {route.temporal_recipe}"
     )
     if mode == FigureMode.INTERACTIVE:
@@ -383,32 +537,21 @@ def build_candidate_profile_figure(
             / "Figures"
             / "Interactive"
             / recording_id
-            / f"candidate_{trial_type.lower()}_{outcome_id}-{version}.html"
+            / f"candidate_{trial_type.lower()}_{figure_id}-{version}.html"
         )
         if output.exists() and not overwrite:
             raise FileExistsError(f"Interactive figure exists: {output}")
         selected = profiles[profiles["Trial type"].astype(str) == trial_type]
-        metrics = list(METRIC_LABELS)
         figure = make_subplots(
-            rows=len(metrics),
+            rows=len(spec.panels),
             cols=1,
             shared_xaxes=True,
-            subplot_titles=[METRIC_LABELS[metric] for metric in metrics],
+            subplot_titles=[panel.title for panel in spec.panels],
         )
-        for row, metric_id in enumerate(metrics, start=1):
-            metric = selected[selected["Metric ID"].astype(str) == metric_id]
-            metric = metric.copy()
-            metric.loc[
-                metric[outcome["coverage"]] < 0.9,
-                outcome["column"],
-            ] = np.nan
-            pivot = metric.pivot(
-                index="Trial number",
-                columns="Time bin center (s)",
-                values=outcome["column"],
-            )
+        for row, panel in enumerate(spec.panels, start=1):
+            pivot = _panel_pivot(selected, panel)
             values = pivot.to_numpy(dtype=float)
-            vmin, vmax, _ = _outcome_scale(values, outcome)
+            vmin, vmax, _ = _panel_scale(values, panel)
             yaxis_name = "yaxis" if row == 1 else f"yaxis{row}"
             domain = getattr(figure.layout, yaxis_name).domain
             figure.add_trace(
@@ -416,28 +559,23 @@ def build_candidate_profile_figure(
                     x=pivot.columns,
                     y=pivot.index,
                     z=values,
-                    colorscale=outcome["plotly_colorscale"],
+                    colorscale=panel.plotly_colorscale,
                     zmin=vmin,
                     zmax=vmax,
                     colorbar={
-                        "title": (
-                            METRIC_LABELS[metric_id]
-                            if outcome_id
-                            in {"total-activity", "conditional-intensity"}
-                            else outcome["colorbar"]
-                        ),
+                        "title": panel.colorbar_label,
                         "x": 1.02,
                         "y": (domain[0] + domain[1]) / 2,
                         "len": domain[1] - domain[0],
                         "yanchor": "middle",
                     },
-                    name=metric_id,
+                    name=panel.key,
                 ),
                 row=row,
                 col=1,
             )
         figure.update_layout(
-            title=f"{recording_id} — {trial_type}-aligned {outcome['title']}",
+            title=f"{recording_id} — {trial_type}-aligned {spec.title}",
             height=1_400,
         )
         output.parent.mkdir(parents=True, exist_ok=True)
@@ -459,7 +597,7 @@ def build_candidate_profile_figure(
                 staged_sidecar,
                 {
                     "figure_id": (
-                        f"candidate-{trial_type.lower()}-{outcome_id}-{version}"
+                        f"candidate-{trial_type.lower()}-{figure_id}-{version}"
                     ),
                     "analysis_recipe": route.temporal_recipe,
                     "mode": "interactive",
@@ -490,7 +628,7 @@ def build_candidate_profile_figure(
         return output
 
     figure, panel_ids, artist_mappings = _candidate_heatmap_figure(
-        profiles, trial_type, outcome_id
+        profiles, trial_type, figure_id
     )
     output_root = (
         project_dir
@@ -499,10 +637,10 @@ def build_candidate_profile_figure(
         / recording_id
     )
     output_base = (
-        output_root / f"candidate_{trial_type.lower()}_{outcome_id}-{version}"
+        output_root / f"candidate_{trial_type.lower()}_{figure_id}-{version}"
     )
     provenance = FigureProvenance(
-        figure_id=f"candidate-{trial_type.lower()}-{outcome_id}-{version}",
+        figure_id=f"candidate-{trial_type.lower()}-{figure_id}-{version}",
         analysis_recipe=route.temporal_recipe,
         source_file=str(source_path),
         source_symbol="build_candidate_profile_figure",

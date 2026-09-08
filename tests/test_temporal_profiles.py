@@ -7,6 +7,7 @@ import pandas as pd
 
 from classical_conditioning.analysis.temporal_profiles import (
     CANDIDATE_COLUMNS,
+    METRIC_IDS,
     TemporalProfileConfig,
     aggregate_event_profiles,
 )
@@ -38,44 +39,16 @@ class TemporalProfileTests(unittest.TestCase):
                 "End": [1_100, 1_050],
             }
         )
+        # One shared segmentation, not one per metric.
         self.movement = pd.DataFrame(
             {
                 "AbsoluteTime": time_ms,
-                **{
-                    f"{metric_id}__valid": np.ones(len(time_ms), dtype=bool)
-                    for metric_id in (
-                        "segment_absolute_angular_speed_sum",
-                        "all_segment_angular_rms",
-                        "whole_tail_xy_rms_speed",
-                        "whole_tail_xy_mean_speed",
-                        "curvature_change_rms",
-                    )
-                },
-                **{
-                    f"{metric_id}__moving": np.array(
-                        [False] * 10 + [True] * 5 + [False] * 6
-                    )
-                    for metric_id in (
-                        "segment_absolute_angular_speed_sum",
-                        "all_segment_angular_rms",
-                        "whole_tail_xy_rms_speed",
-                        "whole_tail_xy_mean_speed",
-                        "curvature_change_rms",
-                    )
-                },
-                **{
-                    f"{metric_id}__bout_id": np.array(
-                        [0] * 10 + [1] * 5 + [0] * 6,
-                        dtype=np.int32,
-                    )
-                    for metric_id in (
-                        "segment_absolute_angular_speed_sum",
-                        "all_segment_angular_rms",
-                        "whole_tail_xy_rms_speed",
-                        "whole_tail_xy_mean_speed",
-                        "curvature_change_rms",
-                    )
-                },
+                "valid": np.ones(len(time_ms), dtype=bool),
+                "moving": np.array([False] * 10 + [True] * 5 + [False] * 6),
+                "bout_id": np.array(
+                    [0] * 10 + [1] * 5 + [0] * 6,
+                    dtype=np.int32,
+                ),
             }
         )
 
@@ -199,8 +172,7 @@ class TemporalProfileTests(unittest.TestCase):
 
     def test_invalid_detector_samples_are_not_counted_as_rest(self) -> None:
         movement = self.movement.copy()
-        metric_id = "segment_absolute_angular_speed_sum"
-        movement.loc[:4, f"{metric_id}__valid"] = False
+        movement.loc[:4, "valid"] = False
         result = aggregate_event_profiles(
             self.frames,
             self.protocol.iloc[:1],
@@ -208,13 +180,93 @@ class TemporalProfileTests(unittest.TestCase):
             movement_state=movement,
         )
         row = result[
-            (result["Metric ID"] == metric_id)
+            (result["Metric ID"] == "segment_absolute_angular_speed_sum")
             & (result["Time bin start (s)"] == -1.0)
         ].iloc[0]
         self.assertTrue(np.isnan(row["Movement probability"]))
         self.assertEqual(row["Detector valid fraction"], 0.0)
         self.assertTrue(np.isnan(row["Bout count"]))
-        self.assertEqual(row["Detector valid fraction"], 0.0)
+
+    def test_two_layer_scaling_clips_to_unit_interval_after_onset(self) -> None:
+        config = TemporalProfileConfig()
+        time_ms = np.arange(0, 90_001, 100)
+        trial_seconds = (time_ms - 45_000) / 1_000
+        rng = np.random.default_rng(0)
+        baseline = 0.5 + 0.1 * rng.standard_normal(len(time_ms))
+        values = np.where(trial_seconds < 0.0, baseline, 10.0)
+        frames = pd.DataFrame(
+            {
+                "AbsoluteTime": time_ms,
+                "FrameStep": np.concatenate([[0], np.ones(len(time_ms) - 1)]),
+                "DeltaTimeMs": np.full(len(time_ms), 100.0),
+                **{column: values for column in CANDIDATE_COLUMNS},
+            }
+        )
+        protocol = pd.DataFrame(
+            {"Type": ["Cycle"], "Beg": [45_000], "End": [45_100]}
+        )
+        result = aggregate_event_profiles(frames, protocol, config=config)
+        scaled = result["Scaled total activity"]
+        finite = scaled[scaled.notna()]
+        self.assertTrue(finite.between(0.0, 1.0).all())
+
+        after_onset = result.loc[
+            result["Time bin center (s)"] > 1.0,
+            "Scaled total activity",
+        ]
+        self.assertTrue((after_onset == 1.0).all())
+
+        # Raw values are untouched by scaling.
+        self.assertAlmostEqual(
+            float(
+                result.loc[
+                    result["Time bin center (s)"] > 1.0,
+                    "Total activity mean",
+                ].iloc[0]
+            ),
+            10.0,
+        )
+
+    def test_scaling_is_nan_without_a_usable_pre_baseline_window(self) -> None:
+        # The default layer-1 window starts earlier than -15 s; this trial has
+        # no such samples, so scaling must refuse rather than rescale on itself.
+        result = aggregate_event_profiles(
+            self.frames,
+            self.protocol,
+            config=self.config,
+        )
+        self.assertTrue(result["Scaled total activity"].isna().all())
+
+    def test_bout_outcomes_are_identical_across_every_metric(self) -> None:
+        result = aggregate_event_profiles(
+            self.frames,
+            self.protocol,
+            config=self.config,
+            movement_state=self.movement,
+        )
+        bout_columns = [
+            "Movement probability",
+            "Fraction time moving",
+            "Bout rate per minute",
+            "Bout count",
+            "Detector valid fraction",
+        ]
+        keys = ["Trial type", "Trial number", "Time bin start (s)"]
+        reference = None
+        for metric_id in METRIC_IDS.values():
+            metric = (
+                result[result["Metric ID"] == metric_id]
+                .sort_values(keys)
+                .reset_index(drop=True)
+            )
+            if reference is None:
+                reference = metric
+                continue
+            pd.testing.assert_frame_equal(
+                metric[bout_columns],
+                reference[bout_columns],
+                check_dtype=False,
+            )
 
 
 if __name__ == "__main__":

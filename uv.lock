@@ -12,6 +12,7 @@ dependencies = [
     { name = "pandas" },
     { name = "pyarrow" },
     { name = "scipy" },
+    { name = "tqdm" },
 ]
 
 [package.optional-dependencies]
@@ -25,7 +26,6 @@ legacy = [
     { name = "seaborn" },
     { name = "statannotations" },
     { name = "statsmodels" },
-    { name = "tqdm" },
 ]
 
 [package.metadata]
@@ -42,7 +42,7 @@ requires-dist = [
     { name = "seaborn", marker = "extra == 'legacy'", specifier = ">=0.13,<0.14" },
     { name = "statannotations", marker = "extra == 'legacy'", specifier = ">=0.7,<0.8" },
     { name = "statsmodels", marker = "extra == 'legacy'", specifier = ">=0.14,<0.15" },
-    { name = "tqdm", marker = "extra == 'legacy'", specifier = ">=4.67,<5" },
+    { name = "tqdm", specifier = ">=4.67,<5" },
 ]
 provides-extras = ["legacy", "interactive"]
 

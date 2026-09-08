@@ -46,7 +46,7 @@ class OutcomeComparisonTests(unittest.TestCase):
             self.candidate,
         )
 
-        self.assertEqual(len(matched), 10)
+        self.assertEqual(len(matched), 2 * len(METRIC_IDS))
         trial_one = matched[matched["trial_number"] == 1]
         self.assertTrue(
             (trial_one["candidate_response_baseline_ratio"] == 3.0).all()
@@ -73,7 +73,7 @@ class OutcomeComparisonTests(unittest.TestCase):
 
         matched, _ = compare_legacy_candidate_outcomes(self.legacy, candidate)
 
-        self.assertEqual(len(matched), 10)
+        self.assertEqual(len(matched), 2 * len(METRIC_IDS))
 
     def test_rejects_nonempty_inputs_with_no_trial_overlap(self) -> None:
         candidate = self.candidate.copy()

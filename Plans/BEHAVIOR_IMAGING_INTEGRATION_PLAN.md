@@ -17,9 +17,9 @@ contain both behavior and imaging. It extends, but does not replace:
 
 - [the master analysis migration plan](./MASTER_ANALYSIS_MIGRATION_PLAN.md);
 - [the final analysis architecture](./ANALYSIS_ARCHITECTURE.md);
-- [the artifact and provenance plan](./steps/02_ARTIFACTS_SCHEMAS_AND_PROVENANCE.md);
-- [the domain and configuration plan](./Archive/steps/03_DOMAIN_AND_CONFIGURATION.md);
-- [the ingestion and validation plan](./Archive/steps/04_INGESTION_AND_RAW_VALIDATION.md).
+- [the artifact and provenance plan](./02_ARTIFACTS_SCHEMAS_AND_PROVENANCE.md);
+- [the domain and configuration plan](./Archive/03_DOMAIN_AND_CONFIGURATION.md);
+- [the ingestion and validation plan](./Archive/04_INGESTION_AND_RAW_VALIDATION.md).
 
 The behavior-only pipeline remains authoritative for behavior. Imaging
 availability must never select a different behavior formula, preprocessing
@@ -829,7 +829,8 @@ rules are predeclared. Model diagnostics and effective sample sizes are saved.
 3. Add registration and frame-QC review figures.
 4. Add pixel/ROI response figures.
 5. Add multimodal trial and fish-level association figures.
-6. Reuse the existing publication, PNG, and local interactive modes.
+6. Reuse the existing publication and PNG modes; interactive HTML is frozen
+   (Gate F).
 7. Ensure all modes consume identical panel data.
 8. Add CLI planning and execution selectors:
 

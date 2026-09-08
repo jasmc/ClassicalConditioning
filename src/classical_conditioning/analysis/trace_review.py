@@ -22,6 +22,8 @@ from classical_conditioning.artifacts import (
     write_json_atomic,
 )
 from classical_conditioning.analysis.movement_state import (
+    DETECTOR_COLUMNS,
+    DETECTOR_SOURCE_COLUMN,
     METRIC_IDS,
     smooth_contiguous_median,
 )
@@ -66,15 +68,9 @@ def select_review_windows(
         (absolute >= absolute[0] + half_window_ms)
         & (absolute <= absolute[-1] - half_window_ms)
     )
-    metric_valid = movement[
-        [f"{metric_id}__valid" for metric_id in METRIC_IDS.values()]
-    ].to_numpy(dtype=bool)
-    jointly_valid = np.all(metric_valid, axis=1) & full_window
-    xy_valid = (
-        movement["whole_tail_xy_rms_speed__valid"].to_numpy(dtype=bool)
-        & np.isfinite(xy_rms)
-        & full_window
-    )
+    detector_valid = movement["valid"].to_numpy(dtype=bool)
+    jointly_valid = detector_valid & full_window
+    xy_valid = detector_valid & np.isfinite(xy_rms) & full_window
 
     quiet_median = (
         pd.DataFrame(
@@ -105,33 +101,32 @@ def select_review_windows(
     else:
         strong_candidates = []
 
-    moving_columns = [
-        f"{metric_id}__moving" for metric_id in METRIC_IDS.values()
-    ]
-    moving_matrix = movement[moving_columns].to_numpy(dtype=float)
-    disagreement = np.var(moving_matrix, axis=1)
-    disagreement_mean = (
+    # One shared detector cannot disagree with itself, so the ambiguous
+    # windows worth human review are the bout boundaries: the frames where the
+    # detector switches state and where mislabeling is most likely.
+    moving = movement["moving"].to_numpy(dtype=bool)
+    transition = np.concatenate([[False], moving[1:] != moving[:-1]])
+    transition_count = (
         pd.DataFrame(
             {
                 "second": second[jointly_valid],
-                "value": disagreement[jointly_valid],
+                "value": transition[jointly_valid].astype(float),
             }
         )
         .groupby("second", sort=True)["value"]
-        .mean()
+        .sum()
     )
-    disagreement_candidates: list[int] = []
-    for disagreement_second in disagreement_mean.sort_values(
+    boundary_candidates: list[int] = []
+    for boundary_second in transition_count.sort_values(
         ascending=False,
         kind="stable",
     ).index:
         candidates = np.flatnonzero(
-            (second == disagreement_second) & jointly_valid
+            (second == boundary_second) & jointly_valid & transition
         )
-        if candidates.size:
-            disagreement_candidates.append(
-                int(candidates[np.argmax(disagreement[candidates])])
-            )
+        # Offer every transition in the interval, so a boundary window can
+        # still be placed when the first choice sits too close to a US window.
+        boundary_candidates.extend(int(index) for index in candidates)
 
     requests: list[tuple[str, str, list[int], int]] = []
     us_events = (
@@ -180,9 +175,9 @@ def select_review_windows(
                 1,
             ),
             (
-                "disagreement",
-                "eligible 1 s interval with greatest detector disagreement",
-                disagreement_candidates,
+                "boundary",
+                "eligible 1 s interval with most bout-boundary transitions",
+                boundary_candidates,
                 2,
             ),
         ]
@@ -235,24 +230,23 @@ def extract_review_traces(
     """Extract long-form normalized traces around selected review centers."""
     absolute = frames["AbsoluteTime"].to_numpy(dtype=np.int64)
     frame_steps = frames["FrameStep"].to_numpy(dtype=np.int64)
-    detector_inputs = {
-        source_column: smooth_contiguous_median(
-            frames[source_column].to_numpy(dtype=float),
-            frame_steps,
-            window_samples=smoothing_window_samples,
-        )
-        for source_column in CANDIDATE_COLUMNS
-    }
+    # The detector reads one signal, so every metric panel is annotated with
+    # that same detector input and the same two historical thresholds.
+    shared_detector_input = smooth_contiguous_median(
+        frames[DETECTOR_SOURCE_COLUMN].to_numpy(dtype=float),
+        frame_steps,
+        window_samples=smoothing_window_samples,
+    )
+    high = float(calibration["envelope_threshold_rad_per_ms"])
+    low = float(calibration["bout_amplitude_threshold_rad_per_ms"])
     pieces: list[pd.DataFrame] = []
     for window in windows.itertuples(index=False):
         center = int(getattr(window, "_3"))
         start = int(np.searchsorted(absolute, center - half_window_ms, side="left"))
         end = int(np.searchsorted(absolute, center + half_window_ms, side="left"))
         for source_column, metric_id in METRIC_IDS.items():
-            high = float(calibration[metric_id]["high_threshold"])
-            low = float(calibration[metric_id]["low_threshold"])
             values = frames[source_column].iloc[start:end].to_numpy(dtype=float)
-            detector_input = detector_inputs[source_column][start:end]
+            detector_input = shared_detector_input[start:end]
             pieces.append(
                 pd.DataFrame(
                     {
@@ -272,13 +266,13 @@ def extract_review_traces(
                         "Low / high threshold": low / high,
                         "Low threshold": low,
                         "High threshold": high,
-                        "Valid": movement[f"{metric_id}__valid"]
+                        "Valid": movement["valid"]
                         .iloc[start:end]
                         .to_numpy(dtype=bool),
-                        "Moving": movement[f"{metric_id}__moving"]
+                        "Moving": movement["moving"]
                         .iloc[start:end]
                         .to_numpy(dtype=bool),
-                        "Bout ID": movement[f"{metric_id}__bout_id"]
+                        "Bout ID": movement["bout_id"]
                         .iloc[start:end]
                         .to_numpy(dtype=np.int32),
                     }
@@ -440,13 +434,13 @@ def build_trace_review(
     project_dir = project_dir.resolve()
     source_dir = project_dir / "Processed data" / recording_id
     metric_path = source_dir / "frame_activity_candidates-v1.parquet"
-    movement_path = source_dir / "movement_state_candidates-v1.parquet"
+    movement_path = source_dir / "movement_state_candidates-v2.parquet"
     protocol_path = source_dir / "stimulus_events.parquet"
     movement_summary_path = (
         project_dir
         / "Quality checks"
         / recording_id
-        / "movement-candidate-v1_summary.json"
+        / "movement-candidate-v2_summary.json"
     )
     metric_marker = json.loads(
         (
@@ -459,7 +453,7 @@ def build_trace_review(
         (
             project_dir
             / "Metadata"
-            / f"{recording_id}_movement-candidate-v1_complete.json"
+            / f"{recording_id}_movement-candidate-v2_complete.json"
         ).read_text(encoding="utf-8")
     )
     if sha256_file(metric_path) != metric_marker["metrics_sha256"]:
@@ -487,9 +481,9 @@ def build_trace_review(
         raise ValueError("Candidate metric marker or summary is invalid.")
     if (
         movement_marker.get("status") != "complete"
-        or movement_marker.get("recipe") != "movement-candidate-v1"
+        or movement_marker.get("recipe") != "movement-candidate-v2"
         or movement_marker.get("recording_id") != recording_id
-        or movement_summary.get("recipe") != "movement-candidate-v1"
+        or movement_summary.get("recipe") != "movement-candidate-v2"
         or movement_summary.get("recording_id") != recording_id
         or movement_summary["inputs"]["candidate_metrics"]["sha256"]
         != metric_marker["metrics_sha256"]
@@ -538,15 +532,7 @@ def build_trace_review(
         *CANDIDATE_COLUMNS,
     ]
     frames = pq.read_table(metric_path, columns=frame_columns).to_pandas()
-    movement_columns = ["FrameID"]
-    for metric_id in METRIC_IDS.values():
-        movement_columns.extend(
-            [
-                f"{metric_id}__valid",
-                f"{metric_id}__moving",
-                f"{metric_id}__bout_id",
-            ]
-        )
+    movement_columns = ["FrameID", *DETECTOR_COLUMNS]
     movement = pq.read_table(movement_path, columns=movement_columns).to_pandas()
     protocol = pq.read_table(protocol_path).to_pandas()
     metric_state = (metric_path.stat().st_size, metric_path.stat().st_mtime_ns)
@@ -559,7 +545,7 @@ def build_trace_review(
         frames,
         movement,
         windows,
-        movement_summary["calibration"],
+        movement_summary["detector"],
         smoothing_window_samples=int(
             movement_summary["resolved_smoothing_window_samples"]
         ),

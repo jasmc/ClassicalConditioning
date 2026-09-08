@@ -28,6 +28,7 @@ CANDIDATE_COLUMNS = (
     "whole_tail_xy_rms_speed_px_per_ms",
     "whole_tail_xy_mean_speed_px_per_ms",
     "curvature_change_rms_rad_per_px_per_ms",
+    "legacy_distal_angular_speed_rad_per_ms",
 )
 
 
@@ -284,7 +285,32 @@ def calculate_candidate_metrics(
         config.minimum_valid_tail_fraction,
     )
 
-    for values in (xy_rms, xy_mean, angular_rms, manuscript_sum, curvature_rms):
+    # Sixth metric: legacy-derived distal cumulative angle speed benchmark.
+    # theta = sum of local angles along the tail across all points.
+    current_distal_cumulative = np.sum(local_angles, axis=1)
+    if previous is None:
+        distal_delta = np.concatenate(
+            [[np.nan], _wrap_angle(np.diff(current_distal_cumulative))]
+        )
+    else:
+        prev_distal = previous.get("distal_cumulative_angle")
+        if prev_distal is None:
+            prev_distal = float(np.sum(previous["local_angles"]))
+        distal_source = np.concatenate([[prev_distal], current_distal_cumulative])
+        # Wrapped scalar delta: np.arctan2(sin(d), cos(d)) prevents 2pi phase wrap spikes.
+        # Historical legacy np.diff on degrees did not wrap.
+        distal_delta = _wrap_angle(np.diff(distal_source))
+    legacy_distal_speed = np.abs(distal_delta) / delta_time_for_rows
+    legacy_distal_speed[~np.all(np.isfinite(local_angles), axis=1)] = np.nan
+
+    for values in (
+        xy_rms,
+        xy_mean,
+        angular_rms,
+        manuscript_sum,
+        curvature_rms,
+        legacy_distal_speed,
+    ):
         values[~derivative_valid] = np.nan
 
     result = pd.DataFrame(
@@ -302,6 +328,7 @@ def calculate_candidate_metrics(
             CANDIDATE_COLUMNS[2]: xy_rms,
             CANDIDATE_COLUMNS[3]: xy_mean,
             CANDIDATE_COLUMNS[4]: curvature_rms,
+            CANDIDATE_COLUMNS[5]: legacy_distal_speed,
         }
     )
     state: dict[str, np.ndarray | float | int] = {
@@ -312,6 +339,7 @@ def calculate_candidate_metrics(
         "local_angles": local_angles[-1],
         "local_curvature": current_curvature[-1],
         "segment_orientation": current_segment_orientation[-1],
+        "distal_cumulative_angle": float(current_distal_cumulative[-1]),
     }
     return result, state
 

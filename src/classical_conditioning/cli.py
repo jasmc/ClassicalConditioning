@@ -6,6 +6,7 @@ import argparse
 from pathlib import Path
 from typing import Sequence
 
+from classical_conditioning.environment import ensure_supported_runtime
 from classical_conditioning.intake import intake_recording, intake_recordings
 
 
@@ -148,10 +149,10 @@ def build_parser() -> argparse.ArgumentParser:
     profiles.add_argument(
         "--recipe",
         choices=(
-            "candidate-temporal-outcomes-v2",
-            "candidate-temporal-outcomes-corrected-v2",
+            "candidate-temporal-outcomes-v3",
+            "candidate-temporal-outcomes-corrected-v3",
         ),
-        default="candidate-temporal-outcomes-v2",
+        default="candidate-temporal-outcomes-v3",
     )
     profiles.add_argument("--experiment", default="allDelay")
     profiles.add_argument("--overwrite", action="store_true")
@@ -164,15 +165,19 @@ def build_parser() -> argparse.ArgumentParser:
     figure_profiles.add_argument("--recording-id", required=True)
     figure_profiles.add_argument("--trial-type", choices=("CS", "US"), default="CS")
     figure_profiles.add_argument(
-        "--outcome",
+        "--figure",
         choices=(
-            "total-activity",
-            "movement-probability",
-            "fraction-time-moving",
-            "conditional-intensity",
-            "bout-rate",
+            "total-activity-raw",
+            "total-activity-scaled",
+            "conditional-intensity-raw",
+            "bout-outcomes",
         ),
-        default="total-activity",
+        default="total-activity-raw",
+        help=(
+            "Which figure to render. The three intensity figures have one row "
+            "per metric; bout-outcomes has one row per detector-dependent "
+            "outcome and is metric-free."
+        ),
     )
     figure_profiles.add_argument(
         "--mode",
@@ -182,16 +187,16 @@ def build_parser() -> argparse.ArgumentParser:
     figure_profiles.add_argument(
         "--recipe",
         choices=(
-            "candidate-temporal-outcomes-v2",
-            "candidate-temporal-outcomes-corrected-v2",
+            "candidate-temporal-outcomes-v3",
+            "candidate-temporal-outcomes-corrected-v3",
         ),
-        default="candidate-temporal-outcomes-v2",
+        default="candidate-temporal-outcomes-v3",
     )
     figure_profiles.add_argument("--overwrite", action="store_true")
 
     figure_metric_comparison = subparsers.add_parser(
         "figure-metric-comparison",
-        help="Render a cohort five-metric comparison from saved summaries.",
+        help="Render a cohort candidate metric comparison from saved summaries.",
     )
     figure_metric_comparison.add_argument("--project-dir", type=Path, required=True)
     figure_metric_comparison.add_argument("--analysis-id", required=True)
@@ -243,8 +248,8 @@ def build_parser() -> argparse.ArgumentParser:
     movement.add_argument("--recording-id", required=True)
     movement.add_argument(
         "--recipe",
-        choices=("movement-candidate-v1", "movement-candidate-corrected-v1"),
-        default="movement-candidate-v1",
+        choices=("movement-candidate-v2", "movement-candidate-corrected-v2"),
+        default="movement-candidate-v2",
     )
     movement.add_argument("--overwrite", action="store_true")
 
@@ -369,7 +374,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     metric_comparison = subparsers.add_parser(
         "compare-candidate-metrics",
-        help="Apply identical descriptive outcomes to all five candidate metrics.",
+        help="Apply identical descriptive outcomes to all candidate metrics.",
     )
     metric_comparison.add_argument("--project-dir", type=Path, required=True)
     metric_comparison.add_argument(
@@ -392,7 +397,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     candidate_runner = subparsers.add_parser(
         "candidate-runner",
-        help="Run the non-approved five-metric candidate-development pipeline.",
+        help="Run the non-approved candidate-development pipeline.",
     )
     candidate_runner.add_argument("--project-dir", type=Path, required=True)
     candidate_runner.add_argument(
@@ -413,10 +418,15 @@ def build_parser() -> argparse.ArgumentParser:
         default="candidate-development-runner-v1",
     )
     candidate_runner.add_argument("--overwrite", action="store_true")
+    candidate_runner.add_argument(
+        "--quiet",
+        action="store_true",
+        help="Suppress stage banners, step flags, and progress bars.",
+    )
 
     trial_outcomes = subparsers.add_parser(
         "candidate-trial-outcomes",
-        help="Build exact measured-time trial outcomes for all five candidates.",
+        help="Build exact measured-time trial outcomes for all candidate metrics.",
     )
     trial_outcomes.add_argument("--project-dir", type=Path, required=True)
     trial_outcomes.add_argument("--recording-id", required=True)
@@ -549,6 +559,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--no-overwrite-failed",
         action="store_true",
         help="When selecting failed stages, verify only and do not rebuild.",
+    )
+    execute_batch.add_argument(
+        "--quiet",
+        action="store_true",
+        help="Suppress stage banners, step flags, and progress bars.",
     )
 
     mixed_effects = subparsers.add_parser(
@@ -697,11 +712,17 @@ def build_parser() -> argparse.ArgumentParser:
         required=True,
         help="JSON file with raw_dir, save_dir, experiment, analysis_id, and routes.",
     )
+    run_pipeline.add_argument(
+        "--quiet",
+        action="store_true",
+        help="Suppress stage banners, step flags, and progress bars.",
+    )
 
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> None:
+    ensure_supported_runtime()
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -719,10 +740,12 @@ def main(argv: Sequence[str] | None = None) -> None:
 
     if args.command == "run-pipeline":
         from classical_conditioning.pipeline import run_pipeline
+        from classical_conditioning.progress import default_progress
         from classical_conditioning.run_config import load_pipeline_run_config
 
         config = load_pipeline_run_config(args.config.resolve())
-        result = run_pipeline(config)
+        progress = default_progress(enabled=not args.quiet and config.show_progress)
+        result = run_pipeline(config, progress=progress)
         print(f"Raw: {config.raw_dir}")
         print(f"Save: {config.save_dir}")
         print(f"Experiment: {config.experiment}")
@@ -1066,8 +1089,10 @@ def main(argv: Sequence[str] | None = None) -> None:
         from classical_conditioning.analysis.movement_state import (
             RUNNER_RECIPE_TO_METRIC_SOURCE,
         )
+        from classical_conditioning.progress import default_progress
 
         metric_recipe = RUNNER_RECIPE_TO_METRIC_SOURCE[args.recipe]
+        progress = default_progress(enabled=not args.quiet)
         result = run_candidate_development_pipeline(
             args.project_dir,
             args.recording_id,
@@ -1077,6 +1102,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             overwrite=args.overwrite,
             metric_recipe=metric_recipe,
             runner_recipe=args.recipe,
+            progress=progress,
         )
         print(f"Analysis: {result.analysis_id}")
         print(f"Recipe: {args.recipe}")
@@ -1241,7 +1267,9 @@ def main(argv: Sequence[str] | None = None) -> None:
         from classical_conditioning.analysis.batch_work import (
             execute_batch_work,
         )
+        from classical_conditioning.progress import default_progress
 
+        progress = default_progress(enabled=not args.quiet)
         result = execute_batch_work(
             args.project_dir,
             args.recording_id,
@@ -1252,6 +1280,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             experiment_name=args.experiment,
             batch_size=args.batch_size,
             overwrite_failed=not args.no_overwrite_failed,
+            progress=progress,
         )
         print(f"Batch: {result.batch_id}")
         print(f"Selection: {result.selection}")
@@ -1370,7 +1399,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             args.recording_id,
             mode=FigureMode(args.mode),
             trial_type=args.trial_type,
-            outcome_id=args.outcome,
+            figure_id=args.figure,
             temporal_recipe=args.recipe,
             overwrite=args.overwrite,
         )
