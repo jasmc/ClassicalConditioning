@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "classical-conditioning"
+version = "0.1.0"
+description = "Local, reproducible analysis for larval zebrafish classical conditioning"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "matplotlib>=3.9,<3.11",
+    "numpy>=2.0,<3",
+    "pandas>=2.2,<3",
+    "pyarrow>=18,<22",
+    "scipy>=1.14,<2",
+    "tqdm>=4.67,<5",
+]
+
+[project.optional-dependencies]
+legacy = [
+    "numba>=0.61,<0.63",
+    "plotly>=6,<7",
+    "scikit-learn>=1.5,<1.8",
+    "seaborn>=0.13,<0.14",
+    "statannotations>=0.7,<0.8",
+    "statsmodels>=0.14,<0.15",
+]
+interactive = [
+    "plotly>=6,<7",
+]
+
+[project.scripts]
+classical-conditioning = "classical_conditioning.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.unittest]
+start-directory = "tests"
