@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Literal
 
 import numpy as np
 import pandas as pd
@@ -20,9 +19,6 @@ from classical_conditioning.ingestion.schemas import (
     validate_tracking_columns,
 )
 
-TrackingMode = Literal["full", "legacy_angles"]
-
-
 @dataclass(frozen=True)
 class CameraReadResult:
     frame: pd.DataFrame
@@ -36,9 +32,8 @@ class TrackingReadResult:
     frame: pd.DataFrame
     source_path: Path
     schema: TrackingSchema
-    mode: TrackingMode
+    mode: str
     dropped_trailing_summary_row: bool
-    angles_converted_to_degrees: bool
 
 
 @dataclass(frozen=True)
@@ -143,12 +138,10 @@ def read_camera(path: Path) -> CameraReadResult:
 def read_tracking(
     path: Path,
     *,
-    mode: TrackingMode = "full",
+    mode: str = "full",
     drop_trailing_summary_row: bool = True,
-    convert_angles_to_degrees: bool = False,
-    legacy_angle_point_count: int | None = None,
 ) -> TrackingReadResult:
-    """Read tracking TXT in full-field or legacy angle-only mode."""
+    """Read full-field tracking TXT for the supported candidate route."""
     source = _require_file(path)
     frame, _, _ = _read_whitespace_table(source, decimal=".")
     try:
@@ -171,8 +164,7 @@ def read_tracking(
         working = working.iloc[:-1].copy()
         dropped = True
 
-    # When the summary row is retained for legacy prepare(), FrameID may be
-    # non-numeric on that final row. Coerce rather than failing the whole file.
+    # The source's optional trailing summary row may have a non-numeric FrameID.
     working["FrameID"] = pd.to_numeric(working["FrameID"], errors="coerce")
     if dropped:
         if working["FrameID"].isna().any():
@@ -192,35 +184,12 @@ def read_tracking(
             "float64"
         )
 
-    angles_to_degrees = False
-    if mode == "full":
-        selected = working.loc[
-            :,
-            ["FrameID", *schema.x_columns, *schema.y_columns, *schema.angle_columns],
-        ].copy()
-    elif mode == "legacy_angles":
-        point_count = legacy_angle_point_count or schema.point_count
-        if point_count < 2 or point_count > schema.point_count:
-            raise SchemaValidationError(
-                f"legacy_angle_point_count={point_count} is outside available "
-                f"point count {schema.point_count}."
-            )
-        angle_columns = tuple(f"angle{index}" for index in range(point_count))
-        selected = working.loc[:, ["FrameID", *angle_columns]].copy()
-        if convert_angles_to_degrees:
-            selected.loc[:, list(angle_columns)] = (
-                selected.loc[:, list(angle_columns)].to_numpy(dtype=np.float64)
-                * (180.0 / np.pi)
-            )
-            angles_to_degrees = True
-            selected = selected.rename(
-                columns={
-                    column: f"Angle of point {index} (deg)"
-                    for index, column in enumerate(angle_columns)
-                }
-            )
-    else:
+    if mode != "full":
         raise SchemaValidationError(f"Unsupported tracking mode: {mode!r}")
+    selected = working.loc[
+        :,
+        ["FrameID", *schema.x_columns, *schema.y_columns, *schema.angle_columns],
+    ].copy()
 
     if selected.empty:
         raise SchemaValidationError(
@@ -233,7 +202,6 @@ def read_tracking(
         schema=schema,
         mode=mode,
         dropped_trailing_summary_row=dropped,
-        angles_converted_to_degrees=angles_to_degrees,
     )
 
 

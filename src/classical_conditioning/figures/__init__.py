@@ -5,10 +5,6 @@ from classical_conditioning.figures.export import (
     FigureProvenance,
     export_matplotlib_figure,
 )
-from classical_conditioning.figures.legacy_review import (
-    LegacyReviewFigureResult,
-    build_legacy_preprocessing_review_figure,
-)
 from classical_conditioning.figures.metric_comparison import (
     build_metric_comparison_figure,
 )
@@ -19,9 +15,7 @@ from classical_conditioning.figures.temporal_profiles import (
 __all__ = [
     "FigureMode",
     "FigureProvenance",
-    "LegacyReviewFigureResult",
     "build_candidate_profile_figure",
-    "build_legacy_preprocessing_review_figure",
     "build_metric_comparison_figure",
     "export_matplotlib_figure",
 ]

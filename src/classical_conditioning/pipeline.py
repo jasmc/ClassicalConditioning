@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -10,7 +10,6 @@ from typing import Any
 from classical_conditioning.analysis.candidate_runner import (
     run_candidate_development_pipeline,
 )
-from classical_conditioning.analysis.legacy_runner import run_legacy_analysis_pipeline
 from classical_conditioning.analysis.movement_state import RUNNER_RECIPE_TO_METRIC_SOURCE
 from classical_conditioning.artifacts import write_json_atomic
 from classical_conditioning.exceptions import ConfigurationError
@@ -21,26 +20,36 @@ from classical_conditioning.figures.metric_comparison import (
 from classical_conditioning.intake import discover_recordings, intake_recordings
 from classical_conditioning.inventory import write_recording_inventory
 from classical_conditioning.paths import condition_from_recording_name
-from classical_conditioning.preprocessing.legacy_v1 import preprocess_legacy_recording
 from classical_conditioning.progress import PipelineProgress, default_progress
 from classical_conditioning.run_config import PipelineRunConfig, pipeline_config_to_dict
 
 
 @dataclass(frozen=True)
 class PipelineRunResult:
+    """High-level record of what this invocation did, not an analysis artifact.
+
+    Per-recording scientific outputs and their provenance live in their
+    respective stage directories.  This result, and the JSON summary written
+    at the end of :func:`run_pipeline`, make partial completion visible to a
+    caller without re-reading those artifacts.
+    """
     recording_ids: tuple[str, ...]
     intake_completed: tuple[str, ...] = ()
     intake_skipped: tuple[str, ...] = ()
     intake_failed: tuple[tuple[str, str], ...] = ()
-    legacy_preprocess: dict[str, str] = field(default_factory=dict)
-    legacy_runner_status: str | None = None
     candidate_runner_status: str | None = None
     figure_paths: tuple[Path, ...] = ()
     summary_path: Path | None = None
 
 
 def resolve_pipeline_recording_ids(config: PipelineRunConfig) -> tuple[str, ...]:
-    """Discover recording IDs from raw_dir using optional filters."""
+    """Return the requested cohort, preserving discovery order.
+
+    An explicit list is authoritative.  Otherwise this function discovers only
+    complete raw triplets and applies the optional filename-condition filter.
+    It deliberately does not apply scientific exclusions: those need a
+    separately reviewed cohort policy rather than an implicit discovery rule.
+    """
     if config.recording_ids is not None:
         return config.recording_ids
 
@@ -60,6 +69,8 @@ def resolve_pipeline_recording_ids(config: PipelineRunConfig) -> tuple[str, ...]
         raise ConfigurationError(
             "No complete triplets matched the requested filters under raw_dir."
         )
+    # ``dict`` preserves insertion order, so duplicate source discoveries do
+    # not make one recording run twice while discovery order remains stable.
     return tuple(dict.fromkeys(selected))
 
 
@@ -68,7 +79,12 @@ def run_pipeline(
     *,
     progress: PipelineProgress | None = None,
 ) -> PipelineRunResult:
-    """Execute a relocatable pipeline from a validated run configuration."""
+    """Execute the configured intake, analysis routes, and optional figures.
+
+    This is orchestration only.  It selects a cohort, calls independently
+    versioned stages, and records their status. The candidate runner enforces
+    its own artifact lineage.
+    """
     progress = progress or default_progress(enabled=config.show_progress)
     progress.stage(
         "Pipeline start",
@@ -79,18 +95,21 @@ def run_pipeline(
     )
     recording_ids = resolve_pipeline_recording_ids(config)
     progress.info(f"selected {len(recording_ids)} recording(s)")
+    # ``raw_dir`` is an immutable input.  Every generated artifact belongs
+    # below the separately configured, writable save tree.
     config.save_dir.mkdir(parents=True, exist_ok=True)
 
     intake_completed: tuple[str, ...] = ()
     intake_skipped: tuple[str, ...] = ()
     intake_failed: tuple[tuple[str, str], ...] = ()
-    legacy_preprocess: dict[str, str] = {}
-    legacy_runner_status: str | None = None
     candidate_runner_status: str | None = None
     figure_paths: list[Path] = []
 
     if config.run_inventory:
         with progress.stage_timer("Inventory"):
+            # Inventory is optional QC/provenance.  Intake independently
+            # validates its inputs, so an existing inventory is not required
+            # to run the analysis.
             inventory_path = (
                 config.save_dir / "Metadata" / "recording_inventory.json"
             )
@@ -127,6 +146,9 @@ def run_pipeline(
             raise ConfigurationError(
                 "Intake failed for one or more recordings; see pipeline summary."
             )
+        # Downstream stages must only receive recordings with a current intake
+        # artifact.  "Skipped" means an existing intake artifact was accepted;
+        # it is therefore as eligible as one completed in this invocation.
         active_ids = tuple(
             recording_id
             for recording_id in recording_ids
@@ -138,79 +160,11 @@ def run_pipeline(
             )
         recording_ids = active_ids
 
-    if "legacy" in config.routes:
-        total = len(recording_ids)
-        with progress.stage_timer(
-            "Legacy preprocessing",
-            detail=f"{total} recording(s)",
-        ):
-            for index, recording_id in enumerate(
-                progress.iter_items(
-                    recording_ids,
-                    description="legacy preprocess",
-                ),
-                start=1,
-            ):
-                marker = (
-                    config.save_dir
-                    / "Metadata"
-                    / f"{recording_id}_legacy-v1_complete.json"
-                )
-                if not config.overwrite and marker.exists():
-                    legacy_preprocess[recording_id] = "existing"
-                    progress.item_done(
-                        index, total, recording_id, status="existing"
-                    )
-                    continue
-                try:
-                    preprocess_legacy_recording(
-                        project_dir=config.save_dir,
-                        recording_id=recording_id,
-                        experiment_name=config.experiment,
-                        overwrite=config.overwrite,
-                    )
-                    legacy_preprocess[recording_id] = "completed"
-                    progress.item_done(
-                        index, total, recording_id, status="completed"
-                    )
-                except Exception as error:
-                    legacy_preprocess[recording_id] = f"failed: {error}"
-                    progress.item_done(
-                        index,
-                        total,
-                        recording_id,
-                        status=f"failed: {error}",
-                    )
-                    if not config.continue_on_error:
-                        raise
-
-        legacy_ok = [
-            recording_id
-            for recording_id, state in legacy_preprocess.items()
-            if state in {"existing", "completed"}
-        ]
-        if not legacy_ok:
-            raise ConfigurationError(
-                "Legacy preprocessing did not succeed for any recording."
-            )
-        with progress.stage_timer(
-            "Legacy analysis runner",
-            detail=config.resolved_legacy_analysis_id(),
-        ):
-            legacy_result = run_legacy_analysis_pipeline(
-                config.save_dir,
-                legacy_ok,
-                analysis_id=config.resolved_legacy_analysis_id(),
-                experiment_name=config.experiment,
-                alignment=config.legacy_alignment,
-                read_batch_rows=config.batch_size,
-                overwrite=config.overwrite,
-                run_statistics=config.legacy_run_statistics,
-            )
-            legacy_runner_status = legacy_result.status
-            progress.info(f"status={legacy_runner_status}")
-
     if "candidate" in config.routes:
+        # A runner recipe selects one frozen, internally compatible set of
+        # metric, detector, temporal-profile, trial-outcome, and comparison
+        # recipes.  Passing both selectors below prevents accidental mixing of
+        # the development and corrected artifact families.
         metric_recipe = RUNNER_RECIPE_TO_METRIC_SOURCE[config.candidate_runner_recipe]
         with progress.stage_timer(
             "Candidate analysis runner",
@@ -232,6 +186,9 @@ def run_pipeline(
             progress.info(f"manifest={candidate_runner_status}")
 
         if config.run_figures:
+            # Figures consume the cohort comparison, not raw frames.  Keep the
+            # comparison recipe paired with the runner family for the same
+            # reason that the runner pairs its per-recording stages.
             comparison_recipe = (
                 "candidate-metric-comparison-corrected-v1"
                 if config.candidate_runner_recipe.endswith("-corrected-v1")
@@ -257,6 +214,9 @@ def run_pipeline(
                             overwrite=config.overwrite,
                         )
                     except FileNotFoundError as error:
+                        # Convert an implementation-level missing artifact
+                        # error into an actionable orchestration error: figures
+                        # are valid only after their matching comparison route.
                         raise ConfigurationError(
                             "Figure generation could not find the candidate "
                             "metric-comparison summary. Preprocessing may have "
@@ -282,6 +242,8 @@ def run_pipeline(
         summary_path = (
             config.save_dir / "Metadata" / f"{config.analysis_id}_pipeline_run.json"
         )
+        # This is intentionally a run ledger, not a scientific result.  Store
+        # the resolved config and failures so a partial run remains auditable.
         payload: dict[str, Any] = {
             "generated_at_utc": datetime.now(timezone.utc).isoformat(),
             "config": pipeline_config_to_dict(config),
@@ -292,8 +254,6 @@ def run_pipeline(
                 {"recording_id": recording_id, "error": error}
                 for recording_id, error in intake_failed
             ],
-            "legacy_preprocess": legacy_preprocess,
-            "legacy_runner_status": legacy_runner_status,
             "candidate_runner_status": candidate_runner_status,
             "figure_paths": [str(path) for path in figure_paths],
         }
@@ -306,8 +266,6 @@ def run_pipeline(
         intake_completed=intake_completed,
         intake_skipped=intake_skipped,
         intake_failed=intake_failed,
-        legacy_preprocess=legacy_preprocess,
-        legacy_runner_status=legacy_runner_status,
         candidate_runner_status=candidate_runner_status,
         figure_paths=tuple(figure_paths),
         summary_path=summary_path,

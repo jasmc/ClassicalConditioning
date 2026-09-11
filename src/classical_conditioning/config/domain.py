@@ -30,18 +30,6 @@ class ConditionRole(str, Enum):
     CONDITIONED = "conditioned"
 
 
-class ScientificStatus(str, Enum):
-    LEGACY = "legacy"
-    CANDIDATE = "candidate"
-    CORRECTED = "corrected"
-
-
-class ConfigurationStage(str, Enum):
-    EXPERIMENT = "experiment"
-    PREPROCESSING = "preprocessing"
-    OUTCOMES = "outcomes"
-
-
 @dataclass(frozen=True, order=True)
 class FishKey:
     experiment_id: str

@@ -18,7 +18,10 @@ VALID_RUNNER_RECIPES = frozenset(
         "candidate-corrected-runner-v1",
     }
 )
-VALID_ROUTES = frozenset({"legacy", "candidate"})
+VALID_ROUTES = frozenset({"candidate"})
+RETIRED_LEGACY_FIELDS = frozenset(
+    {"legacy_alignment", "legacy_run_statistics", "legacy_analysis_id"}
+)
 
 
 def _validate_analysis_id(analysis_id: str) -> None:
@@ -42,9 +45,6 @@ class PipelineRunConfig:
     run_inventory: bool = False
     run_intake: bool = True
     run_figures: bool = False
-    legacy_alignment: str = "CS"
-    legacy_run_statistics: bool = True
-    legacy_analysis_id: str | None = None
     candidate_runner_recipe: str = "candidate-corrected-runner-v1"
     candidate_analysis_id: str | None = None
     batch_size: int = 250_000
@@ -59,9 +59,6 @@ class PipelineRunConfig:
     @property
     def project_dir(self) -> Path:
         return self.save_dir
-
-    def resolved_legacy_analysis_id(self) -> str:
-        return self.legacy_analysis_id or f"{self.analysis_id}-legacy"
 
     def resolved_candidate_analysis_id(self) -> str:
         return self.candidate_analysis_id or f"{self.analysis_id}-candidate"
@@ -88,6 +85,12 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ConfigurationError("Pipeline config must be a JSON object.")
+    retired_fields = sorted(RETIRED_LEGACY_FIELDS.intersection(payload))
+    if retired_fields:
+        raise ConfigurationError(
+            "Legacy pipeline settings have been retired: "
+            f"{retired_fields}. Remove them and use the candidate route."
+        )
 
     raw_dir = Path(str(payload.get("raw_dir", ""))).expanduser()
     save_dir = Path(str(payload.get("save_dir", ""))).expanduser()
@@ -112,6 +115,11 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
     routes = tuple(str(item).strip().lower() for item in routes_raw)
     unknown = set(routes).difference(VALID_ROUTES)
     if unknown:
+        if "legacy" in unknown:
+            raise ConfigurationError(
+                "The legacy route has been retired from the installable package. "
+                "Use the candidate route; historical source is under legacy/."
+            )
         raise ConfigurationError(f"Unknown routes: {sorted(unknown)}")
 
     candidate_runner_recipe = str(
@@ -121,10 +129,6 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
         raise ConfigurationError(
             f"candidate_runner_recipe must be one of {sorted(VALID_RUNNER_RECIPES)}."
         )
-
-    legacy_alignment = str(payload.get("legacy_alignment", "CS")).strip().upper()
-    if legacy_alignment not in {"CS", "US"}:
-        raise ConfigurationError("legacy_alignment must be CS or US.")
 
     figure_mode = str(payload.get("figure_mode", "static")).strip().lower()
     if figure_mode not in {"static", "publication"}:
@@ -150,13 +154,6 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
         run_inventory=bool(payload.get("run_inventory", False)),
         run_intake=bool(payload.get("run_intake", True)),
         run_figures=bool(payload.get("run_figures", False)),
-        legacy_alignment=legacy_alignment,
-        legacy_run_statistics=bool(payload.get("legacy_run_statistics", True)),
-        legacy_analysis_id=(
-            str(payload["legacy_analysis_id"]).strip()
-            if payload.get("legacy_analysis_id")
-            else None
-        ),
         candidate_runner_recipe=candidate_runner_recipe,
         candidate_analysis_id=(
             str(payload["candidate_analysis_id"]).strip()
@@ -191,9 +188,6 @@ def pipeline_config_to_dict(config: PipelineRunConfig) -> dict[str, Any]:
         "run_inventory": config.run_inventory,
         "run_intake": config.run_intake,
         "run_figures": config.run_figures,
-        "legacy_alignment": config.legacy_alignment,
-        "legacy_run_statistics": config.legacy_run_statistics,
-        "legacy_analysis_id": config.resolved_legacy_analysis_id(),
         "candidate_runner_recipe": config.candidate_runner_recipe,
         "candidate_analysis_id": config.resolved_candidate_analysis_id(),
         "batch_size": config.batch_size,

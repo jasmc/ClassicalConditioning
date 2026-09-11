@@ -88,8 +88,8 @@ def build_parser() -> argparse.ArgumentParser:
     preprocess.add_argument("--recording-id", required=True)
     preprocess.add_argument(
         "--recipe",
-        choices=("legacy-paper-v1", "corrected-preprocess-v1"),
-        default="legacy-paper-v1",
+        choices=("corrected-preprocess-v1",),
+        default="corrected-preprocess-v1",
     )
     preprocess.add_argument("--experiment", default="allDelay")
     preprocess.add_argument("--batch-size", type=int, default=250_000)
@@ -104,16 +104,6 @@ def build_parser() -> argparse.ArgumentParser:
     compare.add_argument("--output", type=Path, required=True)
     compare.add_argument("--absolute-tolerance", type=float, default=0.0)
     compare.add_argument("--relative-tolerance", type=float, default=0.0)
-
-    compare_pickle = subparsers.add_parser(
-        "compare-legacy-pickle",
-        help="Compare a local historical per-fish pickle with legacy Parquet.",
-    )
-    compare_pickle.add_argument("--pickle", type=Path, required=True)
-    compare_pickle.add_argument("--parquet", type=Path, required=True)
-    compare_pickle.add_argument("--output", type=Path, required=True)
-    compare_pickle.add_argument("--batch-size", type=int, default=250_000)
-    compare_pickle.add_argument("--overwrite", action="store_true")
 
     activity = subparsers.add_parser(
         "activity-metrics",
@@ -131,14 +121,6 @@ def build_parser() -> argparse.ArgumentParser:
     )
     activity.add_argument("--batch-size", type=int, default=250_000)
     activity.add_argument("--overwrite", action="store_true")
-
-    compare_routes = subparsers.add_parser(
-        "compare-routes",
-        help="Summarize legacy versus candidate preprocessing behavior.",
-    )
-    compare_routes.add_argument("--project-dir", type=Path, required=True)
-    compare_routes.add_argument("--recording-id", required=True)
-    compare_routes.add_argument("--overwrite", action="store_true")
 
     profiles = subparsers.add_parser(
         "temporal-profiles",
@@ -227,19 +209,6 @@ def build_parser() -> argparse.ArgumentParser:
     )
     figure_metric_comparison.add_argument("--overwrite", action="store_true")
 
-    figure_legacy = subparsers.add_parser(
-        "figure-legacy-review",
-        help="Render a compact QC figure from frozen legacy stage-1 samples.",
-    )
-    figure_legacy.add_argument("--project-dir", type=Path, required=True)
-    figure_legacy.add_argument("--recording-id", required=True)
-    figure_legacy.add_argument(
-        "--mode",
-        choices=("publication", "static"),
-        default="static",
-    )
-    figure_legacy.add_argument("--overwrite", action="store_true")
-
     movement = subparsers.add_parser(
         "movement-state",
         help="Calibrate exploratory movement state and bouts for candidate metrics.",
@@ -268,109 +237,6 @@ def build_parser() -> argparse.ArgumentParser:
     trace_review.add_argument("--project-dir", type=Path, required=True)
     trace_review.add_argument("--recording-id", required=True)
     trace_review.add_argument("--overwrite", action="store_true")
-
-    logmedian = subparsers.add_parser(
-        "legacy-logmedian",
-        help="Reproduce the historical LogMedian stage-3 transform.",
-    )
-    logmedian.add_argument("--project-dir", type=Path, required=True)
-    logmedian.add_argument("--recording-id", required=True)
-    logmedian.add_argument(
-        "--recipe",
-        choices=("historical-logmedian-v1",),
-        default="historical-logmedian-v1",
-    )
-    logmedian.add_argument("--overwrite", action="store_true")
-
-    standard_main = subparsers.add_parser(
-        "legacy-standard-main",
-        help="Reproduce the frozen standard-main stage-3 grouping transform.",
-    )
-    standard_main.add_argument("--project-dir", type=Path, required=True)
-    standard_main.add_argument("--recording-id", required=True)
-    standard_main.add_argument(
-        "--recipe",
-        choices=("legacy-standard-main-v1",),
-        default="legacy-standard-main-v1",
-    )
-    standard_main.add_argument("--experiment", default="allDelay")
-    standard_main.add_argument("--read-batch-rows", type=int, default=250_000)
-    standard_main.add_argument("--overwrite", action="store_true")
-
-    scaled_vigor = subparsers.add_parser(
-        "legacy-scaled-vigor",
-        help="Reproduce frozen standard-main stage-4 pooled aggregation.",
-    )
-    scaled_vigor.add_argument("--project-dir", type=Path, required=True)
-    scaled_vigor.add_argument("--recording-id", required=True)
-    scaled_vigor.add_argument(
-        "--recipe",
-        choices=("legacy-scaled-vigor-v1",),
-        default="legacy-scaled-vigor-v1",
-    )
-    scaled_vigor.add_argument("--overwrite", action="store_true")
-
-    normalized_vigor = subparsers.add_parser(
-        "legacy-normalized-vigor",
-        help="Reproduce frozen standard-main stage-5 per-trial windows.",
-    )
-    normalized_vigor.add_argument("--project-dir", type=Path, required=True)
-    normalized_vigor.add_argument("--recording-id", required=True)
-    normalized_vigor.add_argument(
-        "--recipe",
-        choices=("legacy-normalized-vigor-v1",),
-        default="legacy-normalized-vigor-v1",
-    )
-    normalized_vigor.add_argument("--experiment", default="allDelay")
-    normalized_vigor.add_argument("--overwrite", action="store_true")
-
-    legacy_statistics = subparsers.add_parser(
-        "legacy-statistics",
-        help="Run frozen stage-5 inference over explicit normalized-vigor inputs.",
-    )
-    legacy_statistics.add_argument("--project-dir", type=Path, required=True)
-    legacy_statistics.add_argument(
-        "--recording-id",
-        action="append",
-        required=True,
-        help="Authenticated recording ID; repeat for every cohort member.",
-    )
-    legacy_statistics.add_argument("--analysis-id", required=True)
-    legacy_statistics.add_argument("--alignment", choices=("CS", "US"), default="CS")
-    legacy_statistics.add_argument(
-        "--recipe",
-        choices=("legacy-statistics-v1",),
-        default="legacy-statistics-v1",
-    )
-    legacy_statistics.add_argument("--experiment", default="allDelay")
-    legacy_statistics.add_argument("--overwrite", action="store_true")
-
-    legacy_runner = subparsers.add_parser(
-        "legacy-runner",
-        help="Run the frozen legacy stage-3/4/5 pipeline for a local cohort.",
-    )
-    legacy_runner.add_argument("--project-dir", type=Path, required=True)
-    legacy_runner.add_argument(
-        "--recording-id",
-        action="append",
-        required=True,
-        help="Authenticated recording ID; repeat for every cohort member.",
-    )
-    legacy_runner.add_argument("--analysis-id", required=True)
-    legacy_runner.add_argument("--alignment", choices=("CS", "US"), default="CS")
-    legacy_runner.add_argument(
-        "--recipe",
-        choices=("legacy-runner-v1",),
-        default="legacy-runner-v1",
-    )
-    legacy_runner.add_argument("--experiment", default="allDelay")
-    legacy_runner.add_argument("--read-batch-rows", type=int, default=250_000)
-    legacy_runner.add_argument("--overwrite", action="store_true")
-    legacy_runner.add_argument(
-        "--skip-statistics",
-        action="store_true",
-        help="Only run the legacy stage-3/4/5 recording transforms without cohort inference.",
-    )
 
     metric_comparison = subparsers.add_parser(
         "compare-candidate-metrics",
@@ -440,19 +306,6 @@ def build_parser() -> argparse.ArgumentParser:
         default="candidate-trial-outcomes-v1",
     )
     trial_outcomes.add_argument("--overwrite", action="store_true")
-
-    outcome_comparison = subparsers.add_parser(
-        "legacy-candidate-outcome-comparison",
-        help="Compare frozen legacy and candidate trial outcomes descriptively.",
-    )
-    outcome_comparison.add_argument("--project-dir", type=Path, required=True)
-    outcome_comparison.add_argument("--recording-id", required=True)
-    outcome_comparison.add_argument(
-        "--recipe",
-        choices=("legacy-candidate-outcome-comparison-v1",),
-        default="legacy-candidate-outcome-comparison-v1",
-    )
-    outcome_comparison.add_argument("--overwrite", action="store_true")
 
     freeze_cohort = subparsers.add_parser(
         "freeze-cohort",
@@ -660,9 +513,9 @@ def build_parser() -> argparse.ArgumentParser:
     )
     resolve_config.add_argument("--project-dir", type=Path, required=True)
     resolve_config.add_argument(
-        "--recipe",
-        choices=("legacy-paper-v1",),
-        default="legacy-paper-v1",
+        "--runner-recipe",
+        choices=("candidate-corrected-runner-v1", "candidate-development-runner-v1"),
+        default="candidate-corrected-runner-v1",
     )
     resolve_config.add_argument("--experiment", default="allDelay")
     resolve_config.add_argument("--overwrite", action="store_true")
@@ -753,8 +606,6 @@ def main(argv: Sequence[str] | None = None) -> None:
         print(f"Intake completed: {len(result.intake_completed)}")
         print(f"Intake skipped: {len(result.intake_skipped)}")
         print(f"Intake failed: {len(result.intake_failed)}")
-        if result.legacy_runner_status:
-            print(f"Legacy analysis: {config.resolved_legacy_analysis_id()}")
         if result.candidate_runner_status:
             print(f"Candidate analysis: {config.resolved_candidate_analysis_id()}")
         if result.figure_paths:
@@ -770,7 +621,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         result = export_resolved_config(
             args.project_dir,
             experiment_name=args.experiment,
-            recipe_id=args.recipe,
+            runner_recipe=args.runner_recipe,
             overwrite=args.overwrite,
         )
         print(f"Recipe: {result.recipe_id}")
@@ -893,45 +744,23 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "preprocess":
-        if args.recipe == "legacy-paper-v1":
-            from classical_conditioning.preprocessing.legacy_v1 import (
-                preprocess_legacy_recording,
-            )
+        from classical_conditioning.preprocessing.corrected_v1 import (
+            build_corrected_preprocessing,
+        )
 
-            result = preprocess_legacy_recording(
-                project_dir=args.project_dir,
-                recording_id=args.recording_id,
-                experiment_name=args.experiment,
-                overwrite=args.overwrite,
-            )
-            print(f"Recording: {result.recording_id}")
-            print(f"Recipe: {args.recipe}")
-            print(f"Rows: {result.row_count:,}")
-            print(f"Trials: CS={result.cs_trial_count}, US={result.us_trial_count}")
-            print(f"Samples: {result.samples_path}")
-            print(f"Summary: {result.summary_path}")
-            return
-
-        if args.recipe == "corrected-preprocess-v1":
-            from classical_conditioning.preprocessing.corrected_v1 import (
-                build_corrected_preprocessing,
-            )
-
-            result = build_corrected_preprocessing(
-                args.project_dir,
-                args.recording_id,
-                batch_size=args.batch_size,
-                overwrite=args.overwrite,
-            )
-            print(f"Recording: {result.recording_id}")
-            print(f"Recipe: {args.recipe}")
-            print(f"Rows: {result.row_count:,}")
-            print(f"Derivative-valid rows: {result.derivative_valid_count:,}")
-            print(f"Frames: {result.frames_path}")
-            print(f"Summary: {result.summary_path}")
-            return
-
-        raise ValueError(f"Unsupported preprocessing recipe: {args.recipe}")
+        result = build_corrected_preprocessing(
+            args.project_dir,
+            args.recording_id,
+            batch_size=args.batch_size,
+            overwrite=args.overwrite,
+        )
+        print(f"Recording: {result.recording_id}")
+        print(f"Recipe: {args.recipe}")
+        print(f"Rows: {result.row_count:,}")
+        print(f"Derivative-valid rows: {result.derivative_valid_count:,}")
+        print(f"Frames: {result.frames_path}")
+        print(f"Summary: {result.summary_path}")
+        return
     if args.command == "trace-review":
         from classical_conditioning.analysis import build_trace_review
 
@@ -944,117 +773,6 @@ def main(argv: Sequence[str] | None = None) -> None:
         print(f"Review windows: {result.window_count}")
         print(f"Interactive review: {result.interactive_figure_path}")
         print(f"Annotation template: {result.annotation_path}")
-        return
-
-    if args.command == "legacy-logmedian":
-        from classical_conditioning.analysis import build_legacy_logmedian
-
-        result = build_legacy_logmedian(
-            args.project_dir,
-            args.recording_id,
-            overwrite=args.overwrite,
-        )
-        print(f"Recording: {result.recording_id}")
-        print(f"Recipe: {args.recipe}")
-        print(f"Rows: {result.row_count:,}")
-        print(f"Samples: {result.samples_path}")
-        print(f"Summary: {result.summary_path}")
-        return
-
-    if args.command == "legacy-standard-main":
-        from classical_conditioning.analysis import build_legacy_standard_main
-
-        result = build_legacy_standard_main(
-            args.project_dir,
-            args.recording_id,
-            experiment_name=args.experiment,
-            read_batch_rows=args.read_batch_rows,
-            overwrite=args.overwrite,
-        )
-        print(f"Recording: {result.recording_id}")
-        print(f"Recipe: {args.recipe}")
-        for alignment, path in result.samples_paths.items():
-            print(
-                f"{alignment}: rows={result.row_counts[alignment]:,}, "
-                f"trials={result.trial_counts[alignment]}, samples={path}"
-            )
-        print(f"Summary: {result.summary_path}")
-        return
-
-    if args.command == "legacy-scaled-vigor":
-        from classical_conditioning.analysis import build_legacy_scaled_vigor
-
-        result = build_legacy_scaled_vigor(
-            args.project_dir,
-            args.recording_id,
-            overwrite=args.overwrite,
-        )
-        print(f"Recording: {result.recording_id}")
-        print(f"Recipe: {args.recipe}")
-        for key, path in result.artifact_paths.items():
-            print(f"{key}: rows={result.row_counts[key]:,}, artifact={path}")
-        print(f"Summary: {result.summary_path}")
-        return
-
-    if args.command == "legacy-normalized-vigor":
-        from classical_conditioning.analysis import build_legacy_normalized_vigor
-
-        result = build_legacy_normalized_vigor(
-            args.project_dir,
-            args.recording_id,
-            experiment_name=args.experiment,
-            overwrite=args.overwrite,
-        )
-        print(f"Recording: {result.recording_id}")
-        print(f"Recipe: {args.recipe}")
-        for alignment, path in result.artifact_paths.items():
-            print(
-                f"{alignment}: rows={result.row_counts[alignment]:,}, "
-                f"artifact={path}"
-            )
-        print(f"Summary: {result.summary_path}")
-        return
-
-    if args.command == "legacy-statistics":
-        from classical_conditioning.analysis import build_legacy_statistics
-
-        result = build_legacy_statistics(
-            args.project_dir,
-            args.recording_id,
-            analysis_id=args.analysis_id,
-            alignment=args.alignment,
-            experiment_name=args.experiment,
-            overwrite=args.overwrite,
-        )
-        print(f"Analysis: {result.analysis_id}")
-        print(f"Recipe: {args.recipe}")
-        for name, path in result.artifact_paths.items():
-            print(f"{name}: {path}")
-        print(f"Model errors: {len(result.model_errors)}")
-        print(f"Summary: {result.summary_path}")
-        return
-
-    if args.command == "legacy-runner":
-        from classical_conditioning.analysis import run_legacy_analysis_pipeline
-
-        result = run_legacy_analysis_pipeline(
-            args.project_dir,
-            args.recording_id,
-            analysis_id=args.analysis_id,
-            experiment_name=args.experiment,
-            alignment=args.alignment,
-            read_batch_rows=args.read_batch_rows,
-            overwrite=args.overwrite,
-            run_statistics=not args.skip_statistics,
-        )
-        print(f"Analysis: {result.analysis_id}")
-        print(f"Recipe: {args.recipe}")
-        print(f"Status: {result.status}")
-        print(f"Manifest: {result.manifest_path}")
-        for recording_id, entries in result.step_status.items():
-            if isinstance(entries, dict):
-                for step_name, state in entries.items():
-                    print(f"{recording_id}:{step_name}={state}")
         return
 
     if args.command == "compare-candidate-metrics":
@@ -1134,24 +852,6 @@ def main(argv: Sequence[str] | None = None) -> None:
         print(f"Metric source: {metric_recipe}")
         print(f"Rows: {result.row_count}")
         print(f"Outcomes: {result.outcomes_path}")
-        print(f"Coverage: {result.coverage_path}")
-        print(f"Summary: {result.summary_path}")
-        return
-
-    if args.command == "legacy-candidate-outcome-comparison":
-        from classical_conditioning.analysis import (
-            build_legacy_candidate_outcome_comparison,
-        )
-
-        result = build_legacy_candidate_outcome_comparison(
-            args.project_dir,
-            args.recording_id,
-            overwrite=args.overwrite,
-        )
-        print(f"Recording: {result.recording_id}")
-        print(f"Recipe: {args.recipe}")
-        print(f"Matched rows: {result.matched_row_count}")
-        print(f"Matched outcomes: {result.matched_path}")
         print(f"Coverage: {result.coverage_path}")
         print(f"Summary: {result.summary_path}")
         return
@@ -1438,25 +1138,6 @@ def main(argv: Sequence[str] | None = None) -> None:
             print(f"Provenance: {result.sidecar}")
         return
 
-    if args.command == "figure-legacy-review":
-        from classical_conditioning.figures import (
-            FigureMode,
-            build_legacy_preprocessing_review_figure,
-        )
-
-        result = build_legacy_preprocessing_review_figure(
-            args.project_dir,
-            args.recording_id,
-            mode=FigureMode(args.mode),
-            overwrite=args.overwrite,
-        )
-        print(f"Recording: {result.recording_id}")
-        print(f"Trial counts: {result.trial_counts}")
-        for path in result.outputs:
-            print(f"Figure: {path}")
-        print(f"Summary: {result.summary_path}")
-        return
-
     if args.command == "movement-state":
         from classical_conditioning.analysis.movement_state import (
             MOVEMENT_RECIPE_TO_METRIC_SOURCE,
@@ -1476,22 +1157,6 @@ def main(argv: Sequence[str] | None = None) -> None:
         print(f"Rows: {result.row_count:,}")
         print(f"Movement state: {result.movement_path}")
         print(f"Summary: {result.summary_path}")
-        return
-
-    if args.command == "compare-routes":
-        from classical_conditioning.comparison import (
-            write_preprocessing_route_comparison,
-        )
-
-        result = write_preprocessing_route_comparison(
-            args.project_dir,
-            args.recording_id,
-            overwrite=args.overwrite,
-        )
-        print(f"Recording: {result.recording_id}")
-        print(f"Legacy trial samples: {result.legacy_final_rows:,}")
-        print(f"Candidate frame rows: {result.candidate_frame_rows:,}")
-        print(f"Report: {result.output}")
         return
 
     if args.command == "temporal-profiles":
@@ -1530,47 +1195,6 @@ def main(argv: Sequence[str] | None = None) -> None:
         print(f"Row counts equal: {result.row_counts_equal}")
         print(f"Common columns: {result.common_column_count}")
         print(f"Report: {result.output}")
-        return
-
-    if args.command == "compare-legacy-pickle":
-        from classical_conditioning.preprocessing.legacy_pickle_compare import (
-            compare_legacy_pickle_to_parquet,
-        )
-
-        result = compare_legacy_pickle_to_parquet(
-            args.pickle,
-            args.parquet,
-            args.output,
-            batch_size=args.batch_size,
-            overwrite=args.overwrite,
-        )
-        print(f"Row counts equal: {result.row_counts_equal}")
-        print(f"Scientific columns equal: {result.all_scientific_columns_equal}")
-        if result.first_divergence is not None:
-            print(f"First divergence: {result.first_divergence}")
-        if result.original_frame_classification is not None:
-            print(f"Original-frame classification: {result.original_frame_classification}")
-            if (
-                result.onset_vigor_correlation is not None
-                and result.full_trial_vigor_correlation is not None
-            ):
-                print(
-                    "Onset vigor corr: "
-                    f"{result.onset_vigor_correlation:.4f}; "
-                    "full-trial vigor corr: "
-                    f"{result.full_trial_vigor_correlation:.4f}"
-                )
-            if result.vigor_correlation_after_rate_warp is not None:
-                print(
-                    "Vigor corr after rate-warp: "
-                    f"{result.vigor_correlation_after_rate_warp:.4f}"
-                )
-            if result.lag_versus_predicted_rate_warp_correlation is not None:
-                print(
-                    "Lag vs predicted rate-warp corr: "
-                    f"{result.lag_versus_predicted_rate_warp_correlation:.4f}"
-                )
-        print(f"Report: {result.report_path}")
         return
 
     if args.command == "activity-metrics":
