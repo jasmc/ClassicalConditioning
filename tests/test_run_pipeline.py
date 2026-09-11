@@ -26,14 +26,13 @@ class PipelineRunConfigTests(unittest.TestCase):
                         "experiment": "allDelay",
                         "analysis_id": "delay-v1",
                         "keep_conditions": ["control", "delay"],
-                        "routes": ["legacy", "candidate"],
+                        "routes": ["candidate"],
                     }
                 ),
                 encoding="utf-8",
             )
             config = load_pipeline_run_config(config_path)
             self.assertEqual(config.experiment, "allDelay")
-            self.assertEqual(config.resolved_legacy_analysis_id(), "delay-v1-legacy")
             self.assertEqual(
                 config.resolved_candidate_analysis_id(),
                 "delay-v1-candidate",
@@ -79,6 +78,32 @@ class PipelineRunConfigTests(unittest.TestCase):
             )
             config = load_pipeline_run_config(config_path)
             self.assertEqual(config.routes, ("candidate",))
+
+    def test_rejects_retired_legacy_settings(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            raw = Path(temporary) / "raw"
+            save = Path(temporary) / "save"
+            raw.mkdir()
+            save.mkdir()
+            config_path = Path(temporary) / "run.json"
+            config_path.write_text(json.dumps({"raw_dir": str(raw), "save_dir": str(save), "experiment": "allDelay", "analysis_id": "retired-v1", "routes": ["legacy"]}), encoding="utf-8")
+            with self.assertRaisesRegex(ConfigurationError, "retired"):
+                load_pipeline_run_config(config_path)
+
+            config_path.write_text(
+                json.dumps(
+                    {
+                        "raw_dir": str(raw),
+                        "save_dir": str(save),
+                        "experiment": "allDelay",
+                        "analysis_id": "retired-field-v1",
+                        "legacy_alignment": "CS",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(ConfigurationError, "Legacy pipeline settings"):
+                load_pipeline_run_config(config_path)
 
     def test_cli_exposes_run_pipeline(self) -> None:
         parser = build_parser()

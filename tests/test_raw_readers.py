@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-import math
 import tempfile
 import unittest
 from pathlib import Path
@@ -87,31 +86,13 @@ class RawReaderTests(unittest.TestCase):
         with self.assertRaises(SchemaValidationError):
             read_camera(self.camera)
 
-    def test_read_tracking_full_and_legacy_angle_modes(self) -> None:
+    def test_read_tracking_returns_full_candidate_fields(self) -> None:
         full = read_tracking(self.tracking, mode="full")
         self.assertEqual(full.schema.point_count, 2)
         self.assertTrue(full.dropped_trailing_summary_row)
         self.assertEqual(len(full.frame), 3)
         self.assertIn("x0", full.frame.columns)
         self.assertIn("angle1", full.frame.columns)
-
-        legacy = read_tracking(
-            self.tracking,
-            mode="legacy_angles",
-            convert_angles_to_degrees=True,
-            legacy_angle_point_count=2,
-        )
-        self.assertTrue(legacy.angles_converted_to_degrees)
-        self.assertEqual(
-            list(legacy.frame.columns),
-            ["FrameID", "Angle of point 0 (deg)", "Angle of point 1 (deg)"],
-        )
-        expected = 0.1 * 180.0 / math.pi
-        self.assertAlmostEqual(
-            float(legacy.frame.iloc[0]["Angle of point 1 (deg)"]),
-            expected,
-            places=6,
-        )
 
     def test_read_tracking_rejects_empty_and_bad_schema(self) -> None:
         self.tracking.write_text("FrameID\n", encoding="utf-8")

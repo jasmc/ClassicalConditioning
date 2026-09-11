@@ -60,6 +60,24 @@ class RepositoryOrganizationTests(unittest.TestCase):
             self.LEGACY_MODULES,
         )
 
+    def test_archived_package_execution_is_not_on_active_import_paths(self) -> None:
+        archive = (self.root / "legacy" / "package" / "src").resolve()
+        import_roots = {Path(entry or Path.cwd()).resolve() for entry in sys.path}
+        self.assertNotIn(archive, import_roots)
+        self.assertTrue(
+            (archive / "classical_conditioning" / "analysis" / "legacy_runner.py").is_file()
+        )
+
+    def test_active_package_does_not_import_archived_execution(self) -> None:
+        active_files = [*(self.root / "src").rglob("*.py")]
+        forbidden = "classical_conditioning.preprocessing.legacy"
+        violations = [
+            str(path.relative_to(self.root))
+            for path in active_files
+            if forbidden in path.read_text(encoding="utf-8")
+        ]
+        self.assertEqual(violations, [])
+
     def test_reviewed_stale_root_artifacts_are_absent(self) -> None:
         self.assertFalse((self.root / "jasmc.code-profile").exists())
         self.assertFalse((self.root / "tmp_axis_title_spine_anchor.png").exists())

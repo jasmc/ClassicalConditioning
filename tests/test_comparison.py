@@ -13,7 +13,6 @@ import pyarrow.parquet as pq
 
 from classical_conditioning.comparison import (
     compare_parquet_artifacts,
-    write_preprocessing_route_comparison,
 )
 
 
@@ -193,45 +192,6 @@ class ComparisonTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "changed during comparison"):
                     compare_parquet_artifacts(left_path, right_path, report_path)
             self.assertFalse(report_path.exists())
-
-    def test_writes_preprocessing_route_comparison(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            project = Path(directory)
-            quality = project / "Quality checks" / "fish-1"
-            quality.mkdir(parents=True)
-            intake = {
-                "recording_id": "fish-1",
-                "camera": {"statistics": {"frames": {"row_count": 10}}},
-                "tracking": {"statistics": {"frames": {"row_count": 11}}},
-            }
-            legacy = {
-                "recording_id": "fish-1",
-                "stage_row_counts": {"final": 20},
-                "artifact": {"rows": 20},
-                "known_limitations": ["legacy"],
-            }
-            candidate = {
-                "recording_id": "fish-1",
-                "row_count": 10,
-                "valid_derivative_count": 9,
-                "invalid_gap_count": 0,
-                "tracking_semantics": {"semantics_validated": True},
-                "known_limitations": ["candidate"],
-            }
-            for name, payload in (
-                ("acquisition_summary.json", intake),
-                ("legacy-v1_preprocessing_summary.json", legacy),
-                ("candidate-v1_activity_summary.json", candidate),
-            ):
-                (quality / name).write_text(json.dumps(payload), encoding="utf-8")
-
-            result = write_preprocessing_route_comparison(project, "fish-1")
-            report = json.loads(result.output.read_text(encoding="utf-8"))
-
-        self.assertEqual(result.legacy_final_rows, 20)
-        self.assertEqual(result.candidate_frame_rows, 10)
-        self.assertEqual(report["scientific_status"], "candidate_comparison")
-        self.assertEqual(len(report["differences"]), 6)
 
 
 if __name__ == "__main__":

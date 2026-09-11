@@ -7,10 +7,8 @@ from pathlib import Path
 
 from classical_conditioning.cli import main
 from classical_conditioning.config import (
-    config_hash,
     fish_key_from_recording_id,
     get_experiment_trial_map,
-    get_legacy_paper_config,
     recording_id_from_fish_key,
 )
 from classical_conditioning.config.export import export_resolved_config
@@ -73,19 +71,16 @@ class ResolvedConfigExportTests(unittest.TestCase):
             self.assertTrue(result.source_report_path.is_file())
 
             payload = json.loads(result.config_path.read_text(encoding="utf-8"))
-            self.assertEqual(payload["artifact_kind"], "resolved-analysis-config-v1")
+            self.assertEqual(payload["artifact_kind"], "resolved-candidate-config-v1")
+            self.assertEqual(payload["config_hash"], result.config_hash)
             self.assertEqual(
-                payload["config_hash"],
-                config_hash(get_legacy_paper_config()),
+                payload["resolved"]["runner_recipe"],
+                "candidate-corrected-runner-v1",
             )
-            self.assertEqual(payload["resolved"]["recipe_id"], "legacy-paper-v1")
             trial_map = json.loads(result.trial_map_path.read_text(encoding="utf-8"))
             self.assertEqual(trial_map["experiment_id"], "allDelay")
             source = json.loads(result.source_report_path.read_text(encoding="utf-8"))
-            self.assertEqual(
-                {entry["section"] for entry in source["source_trace"]},
-                {"experiment", "preprocessing", "outcomes"},
-            )
+            self.assertEqual(source["recipe_id"], "candidate-corrected-runner-v1")
 
             with self.assertRaises(FileExistsError):
                 export_resolved_config(project_dir, overwrite=False)
@@ -107,7 +102,7 @@ class ResolvedConfigExportTests(unittest.TestCase):
             self.assertTrue(
                 (
                     metadata
-                    / "resolved_config_legacy-paper-v1_allDelay.json"
+                    / "resolved_config_candidate-corrected-runner-v1_allDelay.json"
                 ).is_file()
             )
 
