@@ -3,7 +3,10 @@
 Python analysis for a head-fixed larval zebrafish classical-conditioning assay.
 The installable package under `src/classical_conditioning` supports the
 candidate analysis route. Historical implementations are preserved as
-non-executable source reference under `legacy/`.
+non-executable source reference under `Archive/`.
+
+For the complete `pipeline.py` call graph and a file-by-file map of the active
+package, see [PIPELINE_AND_PACKAGE_GUIDE.md](PIPELINE_AND_PACKAGE_GUIDE.md).
 
 ## Install
 
@@ -256,7 +259,7 @@ mismatched results.
 
 Bout detection is a property of the animal's behavior, not of the metric used to
 describe it, so exactly one detector runs per recording. It reproduces the
-historical four-step rule from `legacy/modules/my_functions.py`:
+historical four-step rule from `Archive/modules/my_functions.py`:
 
 1. Build an envelope: centered rolling **max minus rolling min** of the smoothed
    distal cumulative-angle speed (windows 28.6 ms and 571.4 ms).
@@ -324,8 +327,8 @@ Useful for debugging or partial reruns, in dependency order:
 
 ### Historical source archive
 
-The retired package legacy implementation, its tests, root numbered scripts,
-and historical helper modules are retained under `legacy/` for source review.
+The retired package legacy implementation, its tests, numbered scripts, and
+historical helper modules are retained under `Archive/` for source review.
 They are not installed, exposed through the CLI, or supported as a runnable
 workflow.
 
@@ -487,7 +490,7 @@ for implementation detail and known limits.
 
 ## Legacy numbered scripts
 
-Root scripts `1_…` through `6_…` and `experiment_configuration.py` are the
+`Archive/historical-scripts/` and `Archive/historical-helpers/` contain the
 historical pipeline (machine-specific paths, in-script `RUN_*` flags). Prefer
 `run-pipeline` or the package CLI for new work.
 
@@ -496,7 +499,7 @@ historical pipeline (machine-specific paths, in-script `RUN_*` flags). Prefer
 | Document | Contents |
 | --- | --- |
 | [docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md](docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md) | Implementation status |
-| `legacy/` | Read-only historical package and helper source archive |
+| `Archive/` | Read-only historical package and helper source archive |
 | [Plans/DECISIONS.md](Plans/DECISIONS.md) | Locked decisions |
 
 Manuscript: `C:\Users\Public\More projects\Paper\Learning paper`
@@ -518,16 +521,15 @@ configured outside this repository.
 | `.vscode/` | Formatting, linting, and editor settings | Keep if these editor conventions are useful |
 | `configs/` | Example pipeline configuration | Keep; edit a copy for real runs |
 | `docs/analysis/` | Architecture, behavior, implementation, and scientific audits | Keep |
-| `legacy/` | Archived package execution, tests, and historical helper modules | Read-only source history; not importable or runnable through the package |
+| `Archive/` | Archived package execution, numbered scripts, helper modules, tests, and inspection tools | Read-only source history; not importable or runnable through the package |
 | `Plans/` | Active migration plans, decisions, notes, and completed-plan archive | Keep while migration is active |
-| `scripts/` | Small standalone inspection utilities | Keep if legacy artifact inspection is needed |
 | `src/` | Supported installable `classical_conditioning` package | Keep |
 | `tests/` | Active unit, integration, and characterization tests | Keep |
 
 Generated `__pycache__/` folders and `src/classical_conditioning.egg-info/`
-are disposable. `push.log` is also an ignored local log. The root numbered
-scripts and helper modules remain as historical source reference; they are not
-part of the supported package workflow.
+are disposable. `push.log` is also an ignored local log. Archived numbered
+scripts and helper modules are historical source reference; they are not part
+of the supported package workflow.
 
 Two root files need a human decision rather than automatic deletion:
 `README2.md` appears to be an old analysis transcript, and

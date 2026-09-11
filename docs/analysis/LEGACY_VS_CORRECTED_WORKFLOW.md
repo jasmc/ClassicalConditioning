@@ -2,7 +2,7 @@
 
 > **Archived reference:** the legacy package route described here is no longer
 > installed or exposed by the CLI. Its source is retained under
-> `legacy/package/`; the supported package workflow is candidate-only.
+> `Archive/package/`; the supported package workflow is candidate-only.
 
 ## Purpose
 

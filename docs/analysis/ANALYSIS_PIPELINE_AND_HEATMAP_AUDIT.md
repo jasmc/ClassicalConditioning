@@ -1,7 +1,7 @@
 # Analysis Pipeline and Heatmap Audit
 
 > **Archived reference:** historical legacy-route material in this audit now
-> refers to `legacy/package/`. The installable package exposes only the
+> refers to `Archive/package/`. The installable package exposes only the
 > candidate route.
 
 This document is an executable-code map for the Classical Conditioning analysis.
@@ -100,12 +100,12 @@ flags:
 
 | Order | Script | What it does | Main output area |
 | --- | --- | --- | --- |
-| 1 | [1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py](../../1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py) | raw synchronization, legacy vigor, bout detection, individual QC, protocol plots, discard review | `Processed data/pkl files/1. Original`, individual/QC figure folders, discard lists |
-| 2 | [2_ExampleFishPlotting.py](../../2_ExampleFishPlotting.py) | optional selected-fish traces, heatmaps, trajectories | individual-fish figure folders |
-| 3 | [3_FishGrouping.py](../../3_FishGrouping.py) | concatenate fish by condition and alignment | `Processed data/pkl files/2. All fish by condition` |
-| 4 | [4_ScaledVigorPlotting.py](../../4_ScaledVigorPlotting.py) | pool, bin, normalize, and render count/SV heatmaps and lineplots | `Processed data/pkl files/3. Pooled data`, pooled figure folders |
-| 5 | [5_NormalizedVigorPlotting.py](../../5_NormalizedVigorPlotting.py) | trial/block normalized-vigor summaries and statistics | pooled normalized-vigor figure/statistic folders |
-| 6 | [6_LearnersQuantification.py](../../6_LearnersQuantification.py) and variants | learner classification and diagnostics | learner output folders |
+| 1 | [1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py](../../Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py) | raw synchronization, legacy vigor, bout detection, individual QC, protocol plots, discard review | `Processed data/pkl files/1. Original`, individual/QC figure folders, discard lists |
+| 2 | [2_ExampleFishPlotting.py](../../Archive/historical-scripts/2_ExampleFishPlotting.py) | optional selected-fish traces, heatmaps, trajectories | individual-fish figure folders |
+| 3 | [3_FishGrouping.py](../../Archive/historical-scripts/3_FishGrouping.py) | concatenate fish by condition and alignment | `Processed data/pkl files/2. All fish by condition` |
+| 4 | [4_ScaledVigorPlotting.py](../../Archive/historical-scripts/4_ScaledVigorPlotting.py) | pool, bin, normalize, and render count/SV heatmaps and lineplots | `Processed data/pkl files/3. Pooled data`, pooled figure folders |
+| 5 | [5_NormalizedVigorPlotting.py](../../Archive/historical-scripts/5_NormalizedVigorPlotting.py) | trial/block normalized-vigor summaries and statistics | pooled normalized-vigor figure/statistic folders |
+| 6 | [6_LearnersQuantification.py](../../Archive/historical-scripts/6_LearnersQuantification.py) and variants | learner classification and diagnostics | learner output folders |
 
 The detailed historical execution notes are in
 [ANALYSIS_FILES_INDEX.md](ANALYSIS_FILES_INDEX.md). The learner scripts are

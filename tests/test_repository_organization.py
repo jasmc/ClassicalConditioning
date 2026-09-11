@@ -41,7 +41,7 @@ class RepositoryOrganizationTests(unittest.TestCase):
         self.assertEqual(violations, [])
 
     def test_archived_modules_are_outside_the_default_import_path(self) -> None:
-        module_directory = (self.root / "legacy" / "modules").resolve()
+        module_directory = (self.root / "Archive" / "modules").resolve()
         import_roots = {
             Path(entry or Path.cwd()).resolve()
             for entry in sys.path
@@ -51,7 +51,7 @@ class RepositoryOrganizationTests(unittest.TestCase):
             self.assertFalse((self.root / f"{module_name}.py").exists())
 
     def test_legacy_modules_are_preserved_in_archive(self) -> None:
-        module_directory = self.root / "legacy" / "modules"
+        module_directory = self.root / "Archive" / "modules"
         self.assertEqual(
             {
                 path.stem
@@ -61,7 +61,7 @@ class RepositoryOrganizationTests(unittest.TestCase):
         )
 
     def test_archived_package_execution_is_not_on_active_import_paths(self) -> None:
-        archive = (self.root / "legacy" / "package" / "src").resolve()
+        archive = (self.root / "Archive" / "package" / "src").resolve()
         import_roots = {Path(entry or Path.cwd()).resolve() for entry in sys.path}
         self.assertNotIn(archive, import_roots)
         self.assertTrue(

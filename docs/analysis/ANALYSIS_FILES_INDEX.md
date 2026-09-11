@@ -4,6 +4,11 @@
 
 This document is a table of contents and dependency map for the analysis code in this repository.
 
+The historical numbered scripts and their helper modules described below now
+live in `Archive/historical-scripts/` and `Archive/historical-helpers/`.
+Their basenames are retained in headings and diagrams so this record continues
+to match earlier audit material.
+
 It identifies:
 
 - The intended order of analysis
@@ -581,7 +586,7 @@ All numbered scripts.
 ### Version relationship
 
 Modern replacement for the global, match-case configuration in
-`legacy/modules/my_experiment_specific_variables.py`.
+`Archive/modules/my_experiment_specific_variables.py`.
 
 ### Caution
 
@@ -613,7 +618,7 @@ Current shared analysis defaults.
 ### Version relationship
 
 Modern dataclass-based replacement for
-`legacy/modules/my_general_variables.py`.
+`Archive/modules/my_general_variables.py`.
 
 ## `analysis_utils.py`
 
@@ -635,7 +640,7 @@ Current shared analytical utility module.
 ### Version relationship
 
 Contains refactored analysis portions of the old
-`legacy/modules/my_functions.py`.
+`Archive/modules/my_functions.py`.
 
 ## `data_io.py`
 
@@ -653,7 +658,7 @@ Current file-reading and timing-map module.
 
 ### Version relationship
 
-Contains I/O functions extracted from `legacy/modules/my_functions.py`.
+Contains I/O functions extracted from `Archive/modules/my_functions.py`.
 
 ## `file_utils.py`
 
@@ -671,7 +676,7 @@ Current filesystem, output-directory, fish-ID, and exclusion-list utility module
 ### Version relationship
 
 Contains filesystem and ID functions extracted from
-`legacy/modules/my_functions.py`, plus newer discard-list helpers.
+`Archive/modules/my_functions.py`, plus newer discard-list helpers.
 
 ## `figure_saving.py`
 
@@ -688,7 +693,7 @@ Current centralized figure-export helper.
 
 ### Version relationship
 
-Newer dedicated module. The old `legacy/modules/my_functions.py` did not
+Newer dedicated module. The old `Archive/modules/my_functions.py` did not
 provide an equivalent centralized export API.
 
 ### Caution
@@ -712,7 +717,7 @@ Current shared Matplotlib/Seaborn style configuration.
 ### Version relationship
 
 Replaces the `set_plot_style()` implementation in
-`legacy/modules/my_functions.py` and scattered plot constants.
+`Archive/modules/my_functions.py` and scattered plot constants.
 
 ### Caution
 
@@ -722,7 +727,7 @@ The opening docstring calls this a facade for `plotting_style_new`, but no such 
 
 The numbered scripts no longer import these modules directly, except that the legacy experiment module imports the legacy helper module.
 
-## `legacy/modules/my_general_variables.py`
+## `Archive/modules/my_general_variables.py`
 
 ### Role
 
@@ -742,7 +747,7 @@ general_configuration.py
 
 The legacy file exposes global variables directly. The current file groups settings into dataclasses and derives labels/windows in `GeneralConfig`.
 
-## `legacy/modules/my_experiment_specific_variables.py`
+## `Archive/modules/my_experiment_specific_variables.py`
 
 ### Role
 
@@ -778,7 +783,7 @@ This makes configuration selection explicit and avoids importing a module whose 
 
 The legacy and current files currently enumerate the same experiment names, but their values should not be mixed within one run.
 
-## `legacy/modules/my_functions.py`
+## `Archive/modules/my_functions.py`
 
 ### Role
 
@@ -1360,13 +1365,13 @@ The decision should be based on statistical validation, not filename.
 
 | Area | Current preferred/current file | Alternate/legacy files | Status |
 | --- | --- | --- | --- |
-| General configuration | `general_configuration.py` | `legacy/modules/my_general_variables.py` | Legacy source archived and blocked from active imports |
-| Experiment configuration | `experiment_configuration.py` | `legacy/modules/my_experiment_specific_variables.py` | Legacy source archived; values still need validation |
-| Shared analysis helpers | `analysis_utils.py` | Portions of `legacy/modules/my_functions.py` | Legacy source archived; behavior is not guaranteed identical |
-| Data I/O | `data_io.py` | Portions of `legacy/modules/my_functions.py` | Legacy source archived |
-| File/path helpers | `file_utils.py` | Portions of `legacy/modules/my_functions.py` | Legacy source archived |
-| Figure saving | `figure_saving.py` | Local wrappers/direct `savefig` | Migration incomplete |
-| Plot style | `plotting_style.py` | `legacy/modules/my_functions.set_plot_style()` | Legacy source archived |
+| General configuration | `Archive/historical-helpers/general_configuration.py` | `Archive/modules/my_general_variables.py` | Legacy source archived and blocked from active imports |
+| Experiment configuration | `Archive/historical-helpers/experiment_configuration.py` | `Archive/modules/my_experiment_specific_variables.py` | Legacy source archived; values still need validation |
+| Shared analysis helpers | `Archive/historical-helpers/analysis_utils.py` | Portions of `Archive/modules/my_functions.py` | Legacy source archived; behavior is not guaranteed identical |
+| Data I/O | `Archive/historical-helpers/data_io.py` | Portions of `Archive/modules/my_functions.py` | Legacy source archived |
+| File/path helpers | `Archive/historical-helpers/file_utils.py` | Portions of `Archive/modules/my_functions.py` | Legacy source archived |
+| Figure saving | `Archive/historical-helpers/figure_saving.py` | Local wrappers/direct `savefig` | Migration incomplete |
+| Plot style | `Archive/historical-helpers/plotting_style.py` | `Archive/modules/my_functions.set_plot_style()` | Legacy source archived |
 | Preprocessing | Stage-1 script | No current alternate | Current entry point |
 | Example fish | Stage-2 script | Stage-1 QC plots overlap | Different purposes |
 | Fish grouping | Stage-3 script | No current alternate | Current entry point |

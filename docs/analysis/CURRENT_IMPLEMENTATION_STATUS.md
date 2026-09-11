@@ -4,7 +4,7 @@ Status of the installable `classical_conditioning` package and local runs.
 How to invoke commands: [README.md](../../README.md).
 
 > **Package retirement note:** legacy execution was moved to the read-only
-> `legacy/package/` source archive. References below describe historical
+> `Archive/package/` source archive. References below describe historical
 > implementation status, not supported package commands.
 
 Last updated: 2026-09-01.
@@ -17,7 +17,7 @@ Last updated: 2026-09-01.
 | Lossless intake + inventory | Implemented; relocatable `--input-dir` / `--project-dir` |
 | Config-driven `run-pipeline` | Implemented (`configs/example-run.json`) |
 | Experiments in package config | `allDelay`, `fixedVsIncreasingTrace` |
-| Historical legacy implementation | Archived under `legacy/package/` (not runnable through the package) |
+| Historical legacy implementation | Archived under `Archive/package/` (not runnable through the package) |
 | Corrected preprocess (no Gate P interp/filter) | Implemented |
 | Corrected five-metric candidate route + runner | Implemented |
 | Cohort metric comparison (condition-aware) | Implemented |
