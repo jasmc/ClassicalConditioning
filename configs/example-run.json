@@ -12,6 +12,4 @@
   "figure_outcomes": ["movement-probability"],
   "overwrite": false,
   "continue_on_error": true,
-  "legacy_alignment": "CS",
-  "legacy_run_statistics": true
 }

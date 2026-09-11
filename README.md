@@ -1,8 +1,9 @@
 # Classical Conditioning in Larval Zebrafish
 
 Python analysis for a head-fixed larval zebrafish classical-conditioning assay.
-The installable package under `src/classical_conditioning` is the supported way
-to run new analysis. Numbered root scripts remain for legacy reproduction only.
+The installable package under `src/classical_conditioning` supports the
+candidate analysis route. Historical implementations are preserved as
+non-executable source reference under `legacy/`.
 
 ## Install
 
@@ -35,7 +36,7 @@ interactive HTML figures.
 ### Alternative install (pip)
 
 ```powershell
-python -m pip install -e ".[legacy,interactive]"
+python -m pip install -e ".[analysis,interactive]"
 python -m classical_conditioning --help
 ```
 
@@ -71,7 +72,7 @@ Copy [configs/example-run.json](configs/example-run.json) and edit the paths.
 
 | Field | Default | Meaning |
 | --- | --- | --- |
-| `routes` | `["candidate"]` | Which analysis pipelines to run. Add `"legacy"` only to reproduce the frozen historical route. |
+| `routes` | `["candidate"]` | Candidate analysis route. `"legacy"` is retired and rejected. |
 | `keep_conditions` | all complete triplets | Filename condition tokens to keep (lowercased). |
 | `recording_ids` | null | Explicit fish list; omit to auto-discover under `raw_dir`. |
 | `run_inventory` | false | Write `Metadata/recording_inventory.json` before intake. |
@@ -80,11 +81,8 @@ Copy [configs/example-run.json](configs/example-run.json) and edit the paths.
 | `overwrite` | false | Replace existing derived artifacts. |
 | `continue_on_error` | true | Keep going when one fish fails (intake / candidate). |
 | `candidate_runner_recipe` | `candidate-corrected-runner-v1` | Six-metric corrected route. |
-| `legacy_alignment` | `CS` | Legacy statistics alignment. |
-| `legacy_run_statistics` | true | Run legacy cohort inference after scaled/normalized vigor. |
 
-Legacy and candidate cohort outputs use `{analysis_id}-legacy` and
-`{analysis_id}-candidate` unless you override `legacy_analysis_id` /
+Candidate cohort outputs use `{analysis_id}-candidate` unless overridden by
 `candidate_analysis_id`.
 
 ### What `run-pipeline` does
@@ -95,11 +93,74 @@ optional inventory
   -> [candidate route, default] candidate-runner
          corrected-preprocess-v1 -> six activity metrics -> movement state
          -> temporal outcomes -> trial outcomes -> cohort comparison
-  -> [legacy route, opt-in] legacy-paper-v1 preprocess per fish
-                  -> legacy-runner (scaled/normalized vigor + statistics)
   -> [optional] cohort metric-comparison figures
   -> Metadata/<analysis_id>_pipeline_run.json summary
 ```
+
+`run-pipeline` is the orchestrator: it selects recordings, calls the
+versioned analysis stages, and writes their run status. It does not itself
+calculate activity or decide a scientific exclusion cohort.
+
+#### Step-by-step behavior
+
+1. **Resolve the recording list.** If `recording_ids` is present, that list is
+   authoritative. Otherwise the pipeline discovers complete raw triplets under
+   `raw_dir`, then applies `keep_conditions` if supplied. Discovery filters
+   files; it does not apply scientific fish exclusions.
+
+2. **Create the save tree.** All derived files are written below `save_dir`.
+   `raw_dir` is treated as immutable.
+
+3. **Optionally inventory raw data.** With `run_inventory: true`, the pipeline
+   writes `Metadata/recording_inventory.json`, including hashes and triplet
+   completeness. This is provenance/QC; intake independently validates inputs,
+   so an inventory is not a prerequisite for analysis.
+
+4. **Optionally intake raw triplets.** With `run_intake: true`, each selected
+   complete camera/tracking/protocol triplet is converted to lossless Parquet.
+   Only recordings that completed intake, or whose existing intake outputs were
+   accepted as `skipped`, proceed to downstream routes. If none are usable, the
+   pipeline stops. `continue_on_error` controls whether one failed recording
+   aborts the run or is recorded as a per-fish failure in the summary.
+
+5. **Run the candidate analysis route.** The package supports one internally
+   versioned candidate path:
+
+   - The default `candidate-corrected-runner-v1` selects a frozen compatible
+     recipe family:
+
+     ```text
+     corrected preprocessing
+       -> six activity metrics
+       -> one shared movement/bout detector
+       -> trial-aligned temporal profiles
+       -> per-trial outcomes and coverage
+       -> descriptive cohort metric comparison
+     ```
+
+     Each stage verifies hashes and recipe identity for its upstream artifacts.
+     The candidate route is exploratory; its outputs are not paper-approved.
+
+6. **Optionally render candidate cohort figures.** With `run_figures: true`,
+   the pipeline renders the requested metric-comparison outcomes from the
+   candidate cohort comparison artifact. It does not make per-recording
+   heatmaps; use `figure-candidate-profiles` separately for those.
+
+7. **Write the run ledger.**
+   `Metadata/<analysis_id>_pipeline_run.json` records the resolved config,
+   final active recording list, intake completion/skips/failures, candidate
+   status, and rendered figure paths. It is an audit record of the
+   invocation, not a scientific result artifact.
+
+#### Route and failure semantics
+
+- The candidate runner handles failures per recording when
+  `continue_on_error: true`; it builds the cohort comparison from the
+  recordings that completed every candidate stage.
+- `overwrite: false` preserves existing completed artifacts. Stages verify
+  their markers and hashes rather than silently reusing edited or mismatched
+  upstream outputs.
+- Candidate analysis IDs receive a `-candidate` suffix by default.
 
 `run_figures` writes only the **cohort metric-comparison** figure. Per-recording
 heatmaps are a separate command (see below).
@@ -175,13 +236,10 @@ graph TD
     PROF --> FIG4["<b>FIG 4</b> bout outcomes<br/>3 rows, metric-free"]:::fig
     COHORT --> FIGC["<b>cohort comparison</b><br/>6 groups = 6 metrics"]:::fig
 
-    INTAKE -.-> LEG["<b>legacy route</b> (opt-in)<br/>legacy-paper-v1 -> legacy-runner<br/>frozen historical reproduction"]:::legacy
-
     classDef raw fill:#FFFFFF,stroke:#6E7480,stroke-width:1px,color:#22242A
     classDef key fill:#1F6FEB,stroke:#1A5FCC,stroke-width:1px,color:#FFFFFF
     classDef fix fill:#2DA44E,stroke:#1F7A3A,stroke-width:1px,color:#FFFFFF
     classDef fig fill:#F4F4F6,stroke:#6E7480,stroke-width:1px,color:#22242A
-    classDef legacy fill:#EDEDF0,stroke:#B8BCC4,stroke-width:1px,color:#6E7480
 ```
 
 Note that metrics and the detector are **siblings**, not a chain: the detector
@@ -249,8 +307,7 @@ Useful for debugging or partial reruns, in dependency order:
 | --- | --- |
 | `validate-raw` | Check one triplet before intake. |
 | `audit-tracking` | Inventory tracking columns without assuming validity. |
-| `compare` / `compare-legacy-pickle` | Diff Parquet artifacts, or Parquet against a historical pickle. |
-| `compare-routes` | Summarize legacy vs candidate preprocessing behavior. |
+| `compare` | Diff two row-aligned Parquet artifacts. |
 | `movement-sensitivity` | Vary detector parameters and report outcome sensitivity. |
 | `trace-review` | Balanced trace windows for human detector review. |
 | `resolve-config` | Dump resolved recipe JSON and trial map. |
@@ -265,13 +322,12 @@ Useful for debugging or partial reruns, in dependency order:
 | `candidate-fish-permutation` / `candidate-fish-bootstrap` | Fish-level permutation and bootstrap. |
 | `candidate-model-input` | Export the model input table. |
 
-### Legacy reproduction only
+### Historical source archive
 
-`legacy-runner` runs the frozen stage-3/4/5 chain; the individual steps
-(`legacy-logmedian`, `legacy-standard-main`, `legacy-scaled-vigor`,
-`legacy-normalized-vigor`, `legacy-statistics`), plus `figure-legacy-review` and
-`legacy-candidate-outcome-comparison`, exist to reproduce and audit historical
-numbers. Do not use them for new analysis.
+The retired package legacy implementation, its tests, root numbered scripts,
+and historical helper modules are retained under `legacy/` for source review.
+They are not installed, exposed through the CLI, or supported as a runnable
+workflow.
 
 ## Figures
 
@@ -440,7 +496,7 @@ historical pipeline (machine-specific paths, in-script `RUN_*` flags). Prefer
 | Document | Contents |
 | --- | --- |
 | [docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md](docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md) | Implementation status |
-| [docs/analysis/LEGACY_VS_CORRECTED_WORKFLOW.md](docs/analysis/LEGACY_VS_CORRECTED_WORKFLOW.md) | Route pairing |
+| `legacy/` | Read-only historical package and helper source archive |
 | [Plans/DECISIONS.md](Plans/DECISIONS.md) | Locked decisions |
 
 Manuscript: `C:\Users\Public\More projects\Paper\Learning paper`
@@ -462,17 +518,16 @@ configured outside this repository.
 | `.vscode/` | Formatting, linting, and editor settings | Keep if these editor conventions are useful |
 | `configs/` | Example pipeline configuration | Keep; edit a copy for real runs |
 | `docs/analysis/` | Architecture, behavior, implementation, and scientific audits | Keep |
-| `legacy/modules/` | Archived historical helper modules | Keep for reproducibility until legacy retirement |
+| `legacy/` | Archived package execution, tests, and historical helper modules | Read-only source history; not importable or runnable through the package |
 | `Plans/` | Active migration plans, decisions, notes, and completed-plan archive | Keep while migration is active |
 | `scripts/` | Small standalone inspection utilities | Keep if legacy artifact inspection is needed |
 | `src/` | Supported installable `classical_conditioning` package | Keep |
-| `tests/` | Unit, integration, characterization, and legacy-equivalence tests | Keep |
+| `tests/` | Active unit, integration, and characterization tests | Keep |
 
 Generated `__pycache__/` folders and `src/classical_conditioning.egg-info/`
 are disposable. `push.log` is also an ignored local log. The root numbered
-scripts and helper modules remain for historical reproduction; do not remove
-them until their documented replacement, consumers, and equivalence tests have
-passed the relevant scientific gates.
+scripts and helper modules remain as historical source reference; they are not
+part of the supported package workflow.
 
 Two root files need a human decision rather than automatic deletion:
 `README2.md` appears to be an old analysis transcript, and

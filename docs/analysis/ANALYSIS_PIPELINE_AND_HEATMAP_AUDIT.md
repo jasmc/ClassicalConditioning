@@ -1,5 +1,9 @@
 # Analysis Pipeline and Heatmap Audit
 
+> **Archived reference:** historical legacy-route material in this audit now
+> refers to `legacy/package/`. The installable package exposes only the
+> candidate route.
+
 This document is an executable-code map for the Classical Conditioning analysis.
 It answers two questions:
 

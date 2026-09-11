@@ -1,6 +1,6 @@
 """Corrected measured-time preprocessing contract (Step 06 foundation).
 
-Distinct from frozen ``legacy-paper-v1``. This recipe preserves measured camera
+Distinct from the archived historical preprocessing route. This recipe preserves measured camera
 timestamps, does not apply the legacy startup discard / uniform 700 Hz grid /
 AbsoluteTime rebuild, and records explicit validity masks. Interpolation and
 filtering remain disabled until separately versioned policies are approved

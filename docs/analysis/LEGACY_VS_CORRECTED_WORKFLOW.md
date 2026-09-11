@@ -1,5 +1,9 @@
 # Legacy versus Corrected Analysis Workflow
 
+> **Archived reference:** the legacy package route described here is no longer
+> installed or exposed by the CLI. Its source is retained under
+> `legacy/package/`; the supported package workflow is candidate-only.
+
 ## Purpose
 
 Every improved analysis stage is implemented beside the frozen previous route.

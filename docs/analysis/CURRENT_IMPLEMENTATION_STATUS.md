@@ -3,6 +3,10 @@
 Status of the installable `classical_conditioning` package and local runs.
 How to invoke commands: [README.md](../../README.md).
 
+> **Package retirement note:** legacy execution was moved to the read-only
+> `legacy/package/` source archive. References below describe historical
+> implementation status, not supported package commands.
+
 Last updated: 2026-09-01.
 
 ## Summary
@@ -13,7 +17,7 @@ Last updated: 2026-09-01.
 | Lossless intake + inventory | Implemented; relocatable `--input-dir` / `--project-dir` |
 | Config-driven `run-pipeline` | Implemented (`configs/example-run.json`) |
 | Experiments in package config | `allDelay`, `fixedVsIncreasingTrace` |
-| Legacy stage-1 + historical LogMedian | Implemented (reproducibility benchmark) |
+| Historical legacy implementation | Archived under `legacy/package/` (not runnable through the package) |
 | Corrected preprocess (no Gate P interp/filter) | Implemented |
 | Corrected five-metric candidate route + runner | Implemented |
 | Cohort metric comparison (condition-aware) | Implemented |
@@ -33,7 +37,6 @@ immutable TXT acquisition
   -> acquisition integrity report
   -> resolved config + trial map (allDelay | fixedVsIncreasingTrace)
   -> tracking-field audit / validate-raw
-  -> frozen legacy stage-1 preprocessing
   -> corrected measured-time frame preprocessing
   -> candidate metrics (development or corrected pairing)
   -> movement-state calibration and bouts
@@ -43,7 +46,6 @@ immutable TXT acquisition
   -> profile figures (static / interactive / publication)
   -> cohort metric-comparison figures (standardized difference)
   -> freeze-cohort / apply-cohort
-  -> legacy scaled/normalized vigor + statistics runner
 ```
 
 ## Path contract

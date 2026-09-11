@@ -19,32 +19,22 @@ dependencies = [
 interactive = [
     { name = "plotly" },
 ]
-legacy = [
-    { name = "numba" },
-    { name = "plotly" },
-    { name = "scikit-learn" },
-    { name = "seaborn" },
-    { name = "statannotations" },
+analysis = [
     { name = "statsmodels" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "matplotlib", specifier = ">=3.9,<3.11" },
-    { name = "numba", marker = "extra == 'legacy'", specifier = ">=0.61,<0.63" },
     { name = "numpy", specifier = ">=2.0,<3" },
     { name = "pandas", specifier = ">=2.2,<3" },
     { name = "plotly", marker = "extra == 'interactive'", specifier = ">=6,<7" },
-    { name = "plotly", marker = "extra == 'legacy'", specifier = ">=6,<7" },
     { name = "pyarrow", specifier = ">=18,<22" },
-    { name = "scikit-learn", marker = "extra == 'legacy'", specifier = ">=1.5,<1.8" },
     { name = "scipy", specifier = ">=1.14,<2" },
-    { name = "seaborn", marker = "extra == 'legacy'", specifier = ">=0.13,<0.14" },
-    { name = "statannotations", marker = "extra == 'legacy'", specifier = ">=0.7,<0.8" },
-    { name = "statsmodels", marker = "extra == 'legacy'", specifier = ">=0.14,<0.15" },
+    { name = "statsmodels", marker = "extra == 'analysis'", specifier = ">=0.14,<0.15" },
     { name = "tqdm", specifier = ">=4.67,<5" },
 ]
-provides-extras = ["legacy", "interactive"]
+provides-extras = ["analysis", "interactive"]
 
 [[package]]
 name = "colorama"

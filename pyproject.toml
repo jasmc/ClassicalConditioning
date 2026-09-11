@@ -17,12 +17,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-legacy = [
-    "numba>=0.61,<0.63",
-    "plotly>=6,<7",
-    "scikit-learn>=1.5,<1.8",
-    "seaborn>=0.13,<0.14",
-    "statannotations>=0.7,<0.8",
+analysis = [
     "statsmodels>=0.14,<0.15",
 ]
 interactive = [
