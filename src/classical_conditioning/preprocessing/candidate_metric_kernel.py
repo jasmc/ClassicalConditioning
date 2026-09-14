@@ -23,12 +23,50 @@ from classical_conditioning.artifacts import (
 )
 
 CANDIDATE_COLUMNS = (
-    "segment_absolute_angular_speed_sum_rad_per_ms",
     "tail_length_weighted_angular_l1_rad_per_ms",
     "all_segment_angular_rms_rad_per_ms",
     "whole_tail_xy_mean_speed_tail_lengths_per_ms",
     "legacy_distal_angular_speed_rad_per_ms",
 )
+
+METRIC_DEFINITIONS = {
+    "tail_length_weighted_angular_l1_rad_per_ms": (
+        "Tail-length-weighted mean absolute segment angular speed; an L1 "
+        "summary normalized by represented tail length and therefore less "
+        "dependent on tracking-point spacing."
+    ),
+    "all_segment_angular_rms_rad_per_ms": (
+        "Tail-length-weighted root-mean-square segment angular speed; an L2 "
+        "summary that emphasizes locally fast segment motion."
+    ),
+    "whole_tail_xy_mean_speed_tail_lengths_per_ms": (
+        "Tail-length-weighted mean body-translated XY point speed divided by "
+        "the recording-wide median tail arc length."
+    ),
+    "legacy_distal_angular_speed_rad_per_ms": (
+        "Absolute wrapped frame-to-frame change in the sum of local tail "
+        "angles, divided by measured frame interval. Opposing segment changes "
+        "can cancel; retained as the historical vigor benchmark."
+    ),
+}
+
+SUPERSEDED_METRICS = {
+    "segment_absolute_angular_speed_sum_rad_per_ms": (
+        "Replaced by tail-length-weighted angular L1 because the unweighted "
+        "sum depends on tracking-point number and spacing."
+    ),
+    "whole_tail_xy_rms_speed_px_per_ms": (
+        "Removed as redundant with normalized XY mean and more sensitive to "
+        "isolated tracking spikes."
+    ),
+    "whole_tail_xy_mean_speed_px_per_ms": (
+        "Replaced by tail-length-normalized XY mean speed."
+    ),
+    "curvature_change_rms_rad_per_px_per_ms": (
+        "Removed from the active shortlist because the unsmoothed derivative "
+        "was noise-sensitive and failed the pilot US positive-control check."
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -328,9 +366,6 @@ def calculate_candidate_metrics(
         segment_weights,
         config.minimum_valid_tail_fraction,
     )
-    manuscript_sum = np.sum(angular_speed, axis=1)
-    manuscript_sum[~np.all(np.isfinite(angular_speed), axis=1)] = np.nan
-
     # Legacy benchmark: speed of the summed local angles at the tail tip.
     # theta = sum of local angles along the tail across all points.
     current_distal_cumulative = np.sum(local_angles, axis=1)
@@ -353,7 +388,6 @@ def calculate_candidate_metrics(
         xy_mean,
         angular_l1,
         angular_rms,
-        manuscript_sum,
         legacy_distal_speed,
     ):
         values[~derivative_valid] = np.nan
@@ -370,11 +404,10 @@ def calculate_candidate_metrics(
             "reference_tail_length_px": np.full(
                 len(frame_ids), reference_tail_length, dtype=np.float64
             ),
-            CANDIDATE_COLUMNS[0]: manuscript_sum,
-            CANDIDATE_COLUMNS[1]: angular_l1,
-            CANDIDATE_COLUMNS[2]: angular_rms,
-            CANDIDATE_COLUMNS[3]: xy_mean,
-            CANDIDATE_COLUMNS[4]: legacy_distal_speed,
+            CANDIDATE_COLUMNS[0]: angular_l1,
+            CANDIDATE_COLUMNS[1]: angular_rms,
+            CANDIDATE_COLUMNS[2]: xy_mean,
+            CANDIDATE_COLUMNS[3]: legacy_distal_speed,
         }
     )
     state: dict[str, np.ndarray | float | int] = {
@@ -645,6 +678,8 @@ def build_direct_intake_candidate_metrics(
             "invalid_gap_count": invalid_gap_count,
             "reference_tail_length_px": reference_tail_length,
             "active_metric_columns": list(CANDIDATE_COLUMNS),
+            "metric_definitions": METRIC_DEFINITIONS,
+            "superseded_metrics": SUPERSEDED_METRICS,
             "metric_ranges": {
                 column: {
                     "minimum": (

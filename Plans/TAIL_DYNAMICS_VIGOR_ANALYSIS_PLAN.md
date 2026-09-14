@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Compare the six-metric candidate set defined in
+Compare the four-metric candidate set defined in
 [DECISIONS.md](./DECISIONS.md) Gate T1 and select (only after Gate T1) the
 measure that best captures learning-related decreases in movement:
 
@@ -75,7 +75,7 @@ This makes the metrics less sensitive to the number or spacing of tracked points
 ```mermaid
 graph TD
     A[Audit raw tail data and tracking quality] --> B[Create common body-centred tail representation]
-    B --> C[Calculate six-metric candidate set]
+    B --> C[Calculate four-metric candidate set]
     C --> D[Separate total activity, movement probability, and conditional intensity]
     D --> E[Validate technically and against video]
     E --> F[Create CS-aligned phase plots and statistical comparisons]
@@ -141,7 +141,7 @@ Use consistent light temporal smoothing before velocity calculations and light s
 Perform a sensitivity analysis across several reasonable smoothing strengths.
 
 Pilot status: temporal detector smoothing has been evaluated locally at 0, 10,
-and 20 ms for all six candidate activity metrics, with thresholds
+and 20 ms for all four candidate activity metrics, with thresholds
 recalibrated independently for each variant. Movement fraction, bout count, and
 US positive-control contrast change materially across settings, so no smoothing
 strength is selected. This single-fish result must be replicated and combined
@@ -155,9 +155,9 @@ Express reconstructed distances relative to total tail length or body length so 
 
 A validated body-centred tail array containing point locations, orientations, validity flags, and tail-length weights for every usable frame.
 
-## Phase 3 — Calculate the six-metric candidate set
+## Phase 3 — Calculate the four-metric candidate set
 
-Calculate all six metrics in parallel and retain the current distal-point vigor
+Calculate all four metrics in parallel and retain the current distal-point vigor
 as the historical benchmark identity where needed.
 
 For each frame, store:
@@ -273,7 +273,7 @@ Repeat analyses after changing:
 
 ### Deliverable
 
-A validation scorecard for all six metrics.
+A validation scorecard for all four metrics.
 
 ## Phase 6 — CS-aligned phase plots
 
@@ -535,7 +535,7 @@ After selecting a candidate:
 
 1. Audit data and tracking quality.
 2. Create the common body-centred representation.
-3. Calculate the six-metric candidate set.
+3. Calculate the four-metric candidate set.
 4. Calculate total activity, movement probability, and conditional intensity.
 5. Validate against synthetic patterns and video.
 6. Create CS-aligned phase plots.

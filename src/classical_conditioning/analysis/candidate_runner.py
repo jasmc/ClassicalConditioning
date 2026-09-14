@@ -37,6 +37,9 @@ from classical_conditioning.exceptions import (
 from classical_conditioning.preprocessing.candidate_metrics_from_corrected_frames import (
     build_candidate_activity_metrics_from_corrected,
 )
+from classical_conditioning.preprocessing.candidate_metric_kernel import (
+    CANDIDATE_COLUMNS,
+)
 from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
     build_candidate_activity_metrics,
 )
@@ -159,6 +162,11 @@ def _verify_metrics(
         / source.metric_summary_name
     )
     summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    if summary.get("active_metric_columns") != list(CANDIDATE_COLUMNS):
+        raise ArtifactIntegrityError(
+            "Candidate metric artifact uses the superseded metric set for "
+            f"{recording_id}; rebuild it with overwrite enabled."
+        )
     if source.requires_corrected_preprocess:
         corrected_marker = json.loads(
             (
@@ -617,13 +625,13 @@ def run_candidate_development_pipeline(
                 overwrite=overwrite,
             )
         state = "completed"
-    lineage["cohort:five-metric-comparison"] = _verify_comparison(
+    lineage["cohort:four-metric-comparison"] = _verify_comparison(
         project_dir,
         analysis_id,
         tuple(successful),
         route,
     )
-    steps["cohort"] = {"five-metric-comparison": state}
+    steps["cohort"] = {"four-metric-comparison": state}
 
     write_json_atomic(
         manifest_path,

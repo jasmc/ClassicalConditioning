@@ -225,6 +225,7 @@ def aggregate_trial_outcomes(
             response_valid = response_mask & valid & adjacent
             response_moving = response_valid & moving
             baseline_valid = baseline_mask & valid & adjacent
+            baseline_moving = baseline_valid & moving
             response_duration_ms = float(
                 np.sum(delta_time[response_valid & np.isfinite(delta_time)])
             )
@@ -270,6 +271,10 @@ def aggregate_trial_outcomes(
                     "baseline_total_activity": _finite_mean(
                         values,
                         baseline_valid,
+                    ),
+                    "baseline_conditional_intensity": _finite_mean(
+                        values,
+                        baseline_moving,
                     ),
                     "response_total_activity": _finite_mean(
                         values,

@@ -95,8 +95,8 @@ learning effect.
 
 Because `legacy_distal_angular_speed_rad_per_ms` is a sixth column in `CANDIDATE_COLUMNS`,
 existing `frame_activity_candidates*.parquet` and downstream candidate Parquet tables
-created prior to this addition lack the column. Run candidate rebuilds with `--overwrite`
-to re-extract all six columns uniformly:
+created prior to this metric-contract change are incompatible. Run candidate rebuilds
+with `--overwrite` to re-extract all four columns uniformly:
 
 ```powershell
 python -m classical_conditioning candidate-runner `

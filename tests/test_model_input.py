@@ -28,8 +28,9 @@ def _synthetic_outcomes() -> pd.DataFrame:
                         "alignment": "CS",
                         "trial_number": trial,
                         "block_10_name": "Train 1",
-                        "metric_id": "segment_absolute_angular_speed_sum",
+                        "metric_id": "tail_length_weighted_angular_l1",
                         "baseline_total_activity": 1.0,
+                        "baseline_conditional_intensity": 1.0,
                         "response_total_activity": 0.8,
                         "conditional_intensity": 0.8,
                         "bout_rate_per_minute": 8.0,
@@ -47,6 +48,22 @@ class ModelInputTests(unittest.TestCase):
         coverage = model_input_coverage(model_input)
         self.assertEqual(coverage["fish_count"], 2)
         self.assertIn("total-activity", coverage["outcome_ids"])
+        conditional = model_input.loc[
+            model_input["outcome_id"] == "conditional-intensity"
+        ]
+        self.assertTrue((conditional["log_baseline"] == 0.0).all())
+        self.assertTrue((conditional["log_response"] < 0.0).all())
+        self.assertTrue((conditional["log_vigor_reduction"] > 0.0).all())
+
+    def test_conditional_log_uses_no_offset_and_drops_zero_or_no_bout(self) -> None:
+        outcomes = _synthetic_outcomes()
+        outcomes.loc[0, "conditional_intensity"] = 0.0
+        outcomes.loc[1, "baseline_conditional_intensity"] = float("nan")
+        model_input = build_candidate_model_input(outcomes)
+        conditional = model_input.loc[
+            model_input["outcome_id"] == "conditional-intensity"
+        ]
+        self.assertEqual(len(conditional), len(outcomes) - 2)
 
     def test_require_block_label_can_be_disabled(self) -> None:
         outcomes = _synthetic_outcomes()

@@ -18,17 +18,13 @@ This step creates candidates; it does not select the paper metric.
 | Metric ID | Definition | Indicative unit |
 | --- | --- | --- |
 | `legacy_distal_angular_speed` | Absolute speed of current distal cumulative angle | deg/ms |
-| `segment_absolute_angular_speed_sum` | Manuscript-described sum of absolute segment angular speeds | deg/ms |
-| `all_point_angular_rms` | Tail-length-weighted RMS angular speed across points | deg/ms |
-| `whole_tail_xy_rms_speed` | Tail-length-weighted RMS 2D point speed | normalized length/s or calibrated distance/s |
-| `whole_tail_xy_mean_speed` | Tail-length-weighted mean 2D point speed | normalized length/s or calibrated distance/s |
-| `curvature_rate_rms` | Tail-length-weighted RMS curvature-change rate | declared curvature/time unit |
+| `tail_length_weighted_angular_l1` | Tail-length-weighted mean absolute segment angular speed | rad/ms |
+| `all_segment_angular_rms` | Tail-length-weighted RMS angular speed across segments | rad/ms |
+| `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean 2D point speed divided by recording median tail length | tail lengths/ms |
 
-Each is a distinct scientific quantity, not merely a version of `vigor`.
-The manuscript-described segment-speed sum is a required reconciliation
-benchmark in addition to the four tail-dynamics candidates and the legacy
-point-15 benchmark. Its feasibility and exact interpretation depend on gate T0
-confirming whether source angles are local segment angles.
+These are the active scalar candidates. The unweighted manuscript-described
+segment sum is superseded by the weighted angular L1 metric because an
+unweighted sum depends on tracking-point number and spacing.
 
 ## Representation branches
 
@@ -59,13 +55,12 @@ local angle
 Store `coordinate_source = reconstructed`. Do not interpret it as measured
 physical displacement.
 
-### Angular and curvature representation
+### Angular representation
 
 Retain:
 
 - source local angle;
 - cumulative orientation;
-- local curvature/bend;
 - explicit angle wrapping and unwrapping method;
 - per-point validity.
 
@@ -194,8 +189,8 @@ For each metric:
 Calculate or join the accepted legacy point-15 metric using its frozen recipe.
 Do not recalculate a subtly different approximation and call it legacy.
 
-Also retain the separately specified manuscript-reconciliation benchmark. Do
-not relabel all-point RMS or distal-point speed as the manuscript sum.
+The retained legacy column is a modern measured-time benchmark of the old
+distal cumulative-angle formula; exact historical execution remains archived.
 
 ### 06.8 Write frame-activity artifact
 
@@ -256,8 +251,7 @@ before inspecting candidate outputs.
 - Corrected frame-loss, synchronization, interpolation, and filtering
   specification with synthetic reference tests
 - Tail representation artifact and schema
-- Six frame-level metric implementations including the legacy and
-  manuscript-reconciliation benchmarks
+- Four frame-level metric implementations including the legacy benchmark
 - Candidate parameter-set definitions
 - Frame-activity artifact
 - Synthetic reference test suite
@@ -302,12 +296,9 @@ Second local fish `20221116_12` (2026-08-31):
 
 Implemented candidates:
 
-- manuscript segment absolute angular-speed sum from measured segment
-  orientations;
+- tail-length-weighted angular L1 from measured segment orientations;
 - tail-length-weighted angular RMS;
-- tail-length-weighted whole-tail XY RMS speed;
-- tail-length-weighted whole-tail XY mean speed;
-- curvature-change RMS using `d(bend/length)/dt`.
+- tail-length-normalized whole-tail XY mean speed.
 
 Still required (implementation; fixtures debug only):
 
@@ -321,7 +312,7 @@ Still required (implementation; fixtures debug only):
 Progress (2026-08-31): `corrected-preprocess-v1` writes measured-time
 aligned frames with explicit validity/gap masks, base translation, and
 protocol timing diagnostics. Interpolation/filtering remain disabled by
-policy. `tail-candidate-corrected-v1` calculates the six-metric candidate set
+policy. `tail-candidate-corrected-v1` calculates the four-metric candidate set
 from that artifact and intersects corrected derivative masks; intake-sourced
 `tail-candidate-development-v1` is unchanged.
 

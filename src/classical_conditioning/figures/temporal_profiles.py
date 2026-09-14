@@ -41,20 +41,18 @@ from classical_conditioning.figures.theme import (
 )
 
 METRIC_LABELS = {
-    "segment_absolute_angular_speed_sum": "Segment angular-speed sum (rad/ms)",
+    "tail_length_weighted_angular_l1": "Tail-weighted angular L1 (rad/ms)",
     "all_segment_angular_rms": "Segment angular RMS (rad/ms)",
-    "whole_tail_xy_rms_speed": "Whole-tail XY RMS (px/ms)",
-    "whole_tail_xy_mean_speed": "Whole-tail XY mean (px/ms)",
-    "curvature_change_rms": "Curvature-change RMS (rad/px/ms)",
+    "whole_tail_xy_mean_speed_normalized": (
+        "Whole-tail XY mean (tail lengths/ms)"
+    ),
     "legacy_distal_angular_speed": "Legacy distal angular speed (rad/ms)",
 }
 
 METRIC_UNITS = {
-    "segment_absolute_angular_speed_sum": "rad/ms",
+    "tail_length_weighted_angular_l1": "rad/ms",
     "all_segment_angular_rms": "rad/ms",
-    "whole_tail_xy_rms_speed": "px/ms",
-    "whole_tail_xy_mean_speed": "px/ms",
-    "curvature_change_rms": "rad/px/ms",
+    "whole_tail_xy_mean_speed_normalized": "tail lengths/ms",
     "legacy_distal_angular_speed": "rad/ms",
 }
 

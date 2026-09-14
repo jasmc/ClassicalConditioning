@@ -101,8 +101,7 @@ def summarize_fish_learning_effects(
         "metric_id",
         "outcome_id",
         "block_10_name",
-        "log_response",
-        "log_baseline",
+        "log_vigor_reduction",
         "alignment",
     }
     missing = required.difference(model_input.columns)
@@ -113,7 +112,7 @@ def summarize_fish_learning_effects(
     frame = model_input.loc[
         model_input["alignment"].astype(str) == config.alignment
     ].copy()
-    frame["adjusted"] = frame["log_response"] - frame["log_baseline"]
+    frame["adjusted"] = frame["log_vigor_reduction"]
     rows: list[dict[str, Any]] = []
     for (fish_id, metric_id, outcome_id), subset in frame.groupby(
         ["fish_id", "metric_id", "outcome_id"],

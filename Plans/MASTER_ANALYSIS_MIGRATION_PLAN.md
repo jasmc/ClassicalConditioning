@@ -352,24 +352,23 @@ Different quantities receive different IDs:
 
 ```text
 legacy_distal_angular_speed
-segment_absolute_angular_speed_sum
+tail_length_weighted_angular_l1
 all_point_angular_rms
-whole_tail_xy_rms_speed
 whole_tail_xy_mean_speed
-curvature_rate_rms
 ```
 
 An implementation version changes how one defined quantity is calculated:
 
 ```text
-whole_tail_xy_rms_speed implementation 1.0.0
-whole_tail_xy_rms_speed implementation 1.0.1
+whole_tail_xy_mean_speed implementation 1.0.0
+whole_tail_xy_mean_speed implementation 1.0.1
 ```
 
 Do not describe RMS and mean speed as versions of the same metric.
-The manuscript-described sum of absolute segment angular speeds is retained as
-a required reconciliation benchmark even if the scorecard ultimately selects
-another primary metric.
+The manuscript-described sum of absolute segment angular speeds is retained in
+the historical reconciliation, but its active candidate is superseded by the
+tail-length-weighted angular L1 metric because the unweighted sum depends on
+tracking-point number and spacing.
 
 ### 8.2 Parameter-set version
 

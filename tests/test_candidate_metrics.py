@@ -6,6 +6,8 @@ import numpy as np
 
 from classical_conditioning.preprocessing.candidate_metric_kernel import (
     CANDIDATE_COLUMNS,
+    METRIC_DEFINITIONS,
+    SUPERSEDED_METRICS,
     CandidateMetricConfig,
     _geometry_agreement,
     _validate_frame_order,
@@ -27,6 +29,20 @@ class CandidateMetricTests(unittest.TestCase):
         )
         self.y = np.zeros_like(self.x)
         self.angles = np.zeros_like(self.x)
+
+    def test_active_metric_shortlist_supersedes_redundant_candidates(self) -> None:
+        self.assertEqual(
+            CANDIDATE_COLUMNS,
+            (
+                "tail_length_weighted_angular_l1_rad_per_ms",
+                "all_segment_angular_rms_rad_per_ms",
+                "whole_tail_xy_mean_speed_tail_lengths_per_ms",
+                "legacy_distal_angular_speed_rad_per_ms",
+            ),
+        )
+        self.assertEqual(set(METRIC_DEFINITIONS), set(CANDIDATE_COLUMNS))
+        self.assertIn("whole_tail_xy_rms_speed_px_per_ms", SUPERSEDED_METRICS)
+        self.assertIn("curvature_change_rms_rad_per_px_per_ms", SUPERSEDED_METRICS)
 
     def test_stationary_tail_has_zero_activity_after_first_frame(self) -> None:
         result, _ = calculate_candidate_metrics(
@@ -75,7 +91,7 @@ class CandidateMetricTests(unittest.TestCase):
             ].gt(0).all()
         )
 
-    def test_segment_motion_is_not_cancelled_in_manuscript_sum(self) -> None:
+    def test_segment_motion_is_not_cancelled_in_angular_l1(self) -> None:
         moved_x = self.x.copy()
         moved_y = self.y.copy()
         orientations = np.array([0.0, 0.5, -0.5])
@@ -94,11 +110,11 @@ class CandidateMetricTests(unittest.TestCase):
             config=self.config,
         )
         self.assertGreater(
-            result.loc[1, "segment_absolute_angular_speed_sum_rad_per_ms"],
+            result.loc[1, "tail_length_weighted_angular_l1_rad_per_ms"],
             0,
         )
 
-    def test_opposite_segment_rotations_cancel_in_legacy_distal_speed_but_not_manuscript_sum(self) -> None:
+    def test_opposite_segment_rotations_cancel_in_legacy_but_not_angular_l1(self) -> None:
         # Mathematical identity: |sum dtheta| != sum |dphi|
         # When segments rotate in opposite directions, the distal cumulative angle
         # change cancels to zero, but segment angular speed sum retains the full motion.
@@ -127,8 +143,8 @@ class CandidateMetricTests(unittest.TestCase):
             places=6,
         )
         self.assertAlmostEqual(
-            float(result.loc[1, "segment_absolute_angular_speed_sum_rad_per_ms"]),
-            1.0,
+            float(result.loc[1, "tail_length_weighted_angular_l1_rad_per_ms"]),
+            1.0 / 3.0,
             places=6,
         )
 
@@ -213,6 +229,7 @@ class CandidateMetricTests(unittest.TestCase):
             self.time,
             self.x,
             moved_y,
+            self.angles,
             config=self.config,
         )
         scaled, _ = calculate_candidate_metrics(
@@ -220,6 +237,7 @@ class CandidateMetricTests(unittest.TestCase):
             self.time,
             self.x * 4.0,
             moved_y * 4.0,
+            self.angles,
             config=self.config,
         )
         np.testing.assert_allclose(

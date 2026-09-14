@@ -19,7 +19,7 @@ Last updated: 2026-09-01.
 | Experiments in package config | `allDelay`, `fixedVsIncreasingTrace` |
 | Historical legacy implementation | Archived under `Archive/package/` (not runnable through the package) |
 | Corrected preprocess (no Gate P interp/filter) | Implemented |
-| Corrected five-metric candidate route + runner | Implemented |
+| Corrected four-metric candidate route + runner | Implemented |
 | Cohort metric comparison (condition-aware) | Implemented |
 | Single-fish profile figures (dev + corrected recipes) | Implemented |
 | Cohort standardized-difference figures | Implemented |
@@ -41,7 +41,7 @@ immutable TXT acquisition
   -> candidate metrics (development or corrected pairing)
   -> movement-state calibration and bouts
   -> temporal profiles + trial outcomes
-  -> five-metric recording/cohort comparison
+  -> four-metric recording/cohort comparison
   -> candidate-runner orchestration
   -> profile figures (static / interactive / publication)
   -> cohort metric-comparison figures (standardized difference)
@@ -103,7 +103,7 @@ on several single-step CLIs. Pass corrected recipes explicitly when needed.
 - `figure-candidate-profiles` resolves temporal artifacts via
   `resolve_candidate_metric_source` (development or corrected).
 - `figure-metric-comparison` plots fish points and equal-recording mean bars of
-  **standardized difference** for the five candidate metrics.
+  **standardized difference** for the four candidate metrics.
 
 ### Artifact ACL fix (Windows)
 
@@ -154,7 +154,7 @@ multi-recording plumbing only. Not paper-approved.
 | Raw source for this trial | C: copy under `Paper data\Raw single fish data` (subset also on D:) |
 | Cohort Parquet | Present under `Processed data\Analyses\c-copy-4fish-cohort-v1\` |
 | Figures | **Not written** — read/write blocked by ACL on 31/08 artifacts |
-| Caveat | `curvature_change_rms` was all zeros on this slice |
+| Caveat | This run predates the current four-metric shortlist and must be regenerated |
 | Interpretation | Plumbing check only (N = 4). Not a cohort result. |
 
 Intended full Trace inventory (not yet processed in-package at scale):

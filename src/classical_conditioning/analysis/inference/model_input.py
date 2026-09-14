@@ -42,7 +42,7 @@ OUTCOME_SPECS = {
     ),
     "conditional-intensity": (
         "conditional_intensity",
-        "baseline_total_activity",
+        "baseline_conditional_intensity",
     ),
     "bout-rate": (
         "bout_rate_per_minute",
@@ -64,6 +64,7 @@ MODEL_INPUT_COLUMNS = (
     "baseline",
     "log_response",
     "log_baseline",
+    "log_vigor_reduction",
 )
 DIAGNOSTIC_STATUS_VALUES = ("ok", "failed", "singular")
 
@@ -222,8 +223,15 @@ def build_candidate_model_input(
             baseline = float(row[baseline_column])
             if not np.isfinite(response) or not np.isfinite(baseline):
                 continue
-            if response < 0 or baseline < 0:
+            # Conditional vigor is defined only inside detected bouts. Its
+            # no-bout windows are NaN upstream and its log contrast uses c=0.
+            # Other outcomes retain the configured pseudocount because they
+            # can contain meaningful structural zeros.
+            offset = 0.0 if outcome_id == "conditional-intensity" else config.activity_offset
+            if response + offset <= 0 or baseline + offset <= 0:
                 continue
+            log_response = float(np.log(response + offset))
+            log_baseline = float(np.log(baseline + offset))
             rows.append(
                 {
                     "experiment_id": str(row["experiment_id"]),
@@ -242,8 +250,9 @@ def build_candidate_model_input(
                     "outcome_id": outcome_id,
                     "response": response,
                     "baseline": baseline,
-                    "log_response": float(np.log(response + config.activity_offset)),
-                    "log_baseline": float(np.log(baseline + config.activity_offset)),
+                    "log_response": log_response,
+                    "log_baseline": log_baseline,
+                    "log_vigor_reduction": log_baseline - log_response,
                 }
             )
     if not rows:
@@ -374,8 +383,15 @@ def build_candidate_model_input_artifact(
             "config": asdict(config),
             "config_sha256": _config_hash(config),
             "transforms": {
-                "log_response": "log(response + activity_offset)",
-                "log_baseline": "log(baseline + activity_offset)",
+                "log_response": (
+                    "log(response) for conditional-intensity; otherwise "
+                    "log(response + activity_offset)"
+                ),
+                "log_baseline": (
+                    "log(baseline) for conditional-intensity; otherwise "
+                    "log(baseline + activity_offset)"
+                ),
+                "log_vigor_reduction": "log_baseline - log_response",
                 "activity_offset": config.activity_offset,
             },
             "coverage": coverage,

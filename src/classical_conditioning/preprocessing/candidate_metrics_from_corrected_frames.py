@@ -32,6 +32,8 @@ from classical_conditioning.exceptions import (
 )
 from classical_conditioning.preprocessing.candidate_metric_kernel import (
     CANDIDATE_COLUMNS,
+    METRIC_DEFINITIONS,
+    SUPERSEDED_METRICS,
     CandidateMetricConfig,
     CandidateMetricResult,
     _extract_arrays,
@@ -367,6 +369,8 @@ def build_candidate_activity_metrics_from_corrected(
             "corrected_mask_extra_invalid_count": corrected_mask_extra_invalid,
             "reference_tail_length_px": reference_tail_length,
             "active_metric_columns": list(CANDIDATE_COLUMNS),
+            "metric_definitions": METRIC_DEFINITIONS,
+            "superseded_metrics": SUPERSEDED_METRICS,
             "metric_ranges": {
                 column: {
                     "minimum": (

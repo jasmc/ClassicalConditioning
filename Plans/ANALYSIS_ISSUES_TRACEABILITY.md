@@ -34,7 +34,7 @@ was written.
 
 | ID | Audit note | Plan ownership | Gate/decision | Required acceptance evidence | Release consequence |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Executed point-15 vigor differs from manuscript sum of absolute segment speeds | Steps 00, 05-07, 09-10, 13 | T0, P, T1, O, S | Exact legacy reproduction; validated `segment_absolute_angular_speed_sum`; candidate comparison; full reprocessing; effect/claim comparison | R1 labels legacy behavior; R2 compares both; R3/R4 state selected metric and manuscript reconciliation |
+| 1 | Executed point-15 vigor differs from manuscript sum of absolute segment speeds | Steps 00, 05-07, 09-10, 13 | T0, P, T1, O, S | Exact legacy reproduction; documented manuscript reconciliation; validated tail-length-weighted angular L1 replacement; candidate comparison; full reprocessing; effect/claim comparison | R1 labels legacy behavior; R2 documents why the manuscript sum was superseded; R3/R4 state the selected metric and reconciliation |
 | 2 | Spatial smoothing, temporal window, rolling bout metric, and second threshold differ from methods or are incomplete | Steps 05-08 | P, T1 | Legacy characterization; mathematical filter/detector specifications; impulse/step/edge and annotated-bout tests; threshold/smoothing sensitivity | No corrected release until frozen filter and detector versions are recorded |
 | 3 | Exclusions are inconsistent across scripts and outputs | Steps 00, 03, 08-10, 12-13 | C0, C1 | Stage-specific legacy cohort snapshots; immutable reviewed cohort; validated joins; sample-size reconciliation for every result/panel | R1 preserves and exposes legacy differences; R3/R4 use explicit cohort IDs/hashes |
 | 4 | Current scaled vigor differs from documented immediate-baseline proportional change | Steps 03, 05, 07, 09-10, 13 | O, S | Legacy formula regression; explicit documented formula; bounded baseline test; display transforms separated; sensitivity comparison | Methods and figures identify analytical versus display scaling and version |
@@ -54,21 +54,24 @@ was written.
 
 ### Issue 1 adds a required benchmark
 
-The six-metric candidate set (DECISIONS Gate T1) includes the manuscript
-segment-speed sum as its own identity, distinct from all-point angular RMS:
+The four-metric candidate set (DECISIONS Gate T1) supersedes the manuscript
+segment-speed sum with a tail-length-weighted angular L1 metric:
 
 ```text
-segment_absolute_angular_speed_sum
+tail_length_weighted_angular_l1
 ```
 
 The full candidate set contains:
 
-1. manuscript segment-speed sum;
-2. all-point angular RMS;
-3. whole-tail XY RMS speed;
-4. whole-tail XY mean speed;
-5. curvature-change RMS;
-6. legacy distal-point angular speed (historical benchmark on measured time).
+1. tail-length-weighted angular L1;
+2. all-segment angular RMS;
+3. tail-length-normalized whole-tail XY mean speed;
+4. legacy distal-point angular speed (historical benchmark on measured time).
+
+The unweighted manuscript sum remains part of the historical reconciliation,
+but not an active candidate: it changes with the number and spacing of tracked
+tail segments, whereas the weighted L1 estimates the same absolute angular
+activity per unit tail length.
 
 Gate T0 raw-angle semantics are decided (radians, local bends, pixels). Gate T1
 selection remains open.

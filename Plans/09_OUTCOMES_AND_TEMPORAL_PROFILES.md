@@ -128,6 +128,7 @@ is_catch
 metric_id
 detector_id
 baseline_total_activity
+baseline_conditional_intensity
 response_total_activity
 movement_probability
 fraction_time_moving

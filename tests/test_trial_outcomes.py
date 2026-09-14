@@ -75,6 +75,7 @@ class TrialOutcomeTests(unittest.TestCase):
         trial_coverage = coverage[coverage["metric_id"] == metric_id].iloc[0]
 
         self.assertEqual(outcome["baseline_total_activity"], 2.0)
+        self.assertEqual(outcome["baseline_conditional_intensity"], 2.0)
         self.assertEqual(outcome["response_total_activity"], 2.0)
         self.assertEqual(outcome["movement_probability"], 0.5)
         self.assertEqual(outcome["fraction_time_moving"], 0.5)
@@ -85,6 +86,20 @@ class TrialOutcomeTests(unittest.TestCase):
         self.assertEqual(trial_coverage["baseline_sample_count"], 2)
         self.assertEqual(trial_coverage["baseline_valid_sample_count"], 1)
         self.assertEqual(trial_coverage["baseline_valid_fraction"], 0.5)
+
+    def test_no_bout_window_has_nan_conditional_intensity(self) -> None:
+        movement = self.movement.copy()
+        movement.loc[:, "moving"] = False
+        outcomes, _ = aggregate_trial_outcomes(
+            self.frames,
+            movement,
+            self.protocol,
+            identity=self.identity,
+            experiment_name="allDelay",
+            config=self.config,
+        )
+        self.assertTrue(outcomes["baseline_conditional_intensity"].isna().all())
+        self.assertTrue(outcomes["conditional_intensity"].isna().all())
 
     def test_rejects_duplicate_movement_rows(self) -> None:
         duplicated = pd.concat(

@@ -74,7 +74,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.protocol.iloc[:1],
             config=self.config,
         )
-        metric = result[result["Metric ID"] == "segment_absolute_angular_speed_sum"]
+        metric = result[result["Metric ID"] == "tail_length_weighted_angular_l1"]
         np.testing.assert_allclose(metric["Total activity mean"], 0.0)
         np.testing.assert_allclose(metric["Valid fraction"], 1.0)
 
@@ -89,7 +89,7 @@ class TemporalProfileTests(unittest.TestCase):
             config=self.config,
         )
         row = result[
-            (result["Metric ID"] == "segment_absolute_angular_speed_sum")
+            (result["Metric ID"] == "tail_length_weighted_angular_l1")
             & (result["Time bin start (s)"] == -1.0)
         ].iloc[0]
         self.assertEqual(row["Valid fraction"], 0.0)
@@ -102,7 +102,7 @@ class TemporalProfileTests(unittest.TestCase):
             config=self.config,
         )
         sample_count = result[
-            result["Metric ID"] == "segment_absolute_angular_speed_sum"
+            result["Metric ID"] == "tail_length_weighted_angular_l1"
         ]["Sample count"].sum()
         self.assertEqual(sample_count, 20)
 
@@ -152,7 +152,7 @@ class TemporalProfileTests(unittest.TestCase):
             movement_state=self.movement,
         )
         metric = result[
-            result["Metric ID"] == "segment_absolute_angular_speed_sum"
+            result["Metric ID"] == "tail_length_weighted_angular_l1"
         ]
         self.assertEqual(
             metric["Movement probability"].tolist(),
@@ -180,7 +180,7 @@ class TemporalProfileTests(unittest.TestCase):
             movement_state=movement,
         )
         row = result[
-            (result["Metric ID"] == "segment_absolute_angular_speed_sum")
+            (result["Metric ID"] == "tail_length_weighted_angular_l1")
             & (result["Time bin start (s)"] == -1.0)
         ].iloc[0]
         self.assertTrue(np.isnan(row["Movement probability"]))

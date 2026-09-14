@@ -17,7 +17,7 @@ from classical_conditioning.cli import build_parser
 def _synthetic_outcomes(n_fish: int = 3, n_trials: int = 8) -> pd.DataFrame:
     rows = []
     metrics = [
-        "segment_absolute_angular_speed_sum",
+        "tail_length_weighted_angular_l1",
         "all_segment_angular_rms",
     ]
     for fish_index in range(n_fish):
@@ -38,6 +38,7 @@ def _synthetic_outcomes(n_fish: int = 3, n_trials: int = 8) -> pd.DataFrame:
                         "block_10_name": "Train 1" if trial <= 4 else "Train 5",
                         "metric_id": metric_id,
                         "baseline_total_activity": baseline,
+                        "baseline_conditional_intensity": baseline,
                         "response_total_activity": response,
                         "conditional_intensity": response,
                         "bout_rate_per_minute": 10.0 * response,
@@ -54,7 +55,7 @@ class FishPermutationTests(unittest.TestCase):
         effects = summarize_fish_learning_effects(model_input)
         self.assertTrue((effects["late_trial_count"] > 0).all())
         self.assertTrue((effects["early_trial_count"] > 0).all())
-        self.assertTrue((effects["learning_effect"] < 0).all())
+        self.assertTrue((effects["learning_effect"] > 0).all())
 
     def test_permutation_is_deterministic_and_two_sided(self) -> None:
         model_input = build_candidate_model_input(_synthetic_outcomes())

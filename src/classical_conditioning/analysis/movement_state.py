@@ -33,9 +33,6 @@ from classical_conditioning.preprocessing.candidate_metric_kernel import (
 )
 
 METRIC_IDS = {
-    "segment_absolute_angular_speed_sum_rad_per_ms": (
-        "segment_absolute_angular_speed_sum"
-    ),
     "tail_length_weighted_angular_l1_rad_per_ms": (
         "tail_length_weighted_angular_l1"
     ),
