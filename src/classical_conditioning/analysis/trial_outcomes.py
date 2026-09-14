@@ -318,6 +318,14 @@ def aggregate_trial_outcomes(
                     ),
                 }
             )
+            rows[-1]["baseline_conditional_intensity"] = (
+                float(np.mean(values[baseline_moving & np.isfinite(values)]))
+                if np.any(baseline_moving & np.isfinite(values))
+                else np.nan
+            )
+            rows[-1]["baseline_moving_sample_count"] = int(
+                np.count_nonzero(baseline_moving)
+            )
             coverage_rows.append(
                 {
                     **identity,

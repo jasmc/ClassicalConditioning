@@ -324,6 +324,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="Suppress stage banners, step flags, and progress bars.",
     )
 
+    six_metric_exploration = subparsers.add_parser(
+        "explore-six-metric-cohort",
+        help="Build descriptive allDelay six-metric log-suppression outputs.",
+    )
+    six_metric_exploration.add_argument("--project-dir", type=Path, required=True)
+    six_metric_exploration.add_argument("--analysis-id", required=True)
+    six_metric_exploration.add_argument("--overwrite", action="store_true")
+
     trial_outcomes = subparsers.add_parser(
         "candidate-trial-outcomes",
         help="Build exact measured-time trial outcomes for all candidate metrics.",
@@ -863,6 +871,25 @@ def main(argv: Sequence[str] | None = None) -> None:
         for recording_id, entries in result.step_status.items():
             for step_name, state in entries.items():
                 print(f"{recording_id}:{step_name}={state}")
+        return
+
+    if args.command == "explore-six-metric-cohort":
+        from classical_conditioning.analysis.six_metric_exploration import (
+            build_six_metric_exploration,
+        )
+
+        result = build_six_metric_exploration(
+            args.project_dir,
+            analysis_id=args.analysis_id,
+            overwrite=args.overwrite,
+        )
+        print(f"Analysis: {result.analysis_id}")
+        print(f"Recordings: {len(result.recording_ids)}")
+        print(f"Trial scores: {result.trial_scores_path}")
+        print(f"Fish effects: {result.fish_effects_path}")
+        print(f"Condition summary: {result.condition_summary_path}")
+        print(f"Ranks: {result.rank_path}")
+        print(f"Summary: {result.summary_path}")
         return
 
     if args.command == "candidate-trial-outcomes":
