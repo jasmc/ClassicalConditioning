@@ -6,12 +6,12 @@ import numpy as np
 import pandas as pd
 
 from classical_conditioning.analysis.movement_state import METRIC_IDS
-from classical_conditioning.analysis.trace_review import (
+from classical_conditioning.analysis.review.trace_review import (
     _static_figure,
     extract_review_traces,
     select_review_windows,
 )
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
 
 
 class TraceReviewTests(unittest.TestCase):
@@ -29,8 +29,9 @@ class TraceReviewTests(unittest.TestCase):
                 },
             }
         )
-        self.frames.loc[1_000:1_999, CANDIDATE_COLUMNS[2]] = 0.0
-        self.frames.loc[3_000, CANDIDATE_COLUMNS[2]] = 10.0
+        xy_column = "whole_tail_xy_mean_speed_tail_lengths_per_ms"
+        self.frames.loc[1_000:1_999, xy_column] = 0.0
+        self.frames.loc[3_000, xy_column] = 10.0
         # One shared segmentation with several bouts, so boundary windows exist.
         moving = np.zeros(rows, dtype=bool)
         moving[2_000:2_100] = True

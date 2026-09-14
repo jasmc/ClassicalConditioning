@@ -14,7 +14,7 @@ from classical_conditioning.analysis.movement_state import (
     rolling_extreme_envelope,
     smooth_contiguous_median,
 )
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
 
 
 def _detector_frame(rows: int, elapsed: np.ndarray | None = None) -> pd.DataFrame:
@@ -32,7 +32,7 @@ def _detector_frame(rows: int, elapsed: np.ndarray | None = None) -> pd.DataFram
             ),
             "xy_valid_tail_fraction": np.ones(rows),
             "angular_valid_tail_fraction": np.ones(rows),
-            "curvature_valid_tail_fraction": np.ones(rows),
+            "reference_tail_length_px": np.full(rows, 10.0),
             **{
                 column: np.linspace(0.1, 1.0, rows)
                 + 0.01 * np.sin(np.arange(rows))
@@ -266,9 +266,12 @@ class MovementStateTests(unittest.TestCase):
         self.assertIn("bout_count", result["10ms"])
         self.assertEqual(
             result["10ms"]["detector_source_column"],
-            CANDIDATE_COLUMNS[5],
+            CANDIDATE_COLUMNS[-1],
         )
-        for metric_id in ("whole_tail_xy_rms_speed", "curvature_change_rms"):
+        for metric_id in (
+            "whole_tail_xy_mean_speed_normalized",
+            "tail_length_weighted_angular_l1",
+        ):
             self.assertNotIn(metric_id, result["10ms"])
 
     def test_sensitivity_rejects_unordered_timeline(self) -> None:

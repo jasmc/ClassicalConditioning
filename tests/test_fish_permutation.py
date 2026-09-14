@@ -5,12 +5,12 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from classical_conditioning.analysis.fish_permutation import (
+from classical_conditioning.analysis.inference.fish_permutation import (
     FishPermutationConfig,
     permutation_test_mean_effect,
     summarize_fish_learning_effects,
 )
-from classical_conditioning.analysis.model_input import build_candidate_model_input
+from classical_conditioning.analysis.inference.model_input import build_candidate_model_input
 from classical_conditioning.cli import build_parser
 
 

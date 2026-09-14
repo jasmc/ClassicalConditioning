@@ -23,7 +23,7 @@ from classical_conditioning.artifacts import write_json_atomic
 from classical_conditioning.config.experiments import get_experiment_spec
 from classical_conditioning.config.trial_map import get_experiment_trial_map
 from classical_conditioning.exceptions import ConfigurationError
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CandidateMetricConfig
+from classical_conditioning.preprocessing.candidate_metric_kernel import CandidateMetricConfig
 from classical_conditioning.preprocessing.corrected_frame_preprocessing import CorrectedPreprocessConfig
 
 

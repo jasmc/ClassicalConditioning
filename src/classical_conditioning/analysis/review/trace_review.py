@@ -36,7 +36,7 @@ from classical_conditioning.figures.theme import (
     stacked_subplots,
     style_axes,
 )
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
 
 
 @dataclass(frozen=True)
@@ -62,7 +62,9 @@ def select_review_windows(
         raise ValueError("Candidate and movement frames do not align.")
     absolute = frames["AbsoluteTime"].to_numpy(dtype=np.int64)
     elapsed = frames["ElapsedTime"].to_numpy(dtype=float)
-    xy_rms = frames[CANDIDATE_COLUMNS[2]].to_numpy(dtype=float)
+    xy_mean = frames[
+        "whole_tail_xy_mean_speed_tail_lengths_per_ms"
+    ].to_numpy(dtype=float)
     second = np.floor((elapsed - elapsed[0]) / 1_000).astype(np.int64)
     full_window = (
         (absolute >= absolute[0] + half_window_ms)
@@ -70,13 +72,13 @@ def select_review_windows(
     )
     detector_valid = movement["valid"].to_numpy(dtype=bool)
     jointly_valid = detector_valid & full_window
-    xy_valid = detector_valid & np.isfinite(xy_rms) & full_window
+    xy_valid = detector_valid & np.isfinite(xy_mean) & full_window
 
     quiet_median = (
         pd.DataFrame(
             {
                 "second": second[xy_valid],
-                "value": xy_rms[xy_valid],
+                "value": xy_mean[xy_valid],
             }
         )
         .groupby("second", sort=True)["value"]
@@ -92,11 +94,11 @@ def select_review_windows(
     top_count = min(1_000, len(strong_valid_indices))
     if top_count:
         top_local = np.argpartition(
-            -xy_rms[strong_valid_indices],
+            -xy_mean[strong_valid_indices],
             top_count - 1,
         )[:top_count]
         strong_candidates = strong_valid_indices[
-            top_local[np.argsort(-xy_rms[strong_valid_indices][top_local])]
+            top_local[np.argsort(-xy_mean[strong_valid_indices][top_local])]
         ].tolist()
     else:
         strong_candidates = []

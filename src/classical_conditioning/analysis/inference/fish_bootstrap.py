@@ -19,12 +19,12 @@ import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from classical_conditioning.analysis.fish_permutation import (
+from classical_conditioning.analysis.inference.fish_permutation import (
     DEFAULT_EARLY_BLOCKS,
     DEFAULT_LATE_BLOCKS,
     summarize_fish_learning_effects,
 )
-from classical_conditioning.analysis.model_input import (
+from classical_conditioning.analysis.inference.model_input import (
     OUTCOME_SPECS,
     ModelInputConfig,
     build_candidate_model_input,
@@ -201,7 +201,7 @@ def build_candidate_fish_bootstrap(
     )
     coverage = model_input_coverage(model_input)
     # Reuse the same early/late fish collapse as the permutation route.
-    from classical_conditioning.analysis.fish_permutation import FishPermutationConfig
+    from classical_conditioning.analysis.inference.fish_permutation import FishPermutationConfig
 
     fish_effects = summarize_fish_learning_effects(
         model_input,

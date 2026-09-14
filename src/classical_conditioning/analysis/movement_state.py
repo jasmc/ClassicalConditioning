@@ -28,24 +28,29 @@ from classical_conditioning.artifacts import (
     sha256_file,
     write_json_atomic,
 )
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
+from classical_conditioning.preprocessing.candidate_metric_kernel import (
     CANDIDATE_COLUMNS,
 )
 
 METRIC_IDS = {
-    CANDIDATE_COLUMNS[0]: "segment_absolute_angular_speed_sum",
-    CANDIDATE_COLUMNS[1]: "all_segment_angular_rms",
-    CANDIDATE_COLUMNS[2]: "whole_tail_xy_rms_speed",
-    CANDIDATE_COLUMNS[3]: "whole_tail_xy_mean_speed",
-    CANDIDATE_COLUMNS[4]: "curvature_change_rms",
-    CANDIDATE_COLUMNS[5]: "legacy_distal_angular_speed",
+    "segment_absolute_angular_speed_sum_rad_per_ms": (
+        "segment_absolute_angular_speed_sum"
+    ),
+    "tail_length_weighted_angular_l1_rad_per_ms": (
+        "tail_length_weighted_angular_l1"
+    ),
+    "all_segment_angular_rms_rad_per_ms": "all_segment_angular_rms",
+    "whole_tail_xy_mean_speed_tail_lengths_per_ms": (
+        "whole_tail_xy_mean_speed_normalized"
+    ),
+    "legacy_distal_angular_speed_rad_per_ms": "legacy_distal_angular_speed",
 }
 
 # Bout detection is a property of the animal's behavior, not of the metric used
 # to describe it. One detector runs on the distal cumulative-angle speed, which
 # is the signal the historical pipeline used, and every metric shares its
 # segmentation.
-DETECTOR_SOURCE_COLUMN = CANDIDATE_COLUMNS[5]
+DETECTOR_SOURCE_COLUMN = "legacy_distal_angular_speed_rad_per_ms"
 DETECTOR_COVERAGE_COLUMN = "angular_valid_tail_fraction"
 DETECTOR_COLUMNS = ("valid", "moving", "bout_id")
 
@@ -681,7 +686,7 @@ def build_candidate_movement_state(
         "valid_derivative",
         "xy_valid_tail_fraction",
         "angular_valid_tail_fraction",
-        "curvature_valid_tail_fraction",
+        "reference_tail_length_px",
         *CANDIDATE_COLUMNS,
     ]
     frames = pq.read_table(metric_path, columns=columns).to_pandas()
@@ -1049,7 +1054,7 @@ def build_movement_sensitivity_report(
         "valid_derivative",
         "xy_valid_tail_fraction",
         "angular_valid_tail_fraction",
-        "curvature_valid_tail_fraction",
+        "reference_tail_length_px",
         *CANDIDATE_COLUMNS,
     ]
     frames = pq.read_table(metric_path, columns=columns).to_pandas()

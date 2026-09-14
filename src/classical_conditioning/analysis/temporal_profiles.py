@@ -27,7 +27,7 @@ from classical_conditioning.analysis.movement_state import (
     resolve_candidate_metric_source,
 )
 from classical_conditioning.config import get_trial_block_lookup
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
 
 # Identity of the one metric-independent detector whose segmentation every
 # bout-derived outcome in this table uses.

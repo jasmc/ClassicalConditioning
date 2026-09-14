@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from classical_conditioning.analysis.mixed_effects import (
+from classical_conditioning.analysis.inference.mixed_effects import (
     MixedEffectsConfig,
     build_mixed_effects_model_input,
     fit_candidate_mixed_effects,

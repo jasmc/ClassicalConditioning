@@ -30,7 +30,7 @@ from classical_conditioning.exceptions import (
     ArtifactIntegrityError,
     ArtifactNotFoundError,
 )
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
+from classical_conditioning.preprocessing.candidate_metric_kernel import (
     CANDIDATE_COLUMNS,
     CandidateMetricConfig,
     CandidateMetricResult,
@@ -39,6 +39,7 @@ from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_inta
     _tracking_columns,
     _validate_frame_order,
     calculate_candidate_metrics,
+    reference_tail_length_from_parquet,
 )
 from classical_conditioning.preprocessing.corrected_frame_preprocessing import (
     ARTIFACT_NAME as CORRECTED_ARTIFACT_NAME,
@@ -185,6 +186,12 @@ def build_candidate_activity_metrics_from_corrected(
         *_tracking_columns(point_count)[1:],
     ]
     frames_file = pq.ParquetFile(frames_path)
+    reference_tail_length = reference_tail_length_from_parquet(
+        frames_file,
+        point_count=point_count,
+        batch_size=batch_size,
+        minimum_valid_tail_fraction=config.minimum_valid_tail_fraction,
+    )
     state: dict[str, np.ndarray | float | int] | None = None
     previous_frame_id: int | None = None
     row_count = 0
@@ -241,6 +248,7 @@ def build_candidate_activity_metrics_from_corrected(
                     y,
                     angles,
                     config=config,
+                    reference_tail_length=reference_tail_length,
                     previous=state,
                 )
                 before_valid = metrics["valid_derivative"].to_numpy(dtype=bool)
@@ -357,6 +365,8 @@ def build_candidate_activity_metrics_from_corrected(
             "invalid_derivative_count": row_count - valid_derivative_count,
             "invalid_gap_count": invalid_gap_count,
             "corrected_mask_extra_invalid_count": corrected_mask_extra_invalid,
+            "reference_tail_length_px": reference_tail_length,
+            "active_metric_columns": list(CANDIDATE_COLUMNS),
             "metric_ranges": {
                 column: {
                     "minimum": (

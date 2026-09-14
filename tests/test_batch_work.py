@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from classical_conditioning.analysis.batch_work import (
+from classical_conditioning.operations.batch_work import (
     RECIPE_ID,
     execute_batch_work,
     plan_batch_work,

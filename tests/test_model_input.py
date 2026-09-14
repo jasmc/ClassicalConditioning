@@ -4,7 +4,7 @@ import unittest
 
 import pandas as pd
 
-from classical_conditioning.analysis.model_input import (
+from classical_conditioning.analysis.inference.model_input import (
     MODEL_INPUT_COLUMNS,
     ModelInputConfig,
     build_candidate_model_input,

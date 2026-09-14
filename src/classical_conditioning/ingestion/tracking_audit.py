@@ -38,7 +38,7 @@ GATE_T0_LEGACY_EVIDENCE = {
         "data_io.read_tail_tracking_data: Convert radian to degree",
         "Archive/modules/my_functions.py: Vectorized conversion from radian to degree",
         "preprocessing.legacy_v1.prepare_legacy_tracking",
-        "preprocessing.benchmarks.candidate_metrics_from_intake geometry agreement and rad_per_px naming",
+        "preprocessing.candidate_metric_kernel geometry agreement and rad_per_px naming",
         "Plans/DECISIONS.md Gate T0",
     ],
 }

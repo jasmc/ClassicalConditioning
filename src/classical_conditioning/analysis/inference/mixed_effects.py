@@ -20,7 +20,7 @@ import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from classical_conditioning.analysis.model_input import (
+from classical_conditioning.analysis.inference.model_input import (
     OUTCOME_SPECS,
     ModelInputConfig,
     build_candidate_model_input,

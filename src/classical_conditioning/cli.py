@@ -975,7 +975,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "plan-batch":
-        from classical_conditioning.analysis.batch_work import (
+        from classical_conditioning.operations.batch_work import (
             write_batch_work_manifest,
         )
 
@@ -998,7 +998,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "execute-batch":
-        from classical_conditioning.analysis.batch_work import (
+        from classical_conditioning.operations.batch_work import (
             execute_batch_work,
         )
         from classical_conditioning.progress import default_progress
@@ -1027,7 +1027,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-mixed-effects":
-        from classical_conditioning.analysis.mixed_effects import (
+        from classical_conditioning.analysis.inference.mixed_effects import (
             build_candidate_mixed_effects,
         )
 
@@ -1048,7 +1048,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-fish-permutation":
-        from classical_conditioning.analysis.fish_permutation import (
+        from classical_conditioning.analysis.inference.fish_permutation import (
             build_candidate_fish_permutation,
         )
 
@@ -1068,7 +1068,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-fish-bootstrap":
-        from classical_conditioning.analysis.fish_bootstrap import (
+        from classical_conditioning.analysis.inference.fish_bootstrap import (
             build_candidate_fish_bootstrap,
         )
 
@@ -1088,7 +1088,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-model-input":
-        from classical_conditioning.analysis.model_input import (
+        from classical_conditioning.analysis.inference.model_input import (
             build_candidate_model_input_artifact,
         )
 

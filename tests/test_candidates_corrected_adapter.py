@@ -8,7 +8,7 @@ import pandas as pd
 from classical_conditioning.preprocessing.candidate_metrics_from_corrected_frames import (
     apply_corrected_validity_mask,
 )
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
+from classical_conditioning.preprocessing.candidate_metric_kernel import (
     CANDIDATE_COLUMNS,
     CandidateMetricConfig,
     calculate_candidate_metrics,
@@ -65,12 +65,7 @@ class CorrectedCandidateAdapterTests(unittest.TestCase):
                 "valid_derivative": [True, True],
                 "FrameStep": [1, 1],
                 "DeltaTimeMs": [1.0, 1.0],
-                CANDIDATE_COLUMNS[0]: [0.1, 0.2],
-                CANDIDATE_COLUMNS[1]: [0.1, 0.2],
-                CANDIDATE_COLUMNS[2]: [0.1, 0.2],
-                CANDIDATE_COLUMNS[3]: [0.1, 0.2],
-                CANDIDATE_COLUMNS[4]: [0.1, 0.2],
-                CANDIDATE_COLUMNS[5]: [0.1, 0.2],
+                **{column: [0.1, 0.2] for column in CANDIDATE_COLUMNS},
             }
         )
         with self.assertRaisesRegex(ValueError, "length"):

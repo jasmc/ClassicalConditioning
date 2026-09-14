@@ -32,17 +32,19 @@ def __getattr__(name: str):
     if name in {
         "MovementCalibrationConfig",
         "MovementStateResult",
-        "MovementSensitivityResult",
         "build_candidate_movement_state",
-        "build_movement_sensitivity_report",
     }:
         from classical_conditioning.analysis import movement_state
 
         return getattr(movement_state, name)
     if name in {"TraceReviewResult", "build_trace_review"}:
-        from classical_conditioning.analysis import trace_review
+        from classical_conditioning.analysis.review import trace_review
 
         return getattr(trace_review, name)
+    if name in {"MovementSensitivityResult", "build_movement_sensitivity_report"}:
+        from classical_conditioning.analysis.benchmarks import movement_sensitivity
+
+        return getattr(movement_sensitivity, name)
     if name in {
         "MetricComparisonConfig",
         "MetricComparisonResult",

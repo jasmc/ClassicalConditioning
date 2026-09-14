@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
+from classical_conditioning.preprocessing.candidate_metric_kernel import (
     CANDIDATE_COLUMNS,
     CandidateMetricConfig,
     _geometry_agreement,
@@ -54,11 +54,7 @@ class CandidateMetricTests(unittest.TestCase):
             config=self.config,
         )
         np.testing.assert_allclose(
-            result.loc[1:, "whole_tail_xy_rms_speed_px_per_ms"],
-            0.0,
-        )
-        np.testing.assert_allclose(
-            result.loc[1:, "whole_tail_xy_mean_speed_px_per_ms"],
+            result.loc[1:, "whole_tail_xy_mean_speed_tail_lengths_per_ms"],
             0.0,
         )
 
@@ -74,10 +70,9 @@ class CandidateMetricTests(unittest.TestCase):
             config=self.config,
         )
         self.assertTrue(
-            result.loc[1:, "whole_tail_xy_rms_speed_px_per_ms"].gt(0).all()
-        )
-        self.assertTrue(
-            result.loc[1:, "whole_tail_xy_mean_speed_px_per_ms"].gt(0).all()
+            result.loc[
+                1:, "whole_tail_xy_mean_speed_tail_lengths_per_ms"
+            ].gt(0).all()
         )
 
     def test_segment_motion_is_not_cancelled_in_manuscript_sum(self) -> None:
@@ -210,22 +205,45 @@ class CandidateMetricTests(unittest.TestCase):
         _, eligible, total = _geometry_agreement(x, y, self.angles)
         self.assertLess(eligible, total)
 
-    def test_curvature_rate_includes_segment_length_change(self) -> None:
-        angles = self.angles.copy()
-        angles[:, 1] = 0.5
-        stretched_x = self.x.copy()
-        stretched_x[1:, 2:] += 1.0
+    def test_xy_mean_is_invariant_to_uniform_spatial_scale(self) -> None:
+        moved_y = self.y.copy()
+        moved_y[1:, -1] = [1.0, 2.0]
         result, _ = calculate_candidate_metrics(
             self.frame_ids,
             self.time,
-            stretched_x,
-            self.y,
-            angles,
+            self.x,
+            moved_y,
             config=self.config,
         )
-        self.assertGreater(
-            result.loc[1, "curvature_change_rms_rad_per_px_per_ms"],
-            0,
+        scaled, _ = calculate_candidate_metrics(
+            self.frame_ids,
+            self.time,
+            self.x * 4.0,
+            moved_y * 4.0,
+            config=self.config,
+        )
+        np.testing.assert_allclose(
+            result.loc[1:, "whole_tail_xy_mean_speed_tail_lengths_per_ms"],
+            scaled.loc[1:, "whole_tail_xy_mean_speed_tail_lengths_per_ms"],
+        )
+
+    def test_weighted_angular_l1_is_point_density_normalized(self) -> None:
+        moved_x = self.x.copy()
+        moved_y = self.y.copy()
+        orientations = np.array([0.25, 0.25, 0.25])
+        moved_x[1] = np.concatenate([[0.0], np.cumsum(np.cos(orientations))])
+        moved_y[1] = np.concatenate([[0.0], np.cumsum(np.sin(orientations))])
+        result, _ = calculate_candidate_metrics(
+            self.frame_ids,
+            self.time,
+            moved_x,
+            moved_y,
+            self.angles,
+            config=self.config,
+        )
+        self.assertAlmostEqual(
+            float(result.loc[1, "tail_length_weighted_angular_l1_rad_per_ms"]),
+            0.25,
         )
 
     def test_chunk_carry_matches_single_chunk(self) -> None:
