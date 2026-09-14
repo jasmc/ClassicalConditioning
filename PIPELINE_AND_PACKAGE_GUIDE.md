@@ -37,6 +37,7 @@ pipeline.py: select recordings, optional inventory, intake
 candidate_runner.py: one recording at a time
         |
         +-- corrected_frame_preprocessing.py        (corrected runner only)
+        +-- candidate_metric_kernel.py                shared metric definitions
         +-- candidate_metrics_from_corrected_frames.py  normal activity metrics
         +-- benchmarks/candidate_metrics_from_intake.py  direct-intake benchmark
         +-- movement_state.py                        movement and bouts
@@ -133,7 +134,8 @@ stale downstream files after an upstream input changes.
 
 ## The preprocessing folder: one metric implementation, two input routes
 
-`src/classical_conditioning/preprocessing/` contains four active files. It is
+`src/classical_conditioning/preprocessing/` contains four active implementation
+files plus a benchmark entry point. It is
 easy to mistake their names for four alternative analyses, but the important
 division is this:
 
@@ -147,9 +149,9 @@ benchmarks/candidate_metrics_from_intake.py   corrected_frame_preprocessing.py
 tail-candidate-development-v1                 corrected-preprocess-v1
         |                                               |
         |                                               v
-        |                                candidate_metrics_from_corrected_frames.py
-        |                                tail-candidate-corrected-v1
-        |                                               |
+candidate_metric_kernel.py <---------------- candidate_metrics_from_corrected_frames.py
+same shared formulas and schema                          |
+        |                                                |
         +------------------ same six metric columns ----+
                                                         |
                                                         v
@@ -175,11 +177,9 @@ It writes validity and timing fields alongside measured tracking coordinates,
 plus a summary and completion marker. Its purpose is to make data-quality and
 timebase decisions explicit before any metric is calculated.
 
-### `benchmarks/candidate_metrics_from_intake.py`: development benchmark
+### `candidate_metric_kernel.py`: shared metric science
 
-This file has two roles.
-
-First, `calculate_candidate_metrics()` is the shared numerical implementation
+`calculate_candidate_metrics()` is the shared numerical implementation
 of the six frame-level metric columns:
 
 1. `segment_absolute_angular_speed_sum_rad_per_ms`;
@@ -194,7 +194,10 @@ extraction, weighting, and the immutable `CandidateMetricConfig`. Downstream
 movement, temporal, trial-outcome, and figure code imports the shared column
 list from here, so the six-column schema has one authoritative definition.
 
-Second, `build_candidate_activity_metrics()` is the writer for
+### `benchmarks/candidate_metrics_from_intake.py`: development benchmark
+
+This is the deliberately separate entry point for the writer that calls the
+shared kernel on raw intake. `build_candidate_activity_metrics()` writes
 `tail-candidate-development-v1`. It reads authenticated intake camera and
 tracking Parquet directly and writes
 `frame_activity_candidates-v1.parquet`. This is an active development
@@ -204,7 +207,7 @@ available for controlled development-versus-corrected comparisons.
 ### `candidate_metrics_from_corrected_frames.py`: corrected-source adapter
 
 This file does **not** define a second set of activity metrics. It imports the
-shared calculation and schema from `benchmarks/candidate_metrics_from_intake.py`, verifies the completed
+shared calculation and schema from `candidate_metric_kernel.py`, verifies the completed
 `corrected-preprocess-v1` artifact, runs the same calculation on its measured
 coordinates, and intersects the resulting derivative-valid mask with the
 corrected frame-validity mask. It then writes the separate,
@@ -240,16 +243,17 @@ No active file is safe to delete as a simple duplicate:
 | Apparent overlap | Actual distinction | Keep? |
 | --- | --- | --- |
 | `benchmarks/candidate_metrics_from_intake.py` vs `candidate_metrics_from_corrected_frames.py` | Same metric formula, but direct-intake versus corrected/gap-aware source lineage and distinct output/recipe identities. | Yes. |
+| `candidate_metric_kernel.py` vs either metric writer | Shared numerical formula/schema versus provenance-specific artifact writer. | Yes. |
 | `corrected_frame_preprocessing.py` vs either candidate file | Frame preparation and validity policy versus activity-metric calculation. | Yes. |
 | `__init__.py` vs concrete modules | Public lazy-import facade versus implementation. | Yes. |
 
-The main technical concern is coupling rather than scientific redundancy:
-`candidate_metrics_from_corrected_frames.py` imports several underscore-prefixed helpers from
-`benchmarks/candidate_metrics_from_intake.py`. A change to shared extraction, geometry, or metric code
-therefore affects both routes and should be accompanied by tests for both
+The main technical concern is shared scientific code rather than duplicated
+formulae: `candidate_metrics_from_corrected_frames.py` imports the metric
+kernel. A change to shared extraction, geometry, or metric code therefore
+affects both routes and should be accompanied by tests for both
 artifact families. If the two writers ever become burdensome to maintain, the
-safe refactor is to extract a clearly public shared streaming metric kernel—not
-to merge their recipes or discard their distinct provenance.
+safe refactor is to keep the kernel stable—not to merge their recipes or
+discard their distinct provenance.
 
 ### 6. Cohort metric comparison
 
@@ -307,16 +311,19 @@ stage directories.
 | File | Called by `pipeline.py`? | Purpose and reason |
 | --- | --- | --- |
 | `__init__.py` | Import-time convenience only | Lazy public exports for standalone analysis commands. It does not schedule analysis stages. |
-| `batch_work.py` | No | Plans/executes resumable batch work from a separate batch manifest. It remains separate because a batch execution plan is an operational choice, not the normal pipeline route. |
+| `benchmarks/__init__.py` | Import-time only | Marks optional sensitivity work as benchmarks rather than automatic analysis. |
 | `candidate_runner.py` | Directly | The per-recording and cohort orchestrator for the candidate family. It freezes compatible recipe choices, performs lineage verification, and writes its own manifest. |
-| `fish_bootstrap.py` | No | Post-pipeline fish-level bootstrap uncertainty analysis from authenticated model input. It is deliberately not automatic because resampling choices are statistical decisions. |
-| `fish_permutation.py` | No | Post-pipeline fish-level permutation testing. Like bootstrap, it is a separate inferential workflow, not a default descriptive pipeline step. |
+| `benchmarks/movement_sensitivity.py` | No | Explicit entry point for detector-parameter sensitivity checks. Its calculation remains beside the detector because both share the same state logic. |
+| `inference/fish_bootstrap.py` | No | Post-pipeline fish-level bootstrap uncertainty analysis from authenticated model input. It is deliberately not automatic because resampling choices are statistical decisions. |
+| `inference/fish_permutation.py` | No | Post-pipeline fish-level permutation testing. Like bootstrap, it is a separate inferential workflow, not a default descriptive pipeline step. |
+| `inference/__init__.py` | Import-time only | Documents the optional inference namespace; it does not select a model or run statistics. |
 | `metric_comparison.py` | Transitively | Builds the recording/cohort summaries after temporal profiles. This is the pipeline's cohort comparison stage. |
-| `mixed_effects.py` | No | Fits candidate mixed-effects models using the model-input artifact. It is optional downstream inference and needs its own model specification/dependency. |
-| `model_input.py` | No | Converts authenticated per-trial outcomes into a model-ready data set with coverage information. It supports downstream statistics but the core pipeline stops at descriptive cohort comparison. |
+| `inference/mixed_effects.py` | No | Fits candidate mixed-effects models using the model-input artifact. It is optional downstream inference and needs its own model specification/dependency. |
+| `inference/model_input.py` | No | Converts authenticated per-trial outcomes into a model-ready data set with coverage information. It supports downstream statistics but the core pipeline stops at descriptive cohort comparison. |
 | `movement_state.py` | Directly and transitively | Maps runner recipe to metric family, calibrates frame-level movement, and detects bouts using the active shared historical-envelope detector. |
 | `temporal_profiles.py` | Transitively | Aligns frame-level candidate/movement artifacts to experiment events and creates time-binned profiles for analysis and figures. |
-| `trace_review.py` | No | Creates balanced trace windows and review figures for human detector assessment. It is a QC/review command because human annotation cannot be silently automated in the pipeline. |
+| `review/trace_review.py` | No | Creates balanced trace windows and review figures for human detector assessment. It is a QC/review command because human annotation cannot be silently automated in the pipeline. |
+| `review/__init__.py` | Import-time only | Documents the review namespace; it does not create review figures itself. |
 | `trial_outcomes.py` | Transitively | Builds and verifies trial-level outcomes from candidate frames, movement states, and experiment windows. |
 
 ### `config/`
@@ -356,10 +363,18 @@ stage directories.
 | File | Called by `pipeline.py`? | Purpose and reason |
 | --- | --- | --- |
 | `__init__.py` | Import-time convenience only | Lazy exports for current corrected preprocessing and candidate metrics. |
+| `candidate_metric_kernel.py` | Transitively | The single numerical definition of the six candidate metrics, their configuration, geometry checks, and shared extraction helpers. It is reused by both artifact writers. |
 | `candidate_metrics_from_corrected_frames.py` | Transitively for corrected runner | Reads corrected frames, applies the corrected validity mask, and computes the corrected-family activity metrics. |
 | `benchmarks/__init__.py` | Import-time only | Identifies runnable direct-intake comparisons as active benchmarks rather than archived legacy code. |
-| `benchmarks/candidate_metrics_from_intake.py` | Transitively | Defines the six candidate whole-tail metrics and computes the development-family metrics directly from intake artifacts. The corrected metrics module also reuses its metric definitions. |
+| `benchmarks/candidate_metrics_from_intake.py` | Transitively for the development benchmark only | Calls the shared kernel to compute development-family metrics directly from intake artifacts. The normal corrected route does not import this benchmark module. |
 | `corrected_frame_preprocessing.py` | Transitively for corrected runner | Performs corrected frame preprocessing: derives geometry/protocol-aligned inputs, validates order/timing, and produces the artifact consumed by corrected metrics. |
+
+### `operations/`
+
+| File | Called by `pipeline.py`? | Purpose and reason |
+| --- | --- | --- |
+| `__init__.py` | Import-time only | Documents the operations namespace. |
+| `batch_work.py` | No | Plans and executes resumable batch work from a separate manifest. It is separate because scheduling is an operational choice, not an analytical stage. |
 
 ## Files intentionally outside the automatic pipeline
 
@@ -367,10 +382,11 @@ The core pipeline ends at audited descriptive cohort summaries and optional
 figures. The following files are active but intentionally manual/CLI-driven:
 
 * `cohort.py` — cohort inclusion policy;
-* `analysis/trace_review.py` — human detector review;
-* `analysis/model_input.py`, `mixed_effects.py`, `fish_permutation.py`, and
+* `analysis/review/trace_review.py` — human detector review;
+* `analysis/inference/model_input.py`, `mixed_effects.py`, `fish_permutation.py`, and
   `fish_bootstrap.py` — downstream inferential choices;
-* `analysis/batch_work.py` — operations/scheduling;
+* `analysis/benchmarks/movement_sensitivity.py` — optional detector sensitivity;
+* `operations/batch_work.py` — operations/scheduling;
 * `ingestion/validate_raw.py` and `tracking_audit.py` — optional raw QC;
 * `config/export.py` — reviewable configuration export; and
 * figure modules for targeted per-recording review.
@@ -387,7 +403,7 @@ For a normal corrected candidate run, read these files in this order:
 3. `preprocessing/corrected_frame_preprocessing.py` and
    `preprocessing/candidate_metrics_from_corrected_frames.py` — corrected frame and metric
    computation;
-4. `preprocessing/benchmarks/candidate_metrics_from_intake.py` — the shared six metric definitions;
+4. `preprocessing/candidate_metric_kernel.py` — the shared six metric definitions;
 5. `analysis/movement_state.py` — smoothing, calibration, and bout detection;
 6. `analysis/temporal_profiles.py` and `analysis/trial_outcomes.py` — event
    alignment and outcome aggregation;

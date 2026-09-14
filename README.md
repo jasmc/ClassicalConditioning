@@ -94,7 +94,7 @@ Candidate cohort outputs use `{analysis_id}-candidate` unless overridden by
 optional inventory
   -> intake-batch (all matching triplets)
   -> [candidate route, default] candidate-runner
-         corrected-preprocess-v1 -> six activity metrics -> movement state
+         corrected-preprocess-v1 -> five activity metrics -> movement state
          -> temporal outcomes -> trial outcomes -> cohort comparison
   -> [optional] cohort metric-comparison figures
   -> Metadata/<analysis_id>_pipeline_run.json summary
@@ -134,8 +134,13 @@ calculate activity or decide a scientific exclusion cohort.
    - `preprocessing/candidate_metrics_from_corrected_frames.py` calculates the
      six candidate metrics from those frames and inherits their validity mask.
 
+   The shared metric formula and column schema live in
+   `preprocessing/candidate_metric_kernel.py`; the two writers use that one
+   implementation and differ only in their input provenance and validity
+   policy.
+
    `preprocessing/benchmarks/candidate_metrics_from_intake.py` is not the normal route.
-   It calculates the same six metrics directly from intake artifacts and exists
+   It calculates the same five metrics directly from intake artifacts and exists
    only as the active development benchmark for controlled comparison. Do not
    mix its artifacts with corrected-route downstream artifacts.
 
@@ -144,7 +149,7 @@ calculate activity or decide a scientific exclusion cohort.
 
      ```text
      corrected preprocessing
-       -> six activity metrics
+       -> five activity metrics
        -> one shared movement/bout detector
        -> trial-aligned temporal profiles
        -> per-trial outcomes and coverage
@@ -234,7 +239,7 @@ graph TD
 
     INTAKE --> PRE["<b>corrected-preprocess-v1</b><br/>measured timestamps, frame gaps,<br/>per-point validity masks"]
 
-    PRE --> MET["<b>tail-candidate-corrected-v1</b><br/>6 activity metrics per frame"]:::key
+    PRE --> MET["<b>tail-candidate-corrected-v1</b><br/>5 activity metrics per frame"]:::key
     PRE --> DET["<b>movement-candidate-corrected-v2</b><br/>ONE shared bout detector<br/>legacy envelope on distal speed<br/><i>metric-independent</i>"]:::fix
 
     MET --> PROF
@@ -256,7 +261,7 @@ graph TD
 ```
 
 Note that metrics and the detector are **siblings**, not a chain: the detector
-does not consume the six metrics. It runs once on the distal cumulative-angle
+does not consume the five metrics. It runs once on the distal cumulative-angle
 speed — the signal the historical pipeline used — and every metric inherits its
 segmentation.
 
@@ -308,7 +313,7 @@ Useful for debugging or partial reruns, in dependency order:
 | Command | Purpose |
 | --- | --- |
 | `preprocess --recipe corrected-preprocess-v1` | Measured-time frames and validity masks. |
-| `activity-metrics --recipe tail-candidate-corrected-v1` | The six per-frame metrics. |
+| `activity-metrics --recipe tail-candidate-corrected-v1` | The five per-frame metrics. |
 | `movement-state` | Threshold calibration and bout detection. |
 | `temporal-profiles` | Trial-aligned 0.5 s bins. |
 | `candidate-trial-outcomes` | Per-trial baseline and response. |
@@ -405,9 +410,9 @@ Outputs go to `Figures/PNG/<recording-id>/` and
 
 What changes between figures is what a **row** means.
 
-### Figures 1-3: per-metric intensity (6 rows)
+### Figures 1-3: per-metric intensity (5 rows)
 
-Rows are the six metrics. These figures are legitimately per-metric, because
+Rows are the five metrics. These figures are legitimately per-metric, because
 each row is a genuinely different measurement of tail motion.
 
 | Figure | Cell value |
@@ -446,7 +451,7 @@ Rows are three different outcomes, all derived from the single shared detector:
 There is no metric dimension here. One detector produced one segmentation, so
 these three numbers are properties of the animal's behavior. They are written
 identically onto every metric row of the profile table, and the figure reads a
-single metric's rows to avoid drawing the same data six times.
+single metric's rows to avoid drawing the same data five times.
 
 ### Colour scaling
 
@@ -454,7 +459,7 @@ single metric's rows to avoid drawing the same data six times.
   already on the same scale, so one colorbar is honest and cross-row comparison
   is meaningful.
 - **Figures 1, 3, and 4** get **one colorbar per row**, because rows carry
-  different units (rad/ms vs px/ms vs bouts/min) or different natural ranges.
+  different units (rad/ms vs tail-lengths/ms vs bouts/min) or different natural ranges.
   Within Figure 4, the two proportions are fixed to `[0, 1]` and bout rate uses
   its own 99th-percentile limit.
 
@@ -482,8 +487,8 @@ metric is paper-approved and no inferential claim is attached.
 
 - Package outputs are **exploratory** until scientific gates pass.
 - Legacy route preserves known old behavior for comparison.
-- Candidate route compares six metrics descriptively; no metric is
-  paper-approved. The sixth (`legacy_distal_angular_speed`) is a
+- Candidate route compares five metrics descriptively; no metric is
+  paper-approved. `legacy_distal_angular_speed` is a
   measured-time benchmark of the historical formula, not a reproduction of the
   historical pipeline.
 - Bout detection is **shared and metric-independent**: one legacy-style
