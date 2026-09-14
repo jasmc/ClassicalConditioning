@@ -114,6 +114,34 @@ class PipelineRunConfigTests(unittest.TestCase):
         self.assertEqual(args.config, Path("configs/example-run.json"))
         self.assertFalse(args.quiet)
 
+    def test_cli_uses_friendly_preprocessing_mode_labels(self) -> None:
+        parser = build_parser()
+        preprocess = parser.parse_args(
+            [
+                "preprocess",
+                "--project-dir",
+                "paper",
+                "--recording-id",
+                "recording-a",
+                "--recipe",
+                "corrected",
+            ]
+        )
+        metrics = parser.parse_args(
+            [
+                "activity-metrics",
+                "--project-dir",
+                "paper",
+                "--recording-id",
+                "recording-a",
+                "--recipe",
+                "development",
+            ]
+        )
+
+        self.assertEqual(preprocess.recipe, "corrected-preprocess-v1")
+        self.assertEqual(metrics.recipe, "tail-candidate-development-v1")
+
     def test_show_progress_defaults_true(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             raw = Path(temporary) / "raw"

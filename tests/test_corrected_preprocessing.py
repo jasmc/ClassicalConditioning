@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from classical_conditioning.preprocessing.corrected_v1 import (
+from classical_conditioning.preprocessing.corrected_frame_preprocessing import (
     CorrectedPreprocessConfig,
     calculate_corrected_frames,
     summarize_protocol_timing,

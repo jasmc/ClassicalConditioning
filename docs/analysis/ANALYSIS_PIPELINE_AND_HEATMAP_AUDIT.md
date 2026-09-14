@@ -66,8 +66,8 @@ The orchestration is implemented in [pipeline.py](../../src/classical_conditioni
 | 0 | Validate run configuration and select recordings | [run_config.py](../../src/classical_conditioning/run_config.py), [pipeline.py](../../src/classical_conditioning/pipeline.py) | selected recording IDs |
 | 1 | Optional inventory of raw triplets and SHA-256 hashes | [inventory.py](../../src/classical_conditioning/inventory.py) | `Metadata/recording_inventory.json` |
 | 2 | Intake immutable camera, tracking, and protocol files | [intake.py](../../src/classical_conditioning/intake.py), [readers.py](../../src/classical_conditioning/ingestion/readers.py) | `Processed data/<recording-id>/camera.parquet`, `tracking.parquet`, `stimulus_events.parquet` |
-| 3A | Legacy preprocessing, if route `legacy` is enabled | [legacy_v1.py](../../src/classical_conditioning/preprocessing/legacy_v1.py) | `frame_preprocessed_legacy-v1.parquet` plus QC/metadata |
-| 3B | Candidate frame metrics, if route `candidate` is enabled | [candidates_v1.py](../../src/classical_conditioning/preprocessing/candidates_v1.py) | `frame_activity_candidates-v1.parquet` |
+| 3A | Archived legacy preprocessing | [legacy_v1.py](../../Archive/package/src/classical_conditioning/preprocessing/legacy_v1.py) | Historical source only; not a supported route |
+| 3B | Direct-intake candidate benchmark | [candidate_metrics_from_intake.py](../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py) | `frame_activity_candidates-v1.parquet` |
 | 4 | Calibrate movement and detect bouts independently for each candidate metric | [movement_state.py](../../src/classical_conditioning/analysis/movement_state.py) | `movement_state_candidates-v1.parquet` |
 | 5 | Align each CS/US event and aggregate into 0.5 s temporal bins | [temporal_profiles.py](../../src/classical_conditioning/analysis/temporal_profiles.py) | `candidate_temporal_outcomes-v2.parquet` |
 | 6 | Produce trial-level outcomes and coverage | [trial_outcomes.py](../../src/classical_conditioning/analysis/trial_outcomes.py) | candidate trial outcome and coverage Parquet files |
@@ -144,7 +144,7 @@ The row labels are defined in `METRIC_LABELS` in
 | E | `curvature_change_rms` | Length-weighted RMS curvature-change rate, `rad/px/ms` | The candidate's curvature-change signal exceeds its thresholds |
 
 The frame-level formulas are computed in
-[preprocessing/candidates_v1.py](../../src/classical_conditioning/preprocessing/candidates_v1.py).
+[preprocessing/benchmarks/candidate_metrics_from_intake.py](../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py).
 The five signals are intentionally exploratory and are carried through the
 same downstream pipeline so their behavior can be compared. The repository
 decision is explicitly **not** to choose one metric before that comparison;

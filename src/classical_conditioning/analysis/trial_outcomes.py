@@ -34,7 +34,7 @@ from classical_conditioning.exceptions import (
     ConfigurationError,
     SchemaValidationError,
 )
-from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
 
 DEFAULT_TRIAL_RECIPE_ID = "candidate-trial-outcomes-v1"
 RECIPE_ID = DEFAULT_TRIAL_RECIPE_ID  # retained for development-route callers

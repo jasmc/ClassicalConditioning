@@ -28,7 +28,7 @@ from classical_conditioning.artifacts import (
     sha256_file,
     write_json_atomic,
 )
-from classical_conditioning.preprocessing.candidates_v1 import (
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
     CANDIDATE_COLUMNS,
 )
 

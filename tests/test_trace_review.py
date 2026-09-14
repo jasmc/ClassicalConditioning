@@ -11,7 +11,7 @@ from classical_conditioning.analysis.trace_review import (
     extract_review_traces,
     select_review_windows,
 )
-from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
 
 
 class TraceReviewTests(unittest.TestCase):

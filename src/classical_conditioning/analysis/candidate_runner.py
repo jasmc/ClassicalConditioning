@@ -34,13 +34,13 @@ from classical_conditioning.exceptions import (
     ArtifactIntegrityError,
     ConfigurationError,
 )
-from classical_conditioning.preprocessing.candidates_corrected_v1 import (
+from classical_conditioning.preprocessing.candidate_metrics_from_corrected_frames import (
     build_candidate_activity_metrics_from_corrected,
 )
-from classical_conditioning.preprocessing.candidates_v1 import (
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
     build_candidate_activity_metrics,
 )
-from classical_conditioning.preprocessing.corrected_v1 import (
+from classical_conditioning.preprocessing.corrected_frame_preprocessing import (
     RECIPE_ID as CORRECTED_PREPROCESS_RECIPE_ID,
     build_corrected_preprocessing,
 )

@@ -36,8 +36,9 @@ pipeline.py: select recordings, optional inventory, intake
         v
 candidate_runner.py: one recording at a time
         |
-        +-- corrected_v1.py                         (corrected runner only)
-        +-- candidates_v1.py / candidates_corrected_v1.py  activity metrics
+        +-- corrected_frame_preprocessing.py        (corrected runner only)
+        +-- candidate_metrics_from_corrected_frames.py  normal activity metrics
+        +-- benchmarks/candidate_metrics_from_intake.py  direct-intake benchmark
         +-- movement_state.py                        movement and bouts
         +-- temporal_profiles.py                     event-aligned profiles
         +-- trial_outcomes.py                        one row per trial/outcome
@@ -113,8 +114,8 @@ For each recording, the runner performs the following stages in order:
 
 | Stage | Module | What it produces and why it exists |
 | --- | --- | --- |
-| Corrected preprocessing | `preprocessing/corrected_v1.py` | Only for `candidate-corrected-runner-v1`. Builds corrected frame-level input and validates frame/protocol alignment before metrics are calculated. |
-| Activity metrics | `preprocessing/candidates_v1.py` or `preprocessing/candidates_corrected_v1.py` | Produces the six exploratory whole-tail candidate metrics. The corrected implementation consumes corrected frames; the development implementation consumes intake artifacts directly. |
+| Corrected preprocessing | `preprocessing/corrected_frame_preprocessing.py` | Only for `candidate-corrected-runner-v1`. Builds corrected frame-level input and validates frame/protocol alignment before metrics are calculated. |
+| Activity metrics | `preprocessing/candidate_metrics_from_corrected_frames.py` or `preprocessing/benchmarks/candidate_metrics_from_intake.py` | Produces the six exploratory whole-tail candidate metrics. The corrected implementation consumes corrected frames; the development implementation consumes intake artifacts directly. |
 | Movement state and bouts | `analysis/movement_state.py` | Calibrates a movement indicator and applies the shared historical-envelope bout detector. It produces a frame-level movement/bout state artifact. |
 | Temporal profiles | `analysis/temporal_profiles.py` | Aligns metrics and movement state to CS/US protocol events, bins time, and writes event-aligned profiles. |
 | Per-trial outcomes | `analysis/trial_outcomes.py` | Collapses frames within prespecified windows into one outcome row per trial, including activity, movement, and bout outcomes. |
@@ -129,6 +130,126 @@ Each stage either reuses a compatible completed artifact or recomputes it when
 `overwrite` is true. After each stage the runner checks recipe ID, recording ID,
 hashes, completion marker, and upstream hash linkage. This prevents using
 stale downstream files after an upstream input changes.
+
+## The preprocessing folder: one metric implementation, two input routes
+
+`src/classical_conditioning/preprocessing/` contains four active files. It is
+easy to mistake their names for four alternative analyses, but the important
+division is this:
+
+```text
+intake camera/tracking/protocol Parquet
+        |
+        +-----------------------------------------------+
+        |                                               |
+        v                                               v
+benchmarks/candidate_metrics_from_intake.py   corrected_frame_preprocessing.py
+tail-candidate-development-v1                 corrected-preprocess-v1
+        |                                               |
+        |                                               v
+        |                                candidate_metrics_from_corrected_frames.py
+        |                                tail-candidate-corrected-v1
+        |                                               |
+        +------------------ same six metric columns ----+
+                                                        |
+                                                        v
+                                      movement, temporal, trial, cohort stages
+```
+
+### `corrected_frame_preprocessing.py`: corrected frame preparation
+
+This is not an activity-metric implementation. It builds the intermediate
+`frame_preprocessed_corrected-v1.parquet` artifact used by the normal corrected
+runner. Its frozen policy is intentionally conservative:
+
+* preserves measured camera timestamps rather than rebuilding a uniform
+  700 Hz timebase;
+* rejects duplicate or non-monotonic frame/timestamp order;
+* marks derivatives invalid across frame gaps or intervals longer than the
+  configured maximum rather than interpolating across them;
+* leaves temporal and spatial filtering disabled; and
+* subtracts the tail base for translation correction but applies no body
+  rotation without an independent body-axis measurement.
+
+It writes validity and timing fields alongside measured tracking coordinates,
+plus a summary and completion marker. Its purpose is to make data-quality and
+timebase decisions explicit before any metric is calculated.
+
+### `benchmarks/candidate_metrics_from_intake.py`: development benchmark
+
+This file has two roles.
+
+First, `calculate_candidate_metrics()` is the shared numerical implementation
+of the six frame-level metric columns:
+
+1. `segment_absolute_angular_speed_sum_rad_per_ms`;
+2. `all_segment_angular_rms_rad_per_ms`;
+3. `whole_tail_xy_rms_speed_px_per_ms`;
+4. `whole_tail_xy_mean_speed_px_per_ms`;
+5. `curvature_change_rms_rad_per_px_per_ms`; and
+6. `legacy_distal_angular_speed_rad_per_ms`, an active historical benchmark.
+
+It also contains geometry agreement checks, frame-order checks, coordinate
+extraction, weighting, and the immutable `CandidateMetricConfig`. Downstream
+movement, temporal, trial-outcome, and figure code imports the shared column
+list from here, so the six-column schema has one authoritative definition.
+
+Second, `build_candidate_activity_metrics()` is the writer for
+`tail-candidate-development-v1`. It reads authenticated intake camera and
+tracking Parquet directly and writes
+`frame_activity_candidates-v1.parquet`. This is an active development
+benchmark route. It is not the default corrected workflow, but it must remain
+available for controlled development-versus-corrected comparisons.
+
+### `candidate_metrics_from_corrected_frames.py`: corrected-source adapter
+
+This file does **not** define a second set of activity metrics. It imports the
+shared calculation and schema from `benchmarks/candidate_metrics_from_intake.py`, verifies the completed
+`corrected-preprocess-v1` artifact, runs the same calculation on its measured
+coordinates, and intersects the resulting derivative-valid mask with the
+corrected frame-validity mask. It then writes the separate,
+provenance-distinct `frame_activity_candidates-corrected-v1.parquet` artifact.
+
+The separate file and recipe are intentional. They prevent a metric table made
+from direct intake input from being mistaken for one made from corrected,
+gap-aware input. The copied streaming/output mechanics are a maintenance cost,
+but not a scientific duplicate: the data lineage and invalid-frame policy are
+different, while the formula is shared by import. The adapter test suite checks
+that this relationship remains true.
+
+### `__init__.py`: lazy public interface
+
+This file performs no preprocessing. It exposes the three builders and their
+result/config dataclasses through lazy imports, keeping package import cheap and
+avoiding loading concrete recipe modules until a caller needs one.
+
+### Which file should I use?
+
+| Your task | Use | Do not use |
+| --- | --- | --- |
+| Run the normal analysis | `run-pipeline` with its default `candidate-corrected-runner-v1` recipe. It calls the two corrected files in the right order. | Do not call preprocessing modules manually unless debugging a stage. |
+| Inspect or rerun corrected frame preparation | `corrected_frame_preprocessing.py` | Do not use the intake-metric module; it does not create corrected frames. |
+| Inspect or rerun normal corrected metrics after corrected frames exist | `candidate_metrics_from_corrected_frames.py` | Do not substitute the direct-intake module; it lacks the corrected validity lineage. |
+| Reproduce the active development benchmark for a controlled comparison | `benchmarks/candidate_metrics_from_intake.py` | Do not label its output as corrected or mix it with corrected downstream artifacts. |
+| Reproduce retired historical execution | None of these active files. Read `Archive/package/` only as source history. | Do not run archived code through the supported package. |
+
+### Are any versions redundant?
+
+No active file is safe to delete as a simple duplicate:
+
+| Apparent overlap | Actual distinction | Keep? |
+| --- | --- | --- |
+| `benchmarks/candidate_metrics_from_intake.py` vs `candidate_metrics_from_corrected_frames.py` | Same metric formula, but direct-intake versus corrected/gap-aware source lineage and distinct output/recipe identities. | Yes. |
+| `corrected_frame_preprocessing.py` vs either candidate file | Frame preparation and validity policy versus activity-metric calculation. | Yes. |
+| `__init__.py` vs concrete modules | Public lazy-import facade versus implementation. | Yes. |
+
+The main technical concern is coupling rather than scientific redundancy:
+`candidate_metrics_from_corrected_frames.py` imports several underscore-prefixed helpers from
+`benchmarks/candidate_metrics_from_intake.py`. A change to shared extraction, geometry, or metric code
+therefore affects both routes and should be accompanied by tests for both
+artifact families. If the two writers ever become burdensome to maintain, the
+safe refactor is to extract a clearly public shared streaming metric kernel—not
+to merge their recipes or discard their distinct provenance.
 
 ### 6. Cohort metric comparison
 
@@ -235,9 +356,10 @@ stage directories.
 | File | Called by `pipeline.py`? | Purpose and reason |
 | --- | --- | --- |
 | `__init__.py` | Import-time convenience only | Lazy exports for current corrected preprocessing and candidate metrics. |
-| `candidates_corrected_v1.py` | Transitively for corrected runner | Reads corrected frames, applies the corrected validity mask, and computes the corrected-family activity metrics. |
-| `candidates_v1.py` | Transitively | Defines the six candidate whole-tail metrics and computes the development-family metrics directly from intake artifacts. The corrected metrics module also reuses its metric definitions. |
-| `corrected_v1.py` | Transitively for corrected runner | Performs corrected frame preprocessing: derives geometry/protocol-aligned inputs, validates order/timing, and produces the artifact consumed by corrected metrics. |
+| `candidate_metrics_from_corrected_frames.py` | Transitively for corrected runner | Reads corrected frames, applies the corrected validity mask, and computes the corrected-family activity metrics. |
+| `benchmarks/__init__.py` | Import-time only | Identifies runnable direct-intake comparisons as active benchmarks rather than archived legacy code. |
+| `benchmarks/candidate_metrics_from_intake.py` | Transitively | Defines the six candidate whole-tail metrics and computes the development-family metrics directly from intake artifacts. The corrected metrics module also reuses its metric definitions. |
+| `corrected_frame_preprocessing.py` | Transitively for corrected runner | Performs corrected frame preprocessing: derives geometry/protocol-aligned inputs, validates order/timing, and produces the artifact consumed by corrected metrics. |
 
 ## Files intentionally outside the automatic pipeline
 
@@ -262,10 +384,10 @@ For a normal corrected candidate run, read these files in this order:
 
 1. `pipeline.py` — cohort selection and high-level control flow;
 2. `analysis/candidate_runner.py` — exact stage order and lineage checks;
-3. `preprocessing/corrected_v1.py` and
-   `preprocessing/candidates_corrected_v1.py` — corrected frame and metric
+3. `preprocessing/corrected_frame_preprocessing.py` and
+   `preprocessing/candidate_metrics_from_corrected_frames.py` — corrected frame and metric
    computation;
-4. `preprocessing/candidates_v1.py` — the shared six metric definitions;
+4. `preprocessing/benchmarks/candidate_metrics_from_intake.py` — the shared six metric definitions;
 5. `analysis/movement_state.py` — smoothing, calibration, and bout detection;
 6. `analysis/temporal_profiles.py` and `analysis/trial_outcomes.py` — event
    alignment and outcome aggregation;

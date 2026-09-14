@@ -30,7 +30,7 @@ from classical_conditioning.exceptions import (
     ArtifactIntegrityError,
     ArtifactNotFoundError,
 )
-from classical_conditioning.preprocessing.candidates_v1 import (
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
     CANDIDATE_COLUMNS,
     CandidateMetricConfig,
     CandidateMetricResult,
@@ -40,7 +40,7 @@ from classical_conditioning.preprocessing.candidates_v1 import (
     _validate_frame_order,
     calculate_candidate_metrics,
 )
-from classical_conditioning.preprocessing.corrected_v1 import (
+from classical_conditioning.preprocessing.corrected_frame_preprocessing import (
     ARTIFACT_NAME as CORRECTED_ARTIFACT_NAME,
     MARKER_SUFFIX as CORRECTED_MARKER_SUFFIX,
     RECIPE_ID as CORRECTED_RECIPE_ID,

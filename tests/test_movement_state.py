@@ -14,7 +14,7 @@ from classical_conditioning.analysis.movement_state import (
     rolling_extreme_envelope,
     smooth_contiguous_median,
 )
-from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
 
 
 def _detector_frame(rows: int, elapsed: np.ndarray | None = None) -> pd.DataFrame:

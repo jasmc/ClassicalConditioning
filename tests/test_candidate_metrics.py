@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from classical_conditioning.preprocessing.candidates_v1 import (
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
     CANDIDATE_COLUMNS,
     CandidateMetricConfig,
     _geometry_agreement,

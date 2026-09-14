@@ -36,7 +36,7 @@ from classical_conditioning.figures.theme import (
     stacked_subplots,
     style_axes,
 )
-from classical_conditioning.preprocessing.candidates_v1 import CANDIDATE_COLUMNS
+from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import CANDIDATE_COLUMNS
 
 
 @dataclass(frozen=True)

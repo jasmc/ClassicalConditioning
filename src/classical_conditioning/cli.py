@@ -10,6 +10,36 @@ from classical_conditioning.environment import ensure_supported_runtime
 from classical_conditioning.intake import intake_recording, intake_recordings
 
 
+def _preprocess_recipe(value: str) -> str:
+    """Resolve a user-facing preprocessing mode to its internal recipe ID."""
+    aliases = {
+        "corrected": "corrected-preprocess-v1",
+        "corrected-preprocess-v1": "corrected-preprocess-v1",
+    }
+    try:
+        return aliases[value.strip().lower()]
+    except KeyError as error:
+        raise argparse.ArgumentTypeError(
+            "preprocessing mode must be 'corrected'."
+        ) from error
+
+
+def _activity_metric_recipe(value: str) -> str:
+    """Resolve a user-facing metric source to its internal recipe ID."""
+    aliases = {
+        "development": "tail-candidate-development-v1",
+        "corrected": "tail-candidate-corrected-v1",
+        "tail-candidate-development-v1": "tail-candidate-development-v1",
+        "tail-candidate-corrected-v1": "tail-candidate-corrected-v1",
+    }
+    try:
+        return aliases[value.strip().lower()]
+    except KeyError as error:
+        raise argparse.ArgumentTypeError(
+            "metric source must be 'development' or 'corrected'."
+        ) from error
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="classical-conditioning")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -82,14 +112,16 @@ def build_parser() -> argparse.ArgumentParser:
 
     preprocess = subparsers.add_parser(
         "preprocess",
-        help="Run one versioned preprocessing recipe from intake Parquet.",
+        help="Prepare corrected frames from intake Parquet.",
     )
     preprocess.add_argument("--project-dir", type=Path, required=True)
     preprocess.add_argument("--recording-id", required=True)
     preprocess.add_argument(
         "--recipe",
-        choices=("corrected-preprocess-v1",),
+        type=_preprocess_recipe,
         default="corrected-preprocess-v1",
+        metavar="corrected",
+        help="Corrected frame preparation (the only supported preprocessing mode).",
     )
     preprocess.add_argument("--experiment", default="allDelay")
     preprocess.add_argument("--batch-size", type=int, default=250_000)
@@ -113,11 +145,13 @@ def build_parser() -> argparse.ArgumentParser:
     activity.add_argument("--recording-id", required=True)
     activity.add_argument(
         "--recipe",
-        choices=(
-            "tail-candidate-development-v1",
-            "tail-candidate-corrected-v1",
-        ),
+        type=_activity_metric_recipe,
         default="tail-candidate-development-v1",
+        metavar="{development,corrected}",
+        help=(
+            "Metric input lineage: corrected is the normal gap-aware route; "
+            "development reads intake artifacts directly for benchmarking."
+        ),
     )
     activity.add_argument("--batch-size", type=int, default=250_000)
     activity.add_argument("--overwrite", action="store_true")
@@ -744,7 +778,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "preprocess":
-        from classical_conditioning.preprocessing.corrected_v1 import (
+        from classical_conditioning.preprocessing.corrected_frame_preprocessing import (
             build_corrected_preprocessing,
         )
 
@@ -1199,7 +1233,7 @@ def main(argv: Sequence[str] | None = None) -> None:
 
     if args.command == "activity-metrics":
         if args.recipe == "tail-candidate-development-v1":
-            from classical_conditioning.preprocessing.candidates_v1 import (
+            from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
                 build_candidate_activity_metrics,
             )
 
@@ -1210,7 +1244,7 @@ def main(argv: Sequence[str] | None = None) -> None:
                 overwrite=args.overwrite,
             )
         elif args.recipe == "tail-candidate-corrected-v1":
-            from classical_conditioning.preprocessing.candidates_corrected_v1 import (
+            from classical_conditioning.preprocessing.candidate_metrics_from_corrected_frames import (
                 build_candidate_activity_metrics_from_corrected,
             )
 

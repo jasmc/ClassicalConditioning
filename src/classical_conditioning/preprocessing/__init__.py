@@ -23,19 +23,19 @@ def __getattr__(name: str) -> Any:
         "CandidateMetricResult",
         "build_candidate_activity_metrics",
     }:
-        from classical_conditioning.preprocessing import candidates_v1
+        from classical_conditioning.preprocessing.benchmarks import candidate_metrics_from_intake
 
-        return getattr(candidates_v1, name)
+        return getattr(candidate_metrics_from_intake, name)
     if name == "build_candidate_activity_metrics_from_corrected":
-        from classical_conditioning.preprocessing import candidates_corrected_v1
+        from classical_conditioning.preprocessing import candidate_metrics_from_corrected_frames
 
-        return getattr(candidates_corrected_v1, name)
+        return getattr(candidate_metrics_from_corrected_frames, name)
     if name in {
         "CorrectedPreprocessConfig",
         "CorrectedPreprocessResult",
         "build_corrected_preprocessing",
     }:
-        from classical_conditioning.preprocessing import corrected_v1
+        from classical_conditioning.preprocessing import corrected_frame_preprocessing
 
-        return getattr(corrected_v1, name)
+        return getattr(corrected_frame_preprocessing, name)
     raise AttributeError(name)

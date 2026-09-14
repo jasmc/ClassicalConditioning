@@ -126,8 +126,18 @@ calculate activity or decide a scientific exclusion cohort.
    pipeline stops. `continue_on_error` controls whether one failed recording
    aborts the run or is recorded as a per-fish failure in the summary.
 
-5. **Run the candidate analysis route.** The package supports one internally
-   versioned candidate path:
+5. **Run the candidate analysis route.** Start with the default corrected
+   route. It uses two source files in this order:
+
+   - `preprocessing/corrected_frame_preprocessing.py` prepares corrected,
+     measured-time, gap-aware frames.
+   - `preprocessing/candidate_metrics_from_corrected_frames.py` calculates the
+     six candidate metrics from those frames and inherits their validity mask.
+
+   `preprocessing/benchmarks/candidate_metrics_from_intake.py` is not the normal route.
+   It calculates the same six metrics directly from intake artifacts and exists
+   only as the active development benchmark for controlled comparison. Do not
+   mix its artifacts with corrected-route downstream artifacts.
 
    - The default `candidate-corrected-runner-v1` selects a frozen compatible
      recipe family:
