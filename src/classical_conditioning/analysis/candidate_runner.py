@@ -625,13 +625,13 @@ def run_candidate_development_pipeline(
                 overwrite=overwrite,
             )
         state = "completed"
-    lineage["cohort:four-metric-comparison"] = _verify_comparison(
+    lineage["cohort:three-metric-comparison"] = _verify_comparison(
         project_dir,
         analysis_id,
         tuple(successful),
         route,
     )
-    steps["cohort"] = {"four-metric-comparison": state}
+    steps["cohort"] = {"three-metric-comparison": state}
 
     write_json_atomic(
         manifest_path,

@@ -57,9 +57,8 @@ graph TD
         CPREP["Approved corrected preprocessing<br/>gaps + measured time + filtering + missingness"]:::planned
         TAIL["Shared tail representation<br/>angles + measured body-centered XY"]:::pilot
         M1["Tail-length-weighted<br/>angular L1"]:::pilot
-        M2["All-segment<br/>angular RMS"]:::pilot
-        M3["Tail-length-normalized<br/>XY mean speed"]:::pilot
-        M4["Legacy distal<br/>angular speed"]:::pilot
+        M2["Tail-length-normalized<br/>XY mean speed"]:::pilot
+        M3["Legacy distal<br/>angular speed"]:::pilot
         MOVE["Generic movement-state layer<br/>smoothing + calibration + hysteresis + bouts"]:::pilot
         SENS["Smoothing sensitivity<br/>and US positive controls"]:::pilot
         TRACE["Balanced trace review<br/>PNG + HTML + annotation CSV"]:::pilot
@@ -67,7 +66,7 @@ graph TD
     end
 
     subgraph OUTCOMES["Common outcomes and population analysis"]
-        OUTFN["Generic measured-time outcomes<br/>all four metrics"]:::pilot
+        OUTFN["Generic measured-time outcomes<br/>all three metrics"]:::pilot
         O1["Total activity"]:::pilot
         O2["Movement probability<br/>and fraction moving"]:::pilot
         O3["Conditional intensity"]:::pilot
@@ -76,7 +75,7 @@ graph TD
         SCALE["Corrected scaling and<br/>normalized outcomes"]:::planned
         MODEL["Fish-aware mixed-effects models<br/>contrasts + diagnostics + validation"]:::planned
         LEGSTAT["Frozen legacy statistics<br/>comparison route"]:::planned
-        COMPARE["Four-metric comparison report<br/>coverage + controls + effects + sensitivity"]:::planned
+        COMPARE["Three-metric comparison report<br/>coverage + controls + effects + sensitivity"]:::planned
     end
 
     subgraph DELIVER["Frozen deliverables"]
@@ -107,11 +106,7 @@ graph TD
     TAIL --> M1
     TAIL --> M2
     TAIL --> M3
-    TAIL --> M4
-    M1 --> MOVE
-    M2 --> MOVE
-    M3 --> MOVE
-    M4 --> MOVE
+    TAIL --> MOVE
     MOVE --> SENS
     MOVE --> TRACE
     SENS --> MANUAL
@@ -120,7 +115,6 @@ graph TD
     M1 --> OUTFN
     M2 --> OUTFN
     M3 --> OUTFN
-    M4 --> OUTFN
     MOVE --> OUTFN
     OUTFN --> O1
     OUTFN --> O2
@@ -156,7 +150,7 @@ graph TD
 ## Optional imaging and learner extensions
 
 These branches remain part of the complete architecture. They are not required
-to complete the current four-metric behavior comparison.
+to complete the current three-metric behavior comparison.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F6F6FA', 'primaryTextColor': '#2E2E38', 'primaryBorderColor': '#C4C4CD', 'lineColor': '#747480', 'secondaryColor': '#FFE600', 'tertiaryColor': '#4696FF', 'fontFamily': 'Arial, Noto Sans, sans-serif'}}}%%
@@ -289,9 +283,9 @@ priority is narrower:
 
 1. Implement the resumable multi-recording runner.
 2. Make the remaining local raw recording triplets available and inventory them.
-3. Run identical candidate stages for all four active metrics in every recording.
+3. Run identical candidate stages for all three active metrics in every recording.
 4. Freeze and compare primary, sensitivity, and legacy cohorts.
-5. Run identical fish-aware models for all four metrics.
+5. Run identical fish-aware models for all three metrics.
 6. Produce the comparison report and final PNG/SVG/PDF figures.
 7. Revisit learner methodology only after the behavior results are frozen.
 8. Implement the optional imaging branch later without changing behavior hashes.

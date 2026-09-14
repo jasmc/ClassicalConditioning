@@ -19,12 +19,13 @@ This step creates candidates; it does not select the paper metric.
 | --- | --- | --- |
 | `legacy_distal_angular_speed` | Absolute speed of current distal cumulative angle | deg/ms |
 | `tail_length_weighted_angular_l1` | Tail-length-weighted mean absolute segment angular speed | rad/ms |
-| `all_segment_angular_rms` | Tail-length-weighted RMS angular speed across segments | rad/ms |
 | `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean 2D point speed divided by recording median tail length | tail lengths/ms |
 
 These are the active scalar candidates. The unweighted manuscript-described
 segment sum is superseded by the weighted angular L1 metric because an
-unweighted sum depends on tracking-point number and spacing.
+unweighted sum depends on tracking-point number and spacing. Angular RMS is
+also superseded because it uses the same angular signal as L1 while emphasizing
+large local movements that are not part of the scientific objective.
 
 ## Representation branches
 
@@ -297,7 +298,6 @@ Second local fish `20221116_12` (2026-08-31):
 Implemented candidates:
 
 - tail-length-weighted angular L1 from measured segment orientations;
-- tail-length-weighted angular RMS;
 - tail-length-normalized whole-tail XY mean speed.
 
 Still required (implementation; fixtures debug only):
@@ -312,7 +312,7 @@ Still required (implementation; fixtures debug only):
 Progress (2026-08-31): `corrected-preprocess-v1` writes measured-time
 aligned frames with explicit validity/gap masks, base translation, and
 protocol timing diagnostics. Interpolation/filtering remain disabled by
-policy. `tail-candidate-corrected-v1` calculates the four-metric candidate set
+policy. `tail-candidate-corrected-v1` calculates the three-metric candidate set
 from that artifact and intersects corrected derivative masks; intake-sourced
 `tail-candidate-development-v1` is unchanged.
 

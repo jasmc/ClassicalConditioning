@@ -36,7 +36,6 @@ METRIC_IDS = {
     "tail_length_weighted_angular_l1_rad_per_ms": (
         "tail_length_weighted_angular_l1"
     ),
-    "all_segment_angular_rms_rad_per_ms": "all_segment_angular_rms",
     "whole_tail_xy_mean_speed_tail_lengths_per_ms": (
         "whole_tail_xy_mean_speed_normalized"
     ),

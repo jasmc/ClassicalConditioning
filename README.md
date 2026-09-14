@@ -94,7 +94,7 @@ Candidate cohort outputs use `{analysis_id}-candidate` unless overridden by
 optional inventory
   -> intake-batch (all matching triplets)
   -> [candidate route, default] candidate-runner
-         corrected-preprocess-v1 -> four activity metrics -> movement state
+         corrected-preprocess-v1 -> three activity metrics -> movement state
          -> temporal outcomes -> trial outcomes -> cohort comparison
   -> [optional] cohort metric-comparison figures
   -> Metadata/<analysis_id>_pipeline_run.json summary
@@ -140,7 +140,7 @@ calculate activity or decide a scientific exclusion cohort.
    policy.
 
    `preprocessing/benchmarks/candidate_metrics_from_intake.py` is not the normal route.
-   It calculates the same four metrics directly from intake artifacts and exists
+   It calculates the same three metrics directly from intake artifacts and exists
    only as the active development benchmark for controlled comparison. Do not
    mix its artifacts with corrected-route downstream artifacts.
 
@@ -149,7 +149,7 @@ calculate activity or decide a scientific exclusion cohort.
 
      ```text
      corrected preprocessing
-       -> four activity metrics
+       -> three activity metrics
        -> one shared movement/bout detector
        -> trial-aligned temporal profiles
        -> per-trial outcomes and coverage
@@ -248,11 +248,11 @@ graph TD
     PROF --> TRIAL["<b>candidate-trial-outcomes</b><br/>per-trial baseline vs response"]
     TRIAL --> COHORT["<b>cohort metric comparison</b><br/>standardized difference per fish"]
 
-    PROF --> FIG1["<b>FIG 1</b> total activity, raw<br/>4 rows = 4 metrics"]:::fig
-    PROF --> FIG2["<b>FIG 2</b> total activity, scaled<br/>4 rows = 4 metrics"]:::fig
-    PROF --> FIG3["<b>FIG 3</b> conditional intensity, raw<br/>4 rows = 4 metrics"]:::fig
+    PROF --> FIG1["<b>FIG 1</b> total activity, raw<br/>3 rows = 3 metrics"]:::fig
+    PROF --> FIG2["<b>FIG 2</b> total activity, scaled<br/>3 rows = 3 metrics"]:::fig
+    PROF --> FIG3["<b>FIG 3</b> conditional intensity, raw<br/>3 rows = 3 metrics"]:::fig
     PROF --> FIG4["<b>FIG 4</b> bout outcomes<br/>3 rows, metric-free"]:::fig
-    COHORT --> FIGC["<b>cohort comparison</b><br/>4 groups = 4 metrics"]:::fig
+    COHORT --> FIGC["<b>cohort comparison</b><br/>3 groups = 3 metrics"]:::fig
 
     classDef raw fill:#FFFFFF,stroke:#6E7480,stroke-width:1px,color:#22242A
     classDef key fill:#1F6FEB,stroke:#1A5FCC,stroke-width:1px,color:#FFFFFF
@@ -261,7 +261,7 @@ graph TD
 ```
 
 Note that metrics and the detector are **siblings**, not a chain: the detector
-does not consume the four metrics. It runs once on the distal cumulative-angle
+does not consume the three metrics. It runs once on the distal cumulative-angle
 speed — the signal the historical pipeline used — and every metric inherits its
 segmentation.
 
@@ -273,18 +273,19 @@ mismatched results.
 ### Active vigor metrics
 
 The current candidate recipe supersedes the earlier candidate set in place.
-It writes four frame-level metrics:
+It writes three frame-level metrics:
 
 | Metric | Calculation and role |
 | --- | --- |
 | `tail_length_weighted_angular_l1` | Tail-length-weighted mean absolute segment angular speed; reduces dependence on tracking-point spacing. |
-| `all_segment_angular_rms` | Tail-length-weighted RMS angular speed; emphasizes locally fast segment motion. |
 | `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean XY point speed divided by the recording-wide median tail arc length; units are tail lengths/ms rather than pixels/ms. |
 | `legacy_distal_angular_speed` | Absolute speed of the sum of local tail angles; retained as the historical benchmark. Opposing segment changes can cancel. |
 
 The unweighted `segment_absolute_angular_speed_sum` was replaced by the
 tail-length-weighted angular L1 metric because the sum depends on tracking-point
-number and spacing. `whole_tail_xy_rms_speed` was removed as a spike-sensitive
+number and spacing. `all_segment_angular_rms` was removed because it measures
+the same angular signal as L1 while disproportionately weighting vigorous local
+motion and tracking spikes. `whole_tail_xy_rms_speed` was removed as a spike-sensitive
 near-duplicate of XY mean speed. `curvature_change_rms` was removed because its
 unsmoothed derivative was noise-sensitive and failed the pilot US
 positive-control check. Existing candidate artifacts must be rebuilt with
@@ -341,7 +342,7 @@ Useful for debugging or partial reruns, in dependency order:
 | Command | Purpose |
 | --- | --- |
 | `preprocess --recipe corrected-preprocess-v1` | Measured-time frames and validity masks. |
-| `activity-metrics --recipe tail-candidate-corrected-v1` | The four per-frame metrics. |
+| `activity-metrics --recipe tail-candidate-corrected-v1` | The three per-frame metrics. |
 | `movement-state` | Threshold calibration and bout detection. |
 | `temporal-profiles` | Trial-aligned 0.5 s bins. |
 | `candidate-trial-outcomes` | Per-trial baseline and response. |
@@ -387,9 +388,9 @@ Four figures, selected with `--figure`:
 
 | `--figure` | Rows | Cell value |
 | --- | --- | --- |
-| `total-activity-raw` | 4 metrics | Mean metric per bin, native units |
-| `total-activity-scaled` | 4 metrics | Same, two-layer scaled to 0-1 |
-| `conditional-intensity-raw` | 4 metrics | Mean metric inside bouts, native units |
+| `total-activity-raw` | 3 metrics | Mean metric per bin, native units |
+| `total-activity-scaled` | 3 metrics | Same, two-layer scaled to 0-1 |
+| `conditional-intensity-raw` | 3 metrics | Mean metric inside bouts, native units |
 | `bout-outcomes` | 3 outcomes | Movement probability / fraction time moving / bout rate |
 
 ```powershell
@@ -438,9 +439,9 @@ Outputs go to `Figures/PNG/<recording-id>/` and
 
 What changes between figures is what a **row** means.
 
-### Figures 1-3: per-metric intensity (4 rows)
+### Figures 1-3: per-metric intensity (3 rows)
 
-Rows are the four metrics. These figures are legitimately per-metric, because
+Rows are the three metrics. These figures are legitimately per-metric, because
 each row is a genuinely different measurement of tail motion.
 
 | Figure | Cell value |
@@ -479,7 +480,7 @@ Rows are three different outcomes, all derived from the single shared detector:
 There is no metric dimension here. One detector produced one segmentation, so
 these three numbers are properties of the animal's behavior. They are written
 identically onto every metric row of the profile table, and the figure reads a
-single metric's rows to avoid drawing the same data four times.
+single metric's rows to avoid drawing the same data three times.
 
 ### Colour scaling
 
@@ -515,7 +516,7 @@ metric is paper-approved and no inferential claim is attached.
 
 - Package outputs are **exploratory** until scientific gates pass.
 - Legacy route preserves known old behavior for comparison.
-- Candidate route compares four metrics descriptively; no metric is
+- Candidate route compares three metrics descriptively; no metric is
   paper-approved. `legacy_distal_angular_speed` is a
   measured-time benchmark of the historical formula, not a reproduction of the
   historical pipeline.

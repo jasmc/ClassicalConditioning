@@ -54,7 +54,7 @@ was written.
 
 ### Issue 1 adds a required benchmark
 
-The four-metric candidate set (DECISIONS Gate T1) supersedes the manuscript
+The three-metric candidate set (DECISIONS Gate T1) supersedes the manuscript
 segment-speed sum with a tail-length-weighted angular L1 metric:
 
 ```text
@@ -64,14 +64,15 @@ tail_length_weighted_angular_l1
 The full candidate set contains:
 
 1. tail-length-weighted angular L1;
-2. all-segment angular RMS;
-3. tail-length-normalized whole-tail XY mean speed;
-4. legacy distal-point angular speed (historical benchmark on measured time).
+2. tail-length-normalized whole-tail XY mean speed;
+3. legacy distal-point angular speed (historical benchmark on measured time).
 
 The unweighted manuscript sum remains part of the historical reconciliation,
 but not an active candidate: it changes with the number and spacing of tracked
 tail segments, whereas the weighted L1 estimates the same absolute angular
 activity per unit tail length.
+All-segment angular RMS is also excluded because it is an L2 reweighting of the
+same angular-speed field and emphasizes vigorous local events unnecessarily.
 
 Gate T0 raw-angle semantics are decided (radians, local bends, pixels). Gate T1
 selection remains open.

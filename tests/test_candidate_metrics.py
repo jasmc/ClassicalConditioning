@@ -35,7 +35,6 @@ class CandidateMetricTests(unittest.TestCase):
             CANDIDATE_COLUMNS,
             (
                 "tail_length_weighted_angular_l1_rad_per_ms",
-                "all_segment_angular_rms_rad_per_ms",
                 "whole_tail_xy_mean_speed_tail_lengths_per_ms",
                 "legacy_distal_angular_speed_rad_per_ms",
             ),
@@ -43,6 +42,7 @@ class CandidateMetricTests(unittest.TestCase):
         self.assertEqual(set(METRIC_DEFINITIONS), set(CANDIDATE_COLUMNS))
         self.assertIn("whole_tail_xy_rms_speed_px_per_ms", SUPERSEDED_METRICS)
         self.assertIn("curvature_change_rms_rad_per_px_per_ms", SUPERSEDED_METRICS)
+        self.assertIn("all_segment_angular_rms_rad_per_ms", SUPERSEDED_METRICS)
 
     def test_stationary_tail_has_zero_activity_after_first_frame(self) -> None:
         result, _ = calculate_candidate_metrics(

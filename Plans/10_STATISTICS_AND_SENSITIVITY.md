@@ -74,7 +74,7 @@ first principles:
   Bayes, GEE/marginal GLM, functional/GAM curves, bout point-process, HMM
   occupancy, design-based / randomization inference, multivariate multi-metric,
   pure predictive evaluation);
-- choose one engineering default for shared four-metric plumbing and at least
+- choose one engineering default for shared three-metric plumbing and at least
   one alternative family strong enough to falsify a fragile LME story;
 - record rejection reasons and kill criteria before inspecting confirmatory
   fits on paper-scope data.

@@ -131,12 +131,9 @@ graph TD
     XYM["Measured body-centred XY"]
     XYR["Reconstructed XY<br/>only if validated"]
     METRIC{"Activity metrics"}
-    M1["Legacy distal speed"]
-    M2["Manuscript segment-speed sum"]
-    M3["All-point angular RMS"]
-    M4["Whole-tail XY RMS"]
-    M5["Whole-tail XY mean"]
-    M6["Curvature-change RMS"]
+    M1["Tail-length-weighted angular L1"]
+    M2["Tail-length-normalized XY mean"]
+    M3["Legacy distal speed"]
     DETECT{"Movement route"}
     D1["Legacy threshold"]
     D2["Calibrated threshold/hysteresis"]
@@ -176,15 +173,9 @@ graph TD
     METRIC --> M1
     METRIC --> M2
     METRIC --> M3
-    METRIC --> M4
-    METRIC --> M5
-    METRIC --> M6
     M1 --> DETECT
     M2 --> DETECT
     M3 --> DETECT
-    M4 --> DETECT
-    M5 --> DETECT
-    M6 --> DETECT
     DETECT --> D1
     DETECT --> D2
     DETECT --> D3

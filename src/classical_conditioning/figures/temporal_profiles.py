@@ -42,7 +42,6 @@ from classical_conditioning.figures.theme import (
 
 METRIC_LABELS = {
     "tail_length_weighted_angular_l1": "Tail-weighted angular L1 (rad/ms)",
-    "all_segment_angular_rms": "Segment angular RMS (rad/ms)",
     "whole_tail_xy_mean_speed_normalized": (
         "Whole-tail XY mean (tail lengths/ms)"
     ),
@@ -51,7 +50,6 @@ METRIC_LABELS = {
 
 METRIC_UNITS = {
     "tail_length_weighted_angular_l1": "rad/ms",
-    "all_segment_angular_rms": "rad/ms",
     "whole_tail_xy_mean_speed_normalized": "tail lengths/ms",
     "legacy_distal_angular_speed": "rad/ms",
 }

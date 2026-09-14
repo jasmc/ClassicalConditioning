@@ -52,7 +52,7 @@ template to “fix” into the corrected paper analysis.
 `DECISIONS.md` currently defaults the corrected primary analysis to:
 
 > mixed-effects with fish as random effect + holdout/CV sanity check,
-> applied identically to all four metrics in the candidate comparison.
+> applied identically to all three metrics in the candidate comparison.
 
 That is a **sensible engineering default**, not a settled scientific choice.
 Criticisms to confront before Gate S freeze:
@@ -61,7 +61,7 @@ Criticisms to confront before Gate S freeze:
    probability, bout counts, zero-inflated intensity, or skewed totals.
 2. **“Fish random intercept” alone** may be too thin for learning trajectories
    (trial slopes, block structure, day/rig batches).
-3. **Identical formulas across four metrics** aid fair comparison but can hide
+3. **Identical formulas across three metrics** aid fair comparison but can hide
    that some metrics need binomial/beta/Tweedie links.
 4. **Holdout/CV on N≈2 fixtures is meaningless**; validation design must wait for
    paper-scale N and must not reuse metric-selection observations (Step 10
@@ -160,7 +160,7 @@ Bayes/GEE/HMM/etc. until the workshop picks them.
 Until Gate S:
 
 1. Keep legacy statistics frozen and comparable.
-2. Run both routes identically across the four metrics.
+2. Run both routes identically across the three metrics.
 3. Treat two-fish fixture results as pipeline tests only (LME often singular;
    permutation p-values coarse).
 

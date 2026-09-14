@@ -24,7 +24,6 @@ from classical_conditioning.artifacts import (
 
 CANDIDATE_COLUMNS = (
     "tail_length_weighted_angular_l1_rad_per_ms",
-    "all_segment_angular_rms_rad_per_ms",
     "whole_tail_xy_mean_speed_tail_lengths_per_ms",
     "legacy_distal_angular_speed_rad_per_ms",
 )
@@ -34,10 +33,6 @@ METRIC_DEFINITIONS = {
         "Tail-length-weighted mean absolute segment angular speed; an L1 "
         "summary normalized by represented tail length and therefore less "
         "dependent on tracking-point spacing."
-    ),
-    "all_segment_angular_rms_rad_per_ms": (
-        "Tail-length-weighted root-mean-square segment angular speed; an L2 "
-        "summary that emphasizes locally fast segment motion."
     ),
     "whole_tail_xy_mean_speed_tail_lengths_per_ms": (
         "Tail-length-weighted mean body-translated XY point speed divided by "
@@ -54,6 +49,11 @@ SUPERSEDED_METRICS = {
     "segment_absolute_angular_speed_sum_rad_per_ms": (
         "Replaced by tail-length-weighted angular L1 because the unweighted "
         "sum depends on tracking-point number and spacing."
+    ),
+    "all_segment_angular_rms_rad_per_ms": (
+        "Removed as redundant with tail-length-weighted angular L1 for the "
+        "current scientific question and unnecessarily sensitive to vigorous "
+        "local motion and tracking spikes."
     ),
     "whole_tail_xy_rms_speed_px_per_ms": (
         "Removed as redundant with normalized XY mean and more sensitive to "
@@ -179,19 +179,6 @@ def _weighted_mean(
         where=(valid_weight > 0) & (fraction >= minimum_fraction),
     )
     return result, fraction
-
-
-def _weighted_rms(
-    values: np.ndarray,
-    weights: np.ndarray,
-    minimum_fraction: float,
-) -> tuple[np.ndarray, np.ndarray]:
-    mean_square, fraction = _weighted_mean(
-        np.square(values),
-        weights,
-        minimum_fraction,
-    )
-    return np.sqrt(mean_square), fraction
 
 
 def reference_tail_length_px(
@@ -361,11 +348,6 @@ def calculate_candidate_metrics(
         segment_weights,
         config.minimum_valid_tail_fraction,
     )
-    angular_rms, angular_valid_fraction = _weighted_rms(
-        angular_speed,
-        segment_weights,
-        config.minimum_valid_tail_fraction,
-    )
     # Legacy benchmark: speed of the summed local angles at the tail tip.
     # theta = sum of local angles along the tail across all points.
     current_distal_cumulative = np.sum(local_angles, axis=1)
@@ -387,7 +369,6 @@ def calculate_candidate_metrics(
     for values in (
         xy_mean,
         angular_l1,
-        angular_rms,
         legacy_distal_speed,
     ):
         values[~derivative_valid] = np.nan
@@ -405,9 +386,8 @@ def calculate_candidate_metrics(
                 len(frame_ids), reference_tail_length, dtype=np.float64
             ),
             CANDIDATE_COLUMNS[0]: angular_l1,
-            CANDIDATE_COLUMNS[1]: angular_rms,
-            CANDIDATE_COLUMNS[2]: xy_mean,
-            CANDIDATE_COLUMNS[3]: legacy_distal_speed,
+            CANDIDATE_COLUMNS[1]: xy_mean,
+            CANDIDATE_COLUMNS[2]: legacy_distal_speed,
         }
     )
     state: dict[str, np.ndarray | float | int] = {

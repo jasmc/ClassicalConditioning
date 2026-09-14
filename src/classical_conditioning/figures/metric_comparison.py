@@ -35,7 +35,6 @@ from classical_conditioning.figures.theme import (
 
 SHORT_METRIC_LABELS = {
     "tail_length_weighted_angular_l1": "Angular L1",
-    "all_segment_angular_rms": "Angular RMS",
     "whole_tail_xy_mean_speed_normalized": "Normalized XY mean",
     "legacy_distal_angular_speed": "Legacy distal speed",
 }

@@ -353,7 +353,7 @@ def build_candidate_mixed_effects(
                 "confirmatory": False,
                 "reason": (
                     "Engineering default fish-grouped LME for pipeline tests and "
-                    "four-metric plumbing. Gate S and the statistics workshop must "
+                    "three-metric plumbing. Gate S and the statistics workshop must "
                     "approve any confirmatory claim."
                 ),
             },

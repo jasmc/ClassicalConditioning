@@ -71,7 +71,7 @@ The orchestration is implemented in [pipeline.py](../../src/classical_conditioni
 | 4 | Detect bouts once from the retained legacy distal benchmark | [movement_state.py](../../src/classical_conditioning/analysis/movement_state.py) | shared movement-state Parquet |
 | 5 | Align each CS/US event and aggregate into 0.5 s temporal bins | [temporal_profiles.py](../../src/classical_conditioning/analysis/temporal_profiles.py) | `candidate_temporal_outcomes-v2.parquet` |
 | 6 | Produce trial-level outcomes and coverage | [trial_outcomes.py](../../src/classical_conditioning/analysis/trial_outcomes.py) | candidate trial outcome and coverage Parquet files |
-| 7 | Combine recordings and compare all four metrics | [metric_comparison.py](../../src/classical_conditioning/analysis/metric_comparison.py) | `Processed data/Analyses/<analysis-id>/...recording_summary.parquet`, `...cohort_summary.parquet` |
+| 7 | Combine recordings and compare all three metrics | [metric_comparison.py](../../src/classical_conditioning/analysis/metric_comparison.py) | `Processed data/Analyses/<analysis-id>/...recording_summary.parquet`, `...cohort_summary.parquet` |
 | 8 | Render figures from immutable saved tables | [figures/temporal_profiles.py](../../src/classical_conditioning/figures/temporal_profiles.py), [figures/metric_comparison.py](../../src/classical_conditioning/figures/metric_comparison.py) | `Figures/PNG/...` or `Figures/Publication/...` plus `.figure.json` |
 | 9 | Write run-level audit record | [pipeline.py](../../src/classical_conditioning/pipeline.py) | `Metadata/<analysis-id>_pipeline_run.json` |
 
@@ -83,7 +83,7 @@ candidate frame metrics
   -> movement state and bouts
   -> temporal profiles
   -> trial outcomes
-  -> four-metric cohort comparison
+  -> three-metric cohort comparison
   -> optional figures
 ```
 
@@ -112,12 +112,12 @@ The detailed historical execution notes are in
 different implementations, not interchangeable stages; no one is currently
 declared canonical.
 
-## 2. What the four-row candidate heatmap represents
+## 2. What the three-row candidate heatmap represents
 
 ### The short answer
 
-It is a **matrix of one outcome measured using four alternative definitions of
-activity**. The large title names the outcome. The four subplot titles name the
+It is a **matrix of one outcome measured using three alternative definitions of
+activity**. The large title names the outcome. The three subplot titles name the
 activity metric used to report the outcome. Bout-derived outcomes share one
 detector based on the legacy distal signal.
 
@@ -129,7 +129,7 @@ For example, a figure titled **movement probability** means:
 It does **not** mean that each row has its own bout detector. Bout-derived
 values repeat across metric slices; activity intensity remains metric-specific.
 
-### The four rows
+### The three rows
 
 The row labels are defined in `METRIC_LABELS` in
 [figures/temporal_profiles.py](../../src/classical_conditioning/figures/temporal_profiles.py):
@@ -137,13 +137,12 @@ The row labels are defined in `METRIC_LABELS` in
 | Row | Internal metric ID | Signal and units | What “moving” means for this row |
 | --- | --- | --- | --- |
 | A | `tail_length_weighted_angular_l1` | Tail-length-weighted mean absolute segment angular speed, `rad/ms` | Metric-specific intensity; bouts come from the shared legacy detector |
-| B | `all_segment_angular_rms` | Tail-length-weighted RMS angular speed, `rad/ms` | Metric-specific intensity; bouts come from the shared legacy detector |
 | C | `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean 2-D point speed, `tail lengths/ms` | Metric-specific intensity; bouts come from the shared legacy detector |
 | D | `legacy_distal_angular_speed` | Absolute speed of the summed local tail angles, `rad/ms` | Also supplies the shared bout detector input |
 
 The frame-level formulas are computed in
 [preprocessing/benchmarks/candidate_metrics_from_intake.py](../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py).
-The four signals are intentionally exploratory and are carried through the
+The three signals are intentionally exploratory and are carried through the
 same downstream pipeline so their behavior can be compared. The repository
 decision is explicitly **not** to choose one metric before that comparison;
 see [DECISIONS.md](../../Plans/DECISIONS.md).
@@ -239,7 +238,7 @@ probability outcome.
 
 `run_sv_heatmap_rendering()` renders `SV heatmap` values. Those values are
 legacy scaled-vigor values, not movement probability, bout rate, or any of the
-four candidate metric rows. The legacy heatmap normalization is made in
+three candidate metric rows. The legacy heatmap normalization is made in
 `run_build_pooled_outputs()` and reproduced in
 [analysis/legacy_scaled_vigor.py](../../src/classical_conditioning/analysis/legacy_scaled_vigor.py):
 
@@ -252,7 +251,7 @@ exact-time median scaled vigor
 ```
 
 The stacked rows in that legacy figure are experimental blocks/phases, not the
-four candidate metrics. The current candidate figure instead has four metric
+three candidate metrics. The current candidate figure instead has three metric
 rows and uses the large title to select the outcome column.
 
 ## 6. Scientific interpretation and current caveats

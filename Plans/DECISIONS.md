@@ -19,10 +19,10 @@ into the individual step plans beyond a short pointer.
 | --- | --- |
 | G0 (scope) | Same core claim and same fish/experiments as the original paper. No scope expansion. |
 | T0 (raw tracking semantics) | Raw `angleN` columns are **radians**. Legacy analysis converts them to degrees with `* (180/pi)` before vigor (`data_io.read_tail_tracking_data`, legacy `my_functions`). Candidate metrics keep radians. `angle1..angle14` behave as local intersegment bends (agree with XY-derived segment orientation changes on the pilot); `angle15` is a terminal placeholder. Measured `xN`/`yN` are present and treated as **tracking-image pixels**; absolute µm calibration is **not required** for relative activity metrics. Confidence and independent body-axis fields are absent. Synchronized video remains optional/deferred for blinded validation only. |
-| T1 (activity metric) | Do **not** freeze a single metric yet. **Four metrics run** through the candidate pipeline generically: tail-length-weighted angular L1, all-segment angular RMS, tail-length-normalized whole-tail XY mean speed, and the legacy-derived distal cumulative-angle-speed benchmark on measured time. The legacy metric is a historical benchmark, not itself a selection winner. The unweighted manuscript segment-speed sum, whole-tail XY RMS, and curvature-change RMS are superseded because they are respectively sampling-density-dependent or redundant/spike-sensitive alternatives. |
+| T1 (activity metric) | Do **not** freeze a single metric yet. **Three metrics run** through the candidate pipeline generically: tail-length-weighted angular L1, tail-length-normalized whole-tail XY mean speed, and the legacy-derived distal cumulative-angle-speed benchmark on measured time. The legacy metric is a historical benchmark, not itself a selection winner. The unweighted manuscript segment-speed sum, all-segment angular RMS, whole-tail XY RMS, and curvature-change RMS are superseded because they are respectively sampling-density-dependent, unnecessarily peak-weighted, or redundant/noise-sensitive alternatives. |
 | C0 (cohort inclusion) | **Deferred.** For now, do not discard any fish based on per-block trial-count completeness. Only basic technical QC (raw data present, passes acquisition integrity checks) gates inclusion. The legacy rule used OR logic across blocks (a fish is kept if it clears the minimum trial count in *any one* required block, not *every* required block) — this is a known bug, not a design choice. The fix (require every block) will be evaluated later at Step 08 with real cohort numbers in front of the user, comparing cohort size/composition under both rules before deciding. |
-| S (statistics) | **Engineering default (revisable in Step 10.0):** corrected primary analysis uses a simple mixed-effects model with fish as a random effect, plus a holdout/cross-validation sanity check, implemented once and applied identically to all four metrics in the candidate comparison. **Before Gate S freeze**, run the statistics-methodology workshop ([STATISTICS_METHODOLOGY_WORKSHOP.md](./STATISTICS_METHODOLOGY_WORKSHOP.md); Step 10.0): criticize legacy Mann-Whitney/per-trial LME/ratio/bootstrap practice **and** the default LME itself, and consider drastically different families (fish permutation, Bayes, GEE, functional/GAM, bout point-process, HMM, design-based, multivariate, predictive). The legacy statistical route remains frozen as `legacy-paper-v1` reproduction only — not extended or “fixed.” |
-| L (learner classification) | **Deferred, not required for the metric comparison.** No learner classification work is needed to compare the four-metric candidate set or report the population-level conditioning effect. When revisited, it folds into the existing post-refactor workshop (see [11_LEARNER_CLASSIFICATION.md](./11_LEARNER_CLASSIFICATION.md) Work Package 11.0), which now also includes brainstorming alternatives to and criticism of the original single-fish learner classification approach (not just PCA/power as candidate tools, but questioning the approach itself). |
+| S (statistics) | **Engineering default (revisable in Step 10.0):** corrected primary analysis uses a simple mixed-effects model with fish as a random effect, plus a holdout/cross-validation sanity check, implemented once and applied identically to all three metrics in the candidate comparison. **Before Gate S freeze**, run the statistics-methodology workshop ([STATISTICS_METHODOLOGY_WORKSHOP.md](./STATISTICS_METHODOLOGY_WORKSHOP.md); Step 10.0): criticize legacy Mann-Whitney/per-trial LME/ratio/bootstrap practice **and** the default LME itself, and consider drastically different families (fish permutation, Bayes, GEE, functional/GAM, bout point-process, HMM, design-based, multivariate, predictive). The legacy statistical route remains frozen as `legacy-paper-v1` reproduction only — not extended or “fixed.” |
+| L (learner classification) | **Deferred, not required for the metric comparison.** No learner classification work is needed to compare the three-metric candidate set or report the population-level conditioning effect. When revisited, it folds into the existing post-refactor workshop (see [11_LEARNER_CLASSIFICATION.md](./11_LEARNER_CLASSIFICATION.md) Work Package 11.0), which now also includes brainstorming alternatives to and criticism of the original single-fish learner classification approach (not just PCA/power as candidate tools, but questioning the approach itself). |
 | F (figures) | Only two figure modes are actively maintained going forward: static PNG and publication SVG/PDF. Interactive local HTML figures are frozen as-is (already implemented, not broken, not deleted) but receive no further investment. |
 
 ### Addendum (2026-08-31) — historical pickle timebase
@@ -52,13 +52,13 @@ result is (fixture-scoped Steps 03–05 are already complete; see
 
 1. Finish Step 01/02 open exits that still matter for the priority lane
    (Step 00 numerical baseline; deferred schema/logical-hash work stays deferred).
-2. Step 06/07 (corrected preprocessing + the four-metric candidate set) —
-   keep the pipeline generic so all four run the same way; local fish are
+2. Step 06/07 (corrected preprocessing + the three-metric candidate set) —
+   keep the pipeline generic so all three run the same way; local fish are
    debug fixtures, not selection/confirmation cohorts. Gate P and Gate T1
    remain open.
 3. Step 08 (cohort assembly) — revisit Gate C0 per-block inclusion with
    real paper-scale numbers when available.
-4. Step 09/10 (outcomes + statistics) — run identically across the four-metric
+4. Step 09/10 (outcomes + statistics) — run identically across the three-metric
    set; freeze Gate S after the workshop record is decided.
 5. Step 12 (PNG + publication figures only; interactive HTML frozen) for the
    comparison and final results.
@@ -74,4 +74,4 @@ two recordings were available.
 Step 00 governance evidence remains required before final paper-authoritative
 claims and release. It is not required to block every engineering increment.
 Step 11 learner classification remains fully preserved but deferred until the
-non-learner analysis and four-metric comparison are complete.
+non-learner analysis and three-metric comparison are complete.

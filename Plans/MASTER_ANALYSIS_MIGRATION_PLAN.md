@@ -353,7 +353,6 @@ Different quantities receive different IDs:
 ```text
 legacy_distal_angular_speed
 tail_length_weighted_angular_l1
-all_point_angular_rms
 whole_tail_xy_mean_speed
 ```
 

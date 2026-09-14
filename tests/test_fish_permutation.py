@@ -18,7 +18,7 @@ def _synthetic_outcomes(n_fish: int = 3, n_trials: int = 8) -> pd.DataFrame:
     rows = []
     metrics = [
         "tail_length_weighted_angular_l1",
-        "all_segment_angular_rms",
+        "whole_tail_xy_mean_speed_normalized",
     ]
     for fish_index in range(n_fish):
         fish_id = f"fish-{fish_index}"

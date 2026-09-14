@@ -2,20 +2,17 @@
 
 ## Purpose
 
-Compare the four-metric candidate set defined in
+Compare the three-metric candidate set defined in
 [DECISIONS.md](./DECISIONS.md) Gate T1 and select (only after Gate T1) the
 measure that best captures learning-related decreases in movement:
 
-1. Manuscript segment absolute angular-speed sum
-2. All-segment angular RMS
-3. Whole-tail XY RMS speed
-4. Whole-tail XY mean speed
-5. Curvature-change RMS
-6. Legacy distal cumulative-angle speed benchmark (historical; not a selection winner)
+1. Tail-length-weighted angular L1
+2. Tail-length-normalized whole-tail XY mean speed
+3. Legacy distal cumulative-angle speed benchmark (historical; not a selection winner)
 
-The five manuscript/tail-dynamics candidates use equal tail-length weighting
-where applicable. The sixth metric is a measured-time historical benchmark of
-the old distal-point formula. No metric is frozen as primary before Gate T1.
+The two modern candidates use tail-length weighting. The third metric is a
+measured-time historical benchmark of the old distal-point formula. No metric
+is frozen as primary before Gate T1.
 
 Learner stratification of these metrics is deferred to Gate L / Step 11; see
 [LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md](./LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md).
@@ -75,7 +72,7 @@ This makes the metrics less sensitive to the number or spacing of tracked points
 ```mermaid
 graph TD
     A[Audit raw tail data and tracking quality] --> B[Create common body-centred tail representation]
-    B --> C[Calculate four-metric candidate set]
+    B --> C[Calculate three-metric candidate set]
     C --> D[Separate total activity, movement probability, and conditional intensity]
     D --> E[Validate technically and against video]
     E --> F[Create CS-aligned phase plots and statistical comparisons]
@@ -114,7 +111,7 @@ A data-audit record describing the selected representation, scale, available qua
 
 ## Phase 2 — Create a common tail representation
 
-All four metrics must use the same cleaned input so that differences are caused by the metric, not by different preprocessing.
+All three metrics must use the same cleaned input so that differences are caused by the metric, not by different preprocessing.
 
 ### Body-centred coordinates
 
@@ -141,7 +138,7 @@ Use consistent light temporal smoothing before velocity calculations and light s
 Perform a sensitivity analysis across several reasonable smoothing strengths.
 
 Pilot status: temporal detector smoothing has been evaluated locally at 0, 10,
-and 20 ms for all four candidate activity metrics, with thresholds
+and 20 ms for all three candidate activity metrics, with thresholds
 recalibrated independently for each variant. Movement fraction, bout count, and
 US positive-control contrast change materially across settings, so no smoothing
 strength is selected. This single-fish result must be replicated and combined
@@ -155,9 +152,9 @@ Express reconstructed distances relative to total tail length or body length so 
 
 A validated body-centred tail array containing point locations, orientations, validity flags, and tail-length weights for every usable frame.
 
-## Phase 3 — Calculate the four-metric candidate set
+## Phase 3 — Calculate the three-metric candidate set
 
-Calculate all four metrics in parallel and retain the current distal-point vigor
+Calculate all three metrics in parallel and retain the current distal-point vigor
 as the historical benchmark identity where needed.
 
 For each frame, store:
@@ -273,7 +270,7 @@ Repeat analyses after changing:
 
 ### Deliverable
 
-A validation scorecard for all four metrics.
+A validation scorecard for all three metrics.
 
 ## Phase 6 — CS-aligned phase plots
 
@@ -535,7 +532,7 @@ After selecting a candidate:
 
 1. Audit data and tracking quality.
 2. Create the common body-centred representation.
-3. Calculate the four-metric candidate set.
+3. Calculate the three-metric candidate set.
 4. Calculate total activity, movement probability, and conditional intensity.
 5. Validate against synthetic patterns and video.
 6. Create CS-aligned phase plots.
@@ -559,10 +556,7 @@ The likely outcome is not necessarily one universal replacement. A scientificall
 - Conditional intensity to distinguish weaker bouts from fewer bouts
 - PCA, power, and traveling-wave features to explain changes in coordination and movement type
 
-Strong exploratory candidates for the primary scalar include whole-tail 2D RMS
-velocity and mean whole-tail 2D speed, but no metric is primary before Gate T1.
-RMS should be more sensitive to strong movement peaks; the mean should be more
-robust and representative of typical tail movement. Curvature-change rate may
-be the most sensitive to active bending, while all-point angular RMS is the
-easiest low-risk replacement. The manuscript segment-speed sum remains a
-required comparison identity.
+The active modern candidates are tail-length-weighted angular L1 and normalized
+mean whole-tail 2D speed, but no metric is primary before Gate T1. Both target
+typical movement rather than emphasizing strong peaks. The legacy distal metric
+remains the historical comparison identity.
