@@ -1,13 +1,16 @@
-# Step 12 — Figure System, CLI, and Notebook Workflows
+# Figures and Reproducible Reporting
 
 **Status:** In progress  
 **Done:** Candidate PNG; interactive HTML implemented and frozen (Gate F); semantic SVG/PDF pilots.  
 **Open:** Publication theme/dimensions; remaining panels; visual regression; notebooks; Gate F freeze of final dims.  
 **Change class:** Behavior-preserving rendering first; presentation changes separately  
-**Depends on:** Step 02 and each scientific stage whose output is exposed  
+**Depends on:** Implemented artifact-integrity contract and each scientific
+stage whose output is exposed; deferred semantic provenance only for
+release-grade figure identity
 **Unlocks:** Practical researcher use and reproducible paper builds  
 **Absorbed detail:** Historical figure workstreams archived in
-[Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md](./Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md).
+[the archived scientific figure plan](../Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md)
+and [paper-figure automation source plan](../Archive/PAPER_FIGURE_AUTOMATION_PLAN.md).
 
 ## Objective
 
@@ -236,6 +239,106 @@ The numbered scripts progressively become thin wrappers that:
 - call one package stage;
 - preserve familiar legacy outputs during transition;
 - do not duplicate scientific functions.
+
+## Part F — Paper figure registry and build
+
+The paper-specific automation plan is merged here so infrastructure and paper
+panels cannot drift into separate active plans. The cloned paper plan is input,
+not authority. Use this precedence:
+
+1. frozen paper release manifest;
+2. executable figure registry;
+3. approved paper figure/supplement order;
+4. candidate prose and milestone notes.
+
+Create one versioned registry, initially
+`configs/paper-figures/behavior-paper-v1.json`. Every panel declares its paper,
+figure, panel, renderer and panel-data recipe; exact input artifact IDs; cohort
+ID and hash; ordered conditions; fish/trial selectors; metric, shared detector,
+outcome and alignment; named windows; aggregation order; uncertainty method and
+seed; statistical result IDs; display transform; coverage rule; axes,
+annotations and dimensions; and required output modes.
+
+Scientific fields resolve to named, versioned recipes. Figure configuration may
+change display-only fields but cannot silently change cohorts, exclusions,
+windows, aggregation, detector, statistics, or learner definitions.
+
+### Planned main figures
+
+| Figure | Purpose | Gate |
+| --- | --- | --- |
+| 1 | Experimental setup, protocol, metric definition, and representative fish | Approved source artwork and representative-recording rule |
+| 2 | Population evidence for delay and trace conditioning | Frozen cohort, outcomes, and population inference |
+| 3 | Learner representation, uncertainty, heterogeneity, and validation | Active learner-plan exit gate |
+| 4 | Conditioned-response dynamics and timing | Independent timing definitions and non-circular analysis |
+
+Figure 3 is required because learner analysis is important to the paper. Its
+final grammar depends on the learner decision: continuous/probabilistic outputs
+must be supported even if a hard categorical threshold is rejected.
+
+Supplementary families cover US validation, detailed protocol/baseline,
+no-optovin control, paired/unpaired US alignment, coverage and heatmap QC,
+individual trajectories, timing/catch-trial extensions, and visual-CS cohort
+sensitivity. Their exact numbering remains provisional until the registry is
+approved.
+
+### Panel-data and rendering boundary
+
+```text
+analysis artifacts + cohort/model/classifier manifests
+    -> resolved paper figure specification
+    -> versioned panel-data builders (Parquet + JSON)
+    -> reusable display-only renderers
+    -> major-figure composer
+    -> review PNG + publication SVG/PDF + sidecar
+    -> structural QC + visual regression + release manifest
+```
+
+Statistics and classification are loaded from approved result artifacts, never
+recomputed by renderers. A scientist must be able to inspect every plotted
+number without reverse-engineering a Matplotlib object.
+
+### Commands
+
+```text
+classical-conditioning paper-figures plan --spec ...
+classical-conditioning paper-figures explain --spec ... --panel ...
+classical-conditioning paper-figures build --spec ... [--figure ...]
+classical-conditioning paper-figures validate --spec ...
+classical-conditioning paper-figures manifest --spec ...
+```
+
+`plan` and `explain` are read-only. `build` targets a paper, figure, or panel.
+`validate` checks scientific inputs, structure, labels, dimensions, provenance,
+and visual baselines. `manifest` freezes the complete figure release. Syncing
+publication PDFs to the paper repository is a separate explicit action.
+
+### Implementation sequence
+
+1. Freeze paper scope, figure naming, primary metric/outcomes, detector,
+   cohorts, windows, and biological replicate.
+2. Implement the typed registry, validation, `plan`, and `explain`.
+3. Build reusable panel-data builders: temporal heatmap and coverage,
+   fish-level trajectory, paired phase change, condition/model estimate, raw
+   trace, protocol timeline, learner diagnostics, and timing estimates.
+4. Build Figure 2 first as the population-analysis vertical slice.
+5. Build Figure 1 and the first supplementary assay/QC figures.
+6. Build Figure 3 from the approved learner artifacts and Figure 4 from
+   independently specified timing artifacts.
+7. Validate from a clean analysis commit, freeze the release manifest, sync
+   outputs explicitly, and compile the paper.
+
+### Known blockers
+
+- Short-trace protocol identity and labels require reconciliation.
+- The 10-s trace, no-optovin, and red-CS-only cohorts need explicit package
+  specifications or versioned cohort definitions.
+- Catch-trial and expected-US identities must be emitted by canonical outcome
+  artifacts.
+- Learner representation and validation are governed by the active learner
+  plan, not inferred inside figures.
+- Manual setup/tracking assets need an approved source and versioned location.
+- Final publication dimensions, fonts, and visual baselines remain open.
 
 ## Required tests
 

@@ -1,9 +1,9 @@
 # Codebase Migration Plan
 
 > **Archived 2026-09-08.** This detailed strangler plan is historical. Living
-> authorities are [MASTER_ANALYSIS_MIGRATION_PLAN.md](../MASTER_ANALYSIS_MIGRATION_PLAN.md)
+> authorities are [MASTER_ANALYSIS_MIGRATION_PLAN.md](./MASTER_ANALYSIS_MIGRATION_PLAN.md)
 > (§3.3 migration method) and
-> [REPOSITORY_MIGRATION_MAP.md](../REPOSITORY_MIGRATION_MAP.md) (file layout and
+> [REPOSITORY_MIGRATION_MAP.md](./REPOSITORY_MIGRATION_MAP.md) (file layout and
 > moves). Lane-1 script-side corrections are retired; package-first wins.
 > Do not treat this file as an active implementation queue.
 

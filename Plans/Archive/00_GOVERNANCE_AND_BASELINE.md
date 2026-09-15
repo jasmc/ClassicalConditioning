@@ -1,9 +1,14 @@
 # Step 00 — Governance, Paper Scope, and Baseline Freeze
 
-**Status:** Not started  
+**Status:** Archived by user request on 2026-09-15 — incomplete; exit gate not passed
 **Change class:** Observation only; no analytical change  
 **Depends on:** None  
 **Unlocks:** Every later step
+
+> **Archive note:** This plan was moved to the archive at the user's direction
+> before its deliverables were created. It is retained as historical scope, not
+> evidence that governance, configuration freezing, or output fingerprinting
+> was completed.
 
 ## Objective
 

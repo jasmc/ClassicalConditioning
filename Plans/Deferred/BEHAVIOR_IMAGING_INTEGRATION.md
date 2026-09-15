@@ -15,11 +15,11 @@ canonical behavior identities
 This plan defines a later, parallel implementation track for experiments that
 contain both behavior and imaging. It extends, but does not replace:
 
-- [the master analysis migration plan](./MASTER_ANALYSIS_MIGRATION_PLAN.md);
-- [the final analysis architecture](./ANALYSIS_ARCHITECTURE.md);
-- [the artifact and provenance plan](./02_ARTIFACTS_SCHEMAS_AND_PROVENANCE.md);
-- [the domain and configuration plan](./Archive/03_DOMAIN_AND_CONFIGURATION.md);
-- [the ingestion and validation plan](./Archive/04_INGESTION_AND_RAW_VALIDATION.md).
+- [the archived master analysis migration plan](../Archive/MASTER_ANALYSIS_MIGRATION_PLAN.md);
+- [the analysis architecture](../../docs/analysis/ARCHITECTURE.md);
+- [the semantic artifact and provenance plan](./SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md);
+- [the domain and configuration plan](../Archive/03_DOMAIN_AND_CONFIGURATION.md);
+- [the ingestion and validation plan](../Archive/04_INGESTION_AND_RAW_VALIDATION.md).
 
 The behavior-only pipeline remains authoritative for behavior. Imaging
 availability must never select a different behavior formula, preprocessing
@@ -28,7 +28,7 @@ path, movement detector, outcome definition, cohort rule, or learner method.
 The source imaging implementation is in the sibling `analysis_learning`
 repository. It is evidence for the intended workflow, not a specification to
 copy literally. Its risks and migration disposition are recorded in
-[the imaging pipeline critique](../docs/analysis/IMAGING_PIPELINE_CRITIQUE.md).
+[the imaging pipeline critique](../../docs/analysis/audits/IMAGING_PIPELINE_CRITIQUE.md).
 
 No implementation status in the main step index changes merely because this
 plan exists.
@@ -174,7 +174,7 @@ The following implementation mechanisms must be replaced:
 ## 6. Final dependency architecture
 
 The complete architecture is diagrammed in
-[the central architecture plan](./ANALYSIS_ARCHITECTURE.md). The governing
+[the analysis architecture](../../docs/analysis/ARCHITECTURE.md). The governing
 dependency direction is:
 
 ```text
@@ -327,7 +327,7 @@ canonical route.
 
 ### 9.1 New artifact types
 
-Add these initial schema families to the Step 02 registry:
+Add these initial schema families to the deferred semantic-provenance registry:
 
 ```text
 imaging-source-inventory/1.0
@@ -355,7 +355,7 @@ multimodal-panel-data/1.0
 
 ### 9.2 Dense-array policy
 
-Dense arrays need an explicit benchmark under Step 02. The accepted format must
+Dense arrays need an explicit benchmark under the semantic-provenance plan. The accepted format must
 support:
 
 - lossless exact round-trip;
@@ -1047,7 +1047,7 @@ version.
 These prerequisites apply to I01 and later. They do not prevent the I00 source
 inventory and reference-preservation work.
 
-1. Step 02 shared schema, artifact metadata, logical hashing, and resolver are
+1. Shared schema, artifact metadata, logical hashing, and resolver are
    accepted.
 2. Step 03 recording identity, trial map, and resolved configuration are
    accepted for a pilot imaging experiment.

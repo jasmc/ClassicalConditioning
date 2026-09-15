@@ -29,7 +29,7 @@ Status synced from
 
 Gate S is **not** frozen. Workshop record (critique of legacy + default LME,
 plus alternative families):
-[STATISTICS_METHODOLOGY_WORKSHOP.md](../STATISTICS_METHODOLOGY_WORKSHOP.md).
+[STATISTICS_METHODOLOGY_WORKSHOP.md](./STATISTICS_METHODOLOGY_WORKSHOP.md).
 
 Fixture two-fish LME runs are expected to be **singular**; that is evidence
 for the workshop, not a paper result.
@@ -53,4 +53,4 @@ for the workshop, not a paper result.
 ## Archive note
 
 This historical note retains the two-fish fixture evidence. The active
-discussion is now [the analysis readiness memo](../ANALYSIS_READINESS_DISCUSSION.md).
+discussion is retained in [the analysis readiness memo](./ANALYSIS_READINESS_DISCUSSION.md).

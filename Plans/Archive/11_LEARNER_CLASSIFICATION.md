@@ -1,9 +1,14 @@
 # Step 11 — Versioned Learner Classification and Stratified Analysis
 
-**Status:** Not started  
+**Status:** Superseded and archived on 2026-09-15 — learner analysis merged into the unified analysis and statistics plan
 **Change class:** Legacy reproduction plus separately validated scientific analysis  
-**Depends on:** Fully implemented non-learner refactor, Steps 09-10, and scientific gate L
+**Depends on:** Fully implemented non-learner refactor, an approved C1/Gate O outcome contract, Step 10, and scientific gate L
 **Unlocks:** Learner-stratified paper outputs, if approved
+
+> **Archive note:** Retained as detailed historical design material. The active
+> plan does not assume that fish form binary learner/non-learner classes;
+> continuous and hierarchical descriptions of heterogeneity are considered
+> first, and classification remains optional.
 
 ## Objective
 
@@ -82,8 +87,8 @@ what assumptions that framing bakes in; and whether a population-level or
 continuous-score framing better matches the data-generating process.
 
 This work package is **not required** for the candidate activity-metric
-comparison (Step 07/09/10) and is explicitly deferred until after that
-comparison is complete. See [Plans/DECISIONS.md](./DECISIONS.md) (Gate L).
+comparison (Gate T1 / Steps 09–10) and is explicitly deferred until after that
+comparison is complete. See [Plans/DECISIONS.md](../DECISIONS.md) (Gate L).
 
 ### 11.1 Wrap existing classifiers
 

@@ -31,7 +31,7 @@ Use this order when documents differ:
 The analysis-issues audit identifies credible risks and recommended
 investigations. It does not quantify their effect on the data and cannot by
 itself select a corrected formula, cohort, or model. Every issue is tracked in
-[the analysis issue traceability register](./ANALYSIS_ISSUES_TRACEABILITY.md).
+[the issue register](../../docs/analysis/audits/ISSUE_REGISTER.md).
 
 ## 2. Non-negotiable outcome
 
@@ -125,24 +125,24 @@ Use an incremental strangler migration, not a big-bang rewrite:
 - File organization and script-move rules live in
   [REPOSITORY_MIGRATION_MAP.md](./REPOSITORY_MIGRATION_MAP.md). Historical
   detail of the old dual-lane plan is archived at
-  [Archive/CODEBASE_MIGRATION_PLAN.md](./Archive/CODEBASE_MIGRATION_PLAN.md).
+  [CODEBASE_MIGRATION_PLAN.md](./CODEBASE_MIGRATION_PLAN.md).
 
 ## 4. Integrated analysis architecture
 
 Canonical behavior and optional imaging architecture diagrams, route matrix,
 and figure-mode rules live in
-[ANALYSIS_ARCHITECTURE.md](./ANALYSIS_ARCHITECTURE.md). This master plan keeps
+[the analysis architecture](../../docs/analysis/ARCHITECTURE.md). This master plan keeps
 only the invariants:
 
 1. behavior hashes must remain invariant when imaging is enabled or disabled;
 2. legacy and corrected behavior routes share the same artifact contracts;
 3. maintained figure modes are publication SVG/PDF and static PNG; interactive
-   local HTML is frozen (Gate F in [DECISIONS.md](./DECISIONS.md)).
+   local HTML is frozen (Gate F in [DECISIONS.md](../DECISIONS.md)).
 
 The behavior branch is authoritative and does not depend on imaging
 availability. The optional imaging and multimodal stages are deferred and
 specified in
-[the behavior and imaging integration plan](./BEHAVIOR_IMAGING_INTEGRATION_PLAN.md).
+[the behavior and imaging integration plan](../Deferred/BEHAVIOR_IMAGING_INTEGRATION.md).
 
 Mechanistic analyses branch from the common tail representation:
 
@@ -608,9 +608,9 @@ Full-resolution exploration reads local Parquet/HDF5 on demand; large
 recordings are not embedded wholesale in HTML.
 
 Operational figure workstreams, QC, and CLI exposure:
-[12_FIGURES_CLI_AND_NOTEBOOKS.md](./12_FIGURES_CLI_AND_NOTEBOOKS.md).
+[the active figure plan](../Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md).
 Historical detail:
-[Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md](./Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md).
+[SCIENTIFIC_FIGURE_PIPELINE_PLAN.md](./SCIENTIFIC_FIGURE_PIPELINE_PLAN.md).
 
 ### 12.4 Notebooks
 

@@ -1,9 +1,13 @@
 # Step 08 — Full Corrected Reprocessing, QC, and Cohort Freeze
 
-**Status:** In progress (local fixture plumbing)  
+**Status:** Archived by user request on 2026-09-15 — fixture plumbing retained; paper cohort not frozen
 **Change class:** Candidate corrected reprocessing (not an approved scientific correction)  
 **Depends on:** Steps 05 and 07 plumbing; scientific gates P, T1, and C0 for paper scope  
 **Unlocks:** Corrected paper outcomes and inference after gates pass
+
+> **Archive note:** Batch execution, two-fixture corrected processing, and
+> fixture cohort support are retained. This archive does not claim paper-scale
+> processing, Gate C0 cohort rules, or a reviewed C1 cohort hash were completed.
 
 ### Local fixture progress (not paper C1)
 
@@ -27,7 +31,7 @@ freeze explicit primary and sensitivity cohorts.
       (archived; paper-breadth expansion still open).
 - [ ] Frame-loss, synchronization, interpolation, filter, and bout policies are
       approved (Gate P).
-- [ ] Tail representation and primary activity recipe passed Step 07 (Gate T1).
+- [ ] Tail representation and primary activity recipe passed Gate T1.
 - [ ] Synthetic and pilot comparisons pass.
 - [ ] Technical validity and missing-data policies are approved (Gate C0).
 - [ ] Output storage has sufficient capacity and write protection.

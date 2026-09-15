@@ -1,9 +1,13 @@
 # Step 01 — Python Package, Test, and Environment Foundation
 
-**Status:** In progress — foundation implemented; Step 00 reference scope is blocked
+**Status:** Archived by user request on 2026-09-15 — foundation implemented, final exit incomplete
 **Change class:** Behavior-preserving  
 **Depends on:** Step 00 governance decisions  
 **Unlocks:** Structured implementation and automated validation
+
+> **Archive note:** This plan was moved to the archive at the user's direction.
+> Its package foundation remains implemented, but the Step 00-scoped pinned
+> numerical reference required for the final exit gate was not found.
 
 ## Objective
 

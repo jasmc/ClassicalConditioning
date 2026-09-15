@@ -1,13 +1,17 @@
 # Step 09 — Trial Outcomes, Alignment, and Temporal Profiles
 
-**Status:** In progress - prototype/fixture-only  
+**Status:** Archived by user request on 2026-09-15 — two-fixture outcomes retained; paper outcome contract not frozen
 **Change class:** Behavior-preserving legacy branch plus **candidate** corrected outcomes  
 **Prototype scope:** Two-fish corrected temporal/trial artifacts and metric comparison  
-**Paper-scope dependencies:** Step 08, gate C1, and scientific gate O approved
-before Step 07 biological selection  
+**Paper-scope dependencies:** an approved C1 cohort and scientific gate O approved
+before Gate T1 biological selection
 **Unlocks:** Statistics, learner classification, and paper panel data
 **Done (fixtures):** corrected temporal/trial + corrected metric comparison on
 both local fish. **Open:** cohort-scale canonicalization / Gate O.
+
+> **Archive note:** Corrected temporal/trial outputs and metric comparison for
+> two local fixtures are retained. This archive does not claim an approved C1
+> cohort, Gate O outcome contract, or paper-scale outcome artifacts.
 
 ## Objective
 
@@ -17,7 +21,7 @@ statistical model logic.
 
 ## Scientific gate O implementation
 
-Reuse the definitions approved before Step 07 and implement them at full
+Reuse the definitions approved before Gate T1 and implement them at full
 paper-scope scale:
 
 - primary and secondary outcomes;

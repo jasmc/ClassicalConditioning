@@ -1,11 +1,15 @@
 # Step 07 — Movement Detection, Metric Validation, and Selection
 
-**Status:** In progress  
+**Status:** Archived by user request on 2026-09-15 — shared detector implemented; Gate T1 selection not made
 **Done:** Development + corrected movement/temporal/trial + two-fish corrected compare/runner.  
-**Open:** Gate T1 selection/partitions; annotations/video review.  
+**Open at archival:** Gate T1 selection/partitions; annotations/video review.
 **Change class:** Scientific candidate validation and decision  
 **Depends on:** Step 06; scientific gate O before biological selection  
 **Unlocks:** Frozen corrected preprocessing recipe
+
+> **Archive note:** Bout segmentation is now explicitly shared across all
+> metrics. This archive does not claim that a primary metric, smoothing,
+> thresholds, outcomes, or confirmation partition was selected.
 
 ## Objective
 
@@ -302,7 +306,7 @@ Candidate detector:
 - all 79 US events have complete evaluated positive-control windows.
 
 The retired five-metric local-fixture tables and smoothing sensitivity are
-preserved in [the archived pilot-evidence note](./Archive/RETIRED_FIVE_METRIC_PILOT_EVIDENCE.md).
+preserved in [the archived pilot-evidence note](./RETIRED_FIVE_METRIC_PILOT_EVIDENCE.md).
 They demonstrate detector sensitivity rather than accuracy and do not select a
 metric or smoothing strength. Only the three active metrics in `DECISIONS.md`
 may appear in current candidate artifacts or scorecards.

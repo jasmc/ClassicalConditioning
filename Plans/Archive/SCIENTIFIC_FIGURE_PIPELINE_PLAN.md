@@ -1,7 +1,7 @@
 # Scientific Figure Pipeline Plan
 
 > **Archived 2026-09-08.** Operational figure implementation lives in
-> [12_FIGURES_CLI_AND_NOTEBOOKS.md](../12_FIGURES_CLI_AND_NOTEBOOKS.md).
+> [the active figure plan](../Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md).
 > Gate F freezes interactive HTML. Maintained modes are PNG and publication
 > SVG/PDF. This file is historical detail only.
 

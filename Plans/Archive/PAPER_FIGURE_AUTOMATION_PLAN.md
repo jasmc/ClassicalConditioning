@@ -51,7 +51,7 @@ paper repository so the prose plan and executable figure plan cannot drift.
 | --- | --- | --- | --- |
 | 1 | Experimental setup, behavioral preparation, protocols, and single-fish evidence | Explain the assay and show representative delay-conditioning behavior | Partly automatable; setup and tracking schematics require approved source artwork |
 | 2 | Population evidence for delay and trace conditioning | Primary learning result for delay, 3-s trace, and cautious 10-s trace comparisons | Requires population panel builders and frozen cohort/statistics |
-| 3 | Learner classification | Continuous learning scores, threshold behavior, uncertainty, and representative heterogeneity | Blocked on Step 11 scientific decision and validation |
+| 3 | Learner classification | Continuous learning scores, threshold behavior, uncertainty, and representative heterogeneity | Optional; blocked on the unified Step 10 heterogeneity decision and validation |
 | 4 | Conditioned-response dynamics and timing | Catch/test time courses, CS versus expected-US alignment, and timing measures | Blocked on independent timing definitions and non-circular analysis gate |
 
 ### Supplementary figures

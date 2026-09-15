@@ -1,5 +1,11 @@
 # Learner-Stratified Vigor Analysis Plan
 
+**Status:** Superseded and archived on 2026-09-15 — retained as historical detailed design
+
+> Learner heterogeneity and any optional classification are now governed by the
+> unified analysis and statistics plan. This document is reference material,
+> not an instruction to implement a binary classifier.
+
 ## Purpose
 
 Add an explicit learner classification to the fish-level analysis metadata, propagate that classification safely into trial-level and time-series datasets, and analyze conditioned-response dynamics separately for:

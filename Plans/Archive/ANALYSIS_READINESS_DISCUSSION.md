@@ -11,7 +11,7 @@ The candidate pipeline now carries exactly three metrics, produces authenticated
 outcomes, and has exploratory mixed-effects, fish-permutation, and fish-bootstrap
 routes. That is enough to review the analysis design, but not enough to report a
 confirmatory result. The figure inventory is maintained separately in
-[`ANALYSIS_FIGURES_AND_NEXT_STEPS.md`](../ANALYSIS_FIGURES_AND_NEXT_STEPS.md);
+[`FIGURE_PIPELINES.md`](../../docs/analysis/figures/FIGURE_PIPELINES.md);
 paper-figure implementation remains in
 [`PAPER_FIGURE_AUTOMATION_PLAN.md`](./PAPER_FIGURE_AUTOMATION_PLAN.md).
 
@@ -31,7 +31,7 @@ paper-figure implementation remains in
 ## Gate O/S agenda and required record
 
 The discussion must write the answers below into
-[`DECISIONS.md`](./DECISIONS.md), including date, owner, and rationale.
+[`DECISIONS.md`](../DECISIONS.md), including date, owner, and rationale.
 
 1. **Primary claim and estimand.** Choose one: conditioned-versus-control
    difference in early-to-late change; condition-by-block/trial trajectory; or

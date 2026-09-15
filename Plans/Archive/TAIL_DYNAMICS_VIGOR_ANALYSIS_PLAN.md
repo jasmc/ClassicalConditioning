@@ -3,7 +3,7 @@
 ## Purpose
 
 Compare the three-metric candidate set defined in
-[DECISIONS.md](./DECISIONS.md) Gate T1 and select (only after Gate T1) the
+[DECISIONS.md](../DECISIONS.md) Gate T1 and select (only after Gate T1) the
 measure that best captures learning-related decreases in movement:
 
 1. Tail-length-weighted angular L1
@@ -14,8 +14,9 @@ The two modern candidates use tail-length weighting. The third metric is a
 measured-time historical benchmark of the old distal-point formula. No metric
 is frozen as primary before Gate T1.
 
-Learner stratification of these metrics is deferred to Gate L / Step 11; see
-[LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md](./LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md).
+Learner stratification is optional and governed with other heterogeneity and
+inferential choices by the
+[analysis and statistics design](../Analysis/ANALYSIS_AND_STATISTICS.md).
 
 The analysis should distinguish:
 

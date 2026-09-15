@@ -1,4 +1,4 @@
-# Step 13 — Reproduction Releases, Documentation, and Legacy Retirement
+# Reproduction Releases, Documentation, and Legacy Retirement
 
 **Status:** Not started  
 **Interim:** Tagged commit + frozen cohort/config/data-hash manifest is enough
@@ -46,7 +46,7 @@ Contains:
 - selection scorecard;
 - frozen confirmation recipe.
 
-R2 requires the Step 12 panel-data builder, candidate-comparison renderer, and
+R2 requires the active figure plan's panel-data builder, candidate-comparison renderer, and
 figure provenance/QC subset. It does not require the complete final CLI,
 notebook suite, learner figures, or major-paper composition system.
 

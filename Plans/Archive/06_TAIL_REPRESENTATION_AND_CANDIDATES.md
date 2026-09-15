@@ -1,9 +1,14 @@
 # Step 06 — Corrected Preprocessing, Tail Representation, and Candidate Metrics
 
-**Status:** In progress  
+**Status:** Archived by user request on 2026-09-15 — candidate implementation retained; Gate P not approved
 **Change class:** Scientific-correction candidate development  
-**Depends on:** Steps 04-05; Gate T0 decided in [DECISIONS.md](./DECISIONS.md)  
+**Depends on:** Steps 04-05; Gate T0 decided in [DECISIONS.md](../DECISIONS.md)
 **Unlocks:** Metric validation and selection
+
+> **Archive note:** The three-metric candidate implementation, measured-time
+> preprocessing, gap masks, base translation, and fixture pipeline are
+> retained. This archive does not claim that Gate P, the remaining mathematical
+> known-answer checks, or the optional second-fixture legacy regression passed.
 
 ## Objective
 
@@ -226,25 +231,39 @@ From the common representation, permit later modules for:
 
 These are exploratory until separately approved.
 
-## Synthetic reference tests
+## Mathematical known-answer checks
 
-- Stationary straight tail
-- Stationary bent tail
-- Rigid translation
-- Rigid rotation
-- One moving segment
-- Coordinated C-bend
-- S-bend with opposing segment motion
-- Base-to-tip traveling bend
-- Single-point spike
-- Missing distal points
-- Different point densities
-- Different segment spacings
-- Different frame rates and jitter
-- Long missing gap
+These are not more fish experiments and do not require video. They are tiny,
+artificial tail movements for which the expected answer is known before the
+code runs. For example, a tail translated rigidly across the image should have
+zero base-centred tail motion; an S-bend with opposite segment rotations should
+remain visible to angular L1 but cancel in the legacy distal benchmark. These
+checks catch arithmetic and coordinate-handling mistakes before candidate
+results are inspected.
 
-Expected direction and, where possible, exact numerical result must be written
-before inspecting candidate outputs.
+Already covered by automated tests:
+
+- stationary straight tail;
+- rigid translation;
+- one moving segment;
+- S-bend with opposing segment motion;
+- missing distal points;
+- point-density normalization;
+- missing, duplicate, reversed, and chunk-boundary frame sequences; and
+- long measured-time gaps.
+
+Still to add, with the expected direction or exact value written first:
+
+- stationary bent tail and rigid rotation;
+- coordinated C-bend and base-to-tip traveling bend;
+- an isolated point spike and the adopted outlier response;
+- unequal segment spacing; and
+- equivalent motion sampled at different frame rates and with ordinary timing
+  jitter.
+
+Filter-edge tests are required only if Gate P adopts a temporal or spatial
+filter. They are not missing while the current interim recipe keeps both
+filters disabled.
 
 ## Deliverables
 
@@ -300,14 +319,67 @@ Implemented candidates:
 - tail-length-weighted angular L1 from measured segment orientations;
 - tail-length-normalized whole-tail XY mean speed.
 
-Still required (implementation; fixtures debug only):
+## Remaining work, in plain language
 
-- Gate P policies for interpolation and temporal/spatial filtering;
-- smoothing candidates and validation machinery (no selection before T1);
-- video/manual bout comparison where feasible (deferred tooling);
-- held-out metric selection plumbing (not runnable as science on two fixtures);
-- legacy stage-3/4/5 + legacy-candidate outcome comparison for fixture
-  `20221116_12` so both fixtures exercise that path.
+### 1. Freeze Gate P: the corrected-frame handling rule
+
+The implementation already detects duplicate/missing frames, preserves the
+measured timestamp, invalidates derivatives across a gap, translates the tail
+base to zero, and reports protocol timing. What is still needed is an explicit
+scientific decision that this conservative rule is final, or a specified and
+validated alternative.
+
+In particular, decide and record:
+
+- whether interpolation remains disabled, and if not, which gaps may be
+  filled and how;
+- whether temporal or spatial filtering remains disabled, and if not, the
+  method, window, and edge rule; and
+- the maximum timing/frame gap that invalidates a derivative.
+
+It is acceptable to finalize the current “do not interpolate or filter” policy.
+Finishing Gate P does not require adding those operations.
+
+### 2. Add the remaining mathematical known-answer checks
+
+Add the five groups listed above under “Mathematical known-answer checks.”
+They are small unit tests, not a request for more recordings or scientific
+selection. They complete the evidence that the three formulas behave as their
+definitions say they should.
+
+### 3. Record smoothing correctly; do not build more smoothing machinery here
+
+Smoothing is already implemented for the **movement/bout detector**, not for
+the three frame-level activity metrics. The current detector uses a 10 ms
+centered median smoother, and a sensitivity command already compares 0, 10,
+and 20 ms without smoothing across tracking gaps.
+
+The unresolved issue is a decision, not a missing feature: smoothing can remove
+brief real movements, change the number/duration of detected bouts, and alter
+the detector threshold needed to call movement. The local sensitivity result
+showed those outputs change across settings. Therefore, do not treat 10 ms as
+scientifically approved merely because it is the current default.
+
+This decision belongs to Gate T1 / Step 07. Step 06 needs only to preserve the
+setting and its results in artifacts; it does not need another smoothing
+implementation.
+
+### 4. Complete or explicitly waive the second-fixture legacy comparison
+
+`20221115_04` has exercised both the legacy path and candidate path. For
+`20221116_12`, the corrected candidate path, movement state, temporal outcomes,
+and trial outcomes ran, but the historical stages 3/4/5 have not been run and
+checked alongside it.
+
+This is an engineering regression check, not a claim that old and corrected
+metrics should have equal values. Its purpose is to confirm that both routes
+can process the same second recording, preserve recording/trial identities,
+and expose any recording-specific integration failure. If the project no
+longer needs a second legacy-route regression fixture, record that it is waived
+rather than leaving it as an ambiguous requirement.
+
+Held-out metric selection is Step 07 work and is not required to finish the
+Step 06 implementation.
 
 Progress (2026-08-31): `corrected-preprocess-v1` writes measured-time
 aligned frames with explicit validity/gap masks, base translation, and
