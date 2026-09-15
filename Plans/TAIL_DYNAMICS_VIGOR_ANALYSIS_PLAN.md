@@ -33,31 +33,30 @@ The current pipeline smooths the tail-angle signals, selects the distal angle (n
 
 The current measure should not be overwritten during development. Every new analysis should be compared with it.
 
-## Metric definitions
+## Active metric definitions
 
-### 1. Whole-tail 2D RMS velocity
+### 1. Tail-length-weighted angular L1
 
-For every frame, calculate the 2D speed of every tail point and combine those speeds using RMS.
+Take the absolute local angular-speed signal across the valid tail and combine
+it with tail-length weights. This is the active modern angular candidate.
 
-This is a strong candidate for overall physical tail motion because it uses the complete tail, includes both image dimensions, and does not cancel when different tail sections move in opposite directions. It is not approved as primary before Gate T1.
+### 2. Tail-length-normalized whole-tail XY mean speed
 
-### 2. RMS angular velocity across all points
+Take measured XY speed across the valid tail and combine it with tail-length
+weights. This is the active modern spatial candidate.
 
-Calculate angular speed for every tail point and combine the values using RMS.
+### 3. Legacy distal cumulative-angle speed
 
-This is the easiest strong improvement because it uses the existing angle data and retains familiar degrees-per-time units. It may, however, count some proximal movements repeatedly because the recorded orientations are cumulative and correlated.
+Preserve the measured-time historical distal-point calculation as a benchmark.
+It is not a selection winner.
 
-### 3. RMS curvature-change rate
+### Deferred mechanistic research
 
-Calculate the local bend at each tail section and measure how quickly each bend changes.
-
-This focuses on active deformation and can detect C-bends, S-bends, and changing bending waves. It should be near zero for a stationary bent tail. It will require careful spatial and temporal smoothing because curvature is sensitive to tracking noise.
-
-### 4. Mean 2D speed across all points
-
-Calculate the 2D speed of every point and combine the speeds using a tail-length-weighted mean.
-
-This is more robust than RMS to one unusually fast point and represents typical movement across the tail. Compared with RMS, it gives less emphasis to brief strong movements.
+RMS velocity, all-point RMS angular velocity, curvature-change RMS, PCA,
+rhythmicity, and travelling-wave analyses are retained below as possible future
+mechanistic work. They are not members of the active candidate set and must not
+appear in candidate artifacts, scorecards, or paper-comparison figures without
+a new Gate T1 decision.
 
 ## Equal tail-length weighting
 
@@ -159,11 +158,9 @@ as the historical benchmark identity where needed.
 
 For each frame, store:
 
-- Current distal-point vigor
-- Whole-tail 2D RMS velocity
-- All-point RMS angular velocity
-- RMS curvature-change rate
-- Mean whole-tail 2D speed
+- Tail-length-weighted angular L1
+- Tail-length-normalized whole-tail XY mean speed
+- Legacy distal cumulative-angle speed benchmark
 - Tracking-quality flags
 - Fraction of valid tail length
 - Number of valid points
@@ -174,7 +171,8 @@ Renormalize weights over the valid tail length when a small part of the tail is 
 
 ### Outliers
 
-Detect implausible single-point jumps before combining point speeds. Compare ordinary RMS with an outlier-filtered version, while avoiding suppression of genuine strong movements.
+Detect implausible single-point jumps before combining point speeds, while
+avoiding suppression of genuine strong movements.
 
 ### Deliverable
 

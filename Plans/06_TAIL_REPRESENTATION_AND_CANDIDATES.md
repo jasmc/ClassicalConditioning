@@ -252,7 +252,7 @@ before inspecting candidate outputs.
 - Corrected frame-loss, synchronization, interpolation, and filtering
   specification with synthetic reference tests
 - Tail representation artifact and schema
-- Four frame-level metric implementations including the legacy benchmark
+- Three frame-level metric implementations including the legacy benchmark
 - Candidate parameter-set definitions
 - Frame-activity artifact
 - Synthetic reference test suite

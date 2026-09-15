@@ -45,30 +45,6 @@ METRIC_DEFINITIONS = {
     ),
 }
 
-SUPERSEDED_METRICS = {
-    "segment_absolute_angular_speed_sum_rad_per_ms": (
-        "Replaced by tail-length-weighted angular L1 because the unweighted "
-        "sum depends on tracking-point number and spacing."
-    ),
-    "all_segment_angular_rms_rad_per_ms": (
-        "Removed as redundant with tail-length-weighted angular L1 for the "
-        "current scientific question and unnecessarily sensitive to vigorous "
-        "local motion and tracking spikes."
-    ),
-    "whole_tail_xy_rms_speed_px_per_ms": (
-        "Removed as redundant with normalized XY mean and more sensitive to "
-        "isolated tracking spikes."
-    ),
-    "whole_tail_xy_mean_speed_px_per_ms": (
-        "Replaced by tail-length-normalized XY mean speed."
-    ),
-    "curvature_change_rms_rad_per_px_per_ms": (
-        "Removed from the active shortlist because the unsmoothed derivative "
-        "was noise-sensitive and failed the pilot US positive-control check."
-    ),
-}
-
-
 @dataclass(frozen=True)
 class CandidateMetricConfig:
     point_count: int = 16
@@ -659,7 +635,6 @@ def build_direct_intake_candidate_metrics(
             "reference_tail_length_px": reference_tail_length,
             "active_metric_columns": list(CANDIDATE_COLUMNS),
             "metric_definitions": METRIC_DEFINITIONS,
-            "superseded_metrics": SUPERSEDED_METRICS,
             "metric_ranges": {
                 column: {
                     "minimum": (

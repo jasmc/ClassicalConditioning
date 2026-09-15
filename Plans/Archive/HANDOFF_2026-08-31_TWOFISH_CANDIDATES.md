@@ -12,7 +12,7 @@ scientific mini-cohort, and **not** a substitute for paper-scale N.
 ## Critical-path map
 
 Status synced from
-[IMPLEMENTATION_STEP_INDEX.md](./IMPLEMENTATION_STEP_INDEX.md)
+[IMPLEMENTATION_STEP_INDEX.md](../IMPLEMENTATION_STEP_INDEX.md)
 (refresh this table when the index changes):
 
 | Step | Status |
@@ -29,7 +29,7 @@ Status synced from
 
 Gate S is **not** frozen. Workshop record (critique of legacy + default LME,
 plus alternative families):
-[STATISTICS_METHODOLOGY_WORKSHOP.md](./STATISTICS_METHODOLOGY_WORKSHOP.md).
+[STATISTICS_METHODOLOGY_WORKSHOP.md](../STATISTICS_METHODOLOGY_WORKSHOP.md).
 
 Fixture two-fish LME runs are expected to be **singular**; that is evidence
 for the workshop, not a paper result.
@@ -52,5 +52,5 @@ for the workshop, not a paper result.
 
 ## Archive note
 
-Steps 03–05 detailed plans, the pickle-timebase handoff, and the LogMedian
-note live under `Plans/Archive/`. Active handoff remains this file.
+This historical note retains the two-fish fixture evidence. The active
+discussion is now [the analysis readiness memo](../ANALYSIS_READINESS_DISCUSSION.md).

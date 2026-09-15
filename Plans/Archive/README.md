@@ -27,7 +27,9 @@ passed for the scoped work that was authorized (pilot / local fixtures /
 | Note | Why archived |
 | --- | --- |
 | [Pickle timebase handoff](./HANDOFF_2026-08-31_PICKLE_TIMEBASE.md) | Decision recorded; active handoff moved to two-fish pipeline notes |
+| [Two-fish candidate handoff](./HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md) | Local-fixture evidence retained; active Gate O/S discussion moved to `../ANALYSIS_READINESS_DISCUSSION.md` |
 | [Historical LogMedian pipeline](./HISTORICAL_LOGMEDIAN_PIPELINE.md) | Historical route evidence; covered by Archive Step 00B; not on critical path |
+| [Retired five-metric pilot evidence](./RETIRED_FIVE_METRIC_PILOT_EVIDENCE.md) | Local detector/smoothing evidence retained after the active set was reduced to three metrics |
 
 When a step completes:
 

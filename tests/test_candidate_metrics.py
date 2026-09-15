@@ -7,7 +7,6 @@ import numpy as np
 from classical_conditioning.preprocessing.candidate_metric_kernel import (
     CANDIDATE_COLUMNS,
     METRIC_DEFINITIONS,
-    SUPERSEDED_METRICS,
     CandidateMetricConfig,
     _geometry_agreement,
     _validate_frame_order,
@@ -30,7 +29,7 @@ class CandidateMetricTests(unittest.TestCase):
         self.y = np.zeros_like(self.x)
         self.angles = np.zeros_like(self.x)
 
-    def test_active_metric_shortlist_supersedes_redundant_candidates(self) -> None:
+    def test_active_metric_registry_contains_exactly_three_metrics(self) -> None:
         self.assertEqual(
             CANDIDATE_COLUMNS,
             (
@@ -40,9 +39,6 @@ class CandidateMetricTests(unittest.TestCase):
             ),
         )
         self.assertEqual(set(METRIC_DEFINITIONS), set(CANDIDATE_COLUMNS))
-        self.assertIn("whole_tail_xy_rms_speed_px_per_ms", SUPERSEDED_METRICS)
-        self.assertIn("curvature_change_rms_rad_per_px_per_ms", SUPERSEDED_METRICS)
-        self.assertIn("all_segment_angular_rms_rad_per_ms", SUPERSEDED_METRICS)
 
     def test_stationary_tail_has_zero_activity_after_first_frame(self) -> None:
         result, _ = calculate_candidate_metrics(

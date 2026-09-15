@@ -82,7 +82,7 @@ learning effect.
 | Frame loss | Accumulated timestamp drift | Direct FrameID plus timestamp-gap validation |
 | Timing | Uniform 700 FPS interpolation/extrapolation | Measured timing with bounded gap policy |
 | Filtering | Temporal mean only | Approved spatial and temporal filtering |
-| Activity | Distal cumulative-angle speed | Six explicit candidate metrics (five whole-tail/segment candidates + one legacy-derived benchmark) |
+| Activity | Distal cumulative-angle speed | Three explicit candidate metrics (two whole-tail metrics + one legacy-derived benchmark) |
 | Bout detection | Primary threshold only | Calibrated versioned detector |
 | Rest | Often converted to missing | Total activity plus movement probability and conditional intensity |
 | Scaling | Early-baseline P10/P90 | Approved bounded analytical baseline definition |

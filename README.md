@@ -7,6 +7,10 @@ non-executable source reference under `Archive/`.
 
 For the complete `pipeline.py` call graph and a file-by-file map of the active
 package, see [PIPELINE_AND_PACKAGE_GUIDE.md](PIPELINE_AND_PACKAGE_GUIDE.md).
+For the legacy/refactored figure map, see
+[ANALYSIS_FIGURES_AND_NEXT_STEPS.md](ANALYSIS_FIGURES_AND_NEXT_STEPS.md).
+For analysis-readiness and mixed-effects decisions, see
+[Plans/ANALYSIS_READINESS_DISCUSSION.md](Plans/ANALYSIS_READINESS_DISCUSSION.md).
 
 ## Install
 
@@ -132,7 +136,7 @@ calculate activity or decide a scientific exclusion cohort.
    - `preprocessing/corrected_frame_preprocessing.py` prepares corrected,
      measured-time, gap-aware frames.
    - `preprocessing/candidate_metrics_from_corrected_frames.py` calculates the
-     six candidate metrics from those frames and inherits their validity mask.
+     three candidate metrics from those frames and inherits their validity mask.
 
    The shared metric formula and column schema live in
    `preprocessing/candidate_metric_kernel.py`; the two writers use that one
@@ -281,16 +285,10 @@ It writes three frame-level metrics:
 | `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean XY point speed divided by the recording-wide median tail arc length; units are tail lengths/ms rather than pixels/ms. |
 | `legacy_distal_angular_speed` | Absolute speed of the sum of local tail angles; retained as the historical benchmark. Opposing segment changes can cancel. |
 
-The unweighted `segment_absolute_angular_speed_sum` was replaced by the
-tail-length-weighted angular L1 metric because the sum depends on tracking-point
-number and spacing. `all_segment_angular_rms` was removed because it measures
-the same angular signal as L1 while disproportionately weighting vigorous local
-motion and tracking spikes. `whole_tail_xy_rms_speed` was removed as a spike-sensitive
-near-duplicate of XY mean speed. `curvature_change_rms` was removed because its
-unsmoothed derivative was noise-sensitive and failed the pilot US
-positive-control check. Existing candidate artifacts must be rebuilt with
-`overwrite` enabled because the current recipe intentionally supersedes the
-old metric set without introducing a v2 recipe name.
+Earlier experimental alternatives are no longer part of the active package or
+artifact metadata. Existing candidate artifacts must be rebuilt with
+`overwrite` enabled because the current recipe intentionally narrows the metric
+set without introducing a v2 recipe name.
 
 For the moving-only vigor outcome, baseline and CS/trace response intensity are
 both averaged only over frames inside the shared detected bouts. A window with
@@ -330,7 +328,7 @@ All analysis commands take `--project-dir` (= your `save_dir`). Run
 | `run-pipeline` | Run everything from one JSON config. **Start here.** |
 | `inventory` | Discover and hash raw triplets; report completeness. |
 | `intake-batch` | Convert every complete triplet to Parquet. |
-| `candidate-runner` | All six candidate stages per fish + cohort comparison. |
+| `candidate-runner` | All candidate stages per fish + cohort comparison. |
 | `figure-candidate-profiles` | Per-fish metric heatmaps. |
 | `figure-metric-comparison` | Cohort metric comparison bars. |
 | `environment-report` | Record pinned versions for reproducibility. |
@@ -580,4 +578,3 @@ Two root files need a human decision rather than automatic deletion:
 `MY___PLANS. we need to add some kinda loading ba` contains scratch notes and
 pasted runtime output. Review their history and references before archiving or
 deleting them.
-

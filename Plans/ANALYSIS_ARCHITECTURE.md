@@ -259,7 +259,7 @@ graph LR
 | Preprocessing | Legacy or corrected | Legacy proves equivalence; corrected requires scientific gate P |
 | Legacy downstream transform | Standard `main` route or historical LogMedian route | Characterize separately; neither description overrides executable behavior |
 | Tail representation | Angles, measured XY, reconstructed XY | Use measured XY when valid; reconstruct only with proven angle/length semantics |
-| Activity metric | Six explicit metrics | Compare as distinct quantities; select using frozen validation |
+| Activity metric | Three explicit metrics | Compare as distinct quantities; select using frozen validation |
 | Movement state | Legacy, calibrated, probabilistic | Detector identity is independent of metric identity |
 | Outcome | Total, probability, conditional, bouts | Complementary outcomes, not interchangeable versions |
 | Cohort | Primary, sensitivity, legacy | One explicit manifest per population |

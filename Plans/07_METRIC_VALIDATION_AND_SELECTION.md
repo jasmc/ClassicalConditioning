@@ -301,37 +301,11 @@ Candidate detector:
 - invalid/gap/coverage samples remain explicitly invalid rather than rest;
 - all 79 US events have complete evaluated positive-control windows.
 
-Pilot evidence:
-
-| Metric | Movement fraction | Bouts | Post-US minus pre-US movement |
-| --- | ---: | ---: | ---: |
-| Segment angular-speed sum | 0.045 | 2,732 | 0.413 |
-| Segment angular RMS | 0.047 | 2,709 | 0.392 |
-| Whole-tail XY mean speed | 0.147 | 4,700 | 0.627 |
-| Whole-tail XY RMS speed | 0.217 | 7,223 | 0.591 |
-| Curvature-change RMS | 0.015 | 1,617 | 0.011 |
-
-Interpretation:
-
-- XY and angular metrics detect the US positive control strongly.
-- Curvature-change is much weaker under this unsmoothed candidate definition.
-- Large differences in movement fraction show that the detector is not ready
-  for cross-metric interpretation or paper selection.
-
-Pilot smoothing sensitivity:
-
-| Metric | 0 ms movement / bouts / US delta | 10 ms movement / bouts / US delta | 20 ms movement / bouts / US delta |
-| --- | --- | --- | --- |
-| Segment angular-speed sum | 0.005 / 500 / 0.203 | 0.045 / 2,732 / 0.413 | 0.057 / 2,886 / 0.363 |
-| Segment angular RMS | 0.005 / 521 / 0.183 | 0.047 / 2,709 / 0.392 | 0.059 / 2,932 / 0.411 |
-| Whole-tail XY mean speed | 0.192 / 8,654 / 0.541 | 0.147 / 4,700 / 0.627 | 0.129 / 4,106 / 0.656 |
-| Whole-tail XY RMS speed | 0.206 / 9,506 / 0.498 | 0.217 / 7,223 / 0.591 | 0.164 / 5,275 / 0.646 |
-| Curvature-change RMS | 0.000 / 1 / 0.000 | 0.015 / 1,617 / 0.011 | 0.030 / 2,692 / 0.019 |
-
-Thresholds were recalibrated independently for every smoothing variant. The
-large changes in movement fraction, bout count, and US contrast show material
-smoothing dependence; this pilot measures sensitivity rather than accuracy and
-does not select a smoothing strength.
+The retired five-metric local-fixture tables and smoothing sensitivity are
+preserved in [the archived pilot-evidence note](./Archive/RETIRED_FIVE_METRIC_PILOT_EVIDENCE.md).
+They demonstrate detector sensitivity rather than accuracy and do not select a
+metric or smoothing strength. Only the three active metrics in `DECISIONS.md`
+may appear in current candidate artifacts or scorecards.
 
 Trace-review generation now produces six complete, non-overlapping windows for
 quiet behavior, strong movement, detector disagreement, and early/middle/late
@@ -340,20 +314,9 @@ annotation CSV include exact smoothed detector inputs, thresholds, movement
 states, bout IDs, and verified artifact lineage. The pilot annotation status is
 still `unreviewed`.
 
-Second local fish `20221116_12` (2026-08-31) movement detector (10 ms default):
-
-| Metric | Movement fraction | Bouts | Post-US minus pre-US movement |
-| --- | ---: | ---: | ---: |
-| Segment angular-speed sum | 0.030 | 1,990 | 0.524 |
-| Segment angular RMS | 0.030 | 1,995 | 0.512 |
-| Whole-tail XY mean speed | 0.117 | 4,915 | 0.642 |
-| Whole-tail XY RMS speed | 0.128 | 5,866 | 0.629 |
-| Curvature-change RMS | 0.012 | 1,131 | 0.010 |
-
-Smoothing sensitivity on `20221116_12` reproduces the pilot pattern: material
-dependence on 0/10/20 ms; XY/angular US contrast is strong; curvature US
-contrast stays near zero at 0–10 ms and rises mainly at 20 ms (~0.31). No
-smoothing or detector setting is approved.
+The second local fish reproduces material detector sensitivity across 0/10/20
+ms smoothing; no smoothing or detector setting is approved. Its retired
+five-metric values are preserved in the same archived pilot-evidence note.
 
 Remaining (implementation; not two-fish scientific approval):
 

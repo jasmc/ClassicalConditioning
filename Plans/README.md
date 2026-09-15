@@ -24,7 +24,7 @@ changes require the decision and validation gates defined in the master plan.
 
 ## Start here
 
-- **Active handoff:** [HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md](./HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md)
+- **Active discussion:** [Analysis readiness discussion memo](./ANALYSIS_READINESS_DISCUSSION.md) — Gate O/S decisions before confirmatory inference
 - [Consolidated decisions](./DECISIONS.md) — living decision authority
 - [Implementation step index](./IMPLEMENTATION_STEP_INDEX.md) — **only status board**
 - [Statistics methodology workshop (Step 10.0)](./STATISTICS_METHODOLOGY_WORKSHOP.md)
@@ -33,6 +33,7 @@ changes require the decision and validation gates defined in the master plan.
 - [Repository migration map](./REPOSITORY_MIGRATION_MAP.md)
 - [Analysis issue traceability](./ANALYSIS_ISSUES_TRACEABILITY.md)
 - [Tail dynamics and vigor analysis plan](./TAIL_DYNAMICS_VIGOR_ANALYSIS_PLAN.md)
+- [Paper figure automation plan](./PAPER_FIGURE_AUTOMATION_PLAN.md)
 - [Deferred behavior and imaging integration plan](./BEHAVIOR_IMAGING_INTEGRATION_PLAN.md)
 
 ## Document roles
@@ -46,6 +47,7 @@ changes require the decision and validation gates defined in the master plan.
 | `REPOSITORY_MIGRATION_MAP.md` | File moves and package layout |
 | `ANALYSIS_ARCHITECTURE.md` | Diagrams and route matrix |
 | `ANALYSIS_ISSUES_TRACEABILITY.md` | Issue ↔ gate register |
+| `ANALYSIS_READINESS_DISCUSSION.md` | Current Gate O/S discussion and inference-readiness blockers |
 | Domain annexes | Tail, learner, imaging |
 | `00_…`–`13_…` step files | Implementation work packages (flat in this folder) |
 | `Archive/` | Completed steps and archived source plans |

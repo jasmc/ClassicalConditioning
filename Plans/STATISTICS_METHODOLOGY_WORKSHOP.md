@@ -74,6 +74,21 @@ Criticisms to confront before Gate S freeze:
 
 The workshop may keep LME as primary, demote it to sensitivity, or replace it.
 
+### Current scaffold findings to resolve before Gate S
+
+- The draft LME lacks `condition_id`; it cannot estimate a conditioned-versus-
+  control contrast or its interaction with learning time.
+- The fish permutation and bootstrap currently pool conditions, and therefore
+  test an overall early-to-late change rather than the planned condition
+  contrast.
+- Bout rate is paired with baseline total activity rather than baseline bout
+  rate, and the signed suppression-effect documentation is inconsistent.
+- Model-input cohort identity, factor references, planned contrasts,
+  multiplicity, and hard fit-failure semantics remain unfrozen.
+
+See [the analysis readiness discussion memo](./ANALYSIS_READINESS_DISCUSSION.md)
+for the Gate O/S agenda and the implementation sequence after a decision.
+
 ## 4. Drastically different inferential families (candidates)
 
 Record these as named alternatives. Each needs an estimand, unit of analysis,
@@ -131,8 +146,8 @@ or design-based SEs.
 
 ### H. Multivariate multi-metric model
 
-One joint model (or hierarchical meta-model) over the five candidates instead of
-five identical univariate LMEs.  
+One joint model (or hierarchical meta-model) over the three active candidates
+instead of three identical univariate LMEs.
 **Strength:** Metric comparison becomes a formal estimand.  
 **Weakness:** Harder to communicate; needs care with scale differences.
 

@@ -116,7 +116,7 @@ For each recording, the runner performs the following stages in order:
 | Stage | Module | What it produces and why it exists |
 | --- | --- | --- |
 | Corrected preprocessing | `preprocessing/corrected_frame_preprocessing.py` | Only for `candidate-corrected-runner-v1`. Builds corrected frame-level input and validates frame/protocol alignment before metrics are calculated. |
-| Activity metrics | `preprocessing/candidate_metrics_from_corrected_frames.py` or `preprocessing/benchmarks/candidate_metrics_from_intake.py` | Produces the six exploratory whole-tail candidate metrics. The corrected implementation consumes corrected frames; the development implementation consumes intake artifacts directly. |
+| Activity metrics | `preprocessing/candidate_metrics_from_corrected_frames.py` or `preprocessing/benchmarks/candidate_metrics_from_intake.py` | Produces the three exploratory whole-tail candidate metrics. The corrected implementation consumes corrected frames; the development implementation consumes intake artifacts directly. |
 | Movement state and bouts | `analysis/movement_state.py` | Calibrates a movement indicator and applies the shared historical-envelope bout detector. It produces a frame-level movement/bout state artifact. |
 | Temporal profiles | `analysis/temporal_profiles.py` | Aligns metrics and movement state to CS/US protocol events, bins time, and writes event-aligned profiles. |
 | Per-trial outcomes | `analysis/trial_outcomes.py` | Collapses frames within prespecified windows into one outcome row per trial, including activity, movement, and bout outcomes. |
@@ -152,7 +152,7 @@ tail-candidate-development-v1                 corrected-preprocess-v1
 candidate_metric_kernel.py <---------------- candidate_metrics_from_corrected_frames.py
 same shared formulas and schema                          |
         |                                                |
-        +------------------ same six metric columns ----+
+        +----------------- same three metric columns ---+
                                                         |
                                                         v
                                       movement, temporal, trial, cohort stages
@@ -180,14 +180,11 @@ timebase decisions explicit before any metric is calculated.
 ### `candidate_metric_kernel.py`: shared metric science
 
 `calculate_candidate_metrics()` is the shared numerical implementation
-of the six frame-level metric columns:
+of the three frame-level metric columns:
 
-1. `segment_absolute_angular_speed_sum_rad_per_ms`;
-2. `all_segment_angular_rms_rad_per_ms`;
-3. `whole_tail_xy_rms_speed_px_per_ms`;
-4. `whole_tail_xy_mean_speed_px_per_ms`;
-5. `curvature_change_rms_rad_per_px_per_ms`; and
-6. `legacy_distal_angular_speed_rad_per_ms`, an active historical benchmark.
+1. `tail_length_weighted_angular_l1_rad_per_ms`;
+2. `whole_tail_xy_mean_speed_tail_lengths_per_ms`; and
+3. `legacy_distal_angular_speed_rad_per_ms`, an active historical benchmark.
 
 It also contains geometry agreement checks, frame-order checks, coordinate
 extraction, weighting, and the immutable `CandidateMetricConfig`. Downstream
@@ -363,7 +360,7 @@ stage directories.
 | File | Called by `pipeline.py`? | Purpose and reason |
 | --- | --- | --- |
 | `__init__.py` | Import-time convenience only | Lazy exports for current corrected preprocessing and candidate metrics. |
-| `candidate_metric_kernel.py` | Transitively | The single numerical definition of the six candidate metrics, their configuration, geometry checks, and shared extraction helpers. It is reused by both artifact writers. |
+| `candidate_metric_kernel.py` | Transitively | The single numerical definition of the three candidate metrics, their configuration, geometry checks, and shared extraction helpers. It is reused by both artifact writers. |
 | `candidate_metrics_from_corrected_frames.py` | Transitively for corrected runner | Reads corrected frames, applies the corrected validity mask, and computes the corrected-family activity metrics. |
 | `benchmarks/__init__.py` | Import-time only | Identifies runnable direct-intake comparisons as active benchmarks rather than archived legacy code. |
 | `benchmarks/candidate_metrics_from_intake.py` | Transitively for the development benchmark only | Calls the shared kernel to compute development-family metrics directly from intake artifacts. The normal corrected route does not import this benchmark module. |
@@ -403,7 +400,7 @@ For a normal corrected candidate run, read these files in this order:
 3. `preprocessing/corrected_frame_preprocessing.py` and
    `preprocessing/candidate_metrics_from_corrected_frames.py` — corrected frame and metric
    computation;
-4. `preprocessing/candidate_metric_kernel.py` — the shared six metric definitions;
+4. `preprocessing/candidate_metric_kernel.py` — the shared three metric definitions;
 5. `analysis/movement_state.py` — smoothing, calibration, and bout detection;
 6. `analysis/temporal_profiles.py` and `analysis/trial_outcomes.py` — event
    alignment and outcome aggregation;
