@@ -6,11 +6,11 @@ candidate analysis route. Historical implementations are preserved as
 non-executable source reference under `Archive/`.
 
 For the complete `pipeline.py` call graph and a file-by-file map of the active
-package, see [PIPELINE_AND_PACKAGE_GUIDE.md](PIPELINE_AND_PACKAGE_GUIDE.md).
+package, see [the current pipeline guide](docs/analysis/CURRENT_PIPELINE_GUIDE.md).
 For the legacy/refactored figure map, see
-[ANALYSIS_FIGURES_AND_NEXT_STEPS.md](ANALYSIS_FIGURES_AND_NEXT_STEPS.md).
+[the figure-pipeline inventory](docs/analysis/figures/FIGURE_PIPELINES.md).
 For analysis-readiness and mixed-effects decisions, see
-[Plans/ANALYSIS_READINESS_DISCUSSION.md](Plans/ANALYSIS_READINESS_DISCUSSION.md).
+[the analysis and statistics plan](Plans/Analysis/ANALYSIS_AND_STATISTICS.md).
 
 ## Install
 
@@ -521,14 +521,15 @@ metric is paper-approved and no inferential claim is attached.
 - Bout detection is **shared and metric-independent**: one legacy-style
   envelope detector runs on the distal cumulative-angle speed, and every metric
   inherits its segmentation. Bout-derived outcomes therefore describe behavior,
-  not detector calibration. The thresholds are the historical constants, not
-  values validated against video labels on this data, so blinded manual
-  validation is still required.
+  not detector calibration. The thresholds are historical constants and still
+  require a Gate T1 scientific decision and bounded sensitivity analysis;
+  manual/video validation is deferred and is not an active completion blocker.
 - Cohort figures use fish-equal **standardized difference**
   `(response − baseline) / baseline SD`.
 
-See [docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md](docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md)
-for implementation detail and known limits.
+See [the implementation status index](Plans/IMPLEMENTATION_STEP_INDEX.md) and
+[activity metric/bout documentation](docs/analysis/METRICS_AND_BOUTS.md) for
+current limits.
 
 ## Legacy numbered scripts
 
@@ -540,7 +541,8 @@ historical pipeline (machine-specific paths, in-script `RUN_*` flags). Prefer
 
 | Document | Contents |
 | --- | --- |
-| [docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md](docs/analysis/CURRENT_IMPLEMENTATION_STATUS.md) | Implementation status |
+| [Plans/IMPLEMENTATION_STEP_INDEX.md](Plans/IMPLEMENTATION_STEP_INDEX.md) | Current implementation status |
+| [docs/analysis/README.md](docs/analysis/README.md) | Architecture, current behavior, audits, and legacy references |
 | `Archive/` | Read-only historical package and helper source archive |
 | [Plans/DECISIONS.md](Plans/DECISIONS.md) | Locked decisions |
 

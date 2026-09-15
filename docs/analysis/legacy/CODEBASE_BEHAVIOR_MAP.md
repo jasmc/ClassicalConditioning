@@ -1,10 +1,14 @@
 # Preexisting Codebase Behavior Map
 
+> **Legacy reference:** This is characterization evidence for the inherited
+> codebase, not a current implementation plan or status board.
+
 ## Purpose
 
 This document records verified executable behavior that must be understood
 before moving or replacing the preexisting analysis code. It complements the
-more detailed `ANALYSIS_FILES_INDEX.md` and `ANALYSIS_ISSUES.md`.
+more detailed `ANALYSIS_FILES_INDEX.md` and the audit in
+`../audits/ANALYSIS_FINDINGS.md`.
 
 ## Scale and topology
 
@@ -208,7 +212,7 @@ No implementation is canonical. Historical commits `4d6939f` and `f372101`
 contain useful learner-stratified orchestration and catch-timing work, but
 depend on a divergent LogMedian branch and will be ported selectively later.
 The complete comparison is recorded in
-`docs/analysis/LEARNER_VARIANT_BEHAVIOR_MATRIX.md`.
+`docs/analysis/legacy/LEARNER_VARIANT_BEHAVIOR_MATRIX.md`.
 
 ## Shared-module observations
 

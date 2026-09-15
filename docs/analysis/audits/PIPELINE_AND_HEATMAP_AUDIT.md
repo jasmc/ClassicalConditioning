@@ -59,24 +59,24 @@ The normal entry point is:
 uv run classical-conditioning run-pipeline --config configs\example-run.json
 ```
 
-The orchestration is implemented in [pipeline.py](../../src/classical_conditioning/pipeline.py):
+The orchestration is implemented in [pipeline.py](../../../src/classical_conditioning/pipeline.py):
 
 | Order | Operation | Code | Main outputs |
 | --- | --- | --- | --- |
-| 0 | Validate run configuration and select recordings | [run_config.py](../../src/classical_conditioning/run_config.py), [pipeline.py](../../src/classical_conditioning/pipeline.py) | selected recording IDs |
-| 1 | Optional inventory of raw triplets and SHA-256 hashes | [inventory.py](../../src/classical_conditioning/inventory.py) | `Metadata/recording_inventory.json` |
-| 2 | Intake immutable camera, tracking, and protocol files | [intake.py](../../src/classical_conditioning/intake.py), [readers.py](../../src/classical_conditioning/ingestion/readers.py) | `Processed data/<recording-id>/camera.parquet`, `tracking.parquet`, `stimulus_events.parquet` |
-| 3A | Archived legacy preprocessing | [legacy_v1.py](../../Archive/package/src/classical_conditioning/preprocessing/legacy_v1.py) | Historical source only; not a supported route |
-| 3B | Direct-intake candidate benchmark | [candidate_metrics_from_intake.py](../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py) | `frame_activity_candidates-v1.parquet` |
-| 4 | Detect bouts once from the retained legacy distal benchmark | [movement_state.py](../../src/classical_conditioning/analysis/movement_state.py) | shared movement-state Parquet |
-| 5 | Align each CS/US event and aggregate into 0.5 s temporal bins | [temporal_profiles.py](../../src/classical_conditioning/analysis/temporal_profiles.py) | `candidate_temporal_outcomes-v2.parquet` |
-| 6 | Produce trial-level outcomes and coverage | [trial_outcomes.py](../../src/classical_conditioning/analysis/trial_outcomes.py) | candidate trial outcome and coverage Parquet files |
-| 7 | Combine recordings and compare all three metrics | [metric_comparison.py](../../src/classical_conditioning/analysis/metric_comparison.py) | `Processed data/Analyses/<analysis-id>/...recording_summary.parquet`, `...cohort_summary.parquet` |
-| 8 | Render figures from immutable saved tables | [figures/temporal_profiles.py](../../src/classical_conditioning/figures/temporal_profiles.py), [figures/metric_comparison.py](../../src/classical_conditioning/figures/metric_comparison.py) | `Figures/PNG/...` or `Figures/Publication/...` plus `.figure.json` |
-| 9 | Write run-level audit record | [pipeline.py](../../src/classical_conditioning/pipeline.py) | `Metadata/<analysis-id>_pipeline_run.json` |
+| 0 | Validate run configuration and select recordings | [run_config.py](../../../src/classical_conditioning/run_config.py), [pipeline.py](../../../src/classical_conditioning/pipeline.py) | selected recording IDs |
+| 1 | Optional inventory of raw triplets and SHA-256 hashes | [inventory.py](../../../src/classical_conditioning/inventory.py) | `Metadata/recording_inventory.json` |
+| 2 | Intake immutable camera, tracking, and protocol files | [intake.py](../../../src/classical_conditioning/intake.py), [readers.py](../../../src/classical_conditioning/ingestion/readers.py) | `Processed data/<recording-id>/camera.parquet`, `tracking.parquet`, `stimulus_events.parquet` |
+| 3A | Archived legacy preprocessing | [legacy_v1.py](../../../Archive/package/src/classical_conditioning/preprocessing/legacy_v1.py) | Historical source only; not a supported route |
+| 3B | Direct-intake candidate benchmark | [candidate_metrics_from_intake.py](../../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py) | `frame_activity_candidates-v1.parquet` |
+| 4 | Detect bouts once from the retained legacy distal benchmark | [movement_state.py](../../../src/classical_conditioning/analysis/movement_state.py) | shared movement-state Parquet |
+| 5 | Align each CS/US event and aggregate into 0.5 s temporal bins | [temporal_profiles.py](../../../src/classical_conditioning/analysis/temporal_profiles.py) | `candidate_temporal_outcomes-v2.parquet` |
+| 6 | Produce trial-level outcomes and coverage | [trial_outcomes.py](../../../src/classical_conditioning/analysis/trial_outcomes.py) | candidate trial outcome and coverage Parquet files |
+| 7 | Combine recordings and compare all three metrics | [metric_comparison.py](../../../src/classical_conditioning/analysis/metric_comparison.py) | `Processed data/Analyses/<analysis-id>/...recording_summary.parquet`, `...cohort_summary.parquet` |
+| 8 | Render figures from immutable saved tables | [figures/temporal_profiles.py](../../../src/classical_conditioning/figures/temporal_profiles.py), [figures/metric_comparison.py](../../../src/classical_conditioning/figures/metric_comparison.py) | `Figures/PNG/...` or `Figures/Publication/...` plus `.figure.json` |
+| 9 | Write run-level audit record | [pipeline.py](../../../src/classical_conditioning/pipeline.py) | `Metadata/<analysis-id>_pipeline_run.json` |
 
 For the candidate route, the per-recording order is enforced by
-[candidate_runner.py](../../src/classical_conditioning/analysis/candidate_runner.py):
+[candidate_runner.py](../../../src/classical_conditioning/analysis/candidate_runner.py):
 
 ```text
 candidate frame metrics
@@ -89,7 +89,7 @@ candidate frame metrics
 
 The runner verifies hashes and completion markers between stages. The two
 candidate route families are paired by recipe in
-[movement_state.py](../../src/classical_conditioning/analysis/movement_state.py):
+[movement_state.py](../../../src/classical_conditioning/analysis/movement_state.py):
 the development route uses `tail-candidate-development-v1`; the corrected route
 uses `tail-candidate-corrected-v1` and corrected preprocessing.
 
@@ -100,15 +100,15 @@ flags:
 
 | Order | Script | What it does | Main output area |
 | --- | --- | --- | --- |
-| 1 | [1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py](../../Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py) | raw synchronization, legacy vigor, bout detection, individual QC, protocol plots, discard review | `Processed data/pkl files/1. Original`, individual/QC figure folders, discard lists |
-| 2 | [2_ExampleFishPlotting.py](../../Archive/historical-scripts/2_ExampleFishPlotting.py) | optional selected-fish traces, heatmaps, trajectories | individual-fish figure folders |
-| 3 | [3_FishGrouping.py](../../Archive/historical-scripts/3_FishGrouping.py) | concatenate fish by condition and alignment | `Processed data/pkl files/2. All fish by condition` |
-| 4 | [4_ScaledVigorPlotting.py](../../Archive/historical-scripts/4_ScaledVigorPlotting.py) | pool, bin, normalize, and render count/SV heatmaps and lineplots | `Processed data/pkl files/3. Pooled data`, pooled figure folders |
-| 5 | [5_NormalizedVigorPlotting.py](../../Archive/historical-scripts/5_NormalizedVigorPlotting.py) | trial/block normalized-vigor summaries and statistics | pooled normalized-vigor figure/statistic folders |
-| 6 | [6_LearnersQuantification.py](../../Archive/historical-scripts/6_LearnersQuantification.py) and variants | learner classification and diagnostics | learner output folders |
+| 1 | [1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py](../../../Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py) | raw synchronization, legacy vigor, bout detection, individual QC, protocol plots, discard review | `Processed data/pkl files/1. Original`, individual/QC figure folders, discard lists |
+| 2 | [2_ExampleFishPlotting.py](../../../Archive/historical-scripts/2_ExampleFishPlotting.py) | optional selected-fish traces, heatmaps, trajectories | individual-fish figure folders |
+| 3 | [3_FishGrouping.py](../../../Archive/historical-scripts/3_FishGrouping.py) | concatenate fish by condition and alignment | `Processed data/pkl files/2. All fish by condition` |
+| 4 | [4_ScaledVigorPlotting.py](../../../Archive/historical-scripts/4_ScaledVigorPlotting.py) | pool, bin, normalize, and render count/SV heatmaps and lineplots | `Processed data/pkl files/3. Pooled data`, pooled figure folders |
+| 5 | [5_NormalizedVigorPlotting.py](../../../Archive/historical-scripts/5_NormalizedVigorPlotting.py) | trial/block normalized-vigor summaries and statistics | pooled normalized-vigor figure/statistic folders |
+| 6 | [6_LearnersQuantification.py](../../../Archive/historical-scripts/6_LearnersQuantification.py) and variants | learner classification and diagnostics | learner output folders |
 
 The detailed historical execution notes are in
-[ANALYSIS_FILES_INDEX.md](ANALYSIS_FILES_INDEX.md). The learner scripts are
+[the legacy analysis files index](../legacy/ANALYSIS_FILES_INDEX.md). The learner scripts are
 different implementations, not interchangeable stages; no one is currently
 declared canonical.
 
@@ -132,7 +132,7 @@ values repeat across metric slices; activity intensity remains metric-specific.
 ### The three rows
 
 The row labels are defined in `METRIC_LABELS` in
-[figures/temporal_profiles.py](../../src/classical_conditioning/figures/temporal_profiles.py):
+[figures/temporal_profiles.py](../../../src/classical_conditioning/figures/temporal_profiles.py):
 
 | Row | Internal metric ID | Signal and units | What “moving” means for this row |
 | --- | --- | --- | --- |
@@ -141,16 +141,16 @@ The row labels are defined in `METRIC_LABELS` in
 | D | `legacy_distal_angular_speed` | Absolute speed of the summed local tail angles, `rad/ms` | Also supplies the shared bout detector input |
 
 The frame-level formulas are computed in
-[preprocessing/benchmarks/candidate_metrics_from_intake.py](../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py).
+[preprocessing/benchmarks/candidate_metrics_from_intake.py](../../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py).
 The three signals are intentionally exploratory and are carried through the
 same downstream pipeline so their behavior can be compared. The repository
 decision is explicitly **not** to choose one metric before that comparison;
-see [DECISIONS.md](../../Plans/DECISIONS.md).
+see [DECISIONS.md](../../../Plans/DECISIONS.md).
 
 ## 3. What the large title means
 
 The outcome dictionary is defined as `OUTCOME_SPECS` in
-[figures/temporal_profiles.py](../../src/classical_conditioning/figures/temporal_profiles.py).
+[figures/temporal_profiles.py](../../../src/classical_conditioning/figures/temporal_profiles.py).
 It maps the command-line `--outcome` to the exact column plotted:
 
 | Command outcome | Figure title | Data column in each row | Interpretation |
@@ -162,7 +162,7 @@ It maps the command-line `--outcome` to the exact column plotted:
 | `bout-rate` | `bout initiation rate` | `Bout rate per minute` | detected bout onsets per minute of detector-valid time |
 
 The calculation of these columns is in
-[analysis/temporal_profiles.py](../../src/classical_conditioning/analysis/temporal_profiles.py).
+[analysis/temporal_profiles.py](../../../src/classical_conditioning/analysis/temporal_profiles.py).
 For each trial and each metric it creates one record per time bin. Thus the
 basic data key is:
 
@@ -184,7 +184,7 @@ profiles
 ## 4. Exact figure construction
 
 The five-row rendering is `_candidate_heatmap_figure()` in
-[figures/temporal_profiles.py](../../src/classical_conditioning/figures/temporal_profiles.py).
+[figures/temporal_profiles.py](../../../src/classical_conditioning/figures/temporal_profiles.py).
 Its controlling steps are:
 
 1. `metrics = list(METRIC_LABELS)` fixes the five row order.
@@ -217,7 +217,7 @@ not be compared across panels or runs without reading the recorded scale.
 The renderer records the mapping in the figure sidecar (`.figure.json`),
 including `value_field`, `coverage_field`, threshold, display scale, and color
 map. The export implementation is
-[figures/export.py](../../src/classical_conditioning/figures/export.py).
+[figures/export.py](../../../src/classical_conditioning/figures/export.py).
 
 ## 5. Do not confuse these with legacy heatmaps
 
@@ -240,7 +240,7 @@ probability outcome.
 legacy scaled-vigor values, not movement probability, bout rate, or any of the
 three candidate metric rows. The legacy heatmap normalization is made in
 `run_build_pooled_outputs()` and reproduced in
-[analysis/legacy_scaled_vigor.py](../../src/classical_conditioning/analysis/legacy_scaled_vigor.py):
+[analysis/legacy_scaled_vigor.py](../../../Archive/package/src/classical_conditioning/analysis/legacy_scaled_vigor.py):
 
 ```text
 exact-time median scaled vigor
@@ -263,7 +263,7 @@ The current candidate route is exploratory. It is designed to answer:
 > outcomes?
 
 It is not yet a final claim that any one metric is the biological ground truth.
-The audit issues in [ANALYSIS_ISSUES.md](ANALYSIS_ISSUES.md) remain relevant to
+The audit issues in [Analysis findings](./ANALYSIS_FINDINGS.md) remain relevant to
 the historical route, including differences in vigor definition, baseline
 scaling, exclusion handling, and the treatment of immobility as missing.
 

@@ -4,7 +4,7 @@ This is the durable visual inventory for the legacy analysis and the supported
 refactored candidate workflow. It describes what each pipeline can render and
 where coverage differs; it does not approve scientific outcomes, cohorts, or
 inferential models. Those decisions live in
-[the analysis-readiness discussion memo](./Plans/ANALYSIS_READINESS_DISCUSSION.md).
+[the analysis and statistics plan](../../../Plans/Analysis/ANALYSIS_AND_STATISTICS.md).
 
 The inventory reflects `codex/remove-legacy-package` on 2026-09-15. A figure
 family may create many files because legacy scripts loop over fish, condition,
@@ -86,9 +86,10 @@ confirmatory statistical panels, or learner-classification figures.
 
 ## Related implementation and decisions
 
-- [Paper figure automation plan](./Plans/PAPER_FIGURE_AUTOMATION_PLAN.md) owns
-  implementation of paper-figure manifests, panels, validation, and releases.
-- [Analysis-readiness discussion memo](./Plans/ANALYSIS_READINESS_DISCUSSION.md)
-  owns Gate O/S decisions and the prerequisites for confirmatory results.
-- [Figures, CLI, and notebooks](./Plans/12_FIGURES_CLI_AND_NOTEBOOKS.md) owns
-  the supported refactored rendering interfaces.
+- [Figures and reproducible reporting](../../../Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md)
+  owns paper registries, supported rendering interfaces, panels, validation,
+  and figure releases.
+- [Analysis and statistics](../../../Plans/Analysis/ANALYSIS_AND_STATISTICS.md)
+  owns Gate O/S decisions and prerequisites for confirmatory results.
+- [Learner classification and stratified analysis](../../../Plans/Analysis/LEARNER_CLASSIFICATION.md)
+  owns learner-panel inputs and validation status.

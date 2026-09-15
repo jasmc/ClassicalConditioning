@@ -1,5 +1,10 @@
 # Analysis Files Index and Execution Order
 
+> **Legacy reference:** This inventory documents the historical numbered-script
+> topology and overlapping implementations. Use
+> [`../CURRENT_PIPELINE_GUIDE.md`](../CURRENT_PIPELINE_GUIDE.md) for the
+> supported package route and the active Plans for future work.
+
 ## Purpose
 
 This document is a table of contents and dependency map for the analysis code in this repository.
@@ -20,7 +25,7 @@ It identifies:
 - Important differences between overlapping implementations
 - Areas where no canonical version has yet been established
 
-This index describes the repository as it currently exists. It does not certify that every implementation is scientifically correct. See `ANALYSIS_ISSUES.md` for the analysis audit.
+This index describes the repository as it currently exists. It does not certify that every implementation is scientifically correct. See `docs/analysis/audits/ANALYSIS_FINDINGS.md` for the analysis audit.
 
 ## Quick navigation
 
@@ -55,7 +60,7 @@ flowchart TD
     N["5A. Build per-trial normalized-vigor table"]
     O[("Per-fish, per-trial NV dataset")]
     P["5B. Block, phase, and trial-by-trial analysis"]
-    Q["6. Learner classification<br/>(optional; canonical version unresolved)"]
+    Q["6. Learner classification<br/>(historical route; canonical method unresolved)"]
     R[("Learner classification table")]
     S["Planned learner-stratified temporal analysis<br/>(not yet implemented)"]
 
@@ -196,7 +201,7 @@ This stage:
 - Recalculates scaled vigor
 - Concatenates fish by condition
 
-Important: the current script loads the discarded-fish list, but the list is not clearly applied to remove fish before concatenation. See `ANALYSIS_ISSUES.md`.
+Important: the current script loads the discarded-fish list, but the list is not clearly applied to remove fish before concatenation. See `docs/analysis/audits/ANALYSIS_FINDINGS.md`.
 
 ### Step 4A: Build scaled-vigor pooled artifacts
 
@@ -1065,7 +1070,7 @@ Filename sanitization, selected-fish suffixes, DPI, bounding boxes, transparency
 ### Recommendation
 
 Complete the migration to `figure_saving.py`, following
-`Plans/12_FIGURES_CLI_AND_NOTEBOOKS.md` (detail archived in
+`Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md` (historical detail in
 `Plans/Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md`).
 
 ## Learner-classification versions
@@ -1341,12 +1346,12 @@ The decision should be based on statistical validation, not filename.
 | File | Role |
 | --- | --- |
 | `README.md` | Project overview, setup, pipeline, and output structure |
-| `ANALYSIS_ISSUES.md` | Audit of scientific and statistical issues |
-| `IMAGING_PIPELINE_CRITIQUE.md` | Cross-repository audit of the inherited optional imaging workflow |
-| `Plans/BEHAVIOR_IMAGING_INTEGRATION_PLAN.md` | Deferred plan for one canonical behavior pipeline plus optional imaging |
-| `Plans/12_FIGURES_CLI_AND_NOTEBOOKS.md` | Plan for reproducible scientific-paper figures (archived detail under `Plans/Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md`) |
-| `Plans/LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md` | Plan for labeling and analyzing learner/non-learner temporal profiles |
-| `ANALYSIS_FILES_INDEX.md` | This file |
+| `docs/analysis/audits/ANALYSIS_FINDINGS.md` | Audit of scientific and statistical issues |
+| `docs/analysis/audits/IMAGING_PIPELINE_CRITIQUE.md` | Cross-repository audit of the inherited optional imaging workflow |
+| `Plans/Deferred/BEHAVIOR_IMAGING_INTEGRATION.md` | Deferred plan for one canonical behavior pipeline plus optional imaging |
+| `Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md` | Plan for reproducible scientific-paper figures and interfaces |
+| `Plans/Analysis/LEARNER_CLASSIFICATION.md` | Active plan for learner representation, classification, validation, and stratified outputs |
+| `docs/analysis/legacy/ANALYSIS_FILES_INDEX.md` | This file |
 
 ## Workspace and editor files
 

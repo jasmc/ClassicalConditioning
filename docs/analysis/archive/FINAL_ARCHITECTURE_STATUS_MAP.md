@@ -1,5 +1,11 @@
 # Final Architecture and Current Implementation Map
 
+> **Historical snapshot:** This former combined architecture/status document is
+> retained for provenance. Use [`../ARCHITECTURE.md`](../ARCHITECTURE.md) for
+> current architecture and
+> [`Plans/IMPLEMENTATION_STEP_INDEX.md`](../../../Plans/IMPLEMENTATION_STEP_INDEX.md)
+> for current status.
+
 This map preserves the complete intended architecture while showing what is
 implemented now, what exists only as a single-recording candidate, what should
 be implemented next, and what remains planned or deliberately deferred.
@@ -289,4 +295,3 @@ priority is narrower:
 6. Produce the comparison report and final PNG/SVG/PDF figures.
 7. Revisit learner methodology only after the behavior results are frozen.
 8. Implement the optional imaging branch later without changing behavior hashes.
-

@@ -12,7 +12,7 @@ quantify the effect of an issue on experimental results, certify biological
 conclusions, or substitute for reanalysis of the raw imaging data.
 
 The target integration design is documented in
-[the behavior and imaging integration plan](../../Plans/BEHAVIOR_IMAGING_INTEGRATION_PLAN.md).
+[the behavior and imaging integration plan](../../../Plans/Deferred/BEHAVIOR_IMAGING_INTEGRATION.md).
 
 ## Evidence boundary
 

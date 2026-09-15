@@ -1,7 +1,11 @@
 # Current Implementation Status
 
+> **Historical snapshot:** Frozen as the 2026-09-01 implementation-status
+> record. Current status is maintained only in
+> [`Plans/IMPLEMENTATION_STEP_INDEX.md`](../../../Plans/IMPLEMENTATION_STEP_INDEX.md).
+
 Status of the installable `classical_conditioning` package and local runs.
-How to invoke commands: [README.md](../../README.md).
+How to invoke commands: [README.md](../../../README.md).
 
 > **Package retirement note:** legacy execution was moved to the read-only
 > `Archive/package/` source archive. References below describe historical
@@ -195,11 +199,11 @@ enough free space (C: Paper data was already space-constrained after the
 
 | Doc | Use |
 | --- | --- |
-| [Plans/DECISIONS.md](../../Plans/DECISIONS.md) | Locked decisions |
-| [Plans/IMPLEMENTATION_STEP_INDEX.md](../../Plans/IMPLEMENTATION_STEP_INDEX.md) | Step index |
-| [Plans/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md](../../Plans/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md) | Two-fish candidate handoff |
-| [Plans/Archive/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md](../../Plans/Archive/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md) | Pickle timebase classification |
-| [docs/analysis/LEGACY_VS_CORRECTED_WORKFLOW.md](LEGACY_VS_CORRECTED_WORKFLOW.md) | Route pairing |
+| [Plans/DECISIONS.md](../../../Plans/DECISIONS.md) | Locked decisions |
+| [Plans/IMPLEMENTATION_STEP_INDEX.md](../../../Plans/IMPLEMENTATION_STEP_INDEX.md) | Step index |
+| [Plans/Archive/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md](../../../Plans/Archive/HANDOFF_2026-08-31_TWOFISH_CANDIDATES.md) | Two-fish candidate handoff |
+| [Plans/Archive/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md](../../../Plans/Archive/HANDOFF_2026-08-31_PICKLE_TIMEBASE.md) | Pickle timebase classification |
+| [docs/analysis/LEGACY_VS_CORRECTED_WORKFLOW.md](../legacy/LEGACY_VS_CORRECTED_WORKFLOW.md) | Route pairing |
 
 Engineering focus for Trace work: unlock or re-run into a clean save tree,
 generate standardized-difference cohort figures, then scale fish count — not
