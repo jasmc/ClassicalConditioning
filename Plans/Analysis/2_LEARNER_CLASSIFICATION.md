@@ -10,7 +10,7 @@ This file restores the complete operational content of archived Plan 11 as an
 active plan. The historical wording remains preserved in
 [the archived Plan 11](../Archive/11_LEARNER_CLASSIFICATION.md). The complete
 detailed execution design is active in
-[Learner-Stratified Outputs and Validation](./LEARNER_STRATIFIED_OUTPUTS.md),
+[Learner-Stratified Outputs and Validation](./3_LEARNER_STRATIFIED_OUTPUTS.md),
 with its original source retained in the archive.
 
 Learner analysis is required for the paper. A hard learner/non-learner label is
@@ -294,4 +294,4 @@ These requirements supplement, rather than replace, the work packages, tests,
 deliverables, and exit gate above. The full schemas, output inventory, module
 layout, configuration, validation checklist, phases, pilot, and definition of
 done are maintained in
-[the detailed companion](./LEARNER_STRATIFIED_OUTPUTS.md).
+[the detailed companion](./3_LEARNER_STRATIFIED_OUTPUTS.md).

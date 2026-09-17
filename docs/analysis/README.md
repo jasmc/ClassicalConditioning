@@ -9,6 +9,8 @@ status belongs only in `Plans/IMPLEMENTATION_STEP_INDEX.md`.
 - [Architecture](./ARCHITECTURE.md)
 - [Current pipeline guide](./CURRENT_PIPELINE_GUIDE.md)
 - [Activity metrics, smoothing, and shared bouts](./METRICS_AND_BOUTS.md)
+- [Cohort aggregation and response/baseline figures](./COHORT_AGGREGATION_AND_FIGURES.md)
+- [Learning-onset analysis](./LEARNING_ONSET_ANALYSIS.md)
 
 ## Figures
 

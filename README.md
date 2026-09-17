@@ -9,8 +9,13 @@ For the complete `pipeline.py` call graph and a file-by-file map of the active
 package, see [the current pipeline guide](docs/analysis/CURRENT_PIPELINE_GUIDE.md).
 For the legacy/refactored figure map, see
 [the figure-pipeline inventory](docs/analysis/figures/FIGURE_PIPELINES.md).
+For the exact cohort aggregation order, response/baseline figures, and the
+legacy-versus-active LME distinction, see
+[cohort aggregation and figures](docs/analysis/COHORT_AGGREGATION_AND_FIGURES.md).
+For the condition-aware block, trial, onset, and robustness outputs, see
+[learning-onset analysis](docs/analysis/LEARNING_ONSET_ANALYSIS.md).
 For analysis-readiness and mixed-effects decisions, see
-[the analysis and statistics plan](Plans/Analysis/ANALYSIS_AND_STATISTICS.md).
+[the analysis and statistics plan](Plans/Analysis/1_ANALYSIS_AND_STATISTICS.md).
 
 ## Install
 

@@ -3,7 +3,7 @@
 **Status:** Active detailed companion to the learner-classification plan
 
 > Learner analysis is required for the paper and is governed by
-> [the learner-classification plan](./LEARNER_CLASSIFICATION.md). This companion
+> [the learner-classification plan](./2_LEARNER_CLASSIFICATION.md). This companion
 > retains the detailed schemas, joins, outcomes, temporal views, modules,
 > configuration, validation checklist, implementation phases, and completion
 > criteria from the original learner-stratified design. A categorical label is

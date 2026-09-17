@@ -4,7 +4,7 @@ This is the durable visual inventory for the legacy analysis and the supported
 refactored candidate workflow. It describes what each pipeline can render and
 where coverage differs; it does not approve scientific outcomes, cohorts, or
 inferential models. Those decisions live in
-[the analysis and statistics plan](../../../Plans/Analysis/ANALYSIS_AND_STATISTICS.md).
+[the analysis and statistics plan](../../../Plans/Analysis/1_ANALYSIS_AND_STATISTICS.md).
 
 The inventory reflects `codex/remove-legacy-package` on 2026-09-15. A figure
 family may create many files because legacy scripts loop over fish, condition,
@@ -52,7 +52,8 @@ flowchart TD
     N6 -->|run_figures: true| N7["Cohort comparison: fish points + equal-fish condition means"]
     N4 -. separate command .-> N8["Recording profiles: raw/scaled/conditional/bout heatmaps"]
     N3 -. separate review command .-> N9["Detector trace review: signal, threshold, movement, bout IDs"]
-    N6 --> N10["Not yet replaced: legacy population trajectories, confirmatory statistics, learner panels"]
+    N6 --> N10["Not yet replaced: confirmatory statistics and learner panels"]
+    N5 -. dedicated commands .-> N11["Frozen-cohort selected-block, trial-number, and event-aligned response/baseline figures"]
 ```
 
 | Order | Figure family | Purpose |
@@ -63,9 +64,15 @@ flowchart TD
 | R4 | Conditional-intensity profile | Show activity magnitude while the shared detector reports movement. |
 | R5 | Bout-outcome profile | Show movement probability, occupancy, and bout-initiation rate. |
 | R6 | Cohort metric comparison | Compare standardized response-versus-baseline differences by fish and condition. |
+| R7 | Selected-block response/baseline ratio | Show fish medians and condition median [IQR] for Early Pre-train, Early Test, and Late Test. |
+| R8 | Trial-number response/baseline ratio | Show the requested fish-weighted learning trajectory across CS trials. |
+| R9 | Event-aligned response/baseline ratio | Show fish-normalised time courses and condition median [IQR]. |
 
-Only R6 is produced by `run-pipeline` when `run_figures: true`; R1–R5 require
-their dedicated commands. Static PNG and publication SVG/PDF are maintained.
+Only R6 is produced by `run-pipeline` when `run_figures: true`; R1–R5 and
+R7–R9 require their dedicated commands. R7–R9 require a frozen cohort ID, are
+descriptive, and intentionally do not annotate the current exploratory LME.
+Static PNG and publication SVG/PDF
+are maintained.
 Interactive HTML is frozen and receives no further feature development.
 
 ## Coverage and differences
@@ -76,7 +83,7 @@ Interactive HTML is frozen and receives no further feature development.
 | Movement segmentation | Embedded and reused across scripts | One declared shared detector |
 | Rendering boundary | Mixed into preprocessing, aggregation, and inference | Renders authenticated saved artifacts |
 | Rest | Often treated as missing | Separated into total activity and movement outcomes |
-| Cohort | Stage-specific exclusions | Cohort manifest intended, not yet frozen for paper scale |
+| Cohort | Stage-specific exclusions | Frozen-manifest infrastructure exists; single cohort-applied population artifact and paper cohort are still missing |
 | Statistics | Ratio tests and many block/trial models | Exploratory LME, permutation, and bootstrap scaffolds |
 | Coverage | Broad QC, population, and learner catalog | Detector/metric profiles and descriptive cohort comparison |
 
@@ -89,7 +96,7 @@ confirmatory statistical panels, or learner-classification figures.
 - [Figures and reproducible reporting](../../../Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md)
   owns paper registries, supported rendering interfaces, panels, validation,
   and figure releases.
-- [Analysis and statistics](../../../Plans/Analysis/ANALYSIS_AND_STATISTICS.md)
+- [Analysis and statistics](../../../Plans/Analysis/1_ANALYSIS_AND_STATISTICS.md)
   owns Gate O/S decisions and prerequisites for confirmatory results.
-- [Learner classification and stratified analysis](../../../Plans/Analysis/LEARNER_CLASSIFICATION.md)
+- [Learner classification and stratified analysis](../../../Plans/Analysis/2_LEARNER_CLASSIFICATION.md)
   owns learner-panel inputs and validation status.

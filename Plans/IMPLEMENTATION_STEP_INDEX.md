@@ -23,9 +23,9 @@ historical acceptance criteria; current descriptive behavior lives under
 | --- | --- | --- | --- |
 | Governance and paper baseline | Open release prerequisite | Paper-scope baseline manifest, configuration freeze, and output fingerprints | [Governance](./GOVERNANCE.md), archived Plan 00 |
 | Preprocessing and metric decision | Fixture-only / scientific decision open | Gate P and Gate T1: preprocessing, smoothing, shared detector parameters, selected metric, and validation status | [Metrics and bouts](../docs/analysis/METRICS_AND_BOUTS.md), [Decisions](./DECISIONS.md) |
-| Paper cohort | Fixture-only | Paper-scale QC, Gate C0 inclusion rule, reviewed C1 cohort and hash | [Analysis and statistics](./Analysis/ANALYSIS_AND_STATISTICS.md) |
-| Outcomes and population inference | Discussion/design | Gate O estimand/outcome contract and Gate S condition-aware model, diagnostics, contrasts, uncertainty, and sensitivity | [Analysis and statistics](./Analysis/ANALYSIS_AND_STATISTICS.md) |
-| Learner analysis | Active required workstream | Gate L estimand/method, classifier or continuous representation, manifest, non-circular validation, and learner outputs | [Learner classification](./Analysis/LEARNER_CLASSIFICATION.md) |
+| Paper cohort | Fixture-only / infrastructure implemented | Paper-scale QC, Gate C0 policy, and reviewed paper C1 cohort; the single cohort-applied outcome builder now exists | [Cohort/onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md), [single-cohort plan](./SINGLE_COHORT_AND_EXCLUSION.md) |
+| Outcomes and population inference | Implemented, not paper-run | Freeze Gate O/S, run paper cohort, review recovery/calibration and diagnostics; block, longitudinal, simultaneous contrast, onset, robustness, and figure routes now exist | [Cohort/onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md), [learning-onset plan](./LEARNING_ONSET_LME.md) |
+| Learner analysis | Active required workstream | Gate L estimand/method, classifier or continuous representation, manifest, non-circular validation, and learner outputs | [Learner classification](./Analysis/2_LEARNER_CLASSIFICATION.md) |
 | Figures and interfaces | In progress | Registry, notebooks, paper panels, publication dimensions/theme, and visual regression | [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) |
 | Release and legacy retirement | Not started | Immutable paper release and verified reproduction before legacy retirement | [Releases](./RELEASES_AND_LEGACY_RETIREMENT.md) |
 

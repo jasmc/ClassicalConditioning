@@ -21,7 +21,7 @@ should be a continuous score, responder probability, latent trajectory,
 binary/multiclass label, or a combination. Requiring learner analysis does not
 justify choosing a hard threshold before that comparison. The operational
 requirements live in
-[Learner Classification and Stratified Analysis](./LEARNER_CLASSIFICATION.md).
+[Learner Classification and Stratified Analysis](./2_LEARNER_CLASSIFICATION.md).
 
 The implemented exploratory model-input, LME, permutation, and bootstrap code
 is recorded in
@@ -168,7 +168,7 @@ comparisons are descriptive. Confirmatory claims require held-out, cross-fitted,
 or independent evidence. If categorical classification is rejected, the paper
 must still report the approved continuous or model-based learner analysis and
 the evidence for not imposing classes. Full requirements are in
-[the learner plan](./LEARNER_CLASSIFICATION.md).
+[the learner plan](./2_LEARNER_CLASSIFICATION.md).
 
 ### 10.7 Define uncertainty, multiplicity, and sensitivity
 

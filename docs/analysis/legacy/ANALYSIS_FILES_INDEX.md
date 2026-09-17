@@ -1350,7 +1350,7 @@ The decision should be based on statistical validation, not filename.
 | `docs/analysis/audits/IMAGING_PIPELINE_CRITIQUE.md` | Cross-repository audit of the inherited optional imaging workflow |
 | `Plans/Deferred/BEHAVIOR_IMAGING_INTEGRATION.md` | Deferred plan for one canonical behavior pipeline plus optional imaging |
 | `Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md` | Plan for reproducible scientific-paper figures and interfaces |
-| `Plans/Analysis/LEARNER_CLASSIFICATION.md` | Active plan for learner representation, classification, validation, and stratified outputs |
+| `Plans/Analysis/2_LEARNER_CLASSIFICATION.md` | Active plan for learner representation, classification, validation, and stratified outputs |
 | `docs/analysis/legacy/ANALYSIS_FILES_INDEX.md` | This file |
 
 ## Workspace and editor files

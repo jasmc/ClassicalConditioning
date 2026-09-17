@@ -15,8 +15,10 @@ and validated before they become paper-authoritative.
 - [Analysis governance](./GOVERNANCE.md) — durable engineering and scientific invariants
 - [Decision register](./DECISIONS.md) — approved decisions and open gates
 - [Implementation status index](./IMPLEMENTATION_STEP_INDEX.md) — the only live status board
-- [Analysis and statistics](./Analysis/ANALYSIS_AND_STATISTICS.md) — population inference and model design
-- [Learner classification and stratified analysis](./Analysis/LEARNER_CLASSIFICATION.md) — required paper workstream
+- [Analysis and statistics](./Analysis/1_ANALYSIS_AND_STATISTICS.md) — population inference and model design
+- [Remaining cohort and learning-onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md) — ordered implementation work, artifacts, tests, and exit gates
+- [Exclusion and selection inventory](./EXCLUSION_AND_SELECTION_INVENTORY.csv) — machine-readable register of every active, legacy, and deferred selection rule
+- [Learner classification and stratified analysis](./Analysis/2_LEARNER_CLASSIFICATION.md) — required paper workstream
 - [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) — CLI, notebooks, panel data, and paper figures
 - [Releases and legacy retirement](./RELEASES_AND_LEGACY_RETIREMENT.md)
 
@@ -26,9 +28,10 @@ and validated before they become paper-authoritative.
 
 | Plan | Role |
 | --- | --- |
-| [Analysis and statistics](./Analysis/ANALYSIS_AND_STATISTICS.md) | Claims, estimands, outcomes, LME alternatives, diagnostics, uncertainty, and population robustness |
-| [Learner classification and stratified analysis](./Analysis/LEARNER_CLASSIFICATION.md) | Required learner-method review, manifest, validation, outputs, and non-circular inference |
-| [Learner-stratified outputs and validation](./Analysis/LEARNER_STRATIFIED_OUTPUTS.md) | Detailed schemas, joins, temporal analyses, modules, output inventory, phases, and validation checklist |
+| [Analysis and statistics](./Analysis/1_ANALYSIS_AND_STATISTICS.md) | Claims, estimands, outcomes, LME alternatives, diagnostics, uncertainty, and population robustness |
+| [Remaining cohort and learning-onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md) | Critical-path delivery plan connecting the cohort boundary to onset inference and the final figure |
+| [Learner classification and stratified analysis](./Analysis/2_LEARNER_CLASSIFICATION.md) | Required learner-method review, manifest, validation, outputs, and non-circular inference |
+| [Learner-stratified outputs and validation](./Analysis/3_LEARNER_STRATIFIED_OUTPUTS.md) | Detailed schemas, joins, temporal analyses, modules, output inventory, phases, and validation checklist |
 | [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) | Stage interfaces, notebooks, panel data, figure registry, paper automation, and QC |
 
 Learner analysis is required for the paper. Whether its final representation is
@@ -69,8 +72,10 @@ with this folder as an implementation queue.
 3. superseded source plans retained for history.
 
 Archive does not automatically mean complete. Historical numbered filenames
-remain unchanged because their identifiers are part of the project record;
-active filenames no longer use numeric step prefixes.
+remain unchanged because their identifiers are part of the project record.
+The active `Analysis/` plans use numeric prefixes to make their reading order
+explicit; the cross-cutting active plans at the `Plans/` root use descriptive
+names.
 
 ## Lifecycle
 
