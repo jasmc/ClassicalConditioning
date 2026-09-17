@@ -168,6 +168,27 @@ class IntakeTests(unittest.TestCase):
             self.assertEqual(path.read_bytes(), content)
             self.assertEqual(path.stat().st_mtime_ns, modified)
 
+    def test_intake_normalizes_legacy_camera_aliases_while_streaming(self) -> None:
+        camera_source = self.raw / f"{RECORDING}_cam.txt"
+        camera_source.write_text(
+            "ID TotalTime AbsoluteTime\n"
+            "10 0.0 1000\n"
+            "11 1.5 1002\n"
+            "12 3.0 1003\n",
+            encoding="utf-8",
+        )
+
+        intake_recording(self.raw, self.project, chunk_rows=2, preview_rows=2)
+
+        camera = pq.read_table(
+            self.project / "Processed data" / "20260101_01" / "camera.parquet"
+        ).to_pandas()
+        self.assertEqual(
+            list(camera.columns),
+            ["FrameID", "ElapsedTime", "AbsoluteTime"],
+        )
+        self.assertEqual(camera["FrameID"].tolist(), [10, 11, 12])
+
     def test_flags_camera_timestamp_regression(self) -> None:
         camera = self.raw / f"{RECORDING}_cam.txt"
         camera.write_text(

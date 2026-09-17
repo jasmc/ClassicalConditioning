@@ -34,6 +34,7 @@ from classical_conditioning.paths import (
     is_reserved_derived_path,
 )
 from classical_conditioning.ingestion.schemas import (
+    normalize_camera_columns,
     validate_camera_columns,
     validate_protocol_columns,
     validate_tracking_columns,
@@ -397,14 +398,37 @@ def _read_chunks(
     kind: SourceKind,
     schema: pa.Schema,
     chunk_rows: int,
+    source_columns: list[str],
 ) -> Iterator[pd.DataFrame]:
-    yield from pd.read_csv(
+    dtypes = _dtype_for(schema)
+    if kind == "camera":
+        # Camera files may use the validated legacy aliases ID and TotalTime.
+        # pandas applies dtype mappings before the post-read column
+        # normalization, so the mapping must use the source header here.
+        source_dtype_names = dict(
+            zip(
+                source_columns,
+                _dtype_for(
+                    _schema_for(kind, source_columns)
+                ).values(),
+                strict=True,
+            )
+        )
+        dtypes = source_dtype_names
+
+    chunks = pd.read_csv(
         path,
         sep=r"\s+",
-        dtype=_dtype_for(schema),
+        dtype=dtypes,
         chunksize=chunk_rows,
         engine="c",
     )
+    for frame in chunks:
+        if kind == "camera":
+            frame.columns = normalize_camera_columns(
+                [str(column) for column in frame.columns]
+            )
+        yield frame
 
 
 def _new_logical_digest(schema: pa.Schema) -> hashlib._Hash:
@@ -467,8 +491,14 @@ def _convert_table(
             use_dictionary=kind == "protocol",
             write_statistics=True,
         )
-        for frame in _read_chunks(source_path, kind, schema, chunk_rows):
-            if list(frame.columns) != structure["columns"]:
+        for frame in _read_chunks(
+            source_path,
+            kind,
+            schema,
+            chunk_rows,
+            structure["columns"],
+        ):
+            if list(frame.columns) != list(schema.names):
                 raise ValueError(
                     f"{kind} columns changed during reading: {list(frame.columns)}"
                 )
