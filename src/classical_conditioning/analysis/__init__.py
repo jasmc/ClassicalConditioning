@@ -18,6 +18,8 @@ __all__ = [
     "TemporalProfileConfig",
     "TemporalProfileResult",
     "TraceReviewResult",
+    "CohortTrialOutcomesResult",
+    "AnalysisEligibilityResult",
     "build_candidate_movement_state",
     "build_candidate_metric_comparison",
     "run_candidate_development_pipeline",
@@ -25,10 +27,21 @@ __all__ = [
     "build_movement_sensitivity_report",
     "build_candidate_temporal_profiles",
     "build_trace_review",
+    "build_cohort_trial_outcomes",
+    "build_analysis_eligibility_artifact",
 ]
 
 
 def __getattr__(name: str):
+    if name in {
+        "CohortTrialOutcomesResult",
+        "AnalysisEligibilityResult",
+        "build_cohort_trial_outcomes",
+        "build_analysis_eligibility_artifact",
+    }:
+        from classical_conditioning.analysis import cohort_outcomes
+
+        return getattr(cohort_outcomes, name)
     if name in {
         "MovementCalibrationConfig",
         "MovementStateResult",

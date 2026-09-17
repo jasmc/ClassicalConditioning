@@ -243,6 +243,81 @@ def build_parser() -> argparse.ArgumentParser:
     )
     figure_metric_comparison.add_argument("--overwrite", action="store_true")
 
+    figure_selected_block_ratio = subparsers.add_parser(
+        "figure-cohort-selected-block-ratio",
+        help=(
+            "Render fish-weighted response/baseline summaries for Early "
+            "Pre-train, Early Test, and Late Test."
+        ),
+    )
+    figure_selected_block_ratio.add_argument("--project-dir", type=Path, required=True)
+    figure_selected_block_ratio.add_argument("--analysis-id", required=True)
+    figure_selected_block_ratio.add_argument("--cohort-id", required=True)
+    figure_selected_block_ratio.add_argument("--metric", required=True)
+    figure_selected_block_ratio.add_argument(
+        "--outcome",
+        choices=("total-activity", "conditional-intensity"),
+        default="total-activity",
+    )
+    figure_selected_block_ratio.add_argument(
+        "--metric-recipe",
+        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
+        default="tail-candidate-corrected-v1",
+    )
+    figure_selected_block_ratio.add_argument(
+        "--mode", choices=("publication", "static"), default="static"
+    )
+    figure_selected_block_ratio.add_argument("--overwrite", action="store_true")
+
+    figure_trial_ratio = subparsers.add_parser(
+        "figure-cohort-trial-ratio",
+        help="Render the fish-weighted response/baseline trajectory by CS trial.",
+    )
+    figure_trial_ratio.add_argument("--project-dir", type=Path, required=True)
+    figure_trial_ratio.add_argument("--analysis-id", required=True)
+    figure_trial_ratio.add_argument("--cohort-id", required=True)
+    figure_trial_ratio.add_argument("--metric", required=True)
+    figure_trial_ratio.add_argument(
+        "--outcome",
+        choices=("total-activity", "conditional-intensity"),
+        default="total-activity",
+    )
+    figure_trial_ratio.add_argument(
+        "--metric-recipe",
+        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
+        default="tail-candidate-corrected-v1",
+    )
+    figure_trial_ratio.add_argument(
+        "--mode", choices=("publication", "static"), default="static"
+    )
+    figure_trial_ratio.add_argument("--overwrite", action="store_true")
+
+    figure_event_aligned_ratio = subparsers.add_parser(
+        "figure-cohort-event-aligned-ratio",
+        help=(
+            "Render fish-weighted event-aligned response/baseline ratio "
+            "trajectories."
+        ),
+    )
+    figure_event_aligned_ratio.add_argument("--project-dir", type=Path, required=True)
+    figure_event_aligned_ratio.add_argument("--analysis-id", required=True)
+    figure_event_aligned_ratio.add_argument("--cohort-id", required=True)
+    figure_event_aligned_ratio.add_argument("--metric", required=True)
+    figure_event_aligned_ratio.add_argument(
+        "--outcome",
+        choices=("total-activity", "conditional-intensity"),
+        default="total-activity",
+    )
+    figure_event_aligned_ratio.add_argument(
+        "--metric-recipe",
+        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
+        default="tail-candidate-corrected-v1",
+    )
+    figure_event_aligned_ratio.add_argument(
+        "--mode", choices=("publication", "static"), default="static"
+    )
+    figure_event_aligned_ratio.add_argument("--overwrite", action="store_true")
+
     movement = subparsers.add_parser(
         "movement-state",
         help="Calibrate exploratory movement state and bouts for candidate metrics.",
@@ -383,6 +458,111 @@ def build_parser() -> argparse.ArgumentParser:
         help="Boolean cohort include column (default: primary_included).",
     )
     apply_cohort.add_argument("--overwrite", action="store_true")
+
+    cohort_outcomes = subparsers.add_parser(
+        "build-cohort-trial-outcomes",
+        help="Apply one frozen cohort and publish the population trial table.",
+    )
+    cohort_outcomes.add_argument("--project-dir", type=Path, required=True)
+    cohort_outcomes.add_argument("--cohort-id", required=True)
+    cohort_outcomes.add_argument(
+        "--metric-recipe",
+        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
+        default="tail-candidate-corrected-v1",
+    )
+    cohort_outcomes.add_argument("--overwrite", action="store_true")
+
+    eligibility = subparsers.add_parser(
+        "build-analysis-eligibility",
+        help="Publish outcome eligibility without changing cohort membership.",
+    )
+    eligibility.add_argument("--project-dir", type=Path, required=True)
+    eligibility.add_argument("--cohort-id", required=True)
+    eligibility.add_argument("--analysis-id", required=True)
+    eligibility.add_argument("--metric", required=True)
+    eligibility.add_argument(
+        "--outcome",
+        choices=("total-activity", "conditional-intensity"),
+        default="total-activity",
+    )
+    eligibility.add_argument("--alignment", choices=("CS", "US"), default="CS")
+    eligibility.add_argument("--min-baseline-samples", type=int, default=1)
+    eligibility.add_argument("--min-response-samples", type=int, default=1)
+    eligibility.add_argument("--overwrite", action="store_true")
+
+    learning_onset = subparsers.add_parser(
+        "learning-onset",
+        help="Fit condition-aware block and longitudinal learning models.",
+    )
+    learning_onset.add_argument("--project-dir", type=Path, required=True)
+    learning_onset.add_argument("--cohort-id", required=True)
+    learning_onset.add_argument("--analysis-id", required=True)
+    learning_onset.add_argument("--metric", required=True)
+    learning_onset.add_argument(
+        "--outcome",
+        choices=("total-activity", "conditional-intensity"),
+        default="total-activity",
+    )
+    learning_onset.add_argument("--control-condition", default="control")
+    learning_onset.add_argument("--test-condition", required=True)
+    learning_onset.add_argument("--delta-min", type=float, required=True)
+    learning_onset.add_argument("--persistence-trials", type=int, default=3)
+    learning_onset.add_argument("--spline-df", type=int, default=5)
+    learning_onset.add_argument(
+        "--skip-categorical-sensitivity",
+        action="store_true",
+        help="Skip the optional categorical-trial sensitivity fit.",
+    )
+    learning_onset.add_argument(
+        "--sensitivity-optimizer",
+        default="powell",
+        help="Alternate optimizer for diagnostic refits; use 'none' to disable.",
+    )
+    learning_onset.add_argument(
+        "--skip-random-intercept-sensitivity",
+        action="store_true",
+        help="Skip the random-intercept-only diagnostic refit.",
+    )
+    learning_onset.add_argument(
+        "--late-block",
+        action="append",
+        dest="late_blocks",
+        help="Late block for fish-level robustness; repeat to pool blocks.",
+    )
+    learning_onset.add_argument("--min-baseline-samples", type=int, default=1)
+    learning_onset.add_argument("--min-response-samples", type=int, default=1)
+    learning_onset.add_argument("--bootstrap", type=int, default=499)
+    learning_onset.add_argument("--min-successful-bootstrap", type=int, default=100)
+    learning_onset.add_argument(
+        "--min-bootstrap-success-fraction", type=float, default=0.8
+    )
+    learning_onset.add_argument("--permutations", type=int, default=9999)
+    learning_onset.add_argument("--seed", type=int, default=20260917)
+    learning_onset.add_argument("--overwrite", action="store_true")
+
+    figure_learning_onset = subparsers.add_parser(
+        "figure-learning-onset",
+        help="Render trajectories, trial contrasts, and planned block contrasts.",
+    )
+    figure_learning_onset.add_argument("--project-dir", type=Path, required=True)
+    figure_learning_onset.add_argument("--analysis-id", required=True)
+    figure_learning_onset.add_argument(
+        "--mode", choices=("publication", "static"), default="static"
+    )
+    figure_learning_onset.add_argument("--overwrite", action="store_true")
+
+    figure_learning_diagnostics = subparsers.add_parser(
+        "figure-learning-diagnostics",
+        help="Render residual diagnostics for the learning mixed models.",
+    )
+    figure_learning_diagnostics.add_argument(
+        "--project-dir", type=Path, required=True
+    )
+    figure_learning_diagnostics.add_argument("--analysis-id", required=True)
+    figure_learning_diagnostics.add_argument(
+        "--mode", choices=("publication", "static"), default="static"
+    )
+    figure_learning_diagnostics.add_argument("--overwrite", action="store_true")
 
     plan_batch = subparsers.add_parser(
         "plan-batch",
@@ -974,6 +1154,134 @@ def main(argv: Sequence[str] | None = None) -> None:
         print(f"SHA256: {sha256_file(output)}")
         return
 
+    if args.command == "build-cohort-trial-outcomes":
+        from classical_conditioning.analysis import build_cohort_trial_outcomes
+
+        result = build_cohort_trial_outcomes(
+            args.project_dir,
+            cohort_id=args.cohort_id,
+            metric_recipe=args.metric_recipe,
+            overwrite=args.overwrite,
+        )
+        print(f"Cohort: {result.cohort_id}")
+        print(f"Cohort hash: {result.cohort_hash}")
+        print(f"Fish: {result.fish_count}")
+        print(f"Rows: {result.row_count}")
+        print(f"Outcomes: {result.outcomes_path}")
+        print(f"Sample flow: {result.sample_flow_path}")
+        print(f"Summary: {result.summary_path}")
+        return
+
+    if args.command == "build-analysis-eligibility":
+        from classical_conditioning.analysis import (
+            build_analysis_eligibility_artifact,
+        )
+
+        result = build_analysis_eligibility_artifact(
+            args.project_dir,
+            cohort_id=args.cohort_id,
+            analysis_id=args.analysis_id,
+            metric_id=args.metric,
+            outcome_id=args.outcome,
+            alignment=args.alignment,
+            min_baseline_samples=args.min_baseline_samples,
+            min_response_samples=args.min_response_samples,
+            overwrite=args.overwrite,
+        )
+        print(f"Analysis: {result.analysis_id}")
+        print(f"Cohort: {result.cohort_id}")
+        print(f"Rows: {result.row_count}")
+        print(f"Eligible: {result.eligible_count}")
+        print(f"Eligibility: {result.eligibility_path}")
+        print(f"Summary: {result.summary_path}")
+        return
+
+    if args.command == "learning-onset":
+        from classical_conditioning.analysis.inference import (
+            LearningOnsetConfig,
+            build_learning_onset_analysis,
+        )
+
+        result = build_learning_onset_analysis(
+            args.project_dir,
+            cohort_id=args.cohort_id,
+            analysis_id=args.analysis_id,
+            config=LearningOnsetConfig(
+                metric_id=args.metric,
+                outcome_id=args.outcome,
+                control_condition=args.control_condition,
+                test_condition=args.test_condition,
+                delta_min=args.delta_min,
+                persistence_trials=args.persistence_trials,
+                spline_df=args.spline_df,
+                run_categorical_sensitivity=(
+                    not args.skip_categorical_sensitivity
+                ),
+                sensitivity_optimizer=(
+                    None
+                    if args.sensitivity_optimizer.lower() == "none"
+                    else args.sensitivity_optimizer
+                ),
+                run_random_intercept_sensitivity=(
+                    not args.skip_random_intercept_sensitivity
+                ),
+                late_blocks=tuple(args.late_blocks or ("Test 2", "Test 3")),
+                min_baseline_samples=args.min_baseline_samples,
+                min_response_samples=args.min_response_samples,
+                n_bootstrap=args.bootstrap,
+                min_successful_bootstrap=args.min_successful_bootstrap,
+                min_bootstrap_success_fraction=(
+                    args.min_bootstrap_success_fraction
+                ),
+                n_permutations=args.permutations,
+                seed=args.seed,
+            ),
+            overwrite=args.overwrite,
+        )
+        print(f"Analysis: {result.analysis_id}")
+        print(f"Cohort: {result.cohort_id}")
+        print(f"Cohort hash: {result.cohort_hash}")
+        print(f"Block contrasts: {result.block_contrasts_path}")
+        print(f"Trial contrasts: {result.trial_contrasts_path}")
+        print(f"Onset: {result.onset_path}")
+        print(f"Diagnostics: {result.diagnostics_path}")
+        print(f"Summary: {result.summary_path}")
+        return
+
+    if args.command == "figure-learning-onset":
+        from classical_conditioning.figures import (
+            FigureMode,
+            build_learning_onset_figure,
+        )
+
+        result = build_learning_onset_figure(
+            args.project_dir,
+            args.analysis_id,
+            mode=FigureMode(args.mode),
+            overwrite=args.overwrite,
+        )
+        for output in result.outputs:
+            print(f"Figure: {output}")
+        print(f"Provenance: {result.sidecar}")
+        return
+
+    if args.command == "figure-learning-diagnostics":
+        from classical_conditioning.figures import (
+            FigureMode,
+            build_learning_diagnostics_figure,
+        )
+
+        result = build_learning_diagnostics_figure(
+            args.project_dir,
+            args.analysis_id,
+            mode=FigureMode(args.mode),
+            overwrite=args.overwrite,
+        )
+        for output in result.outputs:
+            print(f"Figure: {output}")
+        print(f"Provenance: {result.sidecar}")
+        return
+
     if args.command == "plan-batch":
         from classical_conditioning.operations.batch_work import (
             write_batch_work_manifest,
@@ -1164,12 +1472,65 @@ def main(argv: Sequence[str] | None = None) -> None:
             print(f"Figure: {output}")
         print(f"Provenance: {result.sidecar}")
         return
-        if isinstance(result, Path):
-            print(f"Interactive figure: {result}")
-        else:
-            for output in result.outputs:
-                print(f"Figure: {output}")
-            print(f"Provenance: {result.sidecar}")
+
+    if args.command == "figure-cohort-selected-block-ratio":
+        from classical_conditioning.figures import (
+            FigureMode,
+            build_selected_block_ratio_figure,
+        )
+
+        result = build_selected_block_ratio_figure(
+            args.project_dir,
+            cohort_id=args.cohort_id,
+            analysis_id=args.analysis_id,
+            metric_id=args.metric,
+            outcome_id=args.outcome,
+            metric_recipe=args.metric_recipe,
+            mode=FigureMode(args.mode),
+            overwrite=args.overwrite,
+        )
+        for output in result.outputs:
+            print(f"Figure: {output}")
+        print(f"Provenance: {result.sidecar}")
+        return
+
+    if args.command == "figure-cohort-trial-ratio":
+        from classical_conditioning.figures import FigureMode, build_trial_ratio_figure
+
+        result = build_trial_ratio_figure(
+            args.project_dir,
+            cohort_id=args.cohort_id,
+            analysis_id=args.analysis_id,
+            metric_id=args.metric,
+            outcome_id=args.outcome,
+            metric_recipe=args.metric_recipe,
+            mode=FigureMode(args.mode),
+            overwrite=args.overwrite,
+        )
+        for output in result.outputs:
+            print(f"Figure: {output}")
+        print(f"Provenance: {result.sidecar}")
+        return
+
+    if args.command == "figure-cohort-event-aligned-ratio":
+        from classical_conditioning.figures import (
+            FigureMode,
+            build_event_aligned_ratio_figure,
+        )
+
+        result = build_event_aligned_ratio_figure(
+            args.project_dir,
+            cohort_id=args.cohort_id,
+            analysis_id=args.analysis_id,
+            metric_id=args.metric,
+            outcome_id=args.outcome,
+            metric_recipe=args.metric_recipe,
+            mode=FigureMode(args.mode),
+            overwrite=args.overwrite,
+        )
+        for output in result.outputs:
+            print(f"Figure: {output}")
+        print(f"Provenance: {result.sidecar}")
         return
 
     if args.command == "movement-state":

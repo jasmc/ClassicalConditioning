@@ -1,0 +1,11 @@
+experiment_id,recording_id,fish_id,condition_id,technical_valid,technical_exclusion_reason,behavioral_engagement,behavioral_engagement_reason,primary_included,sensitivity_population_ids,review_status,reviewer,reviewed_at,source_qc_artifact_id
+allDelay,20240607_02,20240607_02,control,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240610_08,20240610_08,control,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240612_07,20240612_07,control,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240613_01,20240613_01,control,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240618_01,20240618_01,control,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240607_01,20240607_01,delay,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240610_07,20240610_07,delay,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240612_08,20240612_08,delay,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240613_02,20240613_02,delay,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
+allDelay,20240618_02,20240618_02,delay,true,,,smoke-test selection,true,[],approved,Codex-refactor-smoke,2026-09-17T00:00:00Z,pipeline-qc-pending
