@@ -1,4 +1,9 @@
-"""Outcome-identical descriptive comparison of candidate activity metrics."""
+"""Outcome-identical descriptive comparison of candidate activity metrics.
+
+Review note: this authenticates temporal profiles, summarizes matched
+baseline/response windows per fish, then aggregates descriptively without
+treating any candidate metric as paper-approved.
+"""
 
 from __future__ import annotations
 
@@ -94,6 +99,7 @@ class _VerifiedTemporalProfiles:
 
 
 def _config_hash(config: MetricComparisonConfig) -> str:
+    # Canonical config hash binds every pooled result to exact window/metric policy.
     payload = json.dumps(
         asdict(config),
         ensure_ascii=True,
@@ -105,6 +111,7 @@ def _config_hash(config: MetricComparisonConfig) -> str:
 
 
 def _validate_analysis_id(analysis_id: str) -> None:
+    # Analysis IDs become output path components and must be safe/non-empty.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError(
             "Analysis ID must use only letters, numbers, dot, underscore, or hyphen."
@@ -112,6 +119,7 @@ def _validate_analysis_id(analysis_id: str) -> None:
 
 
 def _verify_temporal_profiles(
+    # Authenticate one recording's temporal profile before calculating outcomes.
     project_dir: Path,
     recording_id: str,
     source: CandidateMetricSource,
@@ -170,6 +178,7 @@ def _verify_temporal_profiles(
 
 
 def summarize_candidate_metric_windows(
+    # Compute baseline/response contrasts with coverage and per-fish scale evidence.
     profiles: pd.DataFrame,
     *,
     config: MetricComparisonConfig = MetricComparisonConfig(),
@@ -313,6 +322,7 @@ def summarize_candidate_metric_windows(
 
 
 def summarize_candidate_metric_cohort(
+    # Aggregate matched recording-level estimates by condition/metric/outcome.
     recording_summary: pd.DataFrame,
 ) -> pd.DataFrame:
     """Average recording-level summaries so each recording has equal weight.
@@ -387,6 +397,7 @@ def summarize_candidate_metric_cohort(
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
+    # Write lossless output and return metadata used in summaries/markers.
     table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
     pq.write_table(table, path, compression="zstd", write_statistics=True)
     return {
@@ -401,6 +412,7 @@ def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
 
 
 def comparison_config_for_experiment(
+    # Select frozen response-window configuration from an authenticated experiment ID.
     experiment_name: str,
     config: MetricComparisonConfig | None = None,
 ) -> MetricComparisonConfig:
@@ -419,6 +431,7 @@ def comparison_config_for_experiment(
 
 
 def _condition_for_recording(project_dir: Path, recording_id: str) -> str:
+    # Prefer source manifest condition; retain filename fallback for older intake evidence.
     manifest_path = project_dir / "Metadata" / f"{recording_id}_source_manifest.json"
     if not manifest_path.is_file():
         return ""
@@ -432,6 +445,7 @@ def _condition_for_recording(project_dir: Path, recording_id: str) -> str:
 
 
 def build_candidate_metric_comparison(
+    # Verify sources, build recording/cohort tables, then publish all outputs together.
     project_dir: Path,
     recording_ids: Iterable[str],
     *,

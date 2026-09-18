@@ -1,4 +1,8 @@
-"""Deterministic batch work manifests for multi-recording corrected/development runs."""
+"""Deterministic batch work manifests for multi-recording corrected/development runs.
+
+Review note: batch manifests describe local stage state for safe resumption; they
+do not replace artifact-lineage verification performed by the candidate runner.
+"""
 
 from __future__ import annotations
 
@@ -25,9 +29,11 @@ from classical_conditioning.artifacts import (
 )
 from classical_conditioning.exceptions import ConfigurationError
 
+# Versioned manifest identity and permitted work-selection filters.
 RECIPE_ID = "batch-work-manifest-v1"
 SelectionMode = Literal["all", "pending", "failed"]
 
+# Fixed ordered table contract for a row per recording/stage work item.
 BATCH_COLUMNS = (
     "recording_id",
     "stage",
@@ -40,6 +46,7 @@ BATCH_COLUMNS = (
 )
 
 
+# One stage's expected recipe, output file, and completion marker identity.
 @dataclass(frozen=True)
 class BatchStage:
     stage: str
@@ -48,6 +55,7 @@ class BatchStage:
     marker_suffix: str
 
 
+# Paths and coverage counts returned after publishing a work manifest.
 @dataclass(frozen=True)
 class BatchWorkManifestResult:
     batch_id: str
@@ -60,6 +68,7 @@ class BatchWorkManifestResult:
 
 
 def _validate_identifier(value: str, label: str) -> None:
+    # IDs become filenames/directories and must be safe, non-empty path components.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", value):
         raise ConfigurationError(
             f"{label} must use only letters, numbers, dot, underscore, or hyphen."
@@ -70,6 +79,7 @@ def corrected_or_development_stages(
     source: CandidateMetricSource,
 ) -> tuple[BatchStage, ...]:
     """Return the ordered per-recording stages for one frozen candidate route."""
+    # Corrected routes start with frame correction; development routes do not.
     stages: list[BatchStage] = []
     if source.requires_corrected_preprocess:
         stages.append(
@@ -80,6 +90,7 @@ def corrected_or_development_stages(
                 marker_suffix="corrected-preprocess-v1_complete.json",
             )
         )
+    # The remaining stages always follow this frozen metric-to-outcome order.
     stages.extend(
         [
             BatchStage(
@@ -112,10 +123,12 @@ def corrected_or_development_stages(
 
 
 def _marker_status(project_dir: Path, recording_id: str, stage: BatchStage) -> str:
+    # A stage is complete only when marker and expected output agree on identity.
     marker = project_dir / "Metadata" / f"{recording_id}_{stage.marker_suffix}"
     output = (
         project_dir / "Processed data" / recording_id / stage.expected_output
     )
+    # Parse a present pair; malformed or mismatched metadata means failed, not pending.
     if marker.is_file() and output.is_file():
         try:
             payload = json.loads(marker.read_text(encoding="utf-8"))
@@ -128,6 +141,7 @@ def _marker_status(project_dir: Path, recording_id: str, stage: BatchStage) -> s
         ):
             return "complete"
         return "failed"
+    # A lone marker/output indicates interrupted or inconsistent prior work.
     if marker.exists() or output.exists():
         return "failed"
     return "pending"
@@ -141,6 +155,7 @@ def plan_batch_work(
     selection: SelectionMode = "all",
 ) -> pd.DataFrame:
     """Build a deterministic work table from frozen route stages and local markers."""
+    # Validate request identity/filter before inspecting local stage evidence.
     if selection not in ("all", "pending", "failed"):
         raise ConfigurationError(
             "Batch selection must be one of: all, pending, failed."
@@ -151,9 +166,11 @@ def plan_batch_work(
     for recording_id in recording_ids:
         _validate_identifier(recording_id, "Recording ID")
     project_dir = project_dir.resolve()
+    # Resolve the compatible route family and enumerate each requested work item.
     source = resolve_candidate_metric_source(metric_recipe=metric_recipe)
     stages = corrected_or_development_stages(source)
     rows: list[dict[str, object]] = []
+    # Status comes from locally expected output/marker pairs, not inferred execution.
     for recording_id in recording_ids:
         for stage in stages:
             status = _marker_status(project_dir, recording_id, stage)
@@ -174,6 +191,7 @@ def plan_batch_work(
                 }
             )
     frame = pd.DataFrame(rows, columns=list(BATCH_COLUMNS))
+    # Return either all rows or the requested resumable problem subset.
     if selection == "pending":
         frame = frame.loc[frame["status"] == "pending"].reset_index(drop=True)
     elif selection == "failed":
@@ -191,6 +209,7 @@ def write_batch_work_manifest(
     overwrite: bool = False,
 ) -> BatchWorkManifestResult:
     """Publish a batch work manifest plus summary for coverage accounting."""
+    # Plan work first, then define the mutually authenticated output artifact family.
     _validate_identifier(batch_id, "Batch ID")
     project_dir = project_dir.resolve()
     source = resolve_candidate_metric_source(metric_recipe=metric_recipe)
@@ -213,11 +232,13 @@ def write_batch_work_manifest(
     existing = [
         path for path in (manifest_path, summary_path, marker_path) if path.exists()
     ]
+    # Preserve a prior manifest unless the caller explicitly requests a refresh.
     if existing and not overwrite:
         raise FileExistsError(f"{RECIPE_ID} outputs already exist: {existing}")
     output_dir.mkdir(parents=True, exist_ok=True)
     summary_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Write Parquet manifest, QC summary, and marker atomically from staging.
     with artifact_staging(
         project_dir,
         prefix=f".{batch_id}-{RECIPE_ID}-",
@@ -233,6 +254,7 @@ def write_batch_work_manifest(
             write_statistics=True,
         )
         digest = sha256_file(staged_manifest)
+        # Summarize route identity, selection basis, coverage, and artifact digest.
         summary = {
             "recipe": RECIPE_ID,
             "scientific_status": source.scientific_status,
@@ -267,6 +289,7 @@ def write_batch_work_manifest(
                 "summary_sha256": sha256_file(staged_summary),
             },
         )
+        # Publish all three parts together so status never points to partial evidence.
         publish_transaction(
             (
                 (staged_manifest, manifest_path),
@@ -289,6 +312,7 @@ def write_batch_work_manifest(
     )
 
 
+# Batch execution result compares before/after local work coverage and runner output.
 @dataclass(frozen=True)
 class BatchExecuteResult:
     batch_id: str
@@ -324,8 +348,10 @@ def execute_batch_work(
     recordings when ``overwrite_failed`` is true. Cohort comparison is always
     refreshed through the candidate runner for the selected recordings.
     """
+    # Lazy progress import keeps manifest planning usable in non-interactive code.
     from classical_conditioning.progress import default_progress
 
+    # Validate selection/IDs, then resolve one compatible candidate route family.
     progress = progress or default_progress(enabled=False)
     if selection not in ("pending", "failed", "all"):
         raise ConfigurationError(
@@ -339,6 +365,7 @@ def execute_batch_work(
         _validate_identifier(recording_id, "Recording ID")
     project_dir = project_dir.resolve()
     source = resolve_candidate_metric_source(metric_recipe=metric_recipe)
+    # Snapshot local stage state before deciding which recording IDs need execution.
     before = plan_batch_work(
         project_dir,
         recording_ids,
@@ -348,6 +375,7 @@ def execute_batch_work(
     before_pending = int((before["status"] == "pending").sum())
     before_failed = int((before["status"] == "failed").sum())
 
+    # Pending resumes without overwrite; failed rows optionally rebuild with overwrite.
     if selection == "all":
         target_ids = recording_ids
         overwrite = False
@@ -370,6 +398,7 @@ def execute_batch_work(
 
     runner_manifest: Path | None = None
     resolved_analysis_id = analysis_id
+    # Delegate selected recordings to the runner, which performs real lineage checks.
     if target_ids:
         from classical_conditioning.analysis.candidate_runner import (
             run_candidate_development_pipeline,
@@ -398,6 +427,7 @@ def execute_batch_work(
     else:
         progress.info(f"no recordings matched selection={selection}")
 
+    # Always regenerate coverage evidence after an attempt, including no-op selections.
     with progress.stage_timer("Refreshing batch work manifest"):
         refreshed = write_batch_work_manifest(
             project_dir,
@@ -407,6 +437,7 @@ def execute_batch_work(
             selection="all",
             overwrite=True,
         )
+    # Reinspect local marker/output state to return before/after counts to caller.
     after = plan_batch_work(
         project_dir,
         recording_ids,

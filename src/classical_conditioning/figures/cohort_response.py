@@ -6,6 +6,10 @@ within-trial change, but low baselines can make ratios unstable.  Consequently
 these builders show fish-level distributions and do not derive p-values from
 the ratio.  Condition-aware LME contrasts belong to the learning-onset
 analysis once its model and contrast configuration have been approved.
+
+Review note: these are fish-weighted descriptive views over a frozen primary
+cohort. Ratio eligibility and zero/missing denominators remain explicit rather
+than being imputed or silently interpreted as no response.
 """
 
 from __future__ import annotations

@@ -1,4 +1,8 @@
-"""Reproducible runtime-environment reporting."""
+"""Reproducible runtime-environment reporting.
+
+Review note: this captures the execution environment and fails early for Python
+versions known to be incompatible with the package's locked PyArrow dependency.
+"""
 
 from __future__ import annotations
 
@@ -18,23 +22,22 @@ from classical_conditioning.artifacts import write_json_atomic
 from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.figures.theme import resolve_sans_serif_fonts
 
+# Runtime support boundary, driven by available Windows PyArrow wheels.
 # PyArrow does not yet ship usable Windows wheels for CPython 3.14.
 _SUPPORTED_PYTHON = ((3, 12), (3, 13))
 
+# Report direct numerical/figure dependencies whose versions affect outputs.
 LOCKED_DISTRIBUTIONS = (
     "matplotlib",
-    "numba",
     "numpy",
     "pandas",
     "plotly",
     "pyarrow",
-    "scikit-learn",
     "scipy",
-    "seaborn",
-    "statannotations",
     "statsmodels",
     "tqdm",
 )
+# Thread-count environment variables can affect performance/reproducibility.
 THREAD_ENVIRONMENT_VARIABLES = (
     "OMP_NUM_THREADS",
     "OPENBLAS_NUM_THREADS",
@@ -44,6 +47,7 @@ THREAD_ENVIRONMENT_VARIABLES = (
 
 
 def _distribution_versions() -> dict[str, str | None]:
+    # Missing optional packages are reported as null, not treated as version zero.
     versions: dict[str, str | None] = {}
     for distribution in LOCKED_DISTRIBUTIONS:
         try:
@@ -54,10 +58,12 @@ def _distribution_versions() -> dict[str, str | None]:
 
 
 def _numerical_libraries() -> dict[str, dict[str, Any]]:
+    # NumPy exposes compiled BLAS/LAPACK linkage in a structured build report.
     build_dependencies = np.show_config(mode="dicts").get(
         "Build Dependencies",
         {},
     )
+    # Retain only stable, relevant fields rather than dumping implementation noise.
     return {
         library: {
             field: details.get(field)
@@ -71,6 +77,7 @@ def _numerical_libraries() -> dict[str, dict[str, Any]]:
 
 def ensure_supported_runtime() -> None:
     """Fail fast on Python builds that cannot import the locked PyArrow wheel."""
+    # Test interpreter major/minor before importing PyArrow's compiled extension.
     version = sys.version_info[:2]
     if version not in _SUPPORTED_PYTHON:
         raise ConfigurationError(
@@ -80,6 +87,7 @@ def ensure_supported_runtime() -> None:
             "wheel (pyarrow.lib import fails). Create/use the project 3.12 venv, "
             "for example: uv sync --python 3.12"
         )
+    # A supported version can still have a broken/missing PyArrow installation.
     try:
         import pyarrow  # noqa: F401
     except Exception as error:  # pragma: no cover - depends on local install
@@ -92,6 +100,8 @@ def ensure_supported_runtime() -> None:
 
 def build_environment_report() -> dict[str, Any]:
     """Return versions and numerical/figure settings needed for reproduction."""
+    # Build one JSON-ready snapshot spanning package, platform, numerical, and
+    # rendering state needed to reproduce a generated analysis/figure.
     return {
         "package": {
             "name": "classical-conditioning",
@@ -108,6 +118,7 @@ def build_environment_report() -> dict[str, Any]:
         },
         "distributions": _distribution_versions(),
         "numerical_libraries": _numerical_libraries(),
+        # Record both detected CPU capacity and externally imposed thread limits.
         "threads": {
             "logical_cpu_count": os.cpu_count(),
             "environment": {
@@ -119,6 +130,7 @@ def build_environment_report() -> dict[str, Any]:
                 "under numerical_libraries."
             ),
         },
+        # Font/backend/Freetype choices can materially change rendered figures.
         "figures": {
             "matplotlib_version": matplotlib.__version__,
             "backend": str(matplotlib.get_backend()),
@@ -132,6 +144,7 @@ def build_environment_report() -> dict[str, Any]:
 
 def write_environment_report(output_path: Path) -> Path:
     """Write an environment report atomically."""
+    # Create the destination hierarchy and atomically write the current snapshot.
     output_path = output_path.resolve()
     output_path.parent.mkdir(parents=True, exist_ok=True)
     write_json_atomic(output_path, build_environment_report())
@@ -140,4 +153,5 @@ def write_environment_report(output_path: Path) -> Path:
 
 def format_environment_report() -> str:
     """Return a deterministic human-readable JSON representation."""
+    # Deterministic key ordering makes terminal reports easy to diff and archive.
     return json.dumps(build_environment_report(), indent=2, sort_keys=True)

@@ -1,5 +1,10 @@
-"""Optional statistical inference built from candidate analysis artifacts."""
+"""Optional statistical inference built from candidate analysis artifacts.
 
+Review note: the public inference façade currently lazy-loads learning-onset
+analysis, preventing optional statistics dependencies from loading at import.
+"""
+
+# Names supplied by learning_onset.py and intentionally exposed by this package.
 __all__ = [
     "LearningOnsetConfig",
     "LearningOnsetResult",
@@ -10,6 +15,7 @@ __all__ = [
 
 
 def __getattr__(name: str):
+    # All listed inference exports currently live in the learning-onset module.
     if name in set(__all__):
         from classical_conditioning.analysis.inference import learning_onset
 

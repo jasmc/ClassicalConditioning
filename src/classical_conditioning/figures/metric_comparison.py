@@ -1,4 +1,8 @@
-"""Cohort-level candidate metric comparison figures."""
+"""Cohort-level candidate metric comparison figures.
+
+Review note: these figures render authenticated descriptive comparison tables;
+they do not calculate outcomes or attach inferential claims to candidate metrics.
+"""
 
 from __future__ import annotations
 

@@ -1,4 +1,8 @@
-"""Streaming comparisons between supported tabular analysis artifacts."""
+"""Streaming comparisons between supported tabular analysis artifacts.
+
+Review note: comparison is diagnostic only. It reads two row-aligned Parquet
+files, reports schema/value differences, and never changes either source file.
+"""
 
 from __future__ import annotations
 
@@ -13,6 +17,7 @@ import pyarrow.parquet as pq
 from classical_conditioning.artifacts import sha256_file as _sha256_file
 
 
+# Compact return value; detailed per-column evidence is written to output JSON.
 @dataclass(frozen=True)
 class ComparisonResult:
     left: Path
@@ -32,30 +37,38 @@ def compare_parquet_artifacts(
     batch_size: int = 250_000,
 ) -> ComparisonResult:
     """Compare row-aligned Parquet artifacts without importing archived routes."""
+    # Reject nonsensical tolerances and preserve a positive API batch-size contract.
     if absolute_tolerance < 0 or relative_tolerance < 0 or batch_size < 1:
         raise ValueError("Comparison tolerances must be non-negative and batch_size positive.")
+    # Resolve paths and prohibit overwriting either immutable comparison input.
     left_path, right_path, output_path = (
         left_path.resolve(), right_path.resolve(), output_path.resolve()
     )
     if output_path in {left_path, right_path}:
         raise ValueError("Comparison output must differ from both input artifacts.")
+    # Hash sources before opening so a concurrent edit can be detected afterward.
     left_hash, right_hash = _sha256_file(left_path), _sha256_file(right_path)
     left, right = pq.ParquetFile(left_path), pq.ParquetFile(right_path)
+    # Read one column at a time to keep diagnostic memory bounded by column size.
     try:
         left_columns, right_columns = left.schema_arrow.names, right.schema_arrow.names
+        # Only shared names get value comparison; exclusive names are reported later.
         common = [column for column in left_columns if column in set(right_columns)]
         column_results = {}
+        # Compare each shared column under a type-specific equality rule.
         for column in common:
             left_field, right_field = left.schema_arrow.field(column), right.schema_arrow.field(column)
             left_column = left.read(columns=[column]).column(0).combine_chunks()
             right_column = right.read(columns=[column]).column(0).combine_chunks()
             left_values = left_column.to_pylist()
             right_values = right_column.to_pylist()
+            # Compare only aligned shared rows; unequal row counts remain explicit.
             compared = min(len(left_values), len(right_values))
             left_array, right_array = np.asarray(left_values[:compared], dtype=object), np.asarray(right_values[:compared], dtype=object)
             left_null = np.fromiter((value is None for value in left_array), dtype=bool, count=compared)
             right_null = np.fromiter((value is None for value in right_array), dtype=bool, count=compared)
             valid = ~(left_null | right_null)
+            # Determine comparison semantics from both Arrow field types.
             integer = pa.types.is_integer(left_field.type) and pa.types.is_integer(right_field.type)
             floating = pa.types.is_floating(left_field.type) and pa.types.is_floating(right_field.type)
             mismatches = 0
@@ -66,6 +79,8 @@ def compare_parquet_artifacts(
                 "null_mismatch_count": int(np.count_nonzero(left_null != right_null)),
                 "value_mismatch_count": 0,
             }
+            # Integers compare exactly, floats use requested tolerance/NaN rules,
+            # and all other values compare by Python equality when non-null.
             if integer:
                 unequal = [index for index in range(compared) if valid[index] and left_array[index] != right_array[index]]
                 mismatches = len(unequal)
@@ -83,6 +98,7 @@ def compare_parquet_artifacts(
             else:
                 mismatches = sum(left_array[index] != right_array[index] for index in range(compared) if valid[index])
             result["value_mismatch_count"] = int(mismatches)
+            # Dictionary encodings need category/order evidence beyond row values.
             if pa.types.is_dictionary(left_field.type) or pa.types.is_dictionary(right_field.type):
                 left_categories = (
                     left_column.dictionary.to_pylist()
@@ -102,6 +118,7 @@ def compare_parquet_artifacts(
                     == getattr(right_field.type, "ordered", None)
                 )
             column_results[column] = result
+        # Include source hashes, schema asymmetries, tolerances, and all results.
         payload = {
             "left": {"path": str(left_path), "sha256": left_hash, "rows": left.metadata.num_rows, "columns": left_columns},
             "right": {"path": str(right_path), "sha256": right_hash, "rows": right.metadata.num_rows, "columns": right_columns},
@@ -112,9 +129,12 @@ def compare_parquet_artifacts(
             "column_results": column_results,
         }
     finally:
+        # Close Parquet handles on both successful and failed comparison paths.
         left.close(); right.close()
+    # Refuse to publish a report for files that changed while being read.
     if _sha256_file(left_path) != left_hash or _sha256_file(right_path) != right_hash:
         raise RuntimeError("A compared artifact changed during comparison.")
+    # The report is ordinary JSON: inputs stay untouched and result identifies them.
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return ComparisonResult(left_path, right_path, output_path, payload["row_counts_equal"], len(common))

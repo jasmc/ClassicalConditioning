@@ -1,4 +1,8 @@
-"""Immutable visual language for scientific Matplotlib figures."""
+"""Immutable visual language for scientific Matplotlib figures.
+
+Review note: all figure builders use these shared dimensions, colours, fonts,
+and axes conventions so output is consistent across modules and systems.
+"""
 
 from __future__ import annotations
 
@@ -13,6 +17,7 @@ from matplotlib.font_manager import fontManager
 
 from classical_conditioning.config.domain import Alignment, ConditionSpec
 
+# Physical layout constants and preferred installed-font fallback order.
 MM_PER_INCH = 25.4
 SINGLE_COLUMN_MM = 89.0
 DOUBLE_COLUMN_MM = 183.0
@@ -34,6 +39,7 @@ COLORBLIND_QUALITATIVE = (
 
 def mm_to_in(width_mm: float, height_mm: float | None = None) -> tuple[float, float]:
     """Convert millimetre figure size to inches."""
+    # Matplotlib expects inches; omitted height intentionally returns a square.
     width_in = width_mm / MM_PER_INCH
     if height_mm is None:
         return (width_in, width_in)
@@ -47,11 +53,13 @@ def rgb_255_to_unit(color_rgb_255: tuple[int, int, int]) -> tuple[float, float, 
 
 def condition_color(spec: ConditionSpec) -> tuple[float, float, float]:
     """Return a condition colour in Matplotlib unit RGB."""
+    # Keep condition rendering tied to immutable experiment configuration.
     return rgb_255_to_unit(spec.color_rgb_255)
 
 
 def resolve_sans_serif_fonts() -> tuple[str, ...]:
     """Return installed sans-serif names in preference order, with a fallback."""
+    # Prefer common publication fonts but always retain a bundled fallback.
     available = {font.name for font in fontManager.ttflist}
     resolved = [name for name in PREFERRED_SANS_SERIF if name in available]
     if "DejaVu Sans" not in resolved:
@@ -66,6 +74,7 @@ def stimulus_duration_s(
     us_duration_s: float = DEFAULT_US_DURATION_S,
 ) -> float:
     """Return CS or US duration in seconds."""
+    # Accept enum/string callers while constraining output to known CS/US timing.
     value = alignment.value if isinstance(alignment, Alignment) else str(alignment)
     if value == Alignment.CS.value:
         return float(cs_duration_s)
@@ -75,6 +84,7 @@ def stimulus_duration_s(
 
 
 @dataclass(frozen=True)
+# Immutable visual parameters: callers can override a complete theme explicitly.
 class FigureTheme:
     font_size: float = 8.0
     axes_labelsize: float = 8.0
@@ -107,6 +117,7 @@ class FigureTheme:
     bottom_spine_offset: float = 4.0
 
 
+# Default theme is a reusable immutable value, not mutable global plotting state.
 DEFAULT_THEME = FigureTheme()
 
 
@@ -116,8 +127,10 @@ def get_theme() -> FigureTheme:
 
 def apply_theme(theme: FigureTheme | None = None) -> FigureTheme:
     """Apply the scientific theme to Matplotlib rcParams."""
+    # Resolve optional override and installed fonts before updating global rcParams.
     theme = theme or DEFAULT_THEME
     sans = list(resolve_sans_serif_fonts())
+    # Apply typography, axes, layout, export, and no-LaTeX portability settings together.
     mpl.rcParams.update(
         {
             "font.family": "sans-serif",
@@ -184,6 +197,7 @@ def style_axes(
     ylabel: str | None = None,
 ) -> None:
     """Hide unused spines and ticks on one axes."""
+    # Set visibility/spacing first, then label behaviour based on requested tick axes.
     theme = theme or DEFAULT_THEME
     ax.grid(False)
     ax.spines["top"].set_visible(False)
@@ -223,11 +237,13 @@ def add_stimulus_window(
     gid: str | None = None,
 ) -> tuple[object, object]:
     """Mark stimulus duration in data coordinates (span plus onset line)."""
+    # Resolve timing/colour from alignment unless an assay-specific duration is supplied.
     theme = theme or DEFAULT_THEME
     value = alignment.value if isinstance(alignment, Alignment) else str(alignment)
     if duration_s is None:
         duration_s = stimulus_duration_s(value)
     color = theme.cs_color if value == Alignment.CS.value else theme.us_color
+    # Return both artists so figure builders can register semantic provenance IDs.
     span = ax.axvspan(
         onset_s,
         onset_s + duration_s,
@@ -256,6 +272,7 @@ def qualitative_color(index: int, theme: FigureTheme | None = None) -> str:
 
 def heatmap_cmap(name: str, theme: FigureTheme | None = None):
     """Return a colormap with a neutral colour for missing values."""
+    # Copy before changing the bad colour so registered colormaps stay untouched.
     theme = theme or DEFAULT_THEME
     try:
         cmap = mpl.colormaps[name].copy()
@@ -276,6 +293,7 @@ def stacked_subplots(
     theme: FigureTheme | None = None,
 ) -> tuple[Figure, Sequence[Axes]]:
     """Create a vertical stack sized in millimetres."""
+    # Apply shared theme and convert physical row layout into a Matplotlib figure.
     theme = theme or DEFAULT_THEME
     apply_theme(theme)
     height_mm = max(row_height_mm * nrows, 40.0)

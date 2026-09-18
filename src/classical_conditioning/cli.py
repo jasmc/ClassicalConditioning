@@ -1,4 +1,9 @@
-"""Command-line interface for local analysis operations."""
+"""Command-line interface for local analysis operations.
+
+Review note: this module only translates command-line arguments into validated
+stage calls. Scientific calculations and artifact authentication remain owned
+by the focused modules imported inside each command-dispatch branch.
+"""
 
 from __future__ import annotations
 
@@ -12,6 +17,7 @@ from classical_conditioning.intake import intake_recording, intake_recordings
 
 def _preprocess_recipe(value: str) -> str:
     """Resolve a user-facing preprocessing mode to its internal recipe ID."""
+    # Keep the user-facing mode short while resolving one frozen recipe identity.
     aliases = {
         "corrected": "corrected-preprocess-v1",
         "corrected-preprocess-v1": "corrected-preprocess-v1",
@@ -26,6 +32,7 @@ def _preprocess_recipe(value: str) -> str:
 
 def _activity_metric_recipe(value: str) -> str:
     """Resolve a user-facing metric source to its internal recipe ID."""
+    # Map friendly development/corrected labels to compatible metric recipe IDs.
     aliases = {
         "development": "tail-candidate-development-v1",
         "corrected": "tail-candidate-corrected-v1",
@@ -41,6 +48,7 @@ def _activity_metric_recipe(value: str) -> str:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    # Declare every supported command and its input contract without executing work.
     parser = argparse.ArgumentParser(prog="classical-conditioning")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -789,6 +797,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Sequence[str] | None = None) -> None:
+    # Fail early on unsupported runtime, parse arguments, then dispatch one command.
     ensure_supported_runtime()
     parser = build_parser()
     args = parser.parse_args(argv)

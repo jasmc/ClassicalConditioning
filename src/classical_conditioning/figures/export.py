@@ -1,4 +1,8 @@
-"""Semantic, provenance-rich figure export."""
+"""Semantic, provenance-rich figure export.
+
+Review note: this publishes rendered files with a machine-readable sidecar and,
+for publication SVG, embedded provenance plus semantic artist identifiers.
+"""
 
 from __future__ import annotations
 
@@ -20,18 +24,21 @@ from classical_conditioning.artifacts import (
     write_json_atomic,
 )
 
+# Namespaces make SVG element IDs and embedded provenance unambiguous.
 SVG_NAMESPACE = "http://www.w3.org/2000/svg"
 PROVENANCE_NAMESPACE = "https://classical-conditioning.local/provenance/v1"
 ET.register_namespace("", SVG_NAMESPACE)
 ET.register_namespace("cc", PROVENANCE_NAMESPACE)
 
 
+# Export mode determines permitted rendered output formats.
 class FigureMode(str, Enum):
     PUBLICATION = "publication"
     STATIC = "static"
     INTERACTIVE = "interactive"
 
 
+# Caller-supplied scientific/code/input provenance for one figure.
 @dataclass(frozen=True)
 class FigureProvenance:
     figure_id: str
@@ -53,11 +60,13 @@ class FigureExportResult:
 
 
 def _slug(value: str) -> str:
+    # Produce stable XML/file-safe semantic ID components from human labels.
     normalized = re.sub(r"[^a-zA-Z0-9_-]+", "-", value.strip()).strip("-")
     return normalized.lower() or "unnamed"
 
 
 def assign_axes_semantic_ids(
+    # Assign semantic groups to panels/artists and return a registry for the sidecar.
     figure: Figure,
     panel_ids: list[str] | None = None,
     artist_mappings: dict[str, dict[str, Any]] | None = None,
@@ -184,6 +193,7 @@ def assign_axes_semantic_ids(
 
 
 def _git_commit(source_file: Path) -> str:
+    # Best-effort source commit capture; unavailable Git state is recorded explicitly.
     completed = subprocess.run(
         ["git", "rev-parse", "HEAD"],
         cwd=source_file.parent,
@@ -195,6 +205,7 @@ def _git_commit(source_file: Path) -> str:
 
 
 def _git_dirty(source_file: Path) -> bool:
+    # Best-effort dirty-worktree marker warns that source differs from commit.
     completed = subprocess.run(
         ["git", "status", "--porcelain", "--untracked-files=all"],
         cwd=source_file.parent,
@@ -206,6 +217,7 @@ def _git_dirty(source_file: Path) -> bool:
 
 
 def _embed_svg_metadata(
+    # Insert compact provenance after Matplotlib has written the SVG document.
     svg_path: Path,
     compact_provenance: dict[str, Any],
 ) -> None:
@@ -225,6 +237,7 @@ def _embed_svg_metadata(
 
 
 def _validate_svg_registry(
+    # Confirm required semantic IDs survive serialization and remain unique.
     svg_path: Path,
     registry: dict[str, dict[str, Any]],
 ) -> None:
@@ -252,6 +265,7 @@ def _validate_svg_registry(
 
 
 def export_matplotlib_figure(
+    # Render static/publication outputs plus sidecar in staging, then publish atomically.
     figure: Figure,
     output_base: Path,
     provenance: FigureProvenance,

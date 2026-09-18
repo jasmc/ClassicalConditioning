@@ -1,4 +1,9 @@
-"""Exploratory whole-tail activity metrics from measured tracking coordinates."""
+"""Exploratory whole-tail activity metrics from measured tracking coordinates.
+
+Review note: formulas live here so direct-intake benchmark and corrected-frame
+writers cannot drift. The direct-intake writer is active only for controlled
+comparison, not the routine corrected candidate pipeline.
+"""
 
 from __future__ import annotations
 
@@ -22,6 +27,7 @@ from classical_conditioning.artifacts import (
     write_json_atomic as _write_json_atomic,
 )
 
+# Stable column names and human-readable scientific definitions for all writers.
 CANDIDATE_COLUMNS = (
     "tail_length_weighted_angular_l1_rad_per_ms",
     "whole_tail_xy_mean_speed_tail_lengths_per_ms",
@@ -45,6 +51,7 @@ METRIC_DEFINITIONS = {
     ),
 }
 
+# Frozen metric geometry/time policy shared by candidate metric routes.
 @dataclass(frozen=True)
 class CandidateMetricConfig:
     point_count: int = 16
@@ -59,6 +66,7 @@ class CandidateMetricConfig:
     spatial_normalization: str = "recording_median_tail_length"
 
 
+# Published artifact paths/counts returned by either metric writer.
 @dataclass(frozen=True)
 class CandidateMetricResult:
     recording_id: str
@@ -70,6 +78,7 @@ class CandidateMetricResult:
 
 
 def _wrap_angle(angle: np.ndarray) -> np.ndarray:
+    # Normalize angular changes into the principal interval before calculating speed.
     return np.arctan2(np.sin(angle), np.cos(angle))
 
 
@@ -78,6 +87,7 @@ def _validate_frame_order(
     previous_frame_id: int | None,
 ) -> int:
     frame_ids = np.asarray(frame_ids, dtype=np.int64)
+    # Enforce increasing IDs inside and between streamed batches.
     if frame_ids.size == 0:
         raise ValueError("Tracking frame batch is empty.")
     if np.any(np.diff(frame_ids) <= 0):
@@ -111,6 +121,7 @@ def _geometry_agreement(
 
 
 def _tail_point_weights(x: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    # Segment lengths weight pointwise quantities and identify valid tail geometry.
     segment_lengths = np.hypot(np.diff(x, axis=1), np.diff(y, axis=1))
     valid_lengths = np.where(
         np.isfinite(segment_lengths) & (segment_lengths > 0),
@@ -173,6 +184,7 @@ def reference_tail_length_px(
         & np.isfinite(arc_length)
         & (arc_length > 0)
     )
+    # A median valid arc length supplies recording-wide spatial normalization.
     if not np.any(eligible):
         raise ValueError("No frames have enough valid tail length for normalization.")
     result = float(np.median(arc_length[eligible]))
@@ -229,6 +241,7 @@ def calculate_candidate_metrics(
     previous: dict[str, np.ndarray | float | int] | None = None,
 ) -> tuple[pd.DataFrame, dict[str, np.ndarray | float | int]]:
     """Calculate candidate metrics for one ordered chunk with carry state."""
+    # Validate vectorized input geometry before calculating all three outputs.
     if x.shape != y.shape or x.shape != local_angles.shape:
         raise ValueError("x, y, and local-angle arrays must have identical shapes.")
     if x.shape[1] != config.point_count:
@@ -250,6 +263,7 @@ def calculate_candidate_metrics(
     body_x = x - base_x
     body_y = y - base_y
 
+    # Prepend prior frame state to keep measured-time derivatives continuous across batches.
     if previous is not None:
         frame_with_previous = np.concatenate(
             [np.array([previous["frame_id"]], dtype=np.int64), frame_ids]
@@ -342,6 +356,7 @@ def calculate_candidate_metrics(
     legacy_distal_speed = np.abs(distal_delta) / delta_time_for_rows
     legacy_distal_speed[~np.all(np.isfinite(local_angles), axis=1)] = np.nan
 
+    # Convert invalid numerical products to NaN so coverage stays explicit downstream.
     for values in (
         xy_mean,
         angular_l1,
@@ -413,6 +428,7 @@ def build_direct_intake_candidate_metrics(
 ) -> CandidateMetricResult:
     """Build candidate frame metrics from measured local tracking data."""
     config = config or CandidateMetricConfig()
+    # The benchmark writer uses the same frozen metric formula configuration.
     if config != CandidateMetricConfig():
         raise ValueError(
             "tail-candidate-development-v1 uses a frozen configuration. "
@@ -476,6 +492,7 @@ def build_direct_intake_candidate_metrics(
     terminal_angle_nonzero_count = 0
     previous_raw_tracking_frame_id: int | None = None
 
+    # Authenticate intake source and publish output/QC/marker together from staging.
     with artifact_staging(
         project_dir,
         prefix=f".{recording_id}-candidate-v1-",

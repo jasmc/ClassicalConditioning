@@ -1,4 +1,9 @@
-"""Local artifact integrity and transactional publication helpers."""
+"""Local artifact integrity and transactional publication helpers.
+
+Review note: derived results are trusted only when their data, summary, and
+completion marker agree by identity and SHA-256. Publishing related outputs is
+transactional so a failed replacement does not leave a partial artifact set.
+"""
 
 from __future__ import annotations
 
@@ -20,6 +25,7 @@ from classical_conditioning.exceptions import (
 )
 
 
+# One verified per-recording Parquet result with authenticated metadata/state.
 @dataclass(frozen=True)
 class VerifiedArtifact:
     data_path: Path
@@ -30,6 +36,7 @@ class VerifiedArtifact:
     data_state: tuple[int, int]
 
 
+# Equivalent verification result for a named set of related output files.
 @dataclass(frozen=True)
 class VerifiedArtifactSet:
     data_paths: dict[str, Path]
@@ -41,6 +48,7 @@ class VerifiedArtifactSet:
 
 
 def sha256_file(path: Path, block_size: int = 8 * 1024 * 1024) -> str:
+    # Stream large scientific tables in fixed blocks instead of loading them all.
     digest = hashlib.sha256()
     with path.open("rb") as stream:
         while block := stream.read(block_size):
@@ -49,6 +57,8 @@ def sha256_file(path: Path, block_size: int = 8 * 1024 * 1024) -> str:
 
 
 def write_json_atomic(path: Path, payload: dict[str, Any]) -> None:
+    # Write beside the target, then replace it atomically to avoid half-written
+    # JSON being observed by a resumed pipeline stage.
     path.parent.mkdir(parents=True, exist_ok=True)
     descriptor, temporary_name = tempfile.mkstemp(
         dir=path.parent,
@@ -57,6 +67,7 @@ def write_json_atomic(path: Path, payload: dict[str, Any]) -> None:
         text=True,
     )
     temporary = Path(temporary_name)
+    # Always remove the temporary file if dumping/replacement fails.
     try:
         with os.fdopen(descriptor, "w", encoding="utf-8") as stream:
             json.dump(payload, stream, indent=2, sort_keys=True)
@@ -74,9 +85,11 @@ def artifact_staging(parent: Path, *, prefix: str = ".staging-") -> Iterator[Pat
     DACL, and ``os.replace`` carries that DACL onto every published artifact,
     leaving artifacts readable only by the account that wrote them.
     """
+    # A manually created child inherits the destination ACL on Windows.
     parent.mkdir(parents=True, exist_ok=True)
     staging_root = parent / f"{prefix}{uuid.uuid4().hex}"
     staging_root.mkdir()
+    # Staging is disposable regardless of whether its caller succeeds or raises.
     try:
         yield staging_root
     finally:
@@ -84,6 +97,7 @@ def artifact_staging(parent: Path, *, prefix: str = ".staging-") -> Iterator[Pat
 
 
 def _remove_artifact(path: Path) -> None:
+    # Rollback handles both file artifacts and directories without caller branches.
     if path.is_dir():
         shutil.rmtree(path)
     elif path.exists():
@@ -98,8 +112,10 @@ def publish_transaction(
     removals: tuple[Path, ...] = (),
 ) -> None:
     """Publish related artifacts with rollback if any replacement fails."""
+    # Validate the planned transaction before changing any existing destination.
     if not units:
         raise ValueError("Artifact publication requires at least one unit.")
+    # Resolve aliases so duplicate/overlap checks apply to actual filesystem paths.
     staged_paths = [staged.resolve() for staged, _ in units]
     final_paths = [final.resolve() for _, final in units]
     removal_paths = [path.resolve() for path in removals]
@@ -109,6 +125,7 @@ def publish_transaction(
         raise ValueError("Artifact publication contains duplicate final paths.")
     if len(removal_paths) != len(set(removal_paths)):
         raise ValueError("Artifact publication contains duplicate removal paths.")
+    # A path cannot logically be both a new output and a requested removal.
     final_removal_overlap = set(final_paths).intersection(removal_paths)
     if final_removal_overlap:
         raise ValueError(
@@ -123,17 +140,21 @@ def publish_transaction(
             "Staged and final artifact paths must be distinct: "
             f"{sorted(overlapping)}"
         )
+    # Never begin a replacement if a promised staged output was not produced.
     missing = [path for path in staged_paths if not path.exists()]
     if missing:
         raise FileNotFoundError(f"Staged artifacts are missing: {missing}")
 
+    # Move existing files to same-filesystem backups so they can be restored.
     backup_root = staging_root.with_name(f"{staging_root.name}-backups")
     backup_root.mkdir()
     backups: list[tuple[Path, Path]] = []
     published: list[Path] = []
+    # First back up all replace/remove targets, then publish every new output.
     try:
         destinations = [final_path for _, final_path in units]
         destinations.extend(removals)
+        # Refuse unintended overwrite; otherwise retain a reversible backup.
         for index, final_path in enumerate(destinations):
             final_path.parent.mkdir(parents=True, exist_ok=True)
             if final_path.exists():
@@ -147,10 +168,12 @@ def publish_transaction(
                 os.replace(final_path, backup_path)
                 backups.append((final_path, backup_path))
 
+        # os.replace is atomic within the filesystem containing staging/output.
         for staged_path, final_path in units:
             os.replace(staged_path, final_path)
             published.append(final_path)
     except Exception as publish_error:
+        # Remove any newly published subset, then restore backups in reverse order.
         rollback_errors: list[str] = []
         for final_path in reversed(published):
             try:
@@ -166,6 +189,7 @@ def publish_transaction(
                 rollback_errors.append(
                     f"restore {backup_path} to {final_path}: {error}"
                 )
+        # A failed rollback needs a prominent error that preserves backup location.
         if rollback_errors:
             details = "; ".join(rollback_errors)
             raise RuntimeError(
@@ -186,12 +210,14 @@ def load_and_verify_source_manifest(
     project_dir: Path,
     recording_id: str,
 ) -> tuple[str, dict[str, dict[str, Any]], dict[str, tuple[int, int]]]:
+    # Intake source manifests authenticate the three lossless source Parquet files.
     manifest_path = project_dir / "Metadata" / f"{recording_id}_source_manifest.json"
     if not manifest_path.is_file():
         raise FileNotFoundError(f"Missing source manifest: {manifest_path}")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if manifest.get("recording_id") != recording_id:
         raise ValueError(f"Source manifest identity mismatch: {manifest_path}")
+    # Derived paths are canonical: a manifest cannot redirect a stage elsewhere.
     expected_paths = {
         "camera": project_dir / "Processed data" / recording_id / "camera.parquet",
         "tracking": project_dir / "Processed data" / recording_id / "tracking.parquet",
@@ -202,6 +228,7 @@ def load_and_verify_source_manifest(
     }
     artifact_records: dict[str, dict[str, Any]] = {}
     file_state: dict[str, tuple[int, int]] = {}
+    # Verify stored path, current hash, and inexpensive file state for every source.
     for kind, expected_path in expected_paths.items():
         record = manifest["artifacts"][kind]
         recorded_path = Path(record["path"]).resolve()
@@ -227,11 +254,13 @@ def verify_completed_parquet(
     recipe: str,
     recording_id: str,
 ) -> VerifiedArtifact:
+    # A single-output stage is complete only with all three lineage components.
     paths = (data_path, summary_path, marker_path)
     missing = [path for path in paths if not path.is_file()]
     if missing:
         raise ArtifactNotFoundError(f"Missing completed artifacts: {missing}")
 
+    # Metadata must be parseable before identity and hash fields can be trusted.
     try:
         marker = json.loads(marker_path.read_text(encoding="utf-8"))
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
@@ -240,6 +269,7 @@ def verify_completed_parquet(
             f"Completed artifact metadata is invalid JSON: {error}"
         ) from error
 
+    # Cross-check both metadata copies against the current data and summary bytes.
     data_hash = sha256_file(data_path)
     if (
         marker.get("status") != "complete"
@@ -255,6 +285,7 @@ def verify_completed_parquet(
             f"Completed {recipe} lineage is invalid for {recording_id}."
         )
 
+    # Store lightweight state for callers that want to detect post-verification edits.
     stat = data_path.stat()
     return VerifiedArtifact(
         data_path=data_path,
@@ -274,6 +305,7 @@ def verify_completed_parquet_set(
     recipe: str,
     recording_id: str,
 ) -> VerifiedArtifactSet:
+    # Set verification shares metadata checks but authenticates each named output.
     metadata_paths = (summary_path, marker_path)
     missing_metadata = [path for path in metadata_paths if not path.is_file()]
     if missing_metadata:
@@ -288,6 +320,7 @@ def verify_completed_parquet_set(
             f"Completed artifact metadata is invalid JSON: {error}"
         ) from error
 
+    # The summary and marker must agree on a non-empty, expected key set.
     summary_artifacts = summary.get("artifacts")
     marker_hashes = marker.get("artifact_sha256")
     if not isinstance(summary_artifacts, dict) or not summary_artifacts:
@@ -303,6 +336,7 @@ def verify_completed_parquet_set(
         raise ArtifactIntegrityError(
             f"Completed {recipe} artifact identities are inconsistent."
         )
+    # Authenticate stage recipe, recording identity, and summary hash before files.
     if (
         marker.get("status") != "complete"
         or marker.get("recipe") != recipe
@@ -317,6 +351,7 @@ def verify_completed_parquet_set(
 
     verified_paths: dict[str, Path] = {}
     states: dict[str, tuple[int, int]] = {}
+    # Verify every expected file path and digest independently in stable key order.
     for key in sorted(artifact_keys):
         expected_path = expected_paths[key].resolve()
         if not expected_path.is_file():
@@ -358,6 +393,7 @@ def verify_completed_analysis_parquet_set(
     alignment: str | None = None,
 ) -> VerifiedArtifactSet:
     """Verify a cohort artifact set identified by analysis rather than recording."""
+    # This variant binds a cohort artifact set to analysis/cohort identity, not one fish.
     metadata_paths = (summary_path, marker_path)
     missing_metadata = [path for path in metadata_paths if not path.is_file()]
     if missing_metadata:
@@ -372,6 +408,7 @@ def verify_completed_analysis_parquet_set(
             f"Completed analysis metadata is invalid JSON: {error}"
         ) from error
 
+    # Require a coherent non-empty key/hash map before trusting analysis metadata.
     summary_artifacts = summary.get("artifacts")
     marker_hashes = marker.get("artifact_sha256")
     if not isinstance(summary_artifacts, dict) or not summary_artifacts:
@@ -388,6 +425,7 @@ def verify_completed_analysis_parquet_set(
             f"Completed {recipe} analysis artifact identities are inconsistent."
         )
 
+    # Recording order is part of cohort provenance and must match exactly.
     expected_recording_ids = list(recording_ids)
     identity_matches = (
         marker.get("status") == "complete"
@@ -399,6 +437,7 @@ def verify_completed_analysis_parquet_set(
         and summary.get("recording_ids") == expected_recording_ids
         and marker.get("summary_sha256") == sha256_file(summary_path)
     )
+    # Some cohort artifacts are event-alignment-specific and require that binding.
     if alignment is not None:
         identity_matches = (
             identity_matches
@@ -412,6 +451,7 @@ def verify_completed_analysis_parquet_set(
 
     verified_paths: dict[str, Path] = {}
     states: dict[str, tuple[int, int]] = {}
+    # Apply the same path/hash authentication to every pooled analysis output.
     for key in sorted(artifact_keys):
         expected_path = expected_paths[key].resolve()
         if not expected_path.is_file():

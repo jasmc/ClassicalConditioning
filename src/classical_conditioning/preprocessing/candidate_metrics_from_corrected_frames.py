@@ -4,6 +4,10 @@ Distinct from ``tail-candidate-development-v1``, which still reads intake
 camera/tracking Parquet directly. This recipe requires the corrected
 measured-time artifact and intersects metric derivatives with its validity
 masks (including long-interval invalidation).
+
+Review note: this is the routine candidate metric writer. It authenticates its
+corrected-frame source, delegates formulae to the shared kernel, and transfers
+the corrected derivative-validity policy to every metric value.
 """
 
 from __future__ import annotations
@@ -49,6 +53,7 @@ from classical_conditioning.preprocessing.corrected_frame_preprocessing import (
     SUMMARY_NAME as CORRECTED_SUMMARY_NAME,
 )
 
+# Versioned output identity and canonical filenames for corrected-route metrics.
 RECIPE_ID = "tail-candidate-corrected-v1"
 SCIENTIFIC_STATUS = "candidate_development"
 METRICS_NAME = "frame_activity_candidates-corrected-v1.parquet"
@@ -61,6 +66,7 @@ def verify_corrected_preprocess_source(
     recording_id: str,
 ) -> dict[str, Any]:
     """Verify corrected-preprocess-v1 lineage for one recording."""
+    # Reconstruct canonical upstream paths rather than accepting caller redirects.
     source_dir = project_dir / "Processed data" / recording_id
     frames_path = source_dir / CORRECTED_ARTIFACT_NAME
     summary_path = (
@@ -76,6 +82,7 @@ def verify_corrected_preprocess_source(
         raise ArtifactNotFoundError(
             f"Missing corrected-preprocess-v1 artifacts: {missing}"
         )
+    # Authenticate parsed marker/summary recipe, identity, and byte hashes.
     try:
         marker = json.loads(marker_path.read_text(encoding="utf-8"))
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
@@ -119,6 +126,7 @@ def apply_corrected_validity_mask(
     corrected_delta_time_ms: np.ndarray,
 ) -> pd.DataFrame:
     """Intersect candidate derivatives with corrected preprocess masks."""
+    # One metric row must correspond to exactly one corrected-frame validity row.
     if len(metrics) != len(corrected_derivative_valid):
         raise ValueError("Corrected validity length does not match metrics rows.")
     out = metrics.copy()
@@ -129,6 +137,7 @@ def apply_corrected_validity_mask(
     out["valid_derivative"] = combined
     out["FrameStep"] = np.asarray(corrected_frame_step, dtype=np.int64)
     out["DeltaTimeMs"] = np.asarray(corrected_delta_time_ms, dtype=np.float64)
+    # Retain frame evidence while marking only invalid metric values as missing.
     for column in CANDIDATE_COLUMNS:
         values = out[column].to_numpy(dtype=np.float64, copy=True)
         values[~combined] = np.nan
@@ -146,6 +155,7 @@ def build_candidate_activity_metrics_from_corrected(
 ) -> CandidateMetricResult:
     """Build candidate metrics from corrected-preprocess-v1 frames."""
     config = config or CandidateMetricConfig()
+    # Enforce frozen formula settings and positive streaming batch size.
     if config != CandidateMetricConfig():
         raise ValueError(
             f"{RECIPE_ID} uses a frozen configuration. "
@@ -206,6 +216,7 @@ def build_candidate_activity_metrics_from_corrected(
     geometry_total_count = 0
     terminal_angle_nonzero_count = 0
 
+    # Stage output, QC summary, and marker after verified corrected input.
     with artifact_staging(
         project_dir,
         prefix=f".{recording_id}-candidate-corrected-v1-",

@@ -1,4 +1,9 @@
-"""Config-driven orchestration for intake and analysis routes."""
+"""Config-driven orchestration for intake and analysis routes.
+
+Review note: this is a coordinator, not a scientific calculation module. It
+selects recordings, invokes independently versioned stages, and writes a
+run-level ledger that makes partial completion visible.
+"""
 
 from __future__ import annotations
 
@@ -7,9 +12,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+# Candidate runner owns per-recording/candidate-family stage sequencing.
 from classical_conditioning.analysis.candidate_runner import (
     run_candidate_development_pipeline,
 )
+# This mapping prevents the runner from mixing incompatible metric families.
 from classical_conditioning.analysis.movement_state import RUNNER_RECIPE_TO_METRIC_SOURCE
 from classical_conditioning.artifacts import write_json_atomic
 from classical_conditioning.exceptions import ConfigurationError
@@ -24,6 +31,7 @@ from classical_conditioning.progress import PipelineProgress, default_progress
 from classical_conditioning.run_config import PipelineRunConfig, pipeline_config_to_dict
 
 
+# Invocation status for callers; scientific outputs remain in stage artifacts.
 @dataclass(frozen=True)
 class PipelineRunResult:
     """High-level record of what this invocation did, not an analysis artifact.
@@ -50,15 +58,18 @@ def resolve_pipeline_recording_ids(config: PipelineRunConfig) -> tuple[str, ...]
     It deliberately does not apply scientific exclusions: those need a
     separately reviewed cohort policy rather than an implicit discovery rule.
     """
+    # An explicit config list is authoritative and is not rediscovered/filtered.
     if config.recording_ids is not None:
         return config.recording_ids
 
+    # Filename conditions are an operational input filter, never a cohort decision.
     keep = (
         {token.strip().lower() for token in config.keep_conditions}
         if config.keep_conditions
         else None
     )
     selected: list[str] = []
+    # Discovery yields only complete triplets; retain its deterministic order.
     for sources in discover_recordings(config.raw_dir):
         if keep is not None:
             condition = condition_from_recording_name(sources.recording_name)
@@ -85,6 +96,7 @@ def run_pipeline(
     versioned stages, and records their status. The candidate runner enforces
     its own artifact lineage.
     """
+    # Use caller-supplied progress for embedding/tests, otherwise build the default.
     progress = progress or default_progress(enabled=config.show_progress)
     progress.stage(
         "Pipeline start",
@@ -99,12 +111,14 @@ def run_pipeline(
     # below the separately configured, writable save tree.
     config.save_dir.mkdir(parents=True, exist_ok=True)
 
+    # Initialize every ledger field so skipped stages have explicit empty status.
     intake_completed: tuple[str, ...] = ()
     intake_skipped: tuple[str, ...] = ()
     intake_failed: tuple[tuple[str, str], ...] = ()
     candidate_runner_status: str | None = None
     figure_paths: list[Path] = []
 
+    # Optional inventory establishes source-file QC/provenance before conversion.
     if config.run_inventory:
         with progress.stage_timer("Inventory"):
             # Inventory is optional QC/provenance.  Intake independently
@@ -121,6 +135,7 @@ def run_pipeline(
             )
             progress.info(f"wrote {inventory_path}")
 
+    # Intake creates/validates the eligible per-recording derived input artifacts.
     if config.run_intake:
         with progress.stage_timer(
             "Intake",
@@ -142,6 +157,7 @@ def run_pipeline(
                 f"skipped={len(intake_skipped)} "
                 f"failed={len(intake_failed)}"
             )
+        # Strict mode stops at the first batch-level intake failure state.
         if intake_failed and not config.continue_on_error:
             raise ConfigurationError(
                 "Intake failed for one or more recordings; see pipeline summary."
@@ -160,6 +176,7 @@ def run_pipeline(
             )
         recording_ids = active_ids
 
+    # The currently supported route runs all compatible candidate stages/cohort output.
     if "candidate" in config.routes:
         # A runner recipe selects one frozen, internally compatible set of
         # metric, detector, temporal-profile, trial-outcome, and comparison
@@ -185,6 +202,7 @@ def run_pipeline(
             candidate_runner_status = candidate_result.manifest_path.name
             progress.info(f"manifest={candidate_runner_status}")
 
+        # Rendering is optional and follows, rather than substitutes for, analysis.
         if config.run_figures:
             # Figures consume the cohort comparison, not raw frames.  Keep the
             # comparison recipe paired with the runner family for the same
@@ -238,6 +256,7 @@ def run_pipeline(
                         )
                     )
 
+    # Always leave an invocation ledger after successful requested stages finish.
     with progress.stage_timer("Writing pipeline summary"):
         summary_path = (
             config.save_dir / "Metadata" / f"{config.analysis_id}_pipeline_run.json"
@@ -260,6 +279,7 @@ def run_pipeline(
         write_json_atomic(summary_path, payload)
         progress.info(f"wrote {summary_path}")
 
+    # Emit final progress then return an in-process analogue of the JSON ledger.
     progress.stage("Pipeline complete")
     return PipelineRunResult(
         recording_ids=recording_ids,

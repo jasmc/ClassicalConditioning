@@ -4,8 +4,11 @@ Import concrete recipes lazily so optional analysis dependencies are loaded
 only by the stages that need them.
 """
 
+# Lazy imports isolate optional/heavy processing dependencies from basic package
+# import and make the public names below the supported preprocessing surface.
 from typing import Any
 
+# Public recipe types and stage entry points, without exposing internal helpers.
 __all__ = [
     "CandidateMetricConfig",
     "CandidateMetricResult",
@@ -18,6 +21,8 @@ __all__ = [
 
 
 def __getattr__(name: str) -> Any:
+    # Route each requested public name to its owning implementation only when
+    # needed; the direct-intake metric writer is an explicit benchmark route.
     if name in {
         "CandidateMetricConfig",
         "CandidateMetricResult",

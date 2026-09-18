@@ -1,4 +1,8 @@
-"""Frame-sequence diagnostics for camera timing tables."""
+"""Frame-sequence diagnostics for camera timing tables.
+
+Review note: this reports acquisition anomalies without excluding frames or
+repairing timestamps. Downstream policy decides how reported problems matter.
+"""
 
 from __future__ import annotations
 
@@ -11,6 +15,7 @@ import pandas as pd
 from classical_conditioning.exceptions import SchemaValidationError
 
 
+# Immutable, JSON-exportable evidence about ordering and timing regularity.
 @dataclass(frozen=True)
 class FrameSequenceReport:
     row_count: int
@@ -31,6 +36,7 @@ class FrameSequenceReport:
     examples: tuple[dict[str, int], ...]
 
     def to_dict(self) -> dict[str, Any]:
+        # Convert the tuple-only immutable report into normal JSON containers.
         return {
             "row_count": self.row_count,
             "first_frame_id": self.first_frame_id,
@@ -53,6 +59,7 @@ class FrameSequenceReport:
 
 def validate_frame_sequence(camera: pd.DataFrame) -> FrameSequenceReport:
     """Compute exact FrameID/timestamp diagnostics without changing inclusion."""
+    # Validate required columns and non-emptiness before numeric conversion.
     required = {"FrameID", "ElapsedTime"}
     missing = required.difference(camera.columns)
     if missing:
@@ -62,26 +69,31 @@ def validate_frame_sequence(camera: pd.DataFrame) -> FrameSequenceReport:
     if camera.empty:
         raise SchemaValidationError("Cannot validate an empty camera table.")
 
+    # Parse the two diagnostic axes explicitly; parsing errors are schema errors.
     frame_ids = pd.to_numeric(camera["FrameID"], errors="raise").to_numpy(dtype=np.int64)
     elapsed = pd.to_numeric(camera["ElapsedTime"], errors="raise").to_numpy(
         dtype=np.float64
     )
+    # Adjacent frame-ID differences distinguish gaps, reversals, and duplicates.
     differences = np.diff(frame_ids)
     gap_events = int(np.count_nonzero(differences > 1))
     missing_frames = int(np.sum(differences[differences > 1] - 1))
     reverse_events = int(np.count_nonzero(differences < 0))
     duplicate_steps = int(np.count_nonzero(differences == 0))
 
+    # Elapsed-time differences separately describe clock finiteness and ordering.
     elapsed_diff = np.diff(elapsed)
     finite_elapsed = np.isfinite(elapsed)
     non_finite_elapsed = int(np.count_nonzero(~finite_elapsed))
     finite_steps = elapsed_diff[np.isfinite(elapsed_diff)]
     nonmonotonic_elapsed = int(np.count_nonzero(finite_steps < 0))
 
+    # Timing summaries are undefined for no finite adjacent timestamp pairs.
     median_interval = float(np.median(finite_steps)) if finite_steps.size else None
     mean_interval = float(np.mean(finite_steps)) if finite_steps.size else None
     jitter = float(np.std(finite_steps)) if finite_steps.size else None
 
+    # Keep a bounded sample of anomalies for human QC without bloating metadata.
     examples: list[dict[str, int]] = []
     anomaly_indices = np.flatnonzero(differences != 1)
     for index in anomaly_indices[:50]:
@@ -93,6 +105,7 @@ def validate_frame_sequence(camera: pd.DataFrame) -> FrameSequenceReport:
             }
         )
 
+    # The final immutable object preserves exact counts and concise examples.
     first = int(frame_ids[0])
     last = int(frame_ids[-1])
     span = last - first

@@ -1,4 +1,8 @@
-"""Validated experiment specifications migrated from legacy configuration."""
+"""Validated experiment specifications migrated from legacy configuration.
+
+Review note: these are the package's frozen, in-code assay definitions. They
+are values, not user inputs; consumers obtain one by experiment ID below.
+"""
 
 from __future__ import annotations
 
@@ -15,6 +19,8 @@ from classical_conditioning.config.domain import (
 from classical_conditioning.exceptions import ConfigurationError
 
 
+# CS and US trial numbering are historically different, so each gets its own
+# ordered block definition: display name, phase, and inclusive trial range.
 _CS_GROUPS = (
     ("Pre-train", Phase.PRE, range(5, 15)),
     ("Train 1", Phase.TRAIN, range(15, 25)),
@@ -36,11 +42,13 @@ _US_GROUPS = (
 
 
 def _analysis_trials() -> tuple[TrialSpec, ...]:
+    # Expand compact ranges into one validated immutable TrialSpec per trial.
     trials: list[TrialSpec] = []
     for alignment, groups in (
         (Alignment.CS, _CS_GROUPS),
         (Alignment.US, _US_GROUPS),
     ):
+        # Block IDs are assigned independently within each alignment.
         for block_id, (block_name, phase, trial_numbers) in enumerate(groups, start=1):
             trials.extend(
                 TrialSpec(
@@ -55,6 +63,7 @@ def _analysis_trials() -> tuple[TrialSpec, ...]:
     return tuple(trials)
 
 
+# Both supported experiments share protocol trial numbering and CS duration.
 _SHARED_TRIAL_STRUCTURE = dict(
     analysis_trials=_analysis_trials(),
     minimum_cs_trials=94,
@@ -62,6 +71,8 @@ _SHARED_TRIAL_STRUCTURE = dict(
     cs_duration_s=10.0,
 )
 
+# The delay-conditioning assay differs from trace primarily in condition labels
+# and the expected conditioned-response window.
 _ALL_DELAY = ExperimentSpec(
     experiment_id="allDelay",
     paradigm=Paradigm.DELAY,
@@ -86,6 +97,7 @@ _ALL_DELAY = ExperimentSpec(
     **_SHARED_TRIAL_STRUCTURE,
 )
 
+# The trace assay retains the same control role but uses a longer response window.
 _FIXED_VS_INCREASING_TRACE = ExperimentSpec(
     experiment_id="fixedVsIncreasingTrace",
     paradigm=Paradigm.TRACE,
@@ -110,6 +122,7 @@ _FIXED_VS_INCREASING_TRACE = ExperimentSpec(
     **_SHARED_TRIAL_STRUCTURE,
 )
 
+# Keep lookup construction next to the immutable definitions to avoid aliases.
 _EXPERIMENTS = {
     spec.experiment_id: spec
     for spec in (_ALL_DELAY, _FIXED_VS_INCREASING_TRACE)
@@ -117,6 +130,7 @@ _EXPERIMENTS = {
 
 
 def get_experiment_spec(experiment_name: str) -> ExperimentSpec:
+    # Only named, migrated specifications may be used by the active package.
     try:
         return _EXPERIMENTS[experiment_name]
     except KeyError as error:
@@ -126,4 +140,5 @@ def get_experiment_spec(experiment_name: str) -> ExperimentSpec:
 
 
 def get_trial_block_lookup(experiment_name: str) -> dict[tuple[str, int], str]:
+    # Delegate both experiment validation and the canonical lookup construction.
     return get_experiment_spec(experiment_name).block_lookup()

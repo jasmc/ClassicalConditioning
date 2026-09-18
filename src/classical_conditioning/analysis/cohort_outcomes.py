@@ -1,4 +1,9 @@
-"""Single cohort-applied population boundary for trial outcomes."""
+"""Single cohort-applied population boundary for trial outcomes.
+
+Review note: this authenticates per-recording outcome inputs, joins them to a
+frozen reviewed cohort, and writes explicit eligibility evidence rather than
+silently dropping fish or invalid baseline/response measurements.
+"""
 
 from __future__ import annotations
 
@@ -80,6 +85,7 @@ def _validate_identifier(value: str, label: str) -> None:
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
+    # Write one lossless table and return path/hash metadata for its parent summary.
     table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
     pq.write_table(table, path, compression="zstd", write_statistics=True)
     return {
@@ -94,6 +100,7 @@ def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
 
 
 def _cohort_paths(project_dir: Path, cohort_id: str) -> tuple[Path, Path, Path, Path]:
+    # Derive the canonical four immutable paths from a cohort identity.
     root = project_dir / "Processed data" / "Cohorts" / cohort_id
     outcomes = root / f"{RECIPE_ID}.parquet"
     sample_flow = root / "cohort-sample-flow.parquet"
@@ -109,6 +116,7 @@ def _cohort_paths(project_dir: Path, cohort_id: str) -> tuple[Path, Path, Path, 
 
 
 def _trial_artifact_paths(
+    # Reconstruct expected trial outcome/QC/marker paths for one recording/route.
     project_dir: Path,
     recording_id: str,
     *,
@@ -123,6 +131,7 @@ def _trial_artifact_paths(
 
 
 def _validate_outcome_identity(
+    # Ensure table identity columns agree with the reviewed frozen manifest.
     outcomes: pd.DataFrame,
     manifest: pd.DataFrame,
 ) -> None:
@@ -164,6 +173,7 @@ def _validate_outcome_identity(
 
 
 def build_cohort_trial_outcomes(
+    # Authenticate all reviewed fish outcome artifacts then concatenate their rows.
     project_dir: Path,
     *,
     cohort_id: str,
@@ -328,6 +338,7 @@ def build_cohort_trial_outcomes(
 
 
 def load_cohort_trial_outcomes(
+    # Load only after marker/summary/table hashes and cohort identity agree.
     project_dir: Path,
     cohort_id: str,
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
@@ -375,6 +386,7 @@ def load_cohort_trial_outcomes(
 
 
 def build_analysis_eligibility(
+    # Classify every cohort fish/outcome row with explicit technical/data reasons.
     outcomes: pd.DataFrame,
     *,
     metric_id: str,
@@ -489,6 +501,7 @@ def build_analysis_eligibility(
 
 
 def build_analysis_eligibility_artifact(
+    # Persist eligibility evidence, QC summary, and completion marker transactionally.
     project_dir: Path,
     *,
     cohort_id: str,

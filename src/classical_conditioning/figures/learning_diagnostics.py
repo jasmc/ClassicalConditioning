@@ -1,4 +1,8 @@
-"""Residual diagnostic figure for learning-onset mixed models."""
+"""Residual diagnostic figure for learning-onset mixed models.
+
+Review note: this renders already-fitted model residual evidence; it neither
+fits models nor changes learning-onset acceptance decisions.
+"""
 
 from __future__ import annotations
 
@@ -36,15 +40,18 @@ def build_learning_diagnostics_figure(
     overwrite: bool = False,
 ) -> FigureExportResult:
     """Plot residual-versus-fit and normal-quantile diagnostics."""
+    # This renderer is Matplotlib/static or publication only, never Plotly HTML.
     if mode == FigureMode.INTERACTIVE:
         raise ValueError("Learning diagnostic figures are Matplotlib-only.")
     project_dir = project_dir.resolve()
+    # Load authenticated analysis artifacts and extract the model residual table.
     frames, summary = load_learning_onset_analysis(project_dir, analysis_id)
     residuals = frames["residuals"]
     model_names = ("block", "longitudinal")
     if residuals.empty:
         raise ConfigurationError("No accepted model produced residual diagnostics.")
 
+    # Build a fixed four-panel layout: two diagnostics for each model family.
     apply_theme(DEFAULT_THEME)
     width, _ = mm_to_in(DOUBLE_COLUMN_MM, 150.0)
     figure, axes = plt.subplots(
@@ -55,6 +62,7 @@ def build_learning_diagnostics_figure(
     )
     panel_ids = ["A", "B", "C", "D"]
     artist_mappings = {}
+    # Render residual-vs-fit and normal-quantile panels with provenance mappings.
     for row, model_name in enumerate(model_names):
         model = residuals.loc[residuals["model"] == model_name].copy()
         fitted = model["fitted_log_response"].to_numpy(dtype=float)
@@ -62,6 +70,7 @@ def build_learning_diagnostics_figure(
         finite = np.isfinite(fitted) & np.isfinite(standardized)
         fitted = fitted[finite]
         standardized = standardized[finite]
+        # Retain a labelled empty panel when a model has no accepted fit.
         if not len(standardized):
             for column, label in enumerate(("Residual vs fit", "Normal quantiles")):
                 axis = axes[row, column]
@@ -80,6 +89,7 @@ def build_learning_diagnostics_figure(
                 axis.set_axis_off()
             continue
 
+        # Panel one tests residual structure against fitted response values.
         residual_axis = axes[row, 0]
         residual_axis.axhline(0.0, color="0.55", linewidth=0.7)
         points = residual_axis.scatter(
@@ -106,6 +116,7 @@ def build_learning_diagnostics_figure(
             f"{panel_ids[row * 2]}  {model_name.title()}: residual vs fit"
         )
 
+        # Panel two compares observed residual quantiles to the normal reference.
         quantile_axis = axes[row, 1]
         ordered = np.sort(standardized)
         probabilities = (np.arange(len(ordered), dtype=float) + 0.5) / len(ordered)
@@ -138,6 +149,7 @@ def build_learning_diagnostics_figure(
             f"{panel_ids[row * 2 + 1]}  {model_name.title()}: normal quantiles"
         )
 
+    # Build export provenance from exact source and authenticated input artifacts.
     source_path = Path(__file__).resolve()
     provenance = FigureProvenance(
         figure_id="learning-diagnostics",
@@ -160,6 +172,7 @@ def build_learning_diagnostics_figure(
         cohort_hash=str(summary["cohort_hash"]),
         artist_mappings=artist_mappings,
     )
+    # Place output under the analysis-specific static/publication figure tree.
     output_base = (
         project_dir
         / "Figures"
@@ -168,6 +181,7 @@ def build_learning_diagnostics_figure(
         / analysis_id
         / "learning-diagnostics"
     )
+    # Export transactionally and always release the Matplotlib figure afterwards.
     try:
         return export_matplotlib_figure(
             figure,

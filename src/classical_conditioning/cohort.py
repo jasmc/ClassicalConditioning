@@ -1,4 +1,8 @@
-"""Reviewed cohort-manifest validation, freezing, and strict application."""
+"""Reviewed cohort-manifest validation, freezing, and strict application.
+
+Review note: a cohort is an explicit reviewed decision table. Freezing creates
+immutable artifacts; applying one rejects data absent from that decision table.
+"""
 
 from __future__ import annotations
 
@@ -29,8 +33,10 @@ from classical_conditioning.exceptions import (
     ScientificValidationError,
 )
 
+# Version/schema identities bind every frozen cohort to this exact policy format.
 RECIPE_ID = "cohort-manifest-v1"
 SCHEMA_VERSION = "cohort-manifest/1.0"
+# Required ordered review fields: canonicalization retains no undeclared columns.
 COHORT_COLUMNS = (
     "experiment_id",
     "recording_id",
@@ -49,6 +55,7 @@ COHORT_COLUMNS = (
 )
 
 
+# Paths/counts/content hash returned after one cohort is successfully frozen.
 @dataclass(frozen=True)
 class CohortManifestResult:
     cohort_id: str
@@ -62,6 +69,7 @@ class CohortManifestResult:
 
 
 def _validate_identifier(value: str, label: str) -> None:
+    # IDs become directories and marker names, so only safe filename characters pass.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", value):
         raise ConfigurationError(
             f"{label} must use only letters, numbers, dot, underscore, or hyphen."
@@ -69,8 +77,10 @@ def _validate_identifier(value: str, label: str) -> None:
 
 
 def _normalize_population_ids(value: Any) -> list[str]:
+    # Missing values mean no sensitivity populations; strings support CSV/JSON import.
     if value is None or (isinstance(value, float) and pd.isna(value)):
         return []
+    # Prefer JSON arrays but retain comma-separated reviewer-sheet compatibility.
     if isinstance(value, str):
         try:
             decoded = json.loads(value)
@@ -81,6 +91,7 @@ def _normalize_population_ids(value: Any) -> list[str]:
         raise SchemaValidationError(
             "sensitivity_population_ids must be a list or JSON list."
         )
+    # Deduplicate/sort to give equivalent review tables one canonical content hash.
     normalized = sorted({str(item).strip() for item in value if str(item).strip()})
     for population_id in normalized:
         _validate_identifier(population_id, "Sensitivity population ID")
@@ -88,6 +99,7 @@ def _normalize_population_ids(value: Any) -> list[str]:
 
 
 def _parse_review_timestamp(value: Any) -> Any:
+    # Parse failures become NaT so validation can report a consistent schema error.
     try:
         return pd.Timestamp(value)
     except (TypeError, ValueError):
@@ -96,6 +108,7 @@ def _parse_review_timestamp(value: Any) -> Any:
 
 def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
     """Validate and canonically order a fully reviewed cohort table."""
+    # Require the full approved-review schema and discard non-contract columns.
     missing = set(COHORT_COLUMNS).difference(reviewed.columns)
     if missing:
         raise SchemaValidationError(
@@ -106,6 +119,7 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
         raise ScientificValidationError(
             "A frozen cohort manifest must contain at least one reviewed fish."
         )
+    # Normalize non-empty identifiers, reviewer evidence, and audit timestamps.
     identity_columns = (
         "experiment_id",
         "recording_id",
@@ -116,12 +130,14 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
         "reviewed_at",
         "source_qc_artifact_id",
     )
+    # String coercion prevents whitespace and mixed spreadsheet scalar types leaking in.
     for column in identity_columns:
         frame[column] = frame[column].astype("string").str.strip()
         if frame[column].isna().any() or frame[column].eq("").any():
             raise SchemaValidationError(
                 f"Reviewed cohort column {column!r} cannot be missing or empty."
             )
+    # These two fields must be real boolean decisions, not truthy spreadsheet text.
     for column in ("technical_valid", "primary_included"):
         if frame[column].isna().any():
             raise SchemaValidationError(
@@ -134,6 +150,7 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
                 f"Reviewed cohort column {column!r} must contain booleans."
             )
         frame[column] = frame[column].astype(bool)
+    # Engagement is a nullable review judgment, unlike required technical validity.
     engagement_values = frame["behavioral_engagement"]
     invalid_engagement = engagement_values.map(
         lambda value: not (
@@ -151,6 +168,7 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
         "boolean"
     )
 
+    # Enforce one reviewed decision for each biological fish and acquisition record.
     if frame.duplicated(["experiment_id", "fish_id"]).any():
         raise SchemaValidationError(
             "Reviewed cohort contains duplicate experiment_id/fish_id rows."
@@ -163,6 +181,7 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
         raise ScientificValidationError(
             "Every cohort row must have review_status='approved' before freezing."
         )
+    # Timezone-aware review timestamps make approval evidence comparable/auditable.
     parsed_review_times = frame["reviewed_at"].map(_parse_review_timestamp)
     if parsed_review_times.map(
         lambda value: pd.isna(value) or value.tzinfo is None
@@ -177,6 +196,7 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
         )
     frame["reviewed_at"] = reviewed_at.dt.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
 
+    # A primary cohort cannot contradict the recorded technical validation decision.
     invalid_primary = frame["primary_included"] & ~frame["technical_valid"]
     if invalid_primary.any():
         raise ScientificValidationError(
@@ -186,6 +206,7 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
         raise ScientificValidationError(
             "A frozen primary cohort must include at least one fish."
         )
+    # Require a reason exactly when technical validity is false.
     exclusion_reason = frame["technical_exclusion_reason"].astype("string").str.strip()
     if ((~frame["technical_valid"]) & (exclusion_reason.isna() | exclusion_reason.eq(""))).any():
         raise SchemaValidationError(
@@ -199,6 +220,7 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
     frame["behavioral_engagement_reason"] = (
         frame["behavioral_engagement_reason"].astype("string").str.strip()
     )
+    # Normalize reviewer free-form sensitivity populations and sort final row order.
     frame["sensitivity_population_ids"] = frame[
         "sensitivity_population_ids"
     ].map(_normalize_population_ids)
@@ -211,8 +233,10 @@ def canonicalize_reviewed_cohort(reviewed: pd.DataFrame) -> pd.DataFrame:
 
 def logical_cohort_hash(frame: pd.DataFrame) -> str:
     """Hash canonical cohort meaning independently of Parquet serialization."""
+    # Canonicalize first so equivalent tables hash identically despite CSV/Parquet form.
     canonical = canonicalize_reviewed_cohort(frame)
     records = []
+    # Convert Pandas/NumPy missing and boolean scalars into JSON-stable primitives.
     for row in canonical.itertuples(index=False, name=None):
         record = {}
         for column, value in zip(COHORT_COLUMNS, row, strict=True):
@@ -222,6 +246,7 @@ def logical_cohort_hash(frame: pd.DataFrame) -> str:
                 value = bool(value)
             record[column] = value
         records.append(record)
+    # Canonical compact JSON makes the hash independent of Parquet serialization.
     payload = json.dumps(
         {
             "schema_version": SCHEMA_VERSION,
@@ -243,12 +268,14 @@ def apply_cohort(
     include_column: str = "primary_included",
 ) -> pd.DataFrame:
     """Apply one cohort by a validated many-to-one experiment/fish join."""
+    # Data must carry the biological join key; manifest validation supplies uniqueness.
     required_data = {"experiment_id", "fish_id"}
     missing_data = required_data.difference(data.columns)
     if missing_data:
         raise SchemaValidationError(
             f"Data is missing cohort join columns: {sorted(missing_data)}"
         )
+    # Revalidate even an in-memory manifest so callers cannot bypass freeze rules.
     canonical = canonicalize_reviewed_cohort(manifest)
     if include_column not in canonical.columns:
         raise SchemaValidationError(
@@ -258,6 +285,7 @@ def apply_cohort(
         raise SchemaValidationError(
             f"Cohort include column must be boolean: {include_column!r}"
         )
+    # A many-to-one left join retains every data row long enough to reject omissions.
     joined = data.merge(
         canonical[
             ["experiment_id", "fish_id", include_column]
@@ -266,6 +294,7 @@ def apply_cohort(
         how="left",
         validate="many_to_one",
     )
+    # Silent omission would alter a cohort; absent identities are therefore errors.
     unmatched = joined["_cohort_match"].isna()
     if unmatched.any():
         identities = (
@@ -276,6 +305,7 @@ def apply_cohort(
         raise SchemaValidationError(
             f"Data contains rows absent from the cohort manifest: {identities[:10]}"
         )
+    # Return only explicitly included rows and remove temporary join evidence.
     included = joined[include_column].astype(bool)
     return joined.loc[included].drop(columns=["_cohort_match", include_column])
 
@@ -288,12 +318,14 @@ def freeze_cohort_manifest(
     policy_id: str,
 ) -> CohortManifestResult:
     """Freeze a reviewed cohort under a new immutable cohort identity."""
+    # Validate identity/policy, canonicalize decisions, then compute semantic hash.
     _validate_identifier(cohort_id, "Cohort ID")
     _validate_identifier(policy_id, "Policy ID")
     project_dir = project_dir.resolve()
     canonical = canonicalize_reviewed_cohort(reviewed)
     content_hash = logical_cohort_hash(canonical)
 
+    # Define the four immutable, mutually authenticated cohort artifacts.
     output_dir = project_dir / "Processed data" / "Cohorts" / cohort_id
     manifest_path = output_dir / f"{RECIPE_ID}.parquet"
     review_copy_path = output_dir / f"{RECIPE_ID}_review.csv"
@@ -308,6 +340,7 @@ def freeze_cohort_manifest(
         project_dir / "Metadata" / f"{cohort_id}_{RECIPE_ID}_complete.json"
     )
     outputs = (manifest_path, review_copy_path, summary_path, marker_path)
+    # Cohorts cannot be overwritten: revision requires a new cohort identity.
     existing = [path for path in outputs if path.exists()]
     if existing:
         raise FileExistsError(
@@ -316,6 +349,7 @@ def freeze_cohort_manifest(
         )
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # Build all files in inherited-ACL staging before publishing them together.
     with artifact_staging(
         project_dir,
         prefix=f".{cohort_id}-{RECIPE_ID}-",
@@ -324,6 +358,7 @@ def freeze_cohort_manifest(
         staged_review = staging_root / review_copy_path.name
         staged_summary = staging_root / summary_path.name
         staged_marker = staging_root / marker_path.name
+        # Write lossless Parquet and a reviewer-friendly CSV representation.
         table = pa.Table.from_pandas(canonical, preserve_index=False, safe=True)
         pq.write_table(
             table,
@@ -336,6 +371,7 @@ def freeze_cohort_manifest(
             "sensitivity_population_ids"
         ].map(lambda values: json.dumps(values, ensure_ascii=True))
         review_copy.to_csv(staged_review, index=False, lineterminator="\n")
+        # Summary records review policy, semantic counts, and artifact digests.
         summary = {
             "recipe": RECIPE_ID,
             "schema_version": SCHEMA_VERSION,
@@ -367,6 +403,7 @@ def freeze_cohort_manifest(
                 },
             },
         }
+        # Marker authenticates all staged byte outputs and the logical content hash.
         write_json_atomic(staged_summary, summary)
         write_json_atomic(
             staged_marker,
@@ -381,6 +418,7 @@ def freeze_cohort_manifest(
                 "summary_sha256": sha256_file(staged_summary),
             },
         )
+        # Publish the cohort as an all-or-nothing artifact family.
         publish_transaction(
             (
                 (staged_manifest, manifest_path),
@@ -406,6 +444,7 @@ def freeze_cohort_manifest(
 
 def load_cohort_manifest(project_dir: Path, cohort_id: str) -> pd.DataFrame:
     """Load a frozen cohort only after byte and logical-content authentication."""
+    # Reconstruct the canonical four paths from an authenticated cohort identity.
     _validate_identifier(cohort_id, "Cohort ID")
     project_dir = project_dir.resolve()
     output_dir = project_dir / "Processed data" / "Cohorts" / cohort_id
@@ -421,6 +460,7 @@ def load_cohort_manifest(project_dir: Path, cohort_id: str) -> pd.DataFrame:
     marker_path = (
         project_dir / "Metadata" / f"{cohort_id}_{RECIPE_ID}_complete.json"
     )
+    # Require every frozen artifact before any content is trusted.
     missing = [
         path
         for path in (manifest_path, review_copy_path, summary_path, marker_path)
@@ -428,6 +468,7 @@ def load_cohort_manifest(project_dir: Path, cohort_id: str) -> pd.DataFrame:
     ]
     if missing:
         raise FileNotFoundError(f"Missing frozen cohort artifacts: {missing}")
+    # Parse summary/marker then check byte-level identity and hashes first.
     try:
         summary = json.loads(summary_path.read_text(encoding="utf-8"))
         marker = json.loads(marker_path.read_text(encoding="utf-8"))
@@ -450,6 +491,7 @@ def load_cohort_manifest(project_dir: Path, cohort_id: str) -> pd.DataFrame:
         raise ArtifactIntegrityError(
             f"Frozen cohort byte lineage is invalid for {cohort_id}."
         )
+    # Byte authentication alone is insufficient: also verify canonical semantic content.
     frame = pq.read_table(manifest_path).to_pandas()
     logical_hash = logical_cohort_hash(frame)
     if (

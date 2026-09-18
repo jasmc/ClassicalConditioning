@@ -1,11 +1,17 @@
-"""Versioned analytical transformations."""
+"""Versioned analytical transformations with a lazy public API.
 
+Review note: temporal profiles are a lightweight common export; the remaining
+stages load lazily so importing ``analysis`` does not initialize every route.
+"""
+
+# Re-export the temporal-profile stage directly because it is a common endpoint.
 from classical_conditioning.analysis.temporal_profiles import (
     TemporalProfileConfig,
     TemporalProfileResult,
     build_candidate_temporal_profiles,
 )
 
+# Names intentionally exposed to callers; helper functions remain module-local.
 __all__ = [
     "MovementCalibrationConfig",
     "MovementStateResult",
@@ -33,6 +39,8 @@ __all__ = [
 
 
 def __getattr__(name: str):
+    # Each branch maps a public symbol group to its sole implementation module.
+    # This avoids eager imports and makes ownership visible during source review.
     if name in {
         "CohortTrialOutcomesResult",
         "AnalysisEligibilityResult",
@@ -81,4 +89,5 @@ def __getattr__(name: str):
         from classical_conditioning.analysis import trial_outcomes
 
         return getattr(trial_outcomes, name)
+    # Match normal Python module behaviour for names outside the public surface.
     raise AttributeError(name)

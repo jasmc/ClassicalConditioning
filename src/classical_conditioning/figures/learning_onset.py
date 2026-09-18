@@ -1,4 +1,8 @@
-"""Final learning trajectory, trial contrast, and block contrast figure."""
+"""Final learning trajectory, trial contrast, and block contrast figure.
+
+Review note: this renderer consumes accepted learning-onset analysis artifacts
+and displays trajectories/contrasts; it does not fit, select, or approve models.
+"""
 
 from __future__ import annotations
 

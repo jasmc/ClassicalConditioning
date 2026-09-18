@@ -1,4 +1,9 @@
-"""Authenticated orchestration for non-approved candidate-development routes."""
+"""Authenticated orchestration for non-approved candidate-development routes.
+
+Review note: the runner sequences an internally compatible recipe family per
+recording, verifies stages before reuse, and builds a cohort comparison from
+only recordings that completed every required stage.
+"""
 
 from __future__ import annotations
 
@@ -72,6 +77,7 @@ def _validate_analysis_id(analysis_id: str) -> None:
 
 def _verify_single_artifact(
     *,
+    # Shared verifier used before reusing a stage's data, QC summary, and marker.
     data_path: Path,
     summary_path: Path,
     marker_path: Path,
@@ -116,6 +122,7 @@ def _verify_single_artifact(
 
 
 def _verify_corrected_preprocess(project_dir: Path, recording_id: str) -> str:
+    # Verify corrected-frame lineage when the selected route requires it.
     return _verify_single_artifact(
         data_path=project_dir
         / "Processed data"
@@ -135,6 +142,7 @@ def _verify_corrected_preprocess(project_dir: Path, recording_id: str) -> str:
 
 
 def _verify_metrics(
+    # Verify metric lineage and the route-specific source/column invariants.
     project_dir: Path,
     recording_id: str,
     source: CandidateMetricSource,
@@ -202,6 +210,7 @@ def _verify_metrics(
 
 
 def _verify_movement(
+    # Verify the shared detector output against the exact metric family input.
     project_dir: Path,
     recording_id: str,
     source: CandidateMetricSource | None = None,
@@ -251,6 +260,7 @@ def _verify_movement(
 
 
 def _verify_temporal(
+    # Verify aligned temporal profiles against movement and metric provenance.
     project_dir: Path,
     recording_id: str,
     experiment_name: str,
@@ -308,6 +318,7 @@ def _verify_temporal(
 
 
 def _verify_comparison(
+    # Verify cohort comparison identity and its ordered contributing recordings.
     project_dir: Path,
     analysis_id: str,
     recording_ids: tuple[str, ...],
@@ -358,6 +369,7 @@ def _verify_comparison(
 
 
 def _verify_trial_outcomes(
+    # Verify per-trial outcome artifact before allowing downstream cohort use.
     project_dir: Path,
     recording_id: str,
     source: CandidateMetricSource,
@@ -371,6 +383,7 @@ def _verify_trial_outcomes(
 
 
 def _run_recording_candidate_stages(
+    # Execute or verify every per-recording stage in frozen dependency order.
     project_dir: Path,
     recording_id: str,
     *,

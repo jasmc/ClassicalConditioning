@@ -1,4 +1,9 @@
-"""Static, publication, and interactive candidate temporal-profile figures."""
+"""Static, publication, and interactive candidate temporal-profile figures.
+
+Review note: these visualize authenticated trial-aligned profiles. Masked cells
+mean insufficient coverage, not zero behaviour, and each mode retains source
+and artist provenance for later manual review.
+"""
 
 from __future__ import annotations
 

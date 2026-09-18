@@ -1,4 +1,9 @@
-"""Lossless local ingestion and acquisition-integrity reporting."""
+"""Lossless local ingestion and acquisition-integrity reporting.
+
+Review note: intake is the raw-to-derived trust boundary. It reads immutable
+triplets, writes verified Parquet/QC/provenance artifacts together, and reports
+observed acquisition issues without silently repairing or excluding data.
+"""
 
 from __future__ import annotations
 
@@ -14,6 +19,7 @@ from typing import Any, Iterable, Iterator, Literal
 
 import matplotlib
 
+# Use a non-interactive backend because intake QC figures must work in batch jobs.
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
@@ -21,6 +27,7 @@ import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
 
+# Shared helpers provide atomic staging/publication and cryptographic evidence.
 from classical_conditioning.artifacts import (
     artifact_staging as _artifact_staging,
     publish_transaction as _publish_transaction,
@@ -40,8 +47,10 @@ from classical_conditioning.ingestion.schemas import (
     validate_tracking_columns,
 )
 
+# The three raw components that form one supported recording acquisition triplet.
 SourceKind = Literal["camera", "tracking", "protocol"]
 
+# Filename suffixes are the discovery contract shared with inventory.py.
 SOURCE_SUFFIXES: dict[SourceKind, str] = {
     "camera": "_cam.txt",
     "tracking": "_mp tail tracking.txt",
@@ -49,6 +58,7 @@ SOURCE_SUFFIXES: dict[SourceKind, str] = {
 }
 
 
+# Absolute paths and parsed identity for one complete raw source triplet.
 @dataclass(frozen=True)
 class RecordingSources:
     recording_name: str
@@ -58,6 +68,7 @@ class RecordingSources:
     protocol: Path
 
 
+# User-facing result paths/status after transactional intake publication.
 @dataclass(frozen=True)
 class IntakeResult:
     recording_id: str
@@ -68,6 +79,7 @@ class IntakeResult:
     summary_path: Path
 
 
+# Streaming camera/tracking frame-ID evidence, including cross-chunk boundaries.
 @dataclass
 class FrameSequenceStats:
     row_count: int = 0
@@ -83,6 +95,7 @@ class FrameSequenceStats:
     _previous_frame_id: int | None = field(default=None, repr=False)
 
     def update(self, frame_ids: np.ndarray) -> None:
+        # Empty chunks contribute nothing; all other chunks are normalized to int64.
         if frame_ids.size == 0:
             return
         frame_ids = frame_ids.astype(np.int64, copy=False)
@@ -101,6 +114,7 @@ class FrameSequenceStats:
             else max(self.maximum_frame_id, chunk_maximum)
         )
 
+        # Include the prior chunk's last ID so anomalies at chunk joins count too.
         if self._previous_frame_id is None:
             differences = np.diff(frame_ids)
             previous = frame_ids[:-1]
@@ -113,6 +127,7 @@ class FrameSequenceStats:
             previous = values[:-1]
             current = values[1:]
 
+        # Adjacent differences classify missing IDs, duplicates, and reversals.
         self.gap_events += int(np.count_nonzero(differences > 1))
         self.missing_frame_count += int(
             np.sum(differences[differences > 1] - 1, dtype=np.int64)
@@ -120,6 +135,7 @@ class FrameSequenceStats:
         self.duplicate_events += int(np.count_nonzero(differences == 0))
         self.reverse_events += int(np.count_nonzero(differences < 0))
 
+        # Keep bounded human-review examples rather than storing every anomaly.
         if len(self.anomaly_examples) < 100:
             anomaly_indices = np.flatnonzero(differences != 1)
             for index in anomaly_indices[: 100 - len(self.anomaly_examples)]:
@@ -136,6 +152,7 @@ class FrameSequenceStats:
         self._previous_frame_id = int(frame_ids[-1])
 
     def to_dict(self) -> dict[str, Any]:
+        # Hide the internal cross-chunk state from QC JSON.
         return {
             key: value
             for key, value in asdict(self).items()
@@ -143,6 +160,7 @@ class FrameSequenceStats:
         }
 
 
+# Streaming finite/null/range statistics for one numeric column.
 @dataclass
 class NumericColumnStats:
     null_count: int = 0
@@ -151,6 +169,7 @@ class NumericColumnStats:
     maximum: float | None = None
 
     def update(self, values: pd.Series) -> None:
+        # Treat conversion/missing values consistently as NaN, then accumulate ranges.
         self.null_count += int(values.isna().sum())
         array = values.to_numpy(dtype=np.float64, na_value=np.nan)
         self.nonfinite_count += int(np.count_nonzero(~np.isfinite(array)))
@@ -171,6 +190,7 @@ class NumericColumnStats:
         )
 
 
+# Streaming ordered-time evidence with a retained previous chunk value.
 @dataclass
 class OrderedSequenceStats:
     first_value: float | None = None
@@ -180,12 +200,14 @@ class OrderedSequenceStats:
     _previous_value: float | None = field(default=None, repr=False)
 
     def update(self, values: pd.Series) -> None:
+        # Ignore non-finite times while retaining duplicate/reversal diagnostics.
         array = values.to_numpy(dtype=np.float64, na_value=np.nan)
         finite = array[np.isfinite(array)]
         if finite.size == 0:
             return
         if self.first_value is None:
             self.first_value = float(finite[0])
+        # Prepend prior chunk's endpoint so ordering evidence crosses chunk joins.
         if self._previous_value is not None:
             finite = np.concatenate(
                 [np.array([self._previous_value], dtype=np.float64), finite]
@@ -197,6 +219,7 @@ class OrderedSequenceStats:
         self._previous_value = float(finite[-1])
 
     def to_dict(self) -> dict[str, Any]:
+        # Exclude internal state that has no standalone QC meaning.
         return {
             key: value
             for key, value in asdict(self).items()
@@ -204,6 +227,7 @@ class OrderedSequenceStats:
         }
 
 
+# Per-table accumulation of schema, statistics, and downsampled plot samples.
 @dataclass
 class TableStats:
     kind: SourceKind
@@ -215,23 +239,28 @@ class TableStats:
     sample_rows: list[pd.DataFrame] = field(default_factory=list, repr=False)
 
     def update(self, frame: pd.DataFrame, sample_stride: int) -> None:
+        # Count frame identity when present; protocol instead counts ordinary rows.
         if "FrameID" in frame.columns:
             self.frames.update(frame["FrameID"].to_numpy(dtype=np.int64))
         else:
             self.frames.row_count += int(len(frame))
+        # Gather numeric ranges/null counts for every numeric source field.
         for column in frame.columns:
             if pd.api.types.is_numeric_dtype(frame[column].dtype):
                 self.numeric.setdefault(column, NumericColumnStats()).update(frame[column])
+        # Camera time columns are additionally evaluated as ordered sequences.
         if self.kind == "camera":
             for column in ("ElapsedTime", "AbsoluteTime"):
                 self.ordered_sequences.setdefault(
                     column, OrderedSequenceStats()
                 ).update(frame[column])
+        # Retain a bounded-rate sample for QC plots without retaining all frames.
         sampled = frame.iloc[::sample_stride]
         if not sampled.empty:
             self.sample_rows.append(sampled)
 
     def to_dict(self) -> dict[str, Any]:
+        # Return only serializable summary evidence, not plot samples.
         return {
             "kind": self.kind,
             "columns": self.columns,
@@ -248,6 +277,7 @@ class TableStats:
 
 
 def recording_id_from_name(recording_name: str) -> str:
+    # The first date/fish-number fields are the stable acquisition identity.
     parts = recording_name.split("_")
     if len(parts) < 2:
         raise ValueError(
@@ -257,10 +287,12 @@ def recording_id_from_name(recording_name: str) -> str:
 
 
 def _group_raw_triplets(input_dir: Path) -> dict[str, dict[SourceKind, Path]]:
+    # Recursively group recognized source files, excluding any generated subtree.
     grouped: dict[str, dict[SourceKind, Path]] = {}
     for path in input_dir.rglob("*"):
         if not path.is_file() or is_reserved_derived_path(path, input_dir):
             continue
+        # Match at most one supported suffix and reject duplicate components.
         for kind, suffix in SOURCE_SUFFIXES.items():
             if path.name.endswith(suffix):
                 recording_name = path.name[: -len(suffix)]
@@ -277,10 +309,12 @@ def _group_raw_triplets(input_dir: Path) -> dict[str, dict[SourceKind, Path]]:
 
 def discover_recordings(input_dir: Path) -> tuple[RecordingSources, ...]:
     """Find every complete camera/tracking/protocol triplet under input_dir."""
+    # Resolve/validate root before discovery so stored source paths are unambiguous.
     input_dir = input_dir.resolve()
     if not input_dir.is_dir():
         raise NotADirectoryError(f"Input directory does not exist: {input_dir}")
     complete: list[RecordingSources] = []
+    # Yield only groups with all three components in stable recording-name order.
     for recording_name, sources in sorted(_group_raw_triplets(input_dir).items()):
         if set(sources) != set(SOURCE_SUFFIXES):
             continue
@@ -302,6 +336,7 @@ def discover_recording(
     recording_id: str | None = None,
 ) -> RecordingSources:
     """Find one complete camera/tracking/protocol triplet."""
+    # Build on batch discovery, then require exactly one matching complete triplet.
     complete = discover_recordings(input_dir)
     if recording_id is not None:
         matches = [item for item in complete if item.recording_id == recording_id]
@@ -328,6 +363,7 @@ def inspect_table_structure(
     rows: int = 25,
 ) -> dict[str, Any]:
     """Read a small local preview and return structure without row values."""
+    # This preview records schema facts only, never raw row values.
     if rows < 1:
         raise ValueError("Preview rows must be at least 1.")
     preview = pd.read_csv(path, sep=r"\s+", nrows=rows, engine="c")
@@ -340,6 +376,7 @@ def inspect_table_structure(
 
 
 def _schema_for(kind: SourceKind, columns: list[str]) -> pa.Schema:
+    # Validate raw headers and define the typed, lossless Arrow schema per source.
     if kind == "camera":
         try:
             validate_camera_columns(columns)
@@ -352,6 +389,7 @@ def _schema_for(kind: SourceKind, columns: list[str]) -> pa.Schema:
                 pa.field("AbsoluteTime", pa.int64(), nullable=False),
             ]
         )
+    # Tracking coordinates/angles remain nullable to preserve missing measurements.
     if kind == "tracking":
         try:
             tracking = validate_tracking_columns(columns)
@@ -364,6 +402,7 @@ def _schema_for(kind: SourceKind, columns: list[str]) -> pa.Schema:
                 for column in tracking.columns[1:]
             ]
         )
+    # Protocol events retain labels plus integer acquisition-time bounds.
     if kind == "protocol":
         try:
             validate_protocol_columns(columns)
@@ -380,6 +419,7 @@ def _schema_for(kind: SourceKind, columns: list[str]) -> pa.Schema:
 
 
 def _dtype_for(schema: pa.Schema) -> dict[str, str]:
+    # Translate the restricted Arrow intake schema into Pandas reader dtypes.
     result: dict[str, str] = {}
     for field in schema:
         if pa.types.is_int64(field.type):
@@ -400,6 +440,7 @@ def _read_chunks(
     chunk_rows: int,
     source_columns: list[str],
 ) -> Iterator[pd.DataFrame]:
+    # Default types derive from canonical schema; camera aliases need source names.
     dtypes = _dtype_for(schema)
     if kind == "camera":
         # Camera files may use the validated legacy aliases ID and TotalTime.
@@ -416,6 +457,7 @@ def _read_chunks(
         )
         dtypes = source_dtype_names
 
+    # Stream whitespace-delimited raw files at caller-selected row boundaries.
     chunks = pd.read_csv(
         path,
         sep=r"\s+",
@@ -423,6 +465,7 @@ def _read_chunks(
         chunksize=chunk_rows,
         engine="c",
     )
+    # Normalize camera aliases after parsing, then yield canonical chunk columns.
     for frame in chunks:
         if kind == "camera":
             frame.columns = normalize_camera_columns(
@@ -432,12 +475,14 @@ def _read_chunks(
 
 
 def _new_logical_digest(schema: pa.Schema) -> hashlib._Hash:
+    # Logical hash binds schema and ordered table values, not Parquet byte layout.
     digest = hashlib.sha256()
     digest.update(str(schema).encode("utf-8"))
     return digest
 
 
 def _update_logical_digest(digest: Any, frame: pd.DataFrame) -> None:
+    # Pandas produces stable row hashes for ordered, index-free logical contents.
     row_hashes = pd.util.hash_pandas_object(frame, index=False).to_numpy(
         dtype=np.uint64
     )
@@ -453,6 +498,7 @@ def _convert_table(
     preview_rows: int,
     overwrite: bool,
 ) -> tuple[dict[str, Any], pd.DataFrame]:
+    # Validate write policy before opening source/output files.
     if chunk_rows < 1:
         raise ValueError("Chunk rows must be at least 1.")
     if output_path.exists() and not overwrite:
@@ -461,10 +507,12 @@ def _convert_table(
             "Use --overwrite only when intentionally rebuilding it."
         )
 
+    # Capture source identity and preview/schema before streaming conversion.
     source_stat_before = source_path.stat()
     source_hash = _sha256_file(source_path)
     structure = inspect_table_structure(source_path, rows=preview_rows)
     schema = _schema_for(kind, structure["columns"])
+    # Embed raw source provenance into Parquet schema metadata.
     schema = schema.with_metadata(
         {
             b"source_path": str(source_path.resolve()).encode("utf-8"),
@@ -474,15 +522,18 @@ def _convert_table(
         }
     )
 
+    # Build a sibling incomplete file so a failed write is never a valid artifact.
     temporary = output_path.with_suffix(output_path.suffix + ".incomplete")
     output_path.parent.mkdir(parents=True, exist_ok=True)
     if temporary.exists():
         temporary.unlink()
 
+    # Accumulate QC, logical hash, writer state, and bounded plot samples per chunk.
     stats: TableStats | None = None
     logical_digest = _new_logical_digest(schema.remove_metadata())
     writer: pq.ParquetWriter | None = None
     sample_stride = 500 if kind == "camera" else 1_000
+    # Stream typed chunks into lossless Zstandard Parquet with schema enforcement.
     try:
         writer = pq.ParquetWriter(
             temporary,
@@ -491,6 +542,7 @@ def _convert_table(
             use_dictionary=kind == "protocol",
             write_statistics=True,
         )
+        # Each chunk must retain its preview-derived schema throughout the source.
         for frame in _read_chunks(
             source_path,
             kind,
@@ -502,6 +554,7 @@ def _convert_table(
                 raise ValueError(
                     f"{kind} columns changed during reading: {list(frame.columns)}"
                 )
+            # Initialize table-level accumulators from the first valid chunk.
             if stats is None:
                 stats = TableStats(
                     kind=kind,
@@ -512,6 +565,7 @@ def _convert_table(
                 )
             stats.update(frame, sample_stride)
             _update_logical_digest(logical_digest, frame)
+            # Convert losslessly under the explicit Arrow schema, then append a row group.
             table = pa.Table.from_pandas(
                 frame,
                 schema=schema,
@@ -520,6 +574,7 @@ def _convert_table(
             )
             writer.write_table(table, row_group_size=len(frame))
     except Exception:
+        # Close/delete incomplete output on every conversion failure before re-raising.
         if writer is not None:
             writer.close()
         if temporary.exists():
@@ -529,11 +584,13 @@ def _convert_table(
         assert writer is not None
         writer.close()
 
+    # A source with no rows must never yield a superficially successful Parquet file.
     if stats is None or stats.frames.row_count == 0:
         if temporary.exists():
             temporary.unlink()
         raise ValueError(f"{kind} source contains no data rows: {source_path}")
 
+    # Raw input must not change while it is being converted and authenticated.
     source_stat_after = source_path.stat()
     if (
         source_stat_before.st_size != source_stat_after.st_size
@@ -542,6 +599,7 @@ def _convert_table(
         temporary.unlink()
         raise RuntimeError(f"Raw source changed during ingestion: {source_path}")
 
+    # Re-read every written row group and compare logical hashes for lossless proof.
     parquet_file: pq.ParquetFile | None = None
     try:
         parquet_file = pq.ParquetFile(temporary)
@@ -551,6 +609,7 @@ def _convert_table(
                 f"{parquet_file.metadata.num_rows} != {stats.frames.row_count}"
             )
 
+        # Restore canonical Pandas dtypes before hashing to match source chunks.
         parquet_digest = _new_logical_digest(schema.remove_metadata())
         for row_group in range(parquet_file.num_row_groups):
             restored = parquet_file.read_row_group(row_group).to_pandas()
@@ -562,6 +621,7 @@ def _convert_table(
         parquet_size = temporary.stat().st_size
         parquet_hash = _sha256_file(temporary)
     except Exception:
+        # Any failed verification removes the incomplete file rather than publishing it.
         if parquet_file is not None:
             parquet_file.close()
         if temporary.exists():
@@ -570,8 +630,10 @@ def _convert_table(
     else:
         parquet_file.close()
 
+    # Promote the authenticated standalone Parquet file into staging output.
     os.replace(temporary, output_path)
 
+    # Return source/artifact hashes plus statistics and sampled rows for QC plotting.
     samples = pd.concat(stats.sample_rows, ignore_index=True)
     summary = {
         "source": {
@@ -605,6 +667,7 @@ def _read_protocol(
     preview_rows: int,
     overwrite: bool,
 ) -> tuple[dict[str, Any], pd.DataFrame]:
+    # Protocol uses the shared lossless converter, then adds event-specific QC counts.
     summary, _ = _convert_table(
         source_path,
         output_path,
@@ -614,6 +677,7 @@ def _read_protocol(
         overwrite=overwrite,
     )
     protocol = pq.read_table(output_path).to_pandas()
+    # Invalid timing is evidence for review, not a silent deletion rule.
     invalid_duration = protocol["Beg"] >= protocol["End"]
     summary["statistics"]["event_counts"] = {
         str(key): int(value)
@@ -627,6 +691,7 @@ def _plot_camera(
     camera: pd.DataFrame,
     output_path: Path,
 ) -> None:
+    # Derive interval/rate/residual diagnostics from the downsampled camera sample.
     elapsed = camera["ElapsedTime"].to_numpy(dtype=float)
     frames = camera["FrameID"].to_numpy(dtype=np.int64)
     frame_steps = np.diff(frames)
@@ -636,6 +701,7 @@ def _plot_camera(
     sampled_interval[valid_steps] = elapsed_steps[valid_steps] / frame_steps[valid_steps]
     frame_axis = frames[1:]
 
+    # Four complementary timing views expose cadence, distribution, rate, and drift.
     fig, axes = plt.subplots(2, 2, figsize=(11, 7), constrained_layout=True)
     axes[0, 0].plot(frame_axis, sampled_interval, color="black", linewidth=0.5)
     axes[0, 0].set(title="Sampled interval per frame", ylabel="Milliseconds")
@@ -659,6 +725,7 @@ def _plot_camera(
         xlabel="Frame ID",
         ylabel="Milliseconds",
     )
+    # Apply consistent visual cleanup, save without displaying, then release memory.
     for axis in axes.flat:
         axis.spines[["top", "right"]].set_visible(False)
     fig.savefig(output_path, dpi=180)
@@ -669,9 +736,11 @@ def _plot_tracking(
     tracking: pd.DataFrame,
     output_path: Path,
 ) -> None:
+    # Show only angle fields; absence is tolerated because schema/QC records it elsewhere.
     angle_columns = [column for column in tracking if column.startswith("angle")]
     if not angle_columns:
         return
+    # Rows are tail points and columns are sampled time for an interpretable heatmap.
     angles = tracking[angle_columns].to_numpy(dtype=float).T
     fig, axes = plt.subplots(2, 1, figsize=(12, 7), constrained_layout=True)
     image = axes[0].imshow(
@@ -706,9 +775,11 @@ def _plot_protocol(
     acquisition_end: int,
     output_path: Path,
 ) -> None:
+    # Display event starts relative to camera acquisition bounds by event type.
     fig, axis = plt.subplots(figsize=(12, 3), constrained_layout=True)
     colors = {"Cycle": "#2DB757", "Reinforcer": "#750E5C"}
     levels = {name: index for index, name in enumerate(protocol["Type"].unique())}
+    # Each type receives a fixed vertical level and known/default colour.
     for event_type, group in protocol.groupby("Type", sort=False):
         axis.eventplot(
             (group["Beg"] - acquisition_start) / 60_000,
@@ -736,7 +807,9 @@ def _plot_protocol(
 
 
 def _quality_status(summary: dict[str, Any]) -> tuple[str, list[str]]:
+    # Translate observed integrity evidence into PASS/REVIEW without changing data.
     warnings: list[str] = []
+    # Inspect frame ordering and numeric finiteness for camera/tracking streams.
     for kind in ("camera", "tracking"):
         frame_stats = summary[kind]["statistics"]["frames"]
         for field_name in ("gap_events", "duplicate_events", "reverse_events"):
@@ -747,6 +820,7 @@ def _quality_status(summary: dict[str, Any]) -> tuple[str, list[str]]:
         if nonfinite:
             warnings.append(f"{kind}: nonfinite_values={nonfinite}")
 
+    # Camera elapsed/absolute times add ordered-time diagnostics beyond frame IDs.
     camera_sequences = summary["camera"]["statistics"]["ordered_sequences"]
     for column in ("ElapsedTime", "AbsoluteTime"):
         reverse_steps = camera_sequences[column]["reverse_steps"]
@@ -756,6 +830,7 @@ def _quality_status(summary: dict[str, Any]) -> tuple[str, list[str]]:
     if elapsed_duplicates:
         warnings.append(f"camera: ElapsedTime_duplicate_steps={elapsed_duplicates}")
 
+    # Protocol duration and inter-stream alignment warnings complete acquisition QC.
     protocol = summary["protocol"]["statistics"]
     if protocol["invalid_duration_count"]:
         warnings.append(
@@ -777,11 +852,14 @@ def _write_html_report(
     recording_name: str,
     summary: dict[str, Any],
 ) -> None:
+    # Escape all inserted text before composing a portable static HTML QC page.
     status = html.escape(summary["status"])
     warnings = summary["warnings"]
     warning_items = "".join(f"<li>{html.escape(item)}</li>" for item in warnings)
+    # Give a positive explicit message when the warning list is empty.
     if not warning_items:
         warning_items = "<li>No integrity warnings.</li>"
+    # Compact table reports source row/column cardinality beside the generated plots.
     table_rows = []
     for kind in ("camera", "tracking", "protocol"):
         stats = summary[kind]["statistics"]
@@ -790,6 +868,7 @@ def _write_html_report(
             f"<tr><td>{kind}</td><td>{row_count:,}</td>"
             f"<td>{len(stats['columns'])}</td></tr>"
         )
+    # The report references sibling staged figure names, preserved at publication.
     document = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -832,6 +911,7 @@ def _stage_and_publish_intake(
     preview_rows: int,
     overwrite: bool,
 ) -> IntakeResult:
+    # Record source size/mtime before work so a concurrent raw edit is detectable.
     source_stats_before = {
         kind: (path.stat().st_size, path.stat().st_mtime_ns)
         for kind, path in (
@@ -841,6 +921,7 @@ def _stage_and_publish_intake(
         )
     }
 
+    # Build all three lossless source artifacts in staging before any publication.
     camera_summary, camera_sample = _convert_table(
         sources.camera,
         staged_outputs[0],
@@ -863,6 +944,7 @@ def _stage_and_publish_intake(
         preview_rows=preview_rows,
         overwrite=overwrite,
     )
+    # Replace staging paths in summaries with the final user-visible artifact paths.
     for summary_item, final_path in (
         (camera_summary, planned_outputs[0]),
         (tracking_summary, planned_outputs[1]),
@@ -870,6 +952,7 @@ def _stage_and_publish_intake(
     ):
         summary_item["artifact"]["path"] = str(final_path.resolve())
 
+    # Calculate camera/tracking overlap and protocol containment for acquisition QC.
     camera_frames = camera_summary["statistics"]["frames"]
     tracking_frames = tracking_summary["statistics"]["frames"]
     acquisition_start = int(
@@ -895,6 +978,7 @@ def _stage_and_publish_intake(
     overlap_span = max(0, overlap_end - overlap_start + 1)
     nonoverlap_frame_span = camera_span + tracking_span - 2 * overlap_span
 
+    # Assemble the primary intake QC summary, then derive its review status/warnings.
     summary: dict[str, Any] = {
         "recording_name": sources.recording_name,
         "recording_id": sources.recording_id,
@@ -919,6 +1003,7 @@ def _stage_and_publish_intake(
     summary["status"] = status
     summary["warnings"] = warnings
 
+    # A separate source manifest binds raw inputs to the three derived Parquet files.
     source_manifest = {
         "recording_name": sources.recording_name,
         "recording_id": sources.recording_id,
@@ -935,6 +1020,7 @@ def _stage_and_publish_intake(
             "protocol": protocol_summary["artifact"],
         },
     }
+    # Stage JSON evidence, QC figures, and HTML report beside staged data files.
     _write_json(staged_outputs[3], summary)
     _write_json(staged_outputs[8], source_manifest)
 
@@ -948,6 +1034,7 @@ def _stage_and_publish_intake(
     )
     _write_html_report(staged_outputs[4], sources.recording_name, summary)
 
+    # Refuse publication if raw source identity changed between start and finish.
     source_stats_after = {
         kind: (path.stat().st_size, path.stat().st_mtime_ns)
         for kind, path in (
@@ -959,12 +1046,14 @@ def _stage_and_publish_intake(
     if source_stats_after != source_stats_before:
         raise RuntimeError("One or more raw files changed during intake.")
 
+    # Atomically publish all data, QC, and provenance paths as one intake unit.
     _publish_transaction(
         tuple(zip(staged_outputs, planned_outputs)),
         staging_root,
         overwrite=overwrite,
     )
 
+    # Return final paths/status only after the full transaction has succeeded.
     return IntakeResult(
         recording_id=sources.recording_id,
         status=status,
@@ -985,11 +1074,13 @@ def intake_recording(
     overwrite: bool = False,
 ) -> IntakeResult:
     """Convert one local immutable recording triplet and report integrity."""
+    # Resolve exactly one raw triplet and enforce the raw/project directory boundary.
     sources = discover_recording(input_dir, recording_id=recording_id)
     project_dir = project_dir.resolve()
     input_dir = input_dir.resolve()
     assert_project_dir_allowed(input_dir, project_dir)
 
+    # Declare all final artifacts before creating staging so replacement policy is clear.
     processed_dir = project_dir / "Processed data" / sources.recording_id
     quality_dir = project_dir / "Quality checks" / sources.recording_id
     figures_dir = quality_dir / "figures"
@@ -1005,6 +1096,7 @@ def intake_recording(
         figures_dir / "protocol_timeline.png",
         metadata_dir / f"{sources.recording_id}_source_manifest.json",
     )
+    # Intake is all-or-nothing: any existing member requires explicit rebuild intent.
     existing_outputs = [path for path in planned_outputs if path.exists()]
     if existing_outputs and not overwrite:
         rendered = ", ".join(str(path) for path in existing_outputs)
@@ -1013,6 +1105,7 @@ def intake_recording(
             f"Use --overwrite only when intentionally rebuilding them: {rendered}"
         )
 
+    # Create an inherited-ACL staging tree mirroring output categories, then publish.
     project_dir.mkdir(parents=True, exist_ok=True)
     with _artifact_staging(
         project_dir,
@@ -1031,6 +1124,7 @@ def intake_recording(
             / "Metadata"
             / f"{sources.recording_id}_source_manifest.json",
         )
+        # Each output writer expects its immediate staged parent to exist.
         for staged_path in staged_outputs:
             staged_path.parent.mkdir(parents=True, exist_ok=True)
         return _stage_and_publish_intake(
@@ -1066,8 +1160,10 @@ def intake_recordings(
     progress: "PipelineProgress | None" = None,
 ) -> IntakeBatchResult:
     """Intake every selected complete triplet, skipping existing unless overwrite."""
+    # Lazy import keeps one-recording intake independent from terminal UI helpers.
     from classical_conditioning.progress import default_progress
 
+    # Normalize optional operational filters; they are not scientific exclusions.
     progress = progress or default_progress(enabled=False)
     keep = (
         {token.strip().lower() for token in keep_conditions}
@@ -1077,6 +1173,7 @@ def intake_recordings(
     requested = (
         tuple(dict.fromkeys(recording_ids)) if recording_ids is not None else None
     )
+    # Select complete discovered triplets in discovery order, applying requested filters.
     selected: list[RecordingSources] = []
     for sources in discover_recordings(input_dir):
         if requested is not None and sources.recording_id not in requested:
@@ -1086,6 +1183,7 @@ def intake_recordings(
             if condition not in keep:
                 continue
         selected.append(sources)
+    # An explicit requested ID missing from the selected complete triplets is an error.
     if requested is not None:
         found = {item.recording_id for item in selected}
         missing = [item for item in requested if item not in found]
@@ -1095,10 +1193,12 @@ def intake_recordings(
                 f"triplets: {missing}"
             )
 
+    # Track every per-recording outcome so batch callers can decide continuation policy.
     completed: list[str] = []
     skipped: list[str] = []
     failed: list[tuple[str, str]] = []
     total = len(selected)
+    # Existing source manifest is the resumable completion marker unless rebuilding.
     for index, sources in enumerate(
         progress.iter_items(selected, description="Intake"),
         start=1,
@@ -1114,6 +1214,7 @@ def intake_recordings(
                 index, total, sources.recording_id, status="skipped"
             )
             continue
+        # Continue after individual errors and preserve them in the batch result.
         try:
             intake_recording(
                 input_dir,
@@ -1135,6 +1236,7 @@ def intake_recordings(
                 sources.recording_id,
                 status=f"failed: {error}",
             )
+    # Return selected order plus all three mutually exclusive execution outcomes.
     return IntakeBatchResult(
         recording_ids=tuple(item.recording_id for item in selected),
         completed=tuple(completed),

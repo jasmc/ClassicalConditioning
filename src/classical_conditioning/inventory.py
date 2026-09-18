@@ -1,4 +1,8 @@
-"""Read-only discovery and hashing of local raw recording triplets."""
+"""Read-only discovery and hashing of local raw recording triplets.
+
+Review note: inventory is a provenance/QC scan, not intake. It never modifies
+raw files and does not make a recording scientifically eligible for analysis.
+"""
 
 from __future__ import annotations
 
@@ -13,6 +17,7 @@ import pandas as pd
 from classical_conditioning.artifacts import sha256_file, write_json_atomic
 from classical_conditioning.exceptions import ConfigurationError, SchemaValidationError
 from classical_conditioning.ingestion.schemas import validate_tracking_columns
+# Reuse the intake naming/suffix contract so inventory and intake discover alike.
 from classical_conditioning.intake import (
     SOURCE_SUFFIXES,
     SourceKind,
@@ -26,6 +31,7 @@ from classical_conditioning.paths import (
 
 
 def _inventory_hash(records: list[dict[str, Any]]) -> str:
+    # Hash canonical JSON so record ordering/content changes are externally visible.
     payload = json.dumps(
         records,
         ensure_ascii=True,
@@ -38,11 +44,13 @@ def _inventory_hash(records: list[dict[str, Any]]) -> str:
 
 def inspect_tracking_header(path: Path) -> dict[str, Any]:
     """Read only the tracking header to recover point-count schema facts."""
+    # Read only zero data rows: this optional audit is intentionally lightweight.
     tracking_path = path.resolve()
     if not tracking_path.is_file():
         raise FileNotFoundError(f"Tracking file does not exist: {tracking_path}")
     header = pd.read_csv(tracking_path, sep=r"\s+", nrows=0, engine="c")
     columns = [str(column) for column in header.columns]
+    # Preserve schema failures in the report instead of aborting whole inventory.
     try:
         schema = validate_tracking_columns(columns)
     except SchemaValidationError as exc:
@@ -64,9 +72,11 @@ def inspect_tracking_header(path: Path) -> dict[str, Any]:
 
 
 def _tracking_schema_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
+    # Summarise only records that opted into header inspection.
     point_counts: dict[str, int] = {}
     failures = 0
     inspected = 0
+    # Count parse failures separately from successfully observed point counts.
     for record in records:
         schema = record.get("tracking_schema")
         if not schema:
@@ -94,10 +104,12 @@ def build_recording_inventory(
     inspect_tracking_headers: bool = False,
 ) -> dict[str, Any]:
     """Discover supported raw files recursively without modifying them."""
+    # Resolve and validate the raw root before recursive read-only discovery.
     root = input_dir.resolve()
     if not root.is_dir():
         raise NotADirectoryError(f"Input directory does not exist: {root}")
 
+    # Group matching source suffixes by recording name, ignoring generated trees.
     grouped: dict[str, dict[SourceKind, set[Path]]] = {}
     for path in root.rglob("*"):
         if not path.is_file() or is_reserved_derived_path(path, root):
@@ -110,6 +122,7 @@ def build_recording_inventory(
                 )
                 break
 
+    # Parse IDs once and detect multiple names that collapse to one ID.
     parsed_recording_ids: dict[str, str | None] = {}
     recording_ids: dict[str, list[str]] = {}
     for recording_name in grouped:
@@ -121,9 +134,11 @@ def build_recording_inventory(
         parsed_recording_ids[recording_name] = recording_id
         recording_ids.setdefault(recording_id, []).append(recording_name)
 
+    # Classify every discovered group, including incomplete/ambiguous inputs.
     records: list[dict[str, Any]] = []
     for recording_name, sources in sorted(grouped.items()):
         recording_id = parsed_recording_ids[recording_name]
+        # Component cardinality determines whether this can be a complete triplet.
         missing = [
             kind for kind in SOURCE_SUFFIXES if len(sources.get(kind, set())) == 0
         ]
@@ -135,6 +150,7 @@ def build_recording_inventory(
             if recording_id is not None
             else []
         )
+        # Status selection is mutually exclusive and records the first safe reason.
         if recording_id is None:
             status = "INVALID_RECORDING_NAME"
         elif duplicate:
@@ -146,6 +162,7 @@ def build_recording_inventory(
         else:
             status = "COMPLETE"
 
+        # Record relative paths, sizes, and optional cryptographic source hashes.
         components: dict[str, list[dict[str, Any]]] = {}
         for kind in SOURCE_SUFFIXES:
             component_records: list[dict[str, Any]] = []
@@ -159,6 +176,7 @@ def build_recording_inventory(
                 component_records.append(component)
             components[kind] = component_records
 
+        # Add normalized condition when filename parsing permits it.
         record: dict[str, Any] = {
             "recording_id": recording_id,
             "recording_name": recording_name,
@@ -175,12 +193,14 @@ def build_recording_inventory(
             record["condition_id"] = condition_from_recording_name(recording_name)
         except ConfigurationError:
             record["condition_id"] = None
+        # Header inspection is optional and only meaningful for unique triplets.
         if inspect_tracking_headers and status == "COMPLETE":
             tracking_paths = sorted(sources.get("tracking", set()))
             if len(tracking_paths) == 1:
                 record["tracking_schema"] = inspect_tracking_header(tracking_paths[0])
         records.append(record)
 
+    # Produce a self-describing payload and an integrity hash over its records.
     status_counts = {
         status: sum(record["status"] == status for record in records)
         for status in (
@@ -217,11 +237,13 @@ def write_recording_inventory(
     overwrite: bool = False,
 ) -> Path:
     """Write the inventory outside the immutable raw-data tree."""
+    # Apply raw-tree output rules before potentially creating the JSON destination.
     root = input_dir.resolve()
     destination = output.resolve()
     assert_output_outside_raw_or_in_paper_data(root, destination)
     if destination.exists() and not overwrite:
         raise FileExistsError(f"Recording inventory already exists: {destination}")
+    # Atomic publication prevents an interrupted inventory from looking complete.
     write_json_atomic(
         destination,
         build_recording_inventory(
@@ -239,12 +261,14 @@ def complete_recording_ids(
     keep_conditions: Iterable[str] | None = None,
 ) -> tuple[str, ...]:
     """Return COMPLETE recording IDs, optionally filtered by filename condition."""
+    # Normalize optional filename-condition filters once before scanning records.
     keep = (
         {token.strip().lower() for token in keep_conditions}
         if keep_conditions
         else None
     )
     selected: list[str] = []
+    # Select only complete, condition-matching records and preserve first-seen order.
     for record in inventory.get("records", []):
         if record.get("status") != "COMPLETE":
             continue

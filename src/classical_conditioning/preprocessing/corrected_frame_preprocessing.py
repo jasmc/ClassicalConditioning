@@ -6,6 +6,10 @@ AbsoluteTime rebuild, and records explicit validity masks. Interpolation and
 filtering remain disabled until separately versioned policies are approved
 (Gate P). Body rotation is explicitly ``none`` when no independent body axis
 exists (Gate T0).
+
+Review note: this stage preserves acquired frame values while adding explicit
+time, gap, and derivative-validity fields. Unsupported correction policies are
+guarded so outputs remain bound to this frozen recipe.
 """
 
 from __future__ import annotations
@@ -28,6 +32,7 @@ from classical_conditioning.artifacts import (
     write_json_atomic as _write_json_atomic,
 )
 
+# Versioned output identity and canonical artifact filenames for this stage.
 RECIPE_ID = "corrected-preprocess-v1"
 SCIENTIFIC_STATUS = "candidate_development"
 ARTIFACT_NAME = "frame_preprocessed_corrected-v1.parquet"
@@ -35,6 +40,7 @@ SUMMARY_NAME = "corrected-v1_preprocessing_summary.json"
 MARKER_SUFFIX = "corrected-preprocess-v1_complete.json"
 
 
+# Frozen settings: altering one requires a new recipe/artifact identity.
 @dataclass(frozen=True)
 class CorrectedPreprocessConfig:
     """Frozen policy set for ``corrected-preprocess-v1``.
@@ -63,6 +69,7 @@ class CorrectedPreprocessConfig:
     coordinate_source: str = "measured"
 
 
+# Final paths and counts returned only after staged artifact publication succeeds.
 @dataclass(frozen=True)
 class CorrectedPreprocessResult:
     recording_id: str
@@ -80,6 +87,7 @@ def _validate_strictly_increasing_ids(
     label: str,
 ) -> int:
     frame_ids = np.asarray(frame_ids, dtype=np.int64)
+    # Enforce strictly increasing IDs inside and between streamed batches.
     if frame_ids.size == 0:
         raise ValueError(f"{label} frame batch is empty.")
     if np.any(np.diff(frame_ids) <= 0):
@@ -124,6 +132,7 @@ def summarize_protocol_timing(
     camera_absolute_ms: np.ndarray,
 ) -> dict[str, Any]:
     """Classify protocol events relative to observed camera AbsoluteTime."""
+    # Report timing facts without filtering protocol events.
     if protocol.empty:
         return {
             "event_count": 0,
@@ -184,6 +193,7 @@ def calculate_corrected_frames(
     previous: dict[str, Any] | None = None,
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     """Build one corrected frame table chunk with explicit validity masks."""
+    # The frozen route rejects interpolation/filter/rotation alternatives.
     if config.interpolation_enabled:
         raise ValueError(
             "corrected-preprocess-v1 keeps interpolation_enabled=False until "
@@ -204,6 +214,7 @@ def calculate_corrected_frames(
             "corrected-preprocess-v1 only supports subtract_tail_base "
             "translation."
         )
+    # Require matching frame/point geometry before vectorized correction.
     if x.shape != y.shape or x.shape != local_angles.shape:
         raise ValueError("x, y, and local-angle arrays must have identical shapes.")
     if x.shape[1] != config.point_count:
@@ -225,6 +236,7 @@ def calculate_corrected_frames(
         ),
         label="Tracking",
     )
+    # The first batch frame has no predecessor, so its derivative is invalid.
     if previous is None:
         if np.any(np.diff(elapsed_time_ms) <= 0):
             raise ValueError(
@@ -355,6 +367,7 @@ def build_corrected_preprocessing(
 ) -> CorrectedPreprocessResult:
     """Build the corrected measured-time frame artifact for one recording."""
     config = config or CorrectedPreprocessConfig()
+    # Accept only the recipe's frozen default configuration and a positive batch size.
     if config != CorrectedPreprocessConfig():
         raise ValueError(
             "corrected-preprocess-v1 uses a frozen configuration. "
@@ -437,6 +450,7 @@ def build_corrected_preprocessing(
     tracking_frame_count = 0
     delta_time_samples: list[float] = []
 
+    # Stream corrected frames, QC summaries, and marker into staging before publish.
     with artifact_staging(
         project_dir,
         prefix=f".{recording_id}-corrected-v1-",

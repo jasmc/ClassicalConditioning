@@ -1,4 +1,8 @@
-"""Explicit local readers for camera, tracking, and protocol TXT files."""
+"""Explicit local readers for camera, tracking, and protocol TXT files.
+
+Review note: readers parse and type local raw inputs but do not write derived
+data. Intake owns conversion to Parquet and provenance publication.
+"""
 
 from __future__ import annotations
 
@@ -9,6 +13,7 @@ import numpy as np
 import pandas as pd
 
 from classical_conditioning.exceptions import SchemaValidationError
+# Schema constants and validators separate file syntax from table topology.
 from classical_conditioning.ingestion.schemas import (
     CAMERA_COLUMNS,
     PROTOCOL_COLUMNS,
@@ -19,6 +24,7 @@ from classical_conditioning.ingestion.schemas import (
     validate_tracking_columns,
 )
 
+# Typed reader results retain parsing decisions as evidence for later QC.
 @dataclass(frozen=True)
 class CameraReadResult:
     frame: pd.DataFrame
@@ -27,6 +33,7 @@ class CameraReadResult:
     decimal: str
 
 
+# Tracking results additionally record topology and summary-row treatment.
 @dataclass(frozen=True)
 class TrackingReadResult:
     frame: pd.DataFrame
@@ -36,6 +43,7 @@ class TrackingReadResult:
     dropped_trailing_summary_row: bool
 
 
+# Protocol results retain duration warnings and an event-type inventory.
 @dataclass(frozen=True)
 class ProtocolReadResult:
     frame: pd.DataFrame
@@ -45,6 +53,7 @@ class ProtocolReadResult:
 
 
 def _require_file(path: Path) -> Path:
+    # Resolve first so errors and stored provenance refer to one absolute path.
     resolved = path.resolve()
     if not resolved.is_file():
         raise FileNotFoundError(f"Raw acquisition file does not exist: {resolved}")
@@ -57,8 +66,10 @@ def _read_whitespace_table(
     decimal: str = ".",
 ) -> tuple[pd.DataFrame, str, str]:
     """Try space-separated then tab-separated acquisition text."""
+    # Try the two supported delimiter conventions and preserve failed attempts.
     errors: list[str] = []
     for separator, label in ((" ", "space"), ("\t", "tab")):
+        # Parsing with the C engine gives deterministic whitespace-table handling.
         try:
             frame = pd.read_csv(
                 path,
@@ -70,6 +81,7 @@ def _read_whitespace_table(
         except Exception as exc:  # noqa: BLE001 - collect parse attempts
             errors.append(f"{label}/{decimal}: {exc}")
             continue
+        # A space parse that collapses a tab file is not a valid success.
         if frame.shape[1] == 1 and separator == " ":
             errors.append(f"{label}/{decimal}: collapsed to a single column")
             continue
@@ -81,11 +93,13 @@ def _read_whitespace_table(
 
 def read_camera(path: Path) -> CameraReadResult:
     """Read canonical camera timing without discarding leading rows."""
+    # Camera exports may use dot or comma decimals, so try both deliberately.
     source = _require_file(path)
     last_parse_error: Exception | None = None
     frame: pd.DataFrame | None = None
     separator = "space"
     used_decimal = "."
+    # Keep the final parse failure to give a useful combined error if both fail.
     for decimal in (".", ","):
         try:
             frame, separator, used_decimal = _read_whitespace_table(
@@ -101,10 +115,12 @@ def read_camera(path: Path) -> CameraReadResult:
             f"Camera file could not be parsed: {source}: {last_parse_error}"
         )
 
+    # Canonicalise headers, select only schema fields, and type each numeric role.
     working = frame.copy()
     working.columns = normalize_camera_columns([str(c) for c in working.columns])
     validate_camera_columns(list(working.columns))
     working = working.loc[:, list(CAMERA_COLUMNS)].copy()
+    # Coercion is intentionally strict for camera timing/identity columns.
     try:
         working["FrameID"] = pd.to_numeric(working["FrameID"], errors="raise").astype(
             "int64"
@@ -121,6 +137,7 @@ def read_camera(path: Path) -> CameraReadResult:
         raise SchemaValidationError(
             f"Camera numeric columns are invalid in {source}: {exc}"
         ) from exc
+    # Reject pathological tables before returning a purportedly typed result.
     if working.empty:
         raise SchemaValidationError("Camera table is empty.")
     if working["FrameID"].duplicated().any():
@@ -142,6 +159,7 @@ def read_tracking(
     drop_trailing_summary_row: bool = True,
 ) -> TrackingReadResult:
     """Read full-field tracking TXT for the supported candidate route."""
+    # Tracking normally uses decimal dots; retry commas only if parsing collapsed.
     source = _require_file(path)
     frame, _, _ = _read_whitespace_table(source, decimal=".")
     try:
@@ -150,11 +168,13 @@ def read_tracking(
     except SchemaValidationError:
         pass
 
+    # Validate field topology before numeric conversion or row removal.
     columns = [str(column) for column in frame.columns]
     schema = validate_tracking_columns(columns)
     working = frame.copy()
     working.columns = columns
 
+    # Historical exports end with an optional summary row rather than a frame.
     dropped = False
     if drop_trailing_summary_row:
         if len(working) < 2:
@@ -179,11 +199,13 @@ def read_tracking(
             )
         working["FrameID"] = working["FrameID"].astype("float64")
 
+    # Invalid tracking coordinates remain NaN for downstream validity masking.
     for column in schema.angle_columns + schema.x_columns + schema.y_columns:
         working[column] = pd.to_numeric(working[column], errors="coerce").astype(
             "float64"
         )
 
+    # Only full-field tracking is supported by the active candidate workflow.
     if mode != "full":
         raise SchemaValidationError(f"Unsupported tracking mode: {mode!r}")
     selected = working.loc[
@@ -207,10 +229,12 @@ def read_tracking(
 
 def read_protocol(path: Path) -> ProtocolReadResult:
     """Read stimulus-control events with explicit duration checks."""
+    # Protocol values use the normal decimal convention and strict header schema.
     source = _require_file(path)
     frame, _, _ = _read_whitespace_table(source, decimal=".")
     columns = [str(column) for column in frame.columns]
     validate_protocol_columns(columns)
+    # Select canonical fields and convert event times/labels to explicit types.
     working = frame.loc[:, list(PROTOCOL_COLUMNS)].copy()
     working["Type"] = working["Type"].astype("string")
     working["Beg"] = pd.to_numeric(working["Beg"], errors="raise").astype("int64")
@@ -220,11 +244,13 @@ def read_protocol(path: Path) -> ProtocolReadResult:
     if working["Type"].isna().any():
         raise SchemaValidationError("Protocol event types cannot be missing.")
 
+    # Record (but do not discard) invalid durations for QC and caller policy.
     invalid_duration = working["Beg"] >= working["End"]
     invalid_duration_count = int(invalid_duration.sum())
     ordered = working.sort_values(["Beg", "End", "Type"], kind="mergesort").reset_index(
         drop=True
     )
+    # Stable sorting and counts make protocol artifacts deterministic to inspect.
     counts = {
         str(key): int(value)
         for key, value in ordered["Type"].value_counts(sort=False).items()

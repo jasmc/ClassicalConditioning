@@ -1,4 +1,8 @@
-"""Validate one local acquisition triplet without writing Parquet."""
+"""Validate one local acquisition triplet without writing Parquet.
+
+Review note: this diagnostic command uses the same readers as intake but stops
+before conversion/publishing, making it safe for pre-intake source inspection.
+"""
 
 from __future__ import annotations
 
@@ -16,6 +20,7 @@ from classical_conditioning.ingestion.readers import (
 from classical_conditioning.ingestion.tracking_audit import classify_tracking_columns
 
 
+# Return identity, complete in-memory evidence, and optional persisted report path.
 @dataclass(frozen=True)
 class RawValidationResult:
     recording_id: str
@@ -31,8 +36,11 @@ def validate_raw_triplet(
     overwrite: bool = False,
 ) -> RawValidationResult:
     """Read and validate one camera/tracking/protocol triplet locally."""
+    # Lazy import avoids a package-level circular dependency with intake.
     from classical_conditioning.intake import discover_recording
 
+    # Discover exactly one complete triplet, parse every source, then apply
+    # focused sequence/header diagnostics without generating Parquet artifacts.
     sources = discover_recording(input_dir)
     camera = read_camera(sources.camera)
     tracking = read_tracking(sources.tracking, mode="full")
@@ -40,6 +48,7 @@ def validate_raw_triplet(
     frame_report = validate_frame_sequence(camera.frame)
     classification = classify_tracking_columns(list(tracking.schema.columns))
 
+    # Count events entirely outside acquisition time as an informative warning.
     protocol_outside = 0
     if not camera.frame.empty and not protocol.frame.empty:
         start = int(camera.frame["AbsoluteTime"].min())
@@ -50,6 +59,7 @@ def validate_raw_triplet(
             ).sum()
         )
 
+    # Assemble a self-contained JSON-ready report with reader decisions and QC.
     summary: dict[str, Any] = {
         "artifact_kind": "raw-acquisition-validation-v1",
         "recording_id": sources.recording_id,
@@ -81,6 +91,8 @@ def validate_raw_triplet(
             "event_type_counts": protocol.event_type_counts,
             "events_outside_camera_absolute_time": protocol_outside,
         },
+        # PASS covers hard integrity checks; gaps and other observations remain
+        # visible in the detailed report for later scientific review.
         "status": (
             "PASS"
             if (
@@ -93,6 +105,7 @@ def validate_raw_triplet(
         ),
     }
 
+    # Persist only when explicitly asked; by default this command is read-only.
     report_path: Path | None = None
     if output is not None:
         report_path = output.resolve()
@@ -103,6 +116,7 @@ def validate_raw_triplet(
             )
         write_json_atomic(report_path, summary)
 
+    # Return the same evidence whether or not the caller requested a JSON file.
     return RawValidationResult(
         recording_id=sources.recording_id,
         recording_name=sources.recording_name,
