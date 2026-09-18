@@ -91,6 +91,24 @@ uv run classical-conditioning run-pipeline --config configs\example-run.json
 
 Copy [configs/example-run.json](configs/example-run.json) and edit the paths.
 
+### One-command allDelay technical run
+
+For the complete allDelay technical workflow—lossless intake, candidate
+analysis, all-complete cohort freeze, learning-onset LME, and both final PNGs—
+run the Windows launcher below. It is resumable: re-running the same command
+verifies and preserves completed artifacts rather than overwriting them.
+
+```powershell
+.\scripts\run-allDelay-full-windows.ps1 `
+  -RawDir "J:\Raw Data\allDelay" `
+  -ProjectDir "F:\Digested Data\allDelay-full-v1"
+```
+
+The launcher creates an explicitly labelled **technical all-complete** cohort
+(every complete control/delay triplet). It is not a substitute for a
+publication-cohort review. Its final figures are written to
+`<ProjectDir>\Figures\PNG\Analyses\allDelay-full-learning-onset-v1\`.
+
 ### Required config fields
 
 | Field | Meaning |
