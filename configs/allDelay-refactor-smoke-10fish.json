@@ -19,7 +19,7 @@
   "candidate_runner_recipe": "candidate-corrected-runner-v1",
   "run_inventory": false,
   "run_intake": true,
-  "run_figures": true,
+  "run_figures": false,
   "figure_outcomes": ["movement-probability"],
   "overwrite": false,
   "continue_on_error": true
