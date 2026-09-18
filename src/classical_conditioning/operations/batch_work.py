@@ -315,6 +315,8 @@ def write_batch_work_manifest(
 # Batch execution result compares before/after local work coverage and runner output.
 @dataclass(frozen=True)
 class BatchExecuteResult:
+    # Summarize a batch invocation with enough identity and path information to
+    # resume, review, or trace every recording-level outcome.
     batch_id: str
     metric_recipe: str
     selection: SelectionMode

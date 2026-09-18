@@ -104,6 +104,7 @@ class FrozenCohortSelection:
 
 
 def _require_ratio_outcome(outcome_id: str) -> dict[str, str]:
+    # Restrict ratio plots to outcomes with semantically matched baseline values.
     try:
         return RATIO_OUTCOMES[outcome_id]
     except KeyError as error:
@@ -116,6 +117,7 @@ def _require_ratio_outcome(outcome_id: str) -> dict[str, str]:
 
 
 def _metric_slug(metric_id: str) -> str:
+    # Turn a metric identifier into a safe, stable filename component.
     slug = re.sub(r"[^A-Za-z0-9.-]+", "-", metric_id).strip("-.").lower()
     if not slug:
         raise ConfigurationError("Metric ID must contain a filename-safe character.")
@@ -123,6 +125,7 @@ def _metric_slug(metric_id: str) -> str:
 
 
 def _validate_analysis_id(analysis_id: str) -> None:
+    # Reject non-portable IDs before they become output-directory components.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError(
             "Analysis ID must use only letters, numbers, dot, underscore, or hyphen."
@@ -130,6 +133,7 @@ def _validate_analysis_id(analysis_id: str) -> None:
 
 
 def _load_primary_cohort(project_dir: Path, cohort_id: str) -> FrozenCohortSelection:
+    # Load the reviewed cohort once and freeze the identity lookup used by plots.
     outcomes, summary = load_cohort_trial_outcomes(project_dir, cohort_id)
     included = outcomes.loc[
         :, ["experiment_id", "recording_id", "fish_id", "condition_id"]
@@ -181,6 +185,7 @@ def _validate_outcome_cohort_identity(
     outcomes: pd.DataFrame,
     cohort: FrozenCohortSelection,
 ) -> None:
+    # Verify all table identities still match the cohort selected for the figure.
     required = {"experiment_id", "recording_id", "fish_id", "condition_id"}
     missing = required.difference(outcomes.columns)
     if missing:
@@ -213,6 +218,7 @@ def _validate_outcome_cohort_identity(
 
 
 def _safe_positive_ratio(numerator: pd.Series, denominator: pd.Series) -> np.ndarray:
+    # Divide only finite values with a positive baseline, marking others missing.
     values = numerator.to_numpy(dtype=float)
     baseline = denominator.to_numpy(dtype=float)
     valid = np.isfinite(values) & np.isfinite(baseline) & (baseline > 0)
@@ -228,6 +234,7 @@ def _trial_ratio_rows(
     outcome_id: str,
     alignment: str,
 ) -> pd.DataFrame:
+    # Convert eligible trial outcomes into one response/baseline row per trial.
     fields = _require_ratio_outcome(outcome_id)
     if alignment not in {"CS", "US"}:
         raise ConfigurationError("Ratio figure alignment must be CS or US.")
@@ -541,6 +548,7 @@ def _plot_selected_blocks(
     *,
     experiment_name: str | None,
 ) -> tuple[Any, list[str], dict[str, dict[str, str]]]:
+    # Plot prespecified block summaries with fish points and cohort IQR evidence.
     eligible_fish = fish.loc[fish["Eligible"]].copy()
     if eligible_fish.empty:
         raise ConfigurationError("No fish meet the selected-block ratio coverage rule.")
@@ -641,6 +649,7 @@ def _plot_selected_blocks(
 
 
 def _condition_label_with_count(condition: str, summary: pd.DataFrame) -> str:
+    # Display a condition name with its available fish count or count range.
     counts = summary["Fish count"].dropna().astype(int)
     display = CONDITION_DISPLAY.get(condition, condition)
     if counts.empty:
@@ -656,6 +665,7 @@ def _plot_trial_ratios(
     *,
     experiment_name: str | None,
 ) -> tuple[Any, list[str], dict[str, dict[str, str]]]:
+    # Plot every fish trajectory beneath an equal-fish cohort median and IQR.
     colors = _condition_colors(experiment_name)
     apply_theme(DEFAULT_THEME)
     width, _ = mm_to_in(DOUBLE_COLUMN_MM, 90.0)
@@ -732,6 +742,7 @@ def _plot_event_aligned(
     *,
     experiment_name: str | None,
 ) -> tuple[Any, list[str], dict[str, dict[str, str]]]:
+    # Plot event-relative fish and cohort ratios, retaining the onset reference.
     if fish.empty:
         raise ConfigurationError("No finite event-aligned response/baseline ratios.")
     colors = _condition_colors(experiment_name)
@@ -811,6 +822,7 @@ def _output_base(
     mode: FigureMode,
     name: str,
 ) -> Path:
+    # Construct the canonical output base for PNG or publication-vector exports.
     return (
         project_dir
         / "Figures"

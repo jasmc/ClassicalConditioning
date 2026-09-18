@@ -4,6 +4,10 @@ One detector runs per recording, on the distal cumulative-angle speed, using
 the historical envelope rule and thresholds. Every candidate metric inherits
 that segmentation, so bout-derived outcomes describe the animal's behavior
 rather than the metric used to measure it.
+
+Review note: detector validity, smoothing gaps, and threshold decisions are
+recorded explicitly. The detector runs once per recording and is reused by
+every candidate metric rather than recalibrated per metric.
 """
 
 from __future__ import annotations
@@ -269,15 +273,21 @@ class MovementCalibrationConfig:
 
     @property
     def envelope_threshold_rad_per_ms(self) -> float:
+        # Convert the externally configured degree-based threshold at the last
+        # moment needed by the radian-valued detector.
         return self.envelope_threshold_deg_per_ms * _DEGREES_TO_RADIANS
 
     @property
     def bout_amplitude_threshold_rad_per_ms(self) -> float:
+        # Keep configuration human-readable in degrees while comparing against
+        # the radian metric emitted by preprocessing.
         return self.bout_amplitude_threshold_deg_per_ms * _DEGREES_TO_RADIANS
 
 
 @dataclass(frozen=True)
 class MovementStateResult:
+    # Keep the authoritative movement artifact and its verification companions
+    # together in the stage return value.
     recording_id: str
     movement_path: Path
     summary_path: Path
@@ -374,6 +384,7 @@ def _merge_short_gaps(
     barriers: np.ndarray,
     maximum_interbout_gap_ms: float,
 ) -> np.ndarray:
+    # Bridge only short inactive runs that do not cross an invalid-data barrier.
     inactive_labels, inactive_count = ndimage.label(~active)
     if not inactive_count:
         return active
@@ -416,6 +427,7 @@ def _drop_short_bouts(
     delta_time_ms: np.ndarray,
     minimum_bout_duration_ms: float,
 ) -> np.ndarray:
+    # Remove detections whose accumulated duration cannot qualify as a bout.
     labels, count = ndimage.label(active)
     if not count:
         return active
@@ -436,6 +448,7 @@ def _drop_weak_bouts(
     peak_values: np.ndarray,
     amplitude_threshold: float,
 ) -> np.ndarray:
+    # Remove otherwise long bouts whose peak signal is below the amplitude gate.
     labels, count = ndimage.label(active)
     if not count:
         return active
@@ -515,6 +528,8 @@ def _positive_control(
     protocol: pd.DataFrame,
     config: MovementCalibrationConfig,
 ) -> dict[str, float | int | None]:
+    # Evaluate a known motion-positive interval as a transparent detector sanity
+    # check rather than treating its score as a model-estimation result.
     us_events = protocol.loc[protocol["Type"].astype(str) == "Reinforcer", "Beg"]
     post_values: list[np.ndarray] = []
     baseline_values: list[np.ndarray] = []

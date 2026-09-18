@@ -1,4 +1,9 @@
-"""Measured-time trial alignment and compact temporal profiles."""
+"""Measured-time trial alignment and compact temporal profiles.
+
+Review note: this aligns measured-time frames to experiment events and produces
+coverage-aware compact bins. It preserves detector/metric provenance and never
+interprets missing coverage as zero activity.
+"""
 
 from __future__ import annotations
 
@@ -53,6 +58,8 @@ class TemporalProfileConfig:
 
 @dataclass(frozen=True)
 class TemporalProfileResult:
+    # Point callers to the immutable profile data, QC summary, and completion
+    # marker created by this recording-level stage.
     recording_id: str
     profiles_path: Path
     summary_path: Path

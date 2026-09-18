@@ -103,6 +103,7 @@ def _validate_strictly_increasing_ids(
 
 
 def _tracking_columns(point_count: int) -> list[str]:
+    # Reconstruct the ordered frame and landmark columns expected by the tracker.
     return ["FrameID"] + [
         f"{prefix}{index}"
         for prefix in ("x", "y", "angle")
@@ -114,6 +115,8 @@ def _extract_arrays(
     tracking: pd.DataFrame,
     point_count: int,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    # Convert named tracking columns into numeric arrays while retaining point
+    # ordering for the vectorized correction calculations.
     x = tracking[[f"x{index}" for index in range(point_count)]].to_numpy(
         dtype=np.float64
     )

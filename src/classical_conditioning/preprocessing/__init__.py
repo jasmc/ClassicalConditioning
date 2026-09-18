@@ -2,6 +2,10 @@
 
 Import concrete recipes lazily so optional analysis dependencies are loaded
 only by the stages that need them.
+
+Review note: this package façade exposes the supported preprocessing API while
+deferring implementation imports.  The dispatch below is intentionally limited
+to named public objects, so it cannot perform preprocessing merely by import.
 """
 
 # Lazy imports isolate optional/heavy processing dependencies from basic package

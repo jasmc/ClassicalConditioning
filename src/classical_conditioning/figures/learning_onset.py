@@ -38,6 +38,7 @@ from classical_conditioning.figures.theme import (
 
 
 def _count_label(condition: str, summary: pd.DataFrame) -> str:
+    # Format a legend label that honestly reports whether fish counts vary by row.
     counts = summary["fish_count"].astype(int)
     display = CONDITION_DISPLAY.get(condition, condition)
     if counts.empty:
@@ -50,6 +51,7 @@ def _plot_learning_onset(
     frames: dict[str, pd.DataFrame],
     summary: dict[str, Any],
 ) -> tuple[Any, list[str], dict[str, dict[str, Any]]]:
+    # Assemble the linked learning-onset panels from authenticated analysis tables.
     model_input = frames["model_input"]
     trials = frames["trial_contrasts"]
     blocks = frames["block_contrasts"]

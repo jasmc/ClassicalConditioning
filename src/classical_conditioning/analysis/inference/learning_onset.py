@@ -1,4 +1,9 @@
-"""Condition-aware block, trial, and learning-onset inference."""
+"""Condition-aware block, trial, and learning-onset inference.
+
+Review note: this module carries the exploratory model/diagnostic decisions in
+explicit tables and artifacts. It does not make an approval claim merely because
+a model converges or a plotted trajectory appears plausible.
+"""
 
 from __future__ import annotations
 
@@ -56,6 +61,8 @@ OUTCOME_COLUMNS = {
 
 @dataclass(frozen=True)
 class LearningOnsetConfig:
+    # Freeze the scientific comparison, model specification, and resampling
+    # settings so an onset estimate always carries its full interpretation.
     metric_id: str
     outcome_id: str = "total-activity"
     alignment: str = "CS"
@@ -83,6 +90,8 @@ class LearningOnsetConfig:
     seed: int = 20260917
 
     def __post_init__(self) -> None:
+        # Reject incompatible conditions, unknown blocks, or insufficient
+        # resampling settings before any fitted artifacts are written.
         if self.outcome_id not in OUTCOME_COLUMNS:
             raise ConfigurationError(
                 "Learning onset supports total-activity and conditional-intensity."
@@ -126,6 +135,8 @@ class LearningOnsetConfig:
 
 @dataclass(frozen=True)
 class LearningOnsetResult:
+    # Return a typed index of all output artifacts rather than ambiguous paths
+    # assembled again by downstream consumers.
     analysis_id: str
     cohort_id: str
     cohort_hash: str
@@ -157,6 +168,8 @@ def _analysis_paths(
     project_dir: Path,
     analysis_id: str,
 ) -> tuple[dict[str, Path], Path, Path]:
+    # Centralize the stable analysis and quality-check layout used for writing
+    # and for later integrity verification.
     output_dir = project_dir / "Processed data" / "Analyses" / analysis_id
     quality_dir = project_dir / "Quality checks" / "Analyses" / analysis_id
     paths = {
@@ -228,6 +241,7 @@ def load_learning_onset_analysis(
 
 
 def _validate_identifier(value: str, label: str) -> None:
+    # Allow only portable identifier characters before a value reaches paths.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", value):
         raise ConfigurationError(
             f"{label} must use only letters, numbers, dot, underscore, or hyphen."
@@ -235,6 +249,7 @@ def _validate_identifier(value: str, label: str) -> None:
 
 
 def _config_hash(config: LearningOnsetConfig) -> str:
+    # Hash canonical JSON so the recipe fingerprint is repeatable and inspectable.
     payload = json.dumps(
         asdict(config),
         ensure_ascii=True,
@@ -350,6 +365,8 @@ def _fit_mixed_model(
     group_column: str = "fish_key",
     collect_extended_diagnostics: bool = True,
 ) -> tuple[Any | None, dict[str, Any]]:
+    # Attempt the requested mixed model and preserve convergence or fallback
+    # information as diagnostics instead of concealing fit failures.
     diagnostic: dict[str, Any] = {
         "formula": formula,
         "requested_random_effects": config.random_effects_formula,
@@ -472,6 +489,7 @@ def _fit_mixed_model(
 
 
 def _fixed_design_row(result: Any, frame: pd.DataFrame) -> np.ndarray:
+    # Recreate the fitted fixed-effects design row for a requested covariate case.
     try:
         from patsy import build_design_matrices
     except ImportError as error:
@@ -482,6 +500,7 @@ def _fixed_design_row(result: Any, frame: pd.DataFrame) -> np.ndarray:
 
 
 def _fixed_covariance(result: Any) -> np.ndarray:
+    # Select only fixed-effect covariance entries, excluding random-effect terms.
     names = list(result.fe_params.index)
     covariance = result.cov_params().loc[names, names]
     return covariance.to_numpy(dtype=float)
@@ -752,6 +771,7 @@ def _normal_interval(
     standard_error: float,
     confidence_level: float,
 ) -> tuple[float, float, float]:
+    # Calculate a two-sided normal-approximation interval and matching p-value.
     quantile = NormalDist().inv_cdf(0.5 + confidence_level / 2.0)
     lower = estimate - quantile * standard_error
     upper = estimate + quantile * standard_error
@@ -764,6 +784,7 @@ def _normal_interval(
 
 
 def _holm_adjust(p_values: np.ndarray) -> np.ndarray:
+    # Apply Holm's step-down correction while retaining missing values as missing.
     adjusted = np.full(p_values.shape, np.nan, dtype=float)
     finite_indices = np.flatnonzero(np.isfinite(p_values))
     if not finite_indices.size:
@@ -924,6 +945,8 @@ def trial_contrasts(
         raise ConfigurationError("No pre-training trials are available.")
 
     def condition_vector(trial_number: int) -> np.ndarray:
+        # Express the test-minus-control contrast at one trial in the model's
+        # own encoded design space, not through hand-built coefficients.
         scaled = (float(trial_number) - trial_center) / trial_scale
         common = {
             "log_baseline": [baseline_reference],
@@ -1038,6 +1061,8 @@ def _resample_fish_within_condition(
     data: pd.DataFrame,
     rng: np.random.Generator,
 ) -> pd.DataFrame:
+    # Bootstrap complete fish trajectories independently within each condition
+    # so repeated trials remain paired and group membership is preserved.
     frames = []
     for condition, condition_data in data.groupby("condition_id", observed=True):
         fish = condition_data["fish_key"].astype(str).unique()
@@ -1469,6 +1494,8 @@ def _coverage_table(eligibility: pd.DataFrame) -> pd.DataFrame:
 def _descriptive_trajectory_tables(
     model_input: pd.DataFrame,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
+    # Produce transparent fish- and condition-level summaries separate from the
+    # mixed-model estimates used for formal onset inference.
     fish = (
         model_input.assign(activity_ratio=np.exp(-model_input["cr_score"]))
         .groupby(

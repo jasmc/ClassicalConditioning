@@ -1,4 +1,9 @@
-"""Exact per-trial candidate outcomes from authenticated measured-time artifacts."""
+"""Exact per-trial candidate outcomes from authenticated measured-time artifacts.
+
+Review note: outcomes are calculated from authenticated measured-time profiles
+with explicit baseline/response coverage. Missing/invalid windows remain rows
+with stated reasons rather than being converted into behavioural zeros.
+"""
 
 from __future__ import annotations
 
@@ -42,11 +47,14 @@ RECIPE_ID = DEFAULT_TRIAL_RECIPE_ID  # retained for development-route callers
 
 @dataclass(frozen=True)
 class TrialOutcomeConfig:
+    # Define the baseline and response windows once so every trial outcome uses
+    # the same event-relative scientific comparison.
     baseline_window_s: tuple[float, float] = (-15.0, 0.0)
     response_window_s: tuple[float, float] = (0.0, 9.0)
     interval_closure: str = "left"
 
     def __post_init__(self) -> None:
+        # Validate window ordering and closure before masks are constructed.
         if self.baseline_window_s[0] >= self.baseline_window_s[1]:
             raise ConfigurationError("Baseline trial window must be increasing.")
         if self.response_window_s[0] >= self.response_window_s[1]:
@@ -106,6 +114,8 @@ def _window_mask(
     event_start_ms: int,
     window_s: tuple[float, float],
 ) -> np.ndarray:
+    # Translate an event-relative interval into a boolean sample mask, honoring
+    # the configured endpoint convention.
     relative_ms = absolute_time - event_start_ms
     return (
         (relative_ms >= int(round(window_s[0] * 1_000)))
@@ -114,6 +124,7 @@ def _window_mask(
 
 
 def _finite_mean(values: np.ndarray, mask: np.ndarray) -> float:
+    # Average only selected finite values; an empty usable window remains NaN.
     selected = values[mask & np.isfinite(values)]
     return float(np.mean(selected)) if selected.size else np.nan
 
@@ -373,6 +384,8 @@ def _verify_inputs(
     *,
     metric_recipe: str = "tail-candidate-development-v1",
 ) -> tuple[str, Path, Path, Path, dict[str, str], CandidateMetricSource]:
+    # Authenticate the metric and movement artifacts before deriving trial-level
+    # outcomes from them.
     source = resolve_candidate_metric_source(metric_recipe=metric_recipe)
     source_dir = project_dir / "Processed data" / recording_id
     frame_path = source_dir / source.metrics_name

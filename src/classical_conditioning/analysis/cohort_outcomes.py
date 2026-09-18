@@ -55,6 +55,8 @@ SUPPORTED_ELIGIBILITY_OUTCOMES = {
 
 @dataclass(frozen=True)
 class CohortTrialOutcomesResult:
+    # Index the frozen cohort outcome artifact and the accompanying sample-flow
+    # evidence that explains its retained records.
     cohort_id: str
     cohort_hash: str
     outcomes_path: Path
@@ -135,6 +137,8 @@ def _validate_outcome_identity(
     outcomes: pd.DataFrame,
     manifest: pd.DataFrame,
 ) -> None:
+    # Compare output identity values to the frozen cohort manifest before the
+    # tables are permitted to represent the same selected population.
     identity_columns = [
         "experiment_id",
         "recording_id",

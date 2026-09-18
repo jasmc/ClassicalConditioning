@@ -86,6 +86,8 @@ def stimulus_duration_s(
 @dataclass(frozen=True)
 # Immutable visual parameters: callers can override a complete theme explicitly.
 class FigureTheme:
+    # Gather publication-facing typography, line, colour, and raster settings
+    # so every figure recipe starts from the same visual contract.
     font_size: float = 8.0
     axes_labelsize: float = 8.0
     axes_titlesize: float = 8.0

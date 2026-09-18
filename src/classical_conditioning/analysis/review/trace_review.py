@@ -1,4 +1,9 @@
-"""Balanced local trace windows for human movement-detector review."""
+"""Balanced local trace windows for human movement-detector review.
+
+Review note: this creates balanced review samples and visual context for human
+inspection. It does not alter movement-state artifacts or replace validation
+criteria with an unrecorded reviewer judgment.
+"""
 
 from __future__ import annotations
 
@@ -284,6 +289,7 @@ def extract_review_traces(
 
 
 def _static_figure(traces: pd.DataFrame, windows: pd.DataFrame) -> plt.Figure:
+    # Build the non-interactive trace plate used for portable review artifacts.
     theme = apply_theme()
     metric_ids = list(METRIC_IDS.values())
     colors = {
@@ -374,6 +380,7 @@ def _static_figure(traces: pd.DataFrame, windows: pd.DataFrame) -> plt.Figure:
 
 
 def _interactive_figure(traces: pd.DataFrame, windows: pd.DataFrame):
+    # Build the corresponding Plotly view for exploratory inspection in a browser.
     import plotly.graph_objects as go
     from plotly.subplots import make_subplots
 

@@ -3,6 +3,9 @@
 This is intentionally not a mixed-effects variant. Each fish collapses to one
 effect, then a randomization test asks whether the population mean effect is
 systematically nonzero. See Plans/STATISTICS_METHODOLOGY_WORKSHOP.md.
+
+Review note: this is an exploratory fish-level randomization procedure, not a
+mixed-effects fit and not a substitute for a pre-approved inference decision.
 """
 
 from __future__ import annotations
@@ -42,6 +45,8 @@ DEFAULT_LATE_BLOCKS = ("Train 5", "Test 1", "Test 2", "Test 3")
 
 @dataclass(frozen=True)
 class FishPermutationConfig:
+    # Describe a deterministic fish-level sign-flip analysis and preserve each
+    # choice in its output provenance.
     alignment: str = "CS"
     early_blocks: tuple[str, ...] = DEFAULT_EARLY_BLOCKS
     late_blocks: tuple[str, ...] = DEFAULT_LATE_BLOCKS
@@ -50,6 +55,8 @@ class FishPermutationConfig:
     activity_offset: float = 1e-6
 
     def __post_init__(self) -> None:
+        # Prevent invalid comparisons or a resampling count too small to support
+        # the inferential resolution promised by this recipe.
         if self.alignment not in {"CS", "US"}:
             raise ConfigurationError("Permutation alignment must be CS or US.")
         if not self.early_blocks or not self.late_blocks:
@@ -64,6 +71,7 @@ class FishPermutationConfig:
 
 @dataclass(frozen=True)
 class FishPermutationResult:
+    # Expose the published artifact paths, not mutable in-memory intermediates.
     analysis_id: str
     recording_ids: tuple[str, ...]
     fish_effects_path: Path
@@ -73,6 +81,7 @@ class FishPermutationResult:
 
 
 def _validate_analysis_id(analysis_id: str) -> None:
+    # Validate the path-facing identifier before it contributes to output names.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError(
             "Analysis ID must use only letters, numbers, dot, underscore, or hyphen."
@@ -80,6 +89,7 @@ def _validate_analysis_id(analysis_id: str) -> None:
 
 
 def _config_hash(config: FishPermutationConfig) -> str:
+    # Hash a canonical serialization so logically identical recipes share a key.
     payload = json.dumps(
         asdict(config),
         ensure_ascii=True,
@@ -211,6 +221,7 @@ def permutation_test_mean_effect(
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
+    # Persist the table losslessly and report manifest-ready integrity metadata.
     table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
     pq.write_table(table, path, compression="zstd", write_statistics=True)
     return {

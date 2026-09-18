@@ -149,6 +149,8 @@ def _weighted_mean(
     weights: np.ndarray,
     minimum_fraction: float,
 ) -> tuple[np.ndarray, np.ndarray]:
+    # Compute per-row weighted means and the retained-weight fraction together,
+    # allowing downstream validity rules to distinguish sparse estimates.
     valid = np.isfinite(values) & np.isfinite(weights) & (weights > 0)
     total_weight = np.nansum(np.where(np.isfinite(weights), weights, 0.0), axis=1)
     valid_weight = np.sum(np.where(valid, weights, 0.0), axis=1)
@@ -395,6 +397,7 @@ def calculate_candidate_metrics(
 
 
 def _tracking_columns(point_count: int) -> list[str]:
+    # Generate the required tracker schema in its canonical landmark order.
     return ["FrameID"] + [
         f"{prefix}{index}"
         for prefix in ("x", "y", "angle")
@@ -406,6 +409,8 @@ def _extract_arrays(
     tracking: pd.DataFrame,
     point_count: int,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    # Materialize x, y, and angle observations as aligned numerical arrays for
+    # the metric kernel rather than repeatedly indexing DataFrame columns.
     x = tracking[[f"x{index}" for index in range(point_count)]].to_numpy(
         dtype=np.float64
     )

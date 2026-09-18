@@ -53,6 +53,8 @@ OUTCOME_COLUMNS = {
 
 @dataclass(frozen=True)
 class MetricComparisonConfig:
+    # Preserve window definitions and aggregation weights as an explicit cohort
+    # comparison recipe rather than hidden defaults.
     baseline_window_s: tuple[float, float] = (-15.0, 0.0)
     response_window_s: tuple[float, float] = (0.0, 9.0)
     interval_closure: str = "left"
@@ -60,6 +62,8 @@ class MetricComparisonConfig:
     cohort_aggregation: str = "equal_recording_weight"
 
     def __post_init__(self) -> None:
+        # Require non-overlapping windows and the weighting policy this recipe
+        # was designed to report.
         if self.baseline_window_s[0] >= self.baseline_window_s[1]:
             raise ConfigurationError("Baseline comparison window must be increasing.")
         if self.response_window_s[0] >= self.response_window_s[1]:
@@ -124,6 +128,7 @@ def _verify_temporal_profiles(
     recording_id: str,
     source: CandidateMetricSource,
 ) -> _VerifiedTemporalProfiles:
+    # Check each temporal artifact and its marker before computing comparisons.
     path = (
         project_dir
         / "Processed data"

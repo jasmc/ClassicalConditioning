@@ -43,6 +43,8 @@ def _validate_analysis_id(analysis_id: str) -> None:
 # Normalized, immutable settings passed from CLI/config loading to the pipeline.
 @dataclass(frozen=True)
 class PipelineRunConfig:
+    # Carry every resolved run setting as an immutable unit from CLI parsing to
+    # pipeline execution and provenance writing.
     raw_dir: Path
     save_dir: Path
     experiment: str

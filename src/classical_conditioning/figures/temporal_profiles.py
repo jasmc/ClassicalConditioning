@@ -253,6 +253,8 @@ def _load_profiles(
     *,
     source: CandidateMetricSource,
 ) -> tuple[pd.DataFrame, dict, tuple[int, int], Path]:
+    # Load and authenticate one profile artifact before its values become figure
+    # data, returning its sampling interval and stable source path as context.
     source_dir = project_dir / "Processed data" / recording_id
     profiles_path = source_dir / source.temporal_artifact_name
     marker_path = (
@@ -347,6 +349,8 @@ def _candidate_heatmap_figure(
     trial_type: str,
     figure_id: str,
 ) -> tuple[plt.Figure, list[str], dict[str, dict[str, str]]]:
+    # Render the configured metric panels for one trial type and preserve a map
+    # from semantic SVG artists back to their plotted data meaning.
     if figure_id not in FIGURE_SPECS:
         raise ValueError(f"Unknown candidate figure: {figure_id}")
     spec = FIGURE_SPECS[figure_id]

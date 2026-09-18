@@ -86,6 +86,8 @@ def _verify_single_artifact(
     marker_hash_key: str,
     experiment_name: str | None = None,
 ) -> str:
+    # Require data, summary, and completion marker to agree before a reusable
+    # stage can be treated as complete.
     missing = [
         path
         for path in (data_path, summary_path, marker_path)
@@ -147,6 +149,7 @@ def _verify_metrics(
     recording_id: str,
     source: CandidateMetricSource,
 ) -> str:
+    # Verify route-specific metric evidence before downstream stages consume it.
     marker_digest = _verify_single_artifact(
         data_path=project_dir
         / "Processed data"
@@ -215,6 +218,7 @@ def _verify_movement(
     recording_id: str,
     source: CandidateMetricSource | None = None,
 ) -> str:
+    # Verify detector output against the selected metric source and its lineage.
     route = source or resolve_candidate_metric_source()
     marker_digest = _verify_single_artifact(
         data_path=project_dir
@@ -266,6 +270,7 @@ def _verify_temporal(
     experiment_name: str,
     source: CandidateMetricSource,
 ) -> str:
+    # Verify aligned profiles before figures or comparisons assume they are valid.
     marker_digest = _verify_single_artifact(
         data_path=project_dir
         / "Processed data"
@@ -324,6 +329,7 @@ def _verify_comparison(
     recording_ids: tuple[str, ...],
     source: CandidateMetricSource,
 ) -> str:
+    # Verify the cohort artifact identity and all contributing recording inputs.
     output_dir = project_dir / "Processed data" / "Analyses" / analysis_id
     marker_path = (
         project_dir
@@ -395,6 +401,7 @@ def _run_recording_candidate_stages(
     lineage: dict[str, str],
     progress: "PipelineProgress | None" = None,
 ) -> None:
+    # Execute stages in dependency order, reusing only artifacts verified above.
     from classical_conditioning.progress import default_progress
 
     progress = progress or default_progress(enabled=False)

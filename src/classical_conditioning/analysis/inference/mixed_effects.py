@@ -2,6 +2,9 @@
 
 This is an engineering default aligned with Gate S in DECISIONS.md, not an
 approved confirmatory model. See Plans/STATISTICS_METHODOLOGY_WORKSHOP.md.
+
+Review note: model inputs, convergence diagnostics, and output artifacts remain
+explicit so exploratory modelling does not silently become confirmatory evidence.
 """
 
 from __future__ import annotations
@@ -40,6 +43,8 @@ RECIPE_ID = "candidate-mixed-effects-v1"
 
 @dataclass(frozen=True)
 class MixedEffectsConfig:
+    # Hold the model formula, grouping rule, and input eligibility as one frozen
+    # recipe so published coefficients retain their modelling context.
     alignment: str = "CS"
     min_response_valid_samples: int = 1
     min_baseline_valid_samples: int = 1
@@ -51,6 +56,7 @@ class MixedEffectsConfig:
     reml: bool = False
 
     def __post_init__(self) -> None:
+        # Enforce the intended fish-level repeated-measures design before fitting.
         if self.alignment not in {"CS", "US"}:
             raise ConfigurationError("Mixed-effects alignment must be CS or US.")
         if self.min_response_valid_samples < 1 or self.min_baseline_valid_samples < 1:
@@ -63,6 +69,8 @@ class MixedEffectsConfig:
             )
 
     def model_input_config(self) -> ModelInputConfig:
+        # Translate the shared eligibility settings into the reusable input-table
+        # recipe, avoiding duplicated preprocessing rules.
         return ModelInputConfig(
             alignment=self.alignment,
             min_response_valid_samples=self.min_response_valid_samples,
@@ -74,6 +82,7 @@ class MixedEffectsConfig:
 
 @dataclass(frozen=True)
 class MixedEffectsResult:
+    # Return exact artifact locations so consumers read the published analysis.
     analysis_id: str
     recording_ids: tuple[str, ...]
     model_input_path: Path
@@ -84,6 +93,7 @@ class MixedEffectsResult:
 
 
 def _validate_analysis_id(analysis_id: str) -> None:
+    # Ensure a portable, path-safe analysis identifier before publication.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError(
             "Analysis ID must use only letters, numbers, dot, underscore, or hyphen."
@@ -91,6 +101,7 @@ def _validate_analysis_id(analysis_id: str) -> None:
 
 
 def _config_hash(config: MixedEffectsConfig) -> str:
+    # Canonical serialization makes the provenance fingerprint deterministic.
     payload = json.dumps(
         asdict(config),
         ensure_ascii=True,
@@ -117,6 +128,8 @@ def _fit_one_metric_outcome(
     outcome_id: str,
     config: MixedEffectsConfig,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    # Fit and diagnose one metric/outcome pair independently so a local failure
+    # is reported as data rather than hiding outcomes that did fit.
     subset = model_input.loc[
         (model_input["metric_id"] == metric_id)
         & (model_input["outcome_id"] == outcome_id)
@@ -235,6 +248,7 @@ def fit_candidate_mixed_effects(
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
+    # Persist losslessly and expose integrity details for the summary manifest.
     table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
     pq.write_table(table, path, compression="zstd", write_statistics=True)
     return {

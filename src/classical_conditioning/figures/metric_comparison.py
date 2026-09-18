@@ -51,12 +51,15 @@ CONDITION_DISPLAY = {
 
 
 def _figure_version_tag(comparison_recipe: str) -> str:
+    # Preserve the metric recipe's visible version in exported figure filenames.
     if comparison_recipe.endswith("-corrected-v1"):
         return "corrected-v1"
     return "v1"
 
 
 def _condition_colors(experiment_name: str | None) -> dict[str, tuple[float, float, float]]:
+    # Prefer experiment-specific colours while retaining sensible defaults for
+    # standalone comparison artifacts.
     colors: dict[str, tuple[float, float, float]] = {}
     if experiment_name:
         spec = get_experiment_spec(experiment_name)
@@ -72,6 +75,7 @@ def _condition_colors(experiment_name: str | None) -> dict[str, tuple[float, flo
 
 
 def _preferred_conditions(experiment_name: str | None) -> tuple[str, ...]:
+    # Keep figure ordering aligned with the experiment definition when present.
     if experiment_name:
         spec = get_experiment_spec(experiment_name)
         return tuple(condition.condition_id for condition in spec.conditions)
@@ -85,6 +89,7 @@ def _cohort_standardized_figure(
     outcome_id: str,
     experiment_name: str | None = None,
 ) -> tuple:
+    # Build a cohort-standardized comparison plate from recording-level inputs.
     required = {
         "Recording ID",
         "Trial type",

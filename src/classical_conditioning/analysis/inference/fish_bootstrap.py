@@ -2,6 +2,9 @@
 
 Resamples fish (never trials or frames) to estimate uncertainty of the mean
 fish-level effect. Companion to candidate-fish-permutation-v1; not Gate S.
+
+Review note: resampling units are fish, preserving within-fish trial dependence
+instead of treating frames or trials as independently resampleable observations.
 """
 
 from __future__ import annotations
@@ -44,6 +47,8 @@ RECIPE_ID = "candidate-fish-bootstrap-v1"
 
 @dataclass(frozen=True)
 class FishBootstrapConfig:
+    # Keep the resampling recipe explicit and reproducible at fish, not trial,
+    # level; the settings are recorded with every published result.
     alignment: str = "CS"
     early_blocks: tuple[str, ...] = DEFAULT_EARLY_BLOCKS
     late_blocks: tuple[str, ...] = DEFAULT_LATE_BLOCKS
@@ -53,6 +58,8 @@ class FishBootstrapConfig:
     activity_offset: float = 1e-6
 
     def __post_init__(self) -> None:
+        # Reject configurations that would make the early-versus-late estimate
+        # undefined, irreproducible, or statistically uninformative.
         if self.alignment not in {"CS", "US"}:
             raise ConfigurationError("Bootstrap alignment must be CS or US.")
         if not self.early_blocks or not self.late_blocks:
@@ -69,6 +76,8 @@ class FishBootstrapConfig:
 
 @dataclass(frozen=True)
 class FishBootstrapResult:
+    # Return paths rather than loaded tables so callers can inspect the exact
+    # immutable artifacts that the publication step created.
     analysis_id: str
     recording_ids: tuple[str, ...]
     fish_effects_path: Path
@@ -78,6 +87,7 @@ class FishBootstrapResult:
 
 
 def _validate_analysis_id(analysis_id: str) -> None:
+    # Restrict IDs to a portable filename component before using them in paths.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError(
             "Analysis ID must use only letters, numbers, dot, underscore, or hyphen."
@@ -85,6 +95,7 @@ def _validate_analysis_id(analysis_id: str) -> None:
 
 
 def _config_hash(config: FishBootstrapConfig) -> str:
+    # Canonical JSON makes this provenance hash stable across equivalent runs.
     payload = json.dumps(
         asdict(config),
         ensure_ascii=True,
@@ -158,6 +169,7 @@ def bootstrap_mean_effect(
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
+    # Write a lossless table and return the facts needed for its manifest entry.
     table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
     pq.write_table(table, path, compression="zstd", write_statistics=True)
     return {

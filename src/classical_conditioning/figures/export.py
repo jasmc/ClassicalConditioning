@@ -241,6 +241,8 @@ def _validate_svg_registry(
     svg_path: Path,
     registry: dict[str, dict[str, Any]],
 ) -> None:
+    # Parse the finished SVG and enforce that its semantic artist registry is
+    # both complete and unique after serialization.
     root = ET.parse(svg_path).getroot()
     ids = [
         element.attrib["id"]

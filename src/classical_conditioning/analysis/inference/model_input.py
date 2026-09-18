@@ -2,6 +2,9 @@
 
 Both the exploratory LME scaffold and the fish-permutation alternative consume
 the same authenticated trial-outcome → model-input transform (Step 10.2).
+
+Review note: freezing this common table prevents alternate inference routes from
+quietly applying different cohort, window, or outcome transformations.
 """
 
 from __future__ import annotations
@@ -71,6 +74,8 @@ DIAGNOSTIC_STATUS_VALUES = ("ok", "failed", "singular")
 
 @dataclass(frozen=True)
 class ModelInputConfig:
+    # Collect the eligibility and transformation choices that define the common
+    # long-form input table for downstream population analyses.
     alignment: str = "CS"
     min_response_valid_samples: int = 1
     min_baseline_valid_samples: int = 1
@@ -78,6 +83,8 @@ class ModelInputConfig:
     require_block_label: bool = True
 
     def __post_init__(self) -> None:
+        # Fail early when coverage thresholds, alignment, or the log offset are
+        # invalid instead of silently publishing an ill-defined model table.
         if self.alignment not in {"CS", "US"}:
             raise ConfigurationError("Model-input alignment must be CS or US.")
         if self.min_response_valid_samples < 1 or self.min_baseline_valid_samples < 1:
@@ -88,6 +95,7 @@ class ModelInputConfig:
 
 @dataclass(frozen=True)
 class ModelInputArtifactResult:
+    # Give callers immutable handles to the published table and its provenance.
     analysis_id: str
     recording_ids: tuple[str, ...]
     model_input_path: Path
@@ -98,6 +106,7 @@ class ModelInputArtifactResult:
 
 
 def _validate_analysis_id(analysis_id: str) -> None:
+    # Keep the identifier safe to embed in the analysis-output directory name.
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError(
             "Analysis ID must use only letters, numbers, dot, underscore, or hyphen."
@@ -105,6 +114,7 @@ def _validate_analysis_id(analysis_id: str) -> None:
 
 
 def _config_hash(config: ModelInputConfig) -> str:
+    # Use canonical JSON so configuration identity is stable and auditable.
     payload = json.dumps(
         asdict(config),
         ensure_ascii=True,
@@ -310,6 +320,7 @@ def empty_fit_diagnostics_frame() -> pd.DataFrame:
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
+    # Save the table losslessly and provide the checksummed facts for a manifest.
     table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
     pq.write_table(table, path, compression="zstd", write_statistics=True)
     return {
