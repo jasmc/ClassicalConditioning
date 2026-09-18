@@ -5,6 +5,26 @@ The installable package under `src/classical_conditioning` supports the
 candidate analysis route. Historical implementations are preserved as
 non-executable source reference under `Archive/`.
 
+## Contents
+
+- [Install](#install)
+- [Run from a config file](#run-from-a-config-file)
+  - [Run configuration fields](#required-config-fields)
+  - [Pipeline behaviour and failure semantics](#what-run-pipeline-does)
+  - [Raw file rules and save-directory layout](#raw-file-rules)
+- [Analysis pipeline architecture](#analysis-pipeline-architecture)
+  - [Metrics and shared bouts](#metrics-and-shared-bouts)
+- [Command reference](#command-reference)
+- [Figures and figure interpretation](#figures)
+- [Scientific status and limits](#scientific-status)
+- [Repository maintenance](#repository-maintenance)
+- [Related documents](#related-documents)
+- [Documentation reorganization review](docs/analysis/README_REORGANIZATION.md)
+
+**New to the project?** Read *Install*, *Run from a config file*, and the
+*Save-directory layout* first. Use the scientific and figure sections after a
+successful run to interpret candidate outputs, not as approval for a result.
+
 For the complete `pipeline.py` call graph and a file-by-file map of the active
 package, see [the current pipeline guide](docs/analysis/CURRENT_PIPELINE_GUIDE.md).
 For the legacy/refactored figure map, see
@@ -228,14 +248,70 @@ Intake and inventory recursively search `raw_dir` for complete triplets:
 
 ### Save-directory layout
 
+`save_dir` is the complete, writable derived-data project. The pipeline never
+writes to `raw_dir`. Names in angle brackets vary by run; entries in square
+brackets are created only when the related command or option is used.
+
 ```text
 <save_dir>/
-|-- Processed data/<recording-id>/
-|-- Processed data/Analyses/<analysis-id>/
-|-- Quality checks/<recording-id>/
-|-- Metadata/
-`-- Figures/
+|-- Processed data/                         # Machine-readable result tables
+|   |-- <recording-id>/                      # One fish, e.g. 20221115_04
+|   |   |-- camera.parquet                   # Lossless camera-time intake table
+|   |   |-- tracking.parquet                 # Lossless tail-tracking intake table
+|   |   |-- stimulus_events.parquet          # Parsed stimulus/protocol events
+|   |   |-- corrected_frames*.parquet        # Corrected, gap-aware frame table
+|   |   |-- candidate_metrics*.parquet       # Frame-level candidate activity metrics
+|   |   |-- movement_state*.parquet          # Shared movement/bout state per frame
+|   |   |-- temporal_profiles*.parquet       # Trial-aligned time-bin profiles
+|   |   `-- trial_outcomes*.parquet          # One row per trial/outcome
+|   |-- Analyses/<analysis-id>/              # Outputs pooled across recordings
+|   |   |-- *metric_comparison*.parquet      # Descriptive cohort metric comparison
+|   |   |-- *model_input*.parquet            # [candidate-model-input]
+|   |   |-- *mixed_effects*.parquet          # [candidate-mixed-effects]
+|   |   |-- *fish_permutation*.parquet       # [candidate-fish-permutation]
+|   |   |-- *fish_bootstrap*.parquet         # [candidate-fish-bootstrap]
+|   |   `-- *learning_onset*.parquet         # [learning-onset analysis]
+|   |-- Cohorts/<cohort-id>/                 # [freeze-cohort / cohort outcomes]
+|   |   `-- cohort_manifest.parquet          # Frozen reviewed inclusion decisions
+|   `-- Batches/<batch-id>/                  # [plan-batch / execute-batch]
+|       `-- batch_work_manifest.parquet      # Per-recording stage state for resume
+|-- Quality checks/                          # Human-readable QC and validation evidence
+|   |-- <recording-id>/
+|   |   |-- acquisition_summary.json
+|   |   |-- acquisition_report.html
+|   |   |-- figures/                         # Intake timing/tracking/protocol PNGs
+|   |   `-- *summary*.json                   # Per-stage coverage and QC summaries
+|   |-- Analyses/<analysis-id>/              # Cohort/inference diagnostic summaries
+|   `-- Cohorts/<cohort-id>/                 # Cohort validation report
+|-- Metadata/                                # Provenance, hashes, and completion markers
+|   |-- recording_inventory.json             # [run_inventory]
+|   |-- <recording-id>_source_manifest.json  # Intake source filenames and hashes
+|   |-- <recording-id>_*_complete.json       # Per-stage artifact lineage markers
+|   |-- <analysis-id>_*_complete.json        # Cohort/inference lineage markers
+|   |-- <analysis-id>_pipeline_run.json      # Config, statuses, and output ledger
+|   `-- [environment.json]                   # environment-report output, if requested
+`-- Figures/                                 # Rendered, derived visualizations
+    |-- PNG/<recording-id>/                   # Static per-fish temporal-profile figures
+    |-- PNG/Analyses/<analysis-id>/           # Static cohort/diagnostic figures
+    |-- Publication/...                       # SVG/PDF figures plus provenance sidecars
+    `-- Interactive/<recording-id>/           # Self-contained HTML profile figures
 ```
+
+The directories have deliberately separate responsibilities:
+
+| Directory | What belongs there | How to use it |
+| --- | --- | --- |
+| `Processed data` | Parquet tables used as input to downstream stages | Treat as machine-readable analysis data; do not edit tables in place. |
+| `Quality checks` | Summaries, HTML reports, diagnostics, and QC images | Start here when reviewing data health, coverage, or a failed stage. |
+| `Metadata` | Source hashes, resolved settings, completion markers, and run ledgers | Retain this with the data: downstream stages use it to verify provenance. |
+| `Figures` | Rendered views of already-produced results | Regenerate from the corresponding processed artifacts rather than editing images. |
+
+An asterisk in a filename is intentional: the exact stem contains the frozen
+recipe identifier (and sometimes the alignment or outcome), so related artifacts
+cannot be silently mixed across recipe families. A `*_complete.json` file is not
+just a success flag: it records the expected output hashes and upstream lineage.
+Deleting or editing it makes the corresponding result ineligible for reuse until
+the stage is rebuilt with the appropriate command.
 
 ## Analysis pipeline architecture
 
@@ -279,47 +355,12 @@ and each stage re-verifies the marker of the stage before it. A stage refuses to
 run on stale or edited upstream artifacts rather than silently producing
 mismatched results.
 
-### Active vigor metrics
+### Metrics and shared bouts
 
-The current candidate recipe supersedes the earlier candidate set in place.
-It writes three frame-level metrics:
-
-| Metric | Calculation and role |
-| --- | --- |
-| `tail_length_weighted_angular_l1` | Tail-length-weighted mean absolute segment angular speed; reduces dependence on tracking-point spacing. |
-| `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean XY point speed divided by the recording-wide median tail arc length; units are tail lengths/ms rather than pixels/ms. |
-| `legacy_distal_angular_speed` | Absolute speed of the sum of local tail angles; retained as the historical benchmark. Opposing segment changes can cancel. |
-
-Earlier experimental alternatives are no longer part of the active package or
-artifact metadata. Existing candidate artifacts must be rebuilt with
-`overwrite` enabled because the current recipe intentionally narrows the metric
-set without introducing a v2 recipe name.
-
-For the moving-only vigor outcome, baseline and CS/trace response intensity are
-both averaged only over frames inside the shared detected bouts. A window with
-no bout is `NaN`, not zero. Population inference therefore uses the exact
-zero-offset contrast `log(baseline) - log(response)` (equivalently the negative
-of the model's `log_response - log_baseline` adjustment); non-positive or
-no-bout pairs cannot be logged and are excluded with coverage remaining explicit.
-
-### The shared bout detector
-
-Bout detection is a property of the animal's behavior, not of the metric used to
-describe it, so exactly one detector runs per recording. It reproduces the
-historical four-step rule from `Archive/modules/my_functions.py`:
-
-1. Build an envelope: centered rolling **max minus rolling min** of the smoothed
-   distal cumulative-angle speed (windows 28.6 ms and 571.4 ms).
-2. Threshold the envelope at **4 deg/ms**.
-3. Merge bouts separated by less than **14.3 ms**, then drop bouts shorter than
-   **57.1 ms**.
-4. Drop bouts whose peak instantaneous angular speed never reaches
-   **1 deg/ms**.
-
-Historical values were frame counts at an interpolated 700 FPS (20, 400, 10, 40
-frames) and degrees; they are applied here as milliseconds of *measured* time
-and converted to rad/ms, so the detector no longer assumes a fixed frame rate.
-Windows never span a tracking discontinuity.
+The active candidate route carries three exploratory tail-activity metrics and
+one metric-independent shared bout detector. Their exact formulas, units,
+historical thresholds, outcome conventions, scientific status, and limitations
+are documented in [Metrics and bouts](docs/analysis/METRICS_AND_BOUTS.md).
 
 ## Command reference
 
@@ -381,139 +422,10 @@ workflow.
 
 ## Figures
 
-Two figure families are built from the candidate route. Both take `--mode`:
-`static` (PNG), `publication` (SVG/PDF with provenance sidecar), and for
-profiles also `interactive` (self-contained HTML with hover values).
-
-### Per-fish heatmaps
-
-Four figures, selected with `--figure`:
-
-| `--figure` | Rows | Cell value |
-| --- | --- | --- |
-| `total-activity-raw` | 3 metrics | Mean metric per bin, native units |
-| `total-activity-scaled` | 3 metrics | Same, two-layer scaled to 0-1 |
-| `conditional-intensity-raw` | 3 metrics | Mean metric inside bouts, native units |
-| `bout-outcomes` | 3 outcomes | Movement probability / fraction time moving / bout rate |
-
-```powershell
-uv run classical-conditioning figure-candidate-profiles `
-  --project-dir "<SAVE>" --recording-id 20221115_04 `
-  --trial-type CS --figure total-activity-raw --mode static `
-  --recipe candidate-temporal-outcomes-corrected-v3
-```
-
-All four for one fish:
-
-```powershell
-foreach ($fig in "total-activity-raw","total-activity-scaled","conditional-intensity-raw","bout-outcomes") {
-  uv run classical-conditioning figure-candidate-profiles `
-    --project-dir "<SAVE>" --recording-id 20221115_04 `
-    --trial-type CS --figure $fig --mode static `
-    --recipe candidate-temporal-outcomes-corrected-v3
-}
-```
-
-### Cohort metric comparison
-
-```powershell
-uv run classical-conditioning figure-metric-comparison `
-  --project-dir "<SAVE>" --analysis-id <analysis-id>-candidate `
-  --trial-type CS --outcome movement-probability --mode static
-```
-
-Outputs go to `Figures/PNG/<recording-id>/` and
-`Figures/PNG/Analyses/<analysis-id>/` (or `Figures/Publication/...`,
-`Figures/Interactive/...`).
-
-## What the heatmap figures actually show
-
-### Axes, shared by all four figures
-
-- **x-axis: time from stimulus onset**, −45 s to +45 s, in 0.5 s bins
-  (180 bins). Zero is CS or US onset depending on `--trial-type`.
-- **y-axis: trial number** of that trial type. Each pixel row is one trial, so
-  you read learning across the session by scanning upward.
-- A **shaded vertical band** marks the stimulus window.
-- **Blank cells are masked, not zero.** A bin is painted only if at least
-  **90 %** of its *expected* frames are usable, where expected frames = bin
-  width / median frame interval. That gate catches dropped frames and invalid
-  tracking alike, so sparse data never masquerades as low activity.
-
-What changes between figures is what a **row** means.
-
-### Figures 1-3: per-metric intensity (3 rows)
-
-Rows are the three metrics. These figures are legitimately per-metric, because
-each row is a genuinely different measurement of tail motion.
-
-| Figure | Cell value |
-| --- | --- |
-| 1, `total-activity-raw` | Mean of the metric over valid frames in the bin, in native units |
-| 2, `total-activity-scaled` | The same quantity after the historical two-layer per-trial scaling |
-| 3, `conditional-intensity-raw` | Mean of the metric over frames **inside a detected bout**, native units |
-
-**Conditional intensity** exists because total activity conflates two things:
-how *often* the animal moved and how *hard* it moved. A bin with one violent
-flick and a bin of constant weak wiggling can average the same. Conditional
-intensity averages only over frames inside a bout, so it answers "given that it
-was moving, how vigorous was the movement?" Roughly,
-`total activity ≈ fraction of time moving × conditional intensity`.
-
-**Two-layer scaling** in Figure 2 reproduces the pre-refactor transform exactly:
-
-1. **Layer 1, on frames, per trial.** `(v − P10) / (P90 − P10)`, where the
-   quantiles come from samples earlier than **−15 s** in that trial.
-2. **Layer 2, after binning, per trial.** A second `(v − P10) / (P90 − P10)`
-   over every **pre-onset** bin, then clipped to `[0, 1]`.
-
-A trial with no usable pre-baseline window yields NaN rather than being
-rescaled against itself.
-
-### Figure 4: bout-detection outcomes (3 rows, metric-free)
-
-Rows are three different outcomes, all derived from the single shared detector:
-
-| Row | Cell value |
-| --- | --- |
-| Movement probability | Moving frames / detector-valid frames |
-| Fraction time moving | Moving *time* / detector-valid *time*, weighted by each frame's `DeltaTimeMs` |
-| Bout rate | Bout **onsets** x 60000 / valid time = initiations per minute (counts starts, not duration) |
-
-There is no metric dimension here. One detector produced one segmentation, so
-these three numbers are properties of the animal's behavior. They are written
-identically onto every metric row of the profile table, and the figure reads a
-single metric's rows to avoid drawing the same data three times.
-
-### Colour scaling
-
-- **Figure 2** uses a single shared colorbar fixed to `[0, 1]`: every row is
-  already on the same scale, so one colorbar is honest and cross-row comparison
-  is meaningful.
-- **Figures 1, 3, and 4** get **one colorbar per row**, because rows carry
-  different units (rad/ms vs tail-lengths/ms vs bouts/min) or different natural ranges.
-  Within Figure 4, the two proportions are fixed to `[0, 1]` and bout rate uses
-  its own 99th-percentile limit.
-
-The consequence: in Figures 1 and 3, **colour is not comparable between rows**,
-by construction — each row is in its own units with its own colorbar. Use those
-rows to read temporal and across-trial structure within a metric; use the cohort
-figure for magnitude comparisons.
-
-Every exported figure carries a provenance record with the input artifact hash,
-the source-file hash, the exact reproduction command, and the per-artist field
-mapping (column, coverage field, threshold, display scale, and whether the row
-came from the shared detector).
-
-### What the cohort figure shows
-
-`figure-metric-comparison` collapses each fish to a single number per metric:
-the **standardized difference** `(response − baseline) / baseline SD`, computed
-per fish so every fish contributes equally regardless of trial count. Bars are
-grouped by metric and coloured by condition (control / delay / trace). This is
-the figure to use when asking whether an effect is consistent across fish, and
-whether the choice of metric changes that answer. It is descriptive only — no
-metric is paper-approved and no inferential claim is attached.
+Candidate figures are exploratory views of verified artifacts, not approval for
+a scientific result. The [Figure guide](docs/analysis/FIGURE_GUIDE.md) contains
+commands, output modes and locations, profile axes, masking/coverage rules,
+scaling, colour conventions, provenance, and cohort-figure interpretation.
 
 ## Scientific status
 
@@ -547,41 +459,22 @@ historical pipeline (machine-specific paths, in-script `RUN_*` flags). Prefer
 | Document | Contents |
 | --- | --- |
 | [Plans/IMPLEMENTATION_STEP_INDEX.md](Plans/IMPLEMENTATION_STEP_INDEX.md) | Current implementation status |
-| [docs/analysis/README.md](docs/analysis/README.md) | Architecture, current behavior, audits, and legacy references |
+| [docs/analysis/README.md](docs/analysis/README.md) | Task-oriented index for workflow, outputs, troubleshooting, metrics, figures, architecture, audits, and legacy references |
+| [docs/analysis/USER_WORKFLOW.md](docs/analysis/USER_WORKFLOW.md) | First-run candidate workflow, output review order, safe resume, and manual-stage order |
+| [docs/analysis/OUTPUT_AND_PROVENANCE.md](docs/analysis/OUTPUT_AND_PROVENANCE.md) | Output-directory responsibilities, completion markers, hashes, and artifact reuse |
+| [docs/analysis/TROUBLESHOOTING.md](docs/analysis/TROUBLESHOOTING.md) | Safe diagnosis and recovery for common runtime, intake, artifact, and detector problems |
+| [docs/analysis/FIGURE_GUIDE.md](docs/analysis/FIGURE_GUIDE.md) | Candidate figure commands, output modes, interpretation, and colour/coverage rules |
+| [docs/analysis/GLOSSARY.md](docs/analysis/GLOSSARY.md) | Current package terminology |
+| [docs/maintenance/REPOSITORY_GUIDE.md](docs/maintenance/REPOSITORY_GUIDE.md) | Active/archive boundaries, generated files, raw-data protection, and documentation maintenance |
 | `Archive/` | Read-only historical package and helper source archive |
 | [Plans/DECISIONS.md](Plans/DECISIONS.md) | Locked decisions |
 
 Manuscript: `C:\Users\Public\More projects\Paper\Learning paper`
 
-## Repository folders and cleanup guidance
+## Repository maintenance
 
-The repository contains source code, migration documentation, legacy
-implementations, tests, and local development files. It does not contain the
-raw scientific dataset or the normal `Paper data` output tree; those are
-configured outside this repository.
-
-### Project folders
-
-| Folder | Contents | Cleanup guidance |
-| --- | --- | --- |
-| `.git/` | Git history, branches, remotes, hooks, and object storage | Never delete manually |
-| `.pytest_cache/` | Temporary pytest cache | Safe to delete; regenerates automatically |
-| `.venv/` | Local Python environment and installed dependencies | Safe to recreate with `uv sync --frozen --all-extras` |
-| `.vscode/` | Formatting, linting, and editor settings | Keep if these editor conventions are useful |
-| `configs/` | Example pipeline configuration | Keep; edit a copy for real runs |
-| `docs/analysis/` | Architecture, behavior, implementation, and scientific audits | Keep |
-| `Archive/` | Archived package execution, numbered scripts, helper modules, tests, and inspection tools | Read-only source history; not importable or runnable through the package |
-| `Plans/` | Active migration plans, decisions, notes, and completed-plan archive | Keep while migration is active |
-| `src/` | Supported installable `classical_conditioning` package | Keep |
-| `tests/` | Active unit, integration, and characterization tests | Keep |
-
-Generated `__pycache__/` folders and `src/classical_conditioning.egg-info/`
-are disposable. `push.log` is also an ignored local log. Archived numbered
-scripts and helper modules are historical source reference; they are not part
-of the supported package workflow.
-
-Two root files need a human decision rather than automatic deletion:
-`README2.md` appears to be an old analysis transcript, and
-`MY___PLANS. we need to add some kinda loading ba` contains scratch notes and
-pasted runtime output. Review their history and references before archiving or
-deleting them.
+The repository holds supported source, tests, migration documentation, and a
+non-runnable historical archive; raw data and ordinary `Paper data` output
+trees are configured elsewhere. See the [repository maintenance guide](docs/maintenance/REPOSITORY_GUIDE.md)
+for the folder-by-folder cleanup policy, active/archive boundary, and retained
+human-review notes.

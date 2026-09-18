@@ -31,6 +31,9 @@ use repo SciFigEditor to take the rules and formatting for the figures.
 
 
 
+add comments explaining all code blocks of the repo so that i can review everything manually more easily
+
+
 
 
 
@@ -50,7 +53,5 @@ understand everything in Plans, src, docs
 
 
 
-
-add comments explaining all code blocks of the repo so that i can review everything manually more easily
 
 number the figures that will be part of the paper, starting with Figure X. and indicating the panel letter.

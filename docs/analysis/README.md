@@ -4,13 +4,25 @@ This folder documents the current analysis architecture and behavior, records
 audits, and preserves legacy references. Future work belongs under `Plans/`;
 status belongs only in `Plans/IMPLEMENTATION_STEP_INDEX.md`.
 
-## Current reference
+## Start by task
+
+| If you need to… | Read this |
+| --- | --- |
+| Install and run the candidate route for the first time | [Root README](../../README.md), then [candidate workflow](./USER_WORKFLOW.md) |
+| Find an output, review hashes/markers, or understand reuse | [Output and provenance](./OUTPUT_AND_PROVENANCE.md) |
+| Recover from a failure without breaking lineage | [Troubleshooting](./TROUBLESHOOTING.md) |
+| Understand candidate metrics or shared bouts | [Activity metrics, smoothing, and shared bouts](./METRICS_AND_BOUTS.md) |
+| Render or interpret a candidate figure | [Figure guide](./FIGURE_GUIDE.md) |
+| Translate project terminology | [Glossary](./GLOSSARY.md) |
+| Review source ownership and call order | [Current pipeline guide](./CURRENT_PIPELINE_GUIDE.md) |
+| Review cohort aggregation or response/baseline figures | [Cohort aggregation and figures](./COHORT_AGGREGATION_AND_FIGURES.md) |
+| Review learning-onset analysis | [Learning-onset analysis](./LEARNING_ONSET_ANALYSIS.md) |
+
+## Architecture and implementation reference
 
 - [Architecture](./ARCHITECTURE.md)
 - [Current pipeline guide](./CURRENT_PIPELINE_GUIDE.md)
-- [Activity metrics, smoothing, and shared bouts](./METRICS_AND_BOUTS.md)
-- [Cohort aggregation and response/baseline figures](./COHORT_AGGREGATION_AND_FIGURES.md)
-- [Learning-onset analysis](./LEARNING_ONSET_ANALYSIS.md)
+- [README critique and documentation migration plan](./README_REORGANIZATION.md)
 
 ## Figures
 

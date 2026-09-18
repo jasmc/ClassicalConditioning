@@ -102,3 +102,42 @@ The scientific decisions are in
 unfinished gates remain in archived Plans 06 and 07 and in the archived tail
 dynamics plan. Future mechanistic extensions are separated into
 [Tail Mechanistic Analyses](../../Plans/Deferred/TAIL_MECHANISTIC_ANALYSES.md).
+
+## Current recipe reference
+
+The active candidate recipe writes three frame-level metrics:
+
+| Metric | Calculation and role |
+| --- | --- |
+| `tail_length_weighted_angular_l1` | Tail-length-weighted mean absolute segment angular speed; reduces dependence on tracking-point spacing. |
+| `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean XY point speed divided by the recording-wide median tail arc length; units are tail lengths/ms rather than pixels/ms. |
+| `legacy_distal_angular_speed` | Absolute speed of the sum of local tail angles; retained as the historical benchmark. Opposing segment changes can cancel. |
+
+Earlier experimental alternatives are no longer part of the active package or
+artifact metadata. Rebuild existing candidate artifacts with `overwrite`
+enabled when deliberately applying this narrowed metric set.
+
+For the moving-only vigor outcome, baseline and CS/trace response intensity are
+averaged only over frames inside shared detected bouts. A window with no bout is
+`NaN`, not zero. Population inference uses the zero-offset contrast
+`log(baseline) - log(response)` (the negative of the model's
+`log_response - log_baseline` adjustment); non-positive or no-bout pairs cannot
+be logged and are excluded with coverage remaining explicit.
+
+## Current shared-detector reference
+
+One detector runs per recording because bout segmentation is a property of the
+animal's behaviour, not a property of a metric. It reproduces the historical
+four-step rule from `Archive/modules/my_functions.py`:
+
+1. Build an envelope: centred rolling **max minus rolling min** of smoothed
+   distal cumulative-angle speed, with 28.6 ms and 571.4 ms windows.
+2. Threshold the envelope at **4 deg/ms**.
+3. Merge bouts separated by less than **14.3 ms**, then drop bouts shorter than
+   **57.1 ms**.
+4. Drop bouts whose peak instantaneous angular speed never reaches
+   **1 deg/ms**.
+
+The original constants were frame counts at interpolated 700 FPS (20, 400, 10,
+40 frames). The active route applies them as milliseconds of *measured* time
+and converts them to rad/ms; windows never span a tracking discontinuity.

@@ -43,10 +43,12 @@ confidence band did not stay above `delta_min = 0` for three consecutive
 trials. That is a result of the small smoke cohort, not a claim about the full
 experiment.
 
-The attempted full-cohort intake into
-`/Volumes/JOAQUIM/Digested Data/allDelay-full-v1` did not remain running; do
-not assume it has produced usable output. Start the full run afresh on the new
-computer, in a new empty output directory.
+The full-cohort project on this PC is
+`F:\Digested Data\allDelay-full-v1`. It already contains artifacts from a
+partial 10-fish run. **Preserve and resume this directory in place**: do not
+delete, replace, or overwrite any existing artifact. The pipeline recognizes
+completed work; resume with the same project directory and without
+`--overwrite` so that only remaining work is added.
 
 ## Transfer checklist
 
@@ -62,7 +64,7 @@ computer, in a new empty output directory.
    On Windows, place it somewhere like:
 
    ```text
-   E:\JOAQUIM\Raw Data\allDelay
+   J:\Raw Data\allDelay
    ```
 
 3. Optionally copy the completed 10-fish smoke-test output as a reference.
@@ -91,8 +93,8 @@ than installing ad-hoc versions.
 Before processing, make a lossless inventory and inspect the reported count:
 
 ```powershell
-$raw = "E:\JOAQUIM\Raw Data\allDelay"
-$out = "F:\JOAQUIM\Digested Data\allDelay-full-v1"
+$raw = "J:\Raw Data\allDelay"
+$out = "F:\Digested Data\allDelay-full-v1"
 New-Item -ItemType Directory -Force -Path $out | Out-Null
 uv run classical-conditioning inventory --input-dir $raw --output "$out\Metadata\recording_inventory.json" --inspect-tracking-headers
 ```
@@ -114,8 +116,8 @@ only the two Windows paths if yours differ:
 
 ```json
 {
-  "raw_dir": "E:\\JOAQUIM\\Raw Data\\allDelay",
-  "save_dir": "F:\\JOAQUIM\\Digested Data\\allDelay-full-v1",
+  "raw_dir": "J:\\Raw Data\\allDelay",
+  "save_dir": "F:\\Digested Data\\allDelay-full-v1",
   "experiment": "allDelay",
   "analysis_id": "allDelay-full-v1",
   "routes": ["candidate"],
@@ -142,6 +144,11 @@ Then start the resumable pipeline:
 uv run classical-conditioning run-pipeline --config configs\allDelay-full-windows.json
 ```
 
+If the inventory above has already been written to
+`<project>\Metadata\recording_inventory.json`, set `"run_inventory": false`
+in the run configuration before invoking `run-pipeline`. The pipeline otherwise
+correctly refuses to replace that provenance record when `overwrite` is false.
+
 Do not use `--overwrite` for a resume. The pipeline recognizes completed
 artifacts and proceeds with work that remains. If a recording fails, retain
 all output and inspect its run manifest/log before rerunning that one fish.
@@ -158,7 +165,7 @@ produced above, selects every complete control/delay recording, and creates
 four static profile figures per fish without modifying raw data.
 
 ```powershell
-$project = "F:\JOAQUIM\Digested Data\allDelay-full-v1"
+$project = "F:\Digested Data\allDelay-full-v1"
 $inventory = Get-Content "$project\Metadata\recording_inventory.json" -Raw | ConvertFrom-Json
 $fish = $inventory.records |
   Where-Object { $_.status -eq "COMPLETE" -and $_.condition_id -in @("control", "delay") } |
@@ -205,7 +212,7 @@ After a reviewer approves the CSV, freeze it once:
 
 ```powershell
 uv run classical-conditioning freeze-cohort `
-  --project-dir "F:\JOAQUIM\Digested Data\allDelay-full-v1" `
+  --project-dir "F:\Digested Data\allDelay-full-v1" `
   --input configs\allDelay-full-v1-cohort.csv `
   --cohort-id allDelay-full-v1 `
   --policy-id all-complete-triplets-v1
@@ -217,7 +224,7 @@ These commands consume the frozen cohort and retained trial-outcome data. They
 do not need to reread raw video/tracking files.
 
 ```powershell
-$project = "F:\JOAQUIM\Digested Data\allDelay-full-v1"
+$project = "F:\Digested Data\allDelay-full-v1"
 $cohort = "allDelay-full-v1"
 $analysis = "allDelay-full-learning-onset-v1"
 
@@ -290,8 +297,8 @@ should prompt model review before interpreting the onset claim.
 * Raw data are immutable. Do not run any command whose output is inside the
   raw directory.
 * Keep the raw-file inventory and environment record with the results.
-* Use a fresh output folder for the full run. Do not mix it with the 10-fish
-  smoke-test folder.
+* Resume `F:\Digested Data\allDelay-full-v1` in place. It contains the
+  partial 10-fish run; do not delete or overwrite it.
 * Keep all intermediate Parquet, QC, manifests, profile figures, cohort
   figures, frozen cohort, LME tables, and LME figures. The purpose of moving to
   the PC is to avoid deleting any of these.
