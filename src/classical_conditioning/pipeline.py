@@ -191,7 +191,7 @@ def run_pipeline(
             # reason that the runner pairs its per-recording stages.
             comparison_recipe = (
                 "candidate-metric-comparison-corrected-v1"
-                if config.candidate_runner_recipe.endswith("-corrected-v1")
+                if config.candidate_runner_recipe == "candidate-corrected-runner-v1"
                 else "candidate-metric-comparison-v1"
             )
             with progress.stage_timer(

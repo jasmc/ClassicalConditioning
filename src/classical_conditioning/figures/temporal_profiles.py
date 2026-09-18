@@ -447,7 +447,7 @@ def _candidate_heatmap_figure(
         )
         colorbar.set_label(panel.colorbar_label)
         colorbar.ax.set_gid("axes__colorbar__main")
-        artist_mappings["colorbar"] = {
+        artist_mappings["axes__colorbar__main"] = {
             "role": "colorbar",
             "label": panel.colorbar_label,
             "shared": "true",
@@ -467,7 +467,7 @@ def _candidate_heatmap_figure(
             colorbar.set_label(panel.colorbar_label)
             colorbar_id = f"colorbar__{panel.key}"
             colorbar.ax.set_gid(f"axes__{colorbar_id}")
-            artist_mappings[colorbar_id] = {
+            artist_mappings[f"axes__{colorbar_id}__main"] = {
                 "role": "colorbar",
                 "label": panel.colorbar_label,
                 "shared": "false",

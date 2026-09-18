@@ -175,7 +175,11 @@ def publish_transaction(
         shutil.rmtree(backup_root)
         raise
     else:
-        shutil.rmtree(backup_root)
+        # Some removable filesystems expose transient AppleDouble entries
+        # while a just-published backup directory is being removed.  The
+        # publication is already complete at this point, so cleanup must not
+        # turn a successful atomic write into a failed command.
+        shutil.rmtree(backup_root, ignore_errors=True)
 
 
 def load_and_verify_source_manifest(

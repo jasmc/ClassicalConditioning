@@ -163,13 +163,14 @@ def _plot_learning_onset(
     for phase, start, end in phase_ranges:
         trajectory_axis.text(
             (start + end) / 2.0,
-            1.01,
+            0.98,
             phase,
             transform=trajectory_axis.get_xaxis_transform(),
             ha="center",
-            va="bottom",
+            va="top",
             fontsize=DEFAULT_THEME.font_size - 1,
-            clip_on=False,
+            color="0.25",
+            clip_on=True,
         )
     trajectory_axis.legend(loc="best")
 

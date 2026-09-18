@@ -143,7 +143,7 @@ class ProfileFigureTests(unittest.TestCase):
         )
         try:
             colorbar_keys = [
-                key for key in mappings if key.startswith("colorbar__")
+                key for key in mappings if key.startswith("axes__colorbar__")
             ]
             self.assertEqual(len(colorbar_keys), len(METRIC_LABELS))
             self.assertTrue(
@@ -167,8 +167,10 @@ class ProfileFigureTests(unittest.TestCase):
             "total-activity-scaled",
         )
         try:
-            self.assertIn("colorbar", mappings)
-            self.assertEqual(mappings["colorbar"]["shared"], "true")
+            self.assertIn("axes__colorbar__main", mappings)
+            self.assertEqual(
+                mappings["axes__colorbar__main"]["shared"], "true"
+            )
             self.assertEqual(panel_ids[-1], "colorbar")
             for axis in figure.axes:
                 if axis.images:
