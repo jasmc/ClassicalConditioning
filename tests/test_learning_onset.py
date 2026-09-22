@@ -6,6 +6,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
+from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.analysis.inference.learning_onset import (
     LearningOnsetConfig,
     _fit_mixed_model,
@@ -70,6 +71,14 @@ def model_fixture() -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 class LearningOnsetCoreTests(unittest.TestCase):
+    def test_rejects_nonfinite_learning_threshold(self) -> None:
+        with self.assertRaisesRegex(ConfigurationError, "finite"):
+            LearningOnsetConfig(metric_id=METRIC, delta_min=float("nan"))
+
+    def test_rejects_nonfinite_activity_offset(self) -> None:
+        with self.assertRaisesRegex(ConfigurationError, "finite and positive"):
+            LearningOnsetConfig(metric_id=METRIC, activity_offset=float("inf"))
+
     def test_null_and_preexisting_difference_do_not_localize_onset(self) -> None:
         contrasts = pd.DataFrame(
             {
@@ -159,6 +168,35 @@ class LearningOnsetCoreTests(unittest.TestCase):
         self.assertEqual(set(fish["condition_id"]), {"control", "delay"})
         self.assertGreater(result.iloc[0]["test_minus_control"], 0)
         self.assertTrue(np.isfinite(result.iloc[0]["permutation_p_value"]))
+
+    def test_model_input_depends_on_selected_metric(self) -> None:
+        outcomes, eligibility = model_fixture()
+        alternate_metric = "alternate_activity_metric"
+        alternate = outcomes.copy()
+        alternate["metric_id"] = alternate_metric
+        alternate["response_total_activity"] = 7.0
+        alternate_eligibility = eligibility.copy()
+        alternate_eligibility["metric_id"] = alternate_metric
+        combined_outcomes = pd.concat([outcomes, alternate], ignore_index=True)
+        combined_eligibility = pd.concat(
+            [eligibility, alternate_eligibility], ignore_index=True
+        )
+
+        primary = build_learning_model_input(
+            combined_outcomes,
+            combined_eligibility,
+            config=LearningOnsetConfig(metric_id=METRIC),
+        )
+        alternate_selected = build_learning_model_input(
+            combined_outcomes,
+            combined_eligibility,
+            config=LearningOnsetConfig(metric_id=alternate_metric),
+        )
+
+        self.assertEqual(set(primary["metric_id"]), {METRIC})
+        self.assertEqual(set(alternate_selected["metric_id"]), {alternate_metric})
+        self.assertTrue(primary["response"].isin((1.0, 2.0)).all())
+        self.assertTrue(alternate_selected["response"].eq(7.0).all())
 
     def test_fish_identity_is_scoped_by_experiment(self) -> None:
         outcomes, eligibility = model_fixture()
@@ -287,6 +325,75 @@ class LearningOnsetCoreTests(unittest.TestCase):
         )
 
         self.assertTrue(args.skip_categorical_sensitivity)
+
+    def test_cli_exposes_complete_learning_onset_configuration(self) -> None:
+        args = build_parser().parse_args(
+            [
+                "learning-onset",
+                "--project-dir",
+                "paper",
+                "--cohort-id",
+                "paper-cohort",
+                "--analysis-id",
+                "learning",
+                "--metric",
+                METRIC,
+                "--outcome",
+                "conditional-intensity",
+                "--alignment",
+                "US",
+                "--control-condition",
+                "unpaired",
+                "--test-condition",
+                "trace",
+                "--pretraining-block",
+                "Train 1",
+                "--late-block",
+                "Test 1",
+                "--delta-min",
+                "0.2",
+                "--persistence-trials",
+                "4",
+                "--confidence-level",
+                "0.9",
+                "--spline-df",
+                "6",
+                "--activity-offset",
+                "0.001",
+                "--min-baseline-samples",
+                "3",
+                "--min-response-samples",
+                "4",
+                "--random-effects-formula",
+                "1",
+                "--disable-random-intercept-fallback",
+                "--optimizer",
+                "powell",
+                "--skip-categorical-sensitivity",
+                "--sensitivity-optimizer",
+                "none",
+                "--skip-random-intercept-sensitivity",
+                "--bootstrap",
+                "199",
+                "--min-successful-bootstrap",
+                "150",
+                "--min-bootstrap-success-fraction",
+                "0.75",
+                "--permutations",
+                "1999",
+                "--seed",
+                "42",
+                "--overwrite",
+            ]
+        )
+
+        self.assertEqual(args.alignment, "US")
+        self.assertEqual(args.pretraining_block, "Train 1")
+        self.assertEqual(args.confidence_level, 0.9)
+        self.assertEqual(args.activity_offset, 0.001)
+        self.assertEqual(args.random_effects_formula, "1")
+        self.assertTrue(args.disable_random_intercept_fallback)
+        self.assertEqual(args.optimizer, "powell")
 
     def test_cli_exposes_residual_diagnostics_figure(self) -> None:
         args = build_parser().parse_args(

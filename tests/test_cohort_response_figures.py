@@ -6,7 +6,10 @@ import pandas as pd
 
 from classical_conditioning.figures.cohort_response import (
     DEFAULT_SELECTED_BLOCKS,
+    configured_catch_group,
+    configured_cs_block_groups,
     summarize_event_aligned_ratios,
+    summarize_scaled_activity_trial_groups,
     summarize_selected_block_ratios,
     summarize_trial_ratios,
 )
@@ -58,7 +61,97 @@ def temporal_profiles_fixture() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def scaled_profiles_fixture() -> pd.DataFrame:
+    rows = []
+    for recording_id, fish_id, condition, value, available_trials in (
+        ("control-1", "control-1", "control", 0.2, (25, 39, 53, 59, 65)),
+        ("control-2", "control-2", "control", 0.8, (65,)),
+        ("delay-1", "delay-1", "delay", 0.4, (25, 39, 53, 59, 65)),
+    ):
+        for trial in available_trials:
+            for time in (-1.0, 1.0):
+                rows.append(
+                    {
+                        "Recording ID": recording_id,
+                        "Trial type": "CS",
+                        "Trial number": trial,
+                        "Time bin center (s)": time,
+                        "Metric ID": METRIC,
+                        "Scaled total activity": value,
+                        "Valid expected fraction": 1.0,
+                    }
+                )
+    return pd.DataFrame(rows)
+
+
 class CohortResponseFigureSummaryTests(unittest.TestCase):
+    def test_configured_profile_groups_include_early_test_catch(self) -> None:
+        catches = configured_catch_group("allDelay")
+        self.assertEqual(catches[0].trial_numbers, (25, 39, 53, 59, 65))
+        blocks = configured_cs_block_groups("allDelay")
+        self.assertEqual(len(blocks), 9)
+        self.assertEqual(blocks[6].label, "Test 1")
+        self.assertIn(65, blocks[6].trial_numbers)
+
+    def test_scaled_profile_pools_trials_within_fish_before_cohort(self) -> None:
+        profiles = scaled_profiles_fixture()
+        identities = {
+            "control-1": "control",
+            "control-2": "control",
+            "delay-1": "delay",
+        }
+        fish_ids = {recording_id: recording_id for recording_id in identities}
+        fish, cohort = summarize_scaled_activity_trial_groups(
+            profiles,
+            metric_id=METRIC,
+            trial_groups=configured_catch_group("allDelay"),
+            condition_by_recording=identities,
+            fish_by_recording=fish_ids,
+        )
+
+        control = cohort.loc[
+            (cohort["condition_id"] == "control")
+            & (cohort["Time bin center (s)"] == 1.0)
+        ].iloc[0]
+        self.assertEqual(control["Fish count"], 2)
+        self.assertAlmostEqual(
+            control["Cohort median scaled total activity"], 0.5
+        )
+        contribution = fish.loc[
+            (fish["fish_id"] == "control-1")
+            & (fish["Time bin center (s)"] == 1.0),
+            "Contributing trials",
+        ].iloc[0]
+        self.assertEqual(contribution, 5)
+
+    def test_scaled_profile_masks_low_coverage_without_zero_filling(self) -> None:
+        profiles = scaled_profiles_fixture()
+        profiles.loc[
+            (profiles["Recording ID"] == "control-2")
+            & (profiles["Time bin center (s)"] == 1.0),
+            "Valid expected fraction",
+        ] = 0.5
+        identities = {
+            "control-1": "control",
+            "control-2": "control",
+            "delay-1": "delay",
+        }
+        fish_ids = {recording_id: recording_id for recording_id in identities}
+        _, cohort = summarize_scaled_activity_trial_groups(
+            profiles,
+            metric_id=METRIC,
+            trial_groups=configured_catch_group("allDelay"),
+            condition_by_recording=identities,
+            fish_by_recording=fish_ids,
+        )
+
+        control = cohort.loc[
+            (cohort["condition_id"] == "control")
+            & (cohort["Time bin center (s)"] == 1.0)
+        ].iloc[0]
+        self.assertEqual(control["Fish count"], 1)
+        self.assertEqual(control["Cohort median scaled total activity"], 0.2)
+
     def test_selected_block_summary_uses_fish_medians_then_cohort_median(self) -> None:
         fish, cohort = summarize_selected_block_ratios(
             trial_outcomes_fixture(), metric_id=METRIC

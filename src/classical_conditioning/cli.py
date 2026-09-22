@@ -326,6 +326,34 @@ def build_parser() -> argparse.ArgumentParser:
     )
     figure_event_aligned_ratio.add_argument("--overwrite", action="store_true")
 
+    for command, help_text in (
+        (
+            "figure-cohort-catch-profile",
+            "Render the pooled configured-catch scaled-total-activity profile.",
+        ),
+        (
+            "figure-cohort-block-profile",
+            "Render scaled-total-activity profiles for every declared CS block.",
+        ),
+    ):
+        profile_parser = subparsers.add_parser(command, help=help_text)
+        profile_parser.add_argument("--project-dir", type=Path, required=True)
+        profile_parser.add_argument("--analysis-id", required=True)
+        profile_parser.add_argument("--cohort-id", required=True)
+        profile_parser.add_argument("--metric", required=True)
+        profile_parser.add_argument(
+            "--metric-recipe",
+            choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
+            default="tail-candidate-corrected-v1",
+        )
+        profile_parser.add_argument(
+            "--mode", choices=("publication", "static"), default="static"
+        )
+        profile_parser.add_argument(
+            "--minimum-coverage", type=float, default=0.9
+        )
+        profile_parser.add_argument("--overwrite", action="store_true")
+
     movement = subparsers.add_parser(
         "movement-state",
         help="Calibrate exploratory movement state and bouts for candidate metrics.",
@@ -505,17 +533,76 @@ def build_parser() -> argparse.ArgumentParser:
     learning_onset.add_argument("--project-dir", type=Path, required=True)
     learning_onset.add_argument("--cohort-id", required=True)
     learning_onset.add_argument("--analysis-id", required=True)
-    learning_onset.add_argument("--metric", required=True)
+    learning_onset.add_argument(
+        "--metric",
+        required=True,
+        help=(
+            "Metric ID to select from cohort trial outcomes; only rows for this "
+            "metric enter eligibility, models, resampling, and figures."
+        ),
+    )
     learning_onset.add_argument(
         "--outcome",
         choices=("total-activity", "conditional-intensity"),
         default="total-activity",
+        help="Response/baseline outcome derived from the selected metric.",
     )
-    learning_onset.add_argument("--control-condition", default="control")
-    learning_onset.add_argument("--test-condition", required=True)
-    learning_onset.add_argument("--delta-min", type=float, required=True)
-    learning_onset.add_argument("--persistence-trials", type=int, default=3)
-    learning_onset.add_argument("--spline-df", type=int, default=5)
+    learning_onset.add_argument(
+        "--alignment",
+        choices=("CS", "US"),
+        default="CS",
+        help="Trial alignment to analyze (default: CS).",
+    )
+    learning_onset.add_argument(
+        "--control-condition",
+        default="control",
+        help="Reference condition for model encoding and learning contrasts.",
+    )
+    learning_onset.add_argument(
+        "--test-condition",
+        required=True,
+        help="Condition compared with control as the learned/test group.",
+    )
+    learning_onset.add_argument(
+        "--pretraining-block",
+        choices=(
+            "Pre-train",
+            "Train 1",
+            "Train 2",
+            "Train 3",
+            "Train 4",
+            "Train 5",
+            "Test 1",
+            "Test 2",
+            "Test 3",
+        ),
+        default="Pre-train",
+        help="Reference block used to define change (default: Pre-train).",
+    )
+    learning_onset.add_argument(
+        "--delta-min",
+        type=float,
+        required=True,
+        help="Minimum positive learning contrast required for support.",
+    )
+    learning_onset.add_argument(
+        "--persistence-trials",
+        type=int,
+        default=3,
+        help="Consecutive supported scheduled trials required for onset.",
+    )
+    learning_onset.add_argument(
+        "--confidence-level",
+        type=float,
+        default=0.95,
+        help="Confidence level for intervals and simultaneous bands.",
+    )
+    learning_onset.add_argument(
+        "--spline-df",
+        type=int,
+        default=5,
+        help="Degrees of freedom for the primary cubic trial spline.",
+    )
     learning_onset.add_argument(
         "--skip-categorical-sensitivity",
         action="store_true",
@@ -535,18 +622,82 @@ def build_parser() -> argparse.ArgumentParser:
         "--late-block",
         action="append",
         dest="late_blocks",
-        help="Late block for fish-level robustness; repeat to pool blocks.",
+        help=(
+            "Late block for fish-level robustness; repeat to pool blocks. "
+            "The last value is the primary leave-one-fish-out block."
+        ),
     )
-    learning_onset.add_argument("--min-baseline-samples", type=int, default=1)
-    learning_onset.add_argument("--min-response-samples", type=int, default=1)
-    learning_onset.add_argument("--bootstrap", type=int, default=499)
-    learning_onset.add_argument("--min-successful-bootstrap", type=int, default=100)
     learning_onset.add_argument(
-        "--min-bootstrap-success-fraction", type=float, default=0.8
+        "--min-baseline-samples",
+        type=int,
+        default=1,
+        help="Minimum valid samples required in a trial baseline window.",
     )
-    learning_onset.add_argument("--permutations", type=int, default=9999)
-    learning_onset.add_argument("--seed", type=int, default=20260917)
-    learning_onset.add_argument("--overwrite", action="store_true")
+    learning_onset.add_argument(
+        "--min-response-samples",
+        type=int,
+        default=1,
+        help="Minimum valid samples required in a trial response window.",
+    )
+    learning_onset.add_argument(
+        "--activity-offset",
+        type=float,
+        default=1e-6,
+        help=(
+            "Positive offset before logging total activity; ignored for "
+            "conditional intensity."
+        ),
+    )
+    learning_onset.add_argument(
+        "--random-effects-formula",
+        default="1 + trial_scaled",
+        help="statsmodels random-effects formula grouped by fish.",
+    )
+    learning_onset.add_argument(
+        "--disable-random-intercept-fallback",
+        action="store_true",
+        help="Do not retry a failed requested random structure as intercept-only.",
+    )
+    learning_onset.add_argument(
+        "--optimizer",
+        default="lbfgs",
+        help="Primary statsmodels MixedLM optimizer (default: lbfgs).",
+    )
+    learning_onset.add_argument(
+        "--bootstrap",
+        type=int,
+        default=499,
+        help="Requested whole-fish longitudinal bootstrap refits.",
+    )
+    learning_onset.add_argument(
+        "--min-successful-bootstrap",
+        type=int,
+        default=100,
+        help="Minimum successful refits required to accept the simultaneous band.",
+    )
+    learning_onset.add_argument(
+        "--min-bootstrap-success-fraction",
+        type=float,
+        default=0.8,
+        help="Minimum successful-refit fraction required for the band.",
+    )
+    learning_onset.add_argument(
+        "--permutations",
+        type=int,
+        default=9999,
+        help="Condition-label permutations for fish-level robustness.",
+    )
+    learning_onset.add_argument(
+        "--seed",
+        type=int,
+        default=20260917,
+        help="Random seed shared by bootstrap and permutation procedures.",
+    )
+    learning_onset.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Replace the complete existing artifact set for this analysis ID.",
+    )
 
     figure_learning_onset = subparsers.add_parser(
         "figure-learning-onset",
@@ -1218,10 +1369,13 @@ def main(argv: Sequence[str] | None = None) -> None:
             config=LearningOnsetConfig(
                 metric_id=args.metric,
                 outcome_id=args.outcome,
+                alignment=args.alignment,
                 control_condition=args.control_condition,
                 test_condition=args.test_condition,
+                pretraining_block=args.pretraining_block,
                 delta_min=args.delta_min,
                 persistence_trials=args.persistence_trials,
+                confidence_level=args.confidence_level,
                 spline_df=args.spline_df,
                 run_categorical_sensitivity=(
                     not args.skip_categorical_sensitivity
@@ -1237,6 +1391,12 @@ def main(argv: Sequence[str] | None = None) -> None:
                 late_blocks=tuple(args.late_blocks or ("Test 2", "Test 3")),
                 min_baseline_samples=args.min_baseline_samples,
                 min_response_samples=args.min_response_samples,
+                activity_offset=args.activity_offset,
+                random_effects_formula=args.random_effects_formula,
+                allow_random_intercept_fallback=(
+                    not args.disable_random_intercept_fallback
+                ),
+                optimizer=args.optimizer,
                 n_bootstrap=args.bootstrap,
                 min_successful_bootstrap=args.min_successful_bootstrap,
                 min_bootstrap_success_fraction=(
@@ -1535,6 +1695,36 @@ def main(argv: Sequence[str] | None = None) -> None:
             outcome_id=args.outcome,
             metric_recipe=args.metric_recipe,
             mode=FigureMode(args.mode),
+            overwrite=args.overwrite,
+        )
+        for output in result.outputs:
+            print(f"Figure: {output}")
+        print(f"Provenance: {result.sidecar}")
+        return
+
+    if args.command in {
+        "figure-cohort-catch-profile",
+        "figure-cohort-block-profile",
+    }:
+        from classical_conditioning.figures import (
+            FigureMode,
+            build_block_profile_figure,
+            build_catch_profile_figure,
+        )
+
+        builder = (
+            build_catch_profile_figure
+            if args.command == "figure-cohort-catch-profile"
+            else build_block_profile_figure
+        )
+        result = builder(
+            args.project_dir,
+            cohort_id=args.cohort_id,
+            analysis_id=args.analysis_id,
+            metric_id=args.metric,
+            metric_recipe=args.metric_recipe,
+            mode=FigureMode(args.mode),
+            minimum_coverage=args.minimum_coverage,
             overwrite=args.overwrite,
         )
         for output in result.outputs:

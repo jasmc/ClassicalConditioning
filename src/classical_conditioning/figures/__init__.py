@@ -24,6 +24,8 @@ from classical_conditioning.figures.learning_diagnostics import (
 )
 # Ratio-style cohort response figures.
 from classical_conditioning.figures.cohort_response import (
+    build_block_profile_figure,
+    build_catch_profile_figure,
     build_event_aligned_ratio_figure,
     build_selected_block_ratio_figure,
     build_trial_ratio_figure,
@@ -38,6 +40,8 @@ __all__ = [
     "FigureMode",
     "FigureProvenance",
     "build_candidate_profile_figure",
+    "build_block_profile_figure",
+    "build_catch_profile_figure",
     "build_event_aligned_ratio_figure",
     "build_metric_comparison_figure",
     "build_learning_onset_figure",

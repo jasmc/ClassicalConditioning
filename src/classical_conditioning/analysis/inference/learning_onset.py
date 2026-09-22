@@ -110,8 +110,10 @@ class LearningOnsetConfig:
             raise ConfigurationError("Confidence level must be in (0.5, 1).")
         if self.spline_df < 3:
             raise ConfigurationError("Spline degrees of freedom must be at least 3.")
-        if self.activity_offset <= 0:
-            raise ConfigurationError("Activity offset must be positive.")
+        if not np.isfinite(self.delta_min):
+            raise ConfigurationError("Minimum effect threshold must be finite.")
+        if not np.isfinite(self.activity_offset) or self.activity_offset <= 0:
+            raise ConfigurationError("Activity offset must be finite and positive.")
         if self.n_bootstrap < 0 or self.n_permutations < 99:
             raise ConfigurationError(
                 "Bootstrap count cannot be negative; use at least 99 permutations."

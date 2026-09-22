@@ -34,6 +34,7 @@ from classical_conditioning.analysis.movement_state import (
     resolve_candidate_metric_source,
 )
 from classical_conditioning.artifacts import sha256_file
+from classical_conditioning.config import Alignment, get_experiment_spec
 from classical_conditioning.exceptions import ConfigurationError, SchemaValidationError
 from classical_conditioning.figures.export import (
     FigureExportResult,
@@ -87,6 +88,35 @@ DEFAULT_SELECTED_BLOCKS = (
     SelectedBlock("Early Test", 65, 69),
     SelectedBlock("Late Test", 90, 94),
 )
+
+
+@dataclass(frozen=True)
+class TemporalTrialGroup:
+    """One experiment-resolved set of trials pooled within fish before plotting."""
+
+    label: str
+    trial_numbers: tuple[int, ...]
+    order: int = 0
+
+
+def configured_catch_group(experiment_name: str) -> tuple[TemporalTrialGroup, ...]:
+    """Resolve the single pooled CS-catch group from the experiment contract."""
+    trials = get_experiment_spec(experiment_name).catch_trial_numbers(Alignment.CS)
+    if not trials:
+        raise ConfigurationError(
+            f"Experiment {experiment_name!r} declares no CS catch trials."
+        )
+    return (TemporalTrialGroup("Catch trials", trials, 0),)
+
+
+def configured_cs_block_groups(experiment_name: str) -> tuple[TemporalTrialGroup, ...]:
+    """Resolve the declared CS ten-trial groups from the experiment contract."""
+    return tuple(
+        TemporalTrialGroup(label, trials, order)
+        for order, (label, trials) in enumerate(
+            get_experiment_spec(experiment_name).trial_blocks(Alignment.CS)
+        )
+    )
 
 
 @dataclass(frozen=True)
@@ -542,6 +572,152 @@ def summarize_event_aligned_ratios(
     return fish, group
 
 
+def summarize_scaled_activity_trial_groups(
+    profiles: pd.DataFrame,
+    *,
+    metric_id: str,
+    trial_groups: tuple[TemporalTrialGroup, ...],
+    condition_by_recording: dict[str, str],
+    fish_by_recording: dict[str, str],
+    minimum_coverage: float = 0.9,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Pool configured trials within fish, then summarize fish equally.
+
+    Values below the existing temporal-profile coverage threshold are masked,
+    never converted to zero. The returned tables retain contributing trial and
+    fish counts so catch/block plots expose their changing support.
+    """
+    if not 0.0 <= minimum_coverage <= 1.0:
+        raise ConfigurationError("Minimum temporal-profile coverage must be 0-1.")
+    if not trial_groups:
+        raise ConfigurationError("At least one temporal trial group is required.")
+    labels = [group.label for group in trial_groups]
+    if len(labels) != len(set(labels)):
+        raise ConfigurationError("Temporal trial-group labels must be unique.")
+    required = {
+        "Recording ID",
+        "Trial type",
+        "Trial number",
+        "Time bin center (s)",
+        "Metric ID",
+        "Scaled total activity",
+        "Valid expected fraction",
+    }
+    missing = required.difference(profiles.columns)
+    if missing:
+        raise SchemaValidationError(
+            f"Temporal profiles are missing columns: {sorted(missing)}"
+        )
+    selected = profiles.loc[
+        (profiles["Trial type"].astype(str) == "CS")
+        & (profiles["Metric ID"].astype(str) == metric_id)
+    ].copy()
+    if selected.empty:
+        raise ConfigurationError(f"No CS temporal profiles for metric {metric_id!r}.")
+    selected["condition_id"] = selected["Recording ID"].astype(str).map(
+        condition_by_recording
+    )
+    selected["fish_id"] = selected["Recording ID"].astype(str).map(
+        fish_by_recording
+    )
+    if selected[["condition_id", "fish_id"]].isna().any().any():
+        unknown = sorted(
+            selected.loc[
+                selected[["condition_id", "fish_id"]].isna().any(axis=1),
+                "Recording ID",
+            ]
+            .astype(str)
+            .unique()
+        )
+        raise ConfigurationError(
+            f"No frozen cohort identity for temporal-profile recordings: {unknown}"
+        )
+
+    trial_to_group: dict[int, TemporalTrialGroup] = {}
+    for trial_group in trial_groups:
+        if not trial_group.trial_numbers:
+            raise ConfigurationError(
+                f"Temporal trial group {trial_group.label!r} is empty."
+            )
+        for trial_number in trial_group.trial_numbers:
+            if trial_number in trial_to_group:
+                raise ConfigurationError(
+                    f"CS trial {trial_number} belongs to more than one profile group."
+                )
+            trial_to_group[int(trial_number)] = trial_group
+    selected["Profile group"] = selected["Trial number"].map(
+        {trial: group.label for trial, group in trial_to_group.items()}
+    )
+    selected["Profile group order"] = selected["Trial number"].map(
+        {trial: group.order for trial, group in trial_to_group.items()}
+    )
+    selected = selected.loc[selected["Profile group"].notna()].copy()
+    if selected.empty:
+        raise ConfigurationError("Configured profile groups have no temporal rows.")
+    covered = (
+        pd.to_numeric(selected["Valid expected fraction"], errors="coerce")
+        >= minimum_coverage
+    )
+    finite = np.isfinite(
+        pd.to_numeric(selected["Scaled total activity"], errors="coerce")
+    )
+    selected["Covered scaled total activity"] = selected[
+        "Scaled total activity"
+    ].where(covered & finite)
+
+    valid = selected.dropna(subset=["Covered scaled total activity"])
+    if valid.empty:
+        raise ConfigurationError(
+            "No scaled temporal-profile values pass the coverage threshold."
+        )
+    fish = (
+        valid.groupby(
+            [
+                "Recording ID",
+                "fish_id",
+                "condition_id",
+                "Profile group",
+                "Profile group order",
+                "Time bin center (s)",
+            ],
+            observed=True,
+            sort=False,
+        )
+        .agg(
+            **{
+                "Fish median scaled total activity": (
+                    "Covered scaled total activity",
+                    "median",
+                ),
+                "Contributing trials": ("Trial number", "nunique"),
+            }
+        )
+        .reset_index()
+    )
+    group = (
+        fish.groupby(
+            [
+                "condition_id",
+                "Profile group",
+                "Profile group order",
+                "Time bin center (s)",
+            ],
+            observed=True,
+            sort=False,
+        )["Fish median scaled total activity"]
+        .agg(
+            **{
+                "Cohort median scaled total activity": "median",
+                "Cohort Q25 scaled total activity": lambda values: values.quantile(0.25),
+                "Cohort Q75 scaled total activity": lambda values: values.quantile(0.75),
+                "Fish count": "size",
+            }
+        )
+        .reset_index()
+    )
+    return fish, group
+
+
 def _plot_selected_blocks(
     fish: pd.DataFrame,
     group: pd.DataFrame,
@@ -815,6 +991,148 @@ def _plot_event_aligned(
     return figure, ["A"], mappings
 
 
+def _plot_scaled_activity_groups(
+    fish: pd.DataFrame,
+    group: pd.DataFrame,
+    *,
+    experiment_name: str,
+    title: str,
+) -> tuple[Any, list[str], dict[str, dict[str, str]]]:
+    """Plot one panel per trial group using cohort medians and fish IQRs."""
+    groups = (
+        group.loc[:, ["Profile group", "Profile group order"]]
+        .drop_duplicates()
+        .sort_values("Profile group order")
+    )
+    panel_count = len(groups)
+    columns = min(3, panel_count)
+    rows = int(np.ceil(panel_count / columns))
+    apply_theme(DEFAULT_THEME)
+    width, _ = mm_to_in(DOUBLE_COLUMN_MM, max(58.0, 50.0 * rows))
+    figure, axes = plt.subplots(
+        rows,
+        columns,
+        figsize=(width, max(58.0, 50.0 * rows) / 25.4),
+        sharex=True,
+        sharey=True,
+        squeeze=False,
+        layout="constrained",
+    )
+    colors = _condition_colors(experiment_name)
+    experiment = get_experiment_spec(experiment_name)
+    mappings: dict[str, dict[str, str]] = {}
+    panel_ids: list[str] = []
+    for panel_index, (_, profile_group) in enumerate(groups.iterrows()):
+        axis = axes.flat[panel_index]
+        panel_id = chr(ord("A") + panel_index)
+        panel_ids.append(panel_id)
+        axis.axvspan(
+            0.0,
+            experiment.cs_duration_s,
+            color=DEFAULT_THEME.cs_color,
+            alpha=0.08,
+            linewidth=0,
+            zorder=0,
+        )
+        group_name = str(profile_group["Profile group"])
+        panel_summary = group.loc[group["Profile group"] == group_name]
+        panel_fish = fish.loc[fish["Profile group"] == group_name]
+        for condition in dict.fromkeys(panel_summary["condition_id"].astype(str)):
+            summary = panel_summary.loc[
+                panel_summary["condition_id"].astype(str) == condition
+            ].sort_values("Time bin center (s)")
+            color = colors.get(condition, "0.2")
+            x = summary["Time bin center (s)"].to_numpy(dtype=float)
+            median = summary[
+                "Cohort median scaled total activity"
+            ].to_numpy(dtype=float)
+            q25 = summary["Cohort Q25 scaled total activity"].to_numpy(dtype=float)
+            q75 = summary["Cohort Q75 scaled total activity"].to_numpy(dtype=float)
+            ribbon = axis.fill_between(x, q25, q75, color=color, alpha=0.18, zorder=2)
+            ribbon_id = f"{panel_id}__cohort-iqr__{condition}"
+            ribbon.set_gid(ribbon_id)
+            mappings[ribbon_id] = {
+                "condition": condition,
+                "profile_group": group_name,
+                "value_field": "fish_IQR_scaled_total_activity",
+            }
+            line = axis.plot(
+                x,
+                median,
+                color=color,
+                linewidth=1.2,
+                zorder=3,
+                label=_condition_label_with_count(condition, summary),
+            )[0]
+            line_id = f"{panel_id}__cohort-median__{condition}"
+            line.set_gid(line_id)
+            mappings[line_id] = {
+                "condition": condition,
+                "profile_group": group_name,
+                "value_field": "Cohort median scaled total activity",
+                "aggregation": "trials_within_fish_then_equal_fish_median",
+            }
+            contributing = panel_fish.loc[
+                panel_fish["condition_id"].astype(str) == condition,
+                "Contributing trials",
+            ]
+            mappings[f"{panel_id}__coverage__{condition}"] = {
+                "condition": condition,
+                "profile_group": group_name,
+                "fish_count_min": str(int(summary["Fish count"].min())),
+                "fish_count_max": str(int(summary["Fish count"].max())),
+                "contributing_trials_median": (
+                    f"{float(contributing.median()):g}" if not contributing.empty else "0"
+                ),
+            }
+        style_axes(
+            axis,
+            theme=DEFAULT_THEME,
+            xlabel="Time from CS onset (s)",
+            ylabel="Scaled total activity",
+        )
+        axis.set_ylim(0.0, 1.0)
+        axis.set_title(group_name)
+        if panel_index == 0:
+            axis.legend(loc="best")
+    for axis in axes.flat[panel_count:]:
+        axis.set_visible(False)
+    figure.suptitle(title)
+    return figure, panel_ids, mappings
+
+
+def _load_verified_cohort_profiles(
+    project_dir: Path,
+    cohort: FrozenCohortSelection,
+    *,
+    metric_recipe: str,
+) -> tuple[pd.DataFrame, tuple[Any, ...]]:
+    """Authenticate and concatenate one temporal-profile artifact per cohort fish."""
+    if metric_recipe != cohort.metric_recipe:
+        raise ConfigurationError(
+            "Requested metric recipe differs from the cohort outcome artifact."
+        )
+    route: CandidateMetricSource = resolve_candidate_metric_source(
+        metric_recipe=metric_recipe
+    )
+    verified = tuple(
+        _verify_temporal_profiles(project_dir, recording_id, route)
+        for recording_id in cohort.recording_ids
+    )
+    profiles = pd.concat(
+        [pd.read_parquet(item.path) for item in verified],
+        ignore_index=True,
+    )
+    observed = set(profiles["Recording ID"].astype(str))
+    expected = set(cohort.recording_ids)
+    if observed != expected:
+        raise SchemaValidationError(
+            "Temporal-profile recordings do not match the primary cohort; "
+            f"missing={sorted(expected - observed)}, unexpected={sorted(observed - expected)}."
+        )
+    return profiles, verified
+
+
 def _output_base(
     project_dir: Path,
     analysis_id: str,
@@ -964,6 +1282,150 @@ def build_trial_ratio_figure(
         plt.close(figure)
 
 
+def _build_scaled_activity_profile_figure(
+    project_dir: Path,
+    *,
+    cohort_id: str,
+    analysis_id: str,
+    metric_id: str,
+    metric_recipe: str,
+    mode: FigureMode,
+    trial_groups: tuple[TemporalTrialGroup, ...],
+    figure_name: str,
+    figure_title: str,
+    command_name: str,
+    source_symbol: str,
+    minimum_coverage: float,
+    overwrite: bool,
+) -> FigureExportResult:
+    if mode == FigureMode.INTERACTIVE:
+        raise ValueError("Cohort temporal-profile figures are Matplotlib-only.")
+    _validate_analysis_id(analysis_id)
+    project_dir = project_dir.resolve()
+    cohort = _load_primary_cohort(project_dir, cohort_id)
+    profiles, verified = _load_verified_cohort_profiles(
+        project_dir,
+        cohort,
+        metric_recipe=metric_recipe,
+    )
+    fish, group = summarize_scaled_activity_trial_groups(
+        profiles,
+        metric_id=metric_id,
+        trial_groups=trial_groups,
+        condition_by_recording=cohort.condition_by_recording,
+        fish_by_recording=cohort.fish_by_recording,
+        minimum_coverage=minimum_coverage,
+    )
+    figure, panel_ids, mappings = _plot_scaled_activity_groups(
+        fish,
+        group,
+        experiment_name=cohort.experiment_id,
+        title=figure_title,
+    )
+    source_path = Path(__file__).resolve()
+    provenance = FigureProvenance(
+        figure_id=f"{figure_name.replace('_', '-')}-{_metric_slug(metric_id)}",
+        analysis_recipe="cohort-scaled-activity-profile-figures-v1",
+        source_file=str(source_path),
+        source_symbol=source_symbol,
+        source_hash=sha256_file(source_path),
+        reproduction_snippet=(
+            f"python -m classical_conditioning {command_name} "
+            f"--project-dir \"{project_dir}\" --analysis-id {analysis_id} "
+            f"--cohort-id {cohort_id} --metric {metric_id} "
+            f"--metric-recipe {metric_recipe} --mode {mode.value} "
+            f"--minimum-coverage {minimum_coverage:g}"
+        ),
+        input_artifacts=(
+            *cohort.input_artifacts,
+            *(
+                {"path": str(item.path), "sha256": item.digest}
+                for item in verified
+            ),
+        ),
+        cohort_hash=cohort.cohort_hash,
+        artist_mappings=mappings,
+    )
+    try:
+        return export_matplotlib_figure(
+            figure,
+            _output_base(
+                project_dir,
+                analysis_id,
+                mode=mode,
+                name=f"{figure_name}_{_metric_slug(metric_id)}",
+            ),
+            provenance,
+            mode=mode,
+            panel_ids=panel_ids,
+            overwrite=overwrite,
+        )
+    finally:
+        plt.close(figure)
+
+
+def build_catch_profile_figure(
+    project_dir: Path,
+    *,
+    cohort_id: str,
+    analysis_id: str,
+    metric_id: str,
+    metric_recipe: str = "tail-candidate-corrected-v1",
+    mode: FigureMode,
+    minimum_coverage: float = 0.9,
+    overwrite: bool = False,
+) -> FigureExportResult:
+    """Render the pooled configured-catch scaled-activity cohort profile."""
+    cohort = _load_primary_cohort(project_dir.resolve(), cohort_id)
+    groups = configured_catch_group(cohort.experiment_id)
+    trial_text = ", ".join(str(value) for value in groups[0].trial_numbers)
+    return _build_scaled_activity_profile_figure(
+        project_dir,
+        cohort_id=cohort_id,
+        analysis_id=analysis_id,
+        metric_id=metric_id,
+        metric_recipe=metric_recipe,
+        mode=mode,
+        trial_groups=groups,
+        figure_name="cohort-catch-profile",
+        figure_title=f"Configured catch trials ({trial_text})",
+        command_name="figure-cohort-catch-profile",
+        source_symbol="build_catch_profile_figure",
+        minimum_coverage=minimum_coverage,
+        overwrite=overwrite,
+    )
+
+
+def build_block_profile_figure(
+    project_dir: Path,
+    *,
+    cohort_id: str,
+    analysis_id: str,
+    metric_id: str,
+    metric_recipe: str = "tail-candidate-corrected-v1",
+    mode: FigureMode,
+    minimum_coverage: float = 0.9,
+    overwrite: bool = False,
+) -> FigureExportResult:
+    """Render all declared CS ten-trial scaled-activity cohort profiles."""
+    cohort = _load_primary_cohort(project_dir.resolve(), cohort_id)
+    return _build_scaled_activity_profile_figure(
+        project_dir,
+        cohort_id=cohort_id,
+        analysis_id=analysis_id,
+        metric_id=metric_id,
+        metric_recipe=metric_recipe,
+        mode=mode,
+        trial_groups=configured_cs_block_groups(cohort.experiment_id),
+        figure_name="cohort-block-profile",
+        figure_title="Declared ten-trial CS blocks",
+        command_name="figure-cohort-block-profile",
+        source_symbol="build_block_profile_figure",
+        minimum_coverage=minimum_coverage,
+        overwrite=overwrite,
+    )
+
+
 def build_event_aligned_ratio_figure(
     project_dir: Path,
     *,
@@ -981,29 +1443,11 @@ def build_event_aligned_ratio_figure(
     _validate_analysis_id(analysis_id)
     project_dir = project_dir.resolve()
     cohort = _load_primary_cohort(project_dir, cohort_id)
-    if metric_recipe != cohort.metric_recipe:
-        raise ConfigurationError(
-            "Requested metric recipe differs from the cohort outcome artifact."
-        )
-    route: CandidateMetricSource = resolve_candidate_metric_source(
-        metric_recipe=metric_recipe
+    profiles, verified = _load_verified_cohort_profiles(
+        project_dir,
+        cohort,
+        metric_recipe=metric_recipe,
     )
-    verified = [
-        _verify_temporal_profiles(project_dir, recording_id, route)
-        for recording_id in cohort.recording_ids
-    ]
-    profiles = pd.concat(
-        [pd.read_parquet(item.path) for item in verified],
-        ignore_index=True,
-    )
-    observed_recordings = set(profiles["Recording ID"].astype(str))
-    expected_recordings = set(cohort.recording_ids)
-    if observed_recordings != expected_recordings:
-        raise SchemaValidationError(
-            "Temporal-profile recordings do not match the primary cohort; "
-            f"missing={sorted(expected_recordings - observed_recordings)}, "
-            f"unexpected={sorted(observed_recordings - expected_recordings)}."
-        )
     fish, group = summarize_event_aligned_ratios(
         profiles,
         metric_id=metric_id,
