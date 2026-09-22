@@ -2,9 +2,15 @@
 
 **Status:** Active — required learner-analysis workstream for the paper
 **Change class:** Legacy reproduction plus separately validated scientific analysis
-**Depends on:** Frozen preprocessing inputs, an approved C1/Gate O outcome
-contract, the population-analysis design, and scientific Gate L
+**Depends on:** Frozen preprocessing inputs, a unified selection-assessment
+bundle, an approved C1/Gate O outcome contract, the population-analysis design,
+and scientific Gate L
 **Unlocks:** Learner-focused paper claims, figures, and stratified outputs
+
+The post-classification single-metric run is specified in
+[the integrated cohort/CR-profile plan](./4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).
+It does not change this plan's prerequisite: classification consumes a frozen,
+label-independent primary technical cohort and authenticated outcome artifacts.
 
 This file restores the complete operational content of archived Plan 11 as an
 active plan. The historical wording remains preserved in
@@ -63,7 +69,7 @@ Approve:
 ### 11.0 Post-refactor learner-methodology workshop
 
 Do not begin canonical classifier selection while preprocessing, outcomes,
-cohorts, or primary inference are still changing. Once the non-learner refactor
+selection assessment, cohorts, or primary inference are still changing. Once the non-learner refactor
 is fully implemented and its artifacts are frozen, revisit the learner question
 from first principles:
 
@@ -153,6 +159,12 @@ feature values and uncertainty
 distance/statistic and threshold
 votes/rules
 cohort_hash
+cohort_policy_id
+cohort_policy_hash
+selection_assessment_hash
+input_trial_outcomes_hash
+classification_trial_set_id
+evaluation_trial_set_id
 code commit
 validation_mode
 generated_at
@@ -207,6 +219,17 @@ Join on the canonical fish key and condition/experiment metadata required by
 the schema. Enforce many-to-one validation and stop on unmatched or duplicate
 manifest rows.
 
+The join annotates the frozen cohort and must not redefine it. Preserve every
+primary-cohort fish as reference, learner, non-learner, or unclassified. A
+behavior-dependent legacy policy may be joined later as sensitivity metadata,
+but it cannot add/remove primary fish or define the classifier's reference
+population.
+
+Classifier code must not apply its own trial-count or complete-case filter.
+It consumes the learner-eligibility rows produced by the unified selection
+assessment. Eligible fish are classified; ineligible primary-cohort fish are
+emitted as `Unclassified` with the assessment reason codes.
+
 ### 11.8 Build stratified outcomes
 
 Reuse Step 09 outcome functions. Do not duplicate:
@@ -221,6 +244,12 @@ Reuse Step 09 outcome functions. Do not duplicate:
 Always retain reference, learner, non-learner, and unclassified strata with
 sample-flow counts.
 
+Catch membership and ten-trial blocks resolve from `ExperimentSpec`. For the
+three migrated experiments, the catch set is CS 25, 39, 53, 59, and 65; trial
+65 is the first Early Test trial. Reuse the cohort catch/block aggregation and
+coverage masking implemented for the integrated profile figures so labeled
+and unlabeled panels cannot drift scientifically.
+
 ## Required tests
 
 - Unique manifest key
@@ -233,6 +262,12 @@ sample-flow counts.
 - Legacy label regression
 - No classification-data leakage in held-out/cross-fit modes
 - Fish-first profile aggregation
+- Primary cohort hash is unchanged by labels or classifier eligibility
+- Catch/block selectors are identical in population and stratified outputs
+- Classification and evaluation trial sets are disjoint in held-out mode
+- Behavior-dependent legacy sensitivity status never becomes primary inclusion
+- Learner eligibility exactly matches the frozen unified assessment
+- Classifier execution contains no independent fish/row discard path
 
 ## Deliverables
 
@@ -263,6 +298,11 @@ representation, validation mode, and set of outputs. A failed categorical
 classifier is therefore a result to explain and replace with an approved
 continuous or model-based representation, not a reason to omit individual
 learning from the paper.
+
+The complete rendering run may occur after the learner manifest is frozen, but
+the primary population estimand, cohort, and LME remain label-independent. The
+post-classification command is orchestration timing, not permission to choose
+population membership or statistical settings from the observed learner split.
 
 ## Detailed output contract retained from the source plan
 

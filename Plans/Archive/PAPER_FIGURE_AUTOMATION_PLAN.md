@@ -402,8 +402,8 @@ A figure is paper-authoritative only if:
 | Requirement | Current state | Consequence |
 | --- | --- | --- |
 | Delay and matched control | Registered as `allDelay` | Available for panel-data prototyping after cohort review |
-| Short-trace experiment | `fixedVsIncreasingTrace` is registered, but its display name, CS duration, US latency, and paper label need explicit reconciliation | Do not label outputs “3-s trace” until protocol identity is validated |
-| 10-s trace and matched control | No explicit package experiment specification found | Figure 2 boundary-condition panels cannot yet be built |
+| Short-trace experiment | `all3sTrace` is registered with the legacy 3-second trace timing | Available for panel-data prototyping after cohort review |
+| 10-s trace and matched control | `all10sTrace` is registered with the legacy 10-second trace timing | Available for panel-data prototyping after cohort review |
 | No-optovin/violet-only control | No explicit package experiment specification found | S3 is blocked |
 | Red-CS-only sensitivity cohort | No versioned cohort definition found | S8 is blocked |
 | Catch-trial identity | `TrialSpec.catch` exists, but current generated trial specifications do not mark catch trials | Figure 4/S7 catch panels are blocked |

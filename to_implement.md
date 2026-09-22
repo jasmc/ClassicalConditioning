@@ -1,3 +1,11 @@
+
+
+document in Readme all parameters of LME analysis and other analysis steps
+
+
+
+
+
 /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/example-run.json add a comment if possible explaining how to use this file and what the different options are. if not possibble to add comment, add that info in /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/README.md
 
 

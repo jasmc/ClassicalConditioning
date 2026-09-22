@@ -103,6 +103,13 @@ Before using learner labels in paper-level claims:
 6. Validate that fish exclusions are applied consistently.
 7. Recalculate classification after corrected preprocessing if vigor, bout detection, scaling, or missing-data handling changes.
 8. Ensure the classification export is enabled and versioned.
+9. Freeze a label-independent primary technical cohort and its authenticated
+   trial-outcome/temporal-profile artifacts before classification. Learner
+   labels and behavior-dependent sensitivity policies may not rewrite that
+   cohort.
+10. Freeze the unified selection assessment that computed technical,
+    legacy-equivalent, model, and learner eligibility in one step. Plotting,
+    modelling, and classifier code may not repeat those filters.
 
 The current nominal implementation is:
 
@@ -248,6 +255,12 @@ Classifier_Version
 Classifier_Run_ID
 Classifier_Config_Hash
 Cohort_Manifest_Hash
+Cohort_Policy_ID
+Cohort_Policy_Hash
+Selection_Assessment_Hash
+Input_Trial_Outcomes_Hash
+Classification_Trial_Set_ID
+Evaluation_Trial_Set_ID
 Code_Commit
 Generated_At
 ```
@@ -382,7 +395,8 @@ Apply the same manifest to:
 
 1. Condition-level CS-aligned time-series tables
 2. Condition-level US-aligned time-series tables
-3. Pooled per-trial normalized-vigor tables
+3. Authenticated cohort trial-outcome tables, including any retained
+   normalized-vigor compatibility summary
 4. Panel-ready fish-level summary tables
 
 Do not independently recreate learner labels inside each plotting script.
@@ -540,13 +554,16 @@ Do not treat time samples or fish-trial rows as independent animals.
 
 ## C. Training catch trials
 
-The delay configuration identifies training catch trials such as:
+The experiment configuration identifies the complete CS catch set for every
+migrated assay:
 
 ```text
-25, 39, 53, 59
+25, 39, 53, 59, 65
 ```
 
-Verify the exact numbering after all offsets and preprocessing conventions.
+Trial 65 is intentionally both the first Early Test trial and a catch trial.
+Resolve this set from `ExperimentSpec`; do not reproduce it in plotting code or
+an analysis JSON.
 
 Plot each catch trial separately:
 
@@ -561,6 +578,10 @@ Plot each catch trial separately:
 Catch trials are useful because they reduce contamination by the unconditioned response.
 
 However, if catch-trial behavior contributes to classifier features, the circularity caveat still applies.
+
+Also produce one pooled catch profile. Pool the five configured trials within
+each fish first, then aggregate fish equally. Report contributing trials and
+fish for every time bin and apply the common temporal-profile coverage mask.
 
 ## D. Grouped trials
 
@@ -578,6 +599,10 @@ Recommended calculation:
 3. Aggregate the resulting fish-level curves across fish second.
 
 This prevents fish with more valid trials from receiving greater weight.
+
+The integrated CR-profile route must render every declared CS ten-trial block
+from `ExperimentSpec`, using `Scaled total activity`. Five-trial and phase views
+remain available for the learner-specific questions described here.
 
 For example:
 
@@ -698,12 +723,18 @@ For every condition:
 ```text
 Raw fish
 Technically valid fish
-Behaviorally included fish
+Primary technically included fish
+Legacy behavior-sensitivity pass / fail
+At least one learning-onset-eligible trial
 Classification eligible fish
 Learners
 Non-learners
 Unclassified
 ```
+
+These counts come from the unified selection assessment and the frozen learner
+manifest. The stratified-output step must not recalculate or reinterpret any
+discard/eligibility rule.
 
 ## Output 3: Individual-fish atlas
 
@@ -978,8 +1009,11 @@ Create an immutable configuration:
 @dataclass(frozen=True)
 class LearnerStratifiedAnalysisConfig:
     experiment: str
+    cohort_id: str
+    cohort_policy_hash: str
     alignment: str
     classifier_run_id: str
+    learner_manifest_hash: str
     primary_rule: str = "conservative"
     analysis_mode: str = "descriptive"
     time_bin_s: float = 0.5
@@ -987,7 +1021,6 @@ class LearnerStratifiedAnalysisConfig:
     bootstrap_seed: int = 10
     include_unclassified: bool = True
     single_trials: tuple[int, ...] = ()
-    catch_trials: tuple[int, ...] = ()
     trial_groups: tuple[str, ...] = ()
     outcomes: tuple[str, ...] = (
         "movement_probability",
@@ -995,6 +1028,10 @@ class LearnerStratifiedAnalysisConfig:
         "conditional_vigor",
     )
 ```
+
+Catch trials are not user-configurable in this object; they resolve from the
+experiment definition. Any exceptional override requires a new versioned
+experiment recipe rather than an ad hoc figure setting.
 
 Allowed `analysis_mode` values:
 
@@ -1104,6 +1141,8 @@ All matches, mismatches, duplicates, and status counts are reported and reproduc
 7. Produce five-trial-block profiles.
 8. Produce phase-level profiles.
 9. Produce trial-by-trial outcome trajectories.
+10. Reuse the integrated cohort-profile aggregation for pooled configured
+    catches and all declared ten-trial blocks.
 
 ### Exit criterion
 
@@ -1228,3 +1267,6 @@ The learner-stratified analysis is complete when:
 8. Build and validate the fish-level classification manifest.
 9. Join labels using `validate="many_to_one"` and generate sample-flow reports.
 10. Produce validation-mode-specific temporal profiles and inference.
+
+The final routine orchestration and common-hash requirements are defined in
+[the integrated single-metric cohort/CR-profile plan](./4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).

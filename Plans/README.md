@@ -17,8 +17,10 @@ and validated before they become paper-authoritative.
 - [Implementation status index](./IMPLEMENTATION_STEP_INDEX.md) — the only live status board
 - [Analysis and statistics](./Analysis/1_ANALYSIS_AND_STATISTICS.md) — population inference and model design
 - [Remaining cohort and learning-onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md) — ordered implementation work, artifacts, tests, and exit gates
+- [Single cohort and unified selection assessment](./SINGLE_COHORT_AND_EXCLUSION.md) — one non-destructive step for technical inclusion, legacy sensitivity, LME eligibility, and learner eligibility
 - [Exclusion and selection inventory](./EXCLUSION_AND_SELECTION_INVENTORY.csv) — machine-readable register of every active, legacy, and deferred selection rule
 - [Learner classification and stratified analysis](./Analysis/2_LEARNER_CLASSIFICATION.md) — required paper workstream
+- [Integrated single-metric cohort and CR profiles](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md) — post-classification cohort/learner orchestration and catch/block figures
 - [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) — CLI, notebooks, panel data, and paper figures
 - [Releases and legacy retirement](./RELEASES_AND_LEGACY_RETIREMENT.md)
 
@@ -32,6 +34,7 @@ and validated before they become paper-authoritative.
 | [Remaining cohort and learning-onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md) | Critical-path delivery plan connecting the cohort boundary to onset inference and the final figure |
 | [Learner classification and stratified analysis](./Analysis/2_LEARNER_CLASSIFICATION.md) | Required learner-method review, manifest, validation, outputs, and non-circular inference |
 | [Learner-stratified outputs and validation](./Analysis/3_LEARNER_STRATIFIED_OUTPUTS.md) | Detailed schemas, joins, temporal analyses, modules, output inventory, phases, and validation checklist |
+| [Integrated single-metric cohort and CR profiles](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md) | Shared catch/block estimands, legacy-discard sensitivity boundary, and final post-classification orchestration |
 | [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) | Stage interfaces, notebooks, panel data, figure registry, paper automation, and QC |
 
 Learner analysis is required for the paper. Whether its final representation is

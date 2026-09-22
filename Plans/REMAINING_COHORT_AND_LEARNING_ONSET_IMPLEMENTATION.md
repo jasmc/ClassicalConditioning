@@ -221,6 +221,13 @@ onset:
 
 - selected Early Pre-train, Early Test, and Late Test ratios;
 - event-aligned response/baseline trajectories around CS onset.
+- pooled configured-catch scaled-total-activity profiles; and
+- declared ten-trial-block scaled-total-activity profiles.
+
+The catch/block substrate and its post-classification orchestration are governed
+by the
+[integrated single-metric cohort/CR-profile plan](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).
+These descriptive figures use the frozen cohort but do not define it.
 
 ## Fish exclusion and cohort work
 
@@ -238,15 +245,18 @@ its own fish list.
    discarded.
 2. Classify each rule as technical fish exclusion, processing failure,
    trial-level validity, analysis eligibility, or display-only selection.
-3. Decide the primary technical inclusion policy without looking at learning
+3. Run one unified selection assessment that calculates the legacy Stage-1,
+   Stage-5/LME, and learner-feature dispositions and reason codes together.
+4. Decide the primary technical inclusion policy without looking at learning
    strength.
-4. Freeze the reviewed paper cohort.
-5. Build one authenticated `cohort-trial-outcomes` table.
-6. Store excluded, failed, missing, and included fish in a sample-flow table.
-7. Store outcome-specific missingness in an eligibility table instead of
+5. Freeze the reviewed paper cohort from technical columns only.
+6. Build one authenticated `cohort-trial-outcomes` table.
+7. Store excluded, failed, missing, and included fish in a sample-flow table.
+8. Store outcome-specific missingness in an eligibility table instead of
    changing cohort membership.
-8. Make the LME, permutation/bootstrap, learner analysis, and population
-   figures consume that cohort table.
+9. Make the LME, permutation/bootstrap, learner analysis, and population
+   figures consume the cohort table and matching selection-assessment hash,
+   with no private downstream discard filters.
 
 ### Outputs
 
@@ -268,12 +278,15 @@ Every final result will report:
 ### Step 1 — make the cohort input authoritative
 
 - complete the discard/filter inventory;
+- implement the unified selection-assessment bundle covering preprocessing,
+  LME, and learner legacy filters;
 - freeze the paper cohort;
 - build `cohort-trial-outcomes` and sample flow;
 - stop population commands from accepting arbitrary fish lists.
 
 **Done when:** every downstream analysis receives the same fish population and
-all counts reconcile.
+selection-assessment hash, no downstream consumer re-filters privately, and all
+counts reconcile.
 
 ### Step 2 — freeze the statistical choices
 
