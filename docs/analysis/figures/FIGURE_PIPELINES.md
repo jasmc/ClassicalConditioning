@@ -54,6 +54,7 @@ flowchart TD
     N3 -. separate review command .-> N9["Detector trace review: signal, threshold, movement, bout IDs"]
     N6 --> N10["Not yet replaced: confirmatory statistics and learner panels"]
     N5 -. dedicated commands .-> N11["Frozen-cohort selected-block, trial-number, and event-aligned response/baseline figures"]
+    N4 -. dedicated commands .-> N12["Frozen-cohort configured-catch and declared-block scaled-activity profiles"]
 ```
 
 | Order | Figure family | Purpose |
@@ -67,9 +68,11 @@ flowchart TD
 | R7 | Selected-block response/baseline ratio | Show fish medians and condition median [IQR] for Early Pre-train, Early Test, and Late Test. |
 | R8 | Trial-number response/baseline ratio | Show the requested fish-weighted learning trajectory across CS trials. |
 | R9 | Event-aligned response/baseline ratio | Show fish-normalised time courses and condition median [IQR]. |
+| R10 | Configured-catch scaled-activity profile | Pool CS 25, 39, 53, 59, and first-Early-Test catch 65 within fish, then summarize fish equally. |
+| R11 | Declared ten-trial block profiles | Show every experiment-declared CS block with trials pooled within fish and coverage retained. |
 
 Only R6 is produced by `run-pipeline` when `run_figures: true`; R1–R5 and
-R7–R9 require their dedicated commands. R7–R9 require a frozen cohort ID, are
+R7–R11 require their dedicated commands. R7–R11 require a frozen cohort ID, are
 descriptive, and intentionally do not annotate the current exploratory LME.
 Static PNG and publication SVG/PDF
 are maintained.
@@ -83,13 +86,15 @@ Interactive HTML is frozen and receives no further feature development.
 | Movement segmentation | Embedded and reused across scripts | One declared shared detector |
 | Rendering boundary | Mixed into preprocessing, aggregation, and inference | Renders authenticated saved artifacts |
 | Rest | Often treated as missing | Separated into total activity and movement outcomes |
-| Cohort | Stage-specific exclusions | Frozen-manifest infrastructure exists; single cohort-applied population artifact and paper cohort are still missing |
+| Cohort | Stage-specific exclusions | Frozen-manifest infrastructure and a single cohort-applied population artifact exist; the reviewed paper cohort is still missing |
 | Statistics | Ratio tests and many block/trial models | Exploratory LME, permutation, and bootstrap scaffolds |
 | Coverage | Broad QC, population, and learner catalog | Detector/metric profiles and descriptive cohort comparison |
 
-The refactor is deliberately not a one-for-one visual reproduction. It has
-clearer provenance, but does not yet replace legacy population trajectories,
-confirmatory statistical panels, or learner-classification figures.
+The refactor now restores the legacy catch/block temporal-profile roles with a
+different, explicit estimand: authenticated scaled total activity, coverage
+masking, trials pooled within fish, and equal-fish cohort aggregation. It does
+not yet replace learner-classification figures or make the profiles
+confirmatory evidence.
 
 ## Related implementation and decisions
 

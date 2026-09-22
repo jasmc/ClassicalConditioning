@@ -94,9 +94,12 @@ Copy [configs/example-run.json](configs/example-run.json) and edit the paths.
 ### One-command allDelay technical run
 
 For the complete allDelay technical workflow—lossless intake, candidate
-analysis, all-complete cohort freeze, learning-onset LME, and both final PNGs—
-run the Windows launcher below. It is resumable: re-running the same command
-verifies and preserves completed artifacts rather than overwriting them.
+analysis, all-complete cohort freeze, and learning-onset LME—run the Windows
+launcher below. It resumes based on existing markers and files without
+overwriting them; it does not authenticate every skipped artifact. The learning
+figure is generated only if required diagnostic gates pass. The residual
+diagnostics figure is generated first, including when the learning figure
+cannot be rendered.
 
 ```powershell
 .\scripts\run-allDelay-full-windows.ps1 `
@@ -104,10 +107,16 @@ verifies and preserves completed artifacts rather than overwriting them.
   -ProjectDir "F:\Digested Data\allDelay-full-v1"
 ```
 
+The launcher defaults to the `tail_length_weighted_angular_l1` activity metric.
+To analyze another metric, pass `-MetricId <metric-id>` and a distinct
+`-LearningAnalysisId <analysis-id>`. For all other LME parameters, use the
+direct `learning-onset` command described in the
+[LME parameter reference](docs/analysis/LME_PIPELINE_AND_PARAMETERS.md).
+
 The launcher creates an explicitly labelled **technical all-complete** cohort
 (every complete control/delay triplet). It is not a substitute for a
-publication-cohort review. Its final figures are written to
-`<ProjectDir>\Figures\PNG\Analyses\allDelay-full-learning-onset-v1\`.
+publication-cohort review. Figures that can be rendered are written to
+`<ProjectDir>\Figures\PNG\Analyses\<LearningAnalysisId>\`.
 
 ### Required config fields
 
@@ -246,8 +255,9 @@ Package experiments currently available:
 
 | `experiment` | Conditions | CR window |
 | --- | --- | --- |
-| `allDelay` | control, delay | 0–9 s |
-| `fixedVsIncreasingTrace` | control, fixedtrace | 0–13 s |
+| `allDelay` (Delay) | control, delay | 0–9 s |
+| `all3sTrace` (3sTrace) | control, trace | 0–13 s |
+| `all10sTrace` (10sTrace) | control, trace | 0–20 s |
 
 ### Raw file rules
 
@@ -430,6 +440,9 @@ Useful for debugging or partial reruns, in dependency order:
 | `candidate-mixed-effects` | Mixed-effects model over candidate outcomes. |
 | `candidate-fish-permutation` / `candidate-fish-bootstrap` | Fish-level permutation and bootstrap. |
 | `candidate-model-input` | Export the model input table. |
+| `figure-cohort-selected-block-ratio` / `figure-cohort-trial-ratio` / `figure-cohort-event-aligned-ratio` | Frozen-cohort response/baseline summaries for one metric. |
+| `figure-cohort-catch-profile` | Pool all configured catch trials within fish, then render equal-fish scaled-activity profiles. |
+| `figure-cohort-block-profile` | Render equal-fish scaled-activity profiles for every declared CS ten-trial block. |
 
 ### Historical source archive
 

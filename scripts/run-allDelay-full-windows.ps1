@@ -1,12 +1,14 @@
 <#
 .SYNOPSIS
-Runs the resumable allDelay technical workflow from immutable raw files to LME PNGs.
+Runs the resumable allDelay technical workflow from immutable raw files through LME analysis.
 
 .DESCRIPTION
 This is the single-command Windows entry point for the all-complete technical
 analysis. It writes only below ProjectDir, preserves every completed artifact,
 and can be invoked again after an interruption. The generated cohort is
 explicitly labelled as a technical all-complete cohort, not a publication cohort.
+The learning figure is rendered only when required diagnostics pass; residual
+diagnostics are rendered first.
 #>
 param(
     [Parameter(Mandatory = $true)]
@@ -18,7 +20,8 @@ param(
     [string]$UvPath = "uv",
     [string]$AnalysisId = "allDelay-full-v1",
     [string]$CohortId = "allDelay-full-v1",
-    [string]$LearningAnalysisId = "allDelay-full-learning-onset-v1"
+    [string]$LearningAnalysisId = "allDelay-full-learning-onset-v1",
+    [string]$MetricId = "tail_length_weighted_angular_l1"
 )
 
 $ErrorActionPreference = "Stop"
@@ -34,6 +37,7 @@ $runnerManifest = Join-Path $metadata "${AnalysisId}-candidate_candidate-correct
 $cohortMarker = Join-Path $metadata "${CohortId}_cohort-manifest-v1_complete.json"
 $outcomesMarker = Join-Path $metadata "${CohortId}_cohort-trial-outcomes_complete.json"
 $lmeMarker = Join-Path $metadata "${LearningAnalysisId}_learning-onset_complete.json"
+$lmeSummary = Join-Path $project "Quality checks\Analyses\$LearningAnalysisId\learning-onset_summary.json"
 $figureDirectory = Join-Path $project "Figures\PNG\Analyses\$LearningAnalysisId"
 $learningFigure = Join-Path $figureDirectory "learning-onset.png"
 $diagnosticsFigure = Join-Path $figureDirectory "learning-diagnostics.png"
@@ -130,15 +134,25 @@ if (-not (Test-Path -LiteralPath $outcomesMarker -PathType Leaf)) {
     Invoke-WorkflowCommand @("run", "classical-conditioning", "build-cohort-trial-outcomes", "--project-dir", $project, "--cohort-id", $CohortId, "--metric-recipe", "tail-candidate-corrected-v1")
 }
 
-if (-not (Test-Path -LiteralPath $lmeMarker -PathType Leaf)) {
-    Invoke-WorkflowCommand @("run", "classical-conditioning", "learning-onset", "--project-dir", $project, "--cohort-id", $CohortId, "--analysis-id", $LearningAnalysisId, "--metric", "tail_length_weighted_angular_l1", "--outcome", "total-activity", "--test-condition", "delay", "--delta-min", "0", "--bootstrap", "499", "--permutations", "9999")
+if (Test-Path -LiteralPath $lmeMarker -PathType Leaf) {
+    if (-not (Test-Path -LiteralPath $lmeSummary -PathType Leaf)) {
+        throw "Learning analysis marker exists without its summary: $lmeSummary"
+    }
+    $savedAnalysis = Get-Content -LiteralPath $lmeSummary -Raw | ConvertFrom-Json
+    if ($savedAnalysis.config.metric_id -ne $MetricId) {
+        throw "Learning analysis '$LearningAnalysisId' uses metric '$($savedAnalysis.config.metric_id)', but '$MetricId' was requested. Choose a new LearningAnalysisId for the new metric."
+    }
 }
 
-if (-not (Test-Path -LiteralPath $learningFigure -PathType Leaf)) {
-    Invoke-WorkflowCommand @("run", "classical-conditioning", "figure-learning-onset", "--project-dir", $project, "--analysis-id", $LearningAnalysisId, "--mode", "static")
+if (-not (Test-Path -LiteralPath $lmeMarker -PathType Leaf)) {
+    Invoke-WorkflowCommand @("run", "classical-conditioning", "learning-onset", "--project-dir", $project, "--cohort-id", $CohortId, "--analysis-id", $LearningAnalysisId, "--metric", $MetricId, "--outcome", "total-activity", "--test-condition", "delay", "--delta-min", "0", "--bootstrap", "499", "--permutations", "9999")
 }
+
 if (-not (Test-Path -LiteralPath $diagnosticsFigure -PathType Leaf)) {
     Invoke-WorkflowCommand @("run", "classical-conditioning", "figure-learning-diagnostics", "--project-dir", $project, "--analysis-id", $LearningAnalysisId, "--mode", "static")
+}
+if (-not (Test-Path -LiteralPath $learningFigure -PathType Leaf)) {
+    Invoke-WorkflowCommand @("run", "classical-conditioning", "figure-learning-onset", "--project-dir", $project, "--analysis-id", $LearningAnalysisId, "--mode", "static")
 }
 
 Write-Output "Learning-onset figure: $learningFigure"

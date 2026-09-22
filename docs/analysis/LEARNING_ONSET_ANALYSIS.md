@@ -5,6 +5,10 @@ condition-aware block and trial analyses. It is implemented but remains
 non-paper-authoritative until the paper cohort, metric, outcome, effect
 threshold, and diagnostic configuration are approved and the analysis is run.
 
+For the complete dataflow, metric-selection contract, every public parameter,
+fixed implementation decisions, equations, diagnostics, and output inventory,
+see [Learning-onset LME pipeline and parameter reference](./LME_PIPELINE_AND_PARAMETERS.md).
+
 ## Commands
 
 Build the one-time cohort population table:

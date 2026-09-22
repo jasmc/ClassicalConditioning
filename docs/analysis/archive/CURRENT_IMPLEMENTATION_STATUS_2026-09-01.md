@@ -20,7 +20,7 @@ Last updated: 2026-09-01.
 | Environment (`uv.lock`, CPython ≥ 3.12) | Implemented |
 | Lossless intake + inventory | Implemented; relocatable `--input-dir` / `--project-dir` |
 | Config-driven `run-pipeline` | Implemented (`configs/example-run.json`) |
-| Experiments in package config | `allDelay`, `fixedVsIncreasingTrace` |
+| Experiments in package config | `allDelay`, `all3sTrace`, `all10sTrace` |
 | Historical legacy implementation | Archived under `Archive/package/` (not runnable through the package) |
 | Corrected preprocess (no Gate P interp/filter) | Implemented |
 | Corrected three-metric candidate route + runner | Implemented |
@@ -39,7 +39,7 @@ immutable TXT acquisition
   -> inventory (optional)
   -> lossless Parquet intake / intake-batch
   -> acquisition integrity report
-  -> resolved config + trial map (allDelay | fixedVsIncreasingTrace)
+  -> resolved config + trial map (allDelay | all3sTrace | all10sTrace)
   -> tracking-field audit / validate-raw
   -> corrected measured-time frame preprocessing
   -> candidate metrics (development or corrected pairing)
@@ -65,11 +65,12 @@ immutable TXT acquisition
 
 | `experiment_id` | Conditions in package | CR window | Notes |
 | --- | --- | --- | --- |
-| `allDelay` | control, delay | 0–9 s | Default on many CLI commands |
-| `fixedVsIncreasingTrace` | control, fixedtrace | 0–13 s | Increasing Trace excluded from package config |
+| `allDelay` | control, delay | 0–9 s | Delay |
+| `all3sTrace` | control, trace | 0–13 s | 3sTrace |
+| `all10sTrace` | control, trace | 0–20 s | 10sTrace |
 
 Keep-conditions for the 3 s Trace plumbing run: `--keep-condition control`
-and `--keep-condition fixedtrace`.
+and `--keep-condition trace`.
 
 ## Corrected candidate route (recipe pairing)
 
@@ -100,7 +101,7 @@ on several single-step CLIs. Pass corrected recipes explicitly when needed.
 - `paths.py`: nested `Paper data`, reserved derived dirs, condition parsing.
 - `intake-batch` with `--keep-condition` / repeated `--recording-id`.
 - Metric comparison reads experiment CR window and groups cohort summaries by
-  `Condition ID` (`all`, `control`, `fixedtrace`).
+  `Condition ID` (`all`, `control`, `trace`).
 
 ### Figures
 
@@ -153,8 +154,8 @@ multi-recording plumbing only. Not paper-approved.
 | Save tree | `C:\Users\Public\More projects\Paper data` |
 | Analysis id | `c-copy-4fish-cohort-v1` |
 | Recipe | `candidate-corrected-runner-v1` |
-| Experiment | `fixedVsIncreasingTrace` |
-| Fish | `20230315_05`, `20230316_11` (control); `20230315_06`, `20230316_03` (fixedtrace) |
+| Experiment | `all3sTrace` |
+| Fish | `20230315_05`, `20230316_11` (control); `20230315_06`, `20230316_03` (trace) |
 | Raw source for this trial | C: copy under `Paper data\Raw single fish data` (subset also on D:) |
 | Cohort Parquet | Present under `Processed data\Analyses\c-copy-4fish-cohort-v1\` |
 | Figures | **Not written** — read/write blocked by ACL on 31/08 artifacts |
@@ -165,8 +166,8 @@ Intended full Trace inventory (not yet processed in-package at scale):
 
 | Tree | Notes |
 | --- | --- |
-| `D:\2023 02-03_Fixed vs increasing trace (3 s)` | Primary raw root discussed for full run |
-| Keep | control + fixedTrace (~39 fish); exclude increasing Trace |
+| `F:\Results (paper)\2025_3sTrace` | Pooled 3sTrace result root |
+| Keep | control + trace |
 | C: subset | ~12 keep fish among Mar 15–16 copies |
 
 This Cursor session could not write to `D:`. Prefer a writable save location with
@@ -186,7 +187,7 @@ enough free space (C: Paper data was already space-constrained after the
 ## Not implemented / blocked next
 
 - Unlock ACL on existing Paper data tree, then write the 4-fish figures.
-- Full Control + fixed Trace run from D: into a spacious save directory.
+- Full Control + 3sTrace run into a spacious save directory.
 - Gate P interpolation / temporal–spatial filter freeze.
 - Detector / smoothing scientific approval.
 - Paper-scale cohort QC and exclusions.

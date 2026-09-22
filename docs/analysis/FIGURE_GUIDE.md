@@ -72,6 +72,33 @@ and condition. Each fish contributes equally; it is descriptive, not
 confirmatory inference. Use the matching processed comparison table and QC
 summary to check inclusion, baseline/response coverage, and recipe identity.
 
+## Frozen-cohort response and CR profiles
+
+The cohort response commands require an immutable `cohort_id` and one selected
+metric. The three ratio commands render selected blocks, all CS trials, or an
+event-aligned response/baseline trajectory. Two temporal-profile commands use
+the authenticated `Scaled total activity` field:
+
+```powershell
+uv run classical-conditioning figure-cohort-catch-profile `
+  --project-dir "<SAVE>" --analysis-id <ANALYSIS-ID> `
+  --cohort-id <COHORT-ID> --metric <METRIC-ID> --mode static
+
+uv run classical-conditioning figure-cohort-block-profile `
+  --project-dir "<SAVE>" --analysis-id <ANALYSIS-ID> `
+  --cohort-id <COHORT-ID> --metric <METRIC-ID> --mode static
+```
+
+Catch membership comes from the experiment definition; the migrated Delay,
+3-second Trace, and 10-second Trace assays use CS 25, 39, 53, 59, and 65. Trial
+65 is the first Early Test trial. The catch command pools those trials within
+fish. The block command uses every declared CS ten-trial block. Both mask bins
+below `--minimum-coverage` (default 0.9), pool trials within fish first, and
+then give each fish equal weight in the condition median and IQR.
+
+These are descriptive population figures. Learner-stratified versions remain
+gated on the frozen learner-representation manifest and validation mode.
+
 ## Colour and comparison rules
 
 - Scaled profiles use one `[0, 1]` colour scale because the transform creates a

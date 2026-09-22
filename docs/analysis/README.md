@@ -16,7 +16,7 @@ status belongs only in `Plans/IMPLEMENTATION_STEP_INDEX.md`.
 | Translate project terminology | [Glossary](./GLOSSARY.md) |
 | Review source ownership and call order | [Current pipeline guide](./CURRENT_PIPELINE_GUIDE.md) |
 | Review cohort aggregation or response/baseline figures | [Cohort aggregation and figures](./COHORT_AGGREGATION_AND_FIGURES.md) |
-| Review learning-onset analysis | [Learning-onset analysis](./LEARNING_ONSET_ANALYSIS.md) |
+| Review learning-onset analysis | [Learning-onset overview](./LEARNING_ONSET_ANALYSIS.md), then [complete LME pipeline and parameter reference](./LME_PIPELINE_AND_PARAMETERS.md) |
 
 ## Architecture and implementation reference
 

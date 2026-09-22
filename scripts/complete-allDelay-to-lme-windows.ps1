@@ -1,5 +1,6 @@
 param(
-    [int]$PipelineProcessId = 0
+    [int]$PipelineProcessId = 0,
+    [string]$MetricId = "tail_length_weighted_angular_l1"
 )
 
 $ErrorActionPreference = "Stop"
@@ -80,11 +81,11 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 & $uv run classical-conditioning build-cohort-trial-outcomes --project-dir $project --cohort-id $cohortId --metric-recipe tail-candidate-corrected-v1
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-& $uv run classical-conditioning learning-onset --project-dir $project --cohort-id $cohortId --analysis-id $analysisId --metric tail_length_weighted_angular_l1 --outcome total-activity --test-condition delay --delta-min 0 --bootstrap 499 --permutations 9999
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
-& $uv run classical-conditioning figure-learning-onset --project-dir $project --analysis-id $analysisId --mode static
+& $uv run classical-conditioning learning-onset --project-dir $project --cohort-id $cohortId --analysis-id $analysisId --metric $MetricId --outcome total-activity --test-condition delay --delta-min 0 --bootstrap 499 --permutations 9999
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 & $uv run classical-conditioning figure-learning-diagnostics --project-dir $project --analysis-id $analysisId --mode static
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+& $uv run classical-conditioning figure-learning-onset --project-dir $project --analysis-id $analysisId --mode static
 exit $LASTEXITCODE
