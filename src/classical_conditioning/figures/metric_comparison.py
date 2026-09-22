@@ -46,7 +46,7 @@ SHORT_METRIC_LABELS = {
 CONDITION_DISPLAY = {
     "control": "Control",
     "delay": "Delay",
-    "fixedtrace": "3 s Trace",
+    "trace": "Trace",
 }
 
 
@@ -69,9 +69,20 @@ def _condition_colors(experiment_name: str | None) -> dict[str, tuple[float, flo
         colors["control"] = (0 / 255, 174 / 255, 239 / 255)
     if "delay" not in colors:
         colors["delay"] = (236 / 255, 0 / 255, 140 / 255)
-    if "fixedtrace" not in colors:
-        colors["fixedtrace"] = (241 / 255, 90 / 255, 41 / 255)
+    if "trace" not in colors:
+        colors["trace"] = (241 / 255, 90 / 255, 41 / 255)
     return colors
+
+
+def _condition_display_names(experiment_name: str | None) -> dict[str, str]:
+    # Use each configured experiment's label so the shared trace condition ID
+    # remains distinguishable between the 3-second and 10-second assays.
+    if experiment_name:
+        return {
+            condition.condition_id: condition.display_name
+            for condition in get_experiment_spec(experiment_name).conditions
+        }
+    return CONDITION_DISPLAY
 
 
 def _preferred_conditions(experiment_name: str | None) -> tuple[str, ...]:
@@ -79,7 +90,7 @@ def _preferred_conditions(experiment_name: str | None) -> tuple[str, ...]:
     if experiment_name:
         spec = get_experiment_spec(experiment_name)
         return tuple(condition.condition_id for condition in spec.conditions)
-    return ("control", "delay", "fixedtrace")
+    return ("control", "delay", "trace")
 
 
 def _cohort_standardized_figure(
@@ -137,6 +148,7 @@ def _cohort_standardized_figure(
             f"No plottable conditions for {trial_type} {outcome_id}."
         )
     colors = _condition_colors(experiment_name)
+    display_names = _condition_display_names(experiment_name)
     apply_theme(DEFAULT_THEME)
     width, _ = mm_to_in(DOUBLE_COLUMN_MM, 95.0)
     figure, axis = plt.subplots(figsize=(width, 95.0 / 25.4), layout="constrained")
@@ -188,7 +200,7 @@ def _cohort_standardized_figure(
             edgecolor="none",
             alpha=0.35,
             zorder=2,
-            label=CONDITION_DISPLAY.get(condition, condition),
+            label=display_names.get(condition, condition),
         )
         bar_id = f"bars__{condition}"
         for patch in bars.patches:

@@ -22,8 +22,8 @@ def recording_summary_fixture() -> pd.DataFrame:
     for recording_id, condition, offset in (
         ("20230315_05", "control", 0.1),
         ("20230316_11", "control", 0.2),
-        ("20230315_06", "fixedtrace", 0.8),
-        ("20230316_03", "fixedtrace", 1.1),
+        ("20230315_06", "trace", 0.8),
+        ("20230316_03", "trace", 1.1),
     ):
         for metric in METRIC_LABELS:
             rows.append(
@@ -45,12 +45,12 @@ class MetricComparisonFigureTests(unittest.TestCase):
             recording_summary_fixture(),
             trial_type="CS",
             outcome_id="movement-probability",
-            experiment_name="fixedVsIncreasingTrace",
+            experiment_name="all3sTrace",
         )
         try:
             self.assertEqual(panel_ids, ["A"])
             self.assertIn("bars__control", mappings)
-            self.assertIn("bars__fixedtrace", mappings)
+            self.assertIn("bars__trace", mappings)
             self.assertEqual(len(figure.axes[0].collections), 2 * len(METRIC_LABELS))
         finally:
             __import__("matplotlib.pyplot").pyplot.close(figure)

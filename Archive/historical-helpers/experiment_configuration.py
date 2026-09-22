@@ -127,10 +127,7 @@ class ExperimentType(Enum):
     MOVING_CS_4COND = 'movingCS_4cond'
     ONLY_STIMULATION = 'only stimulation'
     MANY_DELAY_TRAINING_TRIALS = 'manyDelayTrainingTrials'
-    FIRST_DELAY = 'firstDelay'
     ALL_DELAY = 'allDelay'
-    FIXED_VS_INCREASING_TRACE = 'fixedVsIncreasingTrace'
-    ALL_INC_TRACE = 'allIncTrace'
     ALL_3S_TRACE = 'all3sTrace'
     FIXED_TRACE_FULLY_REINFORCED = 'fixedTraceFullyReinforced'
     TRACE_10S = '10sTrace'
@@ -315,122 +312,6 @@ def get_experiment_config(experiment_name: str) -> ExperimentConfig:
             names_us_blocks_phases=['Train']
         )
         
-    elif experiment_name == ExperimentType.FIRST_DELAY.value:
-        # Based on 'firstDelay' in logic
-        min_trace_interval = 10
-        # ... logic for US latency omitted for brevity in config but available if needed
-        
-        return ExperimentConfig(
-            path_home=Path(r'D:\2022 11_Basic delay and (increasing) trace CC paradigm\Raw data'),
-            path_save=Path(r'F:\Results (paper)\2022 11_Basic delay and (increasing) trace CC paradigm'),
-            cond_dict={
-                'control': {'color': (0,174,239), 'name': 'Control', 'name in original path': 'control'},
-                'delay': {'color': (236,0,140), 'name': 'Delay', 'name in original path': 'delay', 'US latency': [9]*46},
-                'trace': {'color': (255, 135, 94), 'name': 'Trace (inc.)', 'name in original path': 'trace', 'US latency': []} # Placeholder for complex calc
-            },
-            min_number_cs_trials=94,
-            min_number_us_trials=78,
-            time_aft_last_trial=1,
-            cs_duration=10,
-            cr_window=[0, 9],
-            trials_cs_blocks_10=[
-                [*range(5,15)], [*range(15,25)], [*range(25,35)], [*range(35,45)], [*range(45,55)],
-                [*range(55,65)], [*range(65,75)], [*range(75,85)], [*range(85,95)]
-            ],
-            trials_us_blocks_10=[
-                [*range(18,28)], [*range(28,37)], [*range(37,46)], [*range(46,55)], [*range(55,64)]
-            ],
-            names_cs_blocks_10=['Pre-train', 'Train 1', 'Train 2', 'Train 3', 'Train 4', 'Train 5', 'Test 1', 'Test 2', 'Test 3'],
-            names_us_blocks_10=['Train 1', 'Train 2', 'Train 3', 'Train 4', 'Train 5'],
-            trials_cs_blocks_phases=[np.arange(5,15), np.arange(15,65), np.arange(65,95)],
-            trials_us_blocks_phases=[np.arange(18,64)],
-             names_cs_blocks_phases=['Pre', 'Train', 'Test'],
-            names_us_blocks_phases=['Train']
-        )
-
-    elif experiment_name == ExperimentType.ALL_INC_TRACE.value:
-        # Based on 'allIncTrace' in my_experiment_specific_variables.py
-        min_trace_interval_stable_numb_trials = 10
-        max_trace_interval_stable_numb_trials = 10
-        us_latency_trace_min = 0.5  # s
-        us_latency_trace_max = 3.0  # s
-        number_us_trials_increasing_trace = 26
-
-        cs_duration = 10  # s
-        us_latency_increasing_trace = (
-            cs_duration
-            + np.array(
-                [us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1)
-                + list(
-                    np.linspace(
-                        us_latency_trace_min,
-                        us_latency_trace_max,
-                        num=number_us_trials_increasing_trace + 1,
-                        endpoint=False,
-                        dtype=float,
-                    )
-                )
-                + [us_latency_trace_max] * max_trace_interval_stable_numb_trials
-            )
-        ).tolist()
-
-        return ExperimentConfig(
-            path_home=Path(r''),
-            path_save=Path(r'F:\Results (paper)\2025_incTrace'),
-            cond_dict={
-                'control': {
-                    'color': (0, 174, 239),
-                    'name': 'Control',
-                    'name in original path': 'control',
-                },
-                'trace': {
-                    'color': (255, 135, 94),
-                    'name': 'incTrace',
-                    'name in original path': 'increasingTrace',
-                    'US latency': us_latency_increasing_trace,
-                },
-            },
-            min_number_cs_trials=94,
-            min_number_us_trials=78,
-            time_aft_last_trial=1,
-            cs_duration=cs_duration,
-            cr_window=[0, 10.5],
-            trials_cs_blocks_10=[
-                [*range(5, 15)],
-                [*range(15, 25)],
-                [*range(25, 35)],
-                [*range(35, 45)],
-                [*range(45, 55)],
-                [*range(55, 65)],
-                [*range(65, 75)],
-                [*range(75, 85)],
-                [*range(85, 95)],
-            ],
-            trials_us_blocks_10=[
-                [*range(18, 28)],
-                [*range(28, 37)],
-                [*range(37, 46)],
-                [*range(46, 55)],
-                [*range(55, 64)],
-            ],
-            names_cs_blocks_10=[
-                'Pre-train',
-                'Train 1',
-                'Train 2',
-                'Train 3',
-                'Train 4',
-                'Train 5',
-                'Test 1',
-                'Test 2',
-                'Test 3',
-            ],
-            names_us_blocks_10=['Train 1', 'Train 2', 'Train 3', 'Train 4', 'Train 5'],
-            trials_cs_blocks_phases=[np.arange(5, 15), np.arange(15, 65), np.arange(65, 95)],
-            trials_us_blocks_phases=[np.arange(15, 65)],
-            names_cs_blocks_phases=['Pre', 'Train', 'Test'],
-            names_us_blocks_phases=['Train'],
-        )
-
     elif experiment_name == ExperimentType.ALL_3S_TRACE.value:
         return ExperimentConfig(
             path_home=Path(r''),

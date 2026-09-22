@@ -212,13 +212,13 @@ class RecordingInventoryTests(unittest.TestCase):
         self.assertEqual(inventory["records"][0]["tracking_schema"]["point_count"], 2)
 
     def test_parses_condition_and_writes_under_nested_paper_data(self) -> None:
-        name = "20230227_01_fixedTrace_orange-1_test_6dpf"
+        name = "20230227_01_trace_orange-1_test_6dpf"
         self._write_triplet(name)
         paper = self.raw / "Paper data"
         (paper / "Processed data").mkdir(parents=True)
         (paper / "Processed data" / "decoy_cam.txt").write_text("nope\n", encoding="utf-8")
         inventory = build_recording_inventory(self.raw, hash_files=False)
-        self.assertEqual(inventory["records"][0]["condition_id"], "fixedtrace")
+        self.assertEqual(inventory["records"][0]["condition_id"], "trace")
         self.assertEqual(inventory["status_counts"]["COMPLETE"], 1)
         output = paper / "Metadata" / "recording_inventory.json"
         write_recording_inventory(self.raw, output, hash_files=False)

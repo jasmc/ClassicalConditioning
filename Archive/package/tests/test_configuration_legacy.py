@@ -162,17 +162,17 @@ class DomainConfigurationTests(unittest.TestCase):
         self.assertEqual(get_trial_block_lookup("allDelay"), expected)
         self.assertEqual(len(expected), 90 + 46)
 
-    def test_fixed_vs_increasing_trace_uses_13s_cr_window(self) -> None:
-        spec = get_experiment_spec("fixedVsIncreasingTrace")
+    def test_3s_trace_uses_13s_cr_window(self) -> None:
+        spec = get_experiment_spec("all3sTrace")
         self.assertEqual(spec.paradigm, Paradigm.TRACE)
         self.assertEqual(spec.conditioned_response_window.start_s, 0.0)
         self.assertEqual(spec.conditioned_response_window.end_s, 13.0)
         self.assertEqual(
             [condition.condition_id for condition in spec.conditions],
-            ["control", "fixedtrace"],
+            ["control", "trace"],
         )
         self.assertEqual(
-            get_trial_block_lookup("fixedVsIncreasingTrace"),
+            get_trial_block_lookup("all3sTrace"),
             get_trial_block_lookup("allDelay"),
         )
 

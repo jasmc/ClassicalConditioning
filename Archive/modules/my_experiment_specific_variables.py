@@ -37,13 +37,7 @@ experiment_ =  'allDelay'
 
 # 'all10sTrace'
 
-# 'allIncTrace'
-
-
-
-
 # '10sTrace'
-# 'fixedVsIncreasingTrace'
 # 'tracemk801'
 # 'tracepuromycinshort'
 # 'tracePartialReinforcement'
@@ -388,13 +382,13 @@ match experiment_:
 
 
 
-    case 'firstDelay':
+    case '_deprecated_delay_trace_protocol':
 
-    #! November 2022 basic delay and trace 'Exp.'
+    #! Deprecated November 2022 basic delay and trace protocol.
 
         #* Path where the raw data is.
-        path_home = Path(r'D:\2022 11_Basic delay and (increasing) trace CC paradigm\Raw data')
-        path_save = Path(r'F:\Results (paper)\2022 11_Basic delay and (increasing) trace CC paradigm')
+        path_home = Path(r'D:\2022 11_Basic delay and trace CC paradigm\Raw data')
+        path_save = Path(r'F:\Results (paper)\2022 11_Basic delay and trace CC paradigm')
 
         cond0 = 'control'
         cond1 = 'delay'
@@ -407,17 +401,17 @@ match experiment_:
         us_latency_trace_max = 3  # s
 
         #! Careful with the number of catch trials!
-        number_us_trials_increasing_trace = 26
+        number_us_trials_trace_transition = 26
 
-        # us_latency_conditioning_list = cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_increasing_trace + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)/1000
+        # us_latency_conditioning_list = cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_trace_transition + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)/1000
 
         cs_duration    = 10 # s
 
         #TODO add more stuff to this dict.
         cond_dict = {cond0 : {'color' : (0,174,239), 'name' : 'Control', 'name in original path' : 'control'},
                   cond1 : {'color' :  (236,0,140), 'name' : 'Delay', 'name in original path' : 'delay', 'US latency' : [9]*46},
-                  cond2 : {'color' : (255, 135, 94), 'name' : 'Trace (inc.)', 'name in original path' : 'trace', 'US latency' :
-           cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_increasing_trace + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)}}
+                  cond2 : {'color' : (255, 135, 94), 'name' : 'Trace', 'name in original path' : 'trace', 'US latency' :
+           cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_trace_transition + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)}}
 
         relevant_trial_numbers = np.array([10, 20, 60, 70, 90])
         where_v_lines_1 = [10.5, 60.5]
@@ -593,17 +587,17 @@ match experiment_:
         names_us_blocks_phases = [
             'Train']
 
-    case 'fixedVsIncreasingTrace':
+    case '_deprecated_fixed_trace_protocol':
 
-    #! End February-March 2023 comparison between 3-s fixed trace and 3-s increasing trace
+    #! Deprecated February-March 2023 trace protocol.
 
         #* Path where the raw data is.
-        path_home = Path(r'D:\2023 02-03_Fixed vs increasing trace (3 s)\Raw data')
-        path_save = Path(r'F:\Results (paper)\2023 02-03_Fixed vs increasing trace (3 s)')
+        path_home = Path(r'D:\2023 02-03_Fixed trace (3 s)\Raw data')
+        path_save = Path(r'F:\Results (paper)\2023 02-03_Fixed trace (3 s)')
 
         cond0 = 'control'
         cond1 = 'fixedtrace'
-        cond2 = 'increasingtrace'
+        cond2 = 'deprecatedtrace'
 
         min_trace_interval_stable_numb_trials = 10
         max_trace_interval_stable_numb_trials = 10
@@ -612,15 +606,15 @@ match experiment_:
         us_latency_trace_max = 3  # s
 
         #! Careful with the number of catch trials!
-        number_us_trials_increasing_trace = 26
+        number_us_trials_trace_transition = 26
 
         cs_duration = 10 # s
 
         #TODO add more stuff to this dict.
         cond_dict = {cond0 : {'color' : (0,174,239), 'name' : 'Control', 'name in original path' : 'control'},
                   cond1 : {'color' :  (241,90,41), 'name' : 'Trace CC fixed', 'name in original path' : 'fixedTrace', 'US latency' : [9]*46},
-                  cond2 : {'color' : (255, 135, 94), 'name' : 'Trace CC increasing', 'name in original path' : 'increasingTrace', 'US latency' :
-           cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_increasing_trace + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)}
+                  cond2 : {'color' : (255, 135, 94), 'name' : 'Deprecated trace', 'name in original path' : 'deprecatedTrace', 'US latency' :
+           cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_trace_transition + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)}
                   }
 
         relevant_trial_numbers = np.array([10, 20, 60, 70, 90])
@@ -700,13 +694,13 @@ match experiment_:
             'Train'
         ]
 
-    case 'allIncTrace':
+    case '_deprecated_pooled_trace_protocol':
 
-    #! End February-March 2023 comparison between 3-s fixed trace and 3-s increasing trace
+    #! Deprecated pooled trace protocol.
 
         #* Path where the raw data is.
         path_home = Path(r'')
-        path_save = Path(r'F:\Results (paper)\2025_incTrace')
+        path_save = Path(r'F:\Results (paper)\2025_deprecatedTrace')
 
         cond0 = 'control'
         cond1 = 'trace'
@@ -718,14 +712,14 @@ match experiment_:
         us_latency_trace_max = 3  # s
 
         #! Careful with the number of catch trials!
-        number_us_trials_increasing_trace = 26
+        number_us_trials_trace_transition = 26
 
         cs_duration = 10 # s
 
         #TODO add more stuff to this dict.
         cond_dict = {cond0 : {'color' : (0,174,239), 'name' : 'Control', 'name in original path' : 'control'},
-                  cond1 : {'color' : (255, 135, 94), 'name' : 'incTrace', 'name in original path' : 'increasingTrace', 'US latency' :
-           cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_increasing_trace + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)}
+                  cond1 : {'color' : (255, 135, 94), 'name' : 'Deprecated trace', 'name in original path' : 'deprecatedTrace', 'US latency' :
+           cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace_max, num=number_us_trials_trace_transition + 1, endpoint=False, dtype='float')) + [us_latency_trace_max] * max_trace_interval_stable_numb_trials)}
                   }
 
         relevant_trial_numbers = np.array([10, 20, 60, 70, 90])
@@ -808,7 +802,7 @@ match experiment_:
 
     case 'all3sTrace':
 
-    #! End February-March 2023 comparison between 3-s fixed trace and 3-s increasing trace
+    #! Pooled 3-second fixed-trace protocol.
 
         #* Path where the raw data is.
         path_home = Path(r'')
@@ -902,7 +896,7 @@ match experiment_:
 
     case 'fixedTraceFullyReinforced':
 
-    #! End February-March 2023 comparison between 3-s fixed trace and 3-s increasing trace
+    #! Fully reinforced fixed 3-second trace protocol.
 
         #* Path where the raw data is.
         path_home = Path(r'D:\2023 08_Fully reinforced fixed 3-s trace vs partially reinforced\All')
@@ -918,7 +912,7 @@ match experiment_:
         us_latency_trace_max = 3  # s
 
         #! Careful with the number of catch trials!
-        number_us_trials_increasing_trace = 26
+        number_us_trials_trace_transition = 26
 
         cs_duration = 10 # s
 
@@ -1332,19 +1326,19 @@ match experiment_:
         # us_latency_trace = 3  # s
 
         #! Careful with the number of catch trials!
-        number_us_trials_increasing_trace = 26
+        number_us_trials_trace_transition = 26
 
         cs_duration = 10 # s
 
         #TODO add more stuff to this dict.
         cond_dict = {cond0 : {'color' : (0,174,239), 'name' : 'Control 0 μM', 'name in original path' : 'controlnomk801'},
                     cond1 : {'color' : (241, 90, 41), 'name' : 'Trace 0 μM', 'name in original path' : 'tracenomk801', 'US latency' : [13]*46
-        #    cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace, num=number_us_trials_increasing_trace + 1, endpoint=False, dtype='float')) + [us_latency_trace] * max_trace_interval_stable_numb_trials)
+        #    cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace, num=number_us_trials_trace_transition + 1, endpoint=False, dtype='float')) + [us_latency_trace] * max_trace_interval_stable_numb_trials)
            },
            cond2 : {'color' : (0, 139, 191), 'name' : 'Control 100 μM', 'name in original path' : 'controlmk801',},
            cond3 : {'color' : (193, 72, 33), 'name' : 'Trace 100 μM', 'name in original path' : 'tracemk801',
            'US latency' : [13]*46
-        #    cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace, num=number_us_trials_increasing_trace + 1, endpoint=False, dtype='float')) + [us_latency_trace] * max_trace_interval_stable_numb_trials)
+        #    cs_duration + np.array([us_latency_trace_min] * (min_trace_interval_stable_numb_trials - 1) + list(np.linspace(us_latency_trace_min, us_latency_trace, num=number_us_trials_trace_transition + 1, endpoint=False, dtype='float')) + [us_latency_trace] * max_trace_interval_stable_numb_trials)
            },}
 
         relevant_trial_numbers = np.array([10, 20, 60, 70, 90])

@@ -40,6 +40,11 @@ _US_GROUPS = (
     ("Train 5", Phase.TRAIN, range(55, 64)),
 )
 
+# Protocol-defined CS omissions used by cohort and learner temporal profiles.
+# Trial 65 is intentionally included: the first Early Test trial is analysed as
+# a catch trial even though it is outside the historical training-only list.
+_CS_CATCH_TRIALS = frozenset({25, 39, 53, 59, 65})
+
 
 def _analysis_trials() -> tuple[TrialSpec, ...]:
     # Expand compact ranges into one validated immutable TrialSpec per trial.
@@ -57,13 +62,17 @@ def _analysis_trials() -> tuple[TrialSpec, ...]:
                     phase=phase,
                     block_10_id=block_id,
                     block_10_name=block_name,
+                    catch=(
+                        alignment is Alignment.CS
+                        and int(trial_number) in _CS_CATCH_TRIALS
+                    ),
                 )
                 for trial_number in trial_numbers
             )
     return tuple(trials)
 
 
-# Both supported experiments share protocol trial numbering and CS duration.
+# The currently supported experiments share protocol trial numbering and CS duration.
 _SHARED_TRIAL_STRUCTURE = dict(
     analysis_trials=_analysis_trials(),
     minimum_cs_trials=94,
@@ -71,8 +80,7 @@ _SHARED_TRIAL_STRUCTURE = dict(
     cs_duration_s=10.0,
 )
 
-# The delay-conditioning assay differs from trace primarily in condition labels
-# and the expected conditioned-response window.
+# Delay conditioning has its own condition label and response window.
 _ALL_DELAY = ExperimentSpec(
     experiment_id="allDelay",
     paradigm=Paradigm.DELAY,
@@ -97,9 +105,10 @@ _ALL_DELAY = ExperimentSpec(
     **_SHARED_TRIAL_STRUCTURE,
 )
 
-# The trace assay retains the same control role but uses a longer response window.
-_FIXED_VS_INCREASING_TRACE = ExperimentSpec(
-    experiment_id="fixedVsIncreasingTrace",
+# The 3-second trace assay retains the same control role but uses a longer
+# response window.
+_ALL_3S_TRACE = ExperimentSpec(
+    experiment_id="all3sTrace",
     paradigm=Paradigm.TRACE,
     conditions=(
         ConditionSpec(
@@ -110,9 +119,9 @@ _FIXED_VS_INCREASING_TRACE = ExperimentSpec(
             color_rgb_255=(0, 174, 239),
         ),
         ConditionSpec(
-            condition_id="fixedtrace",
-            display_name="Trace CC fixed",
-            source_name="fixedTrace",
+            condition_id="trace",
+            display_name="3sTrace",
+            source_name="trace",
             role=ConditionRole.CONDITIONED,
             color_rgb_255=(241, 90, 41),
             us_latency_s=(9.0,) * 46,
@@ -122,10 +131,36 @@ _FIXED_VS_INCREASING_TRACE = ExperimentSpec(
     **_SHARED_TRIAL_STRUCTURE,
 )
 
+# The 10-second trace assay has a 20-second conditioned-response window and
+# source data named after the fixed 10-second trace protocol.
+_ALL_10S_TRACE = ExperimentSpec(
+    experiment_id="all10sTrace",
+    paradigm=Paradigm.TRACE,
+    conditions=(
+        ConditionSpec(
+            condition_id="control",
+            display_name="Control",
+            source_name="control",
+            role=ConditionRole.CONTROL,
+            color_rgb_255=(0, 174, 239),
+        ),
+        ConditionSpec(
+            condition_id="trace",
+            display_name="10sTrace",
+            source_name="10sFixedTrace",
+            role=ConditionRole.CONDITIONED,
+            color_rgb_255=(145, 54, 25),
+            us_latency_s=(20.0,) * 46,
+        ),
+    ),
+    conditioned_response_window=TimeWindow(0.0, 20.0),
+    **_SHARED_TRIAL_STRUCTURE,
+)
+
 # Keep lookup construction next to the immutable definitions to avoid aliases.
 _EXPERIMENTS = {
     spec.experiment_id: spec
-    for spec in (_ALL_DELAY, _FIXED_VS_INCREASING_TRACE)
+    for spec in (_ALL_DELAY, _ALL_3S_TRACE, _ALL_10S_TRACE)
 }
 
 

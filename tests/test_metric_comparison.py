@@ -74,11 +74,11 @@ class MetricComparisonTests(unittest.TestCase):
             )
         )
         recording["Condition ID"] = recording["Recording ID"].map(
-            {"recording-a": "control", "recording-b": "fixedtrace"}
+            {"recording-a": "control", "recording-b": "trace"}
         )
         cohort = summarize_candidate_metric_cohort(recording)
         groups = set(cohort["Cohort group"])
-        self.assertEqual(groups, {"all", "control", "fixedtrace"})
+        self.assertEqual(groups, {"all", "control", "trace"})
         self.assertTrue(
             (cohort.loc[cohort["Cohort group"] == "all", "Recording count"] == 2).all()
         )

@@ -189,3 +189,31 @@ class ExperimentSpec:
             (trial.alignment.value, trial.trial_number): trial.block_10_name
             for trial in self.analysis_trials
         }
+
+    def catch_trial_numbers(self, alignment: Alignment = Alignment.CS) -> tuple[int, ...]:
+        """Return configured catch trials in protocol order for one alignment."""
+        return tuple(
+            trial.trial_number
+            for trial in self.analysis_trials
+            if trial.alignment is alignment and trial.catch
+        )
+
+    def trial_blocks(
+        self,
+        alignment: Alignment = Alignment.CS,
+    ) -> tuple[tuple[str, tuple[int, ...]], ...]:
+        """Return declared ten-trial blocks without reconstructing plot lists."""
+        ordered = sorted(
+            (trial for trial in self.analysis_trials if trial.alignment is alignment),
+            key=lambda trial: (trial.block_10_id, trial.trial_number),
+        )
+        blocks: list[tuple[str, tuple[int, ...]]] = []
+        for block_id in dict.fromkeys(trial.block_10_id for trial in ordered):
+            members = tuple(
+                trial.trial_number for trial in ordered if trial.block_10_id == block_id
+            )
+            name = next(
+                trial.block_10_name for trial in ordered if trial.block_10_id == block_id
+            )
+            blocks.append((name, members))
+        return tuple(blocks)

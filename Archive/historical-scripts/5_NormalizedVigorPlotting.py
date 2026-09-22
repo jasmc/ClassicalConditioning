@@ -1315,7 +1315,6 @@ def run_block_summary_boxplot():
             ExperimentType.ALL_3S_TRACE.value,
             ExperimentType.TRACE_10S.value,
             ExperimentType.DELAY_LONG_TERM_SPACED_PUROMYCIN_5MG_ALL.value,
-            "increasingTraceMerged",
         }:
             if len(cond_types_box) == 2:
                 add_pairs([(0, 1)])
