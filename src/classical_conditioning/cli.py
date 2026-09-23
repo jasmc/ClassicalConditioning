@@ -213,12 +213,13 @@ def build_parser() -> argparse.ArgumentParser:
         choices=(
             "total-activity-raw",
             "total-activity-scaled",
+            "signed-log-vigor",
             "conditional-intensity-raw",
             "bout-outcomes",
         ),
         default="total-activity-raw",
         help=(
-            "Which figure to render. The three intensity figures have one row "
+            "Which figure to render. The activity and signed-vigor figures have one row "
             "per metric; bout-outcomes has one row per detector-dependent "
             "outcome and is metric-free."
         ),
@@ -237,6 +238,26 @@ def build_parser() -> argparse.ArgumentParser:
         default="candidate-temporal-outcomes",
     )
     figure_profiles.add_argument("--overwrite", action="store_true")
+
+    example_traces = subparsers.add_parser(
+        "figure-example-traces",
+        help="Plot matched tail-angle and selected-vigor traces for one fish and CS trials.",
+    )
+    example_traces.add_argument("--project-dir", type=Path, required=True)
+    example_traces.add_argument("--recording-id", required=True)
+    example_traces.add_argument("--experiment", choices=("allDelay", "all3sTrace", "all10sTrace"), required=True)
+    example_traces.add_argument("--trial", type=int, action="append", required=True,
+                                help="Global CS trial number; repeat to choose multiple rows.")
+    example_traces.add_argument("--metric", choices=(
+        "tail_length_weighted_angular_l1",
+        "whole_tail_xy_mean_speed_normalized",
+        "legacy_distal_angular_speed",
+    ), required=True)
+    example_traces.add_argument("--tail-point", type=int, default=15)
+    example_traces.add_argument("--window-start", type=float, default=-20.0)
+    example_traces.add_argument("--window-end", type=float, default=20.0)
+    example_traces.add_argument("--mode", choices=("publication", "static"), default="static")
+    example_traces.add_argument("--overwrite", action="store_true")
 
     figure_metric_comparison = subparsers.add_parser(
         "figure-metric-comparison",
@@ -1669,6 +1690,25 @@ def main(argv: Sequence[str] | None = None) -> None:
         )
         print(f"Recording: {result.recording_id}")
         print(f"Summary: {result.summary_path}")
+        return
+
+    if args.command == "figure-example-traces":
+        from classical_conditioning.figures import FigureMode, build_example_trace_figure
+
+        result = build_example_trace_figure(
+            args.project_dir,
+            args.recording_id,
+            trial_numbers=args.trial,
+            metric_id=args.metric,
+            experiment=args.experiment,
+            mode=FigureMode(args.mode),
+            tail_point=args.tail_point,
+            window_s=(args.window_start, args.window_end),
+            overwrite=args.overwrite,
+        )
+        for output in result.outputs:
+            print(f"Figure: {output}")
+        print(f"Provenance: {result.sidecar}")
         return
 
     if args.command == "figure-candidate-profiles":

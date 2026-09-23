@@ -17,7 +17,7 @@ import pandas as pd
 import pyarrow.parquet as pq
 
 from matplotlib.cm import ScalarMappable
-from matplotlib.colors import Normalize
+from matplotlib.colors import Normalize, to_hex
 
 from classical_conditioning.analysis.movement_state import (
     CandidateMetricSource,
@@ -37,6 +37,7 @@ from classical_conditioning.figures.export import (
 )
 from classical_conditioning.figures.theme import (
     DOUBLE_COLUMN_MM,
+    DEFAULT_THEME,
     add_stimulus_window,
     apply_theme,
     heatmap_cmap,
@@ -78,6 +79,7 @@ class PanelSpec:
     vmin: float = 0.0
     vmax: float | None = None
     metric_id: str | None = None
+    missing_color: str | None = None
 
 
 @dataclass(frozen=True)
@@ -126,6 +128,25 @@ def _metric_panels(
             )
         panels.append(spec)
     return tuple(panels)
+
+
+def _signed_vigor_panels() -> tuple[PanelSpec, ...]:
+    return tuple(
+        PanelSpec(
+            key=metric_id,
+            title=label,
+            column="Signed log vigor",
+            coverage=DETECTOR_COVERAGE,
+            colorbar_label="Log vigor relative to pre-CS median",
+            cmap_family="single-fish-signed-vigor",
+            scale="fixed",
+            vmin=DEFAULT_THEME.single_fish_scaled_vigor_vmin,
+            vmax=DEFAULT_THEME.single_fish_scaled_vigor_vmax,
+            metric_id=metric_id,
+            missing_color="black",
+        )
+        for metric_id, label in METRIC_LABELS.items()
+    )
 
 
 # Bout-derived outcomes come from the single shared detector, so they are rows
@@ -193,6 +214,17 @@ FIGURE_SPECS = {
             "Per-trial two-layer scaled activity on a common 0-1 scale: "
             "frame-level P10-P90 from samples earlier than -15 s, then a "
             "second P10-P90 over pre-onset bins, clipped to the unit interval."
+        ),
+    ),
+    "signed-log-vigor": FigureSpec(
+        figure_id="signed-log-vigor",
+        title="single-fish signed log vigor",
+        panels=_signed_vigor_panels(),
+        shared_colorbar=True,
+        description=(
+            "CS-aligned bout-median log vigor relative to the same trial's "
+            "pre-CS median, binned at 0.5 s. March 2026 managua_r palette "
+            "and fixed signed display limits."
         ),
     ),
     "conditional-intensity-raw": FigureSpec(
@@ -312,6 +344,8 @@ def _verify_profile_unchanged(
 def _panel_cmap_name(panel: PanelSpec, theme) -> str:
     if panel.cmap_family == "probability":
         return theme.probability_cmap
+    if panel.cmap_family == "single-fish-signed-vigor":
+        return theme.single_fish_scaled_vigor_cmap
     return theme.intensity_cmap
 
 
@@ -351,6 +385,13 @@ def _candidate_heatmap_figure(
     # from semantic SVG artists back to their plotted data meaning.
     if figure_id not in FIGURE_SPECS:
         raise ValueError(f"Unknown candidate figure: {figure_id}")
+    if figure_id == "signed-log-vigor" and trial_type != "CS":
+        raise ValueError("Signed log-vigor figure uses the fixed CS display scale.")
+    if figure_id == "signed-log-vigor" and "Signed log vigor" not in profiles:
+        raise ValueError(
+            "Signed log vigor is absent from this profile artifact; "
+            "rebuild candidate temporal profiles with the current recipe."
+        )
     spec = FIGURE_SPECS[figure_id]
     theme = apply_theme()
     selected = profiles[profiles["Trial type"].astype(str) == trial_type]
@@ -369,6 +410,8 @@ def _candidate_heatmap_figure(
         panel_id = chr(ord("A") + index)
         panel_ids.append(panel_id)
         cmap = heatmap_cmap(_panel_cmap_name(panel, theme), theme)
+        if panel.missing_color is not None:
+            cmap.set_bad(panel.missing_color)
         pivot = _panel_pivot(selected, panel)
         values = np.ma.masked_invalid(pivot.to_numpy(dtype=float))
         vmin, vmax, scale_description = _panel_scale(
@@ -522,6 +565,13 @@ def build_candidate_profile_figure(
         raise ValueError("Trial type must be CS or US.")
     if figure_id not in FIGURE_SPECS:
         raise ValueError(f"Unknown candidate figure: {figure_id}")
+    if figure_id == "signed-log-vigor" and trial_type != "CS":
+        raise ValueError("Signed log-vigor figure uses the fixed CS display scale.")
+    if figure_id == "signed-log-vigor" and "Signed log vigor" not in profiles:
+        raise ValueError(
+            "Signed log vigor is absent from this profile artifact; "
+            "rebuild candidate temporal profiles with the current recipe."
+        )
     spec = FIGURE_SPECS[figure_id]
     source_path = Path(__file__).resolve()
     route_suffix = figure_route_suffix(route)
@@ -555,6 +605,13 @@ def build_candidate_profile_figure(
             pivot = _panel_pivot(selected, panel)
             values = pivot.to_numpy(dtype=float)
             vmin, vmax, _ = _panel_scale(values, panel)
+            colorscale = panel.plotly_colorscale
+            if panel.cmap_family == "single-fish-signed-vigor":
+                cmap = heatmap_cmap(_panel_cmap_name(panel, DEFAULT_THEME))
+                colorscale = [
+                    [index / 255, to_hex(cmap(index / 255))]
+                    for index in range(256)
+                ]
             yaxis_name = "yaxis" if row == 1 else f"yaxis{row}"
             domain = getattr(figure.layout, yaxis_name).domain
             figure.add_trace(
@@ -562,7 +619,7 @@ def build_candidate_profile_figure(
                     x=pivot.columns,
                     y=pivot.index,
                     z=values,
-                    colorscale=panel.plotly_colorscale,
+                    colorscale=colorscale,
                     zmin=vmin,
                     zmax=vmax,
                     colorbar={
@@ -580,6 +637,7 @@ def build_candidate_profile_figure(
         figure.update_layout(
             title=f"{recording_id} — {trial_type}-aligned {spec.title}",
             height=1_400,
+            plot_bgcolor=("black" if figure_id == "signed-log-vigor" else "white"),
         )
         output.parent.mkdir(parents=True, exist_ok=True)
         sidecar = output.with_suffix(".figure.json")

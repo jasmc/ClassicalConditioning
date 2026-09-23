@@ -142,6 +142,41 @@ def _two_layer_scaled_activity(
     return np.clip(normalized, *config.scaling_clip)
 
 
+def _signed_bout_log_vigor(
+    values: np.ndarray,
+    trial_seconds: np.ndarray,
+    bin_indices: np.ndarray,
+    detector_valid: np.ndarray,
+    moving: np.ndarray,
+    bout_ids: np.ndarray,
+    *,
+    bin_count: int,
+    baseline_end_s: float,
+) -> np.ndarray:
+    """Bin bout-median log vigor relative to this trial's pre-stimulus median."""
+    usable = (
+        detector_valid & moving & (bout_ids > 0)
+        & np.isfinite(values) & (values > 0)
+    )
+    logged = np.full(values.shape, np.nan, dtype=float)
+    logged[usable] = np.log(values[usable])
+    baseline = logged[usable & (trial_seconds < baseline_end_s)]
+    result = np.full(bin_count, np.nan, dtype=float)
+    if baseline.size == 0:
+        return result
+    centred = logged - float(np.median(baseline))
+    bout_medians = np.full(values.shape, np.nan, dtype=float)
+    for bout_id in np.unique(bout_ids[usable]):
+        in_bout = usable & (bout_ids == bout_id)
+        bout_medians[in_bout] = float(np.median(centred[in_bout]))
+    finite = np.isfinite(bout_medians)
+    counts = np.bincount(bin_indices[finite], minlength=bin_count)
+    sums = np.bincount(
+        bin_indices[finite], weights=bout_medians[finite], minlength=bin_count
+    )
+    return np.divide(sums, counts, out=result, where=counts > 0)
+
+
 def aggregate_event_profiles(
     frames: pd.DataFrame,
     protocol: pd.DataFrame,
@@ -313,6 +348,7 @@ def aggregate_event_profiles(
             movement_probability = np.full(bin_count, np.nan)
             fraction_time_moving = np.full(bin_count, np.nan)
             conditional_intensity = np.full(bin_count, np.nan)
+            signed_log_vigor = np.full(bin_count, np.nan)
             bout_count = np.full(bin_count, np.nan)
             bout_rate = np.full(bin_count, np.nan)
             mean_bout_duration = np.full(bin_count, np.nan)
@@ -373,6 +409,16 @@ def aggregate_event_profiles(
                     conditional_count,
                     out=np.full(bin_count, np.nan),
                     where=conditional_count > 0,
+                )
+                signed_log_vigor = _signed_bout_log_vigor(
+                    values,
+                    trial_seconds,
+                    bin_indices,
+                    detector_valid,
+                    moving,
+                    movement_metric["bout_id"][start_index:end_index][in_range],
+                    bin_count=bin_count,
+                    baseline_end_s=config.scaling_baseline_end_s,
                 )
                 onset = movement_metric["bout_start"][start_index:end_index][
                     in_range
@@ -442,6 +488,7 @@ def aggregate_event_profiles(
                         "Movement probability": movement_probability[bin_index],
                         "Fraction time moving": fraction_time_moving[bin_index],
                         "Conditional intensity mean": conditional_intensity[bin_index],
+                        "Signed log vigor": signed_log_vigor[bin_index],
                         "Bout count": (
                             int(bout_count[bin_index])
                             if np.isfinite(bout_count[bin_index])
@@ -478,6 +525,7 @@ def aggregate_event_profiles(
         "Movement probability",
         "Fraction time moving",
         "Conditional intensity mean",
+        "Signed log vigor",
         "Bout count",
         "Bout rate per minute",
         "Mean bout duration (ms)",
@@ -704,7 +752,9 @@ def build_candidate_temporal_profiles(
             "output_semantics": (
                 "Continuous total activity includes valid zeros. Movement "
                 "probability, time moving, conditional intensity, and bout "
-                f"outcomes use {source.movement_recipe}."
+                f"outcomes use {source.movement_recipe}. Signed log vigor "
+                "uses positive moving frames, per-trial pre-stimulus median "
+                "centering, and bout medians before time binning."
             ),
             "artifact": {
                 "path": str(output_path.resolve()),

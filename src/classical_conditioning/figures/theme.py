@@ -17,13 +17,13 @@ from matplotlib.font_manager import fontManager
 
 from classical_conditioning.config.domain import Alignment, ConditionSpec
 
-# Physical layout constants and preferred installed-font fallback order.
+# Physical layout constants and bundled font for cross-platform consistency.
 MM_PER_INCH = 25.4
 SINGLE_COLUMN_MM = 89.0
 DOUBLE_COLUMN_MM = 183.0
 DEFAULT_CS_DURATION_S = 10.0
 DEFAULT_US_DURATION_S = 0.1
-PREFERRED_SANS_SERIF = ("Arial", "Helvetica", "DejaVu Sans")
+PREFERRED_SANS_SERIF = ("DejaVu Sans",)
 
 # Okabe–Ito, skipping black so traces can stay black.
 COLORBLIND_QUALITATIVE = (
@@ -58,13 +58,11 @@ def condition_color(spec: ConditionSpec) -> tuple[float, float, float]:
 
 
 def resolve_sans_serif_fonts() -> tuple[str, ...]:
-    """Return installed sans-serif names in preference order, with a fallback."""
-    # Prefer common publication fonts but always retain a bundled fallback.
+    """Use Matplotlib's bundled font consistently across systems."""
     available = {font.name for font in fontManager.ttflist}
-    resolved = [name for name in PREFERRED_SANS_SERIF if name in available]
-    if "DejaVu Sans" not in resolved:
-        resolved.append("DejaVu Sans")
-    return tuple(resolved)
+    if "DejaVu Sans" not in available:
+        raise RuntimeError("Matplotlib's DejaVu Sans font is unavailable.")
+    return PREFERRED_SANS_SERIF
 
 
 def stimulus_duration_s(
@@ -98,7 +96,8 @@ class FigureTheme:
     lines_linewidth: float = 0.5
     tick_major_size: float = 2.0
     tick_major_width: float = 0.5
-    tick_major_pad: float = 2.0
+    # All distances here are typographic points, independent of figure size/DPI.
+    tick_major_pad: float = 3.0
     axes_labelpad: float = 3.0
     axes_titlepad: float = 4.0
     figure_dpi: int = 300
@@ -111,12 +110,16 @@ class FigureTheme:
     single_series_color: tuple[float, float, float] = (0.0, 0.0, 0.0)
     qualitative_colors: tuple[str, ...] = COLORBLIND_QUALITATIVE
     intensity_cmap: str = "magma"
+    # March 24 single-fish, baseline-centred log-vigor figure (signed scale).
+    single_fish_scaled_vigor_cmap: str = "managua_r"
+    single_fish_scaled_vigor_vmin: float = -0.25
+    single_fish_scaled_vigor_vmax: float = 0.25
     probability_cmap: str = "cividis"
     stimulus_span_alpha: float = 0.18
     constrained_h_pad: float = 0.04
     constrained_w_pad: float = 0.04
     left_spine_offset: float = 0.0
-    bottom_spine_offset: float = 4.0
+    bottom_spine_offset: float = 0.0
 
 
 # Default theme is a reusable immutable value, not mutable global plotting state.
@@ -164,6 +167,8 @@ def apply_theme(theme: FigureTheme | None = None) -> FigureTheme:
             "ytick.major.width": theme.tick_major_width,
             "xtick.major.pad": theme.tick_major_pad,
             "ytick.major.pad": theme.tick_major_pad,
+            "xtick.minor.pad": theme.tick_major_pad,
+            "ytick.minor.pad": theme.tick_major_pad,
             "xtick.top": False,
             "ytick.right": False,
             "legend.fontsize": theme.legend_fontsize,
@@ -212,7 +217,7 @@ def style_axes(
         ax.spines["bottom"].set_position(("outward", theme.bottom_spine_offset))
     ax.tick_params(
         axis="both",
-        which="both",
+        which="major",
         bottom=show_xticks,
         labelbottom=show_xticks,
         left=show_yticks,
@@ -220,7 +225,19 @@ def style_axes(
         top=False,
         right=False,
         direction="out",
+        length=theme.tick_major_size,
+        width=theme.tick_major_width,
+        pad=theme.tick_major_pad,
+        labelsize=theme.tick_labelsize,
     )
+    ax.tick_params(
+        axis="both", which="minor", bottom=False, left=False,
+        top=False, right=False,
+    )
+    ax.xaxis.label.set_fontsize(theme.axes_labelsize)
+    ax.yaxis.label.set_fontsize(theme.axes_labelsize)
+    ax.xaxis.labelpad = theme.axes_labelpad
+    ax.yaxis.labelpad = theme.axes_labelpad
     if xlabel is not None:
         ax.set_xlabel(xlabel if show_xticks else "")
     elif not show_xticks:

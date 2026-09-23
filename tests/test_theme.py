@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 from classical_conditioning.config.domain import (
     Alignment,
@@ -14,8 +15,10 @@ from classical_conditioning.figures.theme import (
     DOUBLE_COLUMN_MM,
     apply_theme,
     condition_color,
+    heatmap_cmap,
     mm_to_in,
     rgb_255_to_unit,
+    style_axes,
     stimulus_duration_s,
 )
 
@@ -39,6 +42,15 @@ class FigureThemeTests(unittest.TestCase):
         self.assertEqual(DEFAULT_THEME.cs_color, rgb_255_to_unit((13, 129, 54)))
         self.assertEqual(DEFAULT_THEME.us_color, rgb_255_to_unit((112, 46, 120)))
 
+    def test_march_single_fish_scaled_vigor_style(self) -> None:
+        self.assertEqual(DEFAULT_THEME.single_fish_scaled_vigor_cmap, "managua_r")
+        self.assertEqual(DEFAULT_THEME.single_fish_scaled_vigor_vmin, -0.25)
+        self.assertEqual(DEFAULT_THEME.single_fish_scaled_vigor_vmax, 0.25)
+        self.assertEqual(
+            heatmap_cmap(DEFAULT_THEME.single_fish_scaled_vigor_cmap).name,
+            "managua_r",
+        )
+
     def test_stimulus_duration_defaults(self) -> None:
         self.assertEqual(stimulus_duration_s(Alignment.CS), 10.0)
         self.assertEqual(stimulus_duration_s("US"), 0.1)
@@ -49,6 +61,7 @@ class FigureThemeTests(unittest.TestCase):
         self.assertFalse(mpl.rcParams["axes.spines.right"])
         self.assertEqual(mpl.rcParams["svg.fonttype"], "none")
         self.assertEqual(mpl.rcParams["figure.dpi"], DEFAULT_THEME.figure_dpi)
+        self.assertEqual(mpl.rcParams["font.sans-serif"], ["DejaVu Sans"])
         self.assertFalse(mpl.rcParams["axes.grid"])
         self.assertEqual(mpl.rcParams["xtick.direction"], "out")
 
@@ -56,6 +69,25 @@ class FigureThemeTests(unittest.TestCase):
         width_in, height_in = mm_to_in(DOUBLE_COLUMN_MM, 130.0)
         self.assertAlmostEqual(width_in, DOUBLE_COLUMN_MM / 25.4)
         self.assertAlmostEqual(height_in, 130.0 / 25.4)
+
+    def test_axis_spacing_and_type_are_fixed_in_points(self) -> None:
+        theme = apply_theme()
+        figure, axis = plt.subplots(figsize=mm_to_in(DOUBLE_COLUMN_MM, 90))
+        try:
+            style_axes(axis, theme=theme, xlabel="Time (s)", ylabel="Activity")
+            figure.canvas.draw()
+            self.assertEqual(axis.spines["left"].get_position(), ("outward", 0.0))
+            self.assertEqual(axis.spines["bottom"].get_position(), ("outward", 0.0))
+            for tick in (*axis.xaxis.get_major_ticks(), *axis.yaxis.get_major_ticks()):
+                self.assertEqual(tick.get_pad(), theme.tick_major_pad)
+                self.assertEqual(tick.tick1line.get_markersize(), theme.tick_major_size)
+                self.assertEqual(tick.label1.get_fontsize(), theme.tick_labelsize)
+            self.assertEqual(axis.xaxis.labelpad, theme.axes_labelpad)
+            self.assertEqual(axis.yaxis.labelpad, theme.axes_labelpad)
+            self.assertEqual(axis.xaxis.label.get_fontsize(), theme.axes_labelsize)
+            self.assertEqual(axis.yaxis.label.get_fontsize(), theme.axes_labelsize)
+        finally:
+            plt.close(figure)
 
 
 if __name__ == "__main__":

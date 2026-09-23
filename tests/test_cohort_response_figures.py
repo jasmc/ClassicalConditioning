@@ -212,6 +212,10 @@ class CohortResponseFigureSummaryTests(unittest.TestCase):
                 sidecar["artist_registry"]["heatmap__delay__scaled-total-activity"]["units"],
                 "0–1 scaled activity across all valid frames",
             )
+            self.assertEqual(
+                sidecar["artist_registry"]["heatmap__delay__scaled-total-activity"]["cmap"],
+                "magma",
+            )
             publication_sidecar = json.loads(publication.sidecar.read_text(encoding="utf-8"))
             self.assertEqual(
                 sidecar["artist_registry"], publication_sidecar["artist_registry"]

@@ -35,6 +35,12 @@ from classical_conditioning.artifacts import (
     write_json_atomic as _write_json,
 )
 from classical_conditioning.exceptions import ConfigurationError, SchemaValidationError
+from classical_conditioning.figures.theme import (
+    DOUBLE_COLUMN_MM,
+    apply_theme,
+    mm_to_in,
+    style_axes,
+)
 from classical_conditioning.paths import (
     assert_project_dir_allowed,
     condition_from_recording_name,
@@ -702,7 +708,10 @@ def _plot_camera(
     frame_axis = frames[1:]
 
     # Four complementary timing views expose cadence, distribution, rate, and drift.
-    fig, axes = plt.subplots(2, 2, figsize=(11, 7), constrained_layout=True)
+    theme = apply_theme()
+    fig, axes = plt.subplots(
+        2, 2, figsize=mm_to_in(DOUBLE_COLUMN_MM, 125), constrained_layout=True,
+    )
     axes[0, 0].plot(frame_axis, sampled_interval, color="black", linewidth=0.5)
     axes[0, 0].set(title="Sampled interval per frame", ylabel="Milliseconds")
     finite = sampled_interval[np.isfinite(sampled_interval)]
@@ -727,7 +736,7 @@ def _plot_camera(
     )
     # Apply consistent visual cleanup, save without displaying, then release memory.
     for axis in axes.flat:
-        axis.spines[["top", "right"]].set_visible(False)
+        style_axes(axis, theme=theme)
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
 
@@ -742,7 +751,10 @@ def _plot_tracking(
         return
     # Rows are tail points and columns are sampled time for an interpretable heatmap.
     angles = tracking[angle_columns].to_numpy(dtype=float).T
-    fig, axes = plt.subplots(2, 1, figsize=(12, 7), constrained_layout=True)
+    theme = apply_theme()
+    fig, axes = plt.subplots(
+        2, 1, figsize=mm_to_in(DOUBLE_COLUMN_MM, 125), constrained_layout=True,
+    )
     image = axes[0].imshow(
         angles,
         aspect="auto",
@@ -755,7 +767,9 @@ def _plot_tracking(
         xlabel="Sample across recording",
         ylabel="Tail point",
     )
-    fig.colorbar(image, ax=axes[0], label="Radians")
+    colorbar = fig.colorbar(image, ax=axes[0], label="Radians")
+    colorbar.ax.tick_params(pad=theme.tick_major_pad, labelsize=theme.tick_labelsize)
+    colorbar.ax.yaxis.labelpad = theme.axes_labelpad
     valid_count = np.isfinite(angles).sum(axis=0)
     axes[1].plot(valid_count, color="black", linewidth=0.8)
     axes[1].set(
@@ -764,7 +778,8 @@ def _plot_tracking(
         ylabel="Count",
         ylim=(-0.5, len(angle_columns) + 0.5),
     )
-    axes[1].spines[["top", "right"]].set_visible(False)
+    for axis in axes:
+        style_axes(axis, theme=theme)
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
 
@@ -776,7 +791,10 @@ def _plot_protocol(
     output_path: Path,
 ) -> None:
     # Display event starts relative to camera acquisition bounds by event type.
-    fig, axis = plt.subplots(figsize=(12, 3), constrained_layout=True)
+    theme = apply_theme()
+    fig, axis = plt.subplots(
+        figsize=mm_to_in(DOUBLE_COLUMN_MM, 55), constrained_layout=True,
+    )
     colors = {"Cycle": "#2DB757", "Reinforcer": "#750E5C"}
     levels = {name: index for index, name in enumerate(protocol["Type"].unique())}
     # Each type receives a fixed vertical level and known/default colour.
@@ -801,7 +819,7 @@ def _plot_protocol(
         yticks=list(levels.values()),
         yticklabels=list(levels),
     )
-    axis.spines[["top", "right"]].set_visible(False)
+    style_axes(axis, theme=theme)
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
 

@@ -9,11 +9,37 @@ from classical_conditioning.analysis.temporal_profiles import (
     CANDIDATE_COLUMNS,
     METRIC_IDS,
     TemporalProfileConfig,
+    _signed_bout_log_vigor,
     aggregate_event_profiles,
 )
 
 
 class TemporalProfileTests(unittest.TestCase):
+    def test_signed_log_vigor_centres_bout_medians_on_pre_cs_baseline(self) -> None:
+        values = np.array([1.0, 1.0, 1.0, 2.0, 2.0, 2.0])
+        result = _signed_bout_log_vigor(
+            values,
+            np.array([-20.0, -19.0, -18.0, 1.0, 2.0, 3.0]),
+            np.array([0, 0, 0, 1, 1, 1]),
+            np.ones(6, dtype=bool),
+            np.ones(6, dtype=bool),
+            np.array([1, 1, 1, 2, 2, 2]),
+            bin_count=2,
+            baseline_end_s=-15.0,
+        )
+        np.testing.assert_allclose(result, [0.0, np.log(2.0)])
+        missing_baseline = _signed_bout_log_vigor(
+            values,
+            np.array([-10.0, -9.0, -8.0, 1.0, 2.0, 3.0]),
+            np.array([0, 0, 0, 1, 1, 1]),
+            np.ones(6, dtype=bool),
+            np.ones(6, dtype=bool),
+            np.array([1, 1, 1, 2, 2, 2]),
+            bin_count=2,
+            baseline_end_s=-15.0,
+        )
+        self.assertTrue(np.isnan(missing_baseline).all())
+
     def setUp(self) -> None:
         self.config = TemporalProfileConfig(
             window_start_s=-1.0,
@@ -168,6 +194,52 @@ class TemporalProfileTests(unittest.TestCase):
                 metric["Movement probability"] == 1.0,
                 "Conditional intensity mean",
             ].notna().all()
+        )
+
+    def test_profile_contains_signed_log_vigor_from_distinct_bouts(self) -> None:
+        time_ms = np.arange(0, 90_000, 100)
+        relative_s = (time_ms - 45_000) / 1_000
+        before = (relative_s >= -25) & (relative_s < -16)
+        after = (relative_s >= 1) & (relative_s < 5)
+        moving = before | after
+        values = np.where(after, 2.0, 1.0)
+        frames = pd.DataFrame(
+            {
+                "AbsoluteTime": time_ms,
+                "FrameStep": np.ones(len(time_ms), dtype=int),
+                "DeltaTimeMs": np.full(len(time_ms), 100.0),
+                **{column: values for column in CANDIDATE_COLUMNS},
+            }
+        )
+        movement = pd.DataFrame(
+            {
+                "AbsoluteTime": time_ms,
+                "valid": np.ones(len(time_ms), dtype=bool),
+                "moving": moving,
+                "bout_id": np.where(before, 1, np.where(after, 2, 0)),
+            }
+        )
+        protocol = pd.DataFrame(
+            {"Type": ["Cycle"], "Beg": [45_000], "End": [45_100]}
+        )
+        result = aggregate_event_profiles(
+            frames, protocol, config=TemporalProfileConfig(),
+            movement_state=movement,
+        )
+        metric = result[result["Metric ID"] == "tail_length_weighted_angular_l1"]
+        self.assertAlmostEqual(
+            metric.loc[metric["Time bin center (s)"] == -20.25,
+                       "Signed log vigor"].iloc[0],
+            0.0,
+        )
+        self.assertAlmostEqual(
+            metric.loc[metric["Time bin center (s)"] == 2.25,
+                       "Signed log vigor"].iloc[0],
+            np.log(2.0),
+        )
+        self.assertTrue(
+            metric.loc[metric["Time bin center (s)"] == 10.25,
+                       "Signed log vigor"].isna().all()
         )
 
     def test_invalid_detector_samples_are_not_counted_as_rest(self) -> None:

@@ -40,6 +40,7 @@ class ProfileFigureTests(unittest.TestCase):
                             "Total activity mean": 1.0 + index,
                             "Scaled total activity": 0.5,
                             "Conditional intensity mean": 2.0 + index,
+                            "Signed log vigor": (-0.1 if time < 0 else 0.1),
                             "Movement probability": 0.5,
                             "Fraction time moving": 0.5,
                             "Bout rate per minute": 3.0,
@@ -103,6 +104,36 @@ class ProfileFigureTests(unittest.TestCase):
                 [panel.metric_id for panel in spec.panels],
                 list(METRIC_LABELS),
             )
+
+    def test_scaled_activity_heatmap_has_its_own_unsigned_scale(self) -> None:
+        for panel in FIGURE_SPECS["total-activity-scaled"].panels:
+            self.assertEqual(_panel_cmap_name(panel, DEFAULT_THEME), "magma")
+            self.assertEqual(panel.vmin, 0)
+            self.assertEqual(panel.vmax, 1)
+
+    def test_signed_single_fish_heatmap_uses_march_palette_and_cs_limits(self) -> None:
+        figure, _, mappings = _candidate_heatmap_figure(
+            self.profiles, "CS", "signed-log-vigor"
+        )
+        try:
+            images = [axis.images[0] for axis in figure.axes if axis.images]
+            self.assertEqual(len(images), len(METRIC_LABELS))
+            for image in images:
+                self.assertEqual(image.get_cmap().name, "managua_r")
+                self.assertEqual(image.get_clim(), (-0.25, 0.25))
+                np.testing.assert_allclose(image.get_cmap().get_bad()[:3], (0, 0, 0))
+            self.assertTrue(
+                all(
+                    mapping["display_scale"] == "linear, fixed [-0.25, 0.25]"
+                    and mapping["cmap"] == "managua_r"
+                    for key, mapping in mappings.items()
+                    if key.startswith("heatmap__")
+                )
+            )
+        finally:
+            plt.close(figure)
+        with self.assertRaisesRegex(ValueError, "CS display scale"):
+            _candidate_heatmap_figure(self.profiles, "US", "signed-log-vigor")
 
     def test_bout_figure_is_metric_free_with_three_outcome_rows(self) -> None:
         spec = FIGURE_SPECS["bout-outcomes"]

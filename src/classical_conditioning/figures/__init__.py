@@ -34,12 +34,14 @@ from classical_conditioning.figures.cohort_response import (
 from classical_conditioning.figures.temporal_profiles import (
     build_candidate_profile_figure,
 )
+from classical_conditioning.figures.example_traces import build_example_trace_figure
 
 # The supported rendering API; private plotting helpers are intentionally absent.
 __all__ = [
     "FigureMode",
     "FigureProvenance",
     "build_candidate_profile_figure",
+    "build_example_trace_figure",
     "build_block_profile_figure",
     "build_catch_profile_figure",
     "build_event_aligned_ratio_figure",

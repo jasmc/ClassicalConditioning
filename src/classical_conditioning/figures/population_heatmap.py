@@ -35,7 +35,7 @@ from classical_conditioning.figures.export import (
     FigureProvenance,
     export_matplotlib_figure,
 )
-from classical_conditioning.figures.theme import DOUBLE_COLUMN_MM, apply_theme, mm_to_in
+from classical_conditioning.figures.theme import DOUBLE_COLUMN_MM, apply_theme, heatmap_cmap, mm_to_in, style_axes
 
 
 def summarize_population_heatmap(
@@ -184,7 +184,7 @@ def build_population_heatmap_figure(
         )
     input_artifacts.append({"recipe": "cohort-population-heatmap", "path": str(panel_data), "sha256": sha256_file(panel_data)})
 
-    apply_theme()
+    theme = apply_theme()
     figure, axes = plt.subplots(
         2, 2, figsize=mm_to_in(DOUBLE_COLUMN_MM, 112),
         gridspec_kw={"height_ratios": [4, 1]}, sharex="col", sharey="row",
@@ -205,7 +205,9 @@ def build_population_heatmap_figure(
             coverage = _matrix(subset, "Fish coverage fraction", trials, times)
             main_image = axes[0, index].imshow(
                 np.ma.masked_invalid(activity), origin="lower", aspect="auto",
-                extent=extent, vmin=0, vmax=1, cmap="magma", interpolation="nearest",
+                extent=extent, vmin=0, vmax=1,
+                cmap="magma",
+                interpolation="nearest",
             )
             main_id = f"heatmap__{condition}__scaled-total-activity"
             main_image.set_gid(main_id)
@@ -214,6 +216,8 @@ def build_population_heatmap_figure(
                 "coverage_field": "Contributing fish",
                 "x_field": "Time bin center (s)", "y_field": "Trial number",
                 "units": "0–1 scaled activity across all valid frames",
+                "cmap": main_image.get_cmap().name,
+                "display_scale": "linear, fixed [0, 1]",
                 "cohort_hash": cohort.cohort_hash,
             }
             coverage_image = axes[1, index].imshow(
@@ -236,6 +240,8 @@ def build_population_heatmap_figure(
             for axis in axes[:, index]:
                 axis.axvline(0, color="#009E73", linewidth=0.7)
                 axis.axvline(10, color="#009E73", linewidth=0.7, linestyle="--")
+            style_axes(axes[0, index], theme=theme, show_xticks=False, show_yticks=index == 0)
+            style_axes(axes[1, index], theme=theme, show_yticks=index == 0)
         axes[0, 0].set_ylabel("Global CS trial")
         axes[1, 0].set_ylabel("Global CS trial")
         figure.colorbar(main_image, ax=axes[0, :], label="Mean scaled total activity (0–1)")
