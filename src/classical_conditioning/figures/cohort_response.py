@@ -80,11 +80,11 @@ class SelectedBlock:
     end_trial: int
 
 
-# These match the historical selected blocks while declaring their numeric
-# membership directly.  Candidate trial outcomes do not otherwise carry a
-# five-trial block name.
+# Manuscript block selection is explicit: the final five Pre-Train trials,
+# then the first and final five Test trials. It is independent of ten-trial
+# acquisition block labels elsewhere in the experiment definition.
 DEFAULT_SELECTED_BLOCKS = (
-    SelectedBlock("Early Pre-train", 5, 9),
+    SelectedBlock("Final Pre-train", 10, 14),
     SelectedBlock("Early Test", 65, 69),
     SelectedBlock("Late Test", 90, 94),
 )
@@ -1158,7 +1158,7 @@ def build_selected_block_ratio_figure(
     analysis_id: str,
     metric_id: str,
     outcome_id: str = "total-activity",
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     mode: FigureMode,
     selected_blocks: tuple[SelectedBlock, ...] = DEFAULT_SELECTED_BLOCKS,
     min_trials_per_fish_block: int = 3,
@@ -1227,7 +1227,7 @@ def build_trial_ratio_figure(
     analysis_id: str,
     metric_id: str,
     outcome_id: str = "total-activity",
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     mode: FigureMode,
     overwrite: bool = False,
 ) -> FigureExportResult:
@@ -1325,7 +1325,7 @@ def _build_scaled_activity_profile_figure(
     source_path = Path(__file__).resolve()
     provenance = FigureProvenance(
         figure_id=f"{figure_name.replace('_', '-')}-{_metric_slug(metric_id)}",
-        analysis_recipe="cohort-scaled-activity-profile-figures-v1",
+        analysis_recipe="cohort-scaled-activity-profile-figures",
         source_file=str(source_path),
         source_symbol=source_symbol,
         source_hash=sha256_file(source_path),
@@ -1370,7 +1370,7 @@ def build_catch_profile_figure(
     cohort_id: str,
     analysis_id: str,
     metric_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     mode: FigureMode,
     minimum_coverage: float = 0.9,
     overwrite: bool = False,
@@ -1402,7 +1402,7 @@ def build_block_profile_figure(
     cohort_id: str,
     analysis_id: str,
     metric_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     mode: FigureMode,
     minimum_coverage: float = 0.9,
     overwrite: bool = False,
@@ -1433,7 +1433,7 @@ def build_event_aligned_ratio_figure(
     analysis_id: str,
     metric_id: str,
     outcome_id: str = "total-activity",
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     mode: FigureMode,
     overwrite: bool = False,
 ) -> FigureExportResult:

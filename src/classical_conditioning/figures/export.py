@@ -244,6 +244,23 @@ def _validate_svg_registry(
     # Parse the finished SVG and enforce that its semantic artist registry is
     # both complete and unique after serialization.
     root = ET.parse(svg_path).getroot()
+    # SciFigEditor treats generated SVG as passive data. Keep the same import
+    # boundary here: local fragment references and embedded raster pixels are
+    # allowed, but scripts, handlers, and external resources are not.
+    for element in root.iter():
+        tag = element.tag.rsplit("}", 1)[-1].lower()
+        if tag in {"script", "foreignobject"}:
+            raise ValueError(f"Semantic SVG contains active {tag} content.")
+        for attribute, value in element.attrib.items():
+            name = attribute.rsplit("}", 1)[-1].lower()
+            if name.startswith("on") and name not in {"opacity"}:
+                raise ValueError(f"Semantic SVG contains an event handler: {name}.")
+            if name in {"href", "src"} and not (
+                value.startswith("#")
+                or value.startswith("data:image/png;base64,")
+                or value.startswith("data:image/jpeg;base64,")
+            ):
+                raise ValueError("Semantic SVG contains an external resource reference.")
     ids = [
         element.attrib["id"]
         for element in root.iter()

@@ -17,6 +17,7 @@ from classical_conditioning.figures.export import (
     PROVENANCE_NAMESPACE,
     FigureMode,
     FigureProvenance,
+    _validate_svg_registry,
     export_matplotlib_figure,
 )
 
@@ -38,6 +39,13 @@ class FigureExportTests(unittest.TestCase):
                 source_hash=sha256_file(Path(__file__).resolve()),
                 reproduction_snippet="build_test_figure()",
                 input_artifacts=({"path": "input.parquet", "sha256": "abc"},),
+                artist_mappings={
+                    "series__a__condition": {
+                        "value_field": "activity_rad_per_ms",
+                        "x_field": "time_s",
+                        "units": "rad/ms",
+                    }
+                },
             )
             result = export_matplotlib_figure(
                 figure,
@@ -60,6 +68,11 @@ class FigureExportTests(unittest.TestCase):
                 f".//{{{PROVENANCE_NAMESPACE}}}analysis-provenance"
             )
             sidecar = json.loads(result.sidecar.read_text(encoding="utf-8"))
+            sidecar_digest = sha256_file(result.sidecar)
+            ET.SubElement(tree.getroot(), "{http://www.w3.org/2000/svg}script").text = "alert(1)"
+            tree.write(svg, encoding="utf-8", xml_declaration=True)
+            with self.assertRaisesRegex(ValueError, "active script"):
+                _validate_svg_registry(svg, sidecar["artist_registry"])
 
         self.assertIn("axes__a__main", ids)
         self.assertIn("axis-title__a__x", ids)
@@ -69,7 +82,11 @@ class FigureExportTests(unittest.TestCase):
         assert metadata is not None
         embedded = json.loads(metadata.text)
         self.assertEqual(embedded["reproduction_snippet"], "build_test_figure()")
+        self.assertEqual(embedded["sidecar_sha256"], sidecar_digest)
         self.assertIn("axes__a__main", sidecar["artist_registry"])
+        self.assertEqual(
+            sidecar["artist_registry"]["series__a__condition"]["units"], "rad/ms"
+        )
 
     def test_publication_export_rejects_dirty_worktree_by_default(self) -> None:
         with tempfile.TemporaryDirectory() as directory:

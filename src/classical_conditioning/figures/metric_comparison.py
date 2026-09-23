@@ -50,11 +50,9 @@ CONDITION_DISPLAY = {
 }
 
 
-def _figure_version_tag(comparison_recipe: str) -> str:
-    # Preserve the metric recipe's visible version in exported figure filenames.
-    if comparison_recipe.endswith("-corrected-v1"):
-        return "corrected-v1"
-    return "v1"
+def _figure_route_suffix(comparison_recipe: str) -> str:
+    # Separate the direct-intake benchmark without stamping routine revisions.
+    return "" if comparison_recipe.endswith("-corrected") else "-benchmark"
 
 
 def _condition_colors(experiment_name: str | None) -> dict[str, tuple[float, float, float]]:
@@ -273,7 +271,7 @@ def build_metric_comparison_figure(
         outcome_id=outcome_id,
         experiment_name=experiment_name,
     )
-    version = _figure_version_tag(recipe_id)
+    route_suffix = _figure_route_suffix(recipe_id)
     output_root = (
         project_dir
         / "Figures"
@@ -283,12 +281,12 @@ def build_metric_comparison_figure(
     )
     output_base = (
         output_root
-        / f"metric-comparison_{trial_type.lower()}_{outcome_id}-{version}"
+        / f"metric-comparison_{trial_type.lower()}_{outcome_id}{route_suffix}"
     )
     source_path = Path(__file__).resolve()
     provenance = FigureProvenance(
         figure_id=(
-            f"metric-comparison-{trial_type.lower()}-{outcome_id}-{version}"
+            f"metric-comparison-{trial_type.lower()}-{outcome_id}{route_suffix}"
         ),
         analysis_recipe=recipe_id,
         source_file=str(source_path),

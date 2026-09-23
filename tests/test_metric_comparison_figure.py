@@ -86,8 +86,8 @@ class MetricComparisonFigureTests(unittest.TestCase):
     def test_builder_writes_static_png(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             project = Path(temporary)
-            analysis_id = "c-copy-4fish-cohort-v1"
-            recipe = "candidate-metric-comparison-corrected-v1"
+            analysis_id = "c-copy-4fish-cohort"
+            recipe = "candidate-metric-comparison-corrected"
             output_dir = project / "Processed data" / "Analyses" / analysis_id
             output_dir.mkdir(parents=True)
             path = output_dir / f"{recipe}_recording_summary.parquet"
@@ -102,7 +102,7 @@ class MetricComparisonFigureTests(unittest.TestCase):
                 project,
                 analysis_id,
                 mode=FigureMode.STATIC,
-                comparison_recipe="candidate-metric-comparison-corrected-v1",
+                comparison_recipe="candidate-metric-comparison-corrected",
                 overwrite=True,
             )
             pngs = [path for path in result.outputs if path.suffix == ".png"]
@@ -118,14 +118,14 @@ class MetricComparisonFigureTests(unittest.TestCase):
                 "--project-dir",
                 "Paper data",
                 "--analysis-id",
-                "c-copy-4fish-cohort-v1",
+                "c-copy-4fish-cohort",
                 "--mode",
                 "static",
             ]
         )
         self.assertEqual(
             args.recipe,
-            "candidate-metric-comparison-corrected-v1",
+            "candidate-metric-comparison-corrected",
         )
         profile = parser.parse_args(
             [
@@ -137,12 +137,12 @@ class MetricComparisonFigureTests(unittest.TestCase):
                 "--mode",
                 "static",
                 "--recipe",
-                "candidate-temporal-outcomes-corrected-v3",
+                "candidate-temporal-outcomes-corrected",
             ]
         )
         self.assertEqual(
             profile.recipe,
-            "candidate-temporal-outcomes-corrected-v3",
+            "candidate-temporal-outcomes-corrected",
         )
 
 

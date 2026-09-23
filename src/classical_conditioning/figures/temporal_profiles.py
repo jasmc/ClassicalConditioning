@@ -240,11 +240,9 @@ def _panel_scale(
     return vmin, vmax, description
 
 
-def figure_version_tag(source: CandidateMetricSource) -> str:
-    """Stable filename suffix for a candidate temporal recipe."""
-    if source.requires_corrected_preprocess:
-        return "corrected-v2"
-    return "v2"
+def figure_route_suffix(source: CandidateMetricSource) -> str:
+    """Keep the direct-intake benchmark distinct from routine figure paths."""
+    return "" if source.requires_corrected_preprocess else "-benchmark"
 
 
 def _load_profiles(
@@ -526,7 +524,7 @@ def build_candidate_profile_figure(
         raise ValueError(f"Unknown candidate figure: {figure_id}")
     spec = FIGURE_SPECS[figure_id]
     source_path = Path(__file__).resolve()
-    version = figure_version_tag(route)
+    route_suffix = figure_route_suffix(route)
     reproduction = (
         "python -m classical_conditioning figure-candidate-profiles "
         f"--project-dir \"{project_dir}\" --recording-id {recording_id} "
@@ -542,7 +540,7 @@ def build_candidate_profile_figure(
             / "Figures"
             / "Interactive"
             / recording_id
-            / f"candidate_{trial_type.lower()}_{figure_id}-{version}.html"
+            / f"candidate_{trial_type.lower()}_{figure_id}{route_suffix}.html"
         )
         if output.exists() and not overwrite:
             raise FileExistsError(f"Interactive figure exists: {output}")
@@ -602,7 +600,7 @@ def build_candidate_profile_figure(
                 staged_sidecar,
                 {
                     "figure_id": (
-                        f"candidate-{trial_type.lower()}-{figure_id}-{version}"
+                        f"candidate-{trial_type.lower()}-{figure_id}{route_suffix}"
                     ),
                     "analysis_recipe": route.temporal_recipe,
                     "mode": "interactive",
@@ -642,10 +640,10 @@ def build_candidate_profile_figure(
         / recording_id
     )
     output_base = (
-        output_root / f"candidate_{trial_type.lower()}_{figure_id}-{version}"
+        output_root / f"candidate_{trial_type.lower()}_{figure_id}{route_suffix}"
     )
     provenance = FigureProvenance(
-        figure_id=f"candidate-{trial_type.lower()}-{figure_id}-{version}",
+        figure_id=f"candidate-{trial_type.lower()}-{figure_id}{route_suffix}",
         analysis_recipe=route.temporal_recipe,
         source_file=str(source_path),
         source_symbol="build_candidate_profile_figure",
