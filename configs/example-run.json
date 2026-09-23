@@ -2,14 +2,8 @@
   "raw_dir": "D:\\path\\to\\raw\\delay_fish",
   "save_dir": "E:\\path\\to\\project\\Paper data",
   "experiment": "allDelay",
-  "analysis_id": "delay-cohort-v1",
+  "analysis_id": "delay-cohort",
   "keep_conditions": ["control", "delay"],
-  "routes": ["candidate"],
-  "candidate_runner_recipe": "candidate-corrected-runner-v1",
-  "run_inventory": true,
-  "run_intake": true,
-  "run_figures": true,
-  "figure_outcomes": ["movement-probability"],
   "overwrite": false,
-  "continue_on_error": true,
+  "continue_on_error": true
 }

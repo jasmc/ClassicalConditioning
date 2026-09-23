@@ -6,13 +6,13 @@ param(
 $ErrorActionPreference = "Stop"
 
 $uv = "C:\Users\joaquim\.local\bin\uv.exe"
-$project = "F:\Digested Data\allDelay-full-v1"
+$project = "F:\Digested Data\allDelay-full"
 $inventoryPath = Join-Path $project "Metadata\recording_inventory.json"
 $configPath = Join-Path $PSScriptRoot "..\configs\allDelay-full-windows.json"
-$cohortPath = Join-Path $PSScriptRoot "..\configs\allDelay-full-v1-cohort.csv"
-$cohortId = "allDelay-full-v1"
-$analysisId = "allDelay-full-learning-onset-v1"
-$runnerManifest = Join-Path $project "Metadata\allDelay-full-v1-candidate_candidate-corrected-runner-v1_manifest.json"
+$cohortPath = Join-Path $PSScriptRoot "..\configs\allDelay-full-cohort.csv"
+$cohortId = "allDelay-full"
+$analysisId = "allDelay-full-learning-onset"
+$runnerManifest = Join-Path $project "Metadata\allDelay-full-candidate_candidate-corrected-runner_manifest.json"
 
 function Test-FullCandidateRun {
     if (-not (Test-Path -LiteralPath $runnerManifest -PathType Leaf)) {
@@ -75,10 +75,10 @@ if (-not (Test-Path -LiteralPath $cohortPath -PathType Leaf)) {
     $rows | Export-Csv -LiteralPath $cohortPath -NoTypeInformation -Encoding utf8
 }
 
-& $uv run classical-conditioning freeze-cohort --project-dir $project --input $cohortPath --cohort-id $cohortId --policy-id all-complete-triplets-v1
+& $uv run classical-conditioning freeze-cohort --project-dir $project --input $cohortPath --cohort-id $cohortId --policy-id all-complete-triplets
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-& $uv run classical-conditioning build-cohort-trial-outcomes --project-dir $project --cohort-id $cohortId --metric-recipe tail-candidate-corrected-v1
+& $uv run classical-conditioning build-cohort-trial-outcomes --project-dir $project --cohort-id $cohortId --metric-recipe tail-candidate-corrected
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 & $uv run classical-conditioning learning-onset --project-dir $project --cohort-id $cohortId --analysis-id $analysisId --metric $MetricId --outcome total-activity --test-condition delay --delta-min 0 --bootstrap 499 --permutations 9999

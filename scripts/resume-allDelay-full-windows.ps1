@@ -5,7 +5,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $uv = "C:\Users\joaquim\.local\bin\uv.exe"
-$project = "F:\Digested Data\allDelay-full-v1"
+$project = "F:\Digested Data\allDelay-full"
 $inventoryPath = Join-Path $project "Metadata\recording_inventory.json"
 $configPath = Join-Path $PSScriptRoot "..\configs\allDelay-full-windows.json"
 

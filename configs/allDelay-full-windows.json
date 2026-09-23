@@ -1,21 +1,9 @@
 {
   "raw_dir": "J:\\Raw Data\\allDelay",
-  "save_dir": "F:\\Digested Data\\allDelay-full-v1",
+  "save_dir": "F:\\Digested Data\\allDelay-full",
   "experiment": "allDelay",
-  "analysis_id": "allDelay-full-v1",
-  "routes": ["candidate"],
+  "analysis_id": "allDelay-full",
   "keep_conditions": ["control", "delay"],
-  "candidate_runner_recipe": "candidate-corrected-runner-v1",
-  "run_inventory": false,
-  "run_intake": true,
-  "run_figures": true,
-  "figure_outcomes": [
-    "total-activity",
-    "movement-probability",
-    "fraction-time-moving",
-    "conditional-intensity",
-    "bout-rate"
-  ],
   "overwrite": false,
   "continue_on_error": true
 }

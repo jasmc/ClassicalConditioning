@@ -18,9 +18,9 @@ param(
     [string]$ProjectDir,
 
     [string]$UvPath = "uv",
-    [string]$AnalysisId = "allDelay-full-v1",
-    [string]$CohortId = "allDelay-full-v1",
-    [string]$LearningAnalysisId = "allDelay-full-learning-onset-v1",
+    [string]$AnalysisId = "allDelay-full",
+    [string]$CohortId = "allDelay-full",
+    [string]$LearningAnalysisId = "allDelay-full-learning-onset",
     [string]$MetricId = "tail_length_weighted_angular_l1"
 )
 
@@ -33,8 +33,8 @@ $inventoryPath = Join-Path $metadata "recording_inventory.json"
 $environmentPath = Join-Path $metadata "environment.json"
 $configPath = Join-Path $metadata "allDelay-full-pipeline-config.json"
 $cohortPath = Join-Path $metadata "${CohortId}-cohort-review.csv"
-$runnerManifest = Join-Path $metadata "${AnalysisId}-candidate_candidate-corrected-runner-v1_manifest.json"
-$cohortMarker = Join-Path $metadata "${CohortId}_cohort-manifest-v1_complete.json"
+$runnerManifest = Join-Path $metadata "${AnalysisId}-candidate_candidate-corrected-runner_manifest.json"
+$cohortMarker = Join-Path $metadata "${CohortId}_cohort-manifest_complete.json"
 $outcomesMarker = Join-Path $metadata "${CohortId}_cohort-trial-outcomes_complete.json"
 $lmeMarker = Join-Path $metadata "${LearningAnalysisId}_learning-onset_complete.json"
 $lmeSummary = Join-Path $project "Quality checks\Analyses\$LearningAnalysisId\learning-onset_summary.json"
@@ -85,13 +85,7 @@ if (-not (Test-Path -LiteralPath $configPath -PathType Leaf)) {
         save_dir = $project
         experiment = "allDelay"
         analysis_id = $AnalysisId
-        routes = @("candidate")
         keep_conditions = @("control", "delay")
-        candidate_runner_recipe = "candidate-corrected-runner-v1"
-        run_inventory = $false
-        run_intake = $true
-        run_figures = $true
-        figure_outcomes = @("total-activity", "movement-probability", "fraction-time-moving", "conditional-intensity", "bout-rate")
         overwrite = $false
         continue_on_error = $true
     } | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath $configPath -Encoding utf8
@@ -127,11 +121,11 @@ if (-not (Test-Path -LiteralPath $cohortMarker -PathType Leaf)) {
         }
         $rows | Export-Csv -LiteralPath $cohortPath -NoTypeInformation -Encoding utf8
     }
-    Invoke-WorkflowCommand @("run", "classical-conditioning", "freeze-cohort", "--project-dir", $project, "--input", $cohortPath, "--cohort-id", $CohortId, "--policy-id", "all-complete-triplets-v1")
+    Invoke-WorkflowCommand @("run", "classical-conditioning", "freeze-cohort", "--project-dir", $project, "--input", $cohortPath, "--cohort-id", $CohortId, "--policy-id", "all-complete-triplets")
 }
 
 if (-not (Test-Path -LiteralPath $outcomesMarker -PathType Leaf)) {
-    Invoke-WorkflowCommand @("run", "classical-conditioning", "build-cohort-trial-outcomes", "--project-dir", $project, "--cohort-id", $CohortId, "--metric-recipe", "tail-candidate-corrected-v1")
+    Invoke-WorkflowCommand @("run", "classical-conditioning", "build-cohort-trial-outcomes", "--project-dir", $project, "--cohort-id", $CohortId, "--metric-recipe", "tail-candidate-corrected")
 }
 
 if (Test-Path -LiteralPath $lmeMarker -PathType Leaf) {
