@@ -62,7 +62,7 @@ def export_resolved_config(
     project_dir: Path,
     *,
     experiment_name: str = "allDelay",
-    runner_recipe: str = "candidate-corrected-runner-v1",
+    runner_recipe: str = "candidate-corrected-runner",
     overwrite: bool = False,
 ) -> ResolvedConfigExport:
     """Write a reproducible description of the supported candidate route."""
@@ -105,12 +105,12 @@ def export_resolved_config(
     if not overwrite and any(path.exists() for path in targets):
         raise FileExistsError("Resolved configuration artifacts already exist; pass overwrite=True.")
     # Atomically publish the resolved settings, trial map, and concise provenance.
-    write_json_atomic(config_path, {"artifact_kind": "resolved-candidate-config-v1", "config_hash": config_hash, "resolved": resolved})
+    write_json_atomic(config_path, {"artifact_kind": "resolved-candidate-config", "config_hash": config_hash, "resolved": resolved})
     write_json_atomic(trial_map_path, get_experiment_trial_map(experiment_name))
     write_json_atomic(
         source_report_path,
         {
-            "artifact_kind": "configuration-source-report-v1",
+            "artifact_kind": "configuration-source-report",
             "recipe_id": route.runner_recipe,
             "experiment_id": experiment.experiment_id,
             "scientific_status": route.scientific_status,

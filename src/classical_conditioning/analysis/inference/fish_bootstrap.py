@@ -1,7 +1,7 @@
 """Fish-level bootstrap intervals for early-vs-late learning effects (Step 10.4).
 
 Resamples fish (never trials or frames) to estimate uncertainty of the mean
-fish-level effect. Companion to candidate-fish-permutation-v1; not Gate S.
+fish-level effect. Companion to candidate-fish-permutation; not Gate S.
 
 Review note: resampling units are fish, preserving within-fish trial dependence
 instead of treating frames or trials as independently resampleable observations.
@@ -42,7 +42,7 @@ from classical_conditioning.artifacts import (
 )
 from classical_conditioning.exceptions import ConfigurationError
 
-RECIPE_ID = "candidate-fish-bootstrap-v1"
+RECIPE_ID = "candidate-fish-bootstrap"
 
 
 @dataclass(frozen=True)
@@ -188,7 +188,7 @@ def build_candidate_fish_bootstrap(
     recording_ids: Iterable[str],
     *,
     analysis_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     config: FishBootstrapConfig = FishBootstrapConfig(),
     overwrite: bool = False,
 ) -> FishBootstrapResult:

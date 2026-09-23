@@ -38,7 +38,7 @@ from classical_conditioning.artifacts import (
 )
 from classical_conditioning.exceptions import ConfigurationError
 
-RECIPE_ID = "candidate-mixed-effects-v1"
+RECIPE_ID = "candidate-mixed-effects"
 
 
 @dataclass(frozen=True)
@@ -267,7 +267,7 @@ def build_candidate_mixed_effects(
     recording_ids: Iterable[str],
     *,
     analysis_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     config: MixedEffectsConfig = MixedEffectsConfig(),
     overwrite: bool = False,
 ) -> MixedEffectsResult:

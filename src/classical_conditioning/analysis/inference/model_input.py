@@ -37,7 +37,7 @@ from classical_conditioning.exceptions import (
     SchemaValidationError,
 )
 
-RECIPE_ID = "candidate-model-input-v1"
+RECIPE_ID = "candidate-model-input"
 OUTCOME_SPECS = {
     "total-activity": (
         "response_total_activity",
@@ -129,7 +129,7 @@ def load_authenticated_trial_outcomes(
     project_dir: Path,
     recording_ids: Iterable[str],
     *,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
 ) -> tuple[pd.DataFrame, dict[str, dict[str, str]], str]:
     """Load and authenticate candidate trial-outcome Parquet for many recordings."""
     recording_ids = tuple(dict.fromkeys(recording_ids))
@@ -339,7 +339,7 @@ def build_candidate_model_input_artifact(
     recording_ids: Iterable[str],
     *,
     analysis_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     config: ModelInputConfig = ModelInputConfig(),
     overwrite: bool = False,
 ) -> ModelInputArtifactResult:

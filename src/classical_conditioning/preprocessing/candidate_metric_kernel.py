@@ -436,7 +436,7 @@ def build_direct_intake_candidate_metrics(
     # The benchmark writer uses the same frozen metric formula configuration.
     if config != CandidateMetricConfig():
         raise ValueError(
-            "tail-candidate-development-v1 uses a frozen configuration. "
+            "tail-candidate-development uses a frozen configuration. "
             "Parameter changes require a different recipe identity."
         )
     project_dir = project_dir.resolve()
@@ -448,17 +448,17 @@ def build_direct_intake_candidate_metrics(
         recording_id,
     )
 
-    metrics_path = source_dir / "frame_activity_candidates-v1.parquet"
+    metrics_path = source_dir / "frame_activity_candidates.parquet"
     summary_path = (
         project_dir
         / "Quality checks"
         / recording_id
-        / "candidate-v1_activity_summary.json"
+        / "candidate_activity_summary.json"
     )
     marker_path = (
         project_dir
         / "Metadata"
-        / f"{recording_id}_candidate-v1_complete.json"
+        / f"{recording_id}_candidate_complete.json"
     )
     existing = [
         path for path in (metrics_path, summary_path, marker_path) if path.exists()
@@ -500,11 +500,11 @@ def build_direct_intake_candidate_metrics(
     # Authenticate intake source and publish output/QC/marker together from staging.
     with artifact_staging(
         project_dir,
-        prefix=f".{recording_id}-candidate-v1-",
+        prefix=f".{recording_id}-candidate-",
     ) as staging_root:
-        staged_metrics = staging_root / "frame_activity_candidates-v1.parquet"
-        staged_summary = staging_root / "candidate-v1_activity_summary.json"
-        staged_marker = staging_root / "candidate-v1_complete.json"
+        staged_metrics = staging_root / "frame_activity_candidates.parquet"
+        staged_summary = staging_root / "candidate_activity_summary.json"
+        staged_marker = staging_root / "candidate_complete.json"
         writer: pq.ParquetWriter | None = None
         try:
             for batch in tracking_file.iter_batches(
@@ -558,7 +558,7 @@ def build_direct_intake_candidate_metrics(
                         preserve_index=False,
                     ).schema.with_metadata(
                         {
-                            b"recipe": b"tail-candidate-development-v1",
+                            b"recipe": b"tail-candidate-development",
                             b"scientific_status": b"candidate_development",
                             b"recording_id": recording_id.encode("utf-8"),
                             b"source_tracking_sha256": input_artifacts["tracking"][
@@ -644,7 +644,7 @@ def build_direct_intake_candidate_metrics(
 
         metric_hash = _sha256_file(staged_metrics)
         summary: dict[str, Any] = {
-            "recipe": "tail-candidate-development-v1",
+            "recipe": "tail-candidate-development",
             "scientific_status": "candidate_development",
             "recording_id": recording_id,
             "recording_name": recording_name,
@@ -698,7 +698,7 @@ def build_direct_intake_candidate_metrics(
                 "Candidate metrics are exploratory and not paper-approved.",
                 "Body translation is removed by subtracting tail-base position.",
                 "No independent body-axis measurement is available, so rotation is not corrected.",
-                "No temporal or spatial smoothing is applied in candidate-v1.",
+                "No temporal or spatial smoothing is applied in candidate.",
                 "Movement-state thresholds and bouts are not defined in this artifact.",
             ],
             "input_artifacts": input_artifacts,
@@ -716,7 +716,7 @@ def build_direct_intake_candidate_metrics(
             staged_marker,
             {
                 "status": "complete",
-                "recipe": "tail-candidate-development-v1",
+                "recipe": "tail-candidate-development",
                 "recording_id": recording_id,
                 "metrics_sha256": metric_hash,
                 "summary_sha256": summary_hash,

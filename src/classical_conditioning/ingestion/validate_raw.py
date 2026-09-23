@@ -61,7 +61,7 @@ def validate_raw_triplet(
 
     # Assemble a self-contained JSON-ready report with reader decisions and QC.
     summary: dict[str, Any] = {
-        "artifact_kind": "raw-acquisition-validation-v1",
+        "artifact_kind": "raw-acquisition-validation",
         "recording_id": sources.recording_id,
         "recording_name": sources.recording_name,
         "camera": {

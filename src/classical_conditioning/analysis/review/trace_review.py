@@ -30,6 +30,7 @@ from classical_conditioning.analysis.movement_state import (
     DETECTOR_COLUMNS,
     DETECTOR_SOURCE_COLUMN,
     METRIC_IDS,
+    resolve_candidate_metric_source,
     smooth_contiguous_median,
 )
 from classical_conditioning.config.domain import Alignment
@@ -437,32 +438,34 @@ def build_trace_review(
     project_dir: Path,
     recording_id: str,
     *,
+    metric_recipe: str = "tail-candidate-development",
     overwrite: bool = False,
 ) -> TraceReviewResult:
     """Build local review data, figures, and an annotation template."""
     project_dir = project_dir.resolve()
+    route = resolve_candidate_metric_source(metric_recipe=metric_recipe)
     source_dir = project_dir / "Processed data" / recording_id
-    metric_path = source_dir / "frame_activity_candidates-v1.parquet"
-    movement_path = source_dir / "movement_state_candidates-v2.parquet"
+    metric_path = source_dir / route.metrics_name
+    movement_path = source_dir / route.movement_artifact_name
     protocol_path = source_dir / "stimulus_events.parquet"
     movement_summary_path = (
         project_dir
         / "Quality checks"
         / recording_id
-        / "movement-candidate-v2_summary.json"
+        / route.movement_summary_name
     )
     metric_marker = json.loads(
         (
             project_dir
             / "Metadata"
-            / f"{recording_id}_candidate-v1_complete.json"
+        / f"{recording_id}_{route.metric_marker_suffix}"
         ).read_text(encoding="utf-8")
     )
     movement_marker = json.loads(
         (
             project_dir
             / "Metadata"
-            / f"{recording_id}_movement-candidate-v2_complete.json"
+        / f"{recording_id}_{route.movement_marker_suffix}"
         ).read_text(encoding="utf-8")
     )
     if sha256_file(metric_path) != metric_marker["metrics_sha256"]:
@@ -478,21 +481,21 @@ def build_trace_review(
         project_dir
         / "Quality checks"
         / recording_id
-        / "candidate-v1_activity_summary.json"
+        / route.metric_summary_name
     )
     metric_summary = json.loads(metric_summary_path.read_text(encoding="utf-8"))
     if (
         metric_marker.get("status") != "complete"
-        or metric_marker.get("recipe") != "tail-candidate-development-v1"
+        or metric_marker.get("recipe") != route.metric_recipe
         or metric_marker.get("recording_id") != recording_id
         or sha256_file(metric_summary_path) != metric_marker.get("summary_sha256")
     ):
         raise ValueError("Candidate metric marker or summary is invalid.")
     if (
         movement_marker.get("status") != "complete"
-        or movement_marker.get("recipe") != "movement-candidate-v2"
+        or movement_marker.get("recipe") != route.movement_recipe
         or movement_marker.get("recording_id") != recording_id
-        or movement_summary.get("recipe") != "movement-candidate-v2"
+        or movement_summary.get("recipe") != route.movement_recipe
         or movement_summary.get("recording_id") != recording_id
         or movement_summary["inputs"]["candidate_metrics"]["sha256"]
         != metric_marker["metrics_sha256"]
@@ -502,22 +505,27 @@ def build_trace_review(
         project_dir,
         recording_id,
     )
-    for kind, record in intake_artifacts.items():
-        if metric_summary["input_artifacts"][kind]["sha256"] != record["sha256"]:
-            raise ValueError(
-                f"Candidate metrics were built from a different {kind} artifact."
-            )
+    if route.requires_corrected_preprocess:
+        corrected = project_dir / "Processed data" / recording_id / "frame_preprocessed_corrected.parquet"
+        if metric_summary["input_artifacts"]["corrected_preprocess"]["sha256"] != sha256_file(corrected):
+            raise ValueError("Candidate metrics were built from stale corrected frames.")
+    else:
+        for kind, record in intake_artifacts.items():
+            if metric_summary["input_artifacts"][kind]["sha256"] != record["sha256"]:
+                raise ValueError(
+                    f"Candidate metrics were built from a different {kind} artifact."
+                )
     if sha256_file(protocol_path) != intake_artifacts["protocol"]["sha256"]:
         raise ValueError("Protocol artifact differs from the source manifest.")
 
     output_dir = (
         project_dir / "Quality checks" / recording_id / "Trace review"
     )
-    traces_path = output_dir / "trace_review_windows-v1.parquet"
-    manifest_path = output_dir / "trace_review_manifest-v1.json"
-    annotation_path = output_dir / "trace_review_annotations-v1.csv"
-    static_path = output_dir / "trace_review-v1.png"
-    interactive_path = output_dir / "trace_review-v1.html"
+    traces_path = output_dir / "trace_review_windows.parquet"
+    manifest_path = output_dir / "trace_review_manifest.json"
+    annotation_path = output_dir / "trace_review_annotations.csv"
+    static_path = output_dir / "trace_review.png"
+    interactive_path = output_dir / "trace_review.html"
     outputs = (
         traces_path,
         manifest_path,
@@ -528,10 +536,8 @@ def build_trace_review(
     existing = [path for path in outputs if path.exists()]
     if existing and not overwrite:
         raise FileExistsError(f"Trace review outputs already exist: {existing}")
-    if annotation_path.exists() and overwrite:
-        raise FileExistsError(
-            "Refusing to overwrite a human annotation file. Move or version it first."
-        )
+    # Human annotations are never overwritten by automatic rerendering.
+    annotation_exists = annotation_path.exists()
 
     frame_columns = [
         "FrameID",
@@ -571,7 +577,7 @@ def build_trace_review(
     output_dir.mkdir(parents=True, exist_ok=True)
     with artifact_staging(
         output_dir,
-        prefix=f".{recording_id}-trace-review-v1-",
+        prefix=f".{recording_id}-trace-review-",
     ) as staging_root:
         staged_traces = staging_root / traces_path.name
         staged_manifest = staging_root / manifest_path.name
@@ -599,12 +605,12 @@ def build_trace_review(
             config={"displaylogo": False},
         )
         manifest = {
-            "recipe": "trace-review-v1",
-            "scientific_status": "candidate_development",
+            "recipe": "trace-review",
+            "scientific_status": route.scientific_status,
             "recording_id": recording_id,
             "window_count": len(windows),
             "windows": windows.to_dict(orient="records"),
-            "annotation_status": "unreviewed",
+            "annotation_status": "existing_review_requires_recheck" if annotation_exists else "unreviewed",
             "inputs": {
                 "candidate_metrics": {
                     "path": str(metric_path),
@@ -661,9 +667,10 @@ def build_trace_review(
         annotation_path.parent.mkdir(parents=True, exist_ok=True)
         annotation_created = False
         try:
-            with annotation_path.open("x", encoding="utf-8", newline="") as stream:
-                stream.write(staged_annotations.read_text(encoding="utf-8"))
-            annotation_created = True
+            if not annotation_exists:
+                with annotation_path.open("x", encoding="utf-8", newline="") as stream:
+                    stream.write(staged_annotations.read_text(encoding="utf-8"))
+                annotation_created = True
             publish_transaction(
                 (
                     (staged_traces, traces_path),

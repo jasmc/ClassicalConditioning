@@ -1,9 +1,4 @@
-"""JSON run configuration for relocatable batch pipelines.
-
-Review note: this is the trust boundary for a user-authored pipeline JSON file.
-It validates and normalizes input once, then pipeline.py consumes the immutable
-PipelineRunConfig rather than re-reading arbitrary JSON.
-"""
+"""Strict JSON settings for the routine corrected analysis run."""
 
 from __future__ import annotations
 
@@ -14,213 +9,185 @@ from pathlib import Path
 from typing import Any
 
 from classical_conditioning.config.experiments import get_experiment_spec
+from classical_conditioning.analysis.movement_state import METRIC_IDS
 from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.paths import assert_project_dir_allowed
 
-# Only these active candidate recipe families can be selected by a run config.
-VALID_RUNNER_RECIPES = frozenset(
-    {
-        "candidate-development-runner-v1",
-        "candidate-corrected-runner-v1",
-    }
-)
-# The installable workflow is candidate-only; old legacy fields are rejected.
-VALID_ROUTES = frozenset({"candidate"})
-RETIRED_LEGACY_FIELDS = frozenset(
-    {"legacy_alignment", "legacy_run_statistics", "legacy_analysis_id"}
-)
+
+_FIELDS = frozenset({
+    "raw_dir", "save_dir", "experiment", "analysis_id", "keep_conditions",
+    "recording_ids", "overwrite", "continue_on_error", "batch_size",
+    "figure_mode", "show_progress", "cohort_id", "metric",
+    "learner_representation_id",
+    "assessment_metric", "technical_policy", "disabled_discard_checks",
+})
+_OBSOLETE = frozenset({
+    "routes", "candidate_runner_recipe", "candidate_analysis_id",
+    "run_inventory", "run_intake", "run_figures", "figure_outcomes",
+    "legacy_alignment", "legacy_run_statistics", "legacy_analysis_id",
+})
 
 
-def _validate_analysis_id(analysis_id: str) -> None:
-    # This ID becomes a directory/filename component, so prohibit separators and
-    # whitespace while retaining ordinary descriptive punctuation.
-    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
+def _identifier(value: Any, field: str) -> str:
+    identifier = str(value).strip()
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", identifier):
         raise ConfigurationError(
-            "analysis_id must use only letters, numbers, dot, underscore, or hyphen."
+            f"{field} must use only letters, numbers, dot, underscore, or hyphen."
         )
+    if re.search(r"[-_]v\d+(?:$|[-_.])", identifier, re.IGNORECASE):
+        raise ConfigurationError(f"{field} must not contain a version suffix.")
+    return identifier
 
 
-# Normalized, immutable settings passed from CLI/config loading to the pipeline.
+def _optional_list(value: Any, field: str, *, lower: bool = False) -> tuple[str, ...] | None:
+    if value is None:
+        return None
+    if not isinstance(value, list) or not value or not all(
+        isinstance(item, str) and item.strip() for item in value
+    ):
+        raise ConfigurationError(f"{field} must be a non-empty list of strings or null.")
+    values = (item.strip().lower() if lower else item.strip() for item in value)
+    return tuple(dict.fromkeys(values))
+
+
+def _optional_identifier(value: Any, field: str) -> str | None:
+    """Accept either null or a path-safe, non-empty JSON identifier."""
+    if value is None:
+        return None
+    if not isinstance(value, str) or not value.strip():
+        raise ConfigurationError(f"{field} must be a non-empty string or null.")
+    return _identifier(value, field)
+
+
 @dataclass(frozen=True)
 class PipelineRunConfig:
-    # Carry every resolved run setting as an immutable unit from CLI parsing to
-    # pipeline execution and provenance writing.
     raw_dir: Path
     save_dir: Path
     experiment: str
     analysis_id: str
-    routes: tuple[str, ...] = ("candidate",)
     keep_conditions: tuple[str, ...] | None = None
     recording_ids: tuple[str, ...] | None = None
     overwrite: bool = False
     continue_on_error: bool = True
-    run_inventory: bool = False
-    run_intake: bool = True
-    run_figures: bool = False
-    candidate_runner_recipe: str = "candidate-corrected-runner-v1"
-    candidate_analysis_id: str | None = None
     batch_size: int = 250_000
     figure_mode: str = "static"
-    figure_outcomes: tuple[str, ...] = ("movement-probability",)
     show_progress: bool = True
+    cohort_id: str | None = None
+    metric: str | None = None
+    learner_representation_id: str | None = None
+    assessment_metric: str | None = None
+    technical_policy: Path | None = None
+    disabled_discard_checks: tuple[str, ...] = ()
 
     @property
     def input_dir(self) -> Path:
-        # Compatibility alias for lower-level functions that call raw_dir input.
         return self.raw_dir
 
     @property
     def project_dir(self) -> Path:
-        # Compatibility alias for stages that call save_dir the project directory.
         return self.save_dir
 
     def resolved_candidate_analysis_id(self) -> str:
-        # A route suffix prevents ambiguous collision with a caller's base ID.
-        return self.candidate_analysis_id or f"{self.analysis_id}-candidate"
-
-
-def _optional_string_list(value: Any, *, field_name: str) -> tuple[str, ...] | None:
-    # Optional filters are either absent or a non-empty normalised list.
-    if value is None:
-        return None
-    if not isinstance(value, list) or not value:
-        raise ConfigurationError(f"{field_name} must be a non-empty list or null.")
-    return tuple(str(item).strip().lower() for item in value if str(item).strip())
-
-
-def _optional_recording_ids(value: Any) -> tuple[str, ...] | None:
-    # Preserve first-seen order while removing duplicate explicitly requested IDs.
-    if value is None:
-        return None
-    if not isinstance(value, list) or not value:
-        raise ConfigurationError("recording_ids must be a non-empty list or null.")
-    return tuple(dict.fromkeys(str(item).strip() for item in value if str(item).strip()))
+        # The routine has one analysis identity shared by results and figures.
+        return self.analysis_id
 
 
 def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
-    """Load and validate a pipeline run configuration JSON file."""
-    # Decode the file before any field-level validation can be meaningful.
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    """Load strict JSON and reject obsolete switches before any work begins."""
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as error:
+        raise ConfigurationError(f"Invalid JSON in {path}: {error}") from error
     if not isinstance(payload, dict):
         raise ConfigurationError("Pipeline config must be a JSON object.")
-    # Fail explicitly rather than silently ignoring retired legacy semantics.
-    retired_fields = sorted(RETIRED_LEGACY_FIELDS.intersection(payload))
-    if retired_fields:
+    obsolete = sorted(set(payload) & _OBSOLETE)
+    if obsolete:
         raise ConfigurationError(
-            "Legacy pipeline settings have been retired: "
-            f"{retired_fields}. Remove them and use the candidate route."
+            f"Obsolete pipeline settings: {obsolete}. The corrected candidate "
+            "route always inventories, intakes, and renders available figures."
         )
-
-    # Coerce required paths once, then resolve them after constructing the config.
-    raw_dir = Path(str(payload.get("raw_dir", ""))).expanduser()
-    save_dir = Path(str(payload.get("save_dir", ""))).expanduser()
-    if not str(raw_dir).strip():
-        raise ConfigurationError("raw_dir is required.")
-    if not str(save_dir).strip():
-        raise ConfigurationError("save_dir is required.")
-
-    # Confirm that the requested experiment has a frozen package specification.
-    experiment = str(payload.get("experiment", "")).strip()
-    if not experiment:
-        raise ConfigurationError("experiment is required.")
-    get_experiment_spec(experiment)
-
-    # Validate the run label before it can become derived output path components.
-    analysis_id = str(payload.get("analysis_id", "")).strip()
-    if not analysis_id:
-        raise ConfigurationError("analysis_id is required.")
-    _validate_analysis_id(analysis_id)
-
-    # Route is a list for forward compatibility, although only candidate exists.
-    routes_raw = payload.get("routes", ["candidate"])
-    if not isinstance(routes_raw, list) or not routes_raw:
-        raise ConfigurationError("routes must be a non-empty list.")
-    routes = tuple(str(item).strip().lower() for item in routes_raw)
-    unknown = set(routes).difference(VALID_ROUTES)
+    unknown = sorted(set(payload) - _FIELDS)
     if unknown:
-        if "legacy" in unknown:
-            raise ConfigurationError(
-                "The legacy route has been retired from the installable package. "
-                "Use the candidate route; historical source is under legacy/."
-            )
-        raise ConfigurationError(f"Unknown routes: {sorted(unknown)}")
-
-    # Select one of the frozen, internally compatible candidate recipe families.
-    candidate_runner_recipe = str(
-        payload.get("candidate_runner_recipe", "candidate-corrected-runner-v1")
-    ).strip()
-    if candidate_runner_recipe not in VALID_RUNNER_RECIPES:
-        raise ConfigurationError(
-            f"candidate_runner_recipe must be one of {sorted(VALID_RUNNER_RECIPES)}."
-        )
-
-    # Figure mode controls renderer outputs and is constrained to supported modes.
+        raise ConfigurationError(f"Unknown pipeline settings: {unknown}.")
+    for field in ("raw_dir", "save_dir", "experiment", "analysis_id"):
+        if not isinstance(payload.get(field), str) or not payload[field].strip():
+            raise ConfigurationError(f"{field} is required as a non-empty string.")
+    experiment = payload["experiment"].strip()
+    get_experiment_spec(experiment)
     figure_mode = str(payload.get("figure_mode", "static")).strip().lower()
     if figure_mode not in {"static", "publication"}:
         raise ConfigurationError("figure_mode must be static or publication.")
-
-    # Batch size must stay positive because stages use it for chunked table reads.
-    batch_size = int(payload.get("batch_size", 250_000))
-    if batch_size <= 0:
-        raise ConfigurationError("batch_size must be positive.")
-
-    # Materialize one normalized, resolved, immutable configuration object.
+    batch_size = payload.get("batch_size", 250_000)
+    if isinstance(batch_size, bool) or not isinstance(batch_size, int) or batch_size <= 0:
+        raise ConfigurationError("batch_size must be a positive integer.")
+    for field in ("overwrite", "continue_on_error", "show_progress"):
+        if field in payload and not isinstance(payload[field], bool):
+            raise ConfigurationError(f"{field} must be a boolean.")
+    if "technical_policy" in payload and payload["technical_policy"] is not None and (
+        not isinstance(payload["technical_policy"], str)
+        or not payload["technical_policy"].strip()
+    ):
+        raise ConfigurationError("technical_policy must be a non-empty path or null.")
     config = PipelineRunConfig(
-        raw_dir=raw_dir.resolve(),
-        save_dir=save_dir.resolve(),
+        raw_dir=Path(payload["raw_dir"]).expanduser().resolve(),
+        save_dir=Path(payload["save_dir"]).expanduser().resolve(),
         experiment=experiment,
-        analysis_id=analysis_id,
-        routes=routes,
-        keep_conditions=_optional_string_list(
-            payload.get("keep_conditions"),
-            field_name="keep_conditions",
-        ),
-        recording_ids=_optional_recording_ids(payload.get("recording_ids")),
-        overwrite=bool(payload.get("overwrite", False)),
-        continue_on_error=bool(payload.get("continue_on_error", True)),
-        run_inventory=bool(payload.get("run_inventory", False)),
-        run_intake=bool(payload.get("run_intake", True)),
-        run_figures=bool(payload.get("run_figures", False)),
-        candidate_runner_recipe=candidate_runner_recipe,
-        candidate_analysis_id=(
-            str(payload["candidate_analysis_id"]).strip()
-            if payload.get("candidate_analysis_id")
-            else None
-        ),
+        analysis_id=_identifier(payload["analysis_id"], "analysis_id"),
+        keep_conditions=_optional_list(payload.get("keep_conditions"), "keep_conditions", lower=True),
+        recording_ids=_optional_list(payload.get("recording_ids"), "recording_ids"),
+        overwrite=payload.get("overwrite", False),
+        continue_on_error=payload.get("continue_on_error", True),
         batch_size=batch_size,
         figure_mode=figure_mode,
-        figure_outcomes=_optional_string_list(
-            payload.get("figure_outcomes", ["movement-probability"]),
-            field_name="figure_outcomes",
-        )
-        or ("movement-probability",),
-        show_progress=bool(payload.get("show_progress", True)),
+        show_progress=payload.get("show_progress", True),
+        cohort_id=_optional_identifier(payload.get("cohort_id"), "cohort_id"),
+        metric=_optional_identifier(payload.get("metric"), "metric"),
+        learner_representation_id=_optional_identifier(
+            payload.get("learner_representation_id"), "learner_representation_id"
+        ),
+        assessment_metric=_optional_identifier(payload.get("assessment_metric"), "assessment_metric"),
+        technical_policy=(Path(payload["technical_policy"]).expanduser().resolve()
+                          if isinstance(payload.get("technical_policy"), str) and payload["technical_policy"].strip()
+                          else None),
+        disabled_discard_checks=_optional_list(
+            payload.get("disabled_discard_checks"), "disabled_discard_checks"
+        ) or (),
     )
-    # Enforce the raw-versus-derived filesystem boundary before any output exists.
+    if bool(config.cohort_id) != bool(config.metric):
+        raise ConfigurationError("cohort_id and metric must be supplied together.")
+    if config.metric and config.metric not in METRIC_IDS.values():
+        raise ConfigurationError(
+            f"metric must be one of {sorted(METRIC_IDS.values())}."
+        )
+    valid_conditions = {
+        condition.condition_id for condition in get_experiment_spec(experiment).conditions
+    }
+    if config.keep_conditions and set(config.keep_conditions) - valid_conditions:
+        raise ConfigurationError(
+            f"keep_conditions must be chosen from {sorted(valid_conditions)}."
+        )
     assert_project_dir_allowed(config.raw_dir, config.save_dir)
     return config
 
 
 def pipeline_config_to_dict(config: PipelineRunConfig) -> dict[str, Any]:
-    """Serialize a run config for provenance sidecars."""
-    # Serialize every effective setting, including defaults, for a run ledger.
+    """Record every effective setting in the invocation summary."""
     return {
         "raw_dir": str(config.raw_dir),
         "save_dir": str(config.save_dir),
         "experiment": config.experiment,
         "analysis_id": config.analysis_id,
-        "routes": list(config.routes),
         "keep_conditions": list(config.keep_conditions or ()),
         "recording_ids": list(config.recording_ids or ()),
         "overwrite": config.overwrite,
         "continue_on_error": config.continue_on_error,
-        "run_inventory": config.run_inventory,
-        "run_intake": config.run_intake,
-        "run_figures": config.run_figures,
-        "candidate_runner_recipe": config.candidate_runner_recipe,
-        "candidate_analysis_id": config.resolved_candidate_analysis_id(),
         "batch_size": config.batch_size,
         "figure_mode": config.figure_mode,
-        "figure_outcomes": list(config.figure_outcomes),
         "show_progress": config.show_progress,
+        "cohort_id": config.cohort_id,
+        "metric": config.metric,
+        "learner_representation_id": config.learner_representation_id,
+        "assessment_metric": config.assessment_metric,
+        "technical_policy": str(config.technical_policy) if config.technical_policy else None,
+        "disabled_discard_checks": list(config.disabled_discard_checks),
     }

@@ -387,6 +387,49 @@ class IntakeTests(unittest.TestCase):
             (project / "Metadata" / "20260101_02_source_manifest.json").is_file()
         )
 
+    def test_batch_reuses_only_verified_triplet_and_rebuilds_at_stable_path(self) -> None:
+        first = intake_recordings(self.raw, self.project, chunk_rows=2)
+        self.assertEqual(first.completed, ("20260101_01",))
+        parquet = self.project / "Processed data" / "20260101_01" / "camera.parquet"
+        stable_path = parquet.resolve()
+        second = intake_recordings(self.raw, self.project, chunk_rows=2)
+        self.assertEqual(second.skipped, ("20260101_01",))
+
+        # The source manifest must authenticate the bytes of every reused file.
+        with parquet.open("ab") as stream:
+            stream.write(b"tampered")
+        third = intake_recordings(self.raw, self.project, chunk_rows=2)
+        self.assertEqual(third.completed, ("20260101_01",))
+        self.assertEqual(parquet.resolve(), stable_path)
+        self.assertEqual(pq.read_table(parquet).num_rows, 3)
+
+        camera = self.raw / f"{RECORDING}_cam.txt"
+        camera.write_text(camera.read_text(encoding="utf-8") + "13 4.5 1005\n", encoding="utf-8")
+        fourth = intake_recordings(self.raw, self.project, chunk_rows=2)
+        self.assertEqual(fourth.completed, ("20260101_01",))
+        self.assertEqual(pq.read_table(parquet).num_rows, 4)
+        self.assertEqual(parquet.resolve(), stable_path)
+
+    def test_batch_ledgers_incomplete_and_unchanged_failed_then_explicit_retry(self) -> None:
+        protocol = self.raw / f"{RECORDING}_stim control.txt"
+        protocol.unlink()
+        incomplete = intake_recordings(self.raw, self.project, chunk_rows=2)
+        self.assertEqual(incomplete.incomplete[0][0], "20260101_01")
+        ledger = json.loads(incomplete.ledger_path.read_text(encoding="utf-8"))
+        self.assertEqual(ledger["recordings"]["20260101_01"]["status"], "incomplete")
+
+        protocol.write_text("Type Beg End\nCycle 1000 1100\n", encoding="utf-8")
+        with patch("classical_conditioning.intake.intake_recording", side_effect=RuntimeError("device unavailable")):
+            failed = intake_recordings(self.raw, self.project, chunk_rows=2)
+        self.assertIn("device unavailable", failed.failed[0][1])
+        skipped = intake_recordings(self.raw, self.project, chunk_rows=2)
+        self.assertEqual(skipped.failed_skipped, ("20260101_01",))
+        self.assertFalse((self.project / "Processed data" / "20260101_01").exists())
+        retried = intake_recordings(self.raw, self.project, chunk_rows=2, retry_failed=True)
+        self.assertEqual(retried.completed, ("20260101_01",))
+        ledger = json.loads(retried.ledger_path.read_text(encoding="utf-8"))
+        self.assertEqual(ledger["recordings"]["20260101_01"]["status"], "ready")
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -171,7 +171,7 @@ class ArtifactHelperTests(unittest.TestCase):
         summary.write_text(
             json.dumps(
                 {
-                    "recipe": "analysis-v1",
+                    "recipe": "analysis",
                     "analysis_id": "cohort-a",
                     "recording_ids": ["recording-a", "recording-b"],
                     "alignment": "CS",
@@ -190,7 +190,7 @@ class ArtifactHelperTests(unittest.TestCase):
             json.dumps(
                 {
                     "status": "complete",
-                    "recipe": "analysis-v1",
+                    "recipe": "analysis",
                     "analysis_id": "cohort-a",
                     "recording_ids": ["recording-a", "recording-b"],
                     "alignment": "CS",
@@ -205,19 +205,29 @@ class ArtifactHelperTests(unittest.TestCase):
             {"result": artifact},
             summary,
             marker,
-            recipe="analysis-v1",
+            recipe="analysis",
             analysis_id="cohort-a",
             recording_ids=("recording-a", "recording-b"),
             alignment="CS",
         )
 
         self.assertEqual(verified.data_paths, {"result": artifact.resolve()})
+        with self.assertRaisesRegex(ArtifactIntegrityError, "identities are inconsistent"):
+            verify_completed_analysis_parquet_set(
+                {"result": artifact, "missing": self.root / "missing.parquet"},
+                summary,
+                marker,
+                recipe="analysis",
+                analysis_id="cohort-a",
+                recording_ids=("recording-a", "recording-b"),
+                alignment="CS",
+            )
         with self.assertRaisesRegex(ArtifactIntegrityError, "lineage is invalid"):
             verify_completed_analysis_parquet_set(
                 {"result": artifact},
                 summary,
                 marker,
-                recipe="analysis-v1",
+                recipe="analysis",
                 analysis_id="cohort-a",
                 recording_ids=("recording-b", "recording-a"),
                 alignment="CS",

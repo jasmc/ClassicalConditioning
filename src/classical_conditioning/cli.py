@@ -8,10 +8,12 @@ by the focused modules imported inside each command-dispatch branch.
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 from typing import Sequence
 
 from classical_conditioning.environment import ensure_supported_runtime
+from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.intake import intake_recording, intake_recordings
 
 
@@ -19,8 +21,8 @@ def _preprocess_recipe(value: str) -> str:
     """Resolve a user-facing preprocessing mode to its internal recipe ID."""
     # Keep the user-facing mode short while resolving one frozen recipe identity.
     aliases = {
-        "corrected": "corrected-preprocess-v1",
-        "corrected-preprocess-v1": "corrected-preprocess-v1",
+        "corrected": "corrected-preprocess",
+        "corrected-preprocess": "corrected-preprocess",
     }
     try:
         return aliases[value.strip().lower()]
@@ -34,10 +36,10 @@ def _activity_metric_recipe(value: str) -> str:
     """Resolve a user-facing metric source to its internal recipe ID."""
     # Map friendly development/corrected labels to compatible metric recipe IDs.
     aliases = {
-        "development": "tail-candidate-development-v1",
-        "corrected": "tail-candidate-corrected-v1",
-        "tail-candidate-development-v1": "tail-candidate-development-v1",
-        "tail-candidate-corrected-v1": "tail-candidate-corrected-v1",
+        "development": "tail-candidate-development",
+        "corrected": "tail-candidate-corrected",
+        "tail-candidate-development": "tail-candidate-development",
+        "tail-candidate-corrected": "tail-candidate-corrected",
     }
     try:
         return aliases[value.strip().lower()]
@@ -45,6 +47,16 @@ def _activity_metric_recipe(value: str) -> str:
         raise argparse.ArgumentTypeError(
             "metric source must be 'development' or 'corrected'."
         ) from error
+
+
+def _warn_deprecated_exploratory_inference(command: str) -> None:
+    """Make retained historical inference commands visibly non-routine."""
+    print(
+        f"WARNING: {command} is a deprecated exploratory comparison and does not "
+        "estimate the condition-aware learning effect. Use learning-onset for "
+        "condition-aware inference.",
+        file=sys.stderr,
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -92,6 +104,14 @@ def build_parser() -> argparse.ArgumentParser:
     intake_batch.add_argument("--preview-rows", type=int, default=25)
     intake_batch.add_argument("--overwrite", action="store_true")
 
+    retry_intake = subparsers.add_parser(
+        "retry-intake",
+        help="Retry one previously failed recording after correcting its source or settings.",
+    )
+    retry_intake.add_argument("--input-dir", type=Path, required=True)
+    retry_intake.add_argument("--project-dir", type=Path, required=True)
+    retry_intake.add_argument("--recording-id", required=True)
+
     inventory = subparsers.add_parser(
         "inventory",
         help="Discover and hash local raw recording triplets without modifying them.",
@@ -127,7 +147,7 @@ def build_parser() -> argparse.ArgumentParser:
     preprocess.add_argument(
         "--recipe",
         type=_preprocess_recipe,
-        default="corrected-preprocess-v1",
+        default="corrected-preprocess",
         metavar="corrected",
         help="Corrected frame preparation (the only supported preprocessing mode).",
     )
@@ -154,7 +174,7 @@ def build_parser() -> argparse.ArgumentParser:
     activity.add_argument(
         "--recipe",
         type=_activity_metric_recipe,
-        default="tail-candidate-development-v1",
+        default="tail-candidate-development",
         metavar="{development,corrected}",
         help=(
             "Metric input lineage: corrected is the normal gap-aware route; "
@@ -173,10 +193,10 @@ def build_parser() -> argparse.ArgumentParser:
     profiles.add_argument(
         "--recipe",
         choices=(
-            "candidate-temporal-outcomes-v3",
-            "candidate-temporal-outcomes-corrected-v3",
+            "candidate-temporal-outcomes",
+            "candidate-temporal-outcomes-corrected",
         ),
-        default="candidate-temporal-outcomes-v3",
+        default="candidate-temporal-outcomes",
     )
     profiles.add_argument("--experiment", default="allDelay")
     profiles.add_argument("--overwrite", action="store_true")
@@ -211,10 +231,10 @@ def build_parser() -> argparse.ArgumentParser:
     figure_profiles.add_argument(
         "--recipe",
         choices=(
-            "candidate-temporal-outcomes-v3",
-            "candidate-temporal-outcomes-corrected-v3",
+            "candidate-temporal-outcomes",
+            "candidate-temporal-outcomes-corrected",
         ),
-        default="candidate-temporal-outcomes-v3",
+        default="candidate-temporal-outcomes",
     )
     figure_profiles.add_argument("--overwrite", action="store_true")
 
@@ -239,10 +259,10 @@ def build_parser() -> argparse.ArgumentParser:
     figure_metric_comparison.add_argument(
         "--recipe",
         choices=(
-            "candidate-metric-comparison-v1",
-            "candidate-metric-comparison-corrected-v1",
+            "candidate-metric-comparison",
+            "candidate-metric-comparison-corrected",
         ),
-        default="candidate-metric-comparison-corrected-v1",
+        default="candidate-metric-comparison-corrected",
     )
     figure_metric_comparison.add_argument(
         "--mode",
@@ -269,8 +289,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     figure_selected_block_ratio.add_argument(
         "--metric-recipe",
-        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
-        default="tail-candidate-corrected-v1",
+        choices=("tail-candidate-corrected", "tail-candidate-development"),
+        default="tail-candidate-corrected",
     )
     figure_selected_block_ratio.add_argument(
         "--mode", choices=("publication", "static"), default="static"
@@ -292,8 +312,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     figure_trial_ratio.add_argument(
         "--metric-recipe",
-        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
-        default="tail-candidate-corrected-v1",
+        choices=("tail-candidate-corrected", "tail-candidate-development"),
+        default="tail-candidate-corrected",
     )
     figure_trial_ratio.add_argument(
         "--mode", choices=("publication", "static"), default="static"
@@ -318,8 +338,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     figure_event_aligned_ratio.add_argument(
         "--metric-recipe",
-        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
-        default="tail-candidate-corrected-v1",
+        choices=("tail-candidate-corrected", "tail-candidate-development"),
+        default="tail-candidate-corrected",
     )
     figure_event_aligned_ratio.add_argument(
         "--mode", choices=("publication", "static"), default="static"
@@ -343,8 +363,8 @@ def build_parser() -> argparse.ArgumentParser:
         profile_parser.add_argument("--metric", required=True)
         profile_parser.add_argument(
             "--metric-recipe",
-            choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
-            default="tail-candidate-corrected-v1",
+            choices=("tail-candidate-corrected", "tail-candidate-development"),
+            default="tail-candidate-corrected",
         )
         profile_parser.add_argument(
             "--mode", choices=("publication", "static"), default="static"
@@ -362,8 +382,8 @@ def build_parser() -> argparse.ArgumentParser:
     movement.add_argument("--recording-id", required=True)
     movement.add_argument(
         "--recipe",
-        choices=("movement-candidate-v2", "movement-candidate-corrected-v2"),
-        default="movement-candidate-v2",
+        choices=("movement-candidate", "movement-candidate-corrected"),
+        default="movement-candidate",
     )
     movement.add_argument("--overwrite", action="store_true")
 
@@ -398,17 +418,17 @@ def build_parser() -> argparse.ArgumentParser:
     metric_comparison.add_argument(
         "--recipe",
         choices=(
-            "candidate-metric-comparison-v1",
-            "candidate-metric-comparison-corrected-v1",
+            "candidate-metric-comparison",
+            "candidate-metric-comparison-corrected",
         ),
-        default="candidate-metric-comparison-v1",
+        default="candidate-metric-comparison",
     )
     metric_comparison.add_argument("--experiment", default="allDelay")
     metric_comparison.add_argument("--overwrite", action="store_true")
 
     candidate_runner = subparsers.add_parser(
         "candidate-runner",
-        help="Run the non-approved candidate-development pipeline.",
+        help="Run the corrected candidate pipeline or an explicitly selected direct-intake benchmark.",
     )
     candidate_runner.add_argument("--project-dir", type=Path, required=True)
     candidate_runner.add_argument(
@@ -423,10 +443,10 @@ def build_parser() -> argparse.ArgumentParser:
     candidate_runner.add_argument(
         "--recipe",
         choices=(
-            "candidate-development-runner-v1",
-            "candidate-corrected-runner-v1",
+            "candidate-development-runner",
+            "candidate-corrected-runner",
         ),
-        default="candidate-development-runner-v1",
+        default="candidate-corrected-runner",
     )
     candidate_runner.add_argument("--overwrite", action="store_true")
     candidate_runner.add_argument(
@@ -445,10 +465,10 @@ def build_parser() -> argparse.ArgumentParser:
     trial_outcomes.add_argument(
         "--recipe",
         choices=(
-            "candidate-trial-outcomes-v1",
-            "candidate-trial-outcomes-corrected-v1",
+            "candidate-trial-outcomes",
+            "candidate-trial-outcomes-corrected",
         ),
-        default="candidate-trial-outcomes-v1",
+        default="candidate-trial-outcomes",
     )
     trial_outcomes.add_argument("--overwrite", action="store_true")
 
@@ -462,8 +482,8 @@ def build_parser() -> argparse.ArgumentParser:
     freeze_cohort.add_argument("--policy-id", required=True)
     freeze_cohort.add_argument(
         "--recipe",
-        choices=("cohort-manifest-v1",),
-        default="cohort-manifest-v1",
+        choices=("cohort-manifest",),
+        default="cohort-manifest",
     )
 
     apply_cohort = subparsers.add_parser(
@@ -503,8 +523,8 @@ def build_parser() -> argparse.ArgumentParser:
     cohort_outcomes.add_argument("--cohort-id", required=True)
     cohort_outcomes.add_argument(
         "--metric-recipe",
-        choices=("tail-candidate-corrected-v1", "tail-candidate-development-v1"),
-        default="tail-candidate-corrected-v1",
+        choices=("tail-candidate-corrected", "tail-candidate-development"),
+        default="tail-candidate-corrected",
     )
     cohort_outcomes.add_argument("--overwrite", action="store_true")
 
@@ -738,10 +758,10 @@ def build_parser() -> argparse.ArgumentParser:
     plan_batch.add_argument(
         "--metric-recipe",
         choices=(
-            "tail-candidate-corrected-v1",
-            "tail-candidate-development-v1",
+            "tail-candidate-corrected",
+            "tail-candidate-development",
         ),
-        default="tail-candidate-corrected-v1",
+        default="tail-candidate-corrected",
     )
     plan_batch.add_argument(
         "--selection",
@@ -769,10 +789,10 @@ def build_parser() -> argparse.ArgumentParser:
     execute_batch.add_argument(
         "--metric-recipe",
         choices=(
-            "tail-candidate-corrected-v1",
-            "tail-candidate-development-v1",
+            "tail-candidate-corrected",
+            "tail-candidate-development",
         ),
-        default="tail-candidate-corrected-v1",
+        default="tail-candidate-corrected",
     )
     execute_batch.add_argument(
         "--selection",
@@ -794,7 +814,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     mixed_effects = subparsers.add_parser(
         "candidate-mixed-effects",
-        help="Fit exploratory fish-grouped mixed-effects models on candidate trial outcomes.",
+        help="DEPRECATED exploratory mixed-effects comparison; use learning-onset.",
     )
     mixed_effects.add_argument("--project-dir", type=Path, required=True)
     mixed_effects.add_argument(
@@ -807,16 +827,16 @@ def build_parser() -> argparse.ArgumentParser:
     mixed_effects.add_argument(
         "--metric-recipe",
         choices=(
-            "tail-candidate-corrected-v1",
-            "tail-candidate-development-v1",
+            "tail-candidate-corrected",
+            "tail-candidate-development",
         ),
-        default="tail-candidate-corrected-v1",
+        default="tail-candidate-corrected",
     )
     mixed_effects.add_argument("--overwrite", action="store_true")
 
     fish_permutation = subparsers.add_parser(
         "candidate-fish-permutation",
-        help="Fish-level early-vs-late effect with sign-flip permutation (not mixed-effects).",
+        help="DEPRECATED exploratory early-vs-late permutation; use learning-onset.",
     )
     fish_permutation.add_argument("--project-dir", type=Path, required=True)
     fish_permutation.add_argument(
@@ -829,16 +849,16 @@ def build_parser() -> argparse.ArgumentParser:
     fish_permutation.add_argument(
         "--metric-recipe",
         choices=(
-            "tail-candidate-corrected-v1",
-            "tail-candidate-development-v1",
+            "tail-candidate-corrected",
+            "tail-candidate-development",
         ),
-        default="tail-candidate-corrected-v1",
+        default="tail-candidate-corrected",
     )
     fish_permutation.add_argument("--overwrite", action="store_true")
 
     fish_bootstrap = subparsers.add_parser(
         "candidate-fish-bootstrap",
-        help="Fish-level percentile bootstrap CI for early-vs-late effects (resamples fish only).",
+        help="DEPRECATED exploratory early-vs-late bootstrap; use learning-onset.",
     )
     fish_bootstrap.add_argument("--project-dir", type=Path, required=True)
     fish_bootstrap.add_argument(
@@ -851,16 +871,16 @@ def build_parser() -> argparse.ArgumentParser:
     fish_bootstrap.add_argument(
         "--metric-recipe",
         choices=(
-            "tail-candidate-corrected-v1",
-            "tail-candidate-development-v1",
+            "tail-candidate-corrected",
+            "tail-candidate-development",
         ),
-        default="tail-candidate-corrected-v1",
+        default="tail-candidate-corrected",
     )
     fish_bootstrap.add_argument("--overwrite", action="store_true")
 
     model_input = subparsers.add_parser(
         "candidate-model-input",
-        help="Freeze the shared candidate model-input table used by LME and fish-permutation.",
+        help="DEPRECATED exploratory model-input export; use learning-onset.",
     )
     model_input.add_argument("--project-dir", type=Path, required=True)
     model_input.add_argument(
@@ -873,10 +893,10 @@ def build_parser() -> argparse.ArgumentParser:
     model_input.add_argument(
         "--metric-recipe",
         choices=(
-            "tail-candidate-corrected-v1",
-            "tail-candidate-development-v1",
+            "tail-candidate-corrected",
+            "tail-candidate-development",
         ),
-        default="tail-candidate-corrected-v1",
+        default="tail-candidate-corrected",
     )
     model_input.add_argument("--overwrite", action="store_true")
 
@@ -887,8 +907,8 @@ def build_parser() -> argparse.ArgumentParser:
     resolve_config.add_argument("--project-dir", type=Path, required=True)
     resolve_config.add_argument(
         "--runner-recipe",
-        choices=("candidate-corrected-runner-v1", "candidate-development-runner-v1"),
-        default="candidate-corrected-runner-v1",
+        choices=("candidate-corrected-runner", "candidate-development-runner"),
+        default="candidate-corrected-runner",
     )
     resolve_config.add_argument("--experiment", default="allDelay")
     resolve_config.add_argument("--overwrite", action="store_true")
@@ -930,19 +950,35 @@ def build_parser() -> argparse.ArgumentParser:
 
     run_pipeline = subparsers.add_parser(
         "run-pipeline",
-        help="Run intake and selected analysis routes from a JSON config file.",
+        help="Run inventory, verified intake, corrected analysis, and available figures.",
     )
     run_pipeline.add_argument(
         "--config",
         type=Path,
         required=True,
-        help="JSON file with raw_dir, save_dir, experiment, analysis_id, and routes.",
+        help="Strict JSON file with raw_dir, save_dir, experiment, and analysis_id.",
     )
     run_pipeline.add_argument(
         "--quiet",
         action="store_true",
         help="Suppress stage banners, step flags, and progress bars.",
     )
+
+    discarding = subparsers.add_parser(
+        "assess-discarding",
+        help="Audit technical readiness and exploratory legacy behavior without excluding fish.",
+    )
+    discarding.add_argument("--raw-dir", type=Path, required=True)
+    discarding.add_argument("--project-dir", type=Path, required=True)
+    discarding.add_argument("--analysis-id", required=True)
+    discarding.add_argument("--experiment", required=True)
+    discarding.add_argument("--metric", required=True)
+    discarding.add_argument(
+        "--metric-recipe", type=_activity_metric_recipe, default="tail-candidate-corrected"
+    )
+    discarding.add_argument("--technical-policy", type=Path)
+    discarding.add_argument("--disable-check", action="append", default=[])
+    discarding.add_argument("--recording-id", action="append")
 
     return parser
 
@@ -952,6 +988,22 @@ def main(argv: Sequence[str] | None = None) -> None:
     ensure_supported_runtime()
     parser = build_parser()
     args = parser.parse_args(argv)
+
+    if args.command == "assess-discarding":
+        from classical_conditioning.analysis.discarding import assess_discarding
+
+        result = assess_discarding(
+            args.raw_dir, args.project_dir,
+            analysis_id=args.analysis_id, experiment=args.experiment,
+            metric_id=args.metric, metric_recipe=args.metric_recipe,
+            technical_policy_path=args.technical_policy,
+            disabled_rules=args.disable_check, recording_ids=args.recording_id,
+        )
+        print(f"Technical assessment: {result.technical_path}")
+        print(f"Exploratory assessment: {result.exploratory_path}")
+        print(f"Rule-by-rule flow: {result.flow_path}")
+        print(f"Assessment hash: {result.assessment_hash}")
+        return
 
     if args.command == "environment-report":
         from classical_conditioning.environment import (
@@ -1115,6 +1167,22 @@ def main(argv: Sequence[str] | None = None) -> None:
         print(f"Failed: {len(result.failed)}")
         for recording_id, reason in result.failed:
             print(f"FAILED {recording_id}: {reason}")
+        return
+
+    if args.command == "retry-intake":
+        result = intake_recordings(
+            input_dir=args.input_dir,
+            project_dir=args.project_dir,
+            recording_ids=(args.recording_id,),
+            retry_failed=True,
+        )
+        if result.failed or result.incomplete:
+            reasons = result.failed + result.incomplete
+            raise ConfigurationError(
+                f"Intake retry did not produce a ready recording: {reasons}"
+            )
+        print(f"Ready: {args.recording_id}")
+        print(f"Ledger: {result.ledger_path}")
         return
 
     if args.command == "preprocess":
@@ -1465,7 +1533,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             overwrite=args.overwrite,
         )
         print(f"Batch: {result.batch_id}")
-        print(f"Recipe: batch-work-manifest-v1")
+        print(f"Recipe: batch-work-manifest")
         print(f"Metric source: {args.metric_recipe}")
         print(f"Rows: {result.row_count}")
         print(f"Complete: {result.complete_count}")
@@ -1504,6 +1572,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-mixed-effects":
+        _warn_deprecated_exploratory_inference(args.command)
         from classical_conditioning.analysis.inference.mixed_effects import (
             build_candidate_mixed_effects,
         )
@@ -1516,7 +1585,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             overwrite=args.overwrite,
         )
         print(f"Analysis: {result.analysis_id}")
-        print(f"Recipe: candidate-mixed-effects-v1")
+        print(f"Recipe: candidate-mixed-effects")
         print(f"Metric source: {args.metric_recipe}")
         print(f"Model input: {result.model_input_path}")
         print(f"Coefficients: {result.coefficients_path}")
@@ -1525,6 +1594,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-fish-permutation":
+        _warn_deprecated_exploratory_inference(args.command)
         from classical_conditioning.analysis.inference.fish_permutation import (
             build_candidate_fish_permutation,
         )
@@ -1537,7 +1607,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             overwrite=args.overwrite,
         )
         print(f"Analysis: {result.analysis_id}")
-        print(f"Recipe: candidate-fish-permutation-v1")
+        print(f"Recipe: candidate-fish-permutation")
         print(f"Metric source: {args.metric_recipe}")
         print(f"Fish effects: {result.fish_effects_path}")
         print(f"Population: {result.population_path}")
@@ -1545,6 +1615,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-fish-bootstrap":
+        _warn_deprecated_exploratory_inference(args.command)
         from classical_conditioning.analysis.inference.fish_bootstrap import (
             build_candidate_fish_bootstrap,
         )
@@ -1557,7 +1628,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             overwrite=args.overwrite,
         )
         print(f"Analysis: {result.analysis_id}")
-        print(f"Recipe: candidate-fish-bootstrap-v1")
+        print(f"Recipe: candidate-fish-bootstrap")
         print(f"Metric source: {args.metric_recipe}")
         print(f"Fish effects: {result.fish_effects_path}")
         print(f"Population: {result.population_path}")
@@ -1565,6 +1636,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "candidate-model-input":
+        _warn_deprecated_exploratory_inference(args.command)
         from classical_conditioning.analysis.inference.model_input import (
             build_candidate_model_input_artifact,
         )
@@ -1577,7 +1649,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             overwrite=args.overwrite,
         )
         print(f"Analysis: {result.analysis_id}")
-        print(f"Recipe: candidate-model-input-v1")
+        print(f"Recipe: candidate-model-input")
         print(f"Metric source: {args.metric_recipe}")
         print(f"Rows: {result.row_count}")
         print(f"Fish: {result.fish_count}")
@@ -1792,7 +1864,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         return
 
     if args.command == "activity-metrics":
-        if args.recipe == "tail-candidate-development-v1":
+        if args.recipe == "tail-candidate-development":
             from classical_conditioning.preprocessing.benchmarks.candidate_metrics_from_intake import (
                 build_candidate_activity_metrics,
             )
@@ -1803,7 +1875,7 @@ def main(argv: Sequence[str] | None = None) -> None:
                 batch_size=args.batch_size,
                 overwrite=args.overwrite,
             )
-        elif args.recipe == "tail-candidate-corrected-v1":
+        elif args.recipe == "tail-candidate-corrected":
             from classical_conditioning.preprocessing.candidate_metrics_from_corrected_frames import (
                 build_candidate_activity_metrics_from_corrected,
             )

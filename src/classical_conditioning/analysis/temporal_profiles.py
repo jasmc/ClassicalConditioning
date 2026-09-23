@@ -29,15 +29,11 @@ from classical_conditioning.artifacts import (
 from classical_conditioning.analysis.movement_state import (
     DETECTOR_COLUMNS,
     METRIC_IDS,
+    SHARED_DETECTOR_ID,
     resolve_candidate_metric_source,
 )
 from classical_conditioning.config import get_trial_block_lookup
 from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
-
-# Identity of the one metric-independent detector whose segmentation every
-# bout-derived outcome in this table uses.
-SHARED_DETECTOR_ID = "legacy-envelope-shared-v1"
-
 
 @dataclass(frozen=True)
 class TemporalProfileConfig:
@@ -161,7 +157,7 @@ def aggregate_event_profiles(
         raise ValueError("Profile bin width must be positive.")
     if config.interval_closure != "left":
         raise ValueError(
-            "candidate-temporal-outcomes-v3 uses left-closed, right-open bins."
+            "candidate-temporal-outcomes uses left-closed, right-open bins."
         )
     required_frame_columns = {
         "AbsoluteTime",
@@ -502,7 +498,7 @@ def build_candidate_temporal_profiles(
     *,
     experiment_name: str = "allDelay",
     config: TemporalProfileConfig | None = None,
-    metric_recipe: str = "tail-candidate-development-v1",
+    metric_recipe: str = "tail-candidate-development",
     overwrite: bool = False,
 ) -> TemporalProfileResult:
     """Build candidate temporal profiles from the candidate frame artifact."""

@@ -64,7 +64,7 @@ def build_trial_map(experiment: ExperimentSpec) -> dict[str, Any]:
 
     # Include both metadata and rows so the export is self-describing.
     return {
-        "artifact_kind": "experiment-trial-map-v1",
+        "artifact_kind": "experiment-trial-map",
         "experiment_id": experiment.experiment_id,
         "paradigm": experiment.paradigm.value,
         "cs_duration_s": experiment.cs_duration_s,

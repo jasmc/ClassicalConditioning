@@ -68,7 +68,7 @@ def write_authenticated_trial_outcomes(
     outcomes: pd.DataFrame,
 ) -> None:
     route = resolve_candidate_metric_source(
-        metric_recipe="tail-candidate-corrected-v1"
+        metric_recipe="tail-candidate-corrected"
     )
     outcomes_path = (
         project_dir / "Processed data" / recording_id / route.trial_outcomes_name

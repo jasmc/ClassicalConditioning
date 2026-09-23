@@ -1,6 +1,6 @@
-"""Candidate activity metrics sourced from corrected-preprocess-v1 frames.
+"""Candidate activity metrics sourced from corrected-preprocess frames.
 
-Distinct from ``tail-candidate-development-v1``, which still reads intake
+Distinct from ``tail-candidate-development``, which still reads intake
 camera/tracking Parquet directly. This recipe requires the corrected
 measured-time artifact and intersects metric derivatives with its validity
 masks (including long-interval invalidation).
@@ -54,18 +54,18 @@ from classical_conditioning.preprocessing.corrected_frame_preprocessing import (
 )
 
 # Versioned output identity and canonical filenames for corrected-route metrics.
-RECIPE_ID = "tail-candidate-corrected-v1"
+RECIPE_ID = "tail-candidate-corrected"
 SCIENTIFIC_STATUS = "candidate_development"
-METRICS_NAME = "frame_activity_candidates-corrected-v1.parquet"
-SUMMARY_NAME = "candidate-corrected-v1_activity_summary.json"
-MARKER_SUFFIX = "candidate-corrected-v1_complete.json"
+METRICS_NAME = "frame_activity_candidates-corrected.parquet"
+SUMMARY_NAME = "candidate-corrected_activity_summary.json"
+MARKER_SUFFIX = "candidate-corrected_complete.json"
 
 
 def verify_corrected_preprocess_source(
     project_dir: Path,
     recording_id: str,
 ) -> dict[str, Any]:
-    """Verify corrected-preprocess-v1 lineage for one recording."""
+    """Verify corrected-preprocess lineage for one recording."""
     # Reconstruct canonical upstream paths rather than accepting caller redirects.
     source_dir = project_dir / "Processed data" / recording_id
     frames_path = source_dir / CORRECTED_ARTIFACT_NAME
@@ -80,7 +80,7 @@ def verify_corrected_preprocess_source(
     ]
     if missing:
         raise ArtifactNotFoundError(
-            f"Missing corrected-preprocess-v1 artifacts: {missing}"
+            f"Missing corrected-preprocess artifacts: {missing}"
         )
     # Authenticate parsed marker/summary recipe, identity, and byte hashes.
     try:
@@ -153,7 +153,7 @@ def build_candidate_activity_metrics_from_corrected(
     batch_size: int = 250_000,
     overwrite: bool = False,
 ) -> CandidateMetricResult:
-    """Build candidate metrics from corrected-preprocess-v1 frames."""
+    """Build candidate metrics from corrected-preprocess frames."""
     config = config or CandidateMetricConfig()
     # Enforce frozen formula settings and positive streaming batch size.
     if config != CandidateMetricConfig():
@@ -219,7 +219,7 @@ def build_candidate_activity_metrics_from_corrected(
     # Stage output, QC summary, and marker after verified corrected input.
     with artifact_staging(
         project_dir,
-        prefix=f".{recording_id}-candidate-corrected-v1-",
+        prefix=f".{recording_id}-candidate-corrected-",
     ) as staging_root:
         staged_metrics = staging_root / METRICS_NAME
         staged_summary = staging_root / SUMMARY_NAME
@@ -409,7 +409,7 @@ def build_candidate_activity_metrics_from_corrected(
                 ),
                 "terminal_angle_nonzero_count": terminal_angle_nonzero_count,
                 "interpretation": (
-                    "Metrics are calculated on corrected-preprocess-v1 "
+                    "Metrics are calculated on corrected-preprocess "
                     "body-translated measured XY; derivative validity is the "
                     "intersection of candidate adjacency rules and corrected "
                     "gap/long-interval masks."
@@ -417,8 +417,8 @@ def build_candidate_activity_metrics_from_corrected(
             },
             "known_limitations": [
                 "Exploratory; not paper-approved.",
-                "Depends on corrected-preprocess-v1 (interpolation/filtering still disabled).",
-                "Does not replace tail-candidate-development-v1 intake-sourced outputs.",
+                "Depends on corrected-preprocess (interpolation/filtering still disabled).",
+                "Does not replace tail-candidate-development intake-sourced outputs.",
                 "Paired downstream recipes use the corrected-* route IDs.",
             ],
             "input_artifacts": {

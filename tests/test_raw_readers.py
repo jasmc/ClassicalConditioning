@@ -68,6 +68,19 @@ class RawReaderTests(unittest.TestCase):
         self.assertEqual(list(result.frame.columns), ["FrameID", "ElapsedTime", "AbsoluteTime"])
         self.assertEqual(int(result.frame.iloc[0]["FrameID"]), 1)
 
+    def test_read_camera_detects_comma_decimals_after_numeric_validation(self) -> None:
+        self.camera.write_text(
+            "FrameID ElapsedTime AbsoluteTime\n"
+            "1 0,0 100\n"
+            "2 1,5 101\n",
+            encoding="utf-8",
+        )
+
+        result = read_camera(self.camera)
+
+        self.assertEqual(result.decimal, ",")
+        self.assertEqual(float(result.frame.iloc[1]["ElapsedTime"]), 1.5)
+
     def test_read_camera_rejects_missing_columns_and_duplicates(self) -> None:
         self.camera.write_text(
             "FrameID ElapsedTime\n"
@@ -93,6 +106,20 @@ class RawReaderTests(unittest.TestCase):
         self.assertEqual(len(full.frame), 3)
         self.assertIn("x0", full.frame.columns)
         self.assertIn("angle1", full.frame.columns)
+
+    def test_read_tracking_preserves_a_final_numeric_data_row(self) -> None:
+        self.tracking.write_text(
+            "FrameID x0 y0 angle0 x1 y1 angle1\n"
+            "10 0 0 0.0 1 0 0.1\n"
+            "11 0 0 0.0 1 0.1 0.2\n"
+            "12 0 0 0.0 1 0.2 0.3\n",
+            encoding="utf-8",
+        )
+
+        full = read_tracking(self.tracking, mode="full")
+
+        self.assertFalse(full.dropped_trailing_summary_row)
+        self.assertEqual(list(full.frame["FrameID"]), [10, 11, 12])
 
     def test_read_tracking_rejects_empty_and_bad_schema(self) -> None:
         self.tracking.write_text("FrameID\n", encoding="utf-8")
@@ -141,6 +168,11 @@ class RawReaderTests(unittest.TestCase):
         self.assertGreater(gap_report.gap_event_count, 0)
         self.assertGreater(gap_report.missing_frame_count, 0)
 
+        repeated_time = camera.copy()
+        repeated_time.loc[2, "ElapsedTime"] = repeated_time.loc[1, "ElapsedTime"]
+        repeated_time_report = validate_frame_sequence(repeated_time)
+        self.assertEqual(repeated_time_report.nonmonotonic_elapsed_count, 1)
+
     def test_validate_raw_triplet_cli(self) -> None:
         output = self.root / "raw_validation.json"
         result = validate_raw_triplet(self.raw, output=output, overwrite=True)
@@ -159,7 +191,7 @@ class RawReaderTests(unittest.TestCase):
             ]
         )
         payload = json.loads(output.read_text(encoding="utf-8"))
-        self.assertEqual(payload["artifact_kind"], "raw-acquisition-validation-v1")
+        self.assertEqual(payload["artifact_kind"], "raw-acquisition-validation")
 
 
 if __name__ == "__main__":

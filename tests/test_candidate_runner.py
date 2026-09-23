@@ -141,11 +141,11 @@ class CandidateRunnerTests(unittest.TestCase):
             metadata = project_dir / "Metadata"
             metadata.mkdir()
             for name in (
-                "recording-a_candidate-v1_complete.json",
-                "recording-a_movement-candidate-v2_complete.json",
-                "recording-a_candidate-temporal-outcomes-v3_complete.json",
-                "recording-a_candidate-trial-outcomes-v1_complete.json",
-                "candidate-a_candidate-metric-comparison-v1_complete.json",
+                "recording-a_candidate_complete.json",
+                "recording-a_movement-candidate_complete.json",
+                "recording-a_candidate-temporal-outcomes_complete.json",
+                "recording-a_candidate-trial-outcomes_complete.json",
+                "candidate-a_candidate-metric-comparison_complete.json",
             ):
                 (metadata / name).write_text("{}", encoding="utf-8")
 
@@ -183,7 +183,7 @@ class CandidateRunnerTests(unittest.TestCase):
             ]
         )
 
-        self.assertEqual(args.recipe, RUNNER_RECIPE_ID)
+        self.assertEqual(args.recipe, CORRECTED_RUNNER_RECIPE_ID)
         self.assertEqual(args.recording_id, ["recording-a"])
 
     def test_cli_exposes_corrected_candidate_runner(self) -> None:
@@ -197,11 +197,19 @@ class CandidateRunnerTests(unittest.TestCase):
                 "--analysis-id",
                 "candidate-corrected",
                 "--recipe",
-                "candidate-corrected-runner-v1",
+                "candidate-corrected-runner",
             ]
         )
 
         self.assertEqual(args.recipe, CORRECTED_RUNNER_RECIPE_ID)
+
+    def test_direct_intake_benchmark_requires_explicit_recipe(self) -> None:
+        args = build_parser().parse_args([
+            "candidate-runner", "--project-dir", "paper",
+            "--recording-id", "recording-a", "--analysis-id", "benchmark",
+            "--recipe", RUNNER_RECIPE_ID,
+        ])
+        self.assertEqual(args.recipe, RUNNER_RECIPE_ID)
 
     def test_resume_rejects_stale_cross_stage_lineage(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
@@ -214,14 +222,14 @@ class CandidateRunnerTests(unittest.TestCase):
             quality.mkdir(parents=True)
             metadata.mkdir(parents=True)
 
-            movement_path = processed / "movement_state_candidates-v2.parquet"
+            movement_path = processed / "movement_state_candidates.parquet"
             movement_path.write_bytes(b"movement")
             movement_hash = sha256_file(movement_path)
-            movement_summary = quality / "movement-candidate-v2_summary.json"
+            movement_summary = quality / "movement-candidate_summary.json"
             movement_summary.write_text(
                 json.dumps(
                     {
-                        "recipe": "movement-candidate-v2",
+                        "recipe": "movement-candidate",
                         "recording_id": recording_id,
                         "artifact": {"sha256": movement_hash},
                         "inputs": {
@@ -232,12 +240,12 @@ class CandidateRunnerTests(unittest.TestCase):
                 encoding="utf-8",
             )
             (
-                metadata / f"{recording_id}_movement-candidate-v2_complete.json"
+                metadata / f"{recording_id}_movement-candidate_complete.json"
             ).write_text(
                 json.dumps(
                     {
                         "status": "complete",
-                        "recipe": "movement-candidate-v2",
+                        "recipe": "movement-candidate",
                         "recording_id": recording_id,
                         "movement_sha256": movement_hash,
                         "summary_sha256": sha256_file(movement_summary),
@@ -246,7 +254,7 @@ class CandidateRunnerTests(unittest.TestCase):
                 encoding="utf-8",
             )
             (
-                metadata / f"{recording_id}_candidate-v1_complete.json"
+                metadata / f"{recording_id}_candidate_complete.json"
             ).write_text(
                 json.dumps({"metrics_sha256": "current-metric"}),
                 encoding="utf-8",

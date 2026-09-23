@@ -330,9 +330,7 @@ def verify_completed_parquet_set(
             f"Completed {recipe} marker has no artifact hash map."
         )
     artifact_keys = set(summary_artifacts)
-    if artifact_keys != set(marker_hashes) or not artifact_keys.issubset(
-        expected_paths
-    ):
+    if artifact_keys != set(marker_hashes) or artifact_keys != set(expected_paths):
         raise ArtifactIntegrityError(
             f"Completed {recipe} artifact identities are inconsistent."
         )
@@ -418,9 +416,7 @@ def verify_completed_analysis_parquet_set(
             f"Completed {recipe} analysis marker has no artifact hash map."
         )
     artifact_keys = set(summary_artifacts)
-    if artifact_keys != set(marker_hashes) or not artifact_keys.issubset(
-        expected_paths
-    ):
+    if artifact_keys != set(marker_hashes) or artifact_keys != set(expected_paths):
         raise ArtifactIntegrityError(
             f"Completed {recipe} analysis artifact identities are inconsistent."
         )

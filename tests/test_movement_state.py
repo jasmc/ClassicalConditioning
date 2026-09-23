@@ -45,28 +45,28 @@ def _detector_frame(rows: int, elapsed: np.ndarray | None = None) -> pd.DataFram
 class MovementStateTests(unittest.TestCase):
     def test_metric_movement_recipe_pairing_is_frozen(self) -> None:
         development = resolve_candidate_metric_source(
-            metric_recipe="tail-candidate-development-v1"
+            metric_recipe="tail-candidate-development"
         )
-        self.assertEqual(development.movement_recipe, "movement-candidate-v2")
+        self.assertEqual(development.movement_recipe, "movement-candidate")
         corrected = resolve_candidate_metric_source(
-            movement_recipe="movement-candidate-corrected-v2"
+            movement_recipe="movement-candidate-corrected"
         )
         self.assertEqual(
             corrected.metric_recipe,
-            "tail-candidate-corrected-v1",
+            "tail-candidate-corrected",
         )
         self.assertEqual(
             corrected.comparison_recipe,
-            "candidate-metric-comparison-corrected-v1",
+            "candidate-metric-comparison-corrected",
         )
         self.assertEqual(
             corrected.runner_recipe,
-            "candidate-corrected-runner-v1",
+            "candidate-corrected-runner",
         )
         with self.assertRaisesRegex(ValueError, "frozen pairing"):
             resolve_candidate_metric_source(
-                metric_recipe="tail-candidate-development-v1",
-                movement_recipe="movement-candidate-corrected-v2",
+                metric_recipe="tail-candidate-development",
+                movement_recipe="movement-candidate-corrected",
             )
 
     def test_smoothing_does_not_cross_frame_gap(self) -> None:

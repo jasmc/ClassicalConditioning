@@ -42,7 +42,7 @@ GATE_T0_LEGACY_EVIDENCE = {
     "evidence_sources": [
         "data_io.read_tail_tracking_data: Convert radian to degree",
         "Archive/modules/my_functions.py: Vectorized conversion from radian to degree",
-        "preprocessing.legacy_v1.prepare_legacy_tracking",
+        "preprocessing.legacy.prepare_legacy_tracking",
         "preprocessing.candidate_metric_kernel geometry agreement and rad_per_px naming",
         "Plans/DECISIONS.md Gate T0",
     ],
@@ -214,7 +214,7 @@ def audit_tracking_file(
     # Return source identity, classification, Gate T0 evidence, and observations
     # in a JSON-compatible report that callers may print or persist unchanged.
     return {
-        "artifact_kind": "tracking-field-audit-v1",
+        "artifact_kind": "tracking-field-audit",
         "path": str(tracking_path),
         "sample_rows_requested": sample_rows,
         "sample_rows_read": int(len(sample)),

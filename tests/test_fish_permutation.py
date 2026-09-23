@@ -85,7 +85,7 @@ class FishPermutationTests(unittest.TestCase):
                 "perm-a",
             ]
         )
-        self.assertEqual(args.metric_recipe, "tail-candidate-corrected-v1")
+        self.assertEqual(args.metric_recipe, "tail-candidate-corrected")
 
 
 if __name__ == "__main__":

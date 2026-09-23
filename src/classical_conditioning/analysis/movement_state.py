@@ -53,6 +53,8 @@ METRIC_IDS = {
 DETECTOR_SOURCE_COLUMN = "legacy_distal_angular_speed_rad_per_ms"
 DETECTOR_COVERAGE_COLUMN = "angular_valid_tail_fraction"
 DETECTOR_COLUMNS = ("valid", "moving", "bout_id")
+# Stable provenance label for every output derived from this shared detector.
+SHARED_DETECTOR_ID = "legacy-envelope-shared"
 
 _DEGREES_TO_RADIANS = np.pi / 180.0
 
@@ -85,48 +87,48 @@ class CandidateMetricSource:
 
 
 CANDIDATE_METRIC_SOURCES: dict[str, CandidateMetricSource] = {
-    "tail-candidate-development-v1": CandidateMetricSource(
-        metric_recipe="tail-candidate-development-v1",
-        metrics_name="frame_activity_candidates-v1.parquet",
-        metric_summary_name="candidate-v1_activity_summary.json",
-        metric_marker_suffix="candidate-v1_complete.json",
-        movement_recipe="movement-candidate-v2",
-        movement_artifact_name="movement_state_candidates-v2.parquet",
-        movement_summary_name="movement-candidate-v2_summary.json",
-        movement_marker_suffix="movement-candidate-v2_complete.json",
-        temporal_recipe="candidate-temporal-outcomes-v3",
-        temporal_artifact_name="candidate_temporal_outcomes-v3.parquet",
-        temporal_summary_name="candidate-v3_temporal_outcomes_summary.json",
-        temporal_marker_suffix="candidate-temporal-outcomes-v3_complete.json",
-        trial_recipe="candidate-trial-outcomes-v1",
-        trial_outcomes_name="candidate-trial-outcomes-v1.parquet",
-        trial_coverage_name="candidate-trial-outcomes-v1_coverage.parquet",
-        trial_summary_name="candidate-trial-outcomes-v1_summary.json",
-        trial_marker_suffix="candidate-trial-outcomes-v1_complete.json",
-        comparison_recipe="candidate-metric-comparison-v1",
-        runner_recipe="candidate-development-runner-v1",
+    "tail-candidate-development": CandidateMetricSource(
+        metric_recipe="tail-candidate-development",
+        metrics_name="frame_activity_candidates.parquet",
+        metric_summary_name="candidate_activity_summary.json",
+        metric_marker_suffix="candidate_complete.json",
+        movement_recipe="movement-candidate",
+        movement_artifact_name="movement_state_candidates.parquet",
+        movement_summary_name="movement-candidate_summary.json",
+        movement_marker_suffix="movement-candidate_complete.json",
+        temporal_recipe="candidate-temporal-outcomes",
+        temporal_artifact_name="candidate_temporal_outcomes.parquet",
+        temporal_summary_name="candidate_temporal_outcomes_summary.json",
+        temporal_marker_suffix="candidate-temporal-outcomes_complete.json",
+        trial_recipe="candidate-trial-outcomes",
+        trial_outcomes_name="candidate-trial-outcomes.parquet",
+        trial_coverage_name="candidate-trial-outcomes_coverage.parquet",
+        trial_summary_name="candidate-trial-outcomes_summary.json",
+        trial_marker_suffix="candidate-trial-outcomes_complete.json",
+        comparison_recipe="candidate-metric-comparison",
+        runner_recipe="candidate-development-runner",
         scientific_status="candidate_development",
     ),
-    "tail-candidate-corrected-v1": CandidateMetricSource(
-        metric_recipe="tail-candidate-corrected-v1",
-        metrics_name="frame_activity_candidates-corrected-v1.parquet",
-        metric_summary_name="candidate-corrected-v1_activity_summary.json",
-        metric_marker_suffix="candidate-corrected-v1_complete.json",
-        movement_recipe="movement-candidate-corrected-v2",
-        movement_artifact_name="movement_state_candidates-corrected-v2.parquet",
-        movement_summary_name="movement-candidate-corrected-v2_summary.json",
-        movement_marker_suffix="movement-candidate-corrected-v2_complete.json",
-        temporal_recipe="candidate-temporal-outcomes-corrected-v3",
-        temporal_artifact_name="candidate_temporal_outcomes-corrected-v3.parquet",
-        temporal_summary_name="candidate-corrected-v3_temporal_outcomes_summary.json",
-        temporal_marker_suffix="candidate-temporal-outcomes-corrected-v3_complete.json",
-        trial_recipe="candidate-trial-outcomes-corrected-v1",
-        trial_outcomes_name="candidate-trial-outcomes-corrected-v1.parquet",
-        trial_coverage_name="candidate-trial-outcomes-corrected-v1_coverage.parquet",
-        trial_summary_name="candidate-trial-outcomes-corrected-v1_summary.json",
-        trial_marker_suffix="candidate-trial-outcomes-corrected-v1_complete.json",
-        comparison_recipe="candidate-metric-comparison-corrected-v1",
-        runner_recipe="candidate-corrected-runner-v1",
+    "tail-candidate-corrected": CandidateMetricSource(
+        metric_recipe="tail-candidate-corrected",
+        metrics_name="frame_activity_candidates-corrected.parquet",
+        metric_summary_name="candidate-corrected_activity_summary.json",
+        metric_marker_suffix="candidate-corrected_complete.json",
+        movement_recipe="movement-candidate-corrected",
+        movement_artifact_name="movement_state_candidates-corrected.parquet",
+        movement_summary_name="movement-candidate-corrected_summary.json",
+        movement_marker_suffix="movement-candidate-corrected_complete.json",
+        temporal_recipe="candidate-temporal-outcomes-corrected",
+        temporal_artifact_name="candidate_temporal_outcomes-corrected.parquet",
+        temporal_summary_name="candidate-corrected_temporal_outcomes_summary.json",
+        temporal_marker_suffix="candidate-temporal-outcomes-corrected_complete.json",
+        trial_recipe="candidate-trial-outcomes-corrected",
+        trial_outcomes_name="candidate-trial-outcomes-corrected.parquet",
+        trial_coverage_name="candidate-trial-outcomes-corrected_coverage.parquet",
+        trial_summary_name="candidate-trial-outcomes-corrected_summary.json",
+        trial_marker_suffix="candidate-trial-outcomes-corrected_complete.json",
+        comparison_recipe="candidate-metric-comparison-corrected",
+        runner_recipe="candidate-corrected-runner",
         scientific_status="candidate_corrected",
         requires_corrected_preprocess=True,
     ),
@@ -177,7 +179,7 @@ def resolve_candidate_metric_source(
         if value is not None
     ]
     if not selectors:
-        return CANDIDATE_METRIC_SOURCES["tail-candidate-development-v1"]
+        return CANDIDATE_METRIC_SOURCES["tail-candidate-development"]
 
     source: CandidateMetricSource | None = None
     if metric_recipe is not None:
@@ -615,7 +617,7 @@ def build_candidate_movement_state(
     recording_id: str,
     *,
     config: MovementCalibrationConfig | None = None,
-    metric_recipe: str = "tail-candidate-development-v1",
+    metric_recipe: str = "tail-candidate-development",
     overwrite: bool = False,
 ) -> MovementStateResult:
     """Calibrate and apply exploratory movement detectors to all candidates."""
@@ -1007,26 +1009,26 @@ def build_movement_sensitivity_report(
     """Write a compact smoothing sensitivity report for candidate detectors."""
     project_dir = project_dir.resolve()
     source_dir = project_dir / "Processed data" / recording_id
-    metric_path = source_dir / "frame_activity_candidates-v1.parquet"
+    metric_path = source_dir / "frame_activity_candidates.parquet"
     protocol_path = source_dir / "stimulus_events.parquet"
-    marker_path = project_dir / "Metadata" / f"{recording_id}_candidate-v1_complete.json"
+    marker_path = project_dir / "Metadata" / f"{recording_id}_candidate_complete.json"
     summary_path = (
         project_dir
         / "Quality checks"
         / recording_id
-        / "movement-smoothing-sensitivity-v1.json"
+        / "movement-smoothing-sensitivity.json"
     )
     completion_path = (
         project_dir
         / "Metadata"
-        / f"{recording_id}_movement-smoothing-sensitivity-v1_complete.json"
+        / f"{recording_id}_movement-smoothing-sensitivity_complete.json"
     )
     if any(path.exists() for path in (summary_path, completion_path)) and not overwrite:
         raise FileExistsError("Movement smoothing sensitivity output already exists.")
     marker = json.loads(marker_path.read_text(encoding="utf-8"))
     if (
         marker.get("status") != "complete"
-        or marker.get("recipe") != "tail-candidate-development-v1"
+        or marker.get("recipe") != "tail-candidate-development"
         or marker.get("recording_id") != recording_id
         or sha256_file(metric_path) != marker.get("metrics_sha256")
     ):
@@ -1035,7 +1037,7 @@ def build_movement_sensitivity_report(
         project_dir
         / "Quality checks"
         / recording_id
-        / "candidate-v1_activity_summary.json"
+        / "candidate_activity_summary.json"
     )
     if (
         not candidate_summary_path.is_file()
@@ -1086,7 +1088,7 @@ def build_movement_sensitivity_report(
         raise RuntimeError("Protocol artifact changed during sensitivity analysis.")
 
     payload = {
-        "recipe": "movement-smoothing-sensitivity-v1",
+        "recipe": "movement-smoothing-sensitivity",
         "scientific_status": "candidate_development",
         "recording_id": recording_id,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -1107,7 +1109,7 @@ def build_movement_sensitivity_report(
     }
     with artifact_staging(
         project_dir,
-        prefix=f".{recording_id}-movement-sensitivity-v1-",
+        prefix=f".{recording_id}-movement-sensitivity-",
     ) as staging_root:
         staged_summary = staging_root / summary_path.name
         staged_completion = staging_root / completion_path.name
@@ -1117,7 +1119,7 @@ def build_movement_sensitivity_report(
             staged_completion,
             {
                 "status": "complete",
-                "recipe": "movement-smoothing-sensitivity-v1",
+                "recipe": "movement-smoothing-sensitivity",
                 "recording_id": recording_id,
                 "summary_sha256": summary_hash,
             },

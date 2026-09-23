@@ -88,7 +88,7 @@ class ModelInputTests(unittest.TestCase):
                 "model-a",
             ]
         )
-        self.assertEqual(args.metric_recipe, "tail-candidate-corrected-v1")
+        self.assertEqual(args.metric_recipe, "tail-candidate-corrected")
 
 
 if __name__ == "__main__":

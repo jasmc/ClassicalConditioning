@@ -33,17 +33,17 @@ from classical_conditioning.artifacts import (
 )
 
 # Versioned output identity and canonical artifact filenames for this stage.
-RECIPE_ID = "corrected-preprocess-v1"
+RECIPE_ID = "corrected-preprocess"
 SCIENTIFIC_STATUS = "candidate_development"
-ARTIFACT_NAME = "frame_preprocessed_corrected-v1.parquet"
-SUMMARY_NAME = "corrected-v1_preprocessing_summary.json"
-MARKER_SUFFIX = "corrected-preprocess-v1_complete.json"
+ARTIFACT_NAME = "frame_preprocessed_corrected.parquet"
+SUMMARY_NAME = "corrected_preprocessing_summary.json"
+MARKER_SUFFIX = "corrected-preprocess_complete.json"
 
 
 # Frozen settings: altering one requires a new recipe/artifact identity.
 @dataclass(frozen=True)
 class CorrectedPreprocessConfig:
-    """Frozen policy set for ``corrected-preprocess-v1``.
+    """Frozen policy set for ``corrected-preprocess``.
 
     Changing any field requires a new recipe identity.
     """
@@ -199,22 +199,22 @@ def calculate_corrected_frames(
     # The frozen route rejects interpolation/filter/rotation alternatives.
     if config.interpolation_enabled:
         raise ValueError(
-            "corrected-preprocess-v1 keeps interpolation_enabled=False until "
+            "corrected-preprocess keeps interpolation_enabled=False until "
             "Gate P freezes an interpolation policy."
         )
     if config.temporal_filter_enabled or config.spatial_filter_enabled:
         raise ValueError(
-            "corrected-preprocess-v1 keeps filtering disabled until Gate P "
+            "corrected-preprocess keeps filtering disabled until Gate P "
             "freezes filter policies."
         )
     if config.body_rotation_correction != "none":
         raise ValueError(
-            "corrected-preprocess-v1 records body_rotation_correction='none' "
+            "corrected-preprocess records body_rotation_correction='none' "
             "(no independent body-axis field in current tracking)."
         )
     if config.body_translation_correction != "subtract_tail_base":
         raise ValueError(
-            "corrected-preprocess-v1 only supports subtract_tail_base "
+            "corrected-preprocess only supports subtract_tail_base "
             "translation."
         )
     # Require matching frame/point geometry before vectorized correction.
@@ -373,18 +373,18 @@ def build_corrected_preprocessing(
     # Accept only the recipe's frozen default configuration and a positive batch size.
     if config != CorrectedPreprocessConfig():
         raise ValueError(
-            "corrected-preprocess-v1 uses a frozen configuration. "
+            "corrected-preprocess uses a frozen configuration. "
             "Parameter changes require a different recipe identity."
         )
     if batch_size <= 0:
         raise ValueError("batch_size must be positive.")
     if config.drop_initial_camera_rows != 0:
         raise ValueError(
-            "corrected-preprocess-v1 does not discard initial camera rows."
+            "corrected-preprocess does not discard initial camera rows."
         )
     if config.drop_trailing_tracking_summary_row:
         raise ValueError(
-            "corrected-preprocess-v1 does not drop a trailing tracking row; "
+            "corrected-preprocess does not drop a trailing tracking row; "
             "intake Parquet is the source of truth."
         )
 
@@ -456,7 +456,7 @@ def build_corrected_preprocessing(
     # Stream corrected frames, QC summaries, and marker into staging before publish.
     with artifact_staging(
         project_dir,
-        prefix=f".{recording_id}-corrected-v1-",
+        prefix=f".{recording_id}-corrected-",
     ) as staging_root:
         staged_frames = staging_root / ARTIFACT_NAME
         staged_summary = staging_root / SUMMARY_NAME

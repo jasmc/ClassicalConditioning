@@ -95,61 +95,47 @@ def read_camera(path: Path) -> CameraReadResult:
     """Read canonical camera timing without discarding leading rows."""
     # Camera exports may use dot or comma decimals, so try both deliberately.
     source = _require_file(path)
-    last_parse_error: Exception | None = None
-    frame: pd.DataFrame | None = None
-    separator = "space"
-    used_decimal = "."
-    # Keep the final parse failure to give a useful combined error if both fail.
+    last_error: Exception | None = None
+    # A parser can read comma decimals as strings without raising. Therefore a
+    # decimal convention succeeds only after schema *and* numeric validation.
     for decimal in (".", ","):
         try:
             frame, separator, used_decimal = _read_whitespace_table(
                 source,
                 decimal=decimal,
             )
-            break
-        except SchemaValidationError as exc:
-            last_parse_error = exc
-            frame = None
-    if frame is None:
-        raise SchemaValidationError(
-            f"Camera file could not be parsed: {source}: {last_parse_error}"
-        )
-
-    # Canonicalise headers, select only schema fields, and type each numeric role.
-    working = frame.copy()
-    working.columns = normalize_camera_columns([str(c) for c in working.columns])
-    validate_camera_columns(list(working.columns))
-    working = working.loc[:, list(CAMERA_COLUMNS)].copy()
-    # Coercion is intentionally strict for camera timing/identity columns.
-    try:
-        working["FrameID"] = pd.to_numeric(working["FrameID"], errors="raise").astype(
-            "int64"
-        )
-        working["ElapsedTime"] = pd.to_numeric(
-            working["ElapsedTime"],
-            errors="raise",
-        ).astype("float64")
-        working["AbsoluteTime"] = pd.to_numeric(
-            working["AbsoluteTime"],
-            errors="raise",
-        ).astype("int64")
-    except (ValueError, TypeError) as exc:
-        raise SchemaValidationError(
-            f"Camera numeric columns are invalid in {source}: {exc}"
-        ) from exc
-    # Reject pathological tables before returning a purportedly typed result.
-    if working.empty:
-        raise SchemaValidationError("Camera table is empty.")
-    if working["FrameID"].duplicated().any():
-        raise SchemaValidationError("Camera FrameID values must be unique.")
-    if not working["ElapsedTime"].map(np.isfinite).all():
-        raise SchemaValidationError("Camera ElapsedTime must be finite.")
-    return CameraReadResult(
-        frame=working,
-        source_path=source,
-        separator=separator,
-        decimal=used_decimal,
-    )
+            working = frame.copy()
+            working.columns = normalize_camera_columns(
+                [str(column) for column in working.columns]
+            )
+            validate_camera_columns(list(working.columns))
+            working = working.loc[:, list(CAMERA_COLUMNS)].copy()
+            working["FrameID"] = pd.to_numeric(
+                working["FrameID"], errors="raise"
+            ).astype("int64")
+            working["ElapsedTime"] = pd.to_numeric(
+                working["ElapsedTime"], errors="raise"
+            ).astype("float64")
+            working["AbsoluteTime"] = pd.to_numeric(
+                working["AbsoluteTime"], errors="raise"
+            ).astype("int64")
+            if working.empty:
+                raise SchemaValidationError("Camera table is empty.")
+            if working["FrameID"].duplicated().any():
+                raise SchemaValidationError("Camera FrameID values must be unique.")
+            if not working["ElapsedTime"].map(np.isfinite).all():
+                raise SchemaValidationError("Camera ElapsedTime must be finite.")
+            return CameraReadResult(
+                frame=working,
+                source_path=source,
+                separator=separator,
+                decimal=used_decimal,
+            )
+        except (SchemaValidationError, ValueError, TypeError) as exc:
+            last_error = exc
+    raise SchemaValidationError(
+        f"Camera file could not be parsed and typed: {source}: {last_error}"
+    ) from last_error
 
 
 def read_tracking(
@@ -159,14 +145,17 @@ def read_tracking(
     drop_trailing_summary_row: bool = True,
 ) -> TrackingReadResult:
     """Read full-field tracking TXT for the supported candidate route."""
-    # Tracking normally uses decimal dots; retry commas only if parsing collapsed.
+    # Tracking normally uses decimal dots. Unlike camera data, coordinate values
+    # can safely become NaN later, so inspect raw cells before choosing commas.
     source = _require_file(path)
     frame, _, _ = _read_whitespace_table(source, decimal=".")
-    try:
-        if frame.shape[1] == 1:
-            frame, _, _ = _read_whitespace_table(source, decimal=",")
-    except SchemaValidationError:
-        pass
+    decimal_comma_pattern = r"[+-]?(?:\d+,\d*|\d*,\d+)(?:[eE][+-]?\d+)?"
+    has_decimal_comma = any(
+        column.str.fullmatch(decimal_comma_pattern).fillna(False).any()
+        for _, column in frame.astype("string").items()
+    )
+    if has_decimal_comma:
+        frame, _, _ = _read_whitespace_table(source, decimal=",")
 
     # Validate field topology before numeric conversion or row removal.
     columns = [str(column) for column in frame.columns]
@@ -177,27 +166,20 @@ def read_tracking(
     # Historical exports end with an optional summary row rather than a frame.
     dropped = False
     if drop_trailing_summary_row:
-        if len(working) < 2:
-            raise SchemaValidationError(
-                "Tracking table needs at least two rows to drop the summary row."
-            )
-        working = working.iloc[:-1].copy()
-        dropped = True
+        trailing_frame_id = pd.to_numeric(
+            working["FrameID"].iloc[-1], errors="coerce"
+        )
+        if pd.isna(trailing_frame_id):
+            working = working.iloc[:-1].copy()
+            dropped = True
 
     # The source's optional trailing summary row may have a non-numeric FrameID.
     working["FrameID"] = pd.to_numeric(working["FrameID"], errors="coerce")
-    if dropped:
-        if working["FrameID"].isna().any():
-            raise SchemaValidationError(
-                "Tracking FrameID values must be numeric after dropping the summary row."
-            )
-        working["FrameID"] = working["FrameID"].astype("int64")
-    else:
-        if len(working) >= 2 and working["FrameID"].iloc[:-1].isna().any():
-            raise SchemaValidationError(
-                "Tracking FrameID values before the trailing summary row must be numeric."
-            )
-        working["FrameID"] = working["FrameID"].astype("float64")
+    if working["FrameID"].isna().any():
+        raise SchemaValidationError(
+            "Tracking FrameID values must be numeric after optional summary-row handling."
+        )
+    working["FrameID"] = working["FrameID"].astype("int64")
 
     # Invalid tracking coordinates remain NaN for downstream validity masking.
     for column in schema.angle_columns + schema.x_columns + schema.y_columns:

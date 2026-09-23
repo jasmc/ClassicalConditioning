@@ -22,6 +22,7 @@ from classical_conditioning.analysis.movement_state import (
     CandidateMetricSource,
     DETECTOR_COLUMNS,
     METRIC_IDS,
+    SHARED_DETECTOR_ID,
     resolve_candidate_metric_source,
 )
 from classical_conditioning.artifacts import (
@@ -41,7 +42,7 @@ from classical_conditioning.exceptions import (
 )
 from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
 
-DEFAULT_TRIAL_RECIPE_ID = "candidate-trial-outcomes-v1"
+DEFAULT_TRIAL_RECIPE_ID = "candidate-trial-outcomes"
 RECIPE_ID = DEFAULT_TRIAL_RECIPE_ID  # retained for development-route callers
 
 
@@ -278,7 +279,7 @@ def aggregate_trial_outcomes(
                         trial_spec.catch if trial_spec is not None else None
                     ),
                     "metric_id": metric_id,
-                    "detector_id": "quiet-window-hysteresis-v1",
+                    "detector_id": SHARED_DETECTOR_ID,
                     "baseline_total_activity": _finite_mean(
                         values,
                         baseline_valid,
@@ -382,7 +383,7 @@ def _verify_inputs(
     project_dir: Path,
     recording_id: str,
     *,
-    metric_recipe: str = "tail-candidate-development-v1",
+    metric_recipe: str = "tail-candidate-development",
 ) -> tuple[str, Path, Path, Path, dict[str, str], CandidateMetricSource]:
     # Authenticate the metric and movement artifacts before deriving trial-level
     # outcomes from them.
@@ -470,7 +471,7 @@ def verify_candidate_trial_outcomes(
     project_dir: Path,
     recording_id: str,
     *,
-    metric_recipe: str = "tail-candidate-development-v1",
+    metric_recipe: str = "tail-candidate-development",
 ) -> VerifiedArtifactSet:
     """Authenticate trial outputs and bind them to current upstream artifacts."""
     project_dir = project_dir.resolve()
@@ -507,7 +508,7 @@ def build_candidate_trial_outcomes(
     *,
     experiment_name: str = "allDelay",
     config: TrialOutcomeConfig = TrialOutcomeConfig(),
-    metric_recipe: str = "tail-candidate-development-v1",
+    metric_recipe: str = "tail-candidate-development",
     overwrite: bool = False,
 ) -> TrialOutcomeResult:
     """Publish exact candidate trial outcomes and coverage."""

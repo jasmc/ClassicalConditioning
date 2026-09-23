@@ -34,7 +34,7 @@ from classical_conditioning.exceptions import (
 )
 
 # Version/schema identities bind every frozen cohort to this exact policy format.
-RECIPE_ID = "cohort-manifest-v1"
+RECIPE_ID = "cohort-manifest"
 SCHEMA_VERSION = "cohort-manifest/1.0"
 # Required ordered review fields: canonicalization retains no undeclared columns.
 COHORT_COLUMNS = (

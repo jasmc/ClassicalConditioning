@@ -26,23 +26,23 @@ class BatchWorkTests(unittest.TestCase):
             processed.mkdir(parents=True)
 
             (
-                metadata / f"{recording_id}_corrected-preprocess-v1_complete.json"
+                metadata / f"{recording_id}_corrected-preprocess_complete.json"
             ).write_text(
                 json.dumps(
                     {
                         "status": "complete",
-                        "recipe": "corrected-preprocess-v1",
+                        "recipe": "corrected-preprocess",
                         "recording_id": recording_id,
                     }
                 ),
                 encoding="utf-8",
             )
-            (processed / "frame_preprocessed_corrected-v1.parquet").write_bytes(b"x")
+            (processed / "frame_preprocessed_corrected.parquet").write_bytes(b"x")
 
             work = plan_batch_work(
                 project_dir,
                 [recording_id],
-                metric_recipe="tail-candidate-corrected-v1",
+                metric_recipe="tail-candidate-corrected",
             )
             statuses = dict(zip(work["stage"], work["status"]))
             self.assertEqual(statuses["corrected-preprocess"], "complete")
@@ -52,7 +52,7 @@ class BatchWorkTests(unittest.TestCase):
             pending = plan_batch_work(
                 project_dir,
                 [recording_id],
-                metric_recipe="tail-candidate-corrected-v1",
+                metric_recipe="tail-candidate-corrected",
                 selection="pending",
             )
             self.assertEqual(set(pending["stage"]), set(statuses) - {"corrected-preprocess"})
@@ -64,7 +64,7 @@ class BatchWorkTests(unittest.TestCase):
                 project_dir,
                 ["recording-a", "recording-b"],
                 batch_id="fixture-batch",
-                metric_recipe="tail-candidate-corrected-v1",
+                metric_recipe="tail-candidate-corrected",
             )
             summary = json.loads(result.summary_path.read_text(encoding="utf-8"))
             self.assertEqual(summary["recipe"], RECIPE_ID)
@@ -83,7 +83,7 @@ class BatchWorkTests(unittest.TestCase):
                 "fixture-batch",
             ]
         )
-        self.assertEqual(args.metric_recipe, "tail-candidate-corrected-v1")
+        self.assertEqual(args.metric_recipe, "tail-candidate-corrected")
         self.assertEqual(args.selection, "all")
 
     @patch(

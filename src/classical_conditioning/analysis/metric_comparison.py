@@ -39,9 +39,9 @@ from classical_conditioning.exceptions import (
 )
 from classical_conditioning.paths import condition_from_recording_name
 
-RECIPE_ID = "candidate-metric-comparison-v1"
-SOURCE_RECIPE_ID = "candidate-temporal-outcomes-v3"
-CORRECTED_RECIPE_ID = "candidate-metric-comparison-corrected-v1"
+RECIPE_ID = "candidate-metric-comparison"
+SOURCE_RECIPE_ID = "candidate-temporal-outcomes"
+CORRECTED_RECIPE_ID = "candidate-metric-comparison-corrected"
 OUTCOME_COLUMNS = {
     "total-activity": "Total activity mean",
     "movement-probability": "Movement probability",

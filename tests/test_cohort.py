@@ -131,8 +131,8 @@ class CohortManifestTests(unittest.TestCase):
             result = freeze_cohort_manifest(
                 project_dir,
                 reviewed_cohort(),
-                cohort_id="primary-v1",
-                policy_id="technical-policy-v1",
+                cohort_id="primary",
+                policy_id="technical-policy",
             )
 
             summary = json.loads(result.summary_path.read_text(encoding="utf-8"))
@@ -143,19 +143,19 @@ class CohortManifestTests(unittest.TestCase):
             self.assertEqual(sha256_file(result.manifest_path), marker["manifest_sha256"])
             self.assertEqual(result.row_count, 2)
             self.assertEqual(result.primary_count, 1)
-            loaded = load_cohort_manifest(project_dir, "primary-v1")
+            loaded = load_cohort_manifest(project_dir, "primary")
             self.assertEqual(logical_cohort_hash(loaded), result.logical_content_sha256)
             with self.assertRaisesRegex(FileExistsError, "immutable"):
                 freeze_cohort_manifest(
                     project_dir,
                     reviewed_cohort(),
-                    cohort_id="primary-v1",
-                    policy_id="technical-policy-v1",
+                    cohort_id="primary",
+                    policy_id="technical-policy",
                 )
 
             result.review_copy_path.write_text("tampered", encoding="utf-8")
             with self.assertRaisesRegex(ArtifactIntegrityError, "byte lineage"):
-                load_cohort_manifest(project_dir, "primary-v1")
+                load_cohort_manifest(project_dir, "primary")
 
     def test_cli_exposes_reviewed_cohort_freeze(self) -> None:
         args = build_parser().parse_args(
@@ -166,14 +166,14 @@ class CohortManifestTests(unittest.TestCase):
                 "--input",
                 "reviewed.parquet",
                 "--cohort-id",
-                "primary-v1",
+                "primary",
                 "--policy-id",
-                "technical-policy-v1",
+                "technical-policy",
             ]
         )
 
-        self.assertEqual(args.recipe, "cohort-manifest-v1")
-        self.assertEqual(args.cohort_id, "primary-v1")
+        self.assertEqual(args.recipe, "cohort-manifest")
+        self.assertEqual(args.cohort_id, "primary")
 
     def test_cli_exposes_apply_cohort(self) -> None:
         args = build_parser().parse_args(
@@ -182,7 +182,7 @@ class CohortManifestTests(unittest.TestCase):
                 "--project-dir",
                 "paper",
                 "--cohort-id",
-                "fixture-two-fish-v1",
+                "fixture-two-fish",
                 "--input",
                 "data.parquet",
                 "--output",
@@ -190,7 +190,7 @@ class CohortManifestTests(unittest.TestCase):
             ]
         )
         self.assertEqual(args.include_column, "primary_included")
-        self.assertEqual(args.cohort_id, "fixture-two-fish-v1")
+        self.assertEqual(args.cohort_id, "fixture-two-fish")
 
 
 if __name__ == "__main__":

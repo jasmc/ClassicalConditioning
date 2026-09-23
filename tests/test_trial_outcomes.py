@@ -14,6 +14,7 @@ from classical_conditioning.analysis.trial_outcomes import (
     aggregate_trial_outcomes,
     verify_candidate_trial_outcomes,
 )
+from classical_conditioning.analysis.movement_state import SHARED_DETECTOR_ID
 from classical_conditioning.cli import build_parser
 from classical_conditioning.exceptions import (
     ArtifactIntegrityError,
@@ -83,6 +84,7 @@ class TrialOutcomeTests(unittest.TestCase):
         self.assertEqual(outcome["bout_count"], 1)
         self.assertEqual(outcome["bout_rate_per_minute"], 60.0)
         self.assertEqual(outcome["mean_bout_duration_ms"], 1_000.0)
+        self.assertEqual(outcome["detector_id"], SHARED_DETECTOR_ID)
         self.assertEqual(trial_coverage["baseline_sample_count"], 2)
         self.assertEqual(trial_coverage["baseline_valid_sample_count"], 1)
         self.assertEqual(trial_coverage["baseline_valid_fraction"], 0.5)
@@ -128,7 +130,7 @@ class TrialOutcomeTests(unittest.TestCase):
             ]
         )
 
-        self.assertEqual(args.recipe, "candidate-trial-outcomes-v1")
+        self.assertEqual(args.recipe, "candidate-trial-outcomes")
 
     @patch(
         "classical_conditioning.analysis.trial_outcomes._verify_inputs",

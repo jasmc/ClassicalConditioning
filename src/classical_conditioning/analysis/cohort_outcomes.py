@@ -102,7 +102,8 @@ def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
 
 
 def _cohort_paths(project_dir: Path, cohort_id: str) -> tuple[Path, Path, Path, Path]:
-    # Derive the canonical four immutable paths from a cohort identity.
+    # The reviewed manifest is immutable; this applied outcome set is derived
+    # and can be atomically refreshed at the same four canonical paths.
     root = project_dir / "Processed data" / "Cohorts" / cohort_id
     outcomes = root / f"{RECIPE_ID}.parquet"
     sample_flow = root / "cohort-sample-flow.parquet"
@@ -181,7 +182,7 @@ def build_cohort_trial_outcomes(
     project_dir: Path,
     *,
     cohort_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     overwrite: bool = False,
 ) -> CohortTrialOutcomesResult:
     """Apply a frozen cohort once and publish its canonical population table."""

@@ -44,7 +44,7 @@ class IdentityAndTrialMapTests(unittest.TestCase):
 
     def test_all_delay_trial_map_covers_expected_blocks(self) -> None:
         trial_map = get_experiment_trial_map("allDelay")
-        self.assertEqual(trial_map["artifact_kind"], "experiment-trial-map-v1")
+        self.assertEqual(trial_map["artifact_kind"], "experiment-trial-map")
         self.assertEqual(trial_map["row_count"], 90 + 46)
         self.assertEqual(trial_map["cs_trial_count"], 90)
         self.assertEqual(trial_map["us_trial_count"], 46)
@@ -71,16 +71,16 @@ class ResolvedConfigExportTests(unittest.TestCase):
             self.assertTrue(result.source_report_path.is_file())
 
             payload = json.loads(result.config_path.read_text(encoding="utf-8"))
-            self.assertEqual(payload["artifact_kind"], "resolved-candidate-config-v1")
+            self.assertEqual(payload["artifact_kind"], "resolved-candidate-config")
             self.assertEqual(payload["config_hash"], result.config_hash)
             self.assertEqual(
                 payload["resolved"]["runner_recipe"],
-                "candidate-corrected-runner-v1",
+                "candidate-corrected-runner",
             )
             trial_map = json.loads(result.trial_map_path.read_text(encoding="utf-8"))
             self.assertEqual(trial_map["experiment_id"], "allDelay")
             source = json.loads(result.source_report_path.read_text(encoding="utf-8"))
-            self.assertEqual(source["recipe_id"], "candidate-corrected-runner-v1")
+            self.assertEqual(source["recipe_id"], "candidate-corrected-runner")
 
             with self.assertRaises(FileExistsError):
                 export_resolved_config(project_dir, overwrite=False)
@@ -102,7 +102,7 @@ class ResolvedConfigExportTests(unittest.TestCase):
             self.assertTrue(
                 (
                     metadata
-                    / "resolved_config_candidate-corrected-runner-v1_allDelay.json"
+                    / "resolved_config_candidate-corrected-runner_allDelay.json"
                 ).is_file()
             )
 
@@ -138,7 +138,7 @@ class TrackingAuditTests(unittest.TestCase):
                 encoding="utf-8",
             )
             audit = audit_tracking_file(tracking, sample_rows=10)
-            self.assertEqual(audit["artifact_kind"], "tracking-field-audit-v1")
+            self.assertEqual(audit["artifact_kind"], "tracking-field-audit")
             self.assertTrue(audit["classification"]["has_xy"])
             self.assertEqual(
                 audit["gate_t0_observations"]["raw_angle_units"],

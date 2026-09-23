@@ -1146,6 +1146,59 @@ class IntakeBatchResult:
     completed: tuple[str, ...]
     skipped: tuple[str, ...]
     failed: tuple[tuple[str, str], ...]
+    incomplete: tuple[tuple[str, str], ...] = ()
+    failed_skipped: tuple[str, ...] = ()
+    ledger_path: Path | None = None
+
+
+def _raw_signature(record: dict[str, Any]) -> str:
+    """Bind retry decisions to raw names, completeness, and content hashes."""
+    payload = {
+        "recording_name": record["recording_name"],
+        "status": record["status"],
+        "components": record["components"],
+    }
+    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _verified_intake_matches_raw(
+    project_dir: Path, recording_id: str, record: dict[str, Any]
+) -> bool:
+    """Authenticate all lossless Parquet outputs and current raw triplet hashes."""
+    from classical_conditioning.artifacts import load_and_verify_source_manifest
+
+    try:
+        name, _, _ = load_and_verify_source_manifest(project_dir, recording_id)
+        manifest = json.loads(
+            (project_dir / "Metadata" / f"{recording_id}_source_manifest.json")
+            .read_text(encoding="utf-8")
+        )
+        if name != record["recording_name"]:
+            return False
+        for kind in SOURCE_SUFFIXES:
+            raw = record["components"][kind]
+            if len(raw) != 1:
+                return False
+            if manifest["sources"][kind]["sha256"] != raw[0]["sha256"]:
+                return False
+            expected_raw = (Path(manifest["sources"][kind]["path"])).resolve()
+            current_raw = (
+                Path(record["input_root"]) / raw[0]["relative_path"]
+            ).resolve()
+            if expected_raw != current_raw:
+                return False
+            if not expected_raw.is_file() or _sha256_file(expected_raw) != raw[0]["sha256"]:
+                return False
+        quality_root = project_dir / "Quality checks" / recording_id
+        if not all(
+            (quality_root / "figures" / filename).is_file()
+            for filename in ("camera_timing.png", "tracking_overview.png", "protocol_timeline.png")
+        ):
+            return False
+        return True
+    except (FileNotFoundError, KeyError, ValueError, OSError, json.JSONDecodeError):
+        return False
 
 
 def intake_recordings(
@@ -1157,13 +1210,15 @@ def intake_recordings(
     chunk_rows: int = 250_000,
     preview_rows: int = 25,
     overwrite: bool = False,
+    retry_failed: bool = False,
+    inventory: dict[str, Any] | None = None,
     progress: "PipelineProgress | None" = None,
 ) -> IntakeBatchResult:
-    """Intake every selected complete triplet, skipping existing unless overwrite."""
+    """Account for every selected recording and rebuild stale lossless artifacts."""
     # Lazy import keeps one-recording intake independent from terminal UI helpers.
     from classical_conditioning.progress import default_progress
+    from classical_conditioning.inventory import build_recording_inventory
 
-    # Normalize optional operational filters; they are not scientific exclusions.
     progress = progress or default_progress(enabled=False)
     keep = (
         {token.strip().lower() for token in keep_conditions}
@@ -1173,73 +1228,109 @@ def intake_recordings(
     requested = (
         tuple(dict.fromkeys(recording_ids)) if recording_ids is not None else None
     )
-    # Select complete discovered triplets in discovery order, applying requested filters.
-    selected: list[RecordingSources] = []
-    for sources in discover_recordings(input_dir):
-        if requested is not None and sources.recording_id not in requested:
-            continue
-        if keep is not None:
-            condition = condition_from_recording_name(sources.recording_name)
-            if condition not in keep:
-                continue
-        selected.append(sources)
-    # An explicit requested ID missing from the selected complete triplets is an error.
+    inventory = inventory or build_recording_inventory(input_dir, hash_files=True)
+    if not inventory.get("source_hashes_included"):
+        raise ConfigurationError("Intake inventory must contain source SHA-256 hashes.")
+    selected = [
+        {**record, "input_root": inventory["input_root"]}
+        for record in inventory["records"]
+        if record.get("recording_id") is not None
+        and (requested is None or record["recording_id"] in requested)
+        and (requested is not None or keep is None or record["condition_id"] in keep)
+    ]
+    found = {record["recording_id"] for record in selected}
     if requested is not None:
-        found = {item.recording_id for item in selected}
-        missing = [item for item in requested if item not in found]
-        if missing:
-            raise ConfigurationError(
-                "Requested recording IDs were not found among complete kept "
-                f"triplets: {missing}"
-            )
-
-    # Track every per-recording outcome so batch callers can decide continuation policy.
+        for recording_id in requested:
+            if recording_id not in found:
+                selected.append({
+                    "recording_id": recording_id,
+                    "recording_name": recording_id,
+                    "status": "INCOMPLETE",
+                    "components": {kind: [] for kind in SOURCE_SUFFIXES},
+                    "missing_components": list(SOURCE_SUFFIXES),
+                })
+    ledger_path = project_dir / "Metadata" / "intake_status.json"
+    if ledger_path.is_file():
+        previous = json.loads(ledger_path.read_text(encoding="utf-8"))
+        previous_records = previous.get("recordings", {})
+    else:
+        previous_records = {}
+    statuses = dict(previous_records)
     completed: list[str] = []
     skipped: list[str] = []
     failed: list[tuple[str, str]] = []
+    incomplete: list[tuple[str, str]] = []
+    failed_skipped: list[str] = []
     total = len(selected)
-    # Existing source manifest is the resumable completion marker unless rebuilding.
-    for index, sources in enumerate(
+    sources_by_id = {source.recording_id: source for source in discover_recordings(input_dir)}
+    for index, record in enumerate(
         progress.iter_items(selected, description="Intake"),
         start=1,
     ):
-        marker = (
-            project_dir.resolve()
-            / "Metadata"
-            / f"{sources.recording_id}_source_manifest.json"
-        )
-        if marker.exists() and not overwrite:
-            skipped.append(sources.recording_id)
-            progress.item_done(
-                index, total, sources.recording_id, status="skipped"
+        recording_id = str(record["recording_id"])
+        signature = _raw_signature(record)
+        earlier = previous_records.get(recording_id, {})
+        reason: str | None = None
+        state: str
+        if record["status"] != "COMPLETE":
+            reason = (
+                f"{record['status']}: missing={record.get('missing_components', [])}; "
+                f"duplicate={record.get('duplicate_components', [])}; "
+                f"collisions={record.get('recording_id_collisions', [])}"
             )
-            continue
-        # Continue after individual errors and preserve them in the batch result.
-        try:
-            intake_recording(
-                input_dir,
-                project_dir,
-                recording_id=sources.recording_id,
-                chunk_rows=chunk_rows,
-                preview_rows=preview_rows,
-                overwrite=overwrite,
-            )
-            completed.append(sources.recording_id)
-            progress.item_done(
-                index, total, sources.recording_id, status="completed"
-            )
-        except Exception as error:
-            failed.append((sources.recording_id, str(error)))
-            progress.item_done(
-                index,
-                total,
-                sources.recording_id,
-                status=f"failed: {error}",
-            )
-    # Return selected order plus all three mutually exclusive execution outcomes.
+            incomplete.append((recording_id, reason))
+            state = "incomplete"
+        elif (
+            earlier.get("status") == "failed"
+            and earlier.get("raw_signature") == signature
+            and not retry_failed
+            and not overwrite
+        ):
+            reason = str(earlier.get("reason", "previous intake failure"))
+            failed.append((recording_id, reason))
+            failed_skipped.append(recording_id)
+            state = "failed"
+        elif not overwrite and _verified_intake_matches_raw(project_dir, recording_id, record):
+            skipped.append(recording_id)
+            state = "ready"
+        else:
+            state = "ready"
+            try:
+                if recording_id not in sources_by_id:
+                    raise ConfigurationError("Complete triplet could not be resolved uniquely.")
+                intake_recording(
+                    input_dir,
+                    project_dir,
+                    recording_id=recording_id,
+                    chunk_rows=chunk_rows,
+                    preview_rows=preview_rows,
+                    overwrite=True,
+                )
+                completed.append(recording_id)
+            except Exception as error:
+                reason = str(error)
+                failed.append((recording_id, reason))
+                state = "failed"
+        statuses[recording_id] = {
+            "status": state,
+            "reason": reason,
+            "inventory_status": record["status"],
+            "raw_signature": signature,
+            "source_hashes": {
+                kind: [item["sha256"] for item in record["components"][kind]]
+                for kind in SOURCE_SUFFIXES
+            },
+            "updated_at_utc": datetime.now(timezone.utc).isoformat(),
+        }
+        # Persist each disposition so interruption never erases the last fish.
+        _write_json(ledger_path, {"recordings": statuses})
+        progress.item_done(index, total, recording_id, status=state)
     return IntakeBatchResult(
-        recording_ids=tuple(item.recording_id for item in selected),
+        recording_ids=tuple(dict.fromkeys(str(item["recording_id"]) for item in selected)),
         completed=tuple(completed),
         skipped=tuple(skipped),
         failed=tuple(failed),
+        incomplete=tuple(incomplete),
+        failed_skipped=tuple(failed_skipped),
+        ledger_path=ledger_path,
     )

@@ -86,7 +86,9 @@ def validate_frame_sequence(camera: pd.DataFrame) -> FrameSequenceReport:
     finite_elapsed = np.isfinite(elapsed)
     non_finite_elapsed = int(np.count_nonzero(~finite_elapsed))
     finite_steps = elapsed_diff[np.isfinite(elapsed_diff)]
-    nonmonotonic_elapsed = int(np.count_nonzero(finite_steps < 0))
+    # Repeated timestamps are non-progressing acquisition time and are
+    # rejected by corrected preprocessing just like decreasing timestamps.
+    nonmonotonic_elapsed = int(np.count_nonzero(finite_steps <= 0))
 
     # Timing summaries are undefined for no finite adjacent timestamp pairs.
     median_interval = float(np.median(finite_steps)) if finite_steps.size else None

@@ -30,7 +30,7 @@ from classical_conditioning.artifacts import (
 from classical_conditioning.exceptions import ConfigurationError
 
 # Versioned manifest identity and permitted work-selection filters.
-RECIPE_ID = "batch-work-manifest-v1"
+RECIPE_ID = "batch-work-manifest"
 SelectionMode = Literal["all", "pending", "failed"]
 
 # Fixed ordered table contract for a row per recording/stage work item.
@@ -85,9 +85,9 @@ def corrected_or_development_stages(
         stages.append(
             BatchStage(
                 stage="corrected-preprocess",
-                recipe="corrected-preprocess-v1",
-                expected_output="frame_preprocessed_corrected-v1.parquet",
-                marker_suffix="corrected-preprocess-v1_complete.json",
+                recipe="corrected-preprocess",
+                expected_output="frame_preprocessed_corrected.parquet",
+                marker_suffix="corrected-preprocess_complete.json",
             )
         )
     # The remaining stages always follow this frozen metric-to-outcome order.
@@ -151,7 +151,7 @@ def plan_batch_work(
     project_dir: Path,
     recording_ids: Iterable[str],
     *,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     selection: SelectionMode = "all",
 ) -> pd.DataFrame:
     """Build a deterministic work table from frozen route stages and local markers."""
@@ -204,7 +204,7 @@ def write_batch_work_manifest(
     recording_ids: Iterable[str],
     *,
     batch_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     selection: SelectionMode = "all",
     overwrite: bool = False,
 ) -> BatchWorkManifestResult:
@@ -336,7 +336,7 @@ def execute_batch_work(
     recording_ids: Iterable[str],
     *,
     batch_id: str,
-    metric_recipe: str = "tail-candidate-corrected-v1",
+    metric_recipe: str = "tail-candidate-corrected",
     selection: SelectionMode = "pending",
     analysis_id: str | None = None,
     experiment_name: str = "allDelay",
