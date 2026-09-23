@@ -71,5 +71,6 @@ report, not a design for the corrected classifier.
 The scripts disagree on source-file precedence, epoch definitions, response
 mathematics, thresholds, uncertainty voting, false-positive target, and output
 defaults. A single label such as `learner` therefore does not identify a stable
-scientific estimand. Learner classification remains deferred until corrected
-outcomes and cohorts are frozen.
+scientific estimand. The learner workstream is active and required for the
+paper. A categorical classifier remains unapproved until corrected outcomes
+and cohorts are frozen and Gate L selects a defensible representation.

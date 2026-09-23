@@ -1,5 +1,10 @@
 
 
+
+document each part of the analysis in docs folder in separate docs, numbered. use what is already available there
+
+
+
 document in Readme all parameters of LME analysis and other analysis steps
 
 

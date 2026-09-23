@@ -16,51 +16,43 @@ paper-authoritative.
 - [Analysis governance](./GOVERNANCE.md) — durable engineering and scientific invariants
 - [Decision register](./DECISIONS.md) — approved decisions and open gates
 - [Implementation status index](./IMPLEMENTATION_STEP_INDEX.md) — the only live status board
-- [Analysis and statistics](./Analysis/1_ANALYSIS_AND_STATISTICS.md) — population inference and model design
-- [Remaining cohort and learning-onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md) — ordered implementation work, artifacts, tests, and exit gates
-- [Single cohort and exclusion boundary](./SINGLE_COHORT_AND_EXCLUSION.md) — technical cohort review, exploratory sensitivity, and downstream eligibility boundaries
 - [Exclusion and selection inventory](./EXCLUSION_AND_SELECTION_INVENTORY.csv) — machine-readable register of every active, legacy, and deferred selection rule
-- [Learner classification and stratified analysis](./Analysis/2_LEARNER_CLASSIFICATION.md) — required paper workstream
-- [Integrated single-metric cohort and CR profiles](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md) — post-classification cohort/learner orchestration and catch/block figures
-- [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) — CLI, notebooks, panel data, and paper figures
-- [Releases and legacy retirement](./RELEASES_AND_LEGACY_RETIREMENT.md)
 
-## Active plans
+## Active implementation plans, in order
 
-### Analysis
+The numbers give the main implementation sequence in this folder. Design and
+fixture work may overlap; a later plan's final
+paper run still depends on its upstream decisions and outputs.
 
 | Plan | Role |
 | --- | --- |
-| [Analysis and statistics](./Analysis/1_ANALYSIS_AND_STATISTICS.md) | Claims, estimands, outcomes, LME alternatives, diagnostics, uncertainty, and population robustness |
-| [Remaining cohort and learning-onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md) | Critical-path delivery plan connecting the cohort boundary to onset inference and the final figure |
-| [Learner classification and stratified analysis](./Analysis/2_LEARNER_CLASSIFICATION.md) | Required learner-method review, manifest, validation, outputs, and non-circular inference |
-| [Non-LME learner methods review](./Analysis/LEARNER_CLASSIFICATION_NON_LME_REVIEW.md) | Active Gate L discussion of continuous scores, trajectories, probabilistic methods, and validation; no method approved |
-| [Learner-stratified outputs and validation](./Analysis/3_LEARNER_STRATIFIED_OUTPUTS.md) | Detailed schemas, joins, temporal analyses, modules, output inventory, phases, and validation checklist |
-| [Integrated single-metric cohort and CR profiles](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md) | Shared catch/block estimands, legacy-discard sensitivity boundary, and final post-classification orchestration |
-| [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) | Stage interfaces, notebooks, panel data, figure registry, paper automation, and QC |
+| [01 Paper cohort completion](./01_COHORT_IMPLEMENTATION.md) | Gate C0/C1, population boundary, consumer migration, and reconciled counts |
+| [02 Analysis and statistics](./02_ANALYSIS_AND_STATISTICS.md) | Claims, estimands, outcomes, model choice, diagnostics, uncertainty, and population robustness |
+| [03 Learning-onset completion](./03_LEARNING_ONSET_IMPLEMENTATION.md) | Gate O/S, condition-aware models, onset calibration, diagnostics, and final figure |
+| [04 Learner method review](./04_LEARNER_METHOD_REVIEW.md) | Gate L discussion of continuous scores, trajectories, probabilistic methods, and validation |
+| [05 Learner representation and analysis](./05_LEARNER_ANALYSIS.md) | Approved representation, manifest, validation, outputs, and non-circular inference |
+| [06 Learner outputs and validation](./06_LEARNER_OUTPUTS_AND_VALIDATION.md) | Schemas, joins, temporal analyses, output inventory, and validation |
+| [07 Integrated analysis and CR profiles](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) | Catch/block estimands, sensitivity boundary, and final orchestration |
+| [08 Figures and reproducible reporting](./08_FIGURES_AND_REPRODUCIBLE_REPORTING.md) | Stage interfaces, panel data, figure registry, paper automation, and QC |
+| [09 Tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) | After Figure 4's pooled-learner CR analysis, explore tail geometry, rhythmic power, and traveling waves |
+| [10 Final analysis release](./10_FINAL_ANALYSIS_RELEASE.md) | Freeze the finished analysis and its evidence once |
 
 Learner analysis is required for the paper. Whether its final representation is
 continuous, probabilistic, categorical, or combined remains a scientific
 decision, not an omission option.
-
-### Release
-
-- [Reproduction releases, documentation, and legacy retirement](./RELEASES_AND_LEGACY_RETIREMENT.md)
 
 ## Deferred plans
 
 Deferred means preserved future work that does not block the present behavioral
 paper path.
 
-- [Schema, semantic provenance, and legacy conversion](./Deferred/SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md)
 - [Behavior and imaging integration](./Deferred/BEHAVIOR_IMAGING_INTEGRATION.md)
-- [Tail mechanistic analyses](./Deferred/TAIL_MECHANISTIC_ANALYSES.md)
 
 ## Documentation and evidence
 
 - [Analysis documentation index](../docs/analysis/README.md)
 - [Current pipeline guide](../docs/analysis/CURRENT_PIPELINE_GUIDE.md)
-- [Architecture](../docs/analysis/ARCHITECTURE.md)
+- [Proposed multimodal architecture](../docs/analysis/ARCHITECTURE.md)
 - [Activity metrics, smoothing, and shared bouts](../docs/analysis/METRICS_AND_BOUTS.md)
 - [Analysis findings](../docs/analysis/audits/ANALYSIS_FINDINGS.md)
 - [Issue register](../docs/analysis/audits/ISSUE_REGISTER.md)
@@ -78,9 +70,8 @@ with this folder as an implementation queue.
 
 Archive does not automatically mean complete. Historical numbered filenames
 remain unchanged because their identifiers are part of the project record.
-The active `Analysis/` plans use numeric prefixes to make their reading order
-explicit; the cross-cutting active plans at the `Plans/` root use descriptive
-names.
+Only active implementation plans carry the new sequence; indexes, decisions,
+governance, deferred work, and reference inventories remain unnumbered.
 
 ## Lifecycle
 

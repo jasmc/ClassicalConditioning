@@ -1,17 +1,27 @@
 # Tail Mechanistic Analyses
 
-**Status:** Deferred exploratory research
-**Depends on:** Approved preprocessing, shared bout segmentation, selected
-activity metric/outcome contract, and a frozen analysis cohort
-**Does not block:** Population inference, learner analysis, or the first paper
-release unless a manuscript claim is explicitly added that needs these methods
+**Status:** Planned active follow-on analysis; step 09 after Figure 4
+
+**Starts after:** Figure 4's conditioned-response (CR) analysis based on pooled
+learners is completed and reviewed. Reuse its approved learner definition,
+cohort, outcome identities, and timing conventions rather than choosing them
+inside this exploratory work.
+
+**Also depends on:** Approved preprocessing, shared bout segmentation, and the
+selected activity metric/outcome contract.
+
+**Sequence:** Figure 4 is completed first; these exploratory analyses follow,
+then the single final analysis release records the finished work and its status.
 
 ## Purpose
 
 Preserve the scientifically interesting mechanistic work from the former tail
 dynamics plan without presenting it as unfinished core metric implementation.
+Begin this follow-on analysis only after Figure 4 establishes the pooled-learner
+CR result. Tail geometry, rhythmic power, and traveling-wave analyses can then
+explore how movement mechanics relate to that result.
 Current metric and bout behavior is documented in
-[Activity Metrics, Smoothing, and Shared Bout Segmentation](../../docs/analysis/METRICS_AND_BOUTS.md).
+[Activity Metrics, Smoothing, and Shared Bout Segmentation](../docs/analysis/METRICS_AND_BOUTS.md).
 Historical implementation detail remains in the archived tail plan and archived
 Plans 06–07.
 

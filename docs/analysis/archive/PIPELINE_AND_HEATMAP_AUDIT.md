@@ -1,8 +1,11 @@
 # Analysis Pipeline and Heatmap Audit
 
-> **Archived reference:** historical legacy-route material in this audit now
-> refers to `Archive/package/`. The installable package exposes only the
-> candidate route.
+> **Historical audit, archived on 2026-09-23.** This records the earlier
+> direct-intake/five-metric investigation and should not be used as the current
+> run order or metric count. The supported route is documented in
+> [the current pipeline guide](../CURRENT_PIPELINE_GUIDE.md), and the current
+> three-metric figure meaning is in [the figure guide](../FIGURE_GUIDE.md).
+> Historical legacy-route source now lives under `Archive/package/`.
 
 This document is an executable-code map for the Classical Conditioning analysis.
 It answers two questions:
@@ -66,7 +69,7 @@ The orchestration is implemented in [pipeline.py](../../../src/classical_conditi
 | 0 | Validate run configuration and select recordings | [run_config.py](../../../src/classical_conditioning/run_config.py), [pipeline.py](../../../src/classical_conditioning/pipeline.py) | selected recording IDs |
 | 1 | Optional inventory of raw triplets and SHA-256 hashes | [inventory.py](../../../src/classical_conditioning/inventory.py) | `Metadata/recording_inventory.json` |
 | 2 | Intake immutable camera, tracking, and protocol files | [intake.py](../../../src/classical_conditioning/intake.py), [readers.py](../../../src/classical_conditioning/ingestion/readers.py) | `Processed data/<recording-id>/camera.parquet`, `tracking.parquet`, `stimulus_events.parquet` |
-| 3A | Archived legacy preprocessing | [legacy.py](../../../Archive/package/src/classical_conditioning/preprocessing/legacy.py) | Historical source only; not a supported route |
+| 3A | Archived legacy preprocessing | [legacy_v1.py](../../../Archive/package/src/classical_conditioning/preprocessing/legacy_v1.py) | Historical source only; not a supported route |
 | 3B | Direct-intake candidate benchmark | [candidate_metrics_from_intake.py](../../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py) | `frame_activity_candidates.parquet` |
 | 4 | Detect bouts once from the retained legacy distal benchmark | [movement_state.py](../../../src/classical_conditioning/analysis/movement_state.py) | shared movement-state Parquet |
 | 5 | Align each CS/US event and aggregate into 0.5 s temporal bins | [temporal_profiles.py](../../../src/classical_conditioning/analysis/temporal_profiles.py) | `candidate_temporal_outcomes.parquet` |
@@ -263,7 +266,7 @@ The current candidate route is exploratory. It is designed to answer:
 > outcomes?
 
 It is not yet a final claim that any one metric is the biological ground truth.
-The audit issues in [Analysis findings](./ANALYSIS_FINDINGS.md) remain relevant to
+The audit issues in [Analysis findings](../audits/ANALYSIS_FINDINGS.md) remain relevant to
 the historical route, including differences in vigor definition, baseline
 scaling, exclusion handling, and the treatment of immobility as missing.
 

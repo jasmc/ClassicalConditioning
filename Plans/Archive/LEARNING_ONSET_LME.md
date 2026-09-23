@@ -1,5 +1,14 @@
 # Learning-Onset Inference for Trial Trajectories
 
+> **Archived incomplete on 2026-09-23 as a superseded design proposal.** The
+> condition-aware analysis is implemented but its scientific choices and
+> paper-scale validation remain open. The active delivery plan is
+> [learning-onset completion](../03_LEARNING_ONSET_IMPLEMENTATION.md);
+> current behavior is documented in the
+> [LME pipeline reference](../../docs/analysis/LME_PIPELINE_AND_PARAMETERS.md).
+> Gate O/S decisions belong to the
+> [analysis and statistics plan](../02_ANALYSIS_AND_STATISTICS.md).
+
 **Status:** Design proposed; scientific choices and paper-scale execution remain open  
 **Scope:** Condition-aware population learning across trials, block-level evidence,
 trial-level localization, onset uncertainty, and the corresponding pooled figure  
@@ -7,7 +16,7 @@ trial-level localization, onset uncertainty, and the corresponding pooled figure
 movement detector, and paper-scale coverage review
 
 Detailed implementation order, artifact contracts, and acceptance gates are in
-[Remaining Cohort and Learning-Onset Implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md).
+[Learning-Onset Analysis Completion](../03_LEARNING_ONSET_IMPLEMENTATION.md).
 
 ## Objective
 

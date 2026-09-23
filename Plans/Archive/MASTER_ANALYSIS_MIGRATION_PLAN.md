@@ -608,7 +608,7 @@ Full-resolution exploration reads local Parquet/HDF5 on demand; large
 recordings are not embedded wholesale in HTML.
 
 Operational figure workstreams, QC, and CLI exposure:
-[the active figure plan](../Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+[the active figure plan](../08_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
 Historical detail:
 [SCIENTIFIC_FIGURE_PIPELINE_PLAN.md](./SCIENTIFIC_FIGURE_PIPELINE_PLAN.md).
 
@@ -793,7 +793,7 @@ upstream artifacts plus the recorded code and environment.
 ## 20. Implementation sequence
 
 Follow the detailed documents in [the implementation step
-index](./IMPLEMENTATION_STEP_INDEX.md):
+index](../IMPLEMENTATION_STEP_INDEX.md):
 
 1. Governance and baseline
 2. Package and environment

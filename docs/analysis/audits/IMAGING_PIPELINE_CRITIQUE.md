@@ -16,24 +16,24 @@ The target integration design is documented in
 
 ## Evidence boundary
 
-The main files inspected were:
+The main files inspected in the pinned external `analysis_learning` commit were:
 
-- [the older join](<../../../analysis_learning/1. Join_all_data.py>);
-- [the newer join](<../../../analysis_learning/1. Join_all_data_new.py>);
-- [the newer imaging helpers](<../../../analysis_learning/my_functions_imaging_new.py>);
-- [the newer motion-correction stage](<../../../analysis_learning/2. Motion_correction_Suite2p_new.py>);
-- [the newer pixel-response stage](<../../../analysis_learning/3. Analysis_of_imaging_data_pixels_Suite2p_new.py>);
-- [the newer activity-map stage](<../../../analysis_learning/4. Activity_maps_new.py>);
-- [the newer HDF5 exporter](<../../../analysis_learning/5. Save_data_as_HDF5_new.py>);
-- [the newer Suite2p cell-detection route](<../../../analysis_learning/5. Cell detection_new.py>);
-- [the newer correlation-based ROI route](<../../../analysis_learning/6. ROI_analysis_new.py>);
-- [the imaging object model](<../../../analysis_learning/my_classes_new.py>);
-- [the behavior helpers used in that repository](<../../../analysis_learning/my_functions_behavior.py>).
+- older join: `1. Join_all_data.py`;
+- newer join: `1. Join_all_data_new.py`;
+- newer imaging helpers: `my_functions_imaging_new.py`;
+- newer motion-correction stage: `2. Motion_correction_Suite2p_new.py`;
+- newer pixel-response stage: `3. Analysis_of_imaging_data_pixels_Suite2p_new.py`;
+- newer activity-map stage: `4. Activity_maps_new.py`;
+- newer HDF5 exporter: `5. Save_data_as_HDF5_new.py`;
+- newer Suite2p cell-detection route: `5. Cell detection_new.py`;
+- newer correlation-based ROI route: `6. ROI_analysis_new.py`;
+- imaging object model: `my_classes_new.py`;
+- behavior helpers: `my_functions_behavior.py`.
 
 Line references below describe commit
-`dff4603a3595ccc57927ecc4d1d4950af1de5336`. The sibling links open the current
-working tree for convenience; use the pinned commit when reproducing the audit
-after the source repository changes.
+`dff4603a3595ccc57927ecc4d1d4950af1de5336`. The external repository is
+not present in this checkout; obtain that pinned commit before reproducing the
+audit. The filenames above are source identifiers, not local links.
 
 ## Severity and disposition labels
 

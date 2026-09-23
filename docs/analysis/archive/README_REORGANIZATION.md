@@ -1,8 +1,14 @@
 # README review and reorganization plan
 
-This document independently reviews the root [README](../../README.md) as it
-exists on 2026-09-18. It is a documentation plan, not a replacement for the
-README. No README content has been removed or moved as part of this change.
+> **Historical documentation plan, archived incomplete on 2026-09-23.** The
+> specialist guides and task-oriented index described below were created.
+> Remaining editorial consolidation of README configuration and command text
+> belongs to ordinary documentation maintenance; this file is no longer a
+> live status board. See the [current documentation index](../README.md).
+
+This document independently reviews the root [README](../../../README.md) as it
+existed on 2026-09-18. It is a historical documentation plan, not a replacement
+for the README. The statements below record progress at the time of review.
 
 ## What is working well
 

@@ -86,7 +86,7 @@ The x-axis contains three prespecified five-CS-trial blocks:
 
 | Display label | CS trial numbers |
 | --- | --- |
-| Early Pre-train | 5–9 |
+| Final Pre-train | 10–14 |
 | Early Test | 65–69 |
 | Late Test | 90–94 |
 
@@ -131,9 +131,10 @@ classical-conditioning figure-cohort-trial-ratio `
   --metric tail_length_weighted_angular_l1 --outcome total-activity
 ```
 
-This remains descriptive. It is not the learning-onset publication panel until
-the condition-aware longitudinal model, simultaneous intervals, onset rule,
-diagnostic gates, and panel-data artifact in the LME plan are implemented.
+This remains descriptive. The condition-aware longitudinal model, simultaneous
+intervals, onset rule, diagnostic gates, and panel-data artifact are implemented
+in the separate learning-onset route. They still require scientific approval
+and a paper-cohort run before the publication panel is accepted.
 
 ### Event-aligned trajectory: `figure-cohort-event-aligned-ratio`
 
@@ -190,7 +191,7 @@ distinguish from genuine absence of evidence. With more than two conditions,
 the historical code also selected the first matching coefficient rather than
 constructing a named test-versus-control contrast.
 
-The active [learning-onset LME plan](../../Plans/LEARNING_ONSET_LME.md) replaces
+The active [learning-onset plan](../../Plans/03_LEARNING_ONSET_IMPLEMENTATION.md) replaces
 that hierarchy with:
 
 1. a prespecified **condition × block/phase LME** for the population claim;
@@ -198,11 +199,13 @@ that hierarchy with:
    categorical-trial sensitivity) for trial-resolution contrasts; and
 3. a fish-level condition-aware robustness analysis.
 
-The plan requires a frozen outcome/direction, condition reference, contrast
+The implemented route requires a frozen outcome/direction, condition reference, contrast
 family, effect threshold, persistence rule, diagnostics, and simultaneous
 trial uncertainty before an onset result can be annotated. The current
-candidate mixed-effects scaffold omits condition and condition-by-time terms,
-so it is not valid input for either new figure's condition comparison.
+older candidate mixed-effects scaffold omits condition and condition-by-time
+terms, so it is not valid input for either new figure's condition comparison.
+The separate learning-onset route does include those terms but is not yet
+approved for paper inference.
 
 Accordingly, the initial ratio figures intentionally show **no p-value stars,
 no legacy per-trial p-values, and no onset claim**. Their visible fish-level

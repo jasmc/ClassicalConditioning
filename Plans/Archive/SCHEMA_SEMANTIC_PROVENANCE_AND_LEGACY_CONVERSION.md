@@ -1,6 +1,10 @@
 # Schema, Semantic Provenance, and Legacy Conversion
 
-**Status:** Deferred — not required for the current fixture pipeline
+> Archived on 2026-09-23 as an unstarted optional engineering design. It is
+> outside the active analysis sequence and is not required for the single final
+> analysis release. Reconsider individual ideas only if a concrete need arises.
+
+**Status:** Archived — unstarted, optional
 **Change class:** Behavior-preserving
 **Depends on:** Stable artifact contracts for the route being formalized
 **Unlocks:** Cross-environment semantic identity, unambiguous artifact

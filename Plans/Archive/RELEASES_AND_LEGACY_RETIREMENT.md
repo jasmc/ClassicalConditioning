@@ -1,8 +1,12 @@
 # Reproduction Releases, Documentation, and Legacy Retirement
 
-**Status:** Not started  
+> Historical staged-release roadmap. R1–R4 was superseded on 2026-09-23 by
+> [one final analysis release](../10_FINAL_ANALYSIS_RELEASE.md). This document
+> records earlier planning and does not define current release milestones.
+
+**Status:** Superseded; archived before any staged release
 **Interim:** Tagged commit + frozen cohort/config/data-hash manifest is enough
-per [DECISIONS.md](./DECISIONS.md); full R1–R4 packaging deferred until analysis
+per [DECISIONS.md](../DECISIONS.md); full R1–R4 packaging deferred until analysis
 is ready.  
 **Change class:** Release/cleanup; no new scientific behavior  
 **Depends on:** All steps required by the selected release  

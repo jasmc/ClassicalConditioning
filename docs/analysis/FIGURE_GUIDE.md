@@ -12,12 +12,25 @@ QC summary, and provenance sidecar with each rendered figure.
 | --- | --- | --- |
 | `static` | PNG | Fast inspection and routine local review. |
 | `publication` | SVG/PDF plus provenance sidecar | High-quality export with explicit source context. |
-| `interactive` | Self-contained HTML, profile figures only | Inspection with hover values. |
+| `interactive` | Self-contained HTML, profile figures only | Existing output remains available; this mode is frozen. |
 
 Static figures go below `Figures/PNG/`; publication figures go below
 `Figures/Publication/`; interactive profile figures go below
 `Figures/Interactive/`. Cohort-level figures include `Analyses/<analysis-id>`
 in their paths.
+
+## Shared visual specification
+
+Matplotlib figures use `figures/theme.py`: 89 mm single-column or 183 mm
+double-column widths, an 8 pt DejaVu Sans base font on every system, 7 pt
+tick and legend text, and default 0.5 pt
+axes and line strokes. `apply_theme()` sets the defaults; figure builders call
+`style_axes()` for the axes themselves. The latter fixes tick length at 2 pt,
+the gap from tick end to label at 3 pt, and the axis-label pad at 3 pt. These
+are physical typographic distances, independent of pixel resolution and figure
+size. Both visible spines sit at zero offset. Use `mm_to_in()` for new figure
+sizes and the theme's colour tokens for repeated visual meanings. Intake QC
+plots use the same typography and axis spacing.
 
 ## Per-recording temporal profiles
 
@@ -27,6 +40,7 @@ Use `figure-candidate-profiles` with one of these selections:
 | --- | --- | --- |
 | `total-activity-raw` | Three activity metrics | Mean valid metric value per bin, native units. |
 | `total-activity-scaled` | Three activity metrics | Historical two-layer per-trial scaled value. |
+| `signed-log-vigor` (CS) | Three activity metrics | Bout-median log vigor relative to each trial's pre-CS median; `managua_r`, fixed −0.25 to +0.25. |
 | `conditional-intensity-raw` | Three activity metrics | Mean metric value only during a shared detected bout. |
 | `bout-outcomes` | Three detector outcomes | Movement probability, time moving, or bout rate. |
 
@@ -45,7 +59,31 @@ is drawn only when its expected-frame coverage reaches the configured gate.
 This makes missing or invalid tracking visible rather than presenting it as low
 activity.
 
-## How to interpret the four figure families
+## Selected-fish Figure 1 C/D traces
+
+`figure-example-traces` places tail angle and one selected vigor metric in
+matching columns for a user-chosen recording and ordered list of global CS
+trial numbers. Each row uses identical corrected frames and measured time in
+both columns. Tail angle is the cumulative angle through the selected tail
+point, centered on that trial's pre-CS median. Green lines mark CS onset and
+offset; purple lines mark actual recorded US onsets. The vigor trace remains
+in its selected metric's native values; this command does not scale it.
+
+```powershell
+uv run classical-conditioning figure-example-traces `
+  --project-dir "<SAVE>" --recording-id <RECORDING-ID> `
+  --experiment allDelay --trial 5 --trial 13 --trial 59 `
+  --metric legacy_distal_angular_speed --mode static
+```
+
+The default view is −20 to +20 s and tail point 15. Use `--tail-point`,
+`--window-start`, and `--window-end` for other explicit display selections.
+The figure and provenance sidecar are saved under
+`Figures/PNG/<RECORDING-ID>/`; publication mode exports SVG/PDF when the
+worktree meets the existing clean-tree requirement. The selected fish, trial
+order, metric, and source hashes travel with the export.
+
+## How to interpret the five figure families
 
 `total-activity-raw` combines whether a fish moved and how strongly it moved.
 `conditional-intensity-raw` isolates the latter by averaging only within the
@@ -55,6 +93,33 @@ single shared bout segmentation. A no-bout window is `NaN`, not zero.
 first, each trial is scaled with pre-onset frame quantiles; then its binned
 pre-onset values are scaled and clipped to `[0, 1]`. It is useful for temporal
 pattern inspection, not for comparing physical magnitude across metrics.
+These current 0–1 activity plots use `magma`. The March 24, 2026 single-fish
+scaled-vigor plot used `managua_r` for a different, signed quantity: bout-only
+log vigor relative to each trial's pre-stimulus median. Its CS display limits
+were fixed at −0.25 and +0.25. Reproducing that appearance requires both the
+signed values and those limits; changing the palette of a 0–1 activity plot
+alone would not reproduce the legacy heatmap.
+
+`signed-log-vigor` provides the refactored CS-aligned version. It uses positive
+metric values during detected bouts, takes the log, subtracts that trial's
+pre-CS median from samples earlier than −15 s, assigns each bout its median,
+and averages those values into 0.5-s bins. Missing and out-of-bout cells are
+black. The plotted values and colour bar use `managua_r` with fixed limits
+−0.25 to +0.25. Three candidate metrics are shown separately; the paper
+still needs one selected metric and example fish. Existing temporal-profile
+artifacts must be rebuilt to add the signed column.
+This CS-only figure is a focused command, outside the four per-fish profile
+families scheduled by the routine pipeline.
+
+```powershell
+uv run classical-conditioning temporal-profiles `
+  --project-dir "<SAVE>" --recording-id <RECORDING-ID> `
+  --recipe candidate-temporal-outcomes-corrected --overwrite
+uv run classical-conditioning figure-candidate-profiles `
+  --project-dir "<SAVE>" --recording-id <RECORDING-ID> `
+  --trial-type CS --figure signed-log-vigor --mode static `
+  --recipe candidate-temporal-outcomes-corrected
+```
 
 `bout-outcomes` is metric-free. The detector is run once from its dedicated
 distal cumulative-angle source; its movement probability, fraction of valid
@@ -69,10 +134,13 @@ uv run classical-conditioning figure-metric-comparison `
   --trial-type CS --outcome movement-probability --mode static
 ```
 
-The cohort figure represents one fish-level standardized difference per metric
-and condition. Each fish contributes equally; it is descriptive, not
-confirmatory inference. Use the matching processed comparison table and QC
-summary to check inclusion, baseline/response coverage, and recipe identity.
+The candidate comparison represents one recording-level standardized difference
+per metric and condition. Each recording contributes equally; this is fish-equal
+only when each fish has one recording. It is descriptive, not confirmatory
+inference, and does not enforce a reviewed cohort. Use the matching processed
+comparison table and QC summary to check membership, baseline/response
+coverage, and recipe identity. See [cohort aggregation](./COHORT_AGGREGATION_AND_FIGURES.md)
+for the exact reduction order.
 
 ## Frozen-cohort response and CR profiles
 
@@ -170,7 +238,7 @@ limit. Colour is therefore not comparable between native-unit rows.
 
 Each export records input/source hashes, its reproduction command, and an
 artist-level mapping of source column, coverage field, threshold, display scale,
-and shared-detector status. The cohort comparison collapses each fish to the
+and shared-detector status. The candidate comparison collapses each recording to the
 standardized difference `(response − baseline) / baseline SD`; bars are grouped
 by metric and condition. It is descriptive only and makes no inferential or
 paper-approved claim.

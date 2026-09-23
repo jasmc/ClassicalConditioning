@@ -60,7 +60,7 @@ See `classical-conditioning resolve-config --help` for all options. The routine 
    uv run classical-conditioning retry-intake --input-dir "<RAW-DIR>" --project-dir "<SAVE-DIR>" --recording-id 20260101_01
    ```
 
-3. Assess technical readiness and exploratory historical discarding rules for **every** inventoried recording, carrying forward intake and candidate-stage failures. The run summary links to the authenticated assessment bundle under `Processed data/Discarding/`. This is **not** a scientific inclusion decision. A reviewed cohort is frozen separately with `freeze-cohort` and is never replaced by a routine rerun. See the [technical](Plans/TECHNICAL_ASSESSMENT.md) and [exploratory](Plans/EXPLORATORY_LEGACY_DISCARDING.md) assessment plans for rule definitions and review status.
+3. Assess technical readiness and exploratory historical discarding rules for **every** inventoried recording, carrying forward intake and candidate-stage failures. The run summary links to the authenticated assessment bundle under `Processed data/Discarding/`. This is **not** a scientific inclusion decision. A reviewed cohort is frozen separately with `freeze-cohort` and is never replaced by a routine rerun. See the [discarding assessment guide](docs/analysis/DISCARDING_ASSESSMENT.md) for technical evidence and behavioral rules.
 4. For ready fish, run corrected measured-time, gap-aware preprocessing; three frame-level metrics; one shared movement/bout detector; CS- and US-aligned temporal profiles; per-trial outcomes; and descriptive cohort metric comparison. A cached stage is reused only when marker, output hashes, recipe, settings, and upstream lineage authenticate. Changed derived outputs are atomically replaced at the same stable paths.
 5. As inputs appear, a two-process pool renders intake QC, detector review, four candidate profile families for **both CS and US** per fish, and all five metric-comparison outcomes for **both CS and US**. With a reviewed cohort and selected metric, it also renders five cohort figure families; a matched-control cohort additionally gets a descriptive population heatmap with contributing-fish coverage. Learning-model residual diagnostics follow fitting; the onset figure is rendered only when required diagnostics pass. Every required figure is recorded as `completed`, `failed`, or `blocked` with a reason. Proposed paper panels stay blocked until their scientific gates are met.
 6. Always write `Metadata/<analysis_id>_pipeline_run.json`, including after stage failure. A failed run returns a non-zero command status; inspect this summary and the intake ledger before retrying.
@@ -112,7 +112,8 @@ The routine config's cohort/metric pair enables a technical fit with packaged de
 
 - [Current pipeline guide](docs/analysis/CURRENT_PIPELINE_GUIDE.md)
 - [Figure generation and draft comparison](docs/analysis/figures/FIGURE_PIPELINES.md)
-- [Cohort and exclusion plan](Plans/SINGLE_COHORT_AND_EXCLUSION.md)
-- [Learning-onset plan](Plans/LEARNING_ONSET_LME.md)
+- [Paper cohort completion plan](Plans/01_COHORT_IMPLEMENTATION.md)
+- [Learning-onset completion plan](Plans/03_LEARNING_ONSET_IMPLEMENTATION.md)
+- [Learning-onset analysis reference](docs/analysis/LME_PIPELINE_AND_PARAMETERS.md)
 
 The active suite in `tests/` protects scientific identities, raw-to-derived provenance, failure handling, and figure semantics.

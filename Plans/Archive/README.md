@@ -31,6 +31,11 @@ implementation index.
 | [07 — Metric validation and selection](./07_METRIC_VALIDATION_AND_SELECTION.md) | 2026-09-15 | Shared bout segmentation implemented; Gate T1 metric/smoothing/threshold/partition selection remains open |
 | [08 — Full reprocessing, QC, and cohort](./08_FULL_REPROCESSING_QC_AND_COHORT.md) | 2026-09-15 | Fixture batch/cohort plumbing retained; paper-scale QC and C1 cohort hash remain open |
 | [09 — Outcomes and temporal profiles](./09_OUTCOMES_AND_TEMPORAL_PROFILES.md) | 2026-09-15 | Two-fixture corrected outcomes retained; C1/Gate O paper outcome contract remains open |
+| [Single cohort and exclusion boundary](./SINGLE_COHORT_AND_EXCLUSION.md) | 2026-09-23 | Consolidated into the active cohort plan; paper policy, C1 cohort, and consumer migration remain open |
+| [Technical assessment](./TECHNICAL_ASSESSMENT.md) | 2026-09-23 | Implemented command behavior moved to the discarding assessment guide; numerical paper policy and reviewed cohort remain open |
+| [Learning-onset inference design](./LEARNING_ONSET_LME.md) | 2026-09-23 | Superseded by the active onset plan and current LME reference; Gate O/S choices and paper-scale validation remain open |
+| [Combined cohort and learning-onset work](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md) | 2026-09-23 | Split into separate active cohort and onset plans; neither exit gate has passed |
+| [Schema, semantic provenance, and legacy conversion](./SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md) | 2026-09-23 | Optional engineering design retired unstarted; no concrete need for semantic hashing or a resolver in the single-release analysis |
 
 ## Archived source plans
 
@@ -39,11 +44,12 @@ implementation index.
 | [Codebase migration plan](./CODEBASE_MIGRATION_PLAN.md) | Durable rules consolidated in active governance; dual-lane script path retired |
 | [Master analysis migration plan](./MASTER_ANALYSIS_MIGRATION_PLAN.md) | Durable invariants consolidated in `../GOVERNANCE.md`; numbered roadmap no longer represents the active plan structure |
 | [Repository migration map](./REPOSITORY_MIGRATION_MAP.md) | Repository rules consolidated in governance; current architecture/behavior moved to documentation |
-| [Scientific figure pipeline plan](./SCIENTIFIC_FIGURE_PIPELINE_PLAN.md) | Operational content merged into `../Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md`; interactive HTML frozen |
+| [Scientific figure pipeline plan](./SCIENTIFIC_FIGURE_PIPELINE_PLAN.md) | Operational content merged into `../08_FIGURES_AND_REPRODUCIBLE_REPORTING.md`; interactive HTML frozen |
 | [Paper figure automation plan](./PAPER_FIGURE_AUTOMATION_PLAN.md) | Registry, paper-panel scope, blockers, build sequence, and QC merged into the active figure plan |
-| [Step 11 learner classification](./11_LEARNER_CLASSIFICATION.md) | Exact historical source retained; all work packages, tests, deliverables, and exit criteria restored in `../Analysis/LEARNER_CLASSIFICATION.md` |
-| [Learner-stratified vigor plan](./LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md) | Exact historical source retained; its detailed design is restored in `../Analysis/LEARNER_STRATIFIED_OUTPUTS.md` |
-| [Tail dynamics and vigor plan](./TAIL_DYNAMICS_VIGOR_ANALYSIS_PLAN.md) | Implemented behavior documented in `../../docs/analysis/METRICS_AND_BOUTS.md`; exploratory mechanisms moved to `../Deferred/TAIL_MECHANISTIC_ANALYSES.md` |
+| [Step 11 learner classification](./11_LEARNER_CLASSIFICATION.md) | Exact historical source retained; all work packages, tests, deliverables, and exit criteria restored in `../05_LEARNER_ANALYSIS.md` |
+| [Learner-stratified vigor plan](./LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md) | Exact historical source retained; its detailed design is restored in `../06_LEARNER_OUTPUTS_AND_VALIDATION.md` |
+| [Tail dynamics and vigor plan](./TAIL_DYNAMICS_VIGOR_ANALYSIS_PLAN.md) | Implemented behavior documented in `../../docs/analysis/METRICS_AND_BOUTS.md`; exploratory mechanisms moved to `../09_TAIL_MECHANISTIC_ANALYSES.md` |
+| [Former staged release roadmap](./RELEASES_AND_LEGACY_RETIREMENT.md) | R1–R4 staging superseded by the one [final analysis release](../10_FINAL_ANALYSIS_RELEASE.md); no staged release gate was completed |
 
 ## Archived notes
 
@@ -68,6 +74,6 @@ When a step completes:
 Archived plans are historical evidence. Later corrections create new plan
 steps or amendments rather than rewriting completion history.
 
-**Do not archive yet:** active plans under `../Analysis/`, the release plan,
+**Do not archive yet:** the numbered active plans in `../`,
 deferred plans still preserving future work, `../GOVERNANCE.md`,
 `../DECISIONS.md`, or `../IMPLEMENTATION_STEP_INDEX.md`.

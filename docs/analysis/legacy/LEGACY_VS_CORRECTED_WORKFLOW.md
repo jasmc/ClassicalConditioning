@@ -2,7 +2,10 @@
 
 > **Archived reference:** the legacy package route described here is no longer
 > installed or exposed by the CLI. Its source is retained under
-> `Archive/package/`; the supported package workflow is candidate-only.
+> `Archive/package/`; the supported package workflow is candidate-only. The
+> implementation notes below describe an earlier comparison snapshot, not the
+> current metric-column contract. See [metrics and bouts](../METRICS_AND_BOUTS.md)
+> for the active three-metric definitions.
 
 ## Purpose
 
@@ -34,7 +37,7 @@ For every corrected stage, record:
 | Measured effect | Counts, missingness, numerical differences, cohort changes, effects, and uncertainty |
 | Manuscript impact | Methods/results/figures requiring revision |
 
-## Current status
+## Status at the historical comparison
 
 ### Available
 
@@ -74,7 +77,7 @@ The candidate figure is descriptive single-fish evidence. It is useful for
 metric validation but cannot select the paper metric or establish a population
 learning effect.
 
-### Planned corrected comparisons
+### Corrected comparisons proposed at the time
 
 | Area | Legacy | Corrected candidate |
 | --- | --- | --- |

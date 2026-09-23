@@ -4,19 +4,20 @@
 **Done:** Routine two-process PNG scheduling, figure-status ledger, four per-fish
 profiles per alignment, five comparison outcomes per alignment, five reviewed-
 cohort figure families, a matched frozen-cohort population heatmap with fish
-coverage, semantic SVG/PDF export and proposed Figure 1–4 registry.
+coverage, a focused `figure-example-traces` command for Figure 1 C/D trial
+traces, semantic SVG/PDF export and proposed Figure 1–4 registry.
 Interactive HTML is frozen (Gate F).
 **Open:** Approval of the population heatmap signal and matched cohorts, approved Figure 1 examples,
 frozen learner representation, signed independent-timing Figure 4 data,
 publication dimensions, and visual regression.
 **Change class:** Behavior-preserving rendering first; presentation changes separately  
 **Depends on:** Implemented artifact-integrity contract and each scientific
-stage whose output is exposed; deferred semantic provenance only for
-release-grade figure identity
+stage whose output is exposed; final figure identity is recorded through the
+frozen release manifest and existing source/output hashes
 **Unlocks:** Practical researcher use and reproducible paper builds  
 **Absorbed detail:** Historical figure workstreams archived in
-[the archived scientific figure plan](../Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md)
-and [paper-figure automation source plan](../Archive/PAPER_FIGURE_AUTOMATION_PLAN.md).
+[the archived scientific figure plan](./Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md)
+and [paper-figure automation source plan](./Archive/PAPER_FIGURE_AUTOMATION_PLAN.md).
 
 ## Objective
 
@@ -84,8 +85,8 @@ estimated scope
 - No success-shaped empty output
 - Atomic writes
 - Resumable completed recording tasks
-- `--force` creates/replaces only explicitly targeted non-release work under
-  defined rules; immutable releases are never overwritten
+- `--force` creates/replaces only explicitly targeted working outputs under
+  defined rules; the final analysis release is never overwritten
 
 ## Part B — Python API
 
@@ -220,11 +221,11 @@ figure from authenticated panel data. The sidecar and run ledger carry cohort,
 metric, settings, source, and code hashes so replacement is auditable.
 
 The proposed paper layout registry is
-[`configs/paper-figures/behavior-paper.json`](../../configs/paper-figures/behavior-paper.json).
+[`configs/paper-figures/behavior-paper.json`](../configs/paper-figures/behavior-paper.json).
 Written Figure 1 and Figure 4 roles follow the paper scaffold/list, not draft
 PNG panel placement. Figure 2 heatmaps require a frozen fish cohort and
 explicit coverage; Figure 3 and learner-specific Figure 4 panels remain gated.
-See the [panel-by-panel draft comparison](../../docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
+See the [panel-by-panel draft comparison](../docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
 
 ### Figure QC
 
@@ -290,7 +291,7 @@ windows, aggregation, detector, statistics, or learner definitions.
 | 1 | Experimental setup, protocol, metric definition, and representative fish | Approved source artwork and representative-recording rule |
 | 2 | Population evidence for delay and trace conditioning | Frozen cohort, outcomes, and population inference |
 | 3 | Learner representation, uncertainty, heterogeneity, and validation | Active learner-plan exit gate |
-| 4 | Conditioned-response dynamics and timing | Independent timing definitions and non-circular analysis |
+| 4 | Conditioned-response dynamics and timing based on pooled learners | Approved learner definition, independent timing definitions, and non-circular analysis |
 
 Figure 3 is required because learner analysis is important to the paper. Its
 final grammar depends on the learner decision: continuous/probabilistic outputs
@@ -344,9 +345,12 @@ publication PDFs to the paper repository is a separate explicit action.
 4. Build Figure 2 first as the population-analysis vertical slice.
 5. Build Figure 1 and the first supplementary assay/QC figures.
 6. Build Figure 3 from the approved learner artifacts and Figure 4 from
-   independently specified timing artifacts.
-7. Validate from a clean analysis commit, freeze the release manifest, sync
-   outputs explicitly, and compile the paper.
+   pooled-learner CR data with independently specified timing artifacts.
+7. Validate the figures from a clean analysis commit and review Figure 4's
+   pooled-learner CR result. The
+   [tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) then follow.
+8. Freeze the final analysis release manifest, sync outputs explicitly, and
+   compile the paper.
 
 ### Known blockers
 

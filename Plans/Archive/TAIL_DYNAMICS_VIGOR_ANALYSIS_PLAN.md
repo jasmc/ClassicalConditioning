@@ -16,7 +16,7 @@ is frozen as primary before Gate T1.
 
 Learner stratification is optional and governed with other heterogeneity and
 inferential choices by the
-[analysis and statistics design](../Analysis/ANALYSIS_AND_STATISTICS.md).
+[analysis and statistics design](../02_ANALYSIS_AND_STATISTICS.md).
 
 The analysis should distinguish:
 

@@ -17,8 +17,8 @@ cli.py -> run_config.py -> pipeline.py
        -> analysis/movement_state.py
        -> analysis/temporal_profiles.py
        -> analysis/trial_outcomes.py
-       -> analysis/discarding.py    technical + exploratory assessment of all records
-       -> analysis/metric_comparison.py
+  -> analysis/discarding.py         technical + exploratory assessment of all records
+  -> analysis/metric_comparison.py  descriptive comparison of ready recordings
   -> bounded two-process renderer
        -> figures/temporal_profiles.py (4 families × CS/US × ready fish)
        -> analysis/review/trace_review.py (ready fish)
@@ -32,6 +32,9 @@ cli.py -> run_config.py -> pipeline.py
 The direct-from-intake candidate calculation in
 `preprocessing/benchmarks/candidate_metrics_from_intake.py` is a separately
 selected development benchmark, not an alternative routine JSON route.
+The focused `figure-example-traces` command renders selected Figure 1 C/D
+trial traces from authenticated corrected artifacts; it is not scheduled by
+`run-pipeline`. See the [figure guide](./FIGURE_GUIDE.md).
 
 ## Trust boundaries
 
@@ -64,6 +67,9 @@ selected development benchmark, not an alternative routine JSON route.
    atomically. Publication SVG contains semantic artist IDs and embedded
    sidecar authentication; structural checks reject missing/duplicate IDs.
 
+The two-stage command, technical policy fields, and source-linked exploratory
+rules are documented in [discarding assessment](./DISCARDING_ASSESSMENT.md).
+
 `Metadata/<analysis_id>_pipeline_run.json` is always written, including after
 inventory, intake, analysis, or figure failure. Each required figure has a
 `completed`, `failed`, or `blocked` disposition with a reason where relevant.
@@ -80,5 +86,5 @@ inference are approved. Figure 2 population heatmaps require frozen-cohort
 fish coverage; per-fish profiles are not substitutes. Figure 4 signed,
 baseline-centered learner timing must be defined independently of classifier
 features. See the [draft comparison](figures/PAPER_DRAFT_COMPARISON.md) for
-panel-level gaps and the [cohort plan](../../Plans/SINGLE_COHORT_AND_EXCLUSION.md)
+panel-level gaps and the [cohort plan](../../Plans/01_COHORT_IMPLEMENTATION.md)
 for remaining assessment gates.

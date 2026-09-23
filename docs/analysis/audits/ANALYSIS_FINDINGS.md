@@ -1,5 +1,12 @@
 # Major Analysis Issues
 
+> **Inherited-pipeline audit.** References below to the "current implementation"
+> describe the numbered scripts as inspected for the original audit, not the
+> supported package route today. Use the [implementation status index](../../../Plans/IMPLEMENTATION_STEP_INDEX.md)
+> and [current pipeline guide](../CURRENT_PIPELINE_GUIDE.md) for present status.
+> The issue evidence remains open for paper-level reconciliation unless a
+> later approved decision and validation close it.
+
 ## Scope
 
 This document audits the current Python implementation against the analysis described in the associated Learning paper. It is based on inspection of the code and manuscript methods, not on a complete reanalysis of the underlying experimental data.
@@ -403,7 +410,9 @@ This creates substantial researcher flexibility and makes it unclear which imple
 4. Quantify false-positive rates and label stability.
 5. Report uncertainty rather than only binary labels.
 
-Keeping learner classification outside the current minimal manuscript is appropriate until these steps are complete.
+The later [decision register](../../../Plans/DECISIONS.md) requires a learner
+analysis for the paper while leaving categorical classification conditional on
+Gate L. Until that gate passes, inherited labels are descriptive only.
 
 ## Recommended remediation sequence
 

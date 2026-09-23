@@ -1,10 +1,10 @@
-# Integrated Single-Metric Cohort Analysis and CR-Profile Figures
+# Integrated Analysis and CR Profiles
 
 **Status:** Routine corrected run now schedules available population figures;
 learner/paper panels remain blocked on Gate L, approved signed data, and
 independent timing validation
 **Depends on:** approved metric/outcome contract, frozen primary technical
-cohort, and [learner classification](./2_LEARNER_CLASSIFICATION.md)
+cohort, and [learner classification](./05_LEARNER_ANALYSIS.md)
 **Delivers:** one authenticated post-classification analysis run plus focused
 rerender commands for population and learner-stratified outputs
 
@@ -18,11 +18,12 @@ fish population.
 
 This plan integrates rather than supersedes:
 
-- [Single Cohort and Fish-Exclusion Boundary](../SINGLE_COHORT_AND_EXCLUSION.md);
-- [Learner Classification and Stratified Analysis](./2_LEARNER_CLASSIFICATION.md);
-- [Learner-Stratified Outputs and Validation](./3_LEARNER_STRATIFIED_OUTPUTS.md);
-- [Learning-Onset Inference](../LEARNING_ONSET_LME.md); and
-- [Figures and Reproducible Reporting](./FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- [Paper Cohort Completion](./01_COHORT_IMPLEMENTATION.md);
+- [Learning-Onset Analysis Completion](./03_LEARNING_ONSET_IMPLEMENTATION.md);
+- [Learner Representation and Analysis](./05_LEARNER_ANALYSIS.md);
+- [Learner Outputs and Validation](./06_LEARNER_OUTPUTS_AND_VALIDATION.md);
+- [Learning-Onset Analysis Reference](../docs/analysis/LME_PIPELINE_AND_PARAMETERS.md); and
+- [Figures and Reproducible Reporting](./08_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
 
 ## Scientific boundary and execution order
 

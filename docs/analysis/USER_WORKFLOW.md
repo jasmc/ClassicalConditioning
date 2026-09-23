@@ -65,7 +65,8 @@ these directories and markers.
   artifact whose marker and hashes verify. It does not treat mere file presence
   as success.
 - With `continue_on_error: true`, failures are recorded per recording and the
-  candidate cohort is built from recordings that completed every needed stage.
+  descriptive candidate comparison uses recordings that completed every needed
+  stage. This is not a reviewed or frozen fish cohort.
 - An unchanged failed intake is skipped with its reason. After fixing the
   problem, run `retry-intake --input-dir <RAW> --project-dir <SAVE>
   --recording-id <ID>` explicitly (or change the source triplet).

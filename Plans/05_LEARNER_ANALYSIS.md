@@ -1,22 +1,23 @@
-# Learner Classification and Stratified Analysis
+# Learner Representation and Analysis
 
-**Status:** Active — required learner-analysis workstream for the paper
+**Status:** Design and scientific method decision open; no canonical learner
+representation or learner-analysis pipeline is implemented in the package
 **Change class:** Legacy reproduction plus separately validated scientific analysis
 **Depends on:** Frozen preprocessing inputs, technical and exploratory assessment
 bundle, an approved C1/Gate O outcome contract, the population-analysis design,
 and scientific Gate L
 **Unlocks:** Learner-focused paper claims, figures, and stratified outputs
 
-The post-classification single-metric run is specified in
-[the integrated cohort/CR-profile plan](./4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).
-It does not change this plan's prerequisite: classification consumes a frozen,
+The post-representation single-metric run is specified in
+[the integrated cohort/CR-profile plan](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
+It does not change this plan's prerequisite: learner analysis consumes a frozen,
 label-independent primary technical cohort and authenticated outcome artifacts.
 
 This file restores the complete operational content of archived Plan 11 as an
 active plan. The historical wording remains preserved in
-[the archived Plan 11](../Archive/11_LEARNER_CLASSIFICATION.md). The complete
+[the archived Plan 11](./Archive/11_LEARNER_CLASSIFICATION.md). The complete
 detailed execution design is active in
-[Learner-Stratified Outputs and Validation](./3_LEARNER_STRATIFIED_OUTPUTS.md),
+[Learner Outputs and Validation](./06_LEARNER_OUTPUTS_AND_VALIDATION.md),
 with its original source retained in the archive.
 
 Learner analysis is required for the paper. A hard learner/non-learner label is
@@ -27,7 +28,7 @@ produce the learner-focused paper analysis.
 
 ## Objective
 
-Preserve all current classifier variants as explicit legacy methods, select or
+Preserve the historical classifier variants as explicit legacy methods, select or
 develop one canonical representation only after corrected outcomes are
 available, and prevent circular learner-stratified inference. Before selecting
 any classifier, conduct an end-to-end scientific brainstorming and design
@@ -49,7 +50,8 @@ Do not rename one `canonical` merely because it is the easiest to execute.
 
 ## Scientific gate L
 
-Approve:
+Approve the learner representation and all applicable settings below.
+Classifier-specific settings apply only if categorical classification is selected:
 
 - classifier implementation and version;
 - activity metric and detector feeding the classifier;
@@ -105,7 +107,7 @@ continuous-score framing better matches the data-generating process.
 This work package is not required to choose the activity metric, but it is
 required for the paper's learner workstream. Begin the final method comparison
 only after its input metric, cohort, and outcomes are stable. See
-[the decision register](../DECISIONS.md) (Gate L).
+[the decision register](./DECISIONS.md) (Gate L).
 
 ### 11.1 Wrap existing classifiers
 
@@ -266,7 +268,8 @@ and unlabeled panels cannot drift scientifically.
 - Catch/block selectors are identical in population and stratified outputs
 - Classification and evaluation trial sets are disjoint in held-out mode
 - Behavior-dependent legacy sensitivity status never becomes primary inclusion
-- Learner eligibility exactly matches the frozen unified assessment
+- The merged pre-fit learner-input prerequisite matches the authenticated
+  two-stage assessment; method-specific feature eligibility is recorded later
 - Classifier execution contains no independent fish/row discard path
 
 ## Deliverables
@@ -334,4 +337,4 @@ These requirements supplement, rather than replace, the work packages, tests,
 deliverables, and exit gate above. The full schemas, output inventory, module
 layout, configuration, validation checklist, phases, pilot, and definition of
 done are maintained in
-[the detailed companion](./3_LEARNER_STRATIFIED_OUTPUTS.md).
+[the detailed companion](./06_LEARNER_OUTPUTS_AND_VALIDATION.md).

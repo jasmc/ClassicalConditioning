@@ -1,5 +1,11 @@
 # Single Cohort and Fish-Exclusion Boundary
 
+> **Archived incomplete on 2026-09-23 for plan cleanup.** The paper cohort and
+> consumer migration are still open. Current requirements live in
+> [Paper Cohort Completion](../01_COHORT_IMPLEMENTATION.md);
+> technical command behavior lives in the
+> [discarding assessment guide](../../docs/analysis/DISCARDING_ASSESSMENT.md).
+
 **Status:** Core cohort boundary and selection inventory implemented; paper policy/cohort and full consumer migration remain  
 **Scope:** Inventory every fish-level exclusion, decide inclusion once, freeze
 one reviewed cohort manifest, and make all population analyses consume it  
@@ -7,7 +13,7 @@ one reviewed cohort manifest, and make all population analyses consume it
 policy
 
 Detailed implementation order, artifact contracts, and acceptance gates are in
-[Remaining Cohort and Learning-Onset Implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md).
+[Paper Cohort Completion](../01_COHORT_IMPLEMENTATION.md).
 
 ## Objective
 
@@ -26,7 +32,7 @@ This plan distinguishes:
 - **display selection:** choosing example fish, never changing inference.
 
 The two assessment stages are specified in [Technical Assessment](./TECHNICAL_ASSESSMENT.md)
-and [Exploratory Legacy-Rule Discarding](./EXPLORATORY_LEGACY_DISCARDING.md).
+and [Exploratory Legacy-Rule Discarding](../../docs/analysis/DISCARDING_ASSESSMENT.md#exploratory-stage).
 They run through one non-destructive command before cohort review. The second
 stage is exploratory and cannot set primary membership.
 
@@ -116,7 +122,7 @@ filtering per-recording files or fish lists.
 ## Two-stage assessment
 
 One `assess-discarding` command runs the [technical stage](./TECHNICAL_ASSESSMENT.md)
-and then the [exploratory legacy-rule stage](./EXPLORATORY_LEGACY_DISCARDING.md).
+and then the [exploratory legacy-rule stage](../../docs/analysis/DISCARDING_ASSESSMENT.md#exploratory-stage).
 It runs after authenticated per-fish outcomes, before cohort comparison, and
 records separate technical and behavioral dispositions with one assessment
 hash. The technical result supplies evidence for later reviewed cohort
@@ -160,7 +166,7 @@ than creating new ad hoc discard files:
   behavior cohort.
 
 The source-linked exploratory population is specified in
-[Exploratory Legacy-Rule Discarding](./EXPLORATORY_LEGACY_DISCARDING.md).
+[Exploratory Legacy-Rule Discarding](../../docs/analysis/DISCARDING_ASSESSMENT.md#exploratory-stage).
 It combines the preprocessing bout rules with one merged learner-input check.
 Because those checks depend on behavior, the primary-cohort review ignores
 them; after
@@ -203,7 +209,7 @@ global fish discard.
 ### 1. Complete the exclusion inventory
 
 The machine-readable inventory is maintained in
-[EXCLUSION_AND_SELECTION_INVENTORY.csv](./EXCLUSION_AND_SELECTION_INVENTORY.csv).
+[EXCLUSION_AND_SELECTION_INVENTORY.csv](../EXCLUSION_AND_SELECTION_INVENTORY.csv).
 It distinguishes implemented validity/eligibility handling from active
 population consumers that still bypass the cohort boundary.
 

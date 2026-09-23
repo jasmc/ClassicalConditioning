@@ -1,9 +1,10 @@
-# Learner-Stratified Outputs and Validation
+# Learner Outputs and Validation
 
-**Status:** Active detailed companion to the learner-classification plan
+**Status:** Active design companion; learner-specific manifest and outputs are
+not yet implemented in the package
 
 > Learner analysis is required for the paper and is governed by
-> [the learner-classification plan](./2_LEARNER_CLASSIFICATION.md). This companion
+> [the learner-analysis plan](./05_LEARNER_ANALYSIS.md). This companion
 > retains the detailed schemas, joins, outcomes, temporal views, modules,
 > configuration, validation checklist, implementation phases, and completion
 > criteria from the original learner-stratified design. A categorical label is
@@ -11,14 +12,20 @@
 
 ## Purpose
 
-Add an explicit learner classification to the fish-level analysis metadata, propagate that classification safely into trial-level and time-series datasets, and analyze conditioned-response dynamics separately for:
+If Gate L approves categorical classification, add it to the fish-level
+analysis metadata, propagate it safely into trial-level and time-series
+datasets, and analyze conditioned-response dynamics separately for:
 
 - Conditioned learners
 - Conditioned non-learners
 - Reference/control fish
 - Fish that could not be classified
 
-The resulting analysis should describe the temporal profile of behavior:
+If Gate L instead approves a continuous or model-based representation, retain
+the same cohort, coverage, temporal-profile, and validation contracts below,
+replacing label-specific fields and group comparisons with the approved score
+or trajectory. The resulting analysis should describe the temporal profile of
+behavior:
 
 - In individual fish
 - In individual trials
@@ -1178,7 +1185,7 @@ At least one learner-stratified result is evaluated on behavior that did not def
 ## Phase 6: Build paper panels
 
 1. Integrate the analysis with
-   [`FIGURES_AND_REPRODUCIBLE_REPORTING.md`](./FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+   [`08_FIGURES_AND_REPRODUCIBLE_REPORTING.md`](./08_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
 2. Create reusable learner-profile panel renderers.
 3. Compose:
    - Classification flow
@@ -1225,17 +1232,20 @@ Determine:
 
 ## 17. Definition of done
 
-The learner-stratified analysis is complete when:
+The learner-focused analysis is complete when the applicable checks below
+pass. Label-specific checks apply only if Gate L approves categorical classes;
+otherwise use the approved representation in the corresponding derived tables,
+profiles, and figures:
 
 - [ ] The post-refactor end-to-end methodology review is recorded.
 - [ ] Continuous, longitudinal, component-based, and class-based alternatives
       have been considered.
 - [ ] Power or simulation evidence documents feasible validation and
       uncertainty, or explains why it is not applicable.
-- [ ] One canonical classification implementation is used.
-- [ ] A versioned fish-level classification manifest exists.
-- [ ] Every fish has a learner, non-learner, reference, or unclassified status.
-- [ ] Labels are joined with validated many-to-one cardinality.
+- [ ] One approved learner representation and versioned fish-level manifest are used.
+- [ ] If categorical classification is approved, one canonical implementation is used.
+- [ ] If categorical classification is approved, every fish has a learner, non-learner, reference, or unclassified status.
+- [ ] If categorical classification is approved, labels are joined with validated many-to-one cardinality.
 - [ ] Original datasets remain unchanged.
 - [ ] Labeled CS, US, and trial-summary datasets are saved as derived artifacts.
 - [ ] Individual-trial profiles are available.
@@ -1269,4 +1279,4 @@ The learner-stratified analysis is complete when:
 10. Produce validation-mode-specific temporal profiles and inference.
 
 The final routine orchestration and common-hash requirements are defined in
-[the integrated single-metric cohort/CR-profile plan](./4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).
+[the integrated single-metric cohort/CR-profile plan](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).

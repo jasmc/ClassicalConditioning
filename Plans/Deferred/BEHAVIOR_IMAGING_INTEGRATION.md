@@ -8,7 +8,7 @@ behavior analysis without creating a second behavior pipeline
 **Implementation dependencies:** I00 may inventory sources independently; I01+
 depend on existing migration Steps 02-05, approved behavior recipes, and
 canonical behavior identities  
-**Does not block:** Completion of the behavior-only migration and releases  
+**Does not block:** Completion of the behavior-only migration and its final analysis release
 
 ## 1. Authority and relationship to the main migration
 
@@ -17,7 +17,7 @@ contain both behavior and imaging. It extends, but does not replace:
 
 - [the archived master analysis migration plan](../Archive/MASTER_ANALYSIS_MIGRATION_PLAN.md);
 - [the analysis architecture](../../docs/analysis/ARCHITECTURE.md);
-- [the semantic artifact and provenance plan](./SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md);
+- [the archived optional provenance design](../Archive/SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md);
 - [the domain and configuration plan](../Archive/03_DOMAIN_AND_CONFIGURATION.md);
 - [the ingestion and validation plan](../Archive/04_INGESTION_AND_RAW_VALIDATION.md).
 
@@ -327,7 +327,8 @@ canonical route.
 
 ### 9.1 New artifact types
 
-Add these initial schema families to the deferred semantic-provenance registry:
+If imaging integration is activated, define these schema families for its
+artifacts. Introduce a shared registry only if this work needs one:
 
 ```text
 imaging-source-inventory/1.0
@@ -355,8 +356,8 @@ multimodal-panel-data/1.0
 
 ### 9.2 Dense-array policy
 
-Dense arrays need an explicit benchmark under the semantic-provenance plan. The accepted format must
-support:
+Dense arrays need an explicit format benchmark within the imaging work. The
+accepted format must support:
 
 - lossless exact round-trip;
 - chunked plane/time access;
@@ -450,7 +451,7 @@ recorded without inference.
 
 #### Work
 
-1. Extend the schema registry and artifact repository.
+1. Define the necessary schema contracts and artifact storage.
 2. Add acquisition capabilities and configuration types.
 3. Define imaging and multimodal recipe identity.
 4. Define dense-array format and dimension convention.
@@ -1047,8 +1048,9 @@ version.
 These prerequisites apply to I01 and later. They do not prevent the I00 source
 inventory and reference-preservation work.
 
-1. Shared schema, artifact metadata, logical hashing, and resolver are
-   accepted.
+1. Required imaging schema, artifact identity, and selection checks are
+   defined. Adopt logical hashing or a shared resolver only if the chosen
+   imaging route demonstrates a need for them.
 2. Step 03 recording identity, trial map, and resolved configuration are
    accepted for a pilot imaging experiment.
 3. Canonical behavior intake and the frozen legacy behavior recipe are stable.

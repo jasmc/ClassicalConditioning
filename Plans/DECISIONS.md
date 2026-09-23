@@ -20,9 +20,9 @@ into the individual step plans beyond a short pointer.
 | G0 (scope) | Same core claim and same fish/experiments as the original paper. No scope expansion. |
 | T0 (raw tracking semantics) | Raw `angleN` columns are **radians**. Legacy analysis converts them to degrees with `* (180/pi)` before vigor (`data_io.read_tail_tracking_data`, legacy `my_functions`). Candidate metrics keep radians. `angle1..angle14` behave as local intersegment bends (agree with XY-derived segment orientation changes on the pilot); `angle15` is a terminal placeholder. Measured `xN`/`yN` are present and treated as **tracking-image pixels**; absolute µm calibration is **not required** for relative activity metrics. Confidence and independent body-axis fields are absent. Synchronized video remains optional/deferred for blinded validation only. |
 | T1 (activity metric) | Do **not** freeze a single metric yet. **Three metrics run** through the candidate pipeline generically: tail-length-weighted angular L1, tail-length-normalized whole-tail XY mean speed, and the legacy-derived distal cumulative-angle-speed benchmark on measured time. The legacy metric is a historical benchmark, not itself a selection winner. **Bout segmentation is shared across all three metrics** so comparisons use the same behavioral episodes; no metric-specific detector is created. The shared detector source, smoothing, thresholds, and validity rules still require a later T1 decision before paper use. The unweighted manuscript segment-speed sum, all-segment angular RMS, whole-tail XY RMS, and curvature-change RMS are superseded because they are respectively sampling-density-dependent, unnecessarily peak-weighted, or redundant/noise-sensitive alternatives. |
-| C0 (cohort inclusion) | **Primary paper policy remains open; boundary decided.** One `assess-discarding` command runs technical assessment, then exploratory source-linked preprocessing checks and a merged learner-input prerequisite. Primary membership may use only approved label-independent technical criteria. Response-window movement, CR strength, and learner status cannot determine it. The exploratory combined status is a projection on the selected metric, not a historical or primary cohort. Normalized-vigor trial/block filtering is deliberately outside this command; LME trial eligibility and learner model-derived feature failures remain explicit in their respective later analyses. See [technical](./TECHNICAL_ASSESSMENT.md) and [exploratory](./EXPLORATORY_LEGACY_DISCARDING.md) plans. |
-| S (statistics) | **Open in the [analysis and statistics design](./Analysis/1_ANALYSIS_AND_STATISTICS.md).** The existing fish-grouped LME, fish permutation, and fish bootstrap are exploratory engineering scaffolds, not the approved strategy. The primary estimand, outcome family, condition contrast, random-effects structure, diagnostics, uncertainty, multiplicity, and validation status must be decided together. The LME may be improved, demoted to sensitivity, or replaced. The legacy statistical route remains frozen as `legacy-paper` reproduction only—not extended or “fixed.” |
-| L (learner analysis) | **Required paper workstream; method open.** Complete the [learner classification and stratified analysis plan](./Analysis/2_LEARNER_CLASSIFICATION.md). Begin with continuous fish-level effects and heterogeneity and compare continuous, longitudinal, probabilistic, and categorical representations. A binary or multiclass classifier is used only if it adds defensible meaning and avoids circular confirmation. If a hard classifier is rejected, the paper still reports the approved continuous or model-based learner result and the reason classes were not imposed. |
+| C0 (cohort inclusion) | **Primary paper policy remains open; boundary decided.** One `assess-discarding` command runs technical assessment, then exploratory source-linked preprocessing checks and a merged learner-input prerequisite. Primary membership may use only approved label-independent technical criteria. Response-window movement, CR strength, and learner status cannot determine it. The exploratory combined status is a projection on the selected metric, not a historical or primary cohort. Normalized-vigor trial/block filtering is deliberately outside this command; LME trial eligibility and learner model-derived feature failures remain explicit in their respective later analyses. See the [current assessment behavior](../docs/analysis/DISCARDING_ASSESSMENT.md) and [active cohort work](./01_COHORT_IMPLEMENTATION.md). |
+| S (statistics) | **Open in the [analysis and statistics design](./02_ANALYSIS_AND_STATISTICS.md).** The existing fish-grouped LME, fish permutation, and fish bootstrap are exploratory engineering scaffolds, not the approved strategy. The primary estimand, outcome family, condition contrast, random-effects structure, diagnostics, uncertainty, multiplicity, and validation status must be decided together. The LME may be improved, demoted to sensitivity, or replaced. The legacy statistical route remains frozen as `legacy-paper` reproduction only—not extended or “fixed.” |
+| L (learner analysis) | **Required paper workstream; method open.** Complete the [learner classification and stratified analysis plan](./05_LEARNER_ANALYSIS.md). Begin with continuous fish-level effects and heterogeneity and compare continuous, longitudinal, probabilistic, and categorical representations. A binary or multiclass classifier is used only if it adds defensible meaning and avoids circular confirmation. If a hard classifier is rejected, the paper still reports the approved continuous or model-based learner result and the reason classes were not imposed. |
 | F (figures) | Only two figure modes are actively maintained going forward: static PNG and publication SVG/PDF. Interactive local HTML figures are frozen as-is (already implemented, not broken, not deleted) but receive no further investment. |
 
 ### Addendum (2026-08-31) — historical pickle timebase
@@ -37,7 +37,7 @@ CS onset still agrees; edge misalignment ~0.33 s. Do **not** invert
 
 ## What is deferred or minimized in the current priority lane
 
-- **Schema registry / logical-content hashing / typed artifact metadata** ([semantic provenance plan](./Deferred/SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md)): deferred, not removed from the full plan. Current SHA-256 byte hashing and atomic transactional publication are sufficient for the immediate analysis path.
+- **Schema registry / logical-content hashing / typed artifact metadata**: the optional [engineering design](./Archive/SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md) is archived, with no active implementation step. Current SHA-256 byte hashing and atomic transactional publication are sufficient for the planned single analysis release. Reopen only a specific part if a concrete need appears.
 - **Interactive HTML figures**: frozen, no further polish (see Gate F above).
 - **The 10-gate formalism as a recurring per-step ritual**: replaced by this single document. Gates are not re-asked per step; they are only revisited if new information changes a decision (for example, real cohort numbers when deciding Gate C0).
 - **Categorical learner implementation**: final implementation waits for stable
@@ -45,8 +45,8 @@ CS onset still agrees; edge misalignment ~0.33 s. Do **not** invert
   are active and required (see Gate L).
 - **Behavior-dependent legacy discard as primary QC**: rejected. Its exact
   checks remain available only as a named sensitivity analysis under the
-  [integrated cohort/CR-profile plan](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).
-- **Formal immutable release packaging**: full implementation is deferred until the analysis is ready for release. A tagged commit plus a frozen cohort/config/data-hash manifest is sufficient for interim milestones; the complete release plan remains active.
+  [integrated cohort/CR-profile plan](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
+- **Final analysis release**: make one release when the code, scientific decisions, paper analysis, and figures are ready. Preserve a tagged commit and frozen manifest linking inputs, cohort, configuration, results, and figures; candidate and legacy runs are analysis evidence, not interim releases. See [the final release plan](./10_FINAL_ANALYSIS_RELEASE.md).
 - **Expansion of legacy characterization**: lower priority because the existing characterization (see [the codebase behavior map](../docs/analysis/legacy/CODEBASE_BEHAVIOR_MAP.md) and [analysis findings](../docs/analysis/audits/ANALYSIS_FINDINGS.md)) is sufficient for the immediate path. Additional characterization remains in scope when required by equivalence testing or a concrete migration risk.
 
 ## Practical shortened critical path
@@ -56,7 +56,7 @@ result is (fixture-scoped Steps 03–05 are already complete; see
 [IMPLEMENTATION_STEP_INDEX.md](./IMPLEMENTATION_STEP_INDEX.md)):
 
 1. Complete the paper baseline evidence that still matters for release;
-   deferred schema/logical-hash work stays deferred.
+   the archived schema/logical-hash proposal is outside this analysis path.
 2. Approve corrected preprocessing and the three-metric candidate set —
    keep the pipeline generic so all three run the same way; local fish are
    debug fixtures, not selection/confirmation cohorts. Gate P and Gate T1
@@ -67,8 +67,11 @@ result is (fixture-scoped Steps 03–05 are already complete; see
    freeze Gate O/S after the design record is decided.
 5. Complete required learner analysis and its validation mode.
 6. Build PNG + publication figures only; interactive HTML remains frozen.
-7. Create a lightweight tagged release with a frozen manifest, not a full
-   release-engineering exercise, unless requested.
+7. After Figure 4's pooled-learner CR analysis is completed and reviewed,
+   carry out the tail mechanistic analyses in
+   [step 09](./09_TAIL_MECHANISTIC_ANALYSES.md).
+8. Create the one final analysis release with a tagged commit and frozen
+   manifest after the paper analysis and its figures are verified.
 
 Local recordings currently on disk (`20221115_04`, `20221116_12`) are the
 **real fixtures for end-to-end pipeline tests**, including cohort freeze and

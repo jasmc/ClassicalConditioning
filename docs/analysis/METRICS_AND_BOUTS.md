@@ -101,7 +101,7 @@ The scientific decisions are in
 [Plans/DECISIONS.md](../../Plans/DECISIONS.md). Detailed historical work and
 unfinished gates remain in archived Plans 06 and 07 and in the archived tail
 dynamics plan. Future mechanistic extensions are separated into
-[Tail Mechanistic Analyses](../../Plans/Deferred/TAIL_MECHANISTIC_ANALYSES.md).
+[Tail Mechanistic Analyses](../../Plans/09_TAIL_MECHANISTIC_ANALYSES.md).
 
 ## Current recipe reference
 

@@ -48,7 +48,8 @@ source inventory
   -> frozen cohort and model/classifier inputs
   -> statistics and learner results
   -> panel data
-  -> figures and releases
+  -> figures
+  -> final analysis release
 ```
 
 Raw inputs are immutable. Derived outputs are published transactionally and
@@ -73,9 +74,10 @@ A changed display theme should rerender figures only. A changed scientific
 input must invalidate every dependent outcome, model, learner result, panel
 table, and figure.
 
-Byte hashes establish exact file identity. Semantic identity, schema
-resolution, and controlled legacy conversion remain in the deferred provenance
-plan until stable multi-version or release use makes them necessary.
+Byte hashes establish exact file identity for the planned analysis release.
+Additional semantic identity, schema resolution, or legacy conversion requires
+a concrete use case; the [archived provenance design](./Archive/SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md)
+is reference material, not an active requirement.
 
 ## Execution contract
 
@@ -90,7 +92,7 @@ Required failure behavior:
 - no success-shaped empty artifact;
 - no silent row, fish, trial, or recording loss;
 - atomic publication;
-- immutable releases;
+- an immutable final analysis release;
 - explicit resumability based on matching identities, not filenames alone.
 
 ## Scientific invariants

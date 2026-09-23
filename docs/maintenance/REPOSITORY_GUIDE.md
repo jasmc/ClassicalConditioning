@@ -8,7 +8,7 @@ generated files. It does not authorize deletion of raw scientific data.
 | `src/` | Supported installable package | Review, test, and change through normal development workflow. |
 | `tests/` | Active automated tests | Keep aligned with supported source. |
 | `configs/` | Example/reusable run configurations | Copy before editing for a new run. |
-| `docs/analysis/` | Current architecture, workflow, audit, and reference docs | Keep links current when code/documentation changes. |
+| `docs/analysis/` | Current workflow, proposed architecture, audit, and reference docs | Keep links current when code/documentation changes. |
 | `Plans/` | Migration plans, decisions, and status records | Preserve decision/history context. |
 | `Archive/` | Historical packages, scripts, helpers, tests, and references | Treat as non-runnable source history; do not import into active workflow. |
 | `.venv/` | Local dependencies | Safe to recreate through the documented environment setup. |
@@ -42,8 +42,6 @@ are disposable. `push.log` is an ignored local log. Archived numbered scripts
 and helper modules are historical source reference; they are not part of the
 supported package workflow.
 
-Two root files need a human decision rather than automatic deletion:
-`README2.md` appears to be an old analysis transcript, and
-`MY___PLANS. we need to add some kinda loading ba` contains scratch notes and
-pasted runtime output. Review their history and references before archiving or
-deleting them.
+Earlier cleanup notes named `README2.md` and
+`MY___PLANS. we need to add some kinda loading ba`. Neither file is present in
+this checkout; no current maintenance action is needed for them.

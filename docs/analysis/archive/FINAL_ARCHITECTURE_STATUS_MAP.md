@@ -1,8 +1,9 @@
 # Final Architecture and Current Implementation Map
 
 > **Historical snapshot:** This former combined architecture/status document is
-> retained for provenance. Use [`../ARCHITECTURE.md`](../ARCHITECTURE.md) for
-> current architecture and
+> retained for provenance. Use [`../CURRENT_PIPELINE_GUIDE.md`](../CURRENT_PIPELINE_GUIDE.md)
+> for the current behavior pipeline and [`../ARCHITECTURE.md`](../ARCHITECTURE.md)
+> for the proposed multimodal design; use
 > [`Plans/IMPLEMENTATION_STEP_INDEX.md`](../../../Plans/IMPLEMENTATION_STEP_INDEX.md)
 > for current status.
 
@@ -284,8 +285,8 @@ graph TD
 
 ## Immediate priority lane
 
-The complete architecture above remains authoritative. Current execution
-priority is narrower:
+At the time of this snapshot, the architecture above was treated as the target.
+The historical execution priority was narrower:
 
 1. Implement the resumable multi-recording runner.
 2. Make the remaining local raw recording triplets available and inventory them.

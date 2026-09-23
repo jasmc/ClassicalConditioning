@@ -4,12 +4,14 @@ This is the durable visual inventory for the legacy analysis and the supported
 refactored candidate workflow. It describes what each pipeline can render and
 where coverage differs; it does not approve scientific outcomes, cohorts, or
 inferential models. Those decisions live in
-[the analysis and statistics plan](../../../Plans/Analysis/1_ANALYSIS_AND_STATISTICS.md).
+[the analysis and statistics plan](../../../Plans/02_ANALYSIS_AND_STATISTICS.md).
 
 The archive inventory reflects the preserved historical scripts. A figure
 family may create many files because legacy scripts loop over fish, condition,
 alignment, trial, or block. The sequence is logical, not a guarantee that every
 optional legacy family was rendered in a given run.
+The `R1`–`R12` identifiers below mean **refactored figure families**; they are
+not release stages.
 
 ## Legacy figure pipeline
 
@@ -52,7 +54,7 @@ flowchart TD
     N6 --> N7["Ten cohort-comparison figures: five outcomes × CS/US"]
     N4 --> N8["Eight profile families per fish: four × CS/US"]
     N3 --> N9["Detector trace review: signal, threshold, movement, bout IDs"]
-    N6 --> N10["Not yet replaced: confirmatory statistics and learner panels"]
+    N6 --> N10["Paper-approved statistics and learner panels remain gated"]
     N5 -->|reviewed cohort + metric| N11["Frozen-cohort selected-block, trial-number, and event-aligned response/baseline figures"]
     N4 -->|reviewed cohort + metric| N12["Frozen-cohort configured-catch and declared-block scaled-activity profiles"]
     N4 -->|matched reviewed cohort + metric| N13["Population scaled-total-activity heatmap + fish coverage"]
@@ -91,7 +93,7 @@ Interactive HTML is frozen and receives no further feature development.
 | Rendering boundary | Mixed into preprocessing, aggregation, and inference | Renders authenticated saved artifacts |
 | Rest | Often treated as missing | Separated into total activity and movement outcomes |
 | Cohort | Stage-specific exclusions | Frozen-manifest infrastructure and a single cohort-applied population artifact exist; the reviewed paper cohort is still missing |
-| Statistics | Ratio tests and many block/trial models | Exploratory LME, permutation, and bootstrap scaffolds |
+| Statistics | Ratio tests and many block/trial models | Exploratory LME/permutation/bootstrap scaffolds plus a condition-aware learning-onset route; paper approval remains open |
 | Coverage | Broad QC, population, and learner catalog | Detector/metric profiles and descriptive cohort comparison |
 
 The refactor now restores the legacy catch/block temporal-profile roles with a
@@ -106,10 +108,10 @@ and figure list, not draft panel placement, define intended Figure 1 and 4.
 
 ## Related implementation and decisions
 
-- [Figures and reproducible reporting](../../../Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md)
+- [Figures and reproducible reporting](../../../Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md)
   owns paper registries, supported rendering interfaces, panels, validation,
-  and figure releases.
-- [Analysis and statistics](../../../Plans/Analysis/1_ANALYSIS_AND_STATISTICS.md)
+  and final figure outputs for the analysis release.
+- [Analysis and statistics](../../../Plans/02_ANALYSIS_AND_STATISTICS.md)
   owns Gate O/S decisions and prerequisites for confirmatory results.
-- [Learner classification and stratified analysis](../../../Plans/Analysis/2_LEARNER_CLASSIFICATION.md)
+- [Learner representation and analysis](../../../Plans/05_LEARNER_ANALYSIS.md)
   owns learner-panel inputs and validation status.

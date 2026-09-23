@@ -23,20 +23,19 @@ historical acceptance criteria; current descriptive behavior lives under
 | --- | --- | --- | --- |
 | Governance and paper baseline | Open release prerequisite | Paper-scope baseline manifest, configuration freeze, and output fingerprints | [Governance](./GOVERNANCE.md), archived Plan 00 |
 | Preprocessing and metric decision | Fixture-only / scientific decision open | Gate P and Gate T1: preprocessing, smoothing, shared detector parameters, selected metric, and validation status | [Metrics and bouts](../docs/analysis/METRICS_AND_BOUTS.md), [Decisions](./DECISIONS.md) |
-| Paper cohort and two-stage assessment | Fixture-only / infrastructure implemented | Validate technical and exploratory legacy-rule assessment on paper inputs; approve Gate C0 and freeze the reviewed C1 cohort | [Technical assessment](./TECHNICAL_ASSESSMENT.md), [exploratory legacy screening](./EXPLORATORY_LEGACY_DISCARDING.md), [single-cohort plan](./SINGLE_COHORT_AND_EXCLUSION.md) |
-| Outcomes and population inference | Implemented, not paper-run | Freeze Gate O/S, run paper cohort, review recovery/calibration and diagnostics; block, longitudinal, simultaneous contrast, onset, robustness, and figure routes now exist | [Cohort/onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md), [learning-onset plan](./LEARNING_ONSET_LME.md) |
-| Learner analysis | Active required workstream | Gate L estimand/method, classifier or continuous representation, manifest, non-circular validation, and learner outputs | [Learner classification](./Analysis/2_LEARNER_CLASSIFICATION.md) |
-| Integrated cohort/CR profiles | In progress; post-classification orchestration gated | Shared catch/block substrate is implemented; learner manifest, sensitivity evaluator, common-hash `run-pipeline` route, and paper run remain | [Integrated cohort/CR profiles](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md) |
-| Figures and interfaces | In progress | Registry, notebooks, paper panels, publication dimensions/theme, and visual regression | [Figures and reproducible reporting](./Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md) |
-| Release and legacy retirement | Not started | Immutable paper release and verified reproduction before legacy retirement | [Releases](./RELEASES_AND_LEGACY_RETIREMENT.md) |
+| Paper cohort and two-stage assessment | Fixture-only / infrastructure implemented | Validate technical and exploratory legacy-rule assessment on paper inputs; approve Gate C0 and freeze the reviewed C1 cohort; migrate population consumers | [Current assessment behavior](../docs/analysis/DISCARDING_ASSESSMENT.md), [cohort completion](./01_COHORT_IMPLEMENTATION.md) |
+| Learning onset and population inference | Implemented, not paper-run | Freeze Gate O/S, calibrate and run approved models on the frozen paper cohort, review diagnostics and figures | [Learning-onset completion](./03_LEARNING_ONSET_IMPLEMENTATION.md), [analysis and statistics design](./02_ANALYSIS_AND_STATISTICS.md) |
+| Learner analysis | Design open; no canonical package route | Gate L estimand/method, continuous or categorical representation, manifest, non-circular validation, and learner outputs | [Learner analysis](./05_LEARNER_ANALYSIS.md) |
+| Integrated cohort/CR profiles | In progress; post-classification orchestration gated | Shared catch/block substrate is implemented; learner manifest, sensitivity evaluator, common-hash `run-pipeline` route, and paper run remain | [Integrated cohort/CR profiles](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) |
+| Figures and interfaces | In progress; Figure 1 C/D trace command implemented | Registry, approved paper panels, publication dimensions/theme, and visual regression | [Figures and reproducible reporting](./08_FIGURES_AND_REPRODUCIBLE_REPORTING.md) |
+| Tail mechanistic analyses | Planned after Figure 4 | Complete and review Figure 4 pooled-learner CR analysis, then implement exploratory tail analyses with its approved identities and timing conventions | [Tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) |
+| Final analysis release | Not started | Freeze one verified analysis record after code, scientific decisions, paper results, and figures are ready | [Final analysis release](./10_FINAL_ANALYSIS_RELEASE.md) |
 
 ## Deferred work
 
 | Workstream | Status | Activation condition |
 | --- | --- | --- |
-| Semantic provenance and legacy conversion | Deferred | Stable schema plus concrete cross-environment, multi-version, or release need |
 | Behavior/imaging integration | Deferred | Canonical behavior identities and recipes stable; imaging work explicitly authorized |
-| Tail mechanistic analyses | Deferred | Core metric, shared detector, outcome, and cohort contracts approved |
 
 ## Historical implementation record
 
@@ -85,23 +84,22 @@ paper baseline
   -> freeze outcomes and population inference
   -> complete learner-method decision and validation
   -> build registered paper figures
-  -> freeze and verify paper release
+  -> complete Figure 4 pooled-learner CR analysis
+  -> carry out tail mechanistic analyses
+  -> freeze and verify the one final analysis release
 ```
 
 The learner-method review can begin conceptually alongside population analysis,
 but final classifier/score inputs and confirmatory validation depend on stable
 preprocessing, cohort, and outcomes.
 
-## Release milestones
+## Final analysis release
 
-- **R1 legacy-equivalent:** explicit configuration, pinned environment,
-  canonical mirrors, and known-issue record.
-- **R2 candidate-development:** candidate metrics, shared segmentation,
-  validation/comparison outputs, and recorded metric decision.
-- **R3 corrected paper candidate:** approved preprocessing, cohort, outcomes,
-  population and learner results, diagnostics, and regenerated figures.
-- **R4 paper release:** immutable bundle tied to manuscript, code, environment,
-  source inventory, cohort, results, figures, and hashes.
+Make one release after the critical path is complete. Freeze the code,
+configuration, data and cohort identities, analysis results, diagnostics,
+figures, and manuscript links described in the
+[final analysis release plan](./10_FINAL_ANALYSIS_RELEASE.md). Candidate and
+legacy runs are evidence used during analysis, not earlier releases.
 
 ## Updating status
 

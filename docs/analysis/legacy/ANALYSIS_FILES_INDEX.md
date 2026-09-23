@@ -25,7 +25,11 @@ It identifies:
 - Important differences between overlapping implementations
 - Areas where no canonical version has yet been established
 
-This index describes the repository as it currently exists. It does not certify that every implementation is scientifically correct. See `docs/analysis/audits/ANALYSIS_FINDINGS.md` for the analysis audit.
+This index records the inherited repository topology at the time of its audit.
+It does not certify scientific correctness or describe today's supported
+package route. See [analysis findings](../audits/ANALYSIS_FINDINGS.md) for the
+audit and [the current pipeline guide](../CURRENT_PIPELINE_GUIDE.md) for the
+supported workflow.
 
 ## Quick navigation
 
@@ -321,10 +325,13 @@ Planned, not implemented
 Specification:
 
 ```text
-Plans/LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md
+Plans/Archive/LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md
 ```
 
-This future stage will join fish-level learner labels to CS/US time-series data and generate learner-, non-learner-, reference-, and unclassified-stratum analyses.
+At the time, this future stage would have joined fish-level learner labels to
+CS/US time-series data. Current learner-output work is in
+[`Plans/06_LEARNER_OUTPUTS_AND_VALIDATION.md`](../../../Plans/06_LEARNER_OUTPUTS_AND_VALIDATION.md),
+and a categorical label remains optional.
 
 ## Numbered analysis scripts
 
@@ -1070,7 +1077,7 @@ Filename sanitization, selected-fish suffixes, DPI, bounding boxes, transparency
 ### Recommendation
 
 Complete the migration to `figure_saving.py`, following
-`Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md` (historical detail in
+`Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md` (historical detail in
 `Plans/Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md`).
 
 ## Learner-classification versions
@@ -1320,7 +1327,8 @@ Do not combine labels from different versions in one dataset.
 
 ## Canonical decision required
 
-Before implementing `Plans/LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md`, record:
+Before implementing the then-proposed learner stratification (now preserved in
+`Plans/Archive/LEARNER_STRATIFIED_VIGOR_ANALYSIS_PLAN.md`), record:
 
 ```text
 Canonical classifier file
@@ -1349,8 +1357,8 @@ The decision should be based on statistical validation, not filename.
 | `docs/analysis/audits/ANALYSIS_FINDINGS.md` | Audit of scientific and statistical issues |
 | `docs/analysis/audits/IMAGING_PIPELINE_CRITIQUE.md` | Cross-repository audit of the inherited optional imaging workflow |
 | `Plans/Deferred/BEHAVIOR_IMAGING_INTEGRATION.md` | Deferred plan for one canonical behavior pipeline plus optional imaging |
-| `Plans/Analysis/FIGURES_AND_REPRODUCIBLE_REPORTING.md` | Plan for reproducible scientific-paper figures and interfaces |
-| `Plans/Analysis/2_LEARNER_CLASSIFICATION.md` | Active plan for learner representation, classification, validation, and stratified outputs |
+| `Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md` | Plan for reproducible scientific-paper figures and interfaces |
+| `Plans/05_LEARNER_ANALYSIS.md` | Active plan for learner representation, classification, validation, and stratified outputs |
 | `docs/analysis/legacy/ANALYSIS_FILES_INDEX.md` | This file |
 
 ## Workspace and editor files

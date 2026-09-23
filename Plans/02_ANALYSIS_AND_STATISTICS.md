@@ -1,6 +1,7 @@
 # Analysis and Statistics Design
 
-**Status:** Discussion and design required — exploratory scaffolding exists; no confirmatory analysis approved
+**Status:** Overall paper strategy and approval open; a condition-aware
+learning-onset route and older exploratory inference scaffolds are implemented
 **Scope:** Population effects, longitudinal analysis, uncertainty, sensitivity,
 individual heterogeneity, and the required learner-analysis workstream
 **Depends on for final execution:** approved cohort, outcome definitions, and
@@ -21,11 +22,13 @@ should be a continuous score, responder probability, latent trajectory,
 binary/multiclass label, or a combination. Requiring learner analysis does not
 justify choosing a hard threshold before that comparison. The operational
 requirements live in
-[Learner Classification and Stratified Analysis](./2_LEARNER_CLASSIFICATION.md).
+[Learner Representation and Analysis](./05_LEARNER_ANALYSIS.md).
 
 The implemented exploratory model-input, LME, permutation, and bootstrap code
 is recorded in
-[the archived engineering scaffold](../Archive/10A_EXPLORATORY_INFERENCE_SCAFFOLDING.md).
+[the archived engineering scaffold](./Archive/10A_EXPLORATORY_INFERENCE_SCAFFOLDING.md).
+The newer condition-aware implementation and its remaining paper gates are in
+[Learning-Onset Analysis Completion](./03_LEARNING_ONSET_IMPLEMENTATION.md).
 The old statistics and learner plans remain archived as immutable source
 material. Their learner requirements have been restored to the active learner
 plan rather than reduced to this umbrella summary.
@@ -66,18 +69,24 @@ plan rather than reduced to this umbrella summary.
 - Learner analysis is required for the paper, but a categorical learner label
   is adopted only if the scientific review and validation support it.
 
-## Current implementation findings to fix
+## Current implementation findings to resolve before paper approval
 
-- The draft LME does not implement the required condition contrast or its
-  interaction with learning time.
-- Fish permutation and bootstrap currently pool conditions and therefore test
-  an overall change rather than conditioned-versus-control change.
+- The older exploratory LME route does not implement the required condition
+  contrast or its interaction with learning time. The newer learning-onset
+  route implements condition-aware block and longitudinal models, but its
+  scientific configuration and paper-scale validation remain open; see
+  [learning-onset implementation](./03_LEARNING_ONSET_IMPLEMENTATION.md).
+- The older exploratory permutation and bootstrap routes pool conditions and
+  test overall change. The learning-onset route has condition-aware fish-level
+  robustness checks; their paper-scale calibration and interpretation remain
+  open.
 - Bout-rate handling does not yet use a matched baseline bout-rate estimand.
 - Suppression-effect sign documentation is inconsistent.
-- Cohort identity, factor references, planned contrasts, multiplicity, and hard
-  fit-failure rules are not frozen.
-- Existing tests establish plumbing, not recovery of the intended biological
-  effect.
+- Cohort identity and the final scientific choices for factor references,
+  planned contrasts, multiplicity, and fit-failure rules are not frozen for
+  paper use, even where engineering implementations exist.
+- Existing deterministic and synthetic tests do not replace calibration at the
+  paper sample size or a reviewed paper run.
 
 ## Discussion and exploration programme
 
@@ -168,7 +177,7 @@ comparisons are descriptive. Confirmatory claims require held-out, cross-fitted,
 or independent evidence. If categorical classification is rejected, the paper
 must still report the approved continuous or model-based learner analysis and
 the evidence for not imposing classes. Full requirements are in
-[the learner plan](./2_LEARNER_CLASSIFICATION.md).
+[the learner plan](./05_LEARNER_ANALYSIS.md).
 
 ### 10.7 Define uncertainty, multiplicity, and sensitivity
 

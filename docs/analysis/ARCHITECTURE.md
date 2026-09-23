@@ -1,6 +1,14 @@
-# Analysis Architecture and Alternative Routes
+# Proposed Multimodal Analysis Architecture
 
-## Final integrated analysis pipeline
+This is a design reference for a possible future behavior/imaging integration.
+The imaging branch is deferred in
+[the integration plan](../../Plans/Deferred/BEHAVIOR_IMAGING_INTEGRATION.md).
+For the supported behavior pipeline and its actual source modules, use the
+[current pipeline guide](./CURRENT_PIPELINE_GUIDE.md). This document is not a
+second implementation queue or a requirement for the single final analysis
+release.
+
+## Proposed integrated analysis pipeline
 
 This is the intended end state for the entire local analysis. Behavior is the
 required primary modality. Imaging is an optional, additive branch available
@@ -37,7 +45,7 @@ graph TD
     LEARN["Required learner analysis<br/>separately validation-gated"]
     PANEL["Frozen table, model<br/>and panel-data artifacts"]
     FIG["Publication SVG/PDF, review PNG<br/>(interactive HTML frozen)"]:::success
-    REL["Immutable behavior release<br/>with optional multimodal extension"]:::dark
+    REL["One final behavior analysis release<br/>imaging extension only if separately adopted"]:::dark
 
     GOV --> CAP
     CAP --> BRAW
@@ -216,7 +224,13 @@ graph TD
 
 All nodes inside this scheme execute locally. There is no Databricks route.
 
-## Final storage architecture
+## Proposed multimodal storage architecture
+
+This diagram includes optional imaging and dense-array work. It is a possible
+multimodal end state, not a requirement for the behavior-only final analysis
+release. That release uses the existing file hashes and frozen manifest;
+semantic hashes or a shared schema registry would need a separate concrete use
+case and decision.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F6F6FA', 'primaryTextColor': '#2E2E38', 'primaryBorderColor': '#C4C4CD', 'lineColor': '#747480', 'secondaryColor': '#FFE600', 'tertiaryColor': '#4696FF', 'fontFamily': 'Arial, Noto Sans, sans-serif'}}}%%

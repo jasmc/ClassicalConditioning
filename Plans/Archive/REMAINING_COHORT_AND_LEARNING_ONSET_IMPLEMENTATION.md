@@ -1,13 +1,24 @@
 # Remaining Cohort and Learning-Onset Work
 
+> **Archived incomplete on 2026-09-23 after separation of concerns.** Current
+> cohort work is in [Paper Cohort Completion](../01_COHORT_IMPLEMENTATION.md);
+> current model and onset work is in
+> [Learning-Onset Analysis Completion](../03_LEARNING_ONSET_IMPLEMENTATION.md).
+> The sections below preserve the former combined plan and are not a live
+> status authority.
+
 **Purpose:** Produce a defensible learning curve, determine whether and when
 the test condition differs from control, and ensure the same fish are used
 throughout the population analysis.
 
-This is the implementation plan for:
-
-- [Learning-Onset Inference](./LEARNING_ONSET_LME.md)
-- [Single Cohort and Fish-Exclusion Boundary](./SINGLE_COHORT_AND_EXCLUSION.md)
+This is the active implementation plan for cohort selection and learning-onset
+inference. The retired [learning-onset design](./LEARNING_ONSET_LME.md)
+and [cohort boundary plan](./SINGLE_COHORT_AND_EXCLUSION.md) remain
+historical evidence. Current fitted behavior and public parameters are in the
+[LME pipeline reference](../../docs/analysis/LME_PIPELINE_AND_PARAMETERS.md).
+Gate O/S scientific choices are owned by the
+[analysis and statistics plan](../02_ANALYSIS_AND_STATISTICS.md) and
+recorded when approved in [DECISIONS.md](../DECISIONS.md).
 
 ## Implementation status
 
@@ -219,14 +230,14 @@ first supported block and the primary late-test contrast.
 The following already implemented figures remain useful but do not establish
 onset:
 
-- selected Early Pre-train, Early Test, and Late Test ratios;
+- selected Late Pre-train, Early Test, and Late Test ratios;
 - event-aligned response/baseline trajectories around CS onset.
 - pooled configured-catch scaled-total-activity profiles; and
 - declared ten-trial-block scaled-total-activity profiles.
 
 The catch/block substrate and its post-classification orchestration are governed
 by the
-[integrated single-metric cohort/CR-profile plan](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).
+[integrated single-metric cohort/CR-profile plan](../07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
 These descriptive figures use the frozen cohort but do not define it.
 
 ## Fish exclusion and cohort work
@@ -238,6 +249,35 @@ This is a separate housekeeping requirement that protects all analyses above.
 One reviewed cohort determines fish membership once. All population analyses
 then read the same cohort-applied trial table. A model or figure must not create
 its own fish list.
+
+Primary inclusion uses a prespecified technical policy independent of response
+strength, movement during a response window, learner status, or imaging
+availability. Processing failures and trial/outcome ineligibility remain
+separate from fish exclusion. The [selection inventory](../EXCLUSION_AND_SELECTION_INVENTORY.csv)
+records active bypasses and legacy rules; the technical command behavior is in
+the [discarding assessment guide](../../docs/analysis/DISCARDING_ASSESSMENT.md).
+
+The paper inventory and draft manifest must retain every expected recording,
+including missing, incomplete, failed, technically invalid, and pending cases.
+The reviewed manifest records reasons, reviewer, timestamp, policy identity,
+source QC identity, and condition counts. A changed decision receives a new
+cohort ID rather than editing a frozen manifest. Named sensitivity populations
+must be explicit and may include stricter technical/coverage, legacy
+behavioral, and imaging-valid groups; none replaces the behavior-primary
+cohort. The exploratory legacy screen and merged learner-input prerequisite
+never set `primary_included`.
+
+The population boundary authenticates the cohort manifest and each source
+trial-outcome artifact, rejects unknown/duplicate/missing or
+condition-mismatched fish and stale hashes, applies membership once, and
+publishes sample flow. Every population consumer must use that artifact and
+the matching cohort and assessment hashes. Trial eligibility is reason-coded
+per outcome without changing fish membership; fish with no eligible rows stay
+visible in flow reports. Counts must reconcile from inventory through models
+and figures. No supported downstream command may read active legacy discard
+lists, accept an independent population fish list, or discard fish inside
+plotting. These invariants need row-order, mismatch, response-perturbation,
+hash-invalidation, and sample-flow tests before the exit gate passes.
 
 ### Steps
 
@@ -307,35 +347,34 @@ Decide and record:
 
 **Done when:** one configuration exists before the paper models are fitted.
 
-### Step 3 — implement the block analysis
+### Step 3 — validate the block analysis for paper use
 
-- build the cohort-authenticated model input;
-- fit the condition-by-block model;
-- calculate planned contrasts;
-- implement the fish-level robustness analysis;
-- publish diagnostics.
+- run the cohort-authenticated model input on the reviewed paper population;
+- confirm the condition-by-block model and planned contrasts match approved
+  Gate O/S settings;
+- review the fish-level robustness result and diagnostic artifacts.
 
 **Done when:** the analysis can say whether learning occurred and by which
 block, or clearly report that it was not established.
 
-### Step 4 — implement the trial and onset analysis
+### Step 4 — validate the trial and onset analysis for paper use
 
-- fit one condition-aware longitudinal model;
-- derive simultaneous trial contrasts;
-- apply the persistent onset rule;
-- bootstrap fish to quantify onset uncertainty;
-- compare with the categorical-trial sensitivity model. **Implemented;** its
-  paper-scale numerical feasibility still requires validation.
+- fit the implemented condition-aware longitudinal route on the reviewed
+  cohort and approved configuration;
+- calibrate simultaneous trial contrasts, the persistent onset rule, and fish
+  bootstrap uncertainty at the paper sample size;
+- review the categorical-trial sensitivity model's numerical feasibility.
 
 **Done when:** the analysis can report an onset trial with uncertainty or state
 that onset was not localized.
 
-### Step 5 — build final panel data and figures
+### Step 5 — approve final panel data and figures
 
-- save every plotted fish value, summary, contrast, interval, and annotation;
-- generate the three figure components above;
-- include cohort, configuration, model, and source hashes in provenance;
-- suppress inferential annotations when diagnostics fail.
+- verify that saved panel data contain every plotted fish value, summary,
+  contrast, interval, and annotation;
+- review the three implemented figure components against the approved analysis;
+- verify cohort, configuration, model, and source hashes in provenance;
+- confirm diagnostic failure suppresses inferential annotations.
 
 **Done when:** every visible element can be reproduced from saved panel data.
 

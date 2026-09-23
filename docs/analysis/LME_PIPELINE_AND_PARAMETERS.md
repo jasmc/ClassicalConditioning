@@ -431,6 +431,16 @@ trajectories, categorical sensitivity contrasts, onset summary, fish effects,
 fish robustness, bootstrap trial curves, bootstrap onset results, and the
 fish/group trajectory tables used by the figure.
 
+The exact analysis-table filenames are `learning-model-input.parquet`,
+`analysis-eligibility.parquet`, `block-global-test.parquet`,
+`block-model-coefficients.parquet`, `block-contrasts.parquet`,
+`longitudinal-model-coefficients.parquet`, `trial-contrasts.parquet`,
+`adjusted-trajectories.parquet`, `categorical-trial-contrasts.parquet`,
+`learning-onset.parquet`, `fish-learning-effects.parquet`,
+`fish-robustness.parquet`, `bootstrap-trial-contrasts.parquet`,
+`bootstrap-onsets.parquet`, `figure-fish-trajectories.parquet`, and
+`figure-group-trajectories.parquet`.
+
 Quality evidence is written below:
 
 ```text
@@ -442,6 +452,9 @@ residuals, coverage, and leave-one-fish-out results. A completion marker below
 `Metadata/` authenticates every table hash together with the cohort and
 configuration hashes. Figure rendering reloads and verifies this complete
 artifact set before plotting.
+The QC table filenames are `learning-model-diagnostics.parquet`,
+`learning-model-sensitivity.parquet`, `learning-model-residuals.parquet`,
+`learning-model-coverage.parquet`, and `leave-one-fish-out.parquet`.
 
 ## Fixed implementation decisions
 

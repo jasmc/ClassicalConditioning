@@ -5,22 +5,32 @@ This is a documented comparison, **not** an approval gate. The written [paper sc
 ## Evidence and comparison rules
 
 - Draft pixels and panel lettering were inspected directly. Archived calculation evidence is in `Archive/historical-scripts/2_ExampleFishPlotting.py` (individual traces and heatmaps), `4_ScaledVigorPlotting.py` (pooled scaled heatmaps, blocks, catches), and `5_NormalizedVigorPlotting.py` (trial ratio, selected blocks, statistics). The first script draws raw tail angle and vigor in degrees/deg/ms; the second masks non-bout samples before its scaled-vigor heatmap, takes fish-trial-bin medians then across-fish means, applies a baseline quantile scale, and offers signed baseline-subtracted clipped lines. The third calculates baseline/response means per trial, groups selected fish, and contains exploratory tests and mixed models. These are evidence of calculation, not proof that an exact draft PNG used every current switch.
-- Current source evidence is `src/classical_conditioning/preprocessing/candidate_metric_kernel.py` (three corrected metric definitions), `analysis/temporal_profiles.py` (binning, masks and 0–1 scaling), `figures/temporal_profiles.py` (four per-fish profile families), `figures/population_heatmap.py` (frozen-cohort all-valid-frame heatmap with fish coverage), `figures/cohort_response.py` (frozen-cohort ratios and 0–1 catch/block profiles), `analysis/trial_outcomes.py` (exact response/baseline windows), and `figures/export.py` (semantic export). Signed learner-panel renderers are **not implemented**.
+- Current source evidence is `src/classical_conditioning/preprocessing/candidate_metric_kernel.py` (three corrected metric definitions), `analysis/temporal_profiles.py` (binning, masks and 0–1 scaling), `figures/temporal_profiles.py` (four routine per-fish profile families), `figures/example_traces.py` (focused Figure 1 C/D paired traces), `figures/population_heatmap.py` (frozen-cohort all-valid-frame heatmap with fish coverage), `figures/cohort_response.py` (frozen-cohort ratios and 0–1 catch/block profiles), `analysis/trial_outcomes.py` (exact response/baseline windows), and `figures/export.py` (semantic export). Signed learner-panel renderers are **not implemented**.
 - No archived figure embeds a trustworthy machine-readable fish list, metric implementation hash, or inference table. Differences in cohort membership, uncertainty, and significance cannot be quantified from image pixels alone. A reviewed manifest and approved results must be authenticated before a paper panel can be declared completed.
 
 ## Figure 1 — setup and individual evidence
+
+The intended visual sequence is **tail angle versus time (C) → vigor versus
+time from the same fish and selected trials (D) → signed log-vigor heatmaps
+(E–G)**. The March 24, 2026 single-fish implementation in
+`2_ExampleFishPlotting.py` explicitly selected `managua_r`, with CS limits
+−0.25 to +0.25, for bout-only log vigor centred on each trial's pre-stimulus
+median. The February 14 version had used `spring`; March changed the palette
+and limits. The refactored `signed-log-vigor` candidate figure now uses the
+March palette and fixed CS limits with corrected bout data in 0.5-s bins.
+The separate 0–1 candidate and population activity figures use `magma`.
 
 | Intended panel | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |
 | A setup | Draft A shows the restrained fish, basal illumination, CS LEDs, and US. | No registered apparatus artwork. The drawing lacks a reproducible source-artifact mapping; panel remains blocked. |
 | B protocol | Draft B shows priming, 10 CS-only Pre-Train trials, 46 paired training trials, 30 CS-only Test trials and the four contingencies. | Experiment definitions and trial map encode timing. The written target also needs short 50-ms versus long 100-ms US pulses and randomized control schedule; these are not all explicit in the draft artwork. Panel remains blocked pending complete artwork. |
-| C raw tracking | Draft C shows tail angle in degrees across example trials. | Intake tracking and corrected frames support raw kinematics, but no prespecified representative fish/trials or approved tracking point. Three corrected metrics are in `rad/ms` or `tail lengths/ms`; a radians-derived value must not be labelled degrees. |
-| D movement calculation | Draft D shows a vigor trace in `deg/ms`. | The corrected kernel yields three candidate metrics, none selected for the paper. Converting angular units and specifying the XY-derived metric are essential before a calculation schematic can be labelled. |
-| E Delay fish | Draft E shows Delay versus control heatmaps, not just a Delay single-fish example. | Current candidate profile heatmaps are **per fish**, CS/US-aligned and coverage-masked; they are descriptive candidates only. The Delay fish and final metric are not prespecified. Record the extra draft control explicitly, rather than silently relabelling it. |
+| C raw tracking | Draft C shows tail angle over time across selected example trials. | The user-selected paired trace renderer now plots distal cumulative angle centered on each trial's pre-CS median. C and D use the same fish, trials and measured frames. Example selection and final paper composition remain open. |
+| D movement calculation | Draft D shows the corresponding vigor over time. | The paired renderer plots exactly one selected corrected vigor metric next to C, with the same event markers. The figure still needs final example selection and an explanatory calculation inset if retained. |
+| E Delay fish | Draft E shows Delay versus control heatmaps, not just a Delay single-fish example. | The refactored `signed-log-vigor` figure is a **per-fish CS heatmap** with the March palette and limits, with three corrected candidate metrics per output. A one-signal paper panel and example selection are still needed. Record the extra draft control explicitly. |
 | F 3sTrace fish | **Missing in draft.** | The written target requires a distinct 3sTrace example. A per-fish candidate profile can inform selection but cannot fill this panel until fish and metric are prespecified. |
 | G control fish | **Missing as a separate draft panel** (only paired with Delay in E). | A prespecified unpaired-control fish and its coverage-masked profile are needed. |
 
-Signal and presentation differences are therefore substantial: raw tail angle, vigor calculation, and heatmap scales are not interchangeable; the draft combines conditions in E while the written A–G layout separates three examples. Neither draft nor current candidate plots authenticate example-fish selection or a reviewed cohort.
+The draft combines conditions in E while the written A–G layout separates three examples. The new signed-vigor figure implements the March colour rendering on corrected profile data but does not compose C–G into the planned sequence. Neither draft nor current candidate plots authenticate example-fish selection or a reviewed cohort.
 
 **Protocol discrepancy requiring review:** the paper scaffold describes the
 3sTrace long US at 13 s after CS onset (three seconds after the 10-s CS), but
@@ -41,11 +51,11 @@ blocked, even though descriptive CS-aligned profiles can be rendered.
 
 The archived normalized-vigor script can filter fish, uses mean baseline/response windows and exploratory within/between-condition tests; the current route uses corrected measured-time validity and a frozen cohort. Therefore visual agreement alone is not numerical equivalence. The displayed draft stars and line-plot marks must be regenerated from approved results, not traced from the PNG.
 
-## Figure 3 — learner classification
+## Figure 3 — learner representation
 
 There is **no draft image**. Written A–G roles are workflow, continuous scores, threshold/stability, learner fractions, individual change, representative trajectories, and all-fish validation. Current corrected per-fish outcomes are inputs, not a frozen learner representation. All seven paper panels remain blocked until Gate L and an independent validation mode are frozen.
 
-## Figure 4 — signed learner dynamics and timing
+## Figure 4 — pooled-learner CR dynamics and timing
 
 | Intended panel | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |

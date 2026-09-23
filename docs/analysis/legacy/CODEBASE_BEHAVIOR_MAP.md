@@ -25,7 +25,7 @@ The numbered scripts import shared root modules directly. No modern script
 currently imports the three `my_*` modules, but historical branches may depend
 on them.
 
-## Verified current `main` flow
+## Verified inherited `main` flow at characterization
 
 ### Stage 1 — preprocessing
 
