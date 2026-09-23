@@ -37,7 +37,7 @@ Do not confuse these two settings:
 
 | Setting | Stage | Meaning |
 | --- | --- | --- |
-| `--metric-recipe` | `build-cohort-trial-outcomes` | Selects the authenticated upstream trial-outcome artifact family, such as `tail-candidate-corrected-v1`. One family can contain several metric IDs. |
+| `--metric-recipe` | `build-cohort-trial-outcomes` | Selects the authenticated upstream trial-outcome artifact family, such as `tail-candidate-corrected`. One family can contain several metric IDs. |
 | `--metric` | `learning-onset` | Selects exactly one `metric_id` from the cohort trial-outcome table for inference. |
 
 ## End-to-end pipeline
@@ -92,7 +92,7 @@ silently redefine cohort membership.
 uv run classical-conditioning build-cohort-trial-outcomes `
   --project-dir "<PROJECT>" `
   --cohort-id <COHORT-ID> `
-  --metric-recipe tail-candidate-corrected-v1
+  --metric-recipe tail-candidate-corrected
 ```
 
 This stage authenticates every included fish's trial-outcome artifacts, applies

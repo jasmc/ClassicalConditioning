@@ -110,7 +110,7 @@ bout mask
 
 This is a distinct recipe, not the current `main` baseline.
 
-The `historical-logmedian-v1` preservation route additionally reproduces the
+The `historical-logmedian` preservation route additionally reproduces the
 historical float32 vigor coercion and rolling output, constructs `Fish` from
 `Day` and `Fish no.` when needed, and retains CS and US as separate grouping
 domains. Its bounded-memory writer processes only complete contiguous trials

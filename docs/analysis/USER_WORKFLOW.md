@@ -24,25 +24,25 @@ instructions and the full configuration reference. Historical code under
 uv run classical-conditioning run-pipeline --config <YOUR-CONFIG>.json
 ```
 
-The JSON config is the run record. Do not rely on an unrecorded sequence of
-single-stage commands for a routine cohort run. Set `run_inventory: true` when
-you need a source-file inventory before intake, and `run_figures: true` when
-the cohort metric-comparison figure is wanted automatically.
+The JSON config is the run record. Inventory, verified intake, corrected
+three-metric analysis, and every figure with ready inputs always run. There are
+no inventory, intake, route, or figure switches in routine JSON.
 
 ## What success looks like
 
 The command reports named stages on stderr. A normal candidate run performs:
 
 ```text
-optional inventory
+full source inventory and hashed status ledger
   -> intake (one raw triplet per recording)
   -> corrected preprocessing
   -> candidate activity metrics
   -> shared movement/bout state
   -> temporal profiles
   -> trial outcomes
+  -> technical and exploratory discarding assessment for every inventoried recording
   -> cohort metric comparison
-  -> optional cohort figure
+  -> per-fish, comparison, and ready frozen-cohort figures in two render workers
   -> Metadata/<analysis-id>_pipeline_run.json
 ```
 
@@ -50,9 +50,9 @@ Inspect these outputs in order:
 
 | Question | First artifact to inspect |
 | --- | --- |
-| Did every raw file form a complete triplet? | `Metadata/recording_inventory.json` when inventory was requested |
+| Did every raw file form a complete triplet? | `Metadata/recording_inventory.json` and `Metadata/intake_status.json` |
 | Did intake accept the acquisition? | `Quality checks/<recording-id>/acquisition_report.html` and `acquisition_summary.json` |
-| Which recordings actually reached analysis? | `Metadata/<analysis-id>_pipeline_run.json` |
+| Which recordings actually reached analysis? | `Metadata/<analysis-id>_pipeline_run.json` and its `selection_assessment` link to `Processed data/Discarding/` |
 | Did a stage produce valid lineage? | Corresponding `Metadata/*_complete.json` marker |
 | What did the cohort comparison calculate? | `Processed data/Analyses/<analysis-id>/` plus its QC summary |
 
@@ -66,6 +66,9 @@ these directories and markers.
   as success.
 - With `continue_on_error: true`, failures are recorded per recording and the
   candidate cohort is built from recordings that completed every needed stage.
+- An unchanged failed intake is skipped with its reason. After fixing the
+  problem, run `retry-intake --input-dir <RAW> --project-dir <SAVE>
+  --recording-id <ID>` explicitly (or change the source triplet).
 - Use `overwrite: true` only when deliberately rebuilding the affected outputs;
   it replaces derived artifacts and their markers, never raw input.
 - Start diagnostics with `validate-raw`, `audit-tracking`, `compare`,
@@ -77,8 +80,8 @@ these directories and markers.
 Run individual stages only for a bounded diagnostic, controlled comparison, or
 partial rebuild. Their required order is:
 
-1. `preprocess --recipe corrected-preprocess-v1`
-2. `activity-metrics --recipe tail-candidate-corrected-v1`
+1. `preprocess --recipe corrected-preprocess`
+2. `activity-metrics --recipe tail-candidate-corrected`
 3. `movement-state`
 4. `temporal-profiles`
 5. `candidate-trial-outcomes`

@@ -1,4 +1,4 @@
-# Legacy and refactored figure pipelines
+# Figure pipeline inventory and historical comparison
 
 This is the durable visual inventory for the legacy analysis and the supported
 refactored candidate workflow. It describes what each pipeline can render and
@@ -6,7 +6,7 @@ where coverage differs; it does not approve scientific outcomes, cohorts, or
 inferential models. Those decisions live in
 [the analysis and statistics plan](../../../Plans/Analysis/1_ANALYSIS_AND_STATISTICS.md).
 
-The inventory reflects `codex/remove-legacy-package` on 2026-09-15. A figure
+The archive inventory reflects the preserved historical scripts. A figure
 family may create many files because legacy scripts loop over fish, condition,
 alignment, trial, or block. The sequence is logical, not a guarantee that every
 optional legacy family was rendered in a given run.
@@ -49,12 +49,13 @@ flowchart TD
     N3 --> N4["CS/US temporal profiles"]
     N4 --> N5["Per-trial outcomes"]
     N5 --> N6["Recording/cohort metric comparison"]
-    N6 -->|run_figures: true| N7["Cohort comparison: fish points + equal-fish condition means"]
-    N4 -. separate command .-> N8["Recording profiles: raw/scaled/conditional/bout heatmaps"]
-    N3 -. separate review command .-> N9["Detector trace review: signal, threshold, movement, bout IDs"]
+    N6 --> N7["Ten cohort-comparison figures: five outcomes × CS/US"]
+    N4 --> N8["Eight profile families per fish: four × CS/US"]
+    N3 --> N9["Detector trace review: signal, threshold, movement, bout IDs"]
     N6 --> N10["Not yet replaced: confirmatory statistics and learner panels"]
-    N5 -. dedicated commands .-> N11["Frozen-cohort selected-block, trial-number, and event-aligned response/baseline figures"]
-    N4 -. dedicated commands .-> N12["Frozen-cohort configured-catch and declared-block scaled-activity profiles"]
+    N5 -->|reviewed cohort + metric| N11["Frozen-cohort selected-block, trial-number, and event-aligned response/baseline figures"]
+    N4 -->|reviewed cohort + metric| N12["Frozen-cohort configured-catch and declared-block scaled-activity profiles"]
+    N4 -->|matched reviewed cohort + metric| N13["Population scaled-total-activity heatmap + fish coverage"]
 ```
 
 | Order | Figure family | Purpose |
@@ -65,15 +66,18 @@ flowchart TD
 | R4 | Conditional-intensity profile | Show activity magnitude while the shared detector reports movement. |
 | R5 | Bout-outcome profile | Show movement probability, occupancy, and bout-initiation rate. |
 | R6 | Cohort metric comparison | Compare standardized response-versus-baseline differences by fish and condition. |
-| R7 | Selected-block response/baseline ratio | Show fish medians and condition median [IQR] for Early Pre-train, Early Test, and Late Test. |
+| R7 | Selected-block response/baseline ratio | Show fish medians and condition median [IQR] for final Pre-train 10–14, Early Test 65–69, and Late Test 90–94. |
 | R8 | Trial-number response/baseline ratio | Show the requested fish-weighted learning trajectory across CS trials. |
 | R9 | Event-aligned response/baseline ratio | Show fish-normalised time courses and condition median [IQR]. |
 | R10 | Configured-catch scaled-activity profile | Pool CS 25, 39, 53, 59, and first-Early-Test catch 65 within fish, then summarize fish equally. |
 | R11 | Declared ten-trial block profiles | Show every experiment-declared CS block with trials pooled within fish and coverage retained. |
+| R12 | Matched population heatmap | Equal-fish 0–1 scaled total activity across all valid frames, with contributing-fish fraction and panel-data counts. |
 
-Only R6 is produced by `run-pipeline` when `run_figures: true`; R1–R5 and
-R7–R11 require their dedicated commands. R7–R11 require a frozen cohort ID, are
-descriptive, and intentionally do not annotate the current exploratory LME.
+The routine pipeline schedules R1–R6 whenever each family has authenticated
+inputs, R7–R11 when a frozen cohort ID and selected metric are supplied, and
+R12 when that frozen cohort contains one paired condition and its matched control.
+Every unmet family has an explicit blocked reason in the run summary. R7–R11
+are descriptive and do not annotate the current diagnostic LME.
 Static PNG and publication SVG/PDF
 are maintained.
 Interactive HTML is frozen and receives no further feature development.
@@ -95,6 +99,10 @@ different, explicit estimand: authenticated scaled total activity, coverage
 masking, trials pooled within fish, and equal-fish cohort aggregation. It does
 not yet replace learner-classification figures or make the profiles
 confirmatory evidence.
+
+The proposed manuscript Figure 1–4 mapping and exact draft differences are in
+[the paper draft comparison](PAPER_DRAFT_COMPARISON.md). The written scaffold
+and figure list, not draft panel placement, define intended Figure 1 and 4.
 
 ## Related implementation and decisions
 

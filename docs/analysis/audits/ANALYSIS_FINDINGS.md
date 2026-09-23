@@ -318,7 +318,7 @@ still agree closely. Under naive trial-time alignment, vigor looks divergent
 because lag grows linearly away from onset exactly as predicted by that rate
 ratio; after rate-warp resampling, CS1 vigor correlation recovers to ~0.99.
 Treat this as a historical pickle/timebase artifact, not as a target for
-`legacy-paper-v1`.
+`legacy-paper`.
 
 ---
 

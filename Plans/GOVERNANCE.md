@@ -22,12 +22,12 @@ When documents conflict, use this order:
 6. archived plans and legacy behavior references.
 
 No plan authorizes a scientific correction by itself. Scientific decisions are
-recorded in `DECISIONS.md`, implemented in a versioned recipe, and validated by
+recorded in `DECISIONS.md`, implemented under a stable recipe identity, and validated by
 the relevant exit gate.
 
 ## Two scientific lanes
 
-- `legacy-paper-v1` reproduces characterized historical behavior. It may expose
+- `legacy-paper` reproduces characterized historical behavior. It may expose
   known flaws but must not silently repair them.
 - Corrected recipes implement explicitly approved scientific behavior. They
   must not overwrite or masquerade as legacy reproduction.
@@ -52,7 +52,9 @@ source inventory
 ```
 
 Raw inputs are immutable. Derived outputs are published transactionally and
-carry their upstream identity. Plotting code does not define cohorts, analysis
+carry their upstream identity. Active output filenames are stable across reruns;
+implementation and input hashes belong in manifests, not filename suffixes.
+Plotting code does not define cohorts, analysis
 windows, statistics, learner labels, or scientific transformations.
 
 ## Identity and versioning

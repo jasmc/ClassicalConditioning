@@ -2,7 +2,7 @@
 
 **Status:** Active — required learner-analysis workstream for the paper
 **Change class:** Legacy reproduction plus separately validated scientific analysis
-**Depends on:** Frozen preprocessing inputs, a unified selection-assessment
+**Depends on:** Frozen preprocessing inputs, technical and exploratory assessment
 bundle, an approved C1/Gate O outcome contract, the population-analysis design,
 and scientific Gate L
 **Unlocks:** Learner-focused paper claims, figures, and stratified outputs
@@ -225,10 +225,10 @@ behavior-dependent legacy policy may be joined later as sensitivity metadata,
 but it cannot add/remove primary fish or define the classifier's reference
 population.
 
-Classifier code must not apply its own trial-count or complete-case filter.
-It consumes the learner-eligibility rows produced by the unified selection
-assessment. Eligible fish are classified; ineligible primary-cohort fish are
-emitted as `Unclassified` with the assessment reason codes.
+The exploratory assessment publishes one merged learner-input prerequisite,
+not four classifications. Classifier-specific model-derived feature failures
+are recorded during later learner analysis. Ineligible primary-cohort fish
+remain explicit as `Unclassified` rather than silently disappearing.
 
 ### 11.8 Build stratified outcomes
 

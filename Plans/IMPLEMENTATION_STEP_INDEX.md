@@ -23,7 +23,7 @@ historical acceptance criteria; current descriptive behavior lives under
 | --- | --- | --- | --- |
 | Governance and paper baseline | Open release prerequisite | Paper-scope baseline manifest, configuration freeze, and output fingerprints | [Governance](./GOVERNANCE.md), archived Plan 00 |
 | Preprocessing and metric decision | Fixture-only / scientific decision open | Gate P and Gate T1: preprocessing, smoothing, shared detector parameters, selected metric, and validation status | [Metrics and bouts](../docs/analysis/METRICS_AND_BOUTS.md), [Decisions](./DECISIONS.md) |
-| Paper cohort and unified selection | Fixture-only / infrastructure implemented | Implement one selection-assessment step covering technical, legacy Stage-1, Stage-5/LME, and learner eligibility; then approve Gate C0 and freeze the reviewed C1 cohort | [Cohort/onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md), [single-cohort plan](./SINGLE_COHORT_AND_EXCLUSION.md) |
+| Paper cohort and two-stage assessment | Fixture-only / infrastructure implemented | Validate technical and exploratory legacy-rule assessment on paper inputs; approve Gate C0 and freeze the reviewed C1 cohort | [Technical assessment](./TECHNICAL_ASSESSMENT.md), [exploratory legacy screening](./EXPLORATORY_LEGACY_DISCARDING.md), [single-cohort plan](./SINGLE_COHORT_AND_EXCLUSION.md) |
 | Outcomes and population inference | Implemented, not paper-run | Freeze Gate O/S, run paper cohort, review recovery/calibration and diagnostics; block, longitudinal, simultaneous contrast, onset, robustness, and figure routes now exist | [Cohort/onset implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md), [learning-onset plan](./LEARNING_ONSET_LME.md) |
 | Learner analysis | Active required workstream | Gate L estimand/method, classifier or continuous representation, manifest, non-circular validation, and learner outputs | [Learner classification](./Analysis/2_LEARNER_CLASSIFICATION.md) |
 | Integrated cohort/CR profiles | In progress; post-classification orchestration gated | Shared catch/block substrate is implemented; learner manifest, sensitivity evaluator, common-hash `run-pipeline` route, and paper run remain | [Integrated cohort/CR profiles](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md) |
@@ -49,7 +49,7 @@ historical acceptance criteria; current descriptive behavior lives under
 | 02A Artifact integrity and publication | Complete for implemented routes | SHA-256 source/output lineage, lossless intake verification, transactional publication |
 | 03 Domain and configuration | Complete for `allDelay` fixtures | Resolved config, FishKey, trial map, stage hashes, CLI |
 | 04 Ingestion and raw validation | Complete for local fixtures | Readers, raw validation, Gate T0, two tracking audits |
-| 05 Legacy preprocessing equivalence | Complete for local fixtures | `legacy-paper-v1`; historical pickle timebase classified |
+| 05 Legacy preprocessing equivalence | Complete for local fixtures | `legacy-paper`; historical pickle timebase classified |
 | 06 Tail representation and candidates | Archived — incomplete | Three-metric fixture chain retained; Gate P and known-answer coverage remain open |
 | 07 Metric validation and selection | Archived — incomplete | Shared bout segmentation decided/implemented; Gate T1 remains open |
 | 08 Full reprocessing, QC, and cohort | Archived — incomplete | Batch/cohort plumbing exists; paper cohort remains unfrozen |

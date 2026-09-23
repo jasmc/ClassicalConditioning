@@ -1,511 +1,118 @@
-# Classical Conditioning in Larval Zebrafish
+# Classical Conditioning
 
-Python analysis for a head-fixed larval zebrafish classical-conditioning assay.
-The installable package under `src/classical_conditioning` supports the
-candidate analysis route. Historical implementations are preserved as
-non-executable source reference under `Archive/`.
+Analysis of tail tracking from a head-fixed larval-zebrafish conditioning assay. The routine run inventories raw recordings, verifies or creates lossless intake, calculates **three candidate movement metrics** from corrected frames, and renders every descriptive figure whose inputs are available. Candidate metrics and paper panels are not scientific approvals.
 
-## Contents
+## Set up
 
-- [Install](#install)
-- [Run from a config file](#run-from-a-config-file)
-  - [Run configuration fields](#required-config-fields)
-  - [Pipeline behaviour and failure semantics](#what-run-pipeline-does)
-  - [Raw file rules and save-directory layout](#raw-file-rules)
-- [Analysis pipeline architecture](#analysis-pipeline-architecture)
-  - [Metrics and shared bouts](#metrics-and-shared-bouts)
-- [Command reference](#command-reference)
-- [Figures and figure interpretation](#figures)
-- [Scientific status and limits](#scientific-status)
-- [Repository maintenance](#repository-maintenance)
-- [Related documents](#related-documents)
-- [Documentation reorganization review](docs/analysis/README_REORGANIZATION.md)
-
-**New to the project?** Read *Install*, *Run from a config file*, and the
-*Save-directory layout* first. Use the scientific and figure sections after a
-successful run to interpret candidate outputs, not as approval for a result.
-
-For the complete `pipeline.py` call graph and a file-by-file map of the active
-package, see [the current pipeline guide](docs/analysis/CURRENT_PIPELINE_GUIDE.md).
-For the legacy/refactored figure map, see
-[the figure-pipeline inventory](docs/analysis/figures/FIGURE_PIPELINES.md).
-For the exact cohort aggregation order, response/baseline figures, and the
-legacy-versus-active LME distinction, see
-[cohort aggregation and figures](docs/analysis/COHORT_AGGREGATION_AND_FIGURES.md).
-For the condition-aware block, trial, onset, and robustness outputs, see
-[learning-onset analysis](docs/analysis/LEARNING_ONSET_ANALYSIS.md).
-For analysis-readiness and mixed-effects decisions, see
-[the analysis and statistics plan](Plans/Analysis/1_ANALYSIS_AND_STATISTICS.md).
-
-## Install
-
-Supported runtime: **CPython ≥ 3.12** on 64-bit Windows. Dependencies are pinned
-in `uv.lock`.
-
-### Prerequisites
-
-1. Clone this repository.
-2. Install [uv](https://docs.astral.sh/uv/) **or** use **Python 3.12 or 3.13** with `pip`.
-   Python 3.14 is not supported yet: `pyarrow` has no compatible wheel and fails
-   importing `pyarrow.lib`. Use the project venv (`.venv`) created by `uv sync`.
-3. Choose a writable **save directory** with enough free disk space for Parquet
-   outputs (order of ~1–2 GB compressed per fish after intake; scale up for
-   full cohorts).
-
-### Recommended install (uv)
+Use CPython 3.12 or 3.13. On Windows, install the locked environment:
 
 ```powershell
-cd "C:\path\to\ClassicalConditioning"
 uv sync --frozen --all-extras
 uv run python -m unittest discover -s tests
 ```
 
-`--all-extras` installs the full scientific stack used by tests and optional
-figure modes (seaborn, statsmodels, plotly, etc.). The base package alone is
-enough for intake and Parquet analysis, but not for the full test suite or
-interactive HTML figures.
+Alternatively, install with `python -m pip install -e ".[analysis,interactive]"`. Choose a writable output volume with room for lossless Parquet files. Keep raw acquisition files unchanged. `save_dir` must differ from `raw_dir`; when nested under it, the derived directory must be named `Paper data`.
 
-### Alternative install (pip)
+## Configure one run
 
-```powershell
-python -m pip install -e ".[analysis,interactive]"
-python -m classical_conditioning --help
-```
-
-Record the environment on each machine:
-
-```powershell
-uv run classical-conditioning environment-report `
-  --output "<SAVE-DIR>\Metadata\environment.json"
-```
-
-## Run from a config file
-
-All relocatable batch work is driven by a JSON file. You set **where raw data
-live**, **where to save outputs**, **which experiment**, and **which analysis
-routes** to run — then invoke one command.
+Copy [the strict JSON example](configs/example-run.json), edit its paths, then run:
 
 ```powershell
 uv run classical-conditioning run-pipeline --config configs\example-run.json
 ```
 
-Copy [configs/example-run.json](configs/example-run.json) and edit the paths.
-
-### One-command allDelay technical run
-
-For the complete allDelay technical workflow—lossless intake, candidate
-analysis, all-complete cohort freeze, and learning-onset LME—run the Windows
-launcher below. It resumes based on existing markers and files without
-overwriting them; it does not authenticate every skipped artifact. The learning
-figure is generated only if required diagnostic gates pass. The residual
-diagnostics figure is generated first, including when the learning figure
-cannot be rendered.
-
-```powershell
-.\scripts\run-allDelay-full-windows.ps1 `
-  -RawDir "J:\Raw Data\allDelay" `
-  -ProjectDir "F:\Digested Data\allDelay-full-v1"
-```
-
-The launcher defaults to the `tail_length_weighted_angular_l1` activity metric.
-To analyze another metric, pass `-MetricId <metric-id>` and a distinct
-`-LearningAnalysisId <analysis-id>`. For all other LME parameters, use the
-direct `learning-onset` command described in the
-[LME parameter reference](docs/analysis/LME_PIPELINE_AND_PARAMETERS.md).
-
-The launcher creates an explicitly labelled **technical all-complete** cohort
-(every complete control/delay triplet). It is not a substitute for a
-publication-cohort review. Figures that can be rendered are written to
-`<ProjectDir>\Figures\PNG\Analyses\<LearningAnalysisId>\`.
-
-### Required config fields
-
-| Field | Meaning |
-| --- | --- |
-| `raw_dir` | Folder containing immutable camera / tracking / protocol triplets. Never written. |
-| `save_dir` | Writable project tree (`Processed data`, `Quality checks`, `Metadata`, `Figures`). |
-| `experiment` | Package experiment id (see table below). |
-| `analysis_id` | Label for this run; used in output paths and manifests. |
-
-### Common optional fields
+JSON has no comments; this table documents **every accepted field**. Obsolete route, recipe, `run_intake`, and `run_figures` switches, and all unknown fields, cause a clear error.
 
 | Field | Default | Meaning |
 | --- | --- | --- |
-| `routes` | `["candidate"]` | Candidate analysis route. `"legacy"` is retired and rejected. |
-| `keep_conditions` | all complete triplets | Filename condition tokens to keep (lowercased). |
-| `recording_ids` | null | Explicit fish list; omit to auto-discover under `raw_dir`. |
-| `run_inventory` | false | Write `Metadata/recording_inventory.json` before intake. |
-| `run_intake` | true | Convert raw triplets to lossless Parquet under `save_dir`. |
-| `run_figures` | false | Write cohort metric-comparison PNGs after candidate route. |
-| `overwrite` | false | Replace existing derived artifacts. |
-| `continue_on_error` | true | Keep going when one fish fails (intake / candidate). |
-| `candidate_runner_recipe` | `candidate-corrected-runner-v1` | Six-metric corrected route. |
+| `raw_dir` | required | Read-only directory recursively scanned for camera, tracking, and protocol files. |
+| `save_dir` | required | Writable derived-data project. |
+| `experiment` | required | Experiment ID: `allDelay`, `all3sTrace`, or `all10sTrace`. |
+| `analysis_id` | required | Stable output identity; reruns replace derived files at this identity. |
+| `keep_conditions` | all | Condition tokens from filenames, for example `control` and `delay`. |
+| `recording_ids` | `null` | Explicit recording IDs; when omitted, use matching inventory records. |
+| `overwrite` | `false` | Force rebuilding otherwise reusable derived stages. |
+| `continue_on_error` | `true` | Record individual failures and continue other fish; the invocation still reports failure if any required stage fails. |
+| `batch_size` | `250000` | Rows per chunk in intake and corrected metric calculation. |
+| `figure_mode` | `static` | `static` PNG, or `publication` SVG and PDF with provenance. |
+| `show_progress` | `true` | Print progress to stderr. `--quiet` also suppresses it. |
+| `cohort_id` | `null` | ID of an existing immutable reviewed cohort; supply together with `metric`. |
+| `metric` | `null` | Selected metric for frozen-cohort and learning analysis; supply together with `cohort_id`. |
+| `learner_representation_id` | `null` | Reserved identity for a frozen learner representation. Until Gate L is approved, learner figures remain blocked. |
+| `assessment_metric` | selected `metric`, otherwise `legacy_distal_angular_speed` | Candidate metric used only for the technical and exploratory discarding assessment; it does not select a paper metric. |
+| `technical_policy` | `null` | Path to a reviewed technical policy JSON. Without one, the assessment is a draft evidence audit, not an inclusion decision. |
+| `disabled_discard_checks` | `[]` | Named historical checks to disable for an exploratory sensitivity assessment; never changes a reviewed cohort. |
 
-Candidate cohort outputs use `{analysis_id}-candidate` unless overridden by
-`candidate_analysis_id`.
+Experiment-specific trial blocks, stimulus timings, catch assignments, and response windows live in [`src/classical_conditioning/config/experiments.py`](src/classical_conditioning/config/experiments.py). The active `all3sTrace` latency is 9 s, whereas the written paper scaffold describes a 13-s expected US; this protocol identity must be reconciled against raw events before paper timing panels are approved. Inspect fully resolved settings and the trial map before a run:
 
-### What `run-pipeline` does
-
-```text
-optional inventory
-  -> intake-batch (all matching triplets)
-  -> [candidate route, default] candidate-runner
-         corrected-preprocess-v1 -> three activity metrics -> movement state
-         -> temporal outcomes -> trial outcomes -> cohort comparison
-  -> [optional] cohort metric-comparison figures
-  -> Metadata/<analysis_id>_pipeline_run.json summary
+```powershell
+uv run classical-conditioning resolve-config --experiment allDelay --project-dir "<SAVE-DIR>"
 ```
 
-`run-pipeline` is the orchestrator: it selects recordings, calls the
-versioned analysis stages, and writes their run status. It does not itself
-calculate activity or decide a scientific exclusion cohort.
+See `classical-conditioning resolve-config --help` for all options. The routine corrected runner identity is `candidate-corrected-runner`. The direct-from-intake calculation is available only as the explicitly selected `candidate-development-runner` benchmark through `candidate-runner`; it is outside `run-pipeline`.
 
-#### Step-by-step behavior
+## What the complete run does
 
-1. **Resolve the recording list.** If `recording_ids` is present, that list is
-   authoritative. Otherwise the pipeline discovers complete raw triplets under
-   `raw_dir`, then applies `keep_conditions` if supplied. Discovery filters
-   files; it does not apply scientific fish exclusions.
+1. Inventory **all** recognized raw files and hash their bytes. A raw recording is a matching `*_cam.txt`, `*_mp tail tracking.txt`, and `*_stim control.txt` triplet. Incomplete and ambiguous groups remain visible in the inventory.
+2. For each selected fish, verify the source manifest and hashes of all three lossless Parquet files before reuse. A new or changed triplet is ingested transactionally with acquisition QC. Intake statuses `ready`, `incomplete`, and `failed` include reasons in `Metadata/intake_status.json`. An unchanged failed fish is skipped on the next run; after correcting its source or environment, retry it explicitly:
 
-2. **Create the save tree.** All derived files are written below `save_dir`.
-   `raw_dir` is treated as immutable.
+   ```powershell
+   uv run classical-conditioning retry-intake --input-dir "<RAW-DIR>" --project-dir "<SAVE-DIR>" --recording-id 20260101_01
+   ```
 
-3. **Optionally inventory raw data.** With `run_inventory: true`, the pipeline
-   writes `Metadata/recording_inventory.json`, including hashes and triplet
-   completeness. This is provenance/QC; intake independently validates inputs,
-   so an inventory is not a prerequisite for analysis.
+3. Assess technical readiness and exploratory historical discarding rules for **every** inventoried recording, carrying forward intake and candidate-stage failures. The run summary links to the authenticated assessment bundle under `Processed data/Discarding/`. This is **not** a scientific inclusion decision. A reviewed cohort is frozen separately with `freeze-cohort` and is never replaced by a routine rerun. See the [technical](Plans/TECHNICAL_ASSESSMENT.md) and [exploratory](Plans/EXPLORATORY_LEGACY_DISCARDING.md) assessment plans for rule definitions and review status.
+4. For ready fish, run corrected measured-time, gap-aware preprocessing; three frame-level metrics; one shared movement/bout detector; CS- and US-aligned temporal profiles; per-trial outcomes; and descriptive cohort metric comparison. A cached stage is reused only when marker, output hashes, recipe, settings, and upstream lineage authenticate. Changed derived outputs are atomically replaced at the same stable paths.
+5. As inputs appear, a two-process pool renders intake QC, detector review, four candidate profile families for **both CS and US** per fish, and all five metric-comparison outcomes for **both CS and US**. With a reviewed cohort and selected metric, it also renders five cohort figure families; a matched-control cohort additionally gets a descriptive population heatmap with contributing-fish coverage. Learning-model residual diagnostics follow fitting; the onset figure is rendered only when required diagnostics pass. Every required figure is recorded as `completed`, `failed`, or `blocked` with a reason. Proposed paper panels stay blocked until their scientific gates are met.
+6. Always write `Metadata/<analysis_id>_pipeline_run.json`, including after stage failure. A failed run returns a non-zero command status; inspect this summary and the intake ledger before retrying.
 
-4. **Optionally intake raw triplets.** With `run_intake: true`, each selected
-   complete camera/tracking/protocol triplet is converted to lossless Parquet.
-   Only recordings that completed intake, or whose existing intake outputs were
-   accepted as `skipped`, proceed to downstream routes. If none are usable, the
-   pipeline stops. `continue_on_error` controls whether one failed recording
-   aborts the run or is recorded as a per-fish failure in the summary.
+The three metric columns are tail-length-weighted angular L1 speed (`rad/ms`), whole-tail XY mean speed (`tail lengths/ms`), and distal angular speed (`rad/ms`). Exact definitions and validity rules are in [`candidate_metric_kernel.py`](src/classical_conditioning/preprocessing/candidate_metric_kernel.py). The detector uses one shared bout segmentation for all three metrics.
 
-5. **Run the candidate analysis route.** Start with the default corrected
-   route. It uses two source files in this order:
+### Output locations
 
-   - `preprocessing/corrected_frame_preprocessing.py` prepares corrected,
-     measured-time, gap-aware frames.
-   - `preprocessing/candidate_metrics_from_corrected_frames.py` calculates the
-     three candidate metrics from those frames and inherits their validity mask.
-
-   The shared metric formula and column schema live in
-   `preprocessing/candidate_metric_kernel.py`; the two writers use that one
-   implementation and differ only in their input provenance and validity
-   policy.
-
-   `preprocessing/benchmarks/candidate_metrics_from_intake.py` is not the normal route.
-   It calculates the same three metrics directly from intake artifacts and exists
-   only as the active development benchmark for controlled comparison. Do not
-   mix its artifacts with corrected-route downstream artifacts.
-
-   - The default `candidate-corrected-runner-v1` selects a frozen compatible
-     recipe family:
-
-     ```text
-     corrected preprocessing
-       -> three activity metrics
-       -> one shared movement/bout detector
-       -> trial-aligned temporal profiles
-       -> per-trial outcomes and coverage
-       -> descriptive cohort metric comparison
-     ```
-
-     Each stage verifies hashes and recipe identity for its upstream artifacts.
-     The candidate route is exploratory; its outputs are not paper-approved.
-
-6. **Optionally render candidate cohort figures.** With `run_figures: true`,
-   the pipeline renders the requested metric-comparison outcomes from the
-   candidate cohort comparison artifact. It does not make per-recording
-   heatmaps; use `figure-candidate-profiles` separately for those.
-
-7. **Write the run ledger.**
-   `Metadata/<analysis_id>_pipeline_run.json` records the resolved config,
-   final active recording list, intake completion/skips/failures, candidate
-   status, and rendered figure paths. It is an audit record of the
-   invocation, not a scientific result artifact.
-
-#### Route and failure semantics
-
-- The candidate runner handles failures per recording when
-  `continue_on_error: true`; it builds the cohort comparison from the
-  recordings that completed every candidate stage.
-- `overwrite: false` preserves existing completed artifacts. Stages verify
-  their markers and hashes rather than silently reusing edited or mismatched
-  upstream outputs.
-- Candidate analysis IDs receive a `-candidate` suffix by default.
-
-`run_figures` writes only the **cohort metric-comparison** figure. Per-recording
-heatmaps are a separate command (see below).
-
-While a run is in progress, status goes to **stderr** so normal result paths can
-still be captured from stdout:
-
-- `==> Stage name` banners for major phases (intake, candidate runner, figures)
-- `tqdm` progress bars when several recordings or outcomes are processed
-- `> step-name: running / done in …s` flags inside each fish for the five
-  candidate stages (preprocess, metrics, movement, temporal profiles, trial outcomes)
-- `[i/n] recording-id: completed` per-fish summaries
-
-Use `--quiet` on `run-pipeline`, `candidate-runner`, or `execute-batch` to
-suppress this. In JSON configs, set `"show_progress": false` for `run-pipeline`.
-
-Package experiments currently available:
-
-| `experiment` | Conditions | CR window |
-| --- | --- | --- |
-| `allDelay` (Delay) | control, delay | 0–9 s |
-| `all3sTrace` (3sTrace) | control, trace | 0–13 s |
-| `all10sTrace` (10sTrace) | control, trace | 0–20 s |
-
-### Raw file rules
-
-Intake and inventory recursively search `raw_dir` for complete triplets:
-
-| Kind | Filename suffix |
+| Directory | Contents |
 | --- | --- |
-| Camera | `_cam.txt` |
-| Tracking | `_mp tail tracking.txt` |
-| Protocol | `_stim control.txt` |
+| `Processed data/<fish>/` | Three lossless intake Parquets and corrected per-fish tables. |
+| `Processed data/Analyses/<analysis_id>/` | Cohort comparison and configured learning-analysis tables. |
+| `Processed data/Discarding/` | Authenticated technical and exploratory assessment bundles; their hashes and dispositions are linked from the run summary. |
+| `Processed data/Cohorts/<cohort_id>/` | Immutable reviewed cohort manifest. |
+| `Quality checks/<fish>/` | Intake report, QC figures, and stage coverage summaries. |
+| `Metadata/` | Inventory, source manifest, intake ledger, completion markers, run summary, and resolved configuration. |
+| `Figures/PNG/` | Routine static descriptive plots. |
+| `Figures/Publication/` | Semantic SVG/PDF and provenance sidecars in publication mode. |
 
-- Recording ID = first two `_` fields (`YYYYMMDD_NN`).
-- Condition = third `_` field, lowercased.
-- `save_dir` must not equal `raw_dir`. If nested inside raw, name it
-  `Paper data`.
+`Archive/` and external output directories are historical material and are not renamed or deleted. Active outputs have stable names; a new suffix is not stamped for each run.
 
-### Save-directory layout
+## Figures and scientific interpretation
 
-`save_dir` is the complete, writable derived-data project. The pipeline never
-writes to `raw_dir`. Names in angle brackets vary by run; entries in square
-brackets are created only when the related command or option is used.
+[`configs/paper-figures/behavior-paper.json`](configs/paper-figures/behavior-paper.json) is the proposed Figure 1–4 panel registry. It maps stable IDs to required artifacts, rendering rules, and precise current blocked reasons. The run summary authenticates selected cohort, metric definition, settings, and inventory hashes. The written paper scaffold and figure list define the intended layouts; supplied draft images are comparison evidence, not a layout to copy. Figure 3 has no draft image.
 
-```text
-<save_dir>/
-|-- Processed data/                         # Machine-readable result tables
-|   |-- <recording-id>/                      # One fish, e.g. 20221115_04
-|   |   |-- camera.parquet                   # Lossless camera-time intake table
-|   |   |-- tracking.parquet                 # Lossless tail-tracking intake table
-|   |   |-- stimulus_events.parquet          # Parsed stimulus/protocol events
-|   |   |-- corrected_frames*.parquet        # Corrected, gap-aware frame table
-|   |   |-- candidate_metrics*.parquet       # Frame-level candidate activity metrics
-|   |   |-- movement_state*.parquet          # Shared movement/bout state per frame
-|   |   |-- temporal_profiles*.parquet       # Trial-aligned time-bin profiles
-|   |   `-- trial_outcomes*.parquet          # One row per trial/outcome
-|   |-- Analyses/<analysis-id>/              # Outputs pooled across recordings
-|   |   |-- *metric_comparison*.parquet      # Descriptive cohort metric comparison
-|   |   |-- *model_input*.parquet            # [candidate-model-input]
-|   |   |-- *mixed_effects*.parquet          # [candidate-mixed-effects]
-|   |   |-- *fish_permutation*.parquet       # [candidate-fish-permutation]
-|   |   |-- *fish_bootstrap*.parquet         # [candidate-fish-bootstrap]
-|   |   `-- *learning_onset*.parquet         # [learning-onset analysis]
-|   |-- Cohorts/<cohort-id>/                 # [freeze-cohort / cohort outcomes]
-|   |   `-- cohort_manifest.parquet          # Frozen reviewed inclusion decisions
-|   `-- Batches/<batch-id>/                  # [plan-batch / execute-batch]
-|       `-- batch_work_manifest.parquet      # Per-recording stage state for resume
-|-- Quality checks/                          # Human-readable QC and validation evidence
-|   |-- <recording-id>/
-|   |   |-- acquisition_summary.json
-|   |   |-- acquisition_report.html
-|   |   |-- figures/                         # Intake timing/tracking/protocol PNGs
-|   |   `-- *summary*.json                   # Per-stage coverage and QC summaries
-|   |-- Analyses/<analysis-id>/              # Cohort/inference diagnostic summaries
-|   `-- Cohorts/<cohort-id>/                 # Cohort validation report
-|-- Metadata/                                # Provenance, hashes, and completion markers
-|   |-- recording_inventory.json             # [run_inventory]
-|   |-- <recording-id>_source_manifest.json  # Intake source filenames and hashes
-|   |-- <recording-id>_*_complete.json       # Per-stage artifact lineage markers
-|   |-- <analysis-id>_*_complete.json        # Cohort/inference lineage markers
-|   |-- <analysis-id>_pipeline_run.json      # Config, statuses, and output ledger
-|   `-- [environment.json]                   # environment-report output, if requested
-`-- Figures/                                 # Rendered, derived visualizations
-    |-- PNG/<recording-id>/                   # Static per-fish temporal-profile figures
-    |-- PNG/Analyses/<analysis-id>/           # Static cohort/diagnostic figures
-    |-- Publication/...                       # SVG/PDF figures plus provenance sidecars
-    `-- Interactive/<recording-id>/           # Self-contained HTML profile figures
-```
+Figure 2 requires matched-control **frozen fish cohorts**, not candidate per-fish heatmaps. Its selected blocks are final Pre-Train trials **10–14**, Early Test **65–69**, and Late Test **90–94**. The current descriptive population heatmap shows 0–1 scaled total activity **across all valid frames, including valid zeros**, with a contributing-fish coverage strip and exact counts in panel data. It is not the draft's movement-conditional vigor signal or an approved paper panel. The 10sTrace result is presently inconclusive. Draft significance stars are not reused without approved inference.
 
-The directories have deliberately separate responsibilities:
+Routine catch/block plots show 0–1 scaled activity and are descriptive. Figure 4 requires independently defined **signed, baseline-centered** learner panel data; negative values there cannot be inferred from 0–1 plots. Training catches 11, 25, 39, and 45 correspond to global CS trials 25, 39, 53, and 59. The five-trial pooled catch view also includes global trial 65, the first Test trial. Both numbering systems belong in the eventual legend. CS onset, CS offset, and condition-specific expected US time must be distinct; anticipatory catch suppression is not the direct post-US response in paired training trials.
 
-| Directory | What belongs there | How to use it |
-| --- | --- | --- |
-| `Processed data` | Parquet tables used as input to downstream stages | Treat as machine-readable analysis data; do not edit tables in place. |
-| `Quality checks` | Summaries, HTML reports, diagnostics, and QC images | Start here when reviewing data health, coverage, or a failed stage. |
-| `Metadata` | Source hashes, resolved settings, completion markers, and run ledgers | Retain this with the data: downstream stages use it to verify provenance. |
-| `Figures` | Rendered views of already-produced results | Regenerate from the corresponding processed artifacts rather than editing images. |
+Static PNG is the routine default. The same renderer can export SVG/PDF with semantic SVG IDs, artist-to-data mappings, physical units, provenance sidecars, and structural checks. See [figure guidance](docs/analysis/FIGURE_GUIDE.md) and [draft comparison](docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
+Publication export also requires a clean Git worktree so its recorded commit contains the rendering code.
 
-An asterisk in a filename is intentional: the exact stem contains the frozen
-recipe identifier (and sometimes the alignment or outcome), so related artifacts
-cannot be silently mixed across recipe families. A `*_complete.json` file is not
-just a success flag: it records the expected output hashes and upstream lineage.
-Deleting or editing it makes the corresponding result ineligible for reuse until
-the stage is rebuilt with the appropriate command.
+## Learning and LME parameters
 
-## Analysis pipeline architecture
+Use `learning-onset` directly when a prespecified scientific model configuration is needed. Its output is diagnostic until cohort, metric, effect threshold, and model decisions are approved. See the [complete LME parameter reference](docs/analysis/LME_PIPELINE_AND_PARAMETERS.md).
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#F4F4F6', 'primaryTextColor': '#22242A', 'primaryBorderColor': '#B8BCC4', 'lineColor': '#6E7480', 'fontSize': '13px', 'fontFamily': 'Arial, Noto Sans, sans-serif'}}}%%
-graph TD
-    RAW[/"Immutable raw triplets<br/>cam + tail tracking + stim control"/]:::raw
-
-    RAW --> INTAKE["<b>intake-batch</b><br/>lossless Parquet, SHA-256 recorded<br/>raw_dir never written"]
-
-    INTAKE --> PRE["<b>corrected-preprocess-v1</b><br/>measured timestamps, frame gaps,<br/>per-point validity masks"]
-
-    PRE --> MET["<b>tail-candidate-corrected-v1</b><br/>4 activity metrics per frame"]:::key
-    PRE --> DET["<b>movement-candidate-corrected-v2</b><br/>ONE shared bout detector<br/>legacy envelope on distal speed<br/><i>metric-independent</i>"]:::fix
-
-    MET --> PROF
-    DET --> PROF["<b>candidate-temporal-outcomes-corrected-v3</b><br/>align to CS/US onset, −45..+45 s, 0.5 s bins<br/>per-metric intensity + shared bout outcomes"]
-
-    PROF --> TRIAL["<b>candidate-trial-outcomes</b><br/>per-trial baseline vs response"]
-    TRIAL --> COHORT["<b>cohort metric comparison</b><br/>standardized difference per fish"]
-
-    PROF --> FIG1["<b>FIG 1</b> total activity, raw<br/>3 rows = 3 metrics"]:::fig
-    PROF --> FIG2["<b>FIG 2</b> total activity, scaled<br/>3 rows = 3 metrics"]:::fig
-    PROF --> FIG3["<b>FIG 3</b> conditional intensity, raw<br/>3 rows = 3 metrics"]:::fig
-    PROF --> FIG4["<b>FIG 4</b> bout outcomes<br/>3 rows, metric-free"]:::fig
-    COHORT --> FIGC["<b>cohort comparison</b><br/>3 groups = 3 metrics"]:::fig
-
-    classDef raw fill:#FFFFFF,stroke:#6E7480,stroke-width:1px,color:#22242A
-    classDef key fill:#1F6FEB,stroke:#1A5FCC,stroke-width:1px,color:#FFFFFF
-    classDef fix fill:#2DA44E,stroke:#1F7A3A,stroke-width:1px,color:#FFFFFF
-    classDef fig fill:#F4F4F6,stroke:#6E7480,stroke-width:1px,color:#22242A
-```
-
-Note that metrics and the detector are **siblings**, not a chain: the detector
-does not consume the three metrics. It runs once on the distal cumulative-angle
-speed — the signal the historical pipeline used — and every metric inherits its
-segmentation.
-
-Every stage writes a completion marker containing the SHA-256 of its outputs,
-and each stage re-verifies the marker of the stage before it. A stage refuses to
-run on stale or edited upstream artifacts rather than silently producing
-mismatched results.
-
-### Metrics and shared bouts
-
-The active candidate route carries three exploratory tail-activity metrics and
-one metric-independent shared bout detector. Their exact formulas, units,
-historical thresholds, outcome conventions, scientific status, and limitations
-are documented in [Metrics and bouts](docs/analysis/METRICS_AND_BOUTS.md).
-
-## Command reference
-
-All analysis commands take `--project-dir` (= your `save_dir`). Run
-`uv run classical-conditioning <command> --help` for the full flag list.
-
-### Everyday use
-
-| Command | Purpose |
+| Stage | User-facing parameters |
 | --- | --- |
-| `run-pipeline` | Run everything from one JSON config. **Start here.** |
-| `inventory` | Discover and hash raw triplets; report completeness. |
-| `intake-batch` | Convert every complete triplet to Parquet. |
-| `candidate-runner` | All candidate stages per fish + cohort comparison. |
-| `figure-candidate-profiles` | Per-fish metric heatmaps. |
-| `figure-metric-comparison` | Cohort metric comparison bars. |
-| `environment-report` | Record pinned versions for reproducibility. |
+| Identity and data | `--project-dir`, `--cohort-id`, `--analysis-id`, `--metric`, `--outcome` (`total-activity` or `conditional-intensity`), `--alignment` (`CS` or `US`), `--control-condition`, `--test-condition`, `--pretraining-block`, repeated `--late-block`. |
+| Eligibility and scale | `--min-baseline-samples`, `--min-response-samples`, `--activity-offset`. |
+| Onset criterion | Required `--delta-min`, `--persistence-trials`, `--confidence-level`. |
+| Longitudinal LME | `--spline-df`, `--random-effects-formula`, `--optimizer`, `--disable-random-intercept-fallback`, `--skip-categorical-sensitivity`, `--sensitivity-optimizer`, `--skip-random-intercept-sensitivity`. |
+| Fish-level uncertainty | `--bootstrap`, `--min-successful-bootstrap`, `--min-bootstrap-success-fraction`, `--permutations`, `--seed`. |
+| Publication/rebuild | `--overwrite`; figure commands also take `--mode` (`static`/`publication`) and `--overwrite`. |
 
-### Individual candidate stages
+The routine config's cohort/metric pair enables a technical fit with packaged defaults. For a non-default effect threshold or sensitivity settings, use `learning-onset` explicitly and inspect its diagnostic artifacts; the paper onset panel remains gated by required diagnostics.
 
-Useful for debugging or partial reruns, in dependency order:
+## More detail
 
-| Command | Purpose |
-| --- | --- |
-| `preprocess --recipe corrected-preprocess-v1` | Measured-time frames and validity masks. |
-| `activity-metrics --recipe tail-candidate-corrected-v1` | The three per-frame metrics. |
-| `movement-state` | Threshold calibration and bout detection. |
-| `temporal-profiles` | Trial-aligned 0.5 s bins. |
-| `candidate-trial-outcomes` | Per-trial baseline and response. |
-| `compare-candidate-metrics` | Cohort metric comparison table. |
+- [Current pipeline guide](docs/analysis/CURRENT_PIPELINE_GUIDE.md)
+- [Figure generation and draft comparison](docs/analysis/figures/FIGURE_PIPELINES.md)
+- [Cohort and exclusion plan](Plans/SINGLE_COHORT_AND_EXCLUSION.md)
+- [Learning-onset plan](Plans/LEARNING_ONSET_LME.md)
 
-### Quality control and diagnostics
-
-| Command | Purpose |
-| --- | --- |
-| `validate-raw` | Check one triplet before intake. |
-| `audit-tracking` | Inventory tracking columns without assuming validity. |
-| `compare` | Diff two row-aligned Parquet artifacts. |
-| `movement-sensitivity` | Vary detector parameters and report outcome sensitivity. |
-| `trace-review` | Balanced trace windows for human detector review. |
-| `resolve-config` | Dump resolved recipe JSON and trial map. |
-
-### Cohort, statistics, and batch control
-
-| Command | Purpose |
-| --- | --- |
-| `freeze-cohort` / `apply-cohort` | Freeze a reviewed fish list, then filter to it. |
-| `plan-batch` / `execute-batch` | Deterministic per-recording work plan, then run pending or failed. |
-| `candidate-mixed-effects` | Mixed-effects model over candidate outcomes. |
-| `candidate-fish-permutation` / `candidate-fish-bootstrap` | Fish-level permutation and bootstrap. |
-| `candidate-model-input` | Export the model input table. |
-| `figure-cohort-selected-block-ratio` / `figure-cohort-trial-ratio` / `figure-cohort-event-aligned-ratio` | Frozen-cohort response/baseline summaries for one metric. |
-| `figure-cohort-catch-profile` | Pool all configured catch trials within fish, then render equal-fish scaled-activity profiles. |
-| `figure-cohort-block-profile` | Render equal-fish scaled-activity profiles for every declared CS ten-trial block. |
-
-### Historical source archive
-
-The retired package legacy implementation, its tests, numbered scripts, and
-historical helper modules are retained under `Archive/` for source review.
-They are not installed, exposed through the CLI, or supported as a runnable
-workflow.
-
-## Figures
-
-Candidate figures are exploratory views of verified artifacts, not approval for
-a scientific result. The [Figure guide](docs/analysis/FIGURE_GUIDE.md) contains
-commands, output modes and locations, profile axes, masking/coverage rules,
-scaling, colour conventions, provenance, and cohort-figure interpretation.
-
-## Scientific status
-
-- Package outputs are **exploratory** until scientific gates pass.
-- Legacy route preserves known old behavior for comparison.
-- Candidate route compares three metrics descriptively; no metric is
-  paper-approved. `legacy_distal_angular_speed` is a
-  measured-time benchmark of the historical formula, not a reproduction of the
-  historical pipeline.
-- Bout detection is **shared and metric-independent**: one legacy-style
-  envelope detector runs on the distal cumulative-angle speed, and every metric
-  inherits its segmentation. Bout-derived outcomes therefore describe behavior,
-  not detector calibration. The thresholds are historical constants and still
-  require a Gate T1 scientific decision and bounded sensitivity analysis;
-  manual/video validation is deferred and is not an active completion blocker.
-- Cohort figures use fish-equal **standardized difference**
-  `(response − baseline) / baseline SD`.
-
-See [the implementation status index](Plans/IMPLEMENTATION_STEP_INDEX.md) and
-[activity metric/bout documentation](docs/analysis/METRICS_AND_BOUTS.md) for
-current limits.
-
-## Legacy numbered scripts
-
-`Archive/historical-scripts/` and `Archive/historical-helpers/` contain the
-historical pipeline (machine-specific paths, in-script `RUN_*` flags). Prefer
-`run-pipeline` or the package CLI for new work.
-
-## Related documents
-
-| Document | Contents |
-| --- | --- |
-| [Plans/IMPLEMENTATION_STEP_INDEX.md](Plans/IMPLEMENTATION_STEP_INDEX.md) | Current implementation status |
-| [docs/analysis/README.md](docs/analysis/README.md) | Task-oriented index for workflow, outputs, troubleshooting, metrics, figures, architecture, audits, and legacy references |
-| [docs/analysis/USER_WORKFLOW.md](docs/analysis/USER_WORKFLOW.md) | First-run candidate workflow, output review order, safe resume, and manual-stage order |
-| [docs/analysis/OUTPUT_AND_PROVENANCE.md](docs/analysis/OUTPUT_AND_PROVENANCE.md) | Output-directory responsibilities, completion markers, hashes, and artifact reuse |
-| [docs/analysis/TROUBLESHOOTING.md](docs/analysis/TROUBLESHOOTING.md) | Safe diagnosis and recovery for common runtime, intake, artifact, and detector problems |
-| [docs/analysis/FIGURE_GUIDE.md](docs/analysis/FIGURE_GUIDE.md) | Candidate figure commands, output modes, interpretation, and colour/coverage rules |
-| [docs/analysis/GLOSSARY.md](docs/analysis/GLOSSARY.md) | Current package terminology |
-| [docs/maintenance/REPOSITORY_GUIDE.md](docs/maintenance/REPOSITORY_GUIDE.md) | Active/archive boundaries, generated files, raw-data protection, and documentation maintenance |
-| `Archive/` | Read-only historical package and helper source archive |
-| [Plans/DECISIONS.md](Plans/DECISIONS.md) | Locked decisions |
-
-Manuscript: `C:\Users\Public\More projects\Paper\Learning paper`
-
-## Repository maintenance
-
-The repository holds supported source, tests, migration documentation, and a
-non-runnable historical archive; raw data and ordinary `Paper data` output
-trees are configured elsewhere. See the [repository maintenance guide](docs/maintenance/REPOSITORY_GUIDE.md)
-for the folder-by-folder cleanup policy, active/archive boundary, and retained
-human-review notes.
+The active suite in `tests/` protects scientific identities, raw-to-derived provenance, failure handling, and figure semantics.

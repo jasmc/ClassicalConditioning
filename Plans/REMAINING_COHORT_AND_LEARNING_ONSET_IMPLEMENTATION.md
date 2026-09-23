@@ -245,8 +245,8 @@ its own fish list.
    discarded.
 2. Classify each rule as technical fish exclusion, processing failure,
    trial-level validity, analysis eligibility, or display-only selection.
-3. Run one unified selection assessment that calculates the legacy Stage-1,
-   Stage-5/LME, and learner-feature dispositions and reason codes together.
+3. Run `assess-discarding`: technical readiness first, then the exploratory
+   source-linked preprocessing screen and merged learner-input check.
 4. Decide the primary technical inclusion policy without looking at learning
    strength.
 5. Freeze the reviewed paper cohort from technical columns only.
@@ -278,8 +278,8 @@ Every final result will report:
 ### Step 1 — make the cohort input authoritative
 
 - complete the discard/filter inventory;
-- implement the unified selection-assessment bundle covering preprocessing,
-  LME, and learner legacy filters;
+- run the two-stage technical and exploratory assessment bundle; keep LME
+  trial eligibility in the cohort-authenticated inference route;
 - freeze the paper cohort;
 - build `cohort-trial-outcomes` and sample flow;
 - stop population commands from accepting arbitrary fish lists.

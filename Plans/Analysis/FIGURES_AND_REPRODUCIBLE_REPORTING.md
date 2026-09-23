@@ -1,8 +1,14 @@
 # Figures and Reproducible Reporting
 
 **Status:** In progress  
-**Done:** Candidate PNG; interactive HTML implemented and frozen (Gate F); semantic SVG/PDF pilots.  
-**Open:** Publication theme/dimensions; remaining panels; visual regression; notebooks; Gate F freeze of final dims.  
+**Done:** Routine two-process PNG scheduling, figure-status ledger, four per-fish
+profiles per alignment, five comparison outcomes per alignment, five reviewed-
+cohort figure families, a matched frozen-cohort population heatmap with fish
+coverage, semantic SVG/PDF export and proposed Figure 1–4 registry.
+Interactive HTML is frozen (Gate F).
+**Open:** Approval of the population heatmap signal and matched cohorts, approved Figure 1 examples,
+frozen learner representation, signed independent-timing Figure 4 data,
+publication dimensions, and visual regression.
 **Change class:** Behavior-preserving rendering first; presentation changes separately  
 **Depends on:** Implemented artifact-integrity contract and each scientific
 stage whose output is exposed; deferred semantic provenance only for
@@ -20,7 +26,13 @@ without embedding hidden analysis.
 
 ## Part A — CLI and stage orchestration
 
-### Required commands
+### Future command surface (not the current CLI)
+
+The current supported entry point is `classical-conditioning run-pipeline
+--config configs/example-run.json`. It always inventories, verifies intake,
+runs corrected three-metric analysis, and schedules every ready routine figure.
+Its summary records each figure as completed, failed, or blocked. The command
+list below is a design sketch, not implemented syntax.
 
 ```powershell
 python -m classical_conditioning plan --recipe <recipe>
@@ -109,7 +121,8 @@ Rules:
 
 - notebooks import package functions;
 - notebooks identify the recipe and artifact IDs at the top;
-- exploratory overrides write to explicit temporary or versioned outputs;
+- exploratory overrides write to explicit temporary outputs, never an
+  unlabelled paper release;
 - no unique canonical equation lives only in a notebook;
 - rerunning top to bottom is supported;
 - notebook output is not the sole paper artifact.
@@ -197,17 +210,21 @@ Each panel-data table records:
 Rendering code cannot redefine analysis windows, cohorts, bootstrap, or
 statistics.
 
-### Figure versioning
+### Stable paths and authenticated replacement
 
-Separate:
+Derived recipe, analysis, and figure paths are stable: they do not acquire a
+run-number suffix. Cohort manifests are immutable. For replaceable derived
+artifacts, a changed upstream hash or setting rebuilds the affected data and
+atomically replaces the same path; a presentation-only change rerenders the
+figure from authenticated panel data. The sidecar and run ledger carry cohort,
+metric, settings, source, and code hashes so replacement is auditable.
 
-- scientific panel-data version;
-- panel-renderer version;
-- figure-layout version;
-- theme version.
-
-A color change reruns rendering only. A changed outcome reruns panel data and
-dependent figures.
+The proposed paper layout registry is
+[`configs/paper-figures/behavior-paper.json`](../../configs/paper-figures/behavior-paper.json).
+Written Figure 1 and Figure 4 roles follow the paper scaffold/list, not draft
+PNG panel placement. Figure 2 heatmaps require a frozen fish cohort and
+explicit coverage; Figure 3 and learner-specific Figure 4 panels remain gated.
+See the [panel-by-panel draft comparison](../../docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
 
 ### Figure QC
 
@@ -243,23 +260,26 @@ The numbered scripts progressively become thin wrappers that:
 ## Part F — Paper figure registry and build
 
 The paper-specific automation plan is merged here so infrastructure and paper
-panels cannot drift into separate active plans. The cloned paper plan is input,
-not authority. Use this precedence:
+panels cannot drift into separate active plans. For Figure 1 and Figure 4,
+the paper scaffold and figure list define the intended roles; the supplied PNG
+drafts are comparison evidence, not target layouts. Use this precedence:
 
 1. frozen paper release manifest;
-2. executable figure registry;
-3. approved paper figure/supplement order;
+2. approved paper scaffold and figure list;
+3. executable figure registry;
 4. candidate prose and milestone notes.
 
-Create one versioned registry, initially
-`configs/paper-figures/behavior-paper-v1.json`. Every panel declares its paper,
+The proposed registry now exists at
+`configs/paper-figures/behavior-paper.json` with stable panel IDs, source
+mappings, export rules, and explicit blocked reasons. Before release, expand
+each approved panel declaration to include its paper,
 figure, panel, renderer and panel-data recipe; exact input artifact IDs; cohort
 ID and hash; ordered conditions; fish/trial selectors; metric, shared detector,
 outcome and alignment; named windows; aggregation order; uncertainty method and
 seed; statistical result IDs; display transform; coverage rule; axes,
 annotations and dimensions; and required output modes.
 
-Scientific fields resolve to named, versioned recipes. Figure configuration may
+Scientific fields resolve to named, authenticated recipes. Figure configuration may
 change display-only fields but cannot silently change cohorts, exclusions,
 windows, aggregation, detector, statistics, or learner definitions.
 
@@ -287,7 +307,7 @@ approved.
 ```text
 analysis artifacts + cohort/model/classifier manifests
     -> resolved paper figure specification
-    -> versioned panel-data builders (Parquet + JSON)
+    -> authenticated panel-data builders (Parquet + JSON)
     -> reusable display-only renderers
     -> major-figure composer
     -> review PNG + publication SVG/PDF + sidecar
@@ -332,12 +352,12 @@ publication PDFs to the paper repository is a separate explicit action.
 
 - Short-trace protocol identity and labels require reconciliation.
 - The 10-s trace, no-optovin, and red-CS-only cohorts need explicit package
-  specifications or versioned cohort definitions.
+  specifications or frozen cohort definitions.
 - Catch-trial and expected-US identities must be emitted by canonical outcome
   artifacts.
 - Learner representation and validation are governed by the active learner
   plan, not inferred inside figures.
-- Manual setup/tracking assets need an approved source and versioned location.
+- Manual setup/tracking assets need an approved source and stable location.
 - Final publication dimensions, fonts, and visual baselines remain open.
 
 ## Required tests
@@ -386,7 +406,7 @@ Publication verification:
 - five heatmap artists mapped to x, y, value, and coverage fields;
 - expected-sample coverage below 90% masked from display.
 - total activity, movement probability, fraction time moving, conditional
-  intensity, and bout-rate routes available from the same v2 panel table;
+  intensity, and bout-rate routes available from the same authenticated panel table;
 - static and interactive outcome scales use the same fixed or metric-specific
   99th-percentile limits;
 - shared-unit outcomes use outcome-specific colorbar labels.

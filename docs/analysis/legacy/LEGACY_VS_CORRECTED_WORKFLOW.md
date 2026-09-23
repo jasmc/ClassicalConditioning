@@ -12,8 +12,8 @@ The improved route never overwrites or masquerades as legacy output.
 ## Artifact pattern
 
 ```text
-samples_legacy-v1.parquet
-samples_corrected-v1.parquet
+samples_legacy.parquet
+samples_corrected.parquet
 legacy-vs-corrected.json
 ```
 
@@ -40,7 +40,7 @@ For every corrected stage, record:
 
 - Lossless source ingestion
 - Acquisition integrity report
-- Frozen stage-1 `legacy-paper-v1` preprocessing
+- Frozen stage-1 `legacy-paper` preprocessing
 - Row-aligned Parquet comparison utility
 - Measured-XY/measured-time candidate activity table
 - Machine-readable legacy-versus-candidate route report
@@ -103,7 +103,7 @@ python -m classical_conditioning candidate-runner `
   --project-dir <project_dir> `
   --recording-id <recording_id> `
   --analysis-id <analysis_id> `
-  --recipe candidate-corrected-runner-v1 `
+  --recipe candidate-corrected-runner `
   --overwrite
 ```
 

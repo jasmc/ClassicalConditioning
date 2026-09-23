@@ -25,9 +25,10 @@ This plan distinguishes:
   one estimand, without redefining the global cohort;
 - **display selection:** choosing example fish, never changing inference.
 
-This is also the sole active plan for collapsing every legacy discard/filter
-decision into one supported, non-destructive analysis step. No separate
-discard plan is required.
+The two assessment stages are specified in [Technical Assessment](./TECHNICAL_ASSESSMENT.md)
+and [Exploratory Legacy-Rule Discarding](./EXPLORATORY_LEGACY_DISCARDING.md).
+They run through one non-destructive command before cohort review. The second
+stage is exploratory and cannot set primary membership.
 
 ## Current implementation findings
 
@@ -87,8 +88,8 @@ Use the following pipeline structure:
 ```text
 raw inventory
   -> per-recording intake/preprocessing/metrics/movement/trial outcomes
-  -> per-recording QC and processing-status table
-  -> UNIFIED SELECTION ASSESSMENT
+  -> technical assessment
+  -> exploratory legacy-rule assessment
   -> reviewed immutable cohort manifest
   -> APPLY COHORT ONCE
   -> cohort trial-outcome artifact
@@ -100,7 +101,7 @@ movement detection, or per-recording trial-outcome generation. Those stages
 must retain evidence needed to decide technical validity and account for
 failures.
 
-The one application point should create a versioned artifact such as:
+The one application point creates a stable derived artifact such as:
 
 ```text
 cohort-trial-outcomes
@@ -112,133 +113,21 @@ logical hash, source outcome hashes, included/excluded fish counts, and sample
 flow. Every population consumer reads this artifact rather than independently
 filtering per-recording files or fish lists.
 
-## Unified selection-assessment step
+## Two-stage assessment
 
-The supported refactor calculates every fish-, block-, trial-, model-, and
-classifier-eligibility decision in one named step, provisionally
-`selection-assessment-v1`. It replaces the legacy moments at which fish
-or rows disappeared:
+One `assess-discarding` command runs the [technical stage](./TECHNICAL_ASSESSMENT.md)
+and then the [exploratory legacy-rule stage](./EXPLORATORY_LEGACY_DISCARDING.md).
+It runs after authenticated per-fish outcomes, before cohort comparison, and
+records separate technical and behavioral dispositions with one assessment
+hash. The technical result supplies evidence for later reviewed cohort
+freezing; the exploratory result never sets `primary_included`.
 
-1. immediately after preprocessing in Stage 1;
-2. when Stages 3 and 4 re-read the Stage-1 discard list;
-3. while preparing normalized-vigor/LME data in Stage 5 and, in the refactor,
-   the LME used to establish the learning trial; and
-4. while preparing features in the learner-classification scripts.
-
-The step runs after authenticated per-recording outcomes/profiles and the
-processing-status inventory exist, but before the reviewed cohort is frozen or
-any population model/classifier is fitted. One step may calculate several
-dispositions; it must not collapse their different scientific meanings into a
-single Boolean.
-
-### Inputs and invalidation
-
-Required inputs are the complete recording inventory, processing/QC status,
-authenticated per-recording trial outcomes and temporal/bout evidence, resolved
-experiment trial/catch/block definitions, the selected metric/outcome contract,
-the learning-onset eligibility configuration, and the learner feature and
-validation recipe.
-
-Changing a policy, metric, detector, outcome window, LME eligibility setting,
-or learner feature recipe creates a new assessment execution and hash.
-
-### Assessment bundle
-
-Publish one immutable bundle:
-
-```text
-fish-selection-assessment.parquet
-block-selection-assessment.parquet
-trial-analysis-eligibility.parquet
-selection-sample-flow.parquet
-selection-assessment-summary.json
-```
-
-The fish table contains separate fields, not one overloaded exclusion flag:
-
-```text
-technical_valid
-technical_reason_codes
-primary_candidate_included
-legacy_stage1_pass
-legacy_stage1_reason_codes
-legacy_stage5_any_block_pass
-legacy_stage5_all_required_blocks_pass
-learning_onset_eligible_trial_count
-learner_classification_eligible
-learner_ineligible_reason_codes
-```
-
-The reviewed `primary_included` value is frozen only from the approved
-technical policy. Every other field is sensitivity or downstream eligibility
-evidence and cannot overwrite it.
-
-### Legacy Stage-1 behavior screen
-
-Calculate the complete `legacy-discard-interim-v1` status in this unified step:
-
-- last-US timing/viability and a 0-5 s bout response;
-- a 0-5 s bout for every configured Train US trial;
-- the same rule for Re-Train trials when present;
-- at least three bout-bearing trials in both baseline and assay-specific CR
-  windows for each of Late Pre-train 10-14, Early Test 65-69, and Late Test
-  90-94; and
-- all required checks and blocks pass.
-
-Store every component result and reason. This is a behavior-dependent
-legacy-equivalent sensitivity status, never primary technical inclusion.
-
-### Legacy Stage-5 and learning-onset filtering
-
-Reproduce and expose, without silently adopting:
-
-- rows dropped for missing normalized vigor, trial number, block, baseline, or
-  response;
-- counts of finite rows per fish and block;
-- the historical minimum of six trials per fish/block; and
-- the historical bug that retained a fish when any one block passed.
-
-Publish both exact `legacy_stage5_any_block_pass` and corrected
-`legacy_stage5_all_required_blocks_pass` statuses. Neither defines the primary
-cohort. The supported learning-onset analysis consumes its resolved row-level
-eligibility from the same bundle: window coverage, finite response and
-baseline, positive ratio baseline, and block assignment. Fish with no eligible
-model rows remain visible in cohort and sample-flow reporting.
-
-### Legacy learner filtering
-
-Calculate classifier eligibility before classification rather than dropping
-fish inside classifier code. For every versioned learner recipe record:
-
-- missing normalized-vigor, trial, ten-trial-block, five-trial-block,
-  baseline, or response inputs;
-- required epoch totals (the currently configured legacy recipes use at least
-  six trials in each selected epoch);
-- at least three trials in every required five-trial block;
-- acquisition coverage for Early/Late Pre-train versus Late Train/Early Test;
-- extinction/recovery coverage for Late Train/Early Test versus Test 5/Late
-  Test;
-- the intersection across all features selected by that recipe; and
-- variant-specific transform requirements, including strictly positive finite
-  normalized vigor where a log transform requires it.
-
-Before classifier execution the bundle records eligibility and reasons. After
-execution, ineligible fish become `Unclassified`; they never disappear.
-Controls retain the Reference role even when classifier diagnostics are
-calculated for them.
-
-### Single-boundary requirements
-
-- Never move, rename, or delete raw or processed files.
-- Never write or consume active `Fish to discard.txt` or
-  `Discarded_fish_IDs.txt` files.
-- LME and learner code consume assessment eligibility and may not implement
-  private filters.
-- Stage 3/4 equivalents may display assessment status but may not re-apply a
-  discard list or create a different population.
-- Plotting code may filter only explicit display examples, never inference.
-- A rule change invalidates the assessment bundle and dependent artifacts, not
-  the source data.
+The source-linked exploratory screen covers preprocessing bout checks,
+discard-list propagation, and one merged learner-input check. The
+normalized-vigor trial/block filters and model-derived learner features are
+not part of this command. The learning-onset route retains its own explicit
+trial eligibility, which is analysis-specific rather than fish exclusion.
+Never move raw or processed files or consume active legacy discard lists.
 
 ## Cohort policy
 
@@ -270,20 +159,18 @@ than creating new ad hoc discard files:
 - imaging-valid/multimodal population, which must never replace the primary
   behavior cohort.
 
-The legacy-equivalent behavioral population is specified as
-`legacy-discard-interim-v1` in the
-[integrated cohort/CR-profile plan](./Analysis/4_INTEGRATED_SINGLE_METRIC_COHORT_AND_CR_PROFILES.md).
-It records final-US viability, post-US bouts, and the Late Pre-train, Early
-Test, and Late Test baseline/CR bout criteria with all-component AND logic.
-Because those checks depend on behavior, the unified assessment computes them
-only as sensitivity statuses. The primary-cohort review ignores them; after
+The source-linked exploratory population is specified in
+[Exploratory Legacy-Rule Discarding](./EXPLORATORY_LEGACY_DISCARDING.md).
+It combines the preprocessing bout rules with one merged learner-input check.
+Because those checks depend on behavior, the primary-cohort review ignores
+them; after
 learner status exists, cross-tabulate their effect by condition and learner
 stratum. Never translate failure into `primary_included = false`.
 
 ### Trial and outcome eligibility
 
-The unified assessment calculates row-level validity fields before model or
-classifier execution and carries them through cohort application. If a model
+The learning-onset analysis calculates its own row-level validity fields
+without changing cohort membership. If a model
 requires finite baseline/response values or minimum window coverage, generate an
 analysis-eligibility table containing:
 
@@ -357,11 +244,12 @@ Record the primary and sensitivity criteria, thresholds, missingness handling,
 and reviewer process. Generate condition-blinded QC views where practical.
 Outcome-dependent behavioral engagement cannot determine the primary cohort.
 
-### 3. Build the unified selection assessment
+### 3. Run the two-stage discarding assessment
 
-Calculate all technical, legacy-equivalent, learning-onset, and learner
-eligibility statuses for the complete inventory. Reconcile counts and freeze
-the assessment hash before cohort review, model fitting, or classification.
+Calculate technical readiness and exploratory legacy-rule projection from the
+complete inventory, with a merged learner-input prerequisite. Reconcile counts
+and record the assessment hash before cohort review or classification. LME
+trial eligibility remains analysis-specific and outside this command.
 
 ### 4. Generate a complete draft manifest
 
@@ -373,7 +261,7 @@ before cohort review.
 
 ### 5. Review and freeze the cohort
 
-Use the implemented `cohort-manifest-v1` validation and hashing. Never edit a
+Use the implemented `cohort-manifest` validation and hashing. Never edit a
 frozen manifest in place; issue a new cohort ID for any change. Preserve a
 review copy, reasons, reviewer, timestamp, policy ID, source QC identity, and
 condition counts.
@@ -457,27 +345,25 @@ unannounced cohort change.
 - No supported downstream module reads legacy discard text files or exposes an
   independent fish-discard flag.
 - Legacy-equivalent and sensitivity cohorts never overwrite the primary cohort.
-- `legacy-discard-interim-v1` records component reasons, enforces all required
-  blocks, and performs no file moves or deletes.
+- The exploratory check records every enabled source-linked component, its
+  cumulative count, and performs no file moves or deletes.
 - Learner status and legacy-discard status cannot alter the primary cohort hash.
-- Stage-1, Stage-5/LME, and learner eligibility are produced by one assessment
-  execution; supported downstream modules contain no duplicate filtering.
-- Exact Stage-5 any-block behavior and corrected all-required-block behavior
-  are both visible and never confused.
-- Learner feature eligibility is calculated before fitting and an ineligible
-  fish becomes Unclassified rather than disappearing.
+- Technical and exploratory stages are separately visible within one command;
+  the normalized-vigor trial/block filters are not part of it.
+- Merged learner-input eligibility is calculated before fitting; later
+  model-derived feature failures remain visible rather than disappearing.
 - Imaging availability cannot alter behavior-primary inclusion.
 
 ## Implementation sequence
 
 1. Build and review the complete exclusion inventory.
-2. Implement and run the unified selection-assessment step.
+2. Run the technical and exploratory stages through `assess-discarding`.
 3. Decide the primary technical policy and named sensitivity populations with
    paper-scale counts available.
 4. Generate, review, and freeze the paper cohort manifest.
 5. Build `cohort-trial-outcomes` and its sample-flow artifact.
-6. Make model input and the learning-onset analysis consume the unified
-   assessment eligibility first.
+6. Keep model-input and learning-onset trial eligibility explicit and
+   cohort-authenticated, separate from exploratory fish screening.
 7. Migrate metric comparison, permutation/bootstrap, figures, and learner
    analysis.
    The post-classification catch/block and complete single-metric run follow
@@ -494,7 +380,7 @@ Every expected recording has an explicit disposition; one reviewed immutable
 manifest defines each named population; the primary manifest is independent of
 the hypothesized behavioral response; cohort membership is applied exactly once
 to create the population outcome artifact; every downstream result authenticates
-the same cohort and selection-assessment hashes; all legacy Stage-1, Stage-5,
-LME, and learner filters are evaluated once in the unified assessment;
+the same cohort and assessment hashes; the source-linked preprocessing checks
+and merged learner-input rule are evaluated in the exploratory stage;
 outcome-specific missingness is reported as eligibility rather than hidden fish
 exclusion; and all sample counts reconcile through the final figures.

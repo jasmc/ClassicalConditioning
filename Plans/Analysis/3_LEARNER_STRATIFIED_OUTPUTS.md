@@ -107,9 +107,9 @@ Before using learner labels in paper-level claims:
    trial-outcome/temporal-profile artifacts before classification. Learner
    labels and behavior-dependent sensitivity policies may not rewrite that
    cohort.
-10. Freeze the unified selection assessment that computed technical,
-    legacy-equivalent, model, and learner eligibility in one step. Plotting,
-    modelling, and classifier code may not repeat those filters.
+10. Authenticate the technical and exploratory assessment. Its single merged
+    learner-input rule is pre-fit only; record model-derived feature failures
+    later without changing the primary cohort.
 
 The current nominal implementation is:
 
@@ -732,7 +732,7 @@ Non-learners
 Unclassified
 ```
 
-These counts come from the unified selection assessment and the frozen learner
+These counts come from the two-stage assessment and the frozen learner
 manifest. The stratified-output step must not recalculate or reinterpret any
 discard/eligibility rule.
 

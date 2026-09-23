@@ -66,10 +66,10 @@ The orchestration is implemented in [pipeline.py](../../../src/classical_conditi
 | 0 | Validate run configuration and select recordings | [run_config.py](../../../src/classical_conditioning/run_config.py), [pipeline.py](../../../src/classical_conditioning/pipeline.py) | selected recording IDs |
 | 1 | Optional inventory of raw triplets and SHA-256 hashes | [inventory.py](../../../src/classical_conditioning/inventory.py) | `Metadata/recording_inventory.json` |
 | 2 | Intake immutable camera, tracking, and protocol files | [intake.py](../../../src/classical_conditioning/intake.py), [readers.py](../../../src/classical_conditioning/ingestion/readers.py) | `Processed data/<recording-id>/camera.parquet`, `tracking.parquet`, `stimulus_events.parquet` |
-| 3A | Archived legacy preprocessing | [legacy_v1.py](../../../Archive/package/src/classical_conditioning/preprocessing/legacy_v1.py) | Historical source only; not a supported route |
-| 3B | Direct-intake candidate benchmark | [candidate_metrics_from_intake.py](../../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py) | `frame_activity_candidates-v1.parquet` |
+| 3A | Archived legacy preprocessing | [legacy.py](../../../Archive/package/src/classical_conditioning/preprocessing/legacy.py) | Historical source only; not a supported route |
+| 3B | Direct-intake candidate benchmark | [candidate_metrics_from_intake.py](../../../src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py) | `frame_activity_candidates.parquet` |
 | 4 | Detect bouts once from the retained legacy distal benchmark | [movement_state.py](../../../src/classical_conditioning/analysis/movement_state.py) | shared movement-state Parquet |
-| 5 | Align each CS/US event and aggregate into 0.5 s temporal bins | [temporal_profiles.py](../../../src/classical_conditioning/analysis/temporal_profiles.py) | `candidate_temporal_outcomes-v2.parquet` |
+| 5 | Align each CS/US event and aggregate into 0.5 s temporal bins | [temporal_profiles.py](../../../src/classical_conditioning/analysis/temporal_profiles.py) | `candidate_temporal_outcomes.parquet` |
 | 6 | Produce trial-level outcomes and coverage | [trial_outcomes.py](../../../src/classical_conditioning/analysis/trial_outcomes.py) | candidate trial outcome and coverage Parquet files |
 | 7 | Combine recordings and compare all three metrics | [metric_comparison.py](../../../src/classical_conditioning/analysis/metric_comparison.py) | `Processed data/Analyses/<analysis-id>/...recording_summary.parquet`, `...cohort_summary.parquet` |
 | 8 | Render figures from immutable saved tables | [figures/temporal_profiles.py](../../../src/classical_conditioning/figures/temporal_profiles.py), [figures/metric_comparison.py](../../../src/classical_conditioning/figures/metric_comparison.py) | `Figures/PNG/...` or `Figures/Publication/...` plus `.figure.json` |
@@ -90,8 +90,8 @@ candidate frame metrics
 The runner verifies hashes and completion markers between stages. The two
 candidate route families are paired by recipe in
 [movement_state.py](../../../src/classical_conditioning/analysis/movement_state.py):
-the development route uses `tail-candidate-development-v1`; the corrected route
-uses `tail-candidate-corrected-v1` and corrected preprocessing.
+the development route uses `tail-candidate-development`; the corrected route
+uses `tail-candidate-corrected` and corrected preprocessing.
 
 ### Historical numbered-script route
 
@@ -272,9 +272,9 @@ For auditing a generated current figure, inspect these together:
 ```text
 Figures/.../<figure>.png or .svg
 Figures/.../<figure>.figure.json
-Processed data/<recording-id>/candidate_temporal_outcomes-v2.parquet
-Metadata/<recording-id>_candidate-temporal-outcomes-v2_complete.json
-Quality checks/<recording-id>/candidate-v2_temporal_outcomes_summary.json
+Processed data/<recording-id>/candidate_temporal_outcomes.parquet
+Metadata/<recording-id>_candidate-temporal-outcomes_complete.json
+Quality checks/<recording-id>/candidate_temporal_outcomes_summary.json
 ```
 
 For an exact rerun, use the reproduction command stored in the sidecar, or the
@@ -287,5 +287,5 @@ uv run classical-conditioning figure-candidate-profiles `
   --trial-type CS `
   --outcome movement-probability `
   --mode static `
-  --recipe candidate-temporal-outcomes-v2
+  --recipe candidate-temporal-outcomes
 ```

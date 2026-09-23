@@ -1,6 +1,8 @@
 # Candidate figure guide
 
-Figures are derived views of candidate artifacts. They are exploratory and do
+Figures are derived views of authenticated artifacts. The routine run renders
+every family whose inputs are ready, including both CS and US alignments for
+per-fish profiles and all five comparison outcomes. They are exploratory and do
 not make an approved scientific claim by themselves. Preserve the source table,
 QC summary, and provenance sidecar with each rendered figure.
 
@@ -34,7 +36,7 @@ Example:
 uv run classical-conditioning figure-candidate-profiles `
   --project-dir "<SAVE>" --recording-id <RECORDING-ID> `
   --trial-type CS --figure total-activity-raw --mode static `
-  --recipe candidate-temporal-outcomes-corrected-v3
+  --recipe candidate-temporal-outcomes-corrected
 ```
 
 All profile figures use time relative to the selected stimulus event on the
@@ -63,7 +65,7 @@ but should not be interpreted as three independent metric measurements.
 
 ```powershell
 uv run classical-conditioning figure-metric-comparison `
-  --project-dir "<SAVE>" --analysis-id <ANALYSIS-ID>-candidate `
+  --project-dir "<SAVE>" --analysis-id <ANALYSIS-ID> `
   --trial-type CS --outcome movement-probability --mode static
 ```
 
@@ -96,8 +98,21 @@ fish. The block command uses every declared CS ten-trial block. Both mask bins
 below `--minimum-coverage` (default 0.9), pool trials within fish first, and
 then give each fish equal weight in the condition median and IQR.
 
+The selected-block ratio figure uses final Pre-Train trials 10–14, Early Test
+65–69, and Late Test 90–94. Its response/baseline ratios are not the same
+quantity as the 0–1 scaled catch/block profiles. A signed, baseline-centered
+paper Figure 4 representation remains gated on an approved definition and
+frozen learner identity; current descriptive plots cannot be relabelled as it.
+
 These are descriptive population figures. Learner-stratified versions remain
 gated on the frozen learner-representation manifest and validation mode.
+
+When the reviewed cohort contains one paired condition and its matched
+control, the routine run also renders a CS-aligned population heatmap from one
+value per fish/trial/time bin. It displays 0–1 scaled total activity across
+**all valid frames, including valid zeros**; a second row displays the
+contributing-fish fraction and the panel-data Parquet records exact counts.
+This is not the movement-conditional vigor estimand in draft Figure 2.
 
 ## Colour and comparison rules
 

@@ -1,7 +1,8 @@
 # Integrated Single-Metric Cohort Analysis and CR-Profile Figures
 
-**Status:** Shared label-independent profile substrate implemented; automatic
-paper run waits for Gate L and a frozen learner-representation manifest
+**Status:** Routine corrected run now schedules available population figures;
+learner/paper panels remain blocked on Gate L, approved signed data, and
+independent timing validation
 **Depends on:** approved metric/outcome contract, frozen primary technical
 cohort, and [learner classification](./2_LEARNER_CLASSIFICATION.md)
 **Delivers:** one authenticated post-classification analysis run plus focused
@@ -31,7 +32,7 @@ learner-stratified figure run cannot precede the classifier. Use this order:
 
 ```text
 approved preprocessing + one selected metric
-  -> unified technical/legacy/LME/learner eligibility assessment
+  -> technical assessment, then exploratory legacy-rule screening
   -> label-independent primary technical cohort
   -> authenticated cohort trial outcomes and temporal profiles
   -> frozen learner representation/classification manifest
@@ -51,12 +52,12 @@ The primary cohort uses only prespecified technical criteria that cannot be
 caused by learning. Missing or immobile behavior is represented by outcome or
 classification eligibility, not primary fish exclusion.
 
-All technical inclusion, legacy sensitivity, learning-onset eligibility, and
-learner-feature eligibility are calculated together by the unified assessment
-defined in the single-cohort plan. LME and classifier modules consume those
-results; they do not discard again.
+The two-stage command records technical evidence and a source-linked
+exploratory legacy-rule projection. Learning-onset trial eligibility remains
+in its cohort-authenticated inference route; learner model-derived feature
+availability remains for later learner analysis.
 
-### `legacy-discard-interim-v1`
+### Exploratory legacy-rule projection
 
 Preserve the historical behavior-dependent discard procedure as a named,
 non-destructive sensitivity policy. It is not technical QC, is not
@@ -65,9 +66,9 @@ reference population.
 
 The policy records each component separately:
 
-1. the final scheduled US trial has a recorded US end at least 0.4 s after
+1. the final observed US trial has a recorded US end at least 0.4 s after
    onset and at least one detected bout in 0-5 s;
-2. every configured Train US trial has at least one detected bout in 0-5 s;
+2. every observed Train US trial has at least one detected bout in 0-5 s;
 3. Re-Train US trials, when present, satisfy the same bout rule;
 4. each of Late Pre-train (CS 10-14), Early Test (CS 65-69), and Late Test
    (CS 90-94) has at least three distinct trials with a detected bout in the
@@ -76,12 +77,11 @@ The policy records each component separately:
    detected bout in the assay-specific CR window; and
 6. every required component and every selected block must pass (AND logic).
 
-The unified evaluator reads authenticated artifacts, writes component reasons
-and a policy hash, and never moves, renames, or deletes source or processed
-files. It computes this status before cohort review, but the review may use only
-technical columns for primary membership. After learner labels exist, report
-the legacy status by condition and learner stratum. It is a sensitivity
-population and sample-flow cross-tab, not a replacement cohort.
+The evaluator reads authenticated artifacts, writes component reasons and an
+assessment hash, and never moves source or processed files. It also records
+one merged learner-input check; it does not run a classifier. Only technical
+columns may inform primary review. After learner labels exist, report the
+exploratory status by condition and learner stratum.
 
 ## Experiment-owned catch and block definitions
 
@@ -116,15 +116,15 @@ or independent validation mode frozen at Gate L.
 
 ## Final integrated command contract
 
-After a learner manifest is frozen, `run-pipeline` receives:
+After a learner manifest is frozen, `run-pipeline` receives the relevant
+scientific identities. It has no figure or intake enable switch:
 
 ```text
 cohort_id
 selection_assessment_id / selection_assessment_hash
-cohort_metric
+metric
 learner_representation_id / classifier_execution_id
 validation_mode
-run_figures = true
 ```
 
 The command authenticates one selection-assessment hash, one cohort hash, one
@@ -156,21 +156,28 @@ Implemented now:
   temporal profiles;
 - focused cohort catch-profile and block-profile figure commands; and
 - tests for catch membership, Early Test catch 65, block resolution,
-  equal-fish aggregation, and coverage masking.
+  equal-fish aggregation, and coverage masking;
+- unconditional raw inventory and verified intake with a durable operational
+  ready/incomplete/failed ledger and explicit retry;
+- stable-path corrected candidate analysis and bounded routine scheduling of
+  detector, per-fish, comparison, and five cohort figure families when their
+  authenticated inputs are available;
+- a proposed A–G/A–I/A–G/A–G paper panel registry whose blocked reasons are
+  included in each run summary. Paper panels are not silently filled by
+  descriptive figure families.
 
 Still required before the learner workstream can execute:
 
-- the unified `selection-assessment-v1` implementation covering legacy
-  Stage 1, Stage-5/LME, and learner-feature eligibility without file moves or
-  downstream duplicate filtering;
+- approval of the numerical technical policy, reviewed primary cohort, and
+  validation of the two-stage audit on paper-scale inputs;
 
 Gated on the learner workstream:
 
 - the canonical learner/continuous-representation manifest and validated join;
 - stratum-aware rendering and validation-mode-specific inference;
-- the learner-stratum impact report for the already-computed
-  `legacy-discard-interim-v1` status;
-- `run-pipeline` orchestration of the entire cohort/learner figure family; and
+- the learner-stratum impact report for the exploratory legacy-rule status;
+- learner-figure rendering from a frozen representation and signed independent
+  timing panel data; and
 - paper-scale execution and figure registration.
 
 ## Required tests before completion
@@ -180,8 +187,8 @@ Gated on the learner workstream:
   records component reasons, and performs no file moves.
 - Altering response behavior cannot alter primary technical membership.
 - Learner labels cannot alter the primary cohort hash.
-- LME and learner modules reproduce the eligibility rows from the unified
-  assessment and contain no private discard implementation.
+- LME trial eligibility and learner model-derived feature failures remain
+  explicit without changing technical cohort membership.
 - Catch/block aggregation is trial-within-fish then equal-fish, with explicit
   coverage and counts.
 - Every table, model, and figure in one integrated run carries identical cohort,

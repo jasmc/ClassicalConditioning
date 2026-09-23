@@ -671,7 +671,7 @@ legacy outputs.
 #### Route A: Suite2p cells
 
 ```text
-roi_method_id = suite2p-cells-v1
+roi_method_id = suite2p-cells
 ```
 
 Products include ROI geometry, `iscell`, fluorescence, neuropil, optional
@@ -680,7 +680,7 @@ deconvolution, and method-specific QC.
 #### Route B: Correlation-grown ROIs
 
 ```text
-roi_method_id = correlation-grown-v1
+roi_method_id = correlation-grown
 ```
 
 Products include seeds, growth history or sufficient diagnostics, pixel masks,

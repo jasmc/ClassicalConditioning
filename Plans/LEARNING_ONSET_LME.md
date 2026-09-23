@@ -3,8 +3,8 @@
 **Status:** Design proposed; scientific choices and paper-scale execution remain open  
 **Scope:** Condition-aware population learning across trials, block-level evidence,
 trial-level localization, onset uncertainty, and the corresponding pooled figure  
-**Depends on:** approved outcome, frozen unified selection assessment, frozen
-cohort, shared movement detector, and paper-scale coverage review
+**Depends on:** approved outcome, technical assessment, frozen cohort, shared
+movement detector, and paper-scale coverage review
 
 Detailed implementation order, artifact contracts, and acceptance gates are in
 [Remaining Cohort and Learning-Onset Implementation](./REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md).
@@ -52,11 +52,10 @@ The descriptive builders and learning-onset route now consume
 `cohort-trial-outcomes`. A reviewed paper cohort and approved O/S configuration
 are still required before the resulting inference is paper-authoritative.
 
-Before the paper run, the existing eligibility calculation moves into the
-unified `selection-assessment-v1` step defined by the single-cohort plan. This
-analysis must consume the matching frozen trial-eligibility rows and may not
-drop fish or trials through an additional private completeness rule. Ineligible
-rows and fish with no model-eligible trials remain in the sample-flow report.
+The two-stage discarding command does not calculate LME trial eligibility.
+This analysis keeps its explicit cohort-authenticated eligibility table;
+ineligible rows and fish with no model-eligible trials remain in sample flow.
+The exploratory behavioral screen never changes the primary model cohort.
 
 ## Scientific definitions to freeze before fitting
 
