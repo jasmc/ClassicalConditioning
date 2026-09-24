@@ -210,3 +210,12 @@ __marimo__/
 
 # Local one-off analysis runners and render checks
 /.tmp_*.py
+
+# Generated paper-figure images, panel data, and provenance sidecars
+/outputs/figure1-D-raw-vigor-zoom/
+/outputs/figure1-examples-zoom/
+/outputs/figure1-examples/
+/outputs/figure1-heatmaps/
+/outputs/figure1-vigor-zoom/
+/outputs/figure2-delay/
+/outputs/legacy-learner-comparison/
