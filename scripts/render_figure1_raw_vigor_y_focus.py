@@ -173,7 +173,7 @@ def _render(
         "frame-scaled log "
         if "Signal semantics" in heatmap_data.columns and
         set(heatmap_data["Signal semantics"].astype(str)) ==
-        {"bout_mean_log_frame_scaled_per_trial_then_binned"}
+        {"bout_mean_log_frame_scaled_per_trial_pre_minus20_to_0_then_binned"}
         else (str(heatmap_data["Vigor transform"].iloc[0]) + " "
               if "Vigor transform" in heatmap_data else "")
     )
@@ -208,9 +208,12 @@ def main() -> None:
     missing = required.difference(heatmap_data.columns)
     if missing:
         raise ValueError(f"Heatmap panel data lack columns: {sorted(missing)}")
-    expected_semantics = {"bout_mean_log_frame_scaled_per_trial_then_binned"}
+    expected_semantics = {
+        "bout_mean_log_frame_scaled_per_trial_pre_minus20_to_0_then_binned",
+        "bout_mean_log_frame_scaled_per_trial_then_binned",
+    }
     frame_scaled = ("Signal semantics" in heatmap_data.columns and
-                    set(heatmap_data["Signal semantics"].astype(str)) == expected_semantics)
+                    set(heatmap_data["Signal semantics"].astype(str)).issubset(expected_semantics))
     if not frame_scaled and "Conditional intensity mean" not in heatmap_data.columns:
         raise ValueError("Figure 1D requires movement-conditional heatmap panel data")
     if heatmap_data.duplicated(["Recording ID", "Trial number", "Metric ID", "Time bin center (s)"]).any():

@@ -63,10 +63,7 @@ def _read_selected_windows(
     return pd.concat(pieces, ignore_index=True)
 
 
-def _load_fish(
-    project_dir: Path, recording_id: str,
-    *, window_s: tuple[float, float] = WINDOW_S,
-):
+def _load_fish(project_dir: Path, recording_id: str):
     _, metrics_path, protocol_path = _verified_paths(project_dir, recording_id)
     movement_path = (
         project_dir / "Processed data" / recording_id
@@ -86,8 +83,8 @@ def _load_fish(
     if len(cycles) < 94:
         raise ValueError(f"Expected at least 94 CS cycles for {recording_id}")
     intervals = [
-        (int(cycles.iloc[trial - 1]["Beg"] + window_s[0] * 1000),
-         int(cycles.iloc[trial - 1]["Beg"] + window_s[1] * 1000))
+        (int(cycles.iloc[trial - 1]["Beg"] + WINDOW_S[0] * 1000),
+         int(cycles.iloc[trial - 1]["Beg"] + WINDOW_S[1] * 1000))
         for trial in range(5, 95)
     ]
     metric_columns = [METRIC_COLUMNS[metric_id] for metric_id in METRIC_COLUMNS]

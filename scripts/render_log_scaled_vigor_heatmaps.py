@@ -116,6 +116,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, default=Path("outputs"))
+    parser.add_argument("--figure1-only", action="store_true")
     args = parser.parse_args()
     project = args.project_dir.resolve()
     root = args.output_root.resolve()
@@ -125,6 +126,7 @@ def main() -> None:
         f"MPLCONFIGDIR=/private/tmp/cc-mpl PYTHONPATH=src .venv/bin/python "
         f"scripts/render_log_scaled_vigor_heatmaps.py --project-dir '{project}' "
         f"--output-root '{root}'"
+        f"{' --figure1-only' if args.figure1_only else ''}"
     )
 
     example_output = root / "figure1-heatmaps" / "log-managua-r"
@@ -146,6 +148,9 @@ def main() -> None:
         _export(fig, base, "figure-1-E-log-scaled-vigor", panels, mappings,
                 [*example_inputs, example_input,
                  {"path": str(scaling), "sha256": sha256_file(scaling)}], None, snippet)
+
+    if args.figure1_only:
+        return
 
     pooled_output = root / "figure2-delay" / "log-managua-r"
     pooled_output.mkdir(parents=True, exist_ok=True)

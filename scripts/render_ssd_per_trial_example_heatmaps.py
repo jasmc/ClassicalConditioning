@@ -100,7 +100,10 @@ def _render(data: pd.DataFrame, metric_id: str, *, cmap_name: str = "managua_r")
                 "recording_id": fish_id, "metric_id": metric_id,
                 "value_field": "Per-trial scaled vigor",
                 "baseline": (
-                    "pre-CS time < -15 s; log bout-mean movement frames P10-P90; scale frames before binning"
+                    "pre-CS -20 to 0 s; log bout-mean movement frames P10-P90; scale frames before binning"
+                    if "Signal semantics" in data.columns and
+                    data["Signal semantics"].astype(str).str.contains("pre_minus20_to_0").all()
+                    else "log bout-mean movement frames P10-P90; scale frames before binning"
                     if "Signal semantics" in data.columns and
                     data["Signal semantics"].astype(str).str.contains("frame_scaled_per_trial").all()
                     else "pre-CS time < -15 s; covered bin P10-P90"
