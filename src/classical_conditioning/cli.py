@@ -1023,6 +1023,63 @@ def build_parser() -> argparse.ArgumentParser:
     )
     control_flags.add_argument("--comparison-dir", type=Path, required=True)
 
+    paper_panels = subparsers.add_parser(
+        "render-paper-panels",
+        help="Render supported manuscript panel families and record review provenance.",
+    )
+    paper_panels.add_argument("--project-dir", type=Path, required=True)
+    paper_panels.add_argument("--output-dir", type=Path, required=True)
+    paper_panels.add_argument(
+        "--figure-set", choices=("available", "figure1", "figure2-delay", "figure4"),
+        default="available",
+    )
+    paper_panels.add_argument(
+        "--metric", choices=(
+            "tail_length_weighted_angular_l1",
+            "whole_tail_xy_mean_speed_normalized",
+            "legacy_distal_angular_speed",
+        ), default="tail_length_weighted_angular_l1",
+    )
+    paper_panels.add_argument("--delay-fish", default="20221115_07")
+    paper_panels.add_argument("--control-fish", default="20221115_09")
+    paper_panels.add_argument("--trial", type=int, action="append")
+    paper_panels.add_argument("--mode", choices=("static", "publication"), default="static")
+    paper_panels.add_argument("--include-inference-review", action="store_true")
+    paper_panels.add_argument("--plan", action="store_true")
+    paper_panels.add_argument("--overwrite", action="store_true")
+    paper_panels.add_argument("--delay-cohort-id")
+    paper_panels.add_argument("--trace3-cohort-id")
+    paper_panels.add_argument("--trace10-cohort-id")
+    paper_panels.add_argument("--learner-manifest", type=Path)
+    paper_panels.add_argument("--delay-project-dir", type=Path)
+    paper_panels.add_argument("--trace3-project-dir", type=Path)
+    paper_panels.add_argument("--trace10-project-dir", type=Path)
+
+    figure4_analysis = subparsers.add_parser(
+        "figure4-analyze", help="Build authenticated learner-stratified Figure 4 panel data."
+    )
+    figure4_analysis.add_argument("--project-dir", type=Path, required=True)
+    figure4_analysis.add_argument("--analysis-id", required=True)
+    figure4_analysis.add_argument("--metric", choices=(
+        "tail_length_weighted_angular_l1", "whole_tail_xy_mean_speed_normalized",
+        "legacy_distal_angular_speed"), required=True)
+    figure4_analysis.add_argument("--delay-cohort-id", required=True)
+    figure4_analysis.add_argument("--trace3-cohort-id", required=True)
+    figure4_analysis.add_argument("--trace10-cohort-id", required=True)
+    figure4_analysis.add_argument("--learner-manifest", type=Path, required=True)
+    figure4_analysis.add_argument("--delay-project-dir", type=Path)
+    figure4_analysis.add_argument("--trace3-project-dir", type=Path)
+    figure4_analysis.add_argument("--trace10-project-dir", type=Path)
+    figure4_analysis.add_argument("--overwrite", action="store_true")
+
+    figure4_render = subparsers.add_parser(
+        "figure4-render", help="Render Figure 4 from authenticated saved panel data."
+    )
+    figure4_render.add_argument("--analysis-summary", type=Path, required=True)
+    figure4_render.add_argument("--output-dir", type=Path, required=True)
+    figure4_render.add_argument("--mode", choices=("static", "publication"), default="static")
+    figure4_render.add_argument("--overwrite", action="store_true")
+
     return parser
 
 
@@ -1031,6 +1088,69 @@ def main(argv: Sequence[str] | None = None) -> None:
     ensure_supported_runtime()
     parser = build_parser()
     args = parser.parse_args(argv)
+
+    if args.command == "figure4-analyze":
+        from classical_conditioning.analysis.figure4 import analyze_figure4
+
+        summary = analyze_figure4(
+            args.project_dir, analysis_id=args.analysis_id, metric_id=args.metric,
+            cohort_ids={"allDelay": args.delay_cohort_id,
+                        "all3sTrace": args.trace3_cohort_id,
+                        "all10sTrace": args.trace10_cohort_id},
+            learner_manifest=args.learner_manifest,
+            experiment_dirs={key: value for key, value in (
+                ("allDelay", args.delay_project_dir),
+                ("all3sTrace", args.trace3_project_dir),
+                ("all10sTrace", args.trace10_project_dir),
+            ) if value is not None},
+            overwrite=args.overwrite,
+        )
+        print(f"Figure 4 analysis: {summary}")
+        return
+
+    if args.command == "figure4-render":
+        from classical_conditioning.figures.export import FigureMode
+        from classical_conditioning.figures.figure4 import render_figure4
+
+        results = render_figure4(
+            args.analysis_summary, output_dir=args.output_dir,
+            mode=FigureMode(args.mode), overwrite=args.overwrite,
+        )
+        for result in results:
+            for output in result.outputs:
+                print(f"Figure: {output}")
+            print(f"Provenance: {result.sidecar}")
+        return
+
+    if args.command == "render-paper-panels":
+        import json
+        from classical_conditioning.figures.paper_panels import (
+            DEFAULT_TRIALS, run_paper_panels,
+        )
+
+        report = run_paper_panels(
+            args.project_dir, args.output_dir, figure_set=args.figure_set,
+            metric_id=args.metric, delay_fish=args.delay_fish,
+            control_fish=args.control_fish,
+            trials=tuple(args.trial) if args.trial else DEFAULT_TRIALS,
+            mode=args.mode, inference_review=args.include_inference_review,
+            overwrite=args.overwrite, plan_only=args.plan,
+            figure4_cohort_ids={"allDelay": args.delay_cohort_id,
+                                "all3sTrace": args.trace3_cohort_id,
+                                "all10sTrace": args.trace10_cohort_id}
+            if args.figure_set == "figure4" else None,
+            figure4_manifest=args.learner_manifest,
+            figure4_project_dirs={key: value for key, value in (
+                ("allDelay", args.delay_project_dir),
+                ("all3sTrace", args.trace3_project_dir),
+                ("all10sTrace", args.trace10_project_dir),
+            ) if value is not None},
+        )
+        if args.plan:
+            print(json.dumps(report, indent=2))
+        else:
+            print(args.output_dir.resolve() / "paper-panel-run.json")
+        return
 
     if args.command == "compare-legacy-control-flags":
         from classical_conditioning.analysis.legacy_learner_controls import summarize_control_flags
