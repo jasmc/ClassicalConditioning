@@ -206,7 +206,7 @@ def build_population_heatmap_figure(
             main_image = axes[0, index].imshow(
                 np.ma.masked_invalid(activity), origin="lower", aspect="auto",
                 extent=extent, vmin=0, vmax=1,
-                cmap="magma",
+                cmap="managua_r",
                 interpolation="nearest",
             )
             main_id = f"heatmap__{condition}__scaled-total-activity"

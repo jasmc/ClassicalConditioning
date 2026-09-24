@@ -20,6 +20,11 @@ dependencies = [
 analysis = [
     "statsmodels>=0.14,<0.15",
 ]
+legacy-learners = [
+    "statsmodels>=0.14,<0.15",
+    "seaborn>=0.13,<0.14",
+    "scikit-learn>=1.5,<2",
+]
 interactive = [
     "plotly>=6,<7",
 ]

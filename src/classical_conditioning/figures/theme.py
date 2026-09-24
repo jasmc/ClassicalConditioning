@@ -109,7 +109,7 @@ class FigureTheme:
     heatmap_bad_color: tuple[float, float, float] = (0.75, 0.75, 0.75)
     single_series_color: tuple[float, float, float] = (0.0, 0.0, 0.0)
     qualitative_colors: tuple[str, ...] = COLORBLIND_QUALITATIVE
-    intensity_cmap: str = "magma"
+    intensity_cmap: str = "managua_r"
     # March 24 single-fish, baseline-centred log-vigor figure (signed scale).
     single_fish_scaled_vigor_cmap: str = "managua_r"
     single_fish_scaled_vigor_vmin: float = -0.25

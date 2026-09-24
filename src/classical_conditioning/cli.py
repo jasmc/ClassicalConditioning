@@ -1001,6 +1001,28 @@ def build_parser() -> argparse.ArgumentParser:
     discarding.add_argument("--disable-check", action="append", default=[])
     discarding.add_argument("--recording-id", action="append")
 
+    legacy_learners = subparsers.add_parser(
+        "compare-legacy-learners",
+        help="Compare four archived learner algorithms on one frozen allDelay cohort (descriptive).",
+    )
+    legacy_learners.add_argument("--cohort", type=Path, required=True)
+    legacy_learners.add_argument("--trial-outcomes", type=Path, required=True)
+    legacy_learners.add_argument("--output-dir", type=Path, required=True)
+    legacy_learners.add_argument("--metric", default="legacy_distal_angular_speed")
+
+    learner_figures = subparsers.add_parser(
+        "render-legacy-learner-figures",
+        help="Render archived summary plots for a completed legacy learner comparison.",
+    )
+    learner_figures.add_argument("--comparison-dir", type=Path, required=True)
+    learner_figures.add_argument("--include-individuals", action="store_true")
+
+    control_flags = subparsers.add_parser(
+        "compare-legacy-control-flags",
+        help="Audit control fish flagged by each historical learner rule.",
+    )
+    control_flags.add_argument("--comparison-dir", type=Path, required=True)
+
     return parser
 
 
@@ -1009,6 +1031,37 @@ def main(argv: Sequence[str] | None = None) -> None:
     ensure_supported_runtime()
     parser = build_parser()
     args = parser.parse_args(argv)
+
+    if args.command == "compare-legacy-control-flags":
+        from classical_conditioning.analysis.legacy_learner_controls import summarize_control_flags
+
+        result = summarize_control_flags(args.comparison_dir)
+        print(f"Control-flag comparison: {result['artifacts']['png']}")
+        print(f"Controls flagged by any rule: {', '.join(result['control_fish_flagged_by_any'])}")
+        return
+
+    if args.command == "render-legacy-learner-figures":
+        from classical_conditioning.analysis.legacy_learners import render_legacy_learner_figures
+
+        report = render_legacy_learner_figures(
+            args.comparison_dir, include_individuals=args.include_individuals,
+        )
+        for item in report["variants"]:
+            print(f"{item['variant']}: {len(item['figures'])} figures")
+        return
+
+    if args.command == "compare-legacy-learners":
+        from classical_conditioning.analysis.legacy_learners import compare_legacy_learners
+
+        report = compare_legacy_learners(
+            args.cohort, args.trial_outcomes, args.output_dir, metric_id=args.metric,
+        )
+        print(f"Comparison: {args.output_dir / 'fish-comparison.csv'}")
+        for item in report["variants"]:
+            print(f"{item['variant']}: {item['status']}"
+                  + (f", delay learners {item['learner_delay']}/{item['eligible_delay']}"
+                     if item["status"] == "completed" else f" (see {item['log']})"))
+        return
 
     if args.command == "assess-discarding":
         from classical_conditioning.analysis.discarding import assess_discarding

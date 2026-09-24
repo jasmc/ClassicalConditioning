@@ -606,7 +606,7 @@ def build_candidate_profile_figure(
             values = pivot.to_numpy(dtype=float)
             vmin, vmax, _ = _panel_scale(values, panel)
             colorscale = panel.plotly_colorscale
-            if panel.cmap_family == "single-fish-signed-vigor":
+            if panel.metric_id is not None:
                 cmap = heatmap_cmap(_panel_cmap_name(panel, DEFAULT_THEME))
                 colorscale = [
                     [index / 255, to_hex(cmap(index / 255))]
