@@ -1,8 +1,8 @@
-"""Render Figure 1D with raw frames and movement-conditional heatmap bins.
+"""Render Figure 1D with raw frames and matching single-fish heatmap bins.
 
 Black is the measured frame-by-frame candidate metric. Orange is the exact
-per-trial scaled movement-conditional heatmap signal in 0.5 s bins, on a separate
-0–1 axis. Finite runs have vertical boundaries at adjacent missing bins.
+movement-conditional heatmap signal in 0.5 s bins, on a separate axis.
+Finite runs have vertical boundaries at adjacent missing bins.
 """
 
 from __future__ import annotations
@@ -107,8 +107,11 @@ def _render(
                 ].sort_values("Time bin center (s)")
                 if len(bins) != 80:
                     raise ValueError(f"Expected 80 heatmap bins: {fish}, {metric_id}, trial {trial}")
-                values = bins["Per-trial scaled vigor"].to_numpy(dtype=float)
-                transform = str(bins["Vigor transform"].iloc[0]) if "Vigor transform" in bins else "linear"
+                signed = "Signed log vigor" in bins.columns
+                value_field = "Signed log vigor" if signed else "Per-trial scaled vigor"
+                values = bins[value_field].to_numpy(dtype=float)
+                transform = ("signed log relative to pre-CS median" if signed else
+                             str(bins["Vigor transform"].iloc[0]) if "Vigor transform" in bins else "linear")
                 centers = bins["Time bin center (s)"].to_numpy(dtype=float)
                 if not np.allclose(centers, np.arange(-20, 20, .5) + .25):
                     raise ValueError("Heatmap bins do not span the full 40 s window")
@@ -131,20 +134,24 @@ def _render(
                     mappings[step_id] = {
                         "recording_id": fish, "trial_number": str(trial),
                         "metric_id": metric_id,
-                        "value_field": "Per-trial scaled vigor",
-                        "units": "0-1", "source_panel": "figure-1-E movement-conditional",
+                        "value_field": value_field,
+                        "units": "signed log" if signed else "0-1",
+                        "source_panel": "figure-1-E movement-conditional",
                         "time_bin_width_s": "0.5", "first_bin": str(start),
                         "last_bin_exclusive": str(stop),
                         "missing_bins": "not drawn; run boundaries descend to zero",
                         "vigor_transform_before_scaling": transform,
                     }
-                right.set_ylim(0, 1.05)
+                if signed:
+                    right.set_ylim(-0.27, 0.27)
+                else:
+                    right.set_ylim(0, 1.05)
                 right.set_xlim(*WINDOW)
                 right.spines[["top", "left"]].set_visible(False)
                 right.tick_params(axis="y", labelsize=7, colors="#B64700",
                                   right=col == 1, labelright=col == 1)
                 if col == 1 and row == len(TRIALS) // 2:
-                    right.set_ylabel("Heatmap scaled vigor (0–1)",
+                    right.set_ylabel("Signed log vigor" if signed else "Heatmap scaled vigor (0–1)",
                                      color="#B64700", fontsize=8)
             axis.axvspan(0, 10, color=theme.cs_color, alpha=0.055, zorder=-1)
             for time in (0, 10):
@@ -170,6 +177,7 @@ def _render(
                 axis.set_xlabel("Time relative to CS onset (s)", fontsize=9)
             panels.append(f"D_{condition.lower()}_trial_{trial}")
     transform_label = (
+        "signed log " if "Signed log vigor" in heatmap_data.columns else
         "frame-scaled log "
         if "Signal semantics" in heatmap_data.columns and
         set(heatmap_data["Signal semantics"].astype(str)) ==
@@ -203,18 +211,19 @@ def main() -> None:
     output.mkdir(parents=True, exist_ok=True)
     heatmap_path = args.heatmap_panel_data.resolve()
     heatmap_data = pq.read_table(heatmap_path).to_pandas()
-    required = {"Recording ID", "Trial number", "Metric ID", "Time bin center (s)",
-                "Per-trial scaled vigor"}
+    required = {"Recording ID", "Trial number", "Metric ID", "Time bin center (s)"}
     missing = required.difference(heatmap_data.columns)
     if missing:
         raise ValueError(f"Heatmap panel data lack columns: {sorted(missing)}")
+    if not ({"Signed log vigor", "Per-trial scaled vigor"} & set(heatmap_data.columns)):
+        raise ValueError("Heatmap panel data contain no vigor value column")
     expected_semantics = {
         "bout_mean_log_frame_scaled_per_trial_pre_minus20_to_0_then_binned",
         "bout_mean_log_frame_scaled_per_trial_then_binned",
     }
     frame_scaled = ("Signal semantics" in heatmap_data.columns and
                     set(heatmap_data["Signal semantics"].astype(str)).issubset(expected_semantics))
-    if not frame_scaled and "Conditional intensity mean" not in heatmap_data.columns:
+    if not frame_scaled and "Conditional intensity mean" not in heatmap_data.columns and "Signed log vigor" not in heatmap_data.columns:
         raise ValueError("Figure 1D requires movement-conditional heatmap panel data")
     if heatmap_data.duplicated(["Recording ID", "Trial number", "Metric ID", "Time bin center (s)"]).any():
         raise ValueError("Heatmap panel data contain duplicate fish/trial/metric/bin rows")

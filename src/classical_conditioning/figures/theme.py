@@ -114,7 +114,7 @@ class FigureTheme:
     single_fish_scaled_vigor_cmap: str = "managua_r"
     single_fish_scaled_vigor_vmin: float = -0.25
     single_fish_scaled_vigor_vmax: float = 0.25
-    probability_cmap: str = "cividis"
+    probability_cmap: str = "managua_r"
     stimulus_span_alpha: float = 0.18
     constrained_h_pad: float = 0.04
     constrained_w_pad: float = 0.04

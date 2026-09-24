@@ -222,7 +222,7 @@ def build_population_heatmap_figure(
             }
             coverage_image = axes[1, index].imshow(
                 np.ma.masked_invalid(coverage), origin="lower", aspect="auto",
-                extent=extent, vmin=0, vmax=1, cmap="cividis", interpolation="nearest",
+                extent=extent, vmin=0, vmax=1, cmap="managua_r", interpolation="nearest",
             )
             coverage_id = f"heatmap__{condition}__fish-coverage"
             coverage_image.set_gid(coverage_id)
@@ -232,6 +232,7 @@ def build_population_heatmap_figure(
                 "denominator_field": "Total cohort fish",
                 "x_field": "Time bin center (s)", "y_field": "Trial number",
                 "units": "fraction of frozen cohort fish",
+                "cmap": coverage_image.get_cmap().name,
             }
             fish_count = int(subset["Total cohort fish"].iloc[0])
             axes[0, index].set_title(f"{condition} (n={fish_count}) — scaled total activity")

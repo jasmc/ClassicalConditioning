@@ -13,6 +13,22 @@ from classical_conditioning.figures.per_trial_scaled_vigor import (
 
 
 class PerTrialScaledVigorTests(unittest.TestCase):
+    def test_explicit_pre20_window_excludes_older_profile_bins(self) -> None:
+        rows = [{
+            "Recording ID": "fish", "Trial type": "CS", "Trial number": 5,
+            "Time bin center (s)": time, "Metric ID": "metric",
+            "Conditional intensity mean": value, "Valid expected fraction": 1.0,
+        } for time, value in ((-30, 100), (-19, 1), (-18, 2), (-17, 3), (1, 4))]
+        scaled = scale_per_trial_conditional_vigor(
+            pd.DataFrame(rows), baseline_start_s=-20, baseline_end_s=0,
+            clip=False,
+        )
+        row = scaled.loc[scaled["Time bin center (s)"].eq(1)].iloc[0]
+        self.assertAlmostEqual(float(row["Baseline P10"]), 1.2)
+        self.assertAlmostEqual(float(row["Baseline P90"]), 2.8)
+        self.assertAlmostEqual(float(row["Per-trial scaled vigor"]), 1.75)
+        self.assertEqual(int(row["Baseline bins"]), 3)
+
     def test_each_trial_uses_its_own_baseline_and_missing_bins_stay_missing(self) -> None:
         rows = []
         for trial, factor in ((5, 1.0), (6, 10.0)):

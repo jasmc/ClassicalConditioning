@@ -51,6 +51,7 @@ class FigureProvenance:
     cohort_hash: str | None = None
     figure_spec_version: str = "1.0"
     artist_mappings: dict[str, dict[str, Any]] = field(default_factory=dict)
+    analysis_identity: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)

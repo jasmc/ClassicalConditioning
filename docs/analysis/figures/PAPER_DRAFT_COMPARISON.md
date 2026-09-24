@@ -18,12 +18,11 @@ time from the same fish and selected trials (D) → signed log-vigor heatmaps
 median. The February 14 version had used `spring`; March changed the palette
 and limits. The refactored `signed-log-vigor` candidate figure now uses the
 March palette and fixed CS limits with corrected bout data in 0.5-s bins.
-The active Figure 1E 0–1 scaled-vigor heatmaps log each positive bout mean,
-scale movement frames against each fish/trial's pre-CS P10–P90 range, then
-bin the scaled frames for display with `managua_r`. Earlier bin-first and
-linear-scaled renderings remain for comparison. Figure 2A still uses the
-corrected 0.5-s profile means as its input; its frame-level equivalence is
-not established.
+The user-selected Figure 1E review is signed log vigor relative to each
+trial's −20 to 0 s pre-CS median, displayed with `managua_r` at −0.25 to
++0.25. The 0–1 P10–P90 variants remain as historical alternatives. The current
+Figure 2A review pools these same signed fish/trial bins equally across cohort
+fish and uses the same `managua_r` limits.
 
 | Intended panel | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |
@@ -39,9 +38,9 @@ The draft combines conditions in E while the written A–G layout separates thre
 
 An exploratory Figure 1D renderer now shows the five selected Delay/control
 trials over the full −20 to +20 s window for each of the three candidate vigor
-metrics. Its focused-Y version overlays the exact 0.5-s scaled
-**movement-conditional log-vigor** heatmap values as orange outlined step runs on a
-separate 0–1 axis. Each run descends to zero at a neighboring NaN bin;
+metrics. Its focused-Y version overlays the exact 0.5-s **signed log-vigor**
+heatmap values as orange outlined step runs on a separate −0.25 to +0.25 axis.
+Each run descends to zero at a neighboring NaN bin;
 missing bins remain blank. The black frame-level vigor remains unscaled.
 The conditional heatmap is sparse because
 the legacy detector's centered 403-frame envelope loses validity around
@@ -63,17 +62,18 @@ blocked, even though descriptive CS-aligned profiles can be rendered.
 
 | Intended panels | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |
-| A–C heatmaps | Control/Delay, Control/3sTrace, Control/10sTrace; CS-aligned Pre/Train/Test stacks with a 0–1 scaled-vigor colour bar. | A Delay/control **paper-review adapter** now uses the corrected movement-only bin mean, scales each fish/trial against its earlier pre-CS P10/P90, averages fish per trial/bin, then applies the archived pooled builder's second per-trial pre-CS P10/P90 scale. Coverage is exported separately as supplementary data. This matches the legacy scaling **order**, but not its old frame-level vigor or fish/bin medians. The general-purpose `population_heatmap.py` route remains an all-valid-frame total-activity diagnostic. Trace cohorts, the final metric, and the manuscript signal still require review. |
+| A–C heatmaps | Control/Delay, Control/3sTrace, Control/10sTrace; CS-aligned Pre/Train/Test stacks with a 0–1 scaled-vigor colour bar. | The Delay/control **paper-review adapter** now calculates the same signed, −20 to 0 s baseline-centered bout-log-vigor bins as Figure 1E for every fish, then averages fish equally. It displays `managua_r` at −0.25…+0.25. Coverage is exported separately with its own 0…1 fraction scale. Earlier two-stage P10/P90 output is retained as a historical comparison. The general-purpose `population_heatmap.py` route remains an all-valid-frame total-activity diagnostic. Trace cohorts and the final metric still require review. |
 | D–F selected blocks | Three fish-level paired-line panels at PTr, ETe, LTe, with draft stars in Delay and 3sTrace. | Current `selected-block-ratio` derives finite response/baseline ratios for one selected metric, takes per-fish block medians, then condition medians/IQR, and records eligible trial/fish counts. Paper membership is **10–14, 65–69, 90–94**; the archived nine-block setting chose **Early Pre-Train** (the earlier five, 5–9), whereas its twelve-block branch chose Late Pre-Train. Thus the draft PTr values cannot be assumed equivalent. Current output is descriptive and does not copy the stars. |
 | G–I trial trajectories | Paired-condition trial curves with shaded uncertainty and many annotated marks in Delay and 3sTrace; near-flat 10sTrace. | Current `trial-ratio` aggregates fish equally at each trial and shows coverage/uncertainty from available fish; it does not reproduce unexplained draft marks. Trial windows, cohort, metric, normalization, and model contrasts must match an approved analysis before inference is placed on the panel. Present 10sTrace as inconclusive, not a demonstrated positive or absolute limit. |
 
 The archived normalized-vigor script can filter fish, uses mean baseline/response windows and exploratory within/between-condition tests; the current route uses corrected measured-time validity and a frozen cohort. Therefore visual agreement alone is not numerical equivalence. The displayed draft stars and line-plot marks must be regenerated from approved results, not traced from the PNG.
 
-For Delay/control review, `scripts/render_log_scaled_vigor_heatmaps.py`
-renders Figure 1E from frame-scaled log bout vigor and Figure 2A from
-log-transformed corrected bin means, both with `managua_r` at 0–1 limits.
-Figure 2A retains its second pooled trial scale. Earlier palette and `magma`
-images remain.
+For Delay/control review, `scripts/render_legacy_ssd_example_heatmaps.py`
+renders the selected signed Figure 1E variant. The separate
+`scripts/render_log_scaled_vigor_heatmaps.py` retains an exploratory 0–1
+Figure 1E variant and an older pooled Figure 2A from log-transformed corrected
+bin means with a second pooled trial scale. The active Figure 2 A renderer
+uses the shared signed bins. Earlier palette and `magma` images remain.
 `scripts/render_figure2_stats_review.py`
 adds exploratory fish-level condition comparisons to D and G: each fish's
 post-pretrain change is compared by whole-fish condition-label permutation,

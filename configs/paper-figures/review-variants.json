@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "purpose": "Inventory of exploratory figure code and retained outputs; entries do not approve manuscript panels",
+  "candidate_metrics": [
+    "tail_length_weighted_angular_l1",
+    "whole_tail_xy_mean_speed_normalized",
+    "legacy_distal_angular_speed"
+  ],
+  "example_fish": {
+    "delay": "20221115_07",
+    "control": "20221115_09",
+    "global_cs_trials": [9, 17, 63, 66, 93]
+  },
+  "variants": [
+    {
+      "id": "integrated-signed-bout-aligned-review-2026-09-24",
+      "panels": ["fig-2A", "fig-2D", "fig-2G", "sup-5"],
+      "status": "selected_review_method",
+      "renderer": "src/classical_conditioning/figures/paper_panels.py",
+      "shared_code": "src/classical_conditioning/figures/signed_bout_heatmap.py",
+      "output": "outputs/paper-figures/signed-bout-aligned-review/",
+      "manifest": "outputs/paper-figures/signed-bout-aligned-review/paper-panel-run.json",
+      "note": "Figure 2A pools the exact Figure 1E signed bout-log-vigor fish/trial bins equally across fish; -20 to 0 s baseline, managua_r and fixed -0.25 to +0.25 display. Coverage is separate on 0 to 1. D/G ratio semantics are unchanged. Scientific metric and cohort approval remain open."
+    },
+    {
+      "id": "integrated-selected-metric-review-2026-09-24",
+      "panels": ["fig-1C", "fig-1D", "fig-1E", "fig-2A", "fig-2D", "fig-2G"],
+      "status": "historical_outputs_retained",
+      "renderer": "src/classical_conditioning/figures/paper_panels.py",
+      "output": "outputs/paper-figures/selected-metric-review/",
+      "manifest": "outputs/paper-figures/selected-metric-review/paper-panel-run.json",
+      "note": "Earlier integrated one-metric run. Figure 2 fish-level baseline used the then-current profile default, all bins before -15 s (including earlier than -20 s); superseded by selected-pre20-review. The control half of 1E is a candidate for 1G, not a composed 1G panel."
+    },
+    {
+      "id": "integrated-selected-pre20-review-2026-09-24",
+      "panels": ["fig-1C", "fig-1D", "fig-1E", "fig-2A", "fig-2D", "fig-2G"],
+      "status": "historical_outputs_retained",
+      "renderer": "src/classical_conditioning/figures/paper_panels.py",
+      "output": "outputs/paper-figures/selected-pre20-review/",
+      "manifest": "outputs/paper-figures/selected-pre20-review/paper-panel-run.json",
+      "note": "Superseded integrated one-metric review with -20 to 0 s baseline in Figure 1 signed centering and both fish and pooled P10-P90 stages of Figure 2 heatmap scaling. Supplementary Delay coverage is separate. The Figure 1 control fish remains uncomposed."
+    },
+    {
+      "id": "integrated-selected-pre20-inference-review-2026-09-24",
+      "panels": ["fig-1C", "fig-1D", "fig-1E", "fig-2A", "fig-2D", "fig-2G"],
+      "status": "reproducible_exploratory",
+      "renderer": "src/classical_conditioning/figures/paper_panels.py",
+      "output": "outputs/paper-figures/selected-pre20-inference-review/",
+      "manifest": "outputs/paper-figures/selected-pre20-inference-review/paper-panel-run.json",
+      "note": "Same -20 to 0 s heatmap baselines plus the legacy-style D statistics and combined LME G review for tail_length_weighted_angular_l1. The LME influence diagnostic failed and onset was not localized."
+    },
+    {
+      "id": "fig1-cd-full-window",
+      "panels": ["fig-1C", "fig-1D"],
+      "status": "reproducible_review",
+      "renderer": "scripts/render_legacy_ssd_example_traces.py",
+      "shared_code": "src/classical_conditioning/figures/example_traces.py",
+      "output": "outputs/figure1-examples/{recording_id}/figure-1-CD_{metric}_9-17-63-66-93.png",
+      "note": "Paired frame-level tail angle and unscaled vigor; -20 to 20 seconds"
+    },
+    {
+      "id": "fig1-cd-x-zoom",
+      "panels": ["fig-1C", "fig-1D"],
+      "status": "reproducible_review",
+      "renderer": "scripts/render_legacy_ssd_example_traces.py",
+      "output": "outputs/figure1-examples-zoom/{recording_id}/figure-1-CD_{metric}_9-17-63-66-93.png",
+      "note": "Same frames and trials, -10 to 12 seconds"
+    },
+    {
+      "id": "fig1-d-full-y-and-focus-y",
+      "panels": ["fig-1D"],
+      "status": "reproducible_review",
+      "renderer": "scripts/render_figure1_raw_vigor_y_focus.py",
+      "panel_data": "outputs/figure1-heatmaps/signed-log-pre20/figure-1-example-signed-log-vigor_panel-data.parquet",
+      "output": "outputs/figure1-D-raw-vigor-zoom/figure-1-D-raw-vigor-{full-y|focus-y}_{metric}_9-17-63-66-93.png",
+      "note": "Full X range; black native frame vigor; focus-y orange steps use exactly the signed Figure 1E bins and leave NaNs open"
+    },
+    {
+      "id": "fig1-e-p10p90-log-alternative",
+      "panels": ["fig-1E"],
+      "status": "superseded_alternative",
+      "renderer": "scripts/render_log_scaled_vigor_heatmaps.py",
+      "shared_code": "scripts/render_ssd_per_trial_example_heatmaps.py:_render",
+      "panel_data": "outputs/figure1-heatmaps/previous-pre20-p10p90-log-managua-r/figure-1-log-scaled-vigor_panel-data.parquet",
+      "output": "outputs/figure1-heatmaps/previous-pre20-p10p90-log-managua-r/figure-1-E_delay-control_{metric}_log-managua-r.png",
+      "note": "Log positive bout means; frame-level P10-P90 within each fish/trial from -20 to 0 seconds; clip 0-1 before 0.5-second binning; managua_r. User selected the signed-log alternative instead."
+    },
+    {
+      "id": "fig1-e-selected-signed-log-pre20",
+      "panels": ["fig-1E"],
+      "status": "selected_review_method",
+      "renderer": "scripts/render_legacy_ssd_example_heatmaps.py",
+      "shared_code": "src/classical_conditioning/analysis/temporal_profiles.py:_signed_bout_log_vigor",
+      "panel_data": "outputs/figure1-heatmaps/signed-log-pre20/figure-1-example-signed-log-vigor_panel-data.parquet",
+      "output": "outputs/figure1-heatmaps/signed-log-pre20/figure-1-E_delay-control_{metric}.png",
+      "note": "User-selected signed log vigor relative to each trial's -20 to 0 s pre-CS median; managua_r with fixed -0.25 to 0.25 display limits; final metric and fish approval still open"
+    },
+    {
+      "id": "fig1-e-signed-march-review",
+      "panels": ["fig-1E"],
+      "status": "reproducible_alternative",
+      "renderer": "scripts/render_legacy_ssd_example_heatmaps.py",
+      "shared_code": "src/classical_conditioning/analysis/temporal_profiles.py:_signed_bout_log_vigor",
+      "output": "outputs/figure1-heatmaps/previous-signed-log/figure-1-E_delay-control_{metric}.png",
+      "note": "Signed log vigor against each trial's pre-CS median; managua_r; fixed -0.25 to 0.25"
+    },
+    {
+      "id": "fig1-e-bin-first-and-palette-comparisons",
+      "panels": ["fig-1E"],
+      "status": "reproducible_from_saved_panel_data",
+      "renderers": ["scripts/render_ssd_per_trial_example_heatmaps.py", "scripts/render_figure1_managua_review.py"],
+      "outputs": [
+        "outputs/figure1-heatmaps/managua-r-review/",
+        "outputs/figure1-heatmaps/previous-bin-first-log-managua-r/",
+        "outputs/figure1-heatmaps/previous-short-baseline-log-managua-r/"
+      ],
+      "note": "Earlier bin-first or shorter-baseline trials retained for comparison; current renderer sources do not reproduce every historical sidecar hash"
+    },
+    {
+      "id": "fig1-e-all-frame-diagnostic",
+      "panels": ["fig-1E"],
+      "status": "diagnostic_not_paper_signal",
+      "renderers": ["scripts/render_figure1_all_frame_heatmaps.py", "scripts/render_figure1_managua_review.py"],
+      "outputs": ["outputs/figure1-heatmaps/all-frame-review/", "outputs/figure1-heatmaps/all-frame-review/managua-r-review/"],
+      "note": "All-valid-frame candidate, distinct from movement-conditional vigor"
+    },
+    {
+      "id": "fig1-d-previous-overlays",
+      "panels": ["fig-1D"],
+      "status": "historical_outputs_retained",
+      "historical_renderer": "scripts/render_figure1_raw_vigor_y_focus.py",
+      "outputs": [
+        "outputs/figure1-D-raw-vigor-zoom/previous-x-zoom/",
+        "outputs/figure1-D-raw-vigor-zoom/previous-conditional-bout-only/",
+        "outputs/figure1-D-raw-vigor-zoom/previous-all-frame-continuous/",
+        "outputs/figure1-D-raw-vigor-zoom/previous-linear-conditional/",
+        "outputs/figure1-D-raw-vigor-zoom/previous-bin-first-log/",
+        "outputs/figure1-D-raw-vigor-zoom/previous-short-baseline-log/",
+        "outputs/figure1-D-raw-vigor-zoom/previous-pre20-p10p90/",
+        "outputs/figure1-vigor-zoom/withdrawn-scaled-bins/"
+      ],
+      "note": "Superseded renderer revisions or withdrawn scaled-bin traces; exact old source revisions are not all present"
+    },
+    {
+      "id": "fig2-a-delay-control-descriptive",
+      "panels": ["fig-2A"],
+      "status": "historical_outputs_retained",
+      "renderer": "scripts/render_legacy_ssd_figure2_delay.py",
+      "shared_code": "src/classical_conditioning/figures/per_trial_scaled_vigor.py",
+      "output": "outputs/figure2-delay/figure-2A_delay-control_{metric}.png",
+      "note": "Historical root PNGs and panel data used earlier 0-1 measures and predate the current signed-bout renderer revision; use their sidecar source hashes"
+    },
+    {
+      "id": "fig2-a-log-managua-review",
+      "panels": ["fig-2A"],
+      "status": "historical_outputs_retained",
+      "renderer": "scripts/render_log_scaled_vigor_heatmaps.py",
+      "output": "outputs/figure2-delay/log-managua-r/figure-2A_delay-control_{metric}_log-managua-r.png",
+      "note": "Log-transformed corrected bin means, two per-trial scaling stages, managua_r; frame-level equivalence to Figure 1E is not established"
+    },
+    {
+      "id": "fig2-a-palette-and-earlier-signals",
+      "panels": ["fig-2A"],
+      "status": "historical_outputs_retained",
+      "renderer": "scripts/render_figure2_managua_review.py",
+      "outputs": [
+        "outputs/figure2-delay/managua-r-review/",
+        "outputs/figure2-delay/previous-fish-first-scaled/",
+        "outputs/figure2-delay/previous-all-valid-activity/"
+      ],
+      "note": "managua_r palette variant can be rerendered from its saved panel data; older signal implementations are retained output-only"
+    },
+    {
+      "id": "fig2-a-supplementary-coverage",
+      "panels": ["fig-2A"],
+      "status": "historical_outputs_retained",
+      "renderer": "scripts/render_legacy_ssd_figure2_delay.py",
+      "output": "outputs/figure2-delay/supplementary/figure-2A-coverage_delay-control_{metric}.png",
+      "note": "Historical separate contributing-fish coverage heatmap; new aligned review coverage uses managua_r on its own 0-1 fraction scale"
+    },
+    {
+      "id": "fig2-dg-descriptive",
+      "panels": ["fig-2D", "fig-2G"],
+      "status": "reproducible_review",
+      "renderer": "scripts/render_legacy_ssd_figure2_delay.py",
+      "shared_code": "src/classical_conditioning/figures/cohort_response.py",
+      "outputs": ["outputs/figure2-delay/figure-2D_delay-control_{metric}.png", "outputs/figure2-delay/figure-2G_delay-control_{metric}.png"],
+      "note": "Three-block fish ratios and trial-by-trial ratios; descriptive"
+    },
+    {
+      "id": "fig2-dg-permutation-statistics",
+      "panels": ["fig-2D", "fig-2G"],
+      "status": "reproducible_exploratory",
+      "renderer": "scripts/render_figure2_stats_review.py",
+      "output": "outputs/figure2-delay/stats-review/",
+      "note": "Fish-label permutation comparisons with family-wise adjustment; earlier version retained"
+    },
+    {
+      "id": "fig2-dg-legacy-stars-and-lme",
+      "panels": ["fig-2D", "fig-2G"],
+      "status": "reproducible_exploratory",
+      "renderer": "scripts/render_figure2_legacy_stats_lme_review.py",
+      "shared_code": "src/classical_conditioning/figures/learning_onset.py",
+      "output": "outputs/figure2-delay/legacy-stats-lme-review/",
+      "note": "2D legacy-style corrected-ratio tests for all metrics; 2G LME only for tail length weighted angular L1; influence gate failed and no validated onset"
+    }
+  ]
+}

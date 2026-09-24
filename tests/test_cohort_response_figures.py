@@ -214,7 +214,11 @@ class CohortResponseFigureSummaryTests(unittest.TestCase):
             )
             self.assertEqual(
                 sidecar["artist_registry"]["heatmap__delay__scaled-total-activity"]["cmap"],
-                "magma",
+                "managua_r",
+            )
+            self.assertEqual(
+                sidecar["artist_registry"]["heatmap__delay__fish-coverage"]["cmap"],
+                "managua_r",
             )
             publication_sidecar = json.loads(publication.sidecar.read_text(encoding="utf-8"))
             self.assertEqual(

@@ -106,6 +106,25 @@ The proposed manuscript Figure 1–4 mapping and exact draft differences are in
 [the paper draft comparison](PAPER_DRAFT_COMPARISON.md). The written scaffold
 and figure list, not draft panel placement, define intended Figure 1 and 4.
 
+The machine-readable [paper review variant registry](../../../configs/paper-figures/review-variants.json)
+lists every Figure 1 and Delay/control Figure 2 version generated during the
+current visual review, with its renderer, output family, and reproducibility
+status. It is linked from the proposed paper panel registry. Review variants
+are not approved manuscript panels. Superseded PNGs whose exact source revision
+is unavailable are explicitly marked as retained historical outputs.
+
+The [version-by-version comparison](PAPER_FIGURE_VERSIONS.md) records scaling,
+baseline, signal and palette parameters. The [paper figure freeze record](PAPER_FIGURE_FREEZE.md)
+maps all main and supplementary panels to their implementation and open gates.
+Its `render-paper-panels` command is the integrated rendering entry point for
+the currently supported paper review panels. Its Figure 1 E and Figure 2 A
+vigor heatmaps now share signed bout-log-vigor fish/trial bins and `managua_r`
+at −0.25…+0.25; Figure 2 averages available fish bins equally. Supplementary
+coverage uses `managua_r` with a separate 0…1 fraction scale. The routine R12
+all-valid-frame 0–1 heatmap remains a different descriptive figure family.
+The maintained and historical scripts are catalogued in
+[`scripts/README.md`](../../../scripts/README.md).
+
 ## Related implementation and decisions
 
 - [Figures and reproducible reporting](../../../Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md)

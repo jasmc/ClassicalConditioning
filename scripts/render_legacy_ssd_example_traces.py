@@ -37,15 +37,20 @@ def _file_hash(path: Path) -> str:
 
 
 @cache
-def _verified_paths(project_dir: Path, recording_id: str) -> tuple[Path, Path, Path]:
+def _verified_paths(
+    project_dir: Path, recording_id: str, *, verify_corrected: bool = True,
+) -> tuple[Path, Path, Path]:
     root = project_dir / "Processed data" / recording_id
     corrected = root / "frame_preprocessed_corrected-v1.parquet"
     metrics = root / "frame_activity_candidates-corrected-v1.parquet"
     protocol = root / "stimulus_events.parquet"
-    checks = (
-        (corrected, project_dir / "Metadata" / f"{recording_id}_corrected-preprocess-v1_complete.json", "frames_sha256"),
+    checks = [
         (metrics, project_dir / "Metadata" / f"{recording_id}_candidate-corrected-v1_complete.json", "metrics_sha256"),
-    )
+    ]
+    if verify_corrected:
+        checks.insert(0, (
+            corrected, project_dir / "Metadata" / f"{recording_id}_corrected-preprocess-v1_complete.json", "frames_sha256",
+        ))
     for artifact, marker_path, hash_key in checks:
         marker = json.loads(marker_path.read_text())
         if marker.get("status") != "complete" or marker.get("recording_id") != recording_id:

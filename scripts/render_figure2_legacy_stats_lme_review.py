@@ -251,12 +251,16 @@ def main():
     parser.add_argument("--output-dir", type=Path,
         default=Path("outputs/figure2-delay/legacy-stats-lme-review"))
     parser.add_argument("--analysis-id", default="allDelay-full-learning-onset-v1")
+    parser.add_argument("--metric", choices=tuple(METRIC_DISPLAY_NAMES),
+                        help="Metric for D; G LME currently supports only tail-length-weighted angular L1.")
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
+    if args.metric and args.metric != "tail_length_weighted_angular_l1":
+        raise ValueError("Saved Figure 2G LME is only available for tail_length_weighted_angular_l1")
     args.output_dir.mkdir(parents=True, exist_ok=True)
     source = Path(__file__).resolve()
-    snippet = f"MPLCONFIGDIR=/private/tmp/cc-mpl PYTHONPATH=src .venv/bin/python scripts/render_figure2_legacy_stats_lme_review.py --project-dir '{args.project_dir}' --input-dir '{args.input_dir}' --output-dir '{args.output_dir}' --analysis-id {args.analysis_id} --overwrite"
-    for metric in METRIC_DISPLAY_NAMES:
+    snippet = f"MPLCONFIGDIR=/private/tmp/cc-mpl PYTHONPATH=src .venv/bin/python scripts/render_figure2_legacy_stats_lme_review.py --project-dir '{args.project_dir}' --input-dir '{args.input_dir}' --output-dir '{args.output_dir}' --analysis-id {args.analysis_id} {'--metric ' + args.metric if args.metric else ''} --overwrite"
+    for metric in ((args.metric,) if args.metric else METRIC_DISPLAY_NAMES):
         fish_path = args.input_dir / f"figure-2D_{metric}_fish-data.parquet"
         fish = pd.read_parquet(fish_path)
         wide, stats = legacy_block_tests(fish)

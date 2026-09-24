@@ -93,7 +93,9 @@ single shared bout segmentation. A no-bout window is `NaN`, not zero.
 first, each trial is scaled with pre-onset frame quantiles; then its binned
 pre-onset values are scaled and clipped to `[0, 1]`. It is useful for temporal
 pattern inspection, not for comparing physical magnitude across metrics.
-These current 0–1 activity plots use `magma`. The March 24, 2026 single-fish
+The maintained Matplotlib heatmap palette, including coverage and probability
+panels, is `managua_r`; each measure keeps its own labeled scale. Earlier `magma`
+exports remain as review variants. The March 24, 2026 single-fish
 scaled-vigor plot used `managua_r` for a different, signed quantity: bout-only
 log vigor relative to each trial's pre-stimulus median. Its CS display limits
 were fixed at −0.25 and +0.25. Reproducing that appearance requires both the
@@ -194,6 +196,9 @@ This is not the movement-conditional vigor estimand in draft Figure 2.
 For the underlying scientific definitions, see [metrics and bouts](METRICS_AND_BOUTS.md).
 For the full legacy/refactored figure inventory, see
 [figure pipelines](figures/FIGURE_PIPELINES.md).
+For the Figure 1 and Delay/control Figure 2 review renderers, preserved
+alternatives, and their code status, see the
+[review variant registry](../../configs/paper-figures/review-variants.json).
 
 ## Detailed heatmap reference
 

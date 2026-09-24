@@ -1,9 +1,8 @@
 """Render descriptive Figure 2 A/D/G Delay-control panels from the SSD cohort.
 
 The SSD stores completed corrected artifacts with versioned names. This adapter
-authenticates them, uses the current pipeline's equal-fish summary functions,
-and exports one A/D/G set for each candidate vigor metric. The A heatmap uses
-log conditional vigor before fish/trial and pooled/trial P10/P90 scaling.
+authenticates them and exports one A/D/G set for each candidate vigor metric.
+The A heatmap pools the same signed bout-log-vigor bins as Figure 1 E.
 """
 
 from __future__ import annotations
@@ -19,7 +18,8 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 import classical_conditioning.figures.cohort_response as response_module
-import classical_conditioning.figures.per_trial_scaled_vigor as scaling_module
+import classical_conditioning.figures.signed_bout_heatmap as signed_module
+import classical_conditioning.figures.theme as theme_module
 from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.figures.cohort_response import (
     _plot_selected_blocks,
@@ -28,15 +28,15 @@ from classical_conditioning.figures.cohort_response import (
 )
 from classical_conditioning.figures.example_traces import METRIC_COLUMNS, METRIC_DISPLAY_NAMES
 from classical_conditioning.figures.export import FigureMode, FigureProvenance, export_matplotlib_figure
-from classical_conditioning.figures.per_trial_scaled_vigor import (
-    scale_per_trial_conditional_vigor,
-    summarize_legacy_pooled_scaled_vigor,
+from classical_conditioning.figures.signed_bout_heatmap import (
+    calculate_fish_heatmaps,
+    summarize_equal_fish_signed_log_vigor,
 )
-from classical_conditioning.figures.theme import apply_theme, mm_to_in, style_axes
+from classical_conditioning.figures.theme import apply_theme, heatmap_cmap, mm_to_in, style_axes
+from render_legacy_ssd_example_heatmaps import _load_fish
 
 
 COHORT_ID = "allDelay-full-v1"
-MINIMUM_COVERAGE = 0.9
 PROFILE_COLUMNS = [
     "Recording ID", "Trial type", "Trial number", "Time bin center (s)",
     "Metric ID", "Conditional intensity mean", "Valid expected fraction",
@@ -138,19 +138,23 @@ def _plot_heatmap(data: pd.DataFrame, metric_id: str, counts: dict[str, int]):
     main = None
     for column, condition in enumerate(("control", "delay")):
         subset = data.loc[data["condition_id"].eq(condition)]
-        activity = np.ma.masked_invalid(_heatmap_matrix(subset, "Mean per-trial scaled vigor", trials, times))
+        activity = np.ma.masked_invalid(_heatmap_matrix(subset, "Mean signed log vigor", trials, times))
         axis = axes[0, column]
+        palette = heatmap_cmap(theme.single_fish_scaled_vigor_cmap, theme)
+        palette.set_bad("black")
         main = axis.imshow(
             activity, origin="upper", aspect="auto", interpolation="nearest",
-            extent=extent, vmin=0, vmax=1, cmap="managua_r", rasterized=True,
+            extent=extent, vmin=theme.single_fish_scaled_vigor_vmin,
+            vmax=theme.single_fish_scaled_vigor_vmax, cmap=palette, rasterized=True,
         )
-        main_id = f"heatmap__{condition}__per_trial_scaled_vigor"
+        main_id = f"heatmap__{condition}__signed_log_vigor"
         main.set_gid(main_id)
         mappings[main_id] = {
             "condition": condition, "metric_id": metric_id,
-            "signal": "unbounded fish scaled conditional vigor pooled by bin then trial pre-CS P10-P90 rescaled",
-            "minimum_valid_expected_fraction": str(MINIMUM_COVERAGE),
-            "cmap": "managua_r", "vmin": "0", "vmax": "1",
+            "signal": signed_module.SIGNAL,
+            "aggregation": "equal-fish mean of signed fish/trial bins",
+            "cmap": palette.name, "vmin": str(theme.single_fish_scaled_vigor_vmin),
+            "vmax": str(theme.single_fish_scaled_vigor_vmax), "missing_color": "black",
         }
         axis.set_title(f"{condition.capitalize()} (n={counts[condition]})")
         axis.set_xlabel("Time relative to CS onset (s)")
@@ -163,7 +167,7 @@ def _plot_heatmap(data: pd.DataFrame, metric_id: str, counts: dict[str, int]):
         style_axes(axis, theme=theme, show_xticks=True, show_yticks=column == 0)
     axes[0, 0].set_ylabel("Global CS trial")
     figure.colorbar(main, ax=axes[0, :], fraction=0.025, pad=0.025,
-                    label="Pooled per-trial scaled vigor (0–1)")
+                    label="Mean signed log vigor relative to fish/trial pre-CS median")
     figure.suptitle(f"Figure 2A review · {METRIC_DISPLAY_NAMES[metric_id]}")
     return figure, ["control", "delay", "vigor_colorbar"], mappings
 
@@ -185,13 +189,13 @@ def _plot_coverage(data: pd.DataFrame, metric_id: str, counts: dict[str, int]):
         axis = axes[0, column]
         image = axis.imshow(
             coverage, origin="upper", aspect="auto", interpolation="nearest",
-            extent=extent, vmin=0, vmax=1, cmap="cividis", rasterized=True,
+            extent=extent, vmin=0, vmax=1, cmap="managua_r", rasterized=True,
         )
         gid = f"heatmap__{condition}__fish_coverage"
         image.set_gid(gid)
         mappings[gid] = {
             "condition": condition, "metric_id": metric_id,
-            "signal": "contributing fish / cohort fish", "cmap": "cividis",
+            "signal": "contributing fish / cohort fish", "cmap": "managua_r",
         }
         axis.set_title(f"{condition.capitalize()} (n={counts[condition]})")
         axis.set_xlabel("Time relative to CS onset (s)")
@@ -254,40 +258,53 @@ def main() -> None:
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
+    parser.add_argument("--metric", choices=tuple(METRIC_COLUMNS),
+                        help="Render one candidate metric; omit to render all three.")
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
     project = args.project_dir.resolve()
     output = args.output_dir.resolve()
     output.mkdir(parents=True, exist_ok=True)
     cohort, cohort_hash, inputs = _verify_cohort(project)
-    profiles, outcomes = [], []
+    outcomes = []
     for _, row in cohort.iterrows():
-        profile, outcome, fish_inputs = _read_verified_recording(project, row)
-        profiles.append(profile)
+        _profile, outcome, fish_inputs = _read_verified_recording(project, row)
         outcomes.append(outcome)
         inputs.extend(fish_inputs)
-    profiles = pd.concat(profiles, ignore_index=True)
-    scaled_profiles = scale_per_trial_conditional_vigor(
-        profiles, minimum_coverage=MINIMUM_COVERAGE, clip=False, transform="log",
-    )
     outcomes = pd.concat(outcomes, ignore_index=True)
     by_recording = cohort.set_index("recording_id")["condition_id"].to_dict()
     fish_by_recording = cohort.set_index("recording_id")["fish_id"].to_dict()
     counts = cohort.groupby("condition_id")["fish_id"].nunique().to_dict()
     inputs.extend({"path": str(path), "sha256": sha256_file(path)} for path in (
         Path(response_module.__file__).resolve(),
-        Path(scaling_module.__file__).resolve(),
+        Path(signed_module.__file__).resolve(),
+        Path(signed_module._signed_bout_log_vigor.__code__.co_filename).resolve(),
+        Path(theme_module.__file__).resolve(),
+        Path(__file__).with_name("render_legacy_ssd_example_heatmaps.py").resolve(),
+        Path(__file__).with_name("render_legacy_ssd_example_traces.py").resolve(),
     ))
     source = Path(__file__).resolve()
     reproduction = (
         f"MPLCONFIGDIR=/private/tmp/cc-mpl PYTHONPATH=src ./.venv/bin/python "
         f"scripts/render_legacy_ssd_figure2_delay.py --project-dir '{project}' "
-        f"--output-dir '{output}' --mode {args.mode} --overwrite"
+        f"--output-dir '{output}' --mode {args.mode} "
+        f"{'--metric ' + args.metric if args.metric else ''} --overwrite"
     )
     mode = FigureMode(args.mode)
-    for metric_id in METRIC_COLUMNS:
-        heatmap = summarize_legacy_pooled_scaled_vigor(
-            scaled_profiles, metric_id=metric_id,
+    for metric_id in ((args.metric,) if args.metric else METRIC_COLUMNS):
+        fish_bins = []
+        for recording_id in cohort["recording_id"].astype(str):
+            metrics, movement, cycles, paths = _load_fish(
+                project, recording_id, metric_ids=(metric_id,),
+            )
+            fish_bins.append(calculate_fish_heatmaps(
+                metrics, movement, cycles, recording_id=recording_id,
+                metric_ids=(metric_id,),
+            ))
+            inputs.extend({"path": str(path), "sha256": sha256_file(path)} for path in paths)
+            del metrics, movement
+        heatmap = summarize_equal_fish_signed_log_vigor(
+            pd.concat(fish_bins, ignore_index=True), metric_id=metric_id,
             condition_by_recording=by_recording,
         )
         heatmap = heatmap.loc[heatmap["Trial number"].between(5, 94)].copy()
@@ -321,7 +338,11 @@ def main() -> None:
                     figure, base,
                     FigureProvenance(
                         figure_id=f"figure-{panel}-delay-control-review",
-                        analysis_recipe="corrected-candidate-cohort-descriptive",
+                        analysis_recipe=(
+                            "signed-bout-log-vigor-pre20-equal-fish"
+                            if panel in {"2A", "2A-coverage"}
+                            else "corrected-candidate-cohort-descriptive"
+                        ),
                         source_file=str(source), source_symbol="main",
                         source_hash=sha256_file(source),
                         reproduction_snippet=reproduction,

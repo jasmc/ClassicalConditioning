@@ -26,6 +26,7 @@ def scale_per_trial_conditional_vigor(
     *,
     minimum_coverage: float = 0.9,
     baseline_end_s: float = -15.0,
+    baseline_start_s: float | None = None,
     minimum_baseline_bins: int = 3,
     clip: bool = True,
     transform: str = "linear",
@@ -45,6 +46,8 @@ def scale_per_trial_conditional_vigor(
         raise ValueError("At least two baseline bins are required")
     if transform not in {"linear", "log"}:
         raise ValueError("transform must be 'linear' or 'log'")
+    if baseline_start_s is not None and baseline_start_s >= baseline_end_s:
+        raise ValueError("Baseline start must precede baseline end")
     selected = profiles.loc[
         profiles["Trial type"].astype(str).eq("CS")
         & profiles["Trial number"].between(5, 94)
@@ -61,8 +64,11 @@ def scale_per_trial_conditional_vigor(
         positive = selected["Eligible vigor"].gt(0)
         selected["Eligible vigor"] = np.log(selected["Eligible vigor"].where(positive))
     selected["Vigor transform"] = transform
+    baseline_window = selected["Time bin center (s)"].lt(baseline_end_s)
+    if baseline_start_s is not None:
+        baseline_window &= selected["Time bin center (s)"].ge(baseline_start_s)
     baseline = selected.loc[
-        selected["Time bin center (s)"].lt(baseline_end_s)
+        baseline_window
         & selected["Eligible vigor"].notna(),
         [*keys, "Eligible vigor"],
     ]
@@ -81,6 +87,8 @@ def scale_per_trial_conditional_vigor(
     if clip:
         scaled[valid] = np.clip(scaled[valid], 0, 1)
     selected["Per-trial scaled vigor"] = scaled
+    selected["Baseline start (s)"] = baseline_start_s
+    selected["Baseline end (s)"] = baseline_end_s
     selected["Scale valid"] = enough & np.isfinite(low) & np.isfinite(high) & (high > low)
     return selected
 

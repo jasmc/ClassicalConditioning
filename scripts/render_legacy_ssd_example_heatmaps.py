@@ -19,10 +19,10 @@ import pyarrow.parquet as pq
 
 import classical_conditioning.analysis.temporal_profiles as profile_module
 import classical_conditioning.figures.theme as theme_module
-from classical_conditioning.analysis.temporal_profiles import _signed_bout_log_vigor
 from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.figures.example_traces import METRIC_COLUMNS, METRIC_DISPLAY_NAMES
 from classical_conditioning.figures.export import FigureMode, FigureProvenance, export_matplotlib_figure
+from classical_conditioning.figures.signed_bout_heatmap import calculate_fish_heatmaps
 from classical_conditioning.figures.theme import apply_theme, heatmap_cmap, mm_to_in
 
 from render_legacy_ssd_example_traces import _file_hash, _verified_paths
@@ -63,8 +63,12 @@ def _read_selected_windows(
     return pd.concat(pieces, ignore_index=True)
 
 
-def _load_fish(project_dir: Path, recording_id: str):
-    _, metrics_path, protocol_path = _verified_paths(project_dir, recording_id)
+def _load_fish(
+    project_dir: Path, recording_id: str, *, metric_ids: tuple[str, ...] | None = None,
+):
+    _, metrics_path, protocol_path = _verified_paths(
+        project_dir, recording_id, verify_corrected=False,
+    )
     movement_path = (
         project_dir / "Processed data" / recording_id
         / "movement_state_candidates-corrected-v2.parquet"
@@ -87,7 +91,8 @@ def _load_fish(project_dir: Path, recording_id: str):
          int(cycles.iloc[trial - 1]["Beg"] + WINDOW_S[1] * 1000))
         for trial in range(5, 95)
     ]
-    metric_columns = [METRIC_COLUMNS[metric_id] for metric_id in METRIC_COLUMNS]
+    metric_ids = tuple(METRIC_COLUMNS) if metric_ids is None else metric_ids
+    metric_columns = [METRIC_COLUMNS[metric_id] for metric_id in metric_ids]
     metrics = _read_selected_windows(
         metrics_path, ["FrameID", "AbsoluteTime", *metric_columns], intervals,
     )
@@ -100,52 +105,6 @@ def _load_fish(project_dir: Path, recording_id: str):
     ):
         raise ValueError(f"Metric and movement frames do not align for {recording_id}")
     return metrics, movement, cycles, (metrics_path, movement_path, protocol_path)
-
-
-def calculate_fish_heatmaps(
-    metrics: pd.DataFrame,
-    movement: pd.DataFrame,
-    cycles: pd.DataFrame,
-    *,
-    recording_id: str,
-) -> pd.DataFrame:
-    """Use the pipeline signed-vigor recipe for each metric and CS trial."""
-    absolute = metrics["AbsoluteTime"].to_numpy(dtype=np.int64)
-    if np.any(np.diff(absolute) < 0):
-        raise ValueError(f"Nonchronological frame times for {recording_id}")
-    detector_valid = movement["valid"].to_numpy(dtype=bool)
-    moving = movement["moving"].to_numpy(dtype=bool)
-    bout_ids = movement["bout_id"].to_numpy(dtype=np.int32)
-    metric_values = {
-        metric_id: metrics[column].to_numpy(dtype=float)
-        for metric_id, column in METRIC_COLUMNS.items()
-    }
-    bins = np.arange(WINDOW_S[0], WINDOW_S[1], BIN_WIDTH_S) + BIN_WIDTH_S / 2
-    bin_count = len(bins)
-    rows = []
-    for trial in range(5, 95):
-        onset = int(cycles.iloc[trial - 1]["Beg"])
-        start = np.searchsorted(absolute, onset + int(WINDOW_S[0] * 1000), side="left")
-        stop = np.searchsorted(absolute, onset + int(WINDOW_S[1] * 1000), side="left")
-        seconds = (absolute[start:stop] - onset) / 1000.0
-        indices = np.floor((seconds - WINDOW_S[0]) / BIN_WIDTH_S).astype(np.int32)
-        in_window = (indices >= 0) & (indices < bin_count)
-        indices = indices[in_window]
-        for metric_id, values in metric_values.items():
-            signal = _signed_bout_log_vigor(
-                values[start:stop][in_window], seconds[in_window], indices,
-                detector_valid[start:stop][in_window], moving[start:stop][in_window],
-                bout_ids[start:stop][in_window], bin_count=bin_count,
-                baseline_end_s=-15.0,
-            )
-            rows.extend({
-                "Recording ID": recording_id,
-                "Metric ID": metric_id,
-                "Trial number": trial,
-                "Time bin center (s)": float(time),
-                "Signed log vigor": float(value),
-            } for time, value in zip(bins, signal))
-    return pd.DataFrame(rows)
 
 
 def _matrix(data: pd.DataFrame, metric_id: str, recording_id: str, start: int, end: int):
@@ -224,15 +183,26 @@ def main() -> None:
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
+    parser.add_argument("--metric", choices=tuple(METRIC_COLUMNS),
+                        help="Render one candidate metric; omit to render all three.")
+    parser.add_argument("--baseline-end-s", type=float, default=0.0)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
+    if not WINDOW_S[0] < args.baseline_end_s <= 0:
+        raise ValueError("Baseline end must be after -20 s and no later than CS onset")
     project = args.project_dir.resolve()
     output = args.output_dir.resolve()
     frames = []
     inputs = []
     for fish in ("20221115_07", "20221115_09"):
-        metrics, movement, cycles, paths = _load_fish(project, fish)
-        frames.append(calculate_fish_heatmaps(metrics, movement, cycles, recording_id=fish))
+        metrics, movement, cycles, paths = _load_fish(
+            project, fish, metric_ids=((args.metric,) if args.metric else None),
+        )
+        frames.append(calculate_fish_heatmaps(
+            metrics, movement, cycles, recording_id=fish,
+            baseline_end_s=args.baseline_end_s,
+            metric_ids=((args.metric,) if args.metric else None),
+        ))
         inputs.extend({"path": str(path), "sha256": _file_hash(path)} for path in paths)
         del metrics, movement
     data = pd.concat(frames, ignore_index=True)
@@ -243,11 +213,12 @@ def main() -> None:
     pq.write_table(pa.Table.from_pandas(data, preserve_index=False), panel_path)
     inputs.extend({"path": str(path), "sha256": _file_hash(path)} for path in (
         Path(profile_module.__file__).resolve(), Path(theme_module.__file__).resolve(),
+        Path(calculate_fish_heatmaps.__code__.co_filename).resolve(),
         Path(__file__).with_name("render_legacy_ssd_example_traces.py").resolve(),
         panel_path,
     ))
     source = Path(__file__).resolve()
-    for metric_id in METRIC_COLUMNS:
+    for metric_id in ((args.metric,) if args.metric else METRIC_COLUMNS):
         fig, panel_ids, mappings = render_comparison(data, metric_id)
         base = output / f"figure-1-E_delay-control_{metric_id}"
         try:
@@ -255,14 +226,15 @@ def main() -> None:
                 fig, base,
                 FigureProvenance(
                     figure_id="figure-1-E-delay-control-example-heatmaps",
-                    analysis_recipe="signed-bout-log-vigor-corrected-ssd-v1",
+                    analysis_recipe=f"signed-bout-log-vigor-baseline-{WINDOW_S[0]}-to-{args.baseline_end_s}",
                     source_file=str(source), source_symbol="main",
                     source_hash=sha256_file(source),
                     reproduction_snippet=(
                         f"MPLCONFIGDIR=/private/tmp/cc-mpl PYTHONPATH=src ./.venv/bin/python "
                         f"scripts/render_legacy_ssd_example_heatmaps.py "
                         f"--project-dir '{project}' --output-dir '{output}' "
-                        f"--mode {args.mode} --overwrite"
+                        f"--baseline-end-s {args.baseline_end_s} --mode {args.mode} "
+                        f"{'--metric ' + args.metric if args.metric else ''} --overwrite"
                     ),
                     input_artifacts=tuple(inputs), artist_mappings=mappings,
                 ),

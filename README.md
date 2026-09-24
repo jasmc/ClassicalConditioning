@@ -88,6 +88,11 @@ The three metric columns are tail-length-weighted angular L1 speed (`rad/ms`), w
 
 Figure 2 requires matched-control **frozen fish cohorts**, not candidate per-fish heatmaps. Its selected blocks are final Pre-Train trials **10–14**, Early Test **65–69**, and Late Test **90–94**. The current descriptive population heatmap shows 0–1 scaled total activity **across all valid frames, including valid zeros**, with a contributing-fish coverage strip and exact counts in panel data. It is not the draft's movement-conditional vigor signal or an approved paper panel. The 10sTrace result is presently inconclusive. Draft significance stars are not reused without approved inference.
 
+The separate paper-review Figure 2 A adapter now pools the same signed,
+baseline-centered bout-log-vigor bins used for Figure 1 E and displays them
+with `managua_r` at −0.25…+0.25. See the [paper figure freeze record](docs/analysis/figures/PAPER_FIGURE_FREEZE.md)
+for the review command and remaining scientific approvals.
+
 Routine catch/block plots show 0–1 scaled activity and are descriptive. Figure 4 requires independently defined **signed, baseline-centered** learner panel data; negative values there cannot be inferred from 0–1 plots. Training catches 11, 25, 39, and 45 correspond to global CS trials 25, 39, 53, and 59. The five-trial pooled catch view also includes global trial 65, the first Test trial. Both numbering systems belong in the eventual legend. CS onset, CS offset, and condition-specific expected US time must be distinct; anticipatory catch suppression is not the direct post-US response in paired training trials.
 
 Static PNG is the routine default. The same renderer can export SVG/PDF with semantic SVG IDs, artist-to-data mappings, physical units, provenance sidecars, and structural checks. See [figure guidance](docs/analysis/FIGURE_GUIDE.md) and [draft comparison](docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
