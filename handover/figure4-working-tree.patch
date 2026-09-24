@@ -1,0 +1,834 @@
+diff --git a/Plans/07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md b/Plans/07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md
+index fa5e782..5935441 100644
+--- a/Plans/07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md
++++ b/Plans/07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md
+@@ -163,9 +163,14 @@ Implemented now:
+ - stable-path corrected candidate analysis and bounded routine scheduling of
+   detector, per-fish, comparison, and five cohort figure families when their
+   authenticated inputs are available;
+-- a proposed A–G/A–I/A–G/A–G paper panel registry whose blocked reasons are
++- a proposed A–G/A–I/A–G/A–C paper panel registry whose blocked reasons are
+   included in each run summary. Paper panels are not silently filled by
+-  descriptive figure families.
++  descriptive figure families;
++- a focused authenticated learner-stratified signed Figure 4 analysis and
++  render route for Delay, 3sTrace and 10sTrace, with block, pooled catch,
++  individual catch, movement and coverage outputs. It consumes a frozen Gate L
++  manifest and remains unrun on paper data until that manifest and all three
++  reviewed cohorts are available.
+ 
+ Still required before the learner workstream can execute:
+ 
+@@ -175,7 +180,7 @@ Still required before the learner workstream can execute:
+ Gated on the learner workstream:
+ 
+ - the canonical learner/continuous-representation manifest and validated join;
+-- stratum-aware rendering and validation-mode-specific inference;
++- final Gate L stratum identities and validation-mode-specific inference;
+ - the learner-stratum impact report for the exploratory legacy-rule status;
+ - learner-figure rendering from a frozen representation and signed independent
+   timing panel data; and
+diff --git a/Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md b/Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md
+index fc46c32..4940f3d 100644
+--- a/Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md
++++ b/Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md
+@@ -8,7 +8,7 @@ coverage, a focused `figure-example-traces` command for Figure 1 C/D trial
+ traces, semantic SVG/PDF export and proposed Figure 1–4 registry.
+ Interactive HTML is frozen (Gate F).
+ **Open:** Approval of the population heatmap signal and matched cohorts, approved Figure 1 examples,
+-frozen learner representation, signed independent-timing Figure 4 data,
++frozen learner representation, verified Figure 4 protocol timing and signed data,
+ publication dimensions, and visual regression.
+ **Change class:** Behavior-preserving rendering first; presentation changes separately  
+ **Depends on:** Implemented artifact-integrity contract and each scientific
+@@ -222,9 +222,10 @@ metric, settings, source, and code hashes so replacement is auditable.
+ 
+ The proposed paper layout registry is
+ [`configs/paper-figures/behavior-paper.json`](../configs/paper-figures/behavior-paper.json).
+-Written Figure 1 and Figure 4 roles follow the paper scaffold/list, not draft
+-PNG panel placement. Figure 2 heatmaps require a frozen fish cohort and
+-explicit coverage; Figure 3 and learner-specific Figure 4 panels remain gated.
++Figure 1 follows the paper scaffold; Figure 4 follows the later user-approved
++three-assay learner-stratified block/catch layout. Figure 2 heatmaps require a
++frozen fish cohort and explicit coverage; Figure 3 and paper Figure 4 data
++remain gated on the learner manifest and reviewed cohorts.
+ See the [panel-by-panel draft comparison](../docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
+ 
+ ### Figure QC
+@@ -291,7 +292,7 @@ windows, aggregation, detector, statistics, or learner definitions.
+ | 1 | Experimental setup, protocol, metric definition, and representative fish | Approved source artwork and representative-recording rule |
+ | 2 | Population evidence for delay and trace conditioning | Frozen cohort, outcomes, and population inference |
+ | 3 | Learner representation, uncertainty, heterogeneity, and validation | Active learner-plan exit gate |
+-| 4 | Conditioned-response dynamics and timing based on pooled learners | Approved learner definition, independent timing definitions, and non-circular analysis |
++| 4 | Descriptive learner-stratified signed CR profiles for Delay, 3sTrace and 10sTrace | Approved learner manifest, reviewed cohorts and verified expected-US timing |
+ 
+ Figure 3 is required because learner analysis is important to the paper. Its
+ final grammar depends on the learner decision: continuous/probabilistic outputs
+@@ -345,7 +346,8 @@ publication PDFs to the paper repository is a separate explicit action.
+ 4. Build Figure 2 first as the population-analysis vertical slice.
+ 5. Build Figure 1 and the first supplementary assay/QC figures.
+ 6. Build Figure 3 from the approved learner artifacts and Figure 4 from
+-   pooled-learner CR data with independently specified timing artifacts.
++   signed learner-stratified block and catch data. Keep inferential timing in
++   the separately gated S7 workstream.
+ 7. Validate the figures from a clean analysis commit and review Figure 4's
+    pooled-learner CR result. The
+    [tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) then follow.
+diff --git a/README.md b/README.md
+index 1c95330..a53651f 100644
+--- a/README.md
++++ b/README.md
+@@ -84,7 +84,7 @@ The three metric columns are tail-length-weighted angular L1 speed (`rad/ms`), w
+ 
+ ## Figures and scientific interpretation
+ 
+-[`configs/paper-figures/behavior-paper.json`](configs/paper-figures/behavior-paper.json) is the proposed Figure 1–4 panel registry. It maps stable IDs to required artifacts, rendering rules, and precise current blocked reasons. The run summary authenticates selected cohort, metric definition, settings, and inventory hashes. The written paper scaffold and figure list define the intended layouts; supplied draft images are comparison evidence, not a layout to copy. Figure 3 has no draft image.
++[`configs/paper-figures/behavior-paper.json`](configs/paper-figures/behavior-paper.json) is the proposed Figure 1–4 panel registry. It maps stable IDs to required artifacts, rendering rules, and precise current blocked reasons. The run summary authenticates selected cohort, metric definition, settings, and inventory hashes. Figure 4 now follows the later approved learner-stratified block/catch layout; Figure 3 has no draft image.
+ 
+ Figure 2 requires matched-control **frozen fish cohorts**, not candidate per-fish heatmaps. Its selected blocks are final Pre-Train trials **10–14**, Early Test **65–69**, and Late Test **90–94**. The current descriptive population heatmap shows 0–1 scaled total activity **across all valid frames, including valid zeros**, with a contributing-fish coverage strip and exact counts in panel data. It is not the draft's movement-conditional vigor signal or an approved paper panel. The 10sTrace result is presently inconclusive. Draft significance stars are not reused without approved inference.
+ 
+@@ -93,7 +93,7 @@ baseline-centered bout-log-vigor bins used for Figure 1 E and displays them
+ with `managua_r` at −0.25…+0.25. See the [paper figure freeze record](docs/analysis/figures/PAPER_FIGURE_FREEZE.md)
+ for the review command and remaining scientific approvals.
+ 
+-Routine catch/block plots show 0–1 scaled activity and are descriptive. Figure 4 requires independently defined **signed, baseline-centered** learner panel data; negative values there cannot be inferred from 0–1 plots. Training catches 11, 25, 39, and 45 correspond to global CS trials 25, 39, 53, and 59. The five-trial pooled catch view also includes global trial 65, the first Test trial. Both numbering systems belong in the eventual legend. CS onset, CS offset, and condition-specific expected US time must be distinct; anticipatory catch suppression is not the direct post-US response in paired training trials.
++Routine catch/block plots show 0–1 scaled activity and are descriptive. The [Figure 4 learner-stratified route](docs/analysis/figures/FIGURE4_LEARNER_PROFILES.md) instead builds signed, baseline-centered profiles for all three assays from a frozen classifier manifest. Training catches 11, 25, 39, and 45 correspond to global CS trials 25, 39, 53, and 59. The five-trial pooled catch view also includes global trial 65, the first Test trial. Expected-US guides require verified paired-training events; anticipatory catch suppression is distinct from a direct post-US response.
+ 
+ Static PNG is the routine default. The same renderer can export SVG/PDF with semantic SVG IDs, artist-to-data mappings, physical units, provenance sidecars, and structural checks. See [figure guidance](docs/analysis/FIGURE_GUIDE.md) and [draft comparison](docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
+ Publication export also requires a clean Git worktree so its recorded commit contains the rendering code.
+diff --git a/docs/analysis/FIGURE_GUIDE.md b/docs/analysis/FIGURE_GUIDE.md
+index 5fd8a41..8d2e99f 100644
+--- a/docs/analysis/FIGURE_GUIDE.md
++++ b/docs/analysis/FIGURE_GUIDE.md
+@@ -170,12 +170,13 @@ then give each fish equal weight in the condition median and IQR.
+ 
+ The selected-block ratio figure uses final Pre-Train trials 10–14, Early Test
+ 65–69, and Late Test 90–94. Its response/baseline ratios are not the same
+-quantity as the 0–1 scaled catch/block profiles. A signed, baseline-centered
+-paper Figure 4 representation remains gated on an approved definition and
+-frozen learner identity; current descriptive plots cannot be relabelled as it.
++quantity as the 0–1 scaled catch/block profiles. The separate
++[signed learner-stratified Figure 4 route](figures/FIGURE4_LEARNER_PROFILES.md)
++consumes a frozen classifier manifest and derives signed bins from corrected
++metrics. Its paper figures remain gated on reviewed cohorts and that manifest.
+ 
+-These are descriptive population figures. Learner-stratified versions remain
+-gated on the frozen learner-representation manifest and validation mode.
++These are descriptive population figures. Figure 4's saved learner-stratified
++analysis is also descriptive when classification and evaluation use the same trials.
+ 
+ When the reviewed cohort contains one paired condition and its matched
+ control, the routine run also renders a CS-aligned population heatmap from one
+diff --git a/docs/analysis/figures/PAPER_DRAFT_COMPARISON.md b/docs/analysis/figures/PAPER_DRAFT_COMPARISON.md
+index e651cf2..4bd7ae7 100644
+--- a/docs/analysis/figures/PAPER_DRAFT_COMPARISON.md
++++ b/docs/analysis/figures/PAPER_DRAFT_COMPARISON.md
+@@ -95,7 +95,9 @@ length weighted angular L1, the metric of the saved LME run.
+ 
+ There is **no draft image**. Written A–G roles are workflow, continuous scores, threshold/stability, learner fractions, individual change, representative trajectories, and all-fish validation. Current corrected per-fish outcomes are inputs, not a frozen learner representation. All seven paper panels remain blocked until Gate L and an independent validation mode are frozen.
+ 
+-## Figure 4 — pooled-learner CR dynamics and timing
++## Figure 4 — earlier draft and replacement learner profiles
++
++The table below records the comparison made before the signed learner-stratified Figure 4A–C route was implemented. The current registry assigns A, B and C to Delay, 3sTrace and 10sTrace block/catch figures respectively. Individual catches, movement and coverage are supplementary; independent timing moved to the separate S7 plan. This historical draft does not define the current figure calculation.
+ 
+ | Intended panel | Draft evidence | Current counterpart and difference |
+ | --- | --- | --- |
+@@ -107,7 +109,7 @@ There is **no draft image**. Written A–G roles are workflow, continuous scores
+ | F all-fish validation | Draft F is pooled 10sTrace catch trials. | All-eligible-fish signed validation is missing; the draft is a different condition and calculation. |
+ | G robustness | **Missing in draft.** | Alternative windows/metrics, controls, and held-out timing checks remain planned. |
+ 
+-The archived script optionally subtracts a pre-CS baseline median and clips the result, so signed negative draft traces are mathematically possible. Current catch/block plots use the **0–1 scaled total-activity** field, mask bins below coverage threshold, pool configured trials within fish, then summarize fish equally with fish/trial counts. They are not numerical replacements. Figure 4 must specify signed panel-data calculation and provenance before rendering. Use distinct guides for CS onset, CS offset, and each condition's expected US time.
++The archived script optionally subtracts a pre-CS baseline median and clips the result, so signed negative draft traces are mathematically possible. The older condition-wide catch/block plots use the **0–1 scaled total-activity** field and are not numerical replacements for the signed learner-stratified route. The replacement calculates −20 to 0 s baseline-centered bout-log-vigor bins, preserves no-bout gaps, and saves panel-data provenance. CS onset, CS offset, and each verified expected-US time have distinct guides.
+ 
+ Catch provenance has two numbering systems: training catches **11, 25, 39, 45** map to global CS trials **25, 39, 53, 59**. The archived `resolve_catch_trials()` and current experiment definition also pool global **65**, the first Test trial, in “all catch” views. The eventual panel-data sidecar and legend must state this **five-trial** rule.
+ 
+diff --git a/docs/analysis/figures/PAPER_FIGURE_FREEZE.md b/docs/analysis/figures/PAPER_FIGURE_FREEZE.md
+index 4a7c67b..629ad62 100644
+--- a/docs/analysis/figures/PAPER_FIGURE_FREEZE.md
++++ b/docs/analysis/figures/PAPER_FIGURE_FREEZE.md
+@@ -36,7 +36,7 @@ The numbers below follow the paper helper list, adapted to the present main-pane
+ | **S7** | Catch-trial and response-timing analyses, including sensitivity to trial selection. | Catch/block review tools exist; signed timing estimator remains open. Training catch trials 11/25/39/45 correspond to global CS trials 25/39/53/59; some legacy “all catch” plots also include global 65, first Test. State the choice in the panel data. |
+ | **S8** | Red-CS/visual-control robustness. | Requires cohort and analysis approval. |
+ 
+-The earlier condition-wide 0–1 catch/block profiles remain distinct review outputs; they are not Figure 4 panel data.
++The earlier condition-wide 0–1 catch/block profiles remain distinct review outputs; they are not Figure 4 panel data. The [Figure 4 command and manifest contract](FIGURE4_LEARNER_PROFILES.md) describes the replacement signed learner-stratified analysis.
+ 
+ ## Rendering interface
+ 
+diff --git a/src/classical_conditioning/analysis/figure4.py b/src/classical_conditioning/analysis/figure4.py
+index 77f64ab..a147f91 100644
+--- a/src/classical_conditioning/analysis/figure4.py
++++ b/src/classical_conditioning/analysis/figure4.py
+@@ -52,8 +52,31 @@ def load_classification_manifest(path: Path, metric_id: str) -> tuple[pd.DataFra
+             or metadata.get("input_metric_id") != metric_id
+             or not metadata.get("classifier_execution_id")
+             or not metadata.get("validation_mode")
+-            or set(metadata.get("cohort_hashes", {})) != set(EXPERIMENTS)):
++            or set(metadata.get("cohort_hashes", {})) != set(EXPERIMENTS)
++            or set(metadata.get("selection_assessments", {})) != set(EXPERIMENTS)):
+         raise ConfigurationError("Classification manifest hash, metric, classifier, validation mode or cohort map is invalid.")
++    for experiment_id, assessment in metadata["selection_assessments"].items():
++        assessment_path = Path(assessment["path"]).resolve()
++        if sha256_file(assessment_path) != assessment.get("sha256"):
++            raise ConfigurationError(f"{experiment_id}: selection assessment summary hash is invalid.")
++        assessment_summary = json.loads(assessment_path.read_text(encoding="utf-8"))
++        if (assessment_summary.get("assessment_hash") != assessment.get("assessment_hash")
++                or assessment_summary.get("selected_metric") != metric_id
++                or assessment_summary.get("input_identity", {}).get("experiment") != experiment_id
++                or assessment_summary.get("input_identity", {}).get("metric_id") != metric_id
++                or assessment_summary.get("input_identity", {}).get("metric_recipe") != "tail-candidate-corrected"):
++            raise ConfigurationError(f"{experiment_id}: selection assessment identity differs from the classifier.")
++        filenames = {"technical": "technical-assessment.parquet",
++                     "exploratory": "exploratory-assessment.parquet",
++                     "rules": "legacy-rule-results.parquet",
++                     "flow": "discarding-flow.parquet",
++                     "details": "rule-details.parquet"}
++        artifacts = assessment_summary.get("artifacts", {})
++        if set(artifacts) != set(filenames):
++            raise ConfigurationError(f"{experiment_id}: selection assessment artifact map is incomplete.")
++        for name, filename in filenames.items():
++            if sha256_file(assessment_path.parent / filename) != artifacts[name]:
++                raise ConfigurationError(f"{experiment_id}: selection assessment {name} artifact has changed.")
+     if path.suffix == ".parquet":
+         frame = pd.read_parquet(path)
+     elif path.suffix == ".csv":
+@@ -78,6 +101,13 @@ def load_classification_manifest(path: Path, metric_id: str) -> tuple[pd.DataFra
+         raise SchemaValidationError("Unclassified fish require an ineligible reason.")
+     if "input_metric_id" in frame and not frame["input_metric_id"].astype(str).eq(metric_id).all():
+         raise SchemaValidationError("Fish rows contain a different classifier input metric.")
++    for column in ("classifier_execution_id", "validation_mode"):
++        if column in frame and not frame[column].astype(str).eq(str(metadata[column])).all():
++            raise SchemaValidationError(f"Fish rows contain a different {column}.")
++    if "cohort_hash" in frame:
++        expected_hash = frame["experiment_id"].map(metadata["cohort_hashes"])
++        if expected_hash.isna().any() or not frame["cohort_hash"].astype(str).eq(expected_hash.astype(str)).all():
++            raise SchemaValidationError("Fish rows contain a different cohort hash.")
+     metadata["table_path"] = str(path)
+     metadata["metadata_path"] = str(metadata_path)
+     metadata["metadata_sha256"] = sha256_file(metadata_path)
+@@ -107,14 +137,14 @@ def verify_expected_us(protocol: pd.DataFrame, experiment_id: str) -> tuple[floa
+     observed: list[float] = []
+     catch = set(spec.catch_trial_numbers(Alignment.CS))
+     for trial in spec.analysis_trials:
+-        if trial.alignment is not Alignment.CS or trial.phase is not Phase.TRAIN:
++        if trial.alignment is not Alignment.CS:
+             continue
+         onset = float(cycles.iloc[trial.trial_number - 1]["Beg"])
+         latencies = (reinforcers - onset) / 1000.0
+         in_window = latencies[(latencies >= 0) & (latencies <= 20.1)]
+-        if trial.trial_number in catch:
++        if trial.phase is not Phase.TRAIN or trial.trial_number in catch:
+             if len(in_window):
+-                raise ConfigurationError(f"{experiment_id}: catch CS {trial.trial_number} contains a US event.")
++                raise ConfigurationError(f"{experiment_id}: non-US CS {trial.trial_number} contains a US event.")
+         elif len(in_window) != 1:
+             raise ConfigurationError(f"{experiment_id}: paired CS {trial.trial_number} has {len(in_window)} US events.")
+         else:
+@@ -159,15 +189,14 @@ def summarize_trial_bins(trial_bins: pd.DataFrame, experiment_id: str) -> tuple[
+     expanded = trial_bins.merge(assignments, on="trial_number", how="inner", validate="many_to_many")
+     keys = ["experiment_id", "recording_id", "fish_id", "condition_id", "cohort_role",
+             "classifier_label", "plot_stratum", "group_type", "group_name", "group_order", "time_s"]
+-    rows = []
+-    for key, part in expanded.groupby(keys, dropna=False, observed=True, sort=False):
+-        row = dict(zip(keys, key, strict=True))
+-        for signal, prefix in (("signed_log_vigor", "signed"), ("movement_probability", "movement")):
+-            valid = part.loc[np.isfinite(part[signal]), signal]
+-            row[prefix] = float(valid.median()) if len(valid) else np.nan
+-            row[f"{prefix}_trials"] = int(len(valid))
+-        rows.append(row)
+-    fish_bins = pd.DataFrame(rows)
++    fish_bins = (
++        expanded.groupby(keys, dropna=False, observed=True, sort=False)
++        .agg(signed=("signed_log_vigor", "median"),
++             signed_trials=("signed_log_vigor", "count"),
++             movement=("movement_probability", "median"),
++             movement_trials=("movement_probability", "count"))
++        .reset_index()
++    )
+     displayed = fish_bins.loc[fish_bins["plot_stratum"].isin(STRATA)]
+     group_keys = ["experiment_id", "plot_stratum", "group_type", "group_name", "group_order", "time_s"]
+     summary_rows = []
+@@ -182,7 +211,24 @@ def summarize_trial_bins(trial_bins: pd.DataFrame, experiment_id: str) -> tuple[
+             row[f"{signal}_fish"] = int(len(valid))
+             row[f"{signal}_trials"] = int(part.loc[valid.index, f"{signal}_trials"].sum())
+         summary_rows.append(row)
+-    group_bins = pd.DataFrame(summary_rows)
++    # Retain empty classifier groups so all panels render, even when every fish
++    # in one experiment is unclassified or a group has no valid signed bins.
++    grid = pd.DataFrame(
++        {"experiment_id": experiment_id, "plot_stratum": stratum,
++         "group_type": group["group_type"], "group_name": group["group_name"],
++         "group_order": group["group_order"], "time_s": time}
++        for group in profile_groups(experiment_id)
++        for stratum in STRATA
++        for time in sorted(trial_bins["time_s"].unique())
++    )
++    value_columns = ["total_group_fish", *(f"{signal}_{field}"
++                     for signal in ("signed", "movement")
++                     for field in ("median", "q25", "q75", "fish", "trials"))]
++    group_bins = grid.merge(pd.DataFrame(summary_rows, columns=group_keys + value_columns), on=group_keys, how="left",
++                            validate="one_to_one")
++    for column in ("total_group_fish", "signed_fish", "signed_trials",
++                   "movement_fish", "movement_trials"):
++        group_bins[column] = pd.to_numeric(group_bins[column], errors="coerce").fillna(0).astype(int)
+     return fish_bins, group_bins
+ 
+ 
+@@ -195,10 +241,15 @@ def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric
+     metrics = pq.read_table(metric_path, columns=["FrameID", "AbsoluteTime", METRIC_COLUMNS[metric_id]]).to_pandas()
+     movement = pq.read_table(movement_path, columns=["FrameID", "AbsoluteTime", "valid", "moving", "bout_id"]).to_pandas()
+     protocol = pq.read_table(protocol_path).to_pandas()
++    cycles = protocol.loc[protocol["Type"].astype(str).eq("Cycle")].sort_values(
++        "Beg", kind="stable"
++    ).reset_index(drop=True)
++    if len(cycles) < 94:
++        raise SchemaValidationError(f"{recording_id}: Figure 4 requires 94 recorded CS cycles.")
+     profiles = pq.read_table(verified.path, columns=["Recording ID", "Trial type", "Trial number", "Time bin center (s)", "Metric ID", "Valid expected fraction", "Movement probability"]).to_pandas()
+     profiles = profiles.loc[(profiles["Trial type"] == "CS") & (profiles["Metric ID"] == metric_id)
+                             & profiles["Time bin center (s)"].between(-20, 20, inclusive="neither")].copy()
+-    signed = calculate_fish_heatmaps(metrics, movement, protocol, recording_id=recording_id,
++    signed = calculate_fish_heatmaps(metrics, movement, cycles, recording_id=recording_id,
+                                      metric_ids=(metric_id,))
+     keys = ["Recording ID", "Trial number", "Time bin center (s)", "Metric ID"]
+     if profiles.duplicated(keys).any() or signed.duplicated(keys).any():
+@@ -257,6 +308,10 @@ def analyze_figure4(
+     joined = fish.merge(manifest, on=key, how="outer", validate="one_to_one", indicator=True)
+     if not joined["_merge"].eq("both").all():
+         raise SchemaValidationError("Classification manifest and primary cohort fish do not match exactly.")
++    if "recording_id_y" in joined:
++        if not joined["recording_id_x"].astype(str).eq(joined["recording_id_y"].astype(str)).all():
++            raise SchemaValidationError("Classifier changed a fish's recording identity.")
++        joined = joined.rename(columns={"recording_id_x": "recording_id"}).drop(columns="recording_id_y")
+     if "cohort_role_y" in joined:
+         if not joined["cohort_role_x"].eq(joined["cohort_role_y"]).all():
+             raise SchemaValidationError("Classifier changed a fish's cohort role.")
+@@ -267,6 +322,11 @@ def analyze_figure4(
+     trial_parts: list[pd.DataFrame] = []
+     inputs = [{"path": classifier["table_path"], "sha256": classifier["table_sha256"]},
+               {"path": classifier["metadata_path"], "sha256": classifier["metadata_sha256"]}]
++    inputs.extend({"path": item["path"], "sha256": item["sha256"]}
++                  for item in classifier["selection_assessments"].values())
++    inputs.extend({"path": item["path"], "sha256": item["sha256"]}
++                  for _, cohort in cohorts.values()
++                  for item in getattr(cohort, "input_artifacts", ()))
+     timing = {}
+     for experiment_id, (root, cohort) in cohorts.items():
+         times = []
+@@ -294,6 +354,15 @@ def analyze_figure4(
+         group_parts.append(group_part)
+     tables = {"trial-bins": trial_bins, "fish-bins": pd.concat(fish_parts, ignore_index=True),
+               "group-bins": pd.concat(group_parts, ignore_index=True), "sample-flow": flow}
++    for frame in tables.values():
++        frame["metric_id"] = metric_id
++        frame["cohort_hash"] = frame["experiment_id"].map(classifier["cohort_hashes"])
++        frame["selection_assessment_hash"] = frame["experiment_id"].map({
++            experiment: record["assessment_hash"]
++            for experiment, record in classifier["selection_assessments"].items()
++        })
++        frame["classifier_execution_id"] = classifier["classifier_execution_id"]
++        frame["validation_mode"] = classifier["validation_mode"]
+     root = project_dir.resolve() / "Processed data" / "Analyses" / analysis_id / "figure4"
+     destinations = {name: root / f"{name}.parquet" for name in TABLES}
+     summary_path = root / "analysis.json"
+@@ -314,6 +383,7 @@ def analyze_figure4(
+             "classifier_execution_id": classifier["classifier_execution_id"],
+             "validation_mode": classifier["validation_mode"], "classifier_manifest_sha256": classifier["table_sha256"],
+             "cohort_ids": cohort_ids, "cohort_hashes": classifier["cohort_hashes"],
++            "selection_assessments": classifier["selection_assessments"],
+             "expected_us": timing, "inputs": inputs,
+             "tables": {name: {"path": str(destinations[name]), "sha256": table_hashes[name],
+                               "rows": len(tables[name])} for name in TABLES},
+diff --git a/src/classical_conditioning/figures/figure4.py b/src/classical_conditioning/figures/figure4.py
+index a6ac61a..1464af7 100644
+--- a/src/classical_conditioning/figures/figure4.py
++++ b/src/classical_conditioning/figures/figure4.py
+@@ -6,6 +6,8 @@ from pathlib import Path
+ from typing import Any
+ 
+ import matplotlib.pyplot as plt
++from matplotlib.lines import Line2D
++from matplotlib.patches import Patch
+ import numpy as np
+ import pandas as pd
+ 
+@@ -108,11 +110,18 @@ def _draw_rows(
+                           textcoords="offset points", ha="right", va="top", fontsize=5)
+     axes[-1].set_xlabel("Time from CS onset (s)")
+     figure.supylabel(ylabel, fontsize=8)
+-    figure.suptitle(f"{NAMES[experiment_id]}: {value.replace('_', ' ')} by classifier group", fontsize=9)
+-    handles, labels = axes[0].get_legend_handles_labels()
+-    if handles:
+-        figure.legend(handles, labels, loc="upper center", ncol=2, fontsize=6,
+-                      bbox_to_anchor=(.5, 1.01))
++    figure.suptitle(f"{NAMES[experiment_id]}: {value.replace('_', ' ')} by classifier group",
++                    fontsize=9, y=.995)
++    handles = [Line2D([0], [0], color=COLORS[stratum], linestyle=STYLES[stratum],
++                      linewidth=1.15) for stratum in STRATA]
++    labels = [f"{stratum} (n={int(counts.get(stratum, 0))})" for stratum in STRATA]
++    handles.extend((Patch(facecolor="#009E73", alpha=.12, edgecolor="none"),
++                    Line2D([0], [0], color="#4A4A4A", linestyle=":", linewidth=.8)))
++    labels.extend((f"CS 0–{spec.cs_duration_s:g} s",
++                   f"Expected US (paired) {expected_us_s:g} s"))
++    figure.legend(handles, labels, loc="upper center", ncol=3, fontsize=6,
++                  bbox_to_anchor=(.5, .978))
++    figure.get_layout_engine().set(rect=(0, 0, 1, .925))
+     return figure, panel_ids, mappings
+ 
+ 
+@@ -129,9 +138,12 @@ def render_figure4(
+     signed_values = groups[["signed_q25", "signed_q75"]].to_numpy(dtype=float)
+     finite = np.abs(signed_values[np.isfinite(signed_values)])
+     y_limit = max(.5, np.ceil(float(finite.max()) * 4) / 4) if len(finite) else .5
+-    inputs = tuple({"path": str(analysis_summary.resolve()), "sha256": sha256_file(analysis_summary)}
+-                   if index == 0 else {"path": record["path"], "sha256": record["sha256"]}
+-                   for index, record in enumerate([{}, *summary["tables"].values()]))
++    inputs = (
++        {"path": str(analysis_summary.resolve()), "sha256": sha256_file(analysis_summary)},
++        *({"path": record["path"], "sha256": record["sha256"]}
++          for record in summary["tables"].values()),
++        *summary["inputs"],
++    )
+     output_dir = output_dir.resolve()
+     source = Path(__file__).resolve()
+     results = []
+@@ -141,7 +153,9 @@ def render_figure4(
+         for kind, value, label in (("main", "signed", "figure-4"),
+                                    ("individual", "signed", "supplement-single-catches"),
+                                    ("main", "movement", "supplement-movement"),
+-                                   ("main", "coverage", "supplement-coverage")):
++                                   ("main", "coverage", "supplement-coverage"),
++                                   ("individual", "movement", "supplement-single-catch-movement"),
++                                   ("individual", "coverage", "supplement-single-catch-coverage")):
+             figure, panel_ids, mappings = _draw_rows(
+                 panel, flow, experiment_id=experiment_id, expected_us_s=expected_us_s,
+                 kind=kind, value=value, y_limit=y_limit,
+diff --git a/src/classical_conditioning/figures/paper_panels.py b/src/classical_conditioning/figures/paper_panels.py
+index b54330c..818ef1b 100644
+--- a/src/classical_conditioning/figures/paper_panels.py
++++ b/src/classical_conditioning/figures/paper_panels.py
+@@ -59,7 +59,7 @@ def build_render_plan(
+         raise ValueError("Trials must be distinct positive global CS trial numbers")
+     if delay_fish == control_fish:
+         raise ValueError("Delay and control examples must be different recordings")
+-    if inference_review and figure_set == "figure1":
++    if inference_review and figure_set in {"figure1", "figure4"}:
+         raise ValueError("Inference review is only available for Figure 2 Delay")
+     if inference_review and metric_id != "tail_length_weighted_angular_l1":
+         raise ValueError("The saved Figure 2G LME only supports tail_length_weighted_angular_l1")
+@@ -107,7 +107,8 @@ def build_render_plan(
+             ))
+     if figure_set == "figure4":
+         experiments = ("allDelay", "all3sTrace", "all10sTrace")
+-        if not figure4_cohort_ids or set(figure4_cohort_ids) != set(experiments) or figure4_manifest is None:
++        if (not figure4_cohort_ids or set(figure4_cohort_ids) != set(experiments)
++                or not all(figure4_cohort_ids.values()) or figure4_manifest is None):
+             raise ValueError("Figure 4 requires three cohort IDs and a frozen learner manifest.")
+         analysis_id = output_dir.name
+         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
+diff --git a/tests/test_figure4.py b/tests/test_figure4.py
+index 463f954..ad40a09 100644
+--- a/tests/test_figure4.py
++++ b/tests/test_figure4.py
+@@ -9,16 +9,48 @@ from unittest.mock import patch
+ 
+ import numpy as np
+ import pandas as pd
++import pyarrow as pa
++import pyarrow.parquet as pq
+ 
+ from classical_conditioning.analysis.figure4 import (
+     EXPERIMENTS, STRATA, assign_plot_strata, load_classification_manifest,
+     analyze_figure4, load_figure4_analysis, profile_groups, summarize_trial_bins,
+-    verify_expected_us,
++    verify_expected_us, _read_recording,
+ )
+ from classical_conditioning.artifacts import sha256_file
+ from classical_conditioning.figures.figure4 import _draw_rows
+ from classical_conditioning.figures.figure4 import render_figure4
+-from classical_conditioning.figures.export import FigureMode
++from classical_conditioning.figures.export import (
++    FigureMode, FigureProvenance, export_matplotlib_figure,
++)
++from classical_conditioning.figures.paper_panels import build_render_plan
++
++
++def selection_assessments(root: Path, metric: str) -> dict[str, dict[str, str]]:
++    result = {}
++    for experiment in EXPERIMENTS:
++        path = root / experiment / "assessment-summary.json"
++        path.parent.mkdir(parents=True)
++        filenames = {"technical": "technical-assessment.parquet",
++                     "exploratory": "exploratory-assessment.parquet",
++                     "rules": "legacy-rule-results.parquet",
++                     "flow": "discarding-flow.parquet",
++                     "details": "rule-details.parquet"}
++        artifacts = {}
++        for name, filename in filenames.items():
++            artifact = path.parent / filename
++            artifact.write_bytes(name.encode())
++            artifacts[name] = sha256_file(artifact)
++        path.write_text(json.dumps({
++            "assessment_hash": f"assessment-{experiment}",
++            "selected_metric": metric,
++            "input_identity": {"experiment": experiment, "metric_id": metric,
++                               "metric_recipe": "tail-candidate-corrected"},
++            "artifacts": artifacts,
++        }))
++        result[experiment] = {"path": str(path), "sha256": sha256_file(path),
++                              "assessment_hash": f"assessment-{experiment}"}
++    return result
+ 
+ 
+ class Figure4AnalysisTests(unittest.TestCase):
+@@ -37,13 +69,17 @@ class Figure4AnalysisTests(unittest.TestCase):
+                 }).to_csv(path, index=False)
+                 metadata = {"table_sha256": sha256_file(path), "input_metric_id": metric,
+                             "classifier_execution_id": "classifier-1", "validation_mode": "descriptive",
+-                            "cohort_hashes": {experiment: "hash" for experiment in EXPERIMENTS}}
++                            "cohort_hashes": {experiment: "hash" for experiment in EXPERIMENTS},
++                            "selection_assessments": selection_assessments(Path(directory), metric)}
+                 path.with_suffix(".manifest.json").write_text(json.dumps(metadata))
+                 table, loaded = load_classification_manifest(path, metric)
+                 self.assertEqual(len(table), 1)
+                 self.assertEqual(loaded["input_metric_id"], metric)
+                 with self.assertRaisesRegex(Exception, "metric"):
+                     load_classification_manifest(path, "different-metric")
++                (Path(directory) / "allDelay" / "technical-assessment.parquet").write_bytes(b"changed")
++                with self.assertRaisesRegex(Exception, "technical artifact has changed"):
++                    load_classification_manifest(path, metric)
+ 
+     def test_control_flag_is_preserved_as_reference(self) -> None:
+         fish = pd.DataFrame({"cohort_role": ["reference", "reference", "conditioned", "conditioned", "reference"],
+@@ -81,6 +117,29 @@ class Figure4AnalysisTests(unittest.TestCase):
+         catches = [group["trials"][0] for group in profile_groups("allDelay")
+                    if group["group_type"] == "individual_catch"]
+         self.assertEqual(catches, [25, 39, 53, 59, 65])
++        for experiment in EXPERIMENTS:
++            groups = profile_groups(experiment)
++            self.assertEqual([group["group_name"] for group in groups[:10]],
++                             ["Pre-train", *(f"Train {index}" for index in range(1, 6)),
++                              *(f"Test {index}" for index in range(1, 4)), "All catch trials"])
++            self.assertEqual([group["trials"] for group in groups[:9]],
++                             [tuple(range(start, start + 10)) for start in range(5, 95, 10)])
++            self.assertEqual(groups[9]["trials"], (25, 39, 53, 59, 65))
++        empty = group_bins.loc[group_bins["plot_stratum"].eq(STRATA[3])]
++        self.assertEqual(len(empty), 15)
++        self.assertTrue(empty["signed_fish"].eq(0).all())
++
++    def test_all_unclassified_fish_leave_empty_group_bins(self) -> None:
++        bins = pd.DataFrame({"experiment_id": ["allDelay"], "recording_id": ["fish"],
++                             "fish_id": ["fish"], "condition_id": ["control"],
++                             "cohort_role": ["reference"], "classifier_label": ["Unclassified"],
++                             "plot_stratum": ["Unclassified"], "trial_number": [25],
++                             "time_s": [.25], "signed_log_vigor": [np.nan],
++                             "movement_probability": [0.]})
++        _, groups = summarize_trial_bins(bins, "allDelay")
++        self.assertEqual(len(groups), 15 * 4)
++        self.assertTrue(groups["signed_fish"].eq(0).all())
++        self.assertTrue(groups["signed_median"].isna().all())
+ 
+     def test_expected_us_mismatch_is_explicit(self) -> None:
+         cycles = [100_000 * trial for trial in range(94)]
+@@ -97,6 +156,77 @@ class Figure4AnalysisTests(unittest.TestCase):
+         protocol.loc[protocol["Type"].eq("Reinforcer"), "Beg"] -= 4_000
+         time, count = verify_expected_us(protocol, "all3sTrace")
+         self.assertEqual((time, count), (9., 46))
++        with_test_catch_us = pd.concat([protocol, pd.DataFrame([{
++            "Type": "Reinforcer", "Beg": cycles[64] + 9_000,
++            "End": cycles[64] + 9_100,
++        }])], ignore_index=True)
++        with self.assertRaisesRegex(Exception, "non-US CS 65"):
++            verify_expected_us(with_test_catch_us, "all3sTrace")
++
++    def test_recording_uses_selected_signed_metric_and_coverage(self) -> None:
++        from classical_conditioning.figures.example_traces import METRIC_COLUMNS
++
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            times = [-19000, -18000, 1000, 2000]
++            metric_path = root / "metrics.parquet"
++            movement_path = root / "movement.parquet"
++            protocol_path = root / "protocol.parquet"
++            profile_path = root / "profiles.parquet"
++            metrics = {"FrameID": range(4), "AbsoluteTime": times}
++            for scale, column in enumerate(METRIC_COLUMNS.values(), start=1):
++                metrics[column] = np.array([1., 1., 2., 4.]) * scale
++            pq.write_table(pa.Table.from_pandas(pd.DataFrame(metrics)), metric_path)
++            pq.write_table(pa.Table.from_pandas(pd.DataFrame({
++                "FrameID": range(4), "AbsoluteTime": times,
++                "valid": True, "moving": True, "bout_id": range(1, 5),
++            })), movement_path)
++            cycle_times = [-1_000_000, -800_000, -600_000, -400_000, 0]
++            cycle_times += [1_000_000 + 100_000 * index for index in range(89)]
++            protocol = pd.DataFrame({"Type": ["Cycle"] * 94, "Beg": cycle_times,
++                                     "End": [time + 10_000 for time in cycle_times]})
++            protocol = pd.concat([pd.DataFrame({"Type": ["Reinforcer"],
++                                                "Beg": [-50000], "End": [-49900]}), protocol],
++                                 ignore_index=True)
++            pq.write_table(pa.Table.from_pandas(protocol), protocol_path)
++            rows = []
++            for metric in METRIC_COLUMNS:
++                for trial in range(5, 95):
++                    for time in np.arange(-20, 20, .5) + .25:
++                        rows.append({"Recording ID": "fish", "Trial type": "CS",
++                                     "Trial number": trial, "Time bin center (s)": time,
++                                     "Metric ID": metric,
++                                     "Valid expected fraction": .5 if time == 1.25 else 1.,
++                                     "Movement probability": .7})
++            pq.write_table(pa.Table.from_pandas(pd.DataFrame(rows)), profile_path)
++            for metric in METRIC_COLUMNS:
++                with self.subTest(metric=metric), \
++                     patch("classical_conditioning.analysis.figure4._verify_temporal_profiles",
++                           return_value=SimpleNamespace(path=profile_path)), \
++                     patch("classical_conditioning.analysis.figure4._verify_inputs",
++                           return_value=("fish", metric_path, movement_path, protocol_path, {}, None)):
++                    bins, _, _, _ = _read_recording(root, "fish", metric, "tail-candidate-corrected")
++                    masked = bins.loc[bins["trial_number"].eq(5) & bins["time_s"].eq(1.25)].iloc[0]
++                    self.assertTrue(np.isnan(masked["signed_log_vigor"]))
++                    self.assertTrue(np.isnan(masked["movement_probability"]))
++                    valid = bins.loc[bins["trial_number"].eq(5) & bins["time_s"].eq(2.25)].iloc[0]
++                    self.assertAlmostEqual(valid["signed_log_vigor"], np.log(4.))
++
++    def test_paper_run_orders_analysis_before_rendering(self) -> None:
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            steps = build_render_plan(
++                root, root / "figure4-review", figure_set="figure4",
++                figure4_cohort_ids={item: f"cohort-{item}" for item in EXPERIMENTS},
++                figure4_manifest=root / "labels.parquet",
++            )
++            self.assertEqual([step.name for step in steps],
++                             ["figure4-analysis", "figure4-render"])
++            self.assertIn("figure4-analyze", steps[0].argv)
++            self.assertIn("figure4-render", steps[1].argv)
++            with self.assertRaisesRegex(ValueError, "three cohort IDs"):
++                build_render_plan(root, root / "review", figure_set="figure4",
++                                  figure4_manifest=root / "labels.parquet")
+ 
+     def test_renderer_has_expected_axes_and_no_single_fish_iqr(self) -> None:
+         rows = []
+@@ -116,6 +246,24 @@ class Figure4AnalysisTests(unittest.TestCase):
+             self.assertEqual(tuple(figure.axes[0].get_xlim()), (-20., 20.))
+             self.assertFalse(any(key.startswith("iqr__") for key in mappings))
+             self.assertEqual(sum(key.startswith("us__") for key in mappings), 10)
++            legend_labels = [text.get_text() for text in figure.legends[0].get_texts()]
++            self.assertIn("Control learner-flagged (n=0)", legend_labels)
++            self.assertIn("Expected US (paired) 9 s", legend_labels)
++            with tempfile.TemporaryDirectory() as directory:
++                source = Path(__file__).resolve()
++                provenance = FigureProvenance(
++                    figure_id="figure4-test", analysis_recipe="figure4-test",
++                    source_file=str(source), source_symbol="test_renderer_has_expected_axes_and_no_single_fish_iqr",
++                    source_hash=sha256_file(source), reproduction_snippet="test figure4",
++                    input_artifacts=(), artist_mappings=mappings,
++                )
++                with patch("classical_conditioning.figures.export._git_dirty", return_value=False):
++                    result = export_matplotlib_figure(
++                        figure, Path(directory) / "figure4-test", provenance,
++                        mode=FigureMode.PUBLICATION, panel_ids=panel_ids,
++                    )
++                self.assertEqual({path.suffix for path in result.outputs}, {".svg", ".pdf"})
++                self.assertTrue(all(path.is_file() for path in result.outputs))
+         finally:
+             import matplotlib.pyplot as plt
+             plt.close(figure)
+@@ -139,7 +287,9 @@ class Figure4AnalysisTests(unittest.TestCase):
+                 for condition, recording, label in ((conditioned, recordings[0], "Learner"),
+                                                      ("control", recordings[1], "Non-learner")):
+                     rows.append({"experiment_id": experiment, "condition_id": condition,
+-                                 "fish_id": recording, "classifier_label": label,
++                                 "fish_id": recording, "recording_id": recording,
++                                 "cohort_role": "reference" if condition == "control" else "conditioned",
++                                 "classifier_label": label,
+                                  "classification_eligible": True, "ineligible_reason": "",
+                                  "input_metric_id": metric})
+             path = root / "labels.csv"
+@@ -148,6 +298,7 @@ class Figure4AnalysisTests(unittest.TestCase):
+                 "table_sha256": sha256_file(path), "input_metric_id": metric,
+                 "classifier_execution_id": "run-1", "validation_mode": "descriptive",
+                 "cohort_hashes": {experiment: f"hash-{experiment}" for experiment in EXPERIMENTS},
++                "selection_assessments": selection_assessments(root, metric),
+             }))
+ 
+             def fake_read(_root: Path, recording: str, _metric: str, _recipe: str):
+@@ -170,12 +321,26 @@ class Figure4AnalysisTests(unittest.TestCase):
+                            {"allDelay": 9., "all3sTrace": 13., "all10sTrace": 20.}[experiment], 46)):
+                 summary_path = analyze_figure4(root, analysis_id="figure4-test", metric_id=metric,
+                     cohort_ids={item: f"cohort-{item}" for item in EXPERIMENTS}, learner_manifest=path)
++                original_table = path.read_bytes()
++                metadata_path = path.with_suffix(".manifest.json")
++                original_metadata = metadata_path.read_bytes()
++                changed = pd.read_csv(path)
++                changed.loc[0, "recording_id"] = "another-recording"
++                changed.to_csv(path, index=False)
++                metadata = json.loads(original_metadata)
++                metadata["table_sha256"] = sha256_file(path)
++                metadata_path.write_text(json.dumps(metadata))
++                with self.assertRaisesRegex(Exception, "recording identity"):
++                    analyze_figure4(root, analysis_id="figure4-bad-join", metric_id=metric,
++                        cohort_ids={item: f"cohort-{item}" for item in EXPERIMENTS}, learner_manifest=path)
++                path.write_bytes(original_table)
++                metadata_path.write_bytes(original_metadata)
+             summary, tables = load_figure4_analysis(summary_path)
+             self.assertEqual(len(tables["sample-flow"]), 6)
+             self.assertEqual(summary["expected_us"]["all10sTrace"]["expected_us_s"], 20.)
+             with patch("classical_conditioning.figures.export._git_dirty", return_value=False):
+                 results = render_figure4(summary_path, output_dir=root / "figures", mode=FigureMode.STATIC)
+-            self.assertEqual(len(results), 12)
++            self.assertEqual(len(results), 18)
+             self.assertTrue(all(result.outputs[0].is_file() and result.sidecar.is_file()
+                                 for result in results))
+             (root / "Processed data" / "Analyses" / "figure4-test" / "figure4" / "group-bins.parquet").write_bytes(b"changed")
+diff --git a/docs/analysis/figures/FIGURE4_LEARNER_PROFILES.md b/docs/analysis/figures/FIGURE4_LEARNER_PROFILES.md
+new file mode 100644
+index 0000000..ef2634a
+--- /dev/null
++++ b/docs/analysis/figures/FIGURE4_LEARNER_PROFILES.md
+@@ -0,0 +1,57 @@
++# Figure 4 learner-stratified CR profiles
++
++Figure 4A–C are descriptive Delay, 3sTrace and 10sTrace profiles. Each figure has the nine CS ten-trial blocks from `ExperimentSpec` and one pooled-catch row. The five individual catch trials, movement probability and signed-signal fish coverage are supplementary figures for both main and individual-catch groups. The older condition-wide 0–1 scaled activity plots remain distinct outputs.
++
++## Frozen classifier input
++
++`figure4-analyze` consumes a CSV or Parquet fish table plus a JSON file with the same stem and suffix `.manifest.json`. It does not fit or select a classifier. The table must contain one row per `(experiment_id, condition_id, fish_id)` across all three reviewed cohorts, with:
++
++```text
++experiment_id, condition_id, fish_id, classifier_label,
++classification_eligible, ineligible_reason, input_metric_id
++```
++
++`classifier_label` is `Learner`, `Non-learner` or `Unclassified`; controls receive the same classifier rule while retaining their reference cohort role. `Unclassified` requires an ineligibility reason. Optional `recording_id` and `cohort_role` columns are checked against the reviewed cohort. The JSON contains `table_sha256`, `input_metric_id`, `classifier_execution_id`, `validation_mode`, `cohort_hashes` keyed by all three experiment IDs, and `selection_assessments` keyed the same way. Each selection assessment entry has `path`, `sha256`, and `assessment_hash` for the authenticated `assessment-summary.json` from `assess-discarding`. The command verifies its metric, experiment, corrected metric recipe and all five constituent artifact hashes. The selected metric must match the classifier's metric.
++
++```json
++{
++  "table_sha256": "<SHA-256 of fish-classification.parquet>",
++  "input_metric_id": "tail_length_weighted_angular_l1",
++  "classifier_execution_id": "<frozen Gate L run ID>",
++  "validation_mode": "<Gate L validation mode>",
++  "cohort_hashes": {"allDelay": "<hash>", "all3sTrace": "<hash>", "all10sTrace": "<hash>"},
++  "selection_assessments": {
++    "allDelay": {"path": "/path/to/assessment-summary.json", "sha256": "<file hash>", "assessment_hash": "<assessment identity>"},
++    "all3sTrace": {"path": "/path/to/assessment-summary.json", "sha256": "<file hash>", "assessment_hash": "<assessment identity>"},
++    "all10sTrace": {"path": "/path/to/assessment-summary.json", "sha256": "<file hash>", "assessment_hash": "<assessment identity>"}
++  }
++}
++```
++
++## Run order
++
++One project directory can hold all three cohorts. When experiments are in separate project directories, supply the corresponding `--*-project-dir` overrides. `--project-dir` also selects where the saved Figure 4 analysis goes.
++
++```bash
++classical-conditioning figure4-analyze \
++  --project-dir /path/to/output-project --analysis-id figure4-v1 \
++  --metric tail_length_weighted_angular_l1 \
++  --delay-cohort-id DELAY_ID --trace3-cohort-id TRACE3_ID \
++  --trace10-cohort-id TRACE10_ID \
++  --learner-manifest /path/to/fish-classification.parquet \
++  --delay-project-dir /path/to/delay-project \
++  --trace3-project-dir /path/to/trace3-project \
++  --trace10-project-dir /path/to/trace10-project
++
++classical-conditioning figure4-render \
++  --analysis-summary '/path/to/output-project/Processed data/Analyses/figure4-v1/figure4/analysis.json' \
++  --output-dir /path/to/figure4-review --mode static
++```
++
++Use either of the other supported metric IDs in place of the example, with its matching frozen classifier manifest. `render-paper-panels --figure-set figure4` runs these two stages in the same order using the same Figure 4 flags and records a paper-panel run summary. Its `--output-dir` basename becomes the Figure 4 analysis ID. `--plan` lists the commands without running them.
++
++## Signal and provenance
++
++The analysis computes the shared signed bout-log-vigor value at 0.5-second bins from −20 to +20 seconds, using each trial's −20 to 0 second baseline. It masks bins with less than 0.9 valid expected-frame coverage. No-bout signed bins stay missing; their movement probability is retained separately. Trial medians are formed within each fish before equal-fish group medians and fish IQRs. Saved trial, fish, group and sample-flow Parquet tables precede rendering. The group table contains per-bin contributing fish and trial counts for both outcomes.
++
++Expected-US guides are derived from authenticated paired-training `Reinforcer` events and compared with `ExperimentSpec`. The command stops if they disagree, including a 3sTrace 9-versus-13-second discrepancy. Catch and non-US rows show the verified paired-training expectation, not an observed US. Same-data learner curves carry no independent group-inference claim or p-values. The future S7 timing analysis is specified in [the timing plan](../../../Plans/11_S7_RESPONSE_TIMING.md).
+diff --git a/docs/analysis/figures/FIGURE4_OTHER_PC_HANDOVER.md b/docs/analysis/figures/FIGURE4_OTHER_PC_HANDOVER.md
+new file mode 100644
+index 0000000..a8448e0
+--- /dev/null
++++ b/docs/analysis/figures/FIGURE4_OTHER_PC_HANDOVER.md
+@@ -0,0 +1,83 @@
++# Figure 4 handover for another computer
++
++## State at handover
++
++The Figure 4 analysis and renderer are implemented, with focused tests and a synthetic layout check. **No paper-data Figure 4 has been run.** The current machine did not have the frozen Gate L classifier manifest or the recording volume mounted. A preview made with synthetic curves is not a scientific result.
++
++The implementation is in `src/classical_conditioning/analysis/figure4.py`, `src/classical_conditioning/figures/figure4.py`, the `figure4-analyze` and `figure4-render` CLI routes, and the `figure4` paper-panel registry route. The input contract is in [the Figure 4 guide](./FIGURE4_LEARNER_PROFILES.md). The separate timing follow-on is [Plan 11](../../../Plans/11_S7_RESPONSE_TIMING.md).
++
++At the time this handover was written, the working branch was `codex/remove-legacy-package` at `3c1bcdb`, **with uncommitted Figure 4 changes**. A checkout of that commit alone is insufficient. Transfer the complete current working tree, or apply [the working-tree patch](../../../handover/figure4-working-tree.patch) to a checkout of `3c1bcdb` (then review and commit it). The patch includes the untracked Figure 4 guide and this handover; the patch itself is a transfer aid and is not included inside itself. On the receiving machine, inspect `git status --short` and verify that `figure4-analyze` and `figure4-render` appear in `python -m classical_conditioning --help`.
++
++```text
++git checkout 3c1bcdb
++git apply --check "<PATH_TO>/figure4-working-tree.patch"
++git apply "<PATH_TO>/figure4-working-tree.patch"
++git status --short
++```
++
++## Required inputs
++
++Obtain these from the approved workstreams; do not create substitute labels or change hashes to make a run pass:
++
++1. One selected metric: `tail_length_weighted_angular_l1`, `whole_tail_xy_mean_speed_normalized`, or `legacy_distal_angular_speed`.
++2. A reviewed cohort ID for each of `allDelay`, `all3sTrace`, and `all10sTrace`, plus the project directory holding each cohort. Each cohort needs authenticated corrected candidate metrics, movement states, temporal profiles, stimulus events, source manifests, and cohort trial outcomes for its fish.
++3. The frozen Gate L fish-classification CSV/Parquet table and its same-stem `.manifest.json` sidecar. Its metric and cohort hashes must match the selection above. It must classify every fish in the three cohorts exactly once, including controls and any `Unclassified` fish with reasons.
++4. The three `assessment-summary.json` files named in that sidecar, with all five associated assessment Parquet files still present and hash-matching. The selection assessments must use `tail-candidate-corrected` and the selected metric.
++5. A writable output project directory and figure output directory. Keep the input project directories available throughout analysis.
++
++**Path-bound artifacts:** source manifests check the absolute paths of intake Parquet files. Several other artifact summaries also record absolute paths. Copying a processed project to a different location or operating system can invalidate it. The supported choices are to mount/copy it at the same absolute paths, or rerun the authenticated intake and corrected stages on the receiving computer and regenerate the reviewed cohort and selection/classifier manifests as needed. Do not hand-edit hashed manifests; reissue them through their owning workstream. Run Figure 4 analysis on the computer where the final project paths will remain, because its saved summary also records absolute paths.
++
++## Setup and dry run
++
++Use CPython 3.12 or 3.13 and `uv` in the transferred repository:
++
++```text
++uv sync --frozen --all-extras
++uv run python -m unittest tests.test_figure4 -q
++uv run python -m classical_conditioning figure4-analyze --help
++uv run python -m classical_conditioning figure4-render --help
++```
++
++The focused test uses temporary synthetic input and does not validate the paper cohort. If the full project was rebuilt at new paths, authenticate its cohort and selection outputs before running Figure 4. The Figure 4 command will independently verify the input identities and hashes.
++
++## Run analysis first
++
++Replace every angle-bracket placeholder with a path or ID on the receiving machine. These one-line commands work in a terminal without shell-specific continuation syntax. If all three cohorts live under the output project, omit the three `--*-project-dir` options.
++
++```text
++uv run python -m classical_conditioning figure4-analyze --project-dir "<OUTPUT_PROJECT>" --analysis-id figure4-v1 --metric "<METRIC>" --delay-cohort-id "<DELAY_COHORT_ID>" --trace3-cohort-id "<TRACE3_COHORT_ID>" --trace10-cohort-id "<TRACE10_COHORT_ID>" --learner-manifest "<CLASSIFIER_TABLE>" --delay-project-dir "<DELAY_PROJECT>" --trace3-project-dir "<TRACE3_PROJECT>" --trace10-project-dir "<TRACE10_PROJECT>"
++```
++
++The command writes `trial-bins.parquet`, `fish-bins.parquet`, `group-bins.parquet`, `sample-flow.parquet`, `analysis.json`, and `complete.json` under:
++
++```text
++<OUTPUT_PROJECT>/Processed data/Analyses/figure4-v1/figure4/
++```
++
++It computes signed bout-log-vigor in 0.5 s bins from −20 to +20 s with each trial's −20 to 0 s baseline and a 0.9 coverage threshold. Missing no-bout signed values stay missing; movement probability is separate. Trials are pooled within fish before the equal-fish median and IQR. Trial 65 belongs to both Test 1 and the pooled catch group. The pooled catch set is 25, 39, 53, 59, 65. Group tables include fish and trial counts per bin, including explicit zero-fish groups.
++
++**Timing gate:** `ExperimentSpec` currently declares a 9 s paired-US latency for 3sTrace, while the paper scaffold refers to 13 s. The analyzer checks recorded `Reinforcer` events for each conditioned fish against the declared latency and stops on disagreement, missing/extra paired US events, or US events in non-US trials. Inspect the authenticated records and obtain an approved correction to the experiment definition or manuscript description. Do not shift a guide or disable this check to force a figure. If the records agree with 9 s, the written 13 s claim still needs reconciliation before a paper release.
++
++## Render saved analysis
++
++Run only after `complete.json` exists and analysis succeeded:
++
++```text
++uv run python -m classical_conditioning figure4-render --analysis-summary "<OUTPUT_PROJECT>/Processed data/Analyses/figure4-v1/figure4/analysis.json" --output-dir "<FIGURE_OUTPUT>" --mode static
++```
++
++This produces **18 review PNG figures**: per experiment, one ten-row main figure (nine CS blocks plus pooled catches) and five supplementary figures covering individual signed catches, main and individual movement probability, and main and individual contributing-fish coverage. Four classifier groups, their fish counts, fish-IQR bands where at least two fish contribute, CS interval, and verified paired-training expected-US guides are drawn from saved tables. The x-axis is −20…+20 s; a 20 s US sits at the right boundary.
++
++For SVG/PDF publication files, rerun `figure4-render` with `--mode publication` and a separate clean output directory. The publication exporter requires a clean Git working tree and embeds provenance. Do not use `--overwrite` unless intentionally replacing an output with the same analysis ID and recipe.
++
++The integrated command `render-paper-panels --figure-set figure4` also runs analysis then rendering and records `paper-panel-run.json`; use `--plan` first to inspect its two commands. Its output directory basename becomes the analysis ID. The direct commands above are easier to diagnose on the first paper-data run.
++
++## Acceptance checks and delivery
++
++1. Inspect `analysis.json`: selected metric, three cohort IDs/hashes, classifier execution/validation identity, expected-US evidence for all assays, and four table hashes. Confirm `complete.json` binds that summary.
++2. Inspect `sample-flow.parquet` for every cohort fish, including unclassified reasons and controls retaining the `reference` role. Check all four plotted strata and zero-fish counts.
++3. Inspect the ten main rows and five individual catches per experiment; confirm all 18 PNGs, their `.figure.json` sidecars, and the ±20 s axes. For publication mode, confirm each figure has SVG and PDF outputs and a provenance sidecar.
++4. Confirm the three main figures are Delay (4A), 3sTrace (4B), and 10sTrace (4C). Treat the same-data learner curves as descriptive; add no learner-versus-nonlearner significance marks.
++5. Save the exact source commit, selected metric, cohort IDs/hashes, classifier manifest and hash, selection assessment hashes, `analysis.json`, `complete.json`, all four tables, `paper-panel-run.json` if used, and figure files/sidecars together with the review record.
++
++If authentication fails, keep the diagnostic and repair the upstream artifact through its owning pipeline. If rendering fails, preserve the saved analysis tables; the renderer reads them and performs no classification or signal recalculation.
