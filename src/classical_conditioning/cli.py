@@ -749,6 +749,14 @@ def build_parser() -> argparse.ArgumentParser:
     figure_learning_onset.add_argument(
         "--mode", choices=("publication", "static"), default="static"
     )
+    figure_learning_onset.add_argument(
+        "--allow-unaccepted",
+        action="store_true",
+        help=(
+            "Render an explicitly labelled exploratory static figure when a "
+            "required learning diagnostic failed."
+        ),
+    )
     figure_learning_onset.add_argument("--overwrite", action="store_true")
 
     figure_learning_diagnostics = subparsers.add_parser(
@@ -1690,6 +1698,7 @@ def main(argv: Sequence[str] | None = None) -> None:
             args.analysis_id,
             mode=FigureMode(args.mode),
             overwrite=args.overwrite,
+            allow_unaccepted=args.allow_unaccepted,
         )
         for output in result.outputs:
             print(f"Figure: {output}")

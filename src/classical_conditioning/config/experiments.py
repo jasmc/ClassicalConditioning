@@ -124,7 +124,7 @@ _ALL_3S_TRACE = ExperimentSpec(
             source_name="trace",
             role=ConditionRole.CONDITIONED,
             color_rgb_255=(241, 90, 41),
-            us_latency_s=(9.0,) * 46,
+            us_latency_s=(13.0,) * 46,
         ),
     ),
     conditioned_response_window=TimeWindow(0.0, 13.0),

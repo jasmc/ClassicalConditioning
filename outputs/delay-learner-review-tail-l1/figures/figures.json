@@ -1,0 +1,53 @@
+{
+  "schema": "legacy-learner-figures/1.0",
+  "analysis_mode": "descriptive_classifier_characterization",
+  "source_comparison": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\comparison.json",
+  "source_comparison_sha256": "7e2b3e5db53142d64e8973034822a11b9750d92d021124e54449e4bd6e368875",
+  "figure_scope": "historical script summary and optional individual composite plots; heatmap grids require original stage-5 figure inputs",
+  "include_individuals": false,
+  "variants": [
+    {
+      "variant": "legacy-nominal",
+      "status": "completed",
+      "figures": [
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-nominal\\BLUP_Trajectories_Overlay.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-nominal\\Feature_Space_Scatter.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-nominal\\Learner_Classification_Trajectories.png"
+      ]
+    },
+    {
+      "variant": "legacy-new",
+      "status": "completed",
+      "figures": [
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-new\\BLUP_Caterpillar_acquisition.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-new\\BLUP_Caterpillar_extinction.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-new\\BLUP_Trajectories_Overlay.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-new\\Feature_Space_Scatter.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-new\\Learner_Classification_Trajectories clean.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-new\\Learner_Classification_Trajectories.png"
+      ]
+    },
+    {
+      "variant": "legacy-improved",
+      "status": "completed",
+      "figures": [
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-improved\\BLUP_Caterpillar_acquisition.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-improved\\BLUP_Caterpillar_extinction.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-improved\\BLUP_Trajectories_Overlay.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-improved\\Feature_Space_Scatter.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-improved\\Learner_Classification_Trajectories clean.png"
+      ]
+    },
+    {
+      "variant": "legacy-wip",
+      "status": "completed",
+      "figures": [
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-wip\\BLUP_Caterpillar_acquisition_wip.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-wip\\BLUP_Caterpillar_extinction_wip.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-wip\\BLUP_Trajectories_Overlay_wip.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-wip\\Feature_Space_Scatter_wip.png",
+        "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\figures\\legacy-wip\\Learner_Classification_Trajectories clean_wip.png"
+      ]
+    }
+  ]
+}

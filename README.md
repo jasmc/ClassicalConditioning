@@ -43,7 +43,7 @@ JSON has no comments; this table documents **every accepted field**. Obsolete ro
 | `technical_policy` | `null` | Path to a reviewed technical policy JSON. Without one, the assessment is a draft evidence audit, not an inclusion decision. |
 | `disabled_discard_checks` | `[]` | Named historical checks to disable for an exploratory sensitivity assessment; never changes a reviewed cohort. |
 
-Experiment-specific trial blocks, stimulus timings, catch assignments, and response windows live in [`src/classical_conditioning/config/experiments.py`](src/classical_conditioning/config/experiments.py). The active `all3sTrace` latency is 9 s, whereas the written paper scaffold describes a 13-s expected US; this protocol identity must be reconciled against raw events before paper timing panels are approved. Inspect fully resolved settings and the trial map before a run:
+Experiment-specific trial blocks, stimulus timings, catch assignments, and response windows live in [`src/classical_conditioning/config/experiments.py`](src/classical_conditioning/config/experiments.py). The fixed 3sTrace raw-protocol audit in `configs/trace-preflight.json` supports a 13-s paired-US latency, now declared by `all3sTrace`; each Figure 4 input is still checked against its authenticated events. Inspect fully resolved settings and the trial map before a run:
 
 ```powershell
 uv run classical-conditioning resolve-config --experiment allDelay --project-dir "<SAVE-DIR>"

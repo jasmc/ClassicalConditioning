@@ -1,0 +1,124 @@
+{
+  "source_dir": "J:\\Raw Data\\all3sTtrace",
+  "destination_dir": "J:\\Raw Data\\incTrace",
+  "move_date": "2026-09-24",
+  "protocol_evidence": "Cycle-to-next-Reinforcer latency progresses from approximately 10.5 s to 11.5 s to 13 s at sampled training cycles 14, 35, and 55.",
+  "recording_count": 14,
+  "file_count": 42,
+  "recordings": [
+    {
+      "recording_id": "20221116_04",
+      "files": [
+        "20221116_04_trace_black-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_cam.txt",
+        "20221116_04_trace_black-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_mp tail tracking.txt",
+        "20221116_04_trace_black-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221116_10",
+      "files": [
+        "20221116_10_trace_brown-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_cam.txt",
+        "20221116_10_trace_brown-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_mp tail tracking.txt",
+        "20221116_10_trace_brown-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221117_03",
+      "files": [
+        "20221117_03_trace_blue-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_cam.txt",
+        "20221117_03_trace_blue-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_mp tail tracking.txt",
+        "20221117_03_trace_blue-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221117_12",
+      "files": [
+        "20221117_12_trace_black-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_cam.txt",
+        "20221117_12_trace_black-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_mp tail tracking.txt",
+        "20221117_12_trace_black-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221122_01",
+      "files": [
+        "20221122_01_trace_orange-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam.txt",
+        "20221122_01_trace_orange-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_mp tail tracking.txt",
+        "20221122_01_trace_orange-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221122_04",
+      "files": [
+        "20221122_04_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam.txt",
+        "20221122_04_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_mp tail tracking.txt",
+        "20221122_04_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221122_07",
+      "files": [
+        "20221122_07_trace_blue-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam.txt",
+        "20221122_07_trace_blue-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_mp tail tracking.txt",
+        "20221122_07_trace_blue-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221122_10",
+      "files": [
+        "20221122_10_trace_brown-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam.txt",
+        "20221122_10_trace_brown-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_mp tail tracking.txt",
+        "20221122_10_trace_brown-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221123_03",
+      "files": [
+        "20221123_03_trace_blue-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_cam.txt",
+        "20221123_03_trace_blue-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_mp tail tracking.txt",
+        "20221123_03_trace_blue-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221123_06",
+      "files": [
+        "20221123_06_trace_brown-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_cam.txt",
+        "20221123_06_trace_brown-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_mp tail tracking.txt",
+        "20221123_06_trace_brown-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221123_12",
+      "files": [
+        "20221123_12_trace_black-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_cam.txt",
+        "20221123_12_trace_black-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_mp tail tracking.txt",
+        "20221123_12_trace_black-6_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221124_02",
+      "files": [
+        "20221124_02_trace_brown-7_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_cam.txt",
+        "20221124_02_trace_brown-7_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_mp tail tracking.txt",
+        "20221124_02_trace_brown-7_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221124_08",
+      "files": [
+        "20221124_08_trace_black-7_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_cam.txt",
+        "20221124_08_trace_black-7_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_mp tail tracking.txt",
+        "20221124_08_trace_black-7_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_8dpf_stim control.txt"
+      ]
+    },
+    {
+      "recording_id": "20221125_01",
+      "files": [
+        "20221125_01_trace_orange-8_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_9dpf_cam.txt",
+        "20221125_01_trace_orange-8_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_9dpf_mp tail tracking.txt",
+        "20221125_01_trace_orange-8_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_9dpf_stim control.txt"
+      ]
+    }
+  ],
+  "renamed_condition_token": "traceNoMK801 -> trace",
+  "renamed_file_count": 2
+}

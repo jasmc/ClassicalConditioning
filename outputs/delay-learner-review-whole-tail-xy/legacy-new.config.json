@@ -1,0 +1,96 @@
+{
+  "MIN_FISH_WITH_ALL_FEATURES": 10,
+  "analysis_cfg": {
+    "ci_multiplier_for_reporting": 1.96,
+    "cond_types": [
+      "control",
+      "delay"
+    ],
+    "cr_window": [
+      0,
+      9
+    ],
+    "csus": "CS",
+    "earlytest_block": [
+      "Late Train",
+      "Early Test"
+    ],
+    "feature_configs": {
+      "acquisition": {
+        "description": "Response change when outcome removed (Pre-Train (10 trials) -> Train End + Early Test)",
+        "direction": "negative",
+        "name": "Outcome Drop"
+      },
+      "extinction": {
+        "description": "Response change when no outcome (Train End + Early Test -> Late Test (last 10 trials))",
+        "direction": "positive",
+        "name": "Recovery Increase"
+      }
+    },
+    "features_to_use": [
+      "acquisition",
+      "extinction"
+    ],
+    "late_test_blocks_5": [
+      "Test 5",
+      "Late Test"
+    ],
+    "latetest_block": [
+      "Test 5",
+      "Late Test"
+    ],
+    "min_late_test_trials": 6,
+    "min_latetraindearlytest_trials": 6,
+    "min_pretrain_trials": 6,
+    "min_trials_per_5trial_block_in_epoch": 3,
+    "n_bootstrap": 50,
+    "output_format": "png",
+    "pretrain_block": [
+      "Early Pre-Train",
+      "Late Pre-Train"
+    ],
+    "pretrain_blocks_5": [
+      "Early Pre-Train",
+      "Late Pre-Train"
+    ],
+    "pretrain_to_train_end_earlytest_blocks": [
+      [
+        "Early Pre-Train",
+        "Late Pre-Train"
+      ],
+      [
+        "Train 6",
+        "Train 7",
+        "Train 8",
+        "Train 9",
+        "Late Train",
+        "Early Test"
+      ]
+    ],
+    "probability_threshold": 0.6,
+    "random_seed": 0,
+    "theoretical_threshold_alpha": 0.95,
+    "threshold_percentile": 75,
+    "train_end_earlytest_to_late_test_blocks": [
+      [
+        "Train 6",
+        "Train 7",
+        "Train 8",
+        "Train 9",
+        "Late Train",
+        "Early Test"
+      ],
+      [
+        "Test 5",
+        "Late Test"
+      ]
+    ],
+    "use_theoretical_threshold": false,
+    "voting_threshold_point": 2,
+    "voting_threshold_probabilistic": 2,
+    "y_lim_plot": [
+      0.8,
+      1.2
+    ]
+  }
+}

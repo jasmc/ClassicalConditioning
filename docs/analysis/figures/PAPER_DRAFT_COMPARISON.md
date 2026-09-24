@@ -49,14 +49,13 @@ gaps must not be filled by interpolation or called zero vigor. A continuous
 all-frame variant remains archived for comparison. These remain review
 variants, not a final metric choice.
 
-**Protocol discrepancy requiring review:** the paper scaffold describes the
-3sTrace long US at 13 s after CS onset (three seconds after the 10-s CS), but
-the active `all3sTrace` `ConditionSpec.us_latency_s` is currently 9 s, matching
-the archived `ALL_3S_TRACE` entry; a separate archived fixed-trace entry uses
-13 s. We do not silently alter the experiment definition or put an expected-US
-line at either time in a paper panel until the raw protocol identity is
-reconciled. This is why Figure 1B and Figure 4 expected-US alignment remain
-blocked, even though descriptive CS-aligned profiles can be rendered.
+**Protocol timing review:** the paper scaffold describes the 3sTrace US at
+13 s after CS onset (three seconds after the 10-s CS). The fixed-trace raw
+protocol audit in `configs/trace-preflight.json` found paired events around
+13 s across 40 complete fixed-trace recordings. `all3sTrace` now declares
+13 s; the Figure 4 analyzer still verifies each authenticated recording before
+drawing its expected-US guide. Paper panels remain gated on reviewed cohorts
+and the learner representation.
 
 ## Figure 2 — three matched population comparisons
 

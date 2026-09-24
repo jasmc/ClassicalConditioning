@@ -50,6 +50,8 @@ def _count_label(condition: str, summary: pd.DataFrame) -> str:
 def _plot_learning_onset(
     frames: dict[str, pd.DataFrame],
     summary: dict[str, Any],
+    *,
+    diagnostic_caveat: str | None = None,
 ) -> tuple[Any, list[str], dict[str, dict[str, Any]]]:
     # Assemble the linked learning-onset panels from authenticated analysis tables.
     model_input = frames["model_input"]
@@ -166,6 +168,20 @@ def _plot_learning_onset(
         ylabel="Response / pre-CS baseline",
     )
     trajectory_axis.set_title("A  Learning trajectory (lower = stronger suppression)")
+    if diagnostic_caveat:
+        trajectory_axis.text(
+            0.5,
+            0.89,
+            diagnostic_caveat,
+            transform=trajectory_axis.transAxes,
+            ha="center",
+            va="center",
+            color="#9b1c1c",
+            fontsize=DEFAULT_THEME.font_size - 1,
+            fontweight="bold",
+            bbox={"facecolor": "white", "edgecolor": "#9b1c1c", "alpha": 0.9},
+            zorder=10,
+        )
     for phase, start, end in phase_ranges:
         trajectory_axis.text(
             (start + end) / 2.0,
@@ -319,8 +335,13 @@ def build_learning_onset_figure(
     *,
     mode: FigureMode,
     overwrite: bool = False,
+    allow_unaccepted: bool = False,
 ) -> FigureExportResult:
-    """Render the final three-component learning-onset figure."""
+    """Render the final three-component learning-onset figure.
+
+    Unaccepted analyses are rejected by default. ``allow_unaccepted`` creates
+    a static-only exploratory export that visibly states its failed diagnostic.
+    """
     if mode == FigureMode.INTERACTIVE:
         raise ValueError("Learning-onset figures are Matplotlib-only.")
     project_dir = project_dir.resolve()
@@ -329,11 +350,31 @@ def build_learning_onset_figure(
     required = diagnostics.loc[
         diagnostics["required_for_publication"].fillna(True).astype(bool)
     ]
-    if required.empty or not required["diagnostic_status"].eq("ok").all():
-        raise ConfigurationError(
-            "Learning-onset figure requires accepted block and longitudinal fits."
-        )
-    figure, panel_ids, mappings = _plot_learning_onset(frames, summary)
+    failed_required = required.loc[~required["diagnostic_status"].eq("ok")]
+    if required.empty or not failed_required.empty:
+        if not allow_unaccepted:
+            raise ConfigurationError(
+                "Learning-onset figure requires accepted block and longitudinal fits."
+            )
+        if mode != FigureMode.STATIC:
+            raise ConfigurationError(
+                "Exploratory learning-onset figures may only use static mode."
+            )
+        if required.empty:
+            diagnostic_caveat = "EXPLORATORY ONLY — no required diagnostics available"
+        else:
+            failures = "; ".join(
+                f"{row.model}: {row.error}"
+                for row in failed_required.itertuples(index=False)
+            )
+            diagnostic_caveat = (
+                "EXPLORATORY ONLY — required diagnostic failed: " + failures
+            )
+    else:
+        diagnostic_caveat = None
+    figure, panel_ids, mappings = _plot_learning_onset(
+        frames, summary, diagnostic_caveat=diagnostic_caveat
+    )
     source_path = Path(__file__).resolve()
     input_artifacts = tuple(
         {
@@ -352,6 +393,7 @@ def build_learning_onset_figure(
             "python -m classical_conditioning figure-learning-onset "
             f"--project-dir \"{project_dir}\" --analysis-id {analysis_id} "
             f"--mode {mode.value}"
+            + (" --allow-unaccepted" if allow_unaccepted else "")
         ),
         input_artifacts=input_artifacts,
         cohort_hash=str(summary["cohort_hash"]),

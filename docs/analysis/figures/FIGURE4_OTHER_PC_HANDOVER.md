@@ -56,7 +56,7 @@ The command writes `trial-bins.parquet`, `fish-bins.parquet`, `group-bins.parque
 
 It computes signed bout-log-vigor in 0.5 s bins from −20 to +20 s with each trial's −20 to 0 s baseline and a 0.9 coverage threshold. Missing no-bout signed values stay missing; movement probability is separate. Trials are pooled within fish before the equal-fish median and IQR. Trial 65 belongs to both Test 1 and the pooled catch group. The pooled catch set is 25, 39, 53, 59, 65. Group tables include fish and trial counts per bin, including explicit zero-fish groups.
 
-**Timing gate:** `ExperimentSpec` currently declares a 9 s paired-US latency for 3sTrace, while the paper scaffold refers to 13 s. The analyzer checks recorded `Reinforcer` events for each conditioned fish against the declared latency and stops on disagreement, missing/extra paired US events, or US events in non-US trials. Inspect the authenticated records and obtain an approved correction to the experiment definition or manuscript description. Do not shift a guide or disable this check to force a figure. If the records agree with 9 s, the written 13 s claim still needs reconciliation before a paper release.
+**Timing gate:** The fixed 3sTrace protocol audit in `configs/trace-preflight.json` finds paired-US events around 13 s, and `ExperimentSpec` now declares 13 s. The analyzer still checks recorded `Reinforcer` events for each conditioned fish and stops on disagreement, missing/extra paired US events, or US events in non-US trials. Do not shift a guide or disable this check to force a figure.
 
 ## Render saved analysis
 
