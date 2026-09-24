@@ -107,7 +107,7 @@ class ProfileFigureTests(unittest.TestCase):
 
     def test_scaled_activity_heatmap_has_its_own_unsigned_scale(self) -> None:
         for panel in FIGURE_SPECS["total-activity-scaled"].panels:
-            self.assertEqual(_panel_cmap_name(panel, DEFAULT_THEME), "magma")
+            self.assertEqual(_panel_cmap_name(panel, DEFAULT_THEME), "managua_r")
             self.assertEqual(panel.vmin, 0)
             self.assertEqual(panel.vmax, 1)
 
