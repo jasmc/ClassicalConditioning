@@ -8,7 +8,7 @@ coverage, a focused `figure-example-traces` command for Figure 1 C/D trial
 traces, semantic SVG/PDF export and proposed Figure 1–4 registry.
 Interactive HTML is frozen (Gate F).
 **Open:** Approval of the population heatmap signal and matched cohorts, approved Figure 1 examples,
-frozen learner representation, signed independent-timing Figure 4 data,
+frozen learner representation, verified Figure 4 protocol timing and signed data,
 publication dimensions, and visual regression.
 **Change class:** Behavior-preserving rendering first; presentation changes separately  
 **Depends on:** Implemented artifact-integrity contract and each scientific
@@ -222,9 +222,10 @@ metric, settings, source, and code hashes so replacement is auditable.
 
 The proposed paper layout registry is
 [`configs/paper-figures/behavior-paper.json`](../configs/paper-figures/behavior-paper.json).
-Written Figure 1 and Figure 4 roles follow the paper scaffold/list, not draft
-PNG panel placement. Figure 2 heatmaps require a frozen fish cohort and
-explicit coverage; Figure 3 and learner-specific Figure 4 panels remain gated.
+Figure 1 follows the paper scaffold; Figure 4 follows the later user-approved
+three-assay learner-stratified block/catch layout. Figure 2 heatmaps require a
+frozen fish cohort and explicit coverage; Figure 3 and paper Figure 4 data
+remain gated on the learner manifest and reviewed cohorts.
 See the [panel-by-panel draft comparison](../docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
 
 ### Figure QC
@@ -291,7 +292,7 @@ windows, aggregation, detector, statistics, or learner definitions.
 | 1 | Experimental setup, protocol, metric definition, and representative fish | Approved source artwork and representative-recording rule |
 | 2 | Population evidence for delay and trace conditioning | Frozen cohort, outcomes, and population inference |
 | 3 | Learner representation, uncertainty, heterogeneity, and validation | Active learner-plan exit gate |
-| 4 | Conditioned-response dynamics and timing based on pooled learners | Approved learner definition, independent timing definitions, and non-circular analysis |
+| 4 | Descriptive learner-stratified signed CR profiles for Delay, 3sTrace and 10sTrace | Approved learner manifest, reviewed cohorts and verified expected-US timing |
 
 Figure 3 is required because learner analysis is important to the paper. Its
 final grammar depends on the learner decision: continuous/probabilistic outputs
@@ -345,7 +346,8 @@ publication PDFs to the paper repository is a separate explicit action.
 4. Build Figure 2 first as the population-analysis vertical slice.
 5. Build Figure 1 and the first supplementary assay/QC figures.
 6. Build Figure 3 from the approved learner artifacts and Figure 4 from
-   pooled-learner CR data with independently specified timing artifacts.
+   signed learner-stratified block and catch data. Keep inferential timing in
+   the separately gated S7 workstream.
 7. Validate the figures from a clean analysis commit and review Figure 4's
    pooled-learner CR result. The
    [tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) then follow.

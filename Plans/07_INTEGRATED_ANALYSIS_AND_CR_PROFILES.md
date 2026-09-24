@@ -163,9 +163,14 @@ Implemented now:
 - stable-path corrected candidate analysis and bounded routine scheduling of
   detector, per-fish, comparison, and five cohort figure families when their
   authenticated inputs are available;
-- a proposed A–G/A–I/A–G/A–G paper panel registry whose blocked reasons are
+- a proposed A–G/A–I/A–G/A–C paper panel registry whose blocked reasons are
   included in each run summary. Paper panels are not silently filled by
-  descriptive figure families.
+  descriptive figure families;
+- a focused authenticated learner-stratified signed Figure 4 analysis and
+  render route for Delay, 3sTrace and 10sTrace, with block, pooled catch,
+  individual catch, movement and coverage outputs. It consumes a frozen Gate L
+  manifest and remains unrun on paper data until that manifest and all three
+  reviewed cohorts are available.
 
 Still required before the learner workstream can execute:
 
@@ -175,7 +180,7 @@ Still required before the learner workstream can execute:
 Gated on the learner workstream:
 
 - the canonical learner/continuous-representation manifest and validated join;
-- stratum-aware rendering and validation-mode-specific inference;
+- final Gate L stratum identities and validation-mode-specific inference;
 - the learner-stratum impact report for the exploratory legacy-rule status;
 - learner-figure rendering from a frozen representation and signed independent
   timing panel data; and

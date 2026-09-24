@@ -59,7 +59,7 @@ def build_render_plan(
         raise ValueError("Trials must be distinct positive global CS trial numbers")
     if delay_fish == control_fish:
         raise ValueError("Delay and control examples must be different recordings")
-    if inference_review and figure_set == "figure1":
+    if inference_review and figure_set in {"figure1", "figure4"}:
         raise ValueError("Inference review is only available for Figure 2 Delay")
     if inference_review and metric_id != "tail_length_weighted_angular_l1":
         raise ValueError("The saved Figure 2G LME only supports tail_length_weighted_angular_l1")
@@ -107,7 +107,8 @@ def build_render_plan(
             ))
     if figure_set == "figure4":
         experiments = ("allDelay", "all3sTrace", "all10sTrace")
-        if not figure4_cohort_ids or set(figure4_cohort_ids) != set(experiments) or figure4_manifest is None:
+        if (not figure4_cohort_ids or set(figure4_cohort_ids) != set(experiments)
+                or not all(figure4_cohort_ids.values()) or figure4_manifest is None):
             raise ValueError("Figure 4 requires three cohort IDs and a frozen learner manifest.")
         analysis_id = output_dir.name
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):

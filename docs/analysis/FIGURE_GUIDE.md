@@ -170,12 +170,13 @@ then give each fish equal weight in the condition median and IQR.
 
 The selected-block ratio figure uses final Pre-Train trials 10–14, Early Test
 65–69, and Late Test 90–94. Its response/baseline ratios are not the same
-quantity as the 0–1 scaled catch/block profiles. A signed, baseline-centered
-paper Figure 4 representation remains gated on an approved definition and
-frozen learner identity; current descriptive plots cannot be relabelled as it.
+quantity as the 0–1 scaled catch/block profiles. The separate
+[signed learner-stratified Figure 4 route](figures/FIGURE4_LEARNER_PROFILES.md)
+consumes a frozen classifier manifest and derives signed bins from corrected
+metrics. Its paper figures remain gated on reviewed cohorts and that manifest.
 
-These are descriptive population figures. Learner-stratified versions remain
-gated on the frozen learner-representation manifest and validation mode.
+These are descriptive population figures. Figure 4's saved learner-stratified
+analysis is also descriptive when classification and evaluation use the same trials.
 
 When the reviewed cohort contains one paired condition and its matched
 control, the routine run also renders a CS-aligned population heatmap from one

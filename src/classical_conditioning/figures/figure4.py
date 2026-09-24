@@ -6,6 +6,8 @@ from pathlib import Path
 from typing import Any
 
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
 
@@ -108,11 +110,18 @@ def _draw_rows(
                           textcoords="offset points", ha="right", va="top", fontsize=5)
     axes[-1].set_xlabel("Time from CS onset (s)")
     figure.supylabel(ylabel, fontsize=8)
-    figure.suptitle(f"{NAMES[experiment_id]}: {value.replace('_', ' ')} by classifier group", fontsize=9)
-    handles, labels = axes[0].get_legend_handles_labels()
-    if handles:
-        figure.legend(handles, labels, loc="upper center", ncol=2, fontsize=6,
-                      bbox_to_anchor=(.5, 1.01))
+    figure.suptitle(f"{NAMES[experiment_id]}: {value.replace('_', ' ')} by classifier group",
+                    fontsize=9, y=.995)
+    handles = [Line2D([0], [0], color=COLORS[stratum], linestyle=STYLES[stratum],
+                      linewidth=1.15) for stratum in STRATA]
+    labels = [f"{stratum} (n={int(counts.get(stratum, 0))})" for stratum in STRATA]
+    handles.extend((Patch(facecolor="#009E73", alpha=.12, edgecolor="none"),
+                    Line2D([0], [0], color="#4A4A4A", linestyle=":", linewidth=.8)))
+    labels.extend((f"CS 0–{spec.cs_duration_s:g} s",
+                   f"Expected US (paired) {expected_us_s:g} s"))
+    figure.legend(handles, labels, loc="upper center", ncol=3, fontsize=6,
+                  bbox_to_anchor=(.5, .978))
+    figure.get_layout_engine().set(rect=(0, 0, 1, .925))
     return figure, panel_ids, mappings
 
 
@@ -129,9 +138,12 @@ def render_figure4(
     signed_values = groups[["signed_q25", "signed_q75"]].to_numpy(dtype=float)
     finite = np.abs(signed_values[np.isfinite(signed_values)])
     y_limit = max(.5, np.ceil(float(finite.max()) * 4) / 4) if len(finite) else .5
-    inputs = tuple({"path": str(analysis_summary.resolve()), "sha256": sha256_file(analysis_summary)}
-                   if index == 0 else {"path": record["path"], "sha256": record["sha256"]}
-                   for index, record in enumerate([{}, *summary["tables"].values()]))
+    inputs = (
+        {"path": str(analysis_summary.resolve()), "sha256": sha256_file(analysis_summary)},
+        *({"path": record["path"], "sha256": record["sha256"]}
+          for record in summary["tables"].values()),
+        *summary["inputs"],
+    )
     output_dir = output_dir.resolve()
     source = Path(__file__).resolve()
     results = []
@@ -141,7 +153,9 @@ def render_figure4(
         for kind, value, label in (("main", "signed", "figure-4"),
                                    ("individual", "signed", "supplement-single-catches"),
                                    ("main", "movement", "supplement-movement"),
-                                   ("main", "coverage", "supplement-coverage")):
+                                   ("main", "coverage", "supplement-coverage"),
+                                   ("individual", "movement", "supplement-single-catch-movement"),
+                                   ("individual", "coverage", "supplement-single-catch-coverage")):
             figure, panel_ids, mappings = _draw_rows(
                 panel, flow, experiment_id=experiment_id, expected_us_s=expected_us_s,
                 kind=kind, value=value, y_limit=y_limit,

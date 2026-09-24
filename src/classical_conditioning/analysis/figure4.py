@@ -52,8 +52,31 @@ def load_classification_manifest(path: Path, metric_id: str) -> tuple[pd.DataFra
             or metadata.get("input_metric_id") != metric_id
             or not metadata.get("classifier_execution_id")
             or not metadata.get("validation_mode")
-            or set(metadata.get("cohort_hashes", {})) != set(EXPERIMENTS)):
+            or set(metadata.get("cohort_hashes", {})) != set(EXPERIMENTS)
+            or set(metadata.get("selection_assessments", {})) != set(EXPERIMENTS)):
         raise ConfigurationError("Classification manifest hash, metric, classifier, validation mode or cohort map is invalid.")
+    for experiment_id, assessment in metadata["selection_assessments"].items():
+        assessment_path = Path(assessment["path"]).resolve()
+        if sha256_file(assessment_path) != assessment.get("sha256"):
+            raise ConfigurationError(f"{experiment_id}: selection assessment summary hash is invalid.")
+        assessment_summary = json.loads(assessment_path.read_text(encoding="utf-8"))
+        if (assessment_summary.get("assessment_hash") != assessment.get("assessment_hash")
+                or assessment_summary.get("selected_metric") != metric_id
+                or assessment_summary.get("input_identity", {}).get("experiment") != experiment_id
+                or assessment_summary.get("input_identity", {}).get("metric_id") != metric_id
+                or assessment_summary.get("input_identity", {}).get("metric_recipe") != "tail-candidate-corrected"):
+            raise ConfigurationError(f"{experiment_id}: selection assessment identity differs from the classifier.")
+        filenames = {"technical": "technical-assessment.parquet",
+                     "exploratory": "exploratory-assessment.parquet",
+                     "rules": "legacy-rule-results.parquet",
+                     "flow": "discarding-flow.parquet",
+                     "details": "rule-details.parquet"}
+        artifacts = assessment_summary.get("artifacts", {})
+        if set(artifacts) != set(filenames):
+            raise ConfigurationError(f"{experiment_id}: selection assessment artifact map is incomplete.")
+        for name, filename in filenames.items():
+            if sha256_file(assessment_path.parent / filename) != artifacts[name]:
+                raise ConfigurationError(f"{experiment_id}: selection assessment {name} artifact has changed.")
     if path.suffix == ".parquet":
         frame = pd.read_parquet(path)
     elif path.suffix == ".csv":
@@ -78,6 +101,13 @@ def load_classification_manifest(path: Path, metric_id: str) -> tuple[pd.DataFra
         raise SchemaValidationError("Unclassified fish require an ineligible reason.")
     if "input_metric_id" in frame and not frame["input_metric_id"].astype(str).eq(metric_id).all():
         raise SchemaValidationError("Fish rows contain a different classifier input metric.")
+    for column in ("classifier_execution_id", "validation_mode"):
+        if column in frame and not frame[column].astype(str).eq(str(metadata[column])).all():
+            raise SchemaValidationError(f"Fish rows contain a different {column}.")
+    if "cohort_hash" in frame:
+        expected_hash = frame["experiment_id"].map(metadata["cohort_hashes"])
+        if expected_hash.isna().any() or not frame["cohort_hash"].astype(str).eq(expected_hash.astype(str)).all():
+            raise SchemaValidationError("Fish rows contain a different cohort hash.")
     metadata["table_path"] = str(path)
     metadata["metadata_path"] = str(metadata_path)
     metadata["metadata_sha256"] = sha256_file(metadata_path)
@@ -107,14 +137,14 @@ def verify_expected_us(protocol: pd.DataFrame, experiment_id: str) -> tuple[floa
     observed: list[float] = []
     catch = set(spec.catch_trial_numbers(Alignment.CS))
     for trial in spec.analysis_trials:
-        if trial.alignment is not Alignment.CS or trial.phase is not Phase.TRAIN:
+        if trial.alignment is not Alignment.CS:
             continue
         onset = float(cycles.iloc[trial.trial_number - 1]["Beg"])
         latencies = (reinforcers - onset) / 1000.0
         in_window = latencies[(latencies >= 0) & (latencies <= 20.1)]
-        if trial.trial_number in catch:
+        if trial.phase is not Phase.TRAIN or trial.trial_number in catch:
             if len(in_window):
-                raise ConfigurationError(f"{experiment_id}: catch CS {trial.trial_number} contains a US event.")
+                raise ConfigurationError(f"{experiment_id}: non-US CS {trial.trial_number} contains a US event.")
         elif len(in_window) != 1:
             raise ConfigurationError(f"{experiment_id}: paired CS {trial.trial_number} has {len(in_window)} US events.")
         else:
@@ -159,15 +189,14 @@ def summarize_trial_bins(trial_bins: pd.DataFrame, experiment_id: str) -> tuple[
     expanded = trial_bins.merge(assignments, on="trial_number", how="inner", validate="many_to_many")
     keys = ["experiment_id", "recording_id", "fish_id", "condition_id", "cohort_role",
             "classifier_label", "plot_stratum", "group_type", "group_name", "group_order", "time_s"]
-    rows = []
-    for key, part in expanded.groupby(keys, dropna=False, observed=True, sort=False):
-        row = dict(zip(keys, key, strict=True))
-        for signal, prefix in (("signed_log_vigor", "signed"), ("movement_probability", "movement")):
-            valid = part.loc[np.isfinite(part[signal]), signal]
-            row[prefix] = float(valid.median()) if len(valid) else np.nan
-            row[f"{prefix}_trials"] = int(len(valid))
-        rows.append(row)
-    fish_bins = pd.DataFrame(rows)
+    fish_bins = (
+        expanded.groupby(keys, dropna=False, observed=True, sort=False)
+        .agg(signed=("signed_log_vigor", "median"),
+             signed_trials=("signed_log_vigor", "count"),
+             movement=("movement_probability", "median"),
+             movement_trials=("movement_probability", "count"))
+        .reset_index()
+    )
     displayed = fish_bins.loc[fish_bins["plot_stratum"].isin(STRATA)]
     group_keys = ["experiment_id", "plot_stratum", "group_type", "group_name", "group_order", "time_s"]
     summary_rows = []
@@ -182,7 +211,24 @@ def summarize_trial_bins(trial_bins: pd.DataFrame, experiment_id: str) -> tuple[
             row[f"{signal}_fish"] = int(len(valid))
             row[f"{signal}_trials"] = int(part.loc[valid.index, f"{signal}_trials"].sum())
         summary_rows.append(row)
-    group_bins = pd.DataFrame(summary_rows)
+    # Retain empty classifier groups so all panels render, even when every fish
+    # in one experiment is unclassified or a group has no valid signed bins.
+    grid = pd.DataFrame(
+        {"experiment_id": experiment_id, "plot_stratum": stratum,
+         "group_type": group["group_type"], "group_name": group["group_name"],
+         "group_order": group["group_order"], "time_s": time}
+        for group in profile_groups(experiment_id)
+        for stratum in STRATA
+        for time in sorted(trial_bins["time_s"].unique())
+    )
+    value_columns = ["total_group_fish", *(f"{signal}_{field}"
+                     for signal in ("signed", "movement")
+                     for field in ("median", "q25", "q75", "fish", "trials"))]
+    group_bins = grid.merge(pd.DataFrame(summary_rows, columns=group_keys + value_columns), on=group_keys, how="left",
+                            validate="one_to_one")
+    for column in ("total_group_fish", "signed_fish", "signed_trials",
+                   "movement_fish", "movement_trials"):
+        group_bins[column] = pd.to_numeric(group_bins[column], errors="coerce").fillna(0).astype(int)
     return fish_bins, group_bins
 
 
@@ -195,10 +241,15 @@ def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric
     metrics = pq.read_table(metric_path, columns=["FrameID", "AbsoluteTime", METRIC_COLUMNS[metric_id]]).to_pandas()
     movement = pq.read_table(movement_path, columns=["FrameID", "AbsoluteTime", "valid", "moving", "bout_id"]).to_pandas()
     protocol = pq.read_table(protocol_path).to_pandas()
+    cycles = protocol.loc[protocol["Type"].astype(str).eq("Cycle")].sort_values(
+        "Beg", kind="stable"
+    ).reset_index(drop=True)
+    if len(cycles) < 94:
+        raise SchemaValidationError(f"{recording_id}: Figure 4 requires 94 recorded CS cycles.")
     profiles = pq.read_table(verified.path, columns=["Recording ID", "Trial type", "Trial number", "Time bin center (s)", "Metric ID", "Valid expected fraction", "Movement probability"]).to_pandas()
     profiles = profiles.loc[(profiles["Trial type"] == "CS") & (profiles["Metric ID"] == metric_id)
                             & profiles["Time bin center (s)"].between(-20, 20, inclusive="neither")].copy()
-    signed = calculate_fish_heatmaps(metrics, movement, protocol, recording_id=recording_id,
+    signed = calculate_fish_heatmaps(metrics, movement, cycles, recording_id=recording_id,
                                      metric_ids=(metric_id,))
     keys = ["Recording ID", "Trial number", "Time bin center (s)", "Metric ID"]
     if profiles.duplicated(keys).any() or signed.duplicated(keys).any():
@@ -257,6 +308,10 @@ def analyze_figure4(
     joined = fish.merge(manifest, on=key, how="outer", validate="one_to_one", indicator=True)
     if not joined["_merge"].eq("both").all():
         raise SchemaValidationError("Classification manifest and primary cohort fish do not match exactly.")
+    if "recording_id_y" in joined:
+        if not joined["recording_id_x"].astype(str).eq(joined["recording_id_y"].astype(str)).all():
+            raise SchemaValidationError("Classifier changed a fish's recording identity.")
+        joined = joined.rename(columns={"recording_id_x": "recording_id"}).drop(columns="recording_id_y")
     if "cohort_role_y" in joined:
         if not joined["cohort_role_x"].eq(joined["cohort_role_y"]).all():
             raise SchemaValidationError("Classifier changed a fish's cohort role.")
@@ -267,6 +322,11 @@ def analyze_figure4(
     trial_parts: list[pd.DataFrame] = []
     inputs = [{"path": classifier["table_path"], "sha256": classifier["table_sha256"]},
               {"path": classifier["metadata_path"], "sha256": classifier["metadata_sha256"]}]
+    inputs.extend({"path": item["path"], "sha256": item["sha256"]}
+                  for item in classifier["selection_assessments"].values())
+    inputs.extend({"path": item["path"], "sha256": item["sha256"]}
+                  for _, cohort in cohorts.values()
+                  for item in getattr(cohort, "input_artifacts", ()))
     timing = {}
     for experiment_id, (root, cohort) in cohorts.items():
         times = []
@@ -294,6 +354,15 @@ def analyze_figure4(
         group_parts.append(group_part)
     tables = {"trial-bins": trial_bins, "fish-bins": pd.concat(fish_parts, ignore_index=True),
               "group-bins": pd.concat(group_parts, ignore_index=True), "sample-flow": flow}
+    for frame in tables.values():
+        frame["metric_id"] = metric_id
+        frame["cohort_hash"] = frame["experiment_id"].map(classifier["cohort_hashes"])
+        frame["selection_assessment_hash"] = frame["experiment_id"].map({
+            experiment: record["assessment_hash"]
+            for experiment, record in classifier["selection_assessments"].items()
+        })
+        frame["classifier_execution_id"] = classifier["classifier_execution_id"]
+        frame["validation_mode"] = classifier["validation_mode"]
     root = project_dir.resolve() / "Processed data" / "Analyses" / analysis_id / "figure4"
     destinations = {name: root / f"{name}.parquet" for name in TABLES}
     summary_path = root / "analysis.json"
@@ -314,6 +383,7 @@ def analyze_figure4(
             "classifier_execution_id": classifier["classifier_execution_id"],
             "validation_mode": classifier["validation_mode"], "classifier_manifest_sha256": classifier["table_sha256"],
             "cohort_ids": cohort_ids, "cohort_hashes": classifier["cohort_hashes"],
+            "selection_assessments": classifier["selection_assessments"],
             "expected_us": timing, "inputs": inputs,
             "tables": {name: {"path": str(destinations[name]), "sha256": table_hashes[name],
                               "rows": len(tables[name])} for name in TABLES},

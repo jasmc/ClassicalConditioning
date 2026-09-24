@@ -36,7 +36,7 @@ The numbers below follow the paper helper list, adapted to the present main-pane
 | **S7** | Catch-trial and response-timing analyses, including sensitivity to trial selection. | Catch/block review tools exist; signed timing estimator remains open. Training catch trials 11/25/39/45 correspond to global CS trials 25/39/53/59; some legacy “all catch” plots also include global 65, first Test. State the choice in the panel data. |
 | **S8** | Red-CS/visual-control robustness. | Requires cohort and analysis approval. |
 
-The earlier condition-wide 0–1 catch/block profiles remain distinct review outputs; they are not Figure 4 panel data.
+The earlier condition-wide 0–1 catch/block profiles remain distinct review outputs; they are not Figure 4 panel data. The [Figure 4 command and manifest contract](FIGURE4_LEARNER_PROFILES.md) describes the replacement signed learner-stratified analysis.
 
 ## Rendering interface
 

@@ -95,7 +95,9 @@ length weighted angular L1, the metric of the saved LME run.
 
 There is **no draft image**. Written A–G roles are workflow, continuous scores, threshold/stability, learner fractions, individual change, representative trajectories, and all-fish validation. Current corrected per-fish outcomes are inputs, not a frozen learner representation. All seven paper panels remain blocked until Gate L and an independent validation mode are frozen.
 
-## Figure 4 — pooled-learner CR dynamics and timing
+## Figure 4 — earlier draft and replacement learner profiles
+
+The table below records the comparison made before the signed learner-stratified Figure 4A–C route was implemented. The current registry assigns A, B and C to Delay, 3sTrace and 10sTrace block/catch figures respectively. Individual catches, movement and coverage are supplementary; independent timing moved to the separate S7 plan. This historical draft does not define the current figure calculation.
 
 | Intended panel | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |
@@ -107,7 +109,7 @@ There is **no draft image**. Written A–G roles are workflow, continuous scores
 | F all-fish validation | Draft F is pooled 10sTrace catch trials. | All-eligible-fish signed validation is missing; the draft is a different condition and calculation. |
 | G robustness | **Missing in draft.** | Alternative windows/metrics, controls, and held-out timing checks remain planned. |
 
-The archived script optionally subtracts a pre-CS baseline median and clips the result, so signed negative draft traces are mathematically possible. Current catch/block plots use the **0–1 scaled total-activity** field, mask bins below coverage threshold, pool configured trials within fish, then summarize fish equally with fish/trial counts. They are not numerical replacements. Figure 4 must specify signed panel-data calculation and provenance before rendering. Use distinct guides for CS onset, CS offset, and each condition's expected US time.
+The archived script optionally subtracts a pre-CS baseline median and clips the result, so signed negative draft traces are mathematically possible. The older condition-wide catch/block plots use the **0–1 scaled total-activity** field and are not numerical replacements for the signed learner-stratified route. The replacement calculates −20 to 0 s baseline-centered bout-log-vigor bins, preserves no-bout gaps, and saves panel-data provenance. CS onset, CS offset, and each verified expected-US time have distinct guides.
 
 Catch provenance has two numbering systems: training catches **11, 25, 39, 45** map to global CS trials **25, 39, 53, 59**. The archived `resolve_catch_trials()` and current experiment definition also pool global **65**, the first Test trial, in “all catch” views. The eventual panel-data sidecar and legend must state this **five-trial** rule.
 

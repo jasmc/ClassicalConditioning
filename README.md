@@ -84,7 +84,7 @@ The three metric columns are tail-length-weighted angular L1 speed (`rad/ms`), w
 
 ## Figures and scientific interpretation
 
-[`configs/paper-figures/behavior-paper.json`](configs/paper-figures/behavior-paper.json) is the proposed Figure 1–4 panel registry. It maps stable IDs to required artifacts, rendering rules, and precise current blocked reasons. The run summary authenticates selected cohort, metric definition, settings, and inventory hashes. The written paper scaffold and figure list define the intended layouts; supplied draft images are comparison evidence, not a layout to copy. Figure 3 has no draft image.
+[`configs/paper-figures/behavior-paper.json`](configs/paper-figures/behavior-paper.json) is the proposed Figure 1–4 panel registry. It maps stable IDs to required artifacts, rendering rules, and precise current blocked reasons. The run summary authenticates selected cohort, metric definition, settings, and inventory hashes. Figure 4 now follows the later approved learner-stratified block/catch layout; Figure 3 has no draft image.
 
 Figure 2 requires matched-control **frozen fish cohorts**, not candidate per-fish heatmaps. Its selected blocks are final Pre-Train trials **10–14**, Early Test **65–69**, and Late Test **90–94**. The current descriptive population heatmap shows 0–1 scaled total activity **across all valid frames, including valid zeros**, with a contributing-fish coverage strip and exact counts in panel data. It is not the draft's movement-conditional vigor signal or an approved paper panel. The 10sTrace result is presently inconclusive. Draft significance stars are not reused without approved inference.
 
@@ -93,7 +93,7 @@ baseline-centered bout-log-vigor bins used for Figure 1 E and displays them
 with `managua_r` at −0.25…+0.25. See the [paper figure freeze record](docs/analysis/figures/PAPER_FIGURE_FREEZE.md)
 for the review command and remaining scientific approvals.
 
-Routine catch/block plots show 0–1 scaled activity and are descriptive. Figure 4 requires independently defined **signed, baseline-centered** learner panel data; negative values there cannot be inferred from 0–1 plots. Training catches 11, 25, 39, and 45 correspond to global CS trials 25, 39, 53, and 59. The five-trial pooled catch view also includes global trial 65, the first Test trial. Both numbering systems belong in the eventual legend. CS onset, CS offset, and condition-specific expected US time must be distinct; anticipatory catch suppression is not the direct post-US response in paired training trials.
+Routine catch/block plots show 0–1 scaled activity and are descriptive. The [Figure 4 learner-stratified route](docs/analysis/figures/FIGURE4_LEARNER_PROFILES.md) instead builds signed, baseline-centered profiles for all three assays from a frozen classifier manifest. Training catches 11, 25, 39, and 45 correspond to global CS trials 25, 39, 53, and 59. The five-trial pooled catch view also includes global trial 65, the first Test trial. Expected-US guides require verified paired-training events; anticipatory catch suppression is distinct from a direct post-US response.
 
 Static PNG is the routine default. The same renderer can export SVG/PDF with semantic SVG IDs, artist-to-data mappings, physical units, provenance sidecars, and structural checks. See [figure guidance](docs/analysis/FIGURE_GUIDE.md) and [draft comparison](docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
 Publication export also requires a clean Git worktree so its recorded commit contains the rendering code.
