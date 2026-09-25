@@ -22,7 +22,7 @@ from classical_conditioning.analysis.movement_state import (
     resolve_candidate_metric_source,
 )
 from classical_conditioning.analysis.temporal_profiles import TemporalProfileConfig
-from classical_conditioning.analysis.trial_outcomes import TrialOutcomeConfig
+from classical_conditioning.analysis.trial_outcomes import trial_outcome_config_for_experiment
 from classical_conditioning.artifacts import write_json_atomic
 from classical_conditioning.config.experiments import get_experiment_spec
 from classical_conditioning.config.trial_map import get_experiment_trial_map
@@ -86,7 +86,7 @@ def export_resolved_config(
             "candidate_metrics": CandidateMetricConfig(),
             "movement": MovementCalibrationConfig(),
             "temporal_profiles": TemporalProfileConfig(),
-            "trial_outcomes": TrialOutcomeConfig(),
+            "trial_outcomes": trial_outcome_config_for_experiment(experiment_name),
             "metric_comparison": comparison_config_for_experiment(experiment_name),
         }
     )

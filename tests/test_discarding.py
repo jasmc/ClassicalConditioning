@@ -63,7 +63,7 @@ class DiscardingTests(unittest.TestCase):
 
     def test_all_published_rules_have_legacy_sources(self) -> None:
         self.assertEqual(set(RULE_ORDER), set(LEGACY_SOURCES))
-        self.assertTrue(all("Archive/historical-scripts/" in source for source in LEGACY_SOURCES.values()))
+        self.assertTrue(all("legacy/scripts/" in source for source in LEGACY_SOURCES.values()))
 
     def test_legacy_bouts_include_early_test_trial_65(self) -> None:
         movement, protocol = _protocol_and_movement()

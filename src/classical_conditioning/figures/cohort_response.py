@@ -1282,6 +1282,7 @@ def build_trial_ratio_figure(
         plt.close(figure)
 
 
+# Assemble cohort-level scaled activity panels with verified inputs and provenance.
 def _build_scaled_activity_profile_figure(
     project_dir: Path,
     *,
@@ -1302,6 +1303,7 @@ def _build_scaled_activity_profile_figure(
         raise ValueError("Cohort temporal-profile figures are Matplotlib-only.")
     _validate_analysis_id(analysis_id)
     project_dir = project_dir.resolve()
+    # Load the selected cohort and verify profiles before summarizing its fish.
     cohort = _load_primary_cohort(project_dir, cohort_id)
     profiles, verified = _load_verified_cohort_profiles(
         project_dir,
@@ -1322,6 +1324,7 @@ def _build_scaled_activity_profile_figure(
         experiment_name=cohort.experiment_id,
         title=figure_title,
     )
+    # Store the exact reproduction command and hashes beside the exported figure.
     source_path = Path(__file__).resolve()
     provenance = FigureProvenance(
         figure_id=f"{figure_name.replace('_', '-')}-{_metric_slug(metric_id)}",

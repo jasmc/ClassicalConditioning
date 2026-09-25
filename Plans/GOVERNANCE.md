@@ -3,12 +3,8 @@
 ## Purpose
 
 This is the short active engineering constitution for the analysis migration.
-It retains the durable rules from the archived master migration and repository
-organization plans without keeping their obsolete numbered roadmap active.
-
-Historical detail remains in
-[the master migration plan](./Archive/MASTER_ANALYSIS_MIGRATION_PLAN.md) and
-[repository migration map](./Archive/REPOSITORY_MIGRATION_MAP.md).
+It retains the durable rules from earlier migration and repository plans;
+their obsolete roadmaps remain in Git history.
 
 ## Authority
 
@@ -19,7 +15,7 @@ When documents conflict, use this order:
 3. the active domain plan responsible for the work;
 4. [IMPLEMENTATION_STEP_INDEX.md](./IMPLEMENTATION_STEP_INDEX.md) for status;
 5. current documentation under `docs/analysis/`;
-6. archived plans and legacy behavior references.
+6. original code under `legacy/` and historical plans in Git history.
 
 No plan authorizes a scientific correction by itself. Scientific decisions are
 recorded in `DECISIONS.md`, implemented under a stable recipe identity, and validated by
@@ -76,8 +72,8 @@ table, and figure.
 
 Byte hashes establish exact file identity for the planned analysis release.
 Additional semantic identity, schema resolution, or legacy conversion requires
-a concrete use case; the [archived provenance design](./Archive/SCHEMA_SEMANTIC_PROVENANCE_AND_LEGACY_CONVERSION.md)
-is reference material, not an active requirement.
+a concrete use case; the earlier provenance proposal remains in Git history,
+not as an active requirement.
 
 ## Execution contract
 
@@ -128,14 +124,13 @@ empty aspirational package trees before real behavior is migrated.
 
 ## Plan and documentation boundaries
 
-- `Plans/` contains active governance, decisions, status, implementation plans,
-  deferred plans, and the historical archive.
+- `Plans/` contains active governance, decisions, status, and implementation plans.
 - `docs/analysis/` explains current behavior and architecture or records audits
   and legacy references.
 - The implementation index is the only plan-status board.
 - Dated snapshots are historical documentation, not live status authority.
-- Archive does not imply completion; the archive index states whether a plan
-  completed, was superseded, or was retired incomplete.
+- Historical plans in Git history do not imply completed work; the
+  implementation index records the current status of each gate.
 
 ## Definition of paper-authoritative
 

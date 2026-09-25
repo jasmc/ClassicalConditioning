@@ -1158,6 +1158,7 @@ def intake_recording(
         )
 
 
+# Preserve per-recording intake outcomes so callers can resume and report failures.
 @dataclass(frozen=True)
 class IntakeBatchResult:
     recording_ids: tuple[str, ...]

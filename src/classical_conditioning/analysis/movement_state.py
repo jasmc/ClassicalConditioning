@@ -297,6 +297,7 @@ class MovementStateResult:
     row_count: int
 
 
+# Point callers to the detector sensitivity summary and completion marker.
 @dataclass(frozen=True)
 class MovementSensitivityResult:
     recording_id: str
@@ -304,6 +305,7 @@ class MovementSensitivityResult:
     completion_marker_path: Path
 
 
+# Convert a duration to an odd sample count required by centered median filters.
 def _odd_window_samples(window_ms: float, median_interval_ms: float) -> int:
     samples = max(1, int(round(window_ms / median_interval_ms)))
     if samples % 2 == 0:
@@ -690,6 +692,7 @@ def build_candidate_movement_state(
     if existing and not overwrite:
         raise FileExistsError(f"Movement candidate outputs already exist: {existing}")
 
+    # Read only detector inputs after verifying the upstream candidate artifact.
     columns = [
         "FrameID",
         "ElapsedTime",
@@ -746,6 +749,7 @@ def build_candidate_movement_state(
     )
     base_valid = frames["valid_derivative"].to_numpy(dtype=bool)
 
+    # Smooth within contiguous valid frame runs, then apply the legacy envelope detector.
     detector_values = frames[DETECTOR_SOURCE_COLUMN].to_numpy(dtype=np.float64)
     smoothed = smooth_contiguous_median(
         detector_values,

@@ -7,8 +7,8 @@
   ],
   "label_status": "proposed",
   "review_variants_registry": "configs/paper-figures/review-variants.json",
-  "figure_specification": "docs/analysis/figures/PAPER_FIGURE_FREEZE.md",
-  "version_comparison": "docs/analysis/figures/PAPER_FIGURE_VERSIONS.md",
+  "figure_specification": "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+  "version_comparison": "docs/analysis/figures/04_REVIEW_VARIANTS.md",
   "rendering": {
     "routine_format": "png",
     "publication_formats": ["svg", "pdf"],

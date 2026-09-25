@@ -60,6 +60,7 @@ MOVEMENT_RECIPE_ID = "movement-candidate"
 TEMPORAL_RECIPE_ID = "candidate-temporal-outcomes"
 
 
+# Report the candidate manifest and status of each requested recording step.
 @dataclass(frozen=True)
 class CandidateRunnerResult:
     analysis_id: str
@@ -68,6 +69,7 @@ class CandidateRunnerResult:
     step_status: dict[str, dict[str, str]]
 
 
+# Restrict IDs to characters safe for artifact names across platforms.
 def _validate_analysis_id(analysis_id: str) -> None:
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError(

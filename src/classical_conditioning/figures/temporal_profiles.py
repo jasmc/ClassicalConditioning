@@ -130,6 +130,7 @@ def _metric_panels(
     return tuple(panels)
 
 
+# Give each signed-vigor metric the same fixed scale for visual comparison.
 def _signed_vigor_panels() -> tuple[PanelSpec, ...]:
     return tuple(
         PanelSpec(
@@ -254,6 +255,7 @@ FIGURE_SPECS = {
 }
 
 
+# Use a fixed range when specified; otherwise cap at the panel's 99th percentile.
 def _panel_scale(
     values: np.ndarray,
     panel: PanelSpec,
@@ -329,6 +331,7 @@ def _load_profiles(
     return profiles, marker, profile_state, profiles_path
 
 
+# Detect profile replacement between initial verification and figure export.
 def _verify_profile_unchanged(
     profile_path: Path,
     marker: dict,
@@ -341,6 +344,7 @@ def _verify_profile_unchanged(
         raise RuntimeError("Candidate temporal profile changed during figure build.")
 
 
+# Choose the semantic colormap family declared by the panel specification.
 def _panel_cmap_name(panel: PanelSpec, theme) -> str:
     if panel.cmap_family == "probability":
         return theme.probability_cmap
@@ -532,6 +536,7 @@ def _candidate_heatmap_figure(
     return figure, panel_ids + colorbar_ids, artist_mappings
 
 
+# Require a single recording before naming a per-fish figure artifact.
 def recording_id_from_profiles(profiles: pd.DataFrame) -> str:
     values = profiles["Recording ID"].astype(str).unique()
     if len(values) != 1:
@@ -581,6 +586,7 @@ def build_candidate_profile_figure(
         f"--trial-type {trial_type} --figure {figure_id} --mode {mode.value} "
         f"--recipe {route.temporal_recipe}"
     )
+    # Render interactive and static formats from the same verified panel data.
     if mode == FigureMode.INTERACTIVE:
         import plotly.graph_objects as go
         from plotly.subplots import make_subplots

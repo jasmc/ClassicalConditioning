@@ -60,6 +60,7 @@ PAPER_REGISTRY = (
 )
 
 
+# Return the artifacts and stage outcomes needed for the final run summary.
 @dataclass(frozen=True)
 class PipelineRunResult:
     recording_ids: tuple[str, ...]
@@ -90,6 +91,7 @@ def resolve_pipeline_recording_ids(
     return selected
 
 
+# Normalize figure builder return types before collecting their output paths.
 def _figure_paths(result: Any) -> tuple[Path, ...]:
     if isinstance(result, FigureExportResult):
         return result.outputs
@@ -115,6 +117,14 @@ def _paper_panel_statuses() -> dict[str, dict[str, Any]]:
     if any(item["status"] not in {"completed", "failed", "blocked"} for item in panels.values()):
         raise ConfigurationError("Paper figure registry has an invalid panel status.")
     return panels
+
+
+def _profile_figure_ids(alignment: str) -> tuple[str, ...]:
+    """The signed, pre-CS-centered candidate heatmap is CS-only."""
+    return tuple(
+        figure_id for figure_id in FIGURE_SPECS
+        if alignment == "CS" or figure_id != "signed-log-vigor"
+    )
 
 
 def _figure_authentication(
@@ -172,6 +182,7 @@ def run_pipeline(
     figure_paths: list[Path] = []
     pending: dict[Future[Any], str] = {}
 
+    # Record unavailable figures with a reason for the run summary.
     def blocked(key: str, reason: str) -> None:
         figures[key] = {"status": "blocked", "reason": reason, "outputs": []}
 
@@ -204,9 +215,7 @@ def run_pipeline(
                     )
                 blocked(f"{recording_id}:detector-review", "movement state is not available")
                 for alignment in ("CS", "US"):
-                    for figure_id in FIGURE_SPECS:
-                        if alignment == "US" and figure_id == "signed-log-vigor":
-                            continue
+                    for figure_id in _profile_figure_ids(alignment):
                         blocked(
                             f"{recording_id}:profile:{alignment}:{figure_id}",
                             "temporal profile is not available",
@@ -244,10 +253,12 @@ def run_pipeline(
                     blocked(key, problem_by_id.get(recording_id, "intake QC artifact is missing"))
 
         with ProcessPoolExecutor(max_workers=2) as pool:
+            # Track each submitted figure job by the key used in the report.
             def schedule(key: str, function: Callable[..., Any], *args: Any, **kwargs: Any) -> None:
                 figures[key] = {"status": "pending", "reason": None, "outputs": []}
                 pending[pool.submit(function, *args, **kwargs)] = key
 
+            # Submit figures as soon as their prerequisite processing stage finishes.
             def stage_ready(recording_id: str, stage: str) -> None:
                 if stage == "movement-state":
                     schedule(
@@ -260,9 +271,7 @@ def run_pipeline(
                     )
                 if stage == "temporal-profiles":
                     for alignment in ("CS", "US"):
-                        for figure_id in FIGURE_SPECS:
-                            if alignment == "US" and figure_id == "signed-log-vigor":
-                                continue
+                        for figure_id in _profile_figure_ids(alignment):
                             schedule(
                                 f"{recording_id}:profile:{alignment}:{figure_id}",
                                 build_candidate_profile_figure,
@@ -276,6 +285,7 @@ def run_pipeline(
                             )
 
             runner_ok = False
+            # Include per-fish processing failures before assessing cohort eligibility.
             def assess_after_fish(
                 _successful: tuple[str, ...],
                 steps: dict[str, dict[str, str]],
@@ -338,8 +348,8 @@ def run_pipeline(
                 for key in (
                     f"{recording_id}:detector-review",
                     *(f"{recording_id}:profile:{alignment}:{figure_id}"
-                      for alignment in ("CS", "US") for figure_id in FIGURE_SPECS
-                      if alignment == "CS" or figure_id != "signed-log-vigor"),
+                      for alignment in ("CS", "US")
+                      for figure_id in _profile_figure_ids(alignment)),
                 ):
                     if key not in figures:
                         blocked(key, problem_by_id.get(recording_id, "candidate stage did not complete"))

@@ -28,6 +28,7 @@ _OBSOLETE = frozenset({
 })
 
 
+# Keep user-supplied IDs safe for artifact paths and free of embedded versions.
 def _identifier(value: Any, field: str) -> str:
     identifier = str(value).strip()
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", identifier):
@@ -39,6 +40,7 @@ def _identifier(value: Any, field: str) -> str:
     return identifier
 
 
+# Normalize optional selection lists while retaining their first-seen order.
 def _optional_list(value: Any, field: str, *, lower: bool = False) -> tuple[str, ...] | None:
     if value is None:
         return None
@@ -79,10 +81,12 @@ class PipelineRunConfig:
     technical_policy: Path | None = None
     disabled_discard_checks: tuple[str, ...] = ()
 
+    # Expose the current raw directory under the older input-dir API name.
     @property
     def input_dir(self) -> Path:
         return self.raw_dir
 
+    # Expose the output root under the project-dir API name used by callers.
     @property
     def project_dir(self) -> Path:
         return self.save_dir

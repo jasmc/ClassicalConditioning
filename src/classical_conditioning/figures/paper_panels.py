@@ -25,6 +25,7 @@ DEFAULT_TRIALS = (9, 17, 63, 66, 93)
 DEFAULT_FISH = ("20221115_07", "20221115_09")
 
 
+# Pair each paper panel group with the command that reproduces it.
 @dataclass(frozen=True)
 class RenderStep:
     name: str

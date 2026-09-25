@@ -42,14 +42,14 @@ from classical_conditioning.paths import assert_project_dir_allowed
 # Source references are data as well as nearby comments: every published rule
 # row identifies the historical operation whose behavior is being projected.
 LEGACY_SOURCES: dict[str, str] = {
-    "readable_fish": "Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::run_discard (lines 48, 1656-1680)",
-    "last_us": "Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_viability (lines 1467-1485)",
-    "train_us": "Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_train (lines 1486-1497)",
-    "retrain_us": "Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_retrain (lines 1498-1505)",
-    "baseline_bouts": "Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_baseline (lines 1507-1520, guard 1707-1711)",
-    "cr_bouts": "Archive/historical-scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_cr (lines 1521-1533, guard 1721-1724)",
-    "discard_propagation": "Archive/historical-scripts/3_FishGrouping.py::main (lines 679-803); Archive/historical-scripts/4_ScaledVigorPlotting.py::filter_discarded_fish_ids (lines 155-188); Archive/historical-scripts/5_NormalizedVigorPlotting.py::APPLY_FISH_DISCARD (line 67)",
-    "learner_inputs": "Archive/historical-scripts/6_LearnersQuantification.py::prepare_data/_filter_fish_by_trials (lines 776-934); Archive/historical-scripts/6_LearnersQuantification_new.py (lines 1024-1182); Archive/historical-scripts/6_LearnersQuantification_improved.py (lines 433-535); Archive/historical-scripts/6_LearnersQuantification_WIP.py (lines 511-624)",
+    "readable_fish": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::run_discard (lines 48, 1656-1680)",
+    "last_us": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_viability (lines 1467-1485)",
+    "train_us": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_train (lines 1486-1497)",
+    "retrain_us": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_retrain (lines 1498-1505)",
+    "baseline_bouts": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_baseline (lines 1507-1520, guard 1707-1711)",
+    "cr_bouts": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py::check_cr (lines 1521-1533, guard 1721-1724)",
+    "discard_propagation": "legacy/scripts/3_FishGrouping.py::main (lines 679-803); legacy/scripts/4_ScaledVigorPlotting.py::filter_discarded_fish_ids (lines 155-188); legacy/scripts/5_NormalizedVigorPlotting.py::APPLY_FISH_DISCARD (line 67)",
+    "learner_inputs": "legacy/scripts/6_LearnersQuantification.py::prepare_data/_filter_fish_by_trials (lines 776-934); legacy/scripts/6_LearnersQuantification_new.py (lines 1024-1182); legacy/scripts/6_LearnersQuantification_improved.py (lines 433-535); legacy/scripts/6_LearnersQuantification_WIP.py (lines 511-624)",
 }
 RULE_ORDER = tuple(LEGACY_SOURCES)
 DEFAULT_METRIC = "legacy_distal_angular_speed"
@@ -80,6 +80,7 @@ LEARNER_EPOCHS = {
 }
 
 
+# Return every assessment artifact together with its aggregate content hash.
 @dataclass(frozen=True)
 class DiscardAssessmentResult:
     output_dir: Path
@@ -91,6 +92,7 @@ class DiscardAssessmentResult:
     assessment_hash: str
 
 
+# Hash canonical JSON so equivalent assessment data has the same identity.
 def _digest(value: Any) -> str:
     encoded = json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False)
     return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
@@ -245,6 +247,7 @@ def evaluate_learner_inputs(outcomes: pd.DataFrame, *, metric_id: str) -> tuple[
     return ("fail", ";".join(missing), details) if missing else ("pass", "", details)
 
 
+# Combine inventory, processing, and verified-artifact evidence into one readiness row.
 def _technical_row(
     record: dict[str, Any], *, selected: bool, project_dir: Path,
     experiment: str, metric_recipe: str, policy: dict[str, Any],
@@ -256,6 +259,7 @@ def _technical_row(
         for item in get_experiment_spec(experiment).conditions
     }
     source_condition = str(record.get("condition_id") or "").lower()
+    # Record independent intake and processing failures before inspecting derived data.
     reasons = []
     if record["status"] != "COMPLETE":
         reasons.append("inventory_" + record["status"].lower())
@@ -272,6 +276,7 @@ def _technical_row(
     protocol_event_count = None
     protocol_outside_count = None
     if selected and recording_id and record["status"] == "COMPLETE":
+        # Require authenticated downstream artifacts; retain the failure as a reason.
         try:
             source = resolve_candidate_metric_source(metric_recipe=metric_recipe)
             if source.requires_corrected_preprocess:
@@ -295,6 +300,7 @@ def _technical_row(
         reasons.append("too_few_valid_frames")
     if protocol_event_count == 0:
         reasons.append("no_protocol_events")
+    # A recording is ready only when selection, checks, and trial outputs all agree.
     ready = selected and not reasons and bool(lineage.get("trial_outcomes"))
     row = {
         "recording_id": recording_id or "",

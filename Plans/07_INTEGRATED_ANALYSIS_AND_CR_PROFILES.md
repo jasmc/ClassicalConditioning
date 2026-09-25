@@ -22,7 +22,7 @@ This plan integrates rather than supersedes:
 - [Learning-Onset Analysis Completion](./03_LEARNING_ONSET_IMPLEMENTATION.md);
 - [Learner Representation and Analysis](./05_LEARNER_ANALYSIS.md);
 - [Learner Outputs and Validation](./06_LEARNER_OUTPUTS_AND_VALIDATION.md);
-- [Learning-Onset Analysis Reference](../docs/analysis/LME_PIPELINE_AND_PARAMETERS.md); and
+- [Learning-Onset Analysis Reference](../docs/analysis/07_LEARNING_ONSET_LME.md); and
 - [Figures and Reproducible Reporting](./08_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
 
 ## Scientific boundary and execution order
@@ -181,6 +181,9 @@ Gated on the learner workstream:
 
 - the canonical learner/continuous-representation manifest and validated join;
 - final Gate L stratum identities and validation-mode-specific inference;
+- a Figure 4 panel-data and renderer adaptation if Gate L selects a continuous
+  or model-based representation instead of categorical learner labels; the
+  implemented four-stratum renderer requires a classifier manifest;
 - the learner-stratum impact report for the exploratory legacy-rule status;
 - learner-figure rendering from a frozen representation and signed independent
   timing panel data; and

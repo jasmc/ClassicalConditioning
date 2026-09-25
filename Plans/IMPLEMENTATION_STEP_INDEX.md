@@ -1,7 +1,7 @@
 # Implementation Status Index
 
-This is the only live plan-status board. Archived plans retain detailed
-historical acceptance criteria; current descriptive behavior lives under
+This is the only live plan-status board. Earlier plans remain in Git history;
+current descriptive behavior lives under
 `docs/analysis/`.
 
 ## Status legend
@@ -12,7 +12,6 @@ historical acceptance criteria; current descriptive behavior lives under
 | Discussion/design | Scientific or interface decisions precede implementation |
 | In progress | Work is active but its exit gate has not passed |
 | Fixture-only | Software works on bounded fixtures but is not paper-authoritative |
-| Deferred | Preserved work outside the current critical path |
 | Complete | Scoped exit gate passed and evidence is recorded |
 | Archived — incomplete | Historical plan retired explicitly before its exit gate passed |
 | Superseded | Replaced by a named active plan or documentation file |
@@ -21,21 +20,17 @@ historical acceptance criteria; current descriptive behavior lives under
 
 | Workstream | Status | Main open requirement | Authority |
 | --- | --- | --- | --- |
-| Governance and paper baseline | Open release prerequisite | Paper-scope baseline manifest, configuration freeze, and output fingerprints | [Governance](./GOVERNANCE.md), archived Plan 00 |
-| Preprocessing and metric decision | Fixture-only / scientific decision open | Gate P and Gate T1: preprocessing, smoothing, shared detector parameters, selected metric, and validation status | [Metrics and bouts](../docs/analysis/METRICS_AND_BOUTS.md), [Decisions](./DECISIONS.md) |
-| Paper cohort and two-stage assessment | Fixture-only / infrastructure implemented | Validate technical and exploratory legacy-rule assessment on paper inputs; approve Gate C0 and freeze the reviewed C1 cohort; migrate population consumers | [Current assessment behavior](../docs/analysis/DISCARDING_ASSESSMENT.md), [cohort completion](./01_COHORT_IMPLEMENTATION.md) |
-| Learning onset and population inference | Implemented, not paper-run | Freeze Gate O/S, calibrate and run approved models on the frozen paper cohort, review diagnostics and figures | [Learning-onset completion](./03_LEARNING_ONSET_IMPLEMENTATION.md), [analysis and statistics design](./02_ANALYSIS_AND_STATISTICS.md) |
+| Governance and paper baseline | Open release prerequisite | Paper-scope baseline manifest, configuration freeze, and output fingerprints | [Governance](./GOVERNANCE.md) |
+| Preprocessing and metric decision | Fixture-only / scientific decision open | Gate P and Gate T1: preprocessing, smoothing, shared detector parameters, selected metric, and validation status | [Metrics and bouts](../docs/analysis/05_METRICS_AND_BOUTS.md), [Decisions](./DECISIONS.md) |
+| Paper cohort and two-stage assessment | Fixture-only / infrastructure implemented | Validate technical and exploratory legacy-rule assessment on paper inputs; approve Gate C0 and freeze the reviewed C1 cohort; migrate population consumers | [Current assessment behavior](../docs/analysis/04_DISCARDING_AND_SELECTION.md), [cohort completion](./01_COHORT_IMPLEMENTATION.md) |
+| Learning onset and population inference | Implemented, not paper-run; extinction analysis unimplemented | Freeze Gate O/S, calibrate and run approved block/trial models on the frozen cohort, review diagnostics, and define and validate any extinction claim separately | [Learning-onset completion](./03_LEARNING_ONSET_IMPLEMENTATION.md), [analysis and statistics design](./02_ANALYSIS_AND_STATISTICS.md) |
 | Learner analysis | Design open; no canonical package route | Gate L estimand/method, continuous or categorical representation, manifest, non-circular validation, and learner outputs | [Learner analysis](./05_LEARNER_ANALYSIS.md) |
-| Integrated cohort/CR profiles | In progress; post-classification orchestration gated | Shared catch/block substrate is implemented; learner manifest, sensitivity evaluator, common-hash `run-pipeline` route, and paper run remain | [Integrated cohort/CR profiles](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) |
+| Integrated cohort/CR profiles | In progress; learner-dependent orchestration gated | Shared catch/block substrate and categorical Figure 4 review route exist; freeze Gate L, adapt Figure 4 if representation is noncategorical, finish the sensitivity evaluator and common-hash run, then review the paper output | [Integrated cohort/CR profiles](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) |
 | Figures and interfaces | In progress; Figure 1 C/D trace command implemented | Registry, approved paper panels, publication dimensions/theme, and visual regression | [Figures and reproducible reporting](./08_FIGURES_AND_REPRODUCIBLE_REPORTING.md) |
 | Tail mechanistic analyses | Planned after Figure 4 | Complete and review Figure 4 pooled-learner CR analysis, then implement exploratory tail analyses with its approved identities and timing conventions | [Tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) |
-| Final analysis release | Not started | Freeze one verified analysis record after code, scientific decisions, paper results, and figures are ready | [Final analysis release](./10_FINAL_ANALYSIS_RELEASE.md) |
-
-## Deferred work
-
-| Workstream | Status | Activation condition |
-| --- | --- | --- |
-| Behavior/imaging integration | Deferred | Canonical behavior identities and recipes stable; imaging work explicitly authorized |
+| Supplementary figures and data | Active plan; final composition open | Build each figure's controls, coverage, validation, and sensitivity data alongside Figures 1–4; freeze independent response-timing definitions before inference | [Supplementary figures](./10_SUPPLEMENTARY_FIGURES.md) |
+| Behavior/imaging integration | Active plan; staged implementation | Inventory imaging sources and reference cases (I00); advance later stages as behavior identities, recipes, and imaging gates allow | [Behavior and imaging integration](./11_BEHAVIOR_IMAGING_INTEGRATION.md) |
+| Final analysis release | Not started | Freeze one verified analysis record after code, scientific decisions, paper results, and figures are ready | [Final analysis release](./12_FINAL_ANALYSIS_RELEASE.md) |
 
 ## Historical implementation record
 
@@ -83,11 +78,21 @@ paper baseline
   -> freeze paper cohort
   -> freeze outcomes and population inference
   -> complete learner-method decision and validation
-  -> build registered paper figures
-  -> complete Figure 4 pooled-learner CR analysis
+  -> build Figure 1 and its supporting data
+  -> build Figure 2 and its supporting data
+  -> complete Figure 3 learner analysis and its supporting data
+  -> build Figure 4 learner-stratified profiles and its supporting data
+  -> review Figure 4 pooled-learner CR result
+  -> validate independent response timing before making that supplementary claim
   -> carry out tail mechanistic analyses
   -> freeze and verify the one final analysis release
 ```
+
+Behavior/imaging integration runs in parallel and has its own prerequisites;
+it does not block the behavior-only paper release.
+Figure 1 review can begin while population and learner methods are designed;
+paper-authoritative panels still wait for the selected metric, approved cohort
+where applicable, and their figure-specific gates.
 
 The learner-method review can begin conceptually alongside population analysis,
 but final classifier/score inputs and confirmatory validation depend on stable
@@ -98,7 +103,7 @@ preprocessing, cohort, and outcomes.
 Make one release after the critical path is complete. Freeze the code,
 configuration, data and cohort identities, analysis results, diagnostics,
 figures, and manuscript links described in the
-[final analysis release plan](./10_FINAL_ANALYSIS_RELEASE.md). Candidate and
+[final analysis release plan](./12_FINAL_ANALYSIS_RELEASE.md). Candidate and
 legacy runs are evidence used during analysis, not earlier releases.
 
 ## Updating status

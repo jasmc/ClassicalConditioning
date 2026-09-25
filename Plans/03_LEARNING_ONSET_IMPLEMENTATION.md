@@ -14,7 +14,7 @@ The [analysis and statistics plan](./02_ANALYSIS_AND_STATISTICS.md)
 owns the primary estimand, outcome family, condition contrast, model choice,
 uncertainty, diagnostics, and validation decision. Approved choices are
 recorded in [DECISIONS.md](./DECISIONS.md). The
-[LME pipeline reference](../docs/analysis/LME_PIPELINE_AND_PARAMETERS.md)
+[LME pipeline reference](../docs/analysis/07_LEARNING_ONSET_LME.md)
 documents current formulas, public parameters, artifacts, and failure gates.
 
 ## Questions and implemented route
@@ -23,6 +23,12 @@ The analysis asks whether test and control trajectories change differently,
 by which prespecified block a difference is supported, and whether an exact
 trial onset can be localized. Fish are the population units. An isolated
 per-trial p-value cannot establish onset.
+
+The paper's possible extinction claim is a separate question: after a
+conditioned response is established, does it decline or become small during
+later unreinforced trials relative to an approved reference? The current route
+localizes acquisition onset, not extinction. A later nonsignificant contrast
+does not by itself establish loss of the response.
 
 The implemented route produces fish-weighted descriptive trajectories, a
 condition-by-block mixed model with planned contrasts, one condition-aware
@@ -50,11 +56,17 @@ reported separately because it answers a coarser question.
    fallback, bootstrap size/seed, and publication-stopping diagnostics.
    Choose an outcome-appropriate model family; do not automatically apply a
    Gaussian LME to movement probability or bout counts.
+   If claiming extinction, also freeze its starting population/period,
+   direction, smallest meaningful remaining effect or decline, persistence
+   rule, uncertainty and multiplicity family, and how fish without supported
+   acquisition are handled.
 2. Calibrate false-onset rate, interval coverage, and onset recovery at the
    expected paper fish/trial counts. Include null, pre-existing difference,
    abrupt, gradual, transient, missingness, unequal coverage, influential
    fish, and singular-fit scenarios. Verify effect sign, fish weighting,
    factor references, multiplicity, and failure handling.
+   Separately calibrate false extinction claims and recovery of gradual,
+   abrupt, transient, and absent declines using the actual test-trial layout.
 3. Run the approved configuration on the frozen paper cohort. Review the
    block and longitudinal fits, simultaneous band, fish-level robustness,
    categorical sensitivity, coverage, convergence, covariance, Hessian where
@@ -64,6 +76,10 @@ reported separately because it answers a coarser question.
    qualified onset marker, and planned block contrasts. Every visible value
    must trace to saved cohort, configuration, model, and source identities.
    Failed diagnostics suppress inferential annotations.
+5. If the approved claim requires extinction timing, implement and validate a
+   separate late-test decline or loss analysis with fish-level uncertainty.
+   Report an unlocalized or unsupported extinction result explicitly; do not
+   infer it from onset outputs or a disappearing p-value.
 
 ## Exit gate
 
@@ -73,6 +89,6 @@ distinct claims, and either localizes onset with a prespecified meaningful
 effect, persistence, simultaneous uncertainty, and passing diagnostics or
 states that onset was not localized. The fish-level robustness result agrees
 or its disagreement is explained. The figure regenerates from authenticated
-panel data. The earlier [onset design](./Archive/LEARNING_ONSET_LME.md) and
-[combined implementation plan](./Archive/REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md)
-remain historical records.
+panel data. Any extinction claim has its own prespecified definition,
+validated uncertainty, and diagnostics, or is labeled unsupported. Earlier
+onset designs remain in Git history; this plan owns the current exit gate.

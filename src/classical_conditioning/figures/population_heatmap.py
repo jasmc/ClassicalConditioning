@@ -94,6 +94,7 @@ def summarize_population_heatmap(
     return group
 
 
+# Align sparse trial/bin values to the shared heatmap grid, leaving gaps as NaN.
 def _matrix(frame: pd.DataFrame, field: str, trials: np.ndarray, times: np.ndarray) -> np.ndarray:
     return (
         frame.pivot(index="Trial number", columns="Time bin center (s)", values=field)

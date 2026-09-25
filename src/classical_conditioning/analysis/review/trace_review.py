@@ -45,6 +45,7 @@ from classical_conditioning.figures.theme import (
 from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
 
 
+# Collect the trace sample, annotations, and rendered review outputs.
 @dataclass(frozen=True)
 class TraceReviewResult:
     recording_id: str

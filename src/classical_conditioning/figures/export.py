@@ -54,6 +54,7 @@ class FigureProvenance:
     analysis_identity: dict[str, Any] = field(default_factory=dict)
 
 
+# Return all produced figure paths and their provenance sidecar.
 @dataclass(frozen=True)
 class FigureExportResult:
     outputs: tuple[Path, ...]

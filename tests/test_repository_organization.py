@@ -41,7 +41,7 @@ class RepositoryOrganizationTests(unittest.TestCase):
         self.assertEqual(violations, [])
 
     def test_archived_modules_are_outside_the_default_import_path(self) -> None:
-        module_directory = (self.root / "Archive" / "modules").resolve()
+        module_directory = (self.root / "legacy" / "modules").resolve()
         import_roots = {
             Path(entry or Path.cwd()).resolve()
             for entry in sys.path
@@ -51,7 +51,7 @@ class RepositoryOrganizationTests(unittest.TestCase):
             self.assertFalse((self.root / f"{module_name}.py").exists())
 
     def test_legacy_modules_are_preserved_in_archive(self) -> None:
-        module_directory = self.root / "Archive" / "modules"
+        module_directory = self.root / "legacy" / "modules"
         self.assertEqual(
             {
                 path.stem
@@ -60,13 +60,14 @@ class RepositoryOrganizationTests(unittest.TestCase):
             self.LEGACY_MODULES,
         )
 
-    def test_archived_package_execution_is_not_on_active_import_paths(self) -> None:
-        archive = (self.root / "Archive" / "package" / "src").resolve()
+    def test_original_scripts_and_helpers_are_outside_active_import_paths(self) -> None:
+        scripts = (self.root / "legacy" / "scripts").resolve()
+        helpers = (self.root / "legacy" / "helpers").resolve()
         import_roots = {Path(entry or Path.cwd()).resolve() for entry in sys.path}
-        self.assertNotIn(archive, import_roots)
-        self.assertTrue(
-            (archive / "classical_conditioning" / "analysis" / "legacy_runner.py").is_file()
-        )
+        self.assertNotIn(scripts, import_roots)
+        self.assertNotIn(helpers, import_roots)
+        self.assertTrue((scripts / "6_LearnersQuantification.py").is_file())
+        self.assertTrue((helpers / "analysis_utils.py").is_file())
 
     def test_active_package_does_not_import_archived_execution(self) -> None:
         active_files = [*(self.root / "src").rglob("*.py")]
