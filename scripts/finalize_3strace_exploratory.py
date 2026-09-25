@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -70,8 +71,15 @@ def freeze(project: Path, *, cohort_id: str = COHORT_ID) -> Path:
     return result.manifest_path
 
 
-def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID) -> Path:
+def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID,
+             analysis_id: str = "figure4-3strace-exploratory",
+             assessment_summary: Path | None = None,
+             classifier_execution_id: str = "legacy-wip-3strace-tail-l1-exploratory") -> Path:
     project, comparison_dir = project.resolve(), comparison_dir.resolve()
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
+        raise ValueError("Analysis ID contains unsafe path characters")
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", classifier_execution_id):
+        raise ValueError("Classifier execution ID contains unsafe path characters")
     cohort_path = project / "Processed data" / "Cohorts" / cohort_id / "cohort-manifest.parquet"
     comparison_path = comparison_dir / "comparison.json"
     comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
@@ -100,7 +108,7 @@ def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID)
     label = pd.Series("Unclassified", index=joined.index)
     label.loc[eligible & flag.eq(True)] = "Learner"
     label.loc[eligible & flag.eq(False)] = "Non-learner"
-    execution_id = "legacy-wip-3strace-tail-l1-exploratory"
+    execution_id = classifier_execution_id
     validation_mode = "descriptive_same_data"
     output = joined[key + ["recording_id"]].copy()
     output["classifier_label"] = label
@@ -111,10 +119,18 @@ def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID)
     output["classifier_execution_id"] = execution_id
     output["validation_mode"] = validation_mode
     output = output.sort_values(key).reset_index(drop=True)
-    pipeline = json.loads((project / "Metadata" / f"{ANALYSIS_ID}_pipeline_run.json").read_text(encoding="utf-8"))
-    assessment_path = Path(pipeline["selection_assessment"]).resolve()
+    if assessment_summary is None:
+        pipeline = json.loads((project / "Metadata" / f"{ANALYSIS_ID}_pipeline_run.json").read_text(encoding="utf-8"))
+        assessment_path = Path(pipeline["selection_assessment"]).resolve()
+    else:
+        assessment_path = assessment_summary.resolve()
     assessment = json.loads(assessment_path.read_text(encoding="utf-8"))
-    destination = project / "Processed data" / "Analyses" / "figure4-3strace-exploratory" / "learner-labels.csv"
+    if (assessment.get("selected_metric") != METRIC
+            or assessment.get("input_identity", {}).get("experiment") != EXPERIMENT
+            or set(assessment.get("input_identity", {}).get("selected_recording_ids", ()))
+            != set(output["recording_id"])):
+        raise ValueError("Learner labels require an assessment for the same metric and fish")
+    destination = project / "Processed data" / "Analyses" / analysis_id / "learner-labels.csv"
     metadata_path = destination.with_suffix(".manifest.json")
     if destination.exists() or metadata_path.exists():
         raise FileExistsError("Exploratory learner manifest already exists")
@@ -149,13 +165,20 @@ def main() -> None:
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--cohort-id", default=COHORT_ID)
     parser.add_argument("--comparison-dir", type=Path)
+    parser.add_argument("--analysis-id", default="figure4-3strace-exploratory")
+    parser.add_argument("--assessment-summary", type=Path)
+    parser.add_argument("--classifier-execution-id",
+                        default="legacy-wip-3strace-tail-l1-exploratory")
     args = parser.parse_args()
     if args.stage == "freeze":
         result = freeze(args.project_dir, cohort_id=args.cohort_id)
     else:
         if args.comparison_dir is None:
             parser.error("classify requires --comparison-dir")
-        result = classify(args.project_dir, args.comparison_dir, cohort_id=args.cohort_id)
+        result = classify(args.project_dir, args.comparison_dir, cohort_id=args.cohort_id,
+                          analysis_id=args.analysis_id,
+                          assessment_summary=args.assessment_summary,
+                          classifier_execution_id=args.classifier_execution_id)
     print(result)
 
 

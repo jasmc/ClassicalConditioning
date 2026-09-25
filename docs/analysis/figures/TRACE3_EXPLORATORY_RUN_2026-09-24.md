@@ -21,3 +21,11 @@ For this exploratory run, use archived classifier version **`legacy-wip`**. In t
 5. Run the 3sTrace-only `figure4-analyze` and `figure4-render` routes. Their saved analysis has `partial_assay_review` scope and `descriptive_provisional_legacy_rule` status; Figure 4B and companion panels are review outputs.
 
 The frozen cohort and learner manifest carry separate identities. The assessment is retained as provenance for the selected metric, but its discard calls do not determine this exploratory cohort. A future paper cohort or Gate L classifier can replace these review identities without rewriting the raw or corrected fish data.
+
+## Response-window correction, 2026-09-25
+
+The first 59-fish candidate run completed under the former shared **0–9 s** trial-outcome setting. The merged assay-specific builder now requires **0–13 s** for `all3sTrace`. Its authentication rejects the earlier trial and cohort outcomes. The paired US remains at about 13 s in both the active experiment definition and the measured example protocol; these are separate checks from the response-window calculation.
+
+`scripts/rebuild_3strace_window13.py` rebuilds only the 59 per-fish trial outcomes from the existing corrected metrics and movement artifacts. After all 59 pass, `scripts/run-3strace-window13-post.ps1` republishes cohort outcomes and the dependent assessment, Figure 2E/H ratios, historical learner comparison, provisional WIP labels, Figure 3, Figure 4, and learning-onset analysis. Figure 1F and the signed Figure 2B heatmap do not depend on the trial-outcome response window and remain usable.
+
+Corrected analyses use distinct IDs: `figure2-3strace-window13`, `figure3-3strace-window13`, `figure4-3strace-window13`, and `all3sTrace-full-learning-onset-window13`. The classifier execution ID is `legacy-wip-3strace-tail-l1-window13-exploratory`. Earlier 0–9 s exploratory outputs remain on disk as superseded comparisons; their learner counts are not carried forward as corrected results.

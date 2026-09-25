@@ -39,7 +39,8 @@ class TraceExploratoryFinalizeTests(unittest.TestCase):
             assessment_path.write_text(json.dumps({
                 "assessment_hash": "assess-hash", "selected_metric": METRIC,
                 "input_identity": {"experiment": "all3sTrace", "metric_id": METRIC,
-                                   "metric_recipe": "tail-candidate-corrected"},
+                                   "metric_recipe": "tail-candidate-corrected",
+                                   "selected_recording_ids": list(selected)},
                 "artifacts": artifacts,
             }))
             (metadata / "all3sTrace-full_pipeline_run.json").write_text(json.dumps({
@@ -78,10 +79,14 @@ class TraceExploratoryFinalizeTests(unittest.TestCase):
                               "result_sha256": sha256_file(comparison / "legacy-wip.parquet"),
                               "algorithm_sha256": "algorithm", "config_sha256": "config"}],
             }))
-            manifest_path = classify(project, comparison)
+            manifest_path = classify(
+                project, comparison, analysis_id="figure4-3strace-window13",
+                assessment_summary=assessment_path,
+                classifier_execution_id="legacy-wip-3strace-tail-l1-window13-exploratory",
+            )
             labels, identity = load_classification_manifest(manifest_path, METRIC, ("all3sTrace",))
             self.assertEqual(set(labels["classifier_label"]), {"Learner", "Non-learner"})
-            self.assertEqual(identity["classifier_execution_id"], "legacy-wip-3strace-tail-l1-exploratory")
+            self.assertEqual(identity["classifier_execution_id"], "legacy-wip-3strace-tail-l1-window13-exploratory")
 
 
 if __name__ == "__main__":

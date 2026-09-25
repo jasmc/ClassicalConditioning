@@ -12,7 +12,7 @@ param([int]$TimeoutHours = 24)
 
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path -Parent $PSScriptRoot
-$statusPath = Join-Path $repo 'outputs\trace-transfer-review\overnight-post-status.json'
+$statusPath = Join-Path $repo 'outputs\trace-transfer-review\window13-post-status.json'
 $readinessPath = Join-Path $repo 'outputs\trace-transfer-review\move-readiness.json'
 $moveStatusPath = Join-Path $repo 'outputs\trace-transfer-review\move-status.json'
 $python = Join-Path $repo '.venv-trace\Scripts\python.exe'
@@ -32,12 +32,12 @@ function Save-MoveStatus {
     } | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath $moveStatusPath -Encoding utf8
 }
 
-Save-MoveStatus 'waiting_for_downstream' 'Awaiting completed 3sTrace review on F:'
+Save-MoveStatus 'waiting_for_downstream' 'Awaiting completed 0–13 s 3sTrace review on F:'
 $deadline = (Get-Date).AddHours($TimeoutHours)
 while ((Get-Date) -lt $deadline) {
     if (Test-Path -LiteralPath $statusPath -PathType Leaf) {
         $post = Get-Content -LiteralPath $statusPath -Raw | ConvertFrom-Json
-        if ($post.status -in @('pipeline_failed', 'pipeline_mismatch', 'downstream_failed', 'timed_out')) {
+        if ($post.status -in @('rebuild_failed', 'rebuild_mismatch', 'downstream_failed', 'timed_out')) {
             Save-MoveStatus 'blocked_by_review_failure' $post.details
             exit 1
         }

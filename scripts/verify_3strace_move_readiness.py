@@ -12,6 +12,7 @@ from classical_conditioning.analysis.figure4 import (
     load_classification_manifest, load_figure4_analysis,
 )
 from classical_conditioning.analysis.inference.learning_onset import load_learning_onset_analysis
+from classical_conditioning.analysis.trial_outcomes import trial_outcome_settings_for_experiment
 from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.cohort import load_cohort_manifest, logical_cohort_hash
 
@@ -93,6 +94,13 @@ def verify(project: Path, source: Path, report_path: Path) -> dict:
                         for condition in ("trace", "control")}
     if condition_counts != {"trace": 40, "control": 19}:
         raise ValueError(f"F: cohort condition counts differ: {condition_counts}")
+    expected_trial_settings = trial_outcome_settings_for_experiment("all3sTrace")
+    for recording_id in selected:
+        summary_path = project / "Quality checks" / recording_id / "candidate-trial-outcomes-corrected_summary.json"
+        trial_summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        if (trial_summary.get("experiment") != "all3sTrace"
+                or trial_summary.get("config") != expected_trial_settings):
+            raise ValueError(f"{recording_id}: trial outcomes do not use the 0–13 s response window")
 
     cohort = load_cohort_manifest(project, COHORT)
     primary = cohort.loc[cohort["primary_included"].astype(bool)]
@@ -102,25 +110,25 @@ def verify(project: Path, source: Path, report_path: Path) -> dict:
     outcomes, _ = load_cohort_trial_outcomes(project, COHORT)
     if set(outcomes["recording_id"].astype(str)) != selected:
         raise ValueError("Frozen cohort outcomes do not cover all complete fish")
-    comparison_dir = project / "Processed data" / "Analyses" / "figure3-3strace-exploratory" / "legacy-tail-l1"
+    comparison_dir = project / "Processed data" / "Analyses" / "figure3-3strace-window13" / "legacy-tail-l1"
     comparison = json.loads((comparison_dir / "comparison.json").read_text(encoding="utf-8"))
     wip = next((item for item in comparison["variants"] if item["variant"] == "legacy-wip"), None)
     if (comparison.get("cohort_hash") != cohort_hash or comparison.get("metric_id") != METRIC
             or wip is None or wip.get("status") != "completed"):
         raise ValueError("3sTrace legacy-wip comparison is incomplete or mismatched")
-    labels_path = project / "Processed data" / "Analyses" / "figure4-3strace-exploratory" / "learner-labels.csv"
+    labels_path = project / "Processed data" / "Analyses" / "figure4-3strace-window13" / "learner-labels.csv"
     labels, classifier = load_classification_manifest(labels_path, METRIC, ("all3sTrace",))
     if (len(labels) != 59 or classifier["cohort_hashes"] != {"all3sTrace": cohort_hash}
-            or classifier["classifier_execution_id"] != "legacy-wip-3strace-tail-l1-exploratory"):
+            or classifier["classifier_execution_id"] != "legacy-wip-3strace-tail-l1-window13-exploratory"):
         raise ValueError("3sTrace provisional classifier manifest is incomplete or mismatched")
-    figure4_path = project / "Processed data" / "Analyses" / "figure4-3strace-exploratory" / "figure4" / "analysis.json"
+    figure4_path = project / "Processed data" / "Analyses" / "figure4-3strace-window13" / "figure4" / "analysis.json"
     figure4, tables = load_figure4_analysis(figure4_path)
     if (figure4["analysis_scope"] != "partial_assay_review"
             or figure4["scientific_status"] != "descriptive_provisional_legacy_rule"
             or figure4["cohort_hashes"] != {"all3sTrace": cohort_hash}
             or len(tables["sample-flow"]) != 59):
         raise ValueError("Figure 4B analysis is incomplete or mismatched")
-    learning_id = "all3sTrace-full-learning-onset"
+    learning_id = "all3sTrace-full-learning-onset-window13"
     _, learning = load_learning_onset_analysis(project, learning_id)
     if learning.get("cohort_hash") != cohort_hash:
         raise ValueError("Learning-onset analysis uses a different cohort")
@@ -129,12 +137,12 @@ def verify(project: Path, source: Path, report_path: Path) -> dict:
         project / "Figures" / "PNG" / "20230307_12" / f"figure-1-F-3strace_{METRIC}.png",
         *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-review"
           / f"figure-2B-3strace_{kind}_{METRIC}.png" for kind in ("signed", "coverage")),
-        *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-exploratory"
+        *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-window13"
           / f"cohort-{kind}-ratio_{METRIC.replace('_', '-')}_total-activity.png"
           for kind in ("selected-block", "trial")),
-        project / "Figures" / "PNG" / "Analyses" / "figure3-3strace-exploratory"
+        project / "Figures" / "PNG" / "Analyses" / "figure3-3strace-window13"
         / f"figure-3-3strace-review_{METRIC}.png",
-        *(project / "Figures" / "PNG" / "Analyses" / "figure4-3strace-exploratory"
+        *(project / "Figures" / "PNG" / "Analyses" / "figure4-3strace-window13"
           / "all3sTrace" / f"{kind}_{METRIC}.png" for kind in (
               "figure-4", "supplement-single-catches", "supplement-movement",
               "supplement-coverage", "supplement-single-catch-movement",
