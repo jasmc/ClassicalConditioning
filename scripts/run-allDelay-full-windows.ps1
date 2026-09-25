@@ -146,7 +146,7 @@ if (-not (Test-Path -LiteralPath $diagnosticsFigure -PathType Leaf)) {
     Invoke-WorkflowCommand @("run", "classical-conditioning", "figure-learning-diagnostics", "--project-dir", $project, "--analysis-id", $LearningAnalysisId, "--mode", "static")
 }
 if (-not (Test-Path -LiteralPath $learningFigure -PathType Leaf)) {
-    Invoke-WorkflowCommand @("run", "classical-conditioning", "figure-learning-onset", "--project-dir", $project, "--analysis-id", $LearningAnalysisId, "--mode", "static")
+    Invoke-WorkflowCommand @("run", "classical-conditioning", "figure-learning-onset", "--project-dir", $project, "--analysis-id", $LearningAnalysisId, "--mode", "static", "--allow-unaccepted")
 }
 
 Write-Output "Learning-onset figure: $learningFigure"

@@ -151,14 +151,15 @@ class Figure4AnalysisTests(unittest.TestCase):
                 events.append({"Type": "Reinforcer", "Beg": cycles[trial - 1] + 13_000,
                                "End": cycles[trial - 1] + 13_100})
         protocol = pd.DataFrame(events)
-        with self.assertRaisesRegex(Exception, "disagrees with ExperimentSpec"):
-            verify_expected_us(protocol, "all3sTrace")
-        protocol.loc[protocol["Type"].eq("Reinforcer"), "Beg"] -= 4_000
         time, count = verify_expected_us(protocol, "all3sTrace")
-        self.assertEqual((time, count), (9., 46))
+        self.assertEqual((time, count), (13., 46))
+        shifted = protocol.copy()
+        shifted.loc[shifted["Type"].eq("Reinforcer"), "Beg"] -= 4_000
+        with self.assertRaisesRegex(Exception, "disagrees with ExperimentSpec"):
+            verify_expected_us(shifted, "all3sTrace")
         with_test_catch_us = pd.concat([protocol, pd.DataFrame([{
-            "Type": "Reinforcer", "Beg": cycles[64] + 9_000,
-            "End": cycles[64] + 9_100,
+            "Type": "Reinforcer", "Beg": cycles[64] + 13_000,
+            "End": cycles[64] + 13_100,
         }])], ignore_index=True)
         with self.assertRaisesRegex(Exception, "non-US CS 65"):
             verify_expected_us(with_test_catch_us, "all3sTrace")

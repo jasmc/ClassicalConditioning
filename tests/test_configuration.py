@@ -74,6 +74,11 @@ class DomainConfigurationTests(unittest.TestCase):
         self.assertEqual(blocks[0][1], tuple(range(5, 15)))
         self.assertEqual(blocks[-1][1], tuple(range(85, 95)))
 
+    def test_fixed_trace_spec_matches_source_names_and_timing(self) -> None:
+        fixed = get_experiment_spec("all3sTrace")
+        self.assertEqual(fixed.conditions[1].source_name, "trace")
+        self.assertEqual(fixed.conditions[1].us_latency_s, (13.0,) * 46)
+
 
 if __name__ == "__main__":
     unittest.main()

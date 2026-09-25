@@ -34,10 +34,10 @@ Use `classical-conditioning resolve-config --experiment <id> --project-dir <save
 | Assay | Condition IDs | Conditioned response window, s | Configured paired US latency, s |
 | --- | --- | ---: | ---: |
 | `allDelay` | `control`, `delay` | [0, 9) | 9 |
-| `all3sTrace` | `control`, `trace` | [0, 13) | 9 |
+| `all3sTrace` | `control`, `trace` | [0, 13) | 13 |
 | `all10sTrace` | `control`, `trace` | [0, 20) | 20 |
 
-The 3sTrace configured 9 s US latency conflicts with the paper scaffold's 13 s expectation. Check raw protocol events before using expected-US guides in paper panels. US-aligned block numbering differs from CS numbering; inspect the generated `Metadata/trial_map_<experiment>.json`.
+The fixed-trace raw-protocol audit supports the configured 13 s paired US latency. Figure 4 still checks authenticated paired-training events for every fish before using expected-US guides. US-aligned block numbering differs from CS numbering; inspect the generated `Metadata/trial_map_<experiment>.json`.
 
 ## 3. Fixed per-recording recipe settings
 

@@ -1,0 +1,116 @@
+{
+  "schema": "legacy-learner-comparison/1.0",
+  "generated_at": "2026-09-24T18:44:48.927982+00:00",
+  "analysis_mode": "descriptive_classifier_characterization",
+  "canonical_classifier": null,
+  "experiment_id": "allDelay",
+  "metric_id": "tail_length_weighted_angular_l1",
+  "input_translation": "Mean CR=response_total_activity; Mean 9s before=baseline_total_activity; Normalized vigor=response/baseline",
+  "historical_equivalence": false,
+  "caveat": "Historical rules on corrected outcome units; labels do not establish biological learning or validate a canonical classifier.",
+  "cohort_path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\Cohorts\\allDelay-full-v1\\cohort-manifest-v1.parquet",
+  "cohort_sha256": "f6ce1bbd330fddf9e7edd92639df7a4afafdf0b1e5d3b1f9ac0ddee5e06e260c",
+  "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+  "outcomes_path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\Cohorts\\allDelay-full-v1\\cohort-trial-outcomes.parquet",
+  "outcomes_sha256": "64db7a5deef2fe0a664d1496eba8af1bbac8b98b99393e1bcc0e945db00821bc",
+  "translated_input_sha256": "82effee5f172a7de9a20bc5619e5719435b112a3281911c5778edfac29e961f4",
+  "primary_fish": 57,
+  "primary_delay_fish": 29,
+  "primary_control_fish": 28,
+  "runtime": {
+    "python": "3.13.14",
+    "numpy": "2.2.5",
+    "pandas": "3.0.0",
+    "statsmodels": "0.14.4",
+    "scikit-learn": "1.6.1",
+    "seaborn": "0.13.2"
+  },
+  "variants": [
+    {
+      "variant": "legacy-nominal",
+      "status": "completed",
+      "eligible_delay": 29,
+      "learner_delay": 5,
+      "eligible_control": 28,
+      "control_flagged": 2,
+      "unclassified_delay": 0,
+      "learner_fish_ids": [
+        "20221115_07",
+        "20221118_04",
+        "20221122_03",
+        "20240621_03",
+        "20240703_08"
+      ],
+      "algorithm_sha256": "2c1be612966accf1b1492871f1da738ee18c2d9f7ca8f1c2c16b4ab60d5c6bbf",
+      "config_sha256": "bf104f73091427720dfc5a5b9a202692dfb02595284959deab6f9103f906c543",
+      "result_sha256": "e8c0edfad868643ba89294d4bff7188454ce3c97fefe5495cb27492d9aaf94df"
+    },
+    {
+      "variant": "legacy-new",
+      "status": "completed",
+      "eligible_delay": 29,
+      "learner_delay": 6,
+      "eligible_control": 28,
+      "control_flagged": 2,
+      "unclassified_delay": 0,
+      "learner_fish_ids": [
+        "20221115_07",
+        "20221122_03",
+        "20240618_02",
+        "20240621_03",
+        "20240624_05",
+        "20240703_08"
+      ],
+      "algorithm_sha256": "aed85f0aeb1aa159465fa3f4b379e7ab1e0d744efe96b4ed3d7dd263e4de0f13",
+      "config_sha256": "267b1e896bc1c645353303437ac684f592f4e9bd427ab697dbcfcf4f1b913966",
+      "result_sha256": "23f64880b3601d6b1507ad3ef0ea075ebac19a5473bacf07be9662a68ae44820"
+    },
+    {
+      "variant": "legacy-improved",
+      "status": "completed",
+      "eligible_delay": 29,
+      "learner_delay": 5,
+      "eligible_control": 28,
+      "control_flagged": 1,
+      "unclassified_delay": 0,
+      "learner_fish_ids": [
+        "20221122_03",
+        "20240613_02",
+        "20240618_02",
+        "20240621_03",
+        "20240703_08"
+      ],
+      "algorithm_sha256": "8987f606fb133d90be93aa83472c1644f368f00a9086353caca47235b5f1102c",
+      "config_sha256": "d391f551c14128cacb6f2cb7cb1228a85bd088034fb3894996ca4b6947ac161b",
+      "result_sha256": "bebea0153b90b551a5b035b1fce2642dcb75d9ff67f6577c5da196f17454a8b4"
+    },
+    {
+      "variant": "legacy-wip",
+      "status": "completed",
+      "eligible_delay": 29,
+      "learner_delay": 13,
+      "eligible_control": 28,
+      "control_flagged": 2,
+      "unclassified_delay": 0,
+      "learner_fish_ids": [
+        "20221115_04",
+        "20221116_06",
+        "20221116_12",
+        "20221122_03",
+        "20221122_06",
+        "20221123_08",
+        "20240613_02",
+        "20240618_02",
+        "20240618_08",
+        "20240621_03",
+        "20240624_05",
+        "20240626_02",
+        "20240703_08"
+      ],
+      "algorithm_sha256": "af8b3f47616f80f40a3f55aa029b2fce845b4640acc371811ec337c76424df53",
+      "config_sha256": "9a502e84afaa2c6d11f26e11f0d723fd58daf2c7b9cef39c0b75760861b88411",
+      "result_sha256": "23b53b36c01c64483edbc33fe71df8d82c070369f665383bcaf2c1d45c0f55a2"
+    }
+  ],
+  "code_commit": "414187e6cef24411f53acab8449e1b5ec8730682"
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "legacy-control-flag-comparison/1.0",
+  "analysis_mode": "descriptive_classifier_characterization",
+  "comparison_sha256": "7e2b3e5db53142d64e8973034822a11b9750d92d021124e54449e4bd6e368875",
+  "metric_id": "tail_length_weighted_angular_l1",
+  "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+  "interpretation": "Controls flagged by a rule are apparent in-sample positives, not independently estimated false-positive rates.",
+  "control_fish_flagged_by_any": [
+    "20221117_04",
+    "20221122_05",
+    "20240611_05",
+    "20240612_07",
+    "20240620_06",
+    "20240624_06"
+  ],
+  "control_fish_flagged_by_all": [],
+  "artifacts": {
+    "rates": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\control-flag-rates.csv",
+    "fish": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\control-fish-flags.csv",
+    "png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\control-flag-comparison.png",
+    "pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\delay-learner-review-tail-l1\\control-flag-comparison.pdf"
+  }
+}
