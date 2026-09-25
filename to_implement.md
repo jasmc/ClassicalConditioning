@@ -1,16 +1,3 @@
-
-
-
-document each part of the analysis in docs folder in separate docs, numbered. use what is already available there
-
-
-
-document in Readme all parameters of LME analysis and other analysis steps
-
-
-
-
-
 /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/example-run.json add a comment if possible explaining how to use this file and what the different options are. if not possibble to add comment, add that info in /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/README.md
 
 
@@ -30,10 +17,6 @@ add to README where i can  check the experiment-specific parameters.
 compare figures in refactored code vs in legacy and ask to justify the differences.
 
 
-
-
-
-
 review and make README more structured, organized, and make it look  like a README without mentions to old code and old implementations.
 
 what is /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests? are all those files useful or can we delete them?
@@ -44,18 +27,15 @@ use repo SciFigEditor to take the rules and formatting for the figures.
 
 
 
+number the figures that will be part of the paper, starting with Figure X. and indicating the panel letter.
+
+
+
+
+
+
+
 add comments explaining all code blocks of the repo so that i can review everything manually more easily
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -65,6 +45,3 @@ understand everything in Plans, src, docs
 
 
 
-
-
-number the figures that will be part of the paper, starting with Figure X. and indicating the panel letter.

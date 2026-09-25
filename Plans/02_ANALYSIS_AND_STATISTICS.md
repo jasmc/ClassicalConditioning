@@ -25,13 +25,11 @@ requirements live in
 [Learner Representation and Analysis](./05_LEARNER_ANALYSIS.md).
 
 The implemented exploratory model-input, LME, permutation, and bootstrap code
-is recorded in
-[the archived engineering scaffold](./Archive/10A_EXPLORATORY_INFERENCE_SCAFFOLDING.md).
+is described in [the current LME reference](../docs/analysis/07_LEARNING_ONSET_LME.md).
 The newer condition-aware implementation and its remaining paper gates are in
 [Learning-Onset Analysis Completion](./03_LEARNING_ONSET_IMPLEMENTATION.md).
-The old statistics and learner plans remain archived as immutable source
-material. Their learner requirements have been restored to the active learner
-plan rather than reduced to this umbrella summary.
+Earlier statistics and learner plans remain in Git history. Their learner
+requirements are in the active learner plan.
 
 ## Questions to resolve before choosing a model
 
@@ -44,9 +42,13 @@ plan rather than reduced to this umbrella summary.
    probability, conditional movement intensity, or bout initiation/rate?
 4. What time scale matters: prespecified phase/block contrast, trial trajectory,
    or the full event-aligned curve?
-5. Is individual heterogeneity adequately described by continuous fish effects,
+5. If the paper claims extinction, what evidence shows that an established
+   conditioned response subsequently declines or is absent? Prespecify the
+   comparison and uncertainty; loss of statistical significance alone is not
+   evidence of extinction.
+6. Is individual heterogeneity adequately described by continuous fish effects,
    or is there evidence for distinct learner classes?
-6. Which observations are exploratory, and which—if any—remain independent for
+7. Which observations are exploratory, and which—if any—remain independent for
    confirmation?
 
 ## Non-negotiable analysis rules
@@ -90,7 +92,7 @@ plan rather than reduced to this umbrella summary.
 
 ## Discussion and exploration programme
 
-### 10.1 Define claims, estimands, and outcome hierarchy
+### 2.1 Define claims, estimands, and outcome hierarchy
 
 Write one primary claim in plain language and translate it into one estimand.
 Name one primary outcome; secondary outcomes should answer distinct biological
@@ -104,7 +106,7 @@ questions rather than repeat the same claim. Record:
 - missingness and minimum-coverage rules; and
 - whether the result is exploratory or confirmatory.
 
-### 10.2 Explore the data without silently selecting the final model
+### 2.2 Explore the data without silently selecting the final model
 
 Use paper-scale descriptive summaries to understand distributions, zeros,
 coverage, fish-level trajectories, condition balance, day/rig structure, and
@@ -112,7 +114,7 @@ outliers. Keep a decision log of what was inspected and which later choices
 could have been influenced. Exploration may motivate candidates; it does not
 turn the same observations into untouched confirmation data.
 
-### 10.3 Improve and challenge the LME
+### 2.3 Improve and challenge the LME
 
 If the primary outcome is continuous and an LME is plausible, evaluate a small
 prespecified family around a scientifically meaningful formula such as a
@@ -131,7 +133,7 @@ Reject or demote the LME if the outcome distribution is incompatible, the
 design cannot support the random-effects structure, fits are persistently
 singular, or conclusions depend on a small number of fish.
 
-### 10.4 Compare one strong simpler alternative
+### 2.4 Compare one strong simpler alternative
 
 Implement a condition-aware fish-level contrast as the minimum robustness
 analysis. Each fish contributes one prespecified effect; compare those effects
@@ -145,7 +147,7 @@ problem that the LME/GEE cannot and priors plus diagnostics can be reviewed.
 GAM/functional curves, point-process models, and HMMs remain exploratory tools
 unless the scientific question specifically requires them.
 
-### 10.5 Match models to outcome families
+### 2.5 Match models to outcome families
 
 - Continuous positive activity/intensity: assess log-normal, Gamma, or another
   justified positive model; a Gaussian LME requires acceptable residuals.
@@ -158,7 +160,7 @@ unless the scientific question specifically requires them.
 - Event-aligned curves: use them descriptively unless a prespecified functional
   inferential method and multiplicity rule are justified.
 
-### 10.6 Analyze individual heterogeneity and complete the learner workstream
+### 2.6 Analyze individual heterogeneity and complete the learner workstream
 
 First show fish-level effects and trajectories continuously. Estimate how much
 fish differ, how uncertain each effect is, and whether apparent subgroups are
@@ -179,7 +181,7 @@ must still report the approved continuous or model-based learner analysis and
 the evidence for not imposing classes. Full requirements are in
 [the learner plan](./05_LEARNER_ANALYSIS.md).
 
-### 10.7 Define uncertainty, multiplicity, and sensitivity
+### 2.7 Define uncertainty, multiplicity, and sensitivity
 
 Specify one primary uncertainty method and a bounded sensitivity set. Relevant
 checks include:
@@ -195,14 +197,14 @@ checks include:
 
 Do not run an unrestricted grid and report only favorable variants.
 
-### 10.8 Freeze diagnostics and failure behavior
+### 2.8 Freeze diagnostics and failure behavior
 
 For each adopted model, define required convergence evidence, singularity and
 boundary rules, model-rank checks, residual or calibration diagnostics,
 influence checks, minimum fish/observation counts, and optimizer sensitivity.
 A failed fit produces a failed result artifact and no final figure annotation.
 
-### 10.9 Build reproducible analysis artifacts and tests
+### 2.9 Build reproducible analysis artifacts and tests
 
 Version the final model input, formula, factor references, cohort/outcome IDs,
 contrasts, uncertainty configuration, diagnostics, and results. Add synthetic

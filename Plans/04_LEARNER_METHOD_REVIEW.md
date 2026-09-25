@@ -22,8 +22,8 @@ The first question belongs to the label-independent population analysis. The lea
 - Gate L requires a learner-focused paper result but leaves the continuous, longitudinal, probabilistic, and categorical representation open. A hard label is optional [active plan](./05_LEARNER_ANALYSIS.md).
 - The primary fish cohort must be fixed using label-independent technical criteria. The current two-stage assessment records a merged pre-fit learner-input prerequisite; method-specific feature eligibility and reasons remain for the learner analysis. Neither may redefine the primary cohort [decision register](./DECISIONS.md).
 - The chosen activity metric, detector, outcome transformation, windows, and population inference are not yet paper-frozen. This review cannot select a final method by comparing results on two local fixture fish.
-- Existing outcomes must keep immobility distinct from missing tracking. A conditional-on-movement vigor score alone can miss strong suppression [analysis findings](../docs/analysis/audits/ANALYSIS_FINDINGS.md).
-- Acquisition and later recovery must be reported separately. All four legacy scripts require acquisition-direction suppression *and* later recovery-direction change for their final learner label; that conjunction defines a particular trajectory phenotype, not learning itself [legacy behavior matrix](../docs/analysis/legacy/LEARNER_VARIANT_BEHAVIOR_MATRIX.md).
+- Existing outcomes must keep immobility distinct from missing tracking. A conditional-on-movement vigor score alone can miss strong suppression [analysis findings](../docs/analysis/audits/01_ANALYSIS_FINDINGS.md).
+- Acquisition and later recovery must be reported separately. All four legacy scripts require acquisition-direction suppression *and* later recovery-direction change for their final learner label; that conjunction defines a particular trajectory phenotype, not learning itself [legacy behavior matrix](../docs/analysis/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md).
 
 ## Methods that do not require an LME learner classifier
 
@@ -56,7 +56,7 @@ If Gate L selects categories, separate insufficient data from uncertain evidence
 
 After the metric, cohort, and outcome contracts are frozen, use a bounded comparison of a simple continuous contrast, a control-calibrated directional score if controls suffice, and one longitudinal method only if the scientific question requires trial dynamics. Use the same authenticated trial outcomes and frozen selection assessment for each route. Compare interpretability, eligible sample size, null calibration, sensitivity to windows and transformations, missingness behavior, simulation performance, and prediction of prespecified later observations. If a complex method adds no stable information beyond the simple contrast, prefer the simpler result. Include legacy labels in an agreement and sensitivity report, not as training truth or a selection target.
 
-The four inherited variants are historical comparators. They differ in response transformation, middle epoch, threshold, direction rule, and reference calculation [legacy behavior matrix](../docs/analysis/legacy/LEARNER_VARIANT_BEHAVIOR_MATRIX.md). Their final labels all mix acquisition with recovery. Reproducing them is useful for explaining differences from the earlier analysis, but none is made canonical by this document.
+The four inherited variants are historical comparators. They differ in response transformation, middle epoch, threshold, direction rule, and reference calculation [legacy behavior matrix](../docs/analysis/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md). Their final labels all mix acquisition with recovery. Reproducing them is useful for explaining differences from the earlier analysis, but none is made canonical by this document.
 
 ## Validation and interpretation using existing trials
 

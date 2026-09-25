@@ -91,7 +91,7 @@ Therefore:
 Before using learner labels in paper-level claims:
 
 1. Resolve the relevant analytical issues documented in
-   `../../docs/analysis/audits/ANALYSIS_FINDINGS.md`.
+   `../../docs/analysis/audits/01_ANALYSIS_FINDINGS.md`.
 2. Complete the non-learner refactor and freeze corrected inputs and primary
    outcomes.
 3. Conduct the end-to-end methodology review above.

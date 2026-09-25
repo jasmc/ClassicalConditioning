@@ -12,7 +12,7 @@ Learning-onset model choices and validation are owned by
 
 The [selection inventory](./EXCLUSION_AND_SELECTION_INVENTORY.csv) records
 active, legacy, and deferred selection operations. The implemented
-[`assess-discarding` guide](../docs/analysis/DISCARDING_ASSESSMENT.md) specifies
+[`assess-discarding` guide](../docs/analysis/04_DISCARDING_AND_SELECTION.md) specifies
 the technical evidence and exploratory legacy-rule projection. The latter,
 including its merged learner-input prerequisite, cannot set primary membership.
 
@@ -73,7 +73,5 @@ publishes sample flow. A paper run and full consumer migration remain open.
 
 The work is complete when Gate C0 is approved, a reviewed immutable C1 cohort
 is frozen, all population consumers authenticate that cohort, and the sample
-flow reconciles. The older detailed
-[cohort boundary](./Archive/SINGLE_COHORT_AND_EXCLUSION.md) and
-[combined cohort/onset](./Archive/REMAINING_COHORT_AND_LEARNING_ONSET_IMPLEMENTATION.md)
-plans remain historical records.
+flow reconciles. Earlier detailed cohort plans remain in Git history; this
+plan owns the current requirements.

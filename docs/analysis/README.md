@@ -1,57 +1,31 @@
-# Analysis Documentation
+# Numbered analysis documentation
 
-This folder documents the current analysis behavior and proposed architecture, records
-audits, and preserves legacy references. Future work belongs under `Plans/`;
-status belongs only in `Plans/IMPLEMENTATION_STEP_INDEX.md`.
+Read the guides in order for the active corrected behavior route. The numbers describe the analysis flow; the paper figure and historical folders have their own numbered indexes. The [root README](../../README.md) is the short setup and run entry point. Code and authenticated output manifests remain the source of exact run values.
 
-## Start by task
+| Step | Guide | Fast answer |
+| --- | --- | --- |
+| 01 | [Run workflow](01_USER_WORKFLOW.md) | How to configure, run, resume, and inspect a run. |
+| 02 | [Current pipeline](02_CURRENT_PIPELINE.md) | Stage order, source ownership, and trust boundaries. |
+| 03 | [All analysis parameters](03_ANALYSIS_PARAMETER_INDEX.md) | Run fields, fixed stage settings, experiment values, and the full LME reference. |
+| 04 | [Discarding and selection](04_DISCARDING_AND_SELECTION.md) | Technical assessment, exploratory rules, and reviewed cohort boundary. |
+| 05 | [Metrics and bouts](05_METRICS_AND_BOUTS.md) | Candidate signals, shared movement detector, and interpretation. |
+| 06 | [Cohort aggregation](06_COHORT_AGGREGATION.md) | Fish weighting, ratios, and cohort figure data. |
+| 07 | [Learning-onset LME](07_LEARNING_ONSET_LME.md) | Every public LME parameter, estimand, fit, diagnostic, and output. |
+| 08 | [Candidate figures](08_CANDIDATE_FIGURES.md) | Descriptive figure families and render commands. |
+| 09 | [Output and provenance](09_OUTPUT_AND_PROVENANCE.md) | Where artifacts live and how they are authenticated. |
+| 10 | [Troubleshooting](10_TROUBLESHOOTING.md) | Recovery from known run failures. |
+| 11 | [Glossary](11_GLOSSARY.md) | Project terms. |
+| 12 | [Proposed multimodal architecture](12_PROPOSED_MULTIMODAL_ARCHITECTURE.md) | Future architecture, distinct from implemented behavior. |
 
-| If you need to… | Read this |
-| --- | --- |
-| Install and run the candidate route for the first time | [Root README](../../README.md), then [candidate workflow](./USER_WORKFLOW.md) |
-| Find an output, review hashes/markers, or understand reuse | [Output and provenance](./OUTPUT_AND_PROVENANCE.md) |
-| Recover from a failure without breaking lineage | [Troubleshooting](./TROUBLESHOOTING.md) |
-| Understand candidate metrics or shared bouts | [Activity metrics, smoothing, and shared bouts](./METRICS_AND_BOUTS.md) |
-| Render or interpret a candidate figure | [Figure guide](./FIGURE_GUIDE.md) |
-| Translate project terminology | [Glossary](./GLOSSARY.md) |
-| Review source ownership and call order | [Current pipeline guide](./CURRENT_PIPELINE_GUIDE.md) |
-| Review cohort aggregation or response/baseline figures | [Cohort aggregation and figures](./COHORT_AGGREGATION_AND_FIGURES.md) |
-| Review learning-onset analysis | [LME pipeline and parameter reference](./LME_PIPELINE_AND_PARAMETERS.md) |
-| Review technical and exploratory selection evidence | [Discarding assessment](./DISCARDING_ASSESSMENT.md) |
+## Paper figures
 
-## Architecture and implementation reference
+Start with [01 panel-by-panel provenance](figures/01_PAPER_PANEL_PROVENANCE.md): it covers every planned main panel (Figure 1A–4C) and supporting analysis grouped by parent figure, including the source, calculation, renderer, and current gap. Then use the [02 paper specification](figures/02_PAPER_FIGURE_SPECIFICATION.md) for the layout proposal and the [figure folder index](figures/README.md) for review variants and Figure 4 detail.
 
-- [Proposed multimodal architecture](./ARCHITECTURE.md)
-- [Current pipeline guide](./CURRENT_PIPELINE_GUIDE.md)
+## Evidence and history
 
-## Figures
+- [Audits](audits/README.md) record findings and open issues; they are evidence, not current run instructions.
+- [Legacy references](legacy/README.md) describe inherited implementations and comparisons.
+- Dated documentation versions remain in Git history; use the current guides and implementation index for status.
+- [Repository maintenance](../maintenance/01_REPOSITORY_GUIDE.md) covers document ownership.
 
-- [Legacy and refactored figure pipelines](./figures/FIGURE_PIPELINES.md)
-- [Paper draft-to-current figure comparison](./figures/PAPER_DRAFT_COMPARISON.md)
-
-## Audits and issue tracking
-
-- [Analysis findings](./audits/ANALYSIS_FINDINGS.md)
-- [Issue register](./audits/ISSUE_REGISTER.md)
-- [Inherited imaging critique](./audits/IMAGING_PIPELINE_CRITIQUE.md)
-
-Audits describe evidence and risk. They do not, by themselves, authorize or
-schedule implementation.
-
-## Legacy reference
-
-- [Analysis files and historical execution order](./legacy/ANALYSIS_FILES_INDEX.md)
-- [Preexisting codebase behavior map](./legacy/CODEBASE_BEHAVIOR_MAP.md)
-- [Legacy versus corrected workflow](./legacy/LEGACY_VS_CORRECTED_WORKFLOW.md)
-- [Learner-variant behavior matrix](./legacy/LEARNER_VARIANT_BEHAVIOR_MATRIX.md)
-
-## Historical records
-
-- [Implementation status snapshot, 2026-09-01](./archive/CURRENT_IMPLEMENTATION_STATUS_2026-09-01.md)
-- [Former combined architecture/status map](./archive/FINAL_ARCHITECTURE_STATUS_MAP.md)
-- [README reorganization record](./archive/README_REORGANIZATION.md)
-- [Historical pipeline and heatmap audit](./archive/PIPELINE_AND_HEATMAP_AUDIT.md)
-
-These records are retained for provenance but are not updated and are not
-current status authority. Repository maintenance guidance lives in the
-[maintenance guide](../maintenance/REPOSITORY_GUIDE.md).
+Current implementation status and unfinished scientific gates live in [Plans/IMPLEMENTATION_STEP_INDEX.md](../../Plans/IMPLEMENTATION_STEP_INDEX.md). No candidate output becomes a paper result merely because it renders.

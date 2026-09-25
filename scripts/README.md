@@ -3,7 +3,7 @@
 Use `classical-conditioning render-paper-panels` for the current paper review.
 It records its commands, settings, outputs and sidecars in `paper-panel-run.json`.
 The scientific panel registry remains blocked until the approvals in
-[`PAPER_FIGURE_FREEZE.md`](../docs/analysis/figures/PAPER_FIGURE_FREEZE.md)
+[paper figure specification](../docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md)
 are complete.
 
 | Role | Scripts | Maintenance rule |

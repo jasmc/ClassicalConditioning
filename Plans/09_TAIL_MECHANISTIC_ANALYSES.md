@@ -21,9 +21,8 @@ Begin this follow-on analysis only after Figure 4 establishes the pooled-learner
 CR result. Tail geometry, rhythmic power, and traveling-wave analyses can then
 explore how movement mechanics relate to that result.
 Current metric and bout behavior is documented in
-[Activity Metrics, Smoothing, and Shared Bout Segmentation](../docs/analysis/METRICS_AND_BOUTS.md).
-Historical implementation detail remains in the archived tail plan and archived
-Plans 06–07.
+[Activity Metrics, Smoothing, and Shared Bout Segmentation](../docs/analysis/05_METRICS_AND_BOUTS.md).
+Earlier tail and metric-selection plans remain in Git history.
 
 ## Questions
 

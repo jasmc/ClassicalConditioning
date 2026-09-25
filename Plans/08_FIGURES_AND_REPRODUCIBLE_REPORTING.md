@@ -15,9 +15,8 @@ publication dimensions, and visual regression.
 stage whose output is exposed; final figure identity is recorded through the
 frozen release manifest and existing source/output hashes
 **Unlocks:** Practical researcher use and reproducible paper builds  
-**Absorbed detail:** Historical figure workstreams archived in
-[the archived scientific figure plan](./Archive/SCIENTIFIC_FIGURE_PIPELINE_PLAN.md)
-and [paper-figure automation source plan](./Archive/PAPER_FIGURE_AUTOMATION_PLAN.md).
+**Absorbed detail:** Earlier scientific figure and paper-automation plans are
+preserved in Git history; their current requirements are below.
 
 ## Objective
 
@@ -226,7 +225,7 @@ Figure 1 follows the paper scaffold; Figure 4 follows the later user-approved
 three-assay learner-stratified block/catch layout. Figure 2 heatmaps require a
 frozen fish cohort and explicit coverage; Figure 3 and paper Figure 4 data
 remain gated on the learner manifest and reviewed cohorts.
-See the [panel-by-panel draft comparison](../docs/analysis/figures/PAPER_DRAFT_COMPARISON.md).
+See the [panel-by-panel draft comparison](../docs/analysis/figures/05_DRAFT_COMPARISON.md).
 
 ### Figure QC
 
@@ -292,7 +291,7 @@ windows, aggregation, detector, statistics, or learner definitions.
 | 1 | Experimental setup, protocol, metric definition, and representative fish | Approved source artwork and representative-recording rule |
 | 2 | Population evidence for delay and trace conditioning | Frozen cohort, outcomes, and population inference |
 | 3 | Learner representation, uncertainty, heterogeneity, and validation | Active learner-plan exit gate |
-| 4 | Descriptive learner-stratified signed CR profiles for Delay, 3sTrace and 10sTrace | Approved learner manifest, reviewed cohorts and verified expected-US timing |
+| 4 | Descriptive signed CR profiles for Delay, 3sTrace and 10sTrace, grouped by the approved learner representation | Approved learner manifest, reviewed cohorts and verified expected-US timing; renderer adaptation if Gate L selects a noncategorical representation |
 
 Figure 3 is required because learner analysis is important to the paper. Its
 final grammar depends on the learner decision: continuous/probabilistic outputs
@@ -343,11 +342,14 @@ publication PDFs to the paper repository is a separate explicit action.
 3. Build reusable panel-data builders: temporal heatmap and coverage,
    fish-level trajectory, paired phase change, condition/model estimate, raw
    trace, protocol timeline, learner diagnostics, and timing estimates.
-4. Build Figure 2 first as the population-analysis vertical slice.
-5. Build Figure 1 and the first supplementary assay/QC figures.
-6. Build Figure 3 from the approved learner artifacts and Figure 4 from
-   signed learner-stratified block and catch data. Keep inferential timing in
-   the separately gated S7 workstream.
+4. Build Figure 1 preparation, protocol, single-fish traces, and heatmaps with
+   its supporting assay/QC outputs.
+5. Build Figure 2 matched-cohort heatmaps, block and trial results, and their
+   supporting coverage, trajectories, and diagnostics.
+6. Build Figure 3 from approved learner artifacts and its validation outputs;
+   then build Figure 4 signed learner-stratified block and catch profiles.
+   Keep independently evaluated response timing in the
+   [supplementary plan](./10_SUPPLEMENTARY_FIGURES.md).
 7. Validate the figures from a clean analysis commit and review Figure 4's
    pooled-learner CR result. The
    [tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) then follow.

@@ -13,12 +13,9 @@ The post-representation single-metric run is specified in
 It does not change this plan's prerequisite: learner analysis consumes a frozen,
 label-independent primary technical cohort and authenticated outcome artifacts.
 
-This file restores the complete operational content of archived Plan 11 as an
-active plan. The historical wording remains preserved in
-[the archived Plan 11](./Archive/11_LEARNER_CLASSIFICATION.md). The complete
-detailed execution design is active in
-[Learner Outputs and Validation](./06_LEARNER_OUTPUTS_AND_VALIDATION.md),
-with its original source retained in the archive.
+This is the active learner plan. Earlier plan wording remains in Git history.
+The detailed execution design is in
+[Learner Outputs and Validation](./06_LEARNER_OUTPUTS_AND_VALIDATION.md).
 
 Learner analysis is required for the paper. A hard learner/non-learner label is
 not assumed in advance: continuous, longitudinal, probabilistic, and categorical
