@@ -22,10 +22,14 @@ from classical_conditioning.figures.export import (
 
 
 METRIC = "tail_length_weighted_angular_l1"
+METRICS = (METRIC, "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed")
 VARIANT = "legacy-wip"
 
 
-def load_review(project: Path, cohort_id: str, comparison_dir: Path) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+def load_review(project: Path, cohort_id: str, comparison_dir: Path,
+                metric_id: str = METRIC) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+    if metric_id not in METRICS:
+        raise ValueError(f"Unsupported Figure 3 metric: {metric_id}")
     cohort = load_cohort_manifest(project, cohort_id)
     selected = cohort.loc[cohort["primary_included"].astype(bool)].copy()
     cohort_hash = logical_cohort_hash(cohort)
@@ -34,7 +38,7 @@ def load_review(project: Path, cohort_id: str, comparison_dir: Path) -> tuple[pd
     comparison_path = comparison_dir / "comparison.json"
     report = json.loads(comparison_path.read_text(encoding="utf-8"))
     variant = next((item for item in report["variants"] if item["variant"] == VARIANT), None)
-    if (report.get("experiment_id") != "all3sTrace" or report.get("metric_id") != METRIC
+    if (report.get("experiment_id") != "all3sTrace" or report.get("metric_id") != metric_id
             or report.get("cohort_hash") != cohort_hash
             or report.get("cohort_sha256") != sha256_file(cohort_path)
             or report.get("outcomes_sha256") != sha256_file(outcomes_path)
@@ -54,7 +58,7 @@ def load_review(project: Path, cohort_id: str, comparison_dir: Path) -> tuple[pd
         raise ValueError("WIP score and classification eligibility disagree")
     fish["Is_Learner"] = fish["Is_Learner"].astype("boolean")
     outcomes = pd.read_parquet(outcomes_path)
-    outcomes = outcomes.loc[outcomes["alignment"].eq("CS") & outcomes["metric_id"].eq(METRIC)
+    outcomes = outcomes.loc[outcomes["alignment"].eq("CS") & outcomes["metric_id"].eq(metric_id)
                             & outcomes["trial_number"].between(5, 94)].copy()
     if set(outcomes["fish_id"].astype(str)) != set(fish["fish_id"].astype(str)):
         raise ValueError("Cohort trial outcomes and WIP fish differ")
@@ -159,11 +163,13 @@ def main() -> None:
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--cohort-id", required=True)
     parser.add_argument("--comparison-dir", type=Path, required=True)
+    parser.add_argument("--metric", choices=METRICS, default=METRIC)
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
     project, comparison_dir = args.project_dir.resolve(), args.comparison_dir.resolve()
-    fish, outcomes, report = load_review(project, args.cohort_id, comparison_dir)
+    fish, outcomes, report = load_review(project, args.cohort_id, comparison_dir,
+                                         metric_id=args.metric)
     fig = render(fish, outcomes)
     output = (args.output_dir or project / "Figures" / "PNG" / "Analyses"
               / "figure3-3strace-exploratory").resolve()
@@ -174,7 +180,7 @@ def main() -> None:
     source = Path(__file__).resolve()
     try:
         result = export_matplotlib_figure(
-            fig, output / f"figure-3-3strace-review_{METRIC}",
+            fig, output / f"figure-3-3strace-review_{args.metric}",
             FigureProvenance(
                 figure_id="figure-3-3strace-exploratory-review",
                 analysis_recipe="legacy-wip-descriptive-classification-review/1.0",
@@ -182,15 +188,15 @@ def main() -> None:
                 reproduction_snippet=(
                     "python scripts/render_figure3_3strace_review.py "
                     f"--project-dir '{project}' --cohort-id {args.cohort_id} "
-                    f"--comparison-dir '{comparison_dir}'"
+                    f"--comparison-dir '{comparison_dir}' --metric {args.metric}"
                 ),
                 input_artifacts=tuple({"path": str(path), "sha256": sha256_file(path)}
                                       for path in (comparison_path, variant_path, outcomes_path)),
                 cohort_hash=cohort_hash,
-                artist_mappings={"axes__score__main": {"metric_id": METRIC, "variant": VARIANT},
-                                 "axes__paired_change__main": {"metric_id": METRIC, "trial_blocks": "Pre-train versus Test 3"}},
+                artist_mappings={"axes__score__main": {"metric_id": args.metric, "variant": VARIANT},
+                                 "axes__paired_change__main": {"metric_id": args.metric, "trial_blocks": "Pre-train versus Test 3"}},
                 analysis_identity={"experiment_id": "all3sTrace", "cohort_id": args.cohort_id,
-                                   "metric_id": METRIC, "classifier_version": VARIANT,
+                                   "metric_id": args.metric, "classifier_version": VARIANT,
                                    "scientific_status": "descriptive_provisional_legacy_rule"},
             ),
             mode=FigureMode.STATIC, panel_ids=("score", "fractions", "paired_change", "examples"),

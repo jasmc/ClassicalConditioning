@@ -88,6 +88,44 @@ class TraceExploratoryFinalizeTests(unittest.TestCase):
             self.assertEqual(set(labels["classifier_label"]), {"Learner", "Non-learner"})
             self.assertEqual(identity["classifier_execution_id"], "legacy-wip-3strace-tail-l1-window13-exploratory")
 
+            legacy_metric = "legacy_distal_angular_speed"
+            legacy_assessment = project / "Processed data" / "Discarding" / "legacy-preview"
+            legacy_assessment.mkdir()
+            legacy_artifacts = {}
+            for name, filename in {
+                "technical": "technical-assessment.parquet",
+                "exploratory": "exploratory-assessment.parquet",
+                "rules": "legacy-rule-results.parquet",
+                "flow": "discarding-flow.parquet",
+                "details": "rule-details.parquet",
+            }.items():
+                path = legacy_assessment / filename
+                path.write_bytes(name.encode())
+                legacy_artifacts[name] = sha256_file(path)
+            legacy_summary = legacy_assessment / "assessment-summary.json"
+            legacy_summary.write_text(json.dumps({
+                "assessment_hash": "legacy-assess-hash", "selected_metric": legacy_metric,
+                "input_identity": {"experiment": "all3sTrace", "metric_id": legacy_metric,
+                                   "metric_recipe": "tail-candidate-corrected",
+                                   "selected_recording_ids": list(selected)},
+                "artifacts": legacy_artifacts,
+            }))
+            comparison_report = json.loads((comparison / "comparison.json").read_text())
+            comparison_report["metric_id"] = legacy_metric
+            (comparison / "comparison.json").write_text(json.dumps(comparison_report))
+            legacy_manifest = classify(
+                project, comparison, analysis_id="figure4-3strace-legacy-preview",
+                assessment_summary=legacy_summary,
+                classifier_execution_id="legacy-wip-3strace-legacy-preview",
+                metric_id=legacy_metric,
+            )
+            legacy_labels, legacy_identity = load_classification_manifest(
+                legacy_manifest, legacy_metric, ("all3sTrace",)
+            )
+            self.assertEqual(set(legacy_labels["input_metric_id"]), {legacy_metric})
+            self.assertEqual(legacy_identity["classifier_execution_id"],
+                             "legacy-wip-3strace-legacy-preview")
+
 
 if __name__ == "__main__":
     unittest.main()

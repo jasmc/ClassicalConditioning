@@ -22,6 +22,7 @@ EXPERIMENT = "all3sTrace"
 ANALYSIS_ID = "all3sTrace-full"
 COHORT_ID = "all3sTrace-full-exploratory"
 METRIC = "tail_length_weighted_angular_l1"
+METRICS = (METRIC, "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed")
 VARIANT = "legacy-wip"
 
 
@@ -74,8 +75,11 @@ def freeze(project: Path, *, cohort_id: str = COHORT_ID) -> Path:
 def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID,
              analysis_id: str = "figure4-3strace-exploratory",
              assessment_summary: Path | None = None,
-             classifier_execution_id: str = "legacy-wip-3strace-tail-l1-exploratory") -> Path:
+             classifier_execution_id: str = "legacy-wip-3strace-tail-l1-exploratory",
+             metric_id: str = METRIC) -> Path:
     project, comparison_dir = project.resolve(), comparison_dir.resolve()
+    if metric_id not in METRICS:
+        raise ValueError(f"Unsupported 3sTrace classifier metric: {metric_id}")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ValueError("Analysis ID contains unsafe path characters")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", classifier_execution_id):
@@ -85,7 +89,7 @@ def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID,
     comparison = json.loads(comparison_path.read_text(encoding="utf-8"))
     cohort = load_cohort_manifest(project, cohort_id)
     cohort_hash = logical_cohort_hash(cohort)
-    if (comparison.get("experiment_id") != EXPERIMENT or comparison.get("metric_id") != METRIC
+    if (comparison.get("experiment_id") != EXPERIMENT or comparison.get("metric_id") != metric_id
             or comparison.get("cohort_hash") != cohort_hash
             or comparison.get("cohort_sha256") != sha256_file(cohort_path)):
         raise ValueError("Legacy comparison does not match the frozen 3sTrace cohort and metric")
@@ -114,7 +118,7 @@ def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID,
     output["classifier_label"] = label
     output["classification_eligible"] = eligible.astype(bool)
     output["ineligible_reason"] = eligible.map({True: "", False: "legacy-wip did not return a classification"})
-    output["input_metric_id"] = METRIC
+    output["input_metric_id"] = metric_id
     output["cohort_hash"] = cohort_hash
     output["classifier_execution_id"] = execution_id
     output["validation_mode"] = validation_mode
@@ -125,7 +129,7 @@ def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID,
     else:
         assessment_path = assessment_summary.resolve()
     assessment = json.loads(assessment_path.read_text(encoding="utf-8"))
-    if (assessment.get("selected_metric") != METRIC
+    if (assessment.get("selected_metric") != metric_id
             or assessment.get("input_identity", {}).get("experiment") != EXPERIMENT
             or set(assessment.get("input_identity", {}).get("selected_recording_ids", ()))
             != set(output["recording_id"])):
@@ -139,7 +143,7 @@ def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID,
     metadata = {
         "schema": "figure4-classifier-manifest/1.0",
         "scientific_status": "descriptive_provisional_legacy_rule",
-        "table_sha256": sha256_file(destination), "input_metric_id": METRIC,
+        "table_sha256": sha256_file(destination), "input_metric_id": metric_id,
         "classifier_execution_id": execution_id, "validation_mode": validation_mode,
         "cohort_hashes": {EXPERIMENT: cohort_hash},
         "selection_assessments": {EXPERIMENT: {
@@ -165,6 +169,7 @@ def main() -> None:
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--cohort-id", default=COHORT_ID)
     parser.add_argument("--comparison-dir", type=Path)
+    parser.add_argument("--metric", choices=METRICS, default=METRIC)
     parser.add_argument("--analysis-id", default="figure4-3strace-exploratory")
     parser.add_argument("--assessment-summary", type=Path)
     parser.add_argument("--classifier-execution-id",
@@ -178,7 +183,8 @@ def main() -> None:
         result = classify(args.project_dir, args.comparison_dir, cohort_id=args.cohort_id,
                           analysis_id=args.analysis_id,
                           assessment_summary=args.assessment_summary,
-                          classifier_execution_id=args.classifier_execution_id)
+                          classifier_execution_id=args.classifier_execution_id,
+                          metric_id=args.metric)
     print(result)
 
 
