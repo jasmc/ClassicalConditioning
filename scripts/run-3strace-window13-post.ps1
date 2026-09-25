@@ -111,8 +111,13 @@ if (-not (Test-Path -LiteralPath $figure4Summary -PathType Leaf)) {
         '--metric', $metric, '--trace3-cohort-id', $cohort, '--learner-manifest', $labels)
 }
 $figure4Dir = Join-Path $project "Figures\PNG\Analyses\$figure4Id"
-$figure4Main = Join-Path $figure4Dir "all3sTrace\figure-4_${metric}.png"
-if (-not (Test-Path -LiteralPath $figure4Main -PathType Leaf)) {
+$figure4Kinds = @('figure-4', 'supplement-single-catches', 'supplement-movement',
+    'supplement-coverage', 'supplement-single-catch-movement',
+    'supplement-single-catch-coverage')
+$figure4Missing = @($figure4Kinds | Where-Object {
+    -not (Test-Path -LiteralPath (Join-Path $figure4Dir "all3sTrace\${_}_${metric}.png") -PathType Leaf)
+})
+if ($figure4Missing.Count -gt 0) {
     Invoke-Python 'Figure 4B renders, 0–13 s labels' @('-m', 'classical_conditioning',
         'figure4-render', '--analysis-summary', $figure4Summary,
         '--output-dir', $figure4Dir, '--overwrite')
