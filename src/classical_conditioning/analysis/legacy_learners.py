@@ -40,7 +40,7 @@ def _authenticate_inputs(cohort_path: Path, outcomes_path: Path, outcomes: pd.Da
         raise ScientificValidationError("Cohort and trial outcomes must share a cohort directory")
     project_dir = cohort_path.parent.parent.parent.parent
     summary_dir = project_dir / "Quality checks" / "Cohorts" / cohort_path.parent.name
-    cohort_summary = summary_dir / "cohort-manifest-v1_summary.json"
+    cohort_summary = summary_dir / "cohort-manifest_summary.json"
     outcome_summary = summary_dir / "cohort-trial-outcomes_summary.json"
     if not cohort_summary.is_file() or not outcome_summary.is_file():
         raise ScientificValidationError("Authenticated cohort and outcome summaries are required")
@@ -59,7 +59,12 @@ def _authenticate_inputs(cohort_path: Path, outcomes_path: Path, outcomes: pd.Da
 
 
 def build_legacy_input(cohort: pd.DataFrame, outcomes: pd.DataFrame, metric_id: str) -> pd.DataFrame:
-    """Translate one metric's CS outcomes, retaining the frozen fish set."""
+    """Translate one metric's CS outcomes, retaining the frozen fish set.
+
+    The archived algorithms call their paired condition ``delay``. A fixed
+    3sTrace cohort is passed through that input slot, then restored to its
+    actual condition identity in the comparison export.
+    """
     for name, frame, columns in (
         ("cohort", cohort, KEY + ["primary_included"]),
         ("outcomes", outcomes, KEY + ["alignment", "metric_id", "trial_number",
@@ -73,8 +78,12 @@ def build_legacy_input(cohort: pd.DataFrame, outcomes: pd.DataFrame, metric_id: 
     selected = cohort.loc[cohort["primary_included"].eq(True), KEY].copy()
     if selected.empty:
         raise ScientificValidationError("No primary-cohort fish")
-    if selected["experiment_id"].nunique() != 1 or selected["experiment_id"].iloc[0] != "allDelay":
-        raise ScientificValidationError("Historical comparison currently supports allDelay only")
+    if selected["experiment_id"].nunique() != 1 or selected["experiment_id"].iloc[0] not in {"allDelay", "all3sTrace"}:
+        raise ScientificValidationError("Historical comparison supports one allDelay or all3sTrace cohort")
+    conditioned = set(selected["condition_id"]) - {"control"}
+    if set(selected["condition_id"]) != {"control", *conditioned} or len(conditioned) != 1:
+        raise ScientificValidationError("Historical comparison requires one paired condition and control")
+    conditioned_id = next(iter(conditioned))
     trial = outcomes.loc[outcomes["alignment"].eq("CS") & outcomes["metric_id"].eq(metric_id)].copy()
     if trial.empty:
         raise ScientificValidationError(f"No CS trial outcomes for {metric_id}")
@@ -88,7 +97,7 @@ def build_legacy_input(cohort: pd.DataFrame, outcomes: pd.DataFrame, metric_id: 
     with np.errstate(divide="ignore", invalid="ignore"):
         normalized = response / baseline
     return pd.DataFrame({
-        "Exp.": trial["condition_id"].astype(str),
+        "Exp.": trial["condition_id"].replace({conditioned_id: "delay"}).astype(str),
         "Fish": trial["fish_id"].astype(str),
         "Trial number": trial["trial_number"].astype(int),
         "Mean CR": response,
@@ -113,6 +122,11 @@ def compare_legacy_learners(
     cohort_hash = _authenticate_inputs(cohort_path, outcomes_path, outcomes)
     legacy_input = build_legacy_input(cohort, outcomes, metric_id)
     selected = cohort.loc[cohort["primary_included"].eq(True), KEY].copy()
+    experiment_id = str(selected["experiment_id"].iloc[0])
+    conditioned_ids = set(selected["condition_id"]) - {"control"}
+    if len(conditioned_ids) != 1 or "control" not in set(selected["condition_id"]):
+        raise ScientificValidationError("Historical comparison requires one paired condition and control")
+    conditioned_id = next(iter(conditioned_ids))
     output_dir.mkdir(parents=True, exist_ok=True)
     input_path = output_dir / "translated-legacy-input.parquet"
     legacy_input.to_parquet(input_path, index=False)
@@ -131,12 +145,13 @@ def compare_legacy_learners(
         result = pd.read_parquet(result_path)
         if result.duplicated(["Fish_ID", "Condition"]).any():
             raise SchemaValidationError(f"{variant} returned duplicate fish keys")
+        result["Condition"] = result["Condition"].replace({"delay": conditioned_id})
         if not set(map(tuple, result[["Condition", "Fish_ID"]].to_numpy())).issubset(
             set(map(tuple, selected[["condition_id", "fish_id"]].to_numpy()))
         ):
             raise SchemaValidationError(f"{variant} returned fish outside the cohort")
         result = result.rename(columns={"Fish_ID": "fish_id", "Condition": "condition_id"})
-        result["experiment_id"] = "allDelay"
+        result["experiment_id"] = experiment_id
         result["classification_status"] = "classified"
         merged = merged.merge(
             result[KEY + ["learner_primary", "classification_status"]].rename(columns={
@@ -145,13 +160,13 @@ def compare_legacy_learners(
             }), on=KEY, how="left", validate="one_to_one",
         )
         merged[f"{variant}_status"] = merged[f"{variant}_status"].fillna("unclassified")
-        conditioned = result.loc[result["condition_id"].eq("delay")]
+        conditioned = result.loc[result["condition_id"].eq(conditioned_id)]
         reference = result.loc[result["condition_id"].eq("control")]
         status.append({"variant": variant, "status": "completed", "eligible_delay": len(conditioned),
                        "learner_delay": int(conditioned["learner_primary"].sum()),
                        "eligible_control": len(reference),
                        "control_flagged": int(reference["learner_primary"].sum()),
-                       "unclassified_delay": int((selected["condition_id"].eq("delay")).sum() - len(conditioned)),
+                       "unclassified_delay": int((selected["condition_id"].eq(conditioned_id)).sum() - len(conditioned)),
                        "learner_fish_ids": sorted(conditioned.loc[conditioned["learner_primary"], "fish_id"].tolist()),
                        "algorithm_sha256": _sha256(Path(__file__).resolve().parents[3] / "Archive" / "historical-scripts" / filename),
                        "config_sha256": _sha256(result_path.with_suffix(".config.json")),
@@ -160,8 +175,9 @@ def compare_legacy_learners(
     report: dict[str, object] = {
         "schema": "legacy-learner-comparison/1.0", "generated_at": datetime.now(timezone.utc).isoformat(),
         "analysis_mode": "descriptive_classifier_characterization", "canonical_classifier": None,
-        "experiment_id": "allDelay", "metric_id": metric_id,
-        "input_translation": "Mean CR=response_total_activity; Mean 9s before=baseline_total_activity; Normalized vigor=response/baseline",
+        "experiment_id": experiment_id, "conditioned_condition_id": conditioned_id,
+        "input_condition_alias": {conditioned_id: "delay"}, "metric_id": metric_id,
+        "input_translation": "Mean CR=response_total_activity; Mean 9s before=baseline_total_activity; Normalized vigor=response/baseline; conditioned condition occupies the archived delay input slot",
         "historical_equivalence": False,
         "caveat": "Historical rules on corrected outcome units; labels do not establish biological learning or validate a canonical classifier.",
         "cohort_path": str(cohort_path), "cohort_sha256": _sha256(cohort_path),
@@ -169,7 +185,7 @@ def compare_legacy_learners(
         "outcomes_path": str(outcomes_path), "outcomes_sha256": _sha256(outcomes_path),
         "translated_input_sha256": _sha256(input_path),
         "primary_fish": len(selected),
-        "primary_delay_fish": int(selected["condition_id"].eq("delay").sum()),
+        "primary_delay_fish": int(selected["condition_id"].eq(conditioned_id).sum()),
         "primary_control_fish": int(selected["condition_id"].eq("control").sum()),
         "runtime": {"python": sys.version.split()[0], **{
             name: importlib.metadata.version(name)

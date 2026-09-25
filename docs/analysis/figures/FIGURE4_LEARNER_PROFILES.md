@@ -4,7 +4,9 @@ Figure 4A–C are descriptive Delay, 3sTrace and 10sTrace profiles. Each figure 
 
 ## Frozen classifier input
 
-`figure4-analyze` consumes a CSV or Parquet fish table plus a JSON file with the same stem and suffix `.manifest.json`. It does not fit or select a classifier. The table must contain one row per `(experiment_id, condition_id, fish_id)` across all three reviewed cohorts, with:
+`figure4-analyze` consumes a CSV or Parquet fish table plus a JSON file with the same stem and suffix `.manifest.json`. It does not fit or select a classifier. The table must contain one row per `(experiment_id, condition_id, fish_id)` across every requested cohort, with:
+
+For an explicitly exploratory partial-assay review, the command also accepts a nonempty subset of the three assays. In that case, the classifier cohort and assessment maps must contain exactly the supplied assays. The saved analysis records `partial_assay_review`; this is not a full three-assay paper result. The 3sTrace use is documented in [the fixed-trace exploratory run](./TRACE3_EXPLORATORY_RUN_2026-09-24.md).
 
 ```text
 experiment_id, condition_id, fish_id, classifier_label,

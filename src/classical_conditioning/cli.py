@@ -1011,7 +1011,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     legacy_learners = subparsers.add_parser(
         "compare-legacy-learners",
-        help="Compare four archived learner algorithms on one frozen allDelay cohort (descriptive).",
+        help="Compare four archived learner algorithms on one frozen Delay or 3sTrace cohort (descriptive).",
     )
     legacy_learners.add_argument("--cohort", type=Path, required=True)
     legacy_learners.add_argument("--trial-outcomes", type=Path, required=True)
@@ -1071,9 +1071,9 @@ def build_parser() -> argparse.ArgumentParser:
     figure4_analysis.add_argument("--metric", choices=(
         "tail_length_weighted_angular_l1", "whole_tail_xy_mean_speed_normalized",
         "legacy_distal_angular_speed"), required=True)
-    figure4_analysis.add_argument("--delay-cohort-id", required=True)
-    figure4_analysis.add_argument("--trace3-cohort-id", required=True)
-    figure4_analysis.add_argument("--trace10-cohort-id", required=True)
+    figure4_analysis.add_argument("--delay-cohort-id")
+    figure4_analysis.add_argument("--trace3-cohort-id")
+    figure4_analysis.add_argument("--trace10-cohort-id")
     figure4_analysis.add_argument("--learner-manifest", type=Path, required=True)
     figure4_analysis.add_argument("--delay-project-dir", type=Path)
     figure4_analysis.add_argument("--trace3-project-dir", type=Path)
@@ -1102,9 +1102,11 @@ def main(argv: Sequence[str] | None = None) -> None:
 
         summary = analyze_figure4(
             args.project_dir, analysis_id=args.analysis_id, metric_id=args.metric,
-            cohort_ids={"allDelay": args.delay_cohort_id,
-                        "all3sTrace": args.trace3_cohort_id,
-                        "all10sTrace": args.trace10_cohort_id},
+            cohort_ids={key: value for key, value in (
+                ("allDelay", args.delay_cohort_id),
+                ("all3sTrace", args.trace3_cohort_id),
+                ("all10sTrace", args.trace10_cohort_id),
+            ) if value is not None},
             learner_manifest=args.learner_manifest,
             experiment_dirs={key: value for key, value in (
                 ("allDelay", args.delay_project_dir),

@@ -106,7 +106,7 @@ def _paper_panel_statuses() -> dict[str, dict[str, Any]]:
     expected = {
         f"fig-{number}{letter}"
         for number, letters in (("1", "ABCDEFG"), ("2", "ABCDEFGHI"),
-                                ("3", "ABCDEFG"), ("4", "ABCDEFG"))
+                                ("3", "ABCDEFG"), ("4", "ABC"))
         for letter in letters
     }
     panels = registry["panels"]
@@ -205,6 +205,8 @@ def run_pipeline(
                 blocked(f"{recording_id}:detector-review", "movement state is not available")
                 for alignment in ("CS", "US"):
                     for figure_id in FIGURE_SPECS:
+                        if alignment == "US" and figure_id == "signed-log-vigor":
+                            continue
                         blocked(
                             f"{recording_id}:profile:{alignment}:{figure_id}",
                             "temporal profile is not available",
@@ -259,6 +261,8 @@ def run_pipeline(
                 if stage == "temporal-profiles":
                     for alignment in ("CS", "US"):
                         for figure_id in FIGURE_SPECS:
+                            if alignment == "US" and figure_id == "signed-log-vigor":
+                                continue
                             schedule(
                                 f"{recording_id}:profile:{alignment}:{figure_id}",
                                 build_candidate_profile_figure,
@@ -334,7 +338,8 @@ def run_pipeline(
                 for key in (
                     f"{recording_id}:detector-review",
                     *(f"{recording_id}:profile:{alignment}:{figure_id}"
-                      for alignment in ("CS", "US") for figure_id in FIGURE_SPECS),
+                      for alignment in ("CS", "US") for figure_id in FIGURE_SPECS
+                      if alignment == "CS" or figure_id != "signed-log-vigor"),
                 ):
                     if key not in figures:
                         blocked(key, problem_by_id.get(recording_id, "candidate stage did not complete"))

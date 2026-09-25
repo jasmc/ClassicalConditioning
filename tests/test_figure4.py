@@ -81,6 +81,31 @@ class Figure4AnalysisTests(unittest.TestCase):
                 with self.assertRaisesRegex(Exception, "technical artifact has changed"):
                     load_classification_manifest(path, metric)
 
+    def test_single_assay_manifest_for_exploratory_review(self) -> None:
+        metric = "tail_length_weighted_angular_l1"
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / "labels.csv"
+            pd.DataFrame({
+                "experiment_id": ["all3sTrace"], "condition_id": ["trace"],
+                "fish_id": ["one"], "classifier_label": ["Learner"],
+                "classification_eligible": [True], "ineligible_reason": [""],
+                "input_metric_id": [metric],
+            }).to_csv(path, index=False)
+            assessment = selection_assessments(root, metric)["all3sTrace"]
+            path.with_suffix(".manifest.json").write_text(json.dumps({
+                "table_sha256": sha256_file(path), "input_metric_id": metric,
+                "classifier_execution_id": "legacy-wip-exploratory",
+                "validation_mode": "descriptive_same_data",
+                "cohort_hashes": {"all3sTrace": "trace-cohort-hash"},
+                "selection_assessments": {"all3sTrace": assessment},
+            }))
+            frame, metadata = load_classification_manifest(path, metric, ("all3sTrace",))
+            self.assertEqual(frame.loc[0, "fish_id"], "one")
+            self.assertEqual(metadata["cohort_hashes"], {"all3sTrace": "trace-cohort-hash"})
+            with self.assertRaisesRegex(Exception, "cohort map"):
+                load_classification_manifest(path, metric)
+
     def test_control_flag_is_preserved_as_reference(self) -> None:
         fish = pd.DataFrame({"cohort_role": ["reference", "reference", "conditioned", "conditioned", "reference"],
                              "classifier_label": ["Learner", "Non-learner", "Learner", "Non-learner", "Unclassified"]})
@@ -322,6 +347,21 @@ class Figure4AnalysisTests(unittest.TestCase):
                            {"allDelay": 9., "all3sTrace": 13., "all10sTrace": 20.}[experiment], 46)):
                 summary_path = analyze_figure4(root, analysis_id="figure4-test", metric_id=metric,
                     cohort_ids={item: f"cohort-{item}" for item in EXPERIMENTS}, learner_manifest=path)
+                trace_path = root / "trace-labels.csv"
+                pd.DataFrame(rows).loc[lambda frame: frame["experiment_id"].eq("all3sTrace")].to_csv(trace_path, index=False)
+                trace_path.with_suffix(".manifest.json").write_text(json.dumps({
+                    "table_sha256": sha256_file(trace_path), "input_metric_id": metric,
+                    "classifier_execution_id": "legacy-wip-exploratory",
+                    "validation_mode": "descriptive_same_data",
+                    "cohort_hashes": {"all3sTrace": "hash-all3sTrace"},
+                    "selection_assessments": {"all3sTrace": json.loads(
+                        path.with_suffix(".manifest.json").read_text()
+                    )["selection_assessments"]["all3sTrace"]},
+                }))
+                trace_summary_path = analyze_figure4(
+                    root, analysis_id="figure4-trace-review", metric_id=metric,
+                    cohort_ids={"all3sTrace": "cohort-all3sTrace"}, learner_manifest=trace_path,
+                )
                 original_table = path.read_bytes()
                 metadata_path = path.with_suffix(".manifest.json")
                 original_metadata = metadata_path.read_bytes()
@@ -339,9 +379,15 @@ class Figure4AnalysisTests(unittest.TestCase):
             summary, tables = load_figure4_analysis(summary_path)
             self.assertEqual(len(tables["sample-flow"]), 6)
             self.assertEqual(summary["expected_us"]["all10sTrace"]["expected_us_s"], 20.)
+            trace_summary, trace_tables = load_figure4_analysis(trace_summary_path)
+            self.assertEqual(trace_summary["analysis_scope"], "partial_assay_review")
+            self.assertEqual(trace_summary["scientific_status"], "descriptive_provisional_legacy_rule")
+            self.assertEqual(len(trace_tables["sample-flow"]), 2)
             with patch("classical_conditioning.figures.export._git_dirty", return_value=False):
                 results = render_figure4(summary_path, output_dir=root / "figures", mode=FigureMode.STATIC)
+                trace_results = render_figure4(trace_summary_path, output_dir=root / "trace-figures", mode=FigureMode.STATIC)
             self.assertEqual(len(results), 18)
+            self.assertEqual(len(trace_results), 6)
             self.assertTrue(all(result.outputs[0].is_file() and result.sidecar.is_file()
                                 for result in results))
             (root / "Processed data" / "Analyses" / "figure4-test" / "figure4" / "group-bins.parquet").write_bytes(b"changed")

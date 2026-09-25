@@ -42,8 +42,8 @@ def _require_id(value: str) -> None:
         raise ConfigurationError("Analysis ID must contain only letters, numbers, dot, underscore or hyphen.")
 
 
-def load_classification_manifest(path: Path, metric_id: str) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Load a frozen table plus its hash-bound Gate L metadata."""
+def load_classification_manifest(path: Path, metric_id: str, experiment_ids: tuple[str, ...] = EXPERIMENTS) -> tuple[pd.DataFrame, dict[str, Any]]:
+    """Load a frozen table plus its hash-bound classifier metadata."""
     path = path.resolve()
     metadata_path = path.with_suffix(".manifest.json")
     metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
@@ -52,8 +52,8 @@ def load_classification_manifest(path: Path, metric_id: str) -> tuple[pd.DataFra
             or metadata.get("input_metric_id") != metric_id
             or not metadata.get("classifier_execution_id")
             or not metadata.get("validation_mode")
-            or set(metadata.get("cohort_hashes", {})) != set(EXPERIMENTS)
-            or set(metadata.get("selection_assessments", {})) != set(EXPERIMENTS)):
+            or set(metadata.get("cohort_hashes", {})) != set(experiment_ids)
+            or set(metadata.get("selection_assessments", {})) != set(experiment_ids)):
         raise ConfigurationError("Classification manifest hash, metric, classifier, validation mode or cohort map is invalid.")
     for experiment_id, assessment in metadata["selection_assessments"].items():
         assessment_path = Path(assessment["path"]).resolve()
@@ -232,7 +232,7 @@ def summarize_trial_bins(trial_bins: pd.DataFrame, experiment_id: str) -> tuple[
     return fish_bins, group_bins
 
 
-def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric_recipe: str) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, list[dict[str, str]]]:
+def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric_recipe: str, *, include_unmasked: bool = False) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, list[dict[str, str]]]:
     source = resolve_candidate_metric_source(metric_recipe=metric_recipe)
     verified = _verify_temporal_profiles(project_dir, recording_id, source)
     _, metric_path, movement_path, protocol_path, _, _ = _verify_inputs(
@@ -265,9 +265,14 @@ def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric
     joined["trial_number"] = joined["Trial number"].astype(int)
     joined["recording_id"] = recording_id
     joined["coverage"] = joined["Valid expected fraction"].astype(float)
+    if include_unmasked:
+        joined["raw_signed_log_vigor"] = pd.to_numeric(joined["Signed log vigor"], errors="coerce")
     inputs = [{"path": str(path), "sha256": sha256_file(path)}
               for path in (metric_path, movement_path, protocol_path, verified.path)]
-    return joined[["recording_id", "trial_number", "time_s", "signed_log_vigor", "movement_probability", "coverage"]], protocol, profiles, inputs
+    columns = ["recording_id", "trial_number", "time_s", "signed_log_vigor", "movement_probability", "coverage"]
+    if include_unmasked:
+        columns.append("raw_signed_log_vigor")
+    return joined[columns], protocol, profiles, inputs
 
 
 def analyze_figure4(
@@ -277,13 +282,14 @@ def analyze_figure4(
 ) -> Path:
     """Publish signed trial, fish and group bins before any figure is rendered."""
     _require_id(analysis_id)
-    if metric_id not in METRIC_COLUMNS or set(cohort_ids) != set(EXPERIMENTS):
-        raise ConfigurationError("Figure 4 requires one supported metric and three experiment cohort IDs.")
-    manifest, classifier = load_classification_manifest(learner_manifest, metric_id)
+    selected_experiments = tuple(experiment for experiment in EXPERIMENTS if experiment in cohort_ids)
+    if metric_id not in METRIC_COLUMNS or not selected_experiments or set(cohort_ids) != set(selected_experiments):
+        raise ConfigurationError("Figure 4 requires one supported metric and at least one known experiment cohort ID.")
+    manifest, classifier = load_classification_manifest(learner_manifest, metric_id, selected_experiments)
     experiment_dirs = experiment_dirs or {}
     cohorts = {}
     fish_frames = []
-    for experiment_id in EXPERIMENTS:
+    for experiment_id in selected_experiments:
         root = experiment_dirs.get(experiment_id, project_dir).resolve()
         cohort = _load_primary_cohort(root, cohort_ids[experiment_id])
         if cohort.experiment_id != experiment_id or classifier["cohort_hashes"][experiment_id] != cohort.cohort_hash:
@@ -347,7 +353,7 @@ def analyze_figure4(
                                  "conditioned_recordings": len(times), "source": "authenticated paired-training Reinforcer events"}
     trial_bins = pd.concat(trial_parts, ignore_index=True)
     fish_parts, group_parts = [], []
-    for experiment_id in EXPERIMENTS:
+    for experiment_id in selected_experiments:
         subset = trial_bins.loc[trial_bins["experiment_id"] == experiment_id]
         fish_part, group_part = summarize_trial_bins(subset, experiment_id)
         fish_parts.append(fish_part)
@@ -385,9 +391,14 @@ def analyze_figure4(
             "cohort_ids": cohort_ids, "cohort_hashes": classifier["cohort_hashes"],
             "selection_assessments": classifier["selection_assessments"],
             "expected_us": timing, "inputs": inputs,
+            "analysis_scope": "complete_three_assay" if len(selected_experiments) == len(EXPERIMENTS) else "partial_assay_review",
             "tables": {name: {"path": str(destinations[name]), "sha256": table_hashes[name],
                               "rows": len(tables[name])} for name in TABLES},
-            "scientific_status": "descriptive_same_data", "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+            "scientific_status": (
+                "descriptive_provisional_legacy_rule"
+                if str(classifier["classifier_execution_id"]).startswith("legacy-")
+                else "descriptive_same_data"
+            ), "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         }
         (stage / "analysis.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
         (stage / "complete.json").write_text(json.dumps({"status": "complete", "recipe": RECIPE,

@@ -6,7 +6,7 @@ The `compare-legacy-learners` command executes the four unchanged scripts in
 independent validation of individual learning.
 
 Install the optional dependencies with `pip install -e '.[legacy-learners]'`.
-For an authenticated allDelay cohort, run:
+For an authenticated allDelay or all3sTrace cohort, run:
 
 ```sh
 classical-conditioning compare-legacy-learners \
@@ -24,7 +24,9 @@ failed variant makes the command fail after it writes its diagnostic report.
 
 The adapter maps `response_total_activity` to historical `Mean CR`,
 `baseline_total_activity` to `Mean 9s before`, and their ratio to
-`Normalized vigor`. These corrected activity values have different measurement
+`Normalized vigor`. For all3sTrace, the trace condition occupies the archived
+script's `delay` input slot; the exported fish comparison restores `trace` and
+records that alias. These corrected activity values have different measurement
 semantics and units from the original stage-5 pooled normalized-vigor files.
 Consequently this route preserves **algorithmic rules**, not numerical
 equivalence with historical published labels. In particular, the nominal,

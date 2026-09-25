@@ -34,6 +34,13 @@ class LegacyLearnerAdapterTests(unittest.TestCase):
         with self.assertRaises(SchemaValidationError):
             build_legacy_input(self.cohort, duplicated, "metric")
 
+    def test_fixed_trace_uses_explicit_historical_condition_alias(self) -> None:
+        cohort = self.cohort.replace({"allDelay": "all3sTrace", "delay": "trace"})
+        outcomes = self.outcomes.replace({"allDelay": "all3sTrace", "delay": "trace"})
+        frame = build_legacy_input(cohort, outcomes, "metric")
+        self.assertEqual(set(frame["Exp."]), {"control", "delay"})
+        self.assertEqual(set(frame["Fish"]), {"c1", "d1"})
+
     def test_control_flag_rates_keep_fish_ids(self) -> None:
         a = pd.DataFrame({"Fish_ID": ["c1", "d1"], "Condition": ["control", "delay"],
                           "learner_primary": [True, True]})

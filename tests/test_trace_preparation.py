@@ -42,6 +42,9 @@ class TracePreparationTests(unittest.TestCase):
             config = json.loads(config_path.read_text())
             self.assertEqual(config["recording_ids"], ["20230301_01", "20230301_02"])
             self.assertFalse(config["continue_on_error"])
+            self.assertEqual(config["analysis_id"], "all3sTrace-full")
+            self.assertEqual(config["assessment_metric"], "tail_length_weighted_angular_l1")
+            self.assertNotIn("run_inventory", config)
 
             (raw / "20230301_03_trace_green_cam.txt").write_text("camera\n")
             with self.assertRaisesRegex(RuntimeError, "20230301_03"):
@@ -49,6 +52,13 @@ class TracePreparationTests(unittest.TestCase):
             self.assertFalse(config_path.exists())
             report = json.loads((configs / "trace-preflight.json").read_text())
             self.assertEqual(report["status"], "blocked")
+
+            partial = PREPARE(raw, digested, configs, allow_incomplete=True)
+            self.assertEqual(partial["status"], "ready_partial")
+            self.assertEqual(partial["selected_recording_ids"], ["20230301_01", "20230301_02"])
+            self.assertEqual(partial["incomplete"][0]["recording_id"], "20230301_03")
+            self.assertEqual(json.loads(config_path.read_text())["recording_ids"],
+                             ["20230301_01", "20230301_02"])
 
 
 if __name__ == "__main__":

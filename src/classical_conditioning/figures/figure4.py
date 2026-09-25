@@ -147,7 +147,7 @@ def render_figure4(
     output_dir = output_dir.resolve()
     source = Path(__file__).resolve()
     results = []
-    for experiment_id in EXPERIMENTS:
+    for experiment_id in summary["cohort_ids"]:
         panel = groups.loc[groups["experiment_id"].eq(experiment_id)]
         expected_us_s = float(summary["expected_us"][experiment_id]["expected_us_s"])
         for kind, value, label in (("main", "signed", "figure-4"),

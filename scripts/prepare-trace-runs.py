@@ -81,23 +81,16 @@ def pipeline_config(raw: Path, output: Path, experiment: str, ids: list[str]) ->
         "raw_dir": str(raw),
         "save_dir": str(output),
         "experiment": experiment,
-        "analysis_id": f"{experiment}-full-v1",
-        "routes": ["candidate"],
+        "analysis_id": f"{experiment}-full",
         "recording_ids": sorted(ids),
-        "candidate_runner_recipe": "candidate-corrected-runner-v1",
-        "run_inventory": True,
-        "run_intake": True,
-        "run_figures": True,
-        "figure_outcomes": [
-            "total-activity", "movement-probability", "fraction-time-moving",
-            "conditional-intensity", "bout-rate",
-        ],
+        "assessment_metric": "tail_length_weighted_angular_l1",
+        "figure_mode": "static",
         "overwrite": False,
         "continue_on_error": False,
     }
 
 
-def prepare(raw: Path, digested: Path, config_dir: Path) -> dict:
+def prepare(raw: Path, digested: Path, config_dir: Path, *, allow_incomplete: bool = False) -> dict:
     raw = raw.resolve()
     digested = digested.resolve()
     if not raw.is_dir() or not digested.is_dir():
@@ -158,6 +151,8 @@ def prepare(raw: Path, digested: Path, config_dir: Path) -> dict:
         "incomplete": incomplete,
         "ignored_files": ignored,
         "classified_trace": classified,
+        "selected_recording_ids": sorted(selected["fixed"] + selected["control"]),
+        "selection_policy": "complete-fixed-trace-and-control; incomplete retained in inventory",
         "config_path": str(config_path),
     }
     changed = snapshot(raw) != before
@@ -166,11 +161,11 @@ def prepare(raw: Path, digested: Path, config_dir: Path) -> dict:
         blockers.append("Raw folder changed during preparation")
     if selected["increasing"]:
         blockers.append(f"Increasing trace fish remain in fixed-trace folder: {selected['increasing']}")
-    if incomplete:
+    if incomplete and not allow_incomplete:
         blockers.append(f"Incomplete recordings: {[item['recording_id'] for item in incomplete]}")
     if not selected["fixed"]:
         blockers.append("No complete fixed-trace recordings found")
-    report["status"] = "blocked" if blockers else "ready"
+    report["status"] = "blocked" if blockers else ("ready_partial" if incomplete else "ready")
     report["blockers"] = blockers
     (config_dir / "trace-preflight.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     if blockers:
@@ -186,8 +181,11 @@ def prepare(raw: Path, digested: Path, config_dir: Path) -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-dir", type=Path, default=Path(r"J:\Raw Data\all3sTtrace"))
-    parser.add_argument("--digested-dir", type=Path, default=Path(r"J:\Digested Data"))
+    parser.add_argument("--digested-dir", type=Path, default=Path(r"F:\Digested Data"))
     parser.add_argument("--config-dir", type=Path, default=Path(__file__).resolve().parents[1] / "configs")
+    parser.add_argument("--allow-incomplete", action="store_true",
+                        help="Process complete fixed-trace/control triplets and retain incomplete groups in the inventory.")
     args = parser.parse_args()
-    result = prepare(args.raw_dir, args.digested_dir, args.config_dir)
+    result = prepare(args.raw_dir, args.digested_dir, args.config_dir,
+                     allow_incomplete=args.allow_incomplete)
     print(json.dumps({key: result[key] for key in ("raw_file_count", "fixed_trace_count", "matched_control_count", "incomplete", "config_path")}, indent=2))
