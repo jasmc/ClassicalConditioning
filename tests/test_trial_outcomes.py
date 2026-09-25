@@ -12,12 +12,16 @@ from classical_conditioning.analysis.trial_outcomes import (
     METRIC_IDS,
     TrialOutcomeConfig,
     aggregate_trial_outcomes,
+    build_candidate_trial_outcomes,
+    trial_outcome_config_for_experiment,
+    trial_outcome_settings_for_experiment,
     verify_candidate_trial_outcomes,
 )
 from classical_conditioning.analysis.movement_state import SHARED_DETECTOR_ID
 from classical_conditioning.cli import build_parser
 from classical_conditioning.exceptions import (
     ArtifactIntegrityError,
+    ConfigurationError,
     SchemaValidationError,
 )
 
@@ -119,6 +123,48 @@ class TrialOutcomeTests(unittest.TestCase):
                 config=self.config,
             )
 
+    def test_default_response_window_follows_experiment(self) -> None:
+        frames = pd.DataFrame({
+            "FrameID": range(5),
+            "AbsoluteTime": [-500, 500, 9_500, 11_500, 18_500],
+            "FrameStep": [1] * 5,
+            "DeltaTimeMs": [1_000.0] * 5,
+            **{column: [1.0, 2.0, 4.0, 8.0, 16.0] for column in METRIC_IDS},
+        })
+        movement = pd.DataFrame({
+            "FrameID": range(5),
+            "AbsoluteTime": frames["AbsoluteTime"],
+            "valid": [True] * 5,
+            "moving": [True] * 5,
+            "bout_id": [0] * 5,
+        })
+        protocol = pd.DataFrame({"Type": ["Cycle"], "Beg": [0], "End": [100]})
+        for experiment, end_s, expected in (
+            ("allDelay", 9.0, 2.0),
+            ("all3sTrace", 13.0, 14.0 / 3.0),
+            ("all10sTrace", 20.0, 7.5),
+        ):
+            with self.subTest(experiment=experiment):
+                self.assertEqual(
+                    trial_outcome_config_for_experiment(experiment).response_window_s,
+                    (0.0, end_s),
+                )
+                outcomes, _ = aggregate_trial_outcomes(
+                    frames, movement, protocol,
+                    identity={**self.identity, "experiment_id": experiment},
+                    experiment_name=experiment,
+                )
+                metric_id = next(iter(METRIC_IDS.values()))
+                row = outcomes.loc[outcomes["metric_id"].eq(metric_id)].iloc[0]
+                self.assertAlmostEqual(row["response_total_activity"], expected)
+
+    def test_recording_builder_rejects_window_other_than_experiment(self) -> None:
+        with self.assertRaisesRegex(ConfigurationError, "selected experiment"):
+            build_candidate_trial_outcomes(
+                Path("paper"), "recording-a", experiment_name="all3sTrace",
+                config=TrialOutcomeConfig(),
+            )
+
     def test_cli_exposes_trial_outcome_recipe(self) -> None:
         args = build_parser().parse_args(
             [
@@ -157,6 +203,8 @@ class TrialOutcomeTests(unittest.TestCase):
     ) -> None:
         mock_verify_completed.return_value = SimpleNamespace(
             summary={
+                "experiment": "allDelay",
+                "config": trial_outcome_settings_for_experiment("allDelay"),
                 "inputs": {
                     "candidate_frames": "old-frame",
                     "movement_state": "current-movement",

@@ -97,6 +97,7 @@ def _validate_frame_order(
     return int(frame_ids[-1])
 
 
+# Compare observed segment bends with supplied angles over valid adjacent segments.
 def _geometry_agreement(
     x: np.ndarray,
     y: np.ndarray,

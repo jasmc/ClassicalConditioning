@@ -81,8 +81,8 @@ def stimulus_duration_s(
     raise ValueError(f"Unknown stimulus alignment: {alignment!r}")
 
 
-@dataclass(frozen=True)
 # Immutable visual parameters: callers can override a complete theme explicitly.
+@dataclass(frozen=True)
 class FigureTheme:
     # Gather publication-facing typography, line, colour, and raster settings
     # so every figure recipe starts from the same visual contract.
@@ -126,6 +126,7 @@ class FigureTheme:
 DEFAULT_THEME = FigureTheme()
 
 
+# Share one immutable default theme across figure builders.
 def get_theme() -> FigureTheme:
     return DEFAULT_THEME
 
@@ -284,6 +285,7 @@ def add_stimulus_window(
     return span, onset
 
 
+# Cycle through the theme palette for arbitrary category counts.
 def qualitative_color(index: int, theme: FigureTheme | None = None) -> str:
     theme = theme or DEFAULT_THEME
     return theme.qualitative_colors[index % len(theme.qualitative_colors)]

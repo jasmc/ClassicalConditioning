@@ -29,8 +29,8 @@ def execute(
     *, figures: bool = False, individuals: bool = False,
 ) -> None:
     root = Path(__file__).resolve().parents[3]
-    sys.path.insert(0, str(root / "Archive" / "historical-helpers"))
-    script = root / "Archive" / "historical-scripts" / SCRIPTS[variant]
+    sys.path.insert(0, str(root / "legacy" / "helpers"))
+    script = root / "legacy" / "scripts" / SCRIPTS[variant]
     spec = importlib.util.spec_from_file_location("isolated_legacy_learner", script)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"Cannot load {script}")
@@ -118,6 +118,7 @@ def execute(
     )
 
 
+# Parse the isolated worker contract and dispatch the selected learner variant.
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("variant", choices=SCRIPTS)

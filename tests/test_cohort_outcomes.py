@@ -18,8 +18,11 @@ from classical_conditioning.analysis.cohort_outcomes import (
 from classical_conditioning.analysis.movement_state import (
     resolve_candidate_metric_source,
 )
+from classical_conditioning.analysis.inference.model_input import load_authenticated_trial_outcomes
+from classical_conditioning.analysis.trial_outcomes import trial_outcome_settings_for_experiment
 from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.cohort import freeze_cohort_manifest
+from classical_conditioning.exceptions import ArtifactIntegrityError
 
 
 METRIC = "tail_length_weighted_angular_l1"
@@ -66,6 +69,9 @@ def write_authenticated_trial_outcomes(
     project_dir: Path,
     recording_id: str,
     outcomes: pd.DataFrame,
+    *,
+    experiment: str = "allDelay",
+    config: dict | None = None,
 ) -> None:
     route = resolve_candidate_metric_source(
         metric_recipe="tail-candidate-corrected"
@@ -87,6 +93,8 @@ def write_authenticated_trial_outcomes(
     summary = {
         "recipe": route.trial_recipe,
         "recording_id": recording_id,
+        "experiment": experiment,
+        "config": config or trial_outcome_settings_for_experiment(experiment),
         "artifacts": {"outcomes": {"sha256": digest}},
     }
     summary_path.write_text(json.dumps(summary), encoding="utf-8")
@@ -156,6 +164,41 @@ class AnalysisEligibilityTests(unittest.TestCase):
             self.assertEqual(set(flow["fish_id"]), {"fish-a", "fish-b"})
             excluded = flow.loc[flow["fish_id"] == "fish-b"].iloc[0]
             self.assertEqual(excluded["disposition"], "excluded_without_outcomes")
+
+    def test_loader_rejects_old_trace_response_window(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            project_dir = Path(temporary_directory)
+            write_authenticated_trial_outcomes(
+                project_dir,
+                "recording-a",
+                cohort_outcomes_fixture().drop(columns=["cohort_id", "cohort_hash"]),
+                experiment="all3sTrace",
+                config=trial_outcome_settings_for_experiment("allDelay"),
+            )
+            with self.assertRaises(ArtifactIntegrityError):
+                load_authenticated_trial_outcomes(project_dir, ("recording-a",))
+
+    def test_cohort_loader_rejects_stale_source_window(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            project_dir = Path(temporary_directory)
+            freeze_cohort_manifest(
+                project_dir, reviewed_cohort(), cohort_id="paper",
+                policy_id="technical-policy",
+            )
+            write_authenticated_trial_outcomes(
+                project_dir, "recording-a",
+                cohort_outcomes_fixture().drop(columns=["cohort_id", "cohort_hash"]),
+            )
+            build_cohort_trial_outcomes(project_dir, cohort_id="paper")
+            route = resolve_candidate_metric_source(metric_recipe="tail-candidate-corrected")
+            summary_path = (
+                project_dir / "Quality checks" / "recording-a" / route.trial_summary_name
+            )
+            source_summary = json.loads(summary_path.read_text(encoding="utf-8"))
+            source_summary["config"] = trial_outcome_settings_for_experiment("all3sTrace")
+            summary_path.write_text(json.dumps(source_summary), encoding="utf-8")
+            with self.assertRaisesRegex(ArtifactIntegrityError, "stale source settings"):
+                load_cohort_trial_outcomes(project_dir, "paper")
 
     def test_eligibility_preserves_rows_and_names_reasons(self) -> None:
         outcomes = cohort_outcomes_fixture()

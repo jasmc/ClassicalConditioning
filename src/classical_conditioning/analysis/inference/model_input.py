@@ -25,6 +25,9 @@ import pyarrow.parquet as pq
 from classical_conditioning.analysis.movement_state import (
     resolve_candidate_metric_source,
 )
+from classical_conditioning.analysis.trial_outcomes import (
+    trial_outcome_settings_for_experiment,
+)
 from classical_conditioning.artifacts import (
     artifact_staging,
     publish_transaction,
@@ -170,9 +173,22 @@ def load_authenticated_trial_outcomes(
         marker = json.loads(marker_path.read_text(encoding="utf-8"))
         digest = sha256_file(outcomes_path)
         outcomes_hash = summary.get("artifacts", {}).get("outcomes", {}).get("sha256")
+        experiment_name = summary.get("experiment")
+        try:
+            expected_trial_config = (
+                trial_outcome_settings_for_experiment(experiment_name)
+                if isinstance(experiment_name, str)
+                else None
+            )
+        except ConfigurationError as error:
+            raise ArtifactIntegrityError(
+                f"Trial outcomes record an unknown experiment for {recording_id}."
+            ) from error
         if (
             summary.get("recipe") != route.trial_recipe
             or summary.get("recording_id") != recording_id
+            or expected_trial_config is None
+            or summary.get("config") != expected_trial_config
             or outcomes_hash != digest
             or marker.get("status") != "complete"
             or marker.get("recipe") != route.trial_recipe

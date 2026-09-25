@@ -25,6 +25,9 @@ from classical_conditioning.analysis.inference.model_input import (
 from classical_conditioning.analysis.movement_state import (
     resolve_candidate_metric_source,
 )
+from classical_conditioning.analysis.trial_outcomes import (
+    trial_outcome_settings_for_experiment,
+)
 from classical_conditioning.artifacts import (
     artifact_staging,
     publish_transaction,
@@ -67,6 +70,7 @@ class CohortTrialOutcomesResult:
     fish_count: int
 
 
+# Identify the published eligibility table and its provenance artifacts.
 @dataclass(frozen=True)
 class AnalysisEligibilityResult:
     analysis_id: str
@@ -79,6 +83,7 @@ class AnalysisEligibilityResult:
     eligible_count: int
 
 
+# Ensure analysis and cohort identifiers are safe to embed in output paths.
 def _validate_identifier(value: str, label: str) -> None:
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", value):
         raise ConfigurationError(
@@ -381,6 +386,52 @@ def load_cohort_trial_outcomes(
         raise ArtifactIntegrityError(
             f"Cohort trial-outcome lineage is invalid for {cohort_id}."
         )
+    # A cohort table may still hash correctly after the code/config contract
+    # changes. Check each source trial summary before an LME or figure reuses it.
+    try:
+        route = resolve_candidate_metric_source(metric_recipe=summary["metric_recipe"])
+        source_inputs = summary["inputs"]
+        if not isinstance(source_inputs, dict):
+            raise KeyError("inputs")
+        for row in manifest.itertuples(index=False):
+            recording_id = str(row.recording_id)
+            source = source_inputs.get(recording_id)
+            if source is None:
+                if bool(row.primary_included):
+                    raise ArtifactIntegrityError(
+                        f"Cohort trial outcomes lack an included source for {recording_id}."
+                    )
+                continue
+            source_path = project_dir / "Processed data" / recording_id / route.trial_outcomes_name
+            source_summary_path = (
+                project_dir / "Quality checks" / recording_id / route.trial_summary_name
+            )
+            source_marker_path = (
+                project_dir / "Metadata" / f"{recording_id}_{route.trial_marker_suffix}"
+            )
+            source_summary = json.loads(source_summary_path.read_text(encoding="utf-8"))
+            source_marker = json.loads(source_marker_path.read_text(encoding="utf-8"))
+            expected_config = trial_outcome_settings_for_experiment(str(row.experiment_id))
+            if (
+                source.get("recipe") != route.trial_recipe
+                or source.get("sha256") != sha256_file(source_path)
+                or source_marker.get("status") != "complete"
+                or source_marker.get("recipe") != route.trial_recipe
+                or source_marker.get("recording_id") != recording_id
+                or source_marker.get("artifact_sha256", {}).get("outcomes") != source["sha256"]
+                or source_marker.get("summary_sha256") != sha256_file(source_summary_path)
+                or source_summary.get("experiment") != str(row.experiment_id)
+                or source_summary.get("config") != expected_config
+                or source_summary.get("artifacts", {}).get("outcomes", {}).get("sha256")
+                != source["sha256"]
+            ):
+                raise ArtifactIntegrityError(
+                    f"Cohort trial outcomes use stale source settings for {recording_id}."
+                )
+    except (KeyError, FileNotFoundError, OSError, ConfigurationError, ValueError) as error:
+        raise ArtifactIntegrityError(
+            f"Cohort trial outcomes have invalid source settings for {cohort_id}."
+        ) from error
     outcomes = pq.read_table(outcomes_path).to_pandas()
     if (
         not outcomes["cohort_id"].astype(str).eq(cohort_id).all()

@@ -65,6 +65,7 @@ class TemporalProfileResult:
     us_trial_count: int
 
 
+# Use the shared experiment trial map for temporal-profile block labels.
 def _block_lookup(experiment_name: str) -> dict[tuple[str, int], str]:
     return get_trial_block_lookup(experiment_name)
 
@@ -667,6 +668,7 @@ def build_candidate_temporal_profiles(
     if existing and not overwrite:
         raise FileExistsError(f"Candidate temporal outputs already exist: {existing}")
 
+    # Align authenticated frame metrics and movement state before event binning.
     frame_columns = [
         "FrameID",
         "AbsoluteTime",
@@ -690,6 +692,7 @@ def build_candidate_temporal_profiles(
     ):
         raise ValueError("Candidate movement-state FrameID values do not align.")
     protocol = pq.read_table(protocol_path).to_pandas()
+    # Aggregate around the protocol events using the shared trial mapping.
     profiles = aggregate_event_profiles(
         frames,
         protocol,

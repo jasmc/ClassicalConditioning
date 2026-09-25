@@ -106,6 +106,13 @@ class ResolvedConfigExportTests(unittest.TestCase):
                 ).is_file()
             )
 
+    def test_resolved_trial_window_matches_trace_experiment(self) -> None:
+        for experiment, response_end in (("all3sTrace", 13.0), ("all10sTrace", 20.0)):
+            with self.subTest(experiment=experiment), tempfile.TemporaryDirectory() as temporary:
+                result = export_resolved_config(Path(temporary), experiment_name=experiment)
+                resolved = json.loads(result.config_path.read_text(encoding="utf-8"))["resolved"]
+                self.assertEqual(resolved["trial_outcomes"]["response_window_s"], [0.0, response_end])
+
 
 class TrackingAuditTests(unittest.TestCase):
     def test_classify_tracking_columns_keeps_xy_and_unrecognized(self) -> None:

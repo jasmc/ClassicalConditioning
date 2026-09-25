@@ -84,6 +84,7 @@ class MetricComparisonConfig:
             )
 
 
+# Collect comparison artifacts and the completion marker for one analysis run.
 @dataclass(frozen=True)
 class MetricComparisonResult:
     analysis_id: str
@@ -93,6 +94,7 @@ class MetricComparisonResult:
     completion_marker_path: Path
 
 
+# Keep the verified profile paths and file state together during comparison.
 @dataclass(frozen=True)
 class _VerifiedTemporalProfiles:
     path: Path

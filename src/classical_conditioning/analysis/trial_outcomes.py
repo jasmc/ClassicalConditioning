@@ -48,8 +48,8 @@ RECIPE_ID = DEFAULT_TRIAL_RECIPE_ID  # retained for development-route callers
 
 @dataclass(frozen=True)
 class TrialOutcomeConfig:
-    # Define the baseline and response windows once so every trial outcome uses
-    # the same event-relative scientific comparison.
+    # The baseline is shared; the response window is resolved from the selected
+    # experiment before a recording artifact is built.
     baseline_window_s: tuple[float, float] = (-15.0, 0.0)
     response_window_s: tuple[float, float] = (0.0, 9.0)
     interval_closure: str = "left"
@@ -68,6 +68,18 @@ class TrialOutcomeConfig:
             )
 
 
+def trial_outcome_config_for_experiment(experiment_name: str) -> TrialOutcomeConfig:
+    """Use the assay's declared conditioned-response window for trial outcomes."""
+    window = get_experiment_spec(experiment_name).conditioned_response_window
+    return TrialOutcomeConfig(response_window_s=(window.start_s, window.end_s))
+
+
+def trial_outcome_settings_for_experiment(experiment_name: str) -> dict[str, Any]:
+    """Match the JSON shape stored in a completed trial-outcome summary."""
+    return json.loads(json.dumps(asdict(trial_outcome_config_for_experiment(experiment_name))))
+
+
+# Describe the published trial table, coverage table, and completion evidence.
 @dataclass(frozen=True)
 class TrialOutcomeResult:
     recording_id: str
@@ -130,6 +142,7 @@ def _finite_mean(values: np.ndarray, mask: np.ndarray) -> float:
     return float(np.mean(selected)) if selected.size else np.nan
 
 
+# Return the fraction of eligible weight satisfying the numerator mask.
 def _weighted_fraction(
     numerator: np.ndarray,
     denominator: np.ndarray,
@@ -151,9 +164,10 @@ def aggregate_trial_outcomes(
     *,
     identity: dict[str, str],
     experiment_name: str,
-    config: TrialOutcomeConfig = TrialOutcomeConfig(),
+    config: TrialOutcomeConfig | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Calculate exact trial windows without population aggregation."""
+    config = config or trial_outcome_config_for_experiment(experiment_name)
     required_frames = {
         "FrameID",
         "AbsoluteTime",
@@ -490,6 +504,25 @@ def verify_candidate_trial_outcomes(
         recipe=source.trial_recipe,
         recording_id=recording_id,
     )
+    experiment_name = verified.summary.get("experiment")
+    try:
+        expected_settings = (
+            trial_outcome_settings_for_experiment(experiment_name)
+            if isinstance(experiment_name, str)
+            else None
+        )
+    except ConfigurationError as error:
+        raise ArtifactIntegrityError(
+            f"{source.trial_recipe} records an unknown experiment for {recording_id}."
+        ) from error
+    if (
+        expected_settings is None
+        or verified.summary.get("config") != expected_settings
+    ):
+        raise ArtifactIntegrityError(
+            f"{source.trial_recipe} response window does not match the "
+            f"configured experiment for {recording_id}."
+        )
     _, _, _, _, current_inputs, _ = _verify_inputs(
         project_dir,
         recording_id,
@@ -507,16 +540,18 @@ def build_candidate_trial_outcomes(
     recording_id: str,
     *,
     experiment_name: str = "allDelay",
-    config: TrialOutcomeConfig = TrialOutcomeConfig(),
+    config: TrialOutcomeConfig | None = None,
     metric_recipe: str = "tail-candidate-development",
     overwrite: bool = False,
 ) -> TrialOutcomeResult:
     """Publish exact candidate trial outcomes and coverage."""
-    if config != TrialOutcomeConfig():
+    expected_config = trial_outcome_config_for_experiment(experiment_name)
+    if config is not None and config != expected_config:
         raise ConfigurationError(
-            "Candidate trial outcomes use a frozen configuration. "
-            "Changed windows require a new recipe identity."
+            "Candidate trial outcomes must use the selected experiment's "
+            "conditioned-response window."
         )
+    config = expected_config
     project_dir = project_dir.resolve()
     (
         recording_name,
@@ -541,6 +576,7 @@ def build_candidate_trial_outcomes(
     frames = pq.read_table(frame_path).to_pandas()
     movement = pq.read_table(movement_path).to_pandas()
     protocol = pq.read_table(protocol_path).to_pandas()
+    # Derive trial metrics and their coverage from the same verified inputs.
     outcomes, coverage = aggregate_trial_outcomes(
         frames,
         movement,

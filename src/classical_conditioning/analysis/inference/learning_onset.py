@@ -1431,6 +1431,7 @@ def leave_one_fish_out(
     return pd.DataFrame(rows)
 
 
+# Publish a typed table and return metadata used for provenance checks.
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
     if not len(frame.columns):
         raise SchemaValidationError(
@@ -1567,6 +1568,7 @@ def build_learning_onset_analysis(
         "log_response ~ log_baseline + "
         f"C(condition_id, Treatment(reference={reference})) * C(trial_number)"
     )
+    # Fit the planned block and trial models before checking sensitivity variants.
     block_result, block_diagnostic = _fit_mixed_model(
         model_input, formula=block_formula, config=config
     )
@@ -1796,6 +1798,7 @@ def build_learning_onset_analysis(
         )
     )
     onset_table = pd.DataFrame([onset])
+    # Cross-check model onset against fish-level and leave-one-fish-out evidence.
     fish_effects, robustness = fish_level_robustness(model_input, config=config)
     adjusted_trajectories = adjusted_condition_trajectories(
         trial_result,
@@ -1963,6 +1966,7 @@ def build_learning_onset_analysis(
         "bootstrap_trials": bootstrap_trials,
         "bootstrap_onsets": bootstrap_onsets,
     }
+    # Stage every analysis table and its provenance before final publication.
     with artifact_staging(
         project_dir,
         prefix=f".{analysis_id}-{RECIPE_ID}-",

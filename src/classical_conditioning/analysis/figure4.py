@@ -37,6 +37,7 @@ RECIPE = "figure4-learner-signed-profiles/1.0"
 MINIMUM_COVERAGE = 0.9
 
 
+# Reject IDs that cannot be used consistently in artifact names.
 def _require_id(value: str) -> None:
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", value):
         raise ConfigurationError("Analysis ID must contain only letters, numbers, dot, underscore or hyphen.")
@@ -163,6 +164,7 @@ def verify_expected_us(protocol: pd.DataFrame, experiment_id: str) -> tuple[floa
     return float(np.median(measured)), len(measured)
 
 
+# Order block summaries before pooled and individual catch-trial summaries.
 def profile_groups(experiment_id: str) -> list[dict[str, Any]]:
     spec = get_experiment_spec(experiment_id)
     groups = [
@@ -232,6 +234,7 @@ def summarize_trial_bins(trial_bins: pd.DataFrame, experiment_id: str) -> tuple[
     return fish_bins, group_bins
 
 
+# Verify all source artifacts before aligning one recording's Figure 4 inputs.
 def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric_recipe: str) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, list[dict[str, str]]]:
     source = resolve_candidate_metric_source(metric_recipe=metric_recipe)
     verified = _verify_temporal_profiles(project_dir, recording_id, source)
@@ -246,6 +249,7 @@ def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric
     ).reset_index(drop=True)
     if len(cycles) < 94:
         raise SchemaValidationError(f"{recording_id}: Figure 4 requires 94 recorded CS cycles.")
+    # Join the recomputed signed metric to authenticated bin coverage one-to-one.
     profiles = pq.read_table(verified.path, columns=["Recording ID", "Trial type", "Trial number", "Time bin center (s)", "Metric ID", "Valid expected fraction", "Movement probability"]).to_pandas()
     profiles = profiles.loc[(profiles["Trial type"] == "CS") & (profiles["Metric ID"] == metric_id)
                             & profiles["Time bin center (s)"].between(-20, 20, inclusive="neither")].copy()
@@ -258,6 +262,7 @@ def _read_recording(project_dir: Path, recording_id: str, metric_id: str, metric
                           on=keys, how="left", validate="one_to_one", indicator=True)
     if not joined["_merge"].eq("both").all():
         raise SchemaValidationError(f"Missing authenticated temporal coverage for {recording_id}.")
+    # Hide low-coverage values rather than presenting them as measured responses.
     covered = pd.to_numeric(joined["Valid expected fraction"], errors="coerce") >= MINIMUM_COVERAGE
     joined["signed_log_vigor"] = pd.to_numeric(joined["Signed log vigor"], errors="coerce").where(covered)
     joined["movement_probability"] = pd.to_numeric(joined["Movement probability"], errors="coerce").where(covered)
@@ -280,6 +285,7 @@ def analyze_figure4(
     if metric_id not in METRIC_COLUMNS or set(cohort_ids) != set(EXPERIMENTS):
         raise ConfigurationError("Figure 4 requires one supported metric and three experiment cohort IDs.")
     manifest, classifier = load_classification_manifest(learner_manifest, metric_id)
+    # Reconcile each frozen cohort against the classifier by fish identity.
     experiment_dirs = experiment_dirs or {}
     cohorts = {}
     fish_frames = []
@@ -327,6 +333,7 @@ def analyze_figure4(
     inputs.extend({"path": item["path"], "sha256": item["sha256"]}
                   for _, cohort in cohorts.values()
                   for item in getattr(cohort, "input_artifacts", ()))
+    # Build trial bins per experiment before aggregating fish and group profiles.
     timing = {}
     for experiment_id, (root, cohort) in cohorts.items():
         times = []
@@ -370,6 +377,7 @@ def analyze_figure4(
     all_paths = [*destinations.values(), summary_path, marker_path]
     if not overwrite and any(path.exists() for path in all_paths):
         raise FileExistsError("Figure 4 analysis outputs already exist; use --overwrite to replace them.")
+    # Publish the related tables and completion evidence as one staged transaction.
     with artifact_staging(root.parent, prefix=".figure4-") as stage:
         staged = {name: stage / path.name for name, path in destinations.items()}
         for name, frame in tables.items():

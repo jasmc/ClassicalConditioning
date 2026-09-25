@@ -1,6 +1,6 @@
 """Auditable, descriptive comparison of the four historical learner rules.
 
-The algorithms themselves remain in Archive/historical-scripts. This adapter
+The algorithms themselves remain in legacy/scripts. This adapter
 only translates authenticated cohort outcomes into their input schema and runs
 each script in a separate process. It does not approve a canonical classifier.
 """
@@ -26,6 +26,7 @@ KEY = ["experiment_id", "condition_id", "fish_id"]
 DEFAULT_METRIC = "legacy_distal_angular_speed"
 
 
+# Stream the source file while hashing so large learner inputs stay bounded in memory.
 def _sha256(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as stream:
@@ -153,7 +154,7 @@ def compare_legacy_learners(
                        "control_flagged": int(reference["learner_primary"].sum()),
                        "unclassified_delay": int((selected["condition_id"].eq("delay")).sum() - len(conditioned)),
                        "learner_fish_ids": sorted(conditioned.loc[conditioned["learner_primary"], "fish_id"].tolist()),
-                       "algorithm_sha256": _sha256(Path(__file__).resolve().parents[3] / "Archive" / "historical-scripts" / filename),
+                       "algorithm_sha256": _sha256(Path(__file__).resolve().parents[3] / "legacy" / "scripts" / filename),
                        "config_sha256": _sha256(result_path.with_suffix(".config.json")),
                        "result_sha256": _sha256(result_path)})
     merged.sort_values(KEY).to_csv(output_dir / "fish-comparison.csv", index=False)
