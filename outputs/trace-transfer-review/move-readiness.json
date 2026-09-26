@@ -1,0 +1,17 @@
+{
+  "status": "ready_to_remove_j_3strace_project",
+  "source_project": "J:\\Digested Data\\all3sTrace-full-v1",
+  "destination_project": "F:\\Digested Data\\all3sTrace-full-v1",
+  "source_completed_files_reverified": 147,
+  "staging_files_reverified_on_both_drives": 8,
+  "fish": {
+    "trace": 40,
+    "control": 19
+  },
+  "cohort_hash": "63d6b8e25964210a0ecbdb562a2e652c3f96db544eac53cde64ebb9aad755580",
+  "classifier_version": "legacy-wip",
+  "metric_id": "tail_length_weighted_angular_l1",
+  "conditioned_learners": 16,
+  "control_flagged": 0,
+  "figure_count": 14
+}

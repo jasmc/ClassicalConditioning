@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "purpose": "Inventory of exploratory figure code and retained outputs; entries do not approve manuscript panels",
+  "historical_panel_relettering": {"fig-1C": "fig-1D", "fig-1D": "fig-1E", "fig-1E": "fig-1F", "fig-1F": "fig-1G", "fig-1G": "fig-1H"},
   "candidate_metrics": [
     "tail_length_weighted_angular_l1",
     "whole_tail_xy_mean_speed_normalized",
@@ -52,19 +53,19 @@
     {
       "id": "fig1-cd-full-window",
       "panels": ["fig-1C", "fig-1D"],
-      "status": "reproducible_review",
+      "status": "historical_raw_vigor_review",
       "renderer": "scripts/render_legacy_ssd_example_traces.py",
       "shared_code": "src/classical_conditioning/figures/example_traces.py",
       "output": "outputs/figure1-examples/{recording_id}/figure-1-CD_{metric}_9-17-63-66-93.png",
-      "note": "Paired frame-level tail angle and unscaled vigor; -20 to 20 seconds"
+      "note": "Paired frame-level tail angle and unscaled vigor; -20 to 20 seconds. D is being revised to per-trial scaled log vigor."
     },
     {
-      "id": "fig1-cd-x-zoom",
+      "id": "fig1-cd-scaled-log-baseline-comparison",
       "panels": ["fig-1C", "fig-1D"],
-      "status": "reproducible_review",
-      "renderer": "scripts/render_legacy_ssd_example_traces.py",
-      "output": "outputs/figure1-examples-zoom/{recording_id}/figure-1-CD_{metric}_9-17-63-66-93.png",
-      "note": "Same frames and trials, -10 to 12 seconds"
+      "status": "baseline_and_signal_review_unfrozen",
+      "renderer": "scripts/render_figure1_cd_scaled_log_review.py",
+      "output": "outputs/figure1-cd-baseline-review/",
+      "note": "C is the same measured tail angle; D compares frame-first P10/P90-scaled log vigor in 0.5 s bins using [-15,0) and [-20,0) s references, for moving-bout and all-valid signal masks. Neither baseline nor signal is frozen."
     },
     {
       "id": "fig1-d-full-y-and-focus-y",

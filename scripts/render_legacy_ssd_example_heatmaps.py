@@ -220,12 +220,12 @@ def main() -> None:
     source = Path(__file__).resolve()
     for metric_id in ((args.metric,) if args.metric else METRIC_COLUMNS):
         fig, panel_ids, mappings = render_comparison(data, metric_id)
-        base = output / f"figure-1-E_delay-control_{metric_id}"
+        base = output / f"figure-1-FH_delay-control_{metric_id}"
         try:
             result = export_matplotlib_figure(
                 fig, base,
                 FigureProvenance(
-                    figure_id="figure-1-E-delay-control-example-heatmaps",
+                    figure_id="figure-1-FH-delay-control-example-heatmaps",
                     analysis_recipe=f"signed-bout-log-vigor-baseline-{WINDOW_S[0]}-to-{args.baseline_end_s}",
                     source_file=str(source), source_symbol="main",
                     source_hash=sha256_file(source),

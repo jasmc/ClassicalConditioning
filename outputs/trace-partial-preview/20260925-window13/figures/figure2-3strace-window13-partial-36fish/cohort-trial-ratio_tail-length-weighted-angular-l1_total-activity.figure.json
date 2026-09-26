@@ -1,0 +1,785 @@
+{
+  "analysis_identity": {},
+  "analysis_recipe": "cohort-response-ratio-figures",
+  "artist_mappings": {
+    "cohort-iqr__control": {
+      "aggregation": "equal_fish_median",
+      "condition": "control",
+      "value_field": "Cohort response / baseline IQR"
+    },
+    "cohort-iqr__trace": {
+      "aggregation": "equal_fish_median",
+      "condition": "trace",
+      "value_field": "Cohort response / baseline IQR"
+    },
+    "cohort-median__control": {
+      "aggregation": "equal_fish_median",
+      "condition": "control",
+      "value_field": "Cohort median response / baseline"
+    },
+    "cohort-median__trace": {
+      "aggregation": "equal_fish_median",
+      "condition": "trace",
+      "value_field": "Cohort median response / baseline"
+    },
+    "fish-trajectory__control__20230227_03": {
+      "condition": "control",
+      "fish_id": "20230227_03",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230227_06": {
+      "condition": "control",
+      "fish_id": "20230227_06",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_02": {
+      "condition": "control",
+      "fish_id": "20230228_02",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_05": {
+      "condition": "control",
+      "fish_id": "20230228_05",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_08": {
+      "condition": "control",
+      "fish_id": "20230228_08",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_11": {
+      "condition": "control",
+      "fish_id": "20230228_11",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_01": {
+      "condition": "control",
+      "fish_id": "20230301_01",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_04": {
+      "condition": "control",
+      "fish_id": "20230301_04",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_07": {
+      "condition": "control",
+      "fish_id": "20230301_07",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_10": {
+      "condition": "control",
+      "fish_id": "20230301_10",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230302_08": {
+      "condition": "control",
+      "fish_id": "20230302_08",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230302_09": {
+      "condition": "control",
+      "fish_id": "20230302_09",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_05": {
+      "condition": "control",
+      "fish_id": "20230315_05",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_08": {
+      "condition": "control",
+      "fish_id": "20230315_08",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_10": {
+      "condition": "control",
+      "fish_id": "20230315_10",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_11": {
+      "condition": "control",
+      "fish_id": "20230315_11",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230316_02": {
+      "condition": "control",
+      "fish_id": "20230316_02",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230306_01": {
+      "condition": "trace",
+      "fish_id": "20230306_01",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230306_07": {
+      "condition": "trace",
+      "fish_id": "20230306_07",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230306_10": {
+      "condition": "trace",
+      "fish_id": "20230306_10",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_03": {
+      "condition": "trace",
+      "fish_id": "20230307_03",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_06": {
+      "condition": "trace",
+      "fish_id": "20230307_06",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_09": {
+      "condition": "trace",
+      "fish_id": "20230307_09",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_12": {
+      "condition": "trace",
+      "fish_id": "20230307_12",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230309_09": {
+      "condition": "trace",
+      "fish_id": "20230309_09",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230309_11": {
+      "condition": "trace",
+      "fish_id": "20230309_11",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_02": {
+      "condition": "trace",
+      "fish_id": "20230310_02",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_05": {
+      "condition": "trace",
+      "fish_id": "20230310_05",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_08": {
+      "condition": "trace",
+      "fish_id": "20230310_08",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_11": {
+      "condition": "trace",
+      "fish_id": "20230310_11",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_01": {
+      "condition": "trace",
+      "fish_id": "20230314_01",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_04": {
+      "condition": "trace",
+      "fish_id": "20230314_04",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_06": {
+      "condition": "trace",
+      "fish_id": "20230314_06",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_11": {
+      "condition": "trace",
+      "fish_id": "20230314_11",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230315_02": {
+      "condition": "trace",
+      "fish_id": "20230315_02",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230315_06": {
+      "condition": "trace",
+      "fish_id": "20230315_06",
+      "value_field": "Fish median response / baseline"
+    }
+  },
+  "artist_registry": {
+    "axes__a__main": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axis-title__a__x": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__a__y": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis__a__x": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__a__y": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "cohort-iqr__control": {
+      "aggregation": "equal_fish_median",
+      "artist_type": "FillBetweenPolyCollection",
+      "condition": "control",
+      "required_in_svg": "true",
+      "role": "cohort-iqr",
+      "value_field": "Cohort response / baseline IQR"
+    },
+    "cohort-iqr__trace": {
+      "aggregation": "equal_fish_median",
+      "artist_type": "FillBetweenPolyCollection",
+      "condition": "trace",
+      "required_in_svg": "true",
+      "role": "cohort-iqr",
+      "value_field": "Cohort response / baseline IQR"
+    },
+    "cohort-median__control": {
+      "aggregation": "equal_fish_median",
+      "artist_type": "Line2D",
+      "condition": "control",
+      "required_in_svg": "true",
+      "role": "cohort-median",
+      "value_field": "Cohort median response / baseline"
+    },
+    "cohort-median__trace": {
+      "aggregation": "equal_fish_median",
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "required_in_svg": "true",
+      "role": "cohort-median",
+      "value_field": "Cohort median response / baseline"
+    },
+    "figure": {
+      "artist_type": "Figure",
+      "required_in_svg": "true",
+      "role": "figure"
+    },
+    "fish-trajectory__control__20230227_03": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230227_03",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230227_06": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230227_06",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_02": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230228_02",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_05": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230228_05",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_08": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230228_08",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230228_11": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230228_11",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_01": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230301_01",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_04": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230301_04",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_07": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230301_07",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230301_10": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230301_10",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230302_08": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230302_08",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230302_09": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230302_09",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_05": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230315_05",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_08": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230315_08",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_10": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230315_10",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230315_11": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230315_11",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__control__20230316_02": {
+      "artist_type": "Line2D",
+      "condition": "control",
+      "fish_id": "20230316_02",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230306_01": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230306_01",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230306_07": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230306_07",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230306_10": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230306_10",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_03": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230307_03",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_06": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230307_06",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_09": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230307_09",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230307_12": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230307_12",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230309_09": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230309_09",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230309_11": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230309_11",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_02": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230310_02",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_05": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230310_05",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_08": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230310_08",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230310_11": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230310_11",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_01": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230314_01",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_04": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230314_04",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_06": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230314_06",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230314_11": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230314_11",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230315_02": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230315_02",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-trajectory__trace__20230315_06": {
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "fish_id": "20230315_06",
+      "required_in_svg": "true",
+      "role": "fish-trajectory",
+      "value_field": "Fish median response / baseline"
+    },
+    "legend__a__main": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "legend"
+    },
+    "spine__a__bottom": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__a__left": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__a__right": {
+      "panel": "a",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__a__top": {
+      "panel": "a",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "tick-label__a__x__001": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__x__002": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__x__003": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__x__004": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__x__005": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__001": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__002": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__003": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__004": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__005": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__006": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__007": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__008": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick__a__x__001": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__x__002": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__x__003": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__x__004": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__x__005": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__001": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__002": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__003": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__004": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__005": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__006": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__007": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__008": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    }
+  },
+  "code_dependencies": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\cohort_response.py",
+      "sha256": "d8f7d9714636e2fa5b4ac466b8f6238e4fbf2bcf070bb87c408a411e0be4e15f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\export.py",
+      "sha256": "0ec822659ff5de847eec20ead7b4c20af87f30a10cf066f365b2fb4376b75902"
+    }
+  ],
+  "cohort_hash": "b15f124967d9236f6024f74d6eb826886b24cefa13a34d29b78d7690ad1bb115",
+  "figure_id": "cohort-trial-ratio-tail-length-weighted-angular-l1-total-activity",
+  "figure_spec_version": "1.0",
+  "input_artifacts": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Cohorts\\all3sTrace-window13-partial-20260925-36fish\\cohort-trial-outcomes.parquet",
+      "recipe": "cohort-trial-outcomes",
+      "sha256": "37df90e2d3f442b69754e243fe4e0df5320396a666ff8d7654a13f2ef563e7b7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Cohorts\\all3sTrace-window13-partial-20260925-36fish\\cohort-sample-flow.parquet",
+      "recipe": "cohort-trial-outcomes",
+      "sha256": "2e178da57360b6cafa61ad3db6a33a98f5d5ad08efd87fec03e392d445494ad3"
+    }
+  ],
+  "mode": "static",
+  "outputs": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Figures\\PNG\\Analyses\\figure2-3strace-window13-partial-36fish\\cohort-trial-ratio_tail-length-weighted-angular-l1_total-activity.png",
+      "sha256": "d1737e3b5cad6cb7a05d650d8ec01ab22ff25a1640163af00016bfbd8cf2bb42"
+    }
+  ],
+  "reproduction_snippet": "python -m classical_conditioning figure-cohort-trial-ratio --project-dir \"F:\\Digested Data\\all3sTrace-full-v1\" --analysis-id figure2-3strace-window13-partial-36fish --cohort-id all3sTrace-window13-partial-20260925-36fish --metric tail_length_weighted_angular_l1 --outcome total-activity --metric-recipe tail-candidate-corrected --mode static",
+  "source_commit": "30e584560b40d4e3598667c93e75643d6c16d218",
+  "source_file": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\cohort_response.py",
+  "source_hash": "d8f7d9714636e2fa5b4ac466b8f6238e4fbf2bcf070bb87c408a411e0be4e15f",
+  "source_symbol": "build_trial_ratio_figure",
+  "source_worktree_dirty": true
+}

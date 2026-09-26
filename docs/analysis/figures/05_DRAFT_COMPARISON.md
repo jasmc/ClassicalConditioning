@@ -10,15 +10,13 @@ This is a documented comparison, **not** an approval gate. The written [paper sc
 
 ## Figure 1 — setup and individual evidence
 
-The intended visual sequence is **tail angle versus time (C) → vigor versus
-time from the same fish and selected trials (D) → signed log-vigor heatmaps
-(E–G)**. The March 24, 2026 single-fish implementation in
+The current sequence is **within-trial contingencies (B) → session protocol (C) → tail angle (D) → matching vigor (E) → signed heatmaps (F–H)**. The supplied draft and retained review filenames use the earlier panel letters. The March 24, 2026 single-fish implementation in
 `2_ExampleFishPlotting.py` explicitly selected `managua_r`, with CS limits
 −0.25 to +0.25, for bout-only log vigor centred on each trial's pre-stimulus
 median. The February 14 version had used `spring`; March changed the palette
 and limits. The refactored `signed-log-vigor` candidate figure now uses the
 March palette and fixed CS limits with corrected bout data in 0.5-s bins.
-The user-selected Figure 1E review is signed log vigor relative to each
+The user-selected Figure 1F/H review is signed log vigor relative to each
 trial's −20 to 0 s pre-CS median, displayed with `managua_r` at −0.25 to
 +0.25. The 0–1 P10–P90 variants remain as historical alternatives. The current
 Figure 2A review pools these same signed fish/trial bins equally across cohort
@@ -27,16 +25,17 @@ fish and uses the same `managua_r` limits.
 | Intended panel | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |
 | A setup | Draft A shows the restrained fish, basal illumination, CS LEDs, and US. | No registered apparatus artwork. The drawing lacks a reproducible source-artifact mapping; panel remains blocked. |
-| B protocol | Draft B shows priming, 10 CS-only Pre-Train trials, 46 paired training trials, 30 CS-only Test trials and the four contingencies. | Experiment definitions and trial map encode timing. The written target also needs short 50-ms versus long 100-ms US pulses and randomized control schedule; these are not all explicit in the draft artwork. Panel remains blocked pending complete artwork. |
-| C raw tracking | Draft C shows tail angle over time across selected example trials. | The user-selected paired trace renderer now plots distal cumulative angle centered on each trial's pre-CS median. C and D use the same fish, trials and measured frames. Example selection and final paper composition remain open. |
-| D movement calculation | Draft D shows the corresponding vigor over time. | The paired renderer plots exactly one selected corrected vigor metric next to C, with the same event markers. The figure still needs final example selection and an explanatory calculation inset if retained. |
-| E Delay fish | Draft E shows Delay versus control heatmaps, not just a Delay single-fish example. | The refactored `signed-log-vigor` figure is a **per-fish CS heatmap** with the March palette and limits, with three corrected candidate metrics per output. A one-signal paper panel and example selection are still needed. Record the extra draft control explicitly. |
-| F 3sTrace fish | **Missing in draft.** | The written target requires a distinct 3sTrace example. A per-fish candidate profile can inform selection but cannot fill this panel until fish and metric are prespecified. |
-| G control fish | **Missing as a separate draft panel** (only paired with Delay in E). | A prespecified unpaired-control fish and its coverage-masked profile are needed. |
+| B condition timing | Draft B combines condition timing with the session schedule. | The new B compares within-trial CS–US timing: paired US onsets at 9/13/20 s and unpaired control without fixed latency. |
+| C session protocol | The draft B schedule shows priming, Pre-Train, Train and Test. | The former protocol panel moves to C and carries phases, trial counts and the 50/100 ms US legend. |
+| D tail angle | Draft C shows selected tail-angle traces. | The paired renderer centers distal cumulative angle on each trial's pre-CS median. D and E share fish, trials and measured frames. |
+| E vigor | Draft D shows corresponding vigor. | The paired renderer plots one corrected frame-vigor metric next to D with matching event markers. |
+| F Delay fish | Draft E shows Delay versus control heatmaps. | The signed-log-vigor review renders both fish; the Delay half is a candidate for F. |
+| G 3sTrace fish | **Missing in draft.** | An exploratory signed example exists; final fish and metric selection remain open. |
+| H control fish | **Missing as a separate draft panel** (paired with Delay in draft E). | The control half of the corrected review is a candidate for H. |
 
-The draft combines conditions in E while the written A–G layout separates three examples. The new signed-vigor figure implements the March colour rendering on corrected profile data but does not compose C–G into the planned sequence. Neither draft nor current candidate plots authenticate example-fish selection or a reviewed cohort.
+The draft combines conditions in E while the current A–H layout separates three examples. The new signed-vigor figure implements the March colour rendering on corrected profile data but does not compose D–H into the planned sequence. Neither draft nor current candidate plots authenticate example-fish selection or a reviewed cohort.
 
-An exploratory Figure 1D renderer now shows the five selected Delay/control
+An exploratory Figure 1E renderer now shows the five selected Delay/control
 trials over the full −20 to +20 s window for each of the three candidate vigor
 metrics. Its focused-Y version overlays the exact 0.5-s **signed log-vigor**
 heatmap values as orange outlined step runs on a separate −0.25 to +0.25 axis.
@@ -61,16 +60,16 @@ and the learner representation.
 
 | Intended panels | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |
-| A–C heatmaps | Control/Delay, Control/3sTrace, Control/10sTrace; CS-aligned Pre/Train/Test stacks with a 0–1 scaled-vigor colour bar. | The Delay/control **paper-review adapter** now calculates the same signed, −20 to 0 s baseline-centered bout-log-vigor bins as Figure 1E for every fish, then averages fish equally. It displays `managua_r` at −0.25…+0.25. Coverage is exported separately with its own 0…1 fraction scale. Earlier two-stage P10/P90 output is retained as a historical comparison. The general-purpose `population_heatmap.py` route remains an all-valid-frame total-activity diagnostic. Trace cohorts and the final metric still require review. |
+| A–C heatmaps | Control/Delay, Control/3sTrace, Control/10sTrace; CS-aligned Pre/Train/Test stacks with a 0–1 scaled-vigor colour bar. | The Delay/control **paper-review adapter** now calculates the same signed, −20 to 0 s baseline-centered bout-log-vigor bins as Figure 1F/H for every fish, then averages fish equally. It displays `managua_r` at −0.25…+0.25. Coverage is exported separately with its own 0…1 fraction scale. Earlier two-stage P10/P90 output is retained as a historical comparison. The general-purpose `population_heatmap.py` route remains an all-valid-frame total-activity diagnostic. Trace cohorts and the final metric still require review. |
 | D–F selected blocks | Three fish-level paired-line panels at PTr, ETe, LTe, with draft stars in Delay and 3sTrace. | Current `selected-block-ratio` derives finite response/baseline ratios for one selected metric, takes per-fish block medians, then condition medians/IQR, and records eligible trial/fish counts. Paper membership is **10–14, 65–69, 90–94**; the archived nine-block setting chose **Early Pre-Train** (the earlier five, 5–9), whereas its twelve-block branch chose Late Pre-Train. Thus the draft PTr values cannot be assumed equivalent. Current output is descriptive and does not copy the stars. |
 | G–I trial trajectories | Paired-condition trial curves with shaded uncertainty and many annotated marks in Delay and 3sTrace; near-flat 10sTrace. | Current `trial-ratio` aggregates fish equally at each trial and shows coverage/uncertainty from available fish; it does not reproduce unexplained draft marks. Trial windows, cohort, metric, normalization, and model contrasts must match an approved analysis before inference is placed on the panel. Present 10sTrace as inconclusive, not a demonstrated positive or absolute limit. |
 
 The archived normalized-vigor script can filter fish, uses mean baseline/response windows and exploratory within/between-condition tests; the current route uses corrected measured-time validity and a frozen cohort. Therefore visual agreement alone is not numerical equivalence. The displayed draft stars and line-plot marks must be regenerated from approved results, not traced from the PNG.
 
 For Delay/control review, `scripts/render_legacy_ssd_example_heatmaps.py`
-renders the selected signed Figure 1E variant. The separate
+renders the selected signed Figure 1F/H variant. The separate
 `scripts/render_log_scaled_vigor_heatmaps.py` retains an exploratory 0–1
-Figure 1E variant and an older pooled Figure 2A from log-transformed corrected
+Figure 1F/H variant and an older pooled Figure 2A from log-transformed corrected
 bin means with a second pooled trial scale. The active Figure 2 A renderer
 uses the shared signed bins. Earlier palette and `magma` images remain.
 `scripts/render_figure2_stats_review.py`

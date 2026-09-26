@@ -1,0 +1,7 @@
+{
+  "status": "downstream_failed",
+  "details": "Exit code 1; inspect C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\trace-transfer-review\\overnight-post.log",
+  "updated_at_utc": "2026-09-25T11:59:34.5026642Z",
+  "pipeline_summary": "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\all3sTrace-full_pipeline_run.json",
+  "log": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\trace-transfer-review\\overnight-post.log"
+}

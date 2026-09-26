@@ -1,0 +1,349 @@
+{
+  "analysis_identity": {},
+  "analysis_recipe": "cohort-response-ratio-figures",
+  "artist_mappings": {
+    "cohort-median__control": {
+      "aggregation": "equal_fish_median",
+      "condition": "control",
+      "spread": "fish_IQR",
+      "value_field": "Cohort median response / baseline"
+    },
+    "cohort-median__trace": {
+      "aggregation": "equal_fish_median",
+      "condition": "trace",
+      "spread": "fish_IQR",
+      "value_field": "Cohort median response / baseline"
+    },
+    "fish-points__control__0": {
+      "block": "Final Pre-train",
+      "condition": "control",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__control__1": {
+      "block": "Early Test",
+      "condition": "control",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__control__2": {
+      "block": "Late Test",
+      "condition": "control",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__trace__0": {
+      "block": "Final Pre-train",
+      "condition": "trace",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__trace__1": {
+      "block": "Early Test",
+      "condition": "trace",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__trace__2": {
+      "block": "Late Test",
+      "condition": "trace",
+      "value_field": "Fish median response / baseline"
+    }
+  },
+  "artist_registry": {
+    "axes__a__main": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axis-title__a__x": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__a__y": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis__a__x": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__a__y": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "cohort-median__control": {
+      "aggregation": "equal_fish_median",
+      "artist_type": "Line2D",
+      "condition": "control",
+      "required_in_svg": "true",
+      "role": "cohort-median",
+      "spread": "fish_IQR",
+      "value_field": "Cohort median response / baseline"
+    },
+    "cohort-median__trace": {
+      "aggregation": "equal_fish_median",
+      "artist_type": "Line2D",
+      "condition": "trace",
+      "required_in_svg": "true",
+      "role": "cohort-median",
+      "spread": "fish_IQR",
+      "value_field": "Cohort median response / baseline"
+    },
+    "figure": {
+      "artist_type": "Figure",
+      "required_in_svg": "true",
+      "role": "figure"
+    },
+    "fish-points__control__0": {
+      "artist_type": "PathCollection",
+      "block": "Final Pre-train",
+      "condition": "control",
+      "required_in_svg": "true",
+      "role": "fish-points",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__control__1": {
+      "artist_type": "PathCollection",
+      "block": "Early Test",
+      "condition": "control",
+      "required_in_svg": "true",
+      "role": "fish-points",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__control__2": {
+      "artist_type": "PathCollection",
+      "block": "Late Test",
+      "condition": "control",
+      "required_in_svg": "true",
+      "role": "fish-points",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__trace__0": {
+      "artist_type": "PathCollection",
+      "block": "Final Pre-train",
+      "condition": "trace",
+      "required_in_svg": "true",
+      "role": "fish-points",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__trace__1": {
+      "artist_type": "PathCollection",
+      "block": "Early Test",
+      "condition": "trace",
+      "required_in_svg": "true",
+      "role": "fish-points",
+      "value_field": "Fish median response / baseline"
+    },
+    "fish-points__trace__2": {
+      "artist_type": "PathCollection",
+      "block": "Late Test",
+      "condition": "trace",
+      "required_in_svg": "true",
+      "role": "fish-points",
+      "value_field": "Fish median response / baseline"
+    },
+    "legend__a__main": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "legend"
+    },
+    "spine__a__bottom": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__a__left": {
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__a__right": {
+      "panel": "a",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__a__top": {
+      "panel": "a",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "tick-label__a__x__000": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__x__001": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__x__002": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__001": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__002": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__003": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__004": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__005": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__006": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__007": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__a__y__008": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick__a__x__000": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__x__001": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__x__002": {
+      "dimension": "x",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__001": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__002": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__003": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__004": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__005": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__006": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__007": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__a__y__008": {
+      "dimension": "y",
+      "panel": "a",
+      "required_in_svg": "true",
+      "role": "tick"
+    }
+  },
+  "code_dependencies": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\cohort_response.py",
+      "sha256": "d8f7d9714636e2fa5b4ac466b8f6238e4fbf2bcf070bb87c408a411e0be4e15f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\export.py",
+      "sha256": "0ec822659ff5de847eec20ead7b4c20af87f30a10cf066f365b2fb4376b75902"
+    }
+  ],
+  "cohort_hash": "96723d46cb2735b0cdff7f2f2ef9199366461e7e9b4a59f814b27fd16f81a2cb",
+  "figure_id": "cohort-selected-block-ratio-legacy-distal-angular-speed-total-activity",
+  "figure_spec_version": "1.0",
+  "input_artifacts": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Cohorts\\all3sTrace-window13-legacy-20260925-53fish\\cohort-trial-outcomes.parquet",
+      "recipe": "cohort-trial-outcomes",
+      "sha256": "43946ac9478f3d9c641e02e5c8a01a198f88e7dd59ff6a14d4f3649cdc27cb6a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Cohorts\\all3sTrace-window13-legacy-20260925-53fish\\cohort-sample-flow.parquet",
+      "recipe": "cohort-trial-outcomes",
+      "sha256": "8e9ef61cbd68d04b7ebf9c47bd6a259e3bc8c0cbfb3b97451b33c8babcd8cd35"
+    }
+  ],
+  "mode": "static",
+  "outputs": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Figures\\PNG\\Analyses\\figure2-3strace-window13-legacy-53fish\\cohort-selected-block-ratio_legacy-distal-angular-speed_total-activity.png",
+      "sha256": "42e68c7d90e9a89f130b0e7fb0ce7b5f81b525c658cf342a704d1f64affec5a2"
+    }
+  ],
+  "reproduction_snippet": "python -m classical_conditioning figure-cohort-selected-block-ratio --project-dir \"F:\\Digested Data\\all3sTrace-full-v1\" --analysis-id figure2-3strace-window13-legacy-53fish --cohort-id all3sTrace-window13-legacy-20260925-53fish --metric legacy_distal_angular_speed --outcome total-activity --metric-recipe tail-candidate-corrected --mode static",
+  "source_commit": "14bf54589646b04613506da9f2ec741be3b43e91",
+  "source_file": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\cohort_response.py",
+  "source_hash": "d8f7d9714636e2fa5b4ac466b8f6238e4fbf2bcf070bb87c408a411e0be4e15f",
+  "source_symbol": "build_selected_block_ratio_figure",
+  "source_worktree_dirty": true
+}

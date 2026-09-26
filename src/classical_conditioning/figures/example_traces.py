@@ -1,4 +1,4 @@
-"""Selected-fish tail-angle and vigor traces for manuscript Figure 1 C/D.
+"""Selected-fish tail-angle and vigor traces for manuscript Figure 1 D/E.
 
 The two columns share one fish, the same global CS trial numbers, and the
 same measured-time frame selection. This is a display of a chosen candidate
@@ -279,7 +279,7 @@ def build_example_trace_figure(
         return export_matplotlib_figure(
             figure, output_base,
             FigureProvenance(
-                figure_id="figure-1-CD-example-traces",
+                figure_id="figure-1-DE-example-traces",
                 analysis_recipe="selected-fish-corrected-example-traces",
                 source_file=str(source_file),
                 source_symbol="build_example_trace_figure",

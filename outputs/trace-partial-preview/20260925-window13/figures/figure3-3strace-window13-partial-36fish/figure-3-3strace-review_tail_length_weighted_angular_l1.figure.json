@@ -1,0 +1,833 @@
+{
+  "analysis_identity": {
+    "classifier_version": "legacy-wip",
+    "cohort_id": "all3sTrace-window13-partial-20260925-36fish",
+    "experiment_id": "all3sTrace",
+    "metric_id": "tail_length_weighted_angular_l1",
+    "scientific_status": "descriptive_provisional_legacy_rule"
+  },
+  "analysis_recipe": "legacy-wip-descriptive-classification-review/1.0",
+  "artist_mappings": {
+    "axes__paired_change__main": {
+      "metric_id": "tail_length_weighted_angular_l1",
+      "trial_blocks": "Pre-train versus Test 3"
+    },
+    "axes__score__main": {
+      "metric_id": "tail_length_weighted_angular_l1",
+      "variant": "legacy-wip"
+    }
+  },
+  "artist_registry": {
+    "axes__examples__main": {
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__fractions__main": {
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__paired_change__main": {
+      "metric_id": "tail_length_weighted_angular_l1",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "axes",
+      "trial_blocks": "Pre-train versus Test 3"
+    },
+    "axes__score__main": {
+      "metric_id": "tail_length_weighted_angular_l1",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "axes",
+      "variant": "legacy-wip"
+    },
+    "axis-title__examples__x": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__examples__y": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__fractions__x": {
+      "dimension": "x",
+      "panel": "fractions",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__fractions__y": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__paired_change__x": {
+      "dimension": "x",
+      "panel": "paired_change",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__paired_change__y": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__score__x": {
+      "dimension": "x",
+      "panel": "score",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__score__y": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis__examples__x": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__examples__y": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__fractions__x": {
+      "dimension": "x",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__fractions__y": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__paired_change__x": {
+      "dimension": "x",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__paired_change__y": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__score__x": {
+      "dimension": "x",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__score__y": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "figure": {
+      "artist_type": "Figure",
+      "required_in_svg": "true",
+      "role": "figure"
+    },
+    "legend__examples__main": {
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "legend"
+    },
+    "legend__score__main": {
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "legend"
+    },
+    "spine__examples__bottom": {
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__examples__left": {
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__examples__right": {
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__examples__top": {
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__fractions__bottom": {
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__fractions__left": {
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__fractions__right": {
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__fractions__top": {
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__paired_change__bottom": {
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__paired_change__left": {
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__paired_change__right": {
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__paired_change__top": {
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__score__bottom": {
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__score__left": {
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__score__right": {
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__score__top": {
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "top"
+    },
+    "tick-label__examples__x__001": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__002": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__003": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__004": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__005": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__006": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__007": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__008": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__x__009": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__001": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__002": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__003": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__004": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__005": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__006": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__007": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__examples__y__008": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__x__000": {
+      "dimension": "x",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__x__001": {
+      "dimension": "x",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__y__000": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__y__001": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__y__002": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__y__003": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__y__004": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__fractions__y__005": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__x__000": {
+      "dimension": "x",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__x__001": {
+      "dimension": "x",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__001": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__002": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__003": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__004": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__005": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__006": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__007": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__paired_change__y__008": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__x__000": {
+      "dimension": "x",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__x__001": {
+      "dimension": "x",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__001": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__002": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__003": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__004": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__005": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__006": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__007": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__score__y__008": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick__examples__x__001": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__002": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__003": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__004": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__005": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__006": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__007": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__008": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__x__009": {
+      "dimension": "x",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__001": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__002": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__003": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__004": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__005": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__006": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__007": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__examples__y__008": {
+      "dimension": "y",
+      "panel": "examples",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__x__000": {
+      "dimension": "x",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__x__001": {
+      "dimension": "x",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__y__000": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__y__001": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__y__002": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__y__003": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__y__004": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__fractions__y__005": {
+      "dimension": "y",
+      "panel": "fractions",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__x__000": {
+      "dimension": "x",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__x__001": {
+      "dimension": "x",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__001": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__002": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__003": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__004": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__005": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__006": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__007": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__paired_change__y__008": {
+      "dimension": "y",
+      "panel": "paired_change",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__x__000": {
+      "dimension": "x",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__x__001": {
+      "dimension": "x",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__001": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__002": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__003": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__004": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__005": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__006": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__007": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__score__y__008": {
+      "dimension": "y",
+      "panel": "score",
+      "required_in_svg": "true",
+      "role": "tick"
+    }
+  },
+  "code_dependencies": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\render_figure3_3strace_review.py",
+      "sha256": "8cc88685849ad5d6c57b2721125a687f4b8f64f4eb97da96ac8c8ca723c2f424"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\export.py",
+      "sha256": "0ec822659ff5de847eec20ead7b4c20af87f30a10cf066f365b2fb4376b75902"
+    }
+  ],
+  "cohort_hash": "b15f124967d9236f6024f74d6eb826886b24cefa13a34d29b78d7690ad1bb115",
+  "figure_id": "figure-3-3strace-exploratory-review",
+  "figure_spec_version": "1.0",
+  "input_artifacts": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Analyses\\figure3-3strace-window13-partial-36fish\\legacy-tail-l1\\comparison.json",
+      "sha256": "b06c676557dc0c015ec7cbc639e863851e6fb40aef9932d7485917ea41fff4a1"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Analyses\\figure3-3strace-window13-partial-36fish\\legacy-tail-l1\\legacy-wip.parquet",
+      "sha256": "34f86c7324644212cc7a8f1bca9306c1897529c03c483d0bf4ad0a3f397a30d1"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Cohorts\\all3sTrace-window13-partial-20260925-36fish\\cohort-trial-outcomes.parquet",
+      "sha256": "37df90e2d3f442b69754e243fe4e0df5320396a666ff8d7654a13f2ef563e7b7"
+    }
+  ],
+  "mode": "static",
+  "outputs": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Figures\\PNG\\Analyses\\figure3-3strace-window13-partial-36fish\\figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693"
+    }
+  ],
+  "reproduction_snippet": "python scripts/render_figure3_3strace_review.py --project-dir 'F:\\Digested Data\\all3sTrace-full-v1' --cohort-id all3sTrace-window13-partial-20260925-36fish --comparison-dir 'F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Analyses\\figure3-3strace-window13-partial-36fish\\legacy-tail-l1'",
+  "source_commit": "30e584560b40d4e3598667c93e75643d6c16d218",
+  "source_file": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\render_figure3_3strace_review.py",
+  "source_hash": "8cc88685849ad5d6c57b2721125a687f4b8f64f4eb97da96ac8c8ca723c2f424",
+  "source_symbol": "main",
+  "source_worktree_dirty": true
+}

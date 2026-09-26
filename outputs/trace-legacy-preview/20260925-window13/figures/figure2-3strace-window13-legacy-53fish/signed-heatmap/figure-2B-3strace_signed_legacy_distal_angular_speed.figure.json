@@ -1,0 +1,1486 @@
+{
+  "analysis_identity": {
+    "cohort_hash": "96723d46cb2735b0cdff7f2f2ef9199366461e7e9b4a59f814b27fd16f81a2cb",
+    "cohort_id": "all3sTrace-window13-legacy-20260925-53fish",
+    "experiment_id": "all3sTrace",
+    "metric_id": "legacy_distal_angular_speed",
+    "scientific_status": "descriptive_review"
+  },
+  "analysis_recipe": "equal-fish-signed-bout-log-vigor-pre20-median-0p5s",
+  "artist_mappings": {
+    "heatmap__control__signed_log_vigor": {
+      "aggregation": "equal-fish mean per trial and bin",
+      "condition_id": "control",
+      "metric_id": "legacy_distal_angular_speed",
+      "total_fish": 19,
+      "value_field": "Mean signed log vigor"
+    },
+    "heatmap__trace__signed_log_vigor": {
+      "aggregation": "equal-fish mean per trial and bin",
+      "condition_id": "trace",
+      "metric_id": "legacy_distal_angular_speed",
+      "total_fish": 34,
+      "value_field": "Mean signed log vigor"
+    }
+  },
+  "artist_registry": {
+    "axes__colorbar__main": {
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__control__main": {
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__trace__main": {
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axis-title__colorbar__x": {
+      "dimension": "x",
+      "panel": "colorbar",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__colorbar__y": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__control__x": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__control__y": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__trace__x": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__trace__y": {
+      "dimension": "y",
+      "panel": "trace",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis__colorbar__x": {
+      "dimension": "x",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__colorbar__y": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__control__x": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__control__y": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__trace__x": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__trace__y": {
+      "dimension": "y",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "figure": {
+      "artist_type": "Figure",
+      "required_in_svg": "true",
+      "role": "figure"
+    },
+    "heatmap__control__signed_log_vigor": {
+      "aggregation": "equal-fish mean per trial and bin",
+      "artist_type": "AxesImage",
+      "condition_id": "control",
+      "metric_id": "legacy_distal_angular_speed",
+      "required_in_svg": "true",
+      "role": "heatmap",
+      "total_fish": 19,
+      "value_field": "Mean signed log vigor"
+    },
+    "heatmap__trace__signed_log_vigor": {
+      "aggregation": "equal-fish mean per trial and bin",
+      "artist_type": "AxesImage",
+      "condition_id": "trace",
+      "metric_id": "legacy_distal_angular_speed",
+      "required_in_svg": "true",
+      "role": "heatmap",
+      "total_fish": 34,
+      "value_field": "Mean signed log vigor"
+    },
+    "spine__colorbar__bottom": {
+      "panel": "colorbar",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__colorbar__left": {
+      "panel": "colorbar",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__colorbar__outline": {
+      "panel": "colorbar",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "outline"
+    },
+    "spine__colorbar__right": {
+      "panel": "colorbar",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__colorbar__top": {
+      "panel": "colorbar",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__control__bottom": {
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__control__left": {
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__control__right": {
+      "panel": "control",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__control__top": {
+      "panel": "control",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__trace__bottom": {
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__trace__left": {
+      "panel": "trace",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__trace__right": {
+      "panel": "trace",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__trace__top": {
+      "panel": "trace",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "tick-label__colorbar__y__001": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__colorbar__y__002": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__colorbar__y__003": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__colorbar__y__004": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__colorbar__y__005": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__000": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__001": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__002": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__003": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__004": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__005": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__006": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__007": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__x__008": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__001": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__002": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__003": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__004": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__005": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__006": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__007": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__008": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__control__y__009": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__000": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__001": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__002": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__003": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__004": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__005": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__006": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__007": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__trace__x__008": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick__colorbar__y__001": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__colorbar__y__002": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__colorbar__y__003": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__colorbar__y__004": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__colorbar__y__005": {
+      "dimension": "y",
+      "panel": "colorbar",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__000": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__001": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__002": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__003": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__004": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__005": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__006": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__007": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__x__008": {
+      "dimension": "x",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__001": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__002": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__003": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__004": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__005": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__006": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__007": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__008": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__control__y__009": {
+      "dimension": "y",
+      "panel": "control",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__000": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__001": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__002": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__003": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__004": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__005": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__006": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__007": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__trace__x__008": {
+      "dimension": "x",
+      "panel": "trace",
+      "required_in_svg": "true",
+      "role": "tick"
+    }
+  },
+  "code_dependencies": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\render_figure2_3strace_signed_review.py",
+      "sha256": "e17f2769989610732558733194a206a4a4c46cec0d9a6bf15c1b6dc65d4e24ca"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\export.py",
+      "sha256": "0ec822659ff5de847eec20ead7b4c20af87f30a10cf066f365b2fb4376b75902"
+    }
+  ],
+  "cohort_hash": "96723d46cb2735b0cdff7f2f2ef9199366461e7e9b4a59f814b27fd16f81a2cb",
+  "figure_id": "figure-2B-3strace-signed-review",
+  "figure_spec_version": "1.0",
+  "input_artifacts": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Cohorts\\all3sTrace-window13-legacy-20260925-53fish\\cohort-manifest.parquet",
+      "sha256": "79a3b8830c46dba18b93063ab35eb9f4cd2604c206911b59ab2c9927bb487c3f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_03\\frame_activity_candidates-corrected.parquet",
+      "sha256": "e5ede5dd39fcb3026d5a2725367f5934ee5c860ee1f3dd355a83556a80236c24"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_03\\movement_state_candidates-corrected.parquet",
+      "sha256": "b216fb616df4fb2582561d9b76b84afb97203377da53006f0d7ceb732555979a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_03\\stimulus_events.parquet",
+      "sha256": "71cdd44f89b031b720a4aa3e394def0b3692cde5638983c9a1e8230daf294868"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_03\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "63f8b4e4053af0c3bf04a9b24420400036527e4f0b8b8096259e2d5581b31102"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_06\\frame_activity_candidates-corrected.parquet",
+      "sha256": "cf839fc00b66c2e6e024f9407ecbe531f9185e2f94a7d2d13d4421e4f958baf9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_06\\movement_state_candidates-corrected.parquet",
+      "sha256": "d06275855bb6bbb774e72f77d1406c59f76189fc00c3650e482bfa24561b258b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_06\\stimulus_events.parquet",
+      "sha256": "fb3912241e01d982c5557b481292ac40035f5603c4452c8b416595cd3ad74746"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230227_06\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "a3438541454daff033e1e69109d0d95a88010e4e1910433cc0ec36c41f6e549a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_02\\frame_activity_candidates-corrected.parquet",
+      "sha256": "42f14f5468161a21bfbde048e56759ba03469e4dbd8eebadd2e64d58fd09af0b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_02\\movement_state_candidates-corrected.parquet",
+      "sha256": "7e8c1958aa35fc3a36902b88145b63bef1a61bde9f86f00050509f64001a4760"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_02\\stimulus_events.parquet",
+      "sha256": "c0df5e67a25c56e6dc53ad39c09ddc487fef0696a9000707c8b4e233105f64b0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_02\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "bb8689d4be640af025dbd362c0b5413bd32492bc8696bb39aa633755ccee4cbb"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_05\\frame_activity_candidates-corrected.parquet",
+      "sha256": "5003fd27c8485f9e2d469b1a853bd3dbe50c3655eab9c6069da2ee7026909532"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_05\\movement_state_candidates-corrected.parquet",
+      "sha256": "e92b17a58f803f5179b9b6ad723d49ab49e69576dd3afe92bae2079e6ca97e0e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_05\\stimulus_events.parquet",
+      "sha256": "f260ad2b61c597b59cf4ceda36840298c29b88d4919362fced09b77d5103cc65"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_05\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "913e996fe8837611b38aeb44365a3240748f73cdf39c6e0de0fa4867f8b1d0e2"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_08\\frame_activity_candidates-corrected.parquet",
+      "sha256": "d8a5d95481c906588b194ea5831607bc3e97ca844320db8a7ab3c201a1e83187"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_08\\movement_state_candidates-corrected.parquet",
+      "sha256": "0843a49197f76d2a9fdabdf2aed30bae62482678450c55109e043c44e8d4500e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_08\\stimulus_events.parquet",
+      "sha256": "95c5d152fc246aff4d7017322457dea5ce5d79c1cdeeae25ddf7664014e15fb3"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_08\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "7a08b2b8abce9ad0457a9331b5ba5f048137eb6326df6bf397007d571a4e77b1"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_11\\frame_activity_candidates-corrected.parquet",
+      "sha256": "537fb704cda0d2818536154d14a200b57e881ced1a6e560f93d2bb13cbe02c1f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_11\\movement_state_candidates-corrected.parquet",
+      "sha256": "14ac4df6445ec2cebc497c8f10f65bb94e98120a02ed30afda4ed2ad8a4d8f65"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_11\\stimulus_events.parquet",
+      "sha256": "0797aca3a2a8a42bf52c6ae18060867913fb466a5fb32aeb5b5736d41cb51d3b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230228_11\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "2348b874e601ed30ba87b1034d8e1398a6d692e4b5649c4dc5271e181d29112a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_01\\frame_activity_candidates-corrected.parquet",
+      "sha256": "0f96a430dd553ea36c771ce82ab2f68dd2e3fbd396da94ecb53fd5cc74e97486"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_01\\movement_state_candidates-corrected.parquet",
+      "sha256": "f360b964c81262ddf20e1091f8adb939d851e7224d293ac33fed33057f4a4daa"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_01\\stimulus_events.parquet",
+      "sha256": "9fc8a74323a63cc781b99e391d0c31dcb3b4e2406ffda3258a31714c1ff8286f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_01\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "bf803600583994d9fceed6bfa964054f6702b8c28ba4aa469c7bc0982acfe284"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_04\\frame_activity_candidates-corrected.parquet",
+      "sha256": "f56de6971783b4df2e88c7d2c5eb43b146667dd483ed4a2bf7c6bc7ef87a5b06"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_04\\movement_state_candidates-corrected.parquet",
+      "sha256": "ac02a883ddaeaba014d1df136d18ffcd7174d9074f47047cb46d55992d69770e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_04\\stimulus_events.parquet",
+      "sha256": "5bff89cb8f18801a3327f1a5663c0b49fbff0a3820198f558b19f58ea8fdcb8b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_04\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "f2d2a56429b78515fb6acee5a2f05fed8213b7badfe7136bb08ea881105e935a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_07\\frame_activity_candidates-corrected.parquet",
+      "sha256": "6c38d6c542b26e286bfac2c3bb47b1353bf5f2f0eecae72ea064672d2286613c"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_07\\movement_state_candidates-corrected.parquet",
+      "sha256": "9893ff82f3d1eebc945a8fc10cac57aeb1920709571e55bfad7c7897346ff8f3"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_07\\stimulus_events.parquet",
+      "sha256": "09af3325086e316ee799906cfaf76600ae8adbaa8f83203de07b28cafd8d5f16"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_07\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "011c0b79e3966394107301003438b61d01e77b01ef17602e52e863eeb35c0cc3"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_10\\frame_activity_candidates-corrected.parquet",
+      "sha256": "01728f41d8367dc2e4d9ef73a75fbf6296fcc441e5a6f344ce35a0b500317494"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_10\\movement_state_candidates-corrected.parquet",
+      "sha256": "05e8bcce0c454802abb0318456eb3ca19c80041acf02dc57221ad03e622e875b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_10\\stimulus_events.parquet",
+      "sha256": "8652af25c926961d548d642a00abe0f9034ff31bb095f5b7291cdff3f279c0d5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230301_10\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "be5f3cb6f7637ef2d6e64bad408d12c29ac4afd32ee1762a5df2145dc5d9b3cb"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_08\\frame_activity_candidates-corrected.parquet",
+      "sha256": "62676487b30faf7b2da16d09966271a43781b5218636a2fb1d4bab18a87a1776"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_08\\movement_state_candidates-corrected.parquet",
+      "sha256": "ed500090baef6791ecf2881754d6b62081c3a49009c609bda5b7ac1e791729d0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_08\\stimulus_events.parquet",
+      "sha256": "0556193ff186ddb2b5098227b21b50f2fae8041080e5cf5fef0e73f78d9df8c4"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_08\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "f1a196d9262563491fc0627f73297415694c7144f8b626e1ecc5cb103d98b4b6"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_09\\frame_activity_candidates-corrected.parquet",
+      "sha256": "99a80c420f60df85cbddb8e01243f7be1e954e22e937ff2c67ad881c78a32840"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_09\\movement_state_candidates-corrected.parquet",
+      "sha256": "f9923644b6133584d7e896d568eab8330dd18264ccaf87d6b6b8b6c4a828a736"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_09\\stimulus_events.parquet",
+      "sha256": "9de381275058270a8c2cc42ed08b803986e1f6c9bb63a058f470f1849e9dee67"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230302_09\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "0860d5813b1c69371905c8a68e4c54f2eebce455b80e197efa2aadbc5f696609"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_05\\frame_activity_candidates-corrected.parquet",
+      "sha256": "25e204d9e4e8b9597c857ddfd77e5a04bb138828716f8807e0a01a1e74dafe61"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_05\\movement_state_candidates-corrected.parquet",
+      "sha256": "3982aaf16d953bc22f9d0b9f6f5c843482c6f3930c5f3367fbb961cb55de2739"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_05\\stimulus_events.parquet",
+      "sha256": "2b94cb01fbe23a2260b00f555e4bdc5c1be4740771f02f353ceac247dcca31ab"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_05\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "ca22dbccf3b61db6fec61dedae76ccd51ed48ad6fdcd1454b3018f9dd034eac0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_08\\frame_activity_candidates-corrected.parquet",
+      "sha256": "18c2391ad6d4a72a8c2d2c407857b055b521fd5712b2c26273a0f5aac696820c"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_08\\movement_state_candidates-corrected.parquet",
+      "sha256": "77f88b89a5abf62f76aae5b5c53b484644e3d37d66820b3aee3592eb82423101"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_08\\stimulus_events.parquet",
+      "sha256": "f2ba4472764f10502313967605580161f5d9639c36e37a5575ac4f7d6d26d2fa"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_08\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "afe0bd9fda5100c72a0e7d9541fc3fbfa33dd194181a69621f3b751c33c9f729"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_10\\frame_activity_candidates-corrected.parquet",
+      "sha256": "8ff7178570e1f2decaf4166b9a5c8096ec363b3dc0195e3610c2575c6ea2705b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_10\\movement_state_candidates-corrected.parquet",
+      "sha256": "eea933998efb9205d404f0a4f1df20baf0a6c6cac94afd097557b9c518b1de45"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_10\\stimulus_events.parquet",
+      "sha256": "680f96abda088138de105e02ddd7bff87d55faa28df231c791a207f5d04dbffd"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_10\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "9259562b08d26dcb2591019abae51a8ba3d92e3fc5d924f05536135247e68943"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_11\\frame_activity_candidates-corrected.parquet",
+      "sha256": "1a7d9d4794497f590196f3ec607119652521d9e2e3ab9c605eab54c3d3c17d29"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_11\\movement_state_candidates-corrected.parquet",
+      "sha256": "9374498c3c904d284136667367dfabf35b3b768ca2dfbc9321cb61896d93d733"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_11\\stimulus_events.parquet",
+      "sha256": "c7396f7c42120695f8196d3913e7cae64af9328334511d7350e9e21fcb7d01e3"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_11\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "10347917b66df05233f3d5991318657b1ae8091e99aef73adda7133d2b5a92f5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_02\\frame_activity_candidates-corrected.parquet",
+      "sha256": "d9859931cedf15914f22ed7ec059746a182400a2ce30c92730781a8c79861785"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_02\\movement_state_candidates-corrected.parquet",
+      "sha256": "ab4e5b87e93c41cd00bc8bff40908cea3e00cf9b20d375e928738ede8707cc90"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_02\\stimulus_events.parquet",
+      "sha256": "c9709f00fff7c21f21f1fc095fed6e01a1411e3d3af29a502ac9cdf4b5b6cd94"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_02\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "5b63a0c5838dcc83058b3014571e2304eb4eaef407692f048e034d46c21a0a0a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_08\\frame_activity_candidates-corrected.parquet",
+      "sha256": "dae2e0d618eb15d114f96455253d0c7993119a6790f6e8e3305b84d350565121"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_08\\movement_state_candidates-corrected.parquet",
+      "sha256": "d34fbb200c5c54b6b95b5a06d7f0c66aa7ae8203d14431d395cc92c0bd001144"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_08\\stimulus_events.parquet",
+      "sha256": "16bc7e6f5edf63b32e3dc1ef6836c77063ecf4745ab05c06e4512eca4f2650e7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_08\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "7b6dc5760ac7ed8b012d11dadf86d30c3ebfe73f8fb66205afa8bf5e4eeb1ae7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_11\\frame_activity_candidates-corrected.parquet",
+      "sha256": "5a4b4b0cbf118d02f09e0eaf7d781601026762dd027fae6a3b9ccce1226ce29a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_11\\movement_state_candidates-corrected.parquet",
+      "sha256": "11306e162a8310b1e1363c283c0c20c61507ef88c61a80537dc22ccf33a17f13"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_11\\stimulus_events.parquet",
+      "sha256": "81a7c8516b325c8b3d3a2228997f8feac3463c6ef72ba758db663b95badb16f4"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_11\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "62895e55923e423f892c95474369a5b5ad557455ff1b235876a95fa44c06b11f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_01\\frame_activity_candidates-corrected.parquet",
+      "sha256": "2a1049f662b89b6f9132825d13bcdfd58301953271cdaa0442ab37d255f43783"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_01\\movement_state_candidates-corrected.parquet",
+      "sha256": "2f777139176c057863de0d66992c9490a21fd21af5d4bdc8a916563f0485308d"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_01\\stimulus_events.parquet",
+      "sha256": "ae950de5010b3580dd078e0700b754e686fc592ee1105d4bfdf1d5306bc6160e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_01\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "795cb794b91124bf4a311690e6451d9b09b7afdfa27b9226043f5b16ae628be3"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_07\\frame_activity_candidates-corrected.parquet",
+      "sha256": "91707d0843eaadae294d97f2819b4708a8d7acb06a6acf54cc5a04d4ace242c9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_07\\movement_state_candidates-corrected.parquet",
+      "sha256": "3efead20645549de9d5420ac6f0be7ea0cbc7f1a16402b7b53c9f164a8a114ab"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_07\\stimulus_events.parquet",
+      "sha256": "d605afa25766fdeb9f2b220156333c4f17e81766e9ebcb2a20028eec8b06c74f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_07\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "aa3f874cb87a206d7ac70385c31e5dbe57eca381cd99f15057778fadda7220cd"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_10\\frame_activity_candidates-corrected.parquet",
+      "sha256": "c3031d7ba8c84df082d18a3272cae6fc6563de4d83ce37aead328527b0338c4e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_10\\movement_state_candidates-corrected.parquet",
+      "sha256": "bfc08a14ea798b7e0664c8a9d0ed275e00468420d3309066242b548425c1efc9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_10\\stimulus_events.parquet",
+      "sha256": "7f5f11d7f53e437568da14707dd9bb636a7a05b0ac9c6f32e3578f1978925606"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230306_10\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "998767f89601e156abef642ae44dcb61fc6928d0757aa2507a24a612437336b5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_03\\frame_activity_candidates-corrected.parquet",
+      "sha256": "e18b7b6610c42516ffa3e9f606e3fe449cf8f09e8b36728962cdc3cdc2578078"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_03\\movement_state_candidates-corrected.parquet",
+      "sha256": "3923d9f0bb4cf1cd890b016b9ba79aaa6546e83411134f646b0fa32a8ec8eb18"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_03\\stimulus_events.parquet",
+      "sha256": "dcfa11691f571d36676cccd2a1aa35f38699fb63eac1815faf3d1d7176861ddf"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_03\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "369018a5435155282543ca2b45c5c77f9f8df3e69cd689fcf80e34c47251afa8"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_06\\frame_activity_candidates-corrected.parquet",
+      "sha256": "4790e3cccbd25eba6f23b06206baf1c1b54123e144b131afd9899bd0b2f1d4e8"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_06\\movement_state_candidates-corrected.parquet",
+      "sha256": "d3875db83bd84d32c2e52323c41eb290f61518745c54271a8cafe8fa4d956482"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_06\\stimulus_events.parquet",
+      "sha256": "44be6c45b7ee635d97c0203c1303fa03101b7624dfc56cf5da9b73fe15d3a719"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_06\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "1216adce3779e899a97f544e635ac7b06f002974382b9d4b5b179f741dab0b13"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_09\\frame_activity_candidates-corrected.parquet",
+      "sha256": "a8f0df645d61a9d0721a8313c5edbd8d5943dbdb7d79f51e2c50039e0becfea5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_09\\movement_state_candidates-corrected.parquet",
+      "sha256": "a80c75589a13246f6c81d60de19d4b9c2400d1dae73499487d086fc77beaa650"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_09\\stimulus_events.parquet",
+      "sha256": "f1d61578fa191aead362015908e3168658dd0080da87c87f041f44da71b87e41"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_09\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "71d48569a827f97da74ca97460e165159147b0b08a5a1e646f3a2481c18ff457"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_12\\frame_activity_candidates-corrected.parquet",
+      "sha256": "97e846387fcc01c7e4f60131bf422a0621ca7cab2e335f2152373ac6dda2cad2"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_12\\movement_state_candidates-corrected.parquet",
+      "sha256": "4cd299eabb3e49bb9d5f34f187564814521f256ae11929fe2e7b1411047d552b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_12\\stimulus_events.parquet",
+      "sha256": "4166f77fa254e103bcf728593ee531f733a1764ba8d9d43179a0fd6511d01198"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230307_12\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "3799561bbe769195e1f62292f4a504b9ccfbd9a20b11de0a8844dbf3309c8b7d"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_09\\frame_activity_candidates-corrected.parquet",
+      "sha256": "3f9db4efe90081e94457c92f51f4bd66fb16fe1cf2cf0b27955dddba29f93c51"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_09\\movement_state_candidates-corrected.parquet",
+      "sha256": "7099d5850b4fe328e26899ea6131d909608bd39bb928b0fb3897441056aa9605"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_09\\stimulus_events.parquet",
+      "sha256": "2b31a83ae269df02ad72b114741692a5fcd5e6822be80887cf8edc3e415357d5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_09\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "422bad268d9a9803b11b1d430a87f5a4da68fb5b6e1da63ce1eebf3c1e5b2940"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_11\\frame_activity_candidates-corrected.parquet",
+      "sha256": "bacbdb1b6f8c592abd93379bd6eda16ec9d07da05a73b299787173b0b88d9e34"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_11\\movement_state_candidates-corrected.parquet",
+      "sha256": "eca96e99a4375323f83d3f5cdc160974acd28b4fecbe2d17742086a26b220f12"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_11\\stimulus_events.parquet",
+      "sha256": "9c686be2e9877f849ff14a235f4e7675d1d63184ad4a839d74fa9907f52eaf8c"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230309_11\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "ebca78c59d99c09b77e4e386bce473034cb2f9568127d05dbe1fe87198133aef"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_02\\frame_activity_candidates-corrected.parquet",
+      "sha256": "f973d3fbbf73b07f7f100d1555ccccebf80e0fc5157a28e6e8978cbad9690293"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_02\\movement_state_candidates-corrected.parquet",
+      "sha256": "eb6a50ff8edbe72f50f972e2c76e3c87d720221e12bdccefadfb81db39ee9b73"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_02\\stimulus_events.parquet",
+      "sha256": "44e472aec37c0d42c7b565a77f63abc7de0630b773287df879a064b908536690"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_02\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "4e893cd51f4448382cd14764af26bf33a50f41c08a907eebbb3b5609ea80515b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_05\\frame_activity_candidates-corrected.parquet",
+      "sha256": "0def1f8dba723e78274b7210513f44e726bbc326fddfa2877a7bb60d5c070813"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_05\\movement_state_candidates-corrected.parquet",
+      "sha256": "9d740f138db94c70d5144575e3d84d97bc531db666da04dc161a78c52c9aa453"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_05\\stimulus_events.parquet",
+      "sha256": "2876d8a06f2eec9a7c0596d4e7c972a1f0d456c3ec05d52acc170823c36407f4"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_05\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "1292a30a84769479a1678c8482d53c408ea1df395a904da42339515169d74248"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\frame_activity_candidates-corrected.parquet",
+      "sha256": "4065ddbc03c3d3c13d900cae568f7dff6a5e31a5035aee90bc3bdfc359e4c000"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\movement_state_candidates-corrected.parquet",
+      "sha256": "68646c58968c369735c1e1cce11f8178965a9491faf3e671b532459841d527b7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\stimulus_events.parquet",
+      "sha256": "db6b5f031c8ba36456427a3d8842360ff6c45c72aabf11d6ab9bd5e8f45d2cf6"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "8b75ff14db6a8e471c0626fe5e7f0b952d7c7511faa00a1ca65e70437517a3fe"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_11\\frame_activity_candidates-corrected.parquet",
+      "sha256": "3046b35780e4749f02179155d61b481d828c369c1dcb28758ed413a644579f9e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_11\\movement_state_candidates-corrected.parquet",
+      "sha256": "64847db393aab2323975f5f236de1ae944ba7090ebbbc7e2ffdca874db693aa1"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_11\\stimulus_events.parquet",
+      "sha256": "b38fc77349135dbe392a04c306dd5bc0ef370a54d5e26b544eb47292fe57aac9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_11\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "37acd8e10e32744f6b0b1c99a9efa711d9baa963cd820cd382c636587f44803f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_01\\frame_activity_candidates-corrected.parquet",
+      "sha256": "9acec1a4f92ed93eda60d47f3a903cdcc6ad9df456bd6225044a90ffc5e27cb2"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_01\\movement_state_candidates-corrected.parquet",
+      "sha256": "e101cd2ccbaaa93245e99dc8b8417377c6ee90b3498a0d1dc81d1dc9134cdb41"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_01\\stimulus_events.parquet",
+      "sha256": "c77717e7e9acf70d7a270ce40442836002abf4e2f5cae5de14b083797916d734"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_01\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "fb56a89c96f0ff35bf34d951251a9d75f20f857fea901e9dc49b2d34b492aa92"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_04\\frame_activity_candidates-corrected.parquet",
+      "sha256": "5f3fa55b45df14fec53d00ff9e6ff5883293961b2de0ec161219cd96d1acb01a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_04\\movement_state_candidates-corrected.parquet",
+      "sha256": "1a41f89de378291da17629318094a05817ba83388eef79c6195c59b4a3ace0e9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_04\\stimulus_events.parquet",
+      "sha256": "6d12640e39428b1f23c1072a0c965b892eb593c838b9ab3a54168c097a2d38d9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_04\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "e80d636655aa6f4d3b82c4e3846d97930e2cacb4cdce84f5f0a51417f2f37805"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_06\\frame_activity_candidates-corrected.parquet",
+      "sha256": "3eeb0933a0684dc7d0e85f7800eec079309e664143ceab1c741e1c0838a07dd1"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_06\\movement_state_candidates-corrected.parquet",
+      "sha256": "938548975cfe101fa588f9aa497de5e2c6d700aaf26299c4fe8c24cb5a3234fe"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_06\\stimulus_events.parquet",
+      "sha256": "531ac05b256b040465de3fab262c924a9abce2aea93e7fb629d9958a6cbf9ed6"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_06\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "30e94c3f2e18e82df653c88aacb93f075154f7a3bee2b630478bb88727049d9d"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_11\\frame_activity_candidates-corrected.parquet",
+      "sha256": "5216c47f2021176a215fe0161ce8995cc17d4ff7c1bc84cb1f044ee7821df90e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_11\\movement_state_candidates-corrected.parquet",
+      "sha256": "1fe86f4ae148562dfdc59275617257abd4de77bc82491b77cb4d37db7c39b9ca"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_11\\stimulus_events.parquet",
+      "sha256": "160de92fbe7a942ee40c7a67a514a4538463121224ca9f962a4e8f52296482e0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230314_11\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "99e98d29eb2f95f1af5614e418f09ec307a53bf9f88894032b8aad253f3d77d7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_02\\frame_activity_candidates-corrected.parquet",
+      "sha256": "3346cfca0ebdc80234017e1ddb9a4439e43607b66dd30e4d30898d1972d0801e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_02\\movement_state_candidates-corrected.parquet",
+      "sha256": "3c1b09f9fac86fd2ec635df8585b06199ac3ead5d5f119f3d6f16184e02358c0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_02\\stimulus_events.parquet",
+      "sha256": "a89d9264a156aebd3c80deb01b5be06e5a35aed4757bfdfee16ff30554fc167d"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_02\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "ecbd32f9a391d045911ebe7fbf458aa95a025fe8d887a83b1054cb2f0af7cf45"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_06\\frame_activity_candidates-corrected.parquet",
+      "sha256": "409ffe658c5a4c69731fe0fad7362417b677ced9c606f52aa53c43fd62ec03f0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_06\\movement_state_candidates-corrected.parquet",
+      "sha256": "a4334b4fe381f341346dd8eae40df6638eb0b378cddd39002331238bf695a9f7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_06\\stimulus_events.parquet",
+      "sha256": "cbd184058f7be197ad786e91d5acfd9d26ac9e916c263e185f904feb15fa3349"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230315_06\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "2ecbc0c386e4f60c2476740a62903aa10966dd3edeebe782d4981c1058a1553f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_03\\frame_activity_candidates-corrected.parquet",
+      "sha256": "74f4bfb4aa1c6cec3805f4bab74be9371fd67d247bcafa69d77d9dce7c3fc847"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_03\\movement_state_candidates-corrected.parquet",
+      "sha256": "efdcdefcc903bddd3691f544f57cde20e22ef5e1ba9f30c3abae25286dd413e4"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_03\\stimulus_events.parquet",
+      "sha256": "030590d52cf294be8dbc536448142bf64679f38ba7ab7c98883c0c69f3289b7a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_03\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "1fb3c492f8ff9611e25312ab0d9624043b1f7cb65b9cdddd3a8e3262e74407f9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_06\\frame_activity_candidates-corrected.parquet",
+      "sha256": "1a5bd6b4ae9ce24c660da7df0202d6eb445b3dd343b0ed4a72127866ec0b716e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_06\\movement_state_candidates-corrected.parquet",
+      "sha256": "733d1ac5adc7eace9dc27d3fa35d2d39e3dcf167086bc21015e923280a3bd6d8"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_06\\stimulus_events.parquet",
+      "sha256": "84128968d42b3cb9011bbb676b0a6e9fd03bdc6373dfd0ee48ab945af8433ceb"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_06\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "722e154f2c6c4611740590b6dba3bb72d369c5dadafa340b198d3bcac484c435"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_09\\frame_activity_candidates-corrected.parquet",
+      "sha256": "edb5149dbb293048b3ef6ab1904813e67ae5a5ce1c4349563bf194e91e0c40bd"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_09\\movement_state_candidates-corrected.parquet",
+      "sha256": "51d9f15ca440a90f3141bfefda36609449fe5554b9425b6a006f74836b8193a0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_09\\stimulus_events.parquet",
+      "sha256": "af355b0504429454163c79d30d0dadcdaa0695858a07961d738bad06e883ede5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_09\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "82c32699885f598df23bb7a618920693f87b515cb10d71af7bad6c1d69a9fdfb"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_12\\frame_activity_candidates-corrected.parquet",
+      "sha256": "5778fbc2edddd01b0987925d6a63311039355f55ce34389259f9910d62a35146"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_12\\movement_state_candidates-corrected.parquet",
+      "sha256": "547c5ff6fcc7f351c6768d7550148b646439f5ddbfd1d8107e898309ffc6ba9f"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_12\\stimulus_events.parquet",
+      "sha256": "1fa30504176c786bcac2a905c39a69166f796038efdb726447836f7064adab23"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230316_12\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "08e04116d29165dccce509812d63dad6e72894ed470f8fb363c4e72c2e9c0ad6"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_01\\frame_activity_candidates-corrected.parquet",
+      "sha256": "b90173d69f65ddccead180620ec03ab9a0ff8ee4e892976ed42b73a2ef02f796"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_01\\movement_state_candidates-corrected.parquet",
+      "sha256": "496edb18ffbf625ab8629e1431d613ec4ca23574431f2ca1dcec04102dc54eb0"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_01\\stimulus_events.parquet",
+      "sha256": "8ae18b180db02fd8512b190e4583e2e3a7138a9f8cfe310216e05490979894e6"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_01\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "0d4e57f4f75aa4dff037878e8312df0db66137a59ea1976bd6c1680130f31d75"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_08\\frame_activity_candidates-corrected.parquet",
+      "sha256": "cc3250c24f29808a40987bdc44440beef7583ebb1f54883676b00b4badb2c561"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_08\\movement_state_candidates-corrected.parquet",
+      "sha256": "e5256f4ad099c91cf84cdb11ad030cc57e331645d59318ee461b782379326111"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_08\\stimulus_events.parquet",
+      "sha256": "dc95ea2b210fd435f760fe824f3622a65329076807fdeb579b7bbfdc6d903353"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_08\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "0e85592b336f2deeb2b11efada0c8ee165b2f0da894f1f551cca9d0ff1cea970"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_10\\frame_activity_candidates-corrected.parquet",
+      "sha256": "69908ae18b97e1dea50541f64ed42bbdbecc4e987fc51cf2f7c0afa8e50aa5d6"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_10\\movement_state_candidates-corrected.parquet",
+      "sha256": "39c8ef163e340e957e6bc26a929dfc23a3fa8ee56215c6e98e82725867e3de19"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_10\\stimulus_events.parquet",
+      "sha256": "461f06329fa059224b844efa25207b95a7a1eaf0ecb8101a506bd77918b5a643"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230516_10\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "44ec029585090ecb8360399c3787291e7d705143441cfd33379d801e08c6706b"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_03\\frame_activity_candidates-corrected.parquet",
+      "sha256": "a5e355e4d4691029edf5921b5274e4759d6372d68dd78e4bd51b0e13e9a0860c"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_03\\movement_state_candidates-corrected.parquet",
+      "sha256": "aef06c97aa140964cbfb2b6a8723debe58b696f480df973598f43f83f11fb1da"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_03\\stimulus_events.parquet",
+      "sha256": "4ad08a05723dd16d7910ea2caec2357ec282f43a53c0fa7c083f2166cddcb5f5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_03\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "fc2e14c8ffcdf2a701f56f9edcdd161271a2ae58add712d1722a23ecf2c6ea61"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_05\\frame_activity_candidates-corrected.parquet",
+      "sha256": "e0106d41ff80a9a11d2689025004d59062ca4ff96c73ccfff8c7420b46d299bd"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_05\\movement_state_candidates-corrected.parquet",
+      "sha256": "246633b5de33557e2c5b99fff5b11cac582747e3ee8ceb30712c3cb35289d743"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_05\\stimulus_events.parquet",
+      "sha256": "6f173f52ebd3988236e6ba7a12d507f0f555b33ae62736396187f16ac25f0636"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_05\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "786c1a4d78b229353e2f4c2e8d76ccf4f680399d61de5d770131b8779a67794a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_12\\frame_activity_candidates-corrected.parquet",
+      "sha256": "fb38ba825b6030c2363387a239bb9b5afddfe23a7b84203ebba36bfe0ae6b2b7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_12\\movement_state_candidates-corrected.parquet",
+      "sha256": "aaa7a7cae6ea7eb731c122b14102404133ff0dc43d275d34f2fade1166b949e9"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_12\\stimulus_events.parquet",
+      "sha256": "13111364fb3c8e32538a53cdbfc3dc394c63e93c71b14161d3f4674187a3c926"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230517_12\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "7c12c891aa375ba8ba5042add0d8532327c8b5e5cd0749dec2581967d7c4c2b5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_02\\frame_activity_candidates-corrected.parquet",
+      "sha256": "6bf577c0367b097bffaa5e4dfa4323f5e1d428ed404372b4a639f366cfee8f65"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_02\\movement_state_candidates-corrected.parquet",
+      "sha256": "38686c081a2dd2319e8a00fef60db359e60b84e0e56327870f3ddc759a8d4ec5"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_02\\stimulus_events.parquet",
+      "sha256": "d7c973127481e6be11ad5f64d928aca11fcc2a566737499cb2bb1702c27f43c7"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_02\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "b1abd8a61fd92df964c53ed99a9063b8356d15f9819867c566bc6676f8f002f2"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_05\\frame_activity_candidates-corrected.parquet",
+      "sha256": "a44fa721ad6abb4c77f5cdea51b18daad15226c63f712babd1358629f98dd683"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_05\\movement_state_candidates-corrected.parquet",
+      "sha256": "e52076e1f1628b26da12c58cf384f63a2d3d5ed9c05ebe856b7759afc8ab3df2"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_05\\stimulus_events.parquet",
+      "sha256": "3e17cc2032111872159ac301394fafb4df8ecc1f9a8eeaa47c5abd2f5417be65"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_05\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "0e6b274271b618a520579b347c45a93b4df2812016b1a662bd27753a8a38f4fe"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_12\\frame_activity_candidates-corrected.parquet",
+      "sha256": "6c96d4568c5e9600df56a91d7fe18e58aee632136cdea7b451f312c0a07022a6"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_12\\movement_state_candidates-corrected.parquet",
+      "sha256": "c2016dd9fca15e9cd678c0d53a451135cfc4c2d6d6bbbf5f2b76362f90222170"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_12\\stimulus_events.parquet",
+      "sha256": "2b5fd52c6021ec0f77d6b0b7018779ac8456b6ca4d9bd52221653a7093483119"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230518_12\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "1c59dfc73b2b6f035c6b605f5068708a133459013eaf615f1aeacca61c25759c"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_04\\frame_activity_candidates-corrected.parquet",
+      "sha256": "5b9e1c2a4a05c53ee40dc0b525fea62a7f132a2ec694abd8450f9c11e7e0e56c"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_04\\movement_state_candidates-corrected.parquet",
+      "sha256": "992833b553dec2251015cc0fe1f052f6d99dc141b0ad5ed4049c9c9be5940733"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_04\\stimulus_events.parquet",
+      "sha256": "3952b50165765e913ee425ebf1385300365eefce48c1ee8ce0f86aeaab4d802e"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_04\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "11d422a21512795ee1a44d3ef90e9c868a6a099e9e97cb421df30431a17b0428"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_11\\frame_activity_candidates-corrected.parquet",
+      "sha256": "e895ebb78cd5a6566a6e3ec9d858e6d9554eca5a6401071234896d9c78ec41da"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_11\\movement_state_candidates-corrected.parquet",
+      "sha256": "1b0f95f3482fab04f99d3541a3ca0e18eb76da1073906533b95d69e95a5e5f5a"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_11\\stimulus_events.parquet",
+      "sha256": "284e0f203ca5b3890adaf03be86082b2fa6b3f5f9ee24d275070c470ceeede47"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230519_11\\candidate_temporal_outcomes-corrected.parquet",
+      "sha256": "e64382a9f9db9477354c0b30c9767aa3c3fc319d7dabbee32f0311ed2ff627dd"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Figures\\PNG\\Analyses\\figure2-3strace-window13-legacy-53fish\\signed-heatmap\\figure-2B-3strace_legacy_distal_angular_speed_panel-data.parquet",
+      "sha256": "8901295e54517e583e421a15eba7c738d3c21584fb5c1762c79ea51b53e1f168"
+    }
+  ],
+  "mode": "static",
+  "outputs": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Figures\\PNG\\Analyses\\figure2-3strace-window13-legacy-53fish\\signed-heatmap\\figure-2B-3strace_signed_legacy_distal_angular_speed.png",
+      "sha256": "9754fc4f629680b6bb87549c71b07d161d3dce6ce60b015aef4a0a46ba2594d3"
+    }
+  ],
+  "reproduction_snippet": "python scripts/render_figure2_3strace_signed_review.py --project-dir 'F:\\Digested Data\\all3sTrace-full-v1' --cohort-id all3sTrace-window13-legacy-20260925-53fish --metric legacy_distal_angular_speed --mode static",
+  "source_commit": "a23d5f23070295d5cf0db2b81d46e7c753386ad2",
+  "source_file": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\render_figure2_3strace_signed_review.py",
+  "source_hash": "e17f2769989610732558733194a206a4a4c46cec0d9a6bf15c1b6dc65d4e24ca",
+  "source_symbol": "main",
+  "source_worktree_dirty": true
+}

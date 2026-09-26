@@ -1,0 +1,8 @@
+{
+  "status": "move_complete",
+  "details": "Only the J: 3sTrace derived project was removed after F: verification",
+  "updated_at_utc": "2026-09-26T06:23:50.6910026Z",
+  "source_project": "J:\\Digested Data\\all3sTrace-full-v1",
+  "destination_project": "F:\\Digested Data\\all3sTrace-full-v1",
+  "readiness_report": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\trace-transfer-review\\move-readiness.json"
+}

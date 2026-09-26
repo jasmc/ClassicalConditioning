@@ -134,7 +134,7 @@ def verify(project: Path, source: Path, report_path: Path) -> dict:
         raise ValueError("Learning-onset analysis uses a different cohort")
 
     figure_paths = [
-        project / "Figures" / "PNG" / "20230307_12" / f"figure-1-F-3strace_{METRIC}.png",
+        project / "Figures" / "PNG" / "20230307_12" / f"figure-1-G-3strace_{METRIC}.png",
         *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-review"
           / f"figure-2B-3strace_{kind}_{METRIC}.png" for kind in ("signed", "coverage")),
         *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-window13"

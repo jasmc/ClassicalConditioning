@@ -72,21 +72,21 @@ def build_render_plan(
     if figure_set in {"available", "figure1"}:
         for fish in (delay_fish, control_fish):
             steps.append(RenderStep(
-                f"figure1-cd-{fish}", ("fig-1C", "fig-1D"),
-                ("scripts/render_legacy_ssd_example_traces.py", *common,
+                f"figure1-cd-scaled-log-review-{fish}", ("fig-1C", "fig-1D"),
+                ("scripts/render_figure1_cd_scaled_log_review.py", *common,
                  "--output-dir", str(output_dir / "figure1/traces"),
                  "--recording-id", fish, "--metric", metric_id,
                  *(item for trial in trials for item in ("--trial", str(trial))),
-                 "--window-start", "-20", "--window-end", "20", *force),
+                 "--signal", "moving-bouts", *force),
             ))
         if (delay_fish, control_fish) != DEFAULT_FISH:
             raise ValueError(
                 "The signed Figure 1 heatmap renderer currently supports only "
                 "20221115_07 Delay and 20221115_09 control; choose those fish "
-                "or run the paired C/D traces directly."
+                "or run the paired D/E traces directly."
             )
         steps.append(RenderStep(
-            "figure1-signed-heatmap", ("fig-1E",),
+            "figure1-signed-heatmap", ("fig-1F", "fig-1H"),
             ("scripts/render_legacy_ssd_example_heatmaps.py", *common,
              "--output-dir", str(output_dir / "figure1/heatmaps"),
              "--baseline-end-s", "0", "--metric", metric_id, *force),

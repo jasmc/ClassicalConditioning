@@ -1,0 +1,14 @@
+{
+  "status": "complete",
+  "details": "Legacy-metric Figures 2, 3, and 4 rendered for 53 corrected fish",
+  "cohort_id": "all3sTrace-window13-legacy-20260925-53fish",
+  "fish_count": 53,
+  "metric_id": "legacy_distal_angular_speed",
+  "classifier_version": "legacy-wip",
+  "response_window_s": [
+    0,
+    13
+  ],
+  "updated_at_utc": "2026-09-25T22:25:33.3688244Z",
+  "log": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\trace-legacy-preview\\20260925-window13\\preview-post.log"
+}

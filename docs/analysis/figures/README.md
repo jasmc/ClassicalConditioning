@@ -10,4 +10,7 @@
 | 06 | [Figure 4 learner profiles](06_FIGURE4_LEARNER_PROFILES.md) | Classifier manifest, run order, signed signal, and provenance. |
 | 07 | [Figure 4 handover](07_FIGURE4_HANDOVER.md) | Development handover and unresolved items. |
 
+For the intended Figure 1 lettering with protocol B, see the [C/D trace version guide](FIGURE1_CD_TRACE_VARIANTS.md) before choosing the paired tail-angle and vigor presentation.
+The [pre-CS baseline review](BASELINE_WINDOW_REVIEW.md) inventories which analyses currently use [−15, 0) s, [−20, 0) s, or an earlier-than−15 s reference.
+
 The [machine panel registry](../../../configs/paper-figures/behavior-paper.json) records proposed panel IDs and blocked reasons. The [review variant registry](../../../configs/paper-figures/review-variants.json) records generated alternatives.

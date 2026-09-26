@@ -1,0 +1,50 @@
+{
+  "source_project": "J:\\Digested Data\\all3sTrace-full-v1",
+  "destination_project": "F:\\Digested Data\\all3sTrace-full-v1",
+  "generated_at_utc": "2026-09-25T06:14:10.232053Z",
+  "folder_count": 2,
+  "file_count": 8,
+  "bytes": 1992276951.0,
+  "files": [
+    {
+      "relative_path": ".20230307_12-intake-be77eadf21eb4411b2c33512fd892950\\Processed data\\camera.parquet",
+      "size_bytes": 74850824,
+      "sha256": "6BE57E4B043002A4BCDC94274694115E5387514EC0086E05987973FA993958F0"
+    },
+    {
+      "relative_path": ".20230307_12-intake-be77eadf21eb4411b2c33512fd892950\\Processed data\\tracking.parquet.incomplete",
+      "size_bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "relative_path": ".20230309_11-intake-2fb3ba2619a945f692660c78b09d5466\\Processed data\\camera.parquet",
+      "size_bytes": 75334489,
+      "sha256": "6EF539D5623B8435900673DC773E672F960DE2BA56D11C1DB5D379E6100737E4"
+    },
+    {
+      "relative_path": ".20230309_11-intake-2fb3ba2619a945f692660c78b09d5466\\Processed data\\stimulus_events.parquet",
+      "size_bytes": 3252,
+      "sha256": "9C686BE2E9877F849FF14A235F4E7675D1D63184AD4A839D74FA9907F52EAF8C"
+    },
+    {
+      "relative_path": ".20230309_11-intake-2fb3ba2619a945f692660c78b09d5466\\Processed data\\tracking.parquet",
+      "size_bytes": 1841891929,
+      "sha256": "D44022030DE65275BDAEE4B9A2D2BA45141025EF6DBC699CF79C48899CB77806"
+    },
+    {
+      "relative_path": ".20230309_11-intake-2fb3ba2619a945f692660c78b09d5466\\Quality checks\\acquisition_summary.json",
+      "size_bytes": 19218,
+      "sha256": "AF41B0EBE1CA28F7DC9E0A3556F7CF76F31F929C3B494762217C3C86EA8983DF"
+    },
+    {
+      "relative_path": ".20230309_11-intake-2fb3ba2619a945f692660c78b09d5466\\Quality checks\\figures\\camera_timing.png",
+      "size_bytes": 174621,
+      "sha256": "A2D20616A7EEE8DFB30E4C00F09EA9914BECB9F7CF778550449B42461D999D31"
+    },
+    {
+      "relative_path": ".20230309_11-intake-2fb3ba2619a945f692660c78b09d5466\\Metadata\\20230309_11_source_manifest.json",
+      "size_bytes": 2618,
+      "sha256": "0E2651C1A2C58AC96F49068BD9A88B7D0C540DF7581DDA8677A80A805589869A"
+    }
+  ]
+}

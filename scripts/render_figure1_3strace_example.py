@@ -1,4 +1,4 @@
-"""Render the historical 3sTrace example fish as a signed Figure 1F review heatmap."""
+"""Render the historical 3sTrace example fish as a signed Figure 1G review heatmap."""
 
 from __future__ import annotations
 
@@ -102,9 +102,9 @@ def main() -> None:
     source = Path(__file__).resolve()
     try:
         result = export_matplotlib_figure(
-            fig, output / f"figure-1-F-3strace_{args.metric}",
+            fig, output / f"figure-1-G-3strace_{args.metric}",
             FigureProvenance(
-                figure_id="figure-1-F-3strace-example-heatmap",
+                figure_id="figure-1-G-3strace-example-heatmap",
                 analysis_recipe="signed-bout-log-vigor-pre20-median-0p5s",
                 source_file=str(source), source_symbol="main",
                 source_hash=sha256_file(source),

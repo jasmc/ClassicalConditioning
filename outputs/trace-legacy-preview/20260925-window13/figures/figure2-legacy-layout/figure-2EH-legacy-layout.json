@@ -1,0 +1,36 @@
+{
+  "cohort_id": "all3sTrace-window13-legacy-20260925-53fish",
+  "cohort_hash": "96723d46cb2735b0cdff7f2f2ef9199366461e7e9b4a59f814b27fd16f81a2cb",
+  "metric_id": "legacy_distal_angular_speed",
+  "response_window_s": [
+    0,
+    13
+  ],
+  "source": "legacy/scripts/5_NormalizedVigorPlotting.py",
+  "block_trials": {
+    "PTr": [
+      5,
+      9
+    ],
+    "ETe": [
+      65,
+      69
+    ],
+    "LTe": [
+      90,
+      94
+    ]
+  },
+  "plot_spec": "fish median per five-trial block; grouped boxes; per-trial condition median and 95% bootstrap CI (100 resamples, seed 10); y=0.8\u20131.2",
+  "limits": "The current legacy_distal_angular_speed metric approximates archived Vigor (deg/ms); no archived fish exclusions or LME significance markers applied.",
+  "inputs": [
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Cohorts\\all3sTrace-window13-legacy-20260925-53fish\\cohort-trial-outcomes.parquet",
+      "sha256": "43946ac9478f3d9c641e02e5c8a01a198f88e7dd59ff6a14d4f3649cdc27cb6a"
+    }
+  ],
+  "outputs": {
+    "figure-2E_legacy-distal-angular-speed.png": "5d7adf2d9a61ea3f326f92914203d52e63f4f46b6b21ad7bed25801f50357a21",
+    "figure-2H_legacy-distal-angular-speed.png": "5daf9965c3d981215928b056baf90aa8af6b2d6b308230767567d5df53835a9d"
+  }
+}

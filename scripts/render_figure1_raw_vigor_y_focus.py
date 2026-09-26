@@ -1,4 +1,4 @@
-"""Render Figure 1D with raw frames and matching single-fish heatmap bins.
+"""Render Figure 1E with raw frames and matching single-fish heatmap bins.
 
 Black is the measured frame-by-frame candidate metric. Orange is the exact
 movement-conditional heatmap signal in 0.5 s bins, on a separate axis.
@@ -136,7 +136,7 @@ def _render(
                         "metric_id": metric_id,
                         "value_field": value_field,
                         "units": "signed log" if signed else "0-1",
-                        "source_panel": "figure-1-E movement-conditional",
+                        "source_panel": "figure-1-F/H movement-conditional",
                         "time_bin_width_s": "0.5", "first_bin": str(start),
                         "last_bin_exclusive": str(stop),
                         "missing_bins": "not drawn; run boundaries descend to zero",
@@ -188,7 +188,7 @@ def _render(
     cap_text = (f" · Y focus; orange = {transform_label}conditional heatmap bins (right axis)"
                 if focus_y else " · full Y range")
     figure.suptitle(
-        f"Figure 1D raw vigor · {METRIC_DISPLAY_NAMES[metric_id]}{cap_text}", fontsize=10,
+        f"Figure 1E raw vigor · {METRIC_DISPLAY_NAMES[metric_id]}{cap_text}", fontsize=10,
     )
     figure.supylabel(f"Frame-level vigor ({METRIC_UNITS[metric_id]})", fontsize=9)
     if focus_y:
@@ -224,7 +224,7 @@ def main() -> None:
     frame_scaled = ("Signal semantics" in heatmap_data.columns and
                     set(heatmap_data["Signal semantics"].astype(str)).issubset(expected_semantics))
     if not frame_scaled and "Conditional intensity mean" not in heatmap_data.columns and "Signed log vigor" not in heatmap_data.columns:
-        raise ValueError("Figure 1D requires movement-conditional heatmap panel data")
+        raise ValueError("Figure 1E requires movement-conditional heatmap panel data")
     if heatmap_data.duplicated(["Recording ID", "Trial number", "Metric ID", "Time bin center (s)"]).any():
         raise ValueError("Heatmap panel data contain duplicate fish/trial/metric/bin rows")
     source = Path(__file__).resolve()
@@ -253,12 +253,12 @@ def main() -> None:
                                                 metric_id,
                                                 focus_y=focus_y)
             variant = "focus-y" if focus_y else "full-y"
-            base = output / f"figure-1-D-raw-vigor-{variant}_{metric_id}_9-17-63-66-93"
+            base = output / f"figure-1-E-raw-vigor-{variant}_{metric_id}_9-17-63-66-93"
             try:
                 result = export_matplotlib_figure(
                     figure, base,
                     FigureProvenance(
-                        figure_id=f"figure-1-D-raw-vigor-{variant}",
+                        figure_id=f"figure-1-E-raw-vigor-{variant}",
                         analysis_recipe="verified-corrected-frame-vigor-example",
                         source_file=str(source), source_symbol="_render",
                         source_hash=sha256_file(source), reproduction_snippet=snippet,

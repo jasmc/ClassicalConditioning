@@ -1,24 +1,24 @@
 # Paper figure review versions (24 September 2026)
 
-This compares the output families created during this figure review. It records **what was plotted**, not an approval of the signal or statistics. The authoritative file-level audit trail is each PNG's adjacent `.figure.json` provenance sidecar and the machine [variant inventory](../../../configs/paper-figures/review-variants.json). The supplied legacy draft PNGs are visual references; their exact settings cannot be recovered from pixels.
+This compares the output families created during this figure review. It records **what was plotted**, not an approval of the signal or statistics. The authoritative file-level audit trail is each PNG's adjacent `.figure.json` provenance sidecar and the machine [variant inventory](../../../configs/paper-figures/review-variants.json). The supplied legacy draft PNGs are visual references; their exact settings cannot be recovered from pixels. Historical filenames below retain their original letters: old C/D are current D/E, old E/F/G are current F/G/H. Existing PNGs and sidecars are not renamed.
 
-The current integrated renderer uses the same −20 to 0 s signed bout-log-vigor bins for Figure 1 E and Figure 2 A, then averages fish equally for Figure 2 A. The [selected-pre20 review run](../../../outputs/paper-figures/selected-pre20-review/paper-panel-run.json) is a retained **0–1 scaled** version: its fish and pooled P10/P90 stages both use −20 to 0 s, but its measure differs from Figure 1 E. The earlier [selected-metric run](../../../outputs/paper-figures/selected-metric-review/paper-panel-run.json) retained the previous first-stage profile default (all available bins before −15 s, including times earlier than −20 s). Its Figure 1 E control half is an uncomposed candidate for paper panel G.
+The current integrated renderer uses the same −20 to 0 s signed bout-log-vigor bins for current Figure 1 F/H and Figure 2 A, then averages fish equally for Figure 2 A. The [selected-pre20 review run](../../../outputs/paper-figures/selected-pre20-review/paper-panel-run.json) is a retained **0–1 scaled** version: its fish and pooled P10/P90 stages both use −20 to 0 s, but its measure differs from Figure 1 E. The earlier [selected-metric run](../../../outputs/paper-figures/selected-metric-review/paper-panel-run.json) retained the previous first-stage profile default (all available bins before −15 s, including times earlier than −20 s). Its old Figure 1 E control half is an uncomposed candidate for current paper panel H.
 The [integrated inference review](../../../outputs/paper-figures/selected-pre20-inference-review/paper-panel-run.json) uses that historical pre-20 scaled heatmap recipe and adds the retained legacy-style D and combined LME G exploratory statistics; it has no validated learning-onset claim.
 
 All three candidate metric versions use `tail_length_weighted_angular_l1`, `whole_tail_xy_mean_speed_normalized`, or `legacy_distal_angular_speed`, unless a row says otherwise. The example recordings were `20221115_07` (Delay) and `20221115_09` (control). Figure 1 traces select global CS trials 9, 17, 63, 66, and 93. All current heatmaps span −20 to +20 s relative to CS onset, with 0.5-s bins; phase rows run Pre-Train 5–14, Train 15–64, Test 65–94, top to bottom. The selected fish and metric are **review examples**, not approved manuscript selections.
 
-## Figure 1 C and D: measured traces
+## Historical Figure 1 C and D: current D/E measured traces
 
 | Output family | Signal and display parameters | Decision |
 | --- | --- | --- |
-| [`figure1-examples`](../../../outputs/figure1-examples/) | Paired tail angle (distal cumulative angle, trial pre-CS median centered) and **unscaled corrected frame vigor** for the same fish/trials. Tail point 15; x = −20…+20 s; CS 0–10 s. One output per fish × metric. | Current paired C/D review. |
-| [`figure1-examples-zoom`](../../../outputs/figure1-examples-zoom/) | Same measured data and fish/trials, but x = −10…+12 s. | Superseded: zooming x obscured baseline comparison. |
+| [`figure1-examples`](../../../outputs/figure1-examples/) | Paired tail angle (distal cumulative angle, trial pre-CS median centered) and **unscaled corrected frame vigor** for the same fish/trials. Tail point 15; x = −20…+20 s; CS 0–10 s. One output per fish × metric. | Historical raw-vigor review. |
+| [`figure1-cd-baseline-review`](../../../outputs/figure1-cd-baseline-review/) | The same C angle with D calculated from log vigor, per-trial pre-CS P10/P90 scaling, 0–1 clipping, and 0.5 s bin means. Compares [−15, 0) and [−20, 0) s references under moving-bout and all-valid-frame masks. | Active baseline/signal comparison; no scientific freeze. |
 | [`figure1-D-raw-vigor-zoom/previous-x-zoom`](../../../outputs/figure1-D-raw-vigor-zoom/previous-x-zoom/) | Earlier D-only raw-vigor full/focus views with x zoom. | Superseded. |
 | [`figure1-D-raw-vigor-zoom`](../../../outputs/figure1-D-raw-vigor-zoom/) | D-only x = −20…+20 s. Black = unscaled corrected frame vigor. Full-y uses observed maximum; focus-y caps only the raw axis at the across-panel 99.5th percentile. Orange secondary-axis steps reproduce **the exact signed log heatmap bins** from the selected Figure 1E panel data, fixed at −0.25…+0.25. Consecutive finite 0.5-s bins touch; missing bins remain blank, with a vertical boundary at each finite run. | Current exploratory D comparison; keep black and orange axis meanings distinct. |
 | `previous-conditional-bout-only`, `previous-linear-conditional`, `previous-all-frame-continuous`, `previous-bin-first-log`, `previous-short-baseline-log`, `previous-pre20-p10p90` beneath [`figure1-D-raw-vigor-zoom`](../../../outputs/figure1-D-raw-vigor-zoom/) | Same D-only layout and raw black trace, but orange steps came respectively from conditional 0–1 bins, an earlier linear-conditional rendering, all-valid-frame 0–1 bins, bin-first log 0–1 bins, short-baseline log 0–1 bins, and −20…0 s P10/P90 log 0–1 bins. The all-frame version looks continuous because it includes non-bout frames; that is a different estimand. The first two directories may share panel-data lineage but differ in renderer revision. | Historical comparisons, not current signal. Their sidecars preserve the source hashes; exact old renderer revisions are not all available. |
 | [`figure1-vigor-zoom/withdrawn-scaled-bins`](../../../outputs/figure1-vigor-zoom/withdrawn-scaled-bins/) | Earlier **scaled-bin** D surrogate, rather than measured raw vigor over time. | Withdrawn after the user requested vigor traces. |
 
-## Figure 1 E: single-fish heatmaps
+## Historical Figure 1 E: current F/H single-fish heatmaps
 
 | Output family | Transform → per-trial reference → masking/binning → palette/range | Decision |
 | --- | --- | --- |
@@ -49,7 +49,7 @@ All three candidate metric versions use `tail_length_weighted_angular_l1`, `whol
 
 For tail-length-weighted angular L1, a direct join of the two **older integrated** Figure 2 A panel-data tables found **11,208 changed finite cells among 14,400 condition × trial × time cells** (maximum absolute display-value change 1.0). That comparison measures the older baseline correction, not the new signed-bin alignment.
 
-The present `render_legacy_ssd_figure2_delay.py` source uses the same shared signed-bin calculation as Figure 1 E. Earlier root PNGs still show `magma` because they were created before the palette and signal revisions. Use each sidecar's source SHA-256 to identify its rendered revision.
+The present `render_legacy_ssd_figure2_delay.py` source uses the same shared signed-bin calculation as current Figure 1 F/H. Earlier root PNGs still show `magma` because they were created before the palette and signal revisions. Use each sidecar's source SHA-256 to identify its rendered revision.
 
 ## Figure 2 D and G: response ratios and inference
 

@@ -59,7 +59,7 @@ is drawn only when its expected-frame coverage reaches the configured gate.
 This makes missing or invalid tracking visible rather than presenting it as low
 activity.
 
-## Selected-fish Figure 1 C/D traces
+## Selected-fish Figure 1 D/E traces
 
 `figure-example-traces` places tail angle and one selected vigor metric in
 matching columns for a user-chosen recording and ordered list of global CS

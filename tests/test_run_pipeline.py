@@ -252,14 +252,15 @@ class PipelineRunConfigTests(unittest.TestCase):
     def test_paper_registry_has_all_panels_and_unapproved_mappings(self) -> None:
         panels = _paper_panel_statuses()
         registry = json.loads((Path(__file__).resolve().parents[1] / "configs" / "paper-figures" / "behavior-paper.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(panels), 26)
+        self.assertEqual(len(panels), 27)
         self.assertEqual(set(panels), {
-            *(f"fig-1{letter}" for letter in "ABCDEFG"),
+            *(f"fig-1{letter}" for letter in "ABCDEFGH"),
             *(f"fig-2{letter}" for letter in "ABCDEFGHI"),
             *(f"fig-3{letter}" for letter in "ABCDEFG"),
             *(f"fig-4{letter}" for letter in "ABC"),
         })
-        self.assertIn("3sTrace", panels["fig-1F"]["role"])
+        self.assertIn("session protocol", panels["fig-1C"]["role"])
+        self.assertIn("3sTrace", panels["fig-1G"]["role"])
         self.assertIn("inconclusive", panels["fig-2C"]["role"])
         self.assertIn("signed", panels["fig-4A"]["role"])
         self.assertIn("selected-block ratio", registry["artifact_templates"])
@@ -282,7 +283,7 @@ class PipelineRunConfigTests(unittest.TestCase):
                 run_pipeline(config)
             summary = json.loads((save / "Metadata" / "empty_pipeline_run.json").read_text(encoding="utf-8"))
             self.assertEqual(summary["status"], "failed")
-            self.assertEqual(len(summary["paper_panels"]), 26)
+            self.assertEqual(len(summary["paper_panels"]), 27)
             self.assertEqual(summary["figures"]["metric-comparison:CS:total-activity"]["status"], "blocked")
             self.assertTrue(summary["stage_errors"])
 
@@ -311,7 +312,7 @@ class PipelineRunConfigTests(unittest.TestCase):
             self.assertEqual(first.intake_completed, ("20260101_01",))
             first_summary = json.loads(first.summary_path.read_text(encoding="utf-8"))
             self.assertEqual(first_summary["status"], "complete")
-            self.assertEqual(len(first_summary["paper_panels"]), 26)
+            self.assertEqual(len(first_summary["paper_panels"]), 27)
             self.assertEqual(len(first_summary["figures"]), 32)
             self.assertEqual(
                 sum(item["status"] == "completed" for item in first_summary["figures"].values()),

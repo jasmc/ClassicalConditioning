@@ -2,7 +2,7 @@
 
 The SSD stores completed corrected artifacts with versioned names. This adapter
 authenticates them and exports one A/D/G set for each candidate vigor metric.
-The A heatmap pools the same signed bout-log-vigor bins as Figure 1 E.
+The A heatmap pools the same signed bout-log-vigor bins as Figure 1 F/H.
 """
 
 from __future__ import annotations

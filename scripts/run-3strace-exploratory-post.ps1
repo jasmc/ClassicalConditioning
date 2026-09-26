@@ -49,9 +49,9 @@ if (-not (Test-Path -LiteralPath $outcomesMarker -PathType Leaf)) {
         '--project-dir', $project, '--cohort-id', $cohortId, '--metric-recipe', 'tail-candidate-corrected')
 }
 
-$figure1 = Join-Path $project "Figures\PNG\20230307_12\figure-1-F-3strace_${metric}.png"
+$figure1 = Join-Path $project "Figures\PNG\20230307_12\figure-1-G-3strace_${metric}.png"
 if (-not (Test-Path -LiteralPath $figure1 -PathType Leaf)) {
-    Invoke-Python 'Figure 1F example' @((Join-Path $repo 'scripts\render_figure1_3strace_example.py'),
+    Invoke-Python 'Figure 1G example' @((Join-Path $repo 'scripts\render_figure1_3strace_example.py'),
         '--project-dir', $project, '--recording-id', '20230307_12', '--metric', $metric)
 }
 $figure2Dir = Join-Path $project 'Figures\PNG\Analyses\figure2-3strace-review'

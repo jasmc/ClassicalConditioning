@@ -107,7 +107,7 @@ def _paper_panel_statuses() -> dict[str, dict[str, Any]]:
     registry = json.loads(PAPER_REGISTRY.read_text(encoding="utf-8"))
     expected = {
         f"fig-{number}{letter}"
-        for number, letters in (("1", "ABCDEFG"), ("2", "ABCDEFGHI"),
+        for number, letters in (("1", "ABCDEFGH"), ("2", "ABCDEFGHI"),
                                 ("3", "ABCDEFG"), ("4", "ABC"))
         for letter in letters
     }

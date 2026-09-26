@@ -1,0 +1,512 @@
+{
+  "generated_at_utc": "2026-09-24T23:18:30.954210+00:00",
+  "raw_dir": "J:\\Raw Data\\all3sTtrace",
+  "raw_file_count": 183,
+  "fixed_trace_count": 40,
+  "matched_control_count": 19,
+  "incomplete": [
+    {
+      "recording_id": "20230227_01",
+      "condition": "trace",
+      "missing": [
+        "protocol",
+        "tracking"
+      ]
+    },
+    {
+      "recording_id": "20230302_12",
+      "condition": "trace",
+      "missing": [
+        "protocol",
+        "tracking"
+      ]
+    },
+    {
+      "recording_id": "20230426_08",
+      "condition": "trace",
+      "missing": [
+        "protocol",
+        "tracking"
+      ]
+    },
+    {
+      "recording_id": "20230426_10",
+      "condition": "trace",
+      "missing": [
+        "camera",
+        "tracking"
+      ]
+    }
+  ],
+  "ignored_files": [
+    "20230227_01_trace_orange-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam (2).txt",
+    "20230316_12_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control (2).txt"
+  ],
+  "classified_trace": [
+    {
+      "recording_id": "20230306_01",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.009,
+        13.019
+      ]
+    },
+    {
+      "recording_id": "20230306_07",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.993,
+        13.017
+      ]
+    },
+    {
+      "recording_id": "20230306_10",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.004,
+        13.026
+      ]
+    },
+    {
+      "recording_id": "20230307_03",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.996,
+        13.006
+      ]
+    },
+    {
+      "recording_id": "20230307_06",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.981,
+        13.029
+      ]
+    },
+    {
+      "recording_id": "20230307_09",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.994,
+        13.031
+      ]
+    },
+    {
+      "recording_id": "20230307_12",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.954,
+        13.004
+      ]
+    },
+    {
+      "recording_id": "20230309_09",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.99,
+        13.017
+      ]
+    },
+    {
+      "recording_id": "20230309_11",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.978,
+        13.024
+      ]
+    },
+    {
+      "recording_id": "20230310_02",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.012,
+        13.026
+      ]
+    },
+    {
+      "recording_id": "20230310_05",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.994,
+        13.031
+      ]
+    },
+    {
+      "recording_id": "20230310_08",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.974,
+        13.016
+      ]
+    },
+    {
+      "recording_id": "20230310_11",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.98,
+        13.005
+      ]
+    },
+    {
+      "recording_id": "20230314_01",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.006,
+        13.017
+      ]
+    },
+    {
+      "recording_id": "20230314_04",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.985,
+        13.001
+      ]
+    },
+    {
+      "recording_id": "20230314_06",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.992,
+        13.041
+      ]
+    },
+    {
+      "recording_id": "20230314_11",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.978,
+        13.029
+      ]
+    },
+    {
+      "recording_id": "20230315_02",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.976,
+        13.026
+      ]
+    },
+    {
+      "recording_id": "20230315_06",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.017,
+        13.026
+      ]
+    },
+    {
+      "recording_id": "20230316_03",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.982,
+        13.006
+      ]
+    },
+    {
+      "recording_id": "20230316_06",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.012,
+        13.026
+      ]
+    },
+    {
+      "recording_id": "20230316_09",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.99,
+        13.016
+      ]
+    },
+    {
+      "recording_id": "20230316_12",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.979,
+        13.017
+      ]
+    },
+    {
+      "recording_id": "20230516_01",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.974,
+        13.016
+      ]
+    },
+    {
+      "recording_id": "20230516_08",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.972,
+        13.002
+      ]
+    },
+    {
+      "recording_id": "20230516_10",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.017,
+        13.025
+      ]
+    },
+    {
+      "recording_id": "20230517_03",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.957,
+        13.006
+      ]
+    },
+    {
+      "recording_id": "20230517_05",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.994,
+        13.031
+      ]
+    },
+    {
+      "recording_id": "20230517_12",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.992,
+        13.001
+      ]
+    },
+    {
+      "recording_id": "20230518_02",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.014,
+        13.047
+      ]
+    },
+    {
+      "recording_id": "20230518_05",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.004,
+        13.017
+      ]
+    },
+    {
+      "recording_id": "20230518_12",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.975,
+        13.0
+      ]
+    },
+    {
+      "recording_id": "20230519_04",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.975,
+        13.002
+      ]
+    },
+    {
+      "recording_id": "20230519_11",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.98,
+        13.004
+      ]
+    },
+    {
+      "recording_id": "20230802_03",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.995,
+        13.005
+      ]
+    },
+    {
+      "recording_id": "20230802_08",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.981,
+        13.0
+      ]
+    },
+    {
+      "recording_id": "20230802_09",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.005,
+        13.02
+      ]
+    },
+    {
+      "recording_id": "20230803_02",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        13.009,
+        13.027
+      ]
+    },
+    {
+      "recording_id": "20230803_07",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.977,
+        13.007
+      ]
+    },
+    {
+      "recording_id": "20230803_12",
+      "schedule": "fixed",
+      "reinforced_training_trials": 46,
+      "catch_training_trials": 4,
+      "latency_range_s": [
+        12.991,
+        12.999
+      ]
+    }
+  ],
+  "selected_recording_ids": [
+    "20230227_03",
+    "20230227_06",
+    "20230228_02",
+    "20230228_05",
+    "20230228_08",
+    "20230228_11",
+    "20230301_01",
+    "20230301_04",
+    "20230301_07",
+    "20230301_10",
+    "20230302_08",
+    "20230302_09",
+    "20230306_01",
+    "20230306_07",
+    "20230306_10",
+    "20230307_03",
+    "20230307_06",
+    "20230307_09",
+    "20230307_12",
+    "20230309_09",
+    "20230309_11",
+    "20230310_02",
+    "20230310_05",
+    "20230310_08",
+    "20230310_11",
+    "20230314_01",
+    "20230314_04",
+    "20230314_06",
+    "20230314_11",
+    "20230315_02",
+    "20230315_05",
+    "20230315_06",
+    "20230315_08",
+    "20230315_10",
+    "20230315_11",
+    "20230316_02",
+    "20230316_03",
+    "20230316_06",
+    "20230316_08",
+    "20230316_09",
+    "20230316_11",
+    "20230316_12",
+    "20230516_01",
+    "20230516_08",
+    "20230516_10",
+    "20230517_03",
+    "20230517_05",
+    "20230517_12",
+    "20230518_02",
+    "20230518_05",
+    "20230518_12",
+    "20230519_04",
+    "20230519_11",
+    "20230802_03",
+    "20230802_08",
+    "20230802_09",
+    "20230803_02",
+    "20230803_07",
+    "20230803_12"
+  ],
+  "selection_policy": "complete-fixed-trace-and-control; incomplete retained in inventory",
+  "config_path": "outputs\\trace-preflight-review\\all3sTrace-full-windows.json",
+  "status": "ready_partial",
+  "blockers": []
+}

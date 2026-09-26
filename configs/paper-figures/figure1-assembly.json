@@ -1,0 +1,61 @@
+{
+  "title": "Figure 1 assembly preview: preparation, condition timing, protocol, and individual behavior",
+  "figure_id": "Fig1",
+  "storage_root": "J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly",
+  "output": "figure1-preview.svg",
+  "canvas": [1800, 2000],
+  "font_family": "DejaVu Sans",
+  "font_directory": "fonts",
+  "panels": [
+    {
+      "id": "A", "role": "preparation and illumination",
+      "source": "schemes/Fig1_PanelA_Setup_DejaVuSans_v1.svg",
+      "box": [45, 25, 325, 379],
+      "label": {"text": "A", "x": 42, "y": 52, "size": 32}
+    },
+    {
+      "id": "B", "role": "inset comparing four experimental contingencies",
+      "source": "schemes/Fig1_PanelB_ConditionTiming_exploratory_v4.svg",
+      "box": [405, 20, 1340, 480],
+      "content_box": [520, 55, 1110, 420],
+      "frame": {"radius": 12, "stroke": "#a9adb2"},
+      "label": {"text": "B", "x": 375, "y": 55, "size": 32}
+    },
+    {
+      "id": "C", "role": "session timeline and CS/US events",
+      "source": "schemes/Fig1_PanelC_SessionProtocol_exploratory_v2.svg",
+      "box": [55, 530, 1690, 427],
+      "label": {"text": "C", "x": 52, "y": 570, "size": 32}
+    },
+    {
+      "id": "D", "role": "selected-fish measured tail-angle traces",
+      "box": [55, 1005, 815, 480],
+      "source": "traces/Fig1_PanelD_TailAngle_legacy-vigor_v1.svg",
+      "label": {"text": "D", "x": 70, "y": 1048, "size": 32}
+    },
+    {
+      "id": "E", "role": "matching selected-fish frame-vigor traces",
+      "box": [925, 1005, 815, 480],
+      "source": "traces/Fig1_PanelE_RawVigor_legacy-vigor_v1.svg",
+      "label": {"text": "E", "x": 940, "y": 1048, "size": 32}
+    },
+    {
+      "id": "F", "role": "Delay single-fish signed-vigor heatmap",
+      "box": [55, 1550, 530, 395],
+      "source": "heatmaps/Fig1_PanelF_Delay_legacy-vigor_v1.svg",
+      "label": {"text": "F", "x": 70, "y": 1593, "size": 32}
+    },
+    {
+      "id": "G", "role": "3sTrace single-fish signed-vigor heatmap",
+      "box": [635, 1550, 530, 395],
+      "source": "heatmaps/Fig1_PanelG_3sTrace_legacy-vigor_v1.svg",
+      "label": {"text": "G", "x": 650, "y": 1593, "size": 32}
+    },
+    {
+      "id": "H", "role": "unpaired-control single-fish signed-vigor heatmap",
+      "box": [1215, 1550, 530, 395],
+      "source": "heatmaps/Fig1_PanelH_Control_legacy-vigor_v1.svg",
+      "label": {"text": "H", "x": 1230, "y": 1593, "size": 32}
+    }
+  ]
+}

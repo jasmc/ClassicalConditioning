@@ -1,0 +1,12 @@
+{
+  "status": "complete",
+  "details": "Partial Figures 2–4 and learning-onset review complete",
+  "cohort_id": "all3sTrace-window13-partial-20260925-36fish",
+  "fish_count": 36,
+  "response_window_s": [
+    0,
+    13
+  ],
+  "updated_at_utc": "2026-09-25T20:30:48.8990559Z",
+  "log": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\trace-partial-preview\\20260925-window13\\preview-post.log"
+}

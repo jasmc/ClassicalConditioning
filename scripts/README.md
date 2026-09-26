@@ -8,11 +8,12 @@ are complete.
 
 | Role | Scripts | Maintenance rule |
 | --- | --- | --- |
-| Current paper review adapters | `render_legacy_ssd_example_traces.py`, `render_legacy_ssd_example_heatmaps.py`, `render_legacy_ssd_figure2_delay.py`, `render_figure2_legacy_stats_lme_review.py` | Keep these paths stable because run manifests and provenance sidecars name them. Figure 2 A now pools the same signed bins as Figure 1 E; inference remains opt-in and exploratory. |
-| Earlier figure comparisons | `render_figure1_all_frame_heatmaps.py`, `render_figure1_managua_review.py`, `render_figure1_raw_vigor_y_focus.py`, `render_figure2_managua_review.py`, `render_figure2_stats_review.py`, `render_log_scaled_vigor_heatmaps.py`, `render_ssd_per_trial_example_heatmaps.py` | Run directly only to reproduce a named comparison. Their 0–1 measures do not define the current paper heatmap. Retain old outputs and sidecars. |
+| Current paper review adapters | `render_figure1_cd_scaled_log_review.py`, `render_legacy_ssd_example_heatmaps.py`, `render_legacy_ssd_figure2_delay.py`, `render_figure2_legacy_stats_lme_review.py` | Figure 1 C/D now compares the two explicit per-trial scaled-log baselines. Figure 2 A pools signed bins; inference remains opt-in and exploratory. |
+| Figure 1 C/D scaled-log baseline comparison | `render_figure1_cd_scaled_log_review.py` | Renders matched C angle and D per-trial P10/P90-scaled log vigor using [−15, 0) and [−20, 0) s references. Saves both variants with panel data and sidecars; neither baseline is frozen. |
+| Earlier figure comparisons | `render_legacy_ssd_example_traces.py`, `render_figure1_all_frame_heatmaps.py`, `render_figure1_managua_review.py`, `render_figure1_raw_vigor_y_focus.py`, `render_figure2_managua_review.py`, `render_figure2_stats_review.py`, `render_log_scaled_vigor_heatmaps.py`, `render_ssd_per_trial_example_heatmaps.py` | Run directly only to reproduce a named comparison. Keep paths and historical sidecars stable. The current paper heatmap has different signal semantics from some 0–1 comparisons. |
 | Analysis workflow launchers | `complete-allDelay-to-lme-windows.ps1`, `resume-allDelay-full-windows.ps1`, `run-allDelay-full-windows.ps1`, `run-all3sTrace-full-windows.ps1`, `process-ingested-trace-fish.ps1` | These operate the analysis pipeline rather than render paper panels. The trace per-fish worker can run while cohort preflight is blocked by incomplete raw triplets. |
 
-The active Figure 1 and Figure 2 heatmaps share
+The current Figure 1 F/H and Figure 2 A heatmaps share
 [`signed_bout_heatmap.py`](../src/classical_conditioning/figures/signed_bout_heatmap.py):
 positive moving-bout frames, log vigor, fish/trial pre-CS median centering over
 −20≤t<0 s, bout medians, and 0.5-s bin means. Figure 2 then averages fish

@@ -118,7 +118,7 @@ The [version-by-version comparison](./04_REVIEW_VARIANTS.md) records scaling,
 baseline, signal and palette parameters. The [paper figure freeze record](./02_PAPER_FIGURE_SPECIFICATION.md)
 maps all main and supplementary panels to their implementation and open gates.
 Its `render-paper-panels` command is the integrated rendering entry point for
-the currently supported paper review panels. Its Figure 1 E and Figure 2 A
+the currently supported paper review panels. Its Figure 1 F/H and Figure 2 A
 vigor heatmaps now share signed bout-log-vigor fish/trial bins and `managua_r`
 at −0.25…+0.25; Figure 2 averages available fish bins equally. Supplementary
 coverage uses `managua_r` with a separate 0…1 fraction scale. The routine R13

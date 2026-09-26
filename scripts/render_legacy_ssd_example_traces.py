@@ -30,6 +30,8 @@ from classical_conditioning.figures.export import (
     export_matplotlib_figure,
 )
 
+PAPER_WINDOW_S = (-20.0, 20.0)
+
 
 @cache
 def _file_hash(path: Path) -> str:
@@ -92,7 +94,6 @@ def render_from_ssd(
     trials: tuple[int, ...],
     metric_id: str,
     mode: FigureMode = FigureMode.STATIC,
-    window_s: tuple[float, float] = (-20.0, 20.0),
     tail_point: int = 15,
     overwrite: bool = False,
 ):
@@ -106,8 +107,8 @@ def render_from_ssd(
     if any(trial < 1 or trial > len(cycles) for trial in trials):
         raise ValueError(f"Trials must be between 1 and {len(cycles)}")
     intervals = [
-        (int(cycles.iloc[trial - 1]["Beg"] + window_s[0] * 1000),
-         int(cycles.iloc[trial - 1]["Beg"] + window_s[1] * 1000))
+        (int(cycles.iloc[trial - 1]["Beg"] + PAPER_WINDOW_S[0] * 1000),
+         int(cycles.iloc[trial - 1]["Beg"] + PAPER_WINDOW_S[1] * 1000))
         for trial in trials
     ]
     angle_columns = [f"angle{index}" for index in range(tail_point + 1)]
@@ -115,22 +116,22 @@ def render_from_ssd(
     metrics = _read_windows(metrics_path, ["FrameID", "AbsoluteTime", METRIC_COLUMNS[metric_id]], intervals)
     frames, events = prepare_example_trace_data(
         corrected, metrics, protocol, trial_numbers=trials, metric_id=metric_id,
-        tail_point=tail_point, window_s=window_s, cs_duration_s=10.0,
+        tail_point=tail_point, window_s=PAPER_WINDOW_S, cs_duration_s=10.0,
     )
     figure, panel_ids, mappings = render_example_trace_figure(
-        frames, events, trial_numbers=trials, metric_id=metric_id, window_s=window_s,
+        frames, events, trial_numbers=trials, metric_id=metric_id, window_s=PAPER_WINDOW_S,
         trial_labels=(
             ("Pre-Train", "Early Train", "Late Train", "Early Test", "Late Test")
             if trials == (9, 17, 63, 66, 93) else None
         ),
     )
     source = Path(__file__).resolve()
-    base = output_dir / recording_id / f"figure-1-CD_{metric_id}_{'-'.join(map(str, trials))}"
+    base = output_dir / recording_id / f"figure-1-DE_{metric_id}_{'-'.join(map(str, trials))}"
     snippet = (
         f"python scripts/render_legacy_ssd_example_traces.py --project-dir '{project_dir}' "
         f"--output-dir '{output_dir}' --recording-id {recording_id} "
         f"--metric {metric_id} " + " ".join(f"--trial {n}" for n in trials)
-        + f" --mode {mode.value} --window-start {window_s[0]} --window-end {window_s[1]}"
+        + f" --mode {mode.value}"
         + f" --tail-point {tail_point}"
     )
     inputs = tuple({"path": str(path), "sha256": _file_hash(path)} for path in
@@ -140,7 +141,7 @@ def render_from_ssd(
         return export_matplotlib_figure(
             figure, base,
             FigureProvenance(
-                figure_id="figure-1-CD-example-traces",
+                figure_id="figure-1-DE-example-traces",
                 analysis_recipe="selected-fish-corrected-example-traces-ssd-v1",
                 source_file=str(source), source_symbol="render_from_ssd",
                 source_hash=sha256_file(source), reproduction_snippet=snippet,
@@ -164,8 +165,6 @@ def main() -> None:
     metric_group.add_argument("--all-metrics", action="store_true")
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
     parser.add_argument("--tail-point", type=int, default=15)
-    parser.add_argument("--window-start", type=float, default=-20.0)
-    parser.add_argument("--window-end", type=float, default=20.0)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
     for metric_id in (tuple(METRIC_COLUMNS) if args.all_metrics else (args.metric,)):
@@ -173,7 +172,7 @@ def main() -> None:
             args.project_dir, args.output_dir, args.recording_id,
             trials=tuple(args.trial), metric_id=metric_id,
             mode=FigureMode(args.mode), tail_point=args.tail_point,
-            window_s=(args.window_start, args.window_end), overwrite=args.overwrite,
+            overwrite=args.overwrite,
         )
         for path in (*result.outputs, result.sidecar):
             print(path)

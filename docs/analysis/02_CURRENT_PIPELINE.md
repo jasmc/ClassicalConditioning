@@ -32,7 +32,7 @@ cli.py -> run_config.py -> pipeline.py
 The direct-from-intake candidate calculation in
 `preprocessing/benchmarks/candidate_metrics_from_intake.py` is a separately
 selected development benchmark, not an alternative routine JSON route.
-The focused `figure-example-traces` command renders selected Figure 1 C/D
+The focused `figure-example-traces` command renders selected Figure 1 D/E
 trial traces from authenticated corrected artifacts; it is not scheduled by
 `run-pipeline`. See the [figure guide](./08_CANDIDATE_FIGURES.md).
 

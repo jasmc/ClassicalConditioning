@@ -1,0 +1,40 @@
+{
+  "status": "exploratory schematic based on current paper methods",
+  "cs_duration_s": 10,
+  "short_us_duration_ms": 50,
+  "long_us_duration_ms": 100,
+  "final_check_us_duration_ms": 500,
+  "phases": [
+    {
+      "id": "priming",
+      "name": "Priming / habituation",
+      "cs_count": 4,
+      "cs_kind": "CS-like, including left-side light",
+      "short_us_count": 15
+    },
+    {
+      "id": "pretraining",
+      "name": "Pre-training",
+      "cs_count": 10,
+      "short_us_count": 3
+    },
+    {
+      "id": "training",
+      "name": "Training",
+      "cs_count": 50,
+      "paired_long_us_count": 46,
+      "catch_cs_count": 4
+    },
+    {
+      "id": "testing",
+      "name": "Testing",
+      "cs_count": 30,
+      "short_us_count": 14
+    }
+  ],
+  "control_training_rule": "Same long-US times; training CS onsets randomized per fish",
+  "sources": [
+    "ClassicalConditioningPaper/sections/Materialsandmethods.tex:152-190",
+    "src/classical_conditioning/config/experiments.py"
+  ]
+}

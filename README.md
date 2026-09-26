@@ -108,7 +108,7 @@ run.
 Figure 2 requires matched-control **frozen fish cohorts**, not candidate per-fish heatmaps. Its selected blocks are final Pre-Train trials **10–14**, Early Test **65–69**, and Late Test **90–94**. The current descriptive population heatmap shows 0–1 scaled total activity **across all valid frames, including valid zeros**, with a contributing-fish coverage strip and exact counts in panel data. It is not the draft's movement-conditional vigor signal or an approved paper panel. The 10sTrace result is presently inconclusive. Draft significance stars are not reused without approved inference.
 
 The separate paper-review Figure 2 A adapter now pools the same signed,
-baseline-centered bout-log-vigor bins used for Figure 1 E and displays them
+baseline-centered bout-log-vigor bins used for Figure 1 F/H and displays them
 with `managua_r` at −0.25…+0.25. See the [paper figure freeze record](./docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md)
 for the review command and remaining scientific approvals.
 

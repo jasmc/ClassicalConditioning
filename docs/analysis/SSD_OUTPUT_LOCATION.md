@@ -24,3 +24,10 @@ The full 3sTrace project and its generated `Figures/` directory are under
 `F:\Digested Data\all3sTrace-full-v1\`; the J: mirror above is specifically
 for the repository's `outputs/` directory. The raw recordings remain under
 `J:\Raw Data\`.
+
+The Figure 1 scheme-assembly workflow writes **directly** to
+`J:\ClassicalConditioning Outputs\ORGER-JOAQUIM\outputs\figure1-assembly\`.
+Its SVG schemes and fonts live in `schemes/` and `fonts/`, while the combined
+figure and individual panel previews are generated in that SSD folder. The
+layout JSON and assembly code remain in the repository. This direct-write
+workflow does not depend on the repository-output mirror.

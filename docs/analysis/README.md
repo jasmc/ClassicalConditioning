@@ -19,7 +19,7 @@ Read the guides in order for the active corrected behavior route. The numbers de
 
 ## Paper figures
 
-Start with [01 panel-by-panel provenance](figures/01_PAPER_PANEL_PROVENANCE.md): it covers every planned main panel (Figure 1A–4C) and supporting analysis grouped by parent figure, including the source, calculation, renderer, and current gap. Then use the [02 paper specification](figures/02_PAPER_FIGURE_SPECIFICATION.md) for the layout proposal and the [figure folder index](figures/README.md) for review variants and Figure 4 detail.
+Start with [01 panel-by-panel provenance](figures/01_PAPER_PANEL_PROVENANCE.md): it covers every planned main panel (Figure 1A–H through Figure 4C) and supporting analysis grouped by parent figure, including the source, calculation, renderer, and current gap. Then use the [02 paper specification](figures/02_PAPER_FIGURE_SPECIFICATION.md) for the layout proposal and the [figure folder index](figures/README.md) for review variants and Figure 4 detail.
 
 ## Evidence and history
 

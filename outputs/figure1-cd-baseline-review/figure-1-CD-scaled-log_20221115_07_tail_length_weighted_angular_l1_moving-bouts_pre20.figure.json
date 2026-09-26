@@ -1,0 +1,1901 @@
+{
+  "analysis_identity": {
+    "baseline_end_s": 0.0,
+    "baseline_start_s": -20.0,
+    "metric_id": "tail_length_weighted_angular_l1",
+    "recording_id": "20221115_07",
+    "scaling": "log P10/P90, clipped 0\u20131",
+    "scientific_status": "baseline_comparison_only",
+    "signal": "moving-bouts"
+  },
+  "analysis_recipe": "per-trial-log-vigor-preCS-P10-P90-frame-scale-then-0p5s-bin-mean",
+  "artist_mappings": {
+    "trace__C__trial_17": {
+      "aggregation": "none",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "trial_number": "17",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_63": {
+      "aggregation": "none",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "trial_number": "63",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_66": {
+      "aggregation": "none",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "trial_number": "66",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_9": {
+      "aggregation": "none",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "trial_number": "9",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_93": {
+      "aggregation": "none",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "trial_number": "93",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__D__trial_17": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "trial_number": "17",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_63": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "trial_number": "63",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_66": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "trial_number": "66",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_9": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "trial_number": "9",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_93": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "trial_number": "93",
+      "value_field": "Scaled log vigor"
+    }
+  },
+  "artist_registry": {
+    "axes__c_trial_17__main": {
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__c_trial_63__main": {
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__c_trial_66__main": {
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__c_trial_93__main": {
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__c_trial_9__main": {
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__d_trial_17__main": {
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__d_trial_63__main": {
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__d_trial_66__main": {
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__d_trial_93__main": {
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axes__d_trial_9__main": {
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "axes"
+    },
+    "axis-title__c_trial_17__x": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_17__y": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_63__x": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_63__y": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_66__x": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_66__y": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_93__x": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_93__y": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_9__x": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__c_trial_9__y": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_17__x": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_17__y": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_63__x": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_63__y": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_66__x": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_66__y": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_93__x": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_93__y": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_9__x": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis-title__d_trial_9__y": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "false",
+      "role": "axis-title"
+    },
+    "axis__c_trial_17__x": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_17__y": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_63__x": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_63__y": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_66__x": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_66__y": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_93__x": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_93__y": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_9__x": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__c_trial_9__y": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_17__x": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_17__y": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_63__x": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_63__y": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_66__x": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_66__y": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_93__x": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_93__y": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_9__x": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "axis__d_trial_9__y": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "axis"
+    },
+    "figure": {
+      "artist_type": "Figure",
+      "required_in_svg": "true",
+      "role": "figure"
+    },
+    "spine__c_trial_17__bottom": {
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__c_trial_17__left": {
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__c_trial_17__right": {
+      "panel": "c_trial_17",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__c_trial_17__top": {
+      "panel": "c_trial_17",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__c_trial_63__bottom": {
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__c_trial_63__left": {
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__c_trial_63__right": {
+      "panel": "c_trial_63",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__c_trial_63__top": {
+      "panel": "c_trial_63",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__c_trial_66__bottom": {
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__c_trial_66__left": {
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__c_trial_66__right": {
+      "panel": "c_trial_66",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__c_trial_66__top": {
+      "panel": "c_trial_66",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__c_trial_93__bottom": {
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__c_trial_93__left": {
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__c_trial_93__right": {
+      "panel": "c_trial_93",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__c_trial_93__top": {
+      "panel": "c_trial_93",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__c_trial_9__bottom": {
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__c_trial_9__left": {
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__c_trial_9__right": {
+      "panel": "c_trial_9",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__c_trial_9__top": {
+      "panel": "c_trial_9",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__d_trial_17__bottom": {
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__d_trial_17__left": {
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__d_trial_17__right": {
+      "panel": "d_trial_17",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__d_trial_17__top": {
+      "panel": "d_trial_17",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__d_trial_63__bottom": {
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__d_trial_63__left": {
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__d_trial_63__right": {
+      "panel": "d_trial_63",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__d_trial_63__top": {
+      "panel": "d_trial_63",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__d_trial_66__bottom": {
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__d_trial_66__left": {
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__d_trial_66__right": {
+      "panel": "d_trial_66",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__d_trial_66__top": {
+      "panel": "d_trial_66",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__d_trial_93__bottom": {
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__d_trial_93__left": {
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__d_trial_93__right": {
+      "panel": "d_trial_93",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__d_trial_93__top": {
+      "panel": "d_trial_93",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "spine__d_trial_9__bottom": {
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "bottom"
+    },
+    "spine__d_trial_9__left": {
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "spine",
+      "side": "left"
+    },
+    "spine__d_trial_9__right": {
+      "panel": "d_trial_9",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "right"
+    },
+    "spine__d_trial_9__top": {
+      "panel": "d_trial_9",
+      "required_in_svg": "false",
+      "role": "spine",
+      "side": "top"
+    },
+    "tick-label__c_trial_17__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_17__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_17__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_63__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_63__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_63__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_66__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_66__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_66__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__000": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__001": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__002": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__003": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__004": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__005": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__006": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__007": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__x__008": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_93__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_9__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_9__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__c_trial_9__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_17__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_17__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_17__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_17__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_17__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_63__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_63__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_63__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_63__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_63__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_66__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_66__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_66__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_66__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_66__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__000": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__001": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__002": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__003": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__004": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__005": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__006": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__007": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__x__008": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_93__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_9__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_9__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_9__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_9__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick-label__d_trial_9__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick-label"
+    },
+    "tick__c_trial_17__x__000": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__001": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__002": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__003": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__004": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__005": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__006": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__007": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__x__008": {
+      "dimension": "x",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_17__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__000": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__001": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__002": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__003": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__004": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__005": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__006": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__007": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__x__008": {
+      "dimension": "x",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_63__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__000": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__001": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__002": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__003": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__004": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__005": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__006": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__007": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__x__008": {
+      "dimension": "x",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_66__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__000": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__001": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__002": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__003": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__004": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__005": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__006": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__007": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__x__008": {
+      "dimension": "x",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_93__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__000": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__001": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__002": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__003": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__004": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__005": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__006": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__007": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__x__008": {
+      "dimension": "x",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__y__001": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__y__002": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__c_trial_9__y__003": {
+      "dimension": "y",
+      "panel": "c_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__000": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__001": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__002": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__003": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__004": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__005": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__006": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__007": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__x__008": {
+      "dimension": "x",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_17__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_17",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__000": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__001": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__002": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__003": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__004": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__005": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__006": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__007": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__x__008": {
+      "dimension": "x",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_63__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_63",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__000": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__001": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__002": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__003": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__004": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__005": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__006": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__007": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__x__008": {
+      "dimension": "x",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_66__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_66",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__000": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__001": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__002": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__003": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__004": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__005": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__006": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__007": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__x__008": {
+      "dimension": "x",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_93__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_93",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__000": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__001": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__002": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__003": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__004": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__005": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__006": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__007": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__x__008": {
+      "dimension": "x",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__y__000": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__y__001": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__y__002": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__y__003": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "tick__d_trial_9__y__004": {
+      "dimension": "y",
+      "panel": "d_trial_9",
+      "required_in_svg": "true",
+      "role": "tick"
+    },
+    "trace__C__trial_17": {
+      "aggregation": "none",
+      "artist_type": "Line2D",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "17",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_63": {
+      "aggregation": "none",
+      "artist_type": "Line2D",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "63",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_66": {
+      "aggregation": "none",
+      "artist_type": "Line2D",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "66",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_9": {
+      "aggregation": "none",
+      "artist_type": "Line2D",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "9",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__C__trial_93": {
+      "aggregation": "none",
+      "artist_type": "Line2D",
+      "baseline_end_s": "",
+      "baseline_start_s": "",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "93",
+      "value_field": "Tail angle (rad)"
+    },
+    "trace__D__trial_17": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "artist_type": "Line2D",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "17",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_63": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "artist_type": "Line2D",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "63",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_66": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "artist_type": "Line2D",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "66",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_9": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "artist_type": "Line2D",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "9",
+      "value_field": "Scaled log vigor"
+    },
+    "trace__D__trial_93": {
+      "aggregation": "mean of finite scaled frames per 0.5 s bin",
+      "artist_type": "Line2D",
+      "baseline_end_s": "0",
+      "baseline_start_s": "-20.0",
+      "required_in_svg": "true",
+      "role": "trace",
+      "trial_number": "93",
+      "value_field": "Scaled log vigor"
+    }
+  },
+  "code_dependencies": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\render_figure1_cd_scaled_log_review.py",
+      "sha256": "8f217f905c1db256a98d15baadc2aa315c509ef9918f06cedc454b828c7cc9ce"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\export.py",
+      "sha256": "0ec822659ff5de847eec20ead7b4c20af87f30a10cf066f365b2fb4376b75902"
+    }
+  ],
+  "cohort_hash": null,
+  "figure_id": "figure-1-CD-scaled-log-baseline-review",
+  "figure_spec_version": "1.0",
+  "input_artifacts": [
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\frame_preprocessed_corrected-v1.parquet",
+      "sha256": "4634468c8753bb6393f1a9b3914e16c54f492a3a3e87cdbc75bb5a2b16fd7ea1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\frame_activity_candidates-corrected-v1.parquet",
+      "sha256": "37c5cfed95251b34fbb835e2d82844251e2ab053ad6323830513de7e80d159ec"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\movement_state_candidates-corrected-v2.parquet",
+      "sha256": "d58ae9f2721b6cc0be9cd41ee6187b736d0cfa8775b59fae211fc4e9dd8a3401"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Metadata\\20221115_07_movement-candidate-corrected-v2_complete.json",
+      "sha256": "3a52e37f46f82f6bb35b6f4228e31df755772a108efa91b8d75c3ecf8d3f09f2"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\stimulus_events.parquet",
+      "sha256": "745a12459967fe0d9835513408bd30a3881e692decc172e8bfd678369a9450b2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\figure1-cd-baseline-review\\figure-1-CD-scaled-log_20221115_07_tail_length_weighted_angular_l1_moving-bouts_pre20_panel-data.parquet",
+      "sha256": "782949aec02b11f35c8a19e452b9eb47d8ea3e0c7ca7d6e2b2454d3d19435edc"
+    }
+  ],
+  "mode": "static",
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\figure1-cd-baseline-review\\figure-1-CD-scaled-log_20221115_07_tail_length_weighted_angular_l1_moving-bouts_pre20.png",
+      "sha256": "a149dd7e7b0951f87432333cbcd45d201af1ec196b77d3419bf33bdd8ec5fde3"
+    }
+  ],
+  "reproduction_snippet": "python scripts/render_figure1_cd_scaled_log_review.py --project-dir 'J:\\Digested Data\\allDelay-full-v1' --output-dir 'C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\outputs\\figure1-cd-baseline-review' --recording-id 20221115_07 --metric tail_length_weighted_angular_l1 --signal moving-bouts --mode static --trial 9 --trial 17 --trial 63 --trial 66 --trial 93",
+  "source_commit": "50a05f07291e4cf4b6950b2f3564a5a66b5e643e",
+  "source_file": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\render_figure1_cd_scaled_log_review.py",
+  "source_hash": "8f217f905c1db256a98d15baadc2aa315c509ef9918f06cedc454b828c7cc9ce",
+  "source_symbol": "main",
+  "source_worktree_dirty": true
+}

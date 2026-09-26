@@ -1,0 +1,744 @@
+{
+  "source_project": "J:\\Digested Data\\all3sTrace-full-v1",
+  "destination_project": "F:\\Digested Data\\all3sTrace-full-v1",
+  "generated_at_utc": "2026-09-25T00:00:41.9400805Z",
+  "completed_file_count": 147,
+  "completed_bytes": 29845967241.0,
+  "files": [
+    {
+      "relative_path": "Metadata\\20230306_01_candidate-corrected_complete.json",
+      "size_bytes": 281,
+      "sha256": "88D979ED4020373208A833FD4680762131CBF530C05B5F3A7F874CF7FB88BB38"
+    },
+    {
+      "relative_path": "Metadata\\20230306_01_candidate-temporal-outcomes-corrected_complete.json",
+      "size_bytes": 295,
+      "sha256": "6570B22B6A5AE940C81578A9518303690C74856D19D21D35936C3E30B3F59716"
+    },
+    {
+      "relative_path": "Metadata\\20230306_01_corrected-preprocess_complete.json",
+      "size_bytes": 276,
+      "sha256": "DADAB5AC365F97D03512BCDDBF9840A9940B56F6CDF731AD6E28EFF6AC263098"
+    },
+    {
+      "relative_path": "Metadata\\20230306_01_movement-candidate-corrected_complete.json",
+      "size_bytes": 286,
+      "sha256": "181A62408C05BED48DDFCABC98C3E4CF38010B965074D7C5C76BAC9B0D8F181C"
+    },
+    {
+      "relative_path": "Metadata\\20230306_01_source_manifest.json",
+      "size_bytes": 2626,
+      "sha256": "185C71E28A3914D49ECB37B0CD5FF67A1557648DA6A2A70A86D6761C589A3EE5"
+    },
+    {
+      "relative_path": "Metadata\\20230306_07_candidate-corrected_complete.json",
+      "size_bytes": 281,
+      "sha256": "457798AA54F7B9C5FA06A560BEA1EC77F069FAD16ED5E170B0830DA5C3E9CEAF"
+    },
+    {
+      "relative_path": "Metadata\\20230306_07_candidate-temporal-outcomes-corrected_complete.json",
+      "size_bytes": 295,
+      "sha256": "633CE145354DBACFC30160D754FB3FB0DE92959CBE18F1D82332DD9F440293EB"
+    },
+    {
+      "relative_path": "Metadata\\20230306_07_corrected-preprocess_complete.json",
+      "size_bytes": 276,
+      "sha256": "BC71D50CB856F38FDF744539F50D63A81479EC38BF3DF5C548BDCC3CECF4BD42"
+    },
+    {
+      "relative_path": "Metadata\\20230306_07_movement-candidate-corrected_complete.json",
+      "size_bytes": 286,
+      "sha256": "30042F86B2839D18987CA9F7FA181B748554C44FAE103849AC8CD8FB180BE307"
+    },
+    {
+      "relative_path": "Metadata\\20230306_07_source_manifest.json",
+      "size_bytes": 2618,
+      "sha256": "32836EEAEF5809C2A89AB7FD48D8F1A0015B110FDBF771B1500F7C4D1D933648"
+    },
+    {
+      "relative_path": "Metadata\\20230306_10_candidate-corrected_complete.json",
+      "size_bytes": 281,
+      "sha256": "7027E19C6FAFB7D82C85078083C087C719BFA3553BFD31D98C0586CFDF29A2CE"
+    },
+    {
+      "relative_path": "Metadata\\20230306_10_candidate-temporal-outcomes-corrected_complete.json",
+      "size_bytes": 295,
+      "sha256": "515776D171A1628941CECE48A719A73B0A16C2626FC7338CD01727FA5BEFA788"
+    },
+    {
+      "relative_path": "Metadata\\20230306_10_corrected-preprocess_complete.json",
+      "size_bytes": 276,
+      "sha256": "F402A51C74A820298DB4E2928417947ACC3D64837B2A2A5B33C4D453D0BCC225"
+    },
+    {
+      "relative_path": "Metadata\\20230306_10_movement-candidate-corrected_complete.json",
+      "size_bytes": 286,
+      "sha256": "3D29E01BABC65E22DE9DB71406C0960EF625BDD868B5BED9AD9C02670C2ED729"
+    },
+    {
+      "relative_path": "Metadata\\20230306_10_source_manifest.json",
+      "size_bytes": 2622,
+      "sha256": "1DB63F26BD3027EEF4B7002F4735134F4C671CC86B34591F7162962EC5BD4108"
+    },
+    {
+      "relative_path": "Metadata\\20230307_03_candidate-corrected_complete.json",
+      "size_bytes": 281,
+      "sha256": "60143026B546697D32FE3973D26D7CE7ED0872DE93FE797BB34D41A9E94C9684"
+    },
+    {
+      "relative_path": "Metadata\\20230307_03_candidate-temporal-outcomes-corrected_complete.json",
+      "size_bytes": 295,
+      "sha256": "C77E5FD74F48D01D8AD7F0F405BEE78E3E2D5F84350531C1FEA3ABBBA3D55EEE"
+    },
+    {
+      "relative_path": "Metadata\\20230307_03_corrected-preprocess_complete.json",
+      "size_bytes": 276,
+      "sha256": "97E1EFB0BC8F42F6A59039AF8F892C45688F694FBA2FF26F3947329CE106B66A"
+    },
+    {
+      "relative_path": "Metadata\\20230307_03_movement-candidate-corrected_complete.json",
+      "size_bytes": 286,
+      "sha256": "417526E879DF6F433DCF5F39D3D8B706F61CFDBDF9B75AA2615419D11EE0E783"
+    },
+    {
+      "relative_path": "Metadata\\20230307_03_source_manifest.json",
+      "size_bytes": 2618,
+      "sha256": "285D5563D143FEF4C0F6056DFA9CEADB17F565423B0D2805C657EA5CD77589F2"
+    },
+    {
+      "relative_path": "Metadata\\20230307_06_candidate-corrected_complete.json",
+      "size_bytes": 281,
+      "sha256": "8EEFDA10DFA5AD26E916AB902D761890F27C66EFDF769C9689D2E1ACA187DE69"
+    },
+    {
+      "relative_path": "Metadata\\20230307_06_candidate-temporal-outcomes-corrected_complete.json",
+      "size_bytes": 295,
+      "sha256": "7BB1BFBAA6A02A04603275CC9D5044A6FF624CF417EAB52E4495A52A7B145B32"
+    },
+    {
+      "relative_path": "Metadata\\20230307_06_corrected-preprocess_complete.json",
+      "size_bytes": 276,
+      "sha256": "9A2138A794CEBB88D0C991AC27BA859B8FE06BDE20468B2B3E5F5C0A4C1BCCF6"
+    },
+    {
+      "relative_path": "Metadata\\20230307_06_movement-candidate-corrected_complete.json",
+      "size_bytes": 286,
+      "sha256": "D534A342EBE22C6AC94421558D5605F4F2CB309CBE1A633B600B8874751DA9AE"
+    },
+    {
+      "relative_path": "Metadata\\20230307_06_source_manifest.json",
+      "size_bytes": 2622,
+      "sha256": "7B084689A76208AD9977CE84C948467A3C26C919CEF06395F9C7FB578945001E"
+    },
+    {
+      "relative_path": "Metadata\\20230307_09_candidate-corrected_complete.json",
+      "size_bytes": 281,
+      "sha256": "AC8D46F6ECC327C356C74500705CD8684A93EFE73DBF82176C8A793D2A8159A9"
+    },
+    {
+      "relative_path": "Metadata\\20230307_09_candidate-temporal-outcomes-corrected_complete.json",
+      "size_bytes": 295,
+      "sha256": "DFB086B4895D1ECE30CDDB119B12AB746C82F4C3BC24ED5A9D51D8A45042B48C"
+    },
+    {
+      "relative_path": "Metadata\\20230307_09_corrected-preprocess_complete.json",
+      "size_bytes": 276,
+      "sha256": "35BC7A15FC78F0C79FC70BB8AC905C6901218B0E9165C67E5DEA3344E49EDE11"
+    },
+    {
+      "relative_path": "Metadata\\20230307_09_movement-candidate-corrected_complete.json",
+      "size_bytes": 286,
+      "sha256": "4766AC9F96E8D4279DE60BDF6169E2328B060647F65A8162511CFBB3E2CC18B3"
+    },
+    {
+      "relative_path": "Metadata\\20230307_09_source_manifest.json",
+      "size_bytes": 2626,
+      "sha256": "472D49C4FD67BF3E66B8EB411535A8E0884AD2605F76AAA672056F77C0A0DE46"
+    },
+    {
+      "relative_path": "Metadata\\20230309_09_candidate-corrected_complete.json",
+      "size_bytes": 281,
+      "sha256": "07B72CEC5D27E57984828B9C8765F01F00728F873B28B14F8A226F505A4F5A1C"
+    },
+    {
+      "relative_path": "Metadata\\20230309_09_candidate-temporal-outcomes-corrected_complete.json",
+      "size_bytes": 295,
+      "sha256": "9428C859582DFED9EFC54C8D4632D78E318C84DFCDDF325ADC13874312F4FF5F"
+    },
+    {
+      "relative_path": "Metadata\\20230309_09_corrected-preprocess_complete.json",
+      "size_bytes": 276,
+      "sha256": "B3766F9F51DB04289A0482B580044C730684FFC5595C0D49953C47F19B145A53"
+    },
+    {
+      "relative_path": "Metadata\\20230309_09_movement-candidate-corrected_complete.json",
+      "size_bytes": 286,
+      "sha256": "47924C268F5C94385633B2FDA10C3E2400DD44A4F99C70E256D8A3C0CFF472A5"
+    },
+    {
+      "relative_path": "Metadata\\20230309_09_source_manifest.json",
+      "size_bytes": 2626,
+      "sha256": "E60C9F091A81FDB0222F55C1860D46DA04793458A5F1E12F691233818224BC4D"
+    },
+    {
+      "relative_path": "Processed data\\20230306_01\\camera.parquet",
+      "size_bytes": 74940404,
+      "sha256": "A05B6C1B5D7AE492D58D16D6BF442BB2EEBDDEAD7576EC1B77327788628B914B"
+    },
+    {
+      "relative_path": "Processed data\\20230306_01\\candidate_temporal_outcomes-corrected.parquet",
+      "size_bytes": 3977623,
+      "sha256": "795CB794B91124BF4A311690E6451D9B09B7AFDFA27B9226043F5B16AE628BE3"
+    },
+    {
+      "relative_path": "Processed data\\20230306_01\\frame_activity_candidates-corrected.parquet",
+      "size_bytes": 338215794,
+      "sha256": "2A1049F662B89B6F9132825D13BCDFD58301953271CDAA0442AB37D255F43783"
+    },
+    {
+      "relative_path": "Processed data\\20230306_01\\frame_preprocessed_corrected.parquet",
+      "size_bytes": 1829715269,
+      "sha256": "F90D7E390F21E3E58E616A35F35D0FAF772869846FC1DEDC74E225E2CB26D0B7"
+    },
+    {
+      "relative_path": "Processed data\\20230306_01\\movement_state_candidates-corrected.parquet",
+      "size_bytes": 103993798,
+      "sha256": "2F777139176C057863DE0D66992C9490A21FD21AF5D4BDC8A916563F0485308D"
+    },
+    {
+      "relative_path": "Processed data\\20230306_01\\stimulus_events.parquet",
+      "size_bytes": 3255,
+      "sha256": "AE950DE5010B3580DD078E0700B754E686FC592EE1105D4BFDF1D5306BC6160E"
+    },
+    {
+      "relative_path": "Processed data\\20230306_01\\tracking.parquet",
+      "size_bytes": 1804594046,
+      "sha256": "8695B2927415248DBBE7F416C4E0246168BDE6B60CA5E0B53D3B24B6DF692F60"
+    },
+    {
+      "relative_path": "Processed data\\20230306_07\\camera.parquet",
+      "size_bytes": 74759539,
+      "sha256": "920902CD8397EA268E625EE0E5E29C134AE425420F453306D284FB218699DDB8"
+    },
+    {
+      "relative_path": "Processed data\\20230306_07\\candidate_temporal_outcomes-corrected.parquet",
+      "size_bytes": 3978942,
+      "sha256": "AA3F874CB87A206D7AC70385C31E5DBE57ECA381CD99F15057778FADDA7220CD"
+    },
+    {
+      "relative_path": "Processed data\\20230306_07\\frame_activity_candidates-corrected.parquet",
+      "size_bytes": 337015481,
+      "sha256": "91707D0843EAADAE294D97F2819B4708A8D7ACB06A6ACF54CC5A04D4ACE242C9"
+    },
+    {
+      "relative_path": "Processed data\\20230306_07\\frame_preprocessed_corrected.parquet",
+      "size_bytes": 2003797976,
+      "sha256": "8513720C81854692AF2D9578160F40BFF37185F069DCCF767D38D6D4D34292A2"
+    },
+    {
+      "relative_path": "Processed data\\20230306_07\\movement_state_candidates-corrected.parquet",
+      "size_bytes": 103512720,
+      "sha256": "3EFEAD20645549DE9D5420AC6F0BE7EA0CBC7F1A16402B7B53C9F164A8A114AB"
+    },
+    {
+      "relative_path": "Processed data\\20230306_07\\stimulus_events.parquet",
+      "size_bytes": 3248,
+      "sha256": "D605AFA25766FDEB9F2B220156333C4F17E81766E9EBCB2A20028EEC8B06C74F"
+    },
+    {
+      "relative_path": "Processed data\\20230306_07\\tracking.parquet",
+      "size_bytes": 1855827369,
+      "sha256": "EC29475C3239C5B5E77E1B9DB063A776026974539C25B0D37F650A9A1B2B2173"
+    },
+    {
+      "relative_path": "Processed data\\20230306_10\\camera.parquet",
+      "size_bytes": 74232174,
+      "sha256": "C42A4AE98F2DAD1B61AB61BDDF36821355E65B56A95725A1EE982407B8BE2D56"
+    },
+    {
+      "relative_path": "Processed data\\20230306_10\\candidate_temporal_outcomes-corrected.parquet",
+      "size_bytes": 3006814,
+      "sha256": "998767F89601E156ABEF642AE44DCB61FC6928D0757AA2507A24A612437336B5"
+    },
+    {
+      "relative_path": "Processed data\\20230306_10\\frame_activity_candidates-corrected.parquet",
+      "size_bytes": 334325633,
+      "sha256": "C3031D7BA8C84DF082D18A3272CAE6FC6563DE4D83CE37AEAD328527B0338C4E"
+    },
+    {
+      "relative_path": "Processed data\\20230306_10\\frame_preprocessed_corrected.parquet",
+      "size_bytes": 1936411031,
+      "sha256": "96EB4B90625D371C197670C07E93CB364C540EDA2E131392BF0FB0957E92CE5B"
+    },
+    {
+      "relative_path": "Processed data\\20230306_10\\movement_state_candidates-corrected.parquet",
+      "size_bytes": 102500116,
+      "sha256": "BFC08A14EA798B7E0664C8A9D0ED275E00468420D3309066242B548425C1EFC9"
+    },
+    {
+      "relative_path": "Processed data\\20230306_10\\stimulus_events.parquet",
+      "size_bytes": 3245,
+      "sha256": "7F5F11D7F53E437568DA14707DD9BB636A7A05B0AC9C6F32E3578F1978925606"
+    },
+    {
+      "relative_path": "Processed data\\20230306_10\\tracking.parquet",
+      "size_bytes": 1798155786,
+      "sha256": "DFB15D4A977E9CD8A61AC2BA3C56EA923CE5CB457BD5C238FD60D656EA034A23"
+    },
+    {
+      "relative_path": "Processed data\\20230307_03\\camera.parquet",
+      "size_bytes": 75050205,
+      "sha256": "9F09E84A7B16C61C382B5AF3DEFBC68430E376A05CB452E808BC538C382F075C"
+    },
+    {
+      "relative_path": "Processed data\\20230307_03\\candidate_temporal_outcomes-corrected.parquet",
+      "size_bytes": 2972906,
+      "sha256": "369018A5435155282543CA2B45C5C77F9F8DF3E69CD689FCF80E34C47251AFA8"
+    },
+    {
+      "relative_path": "Processed data\\20230307_03\\frame_activity_candidates-corrected.parquet",
+      "size_bytes": 338283465,
+      "sha256": "E18B7B6610C42516FFA3E9F606E3FE449CF8F09E8B36728962CDC3CDC2578078"
+    },
+    {
+      "relative_path": "Processed data\\20230307_03\\frame_preprocessed_corrected.parquet",
+      "size_bytes": 1967782546,
+      "sha256": "0E2BF9BFC58F147E102E06B3FA4D3124DDF3964D6807B3EB722DDAC8123BC60C"
+    },
+    {
+      "relative_path": "Processed data\\20230307_03\\movement_state_candidates-corrected.parquet",
+      "size_bytes": 103844699,
+      "sha256": "3923D9F0BB4CF1CD890B016B9BA79AAA6546E83411134F646B0FA32A8EC8EB18"
+    },
+    {
+      "relative_path": "Processed data\\20230307_03\\stimulus_events.parquet",
+      "size_bytes": 3253,
+      "sha256": "DCFA11691F571D36676CCCD2A1AA35F38699FB63EAC1815FAF3D1D7176861DDF"
+    },
+    {
+      "relative_path": "Processed data\\20230307_03\\tracking.parquet",
+      "size_bytes": 1886182506,
+      "sha256": "59677FB783A8D4119FBAB8CB47DCDB5EC583904D309D42DA359533BF14D8AF04"
+    },
+    {
+      "relative_path": "Processed data\\20230307_06\\camera.parquet",
+      "size_bytes": 75064340,
+      "sha256": "2945BE920406AB29F5AA6DF525F7D26EFC6C8A7E97341F3766784A67CD7DA6E4"
+    },
+    {
+      "relative_path": "Processed data\\20230307_06\\candidate_temporal_outcomes-corrected.parquet",
+      "size_bytes": 3526989,
+      "sha256": "1216ADCE3779E899A97F544E635AC7B06F002974382B9D4B5B179F741DAB0B13"
+    },
+    {
+      "relative_path": "Processed data\\20230307_06\\frame_activity_candidates-corrected.parquet",
+      "size_bytes": 338724241,
+      "sha256": "4790E3CCCBD25EBA6F23B06206BAF1C1B54123E144B131AFD9899BD0B2F1D4E8"
+    },
+    {
+      "relative_path": "Processed data\\20230307_06\\frame_preprocessed_corrected.parquet",
+      "size_bytes": 1868492423,
+      "sha256": "6C543C9CED332F7ADB229E22C2C803D19B4250214EDFA745D08073F203DECEED"
+    },
+    {
+      "relative_path": "Processed data\\20230307_06\\movement_state_candidates-corrected.parquet",
+      "size_bytes": 103878974,
+      "sha256": "D3875DB83BD84D32C2E52323C41EB290F61518745C54271A8CAFE8FA4D956482"
+    },
+    {
+      "relative_path": "Processed data\\20230307_06\\stimulus_events.parquet",
+      "size_bytes": 3242,
+      "sha256": "44BE6C45B7EE635D97C0203C1303FA03101B7624DFC56CF5DA9B73FE15D3A719"
+    },
+    {
+      "relative_path": "Processed data\\20230307_06\\tracking.parquet",
+      "size_bytes": 1774139807,
+      "sha256": "5C30E76DC3BD1E70D160EAEB2DAFE747C463E0ABFA98F408E065E119999A1684"
+    },
+    {
+      "relative_path": "Processed data\\20230307_09\\camera.parquet",
+      "size_bytes": 74447966,
+      "sha256": "2FF8441B2A3D9B191D11FDE2568E0717A8D85B039BBDFE27D8DF5F5596743DC0"
+    },
+    {
+      "relative_path": "Processed data\\20230307_09\\candidate_temporal_outcomes-corrected.parquet",
+      "size_bytes": 3027175,
+      "sha256": "71D48569A827F97DA74CA97460E165159147B0B08A5A1E646F3A2481C18FF457"
+    },
+    {
+      "relative_path": "Processed data\\20230307_09\\frame_activity_candidates-corrected.parquet",
+      "size_bytes": 335699161,
+      "sha256": "A8F0DF645D61A9D0721A8313C5EDBD8D5943DBDB7D79F51E2C50039E0BECFEA5"
+    },
+    {
+      "relative_path": "Processed data\\20230307_09\\frame_preprocessed_corrected.parquet",
+      "size_bytes": 2000693816,
+      "sha256": "CD7388864569069E84822F634D52C482CB3811693B8DD00B3BBDFE496CB79949"
+    },
+    {
+      "relative_path": "Processed data\\20230307_09\\movement_state_candidates-corrected.parquet",
+      "size_bytes": 102918493,
+      "sha256": "A80C75589A13246F6C81D60DE19D4B9C2400D1DAE73499487D086FC77BEAA650"
+    },
+    {
+      "relative_path": "Processed data\\20230307_09\\stimulus_events.parquet",
+      "size_bytes": 3244,
+      "sha256": "F1D61578FA191AEAD362015908E3168658DD0080DA87C87F041F44DA71B87E41"
+    },
+    {
+      "relative_path": "Processed data\\20230307_09\\tracking.parquet",
+      "size_bytes": 1854340228,
+      "sha256": "D12B4E38B019803153AB7A11110AFD9685A86F2518603C8CD276F7610EB259B4"
+    },
+    {
+      "relative_path": "Processed data\\20230309_09\\camera.parquet",
+      "size_bytes": 74487337,
+      "sha256": "541A542EDD5134D53232D7F2BC266C2D6946511473C189915CA1F0E04653E842"
+    },
+    {
+      "relative_path": "Processed data\\20230309_09\\candidate_temporal_outcomes-corrected.parquet",
+      "size_bytes": 3127445,
+      "sha256": "422BAD268D9A9803B11B1D430A87F5A4DA68FB5B6E1DA63CE1EEBF3C1E5B2940"
+    },
+    {
+      "relative_path": "Processed data\\20230309_09\\frame_activity_candidates-corrected.parquet",
+      "size_bytes": 336302576,
+      "sha256": "3F9DB4EFE90081E94457C92F51F4BD66FB16FE1CF2CF0B27955DDDBA29F93C51"
+    },
+    {
+      "relative_path": "Processed data\\20230309_09\\frame_preprocessed_corrected.parquet",
+      "size_bytes": 1883254307,
+      "sha256": "CC81D6F91ADFEBA593FF260090D450DECBBAE32652480605B0921B390113D336"
+    },
+    {
+      "relative_path": "Processed data\\20230309_09\\movement_state_candidates-corrected.parquet",
+      "size_bytes": 103078286,
+      "sha256": "7099D5850B4FE328E26899EA6131D909608BD39BB928B0FB3897441056AA9605"
+    },
+    {
+      "relative_path": "Processed data\\20230309_09\\stimulus_events.parquet",
+      "size_bytes": 3257,
+      "sha256": "2B31A83AE269DF02AD72B114741692A5FCD5E6822BE80887CF8EDC3E415357D5"
+    },
+    {
+      "relative_path": "Processed data\\20230309_09\\tracking.parquet",
+      "size_bytes": 1750957071,
+      "sha256": "475FC68B66389D06B4669C7374CD9086666FF94B79FD8951B90DAEC8690BC3C3"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\acquisition_report.html",
+      "size_bytes": 1463,
+      "sha256": "038962DEE71B5A2A0955917EABF676255E1B232B1FDBB805C63912F311E2DF13"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\acquisition_summary.json",
+      "size_bytes": 19229,
+      "sha256": "6ED7DC90D1D9A13A2B9D81A5C3A9D1831838F4B6B11FBEE75EB03D47710C5D29"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\candidate-corrected_activity_summary.json",
+      "size_bytes": 5263,
+      "sha256": "72E3A760433D5D3F5A9E04598B2D9B0540874599538380E8219F13E0BAACC1D7"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\candidate-corrected_temporal_outcomes_summary.json",
+      "size_bytes": 2649,
+      "sha256": "19576C392C0663F53E74C35665C028B7B6E124DE596F526B748B08A18FD22A05"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\corrected_preprocessing_summary.json",
+      "size_bytes": 4315,
+      "sha256": "4FBC04CD29F3B078DF26FE5B939B82A3314CB348E3A8EC50F33EC42892F04EE0"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\movement-candidate-corrected_summary.json",
+      "size_bytes": 3692,
+      "sha256": "49323AA01B5250C1375F28FD2EBECCE43D97F25D8312EEA7A680F24C1DF9CBB0"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\figures\\camera_timing.png",
+      "size_bytes": 182724,
+      "sha256": "D553ECCB13D60511DF7AD101126F9B17EB4B878258FD5F43E5AFA3A26DBEC404"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\figures\\protocol_timeline.png",
+      "size_bytes": 28919,
+      "sha256": "1540C8F492CEC3EA4157F52D5D941B784835EC6EDB239300879842BF6F0BDB8F"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_01\\figures\\tracking_overview.png",
+      "size_bytes": 133196,
+      "sha256": "B04463D3818291CFB19839A9756FA1646EBAF8361DEF190FCFAC0D3D3933165C"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\acquisition_report.html",
+      "size_bytes": 1459,
+      "sha256": "55BF83B646870301650082D804DB23EEEE2FCD911DE76174064F436D269C4829"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\acquisition_summary.json",
+      "size_bytes": 19216,
+      "sha256": "96AAA6BD0F00B8B90C9B704687827C3B17C450D0D5A6AEA03FFE49DA21CD714C"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\candidate-corrected_activity_summary.json",
+      "size_bytes": 5260,
+      "sha256": "FF36045AABA6D1883E133431A804E345A4F1965F16F579367177E4D79AC9599B"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\candidate-corrected_temporal_outcomes_summary.json",
+      "size_bytes": 2649,
+      "sha256": "176BCBF7D9D125D375268044C44810A8E128EAF6FF9C52C721A6AEFF31115724"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\corrected_preprocessing_summary.json",
+      "size_bytes": 4311,
+      "sha256": "8244FE327C97B187BE6803DEB287FEC9F8609AB9BFE872C61598DE5071F15FF5"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\movement-candidate-corrected_summary.json",
+      "size_bytes": 3692,
+      "sha256": "D6330A8C7BC5B07DCD7932E2EAE101623C10AC2C3BC2394F4139F04205826333"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\figures\\camera_timing.png",
+      "size_bytes": 184372,
+      "sha256": "445980D6FD34F787032CC5A14F209CD5704E2F2F2DCE3B5D80C207E5296E9B9A"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\figures\\protocol_timeline.png",
+      "size_bytes": 28932,
+      "sha256": "30A01BFD69E4862200AD9F47A750A1F77366BFBA4C287BC46A9ED58E9652171D"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_07\\figures\\tracking_overview.png",
+      "size_bytes": 134630,
+      "sha256": "24B25A0C0EE5DE7D84B92606BA286ABE13586868C16EEA00BDEEA7E3D41DE5C5"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\acquisition_report.html",
+      "size_bytes": 1461,
+      "sha256": "E911FCE869B7F73C24C3AA02F96699A3DACB6C562BE0927A1009E559A5F69C46"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\acquisition_summary.json",
+      "size_bytes": 19220,
+      "sha256": "86598290F70D9CBED9084FA8D7DF98E231065BE81ED9D609A13C29612EBB6899"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\candidate-corrected_activity_summary.json",
+      "size_bytes": 5262,
+      "sha256": "724CFFADDCED80634AE56B713ED278C59C1B20E78B405E1F1208F902F76D9451"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\candidate-corrected_temporal_outcomes_summary.json",
+      "size_bytes": 2649,
+      "sha256": "54783C5D164F02DD757BD24C117BE0A1F76700AE72CA7D27C372C2DB8FEE6BCC"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\corrected_preprocessing_summary.json",
+      "size_bytes": 4313,
+      "sha256": "3AC203EA25FB91D001A24AF681202B420AF2571C795BBC00A45AB26F1D882368"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\movement-candidate-corrected_summary.json",
+      "size_bytes": 3693,
+      "sha256": "65F6CD1B0250FE2021F5FEE63B68FC0D02A35E2BB85762F3741FD6D92387613B"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\figures\\camera_timing.png",
+      "size_bytes": 191846,
+      "sha256": "3BBD190DC6186E2D398095EC88AB26B13931355F6A3C3DCF0D9979D3E7B8C4C2"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\figures\\protocol_timeline.png",
+      "size_bytes": 28936,
+      "sha256": "1B803D6592CA80920B804700757310B2B6FCD73FEFE7747A984EE5278CFC630A"
+    },
+    {
+      "relative_path": "Quality checks\\20230306_10\\figures\\tracking_overview.png",
+      "size_bytes": 138058,
+      "sha256": "BBE6DBAFFB6752BD91451D3BA4B980EF29F57956E60931DB43DBE5238F3E23DA"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\acquisition_report.html",
+      "size_bytes": 1459,
+      "sha256": "6DDF5081DF08402F4AE01F84C01F8637A60510CEA2D1CBE2A0CD8C21ACC3E3DA"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\acquisition_summary.json",
+      "size_bytes": 19212,
+      "sha256": "56AFA4920421245F8D9B0FB4E7DF52D35CAAD71BE6F67B3CDD7351AF846F536D"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\candidate-corrected_activity_summary.json",
+      "size_bytes": 5263,
+      "sha256": "CF23103C3FE1A112CD0DCAA464C257B18E2A796A27872D550DEE1A2C6B9FC47C"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\candidate-corrected_temporal_outcomes_summary.json",
+      "size_bytes": 2649,
+      "sha256": "57481996E62848FF3F38FEE4F5C8F58089A797ED53DCF77470F3373450CAC16C"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\corrected_preprocessing_summary.json",
+      "size_bytes": 4312,
+      "sha256": "A52591BC8764CB86378B169EB27927B3A837AFBEF33A4F05511B6605A5BCE6AF"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\movement-candidate-corrected_summary.json",
+      "size_bytes": 3689,
+      "sha256": "69F2E671ED502A252010FC3A4F5A344EB41823512959288D90BBD9BE25206215"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\figures\\camera_timing.png",
+      "size_bytes": 180617,
+      "sha256": "D37D0E97BED70AD2A2188F16019AF3D52B4EEB38278F74B537FFC2BE3869EF73"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\figures\\protocol_timeline.png",
+      "size_bytes": 28946,
+      "sha256": "A1B14E5D70662E0E50D590BE214827AC9A619C356D32779CCD38C3AEF2FAA042"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_03\\figures\\tracking_overview.png",
+      "size_bytes": 135792,
+      "sha256": "76CE8F57B9E7C91B532C5FCDD4A976872A42DE470387CC1FC8E2CCDB91E40429"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\acquisition_report.html",
+      "size_bytes": 1461,
+      "sha256": "A506159C3C4AD07D3E2F60B17E7B07E7E7F1C0D50823EE03D957C6FDFD2FD974"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\acquisition_summary.json",
+      "size_bytes": 19215,
+      "sha256": "32E52DECA9FA1890A5B8B9D30B22CCB9D637B79A7B2920A6A262A32C8F70BA62"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\candidate-corrected_activity_summary.json",
+      "size_bytes": 5265,
+      "sha256": "AF5D499413B1FEBCCAC16C423B0496BB967A0851A518FC14E51E524A78E74734"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\candidate-corrected_temporal_outcomes_summary.json",
+      "size_bytes": 2649,
+      "sha256": "D76859EADB76CF99D31063F7253D545D87CC61761E06354435F4F6DC3A6B64B2"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\corrected_preprocessing_summary.json",
+      "size_bytes": 4313,
+      "sha256": "BFF033DC96C3D82685BE236E90E26ACF8E4E888FD10A579E26788E5FD1AD83DD"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\movement-candidate-corrected_summary.json",
+      "size_bytes": 3690,
+      "sha256": "C0344F1564BC8F2E214FAFC554E130E28A8F888683A02125A856E3425BB276D1"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\figures\\camera_timing.png",
+      "size_bytes": 163395,
+      "sha256": "5A3CEB1BDC5333C414631B3BFE765F0F80D698C580E1AD1D1AFB5E7DFA02AC86"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\figures\\protocol_timeline.png",
+      "size_bytes": 28912,
+      "sha256": "43A75C584BBDCEA97B93725CDB733521D20830686429C91B780FC06183A6E690"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_06\\figures\\tracking_overview.png",
+      "size_bytes": 131712,
+      "sha256": "003A407BBA291DAAF093D121CFAF9C6F4E2CE83E4D26106CBB3E7ADFB6C42D7D"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\acquisition_report.html",
+      "size_bytes": 1463,
+      "sha256": "F2D4AB5FEAD04D728060F2601B11F5C9A28AEE6965DD5193453793B34373DB80"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\acquisition_summary.json",
+      "size_bytes": 19229,
+      "sha256": "736569596755633B25287D692303F62D3A5E60950F5A69DA49F77A4BF63B63F4"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\candidate-corrected_activity_summary.json",
+      "size_bytes": 5265,
+      "sha256": "92B88E2D5220E3068C01BDFBF25EC79424C508B5D7FEA623ECA12E046224D1A5"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\candidate-corrected_temporal_outcomes_summary.json",
+      "size_bytes": 2649,
+      "sha256": "9CEA0B7F6F48F901072B6F597D3D65A3DF50CC47632F6AB586979FE43F8E83EE"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\corrected_preprocessing_summary.json",
+      "size_bytes": 4315,
+      "sha256": "8DFDF151FE04AF78AF4EDE6468539212FC26ECE132723FCAA3CABD82F96E226F"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\movement-candidate-corrected_summary.json",
+      "size_bytes": 3693,
+      "sha256": "C3F469A01F528245FA7492190E5178585AD43A146D292A40CE0EBBC32D89F051"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\figures\\camera_timing.png",
+      "size_bytes": 185183,
+      "sha256": "B84790FE4728A039C8CA7E6A70A6EE81A486B96A8877941AE2EBA1CE1FB5D8E2"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\figures\\protocol_timeline.png",
+      "size_bytes": 28927,
+      "sha256": "CA9208EF32D731D40F18417381A80707D6A8ECF3FDE606C08F05BA8726409680"
+    },
+    {
+      "relative_path": "Quality checks\\20230307_09\\figures\\tracking_overview.png",
+      "size_bytes": 136143,
+      "sha256": "405C99A6C6EFD86371389ABE8AEE7FAB610001A06A5533550FD91429F4D1ABC1"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\acquisition_report.html",
+      "size_bytes": 1463,
+      "sha256": "4CDDAE55FD12FC872E0E36D74D7465ABAE8630D49C02E0A958338855577ED519"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\acquisition_summary.json",
+      "size_bytes": 19233,
+      "sha256": "ADB55B3BB236C645BE84F0D907A694EA25FF41793CFB06A23D06A08E12991846"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\candidate-corrected_activity_summary.json",
+      "size_bytes": 5265,
+      "sha256": "1C276E0FBCB10203E5EBC0CC4D8A702615C2AFC8A97B6F32E7C904D59E4590D6"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\candidate-corrected_temporal_outcomes_summary.json",
+      "size_bytes": 2649,
+      "sha256": "8302F00D2B94321E53A1307D1D5A59577BA3B87C43F1B90D5126E78EDEA788E9"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\corrected_preprocessing_summary.json",
+      "size_bytes": 4314,
+      "sha256": "C1721754C34B86FF6FADBA35D6A52684B82F53C5CD70CB03C014E8D7D7706616"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\movement-candidate-corrected_summary.json",
+      "size_bytes": 3695,
+      "sha256": "54B025C586AD90E8E8AFFD1D21546F699761A668820BE5AE429AA866B65E61DB"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\figures\\camera_timing.png",
+      "size_bytes": 185822,
+      "sha256": "78FCB78B1C2E8849BEAE00A76F6396A38833EEB56C5488B66348459922FAC0BA"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\figures\\protocol_timeline.png",
+      "size_bytes": 28937,
+      "sha256": "CC9504202B4D708C75222DBD04C8624D639293E6A84C8DE65E86E9BDC7C1A96A"
+    },
+    {
+      "relative_path": "Quality checks\\20230309_09\\figures\\tracking_overview.png",
+      "size_bytes": 138491,
+      "sha256": "1C273365127032933726B3FE9381C917992BF1260CCA50EF2876F19558AFC427"
+    }
+  ]
+}
