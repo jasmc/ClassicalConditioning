@@ -1,3 +1,14 @@
+ask me again. i wrote sth. where is that? it was sth like: "the inset must be relative to y and not to x. can you instead of showing an inset overlay the black trace of raw vigor on top of the bars representing the scaled vigor?" could this work nicely? or what do you suggest?
+
+you didnt understand. i want to compare pre train with 5 trials late train + 5 trials early test
+
+
+
+----------------------------------------------------
+
+
+
+
 /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/example-run.json add a comment if possible explaining how to use this file and what the different options are. if not possibble to add comment, add that info in /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/README.md
 
 
