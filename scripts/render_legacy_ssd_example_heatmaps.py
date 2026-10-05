@@ -185,11 +185,12 @@ def main() -> None:
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
     parser.add_argument("--metric", choices=tuple(METRIC_COLUMNS),
                         help="Render one candidate metric; omit to render all three.")
+    parser.add_argument("--baseline-start-s", type=float, default=WINDOW_S[0])
     parser.add_argument("--baseline-end-s", type=float, default=0.0)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
-    if not WINDOW_S[0] < args.baseline_end_s <= 0:
-        raise ValueError("Baseline end must be after -20 s and no later than CS onset")
+    if not WINDOW_S[0] <= args.baseline_start_s < args.baseline_end_s <= 0:
+        raise ValueError("Baseline must lie within -20 to 0 s")
     project = args.project_dir.resolve()
     output = args.output_dir.resolve()
     frames = []
@@ -200,6 +201,7 @@ def main() -> None:
         )
         frames.append(calculate_fish_heatmaps(
             metrics, movement, cycles, recording_id=fish,
+            baseline_start_s=args.baseline_start_s,
             baseline_end_s=args.baseline_end_s,
             metric_ids=((args.metric,) if args.metric else None),
         ))
@@ -220,19 +222,20 @@ def main() -> None:
     source = Path(__file__).resolve()
     for metric_id in ((args.metric,) if args.metric else METRIC_COLUMNS):
         fig, panel_ids, mappings = render_comparison(data, metric_id)
-        base = output / f"figure-1-FH_delay-control_{metric_id}"
+        base = output / f"figure-1-EG_delay-control_{metric_id}"
         try:
             result = export_matplotlib_figure(
                 fig, base,
                 FigureProvenance(
-                    figure_id="figure-1-FH-delay-control-example-heatmaps",
-                    analysis_recipe=f"signed-bout-log-vigor-baseline-{WINDOW_S[0]}-to-{args.baseline_end_s}",
+                    figure_id="figure-1-EG-delay-control-example-heatmaps",
+                    analysis_recipe=f"signed-bout-log-vigor-baseline-{args.baseline_start_s}-to-{args.baseline_end_s}",
                     source_file=str(source), source_symbol="main",
                     source_hash=sha256_file(source),
                     reproduction_snippet=(
                         f"MPLCONFIGDIR=/private/tmp/cc-mpl PYTHONPATH=src ./.venv/bin/python "
                         f"scripts/render_legacy_ssd_example_heatmaps.py "
                         f"--project-dir '{project}' --output-dir '{output}' "
+                        f"--baseline-start-s {args.baseline_start_s} "
                         f"--baseline-end-s {args.baseline_end_s} --mode {args.mode} "
                         f"{'--metric ' + args.metric if args.metric else ''} --overwrite"
                     ),

@@ -1,7 +1,7 @@
 """Build matching, fully vector Figure 1 single-fish legacy-vigor heatmaps.
 
 The signal is signed bout-log vigor from the historical distal angular speed
-metric, centered on each trial's -20 to 0 s moving-bout median. The three
+metric, centered on each trial's -15 to 0 s moving-bout median. The three
 example fish share one palette and fixed -0.25 to +0.25 display scale.
 """
 
@@ -141,7 +141,8 @@ def load_fish(spec: tuple) -> tuple[pd.DataFrame, list[dict], float | None]:
                             ["FrameID", "AbsoluteTime", "valid", "moving", "bout_id"],
                             intervals)
     bins = calculate_fish_heatmaps(metrics, movement, cycles,
-                                   recording_id=recording, metric_ids=(METRIC,))
+                                   recording_id=recording, metric_ids=(METRIC,),
+                                   baseline_start_s=-15.0, baseline_end_s=0.0)
     del metrics, movement
     gc.collect()
     inputs = [{"path": str(path), "sha256": digest(path)}
@@ -169,12 +170,12 @@ def draw(spec: tuple, bins: pd.DataFrame) -> ET.Element:
         "font-family": "DejaVu Sans", "role": "img",
         "aria-label": f"Figure 1{panel} {name} single-fish legacy vigor heatmap",
         "data-metric-id": METRIC, "data-recording-id": recording,
-        "data-signal": "signed_bout_log_vigor_pre20_median",
+        "data-signal": "signed_bout_log_vigor_pre15_median",
     })
     add(root, "title").text = f"{name} fish · {recording}"
     add(root, "desc").text = (
         "Measured single-fish legacy distal angular speed. Moving-bout log vigor "
-        "is centered on each trial's -20 to 0 second pre-CS median, then "
+        "is centered on each trial's -15 to 0 second pre-CS median, then "
         "averaged in 0.5 second bins. Missing bins are black. All three fish "
         "share managua_r at -0.25 to +0.25. The green guides mark 0 and 10 s."
     )
@@ -257,14 +258,14 @@ def main() -> None:
         bins, inputs, verified_us_s = load_fish(spec)
         if len(bins) != 90 * 80 or set(bins["Metric ID"]) != {METRIC}:
             raise ValueError(f"{panel}: wrong signed bin count or metric")
-        svg = args.output_dir / f"Fig1_Panel{panel}_{name.replace(' ', '')}_legacy-vigor_v1.svg"
+        svg = args.output_dir / f"Fig1_Panel{panel}_{name.replace(' ', '')}_legacy-vigor_v2.svg"
         data = svg.with_suffix(".parquet")
         pq.write_table(pa.Table.from_pandas(bins, preserve_index=False), data)
         ET.ElementTree(draw(spec, bins)).write(svg, encoding="utf-8", xml_declaration=True)
         sidecar = {
             "panel": panel, "recording_id": recording, "condition": name,
-            "metric_id": METRIC, "signal": "signed_bout_log_vigor_pre20_median",
-            "baseline_s": [-20, 0], "bin_width_s": 0.5,
+            "metric_id": METRIC, "signal": "signed_bout_log_vigor_pre15_median",
+            "baseline_s": [-15, 0], "bin_width_s": 0.5,
             "palette": "managua_r", "display_range": [-0.25, 0.25],
             "missing_color": "black", "input_artifacts": inputs,
             "verified_paired_us_onset_s": verified_us_s,

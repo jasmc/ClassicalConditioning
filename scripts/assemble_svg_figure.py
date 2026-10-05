@@ -258,6 +258,8 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
         source_name = panel.get("source")
         source_path = (asset_base / source_name).resolve() if source_name else None
         if source_path and source_path.is_file():
+            if panel.get("frozen_sha256") and digest(source_path) != panel["frozen_sha256"]:
+                raise ValueError(f"Frozen panel {panel_id} differs from its approved SVG")
             kind = source_path.suffix.lower()
             if kind == ".svg":
                 source = copy.deepcopy(ET.parse(source_path).getroot())
@@ -295,7 +297,7 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
             state = "source"
             source_hash = digest(source_path)
         else:
-            if strict:
+            if strict or panel.get("frozen_sha256"):
                 raise FileNotFoundError(f"Required panel {panel_id}: {source_name or 'source unset'}")
             ET.SubElement(group, q("rect"), {
                 "x": str(x), "y": str(y), "width": str(w), "height": str(h),

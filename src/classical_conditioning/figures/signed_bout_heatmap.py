@@ -21,11 +21,12 @@ def calculate_fish_heatmaps(
     *,
     recording_id: str,
     baseline_end_s: float = 0.0,
+    baseline_start_s: float = WINDOW_S[0],
     metric_ids: tuple[str, ...] | None = None,
 ) -> pd.DataFrame:
     """Calculate one signed value per CS trial and half-second bin."""
-    if not WINDOW_S[0] < baseline_end_s <= 0:
-        raise ValueError("Baseline end must be after -20 s and no later than CS onset")
+    if not WINDOW_S[0] <= baseline_start_s < baseline_end_s <= 0:
+        raise ValueError("Baseline must lie within -20 to 0 s, with start before end")
     metric_ids = tuple(METRIC_COLUMNS) if metric_ids is None else metric_ids
     if not metric_ids or any(metric not in METRIC_COLUMNS for metric in metric_ids):
         raise ValueError("At least one known metric is required")
@@ -60,6 +61,7 @@ def calculate_fish_heatmaps(
                 detector_valid[start:stop][in_window], moving[start:stop][in_window],
                 bout_ids[start:stop][in_window], bin_count=len(bins),
                 baseline_end_s=baseline_end_s,
+                baseline_start_s=baseline_start_s,
             )
             rows.extend({
                 "Recording ID": recording_id,
@@ -67,7 +69,7 @@ def calculate_fish_heatmaps(
                 "Trial number": trial,
                 "Time bin center (s)": float(time),
                 "Signed log vigor": float(value),
-                "Baseline start (s)": WINDOW_S[0],
+                "Baseline start (s)": baseline_start_s,
                 "Baseline end (s)": baseline_end_s,
             } for time, value in zip(bins, signal))
     return pd.DataFrame(rows)
@@ -85,10 +87,11 @@ def summarize_equal_fish_signed_log_vigor(
         raise ValueError(f"No signed vigor for metric {metric_id}")
     if selected.duplicated(["Recording ID", "Trial number", "Time bin center (s)"]).any():
         raise ValueError("Duplicate fish/trial/time bin")
-    if not selected["Baseline start (s)"].eq(WINDOW_S[0]).all() or not selected[
-        "Baseline end (s)"
-    ].eq(0.0).all():
-        raise ValueError("Pooled heatmap requires the -20 to 0 s baseline")
+    baseline_starts = selected["Baseline start (s)"].unique()
+    baseline_ends = selected["Baseline end (s)"].unique()
+    if (len(baseline_starts) != 1 or len(baseline_ends) != 1
+            or not WINDOW_S[0] <= baseline_starts[0] < baseline_ends[0] <= 0):
+        raise ValueError("Pooled heatmap requires one consistent pre-CS baseline")
     selected["condition_id"] = selected["Recording ID"].map(condition_by_recording)
     if selected["condition_id"].isna().any():
         raise ValueError("Signed vigor includes recordings absent from the cohort")
@@ -102,5 +105,10 @@ def summarize_equal_fish_signed_log_vigor(
     pooled["Total cohort fish"] = pooled["condition_id"].map(cohort_counts).astype(int)
     pooled["Fish coverage fraction"] = pooled["Contributing fish"] / pooled["Total cohort fish"]
     pooled["Metric ID"] = metric_id
-    pooled["Signal semantics"] = SIGNAL
+    pooled["Signal semantics"] = (
+        f"signed_bout_log_vigor_baseline_{baseline_starts[0]:g}_to_"
+        f"{baseline_ends[0]:g}_median"
+    )
+    pooled["Baseline start (s)"] = float(baseline_starts[0])
+    pooled["Baseline end (s)"] = float(baseline_ends[0])
     return pooled

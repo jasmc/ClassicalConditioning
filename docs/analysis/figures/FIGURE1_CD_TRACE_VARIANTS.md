@@ -39,7 +39,7 @@ The historical focused D renderer is [`render_figure1_raw_vigor_y_focus.py`](../
 ## What to select before freezing
 
 1. One fish and the global CS trials, shared by C and D.
-2. C's X window and whether radians with automatic Y range or degrees with a fixed shared Y range are clearer.
+2. Keep C's −20 to +20 s X window; choose whether radians with automatic Y range or degrees with a fixed shared Y range are clearer.
 3. One D vigor metric, the moving-bout versus all-valid-frame signal, and [−15, 0) versus [−20, 0) s for scaling.
 4. Review the baseline choice in Figure 1/2 heatmaps and other analysis outcomes before setting a repository-wide default. The older profile option called “−15” selects samples **before −15 s**; it does not implement [−15, 0) s.
 5. A single output run with source/input hashes, exact settings, sidecars, and reviewed PNG/SVG/PDF exports. Historical review images remain available by their original names.

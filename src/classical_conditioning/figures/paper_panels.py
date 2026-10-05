@@ -83,12 +83,13 @@ def build_render_plan(
             raise ValueError(
                 "The signed Figure 1 heatmap renderer currently supports only "
                 "20221115_07 Delay and 20221115_09 control; choose those fish "
-                "or run the paired D/E traces directly."
+                "or run the paired C/D traces directly."
             )
         steps.append(RenderStep(
-            "figure1-signed-heatmap", ("fig-1F", "fig-1H"),
+            "figure1-signed-heatmap", ("fig-1E", "fig-1G"),
             ("scripts/render_legacy_ssd_example_heatmaps.py", *common,
              "--output-dir", str(output_dir / "figure1/heatmaps"),
+             "--baseline-start-s", "-20",
              "--baseline-end-s", "0", "--metric", metric_id, *force),
         ))
     if figure_set in {"available", "figure2-delay"}:
@@ -96,7 +97,8 @@ def build_render_plan(
         steps.append(RenderStep(
             "figure2-delay-descriptive", ("fig-2A", "fig-2D", "fig-2G", "sup-5"),
             ("scripts/render_legacy_ssd_figure2_delay.py", *common,
-             "--output-dir", str(figure2_dir), "--metric", metric_id, *force),
+             "--output-dir", str(figure2_dir), "--metric", metric_id,
+             "--baseline-start-s", "-20", *force),
         ))
         if inference_review:
             steps.append(RenderStep(

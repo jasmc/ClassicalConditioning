@@ -151,7 +151,7 @@ def _plot_heatmap(data: pd.DataFrame, metric_id: str, counts: dict[str, int]):
         main.set_gid(main_id)
         mappings[main_id] = {
             "condition": condition, "metric_id": metric_id,
-            "signal": signed_module.SIGNAL,
+            "signal": str(data["Signal semantics"].iloc[0]),
             "aggregation": "equal-fish mean of signed fish/trial bins",
             "cmap": palette.name, "vmin": str(theme.single_fish_scaled_vigor_vmin),
             "vmax": str(theme.single_fish_scaled_vigor_vmax), "missing_color": "black",
@@ -260,8 +260,11 @@ def main() -> None:
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
     parser.add_argument("--metric", choices=tuple(METRIC_COLUMNS),
                         help="Render one candidate metric; omit to render all three.")
+    parser.add_argument("--baseline-start-s", type=float, default=-20.0)
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
+    if not -20.0 <= args.baseline_start_s < 0.0:
+        raise ValueError("Baseline start must be within [-20, 0) s")
     project = args.project_dir.resolve()
     output = args.output_dir.resolve()
     output.mkdir(parents=True, exist_ok=True)
@@ -288,6 +291,7 @@ def main() -> None:
         f"MPLCONFIGDIR=/private/tmp/cc-mpl PYTHONPATH=src ./.venv/bin/python "
         f"scripts/render_legacy_ssd_figure2_delay.py --project-dir '{project}' "
         f"--output-dir '{output}' --mode {args.mode} "
+        f"--baseline-start-s {args.baseline_start_s} "
         f"{'--metric ' + args.metric if args.metric else ''} --overwrite"
     )
     mode = FigureMode(args.mode)
@@ -299,6 +303,7 @@ def main() -> None:
             )
             fish_bins.append(calculate_fish_heatmaps(
                 metrics, movement, cycles, recording_id=recording_id,
+                baseline_start_s=args.baseline_start_s,
                 metric_ids=(metric_id,),
             ))
             inputs.extend({"path": str(path), "sha256": sha256_file(path)} for path in paths)
@@ -339,7 +344,7 @@ def main() -> None:
                     FigureProvenance(
                         figure_id=f"figure-{panel}-delay-control-review",
                         analysis_recipe=(
-                            "signed-bout-log-vigor-pre20-equal-fish"
+                            f"signed-bout-log-vigor-pre{abs(int(args.baseline_start_s))}-equal-fish"
                             if panel in {"2A", "2A-coverage"}
                             else "corrected-candidate-cohort-descriptive"
                         ),

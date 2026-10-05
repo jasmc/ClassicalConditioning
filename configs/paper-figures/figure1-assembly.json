@@ -3,59 +3,186 @@
   "figure_id": "Fig1",
   "storage_root": "J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly",
   "output": "figure1-preview.svg",
-  "canvas": [1800, 2000],
+  "canvas": [
+    1800,
+    2250
+  ],
   "font_family": "DejaVu Sans",
   "font_directory": "fonts",
   "panels": [
     {
-      "id": "A", "role": "preparation and illumination",
-      "source": "schemes/Fig1_PanelA_Setup_DejaVuSans_v1.svg",
-      "box": [45, 25, 325, 379],
-      "label": {"text": "A", "x": 42, "y": 52, "size": 32}
+      "id": "A",
+      "role": "preparation and illumination",
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelA_frozen.svg",
+      "box": [
+        45,
+        25,
+        325,
+        379
+      ],
+      "label": {
+        "text": "A",
+        "x": 42,
+        "y": 52,
+        "size": 32
+      },
+      "frozen_sha256": "3512cf4798f8cb9d56424de455bddba5dfb89a7ab8aef1d11f8c08ae247ccf43",
+      "selection_status": "frozen"
     },
     {
-      "id": "B", "role": "inset comparing four experimental contingencies",
-      "source": "schemes/Fig1_PanelB_ConditionTiming_exploratory_v4.svg",
-      "box": [405, 20, 1340, 480],
-      "content_box": [520, 55, 1110, 420],
-      "frame": {"radius": 12, "stroke": "#a9adb2"},
-      "label": {"text": "B", "x": 375, "y": 55, "size": 32}
+      "id": "B",
+      "role": "inset comparing four experimental contingencies",
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelB_frozen.svg",
+      "box": [
+        405,
+        20,
+        1340,
+        415
+      ],
+      "content_box": [
+        520,
+        55,
+        1110,
+        355
+      ],
+      "frame": {
+        "radius": 12,
+        "stroke": "#a9adb2"
+      },
+      "label": {
+        "text": "B",
+        "x": 375,
+        "y": 55,
+        "size": 32
+      },
+      "frozen_sha256": "57a6d07f2acca94c1371747502c33175b94f69f56abbc32dabaefaca4c7864d3",
+      "selection_status": "frozen"
     },
     {
-      "id": "C", "role": "session timeline and CS/US events",
-      "source": "schemes/Fig1_PanelC_SessionProtocol_exploratory_v2.svg",
-      "box": [55, 530, 1690, 427],
-      "label": {"text": "C", "x": 52, "y": 570, "size": 32}
+      "id": "C",
+      "role": "session timeline and CS/US events",
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelC_frozen.svg",
+      "box": [
+        55,
+        465,
+        1690,
+        427
+      ],
+      "label": {
+        "text": "C",
+        "x": 52,
+        "y": 505,
+        "size": 32
+      },
+      "frozen_sha256": "9a15d64b798102696ee30d8f5e3f9447d3cd24960b50623ace46e5fe0be2e3e9",
+      "selection_status": "frozen"
     },
     {
-      "id": "D", "role": "selected-fish measured tail-angle traces",
-      "box": [55, 1005, 815, 480],
-      "source": "traces/Fig1_PanelD_TailAngle_legacy-vigor_v1.svg",
-      "label": {"text": "D", "x": 70, "y": 1048, "size": 32}
+      "id": "D",
+      "role": "selected-fish measured tail-angle traces",
+      "box": [
+        55,
+        940,
+        815,
+        480
+      ],
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelD_frozen.svg",
+      "label": {
+        "text": "D",
+        "x": 70,
+        "y": 983,
+        "size": 32
+      },
+      "frozen_sha256": "0c450976f593160219892864129ae69f2c1098abea25c3e0fd781c27152186b8",
+      "selection_status": "frozen"
     },
     {
-      "id": "E", "role": "matching selected-fish frame-vigor traces",
-      "box": [925, 1005, 815, 480],
+      "id": "E",
+      "role": "matching selected-fish frame-vigor traces",
+      "box": [
+        925,
+        940,
+        815,
+        480
+      ],
       "source": "traces/Fig1_PanelE_RawVigor_legacy-vigor_v1.svg",
-      "label": {"text": "E", "x": 940, "y": 1048, "size": 32}
+      "label": {
+        "text": "E",
+        "x": 940,
+        "y": 983,
+        "size": 32
+      }
     },
     {
-      "id": "F", "role": "Delay single-fish signed-vigor heatmap",
-      "box": [55, 1550, 530, 395],
-      "source": "heatmaps/Fig1_PanelF_Delay_legacy-vigor_v1.svg",
-      "label": {"text": "F", "x": 70, "y": 1593, "size": 32}
+      "id": "E-detail",
+      "role": "Early and Late Train y-only zooms belonging to panel E",
+      "source": "traces/Fig1_PanelE_TrainZoomDetail_legacy-vigor_v2.svg",
+      "box": [
+        55,
+        1465,
+        1690,
+        280
+      ]
     },
     {
-      "id": "G", "role": "3sTrace single-fish signed-vigor heatmap",
-      "box": [635, 1550, 530, 395],
-      "source": "heatmaps/Fig1_PanelG_3sTrace_legacy-vigor_v1.svg",
-      "label": {"text": "G", "x": 650, "y": 1593, "size": 32}
+      "id": "F",
+      "role": "Delay single-fish signed-vigor heatmap",
+      "box": [
+        55,
+        1800,
+        530,
+        395
+      ],
+      "source": "heatmaps/Fig1_PanelF_Delay_legacy-vigor_v2.svg",
+      "label": {
+        "text": "F",
+        "x": 70,
+        "y": 1843,
+        "size": 32
+      }
     },
     {
-      "id": "H", "role": "unpaired-control single-fish signed-vigor heatmap",
-      "box": [1215, 1550, 530, 395],
-      "source": "heatmaps/Fig1_PanelH_Control_legacy-vigor_v1.svg",
-      "label": {"text": "H", "x": 1230, "y": 1593, "size": 32}
+      "id": "G",
+      "role": "3sTrace single-fish signed-vigor heatmap",
+      "box": [
+        635,
+        1800,
+        530,
+        395
+      ],
+      "source": "heatmaps/Fig1_PanelG_3sTrace_legacy-vigor_v2.svg",
+      "label": {
+        "text": "G",
+        "x": 650,
+        "y": 1843,
+        "size": 32
+      }
+    },
+    {
+      "id": "H",
+      "role": "unpaired-control single-fish signed-vigor heatmap",
+      "box": [
+        1215,
+        1800,
+        530,
+        395
+      ],
+      "source": "heatmaps/Fig1_PanelH_Control_legacy-vigor_v2.svg",
+      "label": {
+        "text": "H",
+        "x": 1230,
+        "y": 1843,
+        "size": 32
+      }
     }
-  ]
+  ],
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "frozen_baseline_s": [
+    -15,
+    0
+  ],
+  "freeze_manifest": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\frozen\\2026-10-05-ABCD\\freeze.json"
 }

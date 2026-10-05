@@ -75,7 +75,8 @@ def load() -> tuple[pd.DataFrame, pd.DataFrame, list[dict]]:
 
 
 def draw(frames: pd.DataFrame, events: pd.DataFrame, *, panel: str,
-         output: Path) -> None:
+         output: Path, baseline_s: tuple[float, float] = (-20, 0),
+         inset_selection: tuple[int, float, float] | None = None) -> None:
     theme = apply_theme()
     mpl.rcParams["svg.fonttype"] = "none"
     mpl.rcParams["path.simplify"] = False
@@ -85,7 +86,7 @@ def draw(frames: pd.DataFrame, events: pd.DataFrame, *, panel: str,
     is_angle = panel == "D"
     if is_angle:
         header = "Tail angle (°) · Delay fish 20221115_07"
-        subtitle = "Distal cumulative angle; pre-CS median centred"
+        subtitle = f"Distal cumulative angle; {baseline_s[0]:g} to {baseline_s[1]:g} s median centred"
         limits = (-240.0, 240.0)
         ticks = (-200, 0, 200)
     else:
@@ -98,6 +99,10 @@ def draw(frames: pd.DataFrame, events: pd.DataFrame, *, panel: str,
     fig.text(.09, .96, header, fontsize=13, fontweight="bold", va="top")
     fig.text(.09, .91, subtitle, fontsize=9, color="#52606a", va="top")
     for axis, trial, stage in zip(axes, TRIALS, STAGES, strict=True):
+        if inset_selection is not None and trial == inset_selection[0]:
+            axis.axvspan(inset_selection[1], inset_selection[2], facecolor="#f4e1ce",
+                         edgecolor="#c85a17", linewidth=.6, alpha=.6, zorder=0)
+            axis.text(.02,.78,"Inset window",transform=axis.transAxes,fontsize=7,color="#985022")
         subset = frames.loc[frames["Trial number"].eq(trial)]
         x = subset["Time relative to CS onset (s)"].to_numpy(dtype=float)
         y = subset["Tail angle (rad)"].to_numpy(dtype=float) * (180 / np.pi) if is_angle \

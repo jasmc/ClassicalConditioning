@@ -1,6 +1,6 @@
 {
-  "stage": "assessment",
-  "detail": "Checking legacy metric in the full cohort",
+  "stage": "figure4_analysis",
+  "detail": "",
   "cohort": "all3sTrace-full-exploratory",
   "metric": "legacy_distal_angular_speed",
   "fish": 59

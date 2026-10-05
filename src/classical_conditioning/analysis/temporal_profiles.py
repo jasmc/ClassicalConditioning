@@ -153,6 +153,7 @@ def _signed_bout_log_vigor(
     *,
     bin_count: int,
     baseline_end_s: float,
+    baseline_start_s: float | None = None,
 ) -> np.ndarray:
     """Bin bout-median log vigor relative to this trial's pre-stimulus median."""
     usable = (
@@ -161,7 +162,10 @@ def _signed_bout_log_vigor(
     )
     logged = np.full(values.shape, np.nan, dtype=float)
     logged[usable] = np.log(values[usable])
-    baseline = logged[usable & (trial_seconds < baseline_end_s)]
+    baseline_mask = usable & (trial_seconds < baseline_end_s)
+    if baseline_start_s is not None:
+        baseline_mask &= trial_seconds >= baseline_start_s
+    baseline = logged[baseline_mask]
     result = np.full(bin_count, np.nan, dtype=float)
     if baseline.size == 0:
         return result

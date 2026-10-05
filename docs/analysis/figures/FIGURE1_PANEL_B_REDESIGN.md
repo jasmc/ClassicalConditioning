@@ -111,3 +111,14 @@ the comparison reference.
   the CS on distinct mini trial rows, and all text
   stays inside the B viewBox. Review the standalone B at its final composite
   size, then inspect A–C together. No rasterized panel should enter the SVG.
+
+## Version 5: one shared Control row
+
+Selected for the current review. Control has the same 10 s green CS bar as
+all paired conditions. Three pale purple dots share its axis, with unknown
+(`?`) latency ticks and an “Alternative US onsets / Timing varies between
+trials” annotation. Purple is mixed with white (36% purple) so the middle
+dot does not change colour when placed over green. Paired US dots retain
+full saturation. These are illustrative alternative placements, not a
+three-US schedule or an empirical probability distribution. Versions 1–4
+are preserved on SSD.

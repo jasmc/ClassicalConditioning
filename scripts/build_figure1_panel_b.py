@@ -356,9 +356,35 @@ def draw_v2(rows: list[Row], *, full_control_bar: bool = False,
     return root
 
 
+def draw_v5(rows: list[Row]) -> ET.Element:
+    """One shared control CS, with pale alternative US onsets and unknown ticks."""
+    root = draw_v2(rows, full_control_bar=True)
+    root.set("aria-label", "Figure 1B within-trial timing, version 5")
+    root.find(tag("desc")).text += (
+        " Pale control dots are alternative possible onsets; question marks "
+        "indicate unknown latency. They are not three stimuli in a trial."
+    )
+    group = root.find(f"{tag('g')}[@id='row-control']")
+    for element in list(group):
+        if element.get("id", "").startswith("control-example-"):
+            # Mix purple with white explicitly so the dot stays pale purple
+            # even where it overlaps the green CS bar.
+            element.set("fill", "#ceb6d6")
+            element.set("data-purple-opacity-on-white", "0.36")
+            x = element.get("cx")
+            add(group, "line", x1=x, x2=x, y1=92, y2=98,
+                stroke="#a17aaf", stroke_width=1)
+            label(group, "?", float(x), 110, size=15, color="#a17aaf", anchor="middle")
+        if element.text == "Alternative trials":
+            element.text = "Alternative US onsets"
+        if element.text == "One US: before / during / after CS":
+            element.text = "Timing varies between trials"
+    return root
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--variant", choices=("v1", "v2", "v3", "v4"), default="v4")
+    parser.add_argument("--variant", choices=("v1", "v2", "v3", "v4", "v5"), default="v5")
     parser.add_argument("--output", type=Path,
                         help="SVG destination, defaulting to the figure SSD folder")
     args = parser.parse_args()
@@ -367,7 +393,8 @@ def main() -> None:
         else f"Fig1_PanelB_ConditionTiming_exploratory_{args.variant}.svg"
     )
     output.parent.mkdir(parents=True, exist_ok=True)
-    root = (draw_v1(protocol_rows()) if args.variant == "v1" else
+    root = (draw_v5(protocol_rows()) if args.variant == "v5" else
+            draw_v1(protocol_rows()) if args.variant == "v1" else
             draw_v2(protocol_rows(), full_control_bar=args.variant == "v3",
                     separate_control_trials=args.variant == "v4"))
     ET.ElementTree(root).write(output, encoding="utf-8", xml_declaration=True)

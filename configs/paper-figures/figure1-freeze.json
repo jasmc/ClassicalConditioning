@@ -1,0 +1,55 @@
+{
+  "figure": "Figure 1",
+  "approved_panels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "baseline_interval": "[-15,0) relative to CS onset",
+  "font": "DejaVu Sans",
+  "panels": [
+    {
+      "id": "A",
+      "role": "preparation and illumination",
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelA_frozen.svg",
+      "sha256": "3512cf4798f8cb9d56424de455bddba5dfb89a7ab8aef1d11f8c08ae247ccf43",
+      "previous_source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\schemes\\Fig1_PanelA_Setup_DejaVuSans_v1.svg",
+      "previous_sha256": "3512cf4798f8cb9d56424de455bddba5dfb89a7ab8aef1d11f8c08ae247ccf43"
+    },
+    {
+      "id": "B",
+      "role": "inset comparing four experimental contingencies",
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelB_frozen.svg",
+      "sha256": "57a6d07f2acca94c1371747502c33175b94f69f56abbc32dabaefaca4c7864d3",
+      "previous_source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\schemes\\Fig1_PanelB_ConditionTiming_exploratory_v5.svg",
+      "previous_sha256": "57a6d07f2acca94c1371747502c33175b94f69f56abbc32dabaefaca4c7864d3"
+    },
+    {
+      "id": "C",
+      "role": "session timeline and CS/US events",
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelC_frozen.svg",
+      "sha256": "9a15d64b798102696ee30d8f5e3f9447d3cd24960b50623ace46e5fe0be2e3e9",
+      "previous_source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\schemes\\Fig1_PanelC_SessionProtocol_exploratory_v2.svg",
+      "previous_sha256": "9a15d64b798102696ee30d8f5e3f9447d3cd24960b50623ace46e5fe0be2e3e9"
+    },
+    {
+      "id": "D",
+      "role": "selected-fish measured tail-angle traces",
+      "source": "frozen/2026-10-05-ABCD/Fig1_PanelD_frozen.svg",
+      "sha256": "0c450976f593160219892864129ae69f2c1098abea25c3e0fd781c27152186b8",
+      "previous_source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\traces\\Fig1_PanelD_TailAngle_legacy-vigor_v1.svg",
+      "previous_sha256": "52fdc46677e0acfdd0a8e6c72dd2d5d18abbcfcdbef50fd69e0a06de2b22e2ed"
+    }
+  ],
+  "pending_panels": {
+    "E": "raw vigor and exact heatmap-bin inset design",
+    "F-H": "single-fish heatmap review deferred"
+  },
+  "lettering": "A setup; B contingencies; C session; D tail angle; E raw vigor; F/G/H heatmaps",
+  "prior_thread": "01a0d967-3f9c-7bc3-b97b-0451f556de3d uses historical lettering and separate scaled-log alternatives"
+}

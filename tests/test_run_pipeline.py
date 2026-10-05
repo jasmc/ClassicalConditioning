@@ -252,15 +252,15 @@ class PipelineRunConfigTests(unittest.TestCase):
     def test_paper_registry_has_all_panels_and_unapproved_mappings(self) -> None:
         panels = _paper_panel_statuses()
         registry = json.loads((Path(__file__).resolve().parents[1] / "configs" / "paper-figures" / "behavior-paper.json").read_text(encoding="utf-8"))
-        self.assertEqual(len(panels), 27)
+        self.assertEqual(len(panels), 26)
         self.assertEqual(set(panels), {
-            *(f"fig-1{letter}" for letter in "ABCDEFGH"),
+            *(f"fig-1{letter}" for letter in "ABCDEFG"),
             *(f"fig-2{letter}" for letter in "ABCDEFGHI"),
             *(f"fig-3{letter}" for letter in "ABCDEFG"),
             *(f"fig-4{letter}" for letter in "ABC"),
         })
-        self.assertIn("session protocol", panels["fig-1C"]["role"])
-        self.assertIn("3sTrace", panels["fig-1G"]["role"])
+        self.assertIn("protocol", panels["fig-1B"]["role"])
+        self.assertIn("3sTrace", panels["fig-1F"]["role"])
         self.assertIn("inconclusive", panels["fig-2C"]["role"])
         self.assertIn("signed", panels["fig-4A"]["role"])
         self.assertIn("selected-block ratio", registry["artifact_templates"])

@@ -102,3 +102,25 @@ sidecars next to their panel data.
 The current D/E traces and F/G/H heatmaps are review examples rather than a
 final choice of manuscript fish or activity metric. Each source can be changed
 in the layout manifest and rebuilt without regenerating unrelated panels.
+
+## Current review v3 (5 October 2026)
+
+Selected B v5 restores one shared Control bar with pale alternative US dots
+and unknown latency ticks. E retains its five full-range overview traces;
+`E-detail` is an auxiliary SVG belonging to E, with only Early and Late Train
+y zooms. F/G/H use heatmap v2 with trial-specific [−15, 0) s baselines.
+All prior versioned sources and review assemblies remain on SSD.
+
+Rebuild the changed assets and composition:
+
+```powershell
+.venv-trace\Scripts\python.exe scripts/build_figure1_panel_b.py --variant v5
+.venv-trace\Scripts\python.exe scripts/build_figure1_legacy_vigor_heatmaps.py
+.venv-trace\Scripts\python.exe scripts/build_figure1_vigor_zoom.py
+.venv-trace\Scripts\python.exe scripts/assemble_svg_figure.py configs/paper-figures/figure1-assembly.json --strict --export png
+```
+
+The E zoom builder verifies its cached measured-trace data against existing
+SHA-256 sidecars and checks the movement artifact against its completion marker.
+The heatmap builder independently validates its source artifacts. See
+`FIGURE1_HEATMAPS.md` for signal definitions and validation results.
