@@ -1,0 +1,8 @@
+family,condition,left,right,test,n,n_control,n_trace,p_raw,p_holm
+between,trace vs control,0,0,Mann-Whitney U,59,19.0,40.0,0.3106381631673585,0.397053888541979
+between,trace vs control,1,1,Mann-Whitney U,59,19.0,40.0,0.005400883316547658,0.016202649949642975
+between,trace vs control,2,2,Mann-Whitney U,58,18.0,40.0,0.1985269442709895,0.397053888541979
+within,control,0,1,paired Wilcoxon,19,,,0.4413337707519531,0.8826675415039062
+within,control,1,2,paired Wilcoxon,18,,,0.7987060546875,0.8826675415039062
+within,trace,0,1,paired Wilcoxon,40,,,0.00014978252875152975,0.000599130115006119
+within,trace,1,2,paired Wilcoxon,40,,,0.01650634321049438,0.049519029631483136
