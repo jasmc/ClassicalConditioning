@@ -44,7 +44,7 @@ METRIC_COLUMNS = {metric_id: column for column, metric_id in METRIC_IDS.items()}
 METRIC_DISPLAY_NAMES = {
     "tail_length_weighted_angular_l1": "tail length weighted angular L1",
     "whole_tail_xy_mean_speed_normalized": "whole tail XY speed",
-    "legacy_distal_angular_speed": "distal angular speed",
+    "legacy_distal_angular_speed": "tail bend angular speed",
 }
 
 

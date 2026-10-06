@@ -21,8 +21,8 @@ from classical_conditioning.cohort import freeze_cohort_manifest, load_cohort_ma
 EXPERIMENT = "all3sTrace"
 ANALYSIS_ID = "all3sTrace-full"
 COHORT_ID = "all3sTrace-full-exploratory"
-METRIC = "tail_length_weighted_angular_l1"
-METRICS = (METRIC, "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed")
+METRIC = "legacy_distal_angular_speed"
+METRICS = ("tail_length_weighted_angular_l1", "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed")
 VARIANT = "legacy-wip"
 
 
@@ -73,9 +73,9 @@ def freeze(project: Path, *, cohort_id: str = COHORT_ID) -> Path:
 
 
 def classify(project: Path, comparison_dir: Path, *, cohort_id: str = COHORT_ID,
-             analysis_id: str = "figure4-3strace-exploratory",
+             analysis_id: str = "figure4-3strace-exploratory-tail-bend-speed",
              assessment_summary: Path | None = None,
-             classifier_execution_id: str = "legacy-wip-3strace-tail-l1-exploratory",
+             classifier_execution_id: str = "legacy-wip-3strace-tail-bend-speed-exploratory",
              metric_id: str = METRIC) -> Path:
     project, comparison_dir = project.resolve(), comparison_dir.resolve()
     if metric_id not in METRICS:
@@ -170,10 +170,10 @@ def main() -> None:
     parser.add_argument("--cohort-id", default=COHORT_ID)
     parser.add_argument("--comparison-dir", type=Path)
     parser.add_argument("--metric", choices=METRICS, default=METRIC)
-    parser.add_argument("--analysis-id", default="figure4-3strace-exploratory")
+    parser.add_argument("--analysis-id", default="figure4-3strace-exploratory-tail-bend-speed")
     parser.add_argument("--assessment-summary", type=Path)
     parser.add_argument("--classifier-execution-id",
-                        default="legacy-wip-3strace-tail-l1-exploratory")
+                        default="legacy-wip-3strace-tail-bend-speed-exploratory")
     args = parser.parse_args()
     if args.stage == "freeze":
         result = freeze(args.project_dir, cohort_id=args.cohort_id)

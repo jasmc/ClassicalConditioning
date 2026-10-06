@@ -3,7 +3,12 @@
   "save_dir": "E:\\path\\to\\project\\Paper data",
   "experiment": "allDelay",
   "analysis_id": "delay-cohort",
-  "keep_conditions": ["control", "delay"],
+  "keep_conditions": [
+    "control",
+    "delay"
+  ],
   "overwrite": false,
-  "continue_on_error": true
+  "continue_on_error": true,
+  "metric": "legacy_distal_angular_speed",
+  "assessment_metric": "legacy_distal_angular_speed"
 }

@@ -508,5 +508,7 @@
   "selection_policy": "complete-fixed-trace-and-control; incomplete retained in inventory",
   "config_path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\all3sTrace-full-windows.json",
   "status": "ready_partial",
-  "blockers": []
+  "blockers": [],
+  "metric": "legacy_distal_angular_speed",
+  "assessment_metric": "legacy_distal_angular_speed"
 }

@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from classical_conditioning.artifacts import sha256_file
+from classical_conditioning.metric_policy import PAPER_METRIC_ID, require_paper_metric
 from classical_conditioning.figures.example_traces import METRIC_COLUMNS
 
 
@@ -38,7 +39,7 @@ def build_render_plan(
     output_dir: Path,
     *,
     figure_set: str = "available",
-    metric_id: str = "tail_length_weighted_angular_l1",
+    metric_id: str = PAPER_METRIC_ID,
     delay_fish: str = DEFAULT_FISH[0],
     control_fish: str = DEFAULT_FISH[1],
     trials: tuple[int, ...] = DEFAULT_TRIALS,
@@ -54,6 +55,7 @@ def build_render_plan(
         raise ValueError(f"Unknown figure set: {figure_set}")
     if metric_id not in METRIC_COLUMNS:
         raise ValueError(f"Unknown vigor metric: {metric_id}")
+    require_paper_metric(metric_id)
     if mode not in {"static", "publication"}:
         raise ValueError(f"Unknown figure mode: {mode}")
     if not trials or len(trials) != len(set(trials)) or min(trials) < 1:
@@ -145,7 +147,7 @@ def run_paper_panels(
     output_dir: Path,
     *,
     figure_set: str = "available",
-    metric_id: str = "tail_length_weighted_angular_l1",
+    metric_id: str = PAPER_METRIC_ID,
     delay_fish: str = DEFAULT_FISH[0],
     control_fish: str = DEFAULT_FISH[1],
     trials: tuple[int, ...] = DEFAULT_TRIALS,

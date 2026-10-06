@@ -20,8 +20,8 @@ param(
     [string]$UvPath = "uv",
     [string]$AnalysisId = "allDelay-full",
     [string]$CohortId = "allDelay-full",
-    [string]$LearningAnalysisId = "allDelay-full-learning-onset",
-    [string]$MetricId = "tail_length_weighted_angular_l1"
+    [string]$LearningAnalysisId = "allDelay-full-learning-onset-tail-bend-speed",
+    [string]$MetricId = "legacy_distal_angular_speed"
 )
 
 $ErrorActionPreference = "Stop"

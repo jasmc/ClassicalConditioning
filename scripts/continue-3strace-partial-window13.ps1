@@ -9,11 +9,11 @@ $preview = Join-Path $repo 'outputs\trace-partial-preview\20260925-window13'
 $log = Join-Path $preview 'preview-post.log'
 $statusPath = Join-Path $preview 'preview-status.json'
 $cohort = 'all3sTrace-window13-partial-20260925-36fish'
-$metric = 'tail_length_weighted_angular_l1'
+$metric = 'legacy_distal_angular_speed'
 $figure4 = 'figure4-3strace-window13-partial-36fish'
-$learning = 'all3sTrace-window13-partial-36fish-learning-onset'
+$learning = 'all3sTrace-window13-partial-36fish-learning-onset-tail-bend-speed'
 $assessment = Join-Path $project 'Processed data\Discarding\all3sTrace-window13-partial-36fish\assessment-summary.json'
-$comparison = Join-Path $project 'Processed data\Analyses\figure3-3strace-window13-partial-36fish\legacy-tail-l1'
+$comparison = Join-Path $project 'Processed data\Analyses\figure3-3strace-window13-partial-36fish\legacy-tail-bend-speed'
 $labels = Join-Path $project "Processed data\Analyses\$figure4\learner-labels.csv"
 $figure4Summary = Join-Path $project "Processed data\Analyses\$figure4\figure4\analysis.json"
 $figure4Dir = Join-Path $project "Figures\PNG\Analyses\$figure4"
@@ -54,7 +54,7 @@ try {
             'classify', '--project-dir', $project, '--cohort-id', $cohort,
             '--comparison-dir', $comparison, '--analysis-id', $figure4,
             '--assessment-summary', $assessment,
-            '--classifier-execution-id', 'legacy-wip-3strace-tail-l1-window13-partial-36fish')
+            '--classifier-execution-id', 'legacy-wip-3strace-tail-bend-speed-window13-partial-36fish')
     }
     if (-not (Test-Path -LiteralPath $figure4Summary -PathType Leaf)) {
         Invoke-Step 'Figure 4 partial panel data' @('-m', 'classical_conditioning',

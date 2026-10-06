@@ -1,6 +1,6 @@
 param(
     [int]$PipelineProcessId = 0,
-    [string]$MetricId = "tail_length_weighted_angular_l1"
+    [string]$MetricId = "legacy_distal_angular_speed"
 )
 
 $ErrorActionPreference = "Stop"
@@ -11,7 +11,7 @@ $inventoryPath = Join-Path $project "Metadata\recording_inventory.json"
 $configPath = Join-Path $PSScriptRoot "..\configs\allDelay-full-windows.json"
 $cohortPath = Join-Path $PSScriptRoot "..\configs\allDelay-full-cohort.csv"
 $cohortId = "allDelay-full"
-$analysisId = "allDelay-full-learning-onset"
+$analysisId = "allDelay-full-learning-onset-tail-bend-speed"
 $runnerManifest = Join-Path $project "Metadata\allDelay-full-candidate_candidate-corrected-runner_manifest.json"
 
 function Test-FullCandidateRun {

@@ -1,3 +1,5 @@
+> Activity metric frozen on 2026-10-06: **tail bend angular speed** (`legacy_distal_angular_speed`). See [the decision](METRIC_SELECTION_2026-10-06.md).
+
 # Analysis parameter index
 
 This is the fastest place to see what controls an analysis. It separates **run inputs**, **fixed recipe values**, and **paper-review choices**. The resolved run JSON and artifact summaries record the values actually used; code is authoritative if a default changes. The [LME guide](07_LEARNING_ONSET_LME.md#complete-public-parameter-reference) contains the full option-by-option learning-onset table, including constraints and effects.
@@ -21,7 +23,7 @@ Set these in [`configs/example-run.json`](../../configs/example-run.json) and ru
 | `show_progress` | `true` | Terminal progress; `--quiet` suppresses it. |
 | `cohort_id` and `metric` | both `null` | Supply together to enable frozen-cohort descriptive figures and a technical learning fit. |
 | `learner_representation_id` | `null` | Reserved frozen learner identity; does not by itself approve Figure 3/4. |
-| `assessment_metric` | selected `metric`, else `legacy_distal_angular_speed` | Technical/exploratory discarding evidence metric. |
+| `assessment_metric` | frozen `legacy_distal_angular_speed` | Technical/exploratory discarding evidence metric. |
 | `technical_policy` | `null` | Reviewed technical policy JSON path; absent policy means draft assessment only. |
 | `disabled_discard_checks` | `[]` | Named historical checks omitted from exploratory sensitivity assessment only. |
 

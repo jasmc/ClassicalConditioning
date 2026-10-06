@@ -210,7 +210,7 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--recording-id", default="20221115_07")
     parser.add_argument("--metric", choices=tuple(METRIC_COLUMNS),
-                        default="tail_length_weighted_angular_l1")
+                        default="legacy_distal_angular_speed")
     parser.add_argument("--trial", type=int, action="append",
                         help="Global CS trial; defaults to 9, 17, 63, 66, 93")
     parser.add_argument("--signal", choices=("moving-bouts", "all-valid"),

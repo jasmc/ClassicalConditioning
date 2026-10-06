@@ -22,7 +22,7 @@ if (-not $project.Equals($expected, [System.StringComparison]::OrdinalIgnoreCase
 if (-not (Test-Path -LiteralPath $PythonPath -PathType Leaf)) { throw "Python missing: $PythonPath" }
 $cohortId = 'all3sTrace-full-exploratory'
 $analysisId = 'all3sTrace-full'
-$metric = 'tail_length_weighted_angular_l1'
+$metric = 'legacy_distal_angular_speed'
 $pipeline = Join-Path $project 'Metadata\all3sTrace-full_pipeline_run.json'
 $state = Get-Content -LiteralPath $pipeline -Raw | ConvertFrom-Json
 if ($state.status -ne 'complete' -or @($state.recording_ids).Count -ne 59 -or
@@ -78,7 +78,7 @@ if (-not (Test-Path -LiteralPath $figure2h -PathType Leaf)) {
         '--metric', $metric, '--outcome', 'total-activity')
 }
 
-$comparisonDir = Join-Path $project 'Processed data\Analyses\figure3-3strace-exploratory\legacy-tail-l1'
+$comparisonDir = Join-Path $project 'Processed data\Analyses\figure3-3strace-exploratory-tail-bend-speed\legacy-tail-bend-speed'
 $comparisonJson = Join-Path $comparisonDir 'comparison.json'
 if (-not (Test-Path -LiteralPath $comparisonJson -PathType Leaf)) {
     $cohortPath = Join-Path $project "Processed data\Cohorts\$cohortId\cohort-manifest.parquet"
@@ -92,25 +92,25 @@ if (-not (Test-Path -LiteralPath $legacyFigures -PathType Leaf)) {
     Invoke-Python 'Figure 3 historical learner plots' @('-m', 'classical_conditioning',
         'render-legacy-learner-figures', '--comparison-dir', $comparisonDir)
 }
-$figure3 = Join-Path $project "Figures\PNG\Analyses\figure3-3strace-exploratory\figure-3-3strace-review_${metric}.png"
+$figure3 = Join-Path $project "Figures\PNG\Analyses\figure3-3strace-exploratory-tail-bend-speed\figure-3-3strace-review_${metric}.png"
 if (-not (Test-Path -LiteralPath $figure3 -PathType Leaf)) {
     Invoke-Python 'Figure 3 exploratory review' @((Join-Path $repo 'scripts\render_figure3_3strace_review.py'),
         '--project-dir', $project, '--cohort-id', $cohortId, '--comparison-dir', $comparisonDir)
 }
 
-$labels = Join-Path $project 'Processed data\Analyses\figure4-3strace-exploratory\learner-labels.csv'
+$labels = Join-Path $project 'Processed data\Analyses\figure4-3strace-exploratory-tail-bend-speed\learner-labels.csv'
 if (-not (Test-Path -LiteralPath $labels -PathType Leaf)) {
     Invoke-Python 'provisional legacy-wip labels' @((Join-Path $repo 'scripts\finalize_3strace_exploratory.py'),
         'classify', '--project-dir', $project, '--comparison-dir', $comparisonDir,
         '--cohort-id', $cohortId)
 }
-$figure4Summary = Join-Path $project 'Processed data\Analyses\figure4-3strace-exploratory\figure4\analysis.json'
+$figure4Summary = Join-Path $project 'Processed data\Analyses\figure4-3strace-exploratory-tail-bend-speed\figure4\analysis.json'
 if (-not (Test-Path -LiteralPath $figure4Summary -PathType Leaf)) {
     Invoke-Python 'Figure 4B learner profiles' @('-m', 'classical_conditioning', 'figure4-analyze',
-        '--project-dir', $project, '--analysis-id', 'figure4-3strace-exploratory',
+        '--project-dir', $project, '--analysis-id', 'figure4-3strace-exploratory-tail-bend-speed',
         '--metric', $metric, '--trace3-cohort-id', $cohortId, '--learner-manifest', $labels)
 }
-$figure4Dir = Join-Path $project 'Figures\PNG\Analyses\figure4-3strace-exploratory'
+$figure4Dir = Join-Path $project 'Figures\PNG\Analyses\figure4-3strace-exploratory-tail-bend-speed'
 $figure4Expected = @('figure-4', 'supplement-single-catches', 'supplement-movement',
     'supplement-coverage', 'supplement-single-catch-movement', 'supplement-single-catch-coverage')
 $figure4Missing = @($figure4Expected | Where-Object {
@@ -121,7 +121,7 @@ if ($figure4Missing.Count -gt 0) {
         '--analysis-summary', $figure4Summary, '--output-dir', $figure4Dir, '--overwrite')
 }
 
-$learningId = 'all3sTrace-full-learning-onset'
+$learningId = 'all3sTrace-full-learning-onset-tail-bend-speed'
 $learningMarker = Join-Path $project "Metadata\${learningId}_learning-onset_complete.json"
 if (-not (Test-Path -LiteralPath $learningMarker -PathType Leaf)) {
     Invoke-Python '3sTrace learning onset' @('-m', 'classical_conditioning', 'learning-onset',

@@ -3,7 +3,12 @@
   "save_dir": "F:\\Digested Data\\allDelay-full",
   "experiment": "allDelay",
   "analysis_id": "allDelay-full",
-  "keep_conditions": ["control", "delay"],
+  "keep_conditions": [
+    "control",
+    "delay"
+  ],
   "overwrite": false,
-  "continue_on_error": true
+  "continue_on_error": true,
+  "metric": "legacy_distal_angular_speed",
+  "assessment_metric": "legacy_distal_angular_speed"
 }

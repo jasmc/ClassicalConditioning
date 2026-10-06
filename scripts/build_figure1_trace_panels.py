@@ -91,7 +91,7 @@ def draw(frames: pd.DataFrame, events: pd.DataFrame, *, panel: str,
         ticks = (-200, 0, 200)
     else:
         header = "Frame vigor (rad/ms) · Delay fish 20221115_07"
-        subtitle = "Raw legacy distal angular speed"
+        subtitle = "Tail bend angular speed"
         finite = frames["Vigor"].to_numpy(dtype=float)
         ceiling = math.ceil(float(np.nanmax(finite)) * 2) / 2
         limits = (0.0, ceiling)

@@ -181,7 +181,7 @@ def draw(spec: tuple, bins: pd.DataFrame) -> ET.Element:
     )
     text(root, f"{name} fish", 62, 28, size=19, weight="bold")
     text(root, recording, 506, 28, size=15, anchor="end", fill="#52606a")
-    text(root, "Legacy distal angular speed", 62, 49, size=13, fill="#52606a")
+    text(root, "Tail bend angular speed", 62, 49, size=13, fill="#52606a")
     x0, x1 = 84.0, 420.0
     bin_width = (x1 - x0) / 80
     row_height = 2.6

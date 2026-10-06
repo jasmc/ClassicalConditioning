@@ -7,7 +7,14 @@ archived tail and metric-selection plans. It describes what exists and which
 scientific choices remain open; it is not a substitute for the decision
 register or an implementation plan.
 
-## Active candidate metrics
+## Frozen paper metric
+
+As of 2026-10-06 the author selected **tail bend angular speed**
+(`legacy_distal_angular_speed`, rad/ms) for all paper activity analyses.
+See [the decision and retained evidence](METRIC_SELECTION_2026-10-06.md).
+The following three metrics remain available for review and sensitivity work.
+
+## Available metrics
 
 The candidate pipeline carries exactly three activity metrics:
 
@@ -18,7 +25,7 @@ The candidate pipeline carries exactly three activity metrics:
 3. **Legacy-derived distal cumulative-angle speed** — the historical distal
    cumulative-angle formula evaluated on measured time as a benchmark.
 
-The legacy-derived metric is a historical comparator, not an automatic winner.
+The legacy-derived metric is now the selected paper metric.
 The manuscript's unweighted segment-speed sum and the retired RMS/curvature
 candidates are not active selection candidates.
 
@@ -76,7 +83,7 @@ frozen scientific method.
 - the approved detector source, smoothing, thresholds, duration, and merging
   rules (Gate T1);
 - remaining known-answer and legacy-regression coverage;
-- metric selection on a scientifically valid cohort and outcome contract;
+- approved cohort and outcome contracts for the selected metric;
 - robustness to the bounded preprocessing/detector choices; and
 - confirmation or explicitly labeled exploratory status.
 
@@ -110,7 +117,7 @@ The active candidate recipe writes three frame-level metrics:
 | --- | --- |
 | `tail_length_weighted_angular_l1` | Tail-length-weighted mean absolute segment angular speed; reduces dependence on tracking-point spacing. |
 | `whole_tail_xy_mean_speed_normalized` | Tail-length-weighted mean XY point speed divided by the recording-wide median tail arc length; units are tail lengths/ms rather than pixels/ms. |
-| `legacy_distal_angular_speed` | Absolute speed of the sum of local tail angles; retained as the historical benchmark. Opposing segment changes can cancel. |
+| `legacy_distal_angular_speed` | Absolute speed of the sum of local tail angles; selected for the paper as tail bend angular speed. Opposing segment changes can cancel. |
 
 Earlier experimental alternatives are no longer part of the active package or
 artifact metadata. Rebuild existing candidate artifacts with `overwrite`

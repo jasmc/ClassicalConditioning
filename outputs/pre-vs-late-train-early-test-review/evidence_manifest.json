@@ -1,0 +1,373 @@
+{
+  "decision_id": "tail-bend-angular-speed-2026-10-06",
+  "metric_id": "legacy_distal_angular_speed",
+  "display_name": "Tail bend angular speed",
+  "selection_date": "2026-10-06",
+  "selection_status": "author_frozen",
+  "cohort_scope": "57 processed Delay-study fish: 29 Delay, 28 control; exploratory technical cohort",
+  "pre_trials": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "pooled_late_train_trials": [
+    60,
+    61,
+    62,
+    63,
+    64
+  ],
+  "pooled_early_test_trials": [
+    65,
+    66,
+    67,
+    68,
+    69
+  ],
+  "score": "log2(mean(CS activity)/mean(pre-CS baseline activity)); suppression=Pre minus pooled late score",
+  "bootstrap": {
+    "unit": "fish",
+    "replicates": 10000,
+    "seed": 20261006,
+    "preserve_paired_metrics": true
+  },
+  "source_trial_outcomes": [
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_04\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "85f17b93b7ed1360818e3ca267b02e36059e35a50cdd8a65f4fd35ff4ee06bb3",
+      "source_summary_sha256": "bd44b91468c26ef5843055ef2904d5b6875b849371d33a3fb70dc93014bb35fc"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "e586ee295a7cd62e2fee43ec955ba0ab9745b799248dfeacd734d7448323db02",
+      "source_summary_sha256": "ca85d62b6c4dd08675180d1c194b75af79377ae75a23a05d45d30c348c7f67d6"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "89e3e43fe50924cf60de013ce90ec32dc884fe61c6aff3e1ed8334996ba6b713",
+      "source_summary_sha256": "9ae6c876bdb1112da8f4d0403b208cca2c93c8e408f6fc86caf0567f59e229d2"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_02\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "fed80ea794d044780e9ce7c1f80ec708ce441a9f80f745db6595b4208e42feae",
+      "source_summary_sha256": "a8c2755ee45e7dcb1f7b9bd14e8577af42eedb8f9516e112de47cfb6cd57bc8e"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_06\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "d2c2e632bae1671b0ceb05e77f0bfec60f03e6081bdc098b4325563b49f18293",
+      "source_summary_sha256": "bcfdb958a7e6049b5933e8bb0101010fcea100b26ea255cffa8df275983874a6"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_12\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "f571270bba0c6111aa1ffeed7338da9e06bd8feb0bcfa547d47eeae6b140e140",
+      "source_summary_sha256": "c84f3a3088da84ac9e991df78d82bb475ff960099f38acb8a76c7e93dd77471d"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221117_04\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "88a2878f24a50e68b93b31afc4b61997fc8f64b3b6fa047259fa7f7bd928cbcb",
+      "source_summary_sha256": "bcac3e6162c13149e9ee169772e45bac18dc4e7e9992c7b68f0f759343849a8e"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_03\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "66b3e44e6fa357e8c3619893e023d7df951960360aff0042392b0ecc7da58275",
+      "source_summary_sha256": "86871079e21445b264983ff168ed5efdc1a238968a368c02f2b86e4b8ab9cb84"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_04\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "0e598517b3aa3814b594b1b9a6a92755380cea0f78289701766c567353dca988",
+      "source_summary_sha256": "4598583917283ec79d28f5daa345489bc8876e21a4d4d5ffcd1dd32cdc3e908c"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_03\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "982cc821bc8a37d7ae6f460df0c50b3bd825ee0278a666254d7ad4c6f00d103b",
+      "source_summary_sha256": "6697997cb23c1171419ea29ac9b4aa1f740832699aa01315743d5a5434a7303c"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_05\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "b9af9be07ca115bc9d3931f6ebb6266f05379aab5343f9ce221d72b13a1b5f83",
+      "source_summary_sha256": "99ba990b8d30f2b5289a352d4e39affc96bb969b7e3931c2d851f73d962091b6"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_06\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "824aee84e73676031ccb90b91a2253919f5e3d84fbfc7b88505d2e3d58f2fa60",
+      "source_summary_sha256": "53965c4f0c5a9f9f29acde6f1c527025ac8686a000ebd1fd8910db401857ee41"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_08\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "76587bd05a6f9f6d61eb702c031c922ae9cc25b383576452968b57bb3d058016",
+      "source_summary_sha256": "bc8f3b811e8048d8b00a8cd2dd533954b718a9bd7765db045d4362e81067f289"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_11\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "1e401481d79f2d2a90a6a3a03e4a31b9eb1ac248b6fcd059d193ec3420574e6f",
+      "source_summary_sha256": "f9f26a31c8d0ae675cba243c3d0a4b42e33feb7e81620ddbc55a156403e1cc64"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_12\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "f005da2c63e9ea92018d64e87be7402891c207d4374ef9cf0121685cc2994229",
+      "source_summary_sha256": "84a253e19a10ff20d08a807c37965723fb3c48e5b6dc82409029a3c9d7c4f85b"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_01\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "46fec28366f9aa4ae811036ed842fe036d73941496418dd5caeeaf7fa18ca145",
+      "source_summary_sha256": "8cf60799a5254f5c73a9feaa62beef79d49bce1f4c26e5f92907a79cc938c704"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_02\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "0287ea35f1bfdcf6b3c250916616e4f120b08790efe714f75d77885cd8dfd967",
+      "source_summary_sha256": "4eb8eb8c678036c64b61309dc01c0ace9416d9cd04e1009def27e0ed1097707e"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_04\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "eb5b3c071c9decfa345eddd48e42e091cf3ec92da04614a6298b22fbed4b81fe",
+      "source_summary_sha256": "bc5bcb057bdc7f0752c9b802bfb8b8c754694321658e7458d9be4463eab2917c"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "88135be53d25bf78bbe666dfdab645f519aa3d10685c6ad9f1cb524ba5276b52",
+      "source_summary_sha256": "2e5e9f14a5c4ceadfc543a1b36404485b809bbd761a36e1eb3518cdd44cd8d01"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_08\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "86895417aebf9ec6c949f6b5874b25154384df6094182de0f49bfc9df2e5344b",
+      "source_summary_sha256": "93c6580387c5b40c1715cd55876cd6840dcfea85a757da06f731765843e6455c"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "0d64bc8b2fe346fe59ab09a092c83ce89d69a4431aa0a0868bae67e9464e191f",
+      "source_summary_sha256": "6d5b33bb0ee7e9f46167ed9ec56849252dccaed6f8017693f0f19ded45bf43c3"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_09\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "97dfce8ec7929904434a55f2beca26b4cc788c1e01de10febad61fe263880e35",
+      "source_summary_sha256": "df217bec464c52a57cb307a020d43cac95fc2a05dfb0abd97d3ada9143106690"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_10\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "1116c7c56a167c437e4bd2948d9f3989ac8d1b8afdc58cdb28080482a08dd8d0",
+      "source_summary_sha256": "b2124fecb8332d5f1df5f7d39d3e853747bed1792a10c8315dc8996a6ad54221"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_01\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "dfba975dcf303fc32e945fa78e4136ca72cff318ad86ec1b7d8a004614302ac2",
+      "source_summary_sha256": "25b7e2256b33580b447fd66cac744d37f4b346ebfd5ec81c9ed8fc9cfec83661"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_02\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "0d8173687ca2a072f4b9f88dc8a56cfed50d6ba9311f89cbf1d539e8ff08dcd9",
+      "source_summary_sha256": "c9694d6e676d1817eefa0ee9b99949f9e9bfa742d116eefa58257cfcdbfbc766"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "34d93470ab0fe62e4ea3ac68fa2e69c15cd929c74c76338fdbc06c75060df6a7",
+      "source_summary_sha256": "52c2e2ae51f75d8d189b268c65b6eefca06db80a3116350d2f76e4520e0649e2"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_08\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "dd80832ecee8b2dc56da90f8a2999e8ac46b2168545612dd73937459a4795c15",
+      "source_summary_sha256": "854909f19d715392e2d9e5b2eebcade52b433c7e4fd80829c8035276aac0b674"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240611_05\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "ee11c2b62ab5f02b377139f198890bec4b895e71d52cb98b346fec47f80152b8",
+      "source_summary_sha256": "7b6d094b189883eafb405bcc23a47a21671aee1fa89cef67478890763064bd52"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "bf61d8bec843da0102bbb1719b6f82a1c3c8022ef66d20bee573a5bc6613ce8b",
+      "source_summary_sha256": "6b21645b28b5a1547f6a7ab2843ca40104e58293c6aeedc3c69d7528c8cf759e"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_08\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "fe6a68baba4fb36dc25cb82eddd1826985d92cf421b33277b73d08eee616136f",
+      "source_summary_sha256": "d9e43576f009fdcbb065872845cf9c788a860432784fb496cc50b084905b0d4b"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_01\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "4b4276f6c415004babc980a5e2fbeb0195c5401fdae882c88c7096dd71a7e16e",
+      "source_summary_sha256": "1f1d4a9cb0034c47d0d107b0671a3b3b2513a77b0684d93362dd06ad919b3912"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_02\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "21eb53786f6d0f0157aa0cbbe8d47c5254e207c48fcea7cfa368e34db5ee56ee",
+      "source_summary_sha256": "4f1d69728e5566a06a09046d26fdbc0d4dbc1cfd5e3022bd753260811e69d8eb"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_01\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "8ec804ebbd7d0c630ad7e98b80778e6d56100365d0df3eaf280f96ff611a392e",
+      "source_summary_sha256": "47bbee235213844968716b2f02d914d220a5a688158be64cd5b94e9e838bdaaf"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_02\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "7b76a47858b281ed04aea69d20f0db1886acf360c30d4515051dd011fd81c7c1",
+      "source_summary_sha256": "3cec3e3f8f714069cab1b0fa000e076ed97944628d7a400ca9025ecdc73ab50b"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "aa087a2080ff67e2d40b370714e7a241597a0065b92ba9f2d6f9a5857c738f7d",
+      "source_summary_sha256": "004520217cc295d91ed18e63de114a51d434c3dc2c34a4d7d77fadede23c2f56"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_08\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "f6d534496c086ca7d87a9c2dca90b6990abe6e23dbef80d4bf5a1d81b3f1667b",
+      "source_summary_sha256": "54ba2beab6955f97130473584ed32e8126bfe8372131e46611cf0eb0d4d45ad9"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_05\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "685e36e204a7e0f013e2926e1fece85e2dcb2576d02b322d320f3a91ae405e12",
+      "source_summary_sha256": "70481966ddd74968c7f24192ebaa541357a06364bece6f090ab86a9e5fe22772"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_06\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "45a91f0b465f1f1cf0f88f6f16f6dbb06a06657339420519bd4b86089fc36913",
+      "source_summary_sha256": "65025141c10271c6f0951825fbe78da074d4070a0dca1641606a14374cf43001"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240621_03\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "3847416d3d9fc9ba108d32730a397e2727f0ee71c9fb3ed82975168a3e82184c",
+      "source_summary_sha256": "a91b7e02c35b813e00ed30645f8987771fc7641a9d7464a1b160aa402e3a273e"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_03\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "5b476d269324205cf67b381e816e47b8cd4cce8aafd84fe49b8c3be48d1bbea7",
+      "source_summary_sha256": "9d99ed0de28d49b83d5944852774919a419380b8d6e1814bdaa47a6905c2b21f"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_04\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "4788307b1fb8e6f7673eb7957518a468d740d3b52c28c396bda9b707e6abe7cf",
+      "source_summary_sha256": "121e994ecade280ac58ad7123edfccd1bc53d580d16b96638ad157b9ae6b2cba"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_05\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "951a866c2d1bdf15a4e2f4ab8ad4289a6c3f5d13348874cb8a1e1472af49f765",
+      "source_summary_sha256": "e3d416fc8d04f2157c2f1a3224b37104c76e13846eedfd5a80c19b4e17de0730"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_06\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "7d9bacfced4226ef4d23ddb144b817ea1e44449ef13f045303ed4c957c89d494",
+      "source_summary_sha256": "c6bb6ec9830f0df4eae02c5ca47924a6d3e95ff6d465beb97337cb064b894e25"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_03\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "ed8a48892686dbc6e3a3cd9ab1219508104509dcbe732b8b373de5b90a96cfd6",
+      "source_summary_sha256": "fd0ec08c658a325b8cad34615646a5b482e4f290885c4685e3e689985d8914ca"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_04\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "e00467d1e9e49bc7b58eb52c82763b6c8c16ab0d72abfdade1be74f60dcd3b9f",
+      "source_summary_sha256": "70144918f441bb46f2bf2a3be5ab9835867d9b7369773d57054a04295861baea"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "e829b20e9334ee2d4c5941cec6825de3a50480265f00efcaa827d3d6893fb9cb",
+      "source_summary_sha256": "898fc423791d8e24af7267c2cc6a0a62e345bac0ce7fbc9a8ffa74b24cd56357"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_08\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "b6e71d3a502dfc540df0f5aa5d33a32e8cae4e042ff51dc55a26ac489878f8a5",
+      "source_summary_sha256": "28ed925147f88fff892bb38aab1b53b18d3f776f43c3272734b70b6ac91af48f"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_01\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "44b15dad12c76ce3a262f7ef3bde6193d2d5783e0d651a84f51ea4d3b5caf5e7",
+      "source_summary_sha256": "375e4f3bf0fe3bf2f538ee0328ad8a54c81a99510c3aa84b3eb1d77ac08ed012"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_02\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "fc4485ceda7ba09b9bbb3bfc0da0f891ff2aa0c3b6942e017bbd90632ed8a509",
+      "source_summary_sha256": "70fa17456e633cae10e17032e067ecd669a25175363daa0255f07282d8c97805"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_01\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "7992566d0c27c300713c16bb0e76c2adbfe92685b1c111f68202734e68171c07",
+      "source_summary_sha256": "8d5d7b79ec486632909d36fd595275f363a46646b2f6d885d107b6a044eed041"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_02\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "71287f0f46e68f5c5b9323c316597d13a820da4aa37dd7353c6f20e4e0a26f46",
+      "source_summary_sha256": "e0b499705c9264f44d69143cc3d4ccf7ba39882be7f1b6f150653998df188a00"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_05\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "ca714f522543e5a463dc5269fd87714cbfbb5c3a4cca4f7b0830f0402761978f",
+      "source_summary_sha256": "3fb79c1348f33678410fd4c709a3ffd1056e91deb9c075fbea6b330e80a2b830"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_06\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "7dc597457121ca08f13ac116733c85484b08e5a6c35b525a530709f5f631efa6",
+      "source_summary_sha256": "6ea88446217946e463c5dc458d6a69a2b3fda17616d7115126a4e8732ac6bd2e"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_07\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "5cd09b8888760080fe215b08ccd2306a24b246fba234bfc0dae93c4f56be3183",
+      "source_summary_sha256": "f0f019de0fb7730d6c9be9629d40ac6687f711cbd77df2ac4bafa7f7219aa8b3"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_08\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "8eb2fb60ca79b7a4497161a108dd5330c58e5ee78cd8601665c8b6f7e87a0fff",
+      "source_summary_sha256": "723fd8f68a40b3ec2c1e90abb33b325a44965c56d286d78e1a705a83bf94a8e0"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_09\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "131a05856e596b8382ed4050ca1d6c7b4557cf0fda3cc71e51b37c10ea96daf2",
+      "source_summary_sha256": "96abcf552c99baa48e6293268fffdbab3739c86d76f12d2fd9b310c31d433a95"
+    },
+    {
+      "path": "F:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_10\\candidate-trial-outcomes-corrected-v1.parquet",
+      "sha256": "8b86eda7d07a8cc8d87837d5bada7b863cc38d311bb557e2b5f4abe602cec5d3",
+      "source_summary_sha256": "3ca23eddc4a55708d6b445d07ef271467b8e484bba5b527545d07c4e786295b3"
+    }
+  ],
+  "evidence_sha256": {
+    ".gitattributes": "730a35ae3d558080083c3103d9ac8100c3f6561678092abe341701dfa331eb1d",
+    "all_fish_pre_vs_late_train_early_test.pdf": "a45a9afcbf0dce207444a14116745ea02cb873ed57ea6efa5bca43cc06946082",
+    "all_fish_pre_vs_late_train_early_test.png": "ab3978425d2bc26788bf7dbe159c9959a95b3a7546325f41b353a65c564593d4",
+    "fish_paired_change.csv": "577b1b01c250b319a8e1d6a513706681eb22f3d2cba481934816c3f0aa7355ab",
+    "fish_window_summary.csv": "d7a8d35aec1f975864a2173c83b32b83cd3cf3e36a2dff8b98fbd2dce78d6e6a",
+    "metric_response_magnitude.csv": "41e05bc53c891266e12bda18b82e375b199ccaed344a4f30e9ceff3c3d77d8c3",
+    "metric_response_magnitude.json": "869a73a93d8b155a4e430cfc106d7fb3114bdf4d9509508bd1525f8c4a5c9313",
+    "metric_response_magnitude.pdf": "837bc82b66e54f300166207ddd78baa6d4cce661c5c757434b52c4ca37633793",
+    "metric_response_magnitude.png": "651c2d8f77cae9d029a109f5a72dd09e85075c9093ac58be99bb622bb59df321",
+    "selected_trial_inputs.csv": "cc3bf7a46a360b1c2ca5d9762eca9fed1e6e3ebee1cbd71e7d84d13e6e4f2b58",
+    "snapshot_plot_metric_response_magnitude.py": "4343114af928b6140add29c5f22279c30bc5b10ecdd78b31ec945c7d47fc8ede",
+    "snapshot_plot_train_test_transition_metrics.py": "900e50540a1f5f200111c6cf33420084999aa197f29e3ce6dc00d7f0d8c87dfe"
+  },
+  "scripts_sha256": {
+    "scripts\\plot_train_test_transition_metrics.py": "900e50540a1f5f200111c6cf33420084999aa197f29e3ce6dc00d7f0d8c87dfe",
+    "scripts\\plot_metric_response_magnitude.py": "4343114af928b6140add29c5f22279c30bc5b10ecdd78b31ec945c7d47fc8ede"
+  },
+  "trial_outcome_settings": {
+    "baseline_window_s": [
+      -15.0,
+      0.0
+    ],
+    "interval_closure": "left",
+    "response_window_s": [
+      0.0,
+      9.0
+    ]
+  },
+  "metric_kernel_sha256": "a1ec30b01756211ffd701b935561dc31a47a9fdaa4129e47dd80d56ee38f5a4c",
+  "validation": {
+    "relevant_unittest_modules": [
+      "test_metric_policy",
+      "test_run_pipeline",
+      "test_3strace_finalize",
+      "test_figure1_cd_scaled_log_review",
+      "test_figure4",
+      "test_candidate_metrics",
+      "test_example_traces",
+      "test_metric_comparison_figure"
+    ],
+    "result": "passed across targeted runs",
+    "note": "Windows Python 3.12; matplotlib Agg; workspace temp directory. End-to-end test passed with installed .venv pure-Python Plotly on sys.path. Runtime emitted an existing SciPy/NumPy version warning."
+  },
+  "evidence_storage": "Git attributes preserve evidence bytes, including text line endings. Original analysis scripts are retained as byte-identical snapshots."
+}

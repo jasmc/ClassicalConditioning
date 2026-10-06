@@ -83,7 +83,7 @@ def pipeline_config(raw: Path, output: Path, experiment: str, ids: list[str]) ->
         "experiment": experiment,
         "analysis_id": f"{experiment}-full",
         "recording_ids": sorted(ids),
-        "assessment_metric": "tail_length_weighted_angular_l1",
+        "assessment_metric": "legacy_distal_angular_speed",
         "figure_mode": "static",
         "overwrite": False,
         "continue_on_error": False,

@@ -24,12 +24,12 @@ foreach ($id in $ids) {
     }
 }
 $cohort = 'all3sTrace-full-exploratory'
-$metric = 'tail_length_weighted_angular_l1'
-$figure2Id = 'figure2-3strace-window13'
-$figure3Id = 'figure3-3strace-window13'
-$figure4Id = 'figure4-3strace-window13'
-$learningId = 'all3sTrace-full-learning-onset-window13'
-$assessmentId = 'all3sTrace-full-window13'
+$metric = 'legacy_distal_angular_speed'
+$figure2Id = 'figure2-3strace-window13-tail-bend-speed'
+$figure3Id = 'figure3-3strace-window13-tail-bend-speed'
+$figure4Id = 'figure4-3strace-window13-tail-bend-speed'
+$learningId = 'all3sTrace-full-learning-onset-window13-tail-bend-speed'
+$assessmentId = 'all3sTrace-full-window13-tail-bend-speed'
 
 function Invoke-Python {
     param([string]$Stage, [string[]]$Arguments)
@@ -78,7 +78,7 @@ if (-not (Test-Path -LiteralPath $figure2h -PathType Leaf)) {
 
 $cohortPath = Join-Path $project "Processed data\Cohorts\$cohort\cohort-manifest.parquet"
 $outcomesPath = Join-Path $project "Processed data\Cohorts\$cohort\cohort-trial-outcomes.parquet"
-$comparisonDir = Join-Path $project "Processed data\Analyses\$figure3Id\legacy-tail-l1"
+$comparisonDir = Join-Path $project "Processed data\Analyses\$figure3Id\legacy-tail-bend-speed"
 if (-not (Test-Path -LiteralPath (Join-Path $comparisonDir 'comparison.json') -PathType Leaf)) {
     Invoke-Python 'Figure 3 historical learner comparison, 0–13 s' @('-m',
         'classical_conditioning', 'compare-legacy-learners', '--cohort', $cohortPath,
@@ -102,7 +102,7 @@ if (-not (Test-Path -LiteralPath $labels -PathType Leaf)) {
         'classify', '--project-dir', $project, '--cohort-id', $cohort,
         '--comparison-dir', $comparisonDir, '--analysis-id', $figure4Id,
         '--assessment-summary', $assessment,
-        '--classifier-execution-id', 'legacy-wip-3strace-tail-l1-window13-exploratory')
+        '--classifier-execution-id', 'legacy-wip-3strace-tail-bend-speed-window13-exploratory')
 }
 $figure4Summary = Join-Path $project "Processed data\Analyses\$figure4Id\figure4\analysis.json"
 if (-not (Test-Path -LiteralPath $figure4Summary -PathType Leaf)) {

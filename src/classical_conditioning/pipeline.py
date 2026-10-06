@@ -24,6 +24,7 @@ from classical_conditioning.artifacts import sha256_file, write_json_atomic
 from classical_conditioning.cohort import load_cohort_manifest
 from classical_conditioning.config.experiments import get_experiment_spec
 from classical_conditioning.exceptions import ConfigurationError
+from classical_conditioning.metric_policy import PAPER_METRIC_ID, require_paper_metric
 from classical_conditioning.figures.cohort_response import (
     build_block_profile_figure,
     build_catch_profile_figure,
@@ -166,6 +167,8 @@ def run_pipeline(
     progress: PipelineProgress | None = None,
 ) -> PipelineRunResult:
     """Complete the routine route and persist every recording and figure status."""
+    require_paper_metric(config.metric or PAPER_METRIC_ID)
+    require_paper_metric(config.assessment_metric or PAPER_METRIC_ID)
     progress = progress or default_progress(enabled=config.show_progress)
     mode = FigureMode(config.figure_mode)
     config.save_dir.mkdir(parents=True, exist_ok=True)

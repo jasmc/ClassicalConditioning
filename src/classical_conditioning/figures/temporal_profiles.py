@@ -51,7 +51,7 @@ METRIC_LABELS = {
     "whole_tail_xy_mean_speed_normalized": (
         "Whole-tail XY mean (tail lengths/ms)"
     ),
-    "legacy_distal_angular_speed": "Legacy distal angular speed (rad/ms)",
+    "legacy_distal_angular_speed": "Tail bend angular speed (rad/ms)",
 }
 
 METRIC_UNITS = {

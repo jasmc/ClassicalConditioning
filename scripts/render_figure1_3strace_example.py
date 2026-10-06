@@ -83,7 +83,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--recording-id", default="20230307_12")
-    parser.add_argument("--metric", default="tail_length_weighted_angular_l1",
+    parser.add_argument("--metric", default="legacy_distal_angular_speed",
                         choices=("tail_length_weighted_angular_l1",
                                  "whole_tail_xy_mean_speed_normalized",
                                  "legacy_distal_angular_speed"))

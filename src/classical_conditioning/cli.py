@@ -15,6 +15,7 @@ from typing import Sequence
 from classical_conditioning.environment import ensure_supported_runtime
 from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.intake import intake_recording, intake_recordings
+from classical_conditioning.metric_policy import PAPER_METRIC_ID
 
 
 def _preprocess_recipe(value: str) -> str:
@@ -252,7 +253,7 @@ def build_parser() -> argparse.ArgumentParser:
         "tail_length_weighted_angular_l1",
         "whole_tail_xy_mean_speed_normalized",
         "legacy_distal_angular_speed",
-    ), required=True)
+    ), default=PAPER_METRIC_ID)
     example_traces.add_argument("--tail-point", type=int, default=15)
     example_traces.add_argument("--window-start", type=float, default=-20.0)
     example_traces.add_argument("--window-end", type=float, default=20.0)
@@ -302,7 +303,7 @@ def build_parser() -> argparse.ArgumentParser:
     figure_selected_block_ratio.add_argument("--project-dir", type=Path, required=True)
     figure_selected_block_ratio.add_argument("--analysis-id", required=True)
     figure_selected_block_ratio.add_argument("--cohort-id", required=True)
-    figure_selected_block_ratio.add_argument("--metric", required=True)
+    figure_selected_block_ratio.add_argument("--metric", default=PAPER_METRIC_ID)
     figure_selected_block_ratio.add_argument(
         "--outcome",
         choices=("total-activity", "conditional-intensity"),
@@ -325,7 +326,7 @@ def build_parser() -> argparse.ArgumentParser:
     figure_trial_ratio.add_argument("--project-dir", type=Path, required=True)
     figure_trial_ratio.add_argument("--analysis-id", required=True)
     figure_trial_ratio.add_argument("--cohort-id", required=True)
-    figure_trial_ratio.add_argument("--metric", required=True)
+    figure_trial_ratio.add_argument("--metric", default=PAPER_METRIC_ID)
     figure_trial_ratio.add_argument(
         "--outcome",
         choices=("total-activity", "conditional-intensity"),
@@ -351,7 +352,7 @@ def build_parser() -> argparse.ArgumentParser:
     figure_event_aligned_ratio.add_argument("--project-dir", type=Path, required=True)
     figure_event_aligned_ratio.add_argument("--analysis-id", required=True)
     figure_event_aligned_ratio.add_argument("--cohort-id", required=True)
-    figure_event_aligned_ratio.add_argument("--metric", required=True)
+    figure_event_aligned_ratio.add_argument("--metric", default=PAPER_METRIC_ID)
     figure_event_aligned_ratio.add_argument(
         "--outcome",
         choices=("total-activity", "conditional-intensity"),
@@ -381,7 +382,7 @@ def build_parser() -> argparse.ArgumentParser:
         profile_parser.add_argument("--project-dir", type=Path, required=True)
         profile_parser.add_argument("--analysis-id", required=True)
         profile_parser.add_argument("--cohort-id", required=True)
-        profile_parser.add_argument("--metric", required=True)
+        profile_parser.add_argument("--metric", default=PAPER_METRIC_ID)
         profile_parser.add_argument(
             "--metric-recipe",
             choices=("tail-candidate-corrected", "tail-candidate-development"),
@@ -556,7 +557,7 @@ def build_parser() -> argparse.ArgumentParser:
     eligibility.add_argument("--project-dir", type=Path, required=True)
     eligibility.add_argument("--cohort-id", required=True)
     eligibility.add_argument("--analysis-id", required=True)
-    eligibility.add_argument("--metric", required=True)
+    eligibility.add_argument("--metric", default=PAPER_METRIC_ID)
     eligibility.add_argument(
         "--outcome",
         choices=("total-activity", "conditional-intensity"),
@@ -576,7 +577,7 @@ def build_parser() -> argparse.ArgumentParser:
     learning_onset.add_argument("--analysis-id", required=True)
     learning_onset.add_argument(
         "--metric",
-        required=True,
+        default=PAPER_METRIC_ID,
         help=(
             "Metric ID to select from cohort trial outcomes; only rows for this "
             "metric enter eligibility, models, resampling, and figures."
@@ -1001,7 +1002,7 @@ def build_parser() -> argparse.ArgumentParser:
     discarding.add_argument("--project-dir", type=Path, required=True)
     discarding.add_argument("--analysis-id", required=True)
     discarding.add_argument("--experiment", required=True)
-    discarding.add_argument("--metric", required=True)
+    discarding.add_argument("--metric", default=PAPER_METRIC_ID)
     discarding.add_argument(
         "--metric-recipe", type=_activity_metric_recipe, default="tail-candidate-corrected"
     )
@@ -1016,7 +1017,7 @@ def build_parser() -> argparse.ArgumentParser:
     legacy_learners.add_argument("--cohort", type=Path, required=True)
     legacy_learners.add_argument("--trial-outcomes", type=Path, required=True)
     legacy_learners.add_argument("--output-dir", type=Path, required=True)
-    legacy_learners.add_argument("--metric", default="legacy_distal_angular_speed")
+    legacy_learners.add_argument("--metric", default=PAPER_METRIC_ID)
 
     learner_figures = subparsers.add_parser(
         "render-legacy-learner-figures",
@@ -1046,7 +1047,7 @@ def build_parser() -> argparse.ArgumentParser:
             "tail_length_weighted_angular_l1",
             "whole_tail_xy_mean_speed_normalized",
             "legacy_distal_angular_speed",
-        ), default="tail_length_weighted_angular_l1",
+        ), default=PAPER_METRIC_ID,
     )
     paper_panels.add_argument("--delay-fish", default="20221115_07")
     paper_panels.add_argument("--control-fish", default="20221115_09")
@@ -1070,7 +1071,7 @@ def build_parser() -> argparse.ArgumentParser:
     figure4_analysis.add_argument("--analysis-id", required=True)
     figure4_analysis.add_argument("--metric", choices=(
         "tail_length_weighted_angular_l1", "whole_tail_xy_mean_speed_normalized",
-        "legacy_distal_angular_speed"), required=True)
+        "legacy_distal_angular_speed"), default=PAPER_METRIC_ID)
     figure4_analysis.add_argument("--delay-cohort-id")
     figure4_analysis.add_argument("--trace3-cohort-id")
     figure4_analysis.add_argument("--trace10-cohort-id")

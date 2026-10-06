@@ -258,7 +258,7 @@ def main() -> None:
     parser.add_argument("--project-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
-    parser.add_argument("--metric", choices=tuple(METRIC_COLUMNS),
+    parser.add_argument("--metric", choices=tuple(METRIC_COLUMNS), default="legacy_distal_angular_speed",
                         help="Render one candidate metric; omit to render all three.")
     parser.add_argument("--baseline-start-s", type=float, default=-20.0)
     parser.add_argument("--overwrite", action="store_true")

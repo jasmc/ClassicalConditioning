@@ -17,7 +17,7 @@ from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.cohort import load_cohort_manifest, logical_cohort_hash
 
 
-METRIC = "tail_length_weighted_angular_l1"
+METRIC = "legacy_distal_angular_speed"
 COHORT = "all3sTrace-full-exploratory"
 
 
@@ -110,25 +110,25 @@ def verify(project: Path, source: Path, report_path: Path) -> dict:
     outcomes, _ = load_cohort_trial_outcomes(project, COHORT)
     if set(outcomes["recording_id"].astype(str)) != selected:
         raise ValueError("Frozen cohort outcomes do not cover all complete fish")
-    comparison_dir = project / "Processed data" / "Analyses" / "figure3-3strace-window13" / "legacy-tail-l1"
+    comparison_dir = project / "Processed data" / "Analyses" / "figure3-3strace-window13-tail-bend-speed" / "legacy-tail-bend-speed"
     comparison = json.loads((comparison_dir / "comparison.json").read_text(encoding="utf-8"))
     wip = next((item for item in comparison["variants"] if item["variant"] == "legacy-wip"), None)
     if (comparison.get("cohort_hash") != cohort_hash or comparison.get("metric_id") != METRIC
             or wip is None or wip.get("status") != "completed"):
         raise ValueError("3sTrace legacy-wip comparison is incomplete or mismatched")
-    labels_path = project / "Processed data" / "Analyses" / "figure4-3strace-window13" / "learner-labels.csv"
+    labels_path = project / "Processed data" / "Analyses" / "figure4-3strace-window13-tail-bend-speed" / "learner-labels.csv"
     labels, classifier = load_classification_manifest(labels_path, METRIC, ("all3sTrace",))
     if (len(labels) != 59 or classifier["cohort_hashes"] != {"all3sTrace": cohort_hash}
-            or classifier["classifier_execution_id"] != "legacy-wip-3strace-tail-l1-window13-exploratory"):
+            or classifier["classifier_execution_id"] != "legacy-wip-3strace-tail-bend-speed-window13-exploratory"):
         raise ValueError("3sTrace provisional classifier manifest is incomplete or mismatched")
-    figure4_path = project / "Processed data" / "Analyses" / "figure4-3strace-window13" / "figure4" / "analysis.json"
+    figure4_path = project / "Processed data" / "Analyses" / "figure4-3strace-window13-tail-bend-speed" / "figure4" / "analysis.json"
     figure4, tables = load_figure4_analysis(figure4_path)
     if (figure4["analysis_scope"] != "partial_assay_review"
             or figure4["scientific_status"] != "descriptive_provisional_legacy_rule"
             or figure4["cohort_hashes"] != {"all3sTrace": cohort_hash}
             or len(tables["sample-flow"]) != 59):
         raise ValueError("Figure 4B analysis is incomplete or mismatched")
-    learning_id = "all3sTrace-full-learning-onset-window13"
+    learning_id = "all3sTrace-full-learning-onset-window13-tail-bend-speed"
     _, learning = load_learning_onset_analysis(project, learning_id)
     if learning.get("cohort_hash") != cohort_hash:
         raise ValueError("Learning-onset analysis uses a different cohort")
@@ -137,12 +137,12 @@ def verify(project: Path, source: Path, report_path: Path) -> dict:
         project / "Figures" / "PNG" / "20230307_12" / f"figure-1-G-3strace_{METRIC}.png",
         *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-review"
           / f"figure-2B-3strace_{kind}_{METRIC}.png" for kind in ("signed", "coverage")),
-        *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-window13"
+        *(project / "Figures" / "PNG" / "Analyses" / "figure2-3strace-window13-tail-bend-speed"
           / f"cohort-{kind}-ratio_{METRIC.replace('_', '-')}_total-activity.png"
           for kind in ("selected-block", "trial")),
-        project / "Figures" / "PNG" / "Analyses" / "figure3-3strace-window13"
+        project / "Figures" / "PNG" / "Analyses" / "figure3-3strace-window13-tail-bend-speed"
         / f"figure-3-3strace-review_{METRIC}.png",
-        *(project / "Figures" / "PNG" / "Analyses" / "figure4-3strace-window13"
+        *(project / "Figures" / "PNG" / "Analyses" / "figure4-3strace-window13-tail-bend-speed"
           / "all3sTrace" / f"{kind}_{METRIC}.png" for kind in (
               "figure-4", "supplement-single-catches", "supplement-movement",
               "supplement-coverage", "supplement-single-catch-movement",

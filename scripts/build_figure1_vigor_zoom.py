@@ -134,7 +134,7 @@ def main():
     mpl.rcParams.update({"svg.fonttype":"none", "path.simplify":False})
     fig = plt.figure(figsize=(8.15,7.0), layout="none")
     fig.text(.09,.974,"Frame vigor (rad/ms) · Delay fish 20221115_07", fontsize=13, weight="bold", va="top")
-    fig.text(.09,.938,"Raw legacy distal angular speed", fontsize=9, color="#52606a", va="top")
+    fig.text(.09,.938,"Tail bend angular speed", fontsize=9, color="#52606a", va="top")
     full_max = math.ceil(float(frames.Vigor.max())*2)/2
     for i,(trial,stage) in enumerate(zip(TRIALS,STAGES)):
         axis=fig.add_axes([.21,.823-i*.084,.765,.066])

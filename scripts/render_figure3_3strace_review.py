@@ -21,8 +21,8 @@ from classical_conditioning.figures.export import (
 )
 
 
-METRIC = "tail_length_weighted_angular_l1"
-METRICS = (METRIC, "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed")
+METRIC = "legacy_distal_angular_speed"
+METRICS = ("tail_length_weighted_angular_l1", "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed")
 VARIANT = "legacy-wip"
 
 
@@ -172,7 +172,7 @@ def main() -> None:
                                          metric_id=args.metric)
     fig = render(fish, outcomes)
     output = (args.output_dir or project / "Figures" / "PNG" / "Analyses"
-              / "figure3-3strace-exploratory").resolve()
+              / "figure3-3strace-exploratory-tail-bend-speed").resolve()
     cohort_hash = report["cohort_hash"]
     comparison_path = comparison_dir / "comparison.json"
     variant_path = comparison_dir / f"{VARIANT}.parquet"

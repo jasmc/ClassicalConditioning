@@ -12,6 +12,7 @@ from classical_conditioning.config.experiments import get_experiment_spec
 from classical_conditioning.analysis.movement_state import METRIC_IDS
 from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.paths import assert_project_dir_allowed
+from classical_conditioning.metric_policy import PAPER_METRIC_ID
 
 
 _FIELDS = frozenset({
@@ -75,9 +76,9 @@ class PipelineRunConfig:
     figure_mode: str = "static"
     show_progress: bool = True
     cohort_id: str | None = None
-    metric: str | None = None
+    metric: str | None = PAPER_METRIC_ID
     learner_representation_id: str | None = None
-    assessment_metric: str | None = None
+    assessment_metric: str | None = PAPER_METRIC_ID
     technical_policy: Path | None = None
     disabled_discard_checks: tuple[str, ...] = ()
 
@@ -145,11 +146,11 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
         figure_mode=figure_mode,
         show_progress=payload.get("show_progress", True),
         cohort_id=_optional_identifier(payload.get("cohort_id"), "cohort_id"),
-        metric=_optional_identifier(payload.get("metric"), "metric"),
+        metric=_optional_identifier(payload.get("metric", PAPER_METRIC_ID), "metric") or PAPER_METRIC_ID,
         learner_representation_id=_optional_identifier(
             payload.get("learner_representation_id"), "learner_representation_id"
         ),
-        assessment_metric=_optional_identifier(payload.get("assessment_metric"), "assessment_metric"),
+        assessment_metric=_optional_identifier(payload.get("assessment_metric", PAPER_METRIC_ID), "assessment_metric") or PAPER_METRIC_ID,
         technical_policy=(Path(payload["technical_policy"]).expanduser().resolve()
                           if isinstance(payload.get("technical_policy"), str) and payload["technical_policy"].strip()
                           else None),
@@ -157,11 +158,14 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
             payload.get("disabled_discard_checks"), "disabled_discard_checks"
         ) or (),
     )
-    if bool(config.cohort_id) != bool(config.metric):
-        raise ConfigurationError("cohort_id and metric must be supplied together.")
     if config.metric and config.metric not in METRIC_IDS.values():
         raise ConfigurationError(
             f"metric must be one of {sorted(METRIC_IDS.values())}."
+        )
+    if config.metric != PAPER_METRIC_ID or config.assessment_metric != PAPER_METRIC_ID:
+        raise ConfigurationError(
+            f"Routine analysis uses the frozen paper metric {PAPER_METRIC_ID}; "
+            "use dedicated sensitivity/comparison commands for other metrics."
         )
     valid_conditions = {
         condition.condition_id for condition in get_experiment_spec(experiment).conditions

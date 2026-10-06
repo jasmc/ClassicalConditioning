@@ -52,7 +52,9 @@ LEGACY_SOURCES: dict[str, str] = {
     "learner_inputs": "legacy/scripts/6_LearnersQuantification.py::prepare_data/_filter_fish_by_trials (lines 776-934); legacy/scripts/6_LearnersQuantification_new.py (lines 1024-1182); legacy/scripts/6_LearnersQuantification_improved.py (lines 433-535); legacy/scripts/6_LearnersQuantification_WIP.py (lines 511-624)",
 }
 RULE_ORDER = tuple(LEGACY_SOURCES)
-DEFAULT_METRIC = "legacy_distal_angular_speed"
+from classical_conditioning.metric_policy import PAPER_METRIC_ID
+
+DEFAULT_METRIC = PAPER_METRIC_ID
 FIVE_TRIAL_BLOCKS = {
     name: frozenset(range(start, start + 5))
     for name, start in (

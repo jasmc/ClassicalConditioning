@@ -468,7 +468,7 @@ class PipelineRunConfigTests(unittest.TestCase):
             config_path.write_text(json.dumps({
                 "raw_dir": str(raw), "save_dir": str(save),
                 "experiment": "allDelay", "analysis_id": "interrupted",
-                "cohort_id": "reviewed", "metric": "tail_length_weighted_angular_l1",
+                "cohort_id": "reviewed", "metric": "legacy_distal_angular_speed",
                 "show_progress": False,
             }), encoding="utf-8")
             config = load_pipeline_run_config(config_path)

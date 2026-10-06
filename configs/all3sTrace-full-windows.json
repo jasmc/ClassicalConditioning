@@ -64,8 +64,9 @@
     "20230803_07",
     "20230803_12"
   ],
-  "assessment_metric": "tail_length_weighted_angular_l1",
+  "assessment_metric": "legacy_distal_angular_speed",
   "figure_mode": "static",
   "overwrite": false,
-  "continue_on_error": false
+  "continue_on_error": false,
+  "metric": "legacy_distal_angular_speed"
 }

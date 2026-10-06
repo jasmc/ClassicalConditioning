@@ -1,6 +1,6 @@
 # Classical Conditioning
 
-Analysis of tail tracking from a head-fixed larval-zebrafish conditioning assay. The routine run inventories raw recordings, verifies or creates lossless intake, calculates **three candidate movement metrics** from corrected frames, and renders every descriptive figure whose inputs are available. Candidate metrics and paper panels are not scientific approvals.
+Analysis of tail tracking from a head-fixed larval-zebrafish conditioning assay. The routine run inventories raw recordings, verifies or creates lossless intake, calculates **three candidate movement metrics** from corrected frames, and renders every descriptive figure whose inputs are available. The paper activity metric is frozen as **tail bend angular speed** (`legacy_distal_angular_speed`); other scientific approvals remain separate.
 
 For quick review, start with the [numbered analysis guides](docs/analysis/README.md), the [parameter index](docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md), and the [panel-by-panel paper figure provenance](docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md). The latter covers main Figure 1–4 panels and their supporting analyses and figures.
 
@@ -8,7 +8,7 @@ For quick review, start with the [numbered analysis guides](docs/analysis/README
 
 1. Inventory and validate raw recordings, make lossless intake, preprocess measured-time tail data, calculate the three exploratory vigor metrics, and apply one shared bout detector.
 2. Assess every fish for technical readiness and record exploratory behavior-dependent discard checks after per-fish outcomes exist. Approve a label-independent paper inclusion policy and freeze the reviewed cohort before population or learner claims.
-3. Build **Figure 1** from protocol and selected single-fish tail-angle traces, vigor traces, and heatmaps. Prepare its stimulus controls, per-fish metric comparisons, and QC supplements alongside it. Choose one approved metric for final paper panels.
+3. Build **Figure 1** from protocol and selected single-fish tail-angle traces, vigor traces, and heatmaps. Prepare its stimulus controls, per-fish metric comparisons, and QC supplements alongside it. Use the frozen **tail bend angular speed** (`legacy_distal_angular_speed`) for final paper panels. See [the selection record](docs/analysis/METRIC_SELECTION_2026-10-06.md).
 4. Build **Figure 2** from matched frozen cohorts: equal-fish pooled heatmaps, block-level summaries and model contrasts, and trial-level trajectories and onset analysis. Prepare coverage, fish-level trajectories, US-response comparisons, and diagnostics alongside it. When claiming extinction, first define and validate a separate analysis of decline or loss of an established response; the current code does not provide that estimator.
 5. Build **Figure 3** from the approved learner representation, fish-level effects, and independent validation, with eligibility and sensitivity data.
 6. Build **Figure 4** from the frozen learner manifest and authenticated signed block/catch profiles. Prepare individual catches, movement/coverage, controls, and independently evaluated timing alongside it. Finish the follow-on tail analyses and then freeze one verified analysis release.
@@ -52,10 +52,10 @@ JSON has no comments; this table documents **every accepted field**. Obsolete ro
 | `batch_size` | `250000` | Rows per chunk in intake and corrected metric calculation. |
 | `figure_mode` | `static` | `static` PNG, or `publication` SVG and PDF with provenance. |
 | `show_progress` | `true` | Print progress to stderr. `--quiet` also suppresses it. |
-| `cohort_id` | `null` | ID of an existing immutable reviewed cohort; supply together with `metric`. |
-| `metric` | `null` | Selected metric for frozen-cohort and learning analysis; supply together with `cohort_id`. |
+| `cohort_id` | `null` | ID of an existing immutable reviewed cohort; its analyses use the frozen metric. |
+| `metric` | `legacy_distal_angular_speed` | Frozen tail bend angular speed for routine and paper analysis. |
 | `learner_representation_id` | `null` | Reserved identity for a frozen learner representation. Until Gate L is approved, learner figures remain blocked. |
-| `assessment_metric` | selected `metric`, otherwise `legacy_distal_angular_speed` | Candidate metric used only for the technical and exploratory discarding assessment; it does not select a paper metric. |
+| `assessment_metric` | frozen `legacy_distal_angular_speed` | Candidate metric used only for the technical and exploratory discarding assessment; it does not select a paper metric. |
 | `technical_policy` | `null` | Path to a reviewed technical policy JSON. Without one, the assessment is a draft evidence audit, not an inclusion decision. |
 | `disabled_discard_checks` | `[]` | Named historical checks to disable for an exploratory sensitivity assessment; never changes a reviewed cohort. |
 

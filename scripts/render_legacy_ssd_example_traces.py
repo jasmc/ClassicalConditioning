@@ -160,8 +160,8 @@ def main() -> None:
     parser.add_argument("--recording-id", required=True)
     parser.add_argument("--trial", type=int, action="append", required=True,
                         help="Global CS trial number; historical labels add four.")
-    metric_group = parser.add_mutually_exclusive_group(required=True)
-    metric_group.add_argument("--metric", choices=tuple(METRIC_COLUMNS))
+    metric_group = parser.add_mutually_exclusive_group()
+    metric_group.add_argument("--metric", choices=tuple(METRIC_COLUMNS), default="legacy_distal_angular_speed")
     metric_group.add_argument("--all-metrics", action="store_true")
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
     parser.add_argument("--tail-point", type=int, default=15)
