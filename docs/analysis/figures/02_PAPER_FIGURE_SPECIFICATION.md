@@ -66,4 +66,3 @@ MPLCONFIGDIR=/private/tmp/cc-mpl classical-conditioning render-paper-panels \
 3. Approve Gate L for Figures 3–4 and the Figure 2 model/diagnostics, contrasts and multiplicity rule. Independent response-timing claims require the evaluation protocol in the [supplementary plan](../../../Plans/10_SUPPLEMENTARY_FIGURES.md). A failed diagnostic does not become significant evidence because a star is visible.
 4. Compose final panel groups, captions and supplementary cross references; render PNG, SVG and PDF from the same panel data; inspect visual layout and semantic SVG structure.
 5. Store a release manifest with source commit, config/input SHA-256 values, exact render command, panel-data and export hashes, plus reviewer/date. At that point change the relevant registry panel statuses from `blocked` only after the scientific approvals are recorded.
-
