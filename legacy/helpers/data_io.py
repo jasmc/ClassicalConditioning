@@ -130,8 +130,9 @@ def read_tail_tracking_data(data_path: Path) -> Optional[pd.DataFrame]:
             engine='pyarrow',
             dtype={config.cols_to_use_orig[0]: 'int32'}
         )
-        # Drop the trailing summary row emitted by the acquisition software.
-        data = data.iloc[:-1]
+        # A numeric final FrameID is a real frame, not a summary row.
+        if pd.isna(pd.to_numeric(data['FrameID'].iloc[-1], errors='coerce')):
+            data = data.iloc[:-1].copy()
 
     except Exception:
         try:
@@ -143,16 +144,18 @@ def read_tail_tracking_data(data_path: Path) -> Optional[pd.DataFrame]:
                 decimal=',', 
                 engine='c'
             )
-            # Drop the trailing summary row emitted by the acquisition software.
-            data = data.iloc[:-1]
+            if pd.isna(pd.to_numeric(data['FrameID'].iloc[-1], errors='coerce')):
+                data = data.iloc[:-1].copy()
         except Exception:
             logger.error('Tail tracking might be corrupted!')
             return None
 
     logger.info(f'Time to read tail tracking .txt: {timer()-start:.3f} (s)')
 
-    # Store original frame number in an integer dtype for downstream joins.
-    data['Original frame number'] = data['FrameID'].astype('int32', copy=False)
+    # The fallback parser may retain string IDs after a summary row.
+    # Normalize join keys after removing only that identified summary.
+    data['FrameID'] = pd.to_numeric(data['FrameID'], errors='raise').astype('int64')
+    data['Original frame number'] = data['FrameID'].copy()
 
     # Optimize dtypes for angle columns only (avoid casting non-angle columns).
     angle_cols = [c for c in config.cols_to_use_orig[1:] if c in data.columns]

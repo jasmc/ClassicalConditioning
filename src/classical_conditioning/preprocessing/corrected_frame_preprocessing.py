@@ -1,7 +1,7 @@
-"""Corrected measured-time preprocessing contract (Step 06 foundation).
+"""Frozen camera-arrival-time preprocessing contract (Step 06 foundation).
 
-Distinct from the archived historical preprocessing route. This recipe preserves measured camera
-timestamps, does not apply the legacy startup discard / uniform 700 Hz grid /
+Distinct from the archived historical preprocessing route. This recipe preserves logged camera-arrival
+timestamps (not hardware exposure times), does not apply the legacy startup discard / uniform 700 Hz grid /
 AbsoluteTime rebuild, and records explicit validity masks. Interpolation and
 filtering remain disabled until separately versioned policies are approved
 (Gate P). Body rotation is explicitly ``none`` when no independent body axis

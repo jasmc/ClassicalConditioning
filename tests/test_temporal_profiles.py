@@ -15,6 +15,28 @@ from classical_conditioning.analysis.temporal_profiles import (
 
 
 class TemporalProfileTests(unittest.TestCase):
+    def test_signed_bout_bins_ignore_nan_and_invalid_frames(self) -> None:
+        # Two accepted frames from bout 2 and one from bout 3 share a bin.
+        # Neither NaNs nor an invalid finite peak may affect its denominator.
+        values = np.array([1., np.nan, 1., 2., np.nan, 2., 8., 1024.,
+                           np.nan, np.nan, 1.])
+        valid = np.ones(len(values), dtype=bool)
+        valid[7] = False
+        result = _signed_bout_log_vigor(
+            values,
+            np.array([-1., -.9, -.8, .01, .02, .03, .04, .05, .6, .7, 1.1]),
+            np.array([0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 3]),
+            valid,
+            np.ones(len(values), dtype=bool),
+            np.array([1, 1, 1, 2, 2, 2, 3, 4, 5, 5, 6]),
+            bin_count=4,
+            baseline_start_s=-15.,
+            baseline_end_s=0.,
+        )
+        np.testing.assert_allclose(result[[0, 1, 3]],
+                                   [0., (2 * np.log(2.) + np.log(8.)) / 3, 0.])
+        self.assertTrue(np.isnan(result[2]))
+
     def test_signed_log_vigor_centres_bout_medians_on_pre_cs_baseline(self) -> None:
         values = np.array([1.0, 1.0, 1.0, 2.0, 2.0, 2.0])
         result = _signed_bout_log_vigor(

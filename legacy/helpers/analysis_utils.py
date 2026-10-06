@@ -4,6 +4,7 @@ from __future__ import annotations
 from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
+import sys
 from typing import Any, Dict, List, Literal, Optional, Tuple, Union
 
 import matplotlib as mpl
@@ -31,6 +32,12 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 import file_utils
 from general_configuration import config
 from plotting_style import get_plot_config
+
+# Keep the legacy entry point and the current audit on one timing implementation.
+_source_root = Path(__file__).resolve().parents[2] / 'src'
+if str(_source_root) not in sys.path:
+    sys.path.insert(0, str(_source_root))
+from classical_conditioning.preprocessing.acquisition_timing import estimate_camera_cadence
 
 # --- Vigor Calculation ---
 
@@ -62,65 +69,34 @@ else:
 def framerate_and_reference_frame(camera: pd.DataFrame, 
                                   stem_fish_path_orig: str, 
                                   fig_camera_name: Optional[str] = None) -> Tuple[float, int, bool]:
+    """Infer capture cadence despite arrival-clock buffering; return loss evidence.
+
+    Missing exported IDs and exceeding the historical buffer capacity are
+    checked separately. Neither short arrival delays nor capacity crossings
+    provide an exact count of lost physical exposures.
     """
-    Calculates true framerate and finds reference frame.
-    """
-    camera = camera.drop(columns='AbsoluteTime', errors='ignore')
-    camera['ElapsedTime'] = camera['ElapsedTime'].astype('float')
-    
-    camera_diff = camera['ElapsedTime'].diff()
-    
-    print(f"Max IFI: {camera_diff.max()} ms")
-    ifi = camera_diff.median()
-    print(f"First estimate of IFI: {ifi} ms")
-    
-    # Logic to find stable regions...
-    camera_diff_index_correct_IFI = np.where(abs(camera_diff - ifi) <= config.validation.max_interval_between_frames)[0]
-    camera_diff_index_correct_IFI_diff = np.diff(camera_diff_index_correct_IFI)
-
-    reference_frame_id = 0
-    last_frame_id = 0
-
-    # Start
-    for i in range(1, len(camera_diff_index_correct_IFI_diff)):
-        if camera_diff_index_correct_IFI_diff[i-1] == 1 and camera_diff_index_correct_IFI_diff[i] == 1:
-            reference_frame_id = camera['FrameID'].iloc[camera_diff_index_correct_IFI[i] - 1]
-            break
-
-    # End
-    for i in range(len(camera_diff_index_correct_IFI_diff)-1, 0, -1):
-        if camera_diff_index_correct_IFI_diff[i-1] == 1 and camera_diff_index_correct_IFI_diff[i] == 1:
-            last_frame_id = camera['FrameID'].iloc[camera_diff_index_correct_IFI[i] - 1]
-            break
-    
-    # Refined IFI
-    try:
-         ifi = camera_diff.iloc[reference_frame_id - camera['FrameID'].iloc[0] : last_frame_id - camera['FrameID'].iloc[0]].mean()
-    except:
-         pass # fallback to median if indices invalid
-
-    print(f"Second estimate of IFI: {ifi} ms")
-    predicted_framerate = 1000 / ifi
-    print(f"Estimated framerate: {predicted_framerate} FPS")
-
-    # Estimate frame loss from accumulated IFI drift relative to expected cadence.
-    # For refactor, we keep core logic.
-    delay = (camera_diff - ifi).cumsum().to_numpy()
-    number_frames_lost = np.floor(delay / (ifi * config.validation.buffer_size))
-    number_frames_lost = np.where(number_frames_lost >= 0, number_frames_lost, 0)
-    
-    number_frames_lost_diff = np.floor(np.diff(number_frames_lost, prepend=0))
-    number_frames_lost_diff = np.where(number_frames_lost_diff >= 0, number_frames_lost_diff, 0)
-    
-    where_frames_lost = np.where(number_frames_lost_diff > 0)[0]
-    has_lost_frames = len(where_frames_lost) > 0
-    
-    if has_lost_frames:
-        print(f"Total number of lost frames: {len(where_frames_lost)}")
-    else:
-        print("No frames were lost")
-        
-    return predicted_framerate, reference_frame_id, has_lost_frames
+    cadence = estimate_camera_cadence(camera,
+        tolerance_ms=config.validation.max_interval_between_frames,
+        buffer_size=config.validation.buffer_size)
+    print(f"Estimated framerate: {cadence.framerate} FPS")
+    print(f"Missing FrameIDs: {cadence.missing_frame_ids}; "
+          f"buffer capacity exceeded: {cadence.buffer_capacity_exceeded}")
+    if fig_camera_name:
+        ids = camera.FrameID.to_numpy(dtype=np.int64)
+        elapsed = camera.ElapsedTime.to_numpy(dtype=float)
+        ref = cadence.reference_position
+        delay = elapsed - elapsed[ref] - (ids - ids[ref])*cadence.interval_ms
+        sample = np.unique(np.r_[np.linspace(0,len(ids)-1,min(len(ids),20000)).astype(int),
+                                  np.argmax(delay)])
+        fig, axes = plt.subplots(2,1,figsize=(12,6),layout='constrained')
+        axes[0].plot(ids[sample], delay[sample],lw=.5)
+        axes[0].axhline(cadence.interval_ms*config.validation.buffer_size,color='red',ls='--')
+        axes[0].set_ylabel('Arrival lag relative to cadence (ms)')
+        axes[1].plot(ids[1:][sample[sample>0]-1],np.diff(elapsed)[sample[sample>0]-1],'.',ms=1)
+        axes[1].set_ylabel('Arrival interval (ms)'); axes[1].set_xlabel('FrameID')
+        fig.suptitle(f'{stem_fish_path_orig} · {cadence.framerate:.6f} FPS')
+        fig.savefig(fig_camera_name); plt.close(fig)
+    return cadence.framerate, cadence.reference_frame_id, cadence.has_frame_loss_evidence
 
 def protocol_info(protocol: pd.DataFrame) -> Tuple:
     """Extracts counts and durations from protocol."""
@@ -216,7 +192,13 @@ def merge_camera_with_data(data: pd.DataFrame, camera: pd.DataFrame) -> pd.DataF
     return data
 
 def interpolate_data(data: pd.DataFrame, expected_framerate: float, predicted_framerate: float) -> pd.DataFrame:
-    """Interpolates data to uniform expected framerate."""
+    """Resample presumed frame acquisition positions to the expected-rate grid.
+
+    Reconstruct clocks from cadence before assigning protocol events; do not
+    interpolate the buffered arrival timestamps as acquisition timestamps.
+    """
+    if not np.isfinite([expected_framerate,predicted_framerate]).all() or min(expected_framerate,predicted_framerate)<=0:
+        raise ValueError('Frame rates must be finite and positive')
     data_ = data.copy(deep=True)
     data_['FrameID'] *= expected_framerate/predicted_framerate
     data_.rename(columns={'FrameID' : config.time_trial_frame_label}, inplace=True)
@@ -236,6 +218,11 @@ def interpolate_data(data: pd.DataFrame, expected_framerate: float, predicted_fr
     data = pd.DataFrame(new_index, columns=[config.time_trial_frame_label])
     data[data_.drop(columns=config.time_trial_frame_label).columns] = interp_function(data[config.time_trial_frame_label])
 
+    offset_ms = (new_index-new_index[0])*1000/expected_framerate
+    for clock in ('ElapsedTime','AbsoluteTime'):
+        if clock in data_.columns:
+            data[clock] = float(data_[clock].iat[0])+offset_ms
+
     return data
 
 def rolling_window(a, window):
@@ -252,23 +239,16 @@ def filter_data(data: pd.DataFrame, space_window: int, time_window: int) -> pd.D
 
     data_ = data.loc[:, [config.time_trial_frame_label] + angle_cols]
 
-    # Spatial filtering (rolling mean across columns)
-    # Using numpy for speed
+    # Reproduce the detailed legacy three-segment spatial average, including
+    # its sequential edge updates. Other widths need an explicit new policy.
+    if space_window != 3 or len(angle_cols) < 3:
+        raise ValueError("Legacy spatial filtering requires width 3 and at least 3 angles")
     values = data_.loc[:, angle_cols].to_numpy()
-    # Need to handle edge cases if we want to replace columns, usually we reduce dimension or pad
-    # The original code filtered specifically using the rolling_window func
-    # Simplification:
-    # data_.iloc[:, 2:-1] = np.mean(rolling_window(values, space_window), axis=2) 
-    # Logic requires rigorous index mapping. 
-    # Using pandas as fallback for readability if performance allows, 
-    # but strictly copying original logic:
-    
-    # Original logic was specific to exact column structure. 
-    # We will assume 'values' matches the structure expected.
-    # Refactoring blindly might break if dimensions mismatch. 
-    # Recommendation: Keep closer to original implementation if structure unclear.
-    
-    # Temporal filtering (spatial filter is intentionally simplified in this refactor).
+    data_.iloc[:, 2:-1] = np.mean(rolling_window(values, space_window), axis=2)
+    data_.iloc[:, 1] = data_.iloc[:, 1:3].mean(axis=1)
+    data_.iloc[:, -1] = data_.iloc[:, -2:].mean(axis=1)
+
+    # Centered temporal mean follows spatial filtering.
     data_.loc[:, angle_cols] = data_.loc[:, angle_cols].rolling(window=time_window, center=True).mean()
 
     data.loc[:, [config.time_trial_frame_label] + angle_cols] = data_
@@ -320,11 +300,19 @@ def find_beg_and_end_of_bouts(data: pd.DataFrame, thr1: float, min_dur: int, min
     for idx in np.where(durations < min_dur)[0]:
          bouts[beg[idx] : end[idx] + 1] = 0
          
-    # Filter by max angle (thr2) logic would go here...
+    # Recompute bounds after removing short bouts, then apply the historical
+    # peak distal angular-speed threshold in degrees/ms.
+    beg, end = get_bounds(bouts)
+    for bout_b, bout_e in zip(beg, end):
+        peak = data.iloc[bout_b:bout_e + 1][config.tail_angle_label].diff().abs().max()
+        if peak * (config.expected_framerate / 1000) < thr2:
+            bouts[bout_b:bout_e + 1] = 0
     
     data['Bout'] = bouts.astype(bool)
-    data['Bout beg'] = data['Bout'].diff() > 0
-    data['Bout end'] = data['Bout'].diff() < 0
+    # Boolean Series.diff uses XOR: take numeric differences for direction.
+    transitions = pd.Series(bouts, index=data.index).diff()
+    data['Bout beg'] = transitions > 0
+    data['Bout end'] = transitions < 0
     
     return data
 
@@ -374,11 +362,11 @@ def stim_in_data(data_: pd.DataFrame, protocol: pd.DataFrame) -> pd.DataFrame:
         if cs_us == 'CS':
             if not protocol.index.isin(['Cycle']).any():
                 continue
-            protocol_sub = protocol.loc['Cycle', ['beg (ms)', 'end (ms)']].to_numpy()
+            protocol_sub = protocol.loc[['Cycle'], ['beg (ms)', 'end (ms)']].to_numpy()
         else:
             if not protocol.index.isin(['Reinforcer']).any():
                 continue
-            protocol_sub = protocol.loc['Reinforcer', ['beg (ms)', 'end (ms)']].to_numpy()
+            protocol_sub = protocol.loc[['Reinforcer'], ['beg (ms)', 'end (ms)']].to_numpy()
 
         for i, p in enumerate(protocol_sub):
             try:
@@ -399,7 +387,8 @@ def stim_in_data(data_: pd.DataFrame, protocol: pd.DataFrame) -> pd.DataFrame:
         data[col] = pd.Categorical(values, categories=categories, ordered=True)
 
     data['AbsoluteTime'] -= data['AbsoluteTime'].iat[0]
-    data['AbsoluteTime'] = data['AbsoluteTime'].astype('int32')
+    # Retain the fractional reconstructed acquisition clock after labelling.
+    data['AbsoluteTime'] = data['AbsoluteTime'].astype('float64')
 
     return data
 
@@ -430,7 +419,7 @@ def identify_trials(data: pd.DataFrame, time_bef_frame: int, time_aft_frame: int
 
             trial['Trial type'] = cs_us
             trial['Trial number'] = int(t)
-            trial[time_col] = np.arange(time_bef_frame, len(trial) + time_bef_frame)
+            trial[time_col] = trial[time_col] - trial_reference
             trials_list.append(trial)
 
     if not trials_list:

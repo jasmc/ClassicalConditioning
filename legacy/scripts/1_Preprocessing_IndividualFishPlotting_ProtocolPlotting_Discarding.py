@@ -26,6 +26,7 @@ else:
     module_root = Path.cwd()
 
 import analysis_utils
+from classical_conditioning.preprocessing.acquisition_timing import estimate_camera_cadence, presumed_acquisition_times
 import data_io
 import figure_saving
 import file_utils
@@ -197,6 +198,12 @@ def run_preprocess(params: dict = None):
         if lost_f:
             print(f"Skipping {stem_fish_path_orig} due to high frame loss or framing issues.")
             continue
+        # Anchor to the stable camera reference before the tracking inner join.
+        # The first matched tracking frame may arrive while buffering.
+        cadence = estimate_camera_cadence(
+            camera, tolerance_ms=gen_config.validation.max_interval_between_frames,
+            buffer_size=gen_config.validation.buffer_size)
+        camera['ElapsedTime'], camera['AbsoluteTime'] = presumed_acquisition_times(camera, cadence)
         camera = camera[camera['FrameID'] >= reference_frame_id]
 
         # 2. Load Tracking Data
@@ -225,8 +232,8 @@ def run_preprocess(params: dict = None):
             continue
 
         data = analysis_utils.stim_in_data(data, protocol)
-        time_step = 1000 / predicted_framerate
-        data['AbsoluteTime'] = data['AbsoluteTime'].iat[0] + np.arange(len(data), dtype='float64') * time_step
+        # interpolate_data already reconstructs the 700 FPS acquisition clock
+        # before stimulus assignment. Do not replace it with the source rate.
 
         # 5. Process Tail Angles
         angle_cols = angle_columns(data)
@@ -234,7 +241,7 @@ def run_preprocess(params: dict = None):
             print('No angle columns found for %s' % stem_fish_path_orig)
             continue
 
-        # Cumulative sum of angles to handle wrapping/unwrapping if necessary (depends on raw data format)
+        # Spatial sum of local segment bends; this is not temporal phase unwrapping.
         data.loc[:, angle_cols] = data.loc[:, angle_cols].cumsum(axis=1)
         plot_behavior_overview(data, stem_fish_path_orig, fig_behavior_name)
 

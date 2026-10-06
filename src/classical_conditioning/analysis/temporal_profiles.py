@@ -155,7 +155,11 @@ def _signed_bout_log_vigor(
     baseline_end_s: float,
     baseline_start_s: float | None = None,
 ) -> np.ndarray:
-    """Bin bout-median log vigor relative to this trial's pre-stimulus median."""
+    """Bin bout-median log vigor relative to this trial's pre-stimulus median.
+
+    Baseline, bout medians and bin means use only eligible finite values.
+    NaNs contribute neither to sums nor frame counts; an empty bin stays NaN.
+    """
     usable = (
         detector_valid & moving & (bout_ids > 0)
         & np.isfinite(values) & (values > 0)
