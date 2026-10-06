@@ -124,3 +124,7 @@ The E zoom builder verifies its cached measured-trace data against existing
 SHA-256 sidecars and checks the movement artifact against its completion marker.
 The heatmap builder independently validates its source artifacts. See
 `FIGURE1_HEATMAPS.md` for signal definitions and validation results.
+
+## 6 October 2026: E all-trial overlay review
+
+A–D use the hashed frozen SVG snapshots in `frozen/2026-10-05-ABCD`; the frozen baseline is [−15, 0) s. D was recentered to this interval before freezing (largest reference shift 0.49 degrees). E v4 now overlays untransformed raw vigor on the exact stored 0.5 s heatmap values for all five trials. All rows retain −20 to +20 s, with shared raw y limits 0–0.6 rad/ms and shared heatmap-value limits −1.25 to +0.75. The y display clips large raw peaks; earlier full-range SVGs remain available. Bars are behind the black trace and retain missing-bin gaps. There is no separate inset or x zoom. `scripts/build_figure1_vigor_overlay.py` regenerates E directly to the SSD and checks source hashes, baseline bounds, bin centers, and exact saved-value equality. F–H remain pending review. The review assembly uses this chat’s A–H lettering; older C/D review adapters retain historical names.

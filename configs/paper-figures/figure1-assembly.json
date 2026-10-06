@@ -5,7 +5,7 @@
   "output": "figure1-preview.svg",
   "canvas": [
     1800,
-    2250
+    1950
   ],
   "font_family": "DejaVu Sans",
   "font_directory": "fonts",
@@ -98,38 +98,28 @@
     },
     {
       "id": "E",
-      "role": "matching selected-fish frame-vigor traces",
+      "role": "raw vigor over exact heatmap bins, all five trials, y zoom only",
       "box": [
         925,
         940,
         815,
         480
       ],
-      "source": "traces/Fig1_PanelE_RawVigor_legacy-vigor_v1.svg",
+      "source": "traces/Fig1_PanelE_RawVigor_HeatmapOverlay_allTrials_v4.svg",
       "label": {
         "text": "E",
         "x": 940,
         "y": 983,
         "size": 32
-      }
-    },
-    {
-      "id": "E-detail",
-      "role": "Early and Late Train y-only zooms belonging to panel E",
-      "source": "traces/Fig1_PanelE_TrainZoomDetail_legacy-vigor_v2.svg",
-      "box": [
-        55,
-        1465,
-        1690,
-        280
-      ]
+      },
+      "selection_status": "review"
     },
     {
       "id": "F",
       "role": "Delay single-fish signed-vigor heatmap",
       "box": [
         55,
-        1800,
+        1490,
         530,
         395
       ],
@@ -137,16 +127,17 @@
       "label": {
         "text": "F",
         "x": 70,
-        "y": 1843,
+        "y": 1533,
         "size": 32
-      }
+      },
+      "selection_status": "review deferred"
     },
     {
       "id": "G",
       "role": "3sTrace single-fish signed-vigor heatmap",
       "box": [
         635,
-        1800,
+        1490,
         530,
         395
       ],
@@ -154,16 +145,17 @@
       "label": {
         "text": "G",
         "x": 650,
-        "y": 1843,
+        "y": 1533,
         "size": 32
-      }
+      },
+      "selection_status": "review deferred"
     },
     {
       "id": "H",
       "role": "unpaired-control single-fish signed-vigor heatmap",
       "box": [
         1215,
-        1800,
+        1490,
         530,
         395
       ],
@@ -171,9 +163,10 @@
       "label": {
         "text": "H",
         "x": 1230,
-        "y": 1843,
+        "y": 1533,
         "size": 32
-      }
+      },
+      "selection_status": "review deferred"
     }
   ],
   "baseline_s": [
