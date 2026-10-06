@@ -4,16 +4,18 @@ Figure 4A–C are descriptive Delay, 3sTrace and 10sTrace profiles. Each figure 
 
 ## Frozen classifier input
 
-`figure4-analyze` consumes a CSV or Parquet fish table plus a JSON file with the same stem and suffix `.manifest.json`. It does not fit or select a classifier. The table must contain one row per `(experiment_id, condition_id, fish_id)` across every requested cohort, with:
+`figure4-analyze` consumes a CSV or Parquet fish table plus a JSON file with the same stem and suffix `.manifest.json`. It does not fit or select a classifier. The table must contain one row per `(experiment_id, condition_id, fish_id)` across every requested cohort.
 
 For an explicitly exploratory partial-assay review, the command also accepts a nonempty subset of the three assays. In that case, the classifier cohort and assessment maps must contain exactly the supplied assays. The saved analysis records `partial_assay_review`; this is not a full three-assay paper result. The 3sTrace use is documented in [the fixed-trace exploratory run](./TRACE3_EXPLORATORY_RUN_2026-09-24.md).
+
+The fish table columns are:
 
 ```text
 experiment_id, condition_id, fish_id, classifier_label,
 classification_eligible, ineligible_reason, input_metric_id
 ```
 
-`classifier_label` is `Learner`, `Non-learner` or `Unclassified`; controls receive the same classifier rule while retaining their reference cohort role. `Unclassified` requires an ineligibility reason. Optional `recording_id` and `cohort_role` columns are checked against the reviewed cohort. The JSON contains `table_sha256`, `input_metric_id`, `classifier_execution_id`, `validation_mode`, `cohort_hashes` keyed by all three experiment IDs, and `selection_assessments` keyed the same way. Each selection assessment entry has `path`, `sha256`, and `assessment_hash` for the authenticated `assessment-summary.json` from `assess-discarding`. The command verifies its metric, experiment, corrected metric recipe and all five constituent artifact hashes. The selected metric must match the classifier's metric.
+`classifier_label` is `Learner`, `Non-learner` or `Unclassified`; controls receive the same classifier rule while retaining their reference cohort role. `Unclassified` requires an ineligibility reason. Optional `recording_id` and `cohort_role` columns are checked against the reviewed cohort. The JSON contains `table_sha256`, `input_metric_id`, `classifier_execution_id`, `validation_mode`, `cohort_hashes` and `selection_assessments` keyed by exactly the requested experiment IDs (all three for a full paper run). Each selection assessment entry has `path`, `sha256`, and `assessment_hash` for the authenticated `assessment-summary.json` from `assess-discarding`. The command verifies its metric, experiment, corrected metric recipe and all five constituent artifact hashes. The selected metric must match the classifier's metric.
 
 ```json
 {
@@ -29,6 +31,8 @@ classification_eligible, ineligible_reason, input_metric_id
   }
 }
 ```
+
+For setup and transfer instructions, use [the current Figure 4 handover](./07_FIGURE4_HANDOVER.md).
 
 ## Run order
 

@@ -283,7 +283,7 @@ class PipelineRunConfigTests(unittest.TestCase):
                 run_pipeline(config)
             summary = json.loads((save / "Metadata" / "empty_pipeline_run.json").read_text(encoding="utf-8"))
             self.assertEqual(summary["status"], "failed")
-            self.assertEqual(len(summary["paper_panels"]), 27)
+            self.assertEqual(len(summary["paper_panels"]), 26)
             self.assertEqual(summary["figures"]["metric-comparison:CS:total-activity"]["status"], "blocked")
             self.assertTrue(summary["stage_errors"])
 
@@ -312,7 +312,7 @@ class PipelineRunConfigTests(unittest.TestCase):
             self.assertEqual(first.intake_completed, ("20260101_01",))
             first_summary = json.loads(first.summary_path.read_text(encoding="utf-8"))
             self.assertEqual(first_summary["status"], "complete")
-            self.assertEqual(len(first_summary["paper_panels"]), 27)
+            self.assertEqual(len(first_summary["paper_panels"]), 26)
             self.assertEqual(len(first_summary["figures"]), 32)
             self.assertEqual(
                 sum(item["status"] == "completed" for item in first_summary["figures"].values()),

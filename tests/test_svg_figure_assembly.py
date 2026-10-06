@@ -117,7 +117,7 @@ class SvgFigureAssemblyTests(unittest.TestCase):
             self.assertEqual(standalone["panels"][0]["content_box"], [5, 5, 30, 40])
             output = root / "panel.svg"
             result = render(layout, output, only_panel="A")
-            self.assertEqual(result["panels"][0]["source"], str(storage / "scheme.svg"))
+            self.assertEqual(result["panels"][0]["source"], str((storage / "scheme.svg").resolve()))
             self.assertEqual(result["panels"][0]["status"], "source")
 
     def test_alternate_source_preview_preserves_selected_layout_source(self) -> None:
@@ -139,7 +139,7 @@ class SvgFigureAssemblyTests(unittest.TestCase):
             output = root / "preview.svg"
             sidecar = render(layout, output,
                              source_overrides={"B": "exploratory.svg"})
-            self.assertEqual(sidecar["panels"][0]["source"], str(root / "exploratory.svg"))
+            self.assertEqual(sidecar["panels"][0]["source"], str((root / "exploratory.svg").resolve()))
             self.assertIn('id="src-B-exploratory"', output.read_text())
             nested = ET.parse(output).getroot().find(
                 ".//{http://www.w3.org/2000/svg}svg"

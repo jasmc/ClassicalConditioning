@@ -2,18 +2,18 @@
 
 ## State at handover
 
-The Figure 4 analysis and renderer are implemented, with focused tests and a synthetic layout check. **No paper-data Figure 4 has been run.** The current machine did not have the frozen Gate L classifier manifest or the recording volume mounted. A preview made with synthetic curves is not a scientific result.
+**Reviewed against `develop` on 2026-10-06.** The Figure 4 analysis, renderer, CLI commands and documentation are committed in the repository. Use the latest `develop` checkout on the receiving computer:
+
+```text
+git switch develop
+git pull --ff-only
+```
+
+The former transfer patch in `handover/figure4-working-tree.patch` is historical evidence from the September handover. Its changes have been integrated and the documentation has since been renamed. Do not apply it to current `develop` or check out its old `3c1bcdb` base to run the current pipeline.
 
 The implementation is in `src/classical_conditioning/analysis/figure4.py`, `src/classical_conditioning/figures/figure4.py`, the `figure4-analyze` and `figure4-render` CLI routes, and the `figure4` paper-panel registry route. The input contract is in [the Figure 4 guide](./06_FIGURE4_LEARNER_PROFILES.md). Independent response timing is covered by the [supplementary plan](../../../Plans/10_SUPPLEMENTARY_FIGURES.md).
 
-At the time this handover was written, the working branch was `codex/remove-legacy-package` at `3c1bcdb`, **with uncommitted Figure 4 changes**. A checkout of that commit alone is insufficient. Transfer the complete current working tree, or apply [the working-tree patch](../../../handover/figure4-working-tree.patch) to a checkout of `3c1bcdb` (then review and commit it). The patch includes the untracked Figure 4 guide and this handover; the patch itself is a transfer aid and is not included inside itself. On the receiving machine, inspect `git status --short` and verify that `figure4-analyze` and `figure4-render` appear in `python -m classical_conditioning --help`.
-
-```text
-git checkout 3c1bcdb
-git apply --check "<PATH_TO>/figure4-working-tree.patch"
-git apply "<PATH_TO>/figure4-working-tree.patch"
-git status --short
-```
+A complete approved three-assay paper run remains pending. Real-data **3sTrace exploratory reviews** have been run: the [fixed-trace run record](./TRACE3_EXPLORATORY_RUN_2026-09-24.md) documents the primary-metric route and corrected 0–13 s outcomes; `outputs/trace-transfer-review/window13-post-status.json` records downstream completion. `outputs/trace-legacy-full-59/status.json` records the later 59-fish legacy-metric Figure 4 review. These are provisional same-data classifier reviews, not a frozen Gate L paper result. The [Delay readiness record](./DELAY_FIGURE4_READINESS_2026-09-24.md) preserves the earlier Delay cohort and classifier comparison evidence; its dated machine inventory is not a current availability check.
 
 ## Required inputs
 
@@ -39,6 +39,10 @@ uv run python -m classical_conditioning figure4-render --help
 ```
 
 The focused test uses temporary synthetic input and does not validate the paper cohort. If the full project was rebuilt at new paths, authenticate its cohort and selection outputs before running Figure 4. The Figure 4 command will independently verify the input identities and hashes.
+
+## Run scope
+
+For the full paper layout, supply all three approved assay cohorts and their matching frozen classifier/assessment identities. For an explicitly exploratory partial review, `figure4-analyze` also accepts a nonempty subset of assay cohort IDs. Its manifest cohort and assessment maps must contain exactly that subset; omit the unused cohort and project-directory flags. The saved scope is `partial_assay_review`, and rendering produces six figures per supplied assay. The integrated paper-panel route still requires all three cohorts.
 
 ## Run analysis first
 
@@ -66,7 +70,7 @@ Run only after `complete.json` exists and analysis succeeded:
 uv run python -m classical_conditioning figure4-render --analysis-summary "<OUTPUT_PROJECT>/Processed data/Analyses/figure4-v1/figure4/analysis.json" --output-dir "<FIGURE_OUTPUT>" --mode static
 ```
 
-This produces **18 review PNG figures**: per experiment, one ten-row main figure (nine CS blocks plus pooled catches) and five supplementary figures covering individual signed catches, main and individual movement probability, and main and individual contributing-fish coverage. Four classifier groups, their fish counts, fish-IQR bands where at least two fish contribute, CS interval, and verified paired-training expected-US guides are drawn from saved tables. The x-axis is −20…+20 s; a 20 s US sits at the right boundary.
+For a complete three-assay analysis, this produces **18 review PNG figures**: per experiment, one ten-row main figure (nine CS blocks plus pooled catches) and five supplementary figures covering individual signed catches, main and individual movement probability, and main and individual contributing-fish coverage. Four classifier groups, their fish counts, fish-IQR bands where at least two fish contribute, CS interval, and verified paired-training expected-US guides are drawn from saved tables. The x-axis is −20…+20 s; a 20 s US sits at the right boundary.
 
 For SVG/PDF publication files, rerun `figure4-render` with `--mode publication` and a separate clean output directory. The publication exporter requires a clean Git working tree and embeds provenance. Do not use `--overwrite` unless intentionally replacing an output with the same analysis ID and recipe.
 
