@@ -1,5 +1,10 @@
 # Paper figure review versions (24 September 2026)
 
+The [3sTrace plotting comparison from 6 October](./TRACE3_PLOT_VERSIONS_2026-10-06.md)
+adds matched Figure 2E/H display alternatives and Figure 4 grid layouts for
+the 59-fish legacy-metric exploratory cohort. These retain the corrected
+0–13 s outcomes and existing learner labels.
+
 This compares the output families created during this figure review. It records **what was plotted**, not an approval of the signal or statistics. The authoritative file-level audit trail is each PNG's adjacent `.figure.json` provenance sidecar and the machine [variant inventory](../../../configs/paper-figures/review-variants.json). The supplied legacy draft PNGs are visual references; their exact settings cannot be recovered from pixels. Historical filenames below retain their original letters: old C/D are current D/E, old E/F/G are current F/G/H. Existing PNGs and sidecars are not renamed.
 
 The current integrated renderer uses the same −20 to 0 s signed bout-log-vigor bins for current Figure 1 F/H and Figure 2 A, then averages fish equally for Figure 2 A. The [selected-pre20 review run](../../../outputs/paper-figures/selected-pre20-review/paper-panel-run.json) is a retained **0–1 scaled** version: its fish and pooled P10/P90 stages both use −20 to 0 s, but its measure differs from Figure 1 E. The earlier [selected-metric run](../../../outputs/paper-figures/selected-metric-review/paper-panel-run.json) retained the previous first-stage profile default (all available bins before −15 s, including times earlier than −20 s). Its old Figure 1 E control half is an uncomposed candidate for current paper panel H.

@@ -14,6 +14,15 @@
   },
   "variants": [
     {
+      "id": "3strace-legacy-59fish-layout-comparison-2026-10-06",
+      "panels": ["fig-2E", "fig-2H", "fig-4B"],
+      "status": "reproducible_exploratory",
+      "renderer": "scripts/render_3strace_plot_versions.py",
+      "output": "outputs/trace-plot-versions/20261006/",
+      "manifest": "outputs/trace-plot-versions/20261006/plot-versions.json",
+      "note": "Same 59-fish corrected 0–13 s cohort and legacy distal metric: grouped boxes, median/IQR, paired fish/legacy block tests and split bootstrap trial curves. Figure 4 reuses signed legacy-wip profiles in stacked, grid and split-condition layouts. No archived Delay LME marks transferred."
+    },
+    {
       "id": "integrated-signed-bout-aligned-review-2026-09-24",
       "panels": ["fig-2A", "fig-2D", "fig-2G", "sup-5"],
       "status": "selected_review_method",
