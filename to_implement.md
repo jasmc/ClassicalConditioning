@@ -1,6 +1,4 @@
-ask me again. i wrote sth. where is that? it was sth like: "the inset must be relative to y and not to x. can you instead of showing an inset overlay the black trace of raw vigor on top of the bars representing the scaled vigor?" could this work nicely? or what do you suggest?
-
-you didnt understand. i want to compare pre train with 5 trials late train + 5 trials early test
+20230307_12_trace_black-2_mitfaminusminus,elavl3gff,10uasgcamp6fef05
 
 
 
