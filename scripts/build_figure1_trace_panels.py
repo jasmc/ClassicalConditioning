@@ -59,12 +59,15 @@ def load() -> tuple[pd.DataFrame, pd.DataFrame, list[dict]]:
                               intervals)
     metrics = _read_windows(metrics_path,
                             ["FrameID", "AbsoluteTime", METRIC_COLUMNS[METRIC]], intervals)
+    from classical_conditioning.figures.example_traces import verified_movement_path
+    movement_path = verified_movement_path(PROJECT, FISH)
+    movement = _read_windows(movement_path, ["FrameID", "AbsoluteTime", "valid", "moving"], intervals)
     frames, events = prepare_example_trace_data(
-        corrected, metrics, protocol, trial_numbers=TRIALS, metric_id=METRIC,
+        corrected, metrics, protocol, movement_state=movement, trial_numbers=TRIALS, metric_id=METRIC,
         tail_point=15, window_s=(-20, 20), cs_duration_s=10,
     )
     inputs = [{"path": str(path), "sha256": digest(path)}
-              for path in (protocol_path, manifest_path)]
+              for path in (protocol_path, manifest_path, movement_path)]
     for path, marker_name, field in (
         (corrected_path, f"{FISH}_corrected-preprocess-v1_complete.json", "frames_sha256"),
         (metrics_path, f"{FISH}_candidate-corrected-v1_complete.json", "metrics_sha256"),
@@ -85,12 +88,12 @@ def draw(frames: pd.DataFrame, events: pd.DataFrame, *, panel: str,
     fig.subplots_adjust(left=.21, right=.975, top=.86, bottom=.14, hspace=.13)
     is_angle = panel == "D"
     if is_angle:
-        header = "Tail angle (°) · Delay fish 20221115_07"
+        header = "Tail angle (Â°) Â· Delay fish 20221115_07"
         subtitle = f"Distal cumulative angle; {baseline_s[0]:g} to {baseline_s[1]:g} s median centred"
         limits = (-240.0, 240.0)
         ticks = (-200, 0, 200)
     else:
-        header = "Frame vigor (rad/ms) · Delay fish 20221115_07"
+        header = "Frame vigor (rad/ms) Â· Delay fish 20221115_07"
         subtitle = "Tail bend angular speed"
         finite = frames["Vigor"].to_numpy(dtype=float)
         ceiling = math.ceil(float(np.nanmax(finite)) * 2) / 2

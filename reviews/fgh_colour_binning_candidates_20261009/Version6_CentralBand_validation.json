@@ -1,0 +1,155 @@
+{
+  "variant": "Version6_CentralBand",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "numeric_values_unchanged": true,
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "f83a5e5586404dff574a2517d0d6d8561ffbc7f3610c81bcb6021cc61644840c",
+  "source_numeric_files": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelF_mean_bins.csv",
+      "sha256": "7963c12eca8f67ed880563d32ffe949961db04c2428304b42d90a28a72ae0803"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelG_mean_bins.csv",
+      "sha256": "fe84d07628ff7186d81588433eda859857635012c517e2068aebc45c2932f4b1"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelH_mean_bins.csv",
+      "sha256": "64b35ffcf517593c705181e7e51dd7306e840df697ef26c6c8ee3cb3a6ddb83d"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 10743
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 13654
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 5455
+    }
+  ],
+  "annotations": {
+    "six_CS_boundaries_verified": true,
+    "CS_times_s": [
+      0,
+      10
+    ],
+    "CS_colour": "#0d8136",
+    "CS_linewidth_pt": 2.4,
+    "CS_alpha": 0.8,
+    "phase_labels": "left of F",
+    "example_arrowheads_panel": "G",
+    "example_arrowheads_direction": "left",
+    "example_arrowheads_trials": [
+      9,
+      17,
+      63,
+      66,
+      93
+    ],
+    "arrowhead_trial_positions_verified": true
+  },
+  "colour_mapping": {
+    "thresholds": [
+      1.5,
+      2.5,
+      3.5,
+      4.5
+    ],
+    "band_labels": [
+      "Low",
+      "Below",
+      "Centre",
+      "Above",
+      "High"
+    ],
+    "colourbar_label": "Baseline bands (P50 = 0)",
+    "thresholds_coordinate": "quartile class index for rendering only",
+    "colours": [
+      "#81e7ff",
+      "#5775b3",
+      "#582948",
+      "#b26343",
+      "#ffcf67"
+    ],
+    "managua_r_sample_positions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "reference": "each trial finite pre-CS 0.25 s mean bins in [-20,0)",
+    "quantile_method": "linear",
+    "scientific_boundaries": "per-trial P25-P50, P45-P50, P55-P50, P75-P50 in log units",
+    "central_band": "P45 <= x < P55, contains median-centred zero",
+    "central_colour": "#582948, actual dark managua_r midpoint; missing values remain pure black",
+    "threshold_table": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\per_trial_quartile_thresholds.csv",
+    "threshold_table_sha256": "9a13d9d22c150f057cfc4f4072dce6d3d8b05e287916ce03ac4883d6bc9a5ccc",
+    "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+    "class_intervals": [
+      "x < P25",
+      "P25 <= x < P45",
+      "P45 <= x < P55",
+      "P55 <= x < P75",
+      "x >= P75"
+    ],
+    "display_scores": [
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "missing_colour": "#000000"
+  },
+  "renderer_sha256": "11f164a0d23f39c9528d9f8a1a84269db0d890414f54ca485c08cc61eccbaaa0",
+  "palette": "managua_r",
+  "colour_limits": [
+    1.0,
+    5.0
+  ],
+  "colourbar_label": "Baseline bands (P50 = 0)",
+  "colourbar_count": 1,
+  "layout": {
+    "size_inches": [
+      9,
+      5.1
+    ],
+    "panel_lefts": [
+      0.09,
+      0.355,
+      0.62
+    ],
+    "panel_width": 0.22,
+    "phase_labels": "left of F"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_CentralBand_legacy_layout.svg",
+      "sha256": "4749d5b5bc95bef1ed6e5bcafa7ef30942448c70f58582bbb7fe620951a047a7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_CentralBand_legacy_layout.png",
+      "sha256": "c9c2e41a7b6dce5ea7048343e8efff65ff4d89796ec97d61b58ad90fd3e4859c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_CentralBand_legacy_layout.pdf",
+      "sha256": "a5b03d28476b76c7b2d86eb763b2c876b9388ed1b56b2ccff0c765e4776cce35"
+    }
+  ]
+}

@@ -126,7 +126,7 @@ def _read_trial_frames(project: Path, fish: str, metric_id: str,
     ):
         raise ValueError("Metric and movement frames do not align")
     frames, events = prepare_example_trace_data(
-        corrected, metrics, protocol, trial_numbers=trials, metric_id=metric_id,
+        corrected, metrics, protocol, movement_state=movement, trial_numbers=trials, metric_id=metric_id,
         tail_point=15, window_s=WINDOW_S, cs_duration_s=10.0,
     )
     if movement["FrameID"].duplicated().any():
@@ -159,8 +159,8 @@ def _render(data: pd.DataFrame, events: pd.DataFrame, metric_id: str,
         )
         x = subset["Time relative to CS onset (s)"].to_numpy(dtype=float)
         for col, (field, label) in enumerate((
-            ("Tail angle (rad)", "C · tail angle (rad)"),
-            ("Scaled log vigor", "D · 0.5 s mean scaled log vigor (0–1)"),
+            ("Tail angle (rad)", "C Â· tail angle (rad)"),
+            ("Scaled log vigor", "D Â· 0.5 s mean scaled log vigor (0â€“1)"),
         )):
             axis = axes[row, col]
             if col == 0:
@@ -197,8 +197,8 @@ def _render(data: pd.DataFrame, events: pd.DataFrame, metric_id: str,
                 axis.tick_params(labelbottom=False)
             panels.append(f"{'C' if col == 0 else 'D'}_trial_{trial}")
     fig.suptitle(
-        f"Figure 1 C/D review · {METRIC_DISPLAY_NAMES[metric_id]} · "
-        f"baseline [{baseline_start_s:g}, 0) s · "
+        f"Figure 1 C/D review Â· {METRIC_DISPLAY_NAMES[metric_id]} Â· "
+        f"baseline [{baseline_start_s:g}, 0) s Â· "
         f"{'moving bouts' if moving_bouts_only else 'all valid frames'}"
     )
     return fig, panels, mappings
@@ -213,7 +213,7 @@ def main() -> None:
                         default="legacy_distal_angular_speed")
     parser.add_argument("--trial", type=int, action="append",
                         help="Global CS trial; defaults to 9, 17, 63, 66, 93")
-    parser.add_argument("--signal", choices=("moving-bouts", "all-valid"),
+    parser.add_argument("--signal", choices=("moving-bouts",),
                         default="moving-bouts")
     parser.add_argument("--mode", choices=("static", "publication"), default="static")
     parser.add_argument("--overwrite", action="store_true")
@@ -287,7 +287,7 @@ def main() -> None:
                     analysis_identity={
                         "recording_id": args.recording_id, "metric_id": args.metric,
                         "signal": args.signal, "baseline_start_s": baseline_start_s,
-                        "baseline_end_s": 0.0, "scaling": "log P10/P90, clipped 0–1",
+                        "baseline_end_s": 0.0, "scaling": "log P10/P90, clipped 0â€“1",
                         "scientific_status": "baseline_comparison_only",
                     },
                 ),

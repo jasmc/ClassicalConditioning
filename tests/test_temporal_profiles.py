@@ -14,6 +14,11 @@ from classical_conditioning.analysis.temporal_profiles import (
 )
 
 
+
+
+def _all_bout_state(frames):
+    return frames[["AbsoluteTime"]].assign(valid=True, moving=True, bout_id=1)
+
 class TemporalProfileTests(unittest.TestCase):
     def test_signed_bout_bins_ignore_nan_and_invalid_frames(self) -> None:
         # Two accepted frames from bout 2 and one from bout 3 share a bin.
@@ -106,7 +111,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.protocol,
             config=self.config,
             block_lookup={("CS", 1): "Pre-train", ("US", 1): "Train 1"},
-        )
+         movement_state=_all_bout_state(self.frames),)
         self.assertEqual(len(result), 2 * 4 * len(CANDIDATE_COLUMNS))
         self.assertEqual(set(result["Trial type"]), {"CS", "US"})
         self.assertEqual(
@@ -121,7 +126,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.frames,
             self.protocol.iloc[:1],
             config=self.config,
-        )
+         movement_state=_all_bout_state(self.frames),)
         metric = result[result["Metric ID"] == "tail_length_weighted_angular_l1"]
         np.testing.assert_allclose(metric["Total activity mean"], 0.0)
         np.testing.assert_allclose(metric["Valid fraction"], 1.0)
@@ -135,7 +140,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.frames,
             self.protocol.iloc[:1],
             config=self.config,
-        )
+         movement_state=_all_bout_state(self.frames),)
         row = result[
             (result["Metric ID"] == "tail_length_weighted_angular_l1")
             & (result["Time bin start (s)"] == -1.0)
@@ -148,7 +153,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.frames,
             self.protocol.iloc[:1],
             config=self.config,
-        )
+         movement_state=_all_bout_state(self.frames),)
         sample_count = result[
             result["Metric ID"] == "tail_length_weighted_angular_l1"
         ]["Sample count"].sum()
@@ -166,7 +171,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.frames,
             protocol,
             config=self.config,
-        )
+         movement_state=_all_bout_state(self.frames),)
         trial_starts = (
             result[["Trial number", "Event start absolute time (ms)"]]
             .drop_duplicates()
@@ -185,7 +190,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.frames,
             protocol,
             config=self.config,
-        )
+         movement_state=_all_bout_state(self.frames),)
         self.assertEqual(len(result), 4 * len(CANDIDATE_COLUMNS))
         self.assertTrue(result["Sample count"].eq(0).all())
         self.assertTrue(result["Valid fraction"].eq(0).all())
@@ -299,7 +304,7 @@ class TemporalProfileTests(unittest.TestCase):
         protocol = pd.DataFrame(
             {"Type": ["Cycle"], "Beg": [45_000], "End": [45_100]}
         )
-        result = aggregate_event_profiles(frames, protocol, config=config)
+        result = aggregate_event_profiles(frames, protocol, config=config, movement_state=_all_bout_state(frames),)
         scaled = result["Scaled total activity"]
         finite = scaled[scaled.notna()]
         self.assertTrue(finite.between(0.0, 1.0).all())
@@ -328,7 +333,7 @@ class TemporalProfileTests(unittest.TestCase):
             self.frames,
             self.protocol,
             config=self.config,
-        )
+         movement_state=_all_bout_state(self.frames),)
         self.assertTrue(result["Scaled total activity"].isna().all())
 
     def test_bout_outcomes_are_identical_across_every_metric(self) -> None:

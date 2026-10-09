@@ -1,0 +1,148 @@
+{
+  "variant": "Version10_ThreeColours",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "numeric_values_unchanged": true,
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "6b17bfafc383d7e1afe892557907fed92b8f74aefb572177e8d3cb55b89fae17",
+  "source_numeric_files": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\PanelF_mean_bins.csv",
+      "sha256": "7686bdff65d39882604e9e6c6e4347891190a5c90574e7b687f10128491577e4"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\PanelG_mean_bins.csv",
+      "sha256": "2088565511f0783213af113ae4e61986e99a036bf3f1f63dd570e265a8a8fcf7"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\PanelH_mean_bins.csv",
+      "sha256": "605cc378eff3162abc7e2333677103ab07b55a07b658ca5a8bbb330776a8dffe"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 6446
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 7138
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 3539
+    }
+  ],
+  "annotations": {
+    "six_CS_boundaries_verified": true,
+    "CS_times_s": [
+      0,
+      10
+    ],
+    "CS_colour": "#0d8136",
+    "CS_linewidth_pt": 2.4,
+    "CS_alpha": 0.8,
+    "phase_labels": "left of F",
+    "example_arrowheads_panel": "G",
+    "example_arrowheads_direction": "left",
+    "example_arrowheads_trials": [
+      9,
+      17,
+      63,
+      66,
+      93
+    ],
+    "arrowhead_trial_positions_verified": true
+  },
+  "colour_mapping": {
+    "thresholds": [
+      1.5,
+      2.5
+    ],
+    "band_labels": [
+      "Low",
+      "Centre",
+      "High"
+    ],
+    "colourbar_label": "Scaled baseline bands",
+    "thresholds_coordinate": "quartile class index for rendering only",
+    "colours": [
+      "#81e7ff",
+      "#582948",
+      "#e09f57"
+    ],
+    "managua_r_sample_positions": [
+      0.0,
+      0.5,
+      0.9
+    ],
+    "reference": "fixed boundaries on Version 7 scaled values",
+    "scientific_boundaries": [
+      -0.1,
+      0.1
+    ],
+    "central_band": "-0.1 <= scaled value < +0.1",
+    "central_colour": "#582948, actual dark managua_r midpoint; missing values remain pure black",
+    "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+    "class_intervals": [
+      "z < -0.1",
+      "-0.1 <= z < +0.1",
+      "z >= +0.1"
+    ],
+    "display_scores": [
+      -1,
+      0,
+      1
+    ],
+    "missing_colour": "#000000",
+    "merged_band_meanings": [
+      "Low + Below",
+      "Centre",
+      "Above + High"
+    ]
+  },
+  "renderer_sha256": "41b0ff09f16263b6122de3bbac24c55bd750c99865a2b371d80358d55cfbf881",
+  "palette": "managua_r",
+  "colour_limits": [
+    1.0,
+    3.0
+  ],
+  "colourbar_label": "Scaled baseline bands",
+  "colourbar_count": 1,
+  "layout": {
+    "size_inches": [
+      9,
+      5.1
+    ],
+    "panel_lefts": [
+      0.09,
+      0.355,
+      0.62
+    ],
+    "panel_width": 0.22,
+    "phase_labels": "left of F"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.svg",
+      "sha256": "a9a541fe78c4ce72e2b857a2c49b1c23d9e6ca6785c180dddaad8ec3011b74bb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.png",
+      "sha256": "e3b84ff522b8eff2e5780765051b1bc5cad53610b73d4e702d35f2ef1da0a43a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.pdf",
+      "sha256": "7d56699e208751c2ef473a4fca9c1eabc7e2c7a322b2cfba33158e817a60fbed"
+    }
+  ]
+}

@@ -114,8 +114,11 @@ def render_from_ssd(
     angle_columns = [f"angle{index}" for index in range(tail_point + 1)]
     corrected = _read_windows(corrected_path, ["FrameID", "AbsoluteTime", *angle_columns], intervals)
     metrics = _read_windows(metrics_path, ["FrameID", "AbsoluteTime", METRIC_COLUMNS[metric_id]], intervals)
+    from classical_conditioning.figures.example_traces import verified_movement_path
+    movement_path = verified_movement_path(project_dir, recording_id)
+    movement = _read_windows(movement_path, ["FrameID", "AbsoluteTime", "valid", "moving"], intervals)
     frames, events = prepare_example_trace_data(
-        corrected, metrics, protocol, trial_numbers=trials, metric_id=metric_id,
+        corrected, metrics, protocol, movement_state=movement, trial_numbers=trials, metric_id=metric_id,
         tail_point=tail_point, window_s=PAPER_WINDOW_S, cs_duration_s=10.0,
     )
     figure, panel_ids, mappings = render_example_trace_figure(
@@ -135,7 +138,7 @@ def render_from_ssd(
         + f" --tail-point {tail_point}"
     )
     inputs = tuple({"path": str(path), "sha256": _file_hash(path)} for path in
-                   (corrected_path, metrics_path, protocol_path,
+                   (corrected_path, metrics_path, protocol_path, movement_path,
                     Path(shared_renderer.__file__).resolve()))
     try:
         return export_matplotlib_figure(

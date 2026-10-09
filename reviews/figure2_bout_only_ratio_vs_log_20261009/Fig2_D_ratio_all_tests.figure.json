@@ -1,0 +1,67 @@
+{
+  "panel": "D",
+  "version": "ratio",
+  "status": "exploratory candidate; not frozen/selected",
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "response_s": [
+    0,
+    9
+  ],
+  "blocks": [
+    [
+      10,
+      14
+    ],
+    [
+      65,
+      69
+    ],
+    [
+      90,
+      94
+    ]
+  ],
+  "data_limits": [
+    0.5,
+    1.6500000000000001
+  ],
+  "ticks": [
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5
+  ],
+  "reference": 1.0,
+  "summary": "equal-fish median and fish IQR; not CI",
+  "data_clipping": false,
+  "data": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\D_ratio_fish_blocks.parquet",
+    "sha256": "f5bd450f77f4448336d4c23b940f2d3346edc54da1f1c2a084749190ba596bfd"
+  },
+  "statistics": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\ratio_tests.csv",
+    "sha256": "f9dfdeef810ad47096e19c85d77ffa006e9c950316f6797abd7e7a04db8bfdb8"
+  },
+  "code": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\review_figure2_block_log_median.py",
+    "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\Fig2_D_ratio_all_tests.png",
+      "sha256": "ec2f241feeeaed485c3076f980bca66226e9c0e7e7f282908587089f1e02d8ff"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\Fig2_D_ratio_all_tests.svg",
+      "sha256": "cdfe8c2bfe64e5f31f80b4d34a0265f33926a2eb9c7c18c1140b6bc77ac69798"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\Fig2_D_ratio_all_tests.pdf",
+      "sha256": "d84a503d820e2a12289810e6571d2c66868540523245c2c8b093b6f5b0d701d0"
+    }
+  ]
+}

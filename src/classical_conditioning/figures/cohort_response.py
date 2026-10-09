@@ -13,6 +13,7 @@ than being imputed or silently interpreted as no response.
 """
 
 from __future__ import annotations
+from classical_conditioning.analysis.bout_vigor import bout_only_profiles
 
 import re
 from dataclasses import dataclass
@@ -57,10 +58,10 @@ from classical_conditioning.figures.theme import (
 
 RATIO_OUTCOMES = {
     "total-activity": {
-        "trial_response": "response_total_activity",
-        "trial_baseline": "baseline_total_activity",
-        "profile_value": "Total activity mean",
-        "label": "Total activity",
+        "trial_response": "conditional_intensity",
+        "trial_baseline": "baseline_conditional_intensity",
+        "profile_value": "Conditional intensity mean",
+        "label": "Mean bout vigor",
     },
     "conditional-intensity": {
         "trial_response": "conditional_intensity",
@@ -1120,7 +1121,7 @@ def _load_verified_cohort_profiles(
         for recording_id in cohort.recording_ids
     )
     profiles = pd.concat(
-        [pd.read_parquet(item.path) for item in verified],
+        [bout_only_profiles(pd.read_parquet(item.path)) for item in verified],
         ignore_index=True,
     )
     observed = set(profiles["Recording ID"].astype(str))

@@ -1,0 +1,28 @@
+{
+  "status": "brainstorm only; not applied to heatmaps",
+  "candidate_name": "blue-charcoal-amber (custom)",
+  "five_colours": [
+    "#81bddc",
+    "#497faa",
+    "#383842",
+    "#bd7448",
+    "#e9b978"
+  ],
+  "three_colours": [
+    "#81bddc",
+    "#383842",
+    "#e9b978"
+  ],
+  "continuous_interpolation": "CIELAB between five anchors at 0/0.25/0.5/0.75/1",
+  "centre_colour": "#383842",
+  "missing_colour": "#000000",
+  "anchor_lightness": [
+    73.692591895944,
+    51.2624748513292,
+    23.87670386178661,
+    55.867042501344045,
+    78.09927837632314
+  ],
+  "sRGB_gamut_and_monotonic_lightness_each_side_checked": true,
+  "not_claimed_fully_perceptually_uniform_or_colour_vision_validated": true
+}

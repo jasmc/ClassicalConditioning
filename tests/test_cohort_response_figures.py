@@ -345,7 +345,7 @@ class CohortResponseFigureSummaryTests(unittest.TestCase):
             (outcomes["fish_id"] == "fish-delay")
             & outcomes["trial_number"].between(65, 69)
         )
-        outcomes.loc[mask, "baseline_total_activity"] = 0.0
+        outcomes.loc[mask, "baseline_conditional_intensity"] = float("nan")
 
         fish, cohort = summarize_selected_block_ratios(outcomes, metric_id=METRIC)
 

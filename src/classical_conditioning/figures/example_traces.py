@@ -8,12 +8,14 @@ metric; selecting it here does not approve that metric for population analysis.
 from __future__ import annotations
 
 from pathlib import Path
+import json
 from typing import Sequence
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pyarrow.parquet as pq
+from classical_conditioning.analysis.bout_vigor import mask_bout_vigor, VIGOR_SAMPLE_POLICY
 
 from classical_conditioning.analysis.candidate_runner import (
     _verify_corrected_preprocess,
@@ -48,6 +50,18 @@ METRIC_DISPLAY_NAMES = {
 }
 
 
+def verified_movement_path(project_dir: Path, recording_id: str) -> Path:
+    for suffix in ("-v2", ""):
+        path = project_dir / "Processed data" / recording_id / f"movement_state_candidates-corrected{suffix}.parquet"
+        marker_path = project_dir / "Metadata" / f"{recording_id}_movement-candidate-corrected{suffix}_complete.json"
+        if path.exists() and marker_path.exists():
+            marker = json.loads(marker_path.read_text(encoding="utf-8"))
+            if marker.get("status") != "complete" or marker.get("recording_id") != recording_id or sha256_file(path) != marker["movement_sha256"]:
+                raise ConfigurationError(f"Unauthenticated movement state: {path}")
+            return path
+    raise ConfigurationError(f"No authenticated shared movement state for {recording_id}")
+
+
 def prepare_example_trace_data(
     corrected: pd.DataFrame,
     metrics: pd.DataFrame,
@@ -58,6 +72,7 @@ def prepare_example_trace_data(
     tail_point: int = 15,
     window_s: tuple[float, float] = (-20.0, 20.0),
     cs_duration_s: float = 10.0,
+    movement_state: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Pair distal tail angle and one vigor metric on identical measured frames."""
     if metric_id not in METRIC_COLUMNS:
@@ -97,6 +112,11 @@ def prepare_example_trace_data(
     angles = corrected[angle_columns].to_numpy(dtype=float)
     distal_angle = np.where(np.isfinite(angles).all(axis=1), angles.sum(axis=1), np.nan)
     vigor = pd.to_numeric(metrics[METRIC_COLUMNS[metric_id]], errors="coerce").to_numpy(dtype=float)
+    if movement_state is None:
+        raise ConfigurationError("Bout-only vigor traces require shared movement state")
+    if not np.array_equal(metrics[["FrameID", "AbsoluteTime"]].to_numpy(), movement_state[["FrameID", "AbsoluteTime"]].to_numpy()):
+        raise ConfigurationError("Vigor and movement frames do not align exactly")
+    vigor = mask_bout_vigor(vigor, movement_state["valid"], movement_state["moving"])
     cycles = protocol.loc[protocol["Type"].astype(str).eq("Cycle")].sort_values(
         "Beg", kind="stable"
     ).reset_index(drop=True)
@@ -126,6 +146,7 @@ def prepare_example_trace_data(
             "Time relative to CS onset (s)": time_s,
             "Tail angle (rad)": angle,
             "Vigor": vigor[start:stop],
+            "Vigor sample policy": VIGOR_SAMPLE_POLICY,
         }))
         events.extend((
             {"Trial number": trial, "Event": "CS onset", "Time (s)": 0.0},
@@ -257,10 +278,13 @@ def build_example_trace_figure(
         metrics_path, columns=["FrameID", "AbsoluteTime", METRIC_COLUMNS[metric_id]]
     ).to_pandas()
     protocol = pq.read_table(protocol_path).to_pandas()
+    movement_path = verified_movement_path(project_dir, recording_id)
+    movement = pq.read_table(movement_path, columns=["FrameID", "AbsoluteTime", "valid", "moving"]).to_pandas()
     frames, events = prepare_example_trace_data(
         corrected, metrics, protocol, trial_numbers=trial_numbers,
         metric_id=metric_id, tail_point=tail_point, window_s=window_s,
         cs_duration_s=experiment_spec.cs_duration_s,
+        movement_state=movement,
     )
     figure, panel_ids, mappings = render_example_trace_figure(
         frames, events, trial_numbers=trial_numbers,
@@ -273,7 +297,7 @@ def build_example_trace_figure(
     )
     inputs = tuple({
         "path": str(path), "sha256": sha256_file(path)
-    } for path in (corrected_path, metrics_path, protocol_path))
+    } for path in (corrected_path, metrics_path, protocol_path, movement_path))
     source_file = Path(__file__).resolve()
     try:
         return export_matplotlib_figure(

@@ -1,0 +1,18 @@
+{
+  "code": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\audit_figure2_bout_only_statistics.py",
+    "sha256": "d6e8f1ab10809cca0c33c37ccf3018a1cabbf50b9dca397bdc2e499979c33d13"
+  },
+  "inputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\D_log_fish_blocks.parquet",
+      "sha256": "65324bfb9cb50e5b690c99fd018a73ace4fb4ffc1428345b64dddd54a8e56c84"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\E_log_fish_blocks.parquet",
+      "sha256": "39dad1e5a90629b4cc59e6d58ec1314a90655a1b41352b48c126857e5438a746"
+    }
+  ],
+  "existing_24_tests_reproduced": true,
+  "zero_reference_tests": "Exploratory two-sided tests; Holm12 separately for Wilcoxon and sign tests; Holm36 sensitivity combines 24 existing + 12 zero-reference Wilcoxon tests; no plot stars changed"
+}

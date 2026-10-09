@@ -1,0 +1,36 @@
+{
+  "selected_version": "B",
+  "panel_ids": [
+    "D",
+    "E"
+  ],
+  "authorization": "Joaquim, 2026-10-09: try fixing the stats by using the appropriate stats test if it needs be corrected. then, freeze version. Context explicitly selects B.",
+  "source_review": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\manifest.json",
+    "sha256": "26c6fa7dc94c6d6eca345983709ddd0f640ddf8ab6733ffd582d80be61182566"
+  },
+  "source_inputs_manifest": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\inputs.json",
+    "sha256": "a4ec36a09600057c9820e0e7f0aedf778d056513c33f2bb1e5ff7577411102b6"
+  },
+  "data": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\D_fish_blocks.parquet",
+      "sha256": "65324bfb9cb50e5b690c99fd018a73ace4fb4ffc1428345b64dddd54a8e56c84"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\E_fish_blocks.parquet",
+      "sha256": "39dad1e5a90629b4cc59e6d58ec1314a90655a1b41352b48c126857e5438a746"
+    }
+  ],
+  "stats": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\statistics.csv",
+    "sha256": "d0b8b73bea3427fa9bf44357e7b76e06c0de90b0b2548a544377e72d03eef237"
+  },
+  "scientific_method": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\method.json",
+    "sha256": "d518a271d42a10c32979fec3a0615d04e41805f7c39b56d0ff21b5230bc807c8"
+  },
+  "F": "unavailable; not frozen",
+  "source_estimator_values_changed": false
+}

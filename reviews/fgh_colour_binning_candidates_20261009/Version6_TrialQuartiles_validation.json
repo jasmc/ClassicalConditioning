@@ -1,0 +1,140 @@
+{
+  "variant": "Version6_TrialQuartiles",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "numeric_values_unchanged": true,
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "031ed6b52dc437ff50466f20beb2670d4d204e5ecd4d8c354e3c57d9340cd52b",
+  "source_numeric_files": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelF_mean_bins.csv",
+      "sha256": "b98fc13447606fbd3a1e6d41225d3770a01f342a5604dbd7cbb0917366eaf893"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelG_mean_bins.csv",
+      "sha256": "49c4f58767e9b7f4b234d92fae8e4707236eb4c97c41620a1e7fac4088432f15"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelH_mean_bins.csv",
+      "sha256": "c057a35a3ac65de5838d7df92c500a6b2fdf2a63a927d570b8da5194accb331d"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 10743
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 13654
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 5455
+    }
+  ],
+  "annotations": {
+    "six_CS_boundaries_verified": true,
+    "CS_times_s": [
+      0,
+      10
+    ],
+    "CS_colour": "#0d8136",
+    "CS_linewidth_pt": 2.4,
+    "CS_alpha": 0.8,
+    "phase_labels": "left of F",
+    "example_arrowheads_panel": "G",
+    "example_arrowheads_direction": "left",
+    "example_arrowheads_trials": [
+      9,
+      17,
+      63,
+      66,
+      93
+    ],
+    "arrowhead_trial_positions_verified": true
+  },
+  "colour_mapping": {
+    "thresholds": [
+      1.5,
+      2.5,
+      3.5
+    ],
+    "thresholds_coordinate": "quartile class index for rendering only",
+    "colours": [
+      "#81e7ff",
+      "#5775b3",
+      "#b26343",
+      "#ffcf67"
+    ],
+    "managua_r_sample_positions": [
+      0.0,
+      0.25,
+      0.75,
+      1.0
+    ],
+    "reference": "each trial finite pre-CS 0.25 s mean bins in [-20,0)",
+    "quantile_method": "linear",
+    "scientific_boundaries": "per-trial P25-P50, 0, P75-P50 in log units",
+    "threshold_table": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\per_trial_quartile_thresholds.csv",
+    "threshold_table_sha256": "8238c1b51affe4c819d7629be51290f2eab25a2da33a0792829fe92dfdfbbdb1",
+    "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+    "class_intervals": [
+      "x < P25",
+      "P25 <= x < P50",
+      "P50 <= x < P75",
+      "x >= P75"
+    ],
+    "display_scores": [
+      -1.0,
+      -0.3333333333333333,
+      0.3333333333333333,
+      1.0
+    ],
+    "missing_colour": "#000000"
+  },
+  "renderer_sha256": "0fc3effe0306a986581da5262e6460ae6d6508146a351959d00c64fa55eb9202",
+  "palette": "managua_r",
+  "colour_limits": [
+    1.0,
+    4.0
+  ],
+  "colourbar_label": "Within-trial baseline quartile",
+  "colourbar_count": 1,
+  "layout": {
+    "size_inches": [
+      9,
+      5.1
+    ],
+    "panel_lefts": [
+      0.09,
+      0.355,
+      0.62
+    ],
+    "panel_width": 0.22,
+    "phase_labels": "left of F"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_TrialQuartiles_legacy_layout.svg",
+      "sha256": "39a8f15492c81572cce6d64277b625054203fd3c50695faa5ee67d63506c7604"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_TrialQuartiles_legacy_layout.png",
+      "sha256": "d4baa84456247617c482c0bc5595f04f8641eac194a17ca59e22346827d50f99"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_TrialQuartiles_legacy_layout.pdf",
+      "sha256": "43a35df0bd4e61c8db8a2138eb45f342612446726e2ebd182413b16406ee31ce"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "version": "Version7_UnpooledRecipe",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "trials": [
+    5,
+    94
+  ],
+  "display_interval_s": [
+    -20,
+    20
+  ],
+  "baseline_interval_s": [
+    -15,
+    0
+  ],
+  "bin_width_s": 0.5,
+  "baseline": "final reference: median of finite 0.5 s bout-summary bin means during [-15,0), one vote per finite bin; subtract from all trial bins",
+  "initial_reference": "median of original eligible log frames during [-15,0), retained as an intermediate for comparison",
+  "bout_summary": "median baseline-centred log value of eligible frames within each extracted trial window; repeat on eligible frames only",
+  "bin_value": "mean of finite repeated bout values per 0.5 s bin, then subtract median of finite baseline-bin means; frame-count weighting within bins; no pooling",
+  "formula": "delta_log_vigor = original_frame_centred_bin_value - median(finite original_frame_centred baseline bins)",
+  "revision": "separate P10/P90 scaling with a median-preserving centre",
+  "palette": "managua_r",
+  "colour_limits": [
+    -1,
+    1
+  ],
+  "data_scaling": true,
+  "data_clipping": false,
+  "undefined_rule": "scaled trial entirely missing for sparse or degenerate baseline; physical values retained",
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+  "source_tables": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+      "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+      "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+      "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "defined_trials": 90,
+      "finite_physical_bins": 6446,
+      "finite_scaled_bins": 6446,
+      "total_bins": 7200
+    },
+    {
+      "panel": "G",
+      "fish": "20230310_08",
+      "defined_trials": 90,
+      "finite_physical_bins": 7138,
+      "finite_scaled_bins": 7138,
+      "total_bins": 7200
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "defined_trials": 77,
+      "finite_physical_bins": 3928,
+      "finite_scaled_bins": 3539,
+      "total_bins": 7200
+    }
+  ],
+  "source_caveat": "Uses the same reconstructed raw vigor and eligibility masks as current F/G/H candidates, not a re-import of processed legacy movement masks.",
+  "data_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\baseline_statistics.csv",
+      "sha256": "ed75a991ef3b4693897a6378bfc2d0c3003492ac169c5735821fb5c2dcc13b2b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\PanelF_mean_bins.csv",
+      "sha256": "6bf9a1bc869a8930d68eee754226f1695a1ff25114daf6707ec331873b7d02ef"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\PanelG_mean_bins.csv",
+      "sha256": "214b6d0c2e8875c88a6b03073b114319f5d1ab5a1b123c47d07bda9168d79743"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\PanelH_mean_bins.csv",
+      "sha256": "160b079f804e81c973c4da8eef2f1b64e0278d5411be383129f45b307cffd85f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\scaling_parameters.csv",
+      "sha256": "5614d920f350b219ebc6e48762894fded03329c27bf2134e7fa960b11026a85a"
+    }
+  ],
+  "physical_value_column": "delta_log_vigor",
+  "display_value_column": "scaled_baseline_vigor",
+  "physical_colour_limits_previous_revision": [
+    -0.25,
+    0.25
+  ],
+  "colourbar_label": "Scaled deviation from baseline",
+  "scaling": {
+    "baseline_interval_s": [
+      -15,
+      0
+    ],
+    "minimum_finite_baseline_bins": 10,
+    "quantile_method": "numpy linear",
+    "anchors": {
+      "P10": -0.7,
+      "P50": 0,
+      "P90": 0.7
+    },
+    "centre_rule": "h=max(abs(two middle order statistics), 0.05*min(-P10,P90)); k=0.7/max(-P10,P90); c=k*h",
+    "formula": "x<-h: -c+s_negative*(x+h); abs(x)<=h: k*x; x>h: c+s_positive*(x-h)",
+    "outer_slopes": "s_negative=(0.7-c)/(-P10-h); s_positive=(0.7-c)/(P90-h)",
+    "extrapolation": "continue outer linear slopes; scaled exports not clipped; colours saturate beyond +/-1",
+    "undefined": "fewer than 10 finite baseline bins, collapsed/overlapping sides, or failure to preserve interpolated P10/P50/P90",
+    "independence_caveat": "bins can share a bout; count is a screening rule, not independent sample size"
+  },
+  "source_physical_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\data_manifest.json",
+  "source_physical_data_manifest_sha256": "a4bee9c2ba610b65026724e41c070991e5f865b71693513588a771527f716ca8",
+  "source_physical_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\PanelF_mean_bins.csv",
+      "sha256": "1e3db193207ed6e584357465770cc5d1538eb83ce52a11754495bbe3c8fc5ef5"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\PanelG_mean_bins.csv",
+      "sha256": "8c13a6dea4493132178c49f17fe4bf07fedc8ab6d190d94f02667184a4346ba9"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\PanelH_mean_bins.csv",
+      "sha256": "a4fe62c463edeb6b86c36767abab52b89b91592491ae3d36ba5145fecd001d38"
+    }
+  ]
+}

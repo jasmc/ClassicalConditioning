@@ -295,12 +295,19 @@ def export_matplotlib_figure(
     panel_ids: list[str] | None = None,
     overwrite: bool = False,
     allow_dirty_publication: bool = False,
+    formats: tuple[str, ...] | None = None,
 ) -> FigureExportResult:
     """Export one Matplotlib figure in publication or static mode."""
     if mode == FigureMode.INTERACTIVE:
         raise ValueError("Interactive HTML requires a native interactive builder.")
     output_base = output_base.resolve()
     extensions = ("svg", "pdf") if mode == FigureMode.PUBLICATION else ("png",)
+    if formats is not None:
+        if not formats or len(set(formats)) != len(formats) or not set(formats).issubset(extensions):
+            raise ValueError("Formats must be a nonempty unique subset of the mode's formats.")
+        if mode == FigureMode.PUBLICATION and "svg" not in formats:
+            raise ValueError("Publication exports require SVG provenance.")
+        extensions = formats
     final_outputs = tuple(
         output_base.with_suffix(f".{extension}") for extension in extensions
     )

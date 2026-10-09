@@ -35,6 +35,7 @@ from classical_conditioning.analysis.inference.learning_onset import (
 )
 
 METRIC = 'legacy_distal_angular_speed'
+OUTCOME = 'conditional-intensity'  # Author correction: finite bout frames only.
 ROOT = Path('J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly')
 SOURCE = ROOT / 'sources/20261008T200908002798Z/Fig2_PanelG_allDelay_pre15.figure.json'
 BLOCK_FORMULA = "log_response ~ log_baseline + C(condition_id, Treatment(reference='control')) * C(block_10_name)"
@@ -166,12 +167,12 @@ def make_panel(summary, d_tests, local, trials, global_test, diagnostics, out):
     ax.axhline(1, color='.4', lw=.7)
     ax.set_xlim(4, 95)
     ax.set_ylim(.65, 1.30)
-    ax.set_ylabel('Response mean / pre-CS baseline mean\nmedian [pointwise 95% fish-bootstrap CI]')
+    ax.set_ylabel('Bout-only response mean / bout-only baseline mean\nmedian [pointwise 95% fish-bootstrap CI]')
     ax.set_xlabel('Global CS trial')
     ax.spines[['top', 'right']].set_visible(False)
     ax.legend(frameon=False, loc='lower right')
     p = float(global_test.iloc[0].p_value) if not global_test.empty else np.nan
-    fig.suptitle('G | Delay — legacy metric; exploratory mixed-effects review\n' +
+    fig.suptitle('G | Delay — bout-only legacy metric; exploratory mixed-effects review\n' +
         f'Joint condition × block p={p:.3g} | 5,000 fish resamples, seed 10', fontsize=12)
     fig.text(.18, -.01, 'Stars test baseline-adjusted change versus Pre5–14, from one spline LME; no onset/extinction claim.\nD: Holm8; M/R: separate BH9 families; trial stars: BH90. Raw R is exploratory. Statistical approval pending.', fontsize=8)
     for ext in ['svg', 'png', 'pdf']:
@@ -182,13 +183,15 @@ def make_panel(summary, d_tests, local, trials, global_test, diagnostics, out):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output-dir', type=Path)
+    parser.add_argument('--assembly-root', type=Path, default=ROOT)
+    parser.add_argument('--source-panel', type=Path, default=SOURCE)
     args = parser.parse_args()
-    out = args.output_dir or ROOT / 'row3-trial-ratio-review' / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '-delay-lme')
-    if ROOT.resolve() not in out.resolve().parents:
+    out = args.output_dir or args.assembly_root / 'row3-trial-ratio-review' / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '-delay-boutonly-lme')
+    if args.assembly_root.resolve() not in out.resolve().parents:
         raise ValueError('Scientific outputs must stay under the designated SSD assembly root.')
     out.mkdir(parents=True, exist_ok=False)
     say('OUTPUT_DIRECTORY=' + str(out))
-    old = json.loads(SOURCE.read_text())
+    old = json.loads(args.source_panel.read_text())
     assert old['analysis_identity']['metric_id'] == METRIC
     inputs = []
     for item in old['inputs'] + old['code_dependencies'] + [old['panel_data']] + old['outputs']:
@@ -198,15 +201,17 @@ def main():
     paths = [x['path'] for x in old['inputs'] if 'trial-outcomes' in x['path'] and x['path'].endswith('.parquet')]
     data = pd.concat([pd.read_parquet(p) for p in paths], ignore_index=True)
     data = data.loc[data.metric_id.eq(METRIC) & data.alignment.eq('CS') & data.trial_number.between(5, 94)].copy()
-    b, r = data.baseline_total_activity, data.response_total_activity
-    eligible = np.isfinite(b) & np.isfinite(r) & (b > 0) & (r >= 0) & (data.baseline_valid_sample_count >= 1) & (data.response_valid_sample_count >= 1)
+    b, r = data.baseline_conditional_intensity, data.conditional_intensity
+    # Saved fields select valid adjacent moving/bout frames. No-bout windows
+    # are NaN, not zero. Positive means are required by the logarithmic model.
+    eligible = np.isfinite(b) & np.isfinite(r) & (b > 0) & (r > 0) & (data.response_moving_sample_count >= 1)
     data.loc[~eligible].to_parquet(out / 'excluded-outcomes.parquet', index=False)
     data = data.loc[eligible].sort_values(['condition_id', 'fish_id', 'trial_number']).reset_index(drop=True)
-    assert len(data) == 5130 and data.fish_id.nunique() == 57
+    assert data.fish_id.nunique() == 57
     assert not data.duplicated(['fish_id', 'trial_number']).any()
-    data['ratio'] = data.response_total_activity / data.baseline_total_activity
-    data['log_response'] = np.log(data.response_total_activity + 1e-6)
-    data['log_baseline'] = np.log(data.baseline_total_activity + 1e-6)
+    data['ratio'] = data.conditional_intensity / data.baseline_conditional_intensity
+    data['log_response'] = np.log(data.conditional_intensity)
+    data['log_baseline'] = np.log(data.baseline_conditional_intensity)
     data['fish_key'] = data.fish_id.astype(str)
     data['trial_center'] = data.trial_number.mean()
     data['trial_scale'] = data.trial_number.std(ddof=0)
@@ -218,15 +223,22 @@ def main():
     fish.to_parquet(out / 'fish-ratios.parquet', index=False)
     old_fish = pd.read_parquet(old['panel_data']['path'])
     match = fish.merge(old_fish, on=['fish_id', 'condition_id', 'trial_number'], validate='one_to_one')
-    assert np.allclose(match.ratio, match['Fish median response / baseline'], rtol=1e-12, atol=1e-12)
+    # This correction must differ from the preserved all-frame ratio panel.
+    comparison = {'eligible_bout_only_rows': len(data), 'excluded_rows': int((~eligible).sum()),
+                  'total_scheduled_fish_trials': len(eligible), 'cohort_fish': data.fish_id.nunique(),
+                  'fraction_ratios_changed': float(np.mean(~np.isclose(match.ratio, match['Fish median response / baseline'])))}
+    write_json(out / 'bout-only-comparison.json', comparison)
     summary, draws = bootstrap_trajectories(fish)
     summary.to_parquet(out / 'bootstrap-summary.parquet', index=False)
     summary.to_csv(out / 'bootstrap-summary.csv', index=False)
     for condition, item in draws.items():
         np.savez_compressed(out / (condition + '-bootstrap-draws.npz'), **item)
-    say('5,000 whole-fish bootstrap draws completed; saved ratios reproduced.')
-    config = LearningOnsetConfig(metric_id=METRIC, n_bootstrap=5000, seed=10, run_categorical_sensitivity=False)
-    spec = {'metric': METRIC, 'baseline_s': [-15, 0], 'response_s': [0, 9], 'config': asdict(config),
+    say('5,000 whole-fish bootstrap draws completed; bout-only correction=' + json.dumps(comparison))
+    config = LearningOnsetConfig(metric_id=METRIC, outcome_id=OUTCOME, n_bootstrap=5000, seed=10, run_categorical_sensitivity=False)
+    spec = {'metric': METRIC, 'outcome_id': OUTCOME, 'baseline_s': [-15, 0], 'response_s': [0, 9], 'config': asdict(config),
+            'ratio': 'conditional_intensity / baseline_conditional_intensity',
+            'frame_mask': 'window & detector-valid & adjacent & moving; moving equals positive bout_id',
+            'no_bout_windows': 'NaN; no zero replacement', 'model_transform': 'natural log of positive bout-only window means; no additive offset',
             'block_formula': BLOCK_FORMULA, 'trial_formula': TRIAL_FORMULA, 'local_formula': LOCAL_FORMULA,
             'local_random_effects': '1', 'D_family': 'Holm8 nonreference block interaction terms',
             'M_family': 'BH9 local block mean tests', 'R_family': 'BH9 local slope tests; raw shown separately',
@@ -346,8 +358,14 @@ def main():
         'bootstrap_max_endpoint_change': float(summary.endpoint_change_2500_to_5000.max()),
         'status': 'exploratory fitted results; scientific model/cohort/diagnostic review remains open'}
     write_json(out / 'result-summary.json', statistics)
+    identity = {**old['analysis_identity'], 'outcome_id': OUTCOME,
+                'ratio_formula': 'conditional_intensity / baseline_conditional_intensity; fish trial ratio then equal-fish condition median',
+                'summary': 'median [pointwise95% whole-fish bootstrap CI];5000 draws;seed10',
+                'significance_marks': 'fresh model-derived exploratory D/M/R/trial marks where significant',
+                'frame_eligibility': spec['frame_mask']}
+    (out / 'analysis-script.py').write_bytes(Path(__file__).read_bytes())
     write_json(out / 'Fig2_PanelG_delay_legacy_LME_bootstrap5000.figure.json', {
-        'analysis_identity': old['analysis_identity'], 'scientific_status': statistics['status'],
+        'analysis_identity': identity, 'scientific_status': statistics['status'],
         'summary': 'median [pointwise95% whole-fish bootstrap CI];5000 draws;seed10', 'model_specification': spec,
         'inference': statistics, 'inputs': inputs, 'plotted_data': ['bootstrap-summary.parquet', 'D-interaction-tests.csv', 'MR-local-block-tests.csv', 'trial-tests-FDR.csv'],
         'code': [{'path': str(Path(__file__).resolve()), 'sha256': sha(__file__)}, {'path': str(Path(sys.modules['classical_conditioning.analysis.inference.learning_onset'].__file__)), 'sha256': sha(sys.modules['classical_conditioning.analysis.inference.learning_onset'].__file__)}],

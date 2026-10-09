@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
+from classical_conditioning.analysis.bout_vigor import mask_bout_vigor, VIGOR_SAMPLE_POLICY
 
 from classical_conditioning.analysis.movement_state import (
     CandidateMetricSource,
@@ -244,7 +245,7 @@ def aggregate_trial_outcomes(
         moving = movement["moving"].to_numpy(dtype=bool)
         bout_ids = movement["bout_id"].to_numpy(dtype=np.int64)
         for source_column, metric_id in METRIC_IDS.items():
-            values = frames[source_column].to_numpy(dtype=float)
+            values = mask_bout_vigor(frames[source_column].to_numpy(dtype=float), valid & adjacent, moving)
             bout_start = (bout_ids > 0) & np.concatenate(
                 ([True], bout_ids[1:] != bout_ids[:-1])
             )
@@ -294,9 +295,10 @@ def aggregate_trial_outcomes(
                     ),
                     "metric_id": metric_id,
                     "detector_id": SHARED_DETECTOR_ID,
+                    "vigor_sample_policy": VIGOR_SAMPLE_POLICY,
                     "baseline_total_activity": _finite_mean(
                         values,
-                        baseline_valid,
+                        baseline_moving,
                     ),
                     "baseline_conditional_intensity": _finite_mean(
                         values,
@@ -304,7 +306,7 @@ def aggregate_trial_outcomes(
                     ),
                     "response_total_activity": _finite_mean(
                         values,
-                        response_valid,
+                        response_moving,
                     ),
                     "movement_probability": (
                         float(np.mean(moving[response_valid]))

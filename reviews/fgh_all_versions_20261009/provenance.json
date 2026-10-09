@@ -1,0 +1,182 @@
+{
+  "options": [
+    {
+      "id": "v1-c",
+      "name": "Version 1 C",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_BoutSamples_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v1-d",
+      "name": "Version 1 D",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_BoutSamples_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v2",
+      "name": "Version 2 C",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_DirectBins_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v6-five",
+      "name": "Version 6 \u00b7 five colours",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\Version6_OneSecondCentralBand_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_OneSecondCentralBand_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_OneSecondCentralBand_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_OneSecondCentralBand_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v6-soft",
+      "name": "Version 6 \u00b7 softer High",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\Version6_SofterHigh_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\FGH_Version6_SofterHigh_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\FGH_Version6_SofterHigh_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\FGH_Version6_SofterHigh_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v7-physical",
+      "name": "Version 7 \u00b7 physical scale (earlier)",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\Version7_UnpooledRecipe_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v7-scaled",
+      "name": "Version 7 \u00b7 scaled (current)",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\Version7_UnpooledRecipe_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\FGH_Version7_UnpooledRecipe_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\FGH_Version7_UnpooledRecipe_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\FGH_Version7_UnpooledRecipe_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v8",
+      "name": "Version 8 \u00b7 endpoint saturation",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\Version8_PercentileEndpoints_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\FGH_Version8_PercentileEndpoints_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\FGH_Version8_PercentileEndpoints_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\FGH_Version8_PercentileEndpoints_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v9",
+      "name": "Version 9 \u00b7 discrete Version 7",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\Version9_DiscreteVersion7_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\FGH_Version9_DiscreteVersion7_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\FGH_Version9_DiscreteVersion7_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\FGH_Version9_DiscreteVersion7_legacy_layout.pdf"
+      }
+    },
+    {
+      "id": "v10",
+      "name": "Version 10 \u00b7 three colours",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\Version10_ThreeColours_validation.json",
+      "resolved_exports": {
+        ".svg": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.svg",
+        ".png": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.png",
+        ".pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.pdf"
+      }
+    }
+  ],
+  "verified_preserved_files": {
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_BoutSamples_validation.json": "3062f1f4e233b8a2f000113dee5c18a0025d15f7f9babecc27ff9b258390d072",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.svg": "36dc5725d616a9ef281e67e962e9bd5428d2878069b4eee3403f8f560394fb35",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.png": "e12ef20989995ecfedf8327ed351118dc8650e7503163303b8fa86a28c399a47",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.pdf": "98a3933e846f6722d36688361bcaa985b978223f60ad8b5c3b1a231dc0bf5853",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_C_sample_runs.csv": "af6b524c1fed6040b7e68f51fee78df22275ffd97d19ee9c26904244876de454",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_C_sample_runs.csv": "4f7abfa87464d763a4682b8b210cfafa9bc243a018a6b785ad64f804b1e5aff7",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_C_sample_runs.csv": "e084ef532569b322a81388e06b6c417398542eb66cbb89e93519a61b8c3074ed",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_BoutSamples_validation.json": "1971a5f0822a5d8739f3da8c391faf4f6770a093ef7cec851566932d0f8cf410",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.svg": "6671a9a1605be0f2730f7b04f54117d796f112e4253f789dc3e02284101d77b7",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.png": "37dd25d6493bb4fef7181473cd6e22b3d8e94ad72166a2f0aa51bd429edcbaad",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.pdf": "a20074a688136811f01882d543e3a4163bb5082c3a834987bc09a79f58c95341",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_D_sample_runs.csv": "815008bc3ac498c824cafc5b019b12d0a11f146ff5f1cca4c44b4d1f43dbad0b",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_D_sample_runs.csv": "3b9f61198bd59bde1fcb0ea27fe17c3ad7eb27dd2b75b3fb97a0aa7c55d98301",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_D_sample_runs.csv": "dfedf104d1bdca4574f9033c5425e894aeab8f6340e65c2c3dc9cc89ca7eab2c",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_DirectBins_validation.json": "10f1f0a0f768ed19f92e73d1ea66e9dfb8a78f6ddbfb4807178c01f772328f88",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.svg": "c1c15f1a73bf1f9ce92cebe3b62b91023ebde3ec8516db10b99a2f26729ff38e",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.png": "e4e59ec823cf1c6116d298588fb31cc407fd5eb2b4df09a24e25126ebcace4c7",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.pdf": "da8758877be35957d8977c2bda101ee282e3c2b739cdbfb16538e36cecc4a540",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelF_direct_bins.csv": "8cda7c63d742b5079486a262081831c44607460694059aa60a40ceaa16ad408e",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelG_direct_bins.csv": "f6a674b5d23eec4791790b00bd7c2d4d58441a39119616a6df3570363206830d",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelH_direct_bins.csv": "14cd8d8dedf90a3bad5601571ec2a752971399715ddde4ae5f2ef5c8f8608076",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\data_manifest.json": "efa5a05d4314fa5f750507780dff99b7ce747ebaab811b14bda9544a3d0fbc7b",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\Version6_OneSecondCentralBand_validation.json": "faf2c26e719cdb6d71ccc027b13826f96d77feeeee233a58931f23442bd57bbe",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_OneSecondCentralBand_legacy_layout.svg": "5d787032e72a66ecdd6777382e22bd3c2be11a2c165875cfabea61f76f117f6c",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_OneSecondCentralBand_legacy_layout.png": "f2e9ad1901a19244e6f4cea016272df467297fe8a3a307e37e1e72e669541a6f",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_OneSecondCentralBand_legacy_layout.pdf": "7f2fd42b893c3f57fcc111712e1c1d222be4b4c601c0817f0c33379aac3dbbea",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_onesecond_centralband_20261009\\PanelF_mean_bins.csv": "116cfd45a0406a2a97797d298fbdbcfe6ef6ff61e7c30ab29aed62f4c8a9ca84",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_onesecond_centralband_20261009\\PanelG_mean_bins.csv": "e5d864f46e337bf5766c5db5c53886df62ee60eb7f54e6b11f8542bc72de4bfe",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_onesecond_centralband_20261009\\PanelH_mean_bins.csv": "9f11713e612271eb9e6ee3dddedcba5eeda42f4fdb9998eff96b825b3d9cdcdc",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_onesecond_centralband_20261009\\data_manifest.json": "a6f04c260b20de977aad3324cc33aef99ee2d987b5696761f1c3088bd8f312df",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\Version6_SofterHigh_validation.json": "31318ff87b3a85e0c24f23099ac85d573e075893a272f8818c3ba206314e02ea",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\FGH_Version6_SofterHigh_legacy_layout.svg": "de4ef051b8b6f153e1b11a557e9f9728dc2207c563776f2dcd62efff14f06c40",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\FGH_Version6_SofterHigh_legacy_layout.png": "1e190701c59af5a0a29cfd3d718427f095678cc6bb96e7fc6a6e7565f95a300c",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_softer_high_20261009\\FGH_Version6_SofterHigh_legacy_layout.pdf": "367062bd6927666bac2a9167fa9b52f1fdbc44ff0a44c6bf48cbb155f6cae6aa",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\Version7_UnpooledRecipe_validation.json": "ded43c7c51c8b5276dd24294e13aeb5970801a7dde7245a2f6cbc1bc82373e03",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.svg": "82c2eeed203cf8173b18744c656b644bb6dc5283f36b251a03ed8c2e8725e111",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.png": "1af4afc72a50f5bbc0a05b11072cef808bfa7f5e79c2b4ca6d98d1dda7549f88",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.pdf": "1f994cd1c88e2b011fc2180fbef2d0d09b5863a868c37ca17ec4f9371dbe13b2",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\PanelF_mean_bins.csv": "1e3db193207ed6e584357465770cc5d1538eb83ce52a11754495bbe3c8fc5ef5",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\PanelG_mean_bins.csv": "8c13a6dea4493132178c49f17fe4bf07fedc8ab6d190d94f02667184a4346ba9",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\PanelH_mean_bins.csv": "a4fe62c463edeb6b86c36767abab52b89b91592491ae3d36ba5145fecd001d38",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\physical_bin_centred\\data_manifest.json": "a4bee9c2ba610b65026724e41c070991e5f865b71693513588a771527f716ca8",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\Version7_UnpooledRecipe_validation.json": "ce4ba3d2271a54fe4966e653877681cffef8a7b0c0dacc69fe2930af90460adf",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\FGH_Version7_UnpooledRecipe_legacy_layout.svg": "9e8c045e43546b40a78838c3ab9391046e8f434a4d5cc907e407227bff1a55f0",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\FGH_Version7_UnpooledRecipe_legacy_layout.png": "128886bacfbe023096ee2d3123499b5630a26072c009716d6810404a605c8a97",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\FGH_Version7_UnpooledRecipe_legacy_layout.pdf": "a9671170c24899059c7994041b235eb67aa2f5cb89b74d14a4e15ca2d66fb3af",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\PanelF_mean_bins.csv": "6bf9a1bc869a8930d68eee754226f1695a1ff25114daf6707ec331873b7d02ef",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\PanelG_mean_bins.csv": "214b6d0c2e8875c88a6b03073b114319f5d1ab5a1b123c47d07bda9168d79743",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\PanelH_mean_bins.csv": "160b079f804e81c973c4da8eef2f1b64e0278d5411be383129f45b307cffd85f",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\data_manifest.json": "1df82c4e8808d7df3778cebbd82b3d5b2ab1aa6115a34c60ca63333985b843b9",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\Version8_PercentileEndpoints_validation.json": "ebeb7f4a7fc402e665d297e8e887ef0ce4f6fcd6a1898a3c8a76f3b0ae3944d9",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\FGH_Version8_PercentileEndpoints_legacy_layout.svg": "daa35aaca9a3fbcc063de41b48748f7895bae5aa925956860d50be379f556dad",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\FGH_Version8_PercentileEndpoints_legacy_layout.png": "64b5a7f69b1baf941a53a2f8a359ad7f89f0947db69b3bb9e921fecbd791c0eb",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\FGH_Version8_PercentileEndpoints_legacy_layout.pdf": "127024e5ab7ee2e38d1129c1fbca93967122c2e44a1eda0b03ed2c0fceff31b2",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\PanelF_mean_bins.csv": "7709679ceaaf37edc10078c6eaeae150b4fd9e5f9ead69169f243a2f9cee8df2",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\PanelG_mean_bins.csv": "bf01471e11bb25cfc0dc4ce937575734d228a7d848a992335110fa876e927e08",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\PanelH_mean_bins.csv": "d509268b225be7d784d12ad6eb32d0820f371110f0a0c94d007dd45167b213ea",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version8_percentile_endpoints_20261009\\data_manifest.json": "de374f1d38b352c10b5581a33232935e8ec3654b65d0de6cd86d413aff6d0869",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\Version9_DiscreteVersion7_validation.json": "f0bd7514e412d8e560c83b6bfaba80f58bbe61954fe13e2704534dd894268f03",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\FGH_Version9_DiscreteVersion7_legacy_layout.svg": "ad1df0d4d00ad41b4a0cc60cd13c58b5afcdc6d260d08d6ee52e294a8cbae886",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\FGH_Version9_DiscreteVersion7_legacy_layout.png": "93b96d31a726f39898c6d654dbd8250fb9730d7455d83458b149369d1768fdb5",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\FGH_Version9_DiscreteVersion7_legacy_layout.pdf": "63f11b325e10fba00a33cfba048ce02fd5ba5fca56607eb95f96983249bb970f",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\PanelF_mean_bins.csv": "c2a90e56880cb29d5160cd296d8f90a5f64c7116daa4eb6865ad884e554194e5",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\PanelG_mean_bins.csv": "cde16f483b3a76e7deb788e6a375f468bdf861907d4ddcfa3a60d119dbb7a665",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\PanelH_mean_bins.csv": "219fbdb04eba9a98ef57a75e24d7f9e7eb9c1460c2d16349dcbfc232ce107c53",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version9_discrete_version7_20261009\\data_manifest.json": "004794e41a27f2a121d69f80b589fd3f797b63224dc490903a158730e4212936",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\Version10_ThreeColours_validation.json": "ae477690022c2d473f6395df1fee2ed4e231c799e0875ad537a3da42b2ea15cd",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.svg": "a9a541fe78c4ce72e2b857a2c49b1c23d9e6ca6785c180dddaad8ec3011b74bb",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.png": "e3b84ff522b8eff2e5780765051b1bc5cad53610b73d4e702d35f2ef1da0a43a",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\FGH_Version10_ThreeColours_legacy_layout.pdf": "7d56699e208751c2ef473a4fca9c1eabc7e2c7a322b2cfba33158e817a60fbed",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\PanelF_mean_bins.csv": "7686bdff65d39882604e9e6c6e4347891190a5c90574e7b687f10128491577e4",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\PanelG_mean_bins.csv": "2088565511f0783213af113ae4e61986e99a036bf3f1f63dd570e265a8a8fcf7",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\PanelH_mean_bins.csv": "605cc378eff3162abc7e2333677103ab07b55a07b658ca5a8bbb330776a8dffe",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version10_three_colours_20261009\\data_manifest.json": "6b17bfafc383d7e1afe892557907fed92b8f74aefb572177e8d3cb55b89fae17"
+  },
+  "no_figure_selection_or_freeze_changes": true
+}

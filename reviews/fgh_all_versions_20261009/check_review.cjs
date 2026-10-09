@@ -1,0 +1,25 @@
+const {chromium}=require('C:/Users/joaquim/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const fs=require('fs'),path=require('path'),crypto=require('crypto');
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'});
+ const page=await browser.newPage({viewport:{width:1400,height:1000},acceptDownloads:true});
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('file:///'+path.join(__dirname,'index.html').replaceAll('\\','/'));
+ await page.locator('img').evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
+ const report=await page.evaluate(()=>({images:[...document.images].map(i=>i.naturalWidth),choices:document.querySelectorAll('[data-choice]').length,pdf:document.querySelectorAll('a[href^="data:application/pdf"]').length,svg:document.querySelectorAll('a[href^="data:image/svg+xml"]').length,desktopOverflow:document.documentElement.scrollWidth>innerWidth,allImagesEmbedded:[...document.images].every(i=>i.src.startsWith('data:')),v9FixedBoundaries:document.getElementById('v9').textContent.includes('-0.5, -0.1, +0.1 and +0.5')}));
+ await page.locator('[data-choice="v9"]').selectOption('Keep');await page.reload();
+ report.choicePersists=await page.locator('[data-choice="v9"]').inputValue()==='Keep';
+ const pending=page.waitForEvent('download');await page.locator('#export').click();const download=await pending;
+ const file=await download.path();const text=fs.readFileSync(file,'utf8');
+ report.exportHasTenLines=text.split('\n').length===10;
+ report.exportContainsChoice=text.includes('Version 9 · discrete Version 7: Keep');
+ await page.locator('[data-choice="v9"]').selectOption('Undecided');
+ await page.locator('#comparison').screenshot({path:path.join(__dirname,'comparison_preview.png')});
+ await page.locator('#v9').screenshot({path:path.join(__dirname,'version9_preview.png')});
+ await page.setViewportSize({width:390,height:844});
+ report.mobileOverflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+ report.errors=errors;report.html_sha256=crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'index.html'))).digest('hex');
+ fs.writeFileSync(path.join(__dirname,'html_validation.json'),JSON.stringify(report,null,2));
+ await browser.close();console.log(report);
+ if(report.images.length!==10||report.images.some(x=>x!==2700)||report.choices!==10||report.pdf!==10||report.svg!==10||report.desktopOverflow||report.mobileOverflow||!report.allImagesEmbedded||!report.v9FixedBoundaries||!report.choicePersists||!report.exportHasTenLines||!report.exportContainsChoice||errors.length)process.exit(1);
+})();

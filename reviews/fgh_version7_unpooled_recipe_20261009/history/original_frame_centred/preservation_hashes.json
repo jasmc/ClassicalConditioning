@@ -1,0 +1,70 @@
+[
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\baseline_statistics.csv",
+    "Hash": "176FBD5F7884F65BDDEB5307A004A0AB0651FE24890DBBF817C9DC55B8DBD194"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\build_review.py",
+    "Hash": "5749AA48A55757CA98A5B418C29690E083FDC64EED3E2ECC547E8B3FE6A15D6E"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\build_version7.py",
+    "Hash": "1FA0EFCF5BD22F1427D114050710E4FBCB8BB51C6E65FBB749C0AF71B1E19FFA"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\check_review.cjs",
+    "Hash": "0B16D199C71D5320BDC31E5443DBF8548A0CA868CA40E476771E961B1F67B6E7"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\data_manifest.json",
+    "Hash": "2B2D48DDD2DF39ED9BA9C9DE3BA45417F2E3E47384BBF3364524A6F0E4EA0CB1"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.pdf",
+    "Hash": "ACB1117072F0E4FF49ECA56D7BED08394145A15057F6E45F208E89EFA77F8BFB"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.png",
+    "Hash": "EA49EAF08A9B7B5BE996E68FFA36BBBEB9252341FE9A15909493ECD33E8880A7"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\FGH_Version7_UnpooledRecipe_legacy_layout.svg",
+    "Hash": "515E255B30AD91B13012C64B1AF0E4A7C009F8DBCBB04DEE0EE94FC9DB5F5350"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\html_validation.json",
+    "Hash": "8423659FFC6FECE69F6CD40885D4EF82FD8BF2D67ABB42C79BD7484B795FD414"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\index.html",
+    "Hash": "FB6878A2E99A0303AFE5093B1CB803F8D75F6C831ECA4AA2B80CBB4255CE24DF"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\numeric_verification.json",
+    "Hash": "30BC5185C3FB3D7824B24658B3069C3C12C40F345EB5483FFC3028472FA66872"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\PanelF_mean_bins.csv",
+    "Hash": "B87EF54209D32F3819C473CB43231E77135AB92DA454194A07C0DA9593DAE84C"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\PanelG_mean_bins.csv",
+    "Hash": "AF4CBE5E9001B0730CA5B609E838D35A432850A706033B0011C38F013B7D4633"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\PanelH_mean_bins.csv",
+    "Hash": "5FDCDBB8ECF7BE522A09BCCC0A90FCB96B8D8B91C67E270C12999E917C8CBD53"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\pdf_readback.png",
+    "Hash": "8C5FDEDEF1EA0F96D523ED081C25B00D2A22005A2D6E290BA650E7FD5D16D9B4"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\render_version7.py",
+    "Hash": "5F212F57772B56BDA9DE202A46BA95CFB509410F44FFAEC97ED3CFB60673FF8C"
+  },
+  {
+    "Path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version7_unpooled_recipe_20261009\\history\\original_frame_centred\\Version7_UnpooledRecipe_validation.json",
+    "Hash": "EA5459369728689B3DCBAC4B1CD4BB04013A488F1C96E078E71653AEC6A1F4CC"
+  }
+]

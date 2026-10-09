@@ -1,0 +1,67 @@
+{
+  "panel": "E",
+  "version": "log",
+  "status": "exploratory candidate; not frozen/selected",
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "response_s": [
+    0,
+    13
+  ],
+  "blocks": [
+    [
+      10,
+      14
+    ],
+    [
+      65,
+      69
+    ],
+    [
+      90,
+      94
+    ]
+  ],
+  "data_limits": [
+    -0.65,
+    0.65
+  ],
+  "ticks": [
+    -0.6000000000000001,
+    -0.30000000000000004,
+    0.0,
+    0.30000000000000004,
+    0.6000000000000001
+  ],
+  "reference": 0.0,
+  "summary": "equal-fish median and fish IQR; not CI",
+  "data_clipping": false,
+  "data": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\E_log_fish_blocks.parquet",
+    "sha256": "39dad1e5a90629b4cc59e6d58ec1314a90655a1b41352b48c126857e5438a746"
+  },
+  "statistics": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\log_tests.csv",
+    "sha256": "0e158b2c43dd1330bb9f7d097d1017db33126b6e22c6b022e31b9939606edff6"
+  },
+  "code": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\review_figure2_block_log_median.py",
+    "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\Fig2_E_log_all_tests.png",
+      "sha256": "c7b4db2bea9fbcc83bbd8640b20ff336fdfc1934e481c165048252079fcbdff8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\Fig2_E_log_all_tests.svg",
+      "sha256": "916a305d78b88fd4a3ea8186cface5f593611e72a8b03ea7753fbdb0379a107f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_bout_only_ratio_vs_log_20261009\\Fig2_E_log_all_tests.pdf",
+      "sha256": "adb0f4cdd3b18354cd30dc3894bbd4f151f111c9c1b9a448f76a256410accfb0"
+    }
+  ]
+}

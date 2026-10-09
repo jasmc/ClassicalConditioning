@@ -65,7 +65,7 @@ class TrialOutcomeTests(unittest.TestCase):
             response_window_s=(0.0, 1.0),
         )
 
-    def test_uses_exact_half_open_windows_and_preserves_rest_as_zero(self) -> None:
+    def test_uses_exact_half_open_windows_and_ignores_rest(self) -> None:
         outcomes, coverage = aggregate_trial_outcomes(
             self.frames,
             self.movement,
@@ -81,7 +81,7 @@ class TrialOutcomeTests(unittest.TestCase):
 
         self.assertEqual(outcome["baseline_total_activity"], 2.0)
         self.assertEqual(outcome["baseline_conditional_intensity"], 2.0)
-        self.assertEqual(outcome["response_total_activity"], 2.0)
+        self.assertEqual(outcome["response_total_activity"], 4.0)
         self.assertEqual(outcome["movement_probability"], 0.5)
         self.assertEqual(outcome["fraction_time_moving"], 0.5)
         self.assertEqual(outcome["conditional_intensity"], 4.0)
@@ -106,6 +106,8 @@ class TrialOutcomeTests(unittest.TestCase):
         )
         self.assertTrue(outcomes["baseline_conditional_intensity"].isna().all())
         self.assertTrue(outcomes["conditional_intensity"].isna().all())
+        self.assertTrue(outcomes["response_total_activity"].isna().all())
+        self.assertTrue(outcomes["baseline_total_activity"].isna().all())
 
     def test_rejects_duplicate_movement_rows(self) -> None:
         duplicated = pd.concat(

@@ -1,5 +1,7 @@
 # Consolidated scientific and scope decisions
 
+**2026-10-09 standing author update:** [all analytical vigor is bout-only](BOUT_ONLY_VIGOR_POLICY_2026-10-09.md). No-bout periods are NaN and ignored before every vigor calculation. This supersedes earlier all-frame vigor definitions; historical/frozen artifacts remain preserved. The D/E mean-ratio and log-median comparison has been rebuilt under this shared rule; an estimator selection remains open.
+
 This document exists to stop the analysis from feeling open-ended. It
 collapses the scattered per-step "gate" checklists into one place, records
 the actual decisions made, and sets implementation priorities so the full
@@ -75,9 +77,16 @@ them. Record approved departures separately from scientific definitions.
 
 Freeze records must bind the specification version/hash, element registry,
 resolved styles, scoped exceptions, source/data hashes and final exports.
-Existing frozen figures and data remain unchanged. This delivery is a
-declarative specification and agent workflow; automatic renderer/CLI adoption
-is not yet implemented. It is a concrete figure-element use case, not a
+Existing frozen figures and data remain unchanged. The author subsequently
+selected **code-enforced checks only at freeze time**. Version 1.1.0 adds the
+[explicit freeze command](../scripts/freeze_figure.py): it checks candidate
+SVG presentation at final size, identity coverage, scoped exceptions, protected
+geometry and hashes, then publishes a new manifest without overwriting a freeze.
+Scientific mappings, plot-family structure and unmeasurable renderer properties
+require recorded completed review evidence. Ordinary rendering/export does not
+invoke the gate. The [SciFigEditor review](../docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md)
+records the useful confidence/protection/physical-scale ideas and integration
+limits. This is a concrete figure-element use case, not a
 reactivation of the deferred general artifact-schema registry below.
 
 ## What is deferred or minimized in the current priority lane
@@ -93,6 +102,16 @@ reactivation of the deferred general artifact-schema registry below.
   [integrated cohort/CR-profile plan](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
 - **Final analysis release**: make one release when the code, scientific decisions, paper analysis, and figures are ready. Preserve a tagged commit and frozen manifest linking inputs, cohort, configuration, results, and figures; candidate and legacy runs are analysis evidence, not interim releases. See [the final release plan](./12_FINAL_ANALYSIS_RELEASE.md).
 - **Expansion of legacy characterization**: lower priority because the existing characterization (see [the codebase behavior map](../docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md) and [analysis findings](../docs/analysis/audits/01_ANALYSIS_FINDINGS.md)) is sufficient for the immediate path. Additional characterization remains in scope when required by equivalence testing or a concrete migration risk.
+
+## Figure 2 B D/E selection and freeze — 2026-10-09
+
+Joaquim authorized correcting the statistical tests and freezing the selected version B. D/E now use positive valid bout-frame median natural-log response minus baseline, followed by a median of eligible trials per fish/block. No-bout and invalid frames are excluded before every calculation; empty windows remain undefined. Scientific windows, cohorts and eligibility thresholds are unchanged.
+
+Exact two-sided sign tests handle paired fish changes and zero-reference comparisons; Brunner–Munzel t tests handle independent conditioned/control rank/probability comparisons without requiring equal shapes. One Holm36 family covers all D/E comparisons. Fish independence is assumed; day/tank adjustment and exploratory selection remain explicit limitations. Delay effects survive correction; no Trace comparison survives. Earlier Wilcoxon/Mann–Whitney results are superseded, preserved historical evidence.
+
+[D freeze](../reviews/figure2_B_freeze_20261009/D.freeze.json) and [E freeze](../reviews/figure2_B_freeze_20261009/E.freeze.json) passed the explicit specification 1.1.1 gate. [Scoped selection](../configs/paper-figures/figure2-DE-B-freeze-20261009.json) records the authoritative panel exports and hashes. This scope does not freeze F or the whole assembly. Existing whole-figure assembly and historical freezes remain preserved. Future assembly must accommodate 54.9 × 53.2 mm per panel to retain effective fonts/strokes.
+
+[Processing handoff](./HANDOFF_BOUT_LOG_VIGOR_PANELS_2026-10-09.md) supplies the shared scaffold for Figure 1 E–H and whole Figure 2. Other panels require their own estimator, source coverage, statistical scope and freeze; existing Figure 1 quantile-scaled definitions are not replaced by this selection.
 
 ## Practical shortened critical path
 
@@ -130,3 +149,7 @@ Earlier learner plans remain in Git history. Their operational content
 is in the active learner plan, and learner analysis is required for
 the paper even though the categorical-versus-continuous representation remains
 open.
+
+
+### 2026-10-09 — G selected Historical LogMedian freeze
+Author explicitly selected native bout-only Historical LogMedian with D/M/R and phase-aware LMM trial statistics. See configs/paper-figures/figure2-G-logmedian-freeze-20261009.json. No second log or smoothing. Test3 local M/R n/a; exploratory, no onset claim. All alternatives consolidated in reviews/figure2_delay_all_versions_20261009.html; verified stale Delay copies removed. Whole assembly and D/E freezes unchanged.

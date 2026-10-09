@@ -6,6 +6,7 @@ treating any candidate metric as paper-approved.
 """
 
 from __future__ import annotations
+from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes, bout_only_profiles
 
 import hashlib
 import json
@@ -43,7 +44,7 @@ RECIPE_ID = "candidate-metric-comparison"
 SOURCE_RECIPE_ID = "candidate-temporal-outcomes"
 CORRECTED_RECIPE_ID = "candidate-metric-comparison-corrected"
 OUTCOME_COLUMNS = {
-    "total-activity": "Total activity mean",
+    "total-activity": "Conditional intensity mean",
     "movement-probability": "Movement probability",
     "fraction-time-moving": "Fraction time moving",
     "conditional-intensity": "Conditional intensity mean",
@@ -483,7 +484,7 @@ def build_candidate_metric_comparison(
         for recording_id in recording_ids
     }
     profiles = pd.concat(
-        [pq.read_table(source.path).to_pandas() for source in sources.values()],
+        [bout_only_profiles(pq.read_table(source.path).to_pandas()) for source in sources.values()],
         ignore_index=True,
     )
     recording_summary = summarize_candidate_metric_windows(

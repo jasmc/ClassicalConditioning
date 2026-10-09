@@ -202,8 +202,8 @@ class AnalysisEligibilityTests(unittest.TestCase):
 
     def test_eligibility_preserves_rows_and_names_reasons(self) -> None:
         outcomes = cohort_outcomes_fixture()
-        outcomes.loc[0, "baseline_total_activity"] = 0.0
-        outcomes.loc[1, "response_total_activity"] = np.nan
+        outcomes.loc[0, "baseline_conditional_intensity"] = 0.0
+        outcomes.loc[1, "conditional_intensity"] = np.nan
         outcomes.loc[2, "baseline_valid_sample_count"] = 0
 
         result = build_analysis_eligibility(

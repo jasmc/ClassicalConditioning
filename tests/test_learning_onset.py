@@ -45,6 +45,7 @@ def model_fixture() -> tuple[pd.DataFrame, pd.DataFrame]:
                 rows.append(
                     {
                         "cohort_id": "paper",
+                        "vigor_sample_policy": "valid-bout-frames-only-v1",
                         "cohort_hash": "abc",
                         "experiment_id": "allDelay",
                         "recording_id": fish_id,
@@ -480,6 +481,18 @@ class LearningOnsetCoreTests(unittest.TestCase):
 
         self.assertEqual(diagnostic["diagnostic_status"], "ok")
         self.assertIsNotNone(fitted)
+        # MixedLM result arrays contain direct covariance entries, whereas
+        # hessian(array) decodes square-root entries by default. Diagnostics
+        # must evaluate curvature at the structured fitted MLE parameters.
+        correct_hessian, _ = fitted.model.hessian(fitted.params_object)
+        expected_max = np.linalg.eigvalsh(
+            (correct_hessian + correct_hessian.T) / 2.0
+        ).max()
+        self.assertAlmostEqual(
+            diagnostic["hessian_max_eigenvalue"], float(expected_max), places=8
+        )
+        wrong_hessian, _ = fitted.model.hessian(fitted.params)
+        self.assertFalse(np.allclose(correct_hessian, wrong_hessian))
         contrasts, _ = trial_contrasts(fitted, data, config=config)
         early = contrasts.loc[contrasts["trial_number"] == 12, "learning_contrast"]
         late = contrasts.loc[contrasts["trial_number"] == 30, "learning_contrast"]

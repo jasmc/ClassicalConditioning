@@ -1,0 +1,4007 @@
+{
+  "date_local": "2026-10-09",
+  "status": "review candidates; no freeze or selection change",
+  "previous_summary_sha256": "0c4b6d313eb8b4a00803211e69fe979a51ca27d9878cf35400b68cb7bbb077d6",
+  "previous_four_rows": {
+    "summary_date_local": "2026-10-09",
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "variants": [
+      {
+        "id": "c-samples",
+        "title": "Version 1 \u00b7 C \u00b7 complete bout medians",
+        "status": "Corrected primary version",
+        "description": "Each complete detected bout\u2019s median log vigor is repeated on its eligible samples, before the plotting crop. No 0.5 s binning.",
+        "baseline": "All eligible timepoints within [\u221215, 0) s, each carrying its complete bout\u2019s median value.",
+        "formula": "C = clip((x \u2212 m) / ((P90 \u2212 P10) / 2), \u22121, +1)",
+        "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_BoutSamples_validation.json",
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.svg",
+            "sha256": "36dc5725d616a9ef281e67e962e9bd5428d2878069b4eee3403f8f560394fb35"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.png",
+            "sha256": "e12ef20989995ecfedf8327ed351118dc8650e7503163303b8fa86a28c399a47"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.pdf",
+            "sha256": "98a3933e846f6722d36688361bcaa985b978223f60ad8b5c3b1a231dc0bf5853"
+          }
+        ]
+      },
+      {
+        "id": "d-samples",
+        "title": "Version 1 \u00b7 D \u00b7 complete bout medians",
+        "status": "Corrected comparison",
+        "description": "The same complete-bout medians and eligible sample intervals, with the median-preserving D denominator.",
+        "baseline": "All eligible timepoints within [\u221215, 0) s, each carrying its complete bout\u2019s median value.",
+        "formula": "D = clip((x \u2212 m) / max(m \u2212 P10, P90 \u2212 m), \u22121, +1)",
+        "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_BoutSamples_validation.json",
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.svg",
+            "sha256": "6671a9a1605be0f2730f7b04f54117d796f112e4253f789dc3e02284101d77b7"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.png",
+            "sha256": "37dd25d6493bb4fef7181473cd6e22b3d8e94ad72166a2f0aa51bd429edcbaad"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.pdf",
+            "sha256": "a20074a688136811f01882d543e3a4163bb5082c3a834987bc09a79f58c95341"
+          }
+        ]
+      },
+      {
+        "id": "c-bins",
+        "title": "Version 2 \u00b7 C \u00b7 direct 0.5 s means",
+        "status": "Own bin baseline \u00b7 zero median",
+        "description": "Each displayed cell averages direct eligible framewise natural-log vigor, without bout-median substitution. Its baseline reference is calculated from these same unscaled bin means.",
+        "baseline": "Finite unscaled 0.5 s baseline-bin means within [\u221215, 0) s; one vote per finite bin. The displayed baseline median is zero.",
+        "formula": "C = clip((bin mean \u2212 m) / ((P90 \u2212 P10) / 2), \u22121, +1)",
+        "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_DirectBins_validation.json",
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.svg",
+            "sha256": "c1c15f1a73bf1f9ce92cebe3b62b91023ebde3ec8516db10b99a2f26729ff38e"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.png",
+            "sha256": "e4e59ec823cf1c6116d298588fb31cc407fd5eb2b4df09a24e25126ebcace4c7"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.pdf",
+            "sha256": "da8758877be35957d8977c2bda101ee282e3c2b739cdbfb16538e36cecc4a540"
+          }
+        ]
+      },
+      {
+        "id": "median-bins",
+        "title": "Version 4 \u00b7 direct 0.25 s means",
+        "status": "NaNs ignored \u00b7 all 270 baselines defined",
+        "description": "Each quarter-second cell averages direct eligible framewise natural-log vigor. Non-bout and invalid/ineligible samples remain NaN and are ignored. No minimum coverage threshold, no bout-median substitution, and no minimum-value replacement.",
+        "baseline": "Arithmetic mean of finite unscaled 0.25 s bin means in [\u221220, 0) s; one vote per finite bin, with all-NaN bins ignored. All 270 trial references are defined. Subtract this mean without scaling.",
+        "formula": "\u0394log vigor = 0.25 s bin mean \u2212 mean(finite baseline-bin means in [\u221220, 0) s)",
+        "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\Version4_DirectBinMeans_validation.json",
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.svg",
+            "sha256": "818512bb62428a1437f9155322bd52c3afb9e5b89afd11353512502f24bd26fb"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.png",
+            "sha256": "3c952454c321514c0f9a1585db117c6fda5ab09c53803f2fe2d63af09e24ced1"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.pdf",
+            "sha256": "7c435447bf86b40568ebe38abe2f0f4ddd00cfe25f95ac0ca110c03587a659c6"
+          }
+        ]
+      }
+    ],
+    "numeric_verification": {
+      "fish": {
+        "F": "20221115_07",
+        "G": "20230310_08",
+        "H": "20221115_09"
+      },
+      "checks": [
+        {
+          "panel": "F",
+          "full_bout_support_and_medians_verified": true,
+          "shared_baseline_timepoint_quantiles_verified": true,
+          "Version2_direct_means_and_shared_reference_scaling_verified": true,
+          "maximum_C_D_sample_baseline_median_residual": 0.0,
+          "Version2_baseline_cell_median_range": [
+            -1.0,
+            -0.3029419119321992
+          ]
+        },
+        {
+          "panel": "G",
+          "full_bout_support_and_medians_verified": true,
+          "shared_baseline_timepoint_quantiles_verified": true,
+          "Version2_direct_means_and_shared_reference_scaling_verified": true,
+          "maximum_C_D_sample_baseline_median_residual": 1.1527237497865883e-15,
+          "Version2_baseline_cell_median_range": [
+            -1.0,
+            -0.6452358368944191
+          ]
+        },
+        {
+          "panel": "H",
+          "full_bout_support_and_medians_verified": true,
+          "shared_baseline_timepoint_quantiles_verified": true,
+          "Version2_direct_means_and_shared_reference_scaling_verified": true,
+          "maximum_C_D_sample_baseline_median_residual": 0.0,
+          "Version2_baseline_cell_median_range": [
+            -1.0,
+            -0.5106741072195404
+          ]
+        }
+      ],
+      "undefined_trials": [
+        {
+          "panel": "H",
+          "trial": 16
+        }
+      ],
+      "baseline_zero": "C/D sample baseline medians are zero; Version2 shares that reference but its displayed baseline-bin median need not be zero"
+    },
+    "complete_bout_reconstruction": {
+      "status": "corrected complete-bout review; supersedes crop-limited bout summaries and binned baselines",
+      "source_freeze": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\freeze.json",
+      "source_freeze_sha256": "033f83d19fad1f4c06a4fb1030af58c84f4b6815e68632d414ef38add7bcdfea",
+      "fish": {
+        "F": "20221115_07",
+        "G": "20230310_08",
+        "H": "20221115_09"
+      },
+      "panels": [
+        {
+          "panel": "F",
+          "fish": "20221115_07",
+          "inputs": [
+            {
+              "kind": "camera",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\camera.parquet",
+              "sha256": "04c6ed4e9338f5065a50aeed557cf1c53db1db0b97cf47e81a7ec781b62d9877"
+            },
+            {
+              "kind": "protocol",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\stimulus_events.parquet",
+              "sha256": "745a12459967fe0d9835513408bd30a3881e692decc172e8bfd678369a9450b2"
+            },
+            {
+              "kind": "angles",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\frame_preprocessed_corrected-v1.parquet",
+              "sha256": "4634468c8753bb6393f1a9b3914e16c54f492a3a3e87cdbc75bb5a2b16fd7ea1"
+            },
+            {
+              "kind": "coverage",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\frame_activity_candidates-corrected-v1.parquet",
+              "sha256": "37c5cfed95251b34fbb835e2d82844251e2ab053ad6323830513de7e80d159ec"
+            }
+          ],
+          "cadence": {
+            "interval_ms": 1.4233426529698565,
+            "reference_position": 1500,
+            "end_position": 8344075,
+            "reference_frame_id": 430473,
+            "missing_frame_ids": 0,
+            "buffer_capacity_exceeded": false,
+            "maximum_delay_ms": 28.143782172352076
+          },
+          "complete_selected_bouts": 8105,
+          "minimum_context_margin_ms": 3324.928466796875,
+          "context_ms": 5000,
+          "eligible_support_and_direct_logs_identical_to_previous": true,
+          "changed_eligible_sample_medians": 8196,
+          "baseline_bouts_crossing_CS": 38
+        },
+        {
+          "panel": "G",
+          "fish": "20230310_08",
+          "inputs": [
+            {
+              "kind": "camera",
+              "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\camera.parquet",
+              "sha256": "cbec7470211a72f327c0f8dc3d7a6cba4ba87dbd75953b5bf7ace6057614702d"
+            },
+            {
+              "kind": "protocol",
+              "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\stimulus_events.parquet",
+              "sha256": "db6b5f031c8ba36456427a3d8842360ff6c45c72aabf11d6ab9bd5e8f45d2cf6"
+            },
+            {
+              "kind": "angles",
+              "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\frame_preprocessed_corrected.parquet",
+              "sha256": "fc37f9c61857a31f6801534bc94161f89c3467360edff09785fef3496f866f19"
+            },
+            {
+              "kind": "coverage",
+              "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\frame_activity_candidates-corrected.parquet",
+              "sha256": "4065ddbc03c3d3c13d900cae568f7dff6a5e31a5035aee90bc3bdfc359e4c000"
+            }
+          ],
+          "cadence": {
+            "interval_ms": 1.4233575812293549,
+            "reference_position": 2612,
+            "end_position": 8378925,
+            "reference_frame_id": 603315,
+            "missing_frame_ids": 0,
+            "buffer_capacity_exceeded": false,
+            "maximum_delay_ms": 192.64872875250876
+          },
+          "complete_selected_bouts": 11887,
+          "minimum_context_margin_ms": 4395.328125,
+          "context_ms": 5000,
+          "eligible_support_and_direct_logs_identical_to_previous": true,
+          "changed_eligible_sample_medians": 11237,
+          "baseline_bouts_crossing_CS": 66
+        },
+        {
+          "panel": "H",
+          "fish": "20221115_09",
+          "inputs": [
+            {
+              "kind": "camera",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\camera.parquet",
+              "sha256": "956138576d02094eb6363655fef7fe9db4bec44d394e64df96cd7964a26ff404"
+            },
+            {
+              "kind": "protocol",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\stimulus_events.parquet",
+              "sha256": "67627727ddbac1b3a999ee16423292a97dd4f2de0cbbe79defd1274614095bc8"
+            },
+            {
+              "kind": "angles",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\frame_preprocessed_corrected-v1.parquet",
+              "sha256": "ba0905b3c63a007b84ba12d60b60bf68c0e8bf42f858010be06753469eed9538"
+            },
+            {
+              "kind": "coverage",
+              "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\frame_activity_candidates-corrected-v1.parquet",
+              "sha256": "fe621bdf18d71ce13661401ae2bc2580e4e31eddbd475b990b8fe427b5c67ee2"
+            }
+          ],
+          "cadence": {
+            "interval_ms": 1.4233451333424365,
+            "reference_position": 477,
+            "end_position": 8312722,
+            "reference_frame_id": 433741,
+            "missing_frame_ids": 0,
+            "buffer_capacity_exceeded": false,
+            "maximum_delay_ms": 144.42458656725648
+          },
+          "complete_selected_bouts": 2683,
+          "minimum_context_margin_ms": 4748.279541015625,
+          "context_ms": 5000,
+          "eligible_support_and_direct_logs_identical_to_previous": true,
+          "changed_eligible_sample_medians": 5076,
+          "baseline_bouts_crossing_CS": 13
+        }
+      ],
+      "C": "clip((x-P50)/((P90-P10)/2),-1,1)",
+      "D": "clip((x-P50)/max(P50-P10,P90-P50),-1,1)",
+      "baseline": "P10/P50/P90 from all eligible baseline timepoints carrying complete-bout median log values; same reference for every variant",
+      "baseline_interval": "[-15,0)",
+      "display_interval": "[-20,20)",
+      "bout_summary": "median of every eligible log sample of each complete detected bout, beyond plotting crop",
+      "Version2": "direct eligible framewise log means in 0.5 s cells; no bout-median substitution in displayed means",
+      "scaling": "median-centred percentile C/D; conventional affine min-max rejected because it does not preserve baseline median zero",
+      "quantile_method": "NumPy linear",
+      "palette": "managua_r",
+      "limits": [
+        -1,
+        1
+      ],
+      "data_files": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\baseline_statistics.csv",
+          "sha256": "60187390d564a2b5fe79ede065a36ff71f296e075ad5283fe96d0aced78e177b"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_boundary_audit.csv",
+          "sha256": "7454e2b888876e39338e4f4ac5b5a87c48e6081bfb731fd0d871b7bd0bbce4a3"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bouts.csv",
+          "sha256": "c3e48177bddd8d4d8d130b6b8f2b9f4d275fc3cff89ddf5b939b3a4ce0b3d236"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_C_sample_runs.csv",
+          "sha256": "af6b524c1fed6040b7e68f51fee78df22275ffd97d19ee9c26904244876de454"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_direct_bins.csv",
+          "sha256": "bb238f7de1c60e684c43279acfe8319bc64bbc73036f34f015041bcc2dabb4fb"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_D_sample_runs.csv",
+          "sha256": "815008bc3ac498c824cafc5b019b12d0a11f146ff5f1cca4c44b4d1f43dbad0b"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_boundary_audit.csv",
+          "sha256": "91138b042957ceddd8f9c861f57408794db21d6ad1bf80e01413dcd137e47af7"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bouts.csv",
+          "sha256": "addfcc76a644c2cc2f595db352c08826813cfbcd4ed67f57893f8fa6e01f1def"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_C_sample_runs.csv",
+          "sha256": "4f7abfa87464d763a4682b8b210cfafa9bc243a018a6b785ad64f804b1e5aff7"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_direct_bins.csv",
+          "sha256": "a5f2b86c46d75c67bed109c1865b4878300c3eda25900d88f73b090872aa8c65"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_D_sample_runs.csv",
+          "sha256": "3b9f61198bd59bde1fcb0ea27fe17c3ad7eb27dd2b75b3fb97a0aa7c55d98301"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_boundary_audit.csv",
+          "sha256": "43274f9ead9267a1705a1c1fdca00d10bc7949665b6dde5f63a0ba88995e17e8"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bouts.csv",
+          "sha256": "6cc4f0374a02767349133a5c3d72fde4b4bab2872065245a2142644eabbece96"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_C_sample_runs.csv",
+          "sha256": "e084ef532569b322a81388e06b6c417398542eb66cbb89e93519a61b8c3074ed"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_direct_bins.csv",
+          "sha256": "92718de5e41e24910c69fcef826ccc3a3ac27610bf1a274fd12ac6a62b23e5a3"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_D_sample_runs.csv",
+          "sha256": "dfedf104d1bdca4574f9033c5425e894aeab8f6340e65c2c3dc9cc89ca7eab2c"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+          "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_support.parquet",
+          "sha256": "0f568be31ebea4ce91a74efcb797e69c69c36134427114b16e8b45060a859840"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+          "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_support.parquet",
+          "sha256": "18f4ce88b002a591f43421fb024174a2b3b2751d0ee105436f6a0d4cfaef0fe9"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+          "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_support.parquet",
+          "sha256": "cef27478639664748dec8d60702e8e58da0ba71163612222134fb4817bafb670"
+        }
+      ]
+    },
+    "current_direct_bin_reference": {
+      "status": "Version2 baseline-bin population approved by user",
+      "approval": "Use baseline-bin means; guarantee displayed median zero (recommended)",
+      "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+      "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+      "fish": {
+        "F": "20221115_07",
+        "G": "20230310_08",
+        "H": "20221115_09"
+      },
+      "C": "clip((bin_mean-P50)/((P90-P10)/2),-1,1)",
+      "display": "direct eligible framewise natural-log means in 0.5 s cells; no bout-median substitution",
+      "baseline": "finite unscaled baseline-bin means in [-15,0); one vote per finite bin; P10/P50/P90 NumPy linear",
+      "sample_versions": "unchanged complete-bout sample C/D; retain unbinned timepoint baseline",
+      "palette": "managua_r",
+      "limits": [
+        -1,
+        1
+      ],
+      "data_files": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\baseline_statistics.csv",
+          "sha256": "a674809ef09f824d0a1fa631b29df23da85220f783d74ade5e37906052ccab02"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelF_direct_bins.csv",
+          "sha256": "8cda7c63d742b5079486a262081831c44607460694059aa60a40ceaa16ad408e"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelG_direct_bins.csv",
+          "sha256": "f6a674b5d23eec4791790b00bd7c2d4d58441a39119616a6df3570363206830d"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelH_direct_bins.csv",
+          "sha256": "14cd8d8dedf90a3bad5601571ec2a752971399715ddde4ae5f2ef5c8f8608076"
+        }
+      ]
+    },
+    "current_direct_bin_numeric_verification": {
+      "fish": {
+        "F": "20221115_07",
+        "G": "20230310_08",
+        "H": "20221115_09"
+      },
+      "direct_cell_means_and_eligible_counts_unchanged": true,
+      "defined_trials": 269,
+      "maximum_absolute_displayed_baseline_median": 2.7547408798511697e-15,
+      "undefined_trials": [
+        {
+          "panel": "H",
+          "trial": 16
+        }
+      ],
+      "checks": [
+        {
+          "panel": "F",
+          "trial": 5,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 6,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 7,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 8,
+          "baseline_median_residual": 4.718447854656915e-16
+        },
+        {
+          "panel": "F",
+          "trial": 9,
+          "baseline_median_residual": 4.787836793695988e-16
+        },
+        {
+          "panel": "F",
+          "trial": 10,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 11,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 12,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 13,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 14,
+          "baseline_median_residual": 4.85722573273506e-16
+        },
+        {
+          "panel": "F",
+          "trial": 15,
+          "baseline_median_residual": 5.724587470723463e-16
+        },
+        {
+          "panel": "F",
+          "trial": 16,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 17,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 18,
+          "baseline_median_residual": 4.597017211338539e-16
+        },
+        {
+          "panel": "F",
+          "trial": 19,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 20,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 21,
+          "baseline_median_residual": 5.048045315092509e-16
+        },
+        {
+          "panel": "F",
+          "trial": 22,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 23,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 24,
+          "baseline_median_residual": 9.625546887326308e-16
+        },
+        {
+          "panel": "F",
+          "trial": 25,
+          "baseline_median_residual": 1.0194753027881198e-15
+        },
+        {
+          "panel": "F",
+          "trial": 26,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 27,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 28,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 29,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 30,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 31,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 32,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 33,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 34,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 35,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 36,
+          "baseline_median_residual": 6.869504964868156e-16
+        },
+        {
+          "panel": "F",
+          "trial": 37,
+          "baseline_median_residual": 1.0234868508263162e-15
+        },
+        {
+          "panel": "F",
+          "trial": 38,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 39,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 40,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 41,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 42,
+          "baseline_median_residual": 6.370771965524824e-16
+        },
+        {
+          "panel": "F",
+          "trial": 43,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 44,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 45,
+          "baseline_median_residual": 5.169475958410885e-16
+        },
+        {
+          "panel": "F",
+          "trial": 46,
+          "baseline_median_residual": 6.817463260588852e-16
+        },
+        {
+          "panel": "F",
+          "trial": 47,
+          "baseline_median_residual": 9.922618282587337e-16
+        },
+        {
+          "panel": "F",
+          "trial": 48,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 49,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 50,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 51,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 52,
+          "baseline_median_residual": 9.922618282587337e-16
+        },
+        {
+          "panel": "F",
+          "trial": 53,
+          "baseline_median_residual": 7.505931640117147e-16
+        },
+        {
+          "panel": "F",
+          "trial": 54,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 55,
+          "baseline_median_residual": 6.186457596202288e-16
+        },
+        {
+          "panel": "F",
+          "trial": 56,
+          "baseline_median_residual": 7.147060721024445e-16
+        },
+        {
+          "panel": "F",
+          "trial": 57,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 58,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 59,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 60,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 61,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 62,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 63,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 64,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 65,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 66,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 67,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 68,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 69,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 70,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 71,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 72,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 73,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 74,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 75,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 76,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 77,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 78,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 79,
+          "baseline_median_residual": 7.875644580934704e-16
+        },
+        {
+          "panel": "F",
+          "trial": 80,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 81,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 82,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 83,
+          "baseline_median_residual": 9.506284648352903e-16
+        },
+        {
+          "panel": "F",
+          "trial": 84,
+          "baseline_median_residual": 1.0518929477454364e-15
+        },
+        {
+          "panel": "F",
+          "trial": 85,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 86,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 87,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 88,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 89,
+          "baseline_median_residual": 8.998878031629687e-16
+        },
+        {
+          "panel": "F",
+          "trial": 90,
+          "baseline_median_residual": 1.0547118733938987e-15
+        },
+        {
+          "panel": "F",
+          "trial": 91,
+          "baseline_median_residual": 1.4693107841523556e-15
+        },
+        {
+          "panel": "F",
+          "trial": 92,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 93,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "F",
+          "trial": 94,
+          "baseline_median_residual": 9.922618282587337e-16
+        },
+        {
+          "panel": "G",
+          "trial": 5,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 6,
+          "baseline_median_residual": 1.4016565685892601e-15
+        },
+        {
+          "panel": "G",
+          "trial": 7,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 8,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 9,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 10,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 11,
+          "baseline_median_residual": 1.3912482277333993e-15
+        },
+        {
+          "panel": "G",
+          "trial": 12,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 13,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 14,
+          "baseline_median_residual": 1.6805133673525319e-15
+        },
+        {
+          "panel": "G",
+          "trial": 15,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 16,
+          "baseline_median_residual": 1.4641066137244252e-15
+        },
+        {
+          "panel": "G",
+          "trial": 17,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 18,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 19,
+          "baseline_median_residual": 2.282896094385478e-15
+        },
+        {
+          "panel": "G",
+          "trial": 20,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 21,
+          "baseline_median_residual": 1.1379786002407855e-15
+        },
+        {
+          "panel": "G",
+          "trial": 22,
+          "baseline_median_residual": 1.3010426069826053e-15
+        },
+        {
+          "panel": "G",
+          "trial": 23,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 24,
+          "baseline_median_residual": 1.0599160438218291e-15
+        },
+        {
+          "panel": "G",
+          "trial": 25,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 26,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 27,
+          "baseline_median_residual": 1.096345236817342e-15
+        },
+        {
+          "panel": "G",
+          "trial": 28,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 29,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 30,
+          "baseline_median_residual": 1.2698175844150228e-15
+        },
+        {
+          "panel": "G",
+          "trial": 31,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 32,
+          "baseline_median_residual": 1.1900203045200897e-15
+        },
+        {
+          "panel": "G",
+          "trial": 33,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 34,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 35,
+          "baseline_median_residual": 1.4224732503009818e-15
+        },
+        {
+          "panel": "G",
+          "trial": 36,
+          "baseline_median_residual": 1.2212453270876722e-15
+        },
+        {
+          "panel": "G",
+          "trial": 37,
+          "baseline_median_residual": 1.6948248360293405e-15
+        },
+        {
+          "panel": "G",
+          "trial": 38,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 39,
+          "baseline_median_residual": 1.6514567491299204e-15
+        },
+        {
+          "panel": "G",
+          "trial": 40,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 41,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 42,
+          "baseline_median_residual": 1.3773704399255848e-15
+        },
+        {
+          "panel": "G",
+          "trial": 43,
+          "baseline_median_residual": 1.6757428777935957e-15
+        },
+        {
+          "panel": "G",
+          "trial": 44,
+          "baseline_median_residual": 1.5629858518551032e-15
+        },
+        {
+          "panel": "G",
+          "trial": 45,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 46,
+          "baseline_median_residual": 1.6566609195578508e-15
+        },
+        {
+          "panel": "G",
+          "trial": 47,
+          "baseline_median_residual": 1.582067810090848e-15
+        },
+        {
+          "panel": "G",
+          "trial": 48,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 49,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 50,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 51,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 52,
+          "baseline_median_residual": 1.551710149261254e-15
+        },
+        {
+          "panel": "G",
+          "trial": 53,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 54,
+          "baseline_median_residual": 1.420738526825005e-15
+        },
+        {
+          "panel": "G",
+          "trial": 55,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 56,
+          "baseline_median_residual": 8.450271732352022e-16
+        },
+        {
+          "panel": "G",
+          "trial": 57,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 58,
+          "baseline_median_residual": 1.3877787807814457e-15
+        },
+        {
+          "panel": "G",
+          "trial": 59,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 60,
+          "baseline_median_residual": 1.3010426069826053e-15
+        },
+        {
+          "panel": "G",
+          "trial": 61,
+          "baseline_median_residual": 1.3105835861004778e-15
+        },
+        {
+          "panel": "G",
+          "trial": 62,
+          "baseline_median_residual": 9.228728892196614e-16
+        },
+        {
+          "panel": "G",
+          "trial": 63,
+          "baseline_median_residual": 8.864436962241484e-16
+        },
+        {
+          "panel": "G",
+          "trial": 64,
+          "baseline_median_residual": 1.5547459153442134e-15
+        },
+        {
+          "panel": "G",
+          "trial": 65,
+          "baseline_median_residual": 1.1483869410966463e-15
+        },
+        {
+          "panel": "G",
+          "trial": 66,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 67,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 68,
+          "baseline_median_residual": 2.7547408798511697e-15
+        },
+        {
+          "panel": "G",
+          "trial": 69,
+          "baseline_median_residual": 1.0486403412279799e-15
+        },
+        {
+          "panel": "G",
+          "trial": 70,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 71,
+          "baseline_median_residual": 1.897787482718627e-15
+        },
+        {
+          "panel": "G",
+          "trial": 72,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 73,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 74,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 75,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 76,
+          "baseline_median_residual": 1.3208157441033097e-15
+        },
+        {
+          "panel": "G",
+          "trial": 77,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 78,
+          "baseline_median_residual": 1.0824674490095276e-15
+        },
+        {
+          "panel": "G",
+          "trial": 79,
+          "baseline_median_residual": 9.124645483638005e-16
+        },
+        {
+          "panel": "G",
+          "trial": 80,
+          "baseline_median_residual": 1.734723475976807e-15
+        },
+        {
+          "panel": "G",
+          "trial": 81,
+          "baseline_median_residual": 1.487525380650112e-15
+        },
+        {
+          "panel": "G",
+          "trial": 82,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 83,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 84,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 85,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 86,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 87,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 88,
+          "baseline_median_residual": 9.020562075079397e-16
+        },
+        {
+          "panel": "G",
+          "trial": 89,
+          "baseline_median_residual": 1.5230872119076366e-15
+        },
+        {
+          "panel": "G",
+          "trial": 90,
+          "baseline_median_residual": 1.0321604682062002e-15
+        },
+        {
+          "panel": "G",
+          "trial": 91,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 92,
+          "baseline_median_residual": 1.7579254024679969e-15
+        },
+        {
+          "panel": "G",
+          "trial": 93,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "G",
+          "trial": 94,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 5,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 6,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 7,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 8,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 9,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 10,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 11,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 12,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 13,
+          "baseline_median_residual": 6.938893903907228e-16
+        },
+        {
+          "panel": "H",
+          "trial": 14,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 15,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 17,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 18,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 19,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 20,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 21,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 22,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 23,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 24,
+          "baseline_median_residual": 1.7486012637846216e-15
+        },
+        {
+          "panel": "H",
+          "trial": 25,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 26,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 27,
+          "baseline_median_residual": 6.865168156178214e-16
+        },
+        {
+          "panel": "H",
+          "trial": 28,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 29,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 30,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 31,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 32,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 33,
+          "baseline_median_residual": 8.326672684688674e-16
+        },
+        {
+          "panel": "H",
+          "trial": 34,
+          "baseline_median_residual": 1.2212453270876722e-15
+        },
+        {
+          "panel": "H",
+          "trial": 35,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 36,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 37,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 38,
+          "baseline_median_residual": 1.0668549377257364e-15
+        },
+        {
+          "panel": "H",
+          "trial": 39,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 40,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 41,
+          "baseline_median_residual": 1.2073675392798577e-15
+        },
+        {
+          "panel": "H",
+          "trial": 42,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 43,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 44,
+          "baseline_median_residual": 2.2343238370581275e-15
+        },
+        {
+          "panel": "H",
+          "trial": 45,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 46,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 47,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 48,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 49,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 50,
+          "baseline_median_residual": 1.8041124150158794e-15
+        },
+        {
+          "panel": "H",
+          "trial": 51,
+          "baseline_median_residual": 5.715913853343579e-16
+        },
+        {
+          "panel": "H",
+          "trial": 52,
+          "baseline_median_residual": 1.4953316362920077e-15
+        },
+        {
+          "panel": "H",
+          "trial": 53,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 54,
+          "baseline_median_residual": 2.7547408798511697e-15
+        },
+        {
+          "panel": "H",
+          "trial": 55,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 56,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 57,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 58,
+          "baseline_median_residual": 5.516420653606247e-16
+        },
+        {
+          "panel": "H",
+          "trial": 59,
+          "baseline_median_residual": 2.134577237189461e-15
+        },
+        {
+          "panel": "H",
+          "trial": 60,
+          "baseline_median_residual": 1.8596235662471372e-15
+        },
+        {
+          "panel": "H",
+          "trial": 61,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 62,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 63,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 64,
+          "baseline_median_residual": 5.134781488891349e-16
+        },
+        {
+          "panel": "H",
+          "trial": 65,
+          "baseline_median_residual": 1.2351231148954867e-15
+        },
+        {
+          "panel": "H",
+          "trial": 66,
+          "baseline_median_residual": 1.0737938316296436e-15
+        },
+        {
+          "panel": "H",
+          "trial": 67,
+          "baseline_median_residual": 1.3739009929736312e-15
+        },
+        {
+          "panel": "H",
+          "trial": 68,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 69,
+          "baseline_median_residual": 8.326672684688674e-16
+        },
+        {
+          "panel": "H",
+          "trial": 70,
+          "baseline_median_residual": 2.220446049250313e-15
+        },
+        {
+          "panel": "H",
+          "trial": 71,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 72,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 73,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 74,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 75,
+          "baseline_median_residual": 1.1102230246251565e-15
+        },
+        {
+          "panel": "H",
+          "trial": 76,
+          "baseline_median_residual": 1.0044048925905713e-15
+        },
+        {
+          "panel": "H",
+          "trial": 77,
+          "baseline_median_residual": 1.6930901125533637e-15
+        },
+        {
+          "panel": "H",
+          "trial": 78,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 79,
+          "baseline_median_residual": 1.1102230246251565e-15
+        },
+        {
+          "panel": "H",
+          "trial": 80,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 81,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 82,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 83,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 84,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 85,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 86,
+          "baseline_median_residual": 2.5118795932144167e-15
+        },
+        {
+          "panel": "H",
+          "trial": 87,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 88,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 89,
+          "baseline_median_residual": 1.3461454173580023e-15
+        },
+        {
+          "panel": "H",
+          "trial": 90,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 91,
+          "baseline_median_residual": 1.130606025467884e-15
+        },
+        {
+          "panel": "H",
+          "trial": 92,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 93,
+          "baseline_median_residual": 0.0
+        },
+        {
+          "panel": "H",
+          "trial": 94,
+          "baseline_median_residual": 0.0
+        }
+      ]
+    },
+    "version4_bin_means": {
+      "version": "Version4_DirectBinMeans",
+      "fish": {
+        "F": "20221115_07",
+        "G": "20230310_08",
+        "H": "20221115_09"
+      },
+      "bin_width_s": 0.25,
+      "bins_per_trial": 160,
+      "display_interval_s": [
+        -20,
+        20
+      ],
+      "baseline_interval_s": [
+        -20,
+        0
+      ],
+      "maximum_baseline_bins": 80,
+      "trials": [
+        5,
+        94
+      ],
+      "frame_value": "direct eligible bout natural-log vigor; non-bout and invalid/ineligible frames remain NaN; no replacement/floor",
+      "bin_value": "arithmetic mean of finite eligible natural-log vigor per 0.25 s bin; ignore NaNs; any one finite sample suffices",
+      "baseline": "arithmetic mean of finite unscaled baseline-bin means in [-20,0); all-NaN bins ignored; one vote per finite bin",
+      "formula": "delta_log_vigor = bin_mean - mean(finite baseline-bin means)",
+      "undefined_rule": "whole trial undefined only if it has no finite baseline-bin means",
+      "data_scaling": false,
+      "data_clipping": false,
+      "percentile_scaling": false,
+      "palette": "managua_r",
+      "colour_limits": [
+        -0.25,
+        0.25
+      ],
+      "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+      "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+      "source_tables": [
+        {
+          "panel": "F",
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+          "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+        },
+        {
+          "panel": "G",
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+          "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+        },
+        {
+          "panel": "H",
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+          "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+        }
+      ],
+      "panels": [
+        {
+          "panel": "F",
+          "fish": "20221115_07",
+          "defined_trials": 90,
+          "undefined_trials": 0,
+          "display_bins": 14400,
+          "finite_display_bins": 10743,
+          "empty_bins": 3657,
+          "single_sample_bins_retained": 29,
+          "maximum_absolute_baseline_mean": 8.397323240801184e-16
+        },
+        {
+          "panel": "G",
+          "fish": "20230310_08",
+          "defined_trials": 90,
+          "undefined_trials": 0,
+          "display_bins": 14400,
+          "finite_display_bins": 13654,
+          "empty_bins": 746,
+          "single_sample_bins_retained": 11,
+          "maximum_absolute_baseline_mean": 7.572290373084401e-16
+        },
+        {
+          "panel": "H",
+          "fish": "20221115_09",
+          "defined_trials": 90,
+          "undefined_trials": 0,
+          "display_bins": 14400,
+          "finite_display_bins": 5455,
+          "empty_bins": 8945,
+          "single_sample_bins_retained": 30,
+          "maximum_absolute_baseline_mean": 9.454802532291655e-16
+        }
+      ],
+      "data_files": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\baseline_statistics.csv",
+          "sha256": "a98a7f430bf6707da71f7fdc56f94b243ecaaf9ae307c5134b6a99bec77fd261"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+          "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+          "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+          "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\per_trial_baseline_balance.csv",
+          "sha256": "230efddb35172270429aa60523f983ca69d7701ae57bc9854dd9370cb1337774"
+        }
+      ]
+    },
+    "version4_numeric_verification": {
+      "version": "Version4_DirectBinMeans",
+      "bin_width_s": 0.25,
+      "panels": [
+        {
+          "panel": "F",
+          "fish": "20221115_07",
+          "defined_trials": 90,
+          "undefined_trials": 0,
+          "display_bins": 14400,
+          "finite_display_bins": 10743,
+          "empty_bins": 3657,
+          "single_sample_bins_retained": 29,
+          "maximum_absolute_baseline_mean": 8.397323240801184e-16
+        },
+        {
+          "panel": "G",
+          "fish": "20230310_08",
+          "defined_trials": 90,
+          "undefined_trials": 0,
+          "display_bins": 14400,
+          "finite_display_bins": 13654,
+          "empty_bins": 746,
+          "single_sample_bins_retained": 11,
+          "maximum_absolute_baseline_mean": 7.572290373084401e-16
+        },
+        {
+          "panel": "H",
+          "fish": "20221115_09",
+          "defined_trials": 90,
+          "undefined_trials": 0,
+          "display_bins": 14400,
+          "finite_display_bins": 5455,
+          "empty_bins": 8945,
+          "single_sample_bins_retained": 30,
+          "maximum_absolute_baseline_mean": 9.454802532291655e-16
+        }
+      ],
+      "defined_trials": 270,
+      "undefined_trials": 0,
+      "all_defined_baseline_means_zero": true,
+      "tolerance_log_units": 1e-12,
+      "trials_with_equal_above_below_counts": 8,
+      "maximum_above_below_count_difference": 33,
+      "nonbout_and_invalid_frames_remain_NaN": true,
+      "infinite_input_or_output_values": false,
+      "independent_groupby_bin_means_verified": true,
+      "other_versions_unchanged": true
+    },
+    "previous_version4_balance_audit": {
+      "audit": "previous Version 4; [-15,0) baseline; NaNs ignored",
+      "tolerance_log_units": 1e-12,
+      "trials": 270,
+      "median_zero_all_trials": true,
+      "neither_strict_sign_exceeds_half_in_any_trial": true,
+      "equal_above_below_counts": 270,
+      "above_below_differ_by_at_most_one": 270,
+      "maximum_above_below_count_difference": 0,
+      "unequal_counts_explained_by_ties": true,
+      "maximum_absolute_baseline_median": 2.5153490401663703e-16,
+      "largest_imbalance_examples": [
+        {
+          "panel": "F",
+          "trial": 5,
+          "finite_baseline_bins": 21,
+          "baseline_above_zero": 10,
+          "baseline_below_zero": 10,
+          "baseline_tied_at_zero": 1,
+          "absolute_above_below_difference": 0,
+          "baseline_median": 0.0,
+          "finite_display_bins": 64,
+          "whole_window_above_zero": 32,
+          "whole_window_above_fraction": 0.5,
+          "baseline_above_fraction": 0.47619047619047616
+        },
+        {
+          "panel": "F",
+          "trial": 6,
+          "finite_baseline_bins": 24,
+          "baseline_above_zero": 12,
+          "baseline_below_zero": 12,
+          "baseline_tied_at_zero": 0,
+          "absolute_above_below_difference": 0,
+          "baseline_median": 2.0036056147532122e-16,
+          "finite_display_bins": 56,
+          "whole_window_above_zero": 27,
+          "whole_window_above_fraction": 0.48214285714285715,
+          "baseline_above_fraction": 0.5
+        },
+        {
+          "panel": "F",
+          "trial": 7,
+          "finite_baseline_bins": 21,
+          "baseline_above_zero": 10,
+          "baseline_below_zero": 10,
+          "baseline_tied_at_zero": 1,
+          "absolute_above_below_difference": 0,
+          "baseline_median": 0.0,
+          "finite_display_bins": 57,
+          "whole_window_above_zero": 24,
+          "whole_window_above_fraction": 0.42105263157894735,
+          "baseline_above_fraction": 0.47619047619047616
+        },
+        {
+          "panel": "F",
+          "trial": 8,
+          "finite_baseline_bins": 20,
+          "baseline_above_zero": 10,
+          "baseline_below_zero": 10,
+          "baseline_tied_at_zero": 0,
+          "absolute_above_below_difference": 0,
+          "baseline_median": 0.0,
+          "finite_display_bins": 48,
+          "whole_window_above_zero": 23,
+          "whole_window_above_fraction": 0.4791666666666667,
+          "baseline_above_fraction": 0.5
+        },
+        {
+          "panel": "F",
+          "trial": 9,
+          "finite_baseline_bins": 22,
+          "baseline_above_zero": 11,
+          "baseline_below_zero": 11,
+          "baseline_tied_at_zero": 0,
+          "absolute_above_below_difference": 0,
+          "baseline_median": 0.0,
+          "finite_display_bins": 60,
+          "whole_window_above_zero": 28,
+          "whole_window_above_fraction": 0.4666666666666667,
+          "baseline_above_fraction": 0.5
+        },
+        {
+          "panel": "F",
+          "trial": 10,
+          "finite_baseline_bins": 22,
+          "baseline_above_zero": 11,
+          "baseline_below_zero": 11,
+          "baseline_tied_at_zero": 0,
+          "absolute_above_below_difference": 0,
+          "baseline_median": 2.500170209751573e-16,
+          "finite_display_bins": 62,
+          "whole_window_above_zero": 22,
+          "whole_window_above_fraction": 0.3548387096774194,
+          "baseline_above_fraction": 0.5
+        }
+      ]
+    },
+    "current_example_trial_markers": {
+      "fish": "20230310_08",
+      "panel": "G",
+      "trials": [
+        9,
+        17,
+        63,
+        66,
+        93
+      ],
+      "selections": [
+        {
+          "trial": 9,
+          "phase": "Pre",
+          "finite_display_bins": 80,
+          "finite_baseline_bins": 30
+        },
+        {
+          "trial": 17,
+          "phase": "early Train",
+          "finite_display_bins": 79,
+          "finite_baseline_bins": 29
+        },
+        {
+          "trial": 63,
+          "phase": "late Train",
+          "finite_display_bins": 79,
+          "finite_baseline_bins": 30
+        },
+        {
+          "trial": 66,
+          "phase": "early Test",
+          "finite_display_bins": 79,
+          "finite_baseline_bins": 29
+        },
+        {
+          "trial": 93,
+          "phase": "late Test",
+          "finite_display_bins": 79,
+          "finite_baseline_bins": 29
+        }
+      ],
+      "status": "provisional illustrative examples for a later panel E update",
+      "reason": "match the legacy five phase positions, with at least 79/80 finite displayed bins and 29/30 finite baseline bins; not selected as maximal responders",
+      "source": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\PanelG_median_bins.csv",
+      "source_sha256": "1ca13e523fccbacae2cbcbd1fb9d7e3e2ca42bac36c331d8b6fed4e61ba7bc45"
+    }
+  },
+  "new_candidates": [
+    {
+      "id": "v5",
+      "title": "Version 5: 1 s means, original continuous colours",
+      "processing_bullets": [
+        "Direct eligible framewise natural-log vigor; non-bout and invalid values stay NaN.",
+        "Arithmetic means recalculated directly from finite frames in 1 s bins; any finite sample suffices. All-NaN bins remain black.",
+        "40 bins per trial, with up to 20 baseline bins. Trial baseline = arithmetic mean of its finite new baseline-bin means in [-20,0) s, one vote per bin.",
+        "Subtract this baseline mean. No percentile scaling or numerical clipping. Linear managua_r, fixed colour limits -0.25 to +0.25 log units; values outside retain their numeric values."
+      ],
+      "validation_path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\Version5_DirectBinMeans_validation.json",
+      "validation_sha256": "2e7dc32d9bfce22b04f46274e3e20c355ebaa2caa86e19a98d55524e327ee14f",
+      "validation": {
+        "variant": "Version5_DirectBinMeans",
+        "fish": {
+          "F": "20221115_07",
+          "G": "20230310_08",
+          "H": "20221115_09"
+        },
+        "numeric_values_unchanged": true,
+        "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\data_manifest.json",
+        "source_data_manifest_sha256": "35c328b6c0e9c482c1aa89b745abb223487d6f3211874475ca04729fa5d55e04",
+        "source_numeric_files": [
+          {
+            "panel": "F",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelF_mean_bins.csv",
+            "sha256": "ce2adc15f495e330351be72f56240dc5475f8aa074f043067369496808a3faf7"
+          },
+          {
+            "panel": "G",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelG_mean_bins.csv",
+            "sha256": "308e095a5ade5315a19fe41143c3c307a208821df953c7a8992c24730bb27031"
+          },
+          {
+            "panel": "H",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelH_mean_bins.csv",
+            "sha256": "0af86b7857b90559119db00af48b8eaceecf05e140545662b67f7f555b264f5e"
+          }
+        ],
+        "panels": [
+          {
+            "panel": "F",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 3507
+          },
+          {
+            "panel": "G",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 3599
+          },
+          {
+            "panel": "H",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 2734
+          }
+        ],
+        "annotations": {
+          "six_CS_boundaries_verified": true,
+          "CS_times_s": [
+            0,
+            10
+          ],
+          "CS_colour": "#0d8136",
+          "CS_linewidth_pt": 2.4,
+          "CS_alpha": 0.8,
+          "phase_labels": "left of F",
+          "example_arrowheads_panel": "G",
+          "example_arrowheads_direction": "left",
+          "example_arrowheads_trials": [
+            9,
+            17,
+            63,
+            66,
+            93
+          ],
+          "arrowhead_trial_positions_verified": true
+        },
+        "colour_mapping": "linear",
+        "renderer_sha256": "0fc3effe0306a986581da5262e6460ae6d6508146a351959d00c64fa55eb9202",
+        "palette": "managua_r",
+        "colour_limits": [
+          -0.25,
+          0.25
+        ],
+        "colourbar_label": "Log vigor relative to baseline",
+        "colourbar_count": 1,
+        "layout": {
+          "size_inches": [
+            9,
+            5.1
+          ],
+          "panel_lefts": [
+            0.09,
+            0.355,
+            0.62
+          ],
+          "panel_width": 0.22,
+          "phase_labels": "left of F"
+        },
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version5_DirectBinMeans_legacy_layout.svg",
+            "sha256": "cbb09b76db411842b704a57598e3fc1b1232c7a2380b4bc43da2b36b90c1391c"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version5_DirectBinMeans_legacy_layout.png",
+            "sha256": "4c6cc7d198601a9e3c6f418452ef202b7ce4e9c892f50e467d83c281bdaab604"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version5_DirectBinMeans_legacy_layout.pdf",
+            "sha256": "e81ae586fc6f42866203951cd23da15bcfda2daf1a5d50edf8690e78a9354f48"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v4-contrast",
+      "title": "Version 4: separate continuous contrast candidate",
+      "processing_bullets": [
+        "Uses the existing Version 4 quarter-second data and baseline mean without recalculation.",
+        "Display coordinate u = 0.5 + 0.5 sign(d) sqrt(min(|d| / 0.25, 1)), where d is delta log vigor.",
+        "Samples continuous managua_r at u. Zero colour and endpoint limits remain the same; small differences receive stronger colour separation.",
+        "Only the colour mapping changes. The colourbar uses the inverse mapping and remains labelled in log units."
+      ],
+      "validation_path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\Version4_Contrast_validation.json",
+      "validation_sha256": "315507d095fedb7d0e5899c800b789e1bac5786228852b38bffd88b7baf9ece3",
+      "validation": {
+        "variant": "Version4_Contrast",
+        "fish": {
+          "F": "20221115_07",
+          "G": "20230310_08",
+          "H": "20221115_09"
+        },
+        "numeric_values_unchanged": true,
+        "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+        "source_data_manifest_sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78",
+        "source_numeric_files": [
+          {
+            "panel": "F",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+            "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+          },
+          {
+            "panel": "G",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+            "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+          },
+          {
+            "panel": "H",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+            "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+          }
+        ],
+        "panels": [
+          {
+            "panel": "F",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 10743
+          },
+          {
+            "panel": "G",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 13654
+          },
+          {
+            "panel": "H",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 5455
+          }
+        ],
+        "annotations": {
+          "six_CS_boundaries_verified": true,
+          "CS_times_s": [
+            0,
+            10
+          ],
+          "CS_colour": "#0d8136",
+          "CS_linewidth_pt": 2.4,
+          "CS_alpha": 0.8,
+          "phase_labels": "left of F",
+          "example_arrowheads_panel": "G",
+          "example_arrowheads_direction": "left",
+          "example_arrowheads_trials": [
+            9,
+            17,
+            63,
+            66,
+            93
+          ],
+          "arrowhead_trial_positions_verified": true
+        },
+        "colour_mapping": "signed square-root display contrast: u=.5+.5*sign(d)*sqrt(min(abs(d)/.25,1))",
+        "renderer_sha256": "0fc3effe0306a986581da5262e6460ae6d6508146a351959d00c64fa55eb9202",
+        "palette": "managua_r",
+        "colour_limits": [
+          -0.25,
+          0.25
+        ],
+        "colourbar_label": "Log vigor relative to baseline",
+        "colourbar_count": 1,
+        "layout": {
+          "size_inches": [
+            9,
+            5.1
+          ],
+          "panel_lefts": [
+            0.09,
+            0.355,
+            0.62
+          ],
+          "panel_width": 0.22,
+          "phase_labels": "left of F"
+        },
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version4_Contrast_legacy_layout.svg",
+            "sha256": "61981e21a2915a5906e6e8d714ec83b980c4783f83a211e94faf0d6fa3fcd31b"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version4_Contrast_legacy_layout.png",
+            "sha256": "23848282e604d7663118dab1ef2e5ec256b5188630758a61992e2322b92e7620"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version4_Contrast_legacy_layout.pdf",
+            "sha256": "703a280e837b1cb303c34765ac67b5704cfd8553190ef694674ebe00da25e001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v5-contrast",
+      "title": "Version 5: separate continuous contrast candidate",
+      "processing_bullets": [
+        "Uses exactly the new Version 5 1 s data and its baseline mean.",
+        "Uses the same signed square-root colour mapping described above. No change to numeric values, masks or trial references."
+      ],
+      "validation_path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\Version5_Contrast_validation.json",
+      "validation_sha256": "fcf5c8f247a2e03e980be574dfe3d5b016e2649ad348f7daa1be6124225a5b9a",
+      "validation": {
+        "variant": "Version5_Contrast",
+        "fish": {
+          "F": "20221115_07",
+          "G": "20230310_08",
+          "H": "20221115_09"
+        },
+        "numeric_values_unchanged": true,
+        "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\data_manifest.json",
+        "source_data_manifest_sha256": "35c328b6c0e9c482c1aa89b745abb223487d6f3211874475ca04729fa5d55e04",
+        "source_numeric_files": [
+          {
+            "panel": "F",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelF_mean_bins.csv",
+            "sha256": "ce2adc15f495e330351be72f56240dc5475f8aa074f043067369496808a3faf7"
+          },
+          {
+            "panel": "G",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelG_mean_bins.csv",
+            "sha256": "308e095a5ade5315a19fe41143c3c307a208821df953c7a8992c24730bb27031"
+          },
+          {
+            "panel": "H",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelH_mean_bins.csv",
+            "sha256": "0af86b7857b90559119db00af48b8eaceecf05e140545662b67f7f555b264f5e"
+          }
+        ],
+        "panels": [
+          {
+            "panel": "F",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 3507
+          },
+          {
+            "panel": "G",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 3599
+          },
+          {
+            "panel": "H",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 2734
+          }
+        ],
+        "annotations": {
+          "six_CS_boundaries_verified": true,
+          "CS_times_s": [
+            0,
+            10
+          ],
+          "CS_colour": "#0d8136",
+          "CS_linewidth_pt": 2.4,
+          "CS_alpha": 0.8,
+          "phase_labels": "left of F",
+          "example_arrowheads_panel": "G",
+          "example_arrowheads_direction": "left",
+          "example_arrowheads_trials": [
+            9,
+            17,
+            63,
+            66,
+            93
+          ],
+          "arrowhead_trial_positions_verified": true
+        },
+        "colour_mapping": "signed square-root display contrast: u=.5+.5*sign(d)*sqrt(min(abs(d)/.25,1))",
+        "renderer_sha256": "0fc3effe0306a986581da5262e6460ae6d6508146a351959d00c64fa55eb9202",
+        "palette": "managua_r",
+        "colour_limits": [
+          -0.25,
+          0.25
+        ],
+        "colourbar_label": "Log vigor relative to baseline",
+        "colourbar_count": 1,
+        "layout": {
+          "size_inches": [
+            9,
+            5.1
+          ],
+          "panel_lefts": [
+            0.09,
+            0.355,
+            0.62
+          ],
+          "panel_width": 0.22,
+          "phase_labels": "left of F"
+        },
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version5_Contrast_legacy_layout.svg",
+            "sha256": "50dc808ba4b3141e623098ebb0ce7690520aac7574b8f3bf3ada407cdb10c7e5"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version5_Contrast_legacy_layout.png",
+            "sha256": "8f73cc2c63e0caf48c6d174eca96d39db21513fe666ed9eca70ae55303e1e5d1"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version5_Contrast_legacy_layout.pdf",
+            "sha256": "bd4b7480b7f0f910b418b3ab5e7e9ac9ad17e5f057eb64fcb15562b698552c99"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v6",
+      "title": "Version 6: five bands with a narrow dark managua_r centre",
+      "processing_bullets": [
+        "Uses the current Version 4 0.25 s mean bins; all original columns remain verbatim in the exports.",
+        "For each trial, use finite baseline-bin means in [-20,0) s to calculate P25, P45, P50, P55 and P75 with linear quantile interpolation.",
+        "Subtract baseline P50, so the baseline median is zero. The small central band spans P45 to P55, the middle 10% of the baseline distribution, and contains zero in every trial.",
+        "Five classes: x < P25; P25 <= x < P45; P45 <= x < P55; P55 <= x < P75; x >= P75. Exact boundary ties enter the upper class. Black is reserved for missing values.",
+        "All five colours follow managua_r at positions 0, 0.25, 0.5, 0.75 and 1. The dark purple midpoint marks the centre; pure black is reserved for missing cells.",
+        "Common ordinal display scores [-1, -0.5, 0, +0.5, +1] put all trials on the same five-band scale. These describe within-trial baseline rank, not continuously normalized physical amplitude.",
+        "The shared colourbar shows Low, Below, Centre, Above and High. Physical log thresholds vary by trial and are exported in the 270-row threshold table. Original mean-centred and new median-centred log values remain available; neither is numerically clipped.",
+        "The earlier four-colour candidate is preserved below as superseded history."
+      ],
+      "validation_path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\Version6_CentralBand_validation.json",
+      "validation_sha256": "452d7bf6f89ab6b25d2e83d97576902da070a374340695afb99b03cbc1119275",
+      "validation": {
+        "variant": "Version6_CentralBand",
+        "fish": {
+          "F": "20221115_07",
+          "G": "20230310_08",
+          "H": "20221115_09"
+        },
+        "numeric_values_unchanged": true,
+        "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\data_manifest.json",
+        "source_data_manifest_sha256": "f83a5e5586404dff574a2517d0d6d8561ffbc7f3610c81bcb6021cc61644840c",
+        "source_numeric_files": [
+          {
+            "panel": "F",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelF_mean_bins.csv",
+            "sha256": "7963c12eca8f67ed880563d32ffe949961db04c2428304b42d90a28a72ae0803"
+          },
+          {
+            "panel": "G",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelG_mean_bins.csv",
+            "sha256": "fe84d07628ff7186d81588433eda859857635012c517e2068aebc45c2932f4b1"
+          },
+          {
+            "panel": "H",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelH_mean_bins.csv",
+            "sha256": "64b35ffcf517593c705181e7e51dd7306e840df697ef26c6c8ee3cb3a6ddb83d"
+          }
+        ],
+        "panels": [
+          {
+            "panel": "F",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 10743
+          },
+          {
+            "panel": "G",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 13654
+          },
+          {
+            "panel": "H",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 5455
+          }
+        ],
+        "annotations": {
+          "six_CS_boundaries_verified": true,
+          "CS_times_s": [
+            0,
+            10
+          ],
+          "CS_colour": "#0d8136",
+          "CS_linewidth_pt": 2.4,
+          "CS_alpha": 0.8,
+          "phase_labels": "left of F",
+          "example_arrowheads_panel": "G",
+          "example_arrowheads_direction": "left",
+          "example_arrowheads_trials": [
+            9,
+            17,
+            63,
+            66,
+            93
+          ],
+          "arrowhead_trial_positions_verified": true
+        },
+        "colour_mapping": {
+          "thresholds": [
+            1.5,
+            2.5,
+            3.5,
+            4.5
+          ],
+          "band_labels": [
+            "Low",
+            "Below",
+            "Centre",
+            "Above",
+            "High"
+          ],
+          "colourbar_label": "Baseline bands (P50 = 0)",
+          "thresholds_coordinate": "quartile class index for rendering only",
+          "colours": [
+            "#81e7ff",
+            "#5775b3",
+            "#582948",
+            "#b26343",
+            "#ffcf67"
+          ],
+          "managua_r_sample_positions": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "reference": "each trial finite pre-CS 0.25 s mean bins in [-20,0)",
+          "quantile_method": "linear",
+          "scientific_boundaries": "per-trial P25-P50, P45-P50, P55-P50, P75-P50 in log units",
+          "central_band": "P45 <= x < P55, contains median-centred zero",
+          "central_colour": "#582948, actual dark managua_r midpoint; missing values remain pure black",
+          "threshold_table": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\per_trial_quartile_thresholds.csv",
+          "threshold_table_sha256": "9a13d9d22c150f057cfc4f4072dce6d3d8b05e287916ce03ac4883d6bc9a5ccc",
+          "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+          "class_intervals": [
+            "x < P25",
+            "P25 <= x < P45",
+            "P45 <= x < P55",
+            "P55 <= x < P75",
+            "x >= P75"
+          ],
+          "display_scores": [
+            -1.0,
+            -0.5,
+            0.0,
+            0.5,
+            1.0
+          ],
+          "missing_colour": "#000000"
+        },
+        "renderer_sha256": "11f164a0d23f39c9528d9f8a1a84269db0d890414f54ca485c08cc61eccbaaa0",
+        "palette": "managua_r",
+        "colour_limits": [
+          1.0,
+          5.0
+        ],
+        "colourbar_label": "Baseline bands (P50 = 0)",
+        "colourbar_count": 1,
+        "layout": {
+          "size_inches": [
+            9,
+            5.1
+          ],
+          "panel_lefts": [
+            0.09,
+            0.355,
+            0.62
+          ],
+          "panel_width": 0.22,
+          "phase_labels": "left of F"
+        },
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_CentralBand_legacy_layout.svg",
+            "sha256": "4749d5b5bc95bef1ed6e5bcafa7ef30942448c70f58582bbb7fe620951a047a7"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_CentralBand_legacy_layout.png",
+            "sha256": "c9c2e41a7b6dce5ea7048343e8efff65ff4d89796ec97d61b58ad90fd3e4859c"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_CentralBand_legacy_layout.pdf",
+            "sha256": "a5b03d28476b76c7b2d86eb763b2c876b9388ed1b56b2ccff0c765e4776cce35"
+          }
+        ]
+      }
+    },
+    {
+      "id": "v6-four",
+      "title": "Earlier Version 6: four colours (superseded candidate)",
+      "processing_bullets": [
+        "Starts from current Version 4 finite quarter-second arithmetic-mean bins. All original numeric columns are preserved verbatim in the CSV exports.",
+        "For each trial separately, calculate P25, P50 and P75 from finite unscaled bin means before CS in [-20,0) s, one vote per finite bin. Linear quantile interpolation.",
+        "Subtract that trial baseline P50. Thus the baseline median and central boundary are zero; this changes mean centring to median centring for Version 6 only.",
+        "Four classes: x < P25; P25 <= x < P50; P50 <= x < P75; x >= P75. Ties at boundaries enter the upper class. NaNs remain black and are never assigned a class.",
+        "The common discrete scale is Q1-Q4, also exported as ordinal display scores [-1, -1/3, +1/3, +1]. These scores describe within-trial baseline rank, not a continuous amplitude normalization.",
+        "Colours have the same rank meaning in every trial, but physical log thresholds differ. The shared colourbar therefore shows Q1-Q4; the exact 270 per-trial thresholds are available below.",
+        "Sample four managua_r colours at positions [0.0, 0.25, 0.75, 1.0]: #81e7ff, #5775b3, #b26343, #ffcf67. No numerical clipping of log values."
+      ],
+      "validation_path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\Version6_TrialQuartiles_validation.json",
+      "validation_sha256": "51bce4bc754eb75b0a436f582073260c3717fe5af64300dc0983e53162aa96e7",
+      "validation": {
+        "variant": "Version6_TrialQuartiles",
+        "fish": {
+          "F": "20221115_07",
+          "G": "20230310_08",
+          "H": "20221115_09"
+        },
+        "numeric_values_unchanged": true,
+        "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\data_manifest.json",
+        "source_data_manifest_sha256": "031ed6b52dc437ff50466f20beb2670d4d204e5ecd4d8c354e3c57d9340cd52b",
+        "source_numeric_files": [
+          {
+            "panel": "F",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelF_mean_bins.csv",
+            "sha256": "b98fc13447606fbd3a1e6d41225d3770a01f342a5604dbd7cbb0917366eaf893"
+          },
+          {
+            "panel": "G",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelG_mean_bins.csv",
+            "sha256": "49c4f58767e9b7f4b234d92fae8e4707236eb4c97c41620a1e7fac4088432f15"
+          },
+          {
+            "panel": "H",
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelH_mean_bins.csv",
+            "sha256": "c057a35a3ac65de5838d7df92c500a6b2fdf2a63a927d570b8da5194accb331d"
+          }
+        ],
+        "panels": [
+          {
+            "panel": "F",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 10743
+          },
+          {
+            "panel": "G",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 13654
+          },
+          {
+            "panel": "H",
+            "values_intervals_positions_and_colours_verified": true,
+            "display_rectangles": 5455
+          }
+        ],
+        "annotations": {
+          "six_CS_boundaries_verified": true,
+          "CS_times_s": [
+            0,
+            10
+          ],
+          "CS_colour": "#0d8136",
+          "CS_linewidth_pt": 2.4,
+          "CS_alpha": 0.8,
+          "phase_labels": "left of F",
+          "example_arrowheads_panel": "G",
+          "example_arrowheads_direction": "left",
+          "example_arrowheads_trials": [
+            9,
+            17,
+            63,
+            66,
+            93
+          ],
+          "arrowhead_trial_positions_verified": true
+        },
+        "colour_mapping": {
+          "thresholds": [
+            1.5,
+            2.5,
+            3.5
+          ],
+          "thresholds_coordinate": "quartile class index for rendering only",
+          "colours": [
+            "#81e7ff",
+            "#5775b3",
+            "#b26343",
+            "#ffcf67"
+          ],
+          "managua_r_sample_positions": [
+            0.0,
+            0.25,
+            0.75,
+            1.0
+          ],
+          "reference": "each trial finite pre-CS 0.25 s mean bins in [-20,0)",
+          "quantile_method": "linear",
+          "scientific_boundaries": "per-trial P25-P50, 0, P75-P50 in log units",
+          "threshold_table": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\per_trial_quartile_thresholds.csv",
+          "threshold_table_sha256": "8238c1b51affe4c819d7629be51290f2eab25a2da33a0792829fe92dfdfbbdb1",
+          "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+          "class_intervals": [
+            "x < P25",
+            "P25 <= x < P50",
+            "P50 <= x < P75",
+            "x >= P75"
+          ],
+          "display_scores": [
+            -1.0,
+            -0.3333333333333333,
+            0.3333333333333333,
+            1.0
+          ],
+          "missing_colour": "#000000"
+        },
+        "renderer_sha256": "0fc3effe0306a986581da5262e6460ae6d6508146a351959d00c64fa55eb9202",
+        "palette": "managua_r",
+        "colour_limits": [
+          1.0,
+          4.0
+        ],
+        "colourbar_label": "Within-trial baseline quartile",
+        "colourbar_count": 1,
+        "layout": {
+          "size_inches": [
+            9,
+            5.1
+          ],
+          "panel_lefts": [
+            0.09,
+            0.355,
+            0.62
+          ],
+          "panel_width": 0.22,
+          "phase_labels": "left of F"
+        },
+        "outputs": [
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_TrialQuartiles_legacy_layout.svg",
+            "sha256": "39a8f15492c81572cce6d64277b625054203fd3c50695faa5ee67d63506c7604"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_TrialQuartiles_legacy_layout.png",
+            "sha256": "d4baa84456247617c482c0bc5595f04f8641eac194a17ca59e22346827d50f99"
+          },
+          {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version6_TrialQuartiles_legacy_layout.pdf",
+            "sha256": "43a35df0bd4e61c8db8a2138eb45f342612446726e2ebd182413b16406ee31ce"
+          }
+        ]
+      }
+    }
+  ],
+  "version5_manifest": {
+    "version": "Version5_DirectBinMeans",
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "bin_width_s": 1.0,
+    "bins_per_trial": 40,
+    "display_interval_s": [
+      -20,
+      20
+    ],
+    "baseline_interval_s": [
+      -20,
+      0
+    ],
+    "maximum_baseline_bins": 20,
+    "trials": [
+      5,
+      94
+    ],
+    "frame_value": "direct eligible bout natural-log vigor; non-bout and invalid/ineligible frames remain NaN; no replacement/floor",
+    "bin_value": "arithmetic mean of finite eligible natural-log vigor per 1 s bin; ignore NaNs; any one finite sample suffices",
+    "baseline": "arithmetic mean of finite unscaled baseline-bin means in [-20,0); all-NaN bins ignored; one vote per finite bin",
+    "formula": "delta_log_vigor = bin_mean - mean(finite baseline-bin means)",
+    "undefined_rule": "whole trial undefined only if it has no finite baseline-bin means",
+    "data_scaling": false,
+    "data_clipping": false,
+    "percentile_scaling": false,
+    "palette": "managua_r",
+    "colour_limits": [
+      -0.25,
+      0.25
+    ],
+    "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+    "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+    "source_tables": [
+      {
+        "panel": "F",
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+        "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+      },
+      {
+        "panel": "G",
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+        "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+      },
+      {
+        "panel": "H",
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+        "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+      }
+    ],
+    "panels": [
+      {
+        "panel": "F",
+        "fish": "20221115_07",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 3600,
+        "finite_display_bins": 3507,
+        "empty_bins": 93,
+        "single_sample_bins_retained": 0,
+        "maximum_absolute_baseline_mean": 7.549516567451064e-16
+      },
+      {
+        "panel": "G",
+        "fish": "20230310_08",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 3600,
+        "finite_display_bins": 3599,
+        "empty_bins": 1,
+        "single_sample_bins_retained": 0,
+        "maximum_absolute_baseline_mean": 7.549516567451064e-16
+      },
+      {
+        "panel": "H",
+        "fish": "20221115_09",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 3600,
+        "finite_display_bins": 2734,
+        "empty_bins": 866,
+        "single_sample_bins_retained": 2,
+        "maximum_absolute_baseline_mean": 7.51535585900106e-16
+      }
+    ],
+    "data_files": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\baseline_statistics.csv",
+        "sha256": "f4982fb5f82fd407b33e2bfee32e3c9ce9ad668c9ea6e573e6ca4c5bb3512040"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelF_mean_bins.csv",
+        "sha256": "ce2adc15f495e330351be72f56240dc5475f8aa074f043067369496808a3faf7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelG_mean_bins.csv",
+        "sha256": "308e095a5ade5315a19fe41143c3c307a208821df953c7a8992c24730bb27031"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelH_mean_bins.csv",
+        "sha256": "0af86b7857b90559119db00af48b8eaceecf05e140545662b67f7f555b264f5e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\per_trial_baseline_balance.csv",
+        "sha256": "2bb50d5abccb06272624d2a5973d0861ffe9a3c2f907cb6fc276aac713908297"
+      }
+    ]
+  },
+  "version5_numeric_verification": {
+    "version": "Version5_DirectBinMeans",
+    "bin_width_s": 1.0,
+    "panels": [
+      {
+        "panel": "F",
+        "fish": "20221115_07",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 3600,
+        "finite_display_bins": 3507,
+        "empty_bins": 93,
+        "single_sample_bins_retained": 0,
+        "maximum_absolute_baseline_mean": 7.549516567451064e-16
+      },
+      {
+        "panel": "G",
+        "fish": "20230310_08",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 3600,
+        "finite_display_bins": 3599,
+        "empty_bins": 1,
+        "single_sample_bins_retained": 0,
+        "maximum_absolute_baseline_mean": 7.549516567451064e-16
+      },
+      {
+        "panel": "H",
+        "fish": "20221115_09",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 3600,
+        "finite_display_bins": 2734,
+        "empty_bins": 866,
+        "single_sample_bins_retained": 2,
+        "maximum_absolute_baseline_mean": 7.51535585900106e-16
+      }
+    ],
+    "defined_trials": 270,
+    "undefined_trials": 0,
+    "all_defined_baseline_means_zero": true,
+    "tolerance_log_units": 1e-12,
+    "trials_with_equal_above_below_counts": 53,
+    "maximum_above_below_count_difference": 14,
+    "nonbout_and_invalid_frames_remain_NaN": true,
+    "infinite_input_or_output_values": false,
+    "independent_groupby_bin_means_verified": true,
+    "other_versions_unchanged": true
+  },
+  "version5_exported_verification": {
+    "exported_csv_readback_verified": true,
+    "panels": [
+      {
+        "panel": "F",
+        "bin_width_s": 1,
+        "rows": 3600,
+        "finite_bins": 3507,
+        "maximum_difference_from_unweighted_old_bin_means": 1.2852077567475457,
+        "weighted_quarter_bin_reconstruction_verified": true,
+        "minimum_delta": -2.6918316556839503,
+        "maximum_delta": 0.974637648593886,
+        "fraction_finite_saturated_at_fixed_limits": 0.22013116623895068,
+        "max_abs_baseline_mean": 7.438494264988549e-16
+      },
+      {
+        "panel": "G",
+        "bin_width_s": 1,
+        "rows": 3600,
+        "finite_bins": 3599,
+        "maximum_difference_from_unweighted_old_bin_means": 0.5242447718894945,
+        "weighted_quarter_bin_reconstruction_verified": true,
+        "minimum_delta": -0.6804512667099432,
+        "maximum_delta": 1.0541015248798633,
+        "fraction_finite_saturated_at_fixed_limits": 0.058071686579605444,
+        "max_abs_baseline_mean": 7.549516567451064e-16
+      },
+      {
+        "panel": "H",
+        "bin_width_s": 1,
+        "rows": 3600,
+        "finite_bins": 2734,
+        "maximum_difference_from_unweighted_old_bin_means": 1.077102261455185,
+        "weighted_quarter_bin_reconstruction_verified": true,
+        "minimum_delta": -2.6106979442914,
+        "maximum_delta": 0.8413017379337513,
+        "fraction_finite_saturated_at_fixed_limits": 0.08814923189465984,
+        "max_abs_baseline_mean": 7.46731736274324e-16
+      }
+    ],
+    "build_script": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\build_version5.py",
+    "build_script_sha256": "b7e0d685e2ca4863041d2aeac68ae3296473785c801ec61051b73ba2d4bd5fea"
+  },
+  "version6_manifest": {
+    "version": "Version6_CentralBand",
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "bin_width_s": 0.25,
+    "bins_per_trial": 160,
+    "baseline_interval_s": [
+      -20,
+      0
+    ],
+    "display_interval_s": [
+      -20,
+      20
+    ],
+    "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+    "source_data_manifest_sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78",
+    "source_tables": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+        "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+        "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+        "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+      }
+    ],
+    "bin_value": "arithmetic mean of finite eligible natural-log vigor per 0.25 s bin; ignore NaNs; any one finite sample suffices",
+    "formula": "median_centred_log_vigor = mean_log_vigor - baseline P50",
+    "colour_mapping": {
+      "thresholds": [
+        1.5,
+        2.5,
+        3.5,
+        4.5
+      ],
+      "band_labels": [
+        "Low",
+        "Below",
+        "Centre",
+        "Above",
+        "High"
+      ],
+      "colourbar_label": "Baseline bands (P50 = 0)",
+      "thresholds_coordinate": "quartile class index for rendering only",
+      "colours": [
+        "#81e7ff",
+        "#5775b3",
+        "#582948",
+        "#b26343",
+        "#ffcf67"
+      ],
+      "managua_r_sample_positions": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "reference": "each trial finite pre-CS 0.25 s mean bins in [-20,0)",
+      "quantile_method": "linear",
+      "scientific_boundaries": "per-trial P25-P50, P45-P50, P55-P50, P75-P50 in log units",
+      "central_band": "P45 <= x < P55, contains median-centred zero",
+      "central_colour": "#582948, actual dark managua_r midpoint; missing values remain pure black",
+      "threshold_table": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\per_trial_quartile_thresholds.csv",
+      "threshold_table_sha256": "9a13d9d22c150f057cfc4f4072dce6d3d8b05e287916ce03ac4883d6bc9a5ccc",
+      "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+      "class_intervals": [
+        "x < P25",
+        "P25 <= x < P45",
+        "P45 <= x < P55",
+        "P55 <= x < P75",
+        "x >= P75"
+      ],
+      "display_scores": [
+        -1.0,
+        -0.5,
+        0.0,
+        0.5,
+        1.0
+      ],
+      "missing_colour": "#000000"
+    },
+    "data_clipping": false,
+    "continuous_amplitude_scaling": false,
+    "common_display_range": "ordinal band scores [-1,-0.5,0,+0.5,+1]; five classes, not physical amplitude",
+    "approval_evidence": {
+      "centre_colour": "the centre has to be dark as in managua_r. always follow managua. but center cannot be total dark",
+      "central_band": "Middle 10% of baseline values: P45-P55, giving five bands",
+      "bin_width": "0.25 s, matching current Version 4",
+      "quartiles": "separate quartiles within each trial. each trial data will need to be scaled to be in the same range and scale",
+      "central_boundary": "P50 and 0 must be the same thing. confirm how to do that",
+      "reference_and_median_subtraction": "Before CS: use [-20,0) s to define each trial\u2019s median and quartiles"
+    },
+    "data_files": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelF_mean_bins.csv",
+        "sha256": "7963c12eca8f67ed880563d32ffe949961db04c2428304b42d90a28a72ae0803"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelG_mean_bins.csv",
+        "sha256": "fe84d07628ff7186d81588433eda859857635012c517e2068aebc45c2932f4b1"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelH_mean_bins.csv",
+        "sha256": "64b35ffcf517593c705181e7e51dd7306e840df697ef26c6c8ee3cb3a6ddb83d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\per_trial_quartile_thresholds.csv",
+        "sha256": "9a13d9d22c150f057cfc4f4072dce6d3d8b05e287916ce03ac4883d6bc9a5ccc"
+      }
+    ]
+  },
+  "version6_numeric_verification": {
+    "version": "Version6_CentralBand",
+    "defined_trials": 270,
+    "bin_width_s": 0.25,
+    "panels": [
+      {
+        "panel": "F",
+        "rows": 14400,
+        "finite_classified_bins": 10743,
+        "original_v4_columns_preserved": true,
+        "class_assignments_and_nan_masks_verified": true
+      },
+      {
+        "panel": "G",
+        "rows": 14400,
+        "finite_classified_bins": 13654,
+        "original_v4_columns_preserved": true,
+        "class_assignments_and_nan_masks_verified": true
+      },
+      {
+        "panel": "H",
+        "rows": 14400,
+        "finite_classified_bins": 5455,
+        "original_v4_columns_preserved": true,
+        "class_assignments_and_nan_masks_verified": true
+      }
+    ],
+    "max_abs_baseline_median": 2.220446049250313e-16,
+    "collapsed_band_trials": 0,
+    "median_is_zero_verified": true,
+    "zero_in_central_band_all_trials": true,
+    "central_baseline_percentile_interval": [
+      45,
+      55
+    ],
+    "original_numeric_v4_columns_preserved": true,
+    "build_script_sha256": "9c3f79ff6d8923c1f96f0fc44441c65635965188cc4b43db62c31e9533215fc6"
+  },
+  "earlier_four_colour_manifest": {
+    "version": "Version6_TrialQuartiles",
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "bin_width_s": 0.25,
+    "bins_per_trial": 160,
+    "baseline_interval_s": [
+      -20,
+      0
+    ],
+    "display_interval_s": [
+      -20,
+      20
+    ],
+    "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+    "source_data_manifest_sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78",
+    "source_tables": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+        "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+        "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+        "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+      }
+    ],
+    "bin_value": "arithmetic mean of finite eligible natural-log vigor per 0.25 s bin; ignore NaNs; any one finite sample suffices",
+    "formula": "median_centred_log_vigor = mean_log_vigor - baseline P50",
+    "colour_mapping": {
+      "thresholds": [
+        1.5,
+        2.5,
+        3.5
+      ],
+      "thresholds_coordinate": "quartile class index for rendering only",
+      "colours": [
+        "#81e7ff",
+        "#5775b3",
+        "#b26343",
+        "#ffcf67"
+      ],
+      "managua_r_sample_positions": [
+        0.0,
+        0.25,
+        0.75,
+        1.0
+      ],
+      "reference": "each trial finite pre-CS 0.25 s mean bins in [-20,0)",
+      "quantile_method": "linear",
+      "scientific_boundaries": "per-trial P25-P50, 0, P75-P50 in log units",
+      "threshold_table": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\per_trial_quartile_thresholds.csv",
+      "threshold_table_sha256": "8238c1b51affe4c819d7629be51290f2eab25a2da33a0792829fe92dfdfbbdb1",
+      "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+      "class_intervals": [
+        "x < P25",
+        "P25 <= x < P50",
+        "P50 <= x < P75",
+        "x >= P75"
+      ],
+      "display_scores": [
+        -1.0,
+        -0.3333333333333333,
+        0.3333333333333333,
+        1.0
+      ],
+      "missing_colour": "#000000"
+    },
+    "data_clipping": false,
+    "continuous_amplitude_scaling": false,
+    "common_display_range": "ordinal quartile scores [-1,-1/3,+1/3,+1]; four classes, not physical amplitude",
+    "approval_evidence": {
+      "bin_width": "0.25 s, matching current Version 4",
+      "quartiles": "separate quartiles within each trial. each trial data will need to be scaled to be in the same range and scale",
+      "central_boundary": "P50 and 0 must be the same thing. confirm how to do that",
+      "reference_and_median_subtraction": "Before CS: use [-20,0) s to define each trial\u2019s median and quartiles"
+    },
+    "data_files": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelF_mean_bins.csv",
+        "sha256": "b98fc13447606fbd3a1e6d41225d3770a01f342a5604dbd7cbb0917366eaf893"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelG_mean_bins.csv",
+        "sha256": "49c4f58767e9b7f4b234d92fae8e4707236eb4c97c41620a1e7fac4088432f15"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\PanelH_mean_bins.csv",
+        "sha256": "c057a35a3ac65de5838d7df92c500a6b2fdf2a63a927d570b8da5194accb331d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_quartiles_20261009\\per_trial_quartile_thresholds.csv",
+        "sha256": "8238c1b51affe4c819d7629be51290f2eab25a2da33a0792829fe92dfdfbbdb1"
+      }
+    ]
+  },
+  "renderer_revisions": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\render_candidates_fourband.py",
+      "sha256": "0fc3effe0306a986581da5262e6460ae6d6508146a351959d00c64fa55eb9202"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\render_candidates.py",
+      "sha256": "11f164a0d23f39c9528d9f8a1a84269db0d890414f54ca485c08cc61eccbaaa0"
+    }
+  ],
+  "preservation": {
+    "files_checked": 187,
+    "unchanged_files": 186,
+    "all_existing_figures_data_and_selection_records_unchanged": true,
+    "inventory": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\analysis_preview.png",
+        "sha256": "f197eec56546ebdb8a7510b370520702dd661208a1d61effdbf5376df545d5c4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\build_summary.py",
+        "sha256": "92bfd6a2a822dc9592d056c14e377ca47ce0cc389df7a11fc989148aef26f98d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\c-bins_preview.png",
+        "sha256": "31dfb198a70550d02d56f0537240539466d06c27060e7f3704962ce930f1f620"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\c-samples_preview.png",
+        "sha256": "6b7f55c0b8bcd61ee808db53f71a936c8c9354fcc2fb8fc836be8d232ba1f9f7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\check_summary.cjs",
+        "sha256": "17e9334a6183c0ab47bde8da51de1f82ad47a65926431e18d73ed1c406959279"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\d-samples_preview.png",
+        "sha256": "2b6efcd9ca03af4edead15f60bc49d66ae6f29b6e6e526306218afe36254828a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\header_preview.png",
+        "sha256": "5563c2d4cca53481fcef9ebe155609acaa71b477107328bd34593717106f8d16"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\html_validation.json",
+        "sha256": "153f725bde13abd8d9034bdb5b3039fe9dfdcd047e751e96aca66327ed3b4a1a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-direct-bin-reference-fix.html",
+        "sha256": "c68c8c3d2502d7a6613a68e430db9b12351240fb2f2864d32a3d5023161600e8"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-full-bout-correction.html",
+        "sha256": "cc4245df4f981977bf329b314dfc184e6d6c85749316c91bf1940dd14b571918"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-legacy-layout.html",
+        "sha256": "f2e3db80f79a9a789ce15f72b4fd6388c322f3574ab076e6aff1686544a3f6ef"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-version4-nonbout-means.html",
+        "sha256": "a8822f6b4bc6a7ecebefb623accae8f3bda92d7eb0781ba7714f0ed135415c5d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-version4-quartersecond-NaN.html",
+        "sha256": "e100dcab5c93c6be25d7f4917877c75ed83ab63494882250fc8779a121a3f7b4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-version4.html",
+        "sha256": "3007d20db9da97ea9748faa735569d66af714342126b5a324e0e9923de6b3846"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index.html",
+        "sha256": "0c4b6d313eb8b4a00803211e69fe979a51ca27d9878cf35400b68cb7bbb077d6"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\median-bins_preview.png",
+        "sha256": "4555d89795a9b5066f9e655576cfc690956a23b2b876dedd8141320a6fa295f5"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\provenance-before-full-bout-correction.json",
+        "sha256": "9e5fd379c7b60d66bb98c20a133360287d765d3a21beb0c8e9502994d1809e41"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\summary_provenance.json",
+        "sha256": "54c3a013dd93d26fad8f5a3366a67ef960268083f323cdaf0cbaa12c21385125"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_BoutSamples_validation.json",
+        "sha256": "3062f1f4e233b8a2f000113dee5c18a0025d15f7f9babecc27ff9b258390d072"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_DirectBins_validation.json",
+        "sha256": "10f1f0a0f768ed19f92e73d1ea66e9dfb8a78f6ddbfb4807178c01f772328f88"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_pdf_readback.png",
+        "sha256": "9b492becce836fe60aa2130f1346d164f945300e6c046706e27caf6dc990818d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_BoutSamples_validation.json",
+        "sha256": "1971a5f0822a5d8739f3da8c391faf4f6770a093ef7cec851566932d0f8cf410"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_pdf_readback.png",
+        "sha256": "d78059f496a4f06f88726c72224339841f9f04bd5f06154d38411f6009d26c99"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\example_trials.json",
+        "sha256": "16354bd5ed06f2853e144aa2d056db5f3923b21b690f6d567849bdebb1c4f054"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.pdf",
+        "sha256": "98a3933e846f6722d36688361bcaa985b978223f60ad8b5c3b1a231dc0bf5853"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.png",
+        "sha256": "e12ef20989995ecfedf8327ed351118dc8650e7503163303b8fa86a28c399a47"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.svg",
+        "sha256": "36dc5725d616a9ef281e67e962e9bd5428d2878069b4eee3403f8f560394fb35"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.pdf",
+        "sha256": "da8758877be35957d8977c2bda101ee282e3c2b739cdbfb16538e36cecc4a540"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.png",
+        "sha256": "e4e59ec823cf1c6116d298588fb31cc407fd5eb2b4df09a24e25126ebcace4c7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.svg",
+        "sha256": "c1c15f1a73bf1f9ce92cebe3b62b91023ebde3ec8516db10b99a2f26729ff38e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.pdf",
+        "sha256": "a20074a688136811f01882d543e3a4163bb5082c3a834987bc09a79f58c95341"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.png",
+        "sha256": "37dd25d6493bb4fef7181473cd6e22b3d8e94ad72166a2f0aa51bd429edcbaad"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.svg",
+        "sha256": "6671a9a1605be0f2730f7b04f54117d796f112e4253f789dc3e02284101d77b7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_Version4_DirectBinMedians_legacy_layout.pdf",
+        "sha256": "04e4d47af09e32de11f94e694ce62a69a9de81af0b7b56df8931ab7d1187821c"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_Version4_DirectBinMedians_legacy_layout.png",
+        "sha256": "e76d91c3e5face61655e39e321dd6151b70733d6b50c4efd5a3155f50822bea8"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_Version4_DirectBinMedians_legacy_layout.svg",
+        "sha256": "d0e560f8b0e8c9e7e57cdcc0059caac65d1280fe041aca33341c88c111ee9bfa"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\Means_pdf_readback.png",
+        "sha256": "41742dee4d577fbc52627e3e06c96955787d91d4d9f8ab911b60d392254e36a0"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\Medians_pdf_readback.png",
+        "sha256": "4915ded9f4f0eb5124b3be40adcfe6c45a13709ffa31df5d924f31fe5cc761f6"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\README.md",
+        "sha256": "5d58c89807d64200925950c8beffbbc9be0f88f6bd05c06af05ceb83b39cc5d9"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\render_layout.py",
+        "sha256": "8e84ac93e46077a58895b1e8be521096897250d4d381ed101d2255303fee20cd"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\Version4_DirectBinMedians_validation.json",
+        "sha256": "128fc97e34cbbf4eb33ad31c558f180865f4d028837c957343cacaee6acbd1eb"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\visual_verification.json",
+        "sha256": "3b0c4a7b38c6617d4e034779637274e23933b4220241c9f3ac0990bb0507c0cb"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\__pycache__\\render_layout.cpython-312.pyc",
+        "sha256": "e72738c34dbe2c7c7f3cffc178d80b8c8575051f376e067befde594e64db88dc"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\baseline_statistics.csv",
+        "sha256": "a98a7f430bf6707da71f7fdc56f94b243ecaaf9ae307c5134b6a99bec77fd261"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\build_version4.py",
+        "sha256": "f23808dd7b5ee6f001338bf49eb61151822e3a55f05ef51e97a37171d7662cc9"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+        "sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\exported_data_verification.json",
+        "sha256": "e7cb994ef046cf365f9e46665f56d684bc57cc303866d860cb02ffbdb222c880"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.pdf",
+        "sha256": "7c435447bf86b40568ebe38abe2f0f4ddd00cfe25f95ac0ca110c03587a659c6"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.png",
+        "sha256": "3c952454c321514c0f9a1585db117c6fda5ab09c53803f2fe2d63af09e24ced1"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.svg",
+        "sha256": "818512bb62428a1437f9155322bd52c3afb9e5b89afd11353512502f24bd26fb"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\numeric_verification.json",
+        "sha256": "84996d4e924a9d6eddf388149c56cd9ddeb31ff735f4df5755ee9acd9bce93e7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+        "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+        "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+        "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\pdf_readback.png",
+        "sha256": "dc533956c50a471470450455c4e4fa4617a3870efa81e1c1b993633704ac26d9"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\per_trial_baseline_balance.csv",
+        "sha256": "230efddb35172270429aa60523f983ca69d7701ae57bc9854dd9370cb1337774"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\README.md",
+        "sha256": "4ec2f4a44cf4442be1a26cec0bb05a738a74b8f5ed814dd7a0abe691364221a5"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\Version4_DirectBinMeans_validation.json",
+        "sha256": "aeab75f06c8c47f1ca49eb05dacc63de8356aafde9c8bac16dbb6aaca3ad8590"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\baseline_statistics.csv",
+        "sha256": "a674809ef09f824d0a1fa631b29df23da85220f783d74ade5e37906052ccab02"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\build_direct_reference.py",
+        "sha256": "8fae37c91991168f828e5ceaf9d6d0c28d4978f0f9587b675040a9f2102dbedc"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\C_DirectBins_validation.json",
+        "sha256": "852af378764d85e99abdca54b6d0e52658ad971f05da4e820577dd51aa02675b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\data_manifest.json",
+        "sha256": "efa5a05d4314fa5f750507780dff99b7ce747ebaab811b14bda9544a3d0fbc7b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\FGH_C_DirectBins_shared_colourbar.pdf",
+        "sha256": "b374544fcb462b9ec4b00563d28412bb4261441f3ad15525d145bd9d7940b536"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\FGH_C_DirectBins_shared_colourbar.png",
+        "sha256": "528610d85b03fe6326ccd664947ed00413db331a15f193604fdbf7d468d43283"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\FGH_C_DirectBins_shared_colourbar.svg",
+        "sha256": "c729697c303fbfa63b5152b2f18afc834faebc4edc22590a74fe35d075cc36a9"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\numeric_verification.json",
+        "sha256": "3db4754d9c9d514c38e2ca867df69fdfab7f34a90506856595b9b2bdee1257ef"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelF_direct_bins.csv",
+        "sha256": "8cda7c63d742b5079486a262081831c44607460694059aa60a40ceaa16ad408e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelG_direct_bins.csv",
+        "sha256": "f6a674b5d23eec4791790b00bd7c2d4d58441a39119616a6df3570363206830d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelH_direct_bins.csv",
+        "sha256": "14cd8d8dedf90a3bad5601571ec2a752971399715ddde4ae5f2ef5c8f8608076"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\pdf_readback.png",
+        "sha256": "4e6592e15a9c0c052780b3b1c7c451c89768bad79b1e432f4399cedc3684f233"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\README.md",
+        "sha256": "ec3e587e25b579ca7f13b4c656c2bbaa651857942ee3cb7a1106f3352398e58d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\register_reference.py",
+        "sha256": "cc09c6c56b12e862a4a33a6a04e6a962b34cc2673c640d643e1e39e77d8c9360"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\audit_direct_bin_offset.py",
+        "sha256": "b7dd10091b7180d831b185611d167dda2838335552086211d5cf1664d1f6afb7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\baseline_statistics.csv",
+        "sha256": "60187390d564a2b5fe79ede065a36ff71f296e075ad5283fe96d0aced78e177b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\build_corrected.py",
+        "sha256": "83d4dba7c625bdbd8cd5426018b8a7d1f305e12122cf942d475d52eca05faf73"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_BoutSamples_pdf_readback.png",
+        "sha256": "f0a3e1b208185ab05a7ac58b0b128348da047b37f7d3fa2ebf871dab4d10b779"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_BoutSamples_validation.json",
+        "sha256": "2405d5b1841939c855b9e98f6e7ff36c5157a6c81d231c09cdbf0ae4d8c03cff"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_DirectBins_pdf_readback.png",
+        "sha256": "fd9029f0596370316a8a1e9f301be5972d92c0ccd6464808537b7dbfee05d4c4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_DirectBins_validation.json",
+        "sha256": "95cffa8345b6f758474d9111c2fbfe1c9aabddd6c65a067b523caec5f990de86"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+        "sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\direct_bin_offset_audit.csv",
+        "sha256": "56dcc8b8272d61f9f9ba952edf30c5f8988f823b975ca3f80a3e7a10b09ca6c1"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\direct_bin_offset_summary.json",
+        "sha256": "d3014ff4e853198a268ecba969c437ac7d0243844d7dd066c26b5a1ab8e0b5fb"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\D_BoutSamples_pdf_readback.png",
+        "sha256": "00f13c914bb0a5220ee17c8cb2b57c3c29b5056de84454c70f5dcfc1cec0e645"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\D_BoutSamples_validation.json",
+        "sha256": "ca372f9c3f517caa16edc0870f20ddb8927ecc72c15e2dc0407f8ee99374d43e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_BoutSamples_shared_colourbar.pdf",
+        "sha256": "c6a425dec5915eb085637ed9a66f79dfde6ae5f0a3ab57a78bb55c2974974e39"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_BoutSamples_shared_colourbar.png",
+        "sha256": "5a76b8778e531d4a865e0c542790f6bf686622c379d915b014e3df0c0f91b68b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_BoutSamples_shared_colourbar.svg",
+        "sha256": "90d95197b30490cfdc0218cf2212ae30da02e811788044c0875c453b2d2ec310"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.pdf",
+        "sha256": "5200e5cae2be0a7b9500c4805b32acd9ce8988d7c2a0e98fa36c141ed6e1d64e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.png",
+        "sha256": "2e7e032ca89ad8a3ca8d0310b34d61d8844bcb71608f4622cec65f62c5675442"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.svg",
+        "sha256": "619a6d366277920bd5de1447f845381874192449a8bc8a46e4cc72ec5ed24518"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_D_BoutSamples_shared_colourbar.pdf",
+        "sha256": "117153eccbbf87bc66d953f553c5e009058c4fa4de0b2c449cb97df96e05daa6"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_D_BoutSamples_shared_colourbar.png",
+        "sha256": "68b9b9f8d6d7a4ca008d115278c8032295e9fddb15da0491e7282735194aa90e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_D_BoutSamples_shared_colourbar.svg",
+        "sha256": "97bfcdf1bd7642d452005195911fa0abfaee8c2dee7db212cd69a0d0b3cdef4a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\numeric_verification.json",
+        "sha256": "d5f0517b1ac1d28391acc91c417362011fe199dc0130d345da5ca885f3d2728b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_boundary_audit.csv",
+        "sha256": "7454e2b888876e39338e4f4ac5b5a87c48e6081bfb731fd0d871b7bd0bbce4a3"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bouts.csv",
+        "sha256": "c3e48177bddd8d4d8d130b6b8f2b9f4d275fc3cff89ddf5b939b3a4ce0b3d236"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+        "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_support.parquet",
+        "sha256": "0f568be31ebea4ce91a74efcb797e69c69c36134427114b16e8b45060a859840"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_C_sample_runs.csv",
+        "sha256": "af6b524c1fed6040b7e68f51fee78df22275ffd97d19ee9c26904244876de454"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_direct_bins.csv",
+        "sha256": "bb238f7de1c60e684c43279acfe8319bc64bbc73036f34f015041bcc2dabb4fb"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_D_sample_runs.csv",
+        "sha256": "815008bc3ac498c824cafc5b019b12d0a11f146ff5f1cca4c44b4d1f43dbad0b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_boundary_audit.csv",
+        "sha256": "91138b042957ceddd8f9c861f57408794db21d6ad1bf80e01413dcd137e47af7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bouts.csv",
+        "sha256": "addfcc76a644c2cc2f595db352c08826813cfbcd4ed67f57893f8fa6e01f1def"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+        "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_support.parquet",
+        "sha256": "18f4ce88b002a591f43421fb024174a2b3b2751d0ee105436f6a0d4cfaef0fe9"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_C_sample_runs.csv",
+        "sha256": "4f7abfa87464d763a4682b8b210cfafa9bc243a018a6b785ad64f804b1e5aff7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_direct_bins.csv",
+        "sha256": "a5f2b86c46d75c67bed109c1865b4878300c3eda25900d88f73b090872aa8c65"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_D_sample_runs.csv",
+        "sha256": "3b9f61198bd59bde1fcb0ea27fe17c3ad7eb27dd2b75b3fb97a0aa7c55d98301"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_boundary_audit.csv",
+        "sha256": "43274f9ead9267a1705a1c1fdca00d10bc7949665b6dde5f63a0ba88995e17e8"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bouts.csv",
+        "sha256": "6cc4f0374a02767349133a5c3d72fde4b4bab2872065245a2142644eabbece96"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+        "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_support.parquet",
+        "sha256": "cef27478639664748dec8d60702e8e58da0ba71163612222134fb4817bafb670"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_C_sample_runs.csv",
+        "sha256": "e084ef532569b322a81388e06b6c417398542eb66cbb89e93519a61b8c3074ed"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_direct_bins.csv",
+        "sha256": "92718de5e41e24910c69fcef826ccc3a3ac27610bf1a274fd12ac6a62b23e5a3"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_D_sample_runs.csv",
+        "sha256": "dfedf104d1bdca4574f9033c5425e894aeab8f6340e65c2c3dc9cc89ca7eab2c"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\README.md",
+        "sha256": "78e4c210fbebd77faf89f0aa09b4dac513abbaf377c53847b99c430be6c828af"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\register_corrected.py",
+        "sha256": "4ad05c0f67a55f44c5beec5d89d08f97c3d3601d41ab0a9f711e5bbc21fc7b46"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\verify_corrected.py",
+        "sha256": "a4b4bfedfbab4d19aa3df42de2ff32ded192a53fd91109f8316be83333090df5"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\freeze_and_style.py",
+        "sha256": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\register_freeze.py",
+        "sha256": "bab4ac1605c0f70b88fa31d55f7caef993a927bf5e13fdeab129e93f678dc300"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\render_references.cjs",
+        "sha256": "b72b424ec18fff1ab5b1297d4a6e91d70afbf46abda834c9b12e688297c625f5"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\replace_trace_fish.py",
+        "sha256": "e8a81ce00ddd377c0d12bd453e8e6e8b491d6dfd0a3758330cad46edfd56eb2a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared_colourbar.py",
+        "sha256": "cd36ec99dd29ff164475e4acf4fa8d4440ae7388ab87eb72e339a7ec0ad981c1"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.pdf",
+        "sha256": "6e525d28dd2da1e18af49931a9bdb968d876b28f06e63691e039e3aabb0fe2b6"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.png",
+        "sha256": "43603bf8727dd202fedde38c61571e3b9530c6a6404e30f5c8309d01c45da777"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.svg",
+        "sha256": "8ae5f65ff08413392c5604e1640c57b0da7888e8f5100b91c5bc8e59bfc30ca2"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.pdf",
+        "sha256": "c0be4d39d8b8a88a4ed9e47d21513214a8d9424940da474add429830902af03d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.png",
+        "sha256": "0ac29582cae8f99dd1ec99b947253254ffa43c992ff5122986b1d1e9d0c4834e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.svg",
+        "sha256": "718e50f8200f4bce869f7f9908831cdf68f2852e5686ef857b8ab5c351e41b39"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.pdf",
+        "sha256": "59fb7c6abe0317ec5e9dea51255c482117f574ec7f5e45b6e0ea54c297bc4ae0"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.png",
+        "sha256": "2488652338314c79c92a91e5fdceba733afa55a60616dccbba85ae3425754f5d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.svg",
+        "sha256": "a1a5eef90e3012a23a05cffb5293f3d6727d47fa3bc8184e35f854fb7bc2ee47"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\freeze.json",
+        "sha256": "0b3f383e62ccb78dea440bafa013a24582f8f73226923b6218fa9c908d1b0090"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelF_display_sample_runs.csv",
+        "sha256": "b5aa82cc00c6f0d3f9c8b8ba8a69c6299515c8ccf5601129e3f30d3ab3115d74"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelG_display_sample_runs.csv",
+        "sha256": "e40401500b7ed7e4578a1d79a4c0f225b81136405afd07bd903d5e7c2024ff6d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelH_display_sample_runs.csv",
+        "sha256": "380defc5bf73579dcec5bfd46e94e81918f0a98006777ee830a15d114973cf54"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\sample_baseline_statistics.csv",
+        "sha256": "3721d8fe2e0b279f9bc2d0e6597baa684a814fd87c52ae68d75535adbb00e8d2"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\selected_processing_code.py",
+        "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\source_comparison_manifest.json",
+        "sha256": "1d0590a421d3df7846b16169737230ff8b92a0143966152b4f61c90f97e8e0e0"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\FGH_C_BoutSamples_polished.pdf",
+        "sha256": "2431029a5a3dae0b33be219343be3492ccde3671b1a8ecfa3096a988da05013f"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\FGH_C_BoutSamples_polished.png",
+        "sha256": "e361084d2488edfde1caa29d6d618db6ca051ca17084c5a845e0a269f2cfe30e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.pdf",
+        "sha256": "d6a6a32d4b267f48169adc97f3da4dc729438e4da6330025e0167da640e1a4f8"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.png",
+        "sha256": "99c278dc5051af05516fe7704ddb3e8b5a333c2c5b60cd81c855aff4622ac9e0"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.svg",
+        "sha256": "3ad490a011a336d2b616b000ff44b02e4ac7ecbff62930cae24cf74953ecfbed"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.pdf",
+        "sha256": "be76e4b6c843d0ca8c4fd34fb83d37b67af959796b1eeff6184b840df9af6984"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.png",
+        "sha256": "092068437e6759c33584c035580081cbe2c09e72e2ea870d07fc3a6fcf6748a0"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.svg",
+        "sha256": "7efa7f168350794be166cabac56ceed628c9c5fc49eb12e448e6a7cb51ad83e4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.pdf",
+        "sha256": "ddcde123a0b1590cc0fdd937420ed55d6d8f449cc4c289c79765fe169a5c16d1"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.png",
+        "sha256": "dbcc99425662c7812a34b4b33cb62b8c6161e951f89b8d47a2da7d3e5724b341"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.svg",
+        "sha256": "630c7651e2e87669a4067d66a156cbeda612d72cda3a3c75c4e55e0109f2a2e1"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\layout_validation.json",
+        "sha256": "7aac6a68175697abde5119c25c28af90c4854c945a89c4684e00c36413f32da4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\legacy_style.png",
+        "sha256": "100f48d476f6ce2ee0784e1c23bc8c470adcf8cfea892c623de27ccfe5c66a78"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\legacy_style.svg",
+        "sha256": "4944009938fef65c6c3ae40bb9be91118708a7298e2a9367fd304a986fecb0ad"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\legacy_style_preview.png",
+        "sha256": "4208f7fb5951f0741cc22a4764b49ac75f8e1815a83a52146cd29b01d3c86319"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style.png",
+        "sha256": "a70e97d2b8bb27a4be4571b6fe6069f15ae0cfc24db2e94323e104f01dede070"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style.svg",
+        "sha256": "ade2e4e95288f35b0d2b95b24e3ac361ae1029863d3692e013ac06ac0160607c"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style_freeze.json",
+        "sha256": "aa4fca7eaece980ac80972924f2774d67edea3de9f5f98a4fea81315626db050"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style_preview.png",
+        "sha256": "c84ea4d31e57037959586c487dd3aeb33489bf0470f4c12911c45fe576b4def3"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.pdf",
+        "sha256": "ba49e336b0c4b53a00e992061da746ecd6ed9fa18fc441f1e990041031783960"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.png",
+        "sha256": "9980ab3ea55c29c6676180786c6ee0f81eaec8eab6185cdf79e46840b2cd732d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.svg",
+        "sha256": "d1b5b5dd2049c609fa558813b51d9861aff1d2618c34742f8696264922c300a8"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\pdf_readback.png",
+        "sha256": "67397957bedb9c9217f0bab4dc1d77f085234fe6300b16fddc035c1d857ffb6c"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\validation.json",
+        "sha256": "e444572c51f9c758f7ee3acd2d08818f393c2c474bdf73ce6d94ca04d68d4c9b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\__pycache__\\freeze_and_style.cpython-312.pyc",
+        "sha256": "c9b7eb2da8727e874f48f5a6254c51bbdaa1c104f6dcd77c8fa6902e950dd1e0"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\__pycache__\\shared_colourbar.cpython-312.pyc",
+        "sha256": "e095e0ecce711c58f3b8384adf83e37b09c6cf64a14364d45a6f38d04905caa2"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\FGH_pdf_readback.png",
+        "sha256": "1fefb183b3ac787ec10567d6a7123b1649210feab1e915579939598ab29b71f6"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\PanelF.png",
+        "sha256": "1a41729f595ff493961a89a4065088f9e872f5fd0049487b6f561566729f3eed"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\PanelG.png",
+        "sha256": "bb6e98bc347760267666850348f09abc8453f6aabedb82419cba3811351f5d43"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\PanelH.png",
+        "sha256": "f1dd7ab66c59e05c75f1f70e5f787fc8b8841a39363520ca0f25048c30df2680"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\behavior-paper.json",
+        "sha256": "402af84cf6b495233f12aeff238b85c76aee5320b58851e5e89ebbbe2af50309"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure-elements.json",
+        "sha256": "b28ad5dbaa55ce99a784f36dbb1e2c5dff1dcb9559de60dd00f47e02fbae5d1f"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-assembly.json",
+        "sha256": "19a6025cd3726e5d522ab43857e043c844fc86e894155a1862524a08e2e75b8a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-cadence-review-v5.json",
+        "sha256": "3380deec33ee3fb66a6bf8a45663154f33fc082d8c77da1893aa3de6e97eee5b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-full-bout-correction-20261009.json",
+        "sha256": "983ffa591e24b4d72bfcca736d1e412195c48ff938bb368f9e5e810e174fcf3c"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-version1-freeze-20261009.json",
+        "sha256": "bc2d65877d641dfd1968ff6760d7861a6c63b12cb080a711441e33ac81600224"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-freeze.json",
+        "sha256": "1b09e9c5aed9bb444043f36c55c3e7d26d9be22f7f2254d297d9f097b0a9187a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-axis025-review.json",
+        "sha256": "c80084cda149647ba75b38f5715460d3498e0b40191e1d7702bfd737a2b1d6a2"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-axis050-review.json",
+        "sha256": "b9480d1983c46674ae03c0bbb331f6d9f4535b7faebae076239f27b5cacf7d39"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-polished-review.json",
+        "sha256": "edfba9572fbb573822d78e30b6fab8473618849932e09e04ade87dc06ada063f"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-rawzoom-review.json",
+        "sha256": "1e0e3dcd4c9a93817ddc9e571fbfe8c9c511eb22dd84fb9d165226bc460adfbf"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-review.json",
+        "sha256": "3a5011d696f52d13944b204cd55db27f4ee33a9f54db839e83fb94736ae804c8"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-zeroaligned-review.json",
+        "sha256": "d9730dfaca5db22fa5f4fff212902a7da680fca05ebe9bae437509b72e160158"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-individual-bout-means-review.json",
+        "sha256": "89e7d2c5d03088515124fcd2471f6d0b7146eff55617d27a672803ad054ab4dc"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-scaled-bout-means-full-duration-review.json",
+        "sha256": "edf03945e80d71275ab0da680e5b284afc2eda9decb432210fc9c0dfd8df9188"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-session-protocol.json",
+        "sha256": "0f2ebe01a3c3f9a6b4596f2ad481c1cd3e6ef2da6d209a21386bb4f3173e005f"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure2-assembly.json",
+        "sha256": "9e6358769001100b6b752545a66bfa8b2dae8807574979dbe601f6f481bc25cd"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\review-variants.json",
+        "sha256": "5575c07b1dad5fe53b1edffeb6667e6acfcba2990416e8db3e79593b9ede64f3"
+      }
+    ],
+    "concurrent_workspace_changes": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure-elements.json",
+        "sha256": "b28ad5dbaa55ce99a784f36dbb1e2c5dff1dcb9559de60dd00f47e02fbae5d1f",
+        "current_sha256": "e6f1dfcc6e8ce3809c9ad41fa7a8e7807b41e861828d0ce876d8266134db0262"
+      }
+    ],
+    "concurrent_change_note": "figure-elements.json changed during this run; none of the candidate scripts writes it. It was not restored or overwritten."
+  },
+  "builder_sha256": "d7c74c9bc4055cea7efdedb7911b02cdb218bf3347c65ed9d0c51d3436c4d8ea"
+}

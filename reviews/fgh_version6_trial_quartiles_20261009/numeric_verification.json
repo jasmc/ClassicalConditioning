@@ -1,0 +1,33 @@
+{
+  "version": "Version6_TrialQuartiles",
+  "defined_trials": 270,
+  "bin_width_s": 0.25,
+  "panels": [
+    {
+      "panel": "F",
+      "rows": 14400,
+      "finite_classified_bins": 10743,
+      "original_v4_columns_preserved": true,
+      "class_assignments_and_nan_masks_verified": true
+    },
+    {
+      "panel": "G",
+      "rows": 14400,
+      "finite_classified_bins": 13654,
+      "original_v4_columns_preserved": true,
+      "class_assignments_and_nan_masks_verified": true
+    },
+    {
+      "panel": "H",
+      "rows": 14400,
+      "finite_classified_bins": 5455,
+      "original_v4_columns_preserved": true,
+      "class_assignments_and_nan_masks_verified": true
+    }
+  ],
+  "max_abs_baseline_median": 2.220446049250313e-16,
+  "collapsed_quartile_trials": 0,
+  "median_is_zero_verified": true,
+  "original_numeric_v4_columns_preserved": true,
+  "build_script_sha256": "fe8f9d6c55238e94e21382cfec011678e04046a5b0996731de48a3f9d84b4004"
+}

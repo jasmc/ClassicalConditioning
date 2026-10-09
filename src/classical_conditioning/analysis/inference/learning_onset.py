@@ -6,6 +6,7 @@ a model converges or a plotted trajectory appears plausible.
 """
 
 from __future__ import annotations
+from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes, VIGOR_SAMPLE_POLICY
 
 import hashlib
 import json
@@ -222,6 +223,8 @@ def load_learning_onset_analysis(
     if missing:
         raise FileNotFoundError(f"Missing learning-onset artifacts: {missing}")
     summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    if summary.get("vigor_sample_policy") != VIGOR_SAMPLE_POLICY:
+        raise ArtifactIntegrityError("Learning-onset analysis predates the bout-only vigor policy; rebuild before active use")
     marker = json.loads(marker_path.read_text(encoding="utf-8"))
     observed_hashes = {name: sha256_file(path) for name, path in paths.items()}
     if (
@@ -269,6 +272,7 @@ def build_learning_model_input(
     config: LearningOnsetConfig,
 ) -> pd.DataFrame:
     """Create one eligible, directed model table without changing the cohort."""
+    outcomes = bout_only_trial_outcomes(outcomes)
     response_column, baseline_column = OUTCOME_COLUMNS[config.outcome_id]
     required = {
         "experiment_id",
@@ -429,7 +433,11 @@ def _fit_mixed_model(
             hessian_error = None
             if collect_extended_diagnostics:
                 try:
-                    hessian_output = model.hessian(result.params)
+                    # Result.params packs the covariance directly, whereas
+                    # array inputs are decoded using model.use_sqrt. Pass the
+                    # structured MLE parameters to avoid squaring covariance
+                    # entries and evaluating curvature away from the MLE.
+                    hessian_output = model.hessian(result.params_object)
                     hessian = np.asarray(
                         hessian_output[0]
                         if isinstance(hessian_output, tuple)
@@ -1980,6 +1988,7 @@ def build_learning_onset_analysis(
         staged_summary = staging_root / summary_path.name
         staged_marker = staging_root / marker_path.name
         summary = {
+            "vigor_sample_policy": VIGOR_SAMPLE_POLICY,
             "recipe": RECIPE_ID,
             "scientific_status": "implemented_not_paper_approved",
             "paper_approved": False,

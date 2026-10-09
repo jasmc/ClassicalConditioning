@@ -1,0 +1,245 @@
+{
+  "final_width_mm": 54.9,
+  "final_height_mm": 53.2,
+  "source_to_final_scale": 1,
+  "axes_limits": [
+    [
+      -0.55,
+      0.55
+    ]
+  ],
+  "y_ticks": [
+    -0.4,
+    -0.2,
+    0.0,
+    0.20000000000000007,
+    0.4
+  ],
+  "text_bounds": [
+    {
+      "element_id": "fig2__d__delay__condition-title",
+      "text": "Delay",
+      "bounds_px": [
+        75.88998049555734,
+        194.2125984251969,
+        107.88998049555734,
+        204.2125984251969
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__sample-count",
+      "text": "n=29/29/29",
+      "bounds_px": [
+        62.88998049555734,
+        184.4094488188977,
+        120.88998049555734,
+        194.4094488188977
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__within-0-1-label",
+      "text": "***",
+      "bounds_px": [
+        69.24622827735884,
+        128.47590551181105,
+        83.49622827735884,
+        138.47590551181105
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__within-1-2-label",
+      "text": "**",
+      "bounds_px": [
+        102.65873271375582,
+        145.06425196850392,
+        112.15873271375582,
+        155.06425196850392
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__zero-1-label",
+      "text": "\u2020****",
+      "bounds_px": [
+        79.95248049555732,
+        108.75653543307087,
+        103.82748049555732,
+        118.75653543307087
+      ]
+    },
+    {
+      "element_id": "fig2__d__control__condition-title",
+      "text": "Control",
+      "bounds_px": [
+        156.00076753593876,
+        194.2125984251969,
+        196.25076753593876,
+        204.2125984251969
+      ]
+    },
+    {
+      "element_id": "fig2__d__control__sample-count",
+      "text": "n=28/24/26",
+      "bounds_px": [
+        147.12576753593876,
+        184.4094488188977,
+        205.12576753593876,
+        194.4094488188977
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__between-1-label",
+      "text": "****",
+      "bounds_px": [
+        124.50787401574806,
+        164.66866141732285,
+        143.50787401574806,
+        174.66866141732285
+      ]
+    },
+    {
+      "element_id": "fig2__d__canvas__summary-note",
+      "text": "Fish median/IQR \u00b7 Holm36",
+      "bounds_px": [
+        56.19685039370079,
+        14.755905511811026,
+        182.5718503937008,
+        24.755905511811026
+      ]
+    },
+    {
+      "element_id": "fig2__d__canvas__statistics-note",
+      "text": "\u2020 versus 0 \u00b7 sign / BM",
+      "bounds_px": [
+        56.19685039370079,
+        1.1417322834645676,
+        159.9468503937008,
+        11.141732283464567
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__tick-x-0-label",
+      "text": "PT",
+      "bounds_px": [
+        54.91497605916034,
+        34.00656167979003,
+        66.78997605916034,
+        44.00656167979003
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__tick-x-1-label",
+      "text": "ET",
+      "bounds_px": [
+        85.88998049555732,
+        34.00656167979003,
+        97.88998049555732,
+        44.00656167979003
+      ]
+    },
+    {
+      "element_id": "fig2__d__delay__tick-x-2-label",
+      "text": "LT",
+      "bounds_px": [
+        117.92748493195433,
+        34.00656167979003,
+        127.92748493195433,
+        44.00656167979003
+      ]
+    },
+    {
+      "element_id": "axis-title__d-delay__y",
+      "text": "Median ln vigor\n(response \u2212 baseline)",
+      "bounds_px": [
+        4.610739282589677,
+        24.686515748031496,
+        26.210739282589685,
+        147.0615157480315
+      ]
+    },
+    {
+      "element_id": "tick-label__d-delay__y__000",
+      "text": "-0.4",
+      "bounds_px": [
+        30.50240594925635,
+        52.45526127415891,
+        49.25240594925635,
+        62.45526127415891
+      ]
+    },
+    {
+      "element_id": "tick-label__d-delay__y__001",
+      "text": "-0.2",
+      "bounds_px": [
+        30.37740594925635,
+        66.1646385110952,
+        49.25240594925635,
+        76.1646385110952
+      ]
+    },
+    {
+      "element_id": "tick-label__d-delay__y__002",
+      "text": "0",
+      "bounds_px": [
+        43.12740594925635,
+        79.8740157480315,
+        49.25240594925635,
+        89.8740157480315
+      ]
+    },
+    {
+      "element_id": "tick-label__d-delay__y__003",
+      "text": "0.2",
+      "bounds_px": [
+        33.87740594925635,
+        93.58339298496779,
+        49.25240594925635,
+        103.58339298496779
+      ]
+    },
+    {
+      "element_id": "tick-label__d-delay__y__004",
+      "text": "0.4",
+      "bounds_px": [
+        34.00240594925635,
+        107.29277022190408,
+        49.25240594925635,
+        117.29277022190408
+      ]
+    },
+    {
+      "element_id": "fig2__d__control__tick-x-0-label",
+      "text": "PT",
+      "bounds_px": [
+        139.15076309954176,
+        34.00656167979003,
+        151.02576309954176,
+        44.00656167979003
+      ]
+    },
+    {
+      "element_id": "fig2__d__control__tick-x-1-label",
+      "text": "ET",
+      "bounds_px": [
+        170.12576753593876,
+        34.00656167979003,
+        182.12576753593876,
+        44.00656167979003
+      ]
+    },
+    {
+      "element_id": "fig2__d__control__tick-x-2-label",
+      "text": "LT",
+      "bounds_px": [
+        202.16327197233574,
+        34.00656167979003,
+        212.16327197233574,
+        44.00656167979003
+      ]
+    }
+  ],
+  "background_color": "#ffffff",
+  "font_family": "DejaVu Sans",
+  "effective_fill_stroke_alpha": "reference 1; fish .3; median/IQR .72; all others 1",
+  "shared_axes": true,
+  "clipping_checks": "all visible text inside figure; all eligible fish values within data limits"
+}

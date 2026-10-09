@@ -1,0 +1,119 @@
+{
+  "version": "Version6_CentralBand",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "bin_width_s": 0.25,
+  "bins_per_trial": 160,
+  "baseline_interval_s": [
+    -20,
+    0
+  ],
+  "display_interval_s": [
+    -20,
+    20
+  ],
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78",
+  "source_tables": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+      "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+      "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+      "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+    }
+  ],
+  "bin_value": "arithmetic mean of finite eligible natural-log vigor per 0.25 s bin; ignore NaNs; any one finite sample suffices",
+  "formula": "median_centred_log_vigor = mean_log_vigor - baseline P50",
+  "colour_mapping": {
+    "thresholds": [
+      1.5,
+      2.5,
+      3.5,
+      4.5
+    ],
+    "band_labels": [
+      "Low",
+      "Below",
+      "Centre",
+      "Above",
+      "High"
+    ],
+    "colourbar_label": "Baseline bands (P50 = 0)",
+    "thresholds_coordinate": "quartile class index for rendering only",
+    "colours": [
+      "#81e7ff",
+      "#5775b3",
+      "#582948",
+      "#b26343",
+      "#ffcf67"
+    ],
+    "managua_r_sample_positions": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "reference": "each trial finite pre-CS 0.25 s mean bins in [-20,0)",
+    "quantile_method": "linear",
+    "scientific_boundaries": "per-trial P25-P50, P45-P50, P55-P50, P75-P50 in log units",
+    "central_band": "P45 <= x < P55, contains median-centred zero",
+    "central_colour": "#582948, actual dark managua_r midpoint; missing values remain pure black",
+    "threshold_table": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\per_trial_quartile_thresholds.csv",
+    "threshold_table_sha256": "9a13d9d22c150f057cfc4f4072dce6d3d8b05e287916ce03ac4883d6bc9a5ccc",
+    "tie_policy": "lower-inclusive, upper-exclusive; exact threshold ties enter upper class",
+    "class_intervals": [
+      "x < P25",
+      "P25 <= x < P45",
+      "P45 <= x < P55",
+      "P55 <= x < P75",
+      "x >= P75"
+    ],
+    "display_scores": [
+      -1.0,
+      -0.5,
+      0.0,
+      0.5,
+      1.0
+    ],
+    "missing_colour": "#000000"
+  },
+  "data_clipping": false,
+  "continuous_amplitude_scaling": false,
+  "common_display_range": "ordinal band scores [-1,-0.5,0,+0.5,+1]; five classes, not physical amplitude",
+  "approval_evidence": {
+    "centre_colour": "the centre has to be dark as in managua_r. always follow managua. but center cannot be total dark",
+    "central_band": "Middle 10% of baseline values: P45-P55, giving five bands",
+    "bin_width": "0.25 s, matching current Version 4",
+    "quartiles": "separate quartiles within each trial. each trial data will need to be scaled to be in the same range and scale",
+    "central_boundary": "P50 and 0 must be the same thing. confirm how to do that",
+    "reference_and_median_subtraction": "Before CS: use [-20,0) s to define each trial\u2019s median and quartiles"
+  },
+  "data_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelF_mean_bins.csv",
+      "sha256": "7963c12eca8f67ed880563d32ffe949961db04c2428304b42d90a28a72ae0803"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelG_mean_bins.csv",
+      "sha256": "fe84d07628ff7186d81588433eda859857635012c517e2068aebc45c2932f4b1"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\PanelH_mean_bins.csv",
+      "sha256": "64b35ffcf517593c705181e7e51dd7306e840df697ef26c6c8ee3cb3a6ddb83d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version6_trial_centralband_20261009\\per_trial_quartile_thresholds.csv",
+      "sha256": "9a13d9d22c150f057cfc4f4072dce6d3d8b05e287916ce03ac4883d6bc9a5ccc"
+    }
+  ]
+}

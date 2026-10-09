@@ -16,7 +16,9 @@ records the complete A-I layout, source inventory and remaining scientific gates
   and [repository instructions](../../../AGENTS.md). Apply the shared style
   to a separate candidate, verify scientific identities and final assembly
   sizes, and ask only about unresolved exceptions. Retain scoped prior
-  approvals and historical freezes. This presentation contract does not
+  approvals and historical freezes. Use the [explicit freeze command](../../../scripts/freeze_figure.py)
+  for new panel and whole-figure freezes; normal rendering/export does not
+  trigger its checks. This presentation contract does not
   change the scientific definitions or approve the historical recipes below.
 - Show time relative to CS onset, with −20…0 s as the single-fish baseline and the 10-s CS window indicated consistently. The Pre-Train/Train/Test heatmap order is top to bottom, in chronological order.
 - Paper activity metric frozen on 2026-10-06: **tail bend angular speed** (`legacy_distal_angular_speed`). Use it across corresponding manuscript panels; retain angular L1 and whole-tail XY as sensitivity outputs. See [the decision](../METRIC_SELECTION_2026-10-06.md).

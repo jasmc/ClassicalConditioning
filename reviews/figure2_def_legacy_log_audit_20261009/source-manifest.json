@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-02-04",
+    "commit": "55ce3b2",
+    "git_path": "5_NormalizedVigorPlotting.py",
+    "snapshot": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_def_legacy_log_audit_20261009\\2026-02-04\\5_NormalizedVigorPlotting.py",
+    "sha256": "e3d22ccf8494b23cf530210c1968b2b33236be822b33a72518542c6480872b39"
+  },
+  {
+    "date": "2026-02-14",
+    "commit": "2f63ef48361d6e80d1b8e1393894d7e5a3dedf55",
+    "git_path": "3_FishGrouping_LogMedian.py",
+    "snapshot": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_def_legacy_log_audit_20261009\\2026-02-14\\3_FishGrouping_LogMedian.py",
+    "sha256": "fd4f5e866155ba3c9c7459d28c93192906e2847f1fab7a1bfaeb016514e04e53"
+  },
+  {
+    "date": "2026-02-14",
+    "commit": "2f63ef48361d6e80d1b8e1393894d7e5a3dedf55",
+    "git_path": "5_NormalizedVigorPlotting_LogMedian.py",
+    "snapshot": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_def_legacy_log_audit_20261009\\2026-02-14\\5_NormalizedVigorPlotting_LogMedian.py",
+    "sha256": "ba957a2d96442e646eb30c2cdc7e20e0a450d7d1c7f947f6979b22510a5f6dac"
+  },
+  {
+    "date": "2026-03-24",
+    "commit": "bf46bf7b02baaf6d8138d9772f255881f86c3c78",
+    "git_path": "3_FishGrouping_LogMedian.py",
+    "snapshot": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_def_legacy_log_audit_20261009\\2026-03-24\\3_FishGrouping_LogMedian.py",
+    "sha256": "fd4f5e866155ba3c9c7459d28c93192906e2847f1fab7a1bfaeb016514e04e53"
+  },
+  {
+    "date": "2026-03-24",
+    "commit": "bf46bf7b02baaf6d8138d9772f255881f86c3c78",
+    "git_path": "5_NormalizedVigorPlotting_LogMedian.py",
+    "snapshot": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_def_legacy_log_audit_20261009\\2026-03-24\\5_NormalizedVigorPlotting_LogMedian.py",
+    "sha256": "ba957a2d96442e646eb30c2cdc7e20e0a450d7d1c7f947f6979b22510a5f6dac"
+  }
+]

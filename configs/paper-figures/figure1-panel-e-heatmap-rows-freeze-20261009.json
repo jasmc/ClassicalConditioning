@@ -1,0 +1,223 @@
+{
+  "figure_id": "fig1",
+  "panel_ids": [
+    "e"
+  ],
+  "status": "author-frozen",
+  "selected_revision": "raw-trace-plus-exact-frozen-V12-heatmap-rows",
+  "container": {
+    "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\frozen-panel-e-heatmap-rows-20261009\\PanelE_frozen_and_version_history.html",
+    "sha256": "b340fa58419bb8bdc017180dfd0c583740f1e280439f8062fe2592f42a69b216"
+  },
+  "freeze_manifest": {
+    "script_id": "panel-e-frozen-archive",
+    "entry": "freeze.json",
+    "sha256": "c5e86c8a5724ba671deaf41627b661324bca47d411909718eab88d7e1c4c8299"
+  },
+  "export": {
+    "embedded_entry": "PanelE_frozen-candidate.svg",
+    "sha256": "6982c8bcf0001f779fa231feda5e2b490aa50ed36b601d49c566c7cf984deeae"
+  },
+  "scientific_definition": {
+    "metric": "legacy_distal_angular_speed_rad_per_ms",
+    "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+    "frame_transform": "natural log",
+    "bin_width_s": 0.5,
+    "bin_interval": "left-inclusive right-exclusive",
+    "bin_estimator": "median of eligible original log frames",
+    "baseline_s": [
+      -15,
+      0
+    ],
+    "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+    "centre": "d=bin_median_log-baseline_bin_median_log",
+    "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
+    "minimum_finite_baseline_bins": 10,
+    "units": "dimensionless baseline-spread units; raw rad/ms",
+    "numeric_clipping": false,
+    "colour_limits": [
+      -1,
+      1
+    ],
+    "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
+    "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
+    "statistical_inference": "none; descriptive example heatmaps"
+  },
+  "assembly_scale": {
+    "final_width_mm": 183.0,
+    "final_height_mm": 122.0,
+    "scope": "standalone Panel E; whole Figure 1 not frozen or assembled",
+    "source_to_final_transforms": {
+      "root_user_unit_to_final_pt": 0.8005249343832022,
+      "svg_transforms": [
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 111.253565)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 96.167851)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 81.082137)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(10.929015 90.008045)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(39.257302 101.198515)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 172.633565)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 157.547851)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 142.462137)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(16.820461 151.388045)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(32.898974 162.578515)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 234.013565)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 218.927851)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 203.842137)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(20.299429 212.768045)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(32.898974 223.958515)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 295.393565)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 280.307851)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 265.222137)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(21.114519 274.148045)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(32.898974 285.338515)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 356.773565)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 341.687851)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 110.394098 326.602137)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(24.593486 335.528045)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(32.898974 346.718515)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 116.64 375.770175)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 215.46 375.770175)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 314.28 375.770175)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 413.1 375.770175)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 511.92 375.770175)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 314.28 388.929704)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 564.173902 266.842137)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 564.173902 223.642137)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 564.173902 180.442137)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-90 588.405853 220.32)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 51.84 15.12)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 51.84 36.72)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 51.84 56.16)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(11.481455 267.973887) rotate(-90)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 116.64 410.4)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 116.64 420.336)"
+        }
+      ]
+    }
+  },
+  "scope": "Panel E only; preserve A-D/FGH freezes and all existing assemblies",
+  "author_approval": "Author in this Panel E chat, 2026-10-09: freeze this version and document all other versions",
+  "version_catalogue_count": 22
+}

@@ -1,0 +1,34 @@
+{
+  "figure_id": "fig2",
+  "panel_id": "g",
+  "status": "frozen",
+  "selected_version": "Native Historical LogMedian difference, phase-aware LMM",
+  "date": "2026-10-09",
+  "freeze_record": {
+    "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.freeze.json",
+    "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb"
+  },
+  "svg": {
+    "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.svg",
+    "sha256": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979"
+  },
+  "scientific_selection": {
+    "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\scientific-selection.json",
+    "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5"
+  },
+  "all_versions_review": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_delay_all_versions_20261009.html",
+    "sha256": "6ebf338595492b7930145eac9de74232992be59824c4b4a92c1444e2f307d9a3"
+  },
+  "cleanup": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\delay_versions_cleanup_20261009.json",
+    "sha256": "ca59536331f780cd839a33930c271dd9c729f42ed9de527057446847924d6572"
+  },
+  "assembly_size_mm": [
+    183,
+    98
+  ],
+  "assembly_scope": "G only; full assembly is older and has not been modified or frozen",
+  "authorization": "freeze the historical log median ... freeze with the stats and the llm",
+  "model_limitations": "Test3 local M/R unavailable; heavy tails; exploratory; no learning-onset claim"
+}

@@ -24,8 +24,10 @@ def main() -> None:
     if not paths:
         raise RuntimeError(f"No processed trial outcomes found beneath {ROOT}")
     cols = ["fish_id", "condition_id", "alignment", "phase", "trial_number", "metric_id",
-            "baseline_total_activity", "response_total_activity"]
+            "baseline_total_activity", "response_total_activity", "baseline_conditional_intensity", "conditional_intensity"]
     data = pd.concat((pd.read_parquet(p, columns=cols) for p in paths), ignore_index=True)
+    from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes
+    data = bout_only_trial_outcomes(data)
     data = data[data.alignment.eq("CS") & data.metric_id.isin(METRICS)].copy()
     data["window"] = np.where(data.phase.eq("Pre") & data.trial_number.between(5, 14), "Pre",
                               np.where((data.phase.eq("Train") & data.trial_number.between(60, 64))

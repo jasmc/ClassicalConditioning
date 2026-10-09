@@ -41,6 +41,7 @@ def _protocol_and_movement(*, include_cs: bool = True) -> tuple[pd.DataFrame, pd
 
 def _learner_outcomes() -> pd.DataFrame:
     return pd.DataFrame({
+        "vigor_sample_policy": ["valid-bout-frames-only-v1"] * 90,
         "alignment": ["CS"] * 90,
         "metric_id": ["legacy_distal_angular_speed"] * 90,
         "trial_number": list(range(5, 95)),

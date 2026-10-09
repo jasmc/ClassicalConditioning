@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_03\\frame_activity_candidates-corrected-v1.parquet",
+      "sha256": "3aa2726dbabe279334368640872dab58f706ef28c05d938b632166a4e9285bd1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_03\\movement_state_candidates-corrected-v2.parquet",
+      "sha256": "774a78b9e9bb9667f0be85c185be23eb533004a6191b9858e7272c3500a43b3d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_03\\stimulus_events.parquet",
+      "sha256": "90e391b76777568280f4da57e9bc93aa935eb6a07b2e62ad945c45ba1d9e198d"
+    }
+  ],
+  "code": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\review_figure2_block_log_median.py",
+    "sha256": "b3810ed1aee69dd28a8ac47f5eb23e32b75ee4a0b730ff6374896b39bf754c76"
+  }
+}

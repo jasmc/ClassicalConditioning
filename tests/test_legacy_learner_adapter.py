@@ -22,6 +22,7 @@ class LegacyLearnerAdapterTests(unittest.TestCase):
              "baseline_total_activity": 2.0, "response_total_activity": 1.0}
             for condition, fish in (("delay", "d1"), ("control", "c1"), ("delay", "excluded"))
         ])
+        self.outcomes["vigor_sample_policy"] = "valid-bout-frames-only-v1"
 
     def test_translation_keeps_only_primary_cs_metric_and_ratio(self) -> None:
         frame = build_legacy_input(self.cohort, self.outcomes, "metric")

@@ -114,6 +114,29 @@ class FigureExportTests(unittest.TestCase):
                     )
             plt.close(figure)
 
+    def test_svg_only_export_preserves_provenance_without_extra_formats(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            figure, _ = plt.subplots()
+            provenance = FigureProvenance(
+                figure_id="svg-only", analysis_recipe="test",
+                source_file=str(Path(__file__).resolve()), source_symbol="test",
+                source_hash=sha256_file(Path(__file__)), reproduction_snippet="test()",
+                input_artifacts=(),
+            )
+            result = export_matplotlib_figure(
+                figure, Path(directory)/"figure", provenance,
+                mode=FigureMode.PUBLICATION, formats=("svg",),
+                allow_dirty_publication=True,
+            )
+            plt.close(figure)
+            self.assertEqual([p.suffix for p in result.outputs], [".svg"])
+            self.assertFalse((Path(directory)/"figure.pdf").exists())
+            sidecar = json.loads(result.sidecar.read_text())
+            metadata = ET.parse(result.outputs[0]).getroot().find(
+                f".//{{{PROVENANCE_NAMESPACE}}}analysis-provenance")
+            self.assertEqual(json.loads(metadata.text)["sidecar_sha256"], sha256_file(result.sidecar))
+            self.assertEqual(len(sidecar["outputs"]), 1)
+
     def test_static_export_writes_png_and_sidecar(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -105,3 +105,54 @@ annotation preview is **exploratory and not approved paper inference**. See
 `FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md` for model/Plans criticism and exact
 lane results. No onset/extinction claim, 10sTrace source, shared assembly or
 shared-manifest change is made by this row-specific work.
+
+
+## Bout-only author correction and log alternatives — 2026-10-09
+
+The author requires finite bout frames only; ignore nonbout vigor as NaN.
+This supersedes the all-frame Delay outcome in the earlier review, preserving
+its artifacts. The frozen metric stays legacy_distal_angular_speed. Fresh
+conditional-intensity ratios and LME fits use 4,811 eligible fish-trial rows,
+retaining 319 missing ratios and the same 57-fish cohort. The author also
+authorized separate log and unlogged display versions. See
+[exact historical comparison and corrected results](FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md).
+The February/March LogMedian scripts DO log plotted vigor upstream; only
+the standard mean-ratio branch limits its log transform to model preparation.
+The new log-ratio display keeps arithmetic window means and therefore is not
+a historical LogMedian reproduction. No panel freeze or assembly change.
+
+
+## All-model confirmation audit — 2026-10-09
+
+At the author request, all 15 bout-only Delay main/local/sensitivity models
+were independently refitted. Coefficients, D/M/R/trial contrast algebra and
+Holm/BH corrections reproduce. A real Hessian diagnostic bug was fixed: use
+structured result.params_object, not the result.params array, to avoid the
+wrong covariance parameterization. All corrected Hessian checks pass; the
+17 learning-onset tests, including the regression check, pass. This does not
+change fitted p-values or validate the dense spline-derived black-star strip.
+See [complete audit](FIGURE2_DELAY_LMM_AUDIT_2026-10-09.md).
+
+
+## Observed/fitted phase-aware candidate — 2026-10-09
+
+The author requested a new version retaining observed medians and showing
+log-response/log-baseline fish LMM fitted contrasts separately. A new phase-
+aware candidate uses linear Pre, separate cubic df4 training/test curves,
+phase intercepts and the same random fish intercept/scaled-trial slope.
+The old global curve is shown for comparison. Phase inference has no Pre
+rejections, but residual tails remain; AIC/BIC disagree on model preference.
+No model/outcome freeze, assembly replacement or onset claim. See
+[complete candidate review](FIGURE2_DELAY_PHASE_LMM_2026-10-09.md).
+
+## All-version comparison and F recovery — 2026-10-09
+
+The legacy metric remains the standing choice. The author authorized F when
+inputs match after J became inaccessible. All 402 recorded source-data hashes
+match; bout-only mean results reproduce. Historical LogMedian and literal
+window medians now have a matched-input comparison, with the zero-vigor
+filtering difference explicitly identified. LogMedian's Test3 local LMM is
+singular, so M/R remain unavailable there; its other 13 attempted models pass.
+No fallback or inferred panel/model approval. The complete 11-page comparison
+and exact definitions are in
+[the all-version record](FIGURE2_DELAY_ALL_VERSIONS_2026-10-09.md).

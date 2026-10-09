@@ -6,6 +6,7 @@ each script in a separate process. It does not approve a canonical classifier.
 """
 
 from __future__ import annotations
+from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes, bout_only_profiles
 
 import hashlib
 import importlib.metadata
@@ -66,6 +67,7 @@ def build_legacy_input(cohort: pd.DataFrame, outcomes: pd.DataFrame, metric_id: 
     3sTrace cohort is passed through that input slot, then restored to its
     actual condition identity in the comparison export.
     """
+    outcomes = bout_only_trial_outcomes(outcomes)
     for name, frame, columns in (
         ("cohort", cohort, KEY + ["primary_included"]),
         ("outcomes", outcomes, KEY + ["alignment", "metric_id", "trial_number",
@@ -121,6 +123,7 @@ def compare_legacy_learners(
     cohort = pd.read_parquet(cohort_path)
     outcomes = pd.read_parquet(outcomes_path)
     cohort_hash = _authenticate_inputs(cohort_path, outcomes_path, outcomes)
+    outcomes = bout_only_trial_outcomes(outcomes)
     legacy_input = build_legacy_input(cohort, outcomes, metric_id)
     selected = cohort.loc[cohort["primary_included"].eq(True), KEY].copy()
     experiment_id = str(selected["experiment_id"].iloc[0])
@@ -180,6 +183,7 @@ def compare_legacy_learners(
         "input_condition_alias": {conditioned_id: "delay"}, "metric_id": metric_id,
         "input_translation": "Mean CR=response_total_activity; Mean 9s before=baseline_total_activity; Normalized vigor=response/baseline; conditioned condition occupies the archived delay input slot",
         "historical_equivalence": False,
+        "vigor_sample_policy": "valid-bout-frames-only-v1",
         "caveat": "Historical rules on corrected outcome units; labels do not establish biological learning or validate a canonical classifier.",
         "cohort_path": str(cohort_path), "cohort_sha256": _sha256(cohort_path),
         "cohort_hash": cohort_hash,

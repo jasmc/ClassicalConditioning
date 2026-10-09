@@ -1,0 +1,95 @@
+{
+  "figures": [
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    }
+  ],
+  "pdfDownloads": 8,
+  "sectionIds": [
+    {
+      "id": "analysis",
+      "present": true
+    },
+    {
+      "id": "comparison",
+      "present": true
+    },
+    {
+      "id": "c-samples",
+      "present": true
+    },
+    {
+      "id": "d-samples",
+      "present": true
+    },
+    {
+      "id": "c-bins",
+      "present": true
+    },
+    {
+      "id": "median-bins",
+      "present": true
+    },
+    {
+      "id": "v5",
+      "present": true
+    },
+    {
+      "id": "v4-contrast",
+      "present": true
+    },
+    {
+      "id": "v5-contrast",
+      "present": true
+    },
+    {
+      "id": "v6",
+      "present": true
+    },
+    {
+      "id": "verification",
+      "present": true
+    }
+  ],
+  "desktopOverflow": false,
+  "traceFish": true,
+  "discardedFourColourNotDisplayed": true,
+  "retainedV6Uses1s": true,
+  "mobileOverflow": false,
+  "pageErrors": [],
+  "offlineSvgDownloads": 8,
+  "html_sha256": "e896cf81a226f25802a4a787575fc0d9e812ef6330f9ab8ab89716d5ee59a44f",
+  "visual_qa": {
+    "new_one_second_pdf_readback_inspected": true,
+    "method_choice_table_inspected": true
+  }
+}

@@ -5,6 +5,7 @@ corrected metric.  It is never a reviewed cohort or a classifier result.
 """
 
 from __future__ import annotations
+from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes, bout_only_profiles
 
 import hashlib
 import json
@@ -218,6 +219,10 @@ def get_experiment_spec_for_events(experiment: str) -> dict[str, set[int]]:
 
 def evaluate_learner_inputs(outcomes: pd.DataFrame, *, metric_id: str) -> tuple[str, str, list[dict[str, Any]]]:
     """One merged pre-fit learner prerequisite, never a classifier label."""
+    try:
+        outcomes = bout_only_trial_outcomes(outcomes)
+    except ValueError:
+        return "not_evaluable", "missing_bout_only_outcomes", []
     frame = outcomes.loc[(outcomes["alignment"] == "CS") & (outcomes["metric_id"] == metric_id)].copy()
     if frame.empty:
         return "not_evaluable", "no_cs_outcomes", []
@@ -384,7 +389,7 @@ def assess_discarding(
                 base = project_dir / "Processed data" / str(rid)
                 movement = pq.read_table(base / source.movement_artifact_name).to_pandas()
                 protocol = pq.read_table(base / "stimulus_events.parquet").to_pandas()
-                outcomes = pq.read_table(base / source.trial_outcomes_name).to_pandas()
+                outcomes = bout_only_trial_outcomes(pq.read_table(base / source.trial_outcomes_name).to_pandas())
                 checks, bout_details = evaluate_legacy_bouts(movement, protocol, experiment=experiment)
                 details.extend({"recording_name": record["recording_name"], **item} for item in bout_details)
             except (ClassicalConditioningError, FileNotFoundError, ValueError, KeyError, OSError) as error:

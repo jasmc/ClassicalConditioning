@@ -1,0 +1,43 @@
+{
+  "exported_csv_readback_verified": true,
+  "panels": [
+    {
+      "panel": "F",
+      "bin_width_s": 1,
+      "rows": 3600,
+      "finite_bins": 3507,
+      "maximum_difference_from_unweighted_old_bin_means": 1.2852077567475457,
+      "weighted_quarter_bin_reconstruction_verified": true,
+      "minimum_delta": -2.6918316556839503,
+      "maximum_delta": 0.974637648593886,
+      "fraction_finite_saturated_at_fixed_limits": 0.22013116623895068,
+      "max_abs_baseline_mean": 7.438494264988549e-16
+    },
+    {
+      "panel": "G",
+      "bin_width_s": 1,
+      "rows": 3600,
+      "finite_bins": 3599,
+      "maximum_difference_from_unweighted_old_bin_means": 0.5242447718894945,
+      "weighted_quarter_bin_reconstruction_verified": true,
+      "minimum_delta": -0.6804512667099432,
+      "maximum_delta": 1.0541015248798633,
+      "fraction_finite_saturated_at_fixed_limits": 0.058071686579605444,
+      "max_abs_baseline_mean": 7.549516567451064e-16
+    },
+    {
+      "panel": "H",
+      "bin_width_s": 1,
+      "rows": 3600,
+      "finite_bins": 2734,
+      "maximum_difference_from_unweighted_old_bin_means": 1.077102261455185,
+      "weighted_quarter_bin_reconstruction_verified": true,
+      "minimum_delta": -2.6106979442914,
+      "maximum_delta": 0.8413017379337513,
+      "fraction_finite_saturated_at_fixed_limits": 0.08814923189465984,
+      "max_abs_baseline_mean": 7.46731736274324e-16
+    }
+  ],
+  "build_script": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\build_version5.py",
+  "build_script_sha256": "b7e0d685e2ca4863041d2aeac68ae3296473785c801ec61051b73ba2d4bd5fea"
+}

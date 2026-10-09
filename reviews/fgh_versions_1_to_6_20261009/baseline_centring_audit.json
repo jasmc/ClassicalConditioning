@@ -1,0 +1,43 @@
+{
+  "criterion": "trial baseline median maps to colour midpoint",
+  "retained": [
+    "V1 C",
+    "V1 D",
+    "V2 C",
+    "V6 five bands"
+  ],
+  "removed": [
+    "V4 linear",
+    "V4 contrast",
+    "V5 linear",
+    "V5 contrast"
+  ],
+  "removed_audit": [
+    {
+      "version": 4,
+      "defined_trials": 270,
+      "baseline_median_not_zero_trials": 270,
+      "max_abs_baseline_median_log_units": 0.24498637435532,
+      "mean_is_zero": true
+    },
+    {
+      "version": 5,
+      "defined_trials": 270,
+      "baseline_median_not_zero_trials": 270,
+      "max_abs_baseline_median_log_units": 0.2212529948178194,
+      "mean_is_zero": true
+    }
+  ],
+  "retained_verification": {
+    "V1_C_D": "verified eligible-timepoint baseline medians zero when denominators defined; H trial 16 undefined",
+    "V2": {
+      "defined_trials": 269,
+      "max_abs_median": 2.7547408798511697e-15
+    },
+    "V6": {
+      "defined_trials": 270,
+      "max_abs_median": 2.220446049250313e-16,
+      "zero_in_central_band_all_trials": true
+    }
+  }
+}

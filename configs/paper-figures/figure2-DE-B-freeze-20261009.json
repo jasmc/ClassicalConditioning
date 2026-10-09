@@ -1,0 +1,76 @@
+{
+  "figure_id": "Fig2",
+  "panels": [
+    "D",
+    "E"
+  ],
+  "selected_version": "B",
+  "status": "frozen via explicit gate",
+  "authorization": "Joaquim: correct statistical tests, then freeze version B, 2026-10-09",
+  "sampling_policy": "valid-bout-frames-only-v1",
+  "processing": "median log positive valid bout-frame response minus baseline; median eligible trials per fish/block",
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "response_s": {
+    "D": [
+      0,
+      9
+    ],
+    "E": [
+      0,
+      13
+    ]
+  },
+  "statistics": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\statistics.csv",
+    "sha256": "d0b8b73bea3427fa9bf44357e7b76e06c0de90b0b2548a544377e72d03eef237"
+  },
+  "family": "36 two-sided tests across D/E; exact sign and Brunner-Munzel t; Holm36",
+  "current_panels": {
+    "D": {
+      "freeze": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\D.freeze.json",
+        "sha256": "dd0750bc7f917779b51c4ab4e619d93d6508305a95835abffec85061dfa5e04a"
+      },
+      "svg": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_D_B.svg",
+        "sha256": "b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29"
+      },
+      "pdf": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_D_B.pdf",
+        "sha256": "e1855d484bcb155bb205fbf77d21ccc27bed54dc3bd718d0dddf40aa81b9885f"
+      },
+      "png": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_D_B.png",
+        "sha256": "9670bedd2965f2a698f4930e374c6cc4ec4fb24bd870f6c27bce947b9496a665"
+      }
+    },
+    "E": {
+      "freeze": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\E.freeze.json",
+        "sha256": "a39f1f849119d319610ba50d98ff6cb5474caf65e5d1166f58443b489db2368e"
+      },
+      "svg": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_E_B.svg",
+        "sha256": "e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696"
+      },
+      "pdf": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_E_B.pdf",
+        "sha256": "06c7598bc2ca2c44ee5ac32a4c373f765e3c5f0abbd445f4c342cbef10769327"
+      },
+      "png": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_E_B.png",
+        "sha256": "febce877638daa615154f8c8823d45e210fc988bfb5ff7b3357c8b6c032846aa"
+      }
+    }
+  },
+  "specification_version": "1.1.1",
+  "intended_panel_size_mm": [
+    54.9,
+    53.2
+  ],
+  "scope": "D/E only; F unavailable; whole assembly older than these scoped panel freezes",
+  "handoff": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\Plans\\HANDOFF_BOUT_LOG_VIGOR_PANELS_2026-10-09.md"
+}

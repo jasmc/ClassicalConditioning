@@ -189,7 +189,7 @@ BOUT_OUTCOME_PANELS = (
 FIGURE_SPECS = {
     "total-activity-raw": FigureSpec(
         figure_id="total-activity-raw",
-        title="total activity (raw)",
+        title="mean bout vigor (raw)",
         panels=_metric_panels(
             "Total activity mean",
             "Valid expected fraction",
@@ -204,7 +204,7 @@ FIGURE_SPECS = {
     ),
     "total-activity-scaled": FigureSpec(
         figure_id="total-activity-scaled",
-        title="total activity (two-layer scaled)",
+        title="mean bout vigor (two-layer scaled)",
         panels=_metric_panels(
             "Scaled total activity",
             "Valid expected fraction",
@@ -328,7 +328,8 @@ def _load_profiles(
         raise RuntimeError("Candidate temporal profile changed while loading.")
     if recording_id_from_profiles(profiles) != recording_id:
         raise ValueError("Candidate temporal profile table identity is invalid.")
-    return profiles, marker, profile_state, profiles_path
+    from classical_conditioning.analysis.bout_vigor import bout_only_profiles
+    return bout_only_profiles(profiles), marker, profile_state, profiles_path
 
 
 # Detect profile replacement between initial verification and figure export.
@@ -397,6 +398,8 @@ def _candidate_heatmap_figure(
             "rebuild candidate temporal profiles with the current recipe."
         )
     spec = FIGURE_SPECS[figure_id]
+    if figure_id == "total-activity-scaled" and "Scaled vigor requires rebuild" in profiles:
+        raise ValueError("Old all-frame scaled profiles are superseded; rebuild with shared bout-only movement masks")
     theme = apply_theme()
     selected = profiles[profiles["Trial type"].astype(str) == trial_type]
     figure, axes = stacked_subplots(

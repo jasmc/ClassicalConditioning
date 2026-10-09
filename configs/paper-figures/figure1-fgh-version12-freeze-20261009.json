@@ -1,0 +1,240 @@
+{
+  "figure_id": "fig1",
+  "panel_ids": [
+    "f",
+    "g",
+    "h"
+  ],
+  "selected_version": 12,
+  "status": "author-frozen",
+  "freeze_scope": "F/G/H row only; full assembly pending",
+  "container": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_candidate_palette_versions_20261009\\index.html",
+    "sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb"
+  },
+  "freeze_manifest": {
+    "script_id": "version12-frozen-archive",
+    "entry": "freeze.json",
+    "sha256": "ca8965d74926b48ba3152b4a5c4159efafa9246fa7b1d0f251c62ba03abdf8d9"
+  },
+  "exports": [
+    {
+      "container": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_candidate_palette_versions_20261009\\index.html",
+      "embedded_entry": "frozen-candidate.svg",
+      "sha256": "dcfd86b0e5635173db1c854f9f85f07831f4d1531c5f2333d6e2cbde59a7d2aa"
+    }
+  ],
+  "specification_version": "1.1.1",
+  "specification_sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+  "scientific_definition": {
+    "metric": "legacy_distal_angular_speed_rad_per_ms",
+    "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+    "frame_transform": "natural log",
+    "bin_width_s": 0.5,
+    "bin_interval": "left-inclusive right-exclusive",
+    "bin_estimator": "median of eligible original log frames",
+    "baseline_s": [
+      -15,
+      0
+    ],
+    "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+    "centre": "d=bin_median_log-baseline_bin_median_log",
+    "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
+    "minimum_finite_baseline_bins": 10,
+    "units": "dimensionless baseline-spread units; raw rad/ms",
+    "numeric_clipping": false,
+    "colour_limits": [
+      -1,
+      1
+    ],
+    "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
+    "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
+    "statistical_inference": "none; descriptive example heatmaps"
+  },
+  "palette": [
+    "#00bfff",
+    "#383842",
+    "#ff5252"
+  ],
+  "freeze_authorization": "Author, 2026-10-09: i want an even stronger blue and red. brighter. then freeze version 12 and document all other versions. then prepare a handoff to improve figure 2 first row following the same analysis adapted to pooled fish.",
+  "assembly_scale": {
+    "final_width_mm": 183,
+    "final_height_mm": 103.69999999999999,
+    "scope": "assembled F/G/H row; whole Fig1 not frozen",
+    "source_to_final_transforms": {
+      "root_user_unit_to_final_pt": 1.0000000009259262,
+      "svg_transforms": [
+        {
+          "element_id": "fig1__f__heatmap__vigor-cells",
+          "transform": "scale(1 -1) translate(0 -220.56)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 46.686614 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 103.748031 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 160.809449 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 103.748031 276.592335)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 51.406618)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 75.902681)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 100.398744)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 124.894807)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 149.39087)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 173.886933)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 198.382996)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 222.879059)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 41.686614 247.375122)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(16.93972 53.879862) rotate(-90)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(16.93972 130.605551) rotate(-90)"
+        },
+        {
+          "element_id": null,
+          "transform": "translate(16.93972 226.871053) rotate(-90)"
+        },
+        {
+          "element_id": "fig1__g__heatmap__vigor-cells",
+          "transform": "scale(1 -1) translate(0 -220.56)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 184.152756 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 241.214173 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 298.275591 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 241.214173 276.592335)"
+        },
+        {
+          "element_id": "fig1__h__heatmap__vigor-cells",
+          "transform": "scale(1 -1) translate(0 -220.56)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 321.618898 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 378.680315 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 435.741732 266.057804)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 378.680315 276.592335)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 234.88213)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 208.867311)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 148.166067)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 87.464823)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 61.450004)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-90 500.82743 145.506614)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 28.530709 18.338871)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 103.748031 17.786996)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 103.748031 28.522123)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 165.99685 18.338871)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 241.214173 17.786996)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 241.214173 28.522123)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 303.462992 18.338871)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 378.680315 17.786996)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 378.680315 28.522123)"
+        }
+      ]
+    }
+  },
+  "extraction_command": "python scripts/prepare_figure1_fgh_v12_freeze.py --extract <temporary-directory>",
+  "archive_path_policy": "Original gate paths identify materialized inputs. Exact hash-bound bytes remain in the archive; extraction creates a portable-candidate.json with remapped temporary paths for --check-only."
+}

@@ -1,0 +1,17 @@
+{
+  "policy": "valid-bout-frames-only-v1",
+  "author_approval_date": "2026-10-09",
+  "active_review": "figure2_B_freeze_20261009/comparison.html",
+  "selected_version": "B",
+  "status": "frozen",
+  "scoped_selection": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure2-DE-B-freeze-20261009.json",
+    "sha256": "14c0e65349673870c5eb5ca431b48c86aaa57826a5d2414f97952c1fd72d64a4"
+  },
+  "superseded_reviews": [
+    "figure2_ratio_vs_log_20261009",
+    "figure2_bout_only_ratio_vs_log_20261009"
+  ],
+  "note": "Earlier reviews/statistics preserved as history; A remains a sensitivity outcome, not the selected panel",
+  "F": "placeholder; no authenticated inputs"
+}

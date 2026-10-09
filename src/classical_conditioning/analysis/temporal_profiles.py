@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
+from classical_conditioning.analysis.bout_vigor import mask_bout_vigor, VIGOR_SAMPLE_POLICY
 
 from classical_conditioning.artifacts import (
     artifact_staging,
@@ -41,7 +42,7 @@ class TemporalProfileConfig:
     window_end_s: float = 45.0
     bin_width_s: float = 0.5
     interval_closure: str = "left"
-    aggregation: str = "mean_total_activity"
+    aggregation: str = "mean_bout_vigor"
     # Historical two-layer scaling constants: layer 1 uses frames earlier than
     # -15 s, layer 2 uses every pre-onset bin, and the result is clipped to
     # the unit interval.
@@ -222,10 +223,13 @@ def aggregate_event_profiles(
     absolute_time = frames["AbsoluteTime"].to_numpy(dtype=np.int64)
     if np.any(np.diff(absolute_time) < 0):
         raise ValueError("Candidate frame AbsoluteTime must be monotonic.")
+    if movement_state is None:
+        raise ValueError("Bout-only vigor requires the shared movement state; no all-frame fallback is allowed")
     metric_values = {
         column: frames[column].to_numpy(dtype=np.float64)
         for column in CANDIDATE_COLUMNS
     }
+    physical_metric_values = {column: values.copy() for column, values in metric_values.items()}
     # One shared segmentation serves every metric, so bout-derived outcomes are
     # metric-independent: they differ across metric rows only in that the raw
     # intensity averaged inside those bouts differs.
@@ -269,6 +273,8 @@ def aggregate_event_profiles(
             "bout_start": bout_start,
             "bout_duration": bout_duration,
         }
+        metric_values = {column: mask_bout_vigor(values, valid, moving)
+                         for column, values in metric_values.items()}
     delta_time = frames["DeltaTimeMs"].to_numpy(dtype=float)
     frame_step = frames["FrameStep"].to_numpy(dtype=np.int64)
     valid_delta_time = delta_time[
@@ -323,6 +329,8 @@ def aggregate_event_profiles(
 
         for column, metric_id in METRIC_IDS.items():
             values = metric_values[column][start_index:end_index][in_range]
+            physical_valid = np.isfinite(physical_metric_values[column][start_index:end_index][in_range])
+            physical_valid_count = np.bincount(bin_indices[physical_valid], minlength=bin_count)
             valid = np.isfinite(values)
             valid_count = np.bincount(
                 bin_indices[valid],
@@ -340,7 +348,7 @@ def aggregate_event_profiles(
                 where=valid_count > 0,
             )
             valid_fraction = np.divide(
-                valid_count,
+                physical_valid_count,
                 sample_count,
                 out=np.zeros(bin_count, dtype=float),
                 where=sample_count > 0,
@@ -471,6 +479,7 @@ def aggregate_event_profiles(
             for bin_index in range(bin_count):
                 rows.append(
                     {
+                        "Vigor sample policy": VIGOR_SAMPLE_POLICY,
                         "Trial type": trial_type,
                         "Trial number": trial_number,
                         "Block name": block_lookup.get(
@@ -514,13 +523,16 @@ def aggregate_event_profiles(
                         ),
                         "Valid expected fraction": min(
                             1.0,
-                            valid_count[bin_index] / expected_sample_count,
+                            physical_valid_count[bin_index] / expected_sample_count,
                         ),
                         "Sample count": int(sample_count[bin_index]),
-                        "Valid sample count": int(valid_count[bin_index]),
+                        "Valid sample count": int(physical_valid_count[bin_index]),
+                        "Bout vigor sample count": int(valid_count[bin_index]),
                     }
                 )
     columns = [
+        "Vigor sample policy",
+        "Bout vigor sample count",
         "Trial type",
         "Trial number",
         "Block name",

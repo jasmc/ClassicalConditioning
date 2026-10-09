@@ -1,0 +1,44 @@
+{
+  "metric": "legacy_distal_angular_speed",
+  "variant": "legacy log-median outcome on current corrected measured-time frames",
+  "formula": "median(log positive valid moving vigor in response) - median(log positive valid moving vigor in baseline); median eligible trials within fish/block",
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "response_s": {
+    "D": [
+      0,
+      9
+    ],
+    "E": [
+      0,
+      13
+    ]
+  },
+  "intervals": "left-closed right-open",
+  "blocks": [
+    [
+      10,
+      14
+    ],
+    [
+      65,
+      69
+    ],
+    [
+      90,
+      94
+    ]
+  ],
+  "min_trials": {
+    "D": 3,
+    "E": 1
+  },
+  "eligibility": "current valid positive-baseline/nonnegative-response trial plus finite positive moving samples in both windows",
+  "upstream_changes": "No additional historical rolling median/downsampling; no interpolation or historical detector restored; current corrected metric/detector used",
+  "legacy_differences": "Historical code smoothed/downsampled, used inclusive window endpoints and optional >90% NaN filter; these are not imported into this current-panel outcome comparison",
+  "statistics": "paired Wilcoxon; independent Mann-Whitney at blocks and on within-fish changes; Holm24 separately for each version",
+  "scientific_status": "exploratory; unselected; no freeze",
+  "F": "placeholder; no authenticated inputs"
+}

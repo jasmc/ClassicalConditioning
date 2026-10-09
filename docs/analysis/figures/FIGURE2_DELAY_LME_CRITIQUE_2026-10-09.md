@@ -1,5 +1,11 @@
 # Delay G: critique of the Plans, legacy LME and new review
 
+**Superseded for the selected Delay review:** the run described below used
+all valid frames. The author subsequently required bout-only frames. See
+[bout-only correction and historical log audit](FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md)
+for fresh results and the distinction between raw mean-ratio and historical
+LogMedian pipelines. The previous results are retained as provenance.
+
 The author authorized this exploratory run on2026-10-09, fixed the legacy
 metric, and accepted5,000 whole-fish resamples/seed10 for the displayed median
 CI. The bootstrap is descriptive uncertainty, not5,000 refits of the LME.

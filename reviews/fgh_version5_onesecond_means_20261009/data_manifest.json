@@ -1,0 +1,112 @@
+{
+  "version": "Version5_DirectBinMeans",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "bin_width_s": 1.0,
+  "bins_per_trial": 40,
+  "display_interval_s": [
+    -20,
+    20
+  ],
+  "baseline_interval_s": [
+    -20,
+    0
+  ],
+  "maximum_baseline_bins": 20,
+  "trials": [
+    5,
+    94
+  ],
+  "frame_value": "direct eligible bout natural-log vigor; non-bout and invalid/ineligible frames remain NaN; no replacement/floor",
+  "bin_value": "arithmetic mean of finite eligible natural-log vigor per 1 s bin; ignore NaNs; any one finite sample suffices",
+  "baseline": "arithmetic mean of finite unscaled baseline-bin means in [-20,0); all-NaN bins ignored; one vote per finite bin",
+  "formula": "delta_log_vigor = bin_mean - mean(finite baseline-bin means)",
+  "undefined_rule": "whole trial undefined only if it has no finite baseline-bin means",
+  "data_scaling": false,
+  "data_clipping": false,
+  "percentile_scaling": false,
+  "palette": "managua_r",
+  "colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+  "source_tables": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+      "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+      "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+      "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "defined_trials": 90,
+      "undefined_trials": 0,
+      "display_bins": 3600,
+      "finite_display_bins": 3507,
+      "empty_bins": 93,
+      "single_sample_bins_retained": 0,
+      "maximum_absolute_baseline_mean": 7.549516567451064e-16
+    },
+    {
+      "panel": "G",
+      "fish": "20230310_08",
+      "defined_trials": 90,
+      "undefined_trials": 0,
+      "display_bins": 3600,
+      "finite_display_bins": 3599,
+      "empty_bins": 1,
+      "single_sample_bins_retained": 0,
+      "maximum_absolute_baseline_mean": 7.549516567451064e-16
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "defined_trials": 90,
+      "undefined_trials": 0,
+      "display_bins": 3600,
+      "finite_display_bins": 2734,
+      "empty_bins": 866,
+      "single_sample_bins_retained": 2,
+      "maximum_absolute_baseline_mean": 7.51535585900106e-16
+    }
+  ],
+  "data_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\baseline_statistics.csv",
+      "sha256": "f4982fb5f82fd407b33e2bfee32e3c9ce9ad668c9ea6e573e6ca4c5bb3512040"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelF_mean_bins.csv",
+      "sha256": "ce2adc15f495e330351be72f56240dc5475f8aa074f043067369496808a3faf7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelG_mean_bins.csv",
+      "sha256": "308e095a5ade5315a19fe41143c3c307a208821df953c7a8992c24730bb27031"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\PanelH_mean_bins.csv",
+      "sha256": "0af86b7857b90559119db00af48b8eaceecf05e140545662b67f7f555b264f5e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version5_onesecond_means_20261009\\per_trial_baseline_balance.csv",
+      "sha256": "2bb50d5abccb06272624d2a5973d0861ffe9a3c2f907cb6fc276aac713908297"
+    }
+  ]
+}

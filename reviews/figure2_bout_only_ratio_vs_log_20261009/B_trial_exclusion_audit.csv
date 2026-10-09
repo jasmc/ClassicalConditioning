@@ -1,0 +1,5 @@
+panel,condition,selected_trials,eligible,excluded,no_positive_baseline,no_positive_response
+D,control,420,387,33,25,27
+D,delay,435,428,7,5,4
+E,control,285,280,5,5,5
+E,trace,600,593,7,3,4

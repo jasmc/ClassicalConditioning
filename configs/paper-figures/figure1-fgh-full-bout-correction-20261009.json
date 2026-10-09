@@ -5,13 +5,13 @@
     "G",
     "H"
   ],
-  "status": "Only Version 4 updated: 0.25 s means with non-bout frames retained as NaN; prior -inf trial preserved as history",
+  "status": "Author-frozen V12 selected for F/G/H; older variants and historical freezes preserved",
   "fish": {
     "F": "20221115_07",
     "G": "20230310_08",
     "H": "20221115_09"
   },
-  "current_primary_variant": "C_BoutSamples",
+  "current_primary_variant": "Version12_BrightBlueDarkManaguaRed_SymmetricPoint7",
   "data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
   "data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
   "numeric_verification": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\numeric_verification.json",
@@ -42,7 +42,7 @@
       "previous_layout_validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\Version4_DirectBinMeans_validation.json"
     }
   ],
-  "summary": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index.html",
+  "summary": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_candidate_palette_versions_20261009\\index.html",
   "historical_freeze": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\freeze.json",
   "baseline": "C/D samples and Version 2 retain [-15,0); Version 4 uses mean of finite quarter-second bin means in [-20,0)",
   "scope": "F/G/H only; no change to A-D, E, or whole-figure assembly",
@@ -67,5 +67,10 @@
     "CS_linewidth_pt": 2.4,
     "phase_labels": "left of F",
     "example_trials": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\example_trials.json"
+  },
+  "previous_primary_variant_before_v12": "C_BoutSamples",
+  "version12_frozen_selection": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-version12-freeze-20261009.json",
+    "sha256": "10b972090550a9c5d34bbe8abba050cdf2e876bc335e76e1bf14edf3e9716bd4"
   }
 }

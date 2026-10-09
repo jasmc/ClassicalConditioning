@@ -22,6 +22,9 @@ def main():
         if digest(Path(meta[key])) != meta[f"{key}_sha256"]:
             raise ValueError(f"Changed raw source: {key}")
     frames, events = pd.read_parquet(meta["frames"]), pd.read_parquet(meta["events"])
+    from classical_conditioning.analysis.bout_vigor import VIGOR_SAMPLE_POLICY
+    if "Vigor sample policy" not in frames or not frames["Vigor sample policy"].eq(VIGOR_SAMPLE_POLICY).all():
+        raise ValueError("Superseded all-frame vigor cache: rebuild traces with the shared bout mask first")
     heat_path = OUTPUT.parent / "heatmaps/Fig1_PanelF_Delay_legacy-vigor_v2.parquet"
     heat_meta = json.loads(heat_path.with_suffix(".svg.json").read_text(encoding="utf-8"))
     if heat_meta["recording_id"] != FISH or digest(heat_path) != heat_meta["panel_data_sha256"]:

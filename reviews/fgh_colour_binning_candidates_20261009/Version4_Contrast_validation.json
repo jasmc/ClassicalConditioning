@@ -1,0 +1,102 @@
+{
+  "variant": "Version4_Contrast",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "numeric_values_unchanged": true,
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78",
+  "source_numeric_files": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+      "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+      "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+      "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 10743
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 13654
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 5455
+    }
+  ],
+  "annotations": {
+    "six_CS_boundaries_verified": true,
+    "CS_times_s": [
+      0,
+      10
+    ],
+    "CS_colour": "#0d8136",
+    "CS_linewidth_pt": 2.4,
+    "CS_alpha": 0.8,
+    "phase_labels": "left of F",
+    "example_arrowheads_panel": "G",
+    "example_arrowheads_direction": "left",
+    "example_arrowheads_trials": [
+      9,
+      17,
+      63,
+      66,
+      93
+    ],
+    "arrowhead_trial_positions_verified": true
+  },
+  "colour_mapping": "signed square-root display contrast: u=.5+.5*sign(d)*sqrt(min(abs(d)/.25,1))",
+  "renderer_sha256": "0fc3effe0306a986581da5262e6460ae6d6508146a351959d00c64fa55eb9202",
+  "palette": "managua_r",
+  "colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "colourbar_label": "Log vigor relative to baseline",
+  "colourbar_count": 1,
+  "layout": {
+    "size_inches": [
+      9,
+      5.1
+    ],
+    "panel_lefts": [
+      0.09,
+      0.355,
+      0.62
+    ],
+    "panel_width": 0.22,
+    "phase_labels": "left of F"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version4_Contrast_legacy_layout.svg",
+      "sha256": "61981e21a2915a5906e6e8d714ec83b980c4783f83a211e94faf0d6fa3fcd31b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version4_Contrast_legacy_layout.png",
+      "sha256": "23848282e604d7663118dab1ef2e5ec256b5188630758a61992e2322b92e7620"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_colour_binning_candidates_20261009\\FGH_Version4_Contrast_legacy_layout.pdf",
+      "sha256": "703a280e837b1cb303c34765ac67b5704cfd8553190ef694674ebe00da25e001"
+    }
+  ]
+}

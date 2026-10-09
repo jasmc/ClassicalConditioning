@@ -8,6 +8,7 @@ quietly applying different cohort, window, or outcome transformations.
 """
 
 from __future__ import annotations
+from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes
 
 import hashlib
 import json
@@ -199,7 +200,8 @@ def load_authenticated_trial_outcomes(
             raise ArtifactIntegrityError(
                 f"Trial outcome lineage is invalid for {recording_id}."
             )
-        frames.append(pq.read_table(outcomes_path).to_pandas())
+        from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes
+        frames.append(bout_only_trial_outcomes(pq.read_table(outcomes_path).to_pandas()))
         inputs[recording_id] = {
             "recipe": route.trial_recipe,
             "path": str(outcomes_path),
@@ -214,6 +216,7 @@ def build_candidate_model_input(
     config: ModelInputConfig = ModelInputConfig(),
 ) -> pd.DataFrame:
     """Build one long model-input table for every metric and continuous outcome."""
+    outcomes = bout_only_trial_outcomes(outcomes)
     required = {
         "experiment_id",
         "recording_id",
@@ -398,6 +401,7 @@ def build_candidate_model_input_artifact(
         record = _write_parquet(staged_table, model_input)
         record["path"] = str(model_input_path)
         summary = {
+            "vigor_sample_policy": "valid-bout-frames-only-v1",
             "recipe": RECIPE_ID,
             "scientific_status": "exploratory_model_input",
             "paper_approved": False,

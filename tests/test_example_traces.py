@@ -48,6 +48,11 @@ def example_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     return corrected, metrics, protocol
 
 
+
+
+def _all_bout_state(metrics):
+    return metrics[["FrameID", "AbsoluteTime"]].assign(valid=True, moving=True, bout_id=1)
+
 class ExampleTraceTests(unittest.TestCase):
     def test_selected_trials_pair_angle_and_vigor_on_the_same_frames(self) -> None:
         corrected, metrics, protocol = example_inputs()
@@ -55,7 +60,7 @@ class ExampleTraceTests(unittest.TestCase):
             corrected, metrics, protocol,
             trial_numbers=(2, 1), metric_id=METRIC, tail_point=1,
             window_s=(-3, 12),
-        )
+         movement_state=_all_bout_state(metrics),)
         self.assertEqual(frames["Trial number"].drop_duplicates().tolist(), [2, 1])
         second = frames.loc[frames["Trial number"].eq(2)]
         self.assertEqual(second["FrameID"].tolist(), list(range(6, 12)))
@@ -74,13 +79,13 @@ class ExampleTraceTests(unittest.TestCase):
             prepare_example_trace_data(
                 corrected, metrics, protocol,
                 trial_numbers=(1,), metric_id=METRIC, tail_point=1,
-            )
+             movement_state=_all_bout_state(metrics),)
         metrics.loc[0, "FrameID"] = 0
         with self.assertRaisesRegex(Exception, "outside the recording"):
             prepare_example_trace_data(
                 corrected, metrics, protocol,
                 trial_numbers=(3,), metric_id=METRIC, tail_point=1,
-            )
+             movement_state=_all_bout_state(metrics),)
 
     def test_adjacent_frames_may_share_a_millisecond_timestamp(self) -> None:
         corrected, metrics, protocol = example_inputs()
@@ -89,7 +94,7 @@ class ExampleTraceTests(unittest.TestCase):
         frames, _ = prepare_example_trace_data(
             corrected, metrics, protocol,
             trial_numbers=(1,), metric_id=METRIC, tail_point=1,
-        )
+         movement_state=_all_bout_state(metrics),)
         self.assertEqual(frames["FrameID"].iloc[:2].tolist(), [0, 1])
 
     def test_figure_and_cli_keep_user_selected_trial_order(self) -> None:
@@ -97,7 +102,7 @@ class ExampleTraceTests(unittest.TestCase):
         frames, events = prepare_example_trace_data(
             corrected, metrics, protocol,
             trial_numbers=(2, 1), metric_id=METRIC, tail_point=1,
-        )
+         movement_state=_all_bout_state(metrics),)
         figure, panel_ids, mappings = render_example_trace_figure(
             frames, events, trial_numbers=(2, 1),
             metric_id=METRIC, window_s=(-20, 20),
@@ -128,12 +133,15 @@ class ExampleTraceTests(unittest.TestCase):
             corrected_path = root / "frame_preprocessed_corrected.parquet"
             metrics_path = root / "frame_activity_candidates-corrected.parquet"
             protocol_path = root / "stimulus_events.parquet"
+            movement_path = root / "movement.parquet"
+            _all_bout_state(metrics).to_parquet(movement_path, index=False)
             for path, frame in (
                 (corrected_path, corrected), (metrics_path, metrics),
                 (protocol_path, protocol),
             ):
                 pq.write_table(pa.Table.from_pandas(frame, preserve_index=False), path)
             with (
+                patch("classical_conditioning.figures.example_traces.verified_movement_path", return_value=movement_path),
                 patch("classical_conditioning.figures.example_traces._verify_corrected_preprocess"),
                 patch("classical_conditioning.figures.example_traces._verify_metrics"),
                 patch("classical_conditioning.figures.example_traces.load_and_verify_source_manifest",
@@ -148,7 +156,7 @@ class ExampleTraceTests(unittest.TestCase):
             sidecar = json.loads(result.sidecar.read_text(encoding="utf-8"))
             self.assertIn("trace__c_trial_2", sidecar["artist_registry"])
             self.assertIn("trace__d_trial_1", sidecar["artist_registry"])
-            self.assertEqual(len(sidecar["input_artifacts"]), 3)
+            self.assertEqual(len(sidecar["input_artifacts"]), 4)
 
 
 if __name__ == "__main__":

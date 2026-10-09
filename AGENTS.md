@@ -30,14 +30,31 @@ This is a standing author instruction, recorded on 2026-10-09.
    separate from presentation exceptions. In a noninteractive command-line
    workflow, report unresolved exceptions and do not finalize the freeze or
    invent approval.
-7. Freeze the accepted candidate with the specification version and SHA-256,
+7. Use `python scripts/freeze_figure.py --candidate <candidate.json> --output
+   <new-freeze.json>` (or `classical-conditioning freeze-figure`) for every new
+   panel or whole-figure freeze. Run `--check-only` first; resolve every reported
+   issue before publication. Populate confidence/evidence/protection records,
+   renderer-property review evidence and scientific/structure/visual reviews.
+   Freeze the accepted candidate with the specification version and SHA-256,
    resolved styles, scoped exceptions, source/data hashes, assembly scale,
    element registry, and export paths/hashes. Follow the freeze-record contract
    in the specification. User-authorized freezing needs no redundant approval;
    ask only about decisions that remain unresolved.
 
-The specification is currently a declarative contract, not an automatically
-invoked renderer or CLI gate. Future freeze work must perform these steps
-explicitly using the existing theme/export tools and the relevant renderer.
-Do not claim compliance from a configuration pointer alone. Do not retroactively
+These checks run only through the explicit freeze command. Normal rendering,
+exporting and exploratory reviews do not invoke them. The agent prepares and
+styles the candidate using the existing theme/export tools and relevant renderer;
+the command validates it and refuses unresolved cases. It does not infer roles,
+restyle input files or invent review/approval evidence. Do not claim compliance
+from a configuration pointer alone. Do not retroactively
 restyle, refreeze, or overwrite historical artifacts without a user request.
+
+## Single-file review artifacts
+
+Standing author preference recorded on 2026-10-09: save one consolidated review
+file containing all requested versions. Do not also save separate PDFs, SVGs,
+images, alternate output formats, or redundant data copies unless the user
+explicitly requests them. Embed the required figures and provenance in the
+single file. Use in-memory rendering and verification where possible; remove
+task-created temporary files after verification. Preserve existing scientific
+source data and historical frozen artifacts.

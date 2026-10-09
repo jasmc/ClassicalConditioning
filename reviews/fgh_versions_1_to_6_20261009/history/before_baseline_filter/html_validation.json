@@ -1,0 +1,47 @@
+{
+  "numberedSections": [
+    "version-1",
+    "version-2",
+    "version-3",
+    "version-4",
+    "version-5",
+    "version-6"
+  ],
+  "images": [
+    {
+      "loaded": true
+    },
+    {
+      "loaded": true
+    },
+    {
+      "loaded": true
+    },
+    {
+      "loaded": true
+    },
+    {
+      "loaded": true
+    },
+    {
+      "loaded": true
+    },
+    {
+      "loaded": true
+    },
+    {
+      "loaded": true
+    }
+  ],
+  "choices": 8,
+  "pdfDownloads": 8,
+  "svgDownloads": 8,
+  "version3IsExplicitGap": true,
+  "version6IsOneSecond": true,
+  "fourColourNotSelectable": true,
+  "desktopOverflow": false,
+  "choicePersistenceAndExportVerified": true,
+  "mobileOverflow": false,
+  "pageErrors": [],
+  "htmlSha256": "025783f197c86ec3aae7c34536d7199e7b3ba544468807ba09560542741dc32b"
+}

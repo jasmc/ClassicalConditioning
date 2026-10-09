@@ -1,11 +1,11 @@
-"""Continuous Figure 1 heatmap candidate from all valid frame vigor bins.
+"""Continuous Figure 1 heatmap candidate from bout-only vigor (empty bins remain NaN) bins.
 
-Each 0.5 s bin is the mean of valid corrected frame metric values, regardless
-of the experimental bout detector. P10/P90 scaling is separately recomputed
+Each 0.5 s bin is the mean of valid corrected bout-frame metric values.
+No-bout bins remain NaN. P10/P90 scaling is separately recomputed
 for every fish, metric, and trial from covered bins before -15 s. Bins with
 fewer than 90% valid expected frames are retained but flagged, so the visual
 step trace never invents missing values. This is a distinct signal from the
-earlier movement-conditional heatmap candidate.
+earlier candidate in its scaling rule.
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ FISH = (("20221115_07", "Delay", "delay"), ("20221115_09", "Control", "control")
 PHASES = (("Pre-Train", 5, 14), ("Train", 15, 64), ("Test", 65, 94))
 SELECTED_TRIALS = (9, 17, 63, 66, 93)
 COLUMNS = ["Recording ID", "Trial type", "Trial number", "Time bin center (s)",
-           "Metric ID", "Total activity mean", "Valid expected fraction"]
+           "Metric ID", "Conditional intensity mean", "Valid expected fraction"]
 
 
 def load_verified_profile(project: Path, fish: str, condition: str):
@@ -63,22 +63,18 @@ def scale_total_vigor(profiles: pd.DataFrame) -> pd.DataFrame:
             raise ValueError("A complete 80-bin CS window is required")
         baseline = trial.loc[
             trial["Time bin center (s)"].lt(-15)
-            & trial["Valid expected fraction"].ge(.9), "Total activity mean"
+            & trial["Valid expected fraction"].ge(.9), "Conditional intensity mean"
         ].dropna()
-        if len(baseline) < 3:
-            raise ValueError("Too few covered baseline bins")
-        low, high = np.quantile(baseline, [.1, .9])
+        low, high = np.quantile(baseline, [.1, .9]) if len(baseline) >= 3 else (np.nan, np.nan)
         if not np.isfinite(low) or not np.isfinite(high) or high <= low:
-            raise ValueError("Degenerate all-frame vigor baseline")
-        values = trial["Total activity mean"].to_numpy(dtype=float)
-        if not np.isfinite(values).all():
-            raise ValueError("All-frame vigor has missing bins; cannot render continuous steps")
+            low, high = np.nan, np.nan
+        values = trial["Conditional intensity mean"].to_numpy(dtype=float)
         trial["Baseline P10"] = low
         trial["Baseline P90"] = high
         trial["Baseline bins"] = len(baseline)
         trial["Per-trial scaled vigor"] = np.clip((values - low) / (high - low), 0, 1)
         trial["Low valid-frame coverage"] = trial["Valid expected fraction"].lt(.9)
-        trial["Signal semantics"] = "all_valid_frame_mean_per_trial_pre_minus15_p10_p90"
+        trial["Signal semantics"] = "bout_only_mean_per_trial_pre_minus15_p10_p90"
         rows.append(trial)
     return pd.concat(rows, ignore_index=True)
 
@@ -96,8 +92,6 @@ def render(data: pd.DataFrame, metric_id: str):
             times = np.arange(-20, 20, .5) + .25
             matrix = part.pivot(index="Trial number", columns="Time bin center (s)",
                 values="Per-trial scaled vigor").reindex(index=range(first,last+1),columns=times)
-            if matrix.isna().any().any():
-                raise ValueError(f"Incomplete heatmap {fish}, {metric_id}, {phase}")
             image = axis.imshow(matrix.to_numpy(dtype=float), origin="upper", aspect="auto",
                 interpolation="nearest", extent=(-20, 20, last-first+1, 0),
                 vmin=0, vmax=1, cmap="managua_r", rasterized=True)
@@ -106,7 +100,7 @@ def render(data: pd.DataFrame, metric_id: str):
             gid = f"heatmap__{panel}__{metric_id}"
             image.set_gid(gid)
             mappings[gid] = {"recording_id": fish, "metric_id": metric_id,
-                "value_field": "Per-trial scaled vigor", "signal": "all valid frame vigor",
+                "value_field": "Per-trial scaled vigor", "signal": "bout-only vigor (empty bins remain NaN)",
                 "cmap": "managua_r", "vmin": "0", "vmax": "1"}
             for second in (0, 10):
                 axis.axvline(second, color=theme.cs_color, linewidth=.7)
@@ -160,7 +154,7 @@ def main():
         try:
             result = export_matplotlib_figure(fig, base,
                 FigureProvenance(figure_id="figure-1-E-all-frame-per-trial-vigor-review",
-                    analysis_recipe="all-valid-frame-vigor-per-trial-p10-p90",
+                    analysis_recipe="bout-only-vigor-per-trial-p10-p90",
                     source_file=str(source), source_symbol="render", source_hash=sha256_file(source),
                     reproduction_snippet=snippet, input_artifacts=inputs,
                     artist_mappings=mappings),

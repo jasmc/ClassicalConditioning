@@ -6,7 +6,10 @@ and [versioned element/style configuration](../../../configs/paper-figures/figur
 The [repository instructions](../../../AGENTS.md) require applying the defaults
 to a reviewable candidate and resolving only outstanding scoped exceptions.
 The specification inventories the older assemblies and newer panel revisions;
-it does not retroactively restyle historical artifacts.
+it does not retroactively restyle historical artifacts. New freezes use the
+[freeze command](../../../scripts/freeze_figure.py); its checks run only at
+freeze time. The [SciFigEditor source review](SCIFIGEDITOR_REVIEW_2026-10-09.md)
+records related semantic editing ideas.
 
 | Number | Document | Purpose |
 | --- | --- | --- |

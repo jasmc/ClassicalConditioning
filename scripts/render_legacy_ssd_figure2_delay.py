@@ -107,7 +107,8 @@ def _read_verified_recording(project: Path, row: pd.Series):
         profile["Trial type"].eq("CS")
         & profile["Trial number"].between(5, 94)
     ].copy()
-    outcome = pq.read_table(specs[1][0], columns=OUTCOME_COLUMNS).to_pandas()
+    from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes
+    outcome = bout_only_trial_outcomes(pq.read_table(specs[1][0]).to_pandas())
     if set(profile["Recording ID"].astype(str)) != {recording_id}:
         raise ValueError(f"Temporal-profile recording identity mismatch: {recording_id}")
     if set(outcome["recording_id"].astype(str)) != {recording_id}:

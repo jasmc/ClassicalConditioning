@@ -1,0 +1,59 @@
+{
+  "fixed_scaled_boundaries": [
+    -0.5,
+    -0.1,
+    0.1,
+    0.5
+  ],
+  "colours": [
+    "#81e7ff",
+    "#5775b3",
+    "#582948",
+    "#b26343",
+    "#ffcf67"
+  ],
+  "defined_trials": 257,
+  "undefined_trials": 13,
+  "version7_physical_and_scaled_values_unchanged": true,
+  "same_missing_and_undefined_mask_as_version7": true,
+  "zero_in_central_band_for_all_defined_trials": true,
+  "upper_band_threshold_ties": true,
+  "panels": [
+    {
+      "panel": "F",
+      "defined_trials": 90,
+      "class_counts": {
+        "1": 1728,
+        "2": 1389,
+        "3": 938,
+        "4": 1099,
+        "5": 1292
+      },
+      "missing_cells": 754
+    },
+    {
+      "panel": "G",
+      "defined_trials": 90,
+      "class_counts": {
+        "1": 1773,
+        "2": 1517,
+        "3": 979,
+        "4": 1362,
+        "5": 1507
+      },
+      "missing_cells": 62
+    },
+    {
+      "panel": "H",
+      "defined_trials": 77,
+      "class_counts": {
+        "1": 841,
+        "2": 655,
+        "3": 581,
+        "4": 596,
+        "5": 866
+      },
+      "missing_cells": 3661
+    }
+  ]
+}

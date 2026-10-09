@@ -58,6 +58,10 @@ def load_review(project: Path, cohort_id: str, comparison_dir: Path,
         raise ValueError("WIP score and classification eligibility disagree")
     fish["Is_Learner"] = fish["Is_Learner"].astype("boolean")
     outcomes = pd.read_parquet(outcomes_path)
+    from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes, VIGOR_SAMPLE_POLICY
+    outcomes = bout_only_trial_outcomes(outcomes)
+    if report.get("vigor_sample_policy") != VIGOR_SAMPLE_POLICY:
+        raise ValueError("Learner scores predate the bout-only policy; rebuild the comparison before rendering")
     outcomes = outcomes.loc[outcomes["alignment"].eq("CS") & outcomes["metric_id"].eq(metric_id)
                             & outcomes["trial_number"].between(5, 94)].copy()
     if set(outcomes["fish_id"].astype(str)) != set(fish["fish_id"].astype(str)):

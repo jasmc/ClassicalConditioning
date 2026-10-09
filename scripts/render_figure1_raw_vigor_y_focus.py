@@ -49,13 +49,16 @@ def _read_fish(project: Path, fish: str, metric_id: str):
     metrics = _read_windows(
         metrics_path, ["FrameID", "AbsoluteTime", METRIC_COLUMNS[metric_id]], intervals,
     )
+    from classical_conditioning.figures.example_traces import verified_movement_path
+    movement_path = verified_movement_path(project, fish)
+    movement = _read_windows(movement_path, ["FrameID", "AbsoluteTime", "valid", "moving"], intervals)
     frames, events = prepare_example_trace_data(
-        corrected, metrics, protocol, trial_numbers=TRIALS, metric_id=metric_id,
+        corrected, metrics, protocol, movement_state=movement, trial_numbers=TRIALS, metric_id=metric_id,
         tail_point=15, window_s=WINDOW, cs_duration_s=10.0,
     )
     frames["Recording ID"] = fish
     events["Recording ID"] = fish
-    return frames, events, (corrected_path, metrics_path, protocol_path)
+    return frames, events, (corrected_path, metrics_path, protocol_path, movement_path)
 
 
 def _render(
@@ -151,7 +154,7 @@ def _render(
                 right.tick_params(axis="y", labelsize=7, colors="#B64700",
                                   right=col == 1, labelright=col == 1)
                 if col == 1 and row == len(TRIALS) // 2:
-                    right.set_ylabel("Signed log vigor" if signed else "Heatmap scaled vigor (0–1)",
+                    right.set_ylabel("Signed log vigor" if signed else "Heatmap scaled vigor (0â€“1)",
                                      color="#B64700", fontsize=8)
             axis.axvspan(0, 10, color=theme.cs_color, alpha=0.055, zorder=-1)
             for time in (0, 10):
@@ -185,10 +188,10 @@ def _render(
         else (str(heatmap_data["Vigor transform"].iloc[0]) + " "
               if "Vigor transform" in heatmap_data else "")
     )
-    cap_text = (f" · Y focus; orange = {transform_label}conditional heatmap bins (right axis)"
-                if focus_y else " · full Y range")
+    cap_text = (f" Â· Y focus; orange = {transform_label}conditional heatmap bins (right axis)"
+                if focus_y else " Â· full Y range")
     figure.suptitle(
-        f"Figure 1E raw vigor · {METRIC_DISPLAY_NAMES[metric_id]}{cap_text}", fontsize=10,
+        f"Figure 1E raw vigor Â· {METRIC_DISPLAY_NAMES[metric_id]}{cap_text}", fontsize=10,
     )
     figure.supylabel(f"Frame-level vigor ({METRIC_UNITS[metric_id]})", fontsize=9)
     if focus_y:

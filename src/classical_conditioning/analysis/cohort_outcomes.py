@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
+from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes
 
 from classical_conditioning.analysis.inference.model_input import (
     load_authenticated_trial_outcomes,
@@ -48,7 +49,7 @@ from classical_conditioning.exceptions import (
 RECIPE_ID = "cohort-trial-outcomes"
 ELIGIBILITY_RECIPE_ID = "analysis-eligibility"
 SUPPORTED_ELIGIBILITY_OUTCOMES = {
-    "total-activity": ("response_total_activity", "baseline_total_activity"),
+    "total-activity": ("conditional_intensity", "baseline_conditional_intensity"),
     "conditional-intensity": (
         "conditional_intensity",
         "baseline_conditional_intensity",
@@ -438,7 +439,7 @@ def load_cohort_trial_outcomes(
         or not outcomes["cohort_hash"].astype(str).eq(cohort_hash).all()
     ):
         raise ArtifactIntegrityError("Cohort identity columns do not match lineage.")
-    return outcomes, summary
+    return bout_only_trial_outcomes(outcomes), summary
 
 
 def build_analysis_eligibility(

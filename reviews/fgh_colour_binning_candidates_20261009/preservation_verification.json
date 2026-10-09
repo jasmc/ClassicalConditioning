@@ -1,0 +1,763 @@
+{
+  "files_checked": 187,
+  "unchanged_files": 186,
+  "all_existing_figures_data_and_selection_records_unchanged": true,
+  "inventory": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\analysis_preview.png",
+      "sha256": "f197eec56546ebdb8a7510b370520702dd661208a1d61effdbf5376df545d5c4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\build_summary.py",
+      "sha256": "92bfd6a2a822dc9592d056c14e377ca47ce0cc389df7a11fc989148aef26f98d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\c-bins_preview.png",
+      "sha256": "31dfb198a70550d02d56f0537240539466d06c27060e7f3704962ce930f1f620"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\c-samples_preview.png",
+      "sha256": "6b7f55c0b8bcd61ee808db53f71a936c8c9354fcc2fb8fc836be8d232ba1f9f7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\check_summary.cjs",
+      "sha256": "17e9334a6183c0ab47bde8da51de1f82ad47a65926431e18d73ed1c406959279"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\d-samples_preview.png",
+      "sha256": "2b6efcd9ca03af4edead15f60bc49d66ae6f29b6e6e526306218afe36254828a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\header_preview.png",
+      "sha256": "5563c2d4cca53481fcef9ebe155609acaa71b477107328bd34593717106f8d16"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\html_validation.json",
+      "sha256": "153f725bde13abd8d9034bdb5b3039fe9dfdcd047e751e96aca66327ed3b4a1a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-direct-bin-reference-fix.html",
+      "sha256": "c68c8c3d2502d7a6613a68e430db9b12351240fb2f2864d32a3d5023161600e8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-full-bout-correction.html",
+      "sha256": "cc4245df4f981977bf329b314dfc184e6d6c85749316c91bf1940dd14b571918"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-legacy-layout.html",
+      "sha256": "f2e3db80f79a9a789ce15f72b4fd6388c322f3574ab076e6aff1686544a3f6ef"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-version4-nonbout-means.html",
+      "sha256": "a8822f6b4bc6a7ecebefb623accae8f3bda92d7eb0781ba7714f0ed135415c5d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-version4-quartersecond-NaN.html",
+      "sha256": "e100dcab5c93c6be25d7f4917877c75ed83ab63494882250fc8779a121a3f7b4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index-before-version4.html",
+      "sha256": "3007d20db9da97ea9748faa735569d66af714342126b5a324e0e9923de6b3846"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index.html",
+      "sha256": "0c4b6d313eb8b4a00803211e69fe979a51ca27d9878cf35400b68cb7bbb077d6"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\median-bins_preview.png",
+      "sha256": "4555d89795a9b5066f9e655576cfc690956a23b2b876dedd8141320a6fa295f5"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\provenance-before-full-bout-correction.json",
+      "sha256": "9e5fd379c7b60d66bb98c20a133360287d765d3a21beb0c8e9502994d1809e41"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\summary_provenance.json",
+      "sha256": "54c3a013dd93d26fad8f5a3366a67ef960268083f323cdaf0cbaa12c21385125"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_BoutSamples_validation.json",
+      "sha256": "3062f1f4e233b8a2f000113dee5c18a0025d15f7f9babecc27ff9b258390d072"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_DirectBins_validation.json",
+      "sha256": "10f1f0a0f768ed19f92e73d1ea66e9dfb8a78f6ddbfb4807178c01f772328f88"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_pdf_readback.png",
+      "sha256": "9b492becce836fe60aa2130f1346d164f945300e6c046706e27caf6dc990818d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_BoutSamples_validation.json",
+      "sha256": "1971a5f0822a5d8739f3da8c391faf4f6770a093ef7cec851566932d0f8cf410"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_pdf_readback.png",
+      "sha256": "d78059f496a4f06f88726c72224339841f9f04bd5f06154d38411f6009d26c99"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\example_trials.json",
+      "sha256": "16354bd5ed06f2853e144aa2d056db5f3923b21b690f6d567849bdebb1c4f054"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.pdf",
+      "sha256": "98a3933e846f6722d36688361bcaa985b978223f60ad8b5c3b1a231dc0bf5853"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.png",
+      "sha256": "e12ef20989995ecfedf8327ed351118dc8650e7503163303b8fa86a28c399a47"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.svg",
+      "sha256": "36dc5725d616a9ef281e67e962e9bd5428d2878069b4eee3403f8f560394fb35"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.pdf",
+      "sha256": "da8758877be35957d8977c2bda101ee282e3c2b739cdbfb16538e36cecc4a540"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.png",
+      "sha256": "e4e59ec823cf1c6116d298588fb31cc407fd5eb2b4df09a24e25126ebcace4c7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.svg",
+      "sha256": "c1c15f1a73bf1f9ce92cebe3b62b91023ebde3ec8516db10b99a2f26729ff38e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.pdf",
+      "sha256": "a20074a688136811f01882d543e3a4163bb5082c3a834987bc09a79f58c95341"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.png",
+      "sha256": "37dd25d6493bb4fef7181473cd6e22b3d8e94ad72166a2f0aa51bd429edcbaad"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.svg",
+      "sha256": "6671a9a1605be0f2730f7b04f54117d796f112e4253f789dc3e02284101d77b7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_Version4_DirectBinMedians_legacy_layout.pdf",
+      "sha256": "04e4d47af09e32de11f94e694ce62a69a9de81af0b7b56df8931ab7d1187821c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_Version4_DirectBinMedians_legacy_layout.png",
+      "sha256": "e76d91c3e5face61655e39e321dd6151b70733d6b50c4efd5a3155f50822bea8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_Version4_DirectBinMedians_legacy_layout.svg",
+      "sha256": "d0e560f8b0e8c9e7e57cdcc0059caac65d1280fe041aca33341c88c111ee9bfa"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\Means_pdf_readback.png",
+      "sha256": "41742dee4d577fbc52627e3e06c96955787d91d4d9f8ab911b60d392254e36a0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\Medians_pdf_readback.png",
+      "sha256": "4915ded9f4f0eb5124b3be40adcfe6c45a13709ffa31df5d924f31fe5cc761f6"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\README.md",
+      "sha256": "5d58c89807d64200925950c8beffbbc9be0f88f6bd05c06af05ceb83b39cc5d9"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\render_layout.py",
+      "sha256": "8e84ac93e46077a58895b1e8be521096897250d4d381ed101d2255303fee20cd"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\Version4_DirectBinMedians_validation.json",
+      "sha256": "128fc97e34cbbf4eb33ad31c558f180865f4d028837c957343cacaee6acbd1eb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\visual_verification.json",
+      "sha256": "3b0c4a7b38c6617d4e034779637274e23933b4220241c9f3ac0990bb0507c0cb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\__pycache__\\render_layout.cpython-312.pyc",
+      "sha256": "e72738c34dbe2c7c7f3cffc178d80b8c8575051f376e067befde594e64db88dc"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\baseline_statistics.csv",
+      "sha256": "a98a7f430bf6707da71f7fdc56f94b243ecaaf9ae307c5134b6a99bec77fd261"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\build_version4.py",
+      "sha256": "f23808dd7b5ee6f001338bf49eb61151822e3a55f05ef51e97a37171d7662cc9"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+      "sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\exported_data_verification.json",
+      "sha256": "e7cb994ef046cf365f9e46665f56d684bc57cc303866d860cb02ffbdb222c880"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.pdf",
+      "sha256": "7c435447bf86b40568ebe38abe2f0f4ddd00cfe25f95ac0ca110c03587a659c6"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.png",
+      "sha256": "3c952454c321514c0f9a1585db117c6fda5ab09c53803f2fe2d63af09e24ced1"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.svg",
+      "sha256": "818512bb62428a1437f9155322bd52c3afb9e5b89afd11353512502f24bd26fb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\numeric_verification.json",
+      "sha256": "84996d4e924a9d6eddf388149c56cd9ddeb31ff735f4df5755ee9acd9bce93e7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+      "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+      "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+      "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\pdf_readback.png",
+      "sha256": "dc533956c50a471470450455c4e4fa4617a3870efa81e1c1b993633704ac26d9"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\per_trial_baseline_balance.csv",
+      "sha256": "230efddb35172270429aa60523f983ca69d7701ae57bc9854dd9370cb1337774"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\README.md",
+      "sha256": "4ec2f4a44cf4442be1a26cec0bb05a738a74b8f5ed814dd7a0abe691364221a5"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\Version4_DirectBinMeans_validation.json",
+      "sha256": "aeab75f06c8c47f1ca49eb05dacc63de8356aafde9c8bac16dbb6aaca3ad8590"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\baseline_statistics.csv",
+      "sha256": "a674809ef09f824d0a1fa631b29df23da85220f783d74ade5e37906052ccab02"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\build_direct_reference.py",
+      "sha256": "8fae37c91991168f828e5ceaf9d6d0c28d4978f0f9587b675040a9f2102dbedc"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\C_DirectBins_validation.json",
+      "sha256": "852af378764d85e99abdca54b6d0e52658ad971f05da4e820577dd51aa02675b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\data_manifest.json",
+      "sha256": "efa5a05d4314fa5f750507780dff99b7ce747ebaab811b14bda9544a3d0fbc7b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\FGH_C_DirectBins_shared_colourbar.pdf",
+      "sha256": "b374544fcb462b9ec4b00563d28412bb4261441f3ad15525d145bd9d7940b536"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\FGH_C_DirectBins_shared_colourbar.png",
+      "sha256": "528610d85b03fe6326ccd664947ed00413db331a15f193604fdbf7d468d43283"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\FGH_C_DirectBins_shared_colourbar.svg",
+      "sha256": "c729697c303fbfa63b5152b2f18afc834faebc4edc22590a74fe35d075cc36a9"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\numeric_verification.json",
+      "sha256": "3db4754d9c9d514c38e2ca867df69fdfab7f34a90506856595b9b2bdee1257ef"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelF_direct_bins.csv",
+      "sha256": "8cda7c63d742b5079486a262081831c44607460694059aa60a40ceaa16ad408e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelG_direct_bins.csv",
+      "sha256": "f6a674b5d23eec4791790b00bd7c2d4d58441a39119616a6df3570363206830d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelH_direct_bins.csv",
+      "sha256": "14cd8d8dedf90a3bad5601571ec2a752971399715ddde4ae5f2ef5c8f8608076"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\pdf_readback.png",
+      "sha256": "4e6592e15a9c0c052780b3b1c7c451c89768bad79b1e432f4399cedc3684f233"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\README.md",
+      "sha256": "ec3e587e25b579ca7f13b4c656c2bbaa651857942ee3cb7a1106f3352398e58d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\register_reference.py",
+      "sha256": "cc09c6c56b12e862a4a33a6a04e6a962b34cc2673c640d643e1e39e77d8c9360"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\audit_direct_bin_offset.py",
+      "sha256": "b7dd10091b7180d831b185611d167dda2838335552086211d5cf1664d1f6afb7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\baseline_statistics.csv",
+      "sha256": "60187390d564a2b5fe79ede065a36ff71f296e075ad5283fe96d0aced78e177b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\build_corrected.py",
+      "sha256": "83d4dba7c625bdbd8cd5426018b8a7d1f305e12122cf942d475d52eca05faf73"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_BoutSamples_pdf_readback.png",
+      "sha256": "f0a3e1b208185ab05a7ac58b0b128348da047b37f7d3fa2ebf871dab4d10b779"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_BoutSamples_validation.json",
+      "sha256": "2405d5b1841939c855b9e98f6e7ff36c5157a6c81d231c09cdbf0ae4d8c03cff"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_DirectBins_pdf_readback.png",
+      "sha256": "fd9029f0596370316a8a1e9f301be5972d92c0ccd6464808537b7dbfee05d4c4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_DirectBins_validation.json",
+      "sha256": "95cffa8345b6f758474d9111c2fbfe1c9aabddd6c65a067b523caec5f990de86"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+      "sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\direct_bin_offset_audit.csv",
+      "sha256": "56dcc8b8272d61f9f9ba952edf30c5f8988f823b975ca3f80a3e7a10b09ca6c1"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\direct_bin_offset_summary.json",
+      "sha256": "d3014ff4e853198a268ecba969c437ac7d0243844d7dd066c26b5a1ab8e0b5fb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\D_BoutSamples_pdf_readback.png",
+      "sha256": "00f13c914bb0a5220ee17c8cb2b57c3c29b5056de84454c70f5dcfc1cec0e645"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\D_BoutSamples_validation.json",
+      "sha256": "ca372f9c3f517caa16edc0870f20ddb8927ecc72c15e2dc0407f8ee99374d43e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_BoutSamples_shared_colourbar.pdf",
+      "sha256": "c6a425dec5915eb085637ed9a66f79dfde6ae5f0a3ab57a78bb55c2974974e39"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_BoutSamples_shared_colourbar.png",
+      "sha256": "5a76b8778e531d4a865e0c542790f6bf686622c379d915b014e3df0c0f91b68b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_BoutSamples_shared_colourbar.svg",
+      "sha256": "90d95197b30490cfdc0218cf2212ae30da02e811788044c0875c453b2d2ec310"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.pdf",
+      "sha256": "5200e5cae2be0a7b9500c4805b32acd9ce8988d7c2a0e98fa36c141ed6e1d64e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.png",
+      "sha256": "2e7e032ca89ad8a3ca8d0310b34d61d8844bcb71608f4622cec65f62c5675442"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.svg",
+      "sha256": "619a6d366277920bd5de1447f845381874192449a8bc8a46e4cc72ec5ed24518"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_D_BoutSamples_shared_colourbar.pdf",
+      "sha256": "117153eccbbf87bc66d953f553c5e009058c4fa4de0b2c449cb97df96e05daa6"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_D_BoutSamples_shared_colourbar.png",
+      "sha256": "68b9b9f8d6d7a4ca008d115278c8032295e9fddb15da0491e7282735194aa90e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_D_BoutSamples_shared_colourbar.svg",
+      "sha256": "97bfcdf1bd7642d452005195911fa0abfaee8c2dee7db212cd69a0d0b3cdef4a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\numeric_verification.json",
+      "sha256": "d5f0517b1ac1d28391acc91c417362011fe199dc0130d345da5ca885f3d2728b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_boundary_audit.csv",
+      "sha256": "7454e2b888876e39338e4f4ac5b5a87c48e6081bfb731fd0d871b7bd0bbce4a3"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bouts.csv",
+      "sha256": "c3e48177bddd8d4d8d130b6b8f2b9f4d275fc3cff89ddf5b939b3a4ce0b3d236"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+      "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_support.parquet",
+      "sha256": "0f568be31ebea4ce91a74efcb797e69c69c36134427114b16e8b45060a859840"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_C_sample_runs.csv",
+      "sha256": "af6b524c1fed6040b7e68f51fee78df22275ffd97d19ee9c26904244876de454"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_direct_bins.csv",
+      "sha256": "bb238f7de1c60e684c43279acfe8319bc64bbc73036f34f015041bcc2dabb4fb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_D_sample_runs.csv",
+      "sha256": "815008bc3ac498c824cafc5b019b12d0a11f146ff5f1cca4c44b4d1f43dbad0b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_boundary_audit.csv",
+      "sha256": "91138b042957ceddd8f9c861f57408794db21d6ad1bf80e01413dcd137e47af7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bouts.csv",
+      "sha256": "addfcc76a644c2cc2f595db352c08826813cfbcd4ed67f57893f8fa6e01f1def"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+      "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_support.parquet",
+      "sha256": "18f4ce88b002a591f43421fb024174a2b3b2751d0ee105436f6a0d4cfaef0fe9"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_C_sample_runs.csv",
+      "sha256": "4f7abfa87464d763a4682b8b210cfafa9bc243a018a6b785ad64f804b1e5aff7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_direct_bins.csv",
+      "sha256": "a5f2b86c46d75c67bed109c1865b4878300c3eda25900d88f73b090872aa8c65"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_D_sample_runs.csv",
+      "sha256": "3b9f61198bd59bde1fcb0ea27fe17c3ad7eb27dd2b75b3fb97a0aa7c55d98301"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_boundary_audit.csv",
+      "sha256": "43274f9ead9267a1705a1c1fdca00d10bc7949665b6dde5f63a0ba88995e17e8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bouts.csv",
+      "sha256": "6cc4f0374a02767349133a5c3d72fde4b4bab2872065245a2142644eabbece96"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+      "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_support.parquet",
+      "sha256": "cef27478639664748dec8d60702e8e58da0ba71163612222134fb4817bafb670"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_C_sample_runs.csv",
+      "sha256": "e084ef532569b322a81388e06b6c417398542eb66cbb89e93519a61b8c3074ed"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_direct_bins.csv",
+      "sha256": "92718de5e41e24910c69fcef826ccc3a3ac27610bf1a274fd12ac6a62b23e5a3"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_D_sample_runs.csv",
+      "sha256": "dfedf104d1bdca4574f9033c5425e894aeab8f6340e65c2c3dc9cc89ca7eab2c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\README.md",
+      "sha256": "78e4c210fbebd77faf89f0aa09b4dac513abbaf377c53847b99c430be6c828af"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\register_corrected.py",
+      "sha256": "4ad05c0f67a55f44c5beec5d89d08f97c3d3601d41ab0a9f711e5bbc21fc7b46"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\verify_corrected.py",
+      "sha256": "a4b4bfedfbab4d19aa3df42de2ff32ded192a53fd91109f8316be83333090df5"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\freeze_and_style.py",
+      "sha256": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\register_freeze.py",
+      "sha256": "bab4ac1605c0f70b88fa31d55f7caef993a927bf5e13fdeab129e93f678dc300"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\render_references.cjs",
+      "sha256": "b72b424ec18fff1ab5b1297d4a6e91d70afbf46abda834c9b12e688297c625f5"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\replace_trace_fish.py",
+      "sha256": "e8a81ce00ddd377c0d12bd453e8e6e8b491d6dfd0a3758330cad46edfd56eb2a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared_colourbar.py",
+      "sha256": "cd36ec99dd29ff164475e4acf4fa8d4440ae7388ab87eb72e339a7ec0ad981c1"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.pdf",
+      "sha256": "6e525d28dd2da1e18af49931a9bdb968d876b28f06e63691e039e3aabb0fe2b6"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.png",
+      "sha256": "43603bf8727dd202fedde38c61571e3b9530c6a6404e30f5c8309d01c45da777"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.svg",
+      "sha256": "8ae5f65ff08413392c5604e1640c57b0da7888e8f5100b91c5bc8e59bfc30ca2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.pdf",
+      "sha256": "c0be4d39d8b8a88a4ed9e47d21513214a8d9424940da474add429830902af03d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.png",
+      "sha256": "0ac29582cae8f99dd1ec99b947253254ffa43c992ff5122986b1d1e9d0c4834e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.svg",
+      "sha256": "718e50f8200f4bce869f7f9908831cdf68f2852e5686ef857b8ab5c351e41b39"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.pdf",
+      "sha256": "59fb7c6abe0317ec5e9dea51255c482117f574ec7f5e45b6e0ea54c297bc4ae0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.png",
+      "sha256": "2488652338314c79c92a91e5fdceba733afa55a60616dccbba85ae3425754f5d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.svg",
+      "sha256": "a1a5eef90e3012a23a05cffb5293f3d6727d47fa3bc8184e35f854fb7bc2ee47"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\freeze.json",
+      "sha256": "0b3f383e62ccb78dea440bafa013a24582f8f73226923b6218fa9c908d1b0090"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelF_display_sample_runs.csv",
+      "sha256": "b5aa82cc00c6f0d3f9c8b8ba8a69c6299515c8ccf5601129e3f30d3ab3115d74"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelG_display_sample_runs.csv",
+      "sha256": "e40401500b7ed7e4578a1d79a4c0f225b81136405afd07bd903d5e7c2024ff6d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelH_display_sample_runs.csv",
+      "sha256": "380defc5bf73579dcec5bfd46e94e81918f0a98006777ee830a15d114973cf54"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\sample_baseline_statistics.csv",
+      "sha256": "3721d8fe2e0b279f9bc2d0e6597baa684a814fd87c52ae68d75535adbb00e8d2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\selected_processing_code.py",
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\source_comparison_manifest.json",
+      "sha256": "1d0590a421d3df7846b16169737230ff8b92a0143966152b4f61c90f97e8e0e0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\FGH_C_BoutSamples_polished.pdf",
+      "sha256": "2431029a5a3dae0b33be219343be3492ccde3671b1a8ecfa3096a988da05013f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\FGH_C_BoutSamples_polished.png",
+      "sha256": "e361084d2488edfde1caa29d6d618db6ca051ca17084c5a845e0a269f2cfe30e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.pdf",
+      "sha256": "d6a6a32d4b267f48169adc97f3da4dc729438e4da6330025e0167da640e1a4f8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.png",
+      "sha256": "99c278dc5051af05516fe7704ddb3e8b5a333c2c5b60cd81c855aff4622ac9e0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.svg",
+      "sha256": "3ad490a011a336d2b616b000ff44b02e4ac7ecbff62930cae24cf74953ecfbed"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.pdf",
+      "sha256": "be76e4b6c843d0ca8c4fd34fb83d37b67af959796b1eeff6184b840df9af6984"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.png",
+      "sha256": "092068437e6759c33584c035580081cbe2c09e72e2ea870d07fc3a6fcf6748a0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.svg",
+      "sha256": "7efa7f168350794be166cabac56ceed628c9c5fc49eb12e448e6a7cb51ad83e4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.pdf",
+      "sha256": "ddcde123a0b1590cc0fdd937420ed55d6d8f449cc4c289c79765fe169a5c16d1"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.png",
+      "sha256": "dbcc99425662c7812a34b4b33cb62b8c6161e951f89b8d47a2da7d3e5724b341"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.svg",
+      "sha256": "630c7651e2e87669a4067d66a156cbeda612d72cda3a3c75c4e55e0109f2a2e1"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\layout_validation.json",
+      "sha256": "7aac6a68175697abde5119c25c28af90c4854c945a89c4684e00c36413f32da4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\legacy_style.png",
+      "sha256": "100f48d476f6ce2ee0784e1c23bc8c470adcf8cfea892c623de27ccfe5c66a78"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\legacy_style.svg",
+      "sha256": "4944009938fef65c6c3ae40bb9be91118708a7298e2a9367fd304a986fecb0ad"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\legacy_style_preview.png",
+      "sha256": "4208f7fb5951f0741cc22a4764b49ac75f8e1815a83a52146cd29b01d3c86319"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style.png",
+      "sha256": "a70e97d2b8bb27a4be4571b6fe6069f15ae0cfc24db2e94323e104f01dede070"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style.svg",
+      "sha256": "ade2e4e95288f35b0d2b95b24e3ac361ae1029863d3692e013ac06ac0160607c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style_freeze.json",
+      "sha256": "aa4fca7eaece980ac80972924f2774d67edea3de9f5f98a4fea81315626db050"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style_preview.png",
+      "sha256": "c84ea4d31e57037959586c487dd3aeb33489bf0470f4c12911c45fe576b4def3"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.pdf",
+      "sha256": "ba49e336b0c4b53a00e992061da746ecd6ed9fa18fc441f1e990041031783960"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.png",
+      "sha256": "9980ab3ea55c29c6676180786c6ee0f81eaec8eab6185cdf79e46840b2cd732d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.svg",
+      "sha256": "d1b5b5dd2049c609fa558813b51d9861aff1d2618c34742f8696264922c300a8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\pdf_readback.png",
+      "sha256": "67397957bedb9c9217f0bab4dc1d77f085234fe6300b16fddc035c1d857ffb6c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\validation.json",
+      "sha256": "e444572c51f9c758f7ee3acd2d08818f393c2c474bdf73ce6d94ca04d68d4c9b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\__pycache__\\freeze_and_style.cpython-312.pyc",
+      "sha256": "c9b7eb2da8727e874f48f5a6254c51bbdaa1c104f6dcd77c8fa6902e950dd1e0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\__pycache__\\shared_colourbar.cpython-312.pyc",
+      "sha256": "e095e0ecce711c58f3b8384adf83e37b09c6cf64a14364d45a6f38d04905caa2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\FGH_pdf_readback.png",
+      "sha256": "1fefb183b3ac787ec10567d6a7123b1649210feab1e915579939598ab29b71f6"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\PanelF.png",
+      "sha256": "1a41729f595ff493961a89a4065088f9e872f5fd0049487b6f561566729f3eed"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\PanelG.png",
+      "sha256": "bb6e98bc347760267666850348f09abc8453f6aabedb82419cba3811351f5d43"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\pdf_checks\\PanelH.png",
+      "sha256": "f1dd7ab66c59e05c75f1f70e5f787fc8b8841a39363520ca0f25048c30df2680"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\behavior-paper.json",
+      "sha256": "402af84cf6b495233f12aeff238b85c76aee5320b58851e5e89ebbbe2af50309"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure-elements.json",
+      "sha256": "b28ad5dbaa55ce99a784f36dbb1e2c5dff1dcb9559de60dd00f47e02fbae5d1f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-assembly.json",
+      "sha256": "19a6025cd3726e5d522ab43857e043c844fc86e894155a1862524a08e2e75b8a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-cadence-review-v5.json",
+      "sha256": "3380deec33ee3fb66a6bf8a45663154f33fc082d8c77da1893aa3de6e97eee5b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-full-bout-correction-20261009.json",
+      "sha256": "983ffa591e24b4d72bfcca736d1e412195c48ff938bb368f9e5e810e174fcf3c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-version1-freeze-20261009.json",
+      "sha256": "bc2d65877d641dfd1968ff6760d7861a6c63b12cb080a711441e33ac81600224"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-freeze.json",
+      "sha256": "1b09e9c5aed9bb444043f36c55c3e7d26d9be22f7f2254d297d9f097b0a9187a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-axis025-review.json",
+      "sha256": "c80084cda149647ba75b38f5715460d3498e0b40191e1d7702bfd737a2b1d6a2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-axis050-review.json",
+      "sha256": "b9480d1983c46674ae03c0bbb331f6d9f4535b7faebae076239f27b5cacf7d39"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-polished-review.json",
+      "sha256": "edfba9572fbb573822d78e30b6fab8473618849932e09e04ade87dc06ada063f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-rawzoom-review.json",
+      "sha256": "1e0e3dcd4c9a93817ddc9e571fbfe8c9c511eb22dd84fb9d165226bc460adfbf"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-review.json",
+      "sha256": "3a5011d696f52d13944b204cd55db27f4ee33a9f54db839e83fb94736ae804c8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-f-binned-bars-zeroaligned-review.json",
+      "sha256": "d9730dfaca5db22fa5f4fff212902a7da680fca05ebe9bae437509b72e160158"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-individual-bout-means-review.json",
+      "sha256": "89e7d2c5d03088515124fcd2471f6d0b7146eff55617d27a672803ad054ab4dc"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-panel-e-scaled-bout-means-full-duration-review.json",
+      "sha256": "edf03945e80d71275ab0da680e5b284afc2eda9decb432210fc9c0dfd8df9188"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-session-protocol.json",
+      "sha256": "0f2ebe01a3c3f9a6b4596f2ad481c1cd3e6ef2da6d209a21386bb4f3173e005f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure2-assembly.json",
+      "sha256": "9e6358769001100b6b752545a66bfa8b2dae8807574979dbe601f6f481bc25cd"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\review-variants.json",
+      "sha256": "5575c07b1dad5fe53b1edffeb6667e6acfcba2990416e8db3e79593b9ede64f3"
+    }
+  ],
+  "concurrent_workspace_changes": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure-elements.json",
+      "sha256": "b28ad5dbaa55ce99a784f36dbb1e2c5dff1dcb9559de60dd00f47e02fbae5d1f",
+      "current_sha256": "e6f1dfcc6e8ce3809c9ad41fa7a8e7807b41e861828d0ce876d8266134db0262"
+    }
+  ],
+  "concurrent_change_note": "figure-elements.json changed during this run; none of the candidate scripts writes it. It was not restored or overwritten."
+}

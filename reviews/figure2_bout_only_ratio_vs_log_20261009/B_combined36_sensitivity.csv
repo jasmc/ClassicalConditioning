@@ -1,0 +1,25 @@
+version,panel,family,condition,left,right,test,n_control,n_conditioned,n_pairs,statistic,p_raw,method,rank_biserial,median_change,zero_differences,absolute_difference_ties,median_change_conditioned,median_change_control,descriptive_difference_of_median_changes,p_holm24,stars,p_holm36_with_zero_tests
+log,D,between,delay vs control,0,0,Mann-Whitney U,28.0,29.0,,416.0,0.8794685579870943,asymptotic; tie/continuity corrected,0.0246305418719212,,,,,,,1.0,ns,1.0
+log,D,between,delay vs control,1,1,Mann-Whitney U,24.0,29.0,,98.0,8.265027097707395e-06,asymptotic; tie/continuity corrected,-0.7183908045977012,,,,,,,0.0001818305961495,***,0.00027274589422434406
+log,D,between,delay vs control,2,2,Mann-Whitney U,26.0,29.0,,358.0,0.7551343754302562,asymptotic; tie/continuity corrected,-0.0503978779840849,,,,,,,1.0,ns,1.0
+log,D,within,delay,0,1,paired Wilcoxon signed-rank,,,29.0,19.0,1.1436641216278076e-06,exact; zero_method=wilcox,,-0.0964443057894364,0.0,False,,,,2.7447938919067383e-05,****,4.0028244256973267e-05
+log,D,within,control,0,1,paired Wilcoxon signed-rank,,,24.0,148.0,0.9664472341537476,exact; zero_method=wilcox,,0.005319383558749,0.0,False,,,,1.0,ns,1.0
+log,D,change,delay vs control,0,1,Mann-Whitney U on within-fish changes,24.0,29.0,,127.0,8.147700169207902e-05,asymptotic; tie/continuity corrected,-0.6350574712643677,,,,-0.0964443057894364,0.005319383558749,-0.1017636893481854,0.0016295400338415,**,0.0025257870524544495
+log,D,within,delay,1,2,paired Wilcoxon signed-rank,,,29.0,26.0,3.982335329055786e-06,exact; zero_method=wilcox,,0.0777506350947527,0.0,False,,,,9.159371256828308e-05,****,0.00013539940118789673
+log,D,within,control,1,2,paired Wilcoxon signed-rank,,,24.0,145.0,0.899570107460022,exact; zero_method=wilcox,,-0.0074754579897322,0.0,False,,,,1.0,ns,1.0
+log,D,change,delay vs control,1,2,Mann-Whitney U on within-fish changes,24.0,29.0,,580.0,3.525396378510318e-05,asymptotic; tie/continuity corrected,0.6666666666666667,,,,0.0777506350947527,-0.0074754579897322,0.085226093084485,0.0007403332394871,***,0.0011281268411233018
+log,D,within,delay,0,2,paired Wilcoxon signed-rank,,,29.0,172.0,0.3357337154448032,exact; zero_method=wilcox,,-0.0175232712123976,0.0,False,,,,1.0,ns,1.0
+log,D,within,control,0,2,paired Wilcoxon signed-rank,,,26.0,150.0,0.5316631495952606,exact; zero_method=wilcox,,-0.0112654935853847,0.0,False,,,,1.0,ns,1.0
+log,D,change,delay vs control,0,2,Mann-Whitney U on within-fish changes,26.0,29.0,,368.0,0.8860575105470356,asymptotic; tie/continuity corrected,-0.0238726790450928,,,,-0.0175232712123976,-0.0112654935853847,-0.0062577776270128,1.0,ns,1.0
+log,E,between,trace vs control,0,0,Mann-Whitney U,19.0,40.0,,325.0,0.3766385923709983,asymptotic; tie/continuity corrected,-0.1447368421052631,,,,,,,1.0,ns,1.0
+log,E,between,trace vs control,1,1,Mann-Whitney U,19.0,40.0,,234.0,0.0182590944270283,asymptotic; tie/continuity corrected,-0.3842105263157894,,,,,,,0.32866369968651,ns,0.5295137383838208
+log,E,between,trace vs control,2,2,Mann-Whitney U,18.0,40.0,,268.0,0.1240805440659112,asymptotic; tie/continuity corrected,-0.2555555555555555,,,,,,,1.0,ns,1.0
+log,E,within,trace,0,1,paired Wilcoxon signed-rank,,,40.0,166.0,0.0007144019527913,exact; zero_method=wilcox,,-0.0631587026745383,0.0,False,,,,0.0135736371030361,*,0.021432058583739
+log,E,within,control,0,1,paired Wilcoxon signed-rank,,,19.0,70.0,0.3320655822753906,exact; zero_method=wilcox,,-0.0056859185552156,0.0,False,,,,1.0,ns,1.0
+log,E,change,trace vs control,0,1,Mann-Whitney U on within-fish changes,19.0,40.0,,258.0,0.0487249891362848,asymptotic; tie/continuity corrected,-0.3210526315789473,,,,-0.0631587026745383,-0.0056859185552156,-0.0574727841193227,0.8283248153168424,ns,1.0
+log,E,within,trace,1,2,paired Wilcoxon signed-rank,,,40.0,309.0,0.178696415723607,exact; zero_method=wilcox,,0.0084307283298989,0.0,False,,,,1.0,ns,1.0
+log,E,within,control,1,2,paired Wilcoxon signed-rank,,,18.0,72.0,0.5798416137695312,exact; zero_method=wilcox,,-0.0013034817572612,0.0,False,,,,1.0,ns,1.0
+log,E,change,trace vs control,1,2,Mann-Whitney U on within-fish changes,18.0,40.0,,380.0,0.7431062417510046,asymptotic; tie/continuity corrected,0.0555555555555555,,,,0.0084307283298989,-0.0013034817572612,0.0097342100871602,1.0,ns,1.0
+log,E,within,trace,0,2,paired Wilcoxon signed-rank,,,40.0,270.0,0.0602694919616624,exact; zero_method=wilcox,,-0.0147557251551375,0.0,False,,,,0.9643118713865988,ns,1.0
+log,E,within,control,0,2,paired Wilcoxon signed-rank,,,18.0,78.0,0.7660293579101562,exact; zero_method=wilcox,,-0.0135260426595349,0.0,False,,,,1.0,ns,1.0
+log,E,change,trace vs control,0,2,Mann-Whitney U on within-fish changes,18.0,40.0,,311.0,0.4149836883022243,asymptotic; tie/continuity corrected,-0.136111111111111,,,,-0.0147557251551375,-0.0135260426595349,-0.0012296824956026,1.0,ns,1.0

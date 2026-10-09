@@ -1,5 +1,6 @@
 """Render a corrected G preview from saved statistical results, without refits."""
 from datetime import datetime, timezone
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -23,18 +24,33 @@ def stars(p):
 
 
 def main():
-    out = ROOT / 'row3-trial-ratio-review' / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '-delay-display')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--analysis-dir', type=Path, default=SOURCE)
+    parser.add_argument('--scale', choices=['ratio', 'log-ratio'], default='ratio')
+    parser.add_argument('--assembly-root', type=Path, default=ROOT)
+    args = parser.parse_args()
+    source = args.analysis_dir
+    out = args.assembly_root / 'row3-trial-ratio-review' / (datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ') + '-delay-display')
     out.mkdir(parents=True, exist_ok=False)
-    summary = pd.read_parquet(SOURCE / 'bootstrap-summary.parquet')
-    dtests = pd.read_csv(SOURCE / 'D-interaction-tests.csv')
-    local = pd.read_csv(SOURCE / 'MR-local-block-tests.csv')
-    trials = pd.read_csv(SOURCE / 'trial-tests-FDR.csv')
-    results = json.loads((SOURCE / 'result-summary.json').read_text())
-    source_sidecar = json.loads((SOURCE / 'Fig2_PanelG_delay_legacy_LME_bootstrap5000.figure.json').read_text())
+    summary = pd.read_parquet(source / 'bootstrap-summary.parquet')
+    dtests = pd.read_csv(source / 'D-interaction-tests.csv')
+    local = pd.read_csv(source / 'MR-local-block-tests.csv')
+    trials = pd.read_csv(source / 'trial-tests-FDR.csv')
+    results = json.loads((source / 'result-summary.json').read_text())
+    source_sidecar = json.loads((source / 'Fig2_PanelG_delay_legacy_LME_bootstrap5000.figure.json').read_text())
+    bout_only = source_sidecar['analysis_identity'].get('outcome_id') == 'conditional-intensity'
     for item in source_sidecar['outputs']:
         if sha(item['path']) != item['sha256']:
             raise ValueError('Saved analysis artifact changed: ' + item['path'])
-    assert sha(SOURCE / 'analysis-script.py') == source_sidecar['code'][0]['sha256']
+    assert sha(source / 'analysis-script.py') == source_sidecar['code'][0]['sha256']
+    if args.scale == 'log-ratio':
+        from render_figure2_delay_legacy_metric_lme import bootstrap_trajectories
+        fish = pd.read_parquet(source / 'fish-ratios.parquet')
+        fish['ratio'] = np.log(fish['ratio'])
+        summary, draws = bootstrap_trajectories(fish, n_boot=5000, seed=10)
+        summary.to_parquet(out / 'log-ratio-bootstrap-summary.parquet', index=False)
+        for condition, draw in draws.items():
+            np.savez_compressed(out / (condition + '-log-ratio-bootstrap-draws.npz'), **draw)
     plt.rcParams.update({'font.family': 'DejaVu Sans', 'svg.fonttype': 'none'})
     fig = plt.figure(figsize=(10, 6.6), layout='constrained')
     grid = fig.add_gridspec(3, 1, height_ratios=[1.35, 3.0, .50])
@@ -60,7 +76,7 @@ def main():
     counts[0] = len(significant)
     for lane, count in counts.items():
         if count == 0:
-            marks.text(50, lane, 'none below adjusted p = 0.05', color='.55', ha='center', va='center', fontsize=8)
+            marks.text(50, lane, 'none below p = 0.05' if lane == 2 else 'none below adjusted p = 0.05', color='.55', ha='center', va='center', fontsize=8)
     blocks = ['Pre', 'Tr1', 'Tr2', 'Tr3', 'Tr4', 'Tr5', 'Te1', 'Te2', 'Te3']
     for i, label in enumerate(blocks):
         start = 5 + i*10
@@ -74,9 +90,11 @@ def main():
         ax.fill_between(d.trial_number, d.ci_lower, d.ci_upper, color=color, alpha=.22, lw=0)
     for boundary in [14.5, 64.5]:
         ax.axvline(boundary, color='.4', linestyle=':', lw=.9)
-    ax.axhline(1, color='.4', lw=.7)
-    ax.set(xlim=(4, 95), ylim=(.65, 1.30), xlabel='Global CS trial',
-           ylabel='Response mean / pre-CS baseline mean\nmedian [pointwise 95% fish-bootstrap CI]')
+    is_log = args.scale == 'log-ratio'
+    ax.axhline(0 if is_log else 1, color='.4', lw=.7)
+    label = 'ln(bout-only response mean / baseline mean)' if is_log else ('Bout-only response mean / baseline mean' if bout_only else 'Response mean / pre-CS baseline mean')
+    ax.set(xlim=(4, 95), ylim=(np.log(.65), np.log(1.30)) if is_log else (.65, 1.30), xlabel='Global CS trial',
+           ylabel=label + '\nmedian [pointwise 95% fish-bootstrap CI]')
     ax.spines[['top', 'right']].set_visible(False)
     ax.legend(frameon=False, loc='lower right', fontsize=9)
     note.set_axis_off()
@@ -84,32 +102,78 @@ def main():
     note.text(0, .55, 'Stars: adjusted change from Pre5–14, one spline LME. D: Holm8; M/R: separate BH9; trials: BH90.', va='top', fontsize=8, transform=note.transAxes)
     note.text(0, .18, 'Raw R is uncorrected. * p<.05, ** p<.01, *** p<.001. No onset or extinction claim.', va='top', fontsize=8, transform=note.transAxes)
     p = results['joint_interaction'][0]['p_value']
-    fig.suptitle(f'G | Delay — tail bend angular speed; mixed-effects review\nJoint condition × block p={p:.3g} | 5,000 whole-fish resamples, seed 10', fontsize=12)
+    fig.suptitle(f'G | Delay — tail bend angular speed; ' + ('bout-only ' if bout_only else '') + f'mixed-effects review\nJoint condition × block p={p:.3g} | 5,000 whole-fish resamples, seed 10', fontsize=12)
     for ext in ['svg', 'png', 'pdf']:
         fig.savefig(out / ('Fig2_PanelG_delay_legacy_LME_bootstrap5000.' + ext), dpi=220)
     plt.close(fig)
-    caption = '''# Delay panel G: mixed-effects review
+    coverage = summary.groupby('condition_id').contributing_fish.agg(['min', 'max']).to_dict('index')
+    residual = results['residual_diagnostics'][1]
+    caption = f"""# Delay panel G: bout-only mixed-effects review
 
-The metric is frozen to tail bend angular speed (legacy_distal_angular_speed, rad/ms). The displayed ratio is dimensionless: response mean[0,9) / baseline mean[-15,0). All 29 Delay and 28 control fish contribute at each unsmoothed global CS trial5–94. Lines are equal-fish medians. Shading is a pointwise95% percentile CI from5,000 bootstrap samples, seed10: fish are sampled with replacement separately within condition, and each selected fish carries all90 trials and any missing values. The draws are saved; missing values are preserved. Seed10 fixes the random draw sequence for reproducibility. This is not a simultaneous band or the CI of an LME contrast.
+Frozen metric: legacy_distal_angular_speed (tail bend angular speed, rad/ms).
+Each fish-trial value is the arithmetic mean of finite, detector-valid, adjacent
+bout frames in response [0,9), divided by the equivalent mean in baseline
+[-15,0). Nonbout frames are ignored. No-bout windows remain missing. No smoothing
+or imputation. Blue is control, magenta is Delay. Each line is the equal-fish
+median of individual ratios. Reference 1 means unchanged bout intensity.
+Cohort: 28 control and 29 Delay; contributing fish per trial: {coverage}.
+There are 4,811 eligible fish-trial rows out of 5,130 scheduled.
 
-Numerical results: joint condition-by-block Wald p=.014085. No individual D interaction survives Holm8. M: local Train4 condition difference, p_FDR=.006939 (M**). R: local Train3 slope difference p_raw=.030317 (R*), p_FDR=.272856; no slope survives BH9. No trial change contrast survives BH90, so no black stars are present. The empty lanes are results, not missing calculations. FDR correction limits the expected false-discovery proportion among rejections under its assumptions; it is not a probability that each displayed star is false.
+Bands are pointwise 95% percentile confidence intervals of the condition median,
+from 5,000 whole-fish resamples, seed 10. Draw the original number of fish with
+replacement within each condition. Every selected fish brings its whole
+90-trial trajectory and missing values, using the same draw across all trials.
+Seed 10 makes draws reproducible. These bands measure uncertainty about the
+median; they are not IQRs, individual spread, simultaneous bands or LME CIs.
 
-Models fit log(response+1e-6) with log(baseline+1e-6) as a covariate. The block and longitudinal spline5 models use fish random intercepts/slopes, with the specified fallback available but not used. M/R use separate within-block random-intercept LMEs at each block's centered trial. The trial stars test (control−Delay at trial)−average(control−Delay at Pre5–14), two-sided, from one condition-by-spline longitudinal model. They do not test the displayed median ratios directly. This replaces the legacy separate-per-trial LME and its unidentifiable fish random intercept; do not label it an exact legacy reproduction.
+Fresh results: joint condition-by-block Wald p={p:.8g};
+D/Holm8: {results['D_significant']} blocks; M/BH9: {results['M_significant']} blocks;
+R/raw: {results['R_raw_significant']} blocks; R/BH9: {results['R_FDR_significant']} blocks;
+trial/BH90: {results['trial_FDR_significant']} trials. Full block labels, estimates
+and adjusted p values are in saved tables. Black stars mark adjusted p<.05,
+with one star symbol per trial; their shape does not encode p-value magnitude.
+D/M/R asterisks use *<.05, **<.01, ***<.001 within their declared families.
 
-All11 main/local fits passed convergence, fixed covariance and Hessian curvature checks. Alternate Powell and intercept-only sensitivities fit. All57 leave-one-fish-out block/longitudinal refits completed without fit failures. Residual skewness is about−1.97 and excess kurtosis20.85, with strong tails and changing spread; Gaussian Wald p-values therefore remain exploratory. Numerical convergence is not validation. A supporting fish-level all-training-versus-pre log-ratio contrast is .13696 (Delay−control suppression),95% fish-bootstrap CI .08480–.19074; it uses a different estimand from the ANCOVA and trial tests and is not independent confirmation. Median CI endpoint maximum change from the first2,500 to all5,000 draws was .02350 ratio units, retained as a stability diagnostic.
+Models fit natural log positive bout response, adjusted for natural log positive
+bout baseline, without an offset. Block and spline5 models use fish random
+intercepts and trial slopes. M/R use separate within-block random-intercept
+models and centered trial. D tests block interactions relative to Pre5-14.
+M tests a local condition difference at block center; R tests a local slope
+difference. Trial stars test (control-Delay at trial) minus its average in
+Pre5-14, from one longitudinal spline model. These are adjusted log-response
+tests, not direct tests of displayed median ratios. Pre trial stars represent
+departures from average Pre contrast; they cannot imply pre-training learning.
 
-Preserved analysis inputs, bootstrap draws, coefficients/covariances, full test tables, residuals, optimizer sensitivities, leave-one-fish-out outputs and hashes are in the linked source directory. This display only corrects layout; it does not refit, choose a more favorable test, or update the main assembly. Panel I remains unavailable/inconclusive.
-'''
+All main/local and optimizer/random-intercept sensitivity fits passed numerical
+checks; all 57 leave-one-fish-out refits passed. Longitudinal residual skewness=
+{residual['residual_skewness']:.3f}, excess kurtosis={residual['residual_excess_kurtosis']:.3f},
+median fish lag1={residual['median_within_fish_lag1']:.3f}. Heavy tails remain,
+so Gaussian Wald inference is exploratory. Missing bout windows can be
+informative; retaining NaNs does not remove selection bias. This measures vigor
+conditional on bouting, not movement probability or total activity.
+Same-data fish training robustness (different estimand): {results['fish_robustness']}.
+Maximum CI endpoint change from 2,500 to 5,000 draws:
+{results['bootstrap_max_endpoint_change']:.5f} ratio units. No onset/extinction
+claim or full assembly update. Panel I remains unavailable/inconclusive.
+"""
+    if is_log:
+        caption = caption.replace('Each line is the equal-fish\nmedian of individual ratios. Reference 1 means unchanged bout intensity.', 'Each line is the equal-fish\nmedian of natural logs of individual ratios. Reference 0 means unchanged bout intensity.')
+        caption += '\nLOG VERSION: natural log is applied to each individual fish ratio before taking condition medians and bootstrapping. The reference is zero, with negative values indicating lower response bout intensity. This is not the historical LogMedian outcome (median of frame-level log vigor in response minus median of frame-level log vigor in baseline). The statistical fits and annotations are identical across these two display versions.\n'
     (out / 'caption.md').write_text(caption, encoding='utf-8')
     inputs = ['bootstrap-summary.parquet', 'D-interaction-tests.csv', 'MR-local-block-tests.csv', 'trial-tests-FDR.csv', 'result-summary.json', 'Fig2_PanelG_delay_legacy_LME_bootstrap5000.figure.json', 'analysis-script.py']
+    if is_log:
+        inputs.append('fish-ratios.parquet')
+    (out / 'display-script.py').write_bytes(Path(__file__).read_bytes())
     identity = {**source_sidecar['analysis_identity'],
+                'display_scale': args.scale,
+                'display_statistic': 'median of individual natural-log ratios' if is_log else 'median of individual unlogged ratios',
                 'summary': 'median [pointwise95% whole-fish bootstrap CI];5000 draws;seed10',
-                'significance_marks': 'fresh model-derived exploratory M/R marks; no surviving D or trial FDR marks'}
+                'significance_marks': 'fresh model-derived exploratory D/M/R/trial marks; counts recorded in inference'}
     sidecar = {'scientific_status': 'exploratory; heavy-tailed residuals; model approval pending',
                'analysis_identity': identity, 'summary': 'pointwise95% whole-fish bootstrap CI;5000;seed10',
-               'annotation_semantics': source_sidecar['model_specification'], 'analysis_directory': str(SOURCE),
+               'inference': results, 'annotation_semantics': source_sidecar['model_specification'], 'analysis_directory': str(source),
                'code': {'path': str(Path(__file__).resolve()), 'sha256': sha(__file__)},
-               'inputs': [{'path': str(SOURCE / n), 'sha256': sha(SOURCE / n)} for n in inputs],
+               'inputs': [{'path': str(source / n), 'sha256': sha(source / n)} for n in inputs],
                'outputs': [{'path': str(p), 'sha256': sha(p)} for p in sorted(out.iterdir()) if p.is_file()]}
     (out / 'Fig2_PanelG_delay_legacy_LME_bootstrap5000.figure.json').write_text(json.dumps(sidecar, indent=2) + '\n')
     print('DISPLAY_DIRECTORY=' + str(out))
