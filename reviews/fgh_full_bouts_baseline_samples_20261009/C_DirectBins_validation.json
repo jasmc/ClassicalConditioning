@@ -1,0 +1,42 @@
+{
+  "variant": "C_DirectBins",
+  "scale": "clip((x-P50)/((P90-P10)/2),-1,1)",
+  "data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 6446
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 7138
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 3900
+    }
+  ],
+  "shared_colourbar_count": 1,
+  "palette": "managua_r",
+  "limits": [
+    -1,
+    1
+  ],
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.svg",
+      "sha256": "619a6d366277920bd5de1447f845381874192449a8bc8a46e4cc72ec5ed24518"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.png",
+      "sha256": "2e7e032ca89ad8a3ca8d0310b34d61d8844bcb71608f4622cec65f62c5675442"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\FGH_C_DirectBins_shared_colourbar.pdf",
+      "sha256": "5200e5cae2be0a7b9500c4805b32acd9ce8988d7c2a0e98fa36c141ed6e1d64e"
+    }
+  ]
+}

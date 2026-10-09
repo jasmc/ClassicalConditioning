@@ -14,13 +14,85 @@
   },
   "variants": [
     {
+      "id": "fig4b-3strace-legacy-59fish-v1-stacked",
+      "panels": ["fig-4B"],
+      "version": "v1",
+      "status": "reproducible_exploratory",
+      "renderer": "src/classical_conditioning/figures/figure4.py",
+      "output": "outputs/trace-plot-versions/20261006/figure-4_v1-stacked.png",
+      "manifest": "outputs/trace-plot-versions/20261006/plot-versions.json",
+      "source_sidecar": "F:/Digested Data/all3sTrace-full-v1/Figures/PNG/Analyses/figure4-3strace-window13-legacy-59fish/all3sTrace/figure-4_legacy_distal_angular_speed.figure.json",
+      "documentation": "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md",
+      "analysis_id": "figure4-3strace-window13-legacy-59fish",
+      "cohort_id": "all3sTrace-full-exploratory",
+      "metric_id": "legacy_distal_angular_speed",
+      "classifier_execution_id": "legacy-wip-3strace-distal-window13-59fish",
+      "note": "Ten stacked rows: nine blocks and pooled catches; saved signed group medians and fish IQR. Same 59-fish analysis and learner labels as v2/v3."
+    },
+    {
+      "id": "fig4b-3strace-legacy-59fish-v2-compact-grid",
+      "panels": ["fig-4B"],
+      "version": "v2",
+      "status": "reproducible_exploratory",
+      "renderer": "scripts/render_3strace_plot_versions.py",
+      "output": "outputs/trace-plot-versions/20261006/figure-4_v2-compact-grid.png",
+      "sidecar": "outputs/trace-plot-versions/20261006/figure-4_v2-compact-grid.figure.json",
+      "manifest": "outputs/trace-plot-versions/20261006/plot-versions.json",
+      "documentation": "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md",
+      "analysis_id": "figure4-3strace-window13-legacy-59fish",
+      "cohort_id": "all3sTrace-full-exploratory",
+      "metric_id": "legacy_distal_angular_speed",
+      "classifier_execution_id": "legacy-wip-3strace-distal-window13-59fish",
+      "note": "The same ten group profiles in a 5x2 grid, all four classifier groups together. Common y scale; new display-only layout."
+    },
+    {
+      "id": "fig4b-3strace-legacy-59fish-v3-separate-conditions",
+      "panels": ["fig-4B"],
+      "version": "v3",
+      "status": "reproducible_exploratory",
+      "renderer": "scripts/render_3strace_plot_versions.py",
+      "outputs": ["outputs/trace-plot-versions/20261006/figure-4_v3-trace-grid.png", "outputs/trace-plot-versions/20261006/figure-4_v3-control-grid.png"],
+      "sidecars": ["outputs/trace-plot-versions/20261006/figure-4_v3-trace-grid.figure.json", "outputs/trace-plot-versions/20261006/figure-4_v3-control-grid.figure.json"],
+      "manifest": "outputs/trace-plot-versions/20261006/plot-versions.json",
+      "documentation": "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md",
+      "analysis_id": "figure4-3strace-window13-legacy-59fish",
+      "cohort_id": "all3sTrace-full-exploratory",
+      "metric_id": "legacy_distal_angular_speed",
+      "classifier_execution_id": "legacy-wip-3strace-distal-window13-59fish",
+      "note": "Two matched 5x2 grids: trace learner/nonlearner and control flagged/nonlearner. Same profiles and common y scale as v2; new display-only layout."
+    },
+    {
+      "id": "figure2-recovered-available-data-pre15-2026-10-08",
+      "panels": [
+        "fig-2A",
+        "fig-2B",
+        "fig-2D",
+        "fig-2E",
+        "fig-2G",
+        "fig-2H"
+      ],
+      "status": "provisional_descriptive_review",
+      "renderer": "scripts/populate_figure2_available.py",
+      "assembler": "scripts/build_figure2_assembly.py",
+      "layout": "configs/paper-figures/figure2-assembly.json",
+      "output": "J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly",
+      "manifest": "sources/<UTC stamp>/recovery.json",
+      "comparison": "available-versions.html",
+      "baseline_s": [
+        -15,
+        0
+      ],
+      "metric_id": "legacy_distal_angular_speed",
+      "note": "Recovered from Data processing and Compare panel layouts in Figures 1–2. Delay cohort 29/28; full 3sTrace cohort 40/19; ratios from authenticated saved [-15,0) outcomes with [0,9)/[0,13) responses. Main E explicitly changes historical 5-9 Pre-Train to planned 10-14; old block/style versions remain separate. Main ratio bands are fish IQR, no significance annotations. A/B reuse the shared signed-bout review calculation over existing processed frames; upstream vigor/alignment audit remains open. C/F/I remain pending; 10sTrace inconclusive."
+    },
+    {
       "id": "3strace-legacy-59fish-layout-comparison-2026-10-06",
       "panels": ["fig-2E", "fig-2H", "fig-4B"],
       "status": "reproducible_exploratory",
       "renderer": "scripts/render_3strace_plot_versions.py",
       "output": "outputs/trace-plot-versions/20261006/",
       "manifest": "outputs/trace-plot-versions/20261006/plot-versions.json",
-      "note": "Same 59-fish corrected 0–13 s cohort and legacy distal metric: grouped boxes, median/IQR, paired fish/legacy block tests and split bootstrap trial curves. Figure 4 reuses signed legacy-wip profiles in stacked, grid and split-condition layouts. No archived Delay LME marks transferred."
+      "note": "Same 59-fish corrected 0â€“13 s cohort and legacy distal metric: grouped boxes, median/IQR, paired fish/legacy block tests and split bootstrap trial curves. Figure 4 reuses signed legacy-wip profiles in stacked, grid and split-condition layouts. No archived Delay LME marks transferred."
     },
     {
       "id": "integrated-signed-bout-aligned-review-2026-09-24",

@@ -1,5 +1,13 @@
 # Numbered figure references
 
+For every panel or whole-figure freeze, use the
+[figure element identities, shared style and freeze contract](FIGURE_ELEMENT_SPECIFICATION.md)
+and [versioned element/style configuration](../../../configs/paper-figures/figure-elements.json).
+The [repository instructions](../../../AGENTS.md) require applying the defaults
+to a reviewable candidate and resolving only outstanding scoped exceptions.
+The specification inventories the older assemblies and newer panel revisions;
+it does not retroactively restyle historical artifacts.
+
 | Number | Document | Purpose |
 | --- | --- | --- |
 | 01 | [Paper panel provenance](01_PAPER_PANEL_PROVENANCE.md) | Main and supplementary panels: inputs, calculation, renderer, and status. |

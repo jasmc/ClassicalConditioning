@@ -1,0 +1,90 @@
+{
+  "status": "new review variants; original C freeze retained",
+  "source_freeze": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\freeze.json",
+  "source_freeze_sha256": "033f83d19fad1f4c06a4fb1030af58c84f4b6815e68632d414ef38add7bcdfea",
+  "source_tables": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_c_bout_vs_bins_20261008\\outputs\\PanelF_sample_data.parquet",
+      "sha256": "a32607d54c520f5781d6e6c42d77f3be92ff3befdcf5501fdc2c072b9b0cf6c6",
+      "status": "source sample table hash-bound; immutable display runs snapshotted losslessly"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_c_bout_vs_bins_20261008\\outputs\\PanelH_sample_data.parquet",
+      "sha256": "9a806627b2656f76b2ccdb502f6018aa61ef6dc27fa152130d99cfd5c58a14e6",
+      "status": "source sample table hash-bound; immutable display runs snapshotted losslessly"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\PanelG_sample_data.parquet",
+      "sha256": "4efd016c954504ce1106e287a0e7535b62b63e1f239338ae5de536e3f16e9fb4"
+    }
+  ],
+  "counts": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "D_sample_runs": 9474,
+      "direct_bins": 7200,
+      "empty_direct_bins": 754
+    },
+    {
+      "panel": "G",
+      "fish": "20230310_08",
+      "D_sample_runs": 13813,
+      "direct_bins": 7200,
+      "empty_direct_bins": 62
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "D_sample_runs": 3307,
+      "direct_bins": 7200,
+      "empty_direct_bins": 3272
+    }
+  ],
+  "D": "clip((x-P50)/max(P50-P10,P90-P50),-1,1)",
+  "C": "clip((x-P50)/((P90-P10)/2),-1,1)",
+  "sample_variant": "bout medians repeated on eligible samples; sample baseline; D; no binning",
+  "bin_variant": "mean of eligible framewise natural-log vigor; NO bout-median substitution; 0.5 s bins; finite baseline bins vote once",
+  "baseline_interval": "[-15,0)",
+  "display_interval": "[-20,20)",
+  "quantiles": "NumPy linear",
+  "palette": "managua_r",
+  "limits": [
+    -1,
+    1
+  ],
+  "empty_values": "black, with no gap filling",
+  "data_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_D_samples_and_direct_bins_20261009\\baseline_statistics.csv",
+      "sha256": "11d8c399db09263133490f7578856ae82396ba74e8b5526e180c598bef9f732b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_D_samples_and_direct_bins_20261009\\PanelF_direct_bins.csv",
+      "sha256": "8bfaf3bacd0cb50307223f324e5e22bc24b51ccfd025934ece8b115df627d11e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_D_samples_and_direct_bins_20261009\\PanelF_D_sample_runs.csv",
+      "sha256": "52df00043e6fcab8fbcc255841c0fac26ddd2ae3ad966cc88778eecdd163906c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_D_samples_and_direct_bins_20261009\\PanelG_direct_bins.csv",
+      "sha256": "ea37060a33471f6100b08ebe258455f8bab6ae3e6d263b7b5ebd3f39b7b479e2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_D_samples_and_direct_bins_20261009\\PanelG_D_sample_runs.csv",
+      "sha256": "dba6646c4523cf1db71d7fc2a278e63c63f038a52a6671da755927e655fb4e08"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_D_samples_and_direct_bins_20261009\\PanelH_direct_bins.csv",
+      "sha256": "489b729be0b290f794c3b0378260dd3a55122ea166b949c1fc292c6c446c002b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_D_samples_and_direct_bins_20261009\\PanelH_D_sample_runs.csv",
+      "sha256": "a5d321d06d93d36f1d64ed98fc6fcdaf1ffed6bd3ba26990fa6a284c9ce8bace"
+    }
+  ]
+}

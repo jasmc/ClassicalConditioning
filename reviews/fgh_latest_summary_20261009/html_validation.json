@@ -1,0 +1,55 @@
+{
+  "figures": [
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    },
+    {
+      "loaded": true,
+      "width": 2700
+    }
+  ],
+  "pdfDownloads": 4,
+  "sectionIds": [
+    {
+      "id": "analysis",
+      "present": true
+    },
+    {
+      "id": "comparison",
+      "present": true
+    },
+    {
+      "id": "c-samples",
+      "present": true
+    },
+    {
+      "id": "d-samples",
+      "present": true
+    },
+    {
+      "id": "c-bins",
+      "present": true
+    },
+    {
+      "id": "median-bins",
+      "present": true
+    },
+    {
+      "id": "verification",
+      "present": true
+    }
+  ],
+  "desktopOverflow": false,
+  "traceFish": true,
+  "mobileOverflow": false,
+  "pageErrors": []
+}

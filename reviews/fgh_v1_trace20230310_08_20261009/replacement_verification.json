@@ -1,0 +1,9 @@
+{
+  "fish": "20230310_08",
+  "condition": "trace",
+  "training_paired_trials": 46,
+  "measured_US_onset_s": 12.996500000000001,
+  "defined_trial_baselines": 90,
+  "maximum_absolute_baseline_C_median": 1.1527237497865883e-15,
+  "numeric_recipe": "selected Version 1 unchanged; no half-second binning"
+}

@@ -1,0 +1,39 @@
+{
+  "figure": "Figure 1",
+  "panels": [
+    "F",
+    "G",
+    "H"
+  ],
+  "selection": "Version 1: C_BoutSamples",
+  "status": "Processing and numeric display frozen; layout refined as requested",
+  "user_approval_date_local": "2026-10-08",
+  "record_date_local": "2026-10-09",
+  "freeze_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\freeze.json",
+  "freeze_manifest_sha256": "033f83d19fad1f4c06a4fb1030af58c84f4b6815e68632d414ef38add7bcdfea",
+  "layout_validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\shared-colourbar\\validation.json",
+  "layout_validation_sha256": "490827b1e1a0fe954c77cfdee1012a5e08493b13237f581ce25d10a2783f651f",
+  "baseline_voting_unit": "eligible sample",
+  "halfsecond_binning": false,
+  "scale": "C = clip((x - P50) / ((P90 - P10) / 2), -1, +1)",
+  "palette": "managua_r",
+  "limits": [
+    -1,
+    1
+  ],
+  "bundle": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.pdf",
+  "bundle_sha256": "6ea1c860d6f9eca8fb3fc1fb226c691df1e04c04bef925471be5ccda39938273",
+  "scope": "Only selected single-fish F/G/H; preserves existing A-D freeze and does not assemble Figure 1",
+  "current_layout": {
+    "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\shared-colourbar\\validation.json",
+    "sha256": "490827b1e1a0fe954c77cfdee1012a5e08493b13237f581ce25d10a2783f651f",
+    "pdf": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.pdf",
+    "colourbar_label": "Vigor relative to baseline"
+  },
+  "previous_freeze_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\freeze.json",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  }
+}

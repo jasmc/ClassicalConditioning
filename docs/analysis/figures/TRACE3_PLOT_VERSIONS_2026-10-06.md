@@ -26,6 +26,18 @@ for comparison; its original sidecar remains in the source analysis folder.
 | 4 | v2 compact grid | The same ten groups in a 5×2 grid. |
 | 4 | v3 separate conditions | Separate 5×2 grids for trace and controls, retaining the common y scale. |
 
+Figure 4 layouts have separate stable entries in the
+[variant registry](../../../configs/paper-figures/review-variants.json):
+
+- `fig4b-3strace-legacy-59fish-v1-stacked`
+- `fig4b-3strace-legacy-59fish-v2-compact-grid`
+- `fig4b-3strace-legacy-59fish-v3-separate-conditions`
+
+Each entry links its exact PNG output(s), provenance, shared manifest,
+analysis, cohort, metric and classifier execution. Version v3 comprises
+both trace and control files. All are exploratory; no layout is frozen
+as the manuscript choice.
+
 The 3sTrace pre-training block is PTr trials 5–9, followed by ETe 65–69
 and LTe 90–94, matching the archived 9-block protocol. Figure 2H is not
 smoothed. IQR represents fish spread; bootstrap CI represents uncertainty

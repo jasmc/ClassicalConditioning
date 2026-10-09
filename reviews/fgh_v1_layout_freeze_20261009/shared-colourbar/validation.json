@@ -1,0 +1,43 @@
+{
+  "freeze_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\freeze.json",
+  "freeze_manifest_sha256": "0b3f383e62ccb78dea440bafa013a24582f8f73226923b6218fa9c908d1b0090",
+  "layout": "Three aligned panels; one managua_r colourbar at far right; phase names right of H; no y-axis title",
+  "colourbar_label": "Vigor relative to baseline",
+  "colourbar_count": 1,
+  "limits": [
+    -1,
+    1
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "sample_runs": 9474,
+      "values_intervals_positions_and_colours_verified": true
+    },
+    {
+      "panel": "G",
+      "sample_runs": 9072,
+      "values_intervals_positions_and_colours_verified": true
+    },
+    {
+      "panel": "H",
+      "sample_runs": 3307,
+      "values_intervals_positions_and_colours_verified": true
+    }
+  ],
+  "frozen_numeric_values_unchanged": true,
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.svg",
+      "sha256": "d1b5b5dd2049c609fa558813b51d9861aff1d2618c34742f8696264922c300a8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.png",
+      "sha256": "9980ab3ea55c29c6676180786c6ee0f81eaec8eab6185cdf79e46840b2cd732d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\shared-colourbar\\FGH_C_BoutSamples_shared_colourbar.pdf",
+      "sha256": "ba49e336b0c4b53a00e992061da746ecd6ed9fa18fc441f1e990041031783960"
+    }
+  ]
+}

@@ -1,0 +1,2097 @@
+{
+  "summary_date_local": "2026-10-09",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "variants": [
+    {
+      "id": "c-samples",
+      "title": "Version 1 \u00b7 C \u00b7 complete bout medians",
+      "status": "Corrected primary version",
+      "description": "Each complete detected bout\u2019s median log vigor is repeated on its eligible samples, before the plotting crop. No 0.5 s binning.",
+      "baseline": "All eligible timepoints within [\u221215, 0) s, each carrying its complete bout\u2019s median value.",
+      "formula": "C = clip((x \u2212 m) / ((P90 \u2212 P10) / 2), \u22121, +1)",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_BoutSamples_validation.json",
+      "outputs": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.svg",
+          "sha256": "36dc5725d616a9ef281e67e962e9bd5428d2878069b4eee3403f8f560394fb35"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.png",
+          "sha256": "e12ef20989995ecfedf8327ed351118dc8650e7503163303b8fa86a28c399a47"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_BoutSamples_legacy_layout.pdf",
+          "sha256": "98a3933e846f6722d36688361bcaa985b978223f60ad8b5c3b1a231dc0bf5853"
+        }
+      ]
+    },
+    {
+      "id": "d-samples",
+      "title": "Version 1 \u00b7 D \u00b7 complete bout medians",
+      "status": "Corrected comparison",
+      "description": "The same complete-bout medians and eligible sample intervals, with the median-preserving D denominator.",
+      "baseline": "All eligible timepoints within [\u221215, 0) s, each carrying its complete bout\u2019s median value.",
+      "formula": "D = clip((x \u2212 m) / max(m \u2212 P10, P90 \u2212 m), \u22121, +1)",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_BoutSamples_validation.json",
+      "outputs": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.svg",
+          "sha256": "6671a9a1605be0f2730f7b04f54117d796f112e4253f789dc3e02284101d77b7"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.png",
+          "sha256": "37dd25d6493bb4fef7181473cd6e22b3d8e94ad72166a2f0aa51bd429edcbaad"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_D_BoutSamples_legacy_layout.pdf",
+          "sha256": "a20074a688136811f01882d543e3a4163bb5082c3a834987bc09a79f58c95341"
+        }
+      ]
+    },
+    {
+      "id": "c-bins",
+      "title": "Version 2 \u00b7 C \u00b7 direct 0.5 s means",
+      "status": "Own bin baseline \u00b7 zero median",
+      "description": "Each displayed cell averages direct eligible framewise natural-log vigor, without bout-median substitution. Its baseline reference is calculated from these same unscaled bin means.",
+      "baseline": "Finite unscaled 0.5 s baseline-bin means within [\u221215, 0) s; one vote per finite bin. The displayed baseline median is zero.",
+      "formula": "C = clip((bin mean \u2212 m) / ((P90 \u2212 P10) / 2), \u22121, +1)",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_DirectBins_validation.json",
+      "outputs": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.svg",
+          "sha256": "c1c15f1a73bf1f9ce92cebe3b62b91023ebde3ec8516db10b99a2f26729ff38e"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.png",
+          "sha256": "e4e59ec823cf1c6116d298588fb31cc407fd5eb2b4df09a24e25126ebcace4c7"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.pdf",
+          "sha256": "da8758877be35957d8977c2bda101ee282e3c2b739cdbfb16538e36cecc4a540"
+        }
+      ]
+    },
+    {
+      "id": "median-bins",
+      "title": "Version 4 \u00b7 direct 0.25 s means",
+      "status": "NaNs ignored \u00b7 all 270 baselines defined",
+      "description": "Each quarter-second cell averages direct eligible framewise natural-log vigor. Non-bout and invalid/ineligible samples remain NaN and are ignored. No minimum coverage threshold, no bout-median substitution, and no minimum-value replacement.",
+      "baseline": "Arithmetic mean of finite unscaled 0.25 s bin means in [\u221220, 0) s; one vote per finite bin, with all-NaN bins ignored. All 270 trial references are defined. Subtract this mean without scaling.",
+      "formula": "\u0394log vigor = 0.25 s bin mean \u2212 mean(finite baseline-bin means in [\u221220, 0) s)",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\Version4_DirectBinMeans_validation.json",
+      "outputs": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.svg",
+          "sha256": "818512bb62428a1437f9155322bd52c3afb9e5b89afd11353512502f24bd26fb"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.png",
+          "sha256": "3c952454c321514c0f9a1585db117c6fda5ab09c53803f2fe2d63af09e24ced1"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.pdf",
+          "sha256": "7c435447bf86b40568ebe38abe2f0f4ddd00cfe25f95ac0ca110c03587a659c6"
+        }
+      ]
+    }
+  ],
+  "numeric_verification": {
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "checks": [
+      {
+        "panel": "F",
+        "full_bout_support_and_medians_verified": true,
+        "shared_baseline_timepoint_quantiles_verified": true,
+        "Version2_direct_means_and_shared_reference_scaling_verified": true,
+        "maximum_C_D_sample_baseline_median_residual": 0.0,
+        "Version2_baseline_cell_median_range": [
+          -1.0,
+          -0.3029419119321992
+        ]
+      },
+      {
+        "panel": "G",
+        "full_bout_support_and_medians_verified": true,
+        "shared_baseline_timepoint_quantiles_verified": true,
+        "Version2_direct_means_and_shared_reference_scaling_verified": true,
+        "maximum_C_D_sample_baseline_median_residual": 1.1527237497865883e-15,
+        "Version2_baseline_cell_median_range": [
+          -1.0,
+          -0.6452358368944191
+        ]
+      },
+      {
+        "panel": "H",
+        "full_bout_support_and_medians_verified": true,
+        "shared_baseline_timepoint_quantiles_verified": true,
+        "Version2_direct_means_and_shared_reference_scaling_verified": true,
+        "maximum_C_D_sample_baseline_median_residual": 0.0,
+        "Version2_baseline_cell_median_range": [
+          -1.0,
+          -0.5106741072195404
+        ]
+      }
+    ],
+    "undefined_trials": [
+      {
+        "panel": "H",
+        "trial": 16
+      }
+    ],
+    "baseline_zero": "C/D sample baseline medians are zero; Version2 shares that reference but its displayed baseline-bin median need not be zero"
+  },
+  "complete_bout_reconstruction": {
+    "status": "corrected complete-bout review; supersedes crop-limited bout summaries and binned baselines",
+    "source_freeze": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\freeze.json",
+    "source_freeze_sha256": "033f83d19fad1f4c06a4fb1030af58c84f4b6815e68632d414ef38add7bcdfea",
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "panels": [
+      {
+        "panel": "F",
+        "fish": "20221115_07",
+        "inputs": [
+          {
+            "kind": "camera",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\camera.parquet",
+            "sha256": "04c6ed4e9338f5065a50aeed557cf1c53db1db0b97cf47e81a7ec781b62d9877"
+          },
+          {
+            "kind": "protocol",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\stimulus_events.parquet",
+            "sha256": "745a12459967fe0d9835513408bd30a3881e692decc172e8bfd678369a9450b2"
+          },
+          {
+            "kind": "angles",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\frame_preprocessed_corrected-v1.parquet",
+            "sha256": "4634468c8753bb6393f1a9b3914e16c54f492a3a3e87cdbc75bb5a2b16fd7ea1"
+          },
+          {
+            "kind": "coverage",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\frame_activity_candidates-corrected-v1.parquet",
+            "sha256": "37c5cfed95251b34fbb835e2d82844251e2ab053ad6323830513de7e80d159ec"
+          }
+        ],
+        "cadence": {
+          "interval_ms": 1.4233426529698565,
+          "reference_position": 1500,
+          "end_position": 8344075,
+          "reference_frame_id": 430473,
+          "missing_frame_ids": 0,
+          "buffer_capacity_exceeded": false,
+          "maximum_delay_ms": 28.143782172352076
+        },
+        "complete_selected_bouts": 8105,
+        "minimum_context_margin_ms": 3324.928466796875,
+        "context_ms": 5000,
+        "eligible_support_and_direct_logs_identical_to_previous": true,
+        "changed_eligible_sample_medians": 8196,
+        "baseline_bouts_crossing_CS": 38
+      },
+      {
+        "panel": "G",
+        "fish": "20230310_08",
+        "inputs": [
+          {
+            "kind": "camera",
+            "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\camera.parquet",
+            "sha256": "cbec7470211a72f327c0f8dc3d7a6cba4ba87dbd75953b5bf7ace6057614702d"
+          },
+          {
+            "kind": "protocol",
+            "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\stimulus_events.parquet",
+            "sha256": "db6b5f031c8ba36456427a3d8842360ff6c45c72aabf11d6ab9bd5e8f45d2cf6"
+          },
+          {
+            "kind": "angles",
+            "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\frame_preprocessed_corrected.parquet",
+            "sha256": "fc37f9c61857a31f6801534bc94161f89c3467360edff09785fef3496f866f19"
+          },
+          {
+            "kind": "coverage",
+            "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\frame_activity_candidates-corrected.parquet",
+            "sha256": "4065ddbc03c3d3c13d900cae568f7dff6a5e31a5035aee90bc3bdfc359e4c000"
+          }
+        ],
+        "cadence": {
+          "interval_ms": 1.4233575812293549,
+          "reference_position": 2612,
+          "end_position": 8378925,
+          "reference_frame_id": 603315,
+          "missing_frame_ids": 0,
+          "buffer_capacity_exceeded": false,
+          "maximum_delay_ms": 192.64872875250876
+        },
+        "complete_selected_bouts": 11887,
+        "minimum_context_margin_ms": 4395.328125,
+        "context_ms": 5000,
+        "eligible_support_and_direct_logs_identical_to_previous": true,
+        "changed_eligible_sample_medians": 11237,
+        "baseline_bouts_crossing_CS": 66
+      },
+      {
+        "panel": "H",
+        "fish": "20221115_09",
+        "inputs": [
+          {
+            "kind": "camera",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\camera.parquet",
+            "sha256": "956138576d02094eb6363655fef7fe9db4bec44d394e64df96cd7964a26ff404"
+          },
+          {
+            "kind": "protocol",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\stimulus_events.parquet",
+            "sha256": "67627727ddbac1b3a999ee16423292a97dd4f2de0cbbe79defd1274614095bc8"
+          },
+          {
+            "kind": "angles",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\frame_preprocessed_corrected-v1.parquet",
+            "sha256": "ba0905b3c63a007b84ba12d60b60bf68c0e8bf42f858010be06753469eed9538"
+          },
+          {
+            "kind": "coverage",
+            "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\frame_activity_candidates-corrected-v1.parquet",
+            "sha256": "fe621bdf18d71ce13661401ae2bc2580e4e31eddbd475b990b8fe427b5c67ee2"
+          }
+        ],
+        "cadence": {
+          "interval_ms": 1.4233451333424365,
+          "reference_position": 477,
+          "end_position": 8312722,
+          "reference_frame_id": 433741,
+          "missing_frame_ids": 0,
+          "buffer_capacity_exceeded": false,
+          "maximum_delay_ms": 144.42458656725648
+        },
+        "complete_selected_bouts": 2683,
+        "minimum_context_margin_ms": 4748.279541015625,
+        "context_ms": 5000,
+        "eligible_support_and_direct_logs_identical_to_previous": true,
+        "changed_eligible_sample_medians": 5076,
+        "baseline_bouts_crossing_CS": 13
+      }
+    ],
+    "C": "clip((x-P50)/((P90-P10)/2),-1,1)",
+    "D": "clip((x-P50)/max(P50-P10,P90-P50),-1,1)",
+    "baseline": "P10/P50/P90 from all eligible baseline timepoints carrying complete-bout median log values; same reference for every variant",
+    "baseline_interval": "[-15,0)",
+    "display_interval": "[-20,20)",
+    "bout_summary": "median of every eligible log sample of each complete detected bout, beyond plotting crop",
+    "Version2": "direct eligible framewise log means in 0.5 s cells; no bout-median substitution in displayed means",
+    "scaling": "median-centred percentile C/D; conventional affine min-max rejected because it does not preserve baseline median zero",
+    "quantile_method": "NumPy linear",
+    "palette": "managua_r",
+    "limits": [
+      -1,
+      1
+    ],
+    "data_files": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\baseline_statistics.csv",
+        "sha256": "60187390d564a2b5fe79ede065a36ff71f296e075ad5283fe96d0aced78e177b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_boundary_audit.csv",
+        "sha256": "7454e2b888876e39338e4f4ac5b5a87c48e6081bfb731fd0d871b7bd0bbce4a3"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bouts.csv",
+        "sha256": "c3e48177bddd8d4d8d130b6b8f2b9f4d275fc3cff89ddf5b939b3a4ce0b3d236"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_C_sample_runs.csv",
+        "sha256": "af6b524c1fed6040b7e68f51fee78df22275ffd97d19ee9c26904244876de454"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_direct_bins.csv",
+        "sha256": "bb238f7de1c60e684c43279acfe8319bc64bbc73036f34f015041bcc2dabb4fb"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_D_sample_runs.csv",
+        "sha256": "815008bc3ac498c824cafc5b019b12d0a11f146ff5f1cca4c44b4d1f43dbad0b"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_boundary_audit.csv",
+        "sha256": "91138b042957ceddd8f9c861f57408794db21d6ad1bf80e01413dcd137e47af7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bouts.csv",
+        "sha256": "addfcc76a644c2cc2f595db352c08826813cfbcd4ed67f57893f8fa6e01f1def"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_C_sample_runs.csv",
+        "sha256": "4f7abfa87464d763a4682b8b210cfafa9bc243a018a6b785ad64f804b1e5aff7"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_direct_bins.csv",
+        "sha256": "a5f2b86c46d75c67bed109c1865b4878300c3eda25900d88f73b090872aa8c65"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_D_sample_runs.csv",
+        "sha256": "3b9f61198bd59bde1fcb0ea27fe17c3ad7eb27dd2b75b3fb97a0aa7c55d98301"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_boundary_audit.csv",
+        "sha256": "43274f9ead9267a1705a1c1fdca00d10bc7949665b6dde5f63a0ba88995e17e8"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bouts.csv",
+        "sha256": "6cc4f0374a02767349133a5c3d72fde4b4bab2872065245a2142644eabbece96"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_C_sample_runs.csv",
+        "sha256": "e084ef532569b322a81388e06b6c417398542eb66cbb89e93519a61b8c3074ed"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_direct_bins.csv",
+        "sha256": "92718de5e41e24910c69fcef826ccc3a3ac27610bf1a274fd12ac6a62b23e5a3"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_D_sample_runs.csv",
+        "sha256": "dfedf104d1bdca4574f9033c5425e894aeab8f6340e65c2c3dc9cc89ca7eab2c"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+        "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_support.parquet",
+        "sha256": "0f568be31ebea4ce91a74efcb797e69c69c36134427114b16e8b45060a859840"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+        "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_support.parquet",
+        "sha256": "18f4ce88b002a591f43421fb024174a2b3b2751d0ee105436f6a0d4cfaef0fe9"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+        "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_support.parquet",
+        "sha256": "cef27478639664748dec8d60702e8e58da0ba71163612222134fb4817bafb670"
+      }
+    ]
+  },
+  "current_direct_bin_reference": {
+    "status": "Version2 baseline-bin population approved by user",
+    "approval": "Use baseline-bin means; guarantee displayed median zero (recommended)",
+    "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+    "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "C": "clip((bin_mean-P50)/((P90-P10)/2),-1,1)",
+    "display": "direct eligible framewise natural-log means in 0.5 s cells; no bout-median substitution",
+    "baseline": "finite unscaled baseline-bin means in [-15,0); one vote per finite bin; P10/P50/P90 NumPy linear",
+    "sample_versions": "unchanged complete-bout sample C/D; retain unbinned timepoint baseline",
+    "palette": "managua_r",
+    "limits": [
+      -1,
+      1
+    ],
+    "data_files": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\baseline_statistics.csv",
+        "sha256": "a674809ef09f824d0a1fa631b29df23da85220f783d74ade5e37906052ccab02"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelF_direct_bins.csv",
+        "sha256": "8cda7c63d742b5079486a262081831c44607460694059aa60a40ceaa16ad408e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelG_direct_bins.csv",
+        "sha256": "f6a674b5d23eec4791790b00bd7c2d4d58441a39119616a6df3570363206830d"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelH_direct_bins.csv",
+        "sha256": "14cd8d8dedf90a3bad5601571ec2a752971399715ddde4ae5f2ef5c8f8608076"
+      }
+    ]
+  },
+  "current_direct_bin_numeric_verification": {
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "direct_cell_means_and_eligible_counts_unchanged": true,
+    "defined_trials": 269,
+    "maximum_absolute_displayed_baseline_median": 2.7547408798511697e-15,
+    "undefined_trials": [
+      {
+        "panel": "H",
+        "trial": 16
+      }
+    ],
+    "checks": [
+      {
+        "panel": "F",
+        "trial": 5,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 6,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 7,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 8,
+        "baseline_median_residual": 4.718447854656915e-16
+      },
+      {
+        "panel": "F",
+        "trial": 9,
+        "baseline_median_residual": 4.787836793695988e-16
+      },
+      {
+        "panel": "F",
+        "trial": 10,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 11,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 12,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 13,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 14,
+        "baseline_median_residual": 4.85722573273506e-16
+      },
+      {
+        "panel": "F",
+        "trial": 15,
+        "baseline_median_residual": 5.724587470723463e-16
+      },
+      {
+        "panel": "F",
+        "trial": 16,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 17,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 18,
+        "baseline_median_residual": 4.597017211338539e-16
+      },
+      {
+        "panel": "F",
+        "trial": 19,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 20,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 21,
+        "baseline_median_residual": 5.048045315092509e-16
+      },
+      {
+        "panel": "F",
+        "trial": 22,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 23,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 24,
+        "baseline_median_residual": 9.625546887326308e-16
+      },
+      {
+        "panel": "F",
+        "trial": 25,
+        "baseline_median_residual": 1.0194753027881198e-15
+      },
+      {
+        "panel": "F",
+        "trial": 26,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 27,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 28,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 29,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 30,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 31,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 32,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 33,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 34,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 35,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 36,
+        "baseline_median_residual": 6.869504964868156e-16
+      },
+      {
+        "panel": "F",
+        "trial": 37,
+        "baseline_median_residual": 1.0234868508263162e-15
+      },
+      {
+        "panel": "F",
+        "trial": 38,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 39,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 40,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 41,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 42,
+        "baseline_median_residual": 6.370771965524824e-16
+      },
+      {
+        "panel": "F",
+        "trial": 43,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 44,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 45,
+        "baseline_median_residual": 5.169475958410885e-16
+      },
+      {
+        "panel": "F",
+        "trial": 46,
+        "baseline_median_residual": 6.817463260588852e-16
+      },
+      {
+        "panel": "F",
+        "trial": 47,
+        "baseline_median_residual": 9.922618282587337e-16
+      },
+      {
+        "panel": "F",
+        "trial": 48,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 49,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 50,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 51,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 52,
+        "baseline_median_residual": 9.922618282587337e-16
+      },
+      {
+        "panel": "F",
+        "trial": 53,
+        "baseline_median_residual": 7.505931640117147e-16
+      },
+      {
+        "panel": "F",
+        "trial": 54,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 55,
+        "baseline_median_residual": 6.186457596202288e-16
+      },
+      {
+        "panel": "F",
+        "trial": 56,
+        "baseline_median_residual": 7.147060721024445e-16
+      },
+      {
+        "panel": "F",
+        "trial": 57,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 58,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 59,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 60,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 61,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 62,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 63,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 64,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 65,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 66,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 67,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 68,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 69,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 70,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 71,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 72,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 73,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 74,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 75,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 76,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 77,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 78,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 79,
+        "baseline_median_residual": 7.875644580934704e-16
+      },
+      {
+        "panel": "F",
+        "trial": 80,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 81,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 82,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 83,
+        "baseline_median_residual": 9.506284648352903e-16
+      },
+      {
+        "panel": "F",
+        "trial": 84,
+        "baseline_median_residual": 1.0518929477454364e-15
+      },
+      {
+        "panel": "F",
+        "trial": 85,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 86,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 87,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 88,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 89,
+        "baseline_median_residual": 8.998878031629687e-16
+      },
+      {
+        "panel": "F",
+        "trial": 90,
+        "baseline_median_residual": 1.0547118733938987e-15
+      },
+      {
+        "panel": "F",
+        "trial": 91,
+        "baseline_median_residual": 1.4693107841523556e-15
+      },
+      {
+        "panel": "F",
+        "trial": 92,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 93,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "F",
+        "trial": 94,
+        "baseline_median_residual": 9.922618282587337e-16
+      },
+      {
+        "panel": "G",
+        "trial": 5,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 6,
+        "baseline_median_residual": 1.4016565685892601e-15
+      },
+      {
+        "panel": "G",
+        "trial": 7,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 8,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 9,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 10,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 11,
+        "baseline_median_residual": 1.3912482277333993e-15
+      },
+      {
+        "panel": "G",
+        "trial": 12,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 13,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 14,
+        "baseline_median_residual": 1.6805133673525319e-15
+      },
+      {
+        "panel": "G",
+        "trial": 15,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 16,
+        "baseline_median_residual": 1.4641066137244252e-15
+      },
+      {
+        "panel": "G",
+        "trial": 17,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 18,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 19,
+        "baseline_median_residual": 2.282896094385478e-15
+      },
+      {
+        "panel": "G",
+        "trial": 20,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 21,
+        "baseline_median_residual": 1.1379786002407855e-15
+      },
+      {
+        "panel": "G",
+        "trial": 22,
+        "baseline_median_residual": 1.3010426069826053e-15
+      },
+      {
+        "panel": "G",
+        "trial": 23,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 24,
+        "baseline_median_residual": 1.0599160438218291e-15
+      },
+      {
+        "panel": "G",
+        "trial": 25,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 26,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 27,
+        "baseline_median_residual": 1.096345236817342e-15
+      },
+      {
+        "panel": "G",
+        "trial": 28,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 29,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 30,
+        "baseline_median_residual": 1.2698175844150228e-15
+      },
+      {
+        "panel": "G",
+        "trial": 31,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 32,
+        "baseline_median_residual": 1.1900203045200897e-15
+      },
+      {
+        "panel": "G",
+        "trial": 33,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 34,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 35,
+        "baseline_median_residual": 1.4224732503009818e-15
+      },
+      {
+        "panel": "G",
+        "trial": 36,
+        "baseline_median_residual": 1.2212453270876722e-15
+      },
+      {
+        "panel": "G",
+        "trial": 37,
+        "baseline_median_residual": 1.6948248360293405e-15
+      },
+      {
+        "panel": "G",
+        "trial": 38,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 39,
+        "baseline_median_residual": 1.6514567491299204e-15
+      },
+      {
+        "panel": "G",
+        "trial": 40,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 41,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 42,
+        "baseline_median_residual": 1.3773704399255848e-15
+      },
+      {
+        "panel": "G",
+        "trial": 43,
+        "baseline_median_residual": 1.6757428777935957e-15
+      },
+      {
+        "panel": "G",
+        "trial": 44,
+        "baseline_median_residual": 1.5629858518551032e-15
+      },
+      {
+        "panel": "G",
+        "trial": 45,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 46,
+        "baseline_median_residual": 1.6566609195578508e-15
+      },
+      {
+        "panel": "G",
+        "trial": 47,
+        "baseline_median_residual": 1.582067810090848e-15
+      },
+      {
+        "panel": "G",
+        "trial": 48,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 49,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 50,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 51,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 52,
+        "baseline_median_residual": 1.551710149261254e-15
+      },
+      {
+        "panel": "G",
+        "trial": 53,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 54,
+        "baseline_median_residual": 1.420738526825005e-15
+      },
+      {
+        "panel": "G",
+        "trial": 55,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 56,
+        "baseline_median_residual": 8.450271732352022e-16
+      },
+      {
+        "panel": "G",
+        "trial": 57,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 58,
+        "baseline_median_residual": 1.3877787807814457e-15
+      },
+      {
+        "panel": "G",
+        "trial": 59,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 60,
+        "baseline_median_residual": 1.3010426069826053e-15
+      },
+      {
+        "panel": "G",
+        "trial": 61,
+        "baseline_median_residual": 1.3105835861004778e-15
+      },
+      {
+        "panel": "G",
+        "trial": 62,
+        "baseline_median_residual": 9.228728892196614e-16
+      },
+      {
+        "panel": "G",
+        "trial": 63,
+        "baseline_median_residual": 8.864436962241484e-16
+      },
+      {
+        "panel": "G",
+        "trial": 64,
+        "baseline_median_residual": 1.5547459153442134e-15
+      },
+      {
+        "panel": "G",
+        "trial": 65,
+        "baseline_median_residual": 1.1483869410966463e-15
+      },
+      {
+        "panel": "G",
+        "trial": 66,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 67,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 68,
+        "baseline_median_residual": 2.7547408798511697e-15
+      },
+      {
+        "panel": "G",
+        "trial": 69,
+        "baseline_median_residual": 1.0486403412279799e-15
+      },
+      {
+        "panel": "G",
+        "trial": 70,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 71,
+        "baseline_median_residual": 1.897787482718627e-15
+      },
+      {
+        "panel": "G",
+        "trial": 72,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 73,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 74,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 75,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 76,
+        "baseline_median_residual": 1.3208157441033097e-15
+      },
+      {
+        "panel": "G",
+        "trial": 77,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 78,
+        "baseline_median_residual": 1.0824674490095276e-15
+      },
+      {
+        "panel": "G",
+        "trial": 79,
+        "baseline_median_residual": 9.124645483638005e-16
+      },
+      {
+        "panel": "G",
+        "trial": 80,
+        "baseline_median_residual": 1.734723475976807e-15
+      },
+      {
+        "panel": "G",
+        "trial": 81,
+        "baseline_median_residual": 1.487525380650112e-15
+      },
+      {
+        "panel": "G",
+        "trial": 82,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 83,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 84,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 85,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 86,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 87,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 88,
+        "baseline_median_residual": 9.020562075079397e-16
+      },
+      {
+        "panel": "G",
+        "trial": 89,
+        "baseline_median_residual": 1.5230872119076366e-15
+      },
+      {
+        "panel": "G",
+        "trial": 90,
+        "baseline_median_residual": 1.0321604682062002e-15
+      },
+      {
+        "panel": "G",
+        "trial": 91,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 92,
+        "baseline_median_residual": 1.7579254024679969e-15
+      },
+      {
+        "panel": "G",
+        "trial": 93,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "G",
+        "trial": 94,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 5,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 6,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 7,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 8,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 9,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 10,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 11,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 12,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 13,
+        "baseline_median_residual": 6.938893903907228e-16
+      },
+      {
+        "panel": "H",
+        "trial": 14,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 15,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 17,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 18,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 19,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 20,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 21,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 22,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 23,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 24,
+        "baseline_median_residual": 1.7486012637846216e-15
+      },
+      {
+        "panel": "H",
+        "trial": 25,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 26,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 27,
+        "baseline_median_residual": 6.865168156178214e-16
+      },
+      {
+        "panel": "H",
+        "trial": 28,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 29,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 30,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 31,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 32,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 33,
+        "baseline_median_residual": 8.326672684688674e-16
+      },
+      {
+        "panel": "H",
+        "trial": 34,
+        "baseline_median_residual": 1.2212453270876722e-15
+      },
+      {
+        "panel": "H",
+        "trial": 35,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 36,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 37,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 38,
+        "baseline_median_residual": 1.0668549377257364e-15
+      },
+      {
+        "panel": "H",
+        "trial": 39,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 40,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 41,
+        "baseline_median_residual": 1.2073675392798577e-15
+      },
+      {
+        "panel": "H",
+        "trial": 42,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 43,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 44,
+        "baseline_median_residual": 2.2343238370581275e-15
+      },
+      {
+        "panel": "H",
+        "trial": 45,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 46,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 47,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 48,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 49,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 50,
+        "baseline_median_residual": 1.8041124150158794e-15
+      },
+      {
+        "panel": "H",
+        "trial": 51,
+        "baseline_median_residual": 5.715913853343579e-16
+      },
+      {
+        "panel": "H",
+        "trial": 52,
+        "baseline_median_residual": 1.4953316362920077e-15
+      },
+      {
+        "panel": "H",
+        "trial": 53,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 54,
+        "baseline_median_residual": 2.7547408798511697e-15
+      },
+      {
+        "panel": "H",
+        "trial": 55,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 56,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 57,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 58,
+        "baseline_median_residual": 5.516420653606247e-16
+      },
+      {
+        "panel": "H",
+        "trial": 59,
+        "baseline_median_residual": 2.134577237189461e-15
+      },
+      {
+        "panel": "H",
+        "trial": 60,
+        "baseline_median_residual": 1.8596235662471372e-15
+      },
+      {
+        "panel": "H",
+        "trial": 61,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 62,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 63,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 64,
+        "baseline_median_residual": 5.134781488891349e-16
+      },
+      {
+        "panel": "H",
+        "trial": 65,
+        "baseline_median_residual": 1.2351231148954867e-15
+      },
+      {
+        "panel": "H",
+        "trial": 66,
+        "baseline_median_residual": 1.0737938316296436e-15
+      },
+      {
+        "panel": "H",
+        "trial": 67,
+        "baseline_median_residual": 1.3739009929736312e-15
+      },
+      {
+        "panel": "H",
+        "trial": 68,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 69,
+        "baseline_median_residual": 8.326672684688674e-16
+      },
+      {
+        "panel": "H",
+        "trial": 70,
+        "baseline_median_residual": 2.220446049250313e-15
+      },
+      {
+        "panel": "H",
+        "trial": 71,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 72,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 73,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 74,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 75,
+        "baseline_median_residual": 1.1102230246251565e-15
+      },
+      {
+        "panel": "H",
+        "trial": 76,
+        "baseline_median_residual": 1.0044048925905713e-15
+      },
+      {
+        "panel": "H",
+        "trial": 77,
+        "baseline_median_residual": 1.6930901125533637e-15
+      },
+      {
+        "panel": "H",
+        "trial": 78,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 79,
+        "baseline_median_residual": 1.1102230246251565e-15
+      },
+      {
+        "panel": "H",
+        "trial": 80,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 81,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 82,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 83,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 84,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 85,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 86,
+        "baseline_median_residual": 2.5118795932144167e-15
+      },
+      {
+        "panel": "H",
+        "trial": 87,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 88,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 89,
+        "baseline_median_residual": 1.3461454173580023e-15
+      },
+      {
+        "panel": "H",
+        "trial": 90,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 91,
+        "baseline_median_residual": 1.130606025467884e-15
+      },
+      {
+        "panel": "H",
+        "trial": 92,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 93,
+        "baseline_median_residual": 0.0
+      },
+      {
+        "panel": "H",
+        "trial": 94,
+        "baseline_median_residual": 0.0
+      }
+    ]
+  },
+  "version4_bin_means": {
+    "version": "Version4_DirectBinMeans",
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230310_08",
+      "H": "20221115_09"
+    },
+    "bin_width_s": 0.25,
+    "bins_per_trial": 160,
+    "display_interval_s": [
+      -20,
+      20
+    ],
+    "baseline_interval_s": [
+      -20,
+      0
+    ],
+    "maximum_baseline_bins": 80,
+    "trials": [
+      5,
+      94
+    ],
+    "frame_value": "direct eligible bout natural-log vigor; non-bout and invalid/ineligible frames remain NaN; no replacement/floor",
+    "bin_value": "arithmetic mean of finite eligible natural-log vigor per 0.25 s bin; ignore NaNs; any one finite sample suffices",
+    "baseline": "arithmetic mean of finite unscaled baseline-bin means in [-20,0); all-NaN bins ignored; one vote per finite bin",
+    "formula": "delta_log_vigor = bin_mean - mean(finite baseline-bin means)",
+    "undefined_rule": "whole trial undefined only if it has no finite baseline-bin means",
+    "data_scaling": false,
+    "data_clipping": false,
+    "percentile_scaling": false,
+    "palette": "managua_r",
+    "colour_limits": [
+      -0.25,
+      0.25
+    ],
+    "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+    "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+    "source_tables": [
+      {
+        "panel": "F",
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+        "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+      },
+      {
+        "panel": "G",
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+        "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+      },
+      {
+        "panel": "H",
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+        "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+      }
+    ],
+    "panels": [
+      {
+        "panel": "F",
+        "fish": "20221115_07",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 14400,
+        "finite_display_bins": 10743,
+        "empty_bins": 3657,
+        "single_sample_bins_retained": 29,
+        "maximum_absolute_baseline_mean": 8.397323240801184e-16
+      },
+      {
+        "panel": "G",
+        "fish": "20230310_08",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 14400,
+        "finite_display_bins": 13654,
+        "empty_bins": 746,
+        "single_sample_bins_retained": 11,
+        "maximum_absolute_baseline_mean": 7.572290373084401e-16
+      },
+      {
+        "panel": "H",
+        "fish": "20221115_09",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 14400,
+        "finite_display_bins": 5455,
+        "empty_bins": 8945,
+        "single_sample_bins_retained": 30,
+        "maximum_absolute_baseline_mean": 9.454802532291655e-16
+      }
+    ],
+    "data_files": [
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\baseline_statistics.csv",
+        "sha256": "a98a7f430bf6707da71f7fdc56f94b243ecaaf9ae307c5134b6a99bec77fd261"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelF_mean_bins.csv",
+        "sha256": "a148d69229d1f682d433f5f8281ef5189531f3f08ad1c642c07cf83ae65f7c5e"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelG_mean_bins.csv",
+        "sha256": "cd3c23ac455def0685ccd9ef6f27702636e15be84a7bbd65e8d2eb2090d7de8a"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\PanelH_mean_bins.csv",
+        "sha256": "38a78330b90fbe453a9a4d94fb4f962c7b843824e9e54180de2b4694c7504fa4"
+      },
+      {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\per_trial_baseline_balance.csv",
+        "sha256": "230efddb35172270429aa60523f983ca69d7701ae57bc9854dd9370cb1337774"
+      }
+    ]
+  },
+  "version4_numeric_verification": {
+    "version": "Version4_DirectBinMeans",
+    "bin_width_s": 0.25,
+    "panels": [
+      {
+        "panel": "F",
+        "fish": "20221115_07",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 14400,
+        "finite_display_bins": 10743,
+        "empty_bins": 3657,
+        "single_sample_bins_retained": 29,
+        "maximum_absolute_baseline_mean": 8.397323240801184e-16
+      },
+      {
+        "panel": "G",
+        "fish": "20230310_08",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 14400,
+        "finite_display_bins": 13654,
+        "empty_bins": 746,
+        "single_sample_bins_retained": 11,
+        "maximum_absolute_baseline_mean": 7.572290373084401e-16
+      },
+      {
+        "panel": "H",
+        "fish": "20221115_09",
+        "defined_trials": 90,
+        "undefined_trials": 0,
+        "display_bins": 14400,
+        "finite_display_bins": 5455,
+        "empty_bins": 8945,
+        "single_sample_bins_retained": 30,
+        "maximum_absolute_baseline_mean": 9.454802532291655e-16
+      }
+    ],
+    "defined_trials": 270,
+    "undefined_trials": 0,
+    "all_defined_baseline_means_zero": true,
+    "tolerance_log_units": 1e-12,
+    "trials_with_equal_above_below_counts": 8,
+    "maximum_above_below_count_difference": 33,
+    "nonbout_and_invalid_frames_remain_NaN": true,
+    "infinite_input_or_output_values": false,
+    "independent_groupby_bin_means_verified": true,
+    "other_versions_unchanged": true
+  },
+  "previous_version4_balance_audit": {
+    "audit": "previous Version 4; [-15,0) baseline; NaNs ignored",
+    "tolerance_log_units": 1e-12,
+    "trials": 270,
+    "median_zero_all_trials": true,
+    "neither_strict_sign_exceeds_half_in_any_trial": true,
+    "equal_above_below_counts": 270,
+    "above_below_differ_by_at_most_one": 270,
+    "maximum_above_below_count_difference": 0,
+    "unequal_counts_explained_by_ties": true,
+    "maximum_absolute_baseline_median": 2.5153490401663703e-16,
+    "largest_imbalance_examples": [
+      {
+        "panel": "F",
+        "trial": 5,
+        "finite_baseline_bins": 21,
+        "baseline_above_zero": 10,
+        "baseline_below_zero": 10,
+        "baseline_tied_at_zero": 1,
+        "absolute_above_below_difference": 0,
+        "baseline_median": 0.0,
+        "finite_display_bins": 64,
+        "whole_window_above_zero": 32,
+        "whole_window_above_fraction": 0.5,
+        "baseline_above_fraction": 0.47619047619047616
+      },
+      {
+        "panel": "F",
+        "trial": 6,
+        "finite_baseline_bins": 24,
+        "baseline_above_zero": 12,
+        "baseline_below_zero": 12,
+        "baseline_tied_at_zero": 0,
+        "absolute_above_below_difference": 0,
+        "baseline_median": 2.0036056147532122e-16,
+        "finite_display_bins": 56,
+        "whole_window_above_zero": 27,
+        "whole_window_above_fraction": 0.48214285714285715,
+        "baseline_above_fraction": 0.5
+      },
+      {
+        "panel": "F",
+        "trial": 7,
+        "finite_baseline_bins": 21,
+        "baseline_above_zero": 10,
+        "baseline_below_zero": 10,
+        "baseline_tied_at_zero": 1,
+        "absolute_above_below_difference": 0,
+        "baseline_median": 0.0,
+        "finite_display_bins": 57,
+        "whole_window_above_zero": 24,
+        "whole_window_above_fraction": 0.42105263157894735,
+        "baseline_above_fraction": 0.47619047619047616
+      },
+      {
+        "panel": "F",
+        "trial": 8,
+        "finite_baseline_bins": 20,
+        "baseline_above_zero": 10,
+        "baseline_below_zero": 10,
+        "baseline_tied_at_zero": 0,
+        "absolute_above_below_difference": 0,
+        "baseline_median": 0.0,
+        "finite_display_bins": 48,
+        "whole_window_above_zero": 23,
+        "whole_window_above_fraction": 0.4791666666666667,
+        "baseline_above_fraction": 0.5
+      },
+      {
+        "panel": "F",
+        "trial": 9,
+        "finite_baseline_bins": 22,
+        "baseline_above_zero": 11,
+        "baseline_below_zero": 11,
+        "baseline_tied_at_zero": 0,
+        "absolute_above_below_difference": 0,
+        "baseline_median": 0.0,
+        "finite_display_bins": 60,
+        "whole_window_above_zero": 28,
+        "whole_window_above_fraction": 0.4666666666666667,
+        "baseline_above_fraction": 0.5
+      },
+      {
+        "panel": "F",
+        "trial": 10,
+        "finite_baseline_bins": 22,
+        "baseline_above_zero": 11,
+        "baseline_below_zero": 11,
+        "baseline_tied_at_zero": 0,
+        "absolute_above_below_difference": 0,
+        "baseline_median": 2.500170209751573e-16,
+        "finite_display_bins": 62,
+        "whole_window_above_zero": 22,
+        "whole_window_above_fraction": 0.3548387096774194,
+        "baseline_above_fraction": 0.5
+      }
+    ]
+  },
+  "current_example_trial_markers": {
+    "fish": "20230310_08",
+    "panel": "G",
+    "trials": [
+      9,
+      17,
+      63,
+      66,
+      93
+    ],
+    "selections": [
+      {
+        "trial": 9,
+        "phase": "Pre",
+        "finite_display_bins": 80,
+        "finite_baseline_bins": 30
+      },
+      {
+        "trial": 17,
+        "phase": "early Train",
+        "finite_display_bins": 79,
+        "finite_baseline_bins": 29
+      },
+      {
+        "trial": 63,
+        "phase": "late Train",
+        "finite_display_bins": 79,
+        "finite_baseline_bins": 30
+      },
+      {
+        "trial": 66,
+        "phase": "early Test",
+        "finite_display_bins": 79,
+        "finite_baseline_bins": 29
+      },
+      {
+        "trial": 93,
+        "phase": "late Test",
+        "finite_display_bins": 79,
+        "finite_baseline_bins": 29
+      }
+    ],
+    "status": "provisional illustrative examples for a later panel E update",
+    "reason": "match the legacy five phase positions, with at least 79/80 finite displayed bins and 29/30 finite baseline bins; not selected as maximal responders",
+    "source": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\PanelG_median_bins.csv",
+    "source_sha256": "1ca13e523fccbacae2cbcbd1fb9d7e3e2ca42bac36c331d8b6fed4e61ba7bc45"
+  }
+}

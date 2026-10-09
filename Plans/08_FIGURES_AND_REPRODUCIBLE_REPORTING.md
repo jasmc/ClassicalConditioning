@@ -229,6 +229,14 @@ See the [panel-by-panel draft comparison](../docs/analysis/figures/05_DRAFT_COMP
 
 ### Figure QC
 
+Record panel-specific criticism and selected presentation in
+[panel review comments](./PANEL_REVIEW_COMMENTS.md). Each inferential panel
+must have an explicit comparison matrix linked to its saved results. A clean
+main figure may show significant comparisons only, but the companion table
+must retain every required comparison, including nonsignificant and failed
+results. Direct between-group changes need distinct annotation semantics or
+companion axes; a line between raw block values must not imply a change test.
+
 Structural:
 
 - dimensions;

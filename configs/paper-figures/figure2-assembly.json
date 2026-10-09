@@ -1,0 +1,956 @@
+{
+  "title": "Figure 2 - population-level conditioning evidence (assembly review)",
+  "figure_id": "Fig2",
+  "storage_root": "J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly",
+  "output": "figure2-main.svg",
+  "canvas": [
+    1800,
+    1750
+  ],
+  "font_family": "DejaVu Sans",
+  "font_directory": "fonts",
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "baseline_interval": "[-15,0)",
+  "metric_id": "legacy_distal_angular_speed",
+  "scientific_status": "populated available-data review; scientific approval remains separate",
+  "interpretation": {
+    "10sTrace": "inconclusive"
+  },
+  "inventory_manifest": "inventory.json",
+  "panels": [
+    {
+      "id": "A",
+      "role": "Delay: CS-aligned population heatmaps; matched unpaired control",
+      "source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.svg",
+      "selection_status": "provisional descriptive review; scientific approval pending",
+      "box": [
+        45,
+        190,
+        540,
+        555
+      ],
+      "content_box": [
+        63,
+        265,
+        504,
+        455
+      ],
+      "label": {
+        "text": "A",
+        "x": 63,
+        "y": 233,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "CS-aligned population heatmaps",
+        "Control versus Delay",
+        "",
+        "No population SVG source found",
+        "Frozen-baseline, matched-cohort render pending",
+        "Upstream vigor / alignment audit remains open"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "scientific outcome/cohort review",
+        "upstream vigor and alignment audit"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          9
+        ],
+        "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          9
+        ],
+        "cohort_counts": {
+          "control": 28,
+          "delay": 29
+        },
+        "signal": "equal-fish mean of shared signed bout-log-vigor 0.5-s bins; no P10/P90 scaling",
+        "display": {
+          "cmap": "managua_r",
+          "limits": [
+            -0.25,
+            0.25
+          ],
+          "missing": "black"
+        },
+        "upstream_audit": "vigor and heatmap alignment remain unverified",
+        "svg_sha256": "ade2e4e95288f35b0d2b95b24e3ac361ae1029863d3692e013ac06ac0160607c",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.parquet",
+        "panel_data_sha256": "668b5dd508a3953b58ba44cdf3b2cdf6f0492cd5ac6a7d28e63fcb4eef120d35",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.figure.json",
+        "sidecar_sha256": "d8aac649585f49aa98060e3f6fb31872781698fef7643d27f400727892a92630"
+      },
+      "source_provenance": {
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "metric_id": "legacy_distal_angular_speed",
+        "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          9
+        ],
+        "cohort_counts": {
+          "control": 28,
+          "delay": 29
+        },
+        "signal": "equal-fish mean of shared signed bout-log-vigor 0.5-s bins; no P10/P90 scaling",
+        "display": {
+          "cmap": "managua_r",
+          "limits": [
+            -0.25,
+            0.25
+          ],
+          "missing": "black"
+        },
+        "upstream_audit": "vigor and heatmap alignment remain unverified",
+        "svg_sha256": "ade2e4e95288f35b0d2b95b24e3ac361ae1029863d3692e013ac06ac0160607c",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.parquet",
+        "panel_data_sha256": "668b5dd508a3953b58ba44cdf3b2cdf6f0492cd5ac6a7d28e63fcb4eef120d35",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.figure.json",
+        "sidecar_sha256": "d8aac649585f49aa98060e3f6fb31872781698fef7643d27f400727892a92630"
+      }
+    },
+    {
+      "id": "B",
+      "role": "3sTrace: CS-aligned population heatmaps; matched unpaired control",
+      "source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.svg",
+      "selection_status": "provisional descriptive review; scientific approval pending",
+      "box": [
+        615,
+        190,
+        540,
+        555
+      ],
+      "content_box": [
+        633,
+        265,
+        504,
+        455
+      ],
+      "label": {
+        "text": "B",
+        "x": 633,
+        "y": 233,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "CS-aligned population heatmaps",
+        "Control versus 3sTrace",
+        "",
+        "Historical signed heatmap: [-20,0) s",
+        "53-fish and 59-fish reviews remain separate",
+        "Frozen-baseline, matched-cohort SVG pending"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "scientific outcome/cohort review",
+        "upstream vigor and alignment audit"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          13
+        ],
+        "cohort_hash": "63d6b8e25964210a0ecbdb562a2e652c3f96db544eac53cde64ebb9aad755580",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          13
+        ],
+        "cohort_counts": {
+          "control": 19,
+          "trace": 40
+        },
+        "signal": "equal-fish mean of shared signed bout-log-vigor 0.5-s bins; no P10/P90 scaling",
+        "display": {
+          "cmap": "managua_r",
+          "limits": [
+            -0.25,
+            0.25
+          ],
+          "missing": "black"
+        },
+        "upstream_audit": "vigor and heatmap alignment remain unverified",
+        "svg_sha256": "93150f983ade150657484640d73fa4693baaf8e85e2766dfa80f8f7e2df4dacf",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.parquet",
+        "panel_data_sha256": "b98698800b90a5e4b9347d03a0b647273e3c2d0235884e395cf635a4024a0cd0",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.figure.json",
+        "sidecar_sha256": "92d6842e073d91ecb42523a3a58137b2dbfd999df77ab8d22c13f912bb74f78b"
+      },
+      "source_provenance": {
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "metric_id": "legacy_distal_angular_speed",
+        "cohort_hash": "63d6b8e25964210a0ecbdb562a2e652c3f96db544eac53cde64ebb9aad755580",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          13
+        ],
+        "cohort_counts": {
+          "control": 19,
+          "trace": 40
+        },
+        "signal": "equal-fish mean of shared signed bout-log-vigor 0.5-s bins; no P10/P90 scaling",
+        "display": {
+          "cmap": "managua_r",
+          "limits": [
+            -0.25,
+            0.25
+          ],
+          "missing": "black"
+        },
+        "upstream_audit": "vigor and heatmap alignment remain unverified",
+        "svg_sha256": "93150f983ade150657484640d73fa4693baaf8e85e2766dfa80f8f7e2df4dacf",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.parquet",
+        "panel_data_sha256": "b98698800b90a5e4b9347d03a0b647273e3c2d0235884e395cf635a4024a0cd0",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.figure.json",
+        "sidecar_sha256": "92d6842e073d91ecb42523a3a58137b2dbfd999df77ab8d22c13f912bb74f78b"
+      }
+    },
+    {
+      "id": "C",
+      "role": "10sTrace: CS-aligned population heatmaps; matched unpaired control",
+      "source": null,
+      "selection_status": "placeholder; scientific approval pending",
+      "box": [
+        1185,
+        190,
+        540,
+        555
+      ],
+      "content_box": [
+        1203,
+        265,
+        504,
+        455
+      ],
+      "label": {
+        "text": "C",
+        "x": 1203,
+        "y": 233,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "CS-aligned population heatmaps",
+        "Control versus 10sTrace",
+        "",
+        "Reviewed matched cohort and panel data pending",
+        "No authenticated population SVG found",
+        "Interpretation: inconclusive"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "Reviewed matched cohort and panel data pending",
+        "No authenticated population SVG found",
+        "Interpretation: inconclusive"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          20
+        ],
+        "interpretation": "inconclusive"
+      }
+    },
+    {
+      "id": "D",
+      "role": "Delay: Selected-block CR ratios; matched unpaired control",
+      "source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelD_allDelay_pre15.svg",
+      "selection_status": "provisional descriptive review; scientific approval pending",
+      "box": [
+        45,
+        795,
+        540,
+        385
+      ],
+      "content_box": [
+        63,
+        870,
+        504,
+        285
+      ],
+      "label": {
+        "text": "D",
+        "x": 63,
+        "y": 838,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "Selected-block CR ratios",
+        "Control versus Delay",
+        "",
+        "Verified [-15,0) ratio inputs pending",
+        "Historical baseline review uses another metric",
+        "Matched-cohort descriptive SVG pending"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "scientific outcome/cohort review",
+        "upstream vigor and alignment audit"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          9
+        ],
+        "block_trials": [
+          [
+            10,
+            14
+          ],
+          [
+            65,
+            69
+          ],
+          [
+            90,
+            94
+          ]
+        ],
+        "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          9
+        ],
+        "min_trials_per_fish_block": 3,
+        "ratio_formula": "response_total_activity / baseline_total_activity; median of eligible trial ratios within fish/block",
+        "cohort_counts": {
+          "control": 28,
+          "delay": 29
+        },
+        "summary": "fish points and median [fish IQR]",
+        "svg_sha256": "f6cfbd293ee5c24a9dff627a3be18fd413d7e3d309fec352a9f5adc3ef4160ff",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelD_allDelay_pre15.parquet",
+        "panel_data_sha256": "ef4fd023a546e57989e6128f364e26912f322edf244f7a91d04c9b8bed79fe93",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelD_allDelay_pre15.figure.json",
+        "sidecar_sha256": "8c5ea45063ce2bd1d678aa240ab8b1fdcf7f56f753c3a9545ec955df3733911f"
+      },
+      "source_provenance": {
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "metric_id": "legacy_distal_angular_speed",
+        "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          9
+        ],
+        "block_trials": [
+          [
+            10,
+            14
+          ],
+          [
+            65,
+            69
+          ],
+          [
+            90,
+            94
+          ]
+        ],
+        "min_trials_per_fish_block": 3,
+        "ratio_formula": "response_total_activity / baseline_total_activity; median of eligible trial ratios within fish/block",
+        "cohort_counts": {
+          "control": 28,
+          "delay": 29
+        },
+        "summary": "fish points and median [fish IQR]",
+        "svg_sha256": "f6cfbd293ee5c24a9dff627a3be18fd413d7e3d309fec352a9f5adc3ef4160ff",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelD_allDelay_pre15.parquet",
+        "panel_data_sha256": "ef4fd023a546e57989e6128f364e26912f322edf244f7a91d04c9b8bed79fe93",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelD_allDelay_pre15.figure.json",
+        "sidecar_sha256": "8c5ea45063ce2bd1d678aa240ab8b1fdcf7f56f753c3a9545ec955df3733911f"
+      }
+    },
+    {
+      "id": "E",
+      "role": "3sTrace: Selected-block CR ratios; matched unpaired control",
+      "source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelE_all3sTrace_pre15.svg",
+      "selection_status": "provisional descriptive review; scientific approval pending",
+      "box": [
+        615,
+        795,
+        540,
+        385
+      ],
+      "content_box": [
+        633,
+        870,
+        504,
+        285
+      ],
+      "label": {
+        "text": "E",
+        "x": 633,
+        "y": 838,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "Selected-block CR ratios",
+        "Control versus 3sTrace",
+        "",
+        "Historical review uses Pre-Train trials 5-9",
+        "Current plan requires trials 10-14",
+        "Frozen-baseline, matched-cohort SVG pending"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "scientific outcome/cohort review",
+        "upstream vigor and alignment audit"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          13
+        ],
+        "block_trials": [
+          [
+            10,
+            14
+          ],
+          [
+            65,
+            69
+          ],
+          [
+            90,
+            94
+          ]
+        ],
+        "cohort_hash": "63d6b8e25964210a0ecbdb562a2e652c3f96db544eac53cde64ebb9aad755580",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          13
+        ],
+        "min_trials_per_fish_block": 1,
+        "ratio_formula": "response_total_activity / baseline_total_activity; median of eligible trial ratios within fish/block",
+        "cohort_counts": {
+          "control": 19,
+          "trace": 40
+        },
+        "summary": "fish points and median [fish IQR]",
+        "svg_sha256": "f2f6d1d8cc5ffaeb7b9ad3a407bc9fb287d0be6075f3106305b63eaf880f70e9",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelE_all3sTrace_pre15.parquet",
+        "panel_data_sha256": "413d8e7e82f9df2d3df8f987020dd7ad0ab493d9b9ce8e3f38be00e6f1757916",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelE_all3sTrace_pre15.figure.json",
+        "sidecar_sha256": "8aca31857dab4b8661e708bd905553ab20ce5746fa285653e18e944c354de451"
+      },
+      "source_provenance": {
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "metric_id": "legacy_distal_angular_speed",
+        "cohort_hash": "63d6b8e25964210a0ecbdb562a2e652c3f96db544eac53cde64ebb9aad755580",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          13
+        ],
+        "block_trials": [
+          [
+            10,
+            14
+          ],
+          [
+            65,
+            69
+          ],
+          [
+            90,
+            94
+          ]
+        ],
+        "min_trials_per_fish_block": 1,
+        "ratio_formula": "response_total_activity / baseline_total_activity; median of eligible trial ratios within fish/block",
+        "cohort_counts": {
+          "control": 19,
+          "trace": 40
+        },
+        "summary": "fish points and median [fish IQR]",
+        "svg_sha256": "f2f6d1d8cc5ffaeb7b9ad3a407bc9fb287d0be6075f3106305b63eaf880f70e9",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelE_all3sTrace_pre15.parquet",
+        "panel_data_sha256": "413d8e7e82f9df2d3df8f987020dd7ad0ab493d9b9ce8e3f38be00e6f1757916",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelE_all3sTrace_pre15.figure.json",
+        "sidecar_sha256": "8aca31857dab4b8661e708bd905553ab20ce5746fa285653e18e944c354de451"
+      }
+    },
+    {
+      "id": "F",
+      "role": "10sTrace: Selected-block CR ratios; matched unpaired control",
+      "source": null,
+      "selection_status": "placeholder; scientific approval pending",
+      "box": [
+        1185,
+        795,
+        540,
+        385
+      ],
+      "content_box": [
+        1203,
+        870,
+        504,
+        285
+      ],
+      "label": {
+        "text": "F",
+        "x": 1203,
+        "y": 838,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "Selected-block CR ratios",
+        "Control versus 10sTrace",
+        "",
+        "Reviewed matched cohort and ratio data pending",
+        "Response-window / ratio definition under review",
+        "Interpretation: inconclusive"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "Reviewed matched cohort and ratio data pending",
+        "Response-window / ratio definition under review",
+        "Interpretation: inconclusive"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          20
+        ],
+        "block_trials": [
+          [
+            10,
+            14
+          ],
+          [
+            65,
+            69
+          ],
+          [
+            90,
+            94
+          ]
+        ],
+        "interpretation": "inconclusive"
+      }
+    },
+    {
+      "id": "G",
+      "role": "Delay: Trial-by-trial CR ratios; matched unpaired control",
+      "source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelG_allDelay_pre15.svg",
+      "selection_status": "provisional descriptive review; scientific approval pending",
+      "box": [
+        45,
+        1230,
+        540,
+        390
+      ],
+      "content_box": [
+        63,
+        1305,
+        504,
+        290
+      ],
+      "label": {
+        "text": "G",
+        "x": 63,
+        "y": 1273,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "Trial-by-trial CR ratios",
+        "Control versus Delay",
+        "",
+        "Verified [-15,0) ratio inputs pending",
+        "LME influence gate failed; onset not localized",
+        "Descriptive trial-trajectory SVG pending"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "scientific outcome/cohort review",
+        "upstream vigor and alignment audit"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          9
+        ],
+        "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          9
+        ],
+        "ratio_formula": "response_total_activity / baseline_total_activity; fish trial ratio then equal-fish condition median",
+        "cohort_counts": {
+          "control": 28,
+          "delay": 29
+        },
+        "summary": "condition median [fish IQR]",
+        "svg_sha256": "d5d851913873ac41368786d52951ea09abeac6b132abf791cf7f03032e7afd29",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelG_allDelay_pre15.parquet",
+        "panel_data_sha256": "81d4a7d3aee60024424f56dfa7a4cce7f9886d3011a8701c2b81021aef6fb59c",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelG_allDelay_pre15.figure.json",
+        "sidecar_sha256": "0b9bf67bc9823cd594adf35776e8d587da634b2c0c976440049a389484048d43"
+      },
+      "source_provenance": {
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "metric_id": "legacy_distal_angular_speed",
+        "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          9
+        ],
+        "ratio_formula": "response_total_activity / baseline_total_activity; fish trial ratio then equal-fish condition median",
+        "cohort_counts": {
+          "control": 28,
+          "delay": 29
+        },
+        "summary": "condition median [fish IQR]",
+        "svg_sha256": "d5d851913873ac41368786d52951ea09abeac6b132abf791cf7f03032e7afd29",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelG_allDelay_pre15.parquet",
+        "panel_data_sha256": "81d4a7d3aee60024424f56dfa7a4cce7f9886d3011a8701c2b81021aef6fb59c",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelG_allDelay_pre15.figure.json",
+        "sidecar_sha256": "0b9bf67bc9823cd594adf35776e8d587da634b2c0c976440049a389484048d43"
+      }
+    },
+    {
+      "id": "H",
+      "role": "3sTrace: Trial-by-trial CR ratios; matched unpaired control",
+      "source": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelH_all3sTrace_pre15.svg",
+      "selection_status": "provisional descriptive review; scientific approval pending",
+      "box": [
+        615,
+        1230,
+        540,
+        390
+      ],
+      "content_box": [
+        633,
+        1305,
+        504,
+        290
+      ],
+      "label": {
+        "text": "H",
+        "x": 633,
+        "y": 1273,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "Trial-by-trial CR ratios",
+        "Control versus 3sTrace",
+        "",
+        "53-fish and 59-fish reviews remain separate",
+        "Verify [-15,0) ratio denominators",
+        "Matched-cohort descriptive SVG pending"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "scientific outcome/cohort review",
+        "upstream vigor and alignment audit"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          13
+        ],
+        "cohort_hash": "63d6b8e25964210a0ecbdb562a2e652c3f96db544eac53cde64ebb9aad755580",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          13
+        ],
+        "ratio_formula": "response_total_activity / baseline_total_activity; fish trial ratio then equal-fish condition median",
+        "cohort_counts": {
+          "control": 19,
+          "trace": 40
+        },
+        "summary": "condition median [fish IQR]",
+        "svg_sha256": "2ef68bd41474f931bcfd4207a290e7fae61aaf6beb519e3075e097fc14e4ad57",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelH_all3sTrace_pre15.parquet",
+        "panel_data_sha256": "edcbbad2b0fc26a68f21a2e7fd9e81591f9b9e35e8ce9b1ab1002666ff3254f9",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelH_all3sTrace_pre15.figure.json",
+        "sidecar_sha256": "4d573962c0a20c6cd18617a9c546c3d8d18271ef62686267edc51d79adcdd16b"
+      },
+      "source_provenance": {
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "metric_id": "legacy_distal_angular_speed",
+        "cohort_hash": "63d6b8e25964210a0ecbdb562a2e652c3f96db544eac53cde64ebb9aad755580",
+        "significance_marks": "none",
+        "response_window_s": [
+          0,
+          13
+        ],
+        "ratio_formula": "response_total_activity / baseline_total_activity; fish trial ratio then equal-fish condition median",
+        "cohort_counts": {
+          "control": 19,
+          "trace": 40
+        },
+        "summary": "condition median [fish IQR]",
+        "svg_sha256": "2ef68bd41474f931bcfd4207a290e7fae61aaf6beb519e3075e097fc14e4ad57",
+        "panel_data": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelH_all3sTrace_pre15.parquet",
+        "panel_data_sha256": "edcbbad2b0fc26a68f21a2e7fd9e81591f9b9e35e8ce9b1ab1002666ff3254f9",
+        "sidecar": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelH_all3sTrace_pre15.figure.json",
+        "sidecar_sha256": "4d573962c0a20c6cd18617a9c546c3d8d18271ef62686267edc51d79adcdd16b"
+      }
+    },
+    {
+      "id": "I",
+      "role": "10sTrace: Trial-by-trial CR ratios; matched unpaired control",
+      "source": null,
+      "selection_status": "placeholder; scientific approval pending",
+      "box": [
+        1185,
+        1230,
+        540,
+        390
+      ],
+      "content_box": [
+        1203,
+        1305,
+        504,
+        290
+      ],
+      "label": {
+        "text": "I",
+        "x": 1203,
+        "y": 1273,
+        "size": 32
+      },
+      "placeholder_lines": [
+        "Trial-by-trial CR ratios",
+        "Control versus 10sTrace",
+        "",
+        "Reviewed matched cohort and ratio data pending",
+        "No authenticated trial-trajectory SVG found",
+        "Interpretation: inconclusive"
+      ],
+      "placeholder_font_size": 20,
+      "placeholder_line_height": 33,
+      "pending_inputs": [
+        "Reviewed matched cohort and ratio data pending",
+        "No authenticated trial-trajectory SVG found",
+        "Interpretation: inconclusive"
+      ],
+      "scientific_definition": {
+        "metric_id": "legacy_distal_angular_speed",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_interval": "[-15,0)",
+        "baseline_alignment": "CS onset",
+        "status": "pending scientific review",
+        "response_window_proposal_s": [
+          0,
+          20
+        ],
+        "interpretation": "inconclusive"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "x": 45,
+      "y": 48,
+      "size": 30,
+      "weight": "bold",
+      "text": "Figure 2 | Population-level conditioning evidence"
+    },
+    {
+      "x": 45,
+      "y": 86,
+      "size": 22,
+      "text": "Available-data review - populated sources remain provisional; 10sTrace remains inconclusive"
+    },
+    {
+      "x": 315,
+      "y": 150,
+      "size": 26,
+      "weight": "bold",
+      "anchor": "middle",
+      "text": "Delay / matched control"
+    },
+    {
+      "x": 885,
+      "y": 150,
+      "size": 26,
+      "weight": "bold",
+      "anchor": "middle",
+      "text": "3sTrace / matched control"
+    },
+    {
+      "x": 1455,
+      "y": 150,
+      "size": 26,
+      "weight": "bold",
+      "anchor": "middle",
+      "text": "10sTrace / matched control"
+    },
+    {
+      "x": 45,
+      "y": 1675,
+      "size": 21,
+      "text": "Frozen pre-CS baseline: [-15,0) s. Metric: tail bend angular speed (rad/ms). No inferential marks."
+    },
+    {
+      "x": 45,
+      "y": 1710,
+      "size": 21,
+      "text": "Blocks: 10-14, 65-69, 90-94. 10sTrace remains inconclusive. Historical reviews are preserved separately."
+    },
+    {
+      "x": 315.0,
+      "y": 736,
+      "size": 17,
+      "anchor": "middle",
+      "text": "Provisional signed-bout review; upstream audit open",
+      "panel_note": true
+    },
+    {
+      "x": 885.0,
+      "y": 736,
+      "size": 17,
+      "anchor": "middle",
+      "text": "Provisional signed-bout review; upstream audit open",
+      "panel_note": true
+    },
+    {
+      "x": 315.0,
+      "y": 1171,
+      "size": 17,
+      "anchor": "middle",
+      "text": "Provisional descriptive ratio; no inferential marks",
+      "panel_note": true
+    },
+    {
+      "x": 885.0,
+      "y": 1171,
+      "size": 17,
+      "anchor": "middle",
+      "text": "Provisional descriptive ratio; no inferential marks",
+      "panel_note": true
+    },
+    {
+      "x": 315.0,
+      "y": 1611,
+      "size": 17,
+      "anchor": "middle",
+      "text": "Provisional descriptive ratio; no inferential marks",
+      "panel_note": true
+    },
+    {
+      "x": 885.0,
+      "y": 1611,
+      "size": 17,
+      "anchor": "middle",
+      "text": "Provisional descriptive ratio; no inferential marks",
+      "panel_note": true
+    }
+  ]
+}

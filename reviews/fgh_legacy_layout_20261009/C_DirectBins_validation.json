@@ -1,0 +1,100 @@
+{
+  "variant": "C_DirectBins",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "numeric_values_unchanged": true,
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "efa5a05d4314fa5f750507780dff99b7ce747ebaab811b14bda9544a3d0fbc7b",
+  "source_numeric_files": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelF_direct_bins.csv",
+      "sha256": "8cda7c63d742b5079486a262081831c44607460694059aa60a40ceaa16ad408e"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelG_direct_bins.csv",
+      "sha256": "f6a674b5d23eec4791790b00bd7c2d4d58441a39119616a6df3570363206830d"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelH_direct_bins.csv",
+      "sha256": "14cd8d8dedf90a3bad5601571ec2a752971399715ddde4ae5f2ef5c8f8608076"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 6446
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 7138
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 3900
+    }
+  ],
+  "annotations": {
+    "six_CS_boundaries_verified": true,
+    "CS_times_s": [
+      0,
+      10
+    ],
+    "CS_colour": "#0d8136",
+    "CS_linewidth_pt": 2.4,
+    "CS_alpha": 0.8,
+    "phase_labels": "left of F",
+    "example_arrowheads_panel": "G",
+    "example_arrowheads_direction": "left",
+    "example_arrowheads_trials": [
+      9,
+      17,
+      63,
+      66,
+      93
+    ],
+    "arrowhead_trial_positions_verified": true
+  },
+  "palette": "managua_r",
+  "colour_limits": [
+    -1.0,
+    1.0
+  ],
+  "colourbar_label": "Vigor relative to baseline",
+  "colourbar_count": 1,
+  "layout": {
+    "size_inches": [
+      9,
+      5.1
+    ],
+    "panel_lefts": [
+      0.09,
+      0.355,
+      0.62
+    ],
+    "panel_width": 0.22,
+    "phase_labels": "left of F"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.svg",
+      "sha256": "c1c15f1a73bf1f9ce92cebe3b62b91023ebde3ec8516db10b99a2f26729ff38e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.png",
+      "sha256": "e4e59ec823cf1c6116d298588fb31cc407fd5eb2b4df09a24e25126ebcace4c7"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\FGH_C_DirectBins_legacy_layout.pdf",
+      "sha256": "da8758877be35957d8977c2bda101ee282e3c2b739cdbfb16538e36cecc4a540"
+    }
+  ]
+}

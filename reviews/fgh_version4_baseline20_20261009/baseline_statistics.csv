@@ -1,0 +1,271 @@
+panel,fish,trial,nonmissing_baseline_bin_count,baseline_lower_bound_bins,baseline_median_log_vigor,defined,undefined_reason
+F,20221115_07,5,40,29,-inf,False,baseline median is -inf
+F,20221115_07,6,40,27,-inf,False,baseline median is -inf
+F,20221115_07,7,40,31,-inf,False,baseline median is -inf
+F,20221115_07,8,40,31,-inf,False,baseline median is -inf
+F,20221115_07,9,40,36,-inf,False,baseline median is -inf
+F,20221115_07,10,40,36,-inf,False,baseline median is -inf
+F,20221115_07,11,40,34,-inf,False,baseline median is -inf
+F,20221115_07,12,40,30,-inf,False,baseline median is -inf
+F,20221115_07,13,40,32,-inf,False,baseline median is -inf
+F,20221115_07,14,40,24,-inf,False,baseline median is -inf
+F,20221115_07,15,40,23,-inf,False,baseline median is -inf
+F,20221115_07,16,40,23,-inf,False,baseline median is -inf
+F,20221115_07,17,40,30,-inf,False,baseline median is -inf
+F,20221115_07,18,40,32,-inf,False,baseline median is -inf
+F,20221115_07,19,40,28,-inf,False,baseline median is -inf
+F,20221115_07,20,40,28,-inf,False,baseline median is -inf
+F,20221115_07,21,40,32,-inf,False,baseline median is -inf
+F,20221115_07,22,40,23,-inf,False,baseline median is -inf
+F,20221115_07,23,40,25,-inf,False,baseline median is -inf
+F,20221115_07,24,40,34,-inf,False,baseline median is -inf
+F,20221115_07,25,40,27,-inf,False,baseline median is -inf
+F,20221115_07,26,40,28,-inf,False,baseline median is -inf
+F,20221115_07,27,40,30,-inf,False,baseline median is -inf
+F,20221115_07,28,40,23,-inf,False,baseline median is -inf
+F,20221115_07,29,40,25,-inf,False,baseline median is -inf
+F,20221115_07,30,40,24,-inf,False,baseline median is -inf
+F,20221115_07,31,40,24,-inf,False,baseline median is -inf
+F,20221115_07,32,40,30,-inf,False,baseline median is -inf
+F,20221115_07,33,40,33,-inf,False,baseline median is -inf
+F,20221115_07,34,40,34,-inf,False,baseline median is -inf
+F,20221115_07,35,40,29,-inf,False,baseline median is -inf
+F,20221115_07,36,40,30,-inf,False,baseline median is -inf
+F,20221115_07,37,40,35,-inf,False,baseline median is -inf
+F,20221115_07,38,40,35,-inf,False,baseline median is -inf
+F,20221115_07,39,40,26,-inf,False,baseline median is -inf
+F,20221115_07,40,40,26,-inf,False,baseline median is -inf
+F,20221115_07,41,40,36,-inf,False,baseline median is -inf
+F,20221115_07,42,40,29,-inf,False,baseline median is -inf
+F,20221115_07,43,40,24,-inf,False,baseline median is -inf
+F,20221115_07,44,40,32,-inf,False,baseline median is -inf
+F,20221115_07,45,40,29,-inf,False,baseline median is -inf
+F,20221115_07,46,40,26,-inf,False,baseline median is -inf
+F,20221115_07,47,40,29,-inf,False,baseline median is -inf
+F,20221115_07,48,40,30,-inf,False,baseline median is -inf
+F,20221115_07,49,40,27,-inf,False,baseline median is -inf
+F,20221115_07,50,40,24,-inf,False,baseline median is -inf
+F,20221115_07,51,40,32,-inf,False,baseline median is -inf
+F,20221115_07,52,40,28,-inf,False,baseline median is -inf
+F,20221115_07,53,40,23,-inf,False,baseline median is -inf
+F,20221115_07,54,40,30,-inf,False,baseline median is -inf
+F,20221115_07,55,40,24,-inf,False,baseline median is -inf
+F,20221115_07,56,40,21,-inf,False,baseline median is -inf
+F,20221115_07,57,40,25,-inf,False,baseline median is -inf
+F,20221115_07,58,40,28,-inf,False,baseline median is -inf
+F,20221115_07,59,40,29,-inf,False,baseline median is -inf
+F,20221115_07,60,40,26,-inf,False,baseline median is -inf
+F,20221115_07,61,40,24,-inf,False,baseline median is -inf
+F,20221115_07,62,40,25,-inf,False,baseline median is -inf
+F,20221115_07,63,40,27,-inf,False,baseline median is -inf
+F,20221115_07,64,40,28,-inf,False,baseline median is -inf
+F,20221115_07,65,40,28,-inf,False,baseline median is -inf
+F,20221115_07,66,40,21,-inf,False,baseline median is -inf
+F,20221115_07,67,40,14,-3.782384515885016,True,
+F,20221115_07,68,40,25,-inf,False,baseline median is -inf
+F,20221115_07,69,40,16,-3.774211239009139,True,
+F,20221115_07,70,40,24,-inf,False,baseline median is -inf
+F,20221115_07,71,40,19,-5.471016727111672,True,
+F,20221115_07,72,40,23,-inf,False,baseline median is -inf
+F,20221115_07,73,40,20,-inf,False,baseline median is -inf
+F,20221115_07,74,40,22,-inf,False,baseline median is -inf
+F,20221115_07,75,40,22,-inf,False,baseline median is -inf
+F,20221115_07,76,40,20,-inf,False,baseline median is -inf
+F,20221115_07,77,40,15,-5.177132841051458,True,
+F,20221115_07,78,40,10,-3.811232989406,True,
+F,20221115_07,79,40,12,-3.6301519723348257,True,
+F,20221115_07,80,40,23,-inf,False,baseline median is -inf
+F,20221115_07,81,40,15,-4.730054552618238,True,
+F,20221115_07,82,40,13,-4.0088474535870295,True,
+F,20221115_07,83,40,16,-3.9911119023831443,True,
+F,20221115_07,84,40,18,-5.355895537831033,True,
+F,20221115_07,85,40,10,-3.3081958789677133,True,
+F,20221115_07,86,40,8,-3.344411406678237,True,
+F,20221115_07,87,40,4,-3.1987735580903705,True,
+F,20221115_07,88,40,11,-3.483083588581111,True,
+F,20221115_07,89,40,11,-3.941247581438315,True,
+F,20221115_07,90,40,8,-3.5405387864639493,True,
+F,20221115_07,91,40,15,-4.258693318820997,True,
+F,20221115_07,92,40,10,-3.5924169711179843,True,
+F,20221115_07,93,40,10,-3.80119245315338,True,
+F,20221115_07,94,40,7,-3.538440562227916,True,
+G,20230310_08,5,40,7,-3.615811003285965,True,
+G,20230310_08,6,40,9,-3.491415327956805,True,
+G,20230310_08,7,40,4,-3.18592181655516,True,
+G,20230310_08,8,40,10,-3.7050089575511276,True,
+G,20230310_08,9,40,4,-3.1768435320647885,True,
+G,20230310_08,10,40,5,-3.1707821534566536,True,
+G,20230310_08,11,40,7,-3.1994687086708073,True,
+G,20230310_08,12,40,1,-3.0611627769889393,True,
+G,20230310_08,13,40,6,-3.2375172346508965,True,
+G,20230310_08,14,40,11,-3.5234371091648438,True,
+G,20230310_08,15,40,5,-3.240740926925373,True,
+G,20230310_08,16,40,12,-3.806095905011955,True,
+G,20230310_08,17,40,16,-3.8867634096229358,True,
+G,20230310_08,18,40,27,-inf,False,baseline median is -inf
+G,20230310_08,19,40,8,-3.7153838787759628,True,
+G,20230310_08,20,40,11,-3.420237980419,True,
+G,20230310_08,21,40,15,-4.75320210923009,True,
+G,20230310_08,22,40,7,-3.380852786072734,True,
+G,20230310_08,23,40,9,-3.7615374277686677,True,
+G,20230310_08,24,40,5,-3.2789800055470804,True,
+G,20230310_08,25,40,6,-3.070191775119461,True,
+G,20230310_08,26,40,10,-3.8774089703406007,True,
+G,20230310_08,27,40,13,-4.195747668719825,True,
+G,20230310_08,28,40,10,-3.6554589748104,True,
+G,20230310_08,29,40,18,-5.110742525346632,True,
+G,20230310_08,30,40,10,-3.576329572162228,True,
+G,20230310_08,31,40,12,-3.5332788943412923,True,
+G,20230310_08,32,40,19,-5.392973779622803,True,
+G,20230310_08,33,40,15,-5.00906222497764,True,
+G,20230310_08,34,40,12,-3.430611482383367,True,
+G,20230310_08,35,40,13,-3.9950280364595887,True,
+G,20230310_08,36,40,9,-3.5013559881813863,True,
+G,20230310_08,37,40,3,-3.218015887318816,True,
+G,20230310_08,38,40,11,-3.6712257845562792,True,
+G,20230310_08,39,40,4,-3.3347252678978947,True,
+G,20230310_08,40,40,8,-3.371332627520661,True,
+G,20230310_08,41,40,8,-3.73925743419022,True,
+G,20230310_08,42,40,12,-3.5207770977151016,True,
+G,20230310_08,43,40,13,-3.7814913696439527,True,
+G,20230310_08,44,40,23,-inf,False,baseline median is -inf
+G,20230310_08,45,40,13,-3.6539673753233997,True,
+G,20230310_08,46,40,7,-3.49454713305991,True,
+G,20230310_08,47,40,4,-3.200077414974467,True,
+G,20230310_08,48,40,3,-3.0569847746022214,True,
+G,20230310_08,49,40,16,-3.610397605739334,True,
+G,20230310_08,50,40,13,-3.7745010046684526,True,
+G,20230310_08,51,40,13,-4.30245530615211,True,
+G,20230310_08,52,40,9,-3.88437116382352,True,
+G,20230310_08,53,40,6,-3.440026236005242,True,
+G,20230310_08,54,40,13,-3.9755422067781123,True,
+G,20230310_08,55,40,3,-3.0044472099233475,True,
+G,20230310_08,56,40,6,-2.9943201063270575,True,
+G,20230310_08,57,40,12,-3.7803420949899076,True,
+G,20230310_08,58,40,11,-3.513402714617599,True,
+G,20230310_08,59,40,8,-3.4784126494169367,True,
+G,20230310_08,60,40,10,-3.4976837228581523,True,
+G,20230310_08,61,40,4,-3.358449348314293,True,
+G,20230310_08,62,40,6,-3.119526997823316,True,
+G,20230310_08,63,40,9,-3.551434629775888,True,
+G,20230310_08,64,40,6,-3.33787828260285,True,
+G,20230310_08,65,40,6,-3.2763163755830753,True,
+G,20230310_08,66,40,15,-4.329911256860173,True,
+G,20230310_08,67,40,5,-3.0901141480305947,True,
+G,20230310_08,68,40,5,-3.151596521538508,True,
+G,20230310_08,69,40,5,-3.190232043933571,True,
+G,20230310_08,70,40,11,-3.8649709119161924,True,
+G,20230310_08,71,40,7,-2.9896899970011317,True,
+G,20230310_08,72,40,16,-4.879767065995089,True,
+G,20230310_08,73,40,22,-inf,False,baseline median is -inf
+G,20230310_08,74,40,19,-5.100515610414236,True,
+G,20230310_08,75,40,14,-3.7600437094764807,True,
+G,20230310_08,76,40,2,-2.8547567692275813,True,
+G,20230310_08,77,40,7,-3.1631816976500104,True,
+G,20230310_08,78,40,8,-3.313330384696363,True,
+G,20230310_08,79,40,7,-3.2071667976166154,True,
+G,20230310_08,80,40,9,-3.648996004496234,True,
+G,20230310_08,81,40,2,-2.875279604011302,True,
+G,20230310_08,82,40,3,-3.2496929528672513,True,
+G,20230310_08,83,40,2,-3.0381342329076033,True,
+G,20230310_08,84,40,10,-3.614901023857578,True,
+G,20230310_08,85,40,8,-3.4648183867084175,True,
+G,20230310_08,86,40,10,-3.569332701476301,True,
+G,20230310_08,87,40,6,-3.381622862595041,True,
+G,20230310_08,88,40,5,-2.965182214437665,True,
+G,20230310_08,89,40,7,-3.582570777828719,True,
+G,20230310_08,90,40,10,-3.2039401743643396,True,
+G,20230310_08,91,40,5,-3.0904938499556733,True,
+G,20230310_08,92,40,1,-2.862760913638498,True,
+G,20230310_08,93,40,7,-3.2605112894392185,True,
+G,20230310_08,94,40,9,-3.356651313147423,True,
+H,20221115_09,5,40,39,-inf,False,baseline median is -inf
+H,20221115_09,6,40,36,-inf,False,baseline median is -inf
+H,20221115_09,7,40,40,-inf,False,baseline median is -inf
+H,20221115_09,8,40,40,-inf,False,baseline median is -inf
+H,20221115_09,9,40,40,-inf,False,baseline median is -inf
+H,20221115_09,10,40,39,-inf,False,baseline median is -inf
+H,20221115_09,11,40,38,-inf,False,baseline median is -inf
+H,20221115_09,12,40,40,-inf,False,baseline median is -inf
+H,20221115_09,13,40,40,-inf,False,baseline median is -inf
+H,20221115_09,14,40,37,-inf,False,baseline median is -inf
+H,20221115_09,15,40,35,-inf,False,baseline median is -inf
+H,20221115_09,16,40,36,-inf,False,baseline median is -inf
+H,20221115_09,17,40,34,-inf,False,baseline median is -inf
+H,20221115_09,18,40,38,-inf,False,baseline median is -inf
+H,20221115_09,19,40,39,-inf,False,baseline median is -inf
+H,20221115_09,20,40,34,-inf,False,baseline median is -inf
+H,20221115_09,21,40,37,-inf,False,baseline median is -inf
+H,20221115_09,22,40,36,-inf,False,baseline median is -inf
+H,20221115_09,23,40,39,-inf,False,baseline median is -inf
+H,20221115_09,24,40,39,-inf,False,baseline median is -inf
+H,20221115_09,25,40,33,-inf,False,baseline median is -inf
+H,20221115_09,26,40,36,-inf,False,baseline median is -inf
+H,20221115_09,27,40,35,-inf,False,baseline median is -inf
+H,20221115_09,28,40,35,-inf,False,baseline median is -inf
+H,20221115_09,29,40,36,-inf,False,baseline median is -inf
+H,20221115_09,30,40,34,-inf,False,baseline median is -inf
+H,20221115_09,31,40,34,-inf,False,baseline median is -inf
+H,20221115_09,32,40,39,-inf,False,baseline median is -inf
+H,20221115_09,33,40,29,-inf,False,baseline median is -inf
+H,20221115_09,34,40,36,-inf,False,baseline median is -inf
+H,20221115_09,35,40,33,-inf,False,baseline median is -inf
+H,20221115_09,36,40,38,-inf,False,baseline median is -inf
+H,20221115_09,37,40,38,-inf,False,baseline median is -inf
+H,20221115_09,38,40,40,-inf,False,baseline median is -inf
+H,20221115_09,39,40,34,-inf,False,baseline median is -inf
+H,20221115_09,40,40,36,-inf,False,baseline median is -inf
+H,20221115_09,41,40,30,-inf,False,baseline median is -inf
+H,20221115_09,42,40,36,-inf,False,baseline median is -inf
+H,20221115_09,43,40,34,-inf,False,baseline median is -inf
+H,20221115_09,44,40,36,-inf,False,baseline median is -inf
+H,20221115_09,45,40,37,-inf,False,baseline median is -inf
+H,20221115_09,46,40,39,-inf,False,baseline median is -inf
+H,20221115_09,47,40,36,-inf,False,baseline median is -inf
+H,20221115_09,48,40,37,-inf,False,baseline median is -inf
+H,20221115_09,49,40,36,-inf,False,baseline median is -inf
+H,20221115_09,50,40,33,-inf,False,baseline median is -inf
+H,20221115_09,51,40,31,-inf,False,baseline median is -inf
+H,20221115_09,52,40,35,-inf,False,baseline median is -inf
+H,20221115_09,53,40,34,-inf,False,baseline median is -inf
+H,20221115_09,54,40,25,-inf,False,baseline median is -inf
+H,20221115_09,55,40,36,-inf,False,baseline median is -inf
+H,20221115_09,56,40,35,-inf,False,baseline median is -inf
+H,20221115_09,57,40,32,-inf,False,baseline median is -inf
+H,20221115_09,58,40,23,-inf,False,baseline median is -inf
+H,20221115_09,59,40,32,-inf,False,baseline median is -inf
+H,20221115_09,60,40,28,-inf,False,baseline median is -inf
+H,20221115_09,61,40,27,-inf,False,baseline median is -inf
+H,20221115_09,62,40,30,-inf,False,baseline median is -inf
+H,20221115_09,63,40,33,-inf,False,baseline median is -inf
+H,20221115_09,64,40,35,-inf,False,baseline median is -inf
+H,20221115_09,65,40,30,-inf,False,baseline median is -inf
+H,20221115_09,66,40,35,-inf,False,baseline median is -inf
+H,20221115_09,67,40,29,-inf,False,baseline median is -inf
+H,20221115_09,68,40,37,-inf,False,baseline median is -inf
+H,20221115_09,69,40,38,-inf,False,baseline median is -inf
+H,20221115_09,70,40,38,-inf,False,baseline median is -inf
+H,20221115_09,71,40,38,-inf,False,baseline median is -inf
+H,20221115_09,72,40,40,-inf,False,baseline median is -inf
+H,20221115_09,73,40,38,-inf,False,baseline median is -inf
+H,20221115_09,74,40,36,-inf,False,baseline median is -inf
+H,20221115_09,75,40,39,-inf,False,baseline median is -inf
+H,20221115_09,76,40,36,-inf,False,baseline median is -inf
+H,20221115_09,77,40,36,-inf,False,baseline median is -inf
+H,20221115_09,78,40,31,-inf,False,baseline median is -inf
+H,20221115_09,79,40,31,-inf,False,baseline median is -inf
+H,20221115_09,80,40,37,-inf,False,baseline median is -inf
+H,20221115_09,81,40,37,-inf,False,baseline median is -inf
+H,20221115_09,82,40,32,-inf,False,baseline median is -inf
+H,20221115_09,83,40,31,-inf,False,baseline median is -inf
+H,20221115_09,84,40,32,-inf,False,baseline median is -inf
+H,20221115_09,85,40,31,-inf,False,baseline median is -inf
+H,20221115_09,86,40,34,-inf,False,baseline median is -inf
+H,20221115_09,87,40,36,-inf,False,baseline median is -inf
+H,20221115_09,88,40,31,-inf,False,baseline median is -inf
+H,20221115_09,89,40,31,-inf,False,baseline median is -inf
+H,20221115_09,90,40,30,-inf,False,baseline median is -inf
+H,20221115_09,91,40,32,-inf,False,baseline median is -inf
+H,20221115_09,92,40,29,-inf,False,baseline median is -inf
+H,20221115_09,93,40,31,-inf,False,baseline median is -inf
+H,20221115_09,94,40,32,-inf,False,baseline median is -inf

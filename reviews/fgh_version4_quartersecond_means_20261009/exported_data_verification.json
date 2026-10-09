@@ -1,0 +1,22 @@
+{
+  "exported_bin_width_s": 0.25,
+  "exported_subtraction_and_empty_bin_masks_verified": true,
+  "maximum_absolute_exported_baseline_mean": 9.651777585047732e-16,
+  "panels": [
+    {
+      "panel": "F",
+      "trials": 90,
+      "finite_cells": 10743
+    },
+    {
+      "panel": "G",
+      "trials": 90,
+      "finite_cells": 13654
+    },
+    {
+      "panel": "H",
+      "trials": 90,
+      "finite_cells": 5455
+    }
+  ]
+}

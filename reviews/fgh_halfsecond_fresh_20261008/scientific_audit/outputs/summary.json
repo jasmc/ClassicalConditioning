@@ -1,0 +1,264 @@
+{
+  "panels": [
+    {
+      "panel": "F",
+      "fps": 702.5715121467507,
+      "detector_samples": [
+        7,
+        21,
+        401
+      ],
+      "detector_maximum_future_support_ms": 288.93855855288086,
+      "finite_bins": 6446,
+      "empty_bins": 754,
+      "empty_bins_with_full_detector_support": 754,
+      "empty_bins_with_no_detector_support": 0,
+      "eligible_fraction_of_finite_bins": {
+        "min": 0.002840909090909091,
+        "p10": 0.1396011396011396,
+        "median": 0.4358974358974359,
+        "p90": 0.7652931559181559,
+        "max": 1.0
+      },
+      "finite_bins_with_10_or_fewer_eligible_samples": 77,
+      "baseline_finite_bins": {
+        "min": 19.0,
+        "p10": 22.0,
+        "median": 29.0,
+        "p90": 30.0,
+        "max": 30.0
+      },
+      "trials_with_fewer_than_10_finite_baseline_bins": 0,
+      "distinct_baseline_bouts": {
+        "min": 14.0,
+        "p10": 19.0,
+        "median": 32.0,
+        "p90": 54.0,
+        "max": 60.0
+      },
+      "C_scale": {
+        "min": 0.14094514457744212,
+        "p10": 0.18831957514343511,
+        "median": 0.2795213689320156,
+        "p90": 0.4839448456758847,
+        "max": 0.6907721901578167
+      },
+      "D_scale": {
+        "min": 0.17586559135650814,
+        "p10": 0.22362536672291183,
+        "median": 0.36089853687192597,
+        "p90": 0.791402012214722,
+        "max": 1.2124898922444505
+      },
+      "defined_C_scale_max_min_ratio": 4.901000259560362,
+      "defined_D_scale_max_min_ratio": 6.894412277536066,
+      "bout_count": 8105,
+      "bout_eligible_span_s": {
+        "min": 0.0028466824967202826,
+        "p10": 0.06547387976234544,
+        "median": 0.13237085241859506,
+        "p90": 0.33875561804359444,
+        "max": 2.952012453981096
+      },
+      "bouts_spanning_multiple_halfsecond_bins": 2796,
+      "bouts_crossing_CS_onset": 38,
+      "bouts_crossing_baseline_start": 30,
+      "window_truncated_bouts": 73,
+      "window_truncated_bouts_with_changed_medians": 73,
+      "bins_changed_by_context_vs_visible_bout_median": 75,
+      "direct_vs_bout_centred_absolute_bin_difference": {
+        "min": 0.0,
+        "p10": 0.014538119198074906,
+        "median": 0.07837417806438829,
+        "p90": 0.222219077396975,
+        "max": 2.76510457194644
+      },
+      "direct_vs_bout_opposite_sign_bins": 970,
+      "visible_wrapped_changes_over_pi": 2,
+      "clipping": {
+        "C": {
+          "all_finite_endpoint_fraction": 0.29692832764505117,
+          "baseline_finite_endpoint_fraction": 0.20763052208835342
+        },
+        "D": {
+          "all_finite_endpoint_fraction": 0.19190195470058952,
+          "baseline_finite_endpoint_fraction": 0.12530120481927712
+        }
+      }
+    },
+    {
+      "panel": "G",
+      "fps": 702.5502755981921,
+      "detector_samples": [
+        7,
+        21,
+        401
+      ],
+      "detector_maximum_future_support_ms": 288.9472925295688,
+      "finite_bins": 6502,
+      "empty_bins": 698,
+      "empty_bins_with_full_detector_support": 698,
+      "empty_bins_with_no_detector_support": 0,
+      "eligible_fraction_of_finite_bins": {
+        "min": 0.002840909090909091,
+        "p10": 0.14814814814814814,
+        "median": 0.4985754985754986,
+        "p90": 0.9630681818181818,
+        "max": 1.0
+      },
+      "finite_bins_with_10_or_fewer_eligible_samples": 70,
+      "baseline_finite_bins": {
+        "min": 16.0,
+        "p10": 24.0,
+        "median": 28.0,
+        "p90": 30.0,
+        "max": 30.0
+      },
+      "trials_with_fewer_than_10_finite_baseline_bins": 0,
+      "distinct_baseline_bouts": {
+        "min": 19.0,
+        "p10": 23.9,
+        "median": 31.0,
+        "p90": 39.10000000000001,
+        "max": 48.0
+      },
+      "C_scale": {
+        "min": 0.11226650478703237,
+        "p10": 0.18416081236165843,
+        "median": 0.32099205147764387,
+        "p90": 0.42382972108496697,
+        "max": 0.4960217270403531
+      },
+      "D_scale": {
+        "min": 0.1144589485691001,
+        "p10": 0.23051092815015606,
+        "median": 0.4225426073968137,
+        "p90": 0.6573959302399217,
+        "max": 0.7530477772712154
+      },
+      "defined_C_scale_max_min_ratio": 4.418252157945932,
+      "defined_D_scale_max_min_ratio": 6.579195307010813,
+      "bout_count": 7455,
+      "bout_eligible_span_s": {
+        "min": 0.0014233856774855606,
+        "p10": 0.06405229192748696,
+        "median": 0.10960063177123491,
+        "p90": 0.5203896942712365,
+        "max": 3.2809038544274856
+      },
+      "bouts_spanning_multiple_halfsecond_bins": 2816,
+      "bouts_crossing_CS_onset": 43,
+      "bouts_crossing_baseline_start": 51,
+      "window_truncated_bouts": 69,
+      "window_truncated_bouts_with_changed_medians": 69,
+      "bins_changed_by_context_vs_visible_bout_median": 90,
+      "direct_vs_bout_centred_absolute_bin_difference": {
+        "min": 0.0,
+        "p10": 0.01368224737537367,
+        "median": 0.07818972753244502,
+        "p90": 0.21649517319907355,
+        "max": 1.6818870138962034
+      },
+      "direct_vs_bout_opposite_sign_bins": 827,
+      "visible_wrapped_changes_over_pi": 0,
+      "clipping": {
+        "C": {
+          "all_finite_endpoint_fraction": 0.2883728083666564,
+          "baseline_finite_endpoint_fraction": 0.25283630470016205
+        },
+        "D": {
+          "all_finite_endpoint_fraction": 0.15226084281759458,
+          "baseline_finite_endpoint_fraction": 0.12479740680713128
+        }
+      }
+    },
+    {
+      "panel": "H",
+      "fps": 702.5702878202867,
+      "detector_samples": [
+        7,
+        21,
+        401
+      ],
+      "detector_maximum_future_support_ms": 288.9390620685146,
+      "finite_bins": 3928,
+      "empty_bins": 3272,
+      "empty_bins_with_full_detector_support": 3272,
+      "empty_bins_with_no_detector_support": 0,
+      "eligible_fraction_of_finite_bins": {
+        "min": 0.002840909090909091,
+        "p10": 0.08461538461538474,
+        "median": 0.35561949624449624,
+        "p90": 0.6296296296296297,
+        "max": 1.0
+      },
+      "finite_bins_with_10_or_fewer_eligible_samples": 133,
+      "baseline_finite_bins": {
+        "min": 1.0,
+        "p10": 9.0,
+        "median": 16.0,
+        "p90": 23.0,
+        "max": 25.0
+      },
+      "trials_with_fewer_than_10_finite_baseline_bins": 13,
+      "distinct_baseline_bouts": {
+        "min": 1.0,
+        "p10": 6.0,
+        "median": 11.0,
+        "p90": 17.0,
+        "max": 22.0
+      },
+      "C_scale": {
+        "min": 0.0,
+        "p10": 0.06465646976794474,
+        "median": 0.10330683587735845,
+        "p90": 0.1861468339102619,
+        "max": 0.31367625882272976
+      },
+      "D_scale": {
+        "min": 0.0,
+        "p10": 0.07619753776389557,
+        "median": 0.12768264477004365,
+        "p90": 0.2729124767297584,
+        "max": 0.48663637543265503
+      },
+      "defined_C_scale_max_min_ratio": 13.881000930149721,
+      "defined_D_scale_max_min_ratio": 12.561764087795833,
+      "bout_count": 2801,
+      "bout_eligible_span_s": {
+        "min": 0.004270024820839736,
+        "p10": 0.12098438028959282,
+        "median": 0.2348520560708424,
+        "p90": 0.3529895072427175,
+        "max": 2.523591069742717
+      },
+      "bouts_spanning_multiple_halfsecond_bins": 1299,
+      "bouts_crossing_CS_onset": 13,
+      "bouts_crossing_baseline_start": 21,
+      "window_truncated_bouts": 39,
+      "window_truncated_bouts_with_changed_medians": 38,
+      "bins_changed_by_context_vs_visible_bout_median": 41,
+      "direct_vs_bout_centred_absolute_bin_difference": {
+        "min": 0.0,
+        "p10": 0.012988763416051487,
+        "median": 0.07750454101702453,
+        "p90": 0.3029771421495381,
+        "max": 2.550074325390555
+      },
+      "direct_vs_bout_opposite_sign_bins": 1135,
+      "visible_wrapped_changes_over_pi": 1,
+      "clipping": {
+        "C": {
+          "all_finite_endpoint_fraction": 0.307948717948718,
+          "baseline_finite_endpoint_fraction": 0.2454160789844852
+        },
+        "D": {
+          "all_finite_endpoint_fraction": 0.21461538461538462,
+          "baseline_finite_endpoint_fraction": 0.1607898448519041
+        }
+      }
+    }
+  ],
+  "code_sha256": "905d5f2e68b37ea7ead655e230e91195d48a27bac2c6b5e65600d5138a9818bb",
+  "context_note": "context medians use the loaded 44 s neighbourhood; not certified whole-recording bouts"
+}

@@ -47,9 +47,21 @@
     }
   ],
   "pending_panels": {
-    "E": "raw vigor and exact heatmap-bin inset design",
-    "F-H": "single-fish heatmap review deferred"
+    "E": "raw vigor and exact heatmap-bin inset design"
   },
   "lettering": "A setup; B contingencies; C session; D tail angle; E raw vigor; F/G/H heatmaps",
-  "prior_thread": "01a0d967-3f9c-7bc3-b97b-0451f556de3d uses historical lettering and separate scaled-log alternatives"
+  "prior_thread": "01a0d967-3f9c-7bc3-b97b-0451f556de3d uses historical lettering and separate scaled-log alternatives",
+  "single_fish_heatmap_processing_freeze": {
+    "panels": [
+      "F",
+      "G",
+      "H"
+    ],
+    "config": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-version1-freeze-20261009.json",
+    "status": "Processing and numeric display frozen; layout refined as requested"
+  },
+  "single_fish_heatmap_current_analysis": {
+    "config": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-full-bout-correction-20261009.json",
+    "status": "Full-bout sample corrections retained; direct bins restored to own baseline-bin reference as approved"
+  }
 }

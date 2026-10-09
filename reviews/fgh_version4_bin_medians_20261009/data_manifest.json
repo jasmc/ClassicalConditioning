@@ -1,0 +1,106 @@
+{
+  "version": "Version4_DirectBinMedians",
+  "status": "user-requested additional version",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "confirmed_choices": [
+    "direct eligible framewise log vigor",
+    "subtract baseline median, no scaling",
+    "existing eligible moving mask"
+  ],
+  "source_tables": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+      "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelG_complete_bout_sample_data.parquet",
+      "sha256": "a6e627f1acb7f58092494320cb43855c4a542f74d239f084cfd905c768e6c76d"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelH_complete_bout_sample_data.parquet",
+      "sha256": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92"
+    }
+  ],
+  "display_interval_s": [
+    -20,
+    20
+  ],
+  "trials": [
+    5,
+    94
+  ],
+  "bin_width_s": 0.5,
+  "bin_value": "median of all non-NaN eligible framewise natural-log vigor samples; no minimum sample count or coverage fraction",
+  "baseline": "median of finite bin medians in [-15,0); one scalar/vote per finite bin; all-NaN bins ignored",
+  "formula": "delta_log_vigor = bin_median_log_vigor - median(finite baseline-bin medians)",
+  "data_scaling": false,
+  "data_clipping": false,
+  "percentile_scaling": false,
+  "colour_palette": "managua_r",
+  "colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "colour_saturation_only": true,
+  "panels": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "bins": 7200,
+      "finite_bins": 6446,
+      "bins_with_one_eligible_sample": 6,
+      "empty_bins": 754,
+      "maximum_absolute_baseline_median": 2.220446049250313e-16,
+      "values_outside_colour_limits": 2466,
+      "maximum_absolute_unclipped_value": 3.1177721055891454
+    },
+    {
+      "panel": "G",
+      "fish": "20230310_08",
+      "bins": 7200,
+      "finite_bins": 7138,
+      "bins_with_one_eligible_sample": 2,
+      "empty_bins": 62,
+      "maximum_absolute_baseline_median": 2.220446049250313e-16,
+      "values_outside_colour_limits": 812,
+      "maximum_absolute_unclipped_value": 1.3745748898578616
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "bins": 7200,
+      "finite_bins": 3928,
+      "bins_with_one_eligible_sample": 10,
+      "empty_bins": 3272,
+      "maximum_absolute_baseline_median": 2.220446049250313e-16,
+      "values_outside_colour_limits": 687,
+      "maximum_absolute_unclipped_value": 2.9881024059599275
+    }
+  ],
+  "undefined_trials": [],
+  "data_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\baseline_statistics.csv",
+      "sha256": "16b804390d56a7e5b79a788b06fb93010b0975935968f79b416b93014006db4a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\PanelF_median_bins.csv",
+      "sha256": "cb27199ccc8358bfbc669659dd52a3a20e68540b609ada562dbce7886f3b831f"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\PanelG_median_bins.csv",
+      "sha256": "1ca13e523fccbacae2cbcbd1fb9d7e3e2ca42bac36c331d8b6fed4e61ba7bc45"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\PanelH_median_bins.csv",
+      "sha256": "ccced673c226c6accedc15409412a129558f79c0576300854920d0bfa5c1cb7e"
+    }
+  ]
+}

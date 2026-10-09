@@ -1,0 +1,49 @@
+{
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "checks": [
+    {
+      "panel": "F",
+      "full_bout_support_and_medians_verified": true,
+      "shared_baseline_timepoint_quantiles_verified": true,
+      "Version2_direct_means_and_shared_reference_scaling_verified": true,
+      "maximum_C_D_sample_baseline_median_residual": 0.0,
+      "Version2_baseline_cell_median_range": [
+        -1.0,
+        -0.3029419119321992
+      ]
+    },
+    {
+      "panel": "G",
+      "full_bout_support_and_medians_verified": true,
+      "shared_baseline_timepoint_quantiles_verified": true,
+      "Version2_direct_means_and_shared_reference_scaling_verified": true,
+      "maximum_C_D_sample_baseline_median_residual": 1.1527237497865883e-15,
+      "Version2_baseline_cell_median_range": [
+        -1.0,
+        -0.6452358368944191
+      ]
+    },
+    {
+      "panel": "H",
+      "full_bout_support_and_medians_verified": true,
+      "shared_baseline_timepoint_quantiles_verified": true,
+      "Version2_direct_means_and_shared_reference_scaling_verified": true,
+      "maximum_C_D_sample_baseline_median_residual": 0.0,
+      "Version2_baseline_cell_median_range": [
+        -1.0,
+        -0.5106741072195404
+      ]
+    }
+  ],
+  "undefined_trials": [
+    {
+      "panel": "H",
+      "trial": 16
+    }
+  ],
+  "baseline_zero": "C/D sample baseline medians are zero; Version2 shares that reference but its displayed baseline-bin median need not be zero"
+}

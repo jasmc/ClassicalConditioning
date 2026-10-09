@@ -1,0 +1,44 @@
+{
+  "variant": "Version4_DirectBinMedians",
+  "colourbar_label": "Log vigor relative to baseline",
+  "colourbar_count": 1,
+  "palette": "managua_r",
+  "colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "data_scaling": false,
+  "data_clipping": false,
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "displayed_halfsecond_cells": 6446
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "displayed_halfsecond_cells": 7138
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "displayed_halfsecond_cells": 3928
+    }
+  ],
+  "data_manifest_sha256": "ec9373475353b50ef02b4cfbfd57093620fd408338c4638e7540954de9af02df",
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\FGH_V4_direct_bin_medians_log025.svg",
+      "sha256": "d96c39c0e9e13d6a6cf4244cbb70626598219a05b9d47a29a44d04fea4b1ea7a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\FGH_V4_direct_bin_medians_log025.png",
+      "sha256": "dbc6c0a8c9a2f9e4ef07ae62a45782f0bfc52175d2ee391c60c3f84725c9f87b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\FGH_V4_direct_bin_medians_log025.pdf",
+      "sha256": "ce5a81ae656e7a2331bf62adf41268092d22b333715ad91b074fb43e38d3e44f"
+    }
+  ]
+}

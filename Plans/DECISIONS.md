@@ -34,6 +34,52 @@ CS onset still agrees; edge misalignment ~0.33 s. Do **not** invert
 `legacy-paper` interpolate to match pickles. The underlying finding is also in
 [the analysis audit](../docs/analysis/audits/01_ANALYSIS_FINDINGS.md#h1-historical-per-fish-pickles-warp-within-trial-time-via-reciprocal-original-frame-rate).
 
+## Panel-specific author instructions (2026-10-09)
+
+For **Figure 2 D/E block-ratio panels**, the author excludes recording day
+entirely and selects the conventional fish-level rank-test review rather than
+an LMM: paired Wilcoxon within fish and Mann–Whitney between independent groups,
+including direct between-group comparisons of matched fish changes. The frozen
+`legacy_distal_angular_speed` metric and CS baseline `[-15,0)` s remain in use.
+The author selected the shared-left-axis PT/ET/LT paired-plot appearance with
+straight statistical lines and translucent black median/IQR markers.
+The author subsequently **froze this D/E style on 2026-10-09**, adding a
+horizontal **1.0 reference in each ratio subpanel: fully black, alpha 1.0,
+drawn behind all data**. Fish and median/IQR transparency remain as selected.
+This is a presentation-only change; saved data, tests and correction are
+unchanged. The exact frozen artifacts are linked from the panel comments.
+
+The request to ensure complete comparisons is implemented as an exploratory
+candidate with all three block pairs: 6 within-condition, 3 same-block
+between-condition and 3 between-group change comparisons per available assay.
+Holm24 is its conservative review family, not a final paper-family decision.
+The primary/secondary claim hierarchy, assumption review, uncertainty and
+scientific approval remain open. The author requested a durable place for
+deferred comments per panel; these live in
+[panel review comments](./PANEL_REVIEW_COMMENTS.md). The D/E instructions do
+not change other panels, the separate onset/trajectory review, or literal
+`legacy-paper` reproduction. F remains inconclusive without authenticated data.
+
+## Figure element identities and future freezes (2026-10-09)
+
+The author selected a uniform paper style and requested a durable repository
+contract for **every panel or whole-figure freeze**. Its scientific role catalog,
+Matplotlib/SVG identities, current Figure 1-2 source inventory and shared styles
+are in the [element specification](../docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md)
+and [versioned machine specification](../configs/paper-figures/figure-elements.json).
+The [root repository instructions](../AGENTS.md) require applying these rules
+to a reviewable candidate, checking final assembly scale, and asking targeted
+questions only about unresolved exceptions. Explicit prior approvals remain
+authorized within their recorded scope; do not ask again or silently broaden
+them. Record approved departures separately from scientific definitions.
+
+Freeze records must bind the specification version/hash, element registry,
+resolved styles, scoped exceptions, source/data hashes and final exports.
+Existing frozen figures and data remain unchanged. This delivery is a
+declarative specification and agent workflow; automatic renderer/CLI adoption
+is not yet implemented. It is a concrete figure-element use case, not a
+reactivation of the deferred general artifact-schema registry below.
+
 ## What is deferred or minimized in the current priority lane
 
 - **Schema registry / logical-content hashing / typed artifact metadata**: the optional design remains in Git history, with no active implementation step. Current SHA-256 byte hashing and atomic transactional publication are sufficient for the planned single analysis release. Reopen only a specific part if a concrete need appears.

@@ -1,0 +1,38 @@
+{
+  "status": "Version2 baseline-bin population approved by user",
+  "approval": "Use baseline-bin means; guarantee displayed median zero (recommended)",
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "C": "clip((bin_mean-P50)/((P90-P10)/2),-1,1)",
+  "display": "direct eligible framewise natural-log means in 0.5 s cells; no bout-median substitution",
+  "baseline": "finite unscaled baseline-bin means in [-15,0); one vote per finite bin; P10/P50/P90 NumPy linear",
+  "sample_versions": "unchanged complete-bout sample C/D; retain unbinned timepoint baseline",
+  "palette": "managua_r",
+  "limits": [
+    -1,
+    1
+  ],
+  "data_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\baseline_statistics.csv",
+      "sha256": "a674809ef09f824d0a1fa631b29df23da85220f783d74ade5e37906052ccab02"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelF_direct_bins.csv",
+      "sha256": "8cda7c63d742b5079486a262081831c44607460694059aa60a40ceaa16ad408e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelG_direct_bins.csv",
+      "sha256": "f6a674b5d23eec4791790b00bd7c2d4d58441a39119616a6df3570363206830d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\PanelH_direct_bins.csv",
+      "sha256": "14cd8d8dedf90a3bad5601571ec2a752971399715ddde4ae5f2ef5c8f8608076"
+    }
+  ]
+}

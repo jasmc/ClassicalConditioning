@@ -73,6 +73,17 @@ requirements are in the active learner plan.
 
 ## Current implementation findings to resolve before paper approval
 
+Keep panel-specific concerns in
+[panel review comments](./PANEL_REVIEW_COMMENTS.md), including the Figure 2
+D/E legacy-test audit and complete comparison matrix. For those block panels,
+the author excludes recording day and selects fish-level rank tests; an LMM
+is not required for the named pairwise questions. The corrected review uses
+explicitly matched Wilcoxon pairs, unclipped values, same-block Mann–Whitney
+comparisons and direct between-group comparisons of fish-level changes.
+Their paper claim hierarchy, assumptions, uncertainty and multiplicity remain
+questions for this plan; completing a comparison table does not approve them.
+This scoped choice does not replace the separate trajectory/onset workstream.
+
 - The older exploratory LME route does not implement the required condition
   contrast or its interaction with learning time. The newer learning-onset
   route implements condition-aware block and longitudinal models, but its

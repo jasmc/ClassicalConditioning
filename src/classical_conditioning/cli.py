@@ -1089,6 +1089,14 @@ def build_parser() -> argparse.ArgumentParser:
     figure4_render.add_argument("--mode", choices=("static", "publication"), default="static")
     figure4_render.add_argument("--overwrite", action="store_true")
 
+    freeze_figure = subparsers.add_parser(
+        "freeze-figure", help="Validate semantic identities/styles and publish a new immutable figure/panel freeze."
+    )
+    freeze_figure.add_argument("--candidate", type=Path, required=True)
+    freeze_figure.add_argument("--specification", type=Path)
+    freeze_figure.add_argument("--output", type=Path)
+    freeze_figure.add_argument("--check-only", action="store_true")
+
     return parser
 
 
@@ -1097,6 +1105,19 @@ def main(argv: Sequence[str] | None = None) -> None:
     ensure_supported_runtime()
     parser = build_parser()
     args = parser.parse_args(argv)
+
+    if args.command == "freeze-figure":
+        from classical_conditioning.figure_freeze import run_cli
+
+        freeze_args = ["--candidate", str(args.candidate)]
+        if args.specification:
+            freeze_args.extend(["--specification", str(args.specification)])
+        if args.output:
+            freeze_args.extend(["--output", str(args.output)])
+        if args.check_only:
+            freeze_args.append("--check-only")
+        run_cli(freeze_args)
+        return
 
     if args.command == "figure4-analyze":
         from classical_conditioning.analysis.figure4 import analyze_figure4

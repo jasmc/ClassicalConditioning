@@ -56,7 +56,7 @@ def panel_layout(layout: dict, panel_id: str) -> dict:
     if "label" in panel:
         panel["label"]["x"] = panel["label"].get("x", x + 6) - x
         panel["label"]["y"] = panel["label"].get("y", y + 34) - y
-    result = {key: value for key, value in layout.items() if key != "panels"}
+    result = {key: value for key, value in layout.items() if key not in {"panels", "annotations"}}
     result["title"] = f"{layout.get('title', 'Figure')} — panel {panel_id} preview"
     result["canvas"] = [width, height]
     result["panels"] = [panel]
@@ -304,11 +304,17 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
                 "fill": "#fafafa", "stroke": "#b8b8b8", "stroke-width": "1.5",
                 "stroke-dasharray": "7 5",
             })
-            ET.SubElement(group, q("text"), {
-                "x": str(x + w / 2), "y": str(y + h / 2),
+            lines = panel.get("placeholder_lines", [panel.get("placeholder", f"{panel_id}: awaiting selected panel")])
+            line_height = panel.get("placeholder_line_height", 32)
+            placeholder_text = ET.SubElement(group, q("text"), {
+                "x": str(x + w / 2), "y": str(y + h / 2 - (len(lines) - 1) * line_height / 2),
                 "text-anchor": "middle", "font-family": font_family,
-                "font-size": "22", "fill": "#777",
-            }).text = panel.get("placeholder", f"{panel_id}: awaiting selected panel")
+                "font-size": str(panel.get("placeholder_font_size", 22)), "fill": "#666",
+            })
+            for index, line in enumerate(lines):
+                ET.SubElement(placeholder_text, q("tspan"), {
+                    "x": str(x + w / 2), "dy": "0" if index == 0 else str(line_height),
+                }).text = line
             state = "placeholder"
             source_hash = None
             source_kind = None
@@ -325,7 +331,15 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
             "source": str(source_path) if source_path else None,
             "sha256": source_hash, "source_kind": source_kind,
             "box": [x, y, w, h], "content_box": [content_x, content_y, content_w, content_h],
+            **{key: panel[key] for key in ("selection_status", "pending_inputs", "scientific_definition", "source_provenance") if key in panel},
         })
+    for index, annotation in enumerate(layout.get("annotations", [])):
+        ET.SubElement(root, q("text"), {
+            "id": f"annotation-{index}", "x": str(annotation["x"]), "y": str(annotation["y"]),
+            "font-family": font_family, "font-size": str(annotation.get("size", 22)),
+            "font-weight": annotation.get("weight", "normal"),
+            "text-anchor": annotation.get("anchor", "start"), "fill": annotation.get("fill", "#333"),
+        }).text = annotation["text"]
     output_path.parent.mkdir(parents=True, exist_ok=True)
     payload = ET.tostring(root, encoding="utf-8", xml_declaration=True)
     temp = output_path.with_suffix(output_path.suffix + ".tmp")
@@ -339,6 +353,7 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
         "source_overrides": source_overrides or {},
         "output_sha256": digest(output_path), "panels": records,
         "note": "Composition is a layout preview. Panel scientific approval is separate.",
+        **{key: layout[key] for key in ("baseline_s", "baseline_interval", "metric_id", "scientific_status", "interpretation", "inventory_manifest") if key in layout},
     }
     output_path.with_suffix(output_path.suffix + ".json").write_text(
         json.dumps(sidecar, indent=2) + "\n", encoding="utf-8"

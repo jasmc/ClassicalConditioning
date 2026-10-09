@@ -1,0 +1,186 @@
+{
+  "freeze_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\freeze.json",
+  "freeze_manifest_sha256": "0b3f383e62ccb78dea440bafa013a24582f8f73226923b6218fa9c908d1b0090",
+  "status": "Version1 processing and values frozen; layout refinement only",
+  "changes": "continuous tall global-trial axis, thin boxed spines, -20/0/20 time ticks, white phase boundaries, compact phase labels, coloured condition titles, right colourbar; remove processing text from figure face",
+  "unchanged": "all sample C values, sample eligibility/intervals, baseline statistics, bout medians, C formula, palette and limits",
+  "references": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\legacy_style.svg",
+      "sha256": "4944009938fef65c6c3ae40bb9be91118708a7298e2a9367fd304a986fecb0ad"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style.svg",
+      "sha256": "ade2e4e95288f35b0d2b95b24e3ac361ae1029863d3692e013ac06ac0160607c"
+    }
+  ],
+  "pooled_style_freeze": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\references\\pooled_style_freeze.json",
+  "panels": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "source_runs_sha256": "b5aa82cc00c6f0d3f9c8b8ba8a69c6299515c8ccf5601129e3f30d3ab3115d74",
+      "geometry": {
+        "sample_run_count": 9474,
+        "all_frozen_run_values_and_intervals_preserved": true,
+        "all_exported_positions_widths_heights_and_palette_fills_verified": true
+      },
+      "axes": {
+        "xlim": [
+          -20,
+          20
+        ],
+        "ylim": [
+          94.5,
+          4.5
+        ],
+        "xticks": [
+          -20,
+          0,
+          20
+        ],
+        "yticks": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "spines": "four thin 0.6 pt spines; outward ticks",
+        "phase_boundaries": [
+          14.5,
+          64.5
+        ]
+      },
+      "outputs": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.svg",
+          "sha256": "3ad490a011a336d2b616b000ff44b02e4ac7ecbff62930cae24cf74953ecfbed"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.png",
+          "sha256": "99c278dc5051af05516fe7704ddb3e8b5a333c2c5b60cd81c855aff4622ac9e0"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelF_C_BoutSamples_polished.pdf",
+          "sha256": "d6a6a32d4b267f48169adc97f3da4dc729438e4da6330025e0167da640e1a4f8"
+        }
+      ]
+    },
+    {
+      "panel": "G",
+      "fish": "20230307_12",
+      "source_runs_sha256": "e40401500b7ed7e4578a1d79a4c0f225b81136405afd07bd903d5e7c2024ff6d",
+      "geometry": {
+        "sample_run_count": 9072,
+        "all_frozen_run_values_and_intervals_preserved": true,
+        "all_exported_positions_widths_heights_and_palette_fills_verified": true
+      },
+      "axes": {
+        "xlim": [
+          -20,
+          20
+        ],
+        "ylim": [
+          94.5,
+          4.5
+        ],
+        "xticks": [
+          -20,
+          0,
+          20
+        ],
+        "yticks": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "spines": "four thin 0.6 pt spines; outward ticks",
+        "phase_boundaries": [
+          14.5,
+          64.5
+        ]
+      },
+      "outputs": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.svg",
+          "sha256": "7efa7f168350794be166cabac56ceed628c9c5fc49eb12e448e6a7cb51ad83e4"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.png",
+          "sha256": "092068437e6759c33584c035580081cbe2c09e72e2ea870d07fc3a6fcf6748a0"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelG_C_BoutSamples_polished.pdf",
+          "sha256": "be76e4b6c843d0ca8c4fd34fb83d37b67af959796b1eeff6184b840df9af6984"
+        }
+      ]
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "source_runs_sha256": "380defc5bf73579dcec5bfd46e94e81918f0a98006777ee830a15d114973cf54",
+      "geometry": {
+        "sample_run_count": 3307,
+        "all_frozen_run_values_and_intervals_preserved": true,
+        "all_exported_positions_widths_heights_and_palette_fills_verified": true
+      },
+      "axes": {
+        "xlim": [
+          -20,
+          20
+        ],
+        "ylim": [
+          94.5,
+          4.5
+        ],
+        "xticks": [
+          -20,
+          0,
+          20
+        ],
+        "yticks": [
+          10,
+          20,
+          30,
+          40,
+          50,
+          60,
+          70,
+          80,
+          90
+        ],
+        "spines": "four thin 0.6 pt spines; outward ticks",
+        "phase_boundaries": [
+          14.5,
+          64.5
+        ]
+      },
+      "outputs": [
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.svg",
+          "sha256": "630c7651e2e87669a4067d66a156cbeda612d72cda3a3c75c4e55e0109f2a2e1"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.png",
+          "sha256": "dbcc99425662c7812a34b4b33cb62b8c6161e951f89b8d47a2da7d3e5724b341"
+        },
+        {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\polished-layout\\Fig1_PanelH_C_BoutSamples_polished.pdf",
+          "sha256": "ddcde123a0b1590cc0fdd937420ed55d6d8f449cc4c289c79765fe169a5c16d1"
+        }
+      ]
+    }
+  ],
+  "code_sha256": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed"
+}

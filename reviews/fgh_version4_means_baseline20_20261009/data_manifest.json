@@ -1,0 +1,98 @@
+{
+  "version": "Version4_DirectBinMeans",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "bin_width_s": 0.5,
+  "display_interval_s": [
+    -20,
+    20
+  ],
+  "baseline_interval_s": [
+    -20,
+    0
+  ],
+  "trials": [
+    5,
+    94
+  ],
+  "frame_value": "eligible bout natural-log vigor; -inf for valid non-bout frames; NaN for remaining invalid/ineligible frames",
+  "bin_value": "arithmetic mean of non-NaN frame log values, including -inf, per 0.5 s bin",
+  "baseline": "arithmetic mean of non-NaN baseline-bin means in [-20,0), including -inf; equal weight per bin",
+  "undefined_rule": "Leave the whole trial undefined whenever the baseline mean is not finite, as with the selected -inf baseline rule",
+  "formula": "bin_mean - baseline_mean when baseline_mean is finite; otherwise whole trial undefined",
+  "data_scaling": false,
+  "data_clipping": false,
+  "percentile_scaling": false,
+  "palette": "managua_r",
+  "colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "source_classification_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_baseline20_20261009\\frame_classification_manifest.json",
+  "source_classification_sha256": "7d26014cbe3f0451a7ba296ee1002bbf3a462878f0986d0d73eec181e5305359",
+  "source_tables": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_baseline20_20261009\\PanelF_frame_classification.parquet",
+      "sha256": "f640cfa4b96f18f9e48bc1cb45f0907a0b1b1803034eef63c2c19a7ff7783607"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_baseline20_20261009\\PanelG_frame_classification.parquet",
+      "sha256": "09eef3c0ff0174fd92d64a487eb98511620f82ea90a7aa10428198ff3b9d7be4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_baseline20_20261009\\PanelH_frame_classification.parquet",
+      "sha256": "af213ef12fa68bbeb0628d3d3897c5aa74383c462c661e7a3b399b7d52b81ea5"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "defined_trials": 0,
+      "undefined_trials": 90,
+      "negative_infinite_bin_means": 7136,
+      "frame_means_and_lower_bound_propagation_verified": true
+    },
+    {
+      "panel": "G",
+      "fish": "20230310_08",
+      "defined_trials": 0,
+      "undefined_trials": 90,
+      "negative_infinite_bin_means": 6971,
+      "frame_means_and_lower_bound_propagation_verified": true
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "defined_trials": 0,
+      "undefined_trials": 90,
+      "negative_infinite_bin_means": 7107,
+      "frame_means_and_lower_bound_propagation_verified": true
+    }
+  ],
+  "data_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\baseline_statistics.csv",
+      "sha256": "00be48ce9e63ef53f6c889020a87d52f64f744c220ae274f75b8d4ee0f4e7f99"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\PanelF_mean_bins.csv",
+      "sha256": "69cfbfe6f8c63bc5643fdc637f21bd24b83f67999878374e3965f6d5a723e9da"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\PanelG_mean_bins.csv",
+      "sha256": "d2d8e0c5ce6bbae8913e971a058a69644087ce54fb79b9951cda266b5470c644"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\PanelH_mean_bins.csv",
+      "sha256": "d48bbe6bedd6eabcea6b94ff03003348fa2423a0c2436f986fd5ddbd53f1a53d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\per_trial_baseline_balance.csv",
+      "sha256": "b830c34f7243dcbee266e1da358f85ec39d9477f3e84d2b22e26f42c78960ff2"
+    }
+  ]
+}

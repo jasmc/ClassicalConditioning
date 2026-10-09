@@ -1,0 +1,39 @@
+{
+  "version": "Version4_DirectBinMedians",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "panels": [
+    {
+      "panel": "F",
+      "trial_count": 90,
+      "single_sample_bins_retained": 6,
+      "all_nan_bins_missing": 754,
+      "maximum_absolute_exported_baseline_median": 2.5066754227864863e-16,
+      "unscaled_subtraction_verified": true,
+      "unclipped_values_outside_colour_range": 2466
+    },
+    {
+      "panel": "G",
+      "trial_count": 90,
+      "single_sample_bins_retained": 2,
+      "all_nan_bins_missing": 62,
+      "maximum_absolute_exported_baseline_median": 2.5153490401663703e-16,
+      "unscaled_subtraction_verified": true,
+      "unclipped_values_outside_colour_range": 812
+    },
+    {
+      "panel": "H",
+      "trial_count": 90,
+      "single_sample_bins_retained": 10,
+      "all_nan_bins_missing": 3272,
+      "maximum_absolute_exported_baseline_median": 2.5066754227864863e-16,
+      "unscaled_subtraction_verified": true,
+      "unclipped_values_outside_colour_range": 687
+    }
+  ],
+  "defined_trials": 270,
+  "control_trial16_defined": true
+}

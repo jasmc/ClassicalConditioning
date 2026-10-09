@@ -1,0 +1,47 @@
+{
+  "fish": "20230310_08",
+  "panel": "G",
+  "trials": [
+    9,
+    17,
+    63,
+    66,
+    93
+  ],
+  "selections": [
+    {
+      "trial": 9,
+      "phase": "Pre",
+      "finite_display_bins": 80,
+      "finite_baseline_bins": 30
+    },
+    {
+      "trial": 17,
+      "phase": "early Train",
+      "finite_display_bins": 79,
+      "finite_baseline_bins": 29
+    },
+    {
+      "trial": 63,
+      "phase": "late Train",
+      "finite_display_bins": 79,
+      "finite_baseline_bins": 30
+    },
+    {
+      "trial": 66,
+      "phase": "early Test",
+      "finite_display_bins": 79,
+      "finite_baseline_bins": 29
+    },
+    {
+      "trial": 93,
+      "phase": "late Test",
+      "finite_display_bins": 79,
+      "finite_baseline_bins": 29
+    }
+  ],
+  "status": "provisional illustrative examples for a later panel E update",
+  "reason": "match the legacy five phase positions, with at least 79/80 finite displayed bins and 29/30 finite baseline bins; not selected as maximal responders",
+  "source": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\PanelG_median_bins.csv",
+  "source_sha256": "1ca13e523fccbacae2cbcbd1fb9d7e3e2ca42bac36c331d8b6fed4e61ba7bc45"
+}

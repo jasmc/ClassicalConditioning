@@ -17,6 +17,7 @@ paper-authoritative.
 - [Decision register](./DECISIONS.md) — approved decisions and open gates
 - [Implementation status index](./IMPLEMENTATION_STEP_INDEX.md) — the only live status board
 - [Paper review considerations](./PAPER_REVIEW_CONSIDERATIONS.md) — cross-figure questions to resolve while reviewing the numbered plans
+- [Panel review comments](./PANEL_REVIEW_COMMENTS.md) — statistical, scientific and presentation concerns to address later, organized by figure and panel
 - [Exclusion and selection inventory](./EXCLUSION_AND_SELECTION_INVENTORY.csv) — machine-readable register of every active, legacy, and deferred selection rule
 
 ## Active implementation plans

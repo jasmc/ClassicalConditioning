@@ -1,0 +1,100 @@
+{
+  "variant": "Version4_DirectBinMeans",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "numeric_values_unchanged": true,
+  "source_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\data_manifest.json",
+  "source_data_manifest_sha256": "5808f2d13aea61071da448ad2861643f16509996f1015daa9bdd5115e09b819e",
+  "source_numeric_files": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\PanelF_mean_bins.csv",
+      "sha256": "69cfbfe6f8c63bc5643fdc637f21bd24b83f67999878374e3965f6d5a723e9da"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\PanelG_mean_bins.csv",
+      "sha256": "d2d8e0c5ce6bbae8913e971a058a69644087ce54fb79b9951cda266b5470c644"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\PanelH_mean_bins.csv",
+      "sha256": "d48bbe6bedd6eabcea6b94ff03003348fa2423a0c2436f986fd5ddbd53f1a53d"
+    }
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 0
+    },
+    {
+      "panel": "G",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 0
+    },
+    {
+      "panel": "H",
+      "values_intervals_positions_and_colours_verified": true,
+      "display_rectangles": 0
+    }
+  ],
+  "annotations": {
+    "six_CS_boundaries_verified": true,
+    "CS_times_s": [
+      0,
+      10
+    ],
+    "CS_colour": "#0d8136",
+    "CS_linewidth_pt": 2.4,
+    "CS_alpha": 0.8,
+    "phase_labels": "left of F",
+    "example_arrowheads_panel": "G",
+    "example_arrowheads_direction": "left",
+    "example_arrowheads_trials": [
+      9,
+      17,
+      63,
+      66,
+      93
+    ],
+    "arrowhead_trial_positions_verified": true
+  },
+  "palette": "managua_r",
+  "colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "colourbar_label": "Log vigor relative to baseline",
+  "colourbar_count": 1,
+  "layout": {
+    "size_inches": [
+      9,
+      5.1
+    ],
+    "panel_lefts": [
+      0.09,
+      0.355,
+      0.62
+    ],
+    "panel_width": 0.22,
+    "phase_labels": "left of F"
+  },
+  "outputs": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.svg",
+      "sha256": "2c98ecc12a5a0b0562f05f4034b3ee3bc46b0157def166565fcf9590837659fa"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.png",
+      "sha256": "b12c9329dcca30913c61d72c0385fa921d5c84c2ef1e3ab8043d0d0331ca62d2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\FGH_Version4_DirectBinMeans_legacy_layout.pdf",
+      "sha256": "b6ee603dc37144fd8db1fd97831cfa06451736f12c4e5303c33c575c77322247"
+    }
+  ]
+}

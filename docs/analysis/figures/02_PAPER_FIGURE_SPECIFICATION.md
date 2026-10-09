@@ -1,9 +1,23 @@
 # Behaviour paper figure specification and freeze record
 
+**Figure 2 baseline override (2026-10-08):** newly generated baseline-dependent
+Figure 2 panels must use the user-frozen **[-15,0) s relative to CS onset**.
+The -20 s recipes described below are historical review definitions, not the
+current Figure 2 baseline. The [Figure 2 assembly contract](./07_FIGURE2_ASSEMBLY.md)
+records the complete A-I layout, source inventory and remaining scientific gates.
+
 **Version:** working specification 2026-09-24. **Scientific freeze status:** open. This file fixes the intended panel map, the current rendering recipe and the decisions still needed before any panel is labeled final. The [machine panel registry](../../../configs/paper-figures/behavior-paper.json) holds panel IDs and readiness reasons; the [review version comparison](./04_REVIEW_VARIANTS.md) records every generated alternative. The written source plan is the separate paper repository's `Helpers/List of Figures.md`, `Helpers/List of Sup. Figures.md`, and `Helpers/Paper_Scaffold.md`. Those files inform the plan; their drafting notes are not executable instructions. The three supplied draft PNGs demonstrate layout and visual intent, with known differences described in [the draft comparison](./05_DRAFT_COMPARISON.md).
 
 ## Shared figure rules
 
+- **Element/style freeze contract (2026-10-09):** every panel or whole-figure
+  freeze follows the [element specification](FIGURE_ELEMENT_SPECIFICATION.md),
+  [machine roles/styles](../../../configs/paper-figures/figure-elements.json)
+  and [repository instructions](../../../AGENTS.md). Apply the shared style
+  to a separate candidate, verify scientific identities and final assembly
+  sizes, and ask only about unresolved exceptions. Retain scoped prior
+  approvals and historical freezes. This presentation contract does not
+  change the scientific definitions or approve the historical recipes below.
 - Show time relative to CS onset, with −20…0 s as the single-fish baseline and the 10-s CS window indicated consistently. The Pre-Train/Train/Test heatmap order is top to bottom, in chronological order.
 - Paper activity metric frozen on 2026-10-06: **tail bend angular speed** (`legacy_distal_angular_speed`). Use it across corresponding manuscript panels; retain angular L1 and whole-tail XY as sensitivity outputs. See [the decision](../METRIC_SELECTION_2026-10-06.md).
 - Figure 1 B compares within-trial CS–US contingencies; C shows the across-session protocol. D is measured tail angle over time, and E is measured frame vigor over time for the *same selected fish and trials*. E's optional orange steps are the exact Figure 1 F/H signed heatmap bins on a separately labeled axis; gaps remain NaN, with finite-run boundaries.

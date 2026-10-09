@@ -8,6 +8,12 @@ and progress only in the [implementation index](./IMPLEMENTATION_STEP_INDEX.md).
 Review the proposed panel layout in the
 [paper figure specification](../docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md).
 
+Collect concrete panel-specific criticisms and follow-up questions in
+[panel review comments](./PANEL_REVIEW_COMMENTS.md). Its reusable entry format
+applies to every main and supplementary panel; Figure 2 D/E currently include
+the pairing, clipping, interpretation, contrast-coverage and multiplicity
+review. It is an agenda rather than another implementation-status board.
+
 ## Before Figures 1 and 2: source data and population
 
 1. **Do recorded event times match the declared protocol?** The

@@ -24,6 +24,11 @@ def main():
                 raise ValueError("Frozen artwork changed")
         print("Existing freeze verified:", manifest_path)
         return
+    raise RuntimeError(
+        "This historical script only verifies the existing A-D freeze. "
+        "New panel/figure freezes must use scripts/freeze_figure.py or "
+        "classical-conditioning freeze-figure with a verified candidate manifest."
+    )
     target.mkdir(parents=True, exist_ok=True)
     old_meta = json.loads((OUTPUT / "Fig1_PanelD_TailAngle_legacy-vigor_v1.svg.json").read_text(encoding="utf-8"))
     frames_path, events_path = Path(old_meta["frames"]), Path(old_meta["events"])

@@ -1,0 +1,71 @@
+{
+  "figure": "Figure 1",
+  "panels": [
+    "F",
+    "G",
+    "H"
+  ],
+  "status": "Only Version 4 updated: 0.25 s means with non-bout frames retained as NaN; prior -inf trial preserved as history",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "current_primary_variant": "C_BoutSamples",
+  "data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\data_manifest.json",
+  "data_manifest_sha256": "c50cd42b490564057b7171850617d1a01381b7323e7f4afb589fe1573ff14b0e",
+  "numeric_verification": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\numeric_verification.json",
+  "variants": [
+    {
+      "variant": "C_BoutSamples",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_BoutSamples_validation.json",
+      "validation_sha256": "3062f1f4e233b8a2f000113dee5c18a0025d15f7f9babecc27ff9b258390d072",
+      "previous_numeric_layout_validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\C_BoutSamples_validation.json"
+    },
+    {
+      "variant": "D_BoutSamples",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\D_BoutSamples_validation.json",
+      "validation_sha256": "1971a5f0822a5d8739f3da8c391faf4f6770a093ef7cec851566932d0f8cf410",
+      "previous_numeric_layout_validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\D_BoutSamples_validation.json"
+    },
+    {
+      "variant": "C_DirectBins",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\C_DirectBins_validation.json",
+      "validation_sha256": "10f1f0a0f768ed19f92e73d1ea66e9dfb8a78f6ddbfb4807178c01f772328f88",
+      "previous_numeric_layout_validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\C_DirectBins_validation.json"
+    },
+    {
+      "variant": "Version4_DirectBinMeans",
+      "validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\Version4_DirectBinMeans_validation.json",
+      "validation_sha256": "aeab75f06c8c47f1ca49eb05dacc63de8356aafde9c8bac16dbb6aaca3ad8590",
+      "previous_numeric_layout_validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_bin_medians_20261009\\validation.json",
+      "previous_layout_validation": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_means_baseline20_20261009\\Version4_DirectBinMeans_validation.json"
+    }
+  ],
+  "summary": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_latest_summary_20261009\\index.html",
+  "historical_freeze": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\freeze.json",
+  "baseline": "C/D samples and Version 2 retain [-15,0); Version 4 uses mean of finite quarter-second bin means in [-20,0)",
+  "scope": "F/G/H only; no change to A-D, E, or whole-figure assembly",
+  "version2_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\data_manifest.json",
+  "version2_data_manifest_sha256": "efa5a05d4314fa5f750507780dff99b7ce747ebaab811b14bda9544a3d0fbc7b",
+  "version2_numeric_verification": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_direct_bins_own_reference_20261009\\numeric_verification.json",
+  "version2_approval": "Use baseline-bin means; guarantee displayed median zero (recommended)",
+  "version4_data_manifest": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\data_manifest.json",
+  "version4_data_manifest_sha256": "7eef65a5569fe421daa4079119d4cff5d6f90f1c2be635fa3a0e2c5f42c08a78",
+  "version4_numeric_verification": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_version4_quartersecond_means_20261009\\numeric_verification.json",
+  "version4_recipe": "Mean of eligible log vigor per 0.25 s bin; non-bout/invalid NaNs ignored; subtract mean of finite [-20,0) baseline-bin means",
+  "version4_colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "current_layout": {
+    "directory": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009",
+    "CS_boundaries_s": [
+      0,
+      10
+    ],
+    "CS_linewidth_pt": 2.4,
+    "phase_labels": "left of F",
+    "example_trials": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_legacy_layout_20261009\\example_trials.json"
+  }
+}
