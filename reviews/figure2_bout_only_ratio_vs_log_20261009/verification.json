@@ -1,9 +1,0 @@
-{
-  "policy": "valid-bout-frames-only-v1",
-  "statistics": "48 tests; 24 per version; Holm24; 12 fish-level bootstrap change effects",
-  "synthetic_and_targeted_tests": "90 passed across vigor policy, trial outcomes, temporal profiles, traces, cohort figures/outcomes, model input, metric comparison, discarding, learner adapter and learning onset",
-  "scientific_invariants": "Non-bout extremes excluded before mean/log/scaling; empty bout windows remain NaN; no source array mutation; no silent old scaled-cache reuse",
-  "visual_review": "D ratio and E log all-tests inspected; renderer checks labels/clipping for all 8 main exports",
-  "historical_source_files": "preserved; superseded scientific definition",
-  "freeze_invoked": false
-}

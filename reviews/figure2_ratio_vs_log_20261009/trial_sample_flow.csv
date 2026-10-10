@@ -1,5 +1,0 @@
-panel,condition,trials,current_eligible,log_eligible,extra_missing,missing_baseline_positive_samples,missing_response_positive_samples
-D,control,420,420,387,33,25,27
-D,delay,435,435,428,7,5,4
-E,control,285,280,280,0,5,5
-E,trace,600,600,593,7,3,4

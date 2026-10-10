@@ -1,7 +1,0 @@
-{
-  "stage": "complete",
-  "detail": "Legacy-metric Figures 2E/H, 3 and 4 use all 59 complete fish",
-  "cohort": "all3sTrace-full-exploratory",
-  "metric": "legacy_distal_angular_speed",
-  "fish": 59
-}
