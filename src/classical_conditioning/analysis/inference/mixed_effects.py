@@ -1,7 +1,7 @@
 """Exploratory fish-aware mixed-effects scaffold for candidate trial outcomes.
 
 This is an engineering default aligned with Gate S in DECISIONS.md, not an
-approved confirmatory model. See Plans/STATISTICS_METHODOLOGY_WORKSHOP.md.
+approved confirmatory model. See Plans/03_ANALYSIS_AND_STATISTICS.md.
 
 Review note: model inputs, convergence diagnostics, and output artifacts remain
 explicit so exploratory modelling does not silently become confirmatory evidence.
@@ -355,7 +355,7 @@ def build_candidate_mixed_effects(
             "config_sha256": _config_hash(config),
             "coverage": coverage,
             "outcome_ids": list(OUTCOME_SPECS),
-            "workshop_note": "Plans/STATISTICS_METHODOLOGY_WORKSHOP.md",
+            "workshop_note": "Plans/03_ANALYSIS_AND_STATISTICS.md",
             "inputs": inputs,
             "artifacts": records,
             "fit_summary": {

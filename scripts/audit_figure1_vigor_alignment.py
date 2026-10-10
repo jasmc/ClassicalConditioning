@@ -35,7 +35,7 @@ def main():
     marker=json.loads((meta/f'{fish}_movement-candidate-corrected-v2_complete.json').read_text())
     assert marker['status']=='complete' and digest(summary_path)==marker['summary_sha256']
     summary=json.loads(summary_path.read_text()); assert summary['inputs']['candidate_metrics']['sha256']==checked[str(proc/'frame_activity_candidates-corrected-v1.parquet')]
-    freeze=json.loads((Path(__file__).resolve().parents[1]/'configs/paper-figures/figure1-freeze.json').read_text())
+    freeze=json.loads((Path(__file__).resolve().parents[1]/'configs/paper-figures/selections/figure1-freeze.json').read_text())
     for panel in freeze['panels']:
         assert digest(ROOT/panel['source'])==panel['sha256']
     protocol=pd.read_parquet(proc/'stimulus_events.parquet')

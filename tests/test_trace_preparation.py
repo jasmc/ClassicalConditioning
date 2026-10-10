@@ -43,7 +43,7 @@ class TracePreparationTests(unittest.TestCase):
             self.assertEqual(config["recording_ids"], ["20230301_01", "20230301_02"])
             self.assertFalse(config["continue_on_error"])
             self.assertEqual(config["analysis_id"], "all3sTrace-full")
-            self.assertEqual(config["assessment_metric"], "tail_length_weighted_angular_l1")
+            self.assertEqual(config["assessment_metric"], "legacy_distal_angular_speed")
             self.assertNotIn("run_inventory", config)
 
             (raw / "20230301_03_trace_green_cam.txt").write_text("camera\n")

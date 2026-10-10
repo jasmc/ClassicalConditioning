@@ -246,7 +246,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--panel", choices=("F", "G", "H"), action="append",
                         help="Build one or more selected fish; default all three")
-    parser.add_argument("--output-dir", type=Path, default=ROOT / "heatmaps")
+    parser.add_argument("--output-dir", type=Path, required=True,
+                        help="Explicit external export directory (temporary directories allowed for verification)")
     args = parser.parse_args()
     selected = set(args.panel or ("F", "G", "H"))
     args.output_dir.mkdir(parents=True, exist_ok=True)

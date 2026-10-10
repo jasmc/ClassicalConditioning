@@ -2,6 +2,10 @@
 
 Deletion is deliberately a separate, explicit PowerShell operation after checks.
 """
+import sys as _archive_sys
+from pathlib import Path as _ArchivePath
+_archive_sys.path.insert(0, str(_ArchivePath(__file__).resolve().parents[1] / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact, external_output
 from pathlib import Path
 import base64, hashlib, html, io, json, zipfile, re
 ROOT=Path(__file__).resolve().parents[1]
@@ -9,7 +13,7 @@ REVIEW=Path('F:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-asse
 FREEZE=REVIEW.parent/'frozen/20261009-G-historical-logmedian'
 SELECTED='20261009T153803735311Z-delay-logmedian'
 NAMES=['20261009T153013526348Z-delay-boutonly-lme','20261009T153143538697Z-delay-display','20261009T153313320243Z-delay-display','20261009T153314805058Z-delay-display','20261009T153317754141Z-delay-phase-lmm','20261009T153341564032Z-delay-logmedian',SELECTED,'20261009T173417074522Z-delay-lines-only','20261009T174114195765Z-delay-meanlog-check','all-versions-comparison']
-OUTPUT=ROOT/'reviews/figure2_delay_all_versions_20261009.html'
+OUTPUT = external_output('reviews/figure2_delay_all_versions_20261009.html')
 def digest(b):return hashlib.sha256(b).hexdigest()
 def sha(p):return digest(p.read_bytes())
 def image(p):
@@ -80,6 +84,6 @@ def main():
     with zipfile.ZipFile(io.BytesIO(base64.b64decode(embedded))) as z:
         for h in contents: assert digest(z.read('objects/'+h))==h
     audit=dict(status='verified-awaiting-cleanup',html_path=str(OUTPUT),html_sha256=sha(OUTPUT),html_bytes=OUTPUT.stat().st_size,embedded_archive_sha256=digest(archive),embedded_archive_bytes=len(archive),raw_bytes=meta['raw_bytes'],files=manifest,directories=meta['directories'],preserve=[str(FREEZE),str(REVIEW.parent/'sources')],skipped='J inaccessible; original data and other panels not in cleanup scope')
-    (ROOT/'reviews/delay_versions_cleanup_20261009.json').write_text(json.dumps(audit,indent=2)+'\n')
+    external_output('reviews/delay_versions_cleanup_20261009.json').write_text(json.dumps(audit,indent=2)+'\n')
     print(json.dumps({k:v for k,v in audit.items() if k not in {'files','directories','preserve'}},indent=2))
 if __name__=='__main__':main()

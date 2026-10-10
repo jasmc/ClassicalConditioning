@@ -26,7 +26,7 @@ def main():
             'missing_files':missing,'size_mismatches':different, 'method':'existence and size against historical inventory; raw bytes not rehashed'})
     repo=HANDOFF/'ClassicalConditioning'
     for name in ['figure1-fgh-version12-freeze-20261009.json','figure2-DE-B-freeze-20261009.json','figure2-G-logmedian-freeze-20261009.json']:
-        obj=json.loads((repo/'configs/paper-figures'/name).read_text())
+        obj=json.loads((repo/'configs/paper-figures/selections'/name).read_text())
         def walk(value):
             if isinstance(value,dict):
                 if 'path' in value and 'sha256' in value:

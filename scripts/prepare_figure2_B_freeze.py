@@ -3,6 +3,10 @@
 Exports through the existing provenance exporter. Final publication is performed
 only by scripts/freeze_figure.py, after check-only and actual visual review.
 """
+import sys as _archive_sys
+from pathlib import Path as _ArchivePath
+_archive_sys.path.insert(0, str(_ArchivePath(__file__).resolve().parents[1] / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact, external_output
 from pathlib import Path
 from datetime import datetime, timezone
 import argparse
@@ -28,7 +32,7 @@ from classical_conditioning.figures.theme import condition_color
 from classical_conditioning.figures.export import FigureMode, FigureProvenance, assign_axes_semantic_ids, export_matplotlib_figure
 from review_figure2_bout_only import change_effects
 
-SOURCE = ROOT/"reviews/figure2_bout_only_ratio_vs_log_20261009"
+SOURCE = resolve_artifact('reviews/figure2_bout_only_ratio_vs_log_20261009/manifest.json').parent
 SPEC_PATH = ROOT/"configs/paper-figures/figure-elements.json"
 SPEC = json.loads(SPEC_PATH.read_text())
 LABELS = ["PT","ET","LT"]

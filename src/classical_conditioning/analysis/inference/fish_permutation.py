@@ -2,7 +2,7 @@
 
 This is intentionally not a mixed-effects variant. Each fish collapses to one
 effect, then a randomization test asks whether the population mean effect is
-systematically nonzero. See Plans/STATISTICS_METHODOLOGY_WORKSHOP.md.
+systematically nonzero. See Plans/03_ANALYSIS_AND_STATISTICS.md.
 
 Review note: this is an exploratory fish-level randomization procedure, not a
 mixed-effects fit and not a substitute for a pre-approved inference decision.
@@ -315,7 +315,7 @@ def build_candidate_fish_permutation(
             "config_sha256": _config_hash(config),
             "coverage": coverage,
             "workshop_family": "A_fish_level_permutation",
-            "workshop_note": "Plans/STATISTICS_METHODOLOGY_WORKSHOP.md",
+            "workshop_note": "Plans/03_ANALYSIS_AND_STATISTICS.md",
             "estimand": (
                 "Population mean of fish-level (late - early) baseline-adjusted "
                 "log activity; two-sided sign-flip permutation p-value."

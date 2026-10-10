@@ -13,6 +13,7 @@ from pathlib import Path
 
 from classical_conditioning.analysis.discarding import assess_discarding
 from classical_conditioning.cohort import load_cohort_manifest
+from classical_conditioning.external_artifacts import external_output
 
 
 PROJECT = Path(r"F:\Digested Data\all3sTrace-full-v1")
@@ -23,12 +24,13 @@ FIG2 = "figure2-3strace-window13-legacy-59fish"
 FIG3 = "figure3-3strace-window13-legacy-59fish"
 FIG4 = "figure4-3strace-window13-legacy-59fish"
 REPO = Path(__file__).resolve().parents[1]
-STATE = REPO / "outputs" / "trace-legacy-full-59" / "status.json"
+STATE = Path("trace-legacy-full-59/status.json")
 
 
 def status(stage: str, detail: str = "") -> None:
-    STATE.parent.mkdir(parents=True, exist_ok=True)
-    STATE.write_text(json.dumps({"stage": stage, "detail": detail, "cohort": COHORT,
+    destination = external_output(STATE)
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_text(json.dumps({"stage": stage, "detail": detail, "cohort": COHORT,
                                  "metric": METRIC, "fish": 59}, indent=2), encoding="utf-8")
     print(stage, detail, flush=True)
 

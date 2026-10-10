@@ -2,6 +2,10 @@
 
 Reuse hash-authenticated log summaries; never duplicate the frame recordings.
 """
+import sys as _archive_sys
+from pathlib import Path as _ArchivePath
+_archive_sys.path.insert(0, str(_ArchivePath(__file__).resolve().parents[1] / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact, external_output
 from pathlib import Path
 import json
 import sys
@@ -16,8 +20,8 @@ from populate_figure2_available import load_delay, load_trace, BLOCKS, METRIC
 from classical_conditioning.figures.cohort_response import summarize_selected_block_ratios
 from classical_conditioning.analysis.bout_vigor import VIGOR_SAMPLE_POLICY
 
-OLD = ROOT / "reviews/figure2_ratio_vs_log_20261009"
-OUT = ROOT / "reviews/figure2_bout_only_ratio_vs_log_20261009"
+OLD = resolve_artifact("reviews/figure2_ratio_vs_log_20261009/manifest.json").parent
+OUT = external_output("reviews/figure2_bout_only_ratio_vs_log_20261009")
 
 
 def change_effects(changes, version):

@@ -17,8 +17,8 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def audit(text,key):return json.loads(re.search('<script type="application/json" id="'+key+'">(.*?)</script>',text,re.S).group(1))
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--qa-preview');args=parser.parse_args()
-    pointer=REPO/'configs/paper-figures/figure1-fgh-version12-freeze-20261009.json'
-    scoped=REPO/'configs/paper-figures/figure1-fgh-full-bout-correction-20261009.json'
+    pointer=REPO/'configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json'
+    scoped=REPO/'configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json'
     current=json.loads(scoped.read_text());assert current['version12_frozen_selection']['sha256']==sha(pointer)
     rec=json.loads(pointer.read_text());container=Path(rec['container']['path'])
     assert sha(container)==rec['container']['sha256']

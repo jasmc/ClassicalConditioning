@@ -10,6 +10,10 @@ from classical_conditioning.preprocessing.acquisition_timing import (
 
 
 class AcquisitionTimingTests(unittest.TestCase):
+    def setUp(self):
+        previous_path = sys.path.copy()
+        self.addCleanup(lambda: sys.path.__setitem__(slice(None), previous_path))
+
     def camera(self):
         dt = np.full(79,1.4)
         # Delay and catch-up leave frame cadence unchanged without losing IDs.

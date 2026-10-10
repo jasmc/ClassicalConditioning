@@ -21,7 +21,7 @@ def relocate(value, volume, repo):
     volume_text = os.fspath(volume).replace("\\", "/").rstrip("/")
     mappings = [
         ("C:/Users/joaquim/Documents/ClassicalConditioning", repo_text),
-        ("F:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs", posixpath.dirname(repo_text) + "/pc-outputs"),
+        ("F:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs", volume_text + "/ClassicalConditioning-Mac-20261009/pc-outputs"),
         ("F:/Digested Data", volume_text + "/Digested Data"),
         ("J:", volume_text),
     ]
@@ -33,7 +33,7 @@ def relocate(value, volume, repo):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--volume", type=pathlib.Path, default=REPO.parent.parent)
+    parser.add_argument("--volume", type=pathlib.Path, default=pathlib.Path("/Volumes/JOAQUIM"))
     parser.add_argument("--check-paths", action="store_true")
     parser.add_argument("script", nargs="?")
     parser.add_argument("arguments", nargs=argparse.REMAINDER)

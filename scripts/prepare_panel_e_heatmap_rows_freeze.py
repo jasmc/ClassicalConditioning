@@ -1,4 +1,8 @@
 """Prepare the selected Panel E for the explicit freeze gate; archive into one HTML."""
+import sys as _archive_sys
+from pathlib import Path as _ArchivePath
+_archive_sys.path.insert(0, str(_ArchivePath(__file__).resolve().parents[1] / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact, external_output
 from pathlib import Path
 import sys,json,copy,hashlib,base64,io,ast,html,argparse,re
 import xml.etree.ElementTree as ET
@@ -11,7 +15,7 @@ from matplotlib.patches import Rectangle
 from matplotlib.colors import to_hex
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
-STAGE=ROOT/'reviews/.panel-e-heatmap-row-freeze-stage-20261009'
+STAGE = external_output('reviews/.panel-e-heatmap-row-freeze-stage-20261009')
 SPEC_PATH=ROOT/'configs/paper-figures/figure-elements.json'
 SPEC=json.loads(SPEC_PATH.read_text())
 BUILDER=ROOT/'scripts/build_panel_e_frozen_v12_heatmap_rows_review.py'
@@ -198,9 +202,9 @@ def publish():
     page+='<script type="application/json" id="panel-e-frozen-archive">'+json.dumps(archive,allow_nan=False).replace('<','\\u003c')+'</script></body></html>'
     DEST.parent.mkdir(exist_ok=True);assert not DEST.exists();DEST.write_text(page,encoding='utf-8')
     pointer={'figure_id':'fig1','panel_ids':['e'],'status':'author-frozen','selected_revision':'raw-trace-plus-exact-frozen-V12-heatmap-rows','container':artifact(DEST),'freeze_manifest':{'script_id':'panel-e-frozen-archive','entry':'freeze.json','sha256':sha(STAGE/'freeze.json')},'export':{'embedded_entry':'PanelE_frozen-candidate.svg','sha256':sha(STAGE/'PanelE_frozen-candidate.svg')},'scientific_definition':json.loads((STAGE/'selection.json').read_text())['scientific_definition'],'assembly_scale':frozen['assembly_scale'],'scope':'Panel E only; preserve A-D/FGH freezes and all existing assemblies','author_approval':AUTH,'version_catalogue_count':len(catalogue)}
-    write(ROOT/'configs/paper-figures/figure1-panel-e-heatmap-rows-freeze-20261009.json',pointer)
+    write(ROOT/'configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json',pointer)
     # Only task-created, explicitly staged files are removed; preserve all history/source data.
-    assert STAGE.resolve().parent== (ROOT/'reviews').resolve()
+    assert STAGE.name == '.panel-e-heatmap-row-freeze-stage-20261009'
     for p in STAGE.iterdir():assert p.is_file();p.unlink()
     STAGE.rmdir();print(json.dumps({'frozen_review':str(DEST),'history_groups':len(catalogue),'freeze_valid':True,'temporary_stage_removed':True}))
 

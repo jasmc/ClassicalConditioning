@@ -4,6 +4,10 @@ The explicit freeze gate is run separately. Temporary SVGs are materialized for
 that gate, then stored losslessly inside the HTML and removed after packaging.
 Use --extract to restore the exact gate inputs and published manifest for audit.
 """
+import sys as _archive_sys
+from pathlib import Path as _ArchivePath
+_archive_sys.path.insert(0, str(_ArchivePath(__file__).resolve().parents[1] / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact, external_output
 from pathlib import Path
 import argparse, ast, base64, copy, hashlib, io, json, re, sys
 import xml.etree.ElementTree as ET
@@ -19,7 +23,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from classical_conditioning.figures.theme import apply_theme, condition_color
 from classical_conditioning.config.experiments import get_experiment_spec
-HTML=ROOT/'reviews/fgh_candidate_palette_versions_20261009/index.html'
+HTML = resolve_artifact('reviews/fgh_candidate_palette_versions_20261009/index.html')
 STAGE=HTML.parent/'.v12-freeze-stage'
 SPEC_PATH=ROOT/'configs/paper-figures/figure-elements.json'
 SPEC=json.loads(SPEC_PATH.read_text())
@@ -77,10 +81,10 @@ def prepare():
     selection=dict(figure_id='fig1',panel_ids=['f','g','h'],revision='V12-brighter-endpoints-symmetric-0.7',author_instruction=AUTH,
         scientific_definition=dict(metric='legacy_distal_angular_speed_rad_per_ms',eligibility='finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log',frame_transform='natural log',bin_width_s=.5,bin_interval='left-inclusive right-exclusive',bin_estimator='median of eligible original log frames',baseline_s=[-15,0],baseline_estimator='median of finite baseline-bin medians; each bin one vote',centre='d=bin_median_log-baseline_bin_median_log',scale='z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles',minimum_finite_baseline_bins=10,units='dimensionless baseline-spread units; raw rad/ms',numeric_clipping=False,colour_limits=[-1,1],missing='NaN black; entire trial missing if insufficient or collapsed baseline',timing=a['timing_note'],statistical_inference='none; descriptive example heatmaps'),
         fish=a['fish'],trial_range=[5,94],bin_edges_s=edges.tolist(),palette=PALETTE,zero_colour=PALETTE[1],source_cells_sha256=hashlib.sha256(json_bytes(a['cells'])).hexdigest(),source_audit_id='version11-audit',trial_parameters=refs,
-        current_scoped_selection_before_freeze=artifact(ROOT/'configs/paper-figures/figure1-fgh-full-bout-correction-20261009.json'),older_assembly=artifact(ROOT/'configs/paper-figures/figure1-assembly.json'))
+        current_scoped_selection_before_freeze=artifact(ROOT/'configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json'),older_assembly=artifact(ROOT/'configs/paper-figures/figure1-assembly.json'))
     write(STAGE/'selection.json',selection)
     # Reuse the palette conversion functions without executing swatch exports.
-    palette_file=ROOT/'reviews/fgh_palette_brainstorm_20261009/build_swatches.py'
+    palette_file=resolve_artifact('reviews/fgh_palette_brainstorm_20261009/build_swatches.py')
     ns={'np':np};tree=ast.parse(palette_file.read_text())
     exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,ast.FunctionDef)],type_ignores=[]),str(palette_file),'exec'),ns)
     lab=ns['rgb_lab']([to_rgb(c) for c in PALETTE]);u=np.linspace(0,1,513)
@@ -110,7 +114,7 @@ def prepare():
         exceptions.append(ex)
     for role in ('heatmap.vigor',):exception(role,'cmap','v12-bright-blue-charcoal-red-lab', 'Author-selected continuous diverging palette replaces managua_r while preserving its dark zero',AUTH)
     # Recorded author approval of stronger CS guides is scoped to these panels.
-    cs_evidence='Plans/FGH_COLOUR_AND_BINNING_CLEAN_CHAT_HANDOFF_2026-10-09.md: Preserve the approved visual conventions; strong green CS boundaries 2.4 pt alpha .8; user explicitly asked for stronger boundaries. Existing source at 9 inches, displayed at 183 mm.'
+    cs_evidence='docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md: Preserve the approved visual conventions; strong green CS boundaries 2.4 pt alpha .8; user explicitly asked for stronger boundaries. Existing source at 9 inches, displayed at 183 mm.'
     for role in ('stimulus.cs.onset','stimulus.cs.offset'):
         exception(role,'linewidth_pt',2.4*183/228.6,'Retain approved strong guide effective width at the selected review assembly scale',cs_evidence)
         exception(role,'alpha',.8,'Retain approved CS opacity',cs_evidence)
@@ -216,7 +220,7 @@ def publish():
     old_images=re.findall(r'<img\b[^>]*src="([^"]+)"',text)[:11]
     archive={'format':'single-HTML lossless freeze archive v1','materialization_note':'The unmodified gate manifest records temporary materialization paths. The storage map below locates their exact bytes inside this HTML. Extract with the saved preparation script; raw source parquets are retained in their existing locations, without copies.','files':{},'artifact_storage':{},'freeze_manifest_entry':'freeze.json','scope':'Figure 1 F/G/H row only; not full Figure 1 and not Figure 2','gate_summary':{'valid':True,'issues':[],'elements':f['freeze_check']['checked_elements'],'specification_version':f['specification_version'],'candidate_sha256':f['freeze_check']['candidate_sha256']}}
     to_archive=[(p,p.name) for p in STAGE.iterdir() if p.name!='visual-review.png']
-    to_archive.extend([(Path(__file__),'prepare_figure1_fgh_v12_freeze.py'),(SPEC_PATH,'specification-snapshot.json'),(ROOT/'src/classical_conditioning/config/experiments.py','experiments-snapshot.py'),(ROOT/'reviews/fgh_palette_brainstorm_20261009/build_swatches.py','palette-functions-snapshot.py')])
+    to_archive.extend([(Path(__file__),'prepare_figure1_fgh_v12_freeze.py'),(SPEC_PATH,'specification-snapshot.json'),(ROOT/'src/classical_conditioning/config/experiments.py','experiments-snapshot.py'),(resolve_artifact('reviews/fgh_palette_brainstorm_20261009/build_swatches.py'),'palette-functions-snapshot.py')])
     for path,name in to_archive:
         data=path.read_bytes();h=hashlib.sha256(data).hexdigest()
         archive['files'][name]={'sha256':h,'base64':base64.b64encode(data).decode()}
@@ -238,7 +242,7 @@ def publish():
         'version11_history':'Original V11 used separate-side V7 scaling; current V11 uses one symmetric max(-P10,P90) denominator with wider side at ±1. Neither history alters the raw-frame/binned scientific definitions.',
         'version12_review_history':['Two-endpoint continuous blue/amber with light midpoint','Three solid ±0.1 bands, requested dark and alternative light-grey centre; rejected','Continuous blue/light-grey/crimson; rejected light centre','Continuous blue/dark managua/crimson','Brighter blue/dark managua/red plus 0.7 factor','Final brighter sky blue #00bfff/dark centre #383842/red #ff5252, specification-styled and author-frozen'],
         'differences_that_matter':['frame vs complete-bout vs direct-bin summaries','mean vs median within bins','frame vs equal-bin baseline voting','[-20,0) vs [-15,0) baseline','physical vs symmetric spread vs separate-side scaling','numeric clipping vs colour saturation','continuous vs discrete colour classes','eligibility/missingness and sparse baseline exclusions']}
-    appendix='<section id="version-catalogue"><h2>Version history and freeze scope</h2><p>Version 12 is the frozen F/G/H choice. The comparison table and each version section document the other retained recipes, limitations and provenance. Version 3 has no established recipe. Historical V4/V5 and the original frame-centred V7 remain outside the shortlist because they do not guarantee a displayed baseline median of zero. Original V11 separate-side scaling and earlier V12 palette experiments are superseded; their scientific sources remain historical. Freeze selection does not invent keep/discard choices for the other options.</p><p>Earlier historical recipes and exact paths are documented in <a href="../../Plans/FGH_COLOUR_AND_BINNING_CLEAN_CHAT_HANDOFF_2026-10-09.md">the previous handoff</a>. The new pooled-fish handoff is <a href="../../Plans/HANDOFF_FIGURE2_ROW1_FROM_FROZEN_V12_2026-10-09.md">Figure 2 row 1 from frozen V12</a>.</p></section>'
+    appendix='<section id="version-catalogue"><h2>Version history and freeze scope</h2><p>Version 12 is the frozen F/G/H choice. The comparison table and each version section document the other retained recipes, limitations and provenance. Version 3 has no established recipe. Historical V4/V5 and the original frame-centred V7 remain outside the shortlist because they do not guarantee a displayed baseline median of zero. Original V11 separate-side scaling and earlier V12 palette experiments are superseded; their scientific sources remain historical. Freeze selection does not invent keep/discard choices for the other options.</p><p>Earlier historical recipes and exact paths are documented in <a href="../../docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md">the previous handoff</a>. The new pooled-fish handoff is <a href="../../docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md">Figure 2 row 1 from frozen V12</a>.</p></section>'
     text=text.replace('<section id="choices">',appendix+'<section id="choices">',1)
     text=text.replace('</html>',script_tag('version12-frozen-archive',archive)+script_tag('version-history-catalogue',catalog)+'</html>',1)
     assert re.findall(r'<img\b[^>]*src="([^"]+)"',text)[:11]==old_images
@@ -247,8 +251,8 @@ def publish():
     text=text.replace("e.value=choices[e.dataset.choice]||'Undecided'","e.value=e.dataset.choice==='v12'?'Keep':(choices[e.dataset.choice]||'Undecided')",1)
     HTML.write_text(text,encoding='utf-8')
     pointer={'figure_id':'fig1','panel_ids':['f','g','h'],'selected_version':12,'status':'author-frozen','freeze_scope':'F/G/H row only; full assembly pending','container':artifact(HTML),'freeze_manifest':{'script_id':'version12-frozen-archive','entry':'freeze.json','sha256':sha(freeze_path)},'exports':[{'container':str(HTML),'embedded_entry':'frozen-candidate.svg','sha256':sha(STAGE/'frozen-candidate.svg')}],'specification_version':f['specification_version'],'specification_sha256':f['specification_sha256'],'scientific_definition':selection['scientific_definition'],'palette':PALETTE,'freeze_authorization':AUTH,'assembly_scale':f['assembly_scale'],'extraction_command':'python scripts/prepare_figure1_fgh_v12_freeze.py --extract <temporary-directory>','archive_path_policy':'Original gate paths identify materialized inputs. Exact hash-bound bytes remain in the archive; extraction creates a portable-candidate.json with remapped temporary paths for --check-only.'}
-    cfg=ROOT/'configs/paper-figures/figure1-fgh-version12-freeze-20261009.json';assert not cfg.exists();write(cfg,pointer)
-    scoped=ROOT/'configs/paper-figures/figure1-fgh-full-bout-correction-20261009.json';old=json.loads(scoped.read_text());old['previous_primary_variant_before_v12']=old['current_primary_variant'];old['current_primary_variant']='Version12_BrightBlueDarkManaguaRed_SymmetricPoint7';old['version12_frozen_selection']=artifact(cfg);old['status']='Author-frozen V12 selected for F/G/H; older variants and historical freezes preserved';old['summary']=str(HTML);write(scoped,old)
+    cfg=ROOT/'configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json';assert not cfg.exists();write(cfg,pointer)
+    scoped=ROOT/'configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json';old=json.loads(scoped.read_text());old['previous_primary_variant_before_v12']=old['current_primary_variant'];old['current_primary_variant']='Version12_BrightBlueDarkManaguaRed_SymmetricPoint7';old['version12_frozen_selection']=artifact(cfg);old['status']='Author-frozen V12 selected for F/G/H; older variants and historical freezes preserved';old['summary']=str(HTML);write(scoped,old)
     # Remove only verified task-created temporary files; no recursive deletion.
     assert STAGE.resolve().parent==HTML.parent.resolve()
     for p in STAGE.iterdir():

@@ -1,5 +1,8 @@
 """Descriptive fish-level suppression comparison with paired-metric bootstrap."""
+import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from classical_conditioning.external_artifacts import external_output
 import json
 import matplotlib
 matplotlib.use("Agg")
@@ -7,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-OUT = Path(__file__).resolve().parents[1] / "outputs/pre-vs-late-train-early-test-review"
+OUT = external_output("outputs/pre-vs-late-train-early-test-review")
 METRICS = ["tail_length_weighted_angular_l1", "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed"]
 LABELS = ["Angular L1", "Whole-tail XY", "Legacy distal"]
 

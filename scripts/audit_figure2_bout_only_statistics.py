@@ -1,4 +1,8 @@
 """Recheck B rank tests and separately audit its zero-baseline reference."""
+import sys as _archive_sys
+from pathlib import Path as _ArchivePath
+_archive_sys.path.insert(0, str(_ArchivePath(__file__).resolve().parents[1] / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact, external_output
 from pathlib import Path
 import sys
 import hashlib
@@ -13,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 import review_figure2_block_log_median as review
 
-OUT = ROOT / "reviews/figure2_bout_only_ratio_vs_log_20261009"
+OUT = external_output("reviews/figure2_bout_only_ratio_vs_log_20261009")
 
 def main():
     data = {p: pd.read_parquet(OUT / f"{p}_log_fish_blocks.parquet") for p in ("D", "E")}

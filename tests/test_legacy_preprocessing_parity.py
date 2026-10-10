@@ -7,9 +7,14 @@ import unittest
 import numpy as np
 import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'legacy/helpers'))
-import analysis_utils as current
-from general_configuration import config
+_original_path = sys.path.copy()
+try:
+    sys.path.insert(0, str(ROOT / 'legacy/helpers'))
+    import analysis_utils as current
+    import data_io
+    from general_configuration import config
+finally:
+    sys.path[:] = _original_path
 
 def oracle(name):
     tree = ast.parse((ROOT / 'legacy/modules/my_functions.py').read_text(encoding='utf-8-sig'))

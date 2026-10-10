@@ -247,9 +247,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-dir", type=Path,
         default=Path("/Volumes/JOAQUIM/Digested Data/allDelay-full-v1"))
-    parser.add_argument("--input-dir", type=Path, default=Path("outputs/figure2-delay"))
+    parser.add_argument("--input-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path,
-        default=Path("outputs/figure2-delay/legacy-stats-lme-review"))
+        required=True)
     parser.add_argument("--analysis-id", default="allDelay-full-learning-onset-v1")
     parser.add_argument("--metric", choices=tuple(METRIC_DISPLAY_NAMES),
                         help="Metric for D; G LME currently supports only tail-length-weighted angular L1.")
