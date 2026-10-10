@@ -4,7 +4,7 @@ The implemented `assess-discarding` command publishes a technical evidence
 audit followed by source-linked exploratory legacy-rule screening. Neither
 stage freezes a cohort or constitutes paper approval. The unfinished policy,
 paper-scale validation, and cohort review are tracked in the
-[active cohort implementation plan](../../Plans/01_COHORT_IMPLEMENTATION.md).
+[active cohort implementation plan](../../Plans/02_COHORT_IMPLEMENTATION.md).
 
 ## Technical stage
 

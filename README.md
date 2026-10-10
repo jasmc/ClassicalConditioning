@@ -14,7 +14,7 @@ For quick review, start with the [numbered analysis guides](docs/analysis/README
 6. Build **Figure 4** from the frozen learner manifest and authenticated signed block/catch profiles. Prepare individual catches, movement/coverage, controls, and independently evaluated timing alongside it. Finish the follow-on tail analyses and then freeze one verified analysis release.
 
 The [active plans](Plans/README.md) track decisions and unfinished work. The
-[supplementary plan](Plans/10_SUPPLEMENTARY_FIGURES.md) groups supporting
+[supplementary plan](Plans/11_SUPPLEMENTARY_FIGURES.md) groups supporting
 outputs by parent figure; final supplementary numbering is assigned during
 paper composition. Optional behavior/imaging integration is a parallel track.
 
@@ -136,8 +136,13 @@ The routine config's cohort/metric pair enables a technical fit with packaged de
 
 - [Current pipeline guide](./docs/analysis/02_CURRENT_PIPELINE.md)
 - [Figure generation and draft comparison](./docs/analysis/figures/03_FIGURE_PIPELINES.md)
-- [Paper cohort completion plan](Plans/01_COHORT_IMPLEMENTATION.md)
-- [Learning-onset completion plan](Plans/03_LEARNING_ONSET_IMPLEMENTATION.md)
+- [Paper cohort completion plan](Plans/02_COHORT_IMPLEMENTATION.md)
+- [Learning-onset completion plan](Plans/04_LEARNING_ONSET_IMPLEMENTATION.md)
 - [Learning-onset analysis reference](./docs/analysis/07_LEARNING_ONSET_LME.md)
 
 The active suite in `tests/` protects scientific identities, raw-to-derived provenance, failure handling, and figure semantics.
+
+
+## Repository and external archive
+
+Start with [numbered plans](Plans/README.md) for the first Figures 1–4 release, [decisions](docs/analysis/decisions/DECISIONS.md) for approved definitions, [scoped freezes](docs/analysis/figures/freezes/README.md) for exact selections, and [archive instructions](docs/maintenance/archive/README.md) for the verified JOAQUIM archive. Permanent figures, visual HTML and numerical payloads are stored on JOAQUIM after verified transfer. Supported source/tests and exact frozen definitions/code remain here.

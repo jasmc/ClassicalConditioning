@@ -58,3 +58,7 @@ explicitly requests them. Embed the required figures and provenance in the
 single file. Use in-memory rendering and verification where possible; remove
 task-created temporary files after verification. Preserve existing scientific
 source data and historical frozen artifacts.
+
+## Repository and external artifact storage
+
+Author-approved on 2026-10-10: `Plans/` contains numbered future-work plans plus README/index only. Decisions, governance, audits, review concerns and transfer guidance live under `docs/`. Supported source/tests/tools remain in the repository; exact frozen definitions/manifests/code live under `records/frozen-analyses/`. Permanent media, visual HTML reviews, numerical payloads and superseded candidate code belong on JOAQUIM. Use `scripts/repository_archive.py` and the archive indexes; never remove a pending original before its external copy is verified. Preserve historical freeze bytes and resolve relocated paths externally. New permanent exports must use explicit external destinations; temporary test/render files are allowed.

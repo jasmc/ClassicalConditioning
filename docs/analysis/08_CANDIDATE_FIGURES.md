@@ -141,7 +141,7 @@ per metric and condition. Each recording contributes equally; this is fish-equal
 only when each fish has one recording. It is descriptive, not confirmatory
 inference, and does not enforce a reviewed cohort. Use the matching processed
 comparison table and QC summary to check membership, baseline/response
-coverage, and recipe identity. See [cohort aggregation](./06_COHORT_AGGREGATION.md)
+coverage, and recipe identity. See [cohort aggregation](06_COHORT_AGGREGATION.md)
 for the exact reduction order.
 
 ## Frozen-cohort response and CR profiles
@@ -171,7 +171,7 @@ then give each fish equal weight in the condition median and IQR.
 The selected-block ratio figure uses final Pre-Train trials 10–14, Early Test
 65–69, and Late Test 90–94. Its response/baseline ratios are not the same
 quantity as the 0–1 scaled catch/block profiles. The separate
-[signed learner-stratified Figure 4 route](./figures/06_FIGURE4_LEARNER_PROFILES.md)
+[signed learner-stratified Figure 4 route](figures/06_FIGURE4_LEARNER_PROFILES.md)
 consumes a frozen classifier manifest and derives signed bins from corrected
 metrics. Its paper figures remain gated on reviewed cohorts and that manifest.
 
@@ -194,9 +194,9 @@ This is not the movement-conditional vigor estimand in draft Figure 2.
 - Compare candidate metrics through the cohort table/figure, where each metric
   is labelled and the fish-level aggregation rule is explicit.
 
-For the underlying scientific definitions, see [metrics and bouts](./05_METRICS_AND_BOUTS.md).
+For the underlying scientific definitions, see [metrics and bouts](05_METRICS_AND_BOUTS.md).
 For the full legacy/refactored figure inventory, see
-[figure pipelines](./figures/03_FIGURE_PIPELINES.md).
+[figure pipelines](figures/03_FIGURE_PIPELINES.md).
 For the Figure 1 and Delay/control Figure 2 review renderers, preserved
 alternatives, and their code status, see the
 [review variant registry](../../configs/paper-figures/review-variants.json).

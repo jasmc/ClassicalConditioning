@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-10",
+  "lineages": [
+    {
+      "id": "figure1-fgh",
+      "title": "Figure 1 F/G/H",
+      "current_review": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "scope": "Selected V12 row and retained version catalogue; V1 freezes preserved separately.",
+      "source_prefix": "reviews/fgh_"
+    },
+    {
+      "id": "figure1-e",
+      "title": "Figure 1 E and traces",
+      "current_review": "external selection: figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "scope": "Selected E container on disconnected SSD; local traces/alternatives remain evidence.",
+      "source_prefix": "outputs/figure1"
+    },
+    {
+      "id": "figure2-de",
+      "title": "Figure 2 D/E",
+      "current_review": "reviews/figure2_B_freeze_20261009/comparison.html",
+      "scope": "Selected B; historical A/B review lineages superseded within D/E only.",
+      "source_prefix": "reviews/figure2_"
+    },
+    {
+      "id": "figure2-g",
+      "title": "Figure 2 G and Delay alternatives",
+      "current_review": "reviews/figure2_delay_all_versions_20261009.html",
+      "scope": "Reuse existing SHA-addressed ZIP and cleanup record; G manifest currently external.",
+      "source_prefix": "outputs/figure2-delay"
+    },
+    {
+      "id": "assemblies",
+      "title": "Whole-figure assembly review",
+      "current_review": "reviews/latest_figure_assemblies_20261010.html",
+      "scope": "Current assembly review; not a whole-figure freeze. Older current-summary HTMLs are historical.",
+      "source_prefix": "reviews/figures_"
+    },
+    {
+      "id": "learner-figure4",
+      "title": "Learner and Figure 4",
+      "current_review": "outputs/trace-legacy-full-59/status.json",
+      "scope": "Provisional analysis evidence, not an approved learner representation or frozen paper Figure 4.",
+      "source_prefix": "outputs/trace"
+    }
+  ],
+  "policy": "Canonical current review plus unique historical evidence; no new figures or recomputation"
+}

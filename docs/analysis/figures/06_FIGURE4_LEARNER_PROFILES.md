@@ -6,7 +6,7 @@ Figure 4A–C are descriptive Delay, 3sTrace and 10sTrace profiles. Each figure 
 
 `figure4-analyze` consumes a CSV or Parquet fish table plus a JSON file with the same stem and suffix `.manifest.json`. It does not fit or select a classifier. The table must contain one row per `(experiment_id, condition_id, fish_id)` across every requested cohort.
 
-For an explicitly exploratory partial-assay review, the command also accepts a nonempty subset of the three assays. In that case, the classifier cohort and assessment maps must contain exactly the supplied assays. The saved analysis records `partial_assay_review`; this is not a full three-assay paper result. The 3sTrace use is documented in [the fixed-trace exploratory run](./TRACE3_EXPLORATORY_RUN_2026-09-24.md).
+For an explicitly exploratory partial-assay review, the command also accepts a nonempty subset of the three assays. In that case, the classifier cohort and assessment maps must contain exactly the supplied assays. The saved analysis records `partial_assay_review`; this is not a full three-assay paper result. The 3sTrace use is documented in [the fixed-trace exploratory run](TRACE3_EXPLORATORY_RUN_2026-09-24.md).
 
 The fish table columns are:
 
@@ -32,7 +32,7 @@ classification_eligible, ineligible_reason, input_metric_id
 }
 ```
 
-For setup and transfer instructions, use [the current Figure 4 handover](./07_FIGURE4_HANDOVER.md).
+For setup and transfer instructions, use [the current Figure 4 handover](../../maintenance/transfers/FIGURE4_TRANSFER.md).
 
 ## Run order
 
@@ -60,4 +60,4 @@ Use either of the other supported metric IDs in place of the example, with its m
 
 The analysis computes the shared signed bout-log-vigor value at 0.5-second bins from −20 to +20 seconds, using each trial's −20 to 0 second baseline. It masks bins with less than 0.9 valid expected-frame coverage. No-bout signed bins stay missing; their movement probability is retained separately. Trial medians are formed within each fish before equal-fish group medians and fish IQRs. Saved trial, fish, group and sample-flow Parquet tables precede rendering. The group table contains per-bin contributing fish and trial counts for both outcomes.
 
-Expected-US guides are derived from authenticated paired-training `Reinforcer` events and compared with `ExperimentSpec`. The command stops if they disagree. The fixed 3sTrace source-protocol audit supports the declared 13-s latency; every Figure 4 fish remains subject to the event check. Catch and non-US rows show the verified paired-training expectation, not an observed US. Same-data learner curves carry no independent group-inference claim or p-values. Independent response timing is specified in the [supplementary plan](../../../Plans/10_SUPPLEMENTARY_FIGURES.md).
+Expected-US guides are derived from authenticated paired-training `Reinforcer` events and compared with `ExperimentSpec`. The command stops if they disagree. The fixed 3sTrace source-protocol audit supports the declared 13-s latency; every Figure 4 fish remains subject to the event check. Catch and non-US rows show the verified paired-training expectation, not an observed US. Same-data learner curves carry no independent group-inference claim or p-values. Independent response timing is specified in the [supplementary plan](../../../Plans/11_SUPPLEMENTARY_FIGURES.md).

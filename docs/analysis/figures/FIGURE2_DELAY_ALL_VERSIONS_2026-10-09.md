@@ -137,7 +137,7 @@ source/settings/export records preserve this candidate separately.
 
 The author selected native Historical LogMedian with its own D/M/R and
 phase-aware LMM statistics. Scoped current selection:
-`configs/paper-figures/figure2-G-logmedian-freeze-20261009.json`.
+`configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json`.
 The immutable freeze is `F:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.freeze.json`.
 It passed the version1.1.1 figure gate with no exceptions. Final standalone
 size is183×98mm; the whole assembly is older and was not changed.

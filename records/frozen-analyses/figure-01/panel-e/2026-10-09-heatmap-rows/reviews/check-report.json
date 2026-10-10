@@ -1,0 +1,55 @@
+{
+  "valid": true,
+  "issues": [],
+  "candidate_sha256": "ec685e275e7cea3ddffd7d923b3d7b1f3753064650cfe0eff9d294d0afd08589",
+  "specification_sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+  "specification_version": "1.1.1",
+  "specification_id": "behavior-paper-figure-elements",
+  "checked_artifacts": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\.panel-e-heatmap-row-freeze-stage-20261009\\selected-original.svg",
+      "sha256": "0e77f878f535438ca6efe1cd6a8fde4ebaaf93943e96c2160e0548da953db0c0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\build_panel_e_frozen_v12_heatmap_rows_review.py",
+      "sha256": "12e5660da722fc8a9934ce40d07f774412a1c9502f310f67882681155adb4f42"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\prepare_panel_e_heatmap_rows_freeze.py",
+      "sha256": "cb2d708f9ea2874132ec7054c9f5b7931032f9ad64b6ccab5a5dc7f78947d47e"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\panel-e-frozen-v12-heatmap-rows-review-20261009\\PanelE_frozen-v12-heatmap-rows-review.html",
+      "sha256": "d55dd0dfc2c192de3eace095281591b7158f7b71f1bc7ed1cffcc4bf5869d724"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\.panel-e-heatmap-row-freeze-stage-20261009\\selection.json",
+      "sha256": "f180cd22e52a32d66c152b5928c9a93c95063f2be359d329f645d1bae87eb1fa"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\.panel-e-heatmap-row-freeze-stage-20261009\\renderer-properties.json",
+      "sha256": "d07246352b7999e089a76c1a11160cf4ad3aa7e3992e7d5d6b9bb4be5f84f05d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-version12-freeze-20261009.json",
+      "sha256": "10b972090550a9c5d34bbe8abba050cdf2e876bc335e76e1bf14edf3e9716bd4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_candidate_palette_versions_20261009\\index.html",
+      "sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_full_bouts_baseline_samples_20261009\\PanelF_complete_bout_sample_data.parquet",
+      "sha256": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\cadence-review-v5-20261007\\Fig1_PanelsD-E_events_v5.parquet",
+      "sha256": "c33e5e11889a5f8982ecee277585549363afa0cc870aab0ceb93eb8b92199007"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\.panel-e-heatmap-row-freeze-stage-20261009\\PanelE_frozen-candidate.svg",
+      "sha256": "6982c8bcf0001f779fa231feda5e2b490aa50ed36b601d49c566c7cf984deeae"
+    }
+  ],
+  "checked_elements": 418
+}

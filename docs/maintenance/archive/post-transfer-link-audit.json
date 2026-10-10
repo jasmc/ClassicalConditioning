@@ -1,0 +1,9 @@
+{
+  "archive_link_statuses": {
+    "archive-relative target verified": 112,
+    "repository target resolved through relocation map": 2,
+    "unavailable historical target; not fabricated": 4
+  },
+  "broken_local_links": [],
+  "historical_navigation_recovery": "historical-link-recovery.json"
+}

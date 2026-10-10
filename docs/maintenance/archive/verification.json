@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-10",
+  "full_suite": {
+    "tests": 380,
+    "result": "passed",
+    "log": "/tmp/cc-cleanup-tests.log"
+  },
+  "final_focused_suite": {
+    "tests": 19,
+    "result": "passed"
+  },
+  "frozen_record_entries_verified": 70,
+  "selection_records_byte_identical": 7,
+  "original_payloads_present_and_unchanged": 0,
+  "broken_local_document_links": [],
+  "python_syntax": "passed",
+  "plan_files": 14,
+  "repository_generated_payload_check": "passed; all transfer sources absent; no permanent media/data or figure-bearing HTML outside environment/Git/cache",
+  "pending_files": 0,
+  "pending_bytes": 0,
+  "ssd_mounted": true,
+  "pending_payload_bytes_removed": 1252400031,
+  "known_disposable_or_recoverable_bytes_removed": 74386,
+  "external_only_records_unavailable": [],
+  "git_history_rewritten": false,
+  "scientific_recomputation": false,
+  "ssd_readonly_inspection": "E archive and G manifest/selection matched recorded SHA-256; definitions/code extracted without SSD writes",
+  "transfer_deferred_by_author": false,
+  "verified_external_files": 2050,
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10",
+  "full_post_transfer_suite": {
+    "tests": 380,
+    "result": "passed",
+    "seconds": 101.735,
+    "log": "/tmp/cc-post-transfer-tests.log"
+  },
+  "blocked_transfers": [],
+  "historical_html_broken_relative_links": 4,
+  "historical_navigation_targets_verified": 4
+}

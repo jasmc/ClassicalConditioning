@@ -1,36 +1,23 @@
-# Implementation Status Index
+# Implementation status index
 
-This is the only live plan-status board. Earlier plans remain in Git history;
-current descriptive behavior lives under
-`docs/analysis/`.
+The only live workstream-status board. A scoped panel freeze is not whole-figure or paper-release approval.
 
-## Status legend
-
-| Status | Meaning |
-| --- | --- |
-| Not started | No implementation work accepted |
-| Discussion/design | Scientific or interface decisions precede implementation |
-| In progress | Work is active but its exit gate has not passed |
-| Fixture-only | Software works on bounded fixtures but is not paper-authoritative |
-| Complete | Scoped exit gate passed and evidence is recorded |
-| Archived — incomplete | Historical plan retired explicitly before its exit gate passed |
-| Superseded | Replaced by a named active plan or documentation file |
-
-## Active work
-
-| Workstream | Status | Main open requirement | Authority |
-| --- | --- | --- | --- |
-| Governance and paper baseline | Open release prerequisite | Paper-scope baseline manifest, configuration freeze, and output fingerprints | [Governance](./GOVERNANCE.md) |
-| Preprocessing and metric decision | Fixture-only / scientific decision open | Gate P and Gate T1: preprocessing, smoothing, shared detector parameters, selected metric, and validation status | [Metrics and bouts](../docs/analysis/05_METRICS_AND_BOUTS.md), [Decisions](./DECISIONS.md) |
-| Paper cohort and two-stage assessment | Fixture-only / infrastructure implemented | Validate technical and exploratory legacy-rule assessment on paper inputs; approve Gate C0 and freeze the reviewed C1 cohort; migrate population consumers | [Current assessment behavior](../docs/analysis/04_DISCARDING_AND_SELECTION.md), [cohort completion](./01_COHORT_IMPLEMENTATION.md) |
-| Learning onset and population inference | Implemented, not paper-run; extinction analysis unimplemented | Freeze Gate O/S, calibrate and run approved block/trial models on the frozen cohort, review diagnostics, and define and validate any extinction claim separately | [Learning-onset completion](./03_LEARNING_ONSET_IMPLEMENTATION.md), [analysis and statistics design](./02_ANALYSIS_AND_STATISTICS.md) |
-| Learner analysis | Design open; no canonical package route | Gate L estimand/method, continuous or categorical representation, manifest, non-circular validation, and learner outputs | [Learner analysis](./05_LEARNER_ANALYSIS.md) |
-| Integrated cohort/CR profiles | In progress; learner-dependent orchestration gated | Shared catch/block substrate and categorical Figure 4 review route exist; freeze Gate L, adapt Figure 4 if representation is noncategorical, finish the sensitivity evaluator and common-hash run, then review the paper output | [Integrated cohort/CR profiles](./07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) |
-| Figures and interfaces | In progress; Figure 1 D/E trace command implemented | Registry, approved paper panels, publication dimensions/theme, and visual regression | [Figures and reproducible reporting](./08_FIGURES_AND_REPRODUCIBLE_REPORTING.md) |
-| Tail mechanistic analyses | Planned after Figure 4 | Complete and review Figure 4 pooled-learner CR analysis, then implement exploratory tail analyses with its approved identities and timing conventions | [Tail mechanistic analyses](./09_TAIL_MECHANISTIC_ANALYSES.md) |
-| Supplementary figures and data | Active plan; final composition open | Build each figure's controls, coverage, validation, and sensitivity data alongside Figures 1–4; freeze independent response-timing definitions before inference | [Supplementary figures](./10_SUPPLEMENTARY_FIGURES.md) |
-| Behavior/imaging integration | Active plan; staged implementation | Inventory imaging sources and reference cases (I00); advance later stages as behavior identities, recipes, and imaging gates allow | [Behavior and imaging integration](./11_BEHAVIOR_IMAGING_INTEGRATION.md) |
-| Final analysis release | Not started | Freeze one verified analysis record after code, scientific decisions, paper results, and figures are ready | [Final analysis release](./12_FINAL_ANALYSIS_RELEASE.md) |
+| Number | Workstream | Status |
+|---|---|---|
+| 01 | [Paper baseline and input validation](01_PAPER_BASELINE_AND_INPUT_VALIDATION.md) | Not started |
+| 02 | [Paper Cohort Completion](02_COHORT_IMPLEMENTATION.md) | In progress |
+| 03 | [Analysis and Statistics Design](03_ANALYSIS_AND_STATISTICS.md) | Design / validation open |
+| 04 | [Learning-Onset Analysis Completion](04_LEARNING_ONSET_IMPLEMENTATION.md) | Design / validation open |
+| 05 | [Learner Method Review](05_LEARNER_METHOD_REVIEW.md) | Design / validation open |
+| 06 | [Learner Representation and Analysis](06_LEARNER_ANALYSIS.md) | Design / validation open |
+| 07 | [Learner Outputs and Validation](07_LEARNER_OUTPUTS_AND_VALIDATION.md) | Design / validation open |
+| 08 | [Integrated Analysis and CR Profiles](08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) | In progress |
+| 09 | [Figures and Reproducible Reporting](09_FIGURES_AND_REPRODUCIBLE_REPORTING.md) | In progress |
+| 10 | [First release: Figures 1–4](10_FIRST_RELEASE_FIGURES_1_TO_4.md) | Not started |
+| 11 | [Supplementary Figures and Data](11_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
+| 12 | [Tail Mechanistic Analyses](12_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
+| 13 | [Behavior and Imaging Integration Plan](13_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
+| 14 | [Repository cleanup and deferred external archive](14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md) | Complete; external payloads verified and pruned |
 
 ## Historical implementation record
 
@@ -67,48 +54,16 @@ current descriptive behavior lives under
 | L | Learner estimand, representation, method, features, power, threshold if used, and validation | Learner claims and Figure 3 |
 | F | Figure semantics, dimensions, labels, sample sizes, and formats | Final figures |
 
-Gate answers live in [DECISIONS.md](./DECISIONS.md). They are revisited only
+Gate answers live in [DECISIONS.md](../docs/analysis/decisions/DECISIONS.md). They are revisited only
 when new evidence changes a decision.
 
-## Critical path
 
-```text
-paper baseline
-  -> approve preprocessing + shared bout detector + metric
-  -> freeze paper cohort
-  -> freeze outcomes and population inference
-  -> complete learner-method decision and validation
-  -> build Figure 1 and its supporting data
-  -> build Figure 2 and its supporting data
-  -> complete Figure 3 learner analysis and its supporting data
-  -> build Figure 4 learner-stratified profiles and its supporting data
-  -> review Figure 4 pooled-learner CR result
-  -> validate independent response timing before making that supplementary claim
-  -> carry out tail mechanistic analyses
-  -> freeze and verify the one final analysis release
-```
+## Dependencies and first release
 
-Behavior/imaging integration runs in parallel and has its own prerequisites;
-it does not block the behavior-only paper release.
-Figure 1 review can begin while population and learner methods are designed;
-paper-authoritative panels still wait for the selected metric, approved cohort
-where applicable, and their figure-specific gates.
+Baseline/input validation → reviewed cohort → outcomes and justified inference → validated learner representation → Figure 4 analysis → reviewed Figures 1–4 → first release. Figure infrastructure and Figure 1/2 review can progress alongside upstream work; paper claims wait for their applicable scientific evidence.
 
-The learner-method review can begin conceptually alongside population analysis,
-but final classifier/score inputs and confirmatory validation depend on stable
-preprocessing, cohort, and outcomes.
-
-## Final analysis release
-
-Make one release after the critical path is complete. Freeze the code,
-configuration, data and cohort identities, analysis results, diagnostics,
-figures, and manuscript links described in the
-[final analysis release plan](./12_FINAL_ANALYSIS_RELEASE.md). Candidate and
-legacy runs are evidence used during analysis, not earlier releases.
+Supplementary composition, tail mechanistic analyses and imaging do not block the first release. Cleanup is independent of analysis order. Phase A retains pending payloads; Phase B requires verified JOAQUIM transfer.
 
 ## Updating status
 
-For each accepted change, record the affected workstream, behavior-preserving or
-scientific-correction class, versions and upstream identities, validation
-evidence, and any invalidated downstream artifacts. Do not mark unrelated work
-complete and do not push unless explicitly requested.
+Record only scoped accepted changes and their evidence. Keep completed descriptions in documentation, decisions in the decision register, and per-file transfer state in the archive inventory. Do not mark unrelated work complete.

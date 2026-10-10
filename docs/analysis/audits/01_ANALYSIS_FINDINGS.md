@@ -410,7 +410,7 @@ This creates substantial researcher flexibility and makes it unclear which imple
 4. Quantify false-positive rates and label stability.
 5. Report uncertainty rather than only binary labels.
 
-The later [decision register](../../../Plans/DECISIONS.md) requires a learner
+The later [decision register](../decisions/DECISIONS.md) requires a learner
 analysis for the paper while leaving categorical classification conditional on
 Gate L. Until that gate passes, inherited labels are descriptive only.
 

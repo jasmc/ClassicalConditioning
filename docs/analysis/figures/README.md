@@ -1,5 +1,7 @@
 # Numbered figure references
 
+**Current authority update, 2026-10-10:** [Scoped freeze index](freezes/README.md) identifies Figure 1 E/F–H V12 and Figure 2 D/E B/G. Older formulas, proposed registry status and examples below describe historical/proposed routes and must not override those selections. Exact frozen bytes are preserved; current paper assemblies and remaining scientific gates still require review.
+
 For every panel or whole-figure freeze, use the
 [figure element identities, shared style and freeze contract](FIGURE_ELEMENT_SPECIFICATION.md)
 and [versioned element/style configuration](../../../configs/paper-figures/figure-elements.json).
@@ -19,7 +21,7 @@ records related semantic editing ideas.
 | 04 | [Review variants](04_REVIEW_VARIANTS.md) | Version-by-version comparison of generated review alternatives. |
 | 05 | [Draft comparison](05_DRAFT_COMPARISON.md) | Draft image versus current code and proposed panels. |
 | 06 | [Figure 4 learner profiles](06_FIGURE4_LEARNER_PROFILES.md) | Classifier manifest, run order, signed signal, and provenance. |
-| 07 | [Figure 4 handover](07_FIGURE4_HANDOVER.md) | Current checkout, transfer requirements, run commands, and remaining paper gates. |
+| 07 | [Figure 4 handover](../../maintenance/transfers/FIGURE4_TRANSFER.md) | Current checkout, transfer requirements, run commands, and remaining paper gates. |
 
 Dated Figure 4 execution and readiness records:
 

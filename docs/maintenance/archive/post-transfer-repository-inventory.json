@@ -1,0 +1,3239 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 5293,
+      "sha256": "27e9a7a5bfd0d009d81c8f57f7f0a56ac40bb0483243799d86e1d5d4caf5039a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "bytes": 425,
+      "sha256": "6e6a030f3a9124378798fb9e4f776badcccdb37bef64c9fc9e5334a290f60fbc",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 4650,
+      "sha256": "3b0b4cf4de4018e748af2873e34dec534f07533c5b1561ce69a348abb582d526",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "ClassicalConditioning.code-workspace",
+      "bytes": 260,
+      "sha256": "a2723e04679feceb040686d71f18551ca2655de5ca9736d6d39591f1cd47524e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/01_PAPER_BASELINE_AND_INPUT_VALIDATION.md",
+      "bytes": 1279,
+      "sha256": "59f64c2df1c4c73bb734ea879b2288d52d92b836ce3abdbc66e76c2e20dd9f95",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/02_COHORT_IMPLEMENTATION.md",
+      "bytes": 4245,
+      "sha256": "b6ac60a12dfa885e4844ea10c3c190b55b332fb9e8618c1da223ffa4ec587b52",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/03_ANALYSIS_AND_STATISTICS.md",
+      "bytes": 13449,
+      "sha256": "72a1a584ac866ff7a5c707190972fe18caca4cfceabdb1708fd5dba5e88bc18f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/04_LEARNING_ONSET_IMPLEMENTATION.md",
+      "bytes": 5399,
+      "sha256": "90027615a367bf48476494115e3e52d2677f93ecccdcb3028da6b7bcc89298bc",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/05_LEARNER_METHOD_REVIEW.md",
+      "bytes": 13672,
+      "sha256": "7406a2ceb1a0e1b782bc81c93d9e718c76bcd043ca0fb61c7d3b58f85859b482",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/06_LEARNER_ANALYSIS.md",
+      "bytes": 13064,
+      "sha256": "3e6933d4d714fc585cbc126fd62c7feebba7be1509aa1a4b6e514cf3ca0f26d6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md",
+      "bytes": 35571,
+      "sha256": "afbb40a32384701148be3dcf9bcb4e9152aca856752975675848f8f510aa433d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md",
+      "bytes": 8686,
+      "sha256": "9dbb3367b5bc038d0eab1287f06701365e557182fb85f8c4f9de119967c7a7bf",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md",
+      "bytes": 17106,
+      "sha256": "46c93020156a6877bfbbf486cfea581dc0fd1e414abb8542e8d79545e2494bd4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/10_FIRST_RELEASE_FIGURES_1_TO_4.md",
+      "bytes": 1775,
+      "sha256": "d87436cf8e4d3223380f93e5404b6400c4703657023e196124f9d438b5a48803",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/11_SUPPLEMENTARY_FIGURES.md",
+      "bytes": 5756,
+      "sha256": "54f232a8ea6b3c3bd2f96fcda95d77a72488c55dff97f5ca0af96410d589866e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/12_TAIL_MECHANISTIC_ANALYSES.md",
+      "bytes": 3601,
+      "sha256": "303747172f20f82262a2d3e7ca138c3725a50f63819dc9b595bb604c035b81d5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md",
+      "bytes": 36986,
+      "sha256": "64eb8c32b7bf4ccb39eaee0c5918a8564ffcbb58f3bbd3d4b1b1b1c27f2c0326",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+      "bytes": 1625,
+      "sha256": "0a452b802e3fb708c34c66d8b49fd6a426e10b4d12f5a79f2e65a49756aded98",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/IMPLEMENTATION_STEP_INDEX.md",
+      "bytes": 5892,
+      "sha256": "67566cda1cdbfd79568bdf6fe179eebb5c7ed287e95c0adbbb693ad4f6cfe6c1",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "Plans/README.md",
+      "bytes": 2895,
+      "sha256": "49154df7a930e138607304840412f24f0f00faf097750ea5ebf4fe3d4d488226",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "README.md",
+      "bytes": 15994,
+      "sha256": "10b6f242c938db6a4f243bd60639af2cef883592f713a76e667ca7b92137eb96",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/all3sTrace-full-windows.json",
+      "bytes": 1488,
+      "sha256": "9b1b7f9fa84b6a0ea0a65f766e81bd5e27ab36c509df425c1a6beb74f09b2836",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/allDelay-full-v1-cohort.csv",
+      "bytes": 11274,
+      "sha256": "18700fb33edbd41bac3617f2898781dee0c22ba8b96bc56a802b9c16671e8df6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/allDelay-full-windows.json",
+      "bytes": 357,
+      "sha256": "fe8cf40338678fdf60934dcc72d6107f09ed843ebbf2d57146726258397fd869",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/example-run.json",
+      "bytes": 364,
+      "sha256": "f3ccab21daf1ae410c122efb52eee051b291a5c3f71425e148784e5b00e65171",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/incTrace-stim-audit.json",
+      "bytes": 19874,
+      "sha256": "cbccbe2de619aa2ae5d1318af18908c7b541a1f0437b27a459584449f6f33fbe",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/increasing-trace-move-manifest.json",
+      "bytes": 5676,
+      "sha256": "6badc984a0d33639daef904f4d991faf6de62b7df5b7690e31b20ed9b2d2b5eb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/behavior-paper.json",
+      "bytes": 9980,
+      "sha256": "433b2ebc0ca678fbb40abcad068f483272015030ea889492989ac9e81c623455",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/figure-elements.json",
+      "bytes": 21676,
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/figure1-assembly.json",
+      "bytes": 4105,
+      "sha256": "4082a166cf6bce3ef4d2ec5b1ec39df8651d3d9612ee193fa12e6095cb2208e3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/figure1-cadence-review-v5.json",
+      "bytes": 4889,
+      "sha256": "34b5025bf492a3fa5c68fa02085a33566a9d850d57af7bfb073fc5a6992b6635",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/figure1-session-protocol.json",
+      "bytes": 999,
+      "sha256": "0f2ebe01a3c3f9a6b4596f2ad481c1cd3e6ef2da6d209a21386bb4f3173e005f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/figure2-assembly.json",
+      "bytes": 31915,
+      "sha256": "7786be1635cefa5198c90ed28d4e90d7913e469cb55a09d4e420f92e9a0142b6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/review-variants.json",
+      "bytes": 17376,
+      "sha256": "89184b63cd37335a1b89b191a062429c274291571c470f3ee79116bd6c34b5ef",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json",
+      "bytes": 5152,
+      "sha256": "411ab6ca8984dc0da222006493f3b28b6ae0bc266ad61dcafc6eba2f51a8ef0f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-version1-freeze-20261009.json",
+      "bytes": 2065,
+      "sha256": "73ec192917e899964c9939051a6f827b7ec095df079c1640057f60f0c7adf39c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "bytes": 7839,
+      "sha256": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-freeze.json",
+      "bytes": 3092,
+      "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "bytes": 6888,
+      "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+      "bytes": 3050,
+      "sha256": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+      "bytes": 1768,
+      "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "configs/trace-preflight.json",
+      "bytes": 11205,
+      "sha256": "3ad4448c99b909ebb8b703a0f0cb87b7939898e3ed88c3dcbc3f5dfdb823ea46",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 835,
+      "sha256": "60faf9d9a1ff2acbbb10acbfa3ce2ea36d411c06c1b401e2b9a68354a3c96c12",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/01_USER_WORKFLOW.md",
+      "bytes": 4820,
+      "sha256": "963f6fe59601bc12326e2af583001299c2c2bb9fd96d4a613f3c216be10697c9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/02_CURRENT_PIPELINE.md",
+      "bytes": 5257,
+      "sha256": "df719be8e8743cef1c8a42d2036f447bf45c2f9c66585886fc2126be7415729e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+      "bytes": 14655,
+      "sha256": "ffb1134b68f041bd6c7c276265ef1c9f76363904fb34659b1d9835cf7c1eed2e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/04_DISCARDING_AND_SELECTION.md",
+      "bytes": 5643,
+      "sha256": "089df17f0a42dba2e124ca95008591c9dfd636b7f5703b4107014ecc7bbd2f55",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/05_METRICS_AND_BOUTS.md",
+      "bytes": 6769,
+      "sha256": "707d456895cff5f4957e707bbca74590752d03a37235a298b703d794af66f1ff",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/06_COHORT_AGGREGATION.md",
+      "bytes": 11276,
+      "sha256": "509094c734bca63bb3e144f5a57684d35977a682cf3bb83ee04b009a423d616b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/07_LEARNING_ONSET_LME.md",
+      "bytes": 23469,
+      "sha256": "7745644866ec1c075da68a08a8862c1672d400ce588998147e6e237adfa3617d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/08_CANDIDATE_FIGURES.md",
+      "bytes": 13393,
+      "sha256": "5c7abfaee1a926aafbbf1c32c1dfad45ad6dc3aa0c76fd833e62e356ff8c797b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+      "bytes": 4019,
+      "sha256": "86476a87cb8fd4d17ce10286a651e05a0d62dab75b0d71efbaa342f425bc8ed0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/10_TROUBLESHOOTING.md",
+      "bytes": 2403,
+      "sha256": "5243ee05cdd5d81991a754b2bcd4df1329f488cc2bd87a8b445cc437d80b203c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/11_GLOSSARY.md",
+      "bytes": 1931,
+      "sha256": "b325d31ce5eb62c493620ce19b753261d8e1a591345d9064252d2bb7d89969f9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md",
+      "bytes": 12914,
+      "sha256": "8e62bc21cdc126e6dddeb6dc72d865281dd1b54df256c1f06214af36efc9dfac",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md",
+      "bytes": 2904,
+      "sha256": "d4b3e6f083fbc8de8cfbe0cc43bbdcfd5c1a4eb0d74be3eb9216ccd844446147",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/FIGURE1_CAMERA_GAPS_AND_BIN_MAPPING_2026-10-06.md",
+      "bytes": 4947,
+      "sha256": "4bf4a2515fc4b046c20a7ae249a2723d43691e1ba3001390417ecd1c00daa9eb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md",
+      "bytes": 10012,
+      "sha256": "c6dd43adea8744b28cfdeb5aaf615235b0a03751e05868b4f3d98e84b3cda328",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/LEGACY_ACQUISITION_TIMING_REPAIR_2026-10-06.md",
+      "bytes": 6432,
+      "sha256": "670bc285ef997cba926eb19f1661176051a22af5717f257f80124c61a13758f3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/METRIC_SELECTION_2026-10-06.md",
+      "bytes": 4398,
+      "sha256": "0b974ba6bbc30274a17d0704562ca84ae9fd9f807a6de75820a3385862fd5de3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/PANEL_E_PRESENTATION_REVIEW_2026-10-07.md",
+      "bytes": 16551,
+      "sha256": "05015f890865562e1facac051e9dfa2db2156be5d567e2299349437030d074d4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md",
+      "bytes": 19440,
+      "sha256": "fa90b5aaa02493696f57da47dc373bd44b837001de8d2ed63539dae7b304c5a7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/README.md",
+      "bytes": 2903,
+      "sha256": "882d5f90759a22d8719dc9dabdfae349ce650d896fa3776bca0033aa4755c6bb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/SSD_OUTPUT_LOCATION.md",
+      "bytes": 1631,
+      "sha256": "beda75c307603b045c016fd2b9085be8c2024f924ef3bbf3bc5ac9221530a75c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+      "bytes": 22538,
+      "sha256": "b327bf5751fc0f2c5402ca792dcf6288146c5cce3f53e93aa5c14b2777b2f983",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/audits/02_ISSUE_REGISTER.md",
+      "bytes": 9653,
+      "sha256": "a76b4bb1d083608272c61cd723ed0a4ff1570cf37106d357777153733a6d5c80",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md",
+      "bytes": 25437,
+      "sha256": "5c8ed23dd5e64f6fcdd929c220a02851af808fda3c2d691df2af7b940499690f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv",
+      "bytes": 9585,
+      "sha256": "e281746b51a24d97dcc191825031787711ed504eaa784909fcc5e3f30feec7b2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md",
+      "bytes": 1430,
+      "sha256": "ed00d02efb7f0914b42253659eb19e26d70252fe07718e950b2fc51fbfd31fb5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/audits/README.md",
+      "bytes": 408,
+      "sha256": "22bdb97fe910ec6e668204fca2c81fce0fb934660a94d05a6227f5c2eae352fe",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+      "bytes": 2147,
+      "sha256": "d993e1dda672a39c9f875557e13561d0ba3348bd414b6a98851e58e7569030d0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/decisions/DECISIONS.md",
+      "bytes": 14158,
+      "sha256": "d06f40341cd2b74b5333895ad7cd5e22cc8f3782a37fe870929e9b19c5231ac5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+      "bytes": 16693,
+      "sha256": "e0d20fc875671ceea0a06b04aae5396871f6a7a7efcbc44f7e5ca68a46315a46",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+      "bytes": 13721,
+      "sha256": "35d0a83d2c83bbac92d7dd5a0d500724f2fc1af4303418f81cedf4f98bfd1a40",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+      "bytes": 9079,
+      "sha256": "88c7776465c0c14cde894508cd19c6001dbb6b6d1fa64e5b01f1e2086fc5a6e5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+      "bytes": 15931,
+      "sha256": "d8d1bdd1e695e9a5966881e37f9f5142dc10964ceeb93b5f8f2dac3f8592e571",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+      "bytes": 14605,
+      "sha256": "d6ec4166bde23c253bb30f91f705a36f3dce6ae191913ae71b361239ba2e0775",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md",
+      "bytes": 5473,
+      "sha256": "0a303e3f66971c473b3da0a844bc35d8f1a692360ea1e8b94aa479caf390b14d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md",
+      "bytes": 10447,
+      "sha256": "7c87c592d392c8475ef5cedde692c6ed985d63f858c421d70105d2a84485bd1a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/BASELINE_WINDOW_REVIEW.md",
+      "bytes": 6375,
+      "sha256": "b3910661e052e1a866b420472b88e1f1ffbf96c31a04212ebddc88a66bf22333",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/DELAY_FIGURE4_READINESS_2026-09-24.md",
+      "bytes": 4634,
+      "sha256": "6ce67fe122584b0775d3605dcbf8e179744a9f1d96e9544f85baaa9ab2be4562",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+      "bytes": 8814,
+      "sha256": "6bbc4ec687518394a707585261830b7be7564021701bdf746c8048bf16c2f0d2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+      "bytes": 5633,
+      "sha256": "c75d89ce64df4728869256ff4b483d59aae90c99c420bbe5096e63d264fbc31f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_HEATMAPS.md",
+      "bytes": 4393,
+      "sha256": "55b4206477cc73bdc841f224a66222531a791da7a3c7991e713d47330bbd2729",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_PANEL_B_REDESIGN.md",
+      "bytes": 7664,
+      "sha256": "026a5e051815cfd84082d417549eb2842c7b814f39232955dbb476777c24f2dd",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_PANEL_C_REDESIGN.md",
+      "bytes": 8440,
+      "sha256": "ec55a30af90be9bc143f8363c90f44c0c0b28f389bef35ebbb2c276bbb45ec5d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_ALL_VERSIONS_2026-10-09.md",
+      "bytes": 9979,
+      "sha256": "c27121faae4c72a5a95482177cc48188a6526de49c7d9533e449e3c52c6c8737",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md",
+      "bytes": 8205,
+      "sha256": "12ad0bec73506056b4ebc3b9d4687b55dfb9421859f2c4fd833e570b942af771",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+      "bytes": 8241,
+      "sha256": "0adee354004884c6ae88ec2a28cd3de00964fd1b77def213986b44affbba3c1e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_LMM_AUDIT_2026-10-09.md",
+      "bytes": 8177,
+      "sha256": "8cb1a7995836180eb2e7450f9f074f8f6af076ae5c66bcd9d2c9c42fc5f6a32d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_PHASE_LMM_2026-10-09.md",
+      "bytes": 8844,
+      "sha256": "08e0a37e999a0446130f025a8820ca4fd54772d5d1fe7117fd5619493ad99163",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+      "bytes": 9562,
+      "sha256": "4ba1abe3549bda086ed060f31e992bb2e5d94bbe07a064780427862a334456e5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "bytes": 28944,
+      "sha256": "5bfb6149b39037d5b8094524b890ddb4b146f65ea6e5f44122b0dffa78e6c87e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/README.md",
+      "bytes": 3282,
+      "sha256": "e2682f26b1bbb72b46cf929b00538c19bac4635989db4e3fbba347d68b4f77d5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+      "bytes": 4834,
+      "sha256": "1a4c5c71d7a9392fd17831f2af99b516e5c8e7efec9f5995a869958af9c8bc19",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/TRACE3_EXPLORATORY_RUN_2026-09-24.md",
+      "bytes": 4993,
+      "sha256": "cf0848a433b004c9f51cee7f04e772754be68b7346ef354d10c6b8c5fd68378a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md",
+      "bytes": 3695,
+      "sha256": "84b50f2f980030e38f7e9a30f1ae31eab74e2d370ed089801b3ddfe5b4a782a6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+      "bytes": 6666,
+      "sha256": "531b903b8f32602fa05b9f39ee6c691f285051869e0f6a2bc34a1b1166410588",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+      "bytes": 7242,
+      "sha256": "1e4950c4fec7bc84cc25ea7a9af9769fe11eeff45082aa899d6a261ab1a0dd07",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+      "bytes": 16579,
+      "sha256": "206ac5f184e70f5b5fc3a984ba7d2381bae4829b2b3f9531b2b8024764ef34e9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/README.md",
+      "bytes": 2271,
+      "sha256": "b7b554545c5e9e8454aa155310a7944b1c4e607d00db9597f6bc2d53994790c0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md",
+      "bytes": 15472,
+      "sha256": "5e16a5f25dc3c0f9b536653f322c2a7b28f3b560476e2ffac211fa171d863d28",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+      "bytes": 16975,
+      "sha256": "42963a19aff737a055839cbd60ef8aa00f8f1807c7b8fb2a4e7d463ef42cf89a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md",
+      "bytes": 18730,
+      "sha256": "cc96995afc441a7a042ed9e3651bf280108051f1b7e5c31f20311290e9b9ae94",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/IMPLEMENTATION_EVIDENCE_AT_CLEANUP.md",
+      "bytes": 766,
+      "sha256": "aa10193640362b7208b2c785207690c0fc098874cc86e941c64220b6e42adb46",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+      "bytes": 40578,
+      "sha256": "a1a73d67cf60d75fc208e0ae9cf81085c10db989059f902716f3e2a924b33a4b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+      "bytes": 6603,
+      "sha256": "00ecadfd7b63bf92a6e0f33fcaa5dad41e15a1c4d371818249e6d7103883317d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+      "bytes": 39606,
+      "sha256": "2bf42fa9d2ea7debc935eb5b1751a24b09a74064bda38bf9afe14fad8bebf6da",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+      "bytes": 10716,
+      "sha256": "fd2454dc7d81d0fa09da9685f773df1c62ce3a06d0a9d1f2ad7d149c1e073f05",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/legacy/03_LEGACY_VS_CORRECTED_WORKFLOW.md",
+      "bytes": 5337,
+      "sha256": "db5146da1a0c2e986762613124de0de39d26528df774a7861a43e3fedf6bd7d5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md",
+      "bytes": 5180,
+      "sha256": "7ef8c201fb645de546a81db9d2304bfd69246332b0c8a5c6d6f071a123fe1380",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/legacy/05_LEGACY_LEARNER_COMPARISON.md",
+      "bytes": 3370,
+      "sha256": "7e23e8395b2894f01743b2f659c806f2ab83ebac1acf986564680c9cbbf33808",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/analysis/legacy/README.md",
+      "bytes": 458,
+      "sha256": "534e85648ae2d004a0287034c776d36cd72ccf71901b09c8f66953292fc0230e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/maintenance/01_REPOSITORY_GUIDE.md",
+      "bytes": 2995,
+      "sha256": "fd1ac97e013c7dee38f97c1ac4e255f66e78c819494af987e73dd9bc633147fa",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+      "bytes": 5895,
+      "sha256": "8892dbaa1863b2f9c8f5fa8f23226d946782435d70e7f6d8c8393b7969f8a165",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "bytes": 500577,
+      "sha256": "0ac50985a1200fa898a17d8cbc1aef298e395d58ee5191958066e64edf6d5ffd",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/CLEANUP_RECORD.md",
+      "bytes": 4755,
+      "sha256": "f17d39418965ff0f2889cc2ac22f5dae091bce854975de793c60f010b0799e8d",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/README.md",
+      "bytes": 4221,
+      "sha256": "25ec067af7404e7eb47f72b4c3afe4295b760c575c4450c6b7a88b77061823d3",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/REQUEST_CONTEXT_20261010.md",
+      "bytes": 5523,
+      "sha256": "16698fa2298b39238b7a692c0b36ec914dc55632e3ff49dc6c054191b1fcefdd",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/REVIEW_CATALOGUE.md",
+      "bytes": 1668,
+      "sha256": "ea3bd48de50365eb2fa1a22ac2d5f06e5361225e916857c54793426aed024164",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/completed-transfer.json",
+      "bytes": 205012,
+      "sha256": "bec5637c6ee6cac9ff3b5541bf9a83a216591965d13e614829ca77307b38480a",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/deletions.json",
+      "bytes": 641,
+      "sha256": "5e1c60248e49ddfa5c6b8275f51f25d4c78687fe062c08808a134f296fba9182",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/historical-link-recovery.json",
+      "bytes": 2135,
+      "sha256": "e4bf2a73329679ebbca46fb70726b17ff738b29f97c354d8f0f7205a892db6ba",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/post-transfer-link-audit.json",
+      "bytes": 294,
+      "sha256": "f6d2c5ac1bccb2c26d7487fdf39d644b0e2040eda262e251844f129bb71536f2",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/relocations.json",
+      "bytes": 28149,
+      "sha256": "49074982245dad9794710da48d3ef940576e3b4f56f3b38e649628d224b72554",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/retained-code.json",
+      "bytes": 14261,
+      "sha256": "befacc094f6f02180b138520423f0e2562b70e22ba8f42fa4a6d29b4fcf482b1",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/review-lineages.json",
+      "bytes": 1981,
+      "sha256": "744b8f2f14298fc1ab1d240a6a590b15977d7992fdaa6b569aa098598f808d5e",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/ssd-readonly-inspection.json",
+      "bytes": 747,
+      "sha256": "f67a6b0787ed92d66d118e8390b5e6592db3df07c31c4075f8a5c554a6a558de",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/starting-inventory.json",
+      "bytes": 599788,
+      "sha256": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/transfer-inventory.json",
+      "bytes": 2829763,
+      "sha256": "e718dfcb14debaf9241f1dd1b9232e6dcee7b77e221e0a6e6cd96133f94c3b9d",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/archive/verification.json",
+      "bytes": 1441,
+      "sha256": "4a892dfa55cb929cea0b83b3410268946d2b039c7f645a52afaa5630a0965f21",
+      "action": "retain",
+      "reason": "Archive control/navigation"
+    },
+    {
+      "path": "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+      "bytes": 9578,
+      "sha256": "d216d2cfac0c512d9578ef9e8db09dd8d7903e26e36789d508ec348567321bde",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/maintenance/transfers/MAC_SSD_20261009.md",
+      "bytes": 6387,
+      "sha256": "769771b07c778c8c467bbf8c4eb5221c7987d0a673d5cc88a773621fb3269571",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+      "bytes": 11459,
+      "sha256": "8a5188222f7e117af9bd17064197ad03dba216b4040d6e7bb5d10c31fc1639fd",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/README.md",
+      "bytes": 864,
+      "sha256": "f43b2b2644f1f5ba58e9ed9b05e54e247b8590c2c351fa3a1a3b4f55a140bb67",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/helpers/analysis_utils.py",
+      "bytes": 46727,
+      "sha256": "6d6f99f2816aa5b4baeeb2ab3b8759f850309b699fb6decec216ae5baafeaf29",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/helpers/data_io.py",
+      "bytes": 7197,
+      "sha256": "bf3d12cda946d192f54dacc99a716762df3053eb09c6ee4f07150206f282abbd",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/helpers/experiment_configuration.py",
+      "bytes": 23814,
+      "sha256": "9a522809dd2234e998425fedc6d6bd3c9479619a2a1d0cde3b05d279160d7f16",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/helpers/figure_saving.py",
+      "bytes": 2248,
+      "sha256": "bfae44ab4eb3ab03b080419020b821eef0c76510b5f38244754e47f39d5c1d45",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/helpers/file_utils.py",
+      "bytes": 7028,
+      "sha256": "844c7d958503c77a114543724335110c0089bc517423c7d78914d1dcb5693a9b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/helpers/general_configuration.py",
+      "bytes": 5325,
+      "sha256": "bf2a1f4e6294aa4dda88d386a7279191f4ccfc89545a4652422bc16ac1a77983",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/helpers/plotting_style.py",
+      "bytes": 18797,
+      "sha256": "c4be46a659e4c721d56d83f98dd2246f354c45ec72b2e3507eb43b2bb1ce143f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/modules/my_experiment_specific_variables.py",
+      "bytes": 129272,
+      "sha256": "ef301c0172928349bb7c76635405971b07b70d543b07a6acb8c3a328d99fb1de",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/modules/my_functions.py",
+      "bytes": 69902,
+      "sha256": "ae48e7b1589a7b5dcbe1f70b46d273ca594a5e6660a4a11ca92d5d1a45fe0a52",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/modules/my_general_variables.py",
+      "bytes": 3759,
+      "sha256": "e217e3f901e238ac94c9256570972267d9e819e9a4583ca5bb7142ca4da54e3d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py",
+      "bytes": 75484,
+      "sha256": "f9bea235ea9688cf4e1a8403faaac9bc947178e31bbfe50cbf80ad558214c75e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/2_ExampleFishPlotting.py",
+      "bytes": 76499,
+      "sha256": "772b32f76ff64ec14b19c5462643b10619bd406427a5de6aef4911e5e0717081",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/3_FishGrouping.py",
+      "bytes": 27711,
+      "sha256": "71333dfd448e832d8dc18772f9feb0fadee32c48fab0231d667d9f7ab3407f05",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/4_ScaledVigorPlotting.py",
+      "bytes": 56649,
+      "sha256": "3bb2c8564ee4bd8fa39bcc73dfb6bbb8f0d794a738c8103a8b7ee18a1a0c35ae",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/5_NormalizedVigorPlotting.py",
+      "bytes": 82535,
+      "sha256": "a0997796233ea37098b12c581089656390a55a84ae6fa4f97250b60b0fceff39",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification.py",
+      "bytes": 112091,
+      "sha256": "de2e67bf9354d5d535439943ebc43af90703b951b801aa5abd7210485e3ccc6d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_WIP.py",
+      "bytes": 102643,
+      "sha256": "370274baf0bf6d287cab60ae9f228ac223c89ce934733f3f82b2bb288a9d9cea",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_improved.py",
+      "bytes": 97113,
+      "sha256": "8cef203b63d44c406779f70a0e322b1b039e97f8219ce3223d68fdc3bddd5dd8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_new.py",
+      "bytes": 147897,
+      "sha256": "e6294ff19819854864ae6674b94dc4291747b49872ac449f95e19ef58dc813ae",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "outputs/README.md",
+      "bytes": 249,
+      "sha256": "12992350ffbe5414c550535d5b2c3523e92c6437a2aadf63ad0aa32c93d5a092",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 820,
+      "sha256": "7b22968951b30941123c066bb6f152ecfef79079a87acc36367ffca5d44ab506",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/README.md",
+      "bytes": 563,
+      "sha256": "b74cd83b69054d54236d84445b0a5c7ac4da48f4ad16d40e52491fb085ee41c0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/freeze_and_style.py",
+      "bytes": 10324,
+      "sha256": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json",
+      "bytes": 6078,
+      "sha256": "956b9cf55451591d5456fd5b5cfe09e3c20743cd2f7bbd12f7f60c76613822f0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py",
+      "bytes": 16155,
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json",
+      "bytes": 21028,
+      "sha256": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json",
+      "bytes": 6617,
+      "sha256": "4d2bf1890c0b87b80bd8a7166d094abb0164f075a58fbb9ddb3d4bc551ff52ec",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json",
+      "bytes": 5679,
+      "sha256": "6414d3cbba94924b6b0b6f6cc79483d85bbf022e8857b457dc6c26ae47e608ea",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/register_freeze.py",
+      "bytes": 2914,
+      "sha256": "bab4ac1605c0f70b88fa31d55f7caef993a927bf5e13fdeab129e93f678dc300",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/render_references.cjs",
+      "bytes": 460,
+      "sha256": "b72b424ec18fff1ab5b1297d4a6e91d70afbf46abda834c9b12e688297c625f5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/replace_trace_fish.py",
+      "bytes": 6746,
+      "sha256": "e8a81ce00ddd377c0d12bd453e8e6e8b491d6dfd0a3758330cad46edfd56eb2a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json",
+      "bytes": 1707,
+      "sha256": "cc2ed4a81817e477b9978ad65e1ee450721ee2f45b80bc7ff245fc2e65b3bef8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared_colourbar.py",
+      "bytes": 5983,
+      "sha256": "cd36ec99dd29ff164475e4acf4fa8d4440ae7388ab87eb72e339a7ec0ad981c1",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/build_new_versions.py",
+      "bytes": 9471,
+      "sha256": "fe6b17884007ddf88916e64b4602ee53c1d8d3bebb1ed99b22c232db0e4a31d9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json",
+      "bytes": 275,
+      "sha256": "ed69d6c65456b4c5d6d19b7d2dfe3869d31fa4f011e00c7a428444ecfce0eedf",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json",
+      "bytes": 270,
+      "sha256": "2a6e684b1f9493e7978e4a76ffd827d92248a199695d8cc599ef7a9b4af6de54",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json",
+      "bytes": 2565,
+      "sha256": "5c02856578813a336c348bd227c6ffd1e1f3bbc42bcb8a3227d2281d60f1ee44",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json",
+      "bytes": 6879,
+      "sha256": "e7560d122653cc782b97b757ecc4e249a13232f6c37357f9f4b91439f33904e8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py",
+      "bytes": 16155,
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/manifest.json",
+      "bytes": 1826,
+      "sha256": "fd8e68bf9641da380bcdfe88b08c3bbe422f3839f7646b2795271e0c86ad3e13",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/replacement_verification.json",
+      "bytes": 302,
+      "sha256": "86c94548da863415c2a71e0207dc5b07acfc3a2c4d9e97f846d4431c62d2cb9b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json",
+      "bytes": 1720,
+      "sha256": "7843fbe473de6ba745002312beeed1068246f5ea3b42479a556354e15022ae5b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/verify_replacement.py",
+      "bytes": 1330,
+      "sha256": "675968ec306628a6c7e13a26d964dcb8418faacacf38cb070aecaf83ee6521a7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/candidate.json",
+      "bytes": 546017,
+      "sha256": "0943b4069a64d783c267f82240cb6e61f544a7c45832a2a02dabf23b3944e54c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/experiments-snapshot.py",
+      "bytes": 6149,
+      "sha256": "4a94b39717bd96c716cbf07347c4a457c960076950d9970e0f43ba42d1afd861",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/freeze.json",
+      "bytes": 575169,
+      "sha256": "ca8965d74926b48ba3152b4a5c4159efafa9246fa7b1d0f251c62ba03abdf8d9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/palette-functions-snapshot.py",
+      "bytes": 3710,
+      "sha256": "6b42599141f1dedb4b260d8f8bfed059665fa8d0bcf34d874fa1616c75bfe0a3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py",
+      "bytes": 35640,
+      "sha256": "a13a036ea4d05fb76bc2017b421a1f144431e7f36681edd018bb3d64df90afa5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/renderer-properties.json",
+      "bytes": 41738,
+      "sha256": "b685594f6f4c248788f75afd6d66edb019e6fc872b9f4ae24cad7dcb89ed442f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/selection.json",
+      "bytes": 86380,
+      "sha256": "2256cc5a96a1d7f2859217726f3549c2e6d7654b4868ecb9ca245be44775def0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-fgh-v12-20261009/specification-snapshot.json",
+      "bytes": 21676,
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/candidate.json",
+      "bytes": 1569403,
+      "sha256": "ec685e275e7cea3ddffd7d923b3d7b1f3753064650cfe0eff9d294d0afd08589",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/check-report.json",
+      "bytes": 3086,
+      "sha256": "38f9ed1eed07e683dbd2e5213b4c9b66ac1efa1cc69f1f1b3c87b125e4a874a6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json",
+      "bytes": 3230,
+      "sha256": "8281daf014fbae2c95280c235218391cc4c08f11ad404539ad8c9cb22e306b54",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/freeze-preparer-snapshot.py",
+      "bytes": 26025,
+      "sha256": "cb2d708f9ea2874132ec7054c9f5b7931032f9ad64b6ccab5a5dc7f78947d47e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/freeze.json",
+      "bytes": 1645781,
+      "sha256": "c5e86c8a5724ba671deaf41627b661324bca47d411909718eab88d7e1c4c8299",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/renderer-properties.json",
+      "bytes": 71770,
+      "sha256": "d07246352b7999e089a76c1a11160cf4ad3aa7e3992e7d5d6b9bb4be5f84f05d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/renderer-snapshot.py",
+      "bytes": 11594,
+      "sha256": "12e5660da722fc8a9934ce40d07f774412a1c9502f310f67882681155adb4f42",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/selection.json",
+      "bytes": 96581,
+      "sha256": "f180cd22e52a32d66c152b5928c9a93c95063f2be359d329f645d1bae87eb1fa",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/specification-snapshot.json",
+      "bytes": 21676,
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure1-panel-e-20261009/version-history-source.md",
+      "bytes": 14200,
+      "sha256": "5181d81ccad93445af4855a6f786a9db3430a720ccd8c471760904e0a621d90b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json",
+      "bytes": 984575,
+      "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2-G-logmedian-20261009/scientific-selection.json",
+      "bytes": 2242,
+      "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2-G-logmedian-20261009/sources/Fig2_G_Historical_LogMedian.figure.json",
+      "bytes": 1792873,
+      "sha256": "ea90c79d4dc9c3f3fe0c5c3786d16dbc39780c74891bcb128c0e3e9402fb65b2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2-G-logmedian-20261009/sources/renderer-source.py",
+      "bytes": 16086,
+      "sha256": "c6438942104fc0e72fb8c25a9c3614104dd3bc58ef6f54f33bd9f654489aa1cb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json",
+      "bytes": 25349,
+      "sha256": "899f900a20c5e2b070887a82aceea715aa422f7eaa42aa2d1513c8eeeafc92b8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+      "bytes": 610443,
+      "sha256": "e845a1a5a5a37eb73251defce3279f816f721a88e76dd781cfe72e79c034a782",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+      "bytes": 575419,
+      "sha256": "8dcb436bdad6ca30b2375fb1cb5ff0d0270769145f8fc0a147896f06e24dff2d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/D_renderer_review.json",
+      "bytes": 5591,
+      "sha256": "f1ade2b55d2314dc7b092b93e37f8784aaa995a56c7b62a507e8627dbe47d4fe",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+      "bytes": 632178,
+      "sha256": "ad10ef49a77357e353a97ce0b39c64521da655d818716cf5e61badd85aa0b6d2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+      "bytes": 596021,
+      "sha256": "3ff47c12d04df4da9414c60632829cc736689ced5ae9d2c7428e7f38d35b87f1",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/E_renderer_review.json",
+      "bytes": 5216,
+      "sha256": "478140ad8222e69cfc6f39f4d61c9bbf836699f0990f139fbe6af67038f5549e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_D_B.figure.json",
+      "bytes": 1137558,
+      "sha256": "b8f12166e2c9b20a1ec67ea0e68a68b522c95c660424ec481c481d9a9d44888c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_E_B.figure.json",
+      "bytes": 1179557,
+      "sha256": "c22918989a6cac6874cdaf211511eddc53107fd45c68c704b757897e733fd914",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/README.md",
+      "bytes": 1696,
+      "sha256": "3fdd566e10a2ab833dc604e2d3d819a0aae37b23a374e6ce27ebe5373f8613d7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+      "bytes": 78355,
+      "sha256": "d3b62894d9c75f57fddb3e7510223183c3097330b0d56d23b1bbfdef6343a4f8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-manifest.json",
+      "bytes": 16605,
+      "sha256": "d4af69c14a42024a86ad3b87d6d862423efd492d8127613df6a36a1c607af48f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+      "bytes": 28965,
+      "sha256": "359b0ac59e08c8c0f4427a2ae402b1fe8398f9326a4a4742d0c56d8cc27144cc",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_block_statistics.py",
+      "bytes": 4812,
+      "sha256": "e36e240173c0b37f5fd02047bfe41ad3c4523b0f5a82647a82cf25cf22b7bd93",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_vigor.py",
+      "bytes": 2698,
+      "sha256": "5ff31912367946a90a5375009023be8ca2bad9242d62125e926363255a70eaf2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/candidate_metric_kernel.py",
+      "bytes": 30058,
+      "sha256": "fee5305da90d1a09655af217ce3a1955ecf95c2cab1884a436e40626bae19a8b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/experiments.py",
+      "bytes": 5977,
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/export.py",
+      "bytes": 15934,
+      "sha256": "15423c3d6937ece60f4241cc8e1848e953f99e7e23b1e0a11622091d68c77c6e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure-elements.json",
+      "bytes": 21676,
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure_freeze.py",
+      "bytes": 38837,
+      "sha256": "1a7960588622fb1748725f060f98c5111fac3607afe40badd8045fd86aa77304",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+      "bytes": 19942,
+      "sha256": "7b03bb24d3a19237055e33d1b6f7a06d4e73016cffa0c80be0627df23d9e9d3c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py",
+      "bytes": 30361,
+      "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py",
+      "bytes": 15314,
+      "sha256": "fa7961cacdac071b872856c2e0e12a97949fb157d424a586fad386c06dbbd864",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md",
+      "bytes": 5688,
+      "sha256": "9a61756b7148fbe9a70dc6c579f429ece42984253ff6b8232bc1894742d4d049",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/method.json",
+      "bytes": 1605,
+      "sha256": "fece6cda05452613bf5aa0c927ee511f554c0a83dc172576524d5591e7e8324a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/scientific-selection.json",
+      "bytes": 1725,
+      "sha256": "b7b17c0d2ab32c6c9f1aad6fc7f7ffc14b030ed50ef6742c1f4cb9164d6ccc5d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "records/frozen-analyses/figure2_B_freeze_20261009/visual-review.json",
+      "bytes": 1488,
+      "sha256": "32b2798cbf8c5be9bfd2b585cec0c571720e8042c33b53088d8df5e43466bd96",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "reviews/README.md",
+      "bytes": 342,
+      "sha256": "553f46034c47e80ad44230f51e13f25816f83dead2a0fb1509e53c7f398d230d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 3059,
+      "sha256": "34717e44d045b8ad9f4ccc94ba6114e476e3eef971019be633d8bd21bdc7c6aa",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/archive_delay_review_versions.py",
+      "bytes": 13495,
+      "sha256": "6bb49bab57de06cddcf8b814c719c2265661877a19850765e2cb445b7b7bc47f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/assemble_svg_figure.py",
+      "bytes": 21558,
+      "sha256": "ebe21179170698367ff0847cb6c9946e065993777e7a317c7b9078d455be89d2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit-inc-trace-stim.py",
+      "bytes": 4506,
+      "sha256": "924947aa5d25c8013f02de243a983e6b4c098d317019a54eacf733ab70ccab0d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_figure1_camera_gaps.py",
+      "bytes": 7094,
+      "sha256": "cdcccd546b85b5329501dfa66daed7d7849e4e90cbe4644a84aa26d258c48a39",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_figure1_legacy_cadence.py",
+      "bytes": 9135,
+      "sha256": "b356ac684a5ec8b7cae0d3c2061f670998c32a5d822453b17a8287d98b5d0102",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_figure1_vigor_alignment.py",
+      "bytes": 9477,
+      "sha256": "3ea755e6f899d06fdfcb3318d71899c78115dc7ec439fa1061bfdef4bbcf2ccc",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_figure2_bout_only_statistics.py",
+      "bytes": 5371,
+      "sha256": "f18fa4eb0b398f40db50294723d1afead5f4bd797e720c9a7e0da9d96d5db4f6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_figure2_delay_lmm.py",
+      "bytes": 10834,
+      "sha256": "cdd604811f78a36c532bdb5b7095852fee0bbdccfd067f3d9599996cfab9f8e6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_mac_ssd_handoff.py",
+      "bytes": 3194,
+      "sha256": "bad74a6e2bb0a97f73871dfd981696b927a2656e2b7afe174c5049e3a20716f4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_preprocessing_archival_routes.py",
+      "bytes": 2619,
+      "sha256": "6c39f9c49374c7090571ee0f15518255fdcdfcb50c6ccd8e449bc1a32cad3f54",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_preprocessing_contract.py",
+      "bytes": 5406,
+      "sha256": "602b635d1708ffd4bbbf461d9ee238f28492647368a154b30ffc3cf8341ca494",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_preprocessing_historical_compression.py",
+      "bytes": 875,
+      "sha256": "d39f53d1b441a7228201979929f8bfe55d770eb75a1bcffbee73878b934a21a9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_preprocessing_historical_tables.py",
+      "bytes": 2240,
+      "sha256": "784c3afd2b9dee85d6ce079afa21cae5eba4a8ea1f4c8a11c16ea1d85aeecbc1",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_preprocessing_original_cadence.py",
+      "bytes": 1742,
+      "sha256": "e4aab90ce7ff99a7e8bd8d384835aee23c3e133eb32fd373d6f202a6862922ec",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/audit_preprocessing_routes_and_filters.py",
+      "bytes": 3586,
+      "sha256": "87e4f7847267cef64c17dafd3ecefb74615dd936ecf729eae6143edf6bb2c5e3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_cadence_review_v5.py",
+      "bytes": 14035,
+      "sha256": "4bfd85ad5fd673f067a4840190410287f6215d4b7fa2abf0c81782e48e873989",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_heatmap_bin_inset.py",
+      "bytes": 6391,
+      "sha256": "f0ada5a8b9cf4e2f4c0100cd4084318007e21dea0b21dcabe8b51d7ac80421d4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_legacy_vigor_heatmaps.py",
+      "bytes": 14447,
+      "sha256": "206843129827dae5f2451eda3f9f522932e63631bbb6c03b7c0a9db6d942f013",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_panel_a.py",
+      "bytes": 1491,
+      "sha256": "e1dcc5f0969b3dae8d56033bd778b41dd0ec626760cedb2d8ac6782c37491d68",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_panel_b.py",
+      "bytes": 19965,
+      "sha256": "9b56c6066a07d80f17efcc8aead2db8c0f81dadd28441fdca90d9ee172054060",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_panel_c.py",
+      "bytes": 11779,
+      "sha256": "7d2adecc89314ca5f41c81f364a2709582a8aa42dd48d0d90b507f183e5f2435",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_same_frame_vigor_review.py",
+      "bytes": 6898,
+      "sha256": "3d936c9193aad3a27367c4e348a95c2fb737f9725c4c6ce1cc4a59ea1699d5b4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_trace_panels.py",
+      "bytes": 8413,
+      "sha256": "43e7fb764f63b0df89e277e50b01c34a8f4674a57c89943a54ee46e2ff9fcb12",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_vigor_overlay.py",
+      "bytes": 6358,
+      "sha256": "babea5abacdcef6825730cf97a2495ccf3f043eb22172914e3c2b7694480fd59",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure1_vigor_zoom.py",
+      "bytes": 11513,
+      "sha256": "a23685a16a28c066bbf996bfbeeee6420b37e1671149d07e916f035db1e1a719",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_figure2_assembly.py",
+      "bytes": 9674,
+      "sha256": "94b426cc14bb72a43066317098ab1ee79f782bb140d1a9231e176219f4755fb3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+      "bytes": 11616,
+      "sha256": "ea1df05e91c06829234ee3fd68d2b1305e1dc12bf3def15856ee4c2aef539e49",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/catalog_figure2_versions.py",
+      "bytes": 5934,
+      "sha256": "5806994dcc998d673ed537795c1252d6a76289521715c417b792b84a5d806cc7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/clean_archived_delay_reviews.ps1",
+      "bytes": 3967,
+      "sha256": "a52be0c3c4478efc76fa382f331be1c044565e421cbfa2767fc0bc5b716a7ea0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/complete-3strace-move-after-review.ps1",
+      "bytes": 4234,
+      "sha256": "3aa40fa365ee43382f4fbc9a0e2725fd15f2ee9358a6fa0c73ab5c43061faa8f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/complete-allDelay-to-lme-windows.ps1",
+      "bytes": 4100,
+      "sha256": "3197a08860ec11bfe57cb29d3a1325953fdd8c876252995a17af49bcc25ceaac",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/complete_delay_logmedian_on_f.py",
+      "bytes": 2141,
+      "sha256": "dc9588c78fb27a3ef281d592c4fce226e5dc520f590c8f763335f76c463fb120",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/continue-3strace-after-pipeline.ps1",
+      "bytes": 3042,
+      "sha256": "80518f5e113d8fd14c541f6ef859a33ec18d0cbe9658c874342ca694945bb340",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/continue-3strace-legacy-preview.ps1",
+      "bytes": 4751,
+      "sha256": "e75659eaccc1d1711dd2982408e1241986c3a8278a6273fa8011c770a022fc0f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/continue-3strace-partial-window13.ps1",
+      "bytes": 5042,
+      "sha256": "472b8d5312b42ec45a45a08bb6428754c003394cf814bae4743e79469e38bdac",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/continue-3strace-window13-after-rebuild.ps1",
+      "bytes": 2265,
+      "sha256": "b0e8c7683568e579973b95f70090422ef46116fa01ded72c093c75bd874d1e06",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/copy-3strace-project-to-f.ps1",
+      "bytes": 4711,
+      "sha256": "903f4b1750c70a63686abcde9237faea456c7bcb13a3d9fee15cf4fe1683af1c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/copy-3strace-staging-to-f.ps1",
+      "bytes": 3326,
+      "sha256": "9e4ed5784273752068dad596f924a2d1bae544f65c5a47467aa5dee4c59c9f16",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/finalize_3strace_exploratory.py",
+      "bytes": 10735,
+      "sha256": "a863258a08389ed8e7222f71c225c469b5a005b13e69f9a95994fd33d5b07f37",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/finalize_figure2_B_candidates.py",
+      "bytes": 3365,
+      "sha256": "1a1b372f9f8d2fbeb42950d0970d7a7eb4f5d3da323462b44041679734a241a2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/finalize_preprocessing_audit_report.py",
+      "bytes": 3433,
+      "sha256": "f4a2a069323118a4285a978e74210ba1a803e0b5e98c835e4a848eb274d0fd37",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/freeze_figure.py",
+      "bytes": 284,
+      "sha256": "e18568c20be5ca19da07776a183a9298e3a1c7f1287d1a1c32d62268b8ae35fe",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/freeze_figure1_panels.py",
+      "bytes": 1209,
+      "sha256": "5ddb79d68cce8b251a9f707498c0faef36c1665bc2b79ce128f4709b6bf84b80",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/mac_ssd_run.py",
+      "bytes": 2814,
+      "sha256": "c6a637d578208700f477b1b580b512b4af19cd0d214eaf06e8d41a6de8aff974",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/plot_metric_response_magnitude.py",
+      "bytes": 4287,
+      "sha256": "59924b70a97bbe550563711aabb0f4f6c9dd51a9baedef310191fc7e0a9bee22",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/plot_train_test_transition_metrics.py",
+      "bytes": 4996,
+      "sha256": "e8f4e70d48553a82be4fddd770bccf82fc7f2d5f941c608117c7f74ac6891b39",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/populate_figure2_available.py",
+      "bytes": 23190,
+      "sha256": "4157c266a6c715db724de668fcdc2418a1f5a9343999feed9fca605842875d83",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/prepare-trace-runs.py",
+      "bytes": 8223,
+      "sha256": "0d102a77c5ba53a24476eeb1e465c99b3f486f12a6464f17031e8308fa40a63d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/prepare_figure1_fgh_v12_freeze.py",
+      "bytes": 36007,
+      "sha256": "8ea8fef56e3f64c2f80e9abb2cb01854c23a2a77ade77823ca254e4dc9ff3deb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/prepare_figure2_B_freeze.py",
+      "bytes": 20218,
+      "sha256": "1f4e78fcd8a71b26e462a92be913e9e6bff20c73903f5a8f9ef7186dfdc918a9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/prepare_figure2_G_logmedian_freeze.py",
+      "bytes": 16086,
+      "sha256": "c6438942104fc0e72fb8c25a9c3614104dd3bc58ef6f54f33bd9f654489aa1cb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/prepare_mac_ssd_handoff.py",
+      "bytes": 5018,
+      "sha256": "fe055153e00f5b191e1eb93cd8122edfc69119a55a2c721c2cea5eb38bd5fb45",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+      "bytes": 26299,
+      "sha256": "3dce857911114e169a4f378f8670838c50f73df4dc280ebb7e26a14d79b97fb3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/process-ingested-trace-fish.ps1",
+      "bytes": 2407,
+      "sha256": "6541a3ec90b312b5239d642f297f5da7bb7b0ce9fdf8814e1a2e657d2343ae9d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/rebuild_3strace_window13.py",
+      "bytes": 4865,
+      "sha256": "2537543f1516f1bfb0135749f0d53bcda66108533174ee2b0e1b59dcda9b3691",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/recover_delay_review_on_f.py",
+      "bytes": 6208,
+      "sha256": "3c711fff02c0710b6addbc532d68d3dd9ecdfcd04ae88096a69d6300ce277d2a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/register_figure2_B_freeze.py",
+      "bytes": 5644,
+      "sha256": "a54f8adcc00862f70be3546a2e831100ac5761386d49b08cdd08fb23df67f3e8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/register_figure2_G_freeze.py",
+      "bytes": 6373,
+      "sha256": "eeee55d8101bf76c39d9632e4b8c3cca3c23852aee9197749fdf2c6ce4aad539",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_delay_all_versions.py",
+      "bytes": 12089,
+      "sha256": "dc21a3188de237712bacf7b67664e7d8fd4ba438c754844244697aded0018455",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_delay_lines_only.py",
+      "bytes": 5599,
+      "sha256": "3a0600e16f0ebeab9e2a9cdc90f51fb5f11b7aaf409293fe3b64af5ebe65c9f3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure1_3strace_example.py",
+      "bytes": 6084,
+      "sha256": "34e42a2af84983f806c26bff8a5a60e68dc0b9d3ee1a5c6eafb8547de6229906",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure1_all_frame_heatmaps.py",
+      "bytes": 8676,
+      "sha256": "bb75fd74c20e57086e8a31a5c5527ec06458a386980b0bbccab350f56f287532",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure1_cd_scaled_log_review.py",
+      "bytes": 14834,
+      "sha256": "523eaad7ccaf0600b4c130f2f091a8d1cfe9228cd0adb7f38bdc0560ae2a38a7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure1_raw_vigor_y_focus.py",
+      "bytes": 14157,
+      "sha256": "13ef385238dd4c422d0f3c7b7d9aa31e5ac0b4c7c4aa52657d0bede1544cf0eb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure2_3strace_legacy_layout.py",
+      "bytes": 6693,
+      "sha256": "6f26c391e850ee8e8ec9732579b4240f0394e992f1be7855ffeaa4f8abe86eb2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure2_3strace_signed_review.py",
+      "bytes": 8265,
+      "sha256": "0da2b11d6200e4ef912cc4eec9e518fc0a3e6bf481f5aa1f4565b75f5bf831ee",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure2_delay_legacy_metric_lme.py",
+      "bytes": 25744,
+      "sha256": "c2f316f3bb04fc1b52be7d35158153559df6cbc65bb44bd9b688bce8fa45e34f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure2_delay_logmedian.py",
+      "bytes": 22786,
+      "sha256": "486d763ad6d9af71b7f2bad9277d9ccf20b4d98805e512ca2a6d9701e48f26f9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure2_delay_phase_lmm.py",
+      "bytes": 15212,
+      "sha256": "7ec5bbfa7499ec19f90fb61e10c188e13db573da027ff0fe0d792cd01caf9b94",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure2_delay_review_display.py",
+      "bytes": 12347,
+      "sha256": "dc1ffaa2055cb351c66b08f08aab6654d06048eaa1bd558ed8cc456cd4dbcdcb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure2_legacy_stats_lme_review.py",
+      "bytes": 17955,
+      "sha256": "7cb4910d4fe0f6a454c968d69fef889af1e4952c859c662cd5c1b8ea6817b87e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_figure3_3strace_review.py",
+      "bytes": 12607,
+      "sha256": "98115de7102ffb436ecf679c1129c9cda48b62b6924fc473658ab611bc53ca84",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_legacy_ssd_example_heatmaps.py",
+      "bytes": 11961,
+      "sha256": "43ebd0cf8a1def0234cc4f1aa2fa1ba58a07d8e4424d6539fca55b4d81433e40",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_legacy_ssd_example_traces.py",
+      "bytes": 8352,
+      "sha256": "7629fe3ee8e4caa485671b570b9be8ee2023b2132dc937f5a4d62d2e0c840f4b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_legacy_ssd_figure2_delay.py",
+      "bytes": 18667,
+      "sha256": "1b7d13575878aa504d789de6fed5da93c133fdd6ee62f719b71f379d7f51af17",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_log_scaled_vigor_heatmaps.py",
+      "bytes": 8932,
+      "sha256": "209d4d297980bc2911fea4b6ce6aca8d05d76a165573fd6aa9c86d6387b61c8a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/render_ssd_per_trial_example_heatmaps.py",
+      "bytes": 8743,
+      "sha256": "38228baa39fe46c53384bc12306c82d68643a8295253f860799421b8415a56a4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/repeat_figure1_nan_mask_audit.py",
+      "bytes": 6422,
+      "sha256": "8f977af8fd5877ab60829141990166fd13ed1d02a5e04f0a4f960ae1878a2624",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/repository_archive.py",
+      "bytes": 20079,
+      "sha256": "83402f5d07dba3b3038893eaba595779ae53579360bcd5cda52ed45f0969f663",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/resume-allDelay-full-windows.ps1",
+      "bytes": 972,
+      "sha256": "cffc35afe04827657bd67542d2a5ff2e8aeaf41876fe5477deab184cca0221e2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/review_figure2_block_log_median.py",
+      "bytes": 30361,
+      "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/review_figure2_bout_only.py",
+      "bytes": 15598,
+      "sha256": "05e691d3418ad04ca3d10710102c4c6f520db31c7caa8cf858fc7df4e09352fa",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/review_figure2_row3.py",
+      "bytes": 18413,
+      "sha256": "6aea34d1ef5dc787d8f34b9a4dadb130f8302c0c45217072663490945727fd17",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/run-3strace-exploratory-post.ps1",
+      "bytes": 8834,
+      "sha256": "e362d58cc50a1ab802f76cb1b755efe32cf3a5e8934595dcd9d2f56c863c3e1a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/run-3strace-window13-post.ps1",
+      "bytes": 8564,
+      "sha256": "55ace903e7b656bd29644de6188f187326055a150bf9436dad5d68d485f7e46f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/run-all3sTrace-full-windows.ps1",
+      "bytes": 3008,
+      "sha256": "504751dafd48692b6464be623f2edaa3ee913aa18b0d04ccf9b9a66cbf93a87d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/run-allDelay-full-windows.ps1",
+      "bytes": 7324,
+      "sha256": "d51e38e8aaeab3d4dc62aae639256f76cc1bbf4a13af3653f99562c52bbc27d2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/run_3strace_legacy_full59.py",
+      "bytes": 5279,
+      "sha256": "706e6d7ca0536e9264a2526eec8c9b25d4afb793d9c74d6ba95ade5dce8ea589",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/sync-repo-outputs-to-ssd.ps1",
+      "bytes": 3479,
+      "sha256": "b447f2194a150a3b91d4f6fd0f1469d81dd10c3ecd75e33900a24aa6487c921e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/update_latest_figure_assemblies.py",
+      "bytes": 8920,
+      "sha256": "453aa7883a48a3c28cab15071014ce79b7a9ad2cf27ab60a7046b882d82c6e48",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/verify_3strace_move_readiness.py",
+      "bytes": 11532,
+      "sha256": "67fecc6d8a83e5a18604ad481b2109d9f2e53ad70d45aa3eef6094126b71a652",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/verify_figure2_bout_only_review.py",
+      "bytes": 4257,
+      "sha256": "36ae9dc43e7b104b40a44d016c172c3338917e471f9ecdc231727e724dfa411e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "scripts/watch-repo-outputs-to-ssd.ps1",
+      "bytes": 1331,
+      "sha256": "7f6eee05bd09775eb5a5ca7dad2232d2c53ca8846f1a91d8782e2a70471f86a3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/__init__.py",
+      "bytes": 1432,
+      "sha256": "26ef8c8a3e0c2ad0e6fb8933fd29e8fff05a410d1fbf44cfc955ac23f5796238",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/__main__.py",
+      "bytes": 612,
+      "sha256": "e281ed454ba57afdded310dfad5c82497a91e87896b4350fceb74473ec0a47e4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/__init__.py",
+      "bytes": 3249,
+      "sha256": "ac3d9c4481a54ef1cc7d978ae22385191edfe49d07937822eb36f6ae95f53810",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/benchmarks/__init__.py",
+      "bytes": 229,
+      "sha256": "712fca356096329bc7359288d95f26da7bc110428a82199e224958931b315d61",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/benchmarks/movement_sensitivity.py",
+      "bytes": 861,
+      "sha256": "18987f37651784fe9d5ef1c7c975002f80fd7a6bdbcb60b03e1dee5f39713e1a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/bout_block_statistics.py",
+      "bytes": 4812,
+      "sha256": "e36e240173c0b37f5fd02047bfe41ad3c4523b0f5a82647a82cf25cf22b7bd93",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/bout_vigor.py",
+      "bytes": 2698,
+      "sha256": "5ff31912367946a90a5375009023be8ca2bad9242d62125e926363255a70eaf2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/candidate_runner.py",
+      "bytes": 25195,
+      "sha256": "f77d87d132e52cc414a14ee90002dd8ad9e60d288efea2cfd969b05925809265",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/cohort_outcomes.py",
+      "bytes": 25526,
+      "sha256": "52ad14f1142b1c8dc6c1cc38512b58f988ce44d63dd07ce053c867567b708fd3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/discarding.py",
+      "bytes": 28479,
+      "sha256": "93a5108845f6760690009fa896bc4cb5799807b74ce2b87b0702a010b8fefd1f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/figure4.py",
+      "bytes": 28120,
+      "sha256": "671eb05f67fc7670ed891e2431c676260bb04f5470ea403565571fc14119e1a6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/__init__.py",
+      "bytes": 783,
+      "sha256": "4b7e5b3a1d044093226bf84d300805f282bdfbc2efe180c70126b54c997f658f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/fish_bootstrap.py",
+      "bytes": 12366,
+      "sha256": "d8f727df16c83f42a2fd5c93f1d23e98459d5e1c5f59db0183fbd3c517996fce",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/fish_permutation.py",
+      "bytes": 13676,
+      "sha256": "67b5fb8284f7b67a47e22ad4988e73c9b0545449759e9e0df8ab35718009cb90",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/learning_onset.py",
+      "bytes": 77856,
+      "sha256": "2b35c33483c3150f8ca06b43bbcd3b44e1aa5d646651b8a5dea707332832bb0c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/mixed_effects.py",
+      "bytes": 14977,
+      "sha256": "3c502017f04a58913cc621c8d99b330ad96462e915b40bf46d6055bfd60f7f06",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/model_input.py",
+      "bytes": 16955,
+      "sha256": "bcf01ec5df87a0689949ddffef5bb84a627672e6cf6155c480db928fdb43babd",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learner_controls.py",
+      "bytes": 7438,
+      "sha256": "3bfebee6b00792b283f77003c55d81676df008fd06b929ca6e1b6c32cc3c08a6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learner_worker.py",
+      "bytes": 6059,
+      "sha256": "b964de25b3bf1d4e84b615d482f2af0aad0c34c0974d770475f5fa8fb5b2ace8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learners.py",
+      "bytes": 15311,
+      "sha256": "eefdc293dc21f5c541df0946ad708b9f87196a4d0dcaf338bc26d853abcc0aa3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/metric_comparison.py",
+      "bytes": 23905,
+      "sha256": "a7260b446e368748f2eb5168a85bf54c88714f83acc06a16ed4c8f073395e60e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/movement_state.py",
+      "bytes": 44437,
+      "sha256": "8843968168a920a23e796cc914d03c0f6cbc8e2d3bed37e3f0781fefe15e04b7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/__init__.py",
+      "bytes": 221,
+      "sha256": "ef79d17a8687094ea1c6f02d0f14566526ac690af81b7d31d42e7efa582f65cc",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/trace_review.py",
+      "bytes": 26213,
+      "sha256": "7b6330c433b85c7b9a0b70707a278e4f97e13edad79462cd6e54d4c3f4be5c6d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/temporal_profiles.py",
+      "bytes": 33106,
+      "sha256": "25dcc7bcf1d0b6e9c0ddd9e6a3e1c118edd83926ff4263c03269518377be205f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/trial_outcomes.py",
+      "bytes": 27402,
+      "sha256": "320f8d67b6a6b7a4a57769f08226a507d244bf5aa48fac97b76dec4fbc118b98",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/artifacts.py",
+      "bytes": 19673,
+      "sha256": "6bcca978784e8de05ef75943915be0422d3321d22e4053207b18dac9be8b5308",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/cli.py",
+      "bytes": 83094,
+      "sha256": "c2dd78e421c356c454040990b6de70780f8412d940b565a2eb54df8e1ab62fb4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/cohort.py",
+      "bytes": 20061,
+      "sha256": "c0899ae1af5bc2a2ac89f17d86e4285e7708b8f82ffb1526a582dc17f1651d9d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/comparison.py",
+      "bytes": 8210,
+      "sha256": "ea1215f63ca3b954786921a06b892f1a9e0e55175f143641bbd03e4c0bbe27ca",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/config/__init__.py",
+      "bytes": 1930,
+      "sha256": "d69ea001b57d5e9530d729c90c22c843e04ab0f0458bf82576f745a66f6d38f8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/config/domain.py",
+      "bytes": 9202,
+      "sha256": "0b95d73fca9ac1af06ef1ad3bc8c5a6e645304965651efee5bb9ae4d4abea780",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/config/experiments.py",
+      "bytes": 5977,
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/config/export.py",
+      "bytes": 6024,
+      "sha256": "adcbb4fae092226c2fcd23665fc7e35a3a14f8f4a59d85bbb09d6aa240997005",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/config/identity.py",
+      "bytes": 1953,
+      "sha256": "dadf4f96e388ef32335d19c83d10a11ab43515286b5689c37e566b17a05fe285",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/config/trial_map.py",
+      "bytes": 3815,
+      "sha256": "ba4e9b3662a5c8d71041eee54c9b2982fb44ca9f5d2530aac45fe83c1a337d76",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/environment.py",
+      "bytes": 5939,
+      "sha256": "0818a30295b07a94a28098f6a9a6cc893af04d674db66f152c9044ef2c0643d3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/exceptions.py",
+      "bytes": 1953,
+      "sha256": "198de592c33d9a9d62f01efb8096eb250d499b23d198813c34ca7c907939723b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/external_artifacts.py",
+      "bytes": 4339,
+      "sha256": "3a0addda876a22107d7f904ae1c203a3bbf14fb0f2c4f3affc174f1ac5159a3c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figure_freeze.py",
+      "bytes": 38837,
+      "sha256": "1a7960588622fb1748725f060f98c5111fac3607afe40badd8045fd86aa77304",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/__init__.py",
+      "bytes": 1875,
+      "sha256": "db9d4d4a85f9292074b2bc0002823bbe541058fc9db36c8092c27a7b290490cc",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/cohort_response.py",
+      "bytes": 54835,
+      "sha256": "3d4f4c0c0861bbd468bf86bd9649e3ef53e389b1e58b97d98a6ffa781a6f09e6",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/example_traces.py",
+      "bytes": 15558,
+      "sha256": "2715bab30441b69f23fd97769dfd2f1324b543c6eebba4fff3341ac5e0ab19b7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/export.py",
+      "bytes": 16377,
+      "sha256": "7186cf9e4a6b45ea686bf500645d72fa1189c40489dc9023cf6051e88ecd0e43",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/figure4.py",
+      "bytes": 10330,
+      "sha256": "fb5aa53611b9862d4f0ca4610a122485cbce47eeddf9490e99078abbd0ebc972",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/learning_diagnostics.py",
+      "bytes": 6983,
+      "sha256": "da29c697cdd2ee7131101f35428a03523f996cd010034019cc3ac72d448f0381",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/learning_onset.py",
+      "bytes": 15280,
+      "sha256": "bed538c0f90753146d9f928cc54bea97767ef506fba53b9dd202afd71b61acd4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/metric_comparison.py",
+      "bytes": 11363,
+      "sha256": "7cc394abb4631543fb94d16a5b38c5ee043e7e0648f474b5ba8cc11bcae76332",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/paper_panels.py",
+      "bytes": 10218,
+      "sha256": "98090a62cdbb1fdac89b618b9f956e230174399bf3934dec6936b9e871cacc25",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/per_trial_scaled_vigor.py",
+      "bytes": 9247,
+      "sha256": "f30fd6a3651dea2fc17dc1e024731c27576adf91f9bf988a53d63d5b1fd16057",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/population_heatmap.py",
+      "bytes": 13539,
+      "sha256": "8279346862723e35071b54d7062a9584442a8541c329c8c7b30b4e4f6d3e3500",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/signed_bout_heatmap.py",
+      "bytes": 5325,
+      "sha256": "f8b195336aa3fdf9f7b3193be2fd34fb48d434c60cd8e4410ec866bc94c02562",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/temporal_profiles.py",
+      "bytes": 26560,
+      "sha256": "aec438e6b32857270ba72b767dd1fbe68eb1140778c5d57c7ef24bb16956687a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/figures/theme.py",
+      "bytes": 12010,
+      "sha256": "18f846643612c377f15a3070477b9ba4fffe58567e900bf1763b6c7292bb1447",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/__init__.py",
+      "bytes": 1726,
+      "sha256": "e54475ad8f9d6cbe3ee807b5793af76a6fff5f8fa2dbc605d31a44280778d3ed",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/frame_sequence.py",
+      "bytes": 5589,
+      "sha256": "1d868793cbb289e64e29a34878f1330d29ffa83cb01ba7e47a0ffbf0a64a19c4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/readers.py",
+      "bytes": 9335,
+      "sha256": "07b0882d46158580cc40e7aa4975b0c1e462841ae79fe4dd141dfdfde153c0cd",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/schemas.py",
+      "bytes": 4315,
+      "sha256": "035ac418bad3ada734360f778d6f0c4649b046bd49bc2cb8f5f38fe4b0f77823",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/tracking_audit.py",
+      "bytes": 11188,
+      "sha256": "fc93970166888b918371debad13bc22a650473d42b970a30267ff8bcb98967a8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/validate_raw.py",
+      "bytes": 4912,
+      "sha256": "4407980b528e0176a3240f7788af890493b253312bc7cff06769453c790deb95",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/intake.py",
+      "bytes": 53056,
+      "sha256": "3f49b4857c9eb10d56c2daddf53e268873a21d8aacc86791e25837d2e9d623d8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/inventory.py",
+      "bytes": 10546,
+      "sha256": "d727c89efb3889ed279a331afaa0e1d34557feb1c860cbe58d0e16124b4aeb06",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/metric_policy.py",
+      "bytes": 774,
+      "sha256": "985dee29947e103ee505f678252bf8447b25622a0c9f1284af3ccf7a2fb8165d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/operations/__init__.py",
+      "bytes": 218,
+      "sha256": "76cacd570a9c9ce0b5113af7744e6480e7069fad1dddf6256208368917e266cf",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/operations/batch_work.py",
+      "bytes": 17110,
+      "sha256": "75492aa54cbf0c53bda04c3a6e72b478a5f78d92d2c27eda9325ada71fb01269",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/paths.py",
+      "bytes": 3639,
+      "sha256": "c8b9be7d29b71f74625b47f4f72361bf559b92f2bfa1c4f155cfd3b9fb4a77b1",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/pipeline.py",
+      "bytes": 27145,
+      "sha256": "9f6c3dec5c6184774c930040181e133ceaf0b2e151bdbe12fcb8535dcbb69de5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/__init__.py",
+      "bytes": 2132,
+      "sha256": "ea525e5c232e526bac0dc21aba49ac6b7bba3380d3cb732ba5a1b5684e1e1326",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/acquisition_timing.py",
+      "bytes": 3656,
+      "sha256": "7627e38c57a21d6408f8a15d4782ba19cb362b4e295a068ad76ffd5694862a29",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/benchmarks/__init__.py",
+      "bytes": 427,
+      "sha256": "a6d07f52a7a454ead3ebbfef573bdb4c37575fce53cd5d989bfabdff25a7d015",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py",
+      "bytes": 1642,
+      "sha256": "4690aa241cffe473b52ddaaa7354c2ed88cb6fa8ecf249d20a0c8e4d52c33963",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/candidate_metric_kernel.py",
+      "bytes": 30058,
+      "sha256": "fee5305da90d1a09655af217ce3a1955ecf95c2cab1884a436e40626bae19a8b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/candidate_metrics_from_corrected_frames.py",
+      "bytes": 18990,
+      "sha256": "6260bb70657ca94d07b59d7150e4b200159978d85926cee005056e75537a4379",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/corrected_frame_preprocessing.py",
+      "bytes": 25474,
+      "sha256": "a5e4a7e0bcc632a3df06199b4100b5bee63188b58bb1d8a77ba14e1eee394d7a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/progress.py",
+      "bytes": 5260,
+      "sha256": "d018c3814014cb0698eb308d9217d64978744ea19cbadd76656ec39d0742d600",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning/run_config.py",
+      "bytes": 9263,
+      "sha256": "380208efeb2f2e78f945e6be10c91bf8c3c11f5c8dd98ceeee3898e0a450f9fb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning.egg-info/PKG-INFO",
+      "bytes": 529,
+      "sha256": "9c53701243b78fa431ea049a8fc7c8055932ae477e6ad39f9bb727cc6e132d1f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning.egg-info/SOURCES.txt",
+      "bytes": 4388,
+      "sha256": "793b004a6fd9a2421181badca633cccdbf068028b4fd6d840d01eddadc60a2df",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning.egg-info/dependency_links.txt",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning.egg-info/entry_points.txt",
+      "bytes": 75,
+      "sha256": "6b8515ce6e26da66b84ff1fd791e96c8bba21eaa21a2eefbda31417d12759803",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning.egg-info/requires.txt",
+      "bytes": 160,
+      "sha256": "5810fa8b280eb7d49f23ac5c68d45b844ddab7a2c956e810df4413496e4eee62",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "src/classical_conditioning.egg-info/top_level.txt",
+      "bytes": 23,
+      "sha256": "672d8b98dd7d3f02f868e1a4e245bed3af61e10cf878d47c492be6f0a54f4c15",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/characterization/__init__.py",
+      "bytes": 66,
+      "sha256": "f7f9e4d9d7b9b2415b774811ddec033da64b410ebdcf78d6ac450fe7561e0dbb",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_3strace_finalize.py",
+      "bytes": 7152,
+      "sha256": "7621b102550b4d775ee298c52c03d8c14da34b9b27b077074cd458a41031fa59",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_acquisition_timing.py",
+      "bytes": 4840,
+      "sha256": "beee7cd43853e5820e98bde5b88fafc19ed9c7c4246664d7672aafed2914d236",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_artifacts.py",
+      "bytes": 8314,
+      "sha256": "20f981dcc9ddd0993389ba4017f69e0993536e1ff974b45b63233a5015e009b0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_batch_work.py",
+      "bytes": 4599,
+      "sha256": "bec786ce2483a8c443635e1fa7cba05f23f907039025011f168af3a21c0f52c7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_bout_block_statistics.py",
+      "bytes": 2008,
+      "sha256": "6b9d50716cdf824aeef10d801ad1d2d160707f6d717369b39d01a58df4875499",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_bout_vigor_policy.py",
+      "bytes": 3805,
+      "sha256": "07b904600b949129a23e42fd2ee2446f7163399b5c45ae5a72f88dac0311aa19",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_candidate_metrics.py",
+      "bytes": 9887,
+      "sha256": "ebe5d89279e6bec2239602b9562e51faff6a4e2d4e8e54c370d9959b83bd9f6f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_candidate_runner.py",
+      "bytes": 9700,
+      "sha256": "f2a14d57f2ecbee85fbb4d5596d05376dc766b137674a80407283cc625b609b2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_candidates_corrected_adapter.py",
+      "bytes": 2818,
+      "sha256": "ba7535aa0b16e8480c4b4d8ac8cae0e4b19e22250cf6b178372f0fd1cbc4acd5",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_cohort.py",
+      "bytes": 7449,
+      "sha256": "e394d7c9d2a8bb63c374017176bb695dcabc3723a631692fda2bdb260d1c618b",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_cohort_outcomes.py",
+      "bytes": 9604,
+      "sha256": "f66e7105cbb0642542c023beec6f8a3818c399a3307f45758cc1c069781a3df2",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_cohort_response_figures.py",
+      "bytes": 15746,
+      "sha256": "b2768edeecdd57363d1dc299bc35a589e871e046adfc1145ffd39e5bc90ae3bc",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_comparison.py",
+      "bytes": 8144,
+      "sha256": "9e1ebfaded23d3db6d3c0d08002f2ce8a9237d5aa7f3ad2fc770e4f92e4ba30f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_config_export_and_tracking_audit.py",
+      "bytes": 7043,
+      "sha256": "ae13d84aedfbe68bdb2f4ff9a9d8100d7e1e4f0a060180bb342626970a833ab7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_configuration.py",
+      "bytes": 3435,
+      "sha256": "3e4a57e8778b7eeb82311c2e668de064775ff1e4d31f423c7968a55e2c39d8e8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_corrected_preprocessing.py",
+      "bytes": 7648,
+      "sha256": "d96b12e249992e558b9f80da22522d52fd0ec3cf0efd14a83da3ddf13709a595",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_discarding.py",
+      "bytes": 12370,
+      "sha256": "33957b6b74a33de09c202ca09bfee7dba70767d2c8a5f3a3c685669536be908d",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_environment.py",
+      "bytes": 4021,
+      "sha256": "9dabb3bd9057f7f946e19fb3d6d6c271b6b5a34e375045001f373056b13d2198",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_example_traces.py",
+      "bytes": 7552,
+      "sha256": "db953636491c2c4a33b7f39d83bb40d0c81d34045a7fbb243190179941f6d4dd",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure1_cd_scaled_log_review.py",
+      "bytes": 2803,
+      "sha256": "a64db80970e297c1e2467e61b741e2a163690c3f0721e79eff436a1e70f5e90e",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure1_panel_b.py",
+      "bytes": 6297,
+      "sha256": "abea546d3cc655796b96847be8f6a3023f78fb478f62c57338adeb2023042b5a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure1_panel_c.py",
+      "bytes": 3156,
+      "sha256": "93a348d099e756f080461b3c525b15bf71f671929d782875492169e91f1765fa",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure2_delay_logmedian.py",
+      "bytes": 2297,
+      "sha256": "3fea5c48e966bafa1b11472177672b62aa56cef46753c59f0ff8284a42647a30",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure2_delay_phase_lmm.py",
+      "bytes": 2718,
+      "sha256": "2abad6a3a4887705c6796a73b593d36c4d7e86d7a91f7995b2b74f24e94f8262",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure2_delay_review.py",
+      "bytes": 2921,
+      "sha256": "c9ff185f3447546401354a49621afb4ad2cdf032e186ea9c79fc3d8e69a854f0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure4.py",
+      "bytes": 24368,
+      "sha256": "1089d85fff4d1135750a7b58f2b469e42e8f8bf2e74f0fdf292f9271bfcaa2a3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure_export.py",
+      "bytes": 6960,
+      "sha256": "da1117578769026e27f05c9abd9086a5956815426ee622fe11a0a6434ac4fdbf",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_figure_freeze.py",
+      "bytes": 20578,
+      "sha256": "c2911a601d9434d1a245978ba8d18b1c8265c0f645e1e2d68e39f0af939d576a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_fish_bootstrap.py",
+      "bytes": 3017,
+      "sha256": "8304b4cada5a21e34cc053304c0c04e02cc52d1f7f80bd6ea3f5ff1686243b84",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_fish_permutation.py",
+      "bytes": 3603,
+      "sha256": "8d58e107ffbad4362a2e0cfffe8850a6495e7a62a608bb67f3671802da290332",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_intake.py",
+      "bytes": 17176,
+      "sha256": "540da23a36cbc4756de8b95204d7a3a88a03facf55f5e2c2d1de024469350ce9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_inventory.py",
+      "bytes": 9282,
+      "sha256": "d61af9ec45262867884531c8f4b160c35bfdcd665900a54812ae74407ad0c345",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_learning_onset.py",
+      "bytes": 18270,
+      "sha256": "90289cf7dd1874f232e619f50bf7df15ed09c8fabc6697d28f2c8e6b198de096",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_legacy_learner_adapter.py",
+      "bytes": 2985,
+      "sha256": "928076509b8ee31b1bb823b45d45d8e099debeccb2d7467d3b15cf1f432534c8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_legacy_preprocessing_parity.py",
+      "bytes": 3556,
+      "sha256": "7bfe2087cf996dd40f6be2ce8efd70de90136b2910b8be45cabb129168d9e1e0",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_metric_comparison.py",
+      "bytes": 8267,
+      "sha256": "3de3cbc8aaa0f8df8f4ac1450532af0094f1937295cb61eafb31014de1fa6bc8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_metric_comparison_figure.py",
+      "bytes": 5276,
+      "sha256": "10e0bc9f04ed9ccae50de2c58794a1e28f14f7373d68cbf62db95f1c2986088c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_metric_policy.py",
+      "bytes": 2865,
+      "sha256": "70ae7cfe0e335ca2512ec268b56d2ad832e2b85a8cedb4569876593ab25f561c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_mixed_effects.py",
+      "bytes": 3377,
+      "sha256": "f84b02296e8dc413e0d83ee63b4cc77e4a018cf6c464cb9d5b6e6e2dcb2203e7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_model_input.py",
+      "bytes": 3670,
+      "sha256": "456e62ef87d60b8acdcc63987bd9dc6855381b8eef9b52da412f22dc0e0ee7f8",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_movement_state.py",
+      "bytes": 11020,
+      "sha256": "623086fe357d8922d0ad1d68193d0d7dfbe9678bd2fbae03ffdd02ee86f8044a",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_per_trial_scaled_vigor.py",
+      "bytes": 4443,
+      "sha256": "cbb2686976bbf9a3f3e5eefd72b7e27d050cbadc2f38ab59e1ebc776444fc700",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_profile_figures.py",
+      "bytes": 9865,
+      "sha256": "c4d906f7283677ad005b6dc7ec5550c3feca1c750b8560ee6ff4fe6b0cc05f20",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_progress_and_runtime.py",
+      "bytes": 2289,
+      "sha256": "cf2c62dd415e7813994ddca5f615108da6428e537af9d096a072ec6abc3c923c",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_raw_readers.py",
+      "bytes": 6899,
+      "sha256": "9f36874512ffe6abce6dca7e220049ae8ed114bdbd22402e6007d19d3eadebd7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_repository_archive.py",
+      "bytes": 5689,
+      "sha256": "6b3aa419455d10983b48789e3ec329da06e7a981fa0cdf33a5de1391459c21f4",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_repository_organization.py",
+      "bytes": 3427,
+      "sha256": "dc7b11fbd882cb1e1d4f5ecd700acbedcb3c690b148baf9566546e60a2927e92",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_run_pipeline.py",
+      "bytes": 24109,
+      "sha256": "98ecc8f2d8aa6210aed7dd11db0d2e38a91d5789db9a6b4da3b9a4d8b6b233e3",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_signed_bout_heatmap.py",
+      "bytes": 4574,
+      "sha256": "64c5830b9e9bf25a729bafa6377e30ce51f79cc978e179b4d24422a88b8594a9",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_svg_figure_assembly.py",
+      "bytes": 7550,
+      "sha256": "3caa11bb099d2477adf8f9f8a07eb5ca248f2b7bede165ca8950beaa4c5dc1f7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_temporal_profiles.py",
+      "bytes": 13963,
+      "sha256": "4f196b4b0a421811cad854c43f451da3e7d8061d0d98dabe64b7869d948b389f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_theme.py",
+      "bytes": 3909,
+      "sha256": "410d1ccf92ba92be4e086b1231e6aeb6c07cbf85b566a5e19893ecfd9d2d198f",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_trace_preparation.py",
+      "bytes": 2885,
+      "sha256": "bd34476a34228dc641563415942d28a9f50e026ffc874105ab86fddb0c2bf738",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_trace_review.py",
+      "bytes": 4197,
+      "sha256": "7644c547721c846d4c93a6774a2ec6d22f855edfa75887c516f7e5d0c1ee3684",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "tests/test_trial_outcomes.py",
+      "bytes": 8210,
+      "sha256": "b154e0aa5d69a60dbe6f4edab31d7ad51e53232a80513f49eb1ca68a735285a7",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 97207,
+      "sha256": "a4084f7a480973abbf06098b2516b1bd99b46a171e8a49e1f6aefa95b9aeb753",
+      "action": "retain",
+      "reason": "Supported retained implementation/documentation or exact frozen record; see original disposition inventory"
+    }
+  ],
+  "excluded_generated_and_environment_file_counts": {
+    ".git": 2733,
+    ".venv": 19850,
+    "__pycache__": 252,
+    ".pytest_cache": 0
+  },
+  "self_record": "This inventory is excluded from its own hash list",
+  "immutable_checkpoint": "transfer-inventory.json"
+}

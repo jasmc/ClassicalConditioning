@@ -1,5 +1,7 @@
 # Paper figure creation and provenance, panel by panel
 
+**Current authority update, 2026-10-10:** [Scoped freeze index](freezes/README.md) identifies Figure 1 E/F–H V12 and Figure 2 D/E B/G. Older formulas, proposed registry status and examples below describe historical/proposed routes and must not override those selections. Exact frozen bytes are preserved; current paper assemblies and remaining scientific gates still require review.
+
 This file answers **what was used, how a panel is calculated, which code renders it, and what remains before publication**. The panel map is the proposed [paper specification](02_PAPER_FIGURE_SPECIFICATION.md) and [machine registry](../../../configs/paper-figures/behavior-paper.json). All registry panels are currently `blocked`; a review renderer existing is not equivalent to a completed manuscript panel. The separate [review variant registry](../../../configs/paper-figures/review-variants.json) identifies historical images and parameters.
 
 ## Shared construction path
@@ -19,7 +21,7 @@ The supported integrated command and example are in [02 specification § Renderi
 | **1B** condition timing | Compare the 10 s CS and paired US onsets at 9, 13 and 20 s for Delay, 3sTrace and 10sTrace; show unpaired control without a fixed US latency. The vector source is described in [Figure 1B redesign](FIGURE1_PANEL_B_REDESIGN.md). | Exploratory vector review exists; final artwork approval remains open. |
 | **1C** session protocol | Show Pre-Train, Train and Test phases, trial counts and the 50/100 ms US legend from `ExperimentSpec` and the trial map. The assembly source is in [Figure 1 assembly](FIGURE1_ASSEMBLY.md). | Session timeline artwork exists as a review source; final protocol approval remains open. |
 | **1D** tail angle | For selected fish and global CS trials, [`example_traces.py`](../../../src/classical_conditioning/figures/example_traces.py) reads corrected frames, centers distal cumulative angle on the trial pre-CS median, and plots measured frames with event guides. Integrated adapter: [`render_legacy_ssd_example_traces.py`](../../../scripts/render_legacy_ssd_example_traces.py). | Paired D/E review exists; representative fish/trials and final composition remain open. |
-| **1E** vigor trace | Same fish/trials and time axis as 1D; plot one selected corrected frame metric. The optional orange step overlay is the exact 1F/H signed heatmap bins on a separately labeled axis; invalid gaps remain open. Renderer above; focused review: [`render_figure1_raw_vigor_y_focus.py`](../../../scripts/render_figure1_raw_vigor_y_focus.py). | Review exists; metric and examples need selection. Frame vigor is not silently rescaled to the heatmap color range. |
+| **1E** vigor trace | Same fish/trials and time axis as 1D; plot one selected corrected frame metric. The optional orange step overlay is the exact 1F/H signed heatmap bins on a separately labeled axis; invalid gaps remain open. Renderer above; focused review: [`render_figure1_raw_vigor_y_focus.py`](</Volumes/JOAQUIM/ClassicalConditioning-Archive/scripts-cleanup/2026-10-10/payload/scripts/render_figure1_raw_vigor_y_focus.py>). | Review exists; metric and examples need selection. Frame vigor is not silently rescaled to the heatmap color range. |
 | **1F** Delay fish | [`signed_bout_heatmap.py`](../../../src/classical_conditioning/figures/signed_bout_heatmap.py) computes moving positive bout-frame log vigor relative to each trial's [−20, 0) s median, then 0.5 s signed bins. [`render_legacy_ssd_example_heatmaps.py`](../../../scripts/render_legacy_ssd_example_heatmaps.py) draws the provisional Delay/control pair with `managua_r`, fixed −0.25…+0.25, NaNs distinct. | Paired review exists for provisional fish `20221115_07`/`20221115_09`; single final panel, metric and example approval are open. |
 | **1G** 3sTrace fish | Same signed single-fish method as 1F, applied to a prespecified 3sTrace fish and authenticated corrected artifacts. | No final fish selection or integrated paper-panel renderer. |
 | **1H** unpaired control fish | Same signed method as 1F for a prespecified control fish; retain coverage mask and trial order. | Control half of the paired F/H review is a candidate, but no separately composed final H. |
@@ -69,7 +71,7 @@ The renderer also exports individual catches, movement probability, and signed-s
 ## Supplementary support by main figure
 
 The [paper specification](02_PAPER_FIGURE_SPECIFICATION.md#supplementary-figures-and-data)
-and [Plan 10](../../../Plans/10_SUPPLEMENTARY_FIGURES.md) group supporting
+and [Plan 11](../../../Plans/11_SUPPLEMENTARY_FIGURES.md) group supporting
 outputs by the main figure they explain. Final supplementary numbers and panel
 letters are assigned after analysis and layout review.
 
@@ -81,7 +83,7 @@ letters are assigned after analysis and layout review.
 | **Figure 2: population heatmap coverage** | From each Figure 2 heatmap panel data, render contributing-fish fraction on its own 0…1 `managua_r` scale and show counts. Delay review writes `supplementary/figure-2A-coverage_*` via [`render_legacy_ssd_figure2_delay.py`](../../../scripts/render_legacy_ssd_figure2_delay.py). | Delay review exists; Trace cohorts and final cohort/metric remain. |
 | **Figure 2: trajectories and inference checks** | Render authenticated per-fish trial outcomes, example-selection context, block/trial diagnostics, and sensitivity with cohort membership and eligibility visible. | Trial outcomes and Delay review traces exist; approved inference and any extinction estimator remain open. |
 | **Figure 3: learner validation** | Render fish scores, eligibility, uncertainty, control calibration, method sensitivity, and independent validation from the frozen Gate L artifacts. | Learner representation and final validation artifacts are open. |
-| **Figure 4: catches and response timing** | Use configured catch IDs (global 25/39/53/59 and, for the pooled set, 65). Figure 4 already renders individual-catch signed/movement/coverage families. Independent onset/peak/offset timing and catch-selection sensitivity follow the [supplementary plan](../../../Plans/10_SUPPLEMENTARY_FIGURES.md). | Descriptive catches exist; independent timing estimator and final composition open. |
+| **Figure 4: catches and response timing** | Use configured catch IDs (global 25/39/53/59 and, for the pooled set, 65). Figure 4 already renders individual-catch signed/movement/coverage families. Independent onset/peak/offset timing and catch-selection sensitivity follow the [supplementary plan](../../../Plans/11_SUPPLEMENTARY_FIGURES.md). | Descriptive catches exist; independent timing estimator and final composition open. |
 | **Figure 4: visual controls** | Compare approved red-CS/visual-control cohorts and metric-consistent outcomes with cohort and protocol provenance. | Required cohort and analysis approval absent. |
 
 ## Checking a particular exported figure

@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "organization": "figure / panel-or-joint-scope / dated-version / record-role",
+  "files": [
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/freeze_and_style.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/freeze_and_style.py",
+      "sha256": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/freeze_and_style.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/freeze.json",
+      "sha256": "956b9cf55451591d5456fd5b5cfe09e3c20743cd2f7bbd12f7f60c76613822f0",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/selected_processing_code.py",
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json",
+      "sha256": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/layout-validation.json",
+      "sha256": "4d2bf1890c0b87b80bd8a7166d094abb0164f075a58fbb9ddb3d4bc551ff52ec",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/settings/pooled-style-freeze.json",
+      "sha256": "6414d3cbba94924b6b0b6f6cc79483d85bbf022e8857b457dc6c26ae47e608ea",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/register_freeze.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/register_freeze.py",
+      "sha256": "bab4ac1605c0f70b88fa31d55f7caef993a927bf5e13fdeab129e93f678dc300",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/register_freeze.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/render_references.cjs",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/render_references.cjs",
+      "sha256": "b72b424ec18fff1ab5b1297d4a6e91d70afbf46abda834c9b12e688297c625f5",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/render_references.cjs"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/replace_trace_fish.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/replace_trace_fish.py",
+      "sha256": "e8a81ce00ddd377c0d12bd453e8e6e8b491d6dfd0a3758330cad46edfd56eb2a",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/replace_trace_fish.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json",
+      "sha256": "cc2ed4a81817e477b9978ad65e1ee450721ee2f45b80bc7ff245fc2e65b3bef8",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared_colourbar.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/shared_colourbar.py",
+      "sha256": "cd36ec99dd29ff164475e4acf4fa8d4440ae7388ab87eb72e339a7ec0ad981c1",
+      "source": "reviews/fgh_v1_layout_freeze_20261009/shared_colourbar.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/build_new_versions.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/build_new_versions.py",
+      "sha256": "fe6b17884007ddf88916e64b4602ee53c1d8d3bebb1ed99b22c232db0e4a31d9",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/build_new_versions.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json",
+      "sha256": "ed69d6c65456b4c5d6d19b7d2dfe3869d31fa4f011e00c7a428444ecfce0eedf",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json",
+      "sha256": "2a6e684b1f9493e7978e4a76ffd827d92248a199695d8cc599ef7a9b4af6de54",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json",
+      "sha256": "5c02856578813a336c348bd227c6ffd1e1f3bbc42bcb8a3227d2281d60f1ee44",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/freeze.json",
+      "sha256": "e7560d122653cc782b97b757ecc4e249a13232f6c37357f9f4b91439f33904e8",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py",
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/manifest.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json",
+      "sha256": "fd8e68bf9641da380bcdfe88b08c3bbe422f3839f7646b2795271e0c86ad3e13",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/manifest.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/replacement_verification.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json",
+      "sha256": "86c94548da863415c2a71e0207dc5b07acfc3a2c4d9e97f846d4431c62d2cb9b",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/replacement_verification.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json",
+      "sha256": "7843fbe473de6ba745002312beeed1068246f5ea3b42479a556354e15022ae5b",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/verify_replacement.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/verify_replacement.py",
+      "sha256": "675968ec306628a6c7e13a26d964dcb8418faacacf38cb070aecaf83ee6521a7",
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/verify_replacement.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+      "path": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/freeze.json",
+      "sha256": "e845a1a5a5a37eb73251defce3279f816f721a88e76dd781cfe72e79c034a782",
+      "source": "reviews/figure2_B_freeze_20261009/D.freeze.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+      "path": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/candidate.json",
+      "sha256": "8dcb436bdad6ca30b2375fb1cb5ff0d0270769145f8fc0a147896f06e24dff2d",
+      "source": "reviews/figure2_B_freeze_20261009/D_candidate.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/D_renderer_review.json",
+      "path": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/reviews/renderer-review.json",
+      "sha256": "f1ade2b55d2314dc7b092b93e37f8784aaa995a56c7b62a507e8627dbe47d4fe",
+      "source": "reviews/figure2_B_freeze_20261009/D_renderer_review.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+      "path": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/freeze.json",
+      "sha256": "ad10ef49a77357e353a97ce0b39c64521da655d818716cf5e61badd85aa0b6d2",
+      "source": "reviews/figure2_B_freeze_20261009/E.freeze.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+      "path": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/candidate.json",
+      "sha256": "3ff47c12d04df4da9414c60632829cc736689ced5ae9d2c7428e7f38d35b87f1",
+      "source": "reviews/figure2_B_freeze_20261009/E_candidate.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/E_renderer_review.json",
+      "path": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/reviews/renderer-review.json",
+      "sha256": "478140ad8222e69cfc6f39f4d61c9bbf836699f0990f139fbe6af67038f5549e",
+      "source": "reviews/figure2_B_freeze_20261009/E_renderer_review.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_D_B.figure.json",
+      "path": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/sources/source-figure.json",
+      "sha256": "b8f12166e2c9b20a1ec67ea0e68a68b522c95c660424ec481c481d9a9d44888c",
+      "source": "reviews/figure2_B_freeze_20261009/Fig2_D_B.figure.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_E_B.figure.json",
+      "path": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/sources/source-figure.json",
+      "sha256": "c22918989a6cac6874cdaf211511eddc53107fd45c68c704b757897e733fd914",
+      "source": "reviews/figure2_B_freeze_20261009/Fig2_E_B.figure.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/README.md",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/original-readme.md",
+      "sha256": "3fdd566e10a2ab833dc604e2d3d819a0aae37b23a374e6ce27ebe5373f8613d7",
+      "source": "reviews/figure2_B_freeze_20261009/README.md"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-inputs.json",
+      "sha256": "d3b62894d9c75f57fddb3e7510223183c3097330b0d56d23b1bbfdef6343a4f8",
+      "source": "reviews/figure2_B_freeze_20261009/authenticated-source-inputs.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-manifest.json",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-manifest.json",
+      "sha256": "d4af69c14a42024a86ad3b87d6d862423efd492d8127613df6a36a1c607af48f",
+      "source": "reviews/figure2_B_freeze_20261009/authenticated-source-manifest.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-element-specification.md",
+      "sha256": "359b0ac59e08c8c0f4427a2ae402b1fe8398f9326a4a4742d0c56d8cc27144cc",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_block_statistics.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_block_statistics.py",
+      "sha256": "e36e240173c0b37f5fd02047bfe41ad3c4523b0f5a82647a82cf25cf22b7bd93",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/bout_block_statistics.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_vigor.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_vigor.py",
+      "sha256": "5ff31912367946a90a5375009023be8ca2bad9242d62125e926363255a70eaf2",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/bout_vigor.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/candidate_metric_kernel.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/candidate_metric_kernel.py",
+      "sha256": "fee5305da90d1a09655af217ce3a1955ecf95c2cab1884a436e40626bae19a8b",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/candidate_metric_kernel.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/experiments.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/experiments.py",
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/experiments.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/export.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/export.py",
+      "sha256": "15423c3d6937ece60f4241cc8e1848e953f99e7e23b1e0a11622091d68c77c6e",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/export.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure-elements.json",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-elements.json",
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/figure-elements.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure_freeze.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/figure_freeze.py",
+      "sha256": "1a7960588622fb1748725f060f98c5111fac3607afe40badd8045fd86aa77304",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/figure_freeze.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/prepare_figure2_B_freeze.py",
+      "sha256": "7b03bb24d3a19237055e33d1b6f7a06d4e73016cffa0c80be0627df23d9e9d3c",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_block_log_median.py",
+      "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_bout_only.py",
+      "sha256": "fa7961cacdac071b872856c2e0e12a97949fb157d424a586fad386c06dbbd864",
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/handoff.md",
+      "sha256": "9a61756b7148fbe9a70dc6c579f429ece42984253ff6b8232bc1894742d4d049",
+      "source": "reviews/figure2_B_freeze_20261009/handoff.md"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/method.json",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/method.json",
+      "sha256": "fece6cda05452613bf5aa0c927ee511f554c0a83dc172576524d5591e7e8324a",
+      "source": "reviews/figure2_B_freeze_20261009/method.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/scientific-selection.json",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/scientific-selection.json",
+      "sha256": "b7b17c0d2ab32c6c9f1aad6fc7f7ffc14b030ed50ef6742c1f4cb9164d6ccc5d",
+      "source": "reviews/figure2_B_freeze_20261009/scientific-selection.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2_B_freeze_20261009/visual-review.json",
+      "path": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/reviews/visual-review.json",
+      "sha256": "32b2798cbf8c5be9bfd2b585cec0c571720e8042c33b53088d8df5e43466bd96",
+      "source": "reviews/figure2_B_freeze_20261009/visual-review.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/candidate.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/candidate.json",
+      "sha256": "0943b4069a64d783c267f82240cb6e61f544a7c45832a2a02dabf23b3944e54c",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/freeze.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/freeze.json",
+      "sha256": "ca8965d74926b48ba3152b4a5c4159efafa9246fa7b1d0f251c62ba03abdf8d9",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/renderer-properties.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/reviews/renderer-properties.json",
+      "sha256": "b685594f6f4c248788f75afd6d66edb019e6fc872b9f4ae24cad7dcb89ed442f",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/selection.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/selection.json",
+      "sha256": "2256cc5a96a1d7f2859217726f3549c2e6d7654b4868ecb9ca245be44775def0",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/prepare_figure1_fgh_v12_freeze.py",
+      "sha256": "a13a036ea4d05fb76bc2017b421a1f144431e7f36681edd018bb3d64df90afa5",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/specification-snapshot.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/settings/specification-snapshot.json",
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/experiments-snapshot.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/experiments_snapshot.py",
+      "sha256": "4a94b39717bd96c716cbf07347c4a457c960076950d9970e0f43ba42d1afd861",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-fgh-v12-20261009/palette-functions-snapshot.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py",
+      "sha256": "6b42599141f1dedb4b260d8f8bfed059665fa8d0bcf34d874fa1616c75bfe0a3",
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/candidate.json",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/candidate.json",
+      "sha256": "ec685e275e7cea3ddffd7d923b3d7b1f3753064650cfe0eff9d294d0afd08589",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/check-report.json",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/check-report.json",
+      "sha256": "38f9ed1eed07e683dbd2e5213b4c9b66ac1efa1cc69f1f1b3c87b125e4a874a6",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/freeze-command-report.json",
+      "sha256": "8281daf014fbae2c95280c235218391cc4c08f11ad404539ad8c9cb22e306b54",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/freeze.json",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/freeze.json",
+      "sha256": "c5e86c8a5724ba671deaf41627b661324bca47d411909718eab88d7e1c4c8299",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/renderer-properties.json",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/renderer-properties.json",
+      "sha256": "d07246352b7999e089a76c1a11160cf4ad3aa7e3992e7d5d6b9bb4be5f84f05d",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/selection.json",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/selection.json",
+      "sha256": "f180cd22e52a32d66c152b5928c9a93c95063f2be359d329f645d1bae87eb1fa",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/specification-snapshot.json",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/settings/specification-snapshot.json",
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/freeze-preparer-snapshot.py",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/freeze_preparer_snapshot.py",
+      "sha256": "cb2d708f9ea2874132ec7054c9f5b7931032f9ad64b6ccab5a5dc7f78947d47e",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/renderer-snapshot.py",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/renderer_snapshot.py",
+      "sha256": "12e5660da722fc8a9934ce40d07f774412a1c9502f310f67882681155adb4f42",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure1-panel-e-20261009/version-history-source.md",
+      "path": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/notes/version-history-source.md",
+      "sha256": "5181d81ccad93445af4855a6f786a9db3430a720ccd8c471760904e0a621d90b",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json",
+      "path": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/freeze.json",
+      "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.freeze.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2-G-logmedian-20261009/scientific-selection.json",
+      "path": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/scientific-selection.json",
+      "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/scientific-selection.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2-G-logmedian-20261009/sources/renderer-source.py",
+      "path": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py",
+      "sha256": "c6438942104fc0e72fb8c25a9c3614104dd3bc58ef6f54f33bd9f654489aa1cb",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/renderer-source.py"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2-G-logmedian-20261009/sources/Fig2_G_Historical_LogMedian.figure.json",
+      "path": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/source-figure.json",
+      "sha256": "ea90c79d4dc9c3f3fe0c5c3786d16dbc39780c74891bcb128c0e3e9402fb65b2",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.figure.json"
+    },
+    {
+      "original_path": "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json",
+      "path": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/selected-source-inventory.json",
+      "sha256": "899f900a20c5e2b070887a82aceea715aa422f7eaa42aa2d1513c8eeeafc92b8",
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/selected-source-inventory.json"
+    }
+  ]
+}

@@ -34,7 +34,7 @@ Earlier D versions are retained for provenance:
 | `previous-*` subfolders beneath the D-only family | Conditional 0–1, all-frame 0–1, bin-first log, short-baseline log, or pre-20 P10/P90 orange bins. | Historical comparisons; they are different heatmap calculations, not different raw black traces. |
 | `outputs/figure1-vigor-zoom/withdrawn-scaled-bins/` | Earlier scaled-bin surrogate with a different or unauthenticated recipe. | Historical; the new baseline comparison has explicit inputs and scaling. |
 
-The historical focused D renderer is [`render_figure1_raw_vigor_y_focus.py`](../../../scripts/render_figure1_raw_vigor_y_focus.py). It reads the selected heatmap's saved panel data for the orange axis. That overlay is a different figure construction from the new single-axis scaled-log D.
+The historical focused D renderer is [`render_figure1_raw_vigor_y_focus.py`](</Volumes/JOAQUIM/ClassicalConditioning-Archive/scripts-cleanup/2026-10-10/payload/scripts/render_figure1_raw_vigor_y_focus.py>). It reads the selected heatmap's saved panel data for the orange axis. That overlay is a different figure construction from the new single-axis scaled-log D.
 
 ## What to select before freezing
 

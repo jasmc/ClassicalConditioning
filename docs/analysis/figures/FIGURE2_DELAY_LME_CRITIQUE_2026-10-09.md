@@ -13,10 +13,10 @@ Neither a preliminary plot nor numerical convergence closes scientific gates.
 
 ## What the Plans improve
 
-`Plans/02_ANALYSIS_AND_STATISTICS.md` correctly starts from a biological
+`Plans/03_ANALYSIS_AND_STATISTICS.md` correctly starts from a biological
 estimand, identifies fish as independent units, retains condition in population
 comparisons, and requires a simpler fish-level robustness analysis and failure
-handling. `Plans/03_LEARNING_ONSET_IMPLEMENTATION.md` correctly distinguishes
+handling. `Plans/04_LEARNING_ONSET_IMPLEMENTATION.md` correctly distinguishes
 block evidence, trial evidence, persistent onset and extinction. A first
 isolated significant trial cannot establish onset; disappearing significance
 cannot establish extinction.

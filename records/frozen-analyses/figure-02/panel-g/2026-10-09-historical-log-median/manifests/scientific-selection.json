@@ -1,0 +1,48 @@
+{
+  "panel_id": "g",
+  "version": "Native Historical LogMedian difference, phase-aware trial LMM",
+  "authorization": "Joaquim, 2026-10-09: freeze the historical log median. document all other versions. clean up from all stale files and images. freeze with the stats and the llm",
+  "selected_revision": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\row3-trial-ratio-review\\20261009T153803735311Z-delay-logmedian",
+  "selected_revision_inventory": {
+    "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\selected-source-inventory.json",
+    "sha256": "899f900a20c5e2b070887a82aceea715aa422f7eaa42aa2d1513c8eeeafc92b8"
+  },
+  "metric_id": "legacy_distal_angular_speed",
+  "formula": "median(ln positive response bout frames) - median(ln positive baseline bout frames), then median across fish",
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "response_s": [
+    0,
+    9
+  ],
+  "trials": [
+    5,
+    94
+  ],
+  "cohort": {
+    "control": 28,
+    "delay": 29
+  },
+  "scheduled": 5130,
+  "eligible": 4811,
+  "mask": "valid, moving/bout, adjacent FrameStep1, finite positive vigor; non-bout and empty windows remain missing",
+  "bootstrap": {
+    "resamples": 5000,
+    "seed": 10,
+    "unit": "whole fish trajectory within condition; missingness retained",
+    "interval": "pointwise percentile 95% CI"
+  },
+  "models": {
+    "D": "condition x block relative to Pre, baseline adjusted, fish random intercept and slope, Holm8",
+    "M": "local condition difference at centered trial, baseline adjusted, fish random intercept, BH9",
+    "R": "local condition slope difference, raw and BH9",
+    "trial": "phase-aware baseline-adjusted LMM, fish random intercept and slope; control-minus-Delay change from average Pre5-14; BH90"
+  },
+  "status": "author-selected exploratory analysis; heavy residual tails; no learning-onset claim; Test3 local singular: M/R unavailable",
+  "assembly_note": "Standalone G at 183 x 98 mm; whole-figure assembly remains separately selected and must accommodate this panel.",
+  "unchanged_data_and_statistics": true,
+  "no_second_log": true,
+  "no_smoothing": true
+}

@@ -1,0 +1,20 @@
+{
+  "ssd_mounted": true,
+  "transfer_deferred": true,
+  "writes_to_ssd": 0,
+  "records": [
+    {
+      "selection": "figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "exists": true,
+      "sha256_verified": true,
+      "records_extracted": 10
+    },
+    {
+      "selection": "figure2-G-logmedian-freeze-20261009.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.freeze.json",
+      "exists": true,
+      "sha256_verified": true
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "archived_scripts": 41,
+  "retained_scripts": 52,
+  "verified_archived_bytes": 263089,
+  "frozen_entries_unchanged": 70,
+  "retained_dependencies": "verified",
+  "python_syntax": "passed",
+  "relocation_resolution": "passed",
+  "external_status_write": "passed in synthetic temporary directory",
+  "broken_document_links": [],
+  "full_suite": {
+    "tests": 381,
+    "result": "passed",
+    "seconds": 155.456,
+    "log": "/tmp/cc-scripts-tests.log"
+  },
+  "original_archive_checkpoint_unchanged": true,
+  "diff_whitespace_check": "passed excluding author-restored byte-identical to_implement.md",
+  "payload_removal": "41 files removed only after independent external verification"
+}

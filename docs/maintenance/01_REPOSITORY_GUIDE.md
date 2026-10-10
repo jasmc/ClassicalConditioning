@@ -9,7 +9,7 @@ generated files. It does not authorize deletion of raw scientific data.
 | `tests/` | Active automated tests | Keep aligned with supported source. |
 | `configs/` | Example/reusable run configurations | Copy before editing for a new run. |
 | `docs/analysis/` | Current workflow, proposed architecture, audit, and reference docs | Keep links current when code/documentation changes. |
-| `Plans/` | Migration plans, decisions, and status records | Preserve decision/history context. |
+| `Plans/` | Numbered implementation plans and navigation/status indexes | Preserve decision/history context. |
 | `legacy/` | Original pre-refactor scripts and helpers | Preserve for source reference; only the isolated learner comparison executes scripts from here. |
 | `.venv/` | Local dependencies | Safe to recreate through the documented environment setup. |
 | `__pycache__/`, `*.egg-info/`, `.pytest_cache/` | Generated local state | Disposable; regenerates. |
@@ -28,7 +28,7 @@ that is an intentional, separately managed data release.
 The root README is the landing page. Specialist guidance belongs below `docs/`:
 
 - workflow, output, figures, troubleshooting, and terminology in `docs/analysis/`;
-- decisions and implementation status in `Plans/`;
+- decisions in `docs/analysis/decisions/`, implementation status in `Plans/`;
 - original source in `legacy/` and historical explanation in the marked legacy documentation.
 
 When moving documentation, update the README TOC and
@@ -45,3 +45,6 @@ supported package workflow.
 Earlier cleanup notes named `README2.md` and
 `MY___PLANS. we need to add some kinda loading ba`. Neither file is present in
 this checkout; no current maintenance action is needed for them.
+
+
+Permanent figures, visual HTML reviews and numerical payloads belong on JOAQUIM. Frozen definitions, settings, manifests and exact code remain in `records/frozen-analyses/`; selections live in `configs/paper-figures/selections/`. Pending originals stay locally until verified transfer. See [archive instructions](archive/README.md).

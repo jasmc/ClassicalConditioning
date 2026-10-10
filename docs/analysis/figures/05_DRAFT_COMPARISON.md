@@ -95,7 +95,7 @@ There is **no draft image**. Written A–G roles are workflow, continuous scores
 
 ## Figure 4 — earlier draft and replacement learner profiles
 
-The table below records the comparison made before the signed learner-stratified Figure 4A–C route was implemented. The current registry assigns A, B and C to Delay, 3sTrace and 10sTrace block/catch figures respectively. Individual catches, movement and coverage are supplementary; independent timing is governed by the [supplementary plan](../../../Plans/10_SUPPLEMENTARY_FIGURES.md). This historical draft does not define the current figure calculation.
+The table below records the comparison made before the signed learner-stratified Figure 4A–C route was implemented. The current registry assigns A, B and C to Delay, 3sTrace and 10sTrace block/catch figures respectively. Individual catches, movement and coverage are supplementary; independent timing is governed by the [supplementary plan](../../../Plans/11_SUPPLEMENTARY_FIGURES.md). This historical draft does not define the current figure calculation.
 
 | Intended panel | Draft evidence | Current counterpart and difference |
 | --- | --- | --- |

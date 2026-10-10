@@ -4,7 +4,7 @@ This is the durable visual inventory for the legacy analysis and the supported
 refactored candidate workflow. It describes what each pipeline can render and
 where coverage differs; it does not approve scientific outcomes, cohorts, or
 inferential models. Those decisions live in
-[the analysis and statistics plan](../../../Plans/02_ANALYSIS_AND_STATISTICS.md).
+[the analysis and statistics plan](../../../Plans/03_ANALYSIS_AND_STATISTICS.md).
 
 The archive inventory reflects the preserved historical scripts. A figure
 family may create many files because legacy scripts loop over fish, condition,
@@ -104,7 +104,7 @@ not yet replace learner-classification figures or make the profiles
 confirmatory evidence.
 
 The proposed manuscript Figure 1–4 mapping and exact draft differences are in
-[the paper draft comparison](./05_DRAFT_COMPARISON.md). The written scaffold
+[the paper draft comparison](05_DRAFT_COMPARISON.md). The written scaffold
 and figure list, not draft panel placement, define intended Figure 1 and 4.
 
 The machine-readable [paper review variant registry](../../../configs/paper-figures/review-variants.json)
@@ -114,8 +114,8 @@ status. It is linked from the proposed paper panel registry. Review variants
 are not approved manuscript panels. Superseded PNGs whose exact source revision
 is unavailable are explicitly marked as retained historical outputs.
 
-The [version-by-version comparison](./04_REVIEW_VARIANTS.md) records scaling,
-baseline, signal and palette parameters. The [paper figure freeze record](./02_PAPER_FIGURE_SPECIFICATION.md)
+The [version-by-version comparison](04_REVIEW_VARIANTS.md) records scaling,
+baseline, signal and palette parameters. The [paper figure freeze record](02_PAPER_FIGURE_SPECIFICATION.md)
 maps all main and supplementary panels to their implementation and open gates.
 Its `render-paper-panels` command is the integrated rendering entry point for
 the currently supported paper review panels. Its Figure 1 F/H and Figure 2 A
@@ -128,10 +128,10 @@ The maintained and historical scripts are catalogued in
 
 ## Related implementation and decisions
 
-- [Figures and reproducible reporting](../../../Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md)
+- [Figures and reproducible reporting](../../../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md)
   owns paper registries, supported rendering interfaces, panels, validation,
   and final figure outputs for the analysis release.
-- [Analysis and statistics](../../../Plans/02_ANALYSIS_AND_STATISTICS.md)
+- [Analysis and statistics](../../../Plans/03_ANALYSIS_AND_STATISTICS.md)
   owns Gate O/S decisions and prerequisites for confirmatory results.
-- [Learner representation and analysis](../../../Plans/05_LEARNER_ANALYSIS.md)
+- [Learner representation and analysis](../../../Plans/06_LEARNER_ANALYSIS.md)
   owns learner-panel inputs and validation status.

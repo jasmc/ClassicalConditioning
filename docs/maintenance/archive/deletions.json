@@ -1,0 +1,21 @@
+{
+  "removed": [
+    {
+      "path": ".DS_Store",
+      "bytes": 6148,
+      "reason": "Disposable Finder metadata"
+    },
+    {
+      "path": "Handovers, etc/figure4-working-tree.patch",
+      "bytes": 62715,
+      "reason": "Integrated historical patch; Git blob recovery in relocations.json"
+    },
+    {
+      "path": "to_implement.md",
+      "bytes": 5523,
+      "reason": "Reappeared exact duplicate; canonical author request retained in docs/maintenance/archive/REQUEST_CONTEXT_20261010.md",
+      "sha256": "16698fa2298b39238b7a692c0b36ec914dc55632e3ff49dc6c054191b1fcefdd"
+    }
+  ],
+  "pending_payload_bytes_removed": 1252400031
+}

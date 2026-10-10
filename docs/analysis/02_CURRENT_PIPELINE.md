@@ -34,7 +34,7 @@ The direct-from-intake candidate calculation in
 selected development benchmark, not an alternative routine JSON route.
 The focused `figure-example-traces` command renders selected Figure 1 D/E
 trial traces from authenticated corrected artifacts; it is not scheduled by
-`run-pipeline`. See the [figure guide](./08_CANDIDATE_FIGURES.md).
+`run-pipeline`. See the [figure guide](08_CANDIDATE_FIGURES.md).
 
 ## Trust boundaries
 
@@ -69,7 +69,7 @@ trial traces from authenticated corrected artifacts; it is not scheduled by
    sidecar authentication; structural checks reject missing/duplicate IDs.
 
 The two-stage command, technical policy fields, and source-linked exploratory
-rules are documented in [discarding assessment](./04_DISCARDING_AND_SELECTION.md).
+rules are documented in [discarding assessment](04_DISCARDING_AND_SELECTION.md).
 
 `Metadata/<analysis_id>_pipeline_run.json` is always written, including after
 inventory, intake, analysis, or figure failure. Each required figure has a
@@ -86,6 +86,6 @@ are descriptive, and model outputs are diagnostic until their parameters and
 inference are approved. Figure 2 population heatmaps require frozen-cohort
 fish coverage; per-fish profiles are not substitutes. Figure 4 signed,
 baseline-centered learner timing must be defined independently of classifier
-features. See the [draft comparison](./figures/05_DRAFT_COMPARISON.md) for
-panel-level gaps and the [cohort plan](../../Plans/01_COHORT_IMPLEMENTATION.md)
+features. See the [draft comparison](figures/05_DRAFT_COMPARISON.md) for
+panel-level gaps and the [cohort plan](../../Plans/02_COHORT_IMPLEMENTATION.md)
 for remaining assessment gates.

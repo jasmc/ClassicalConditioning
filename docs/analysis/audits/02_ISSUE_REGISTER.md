@@ -3,7 +3,7 @@
 ## Purpose
 
 This register connects the findings in
-[Analysis findings](./01_ANALYSIS_FINDINGS.md) to implementation workstreams,
+[Analysis findings](01_ANALYSIS_FINDINGS.md) to implementation workstreams,
 scientific gates, required evidence, and release consequences.
 
 The audit is treated as a set of serious, evidence-backed notes. It is not a

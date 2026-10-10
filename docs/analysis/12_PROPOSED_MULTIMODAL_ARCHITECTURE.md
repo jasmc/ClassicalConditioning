@@ -2,9 +2,9 @@
 
 This is a design reference for the active behavior/imaging integration plan.
 The imaging branch is staged in
-[the integration plan](../../Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md).
+[the integration plan](../../Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md).
 For the supported behavior pipeline and its actual source modules, use the
-[current pipeline guide](./02_CURRENT_PIPELINE.md). This document is not a
+[current pipeline guide](02_CURRENT_PIPELINE.md). This document is not a
 second implementation queue or a requirement for the single final analysis
 release.
 
@@ -95,9 +95,9 @@ in the final table; unavailable or invalid imaging is represented by explicit
 availability/QC status and missing imaging values, never biological zero.
 
 Implementation of the optional branch is deferred to
-[the behavior and imaging integration plan](../../Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md).
+[the behavior and imaging integration plan](../../Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md).
 The inherited imaging implementation is assessed separately in
-[the imaging pipeline critique](./audits/03_IMAGING_PIPELINE_CRITIQUE.md).
+[the imaging pipeline critique](audits/03_IMAGING_PIPELINE_CRITIQUE.md).
 
 ## Modality dependency rule
 

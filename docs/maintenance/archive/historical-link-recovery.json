@@ -1,0 +1,30 @@
+[
+  {
+    "source": "reviews/fgh_version7_unpooled_recipe_20261009/history/original_frame_centred/index.html",
+    "original_reference": "../fgh_version6_softer_high_20261009/index.html",
+    "navigation_target": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version6_softer_high_20261009/index.html",
+    "sha256": "439a2e05b6589e661623cb6dc18c0624699c589c0757525b003eec3aa066c963",
+    "note": "Navigation recovery for a pre-existing broken relative link; immutable HTML unchanged"
+  },
+  {
+    "source": "reviews/fgh_version7_unpooled_recipe_20261009/history/original_frame_centred/index.html",
+    "original_reference": "../fgh_versions_1_to_6_20261009/index.html",
+    "navigation_target": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_versions_1_to_6_20261009/index.html",
+    "sha256": "15928407dbe5de0f080ba884b033fa37dc6e707a25789e02ec8e2e42d9b28c84",
+    "note": "Navigation recovery for a pre-existing broken relative link; immutable HTML unchanged"
+  },
+  {
+    "source": "reviews/fgh_version7_unpooled_recipe_20261009/history/physical_bin_centred/index.html",
+    "original_reference": "../fgh_version6_softer_high_20261009/index.html",
+    "navigation_target": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version6_softer_high_20261009/index.html",
+    "sha256": "439a2e05b6589e661623cb6dc18c0624699c589c0757525b003eec3aa066c963",
+    "note": "Navigation recovery for a pre-existing broken relative link; immutable HTML unchanged"
+  },
+  {
+    "source": "reviews/fgh_version7_unpooled_recipe_20261009/history/physical_bin_centred/index.html",
+    "original_reference": "../fgh_versions_1_to_6_20261009/index.html",
+    "navigation_target": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_versions_1_to_6_20261009/index.html",
+    "sha256": "15928407dbe5de0f080ba884b033fa37dc6e707a25789e02ec8e2e42d9b28c84",
+    "note": "Navigation recovery for a pre-existing broken relative link; immutable HTML unchanged"
+  }
+]

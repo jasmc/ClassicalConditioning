@@ -191,7 +191,7 @@ distinguish from genuine absence of evidence. With more than two conditions,
 the historical code also selected the first matching coefficient rather than
 constructing a named test-versus-control contrast.
 
-The active [learning-onset plan](../../Plans/03_LEARNING_ONSET_IMPLEMENTATION.md) replaces
+The active [learning-onset plan](../../Plans/04_LEARNING_ONSET_IMPLEMENTATION.md) replaces
 that hierarchy with:
 
 1. a prespecified **condition × block/phase LME** for the population claim;

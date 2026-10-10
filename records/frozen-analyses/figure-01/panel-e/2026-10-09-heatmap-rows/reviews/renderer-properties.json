@@ -1,0 +1,2884 @@
+{
+  "final_width_mm": 183.0,
+  "source_to_final_scale": 0.8005249343832022,
+  "bounds": [
+    {
+      "element_id": "fig1__e__trial-9-trace__phase-trial",
+      "text": "Habituation\nTrial 9",
+      "bounds": [
+        45.735000000000014,
+        1367.8428571428572,
+        288.36,
+        1458.442857142857
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-17-trace__phase-trial",
+      "text": "Early Train\nTrial 17",
+      "bounds": [
+        70.23500000000001,
+        1112.0928571428572,
+        288.36,
+        1202.692857142857
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-63-trace__phase-trial",
+      "text": "Late Train\nTrial 63",
+      "bounds": [
+        84.61000000000001,
+        856.3428571428572,
+        288.36,
+        946.9428571428571
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-66-trace__phase-trial",
+      "text": "Early Test\nTrial 66",
+      "bounds": [
+        87.98500000000001,
+        600.5928571428572,
+        288.36,
+        691.1928571428571
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-trace__phase-trial",
+      "text": "Late Test\nTrial 93",
+      "bounds": [
+        102.36000000000001,
+        344.842857142857,
+        288.36,
+        435.442857142857
+      ]
+    },
+    {
+      "element_id": "fig1__e__heading__title",
+      "text": "Raw vigor + frozen heatmap rows",
+      "bounds": [
+        216.0,
+        1728.0,
+        923.375,
+        1770.0
+      ]
+    },
+    {
+      "element_id": "fig1__e__heading__fish-baseline",
+      "text": "Delay 20221115_07 \u00b7 0.5 s bins \u00b7 baseline [\u221215,0) s",
+      "bounds": [
+        216.0,
+        1639.0,
+        1158.625,
+        1674.0
+      ]
+    },
+    {
+      "element_id": "fig1__e__heading__recipe",
+      "text": "Each strip is the matching frozen V12 heatmap row \u00b7 all 80 bins shown",
+      "bounds": [
+        216.0,
+        1559.0,
+        1501.0,
+        1593.0
+      ]
+    },
+    {
+      "element_id": "fig1__e__notes__raw-axis-label",
+      "text": "Raw vigor (rad/ms)",
+      "bounds": [
+        16.2,
+        683.5625,
+        58.20000000000002,
+        1080.4375
+      ]
+    },
+    {
+      "element_id": "fig1__e__notes__raw-clipping",
+      "text": "Raw display capped at 1 rad/ms: 12 frame values exceed the range.",
+      "bounds": [
+        486.0,
+        83.0,
+        1729.0,
+        117.0
+      ]
+    },
+    {
+      "element_id": "fig1__e__notes__colour-note",
+      "text": "Frozen colours saturate at \u00b11 (12 bins); missing bins are black. Signed data are not clipped.",
+      "bounds": [
+        486.0,
+        41.6,
+        2162.25,
+        75.6
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-9-trace__tickmymleftm0-label",
+      "text": "0",
+      "bounds": [
+        436.8504098360656,
+        1329.7857142857142,
+        459.9754098360656,
+        1363.7857142857142
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-9-trace__tickmymleftm0p5-label",
+      "text": "0.5",
+      "bounds": [
+        402.3504098360656,
+        1392.642857142857,
+        459.9754098360656,
+        1426.642857142857
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-9-trace__tickmymleftm1-label",
+      "text": "1",
+      "bounds": [
+        436.8504098360656,
+        1455.5,
+        459.9754098360656,
+        1489.5
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-17-trace__tickmymleftm0-label",
+      "text": "0",
+      "bounds": [
+        436.8504098360656,
+        1074.0357142857142,
+        459.9754098360656,
+        1108.0357142857142
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-17-trace__tickmymleftm0p5-label",
+      "text": "0.5",
+      "bounds": [
+        402.3504098360656,
+        1136.892857142857,
+        459.9754098360656,
+        1170.892857142857
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-17-trace__tickmymleftm1-label",
+      "text": "1",
+      "bounds": [
+        436.8504098360656,
+        1199.75,
+        459.9754098360656,
+        1233.75
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-63-trace__tickmymleftm0-label",
+      "text": "0",
+      "bounds": [
+        436.8504098360656,
+        818.2857142857142,
+        459.9754098360656,
+        852.2857142857142
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-63-trace__tickmymleftm0p5-label",
+      "text": "0.5",
+      "bounds": [
+        402.3504098360656,
+        881.1428571428571,
+        459.9754098360656,
+        915.1428571428571
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-63-trace__tickmymleftm1-label",
+      "text": "1",
+      "bounds": [
+        436.8504098360656,
+        943.9999999999999,
+        459.9754098360656,
+        977.9999999999999
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-66-trace__tickmymleftm0-label",
+      "text": "0",
+      "bounds": [
+        436.8504098360656,
+        562.5357142857142,
+        459.9754098360656,
+        596.5357142857142
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-66-trace__tickmymleftm0p5-label",
+      "text": "0.5",
+      "bounds": [
+        402.3504098360656,
+        625.3928571428571,
+        459.9754098360656,
+        659.3928571428571
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-66-trace__tickmymleftm1-label",
+      "text": "1",
+      "bounds": [
+        436.8504098360656,
+        688.2499999999999,
+        459.9754098360656,
+        722.2499999999999
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-trace__tickmymleftm0-label",
+      "text": "0",
+      "bounds": [
+        436.8504098360656,
+        306.78571428571416,
+        459.9754098360656,
+        340.78571428571416
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-trace__tickmymleftm0p5-label",
+      "text": "0.5",
+      "bounds": [
+        402.3504098360656,
+        369.642857142857,
+        459.9754098360656,
+        403.642857142857
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-trace__tickmymleftm1-label",
+      "text": "1",
+      "bounds": [
+        436.8504098360656,
+        432.4999999999999,
+        459.9754098360656,
+        466.4999999999999
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-heatmap__label-x",
+      "text": "Time from measured CS onset (s)",
+      "bounds": [
+        960.375,
+        170.36065573770475,
+        1658.625,
+        212.36065573770475
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-heatmap__tickmxmbottommm20-label",
+      "text": "\u221220",
+      "bounds": [
+        447.6249999999999,
+        227.9754098360654,
+        524.3749999999999,
+        261.9754098360654
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-heatmap__tickmxmbottommm10-label",
+      "text": "\u221210",
+      "bounds": [
+        859.375,
+        227.9754098360654,
+        936.125,
+        261.9754098360654
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-heatmap__tickmxmbottomm0-label",
+      "text": "0",
+      "bounds": [
+        1297.9375,
+        227.9754098360654,
+        1321.0625,
+        261.9754098360654
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-heatmap__tickmxmbottomm10-label",
+      "text": "10",
+      "bounds": [
+        1698.125,
+        227.9754098360654,
+        1744.375,
+        261.9754098360654
+      ]
+    },
+    {
+      "element_id": "fig1__e__trial-93-heatmap__tickmxmbottomm20-label",
+      "text": "20",
+      "bounds": [
+        2109.875,
+        227.9754098360654,
+        2156.125,
+        261.9754098360654
+      ]
+    },
+    {
+      "element_id": "fig1__e__colorbar__label-y",
+      "text": "Scaled deviation from baseline",
+      "bounds": [
+        2419.964344262295,
+        560.7500000000001,
+        2461.964344262295,
+        1203.25
+      ]
+    },
+    {
+      "element_id": "fig1__e__colorbar__tickmymrightmm1-label",
+      "text": "\u22121",
+      "bounds": [
+        2350.7245901639344,
+        681.5,
+        2404.3495901639344,
+        715.5
+      ]
+    },
+    {
+      "element_id": "fig1__e__colorbar__tickmymrightm0-label",
+      "text": "0",
+      "bounds": [
+        2350.7245901639344,
+        861.5000000000001,
+        2373.8495901639344,
+        895.5000000000001
+      ]
+    },
+    {
+      "element_id": "fig1__e__colorbar__tickmymrightm1-label",
+      "text": "+1",
+      "bounds": [
+        2350.7245901639344,
+        1041.5000000000002,
+        2404.3495901639344,
+        1075.5000000000002
+      ]
+    }
+  ],
+  "registry": {
+    "fig1__e__panel__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__raw-vigor": {
+      "alpha": 0.75,
+      "zorder": 2,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__cs-onset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__cs-offset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__phase-trial": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": false
+    },
+    "fig1__e__trial-9-heatmap__vigor-cells": {
+      "alpha": 1.0,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__raw-vigor": {
+      "alpha": 0.75,
+      "zorder": 2,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__cs-onset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__cs-offset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__actual-us-onset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__phase-trial": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": false
+    },
+    "fig1__e__trial-17-heatmap__vigor-cells": {
+      "alpha": 1.0,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__raw-vigor": {
+      "alpha": 0.75,
+      "zorder": 2,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__cs-onset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__cs-offset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__actual-us-onset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__phase-trial": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": false
+    },
+    "fig1__e__trial-63-heatmap__vigor-cells": {
+      "alpha": 1.0,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__raw-vigor": {
+      "alpha": 0.75,
+      "zorder": 2,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__cs-onset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__cs-offset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__phase-trial": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": false
+    },
+    "fig1__e__trial-66-heatmap__vigor-cells": {
+      "alpha": 1.0,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__raw-vigor": {
+      "alpha": 0.75,
+      "zorder": 2,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__cs-onset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__cs-offset": {
+      "alpha": 1.0,
+      "zorder": 4,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__phase-trial": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": false
+    },
+    "fig1__e__trial-93-heatmap__vigor-cells": {
+      "alpha": 1.0,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__vigor-ramp": {
+      "alpha": 1.0,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__heading__title": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__heading__fish-baseline": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__heading__recipe": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__notes__raw-axis-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__notes__raw-clipping": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__notes__colour-note": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymleftm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymleftm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymrightm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymrightm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymleftm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymleftm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymrightm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymrightm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymleftm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymleftm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymrightm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__tickmymrightm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-trace__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-9-heatmap__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymleftm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymleftm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymrightm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymrightm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymleftm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymleftm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymrightm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymrightm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymleftm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymleftm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymrightm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__tickmymrightm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-trace__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-17-heatmap__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymleftm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymleftm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymrightm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymrightm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymleftm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymleftm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymrightm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymrightm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymleftm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymleftm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymrightm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__tickmymrightm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-trace__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-63-heatmap__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymleftm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymleftm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymrightm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymrightm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymleftm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymleftm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymrightm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymrightm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymleftm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymleftm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymrightm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__tickmymrightm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-trace__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-66-heatmap__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymleftm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymleftm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymrightm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymrightm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymleftm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymleftm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymrightm0p5-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymrightm0p5-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymleftm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymleftm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymrightm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__tickmymrightm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-trace__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__axes": {
+      "alpha": null,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottommm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottommm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopmm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopmm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottommm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottommm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopmm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopmm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottomm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottomm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottomm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottomm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopm10-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopm10-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottomm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmbottomm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopm20-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__tickmxmtopm20-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__trial-93-heatmap__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__axes": {
+      "alpha": 1.0,
+      "zorder": 0,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__background": {
+      "alpha": null,
+      "zorder": 1,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__axis-x": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__label-x": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__axis-y": {
+      "alpha": null,
+      "zorder": 1.5,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__label-y": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymleftmm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymleftmm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymrightmm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymrightmm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymleftm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymleftm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymrightm0-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymrightm0-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymleftm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymleftm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymrightm1-mark": {
+      "alpha": 1.0,
+      "zorder": 2.01,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__tickmymrightm1-label": {
+      "alpha": 1.0,
+      "zorder": 3,
+      "visible": true,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__spine-left": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__spine-right": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__spine-bottom": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__spine-top": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": false,
+      "clip_on": true
+    },
+    "fig1__e__colorbar__spine-outline": {
+      "alpha": 1.0,
+      "zorder": 2.5,
+      "visible": true,
+      "clip_on": true
+    }
+  },
+  "heatmap_cells": 400,
+  "bin_values_counts_parameters_verified": true,
+  "all_5_raw_scaled_support_masks_verified": true,
+  "palette_anchors": [
+    "#00bfff",
+    "#383842",
+    "#ff5252"
+  ]
+}

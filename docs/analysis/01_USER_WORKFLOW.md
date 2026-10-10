@@ -56,7 +56,7 @@ Inspect these outputs in order:
 | Did a stage produce valid lineage? | Corresponding `Metadata/*_complete.json` marker |
 | What did the cohort comparison calculate? | `Processed data/Analyses/<analysis-id>/` plus its QC summary |
 
-See [output and provenance](./09_OUTPUT_AND_PROVENANCE.md) for the exact purpose of
+See [output and provenance](09_OUTPUT_AND_PROVENANCE.md) for the exact purpose of
 these directories and markers.
 
 ## Safe resume and recovery
@@ -95,8 +95,8 @@ should also compare recipe identifiers before interpreting tables.
 
 ## Where to continue reading
 
-- [Current pipeline guide](./02_CURRENT_PIPELINE.md): source-module call graph.
-- [Output and provenance](./09_OUTPUT_AND_PROVENANCE.md): data tree and hash markers.
-- [Troubleshooting](./10_TROUBLESHOOTING.md): common safe recovery paths.
-- [Metrics and bouts](./05_METRICS_AND_BOUTS.md): scientific meaning and current limits.
-- [Figure guide](./08_CANDIDATE_FIGURES.md): render commands and interpretation.
+- [Current pipeline guide](02_CURRENT_PIPELINE.md): source-module call graph.
+- [Output and provenance](09_OUTPUT_AND_PROVENANCE.md): data tree and hash markers.
+- [Troubleshooting](10_TROUBLESHOOTING.md): common safe recovery paths.
+- [Metrics and bouts](05_METRICS_AND_BOUTS.md): scientific meaning and current limits.
+- [Figure guide](08_CANDIDATE_FIGURES.md): render commands and interpretation.

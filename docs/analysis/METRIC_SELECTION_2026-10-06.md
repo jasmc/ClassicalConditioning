@@ -64,7 +64,7 @@ or proof that it is uniquely superior. The intervals are not multiplicity adjust
 
 ## Preserved evidence
 
-The bundle is [outputs/pre-vs-late-train-early-test-review](../../outputs/pre-vs-late-train-early-test-review/).
+The bundle is [outputs/pre-vs-late-train-early-test-review](</Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/pre-vs-late-train-early-test-review>).
 It contains the selected trial inputs, per-fish window values and paired changes,
 both PNG/PDF figures, magnitude table, paired-bootstrap comparison JSON, and a
 SHA-256 manifest recording original input paths and evidence hashes.

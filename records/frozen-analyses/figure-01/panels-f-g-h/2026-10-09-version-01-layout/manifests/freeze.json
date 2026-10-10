@@ -1,0 +1,120 @@
+{
+  "record_type": "Figure1_FGH_processing_and_numeric_signal_freeze",
+  "recorded_at_utc": "2026-10-09T07:16:02.370257+00:00",
+  "approval_date_local": "2026-10-08",
+  "reviewer": "user",
+  "approval_evidence": "freeze version 1, but improve the layout of each panel",
+  "panels": [
+    "F",
+    "G",
+    "H"
+  ],
+  "selected_version": "C_BoutSamples",
+  "processing": "frame angular speed -> shared detector -> eligible natural logs -> per-bout median within visible trial -> repeat on eligible samples -> sample baseline P10/P50/P90 -> C on samples -> sample interval display",
+  "no_halfsecond_binning_anywhere": true,
+  "display_interval_s": [
+    -20,
+    20
+  ],
+  "baseline_interval_s": [
+    -15,
+    0
+  ],
+  "baseline_voting_unit": "eligible displayed sample",
+  "C_formula": "clip((x-P50)/((P90-P10)/2), -1, +1)",
+  "palette": "managua_r",
+  "limits": [
+    -1,
+    1
+  ],
+  "zero_coordinate": 0.5,
+  "zero_colour": "#582948",
+  "undefined_trial": {
+    "panel": "H",
+    "trial": 16,
+    "reason": "zero sample-baseline quantile range"
+  },
+  "freeze_scope": "selected single-fish recipe and numeric display values; layout may be refined without changing them",
+  "original_sample_tables": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_c_bout_vs_bins_20261008\\outputs\\PanelF_sample_data.parquet",
+      "sha256": "a32607d54c520f5781d6e6c42d77f3be92ff3befdcf5501fdc2c072b9b0cf6c6",
+      "status": "source sample table hash-bound; immutable display runs snapshotted losslessly"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_c_bout_vs_bins_20261008\\outputs\\PanelG_sample_data.parquet",
+      "sha256": "05772a8c4e24c1afcbab4af9cca4f556adf4deae7026964d2a0cad142dcb1c49",
+      "status": "source sample table hash-bound; immutable display runs snapshotted losslessly"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_c_bout_vs_bins_20261008\\outputs\\PanelH_sample_data.parquet",
+      "sha256": "9a806627b2656f76b2ccdb502f6018aa61ef6dc27fa152130d99cfd5c58a14e6",
+      "status": "source sample table hash-bound; immutable display runs snapshotted losslessly"
+    }
+  ],
+  "snapshot_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.pdf",
+      "sha256": "6e525d28dd2da1e18af49931a9bdb968d876b28f06e63691e039e3aabb0fe2b6"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.png",
+      "sha256": "43603bf8727dd202fedde38c61571e3b9530c6a6404e30f5c8309d01c45da777"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelF.svg",
+      "sha256": "8ae5f65ff08413392c5604e1640c57b0da7888e8f5100b91c5bc8e59bfc30ca2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.pdf",
+      "sha256": "c0be4d39d8b8a88a4ed9e47d21513214a8d9424940da474add429830902af03d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.png",
+      "sha256": "0ac29582cae8f99dd1ec99b947253254ffa43c992ff5122986b1d1e9d0c4834e"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelG.svg",
+      "sha256": "718e50f8200f4bce869f7f9908831cdf68f2852e5686ef857b8ab5c351e41b39"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.pdf",
+      "sha256": "59fb7c6abe0317ec5e9dea51255c482117f574ec7f5e45b6e0ea54c297bc4ae0"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.png",
+      "sha256": "2488652338314c79c92a91e5fdceba733afa55a60616dccbba85ae3425754f5d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\C_BoutSamples_PanelH.svg",
+      "sha256": "a1a5eef90e3012a23a05cffb5293f3d6727d47fa3bc8184e35f854fb7bc2ee47"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelF_display_sample_runs.csv",
+      "sha256": "b5aa82cc00c6f0d3f9c8b8ba8a69c6299515c8ccf5601129e3f30d3ab3115d74"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelG_display_sample_runs.csv",
+      "sha256": "e40401500b7ed7e4578a1d79a4c0f225b81136405afd07bd903d5e7c2024ff6d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\PanelH_display_sample_runs.csv",
+      "sha256": "380defc5bf73579dcec5bfd46e94e81918f0a98006777ee830a15d114973cf54"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\sample_baseline_statistics.csv",
+      "sha256": "3721d8fe2e0b279f9bc2d0e6597baa684a814fd87c52ae68d75535adbb00e8d2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\selected_processing_code.py",
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\source_comparison_manifest.json",
+      "sha256": "1d0590a421d3df7846b16169737230ff8b92a0143966152b4f61c90f97e8e0e0"
+    }
+  ]
+}

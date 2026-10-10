@@ -1,0 +1,146 @@
+{
+  "record_type": "row1_style_and_metric_freeze",
+  "approved_at_utc": "2026-10-08T20:58:11.592892+00:00",
+  "reviewer": "user",
+  "approval_evidence": "i want to freeze this style with the legacy metric; attached screenshot of Current A: Delay 29 + control 28: pre15, legacy metric",
+  "scope": [
+    "A",
+    "B",
+    "C"
+  ],
+  "reference_panel": "A current signed-pre15 source",
+  "status": "visual style and legacy metric frozen; scientific row freeze pending",
+  "metric": {
+    "id": "legacy_distal_angular_speed",
+    "paper_name": "tail bend angular speed",
+    "input_units": "rad/ms",
+    "status": "frozen"
+  },
+  "baseline": {
+    "interval_s": [
+      -15,
+      0
+    ],
+    "closure": "left-closed, right-open",
+    "alignment": "CS onset",
+    "status": "previously frozen"
+  },
+  "approved_visual_style": {
+    "paired_layout": "control left; paired condition right",
+    "title": "condition name with cohort n; cyan control, magenta Delay, orange 3sTrace as in current sources",
+    "heatmap": "editable vector pcolormesh; no visible cell borders",
+    "palette": "managua_r",
+    "color_limits": [
+      -0.25,
+      0.25
+    ],
+    "missing_color": "black",
+    "colorbar": "shared vertical colorbar at right; Mean signed log vigor",
+    "time_axis": {
+      "range_s": [
+        -20,
+        20
+      ],
+      "ticks_s": [
+        -20,
+        0,
+        20
+      ],
+      "label": "Time from CS onset (s)"
+    },
+    "trial_axis": {
+      "trials": [
+        5,
+        94
+      ],
+      "direction": "chronological top to bottom",
+      "label": "Global CS trial"
+    },
+    "guides": {
+      "CS_boundaries_s": [
+        0,
+        10
+      ],
+      "CS_color": "green",
+      "phase_boundaries_trial": [
+        14.5,
+        64.5
+      ],
+      "phase_color": "white",
+      "US_guide": "none in selected style"
+    },
+    "typography_and_proportions": "retain current A/B source panel typography, spacing and aspect ratio",
+    "scaling": "retain signed color scale; no 0-1 Scaled vigor display or P10/P90 display scaling"
+  },
+  "source_bindings": {
+    "A": [
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.svg",
+        "sha256": "ade2e4e95288f35b0d2b95b24e3ac361ae1029863d3692e013ac06ac0160607c"
+      },
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.png",
+        "sha256": "da8114ea451fe82cbf9e0059809e1683b699c245a3952557326761c4e648d666"
+      },
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.parquet",
+        "sha256": "668b5dd508a3953b58ba44cdf3b2cdf6f0492cd5ac6a7d28e63fcb4eef120d35"
+      },
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelA_allDelay_signed-pre15.figure.json",
+        "sha256": "d8aac649585f49aa98060e3f6fb31872781698fef7643d27f400727892a92630"
+      }
+    ],
+    "B": [
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.svg",
+        "sha256": "93150f983ade150657484640d73fa4693baaf8e85e2766dfa80f8f7e2df4dacf"
+      },
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.png",
+        "sha256": "38ac7f1bceecd723a72183dd4e34558c69a1cf6e5e596367daf65269c0abf462"
+      },
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.parquet",
+        "sha256": "b98698800b90a5e4b9347d03a0b647273e3c2d0235884e395cf635a4024a0cd0"
+      },
+      {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261008T200908002798Z\\Fig2_PanelB_all3sTrace_signed-pre15.figure.json",
+        "sha256": "92d6842e073d91ecb42523a3a58137b2dbfd999df77ab8d22c13f912bb74f78b"
+      }
+    ]
+  },
+  "current_candidate_recipe": {
+    "semantics": "equal-fish mean of shared signed bout-log-vigor 0.5-s bins; no P10/P90 scaling",
+    "within_fish": "natural log eligible valid moving positive-bout metric frames; fish/trial pre15 frame-median subtraction; bout median repeated over frames; 0.5-s frame-weighted bin mean",
+    "across_fish": "equal mean over finite fish bins",
+    "scientific_approval": "pending; style approval does not independently approve bout weighting, masks, alignment or cohort eligibility"
+  },
+  "cohort_candidates": {
+    "A": {
+      "control": 28,
+      "delay": 29
+    },
+    "B": {
+      "control": 19,
+      "trace": 40
+    }
+  },
+  "pending_scientific_gates": [
+    "reviewed cohort/input lineage",
+    "upstream legacy metric implementation audit",
+    "movement masks and bout definitions",
+    "CS alignment and protocol audit",
+    "within-bin bout weighting and boundary handling",
+    "coverage and missingness policy",
+    "explicit approval of the complete scientific recipe"
+  ],
+  "C": {
+    "source": null,
+    "status": "placeholder",
+    "interpretation": "inconclusive",
+    "requirement": "authenticated 10sTrace cohort and processed inputs before population panel"
+  },
+  "historical_versions": "preserved unchanged; pre20 and angular L1 / 53-fish outputs remain historical",
+  "shared_assembly": "not edited or regenerated"
+}

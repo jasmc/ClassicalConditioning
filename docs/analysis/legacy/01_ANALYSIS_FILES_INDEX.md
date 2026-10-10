@@ -330,7 +330,7 @@ Earlier learner-stratified plan (Git history)
 
 At the time, this future stage would have joined fish-level learner labels to
 CS/US time-series data. Current learner-output work is in
-[`Plans/06_LEARNER_OUTPUTS_AND_VALIDATION.md`](../../../Plans/06_LEARNER_OUTPUTS_AND_VALIDATION.md),
+[`Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md`](../../../Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md),
 and a categorical label remains optional.
 
 ## Numbered analysis scripts
@@ -1077,7 +1077,7 @@ Filename sanitization, selected-fish suffixes, DPI, bounding boxes, transparency
 ### Recommendation
 
 Complete the migration to `figure_saving.py`, following
-`Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md` (historical detail in
+`Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md` (historical detail in
 the earlier scientific figure plan in Git history).
 
 ## Learner-classification versions
@@ -1356,9 +1356,9 @@ The decision should be based on statistical validation, not filename.
 | `README.md` | Project overview, setup, pipeline, and output structure |
 | `docs/analysis/audits/01_ANALYSIS_FINDINGS.md` | Audit of scientific and statistical issues |
 | `docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md` | Cross-repository audit of the inherited optional imaging workflow |
-| `Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md` | Active, staged plan for one canonical behavior pipeline plus optional imaging |
-| `Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md` | Plan for reproducible scientific-paper figures and interfaces |
-| `Plans/05_LEARNER_ANALYSIS.md` | Active plan for learner representation, classification, validation, and stratified outputs |
+| `Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md` | Active, staged plan for one canonical behavior pipeline plus optional imaging |
+| `Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md` | Plan for reproducible scientific-paper figures and interfaces |
+| `Plans/06_LEARNER_ANALYSIS.md` | Active plan for learner representation, classification, validation, and stratified outputs |
 | `docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md` | This file |
 
 ## Workspace and editor files

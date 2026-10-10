@@ -1,0 +1,152 @@
+{
+  "record_type": "Figure1_FGH_processing_and_numeric_signal_freeze",
+  "recorded_at_utc": "2026-10-09T07:35:24.028751+00:00",
+  "approval_date_local": "2026-10-09",
+  "reviewer": "user",
+  "approval_evidence": "use a different fish for 3sTrace. use \"20230310_08\" instead.",
+  "panels": [
+    "F",
+    "G",
+    "H"
+  ],
+  "selected_version": "C_BoutSamples",
+  "processing": "frame angular speed -> shared detector -> eligible natural logs -> per-bout median within visible trial -> repeat on eligible samples -> sample baseline P10/P50/P90 -> C on samples -> sample interval display",
+  "no_halfsecond_binning_anywhere": true,
+  "display_interval_s": [
+    -20,
+    20
+  ],
+  "baseline_interval_s": [
+    -15,
+    0
+  ],
+  "baseline_voting_unit": "eligible displayed sample",
+  "C_formula": "clip((x-P50)/((P90-P10)/2), -1, +1)",
+  "palette": "managua_r",
+  "limits": [
+    -1,
+    1
+  ],
+  "zero_coordinate": 0.5,
+  "zero_colour": "#582948",
+  "freeze_scope": "selected single-fish recipe and numeric display values; layout may be refined without changing them",
+  "supersedes": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_layout_freeze_20261009\\frozen-version1\\freeze.json",
+  "supersedes_sha256": "0b3f383e62ccb78dea440bafa013a24582f8f73226923b6218fa9c908d1b0090",
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230310_08",
+    "H": "20221115_09"
+  },
+  "replacement_inputs": {
+    "panel": "G",
+    "fish": "20230310_08",
+    "inputs": [
+      {
+        "kind": "camera",
+        "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\camera.parquet",
+        "sha256": "cbec7470211a72f327c0f8dc3d7a6cba4ba87dbd75953b5bf7ace6057614702d"
+      },
+      {
+        "kind": "protocol",
+        "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\stimulus_events.parquet",
+        "sha256": "db6b5f031c8ba36456427a3d8842360ff6c45c72aabf11d6ab9bd5e8f45d2cf6"
+      },
+      {
+        "kind": "angles",
+        "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\frame_preprocessed_corrected.parquet",
+        "sha256": "fc37f9c61857a31f6801534bc94161f89c3467360edff09785fef3496f866f19"
+      },
+      {
+        "kind": "coverage",
+        "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230310_08\\frame_activity_candidates-corrected.parquet",
+        "sha256": "4065ddbc03c3d3c13d900cae568f7dff6a5e31a5035aee90bc3bdfc359e4c000"
+      }
+    ],
+    "metadata_inputs": [
+      {
+        "path": "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230310_08_source_manifest.json",
+        "sha256": "32497c838f569e2a72c5d146a6bdc73f5359405dbcf0db989c577f24e201b6ce"
+      },
+      {
+        "path": "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230310_08_corrected-preprocess_complete.json",
+        "sha256": "d0f71554b27e954bb88a158f39a0d105d8e02623994d785c345ff7f3a5e22a9d"
+      },
+      {
+        "path": "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230310_08_candidate-corrected_complete.json",
+        "sha256": "bb6c654870845890f6dd3e4caf47a6ee632742627d153226b54df7a917de7835"
+      }
+    ]
+  },
+  "cadence": {
+    "interval_ms": 1.4233575812293549,
+    "reference_position": 2612,
+    "end_position": 8378925,
+    "reference_frame_id": 603315,
+    "missing_frame_ids": 0,
+    "buffer_capacity_exceeded": false,
+    "maximum_delay_ms": 192.64872875250876
+  },
+  "undefined_trials": [
+    {
+      "panel": "H",
+      "trial": 16
+    }
+  ],
+  "original_sample_tables": [
+    {
+      "panel": "F",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_c_bout_vs_bins_20261008\\outputs\\PanelF_sample_data.parquet",
+      "sha256": "a32607d54c520f5781d6e6c42d77f3be92ff3befdcf5501fdc2c072b9b0cf6c6",
+      "status": "source sample table hash-bound; immutable display runs snapshotted losslessly"
+    },
+    {
+      "panel": "H",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_c_bout_vs_bins_20261008\\outputs\\PanelH_sample_data.parquet",
+      "sha256": "9a806627b2656f76b2ccdb502f6018aa61ef6dc27fa152130d99cfd5c58a14e6",
+      "status": "source sample table hash-bound; immutable display runs snapshotted losslessly"
+    },
+    {
+      "panel": "G",
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\PanelG_sample_data.parquet",
+      "sha256": "4efd016c954504ce1106e287a0e7535b62b63e1f239338ae5de536e3f16e9fb4"
+    }
+  ],
+  "snapshot_files": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\20230310_08_candidate-corrected_complete.json",
+      "sha256": "bb6c654870845890f6dd3e4caf47a6ee632742627d153226b54df7a917de7835"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\20230310_08_corrected-preprocess_complete.json",
+      "sha256": "d0f71554b27e954bb88a158f39a0d105d8e02623994d785c345ff7f3a5e22a9d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\20230310_08_source_manifest.json",
+      "sha256": "32497c838f569e2a72c5d146a6bdc73f5359405dbcf0db989c577f24e201b6ce"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\PanelF_display_sample_runs.csv",
+      "sha256": "b5aa82cc00c6f0d3f9c8b8ba8a69c6299515c8ccf5601129e3f30d3ab3115d74"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\PanelG_display_sample_runs.csv",
+      "sha256": "ae9aae2c2da4c9502050f1e41fa27137d615387af8d809785b7f0e014516e9af"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\PanelG_sample_data.parquet",
+      "sha256": "4efd016c954504ce1106e287a0e7535b62b63e1f239338ae5de536e3f16e9fb4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\PanelH_display_sample_runs.csv",
+      "sha256": "380defc5bf73579dcec5bfd46e94e81918f0a98006777ee830a15d114973cf54"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\sample_baseline_statistics.csv",
+      "sha256": "c7e4051dc4fb30d34009f4fd25c1e45adcf78c37b3ab976ab5367fb286e5dbd1"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_v1_trace20230310_08_20261009\\frozen-version1\\selected_processing_code.py",
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4"
+    }
+  ]
+}

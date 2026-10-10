@@ -1,12 +1,14 @@
 # Behaviour paper figure specification and freeze record
 
+**Current authority update, 2026-10-10:** [Scoped freeze index](freezes/README.md) identifies Figure 1 E/F–H V12 and Figure 2 D/E B/G. Older formulas, proposed registry status and examples below describe historical/proposed routes and must not override those selections. Exact frozen bytes are preserved; current paper assemblies and remaining scientific gates still require review.
+
 **Figure 2 baseline override (2026-10-08):** newly generated baseline-dependent
 Figure 2 panels must use the user-frozen **[-15,0) s relative to CS onset**.
 The -20 s recipes described below are historical review definitions, not the
-current Figure 2 baseline. The [Figure 2 assembly contract](./07_FIGURE2_ASSEMBLY.md)
+current Figure 2 baseline. The [Figure 2 assembly contract](07_FIGURE2_ASSEMBLY.md)
 records the complete A-I layout, source inventory and remaining scientific gates.
 
-**Version:** working specification 2026-09-24. **Scientific freeze status:** open. This file fixes the intended panel map, the current rendering recipe and the decisions still needed before any panel is labeled final. The [machine panel registry](../../../configs/paper-figures/behavior-paper.json) holds panel IDs and readiness reasons; the [review version comparison](./04_REVIEW_VARIANTS.md) records every generated alternative. The written source plan is the separate paper repository's `Helpers/List of Figures.md`, `Helpers/List of Sup. Figures.md`, and `Helpers/Paper_Scaffold.md`. Those files inform the plan; their drafting notes are not executable instructions. The three supplied draft PNGs demonstrate layout and visual intent, with known differences described in [the draft comparison](./05_DRAFT_COMPARISON.md).
+**Version:** working specification 2026-09-24. **Scientific freeze status:** open. This file fixes the intended panel map, the current rendering recipe and the decisions still needed before any panel is labeled final. The [machine panel registry](../../../configs/paper-figures/behavior-paper.json) holds panel IDs and readiness reasons; the [review version comparison](04_REVIEW_VARIANTS.md) records every generated alternative. The written source plan is the separate paper repository's `Helpers/List of Figures.md`, `Helpers/List of Sup. Figures.md`, and `Helpers/Paper_Scaffold.md`. Those files inform the plan; their drafting notes are not executable instructions. The three supplied draft PNGs demonstrate layout and visual intent, with known differences described in [the draft comparison](05_DRAFT_COMPARISON.md).
 
 ## Shared figure rules
 
@@ -36,14 +38,14 @@ records the complete A-I layout, source inventory and remaining scientific gates
 | **1. Preparation, protocol and individual behavior** | **A** head-fixed larva, basal illumination, green CS and violet/optovin US. **B** within-trial timing of Delay, 3sTrace, 10sTrace and unpaired control. **C** session phases, trial counts and 50/100-ms US legend. **D** representative tail angle. **E** matching raw vigor trace. **F** Delay fish signed heatmap. **G** 3sTrace fish signed heatmap. **H** unpaired-control fish signed heatmap. | B/C have vector review sources in the [assembly layout](../../../configs/paper-figures/figure1-assembly.json). D/E and a paired Delay/control F/H review are renderable; G has an authenticated exploratory example (`20230307_12`). Artwork, fish, metric and final composition still need approval. The source-protocol audit and active experiment definition agree on a 13 s paired-US onset; every plotted fish still requires protocol verification. |
 | **2. Population learning across contingencies** | Columns: Delay/control, 3sTrace/control, 10sTrace/control. **A–C** CS-aligned vigor heatmaps. **D–F** paired fish block ratios, Late Pre-Train 10–14, Early Test 65–69, Late Test 90–94. **G–I** trial-by-trial response ratios with approved model contrasts/onset. Present 10sTrace as inconclusive. | A/D/G Delay review renderers exist; A now pools the Figure 1 signed bins equally across fish. The 3sTrace column has an exploratory cohort and signed heatmap; its ratio panels require the corrected 0–13 s trial outcomes. The 10sTrace column still needs a reviewed cohort and processed data. Pick one metric and approve cohort and inference. Current Delay G LME has a failed influence gate and no localized simultaneous onset. No extinction estimator is implemented; an extinction claim needs a separate prespecified analysis. |
 | **3. Which fish learn?** | **A** approved representation workflow, **B** continuous fish effects or scores, **C** uncertainty/stability and threshold calibration if a threshold is approved, **D** class fractions only if categories are approved, **E** all-fish paired change, **F** prespecified example trajectories, **G** all-eligible-fish validation. | Learner representation and validation (Gate L), outcome metric, examples and any classification thresholds are not frozen. Panel composition changes if Gate L rejects categories. No manuscript renderer is approved. |
-| **4. Learner-stratified CR profiles** | **A** Delay, **B** 3sTrace, **C** 10sTrace. The current categorical review layout has nine declared ten-trial CS blocks and one pooled-catch row with learner/nonlearner and control classifier groups. Signed log-vigor curves cover −20…+20 s with CS and verified expected-US guides. | Analysis and rendering commands exist for a categorical manifest. Final paper output awaits Gate L, three reviewed cohorts, and authenticated protocol timing; a continuous or model-based Gate L decision requires a different Figure 4 grouping and renderer. Same-data strata are descriptive. Individual catches, movement probability and fish coverage are supplementary. Independent response timing is gated in the [supplementary plan](../../../Plans/10_SUPPLEMENTARY_FIGURES.md). |
+| **4. Learner-stratified CR profiles** | **A** Delay, **B** 3sTrace, **C** 10sTrace. The current categorical review layout has nine declared ten-trial CS blocks and one pooled-catch row with learner/nonlearner and control classifier groups. Signed log-vigor curves cover −20…+20 s with CS and verified expected-US guides. | Analysis and rendering commands exist for a categorical manifest. Final paper output awaits Gate L, three reviewed cohorts, and authenticated protocol timing; a continuous or model-based Gate L decision requires a different Figure 4 grouping and renderer. Same-data strata are descriptive. Individual catches, movement probability and fish coverage are supplementary. Independent response timing is gated in the [supplementary plan](../../../Plans/11_SUPPLEMENTARY_FIGURES.md). |
 
 ## Supplementary figures and data
 
 Build the supporting data and figures alongside their parent main figure. These
 are proposed content groups; assign supplementary figure numbers and panel
 letters after the analyses and composition are approved. The detailed work is
-in [Plan 10](../../../Plans/10_SUPPLEMENTARY_FIGURES.md).
+in [Plan 10](../../../Plans/11_SUPPLEMENTARY_FIGURES.md).
 
 | Parent figure | Supporting content | Current source/status |
 | --- | --- | --- |
@@ -54,7 +56,7 @@ in [Plan 10](../../../Plans/10_SUPPLEMENTARY_FIGURES.md).
 
 The earlier condition-wide 0–1 catch/block profiles remain distinct review
 outputs; they are not Figure 4 panel data. The [Figure 4 command and manifest
-contract](./06_FIGURE4_LEARNER_PROFILES.md) describes the replacement signed
+contract](06_FIGURE4_LEARNER_PROFILES.md) describes the replacement signed
 learner-stratified analysis.
 
 ## Rendering interface
@@ -79,6 +81,6 @@ MPLCONFIGDIR=/private/tmp/cc-mpl classical-conditioning render-paper-panels \
 
 1. Record one metric definition/hash, reviewed cohort manifest/hash per comparison, selected fish and global trials, and preprocessing and detector recipe hashes. Verify that Figure 1 F/H and Figure 2 A use the shared signed-bin function and display limits. Fill the registry's currently null authentication fields from the accepted run.
 2. Approve the protocol timeline from raw event records, especially the 3sTrace US time, before timing art or expected-US overlays are final.
-3. Approve Gate L for Figures 3–4 and the Figure 2 model/diagnostics, contrasts and multiplicity rule. Independent response-timing claims require the evaluation protocol in the [supplementary plan](../../../Plans/10_SUPPLEMENTARY_FIGURES.md). A failed diagnostic does not become significant evidence because a star is visible.
+3. Approve Gate L for Figures 3–4 and the Figure 2 model/diagnostics, contrasts and multiplicity rule. Independent response-timing claims require the evaluation protocol in the [supplementary plan](../../../Plans/11_SUPPLEMENTARY_FIGURES.md). A failed diagnostic does not become significant evidence because a star is visible.
 4. Compose final panel groups, captions and supplementary cross references; render PNG, SVG and PDF from the same panel data; inspect visual layout and semantic SVG structure.
 5. Store a release manifest with source commit, config/input SHA-256 values, exact render command, panel-data and export hashes, plus reviewer/date. At that point change the relevant registry panel statuses from `blocked` only after the scientific approvals are recorded.

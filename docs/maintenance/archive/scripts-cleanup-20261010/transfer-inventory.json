@@ -1,0 +1,2297 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-10",
+  "scope": "Scripts-only follow-up; original repository archive is immutable",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/scripts-cleanup/2026-10-10",
+  "files": [
+    {
+      "path": "scripts/archive_delay_review_versions.py",
+      "bytes": 13495,
+      "sha256": "6bb49bab57de06cddcf8b814c719c2265661877a19850765e2cb445b7b7bc47f",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Build one self-contained review with a verified, content-deduplicated archive.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/archive_delay_review_versions.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/assemble_svg_figure.py",
+      "bytes": 21558,
+      "sha256": "ebe21179170698367ff0847cb6c9946e065993777e7a317c7b9078d455be89d2",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Compose replaceable SVG panels from a declarative paper-figure layout.",
+      "consumers": [
+        "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "scripts/build_figure1_cadence_review_v5.py",
+        "scripts/build_figure1_panel_a.py",
+        "scripts/build_figure2_assembly.py",
+        "scripts/catalog_figure2_versions.py",
+        "scripts/populate_figure2_available.py",
+        "tests/test_svg_figure_assembly.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_svg_figure_assembly.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/assemble_svg_figure.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit-inc-trace-stim.py",
+      "bytes": 4506,
+      "sha256": "924947aa5d25c8013f02de243a983e6b4c098d317019a54eacf733ab70ccab0d",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Classify every incTrace protocol using only Cycle and Reinforcer event times.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit-inc-trace-stim.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_figure1_camera_gaps.py",
+      "bytes": 7094,
+      "sha256": "cdcccd546b85b5329501dfa66daed7d7849e4e90cbe4644a84aa26d258c48a39",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Audit >10 ms intervals back to immutable camera/tracking text logs.",
+      "consumers": [
+        "docs/analysis/FIGURE1_CAMERA_GAPS_AND_BIN_MAPPING_2026-10-06.md"
+      ],
+      "script_dependencies": [
+        "scripts/audit_figure1_vigor_alignment.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure1_camera_gaps.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_figure1_legacy_cadence.py",
+      "bytes": 9135,
+      "sha256": "b356ac684a5ec8b7cae0d3c2061f670998c32a5d822453b17a8287d98b5d0102",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Compare arrival-clock and legacy presumed-cadence processing for Figure 1.",
+      "consumers": [
+        "docs/analysis/LEGACY_ACQUISITION_TIMING_REPAIR_2026-10-06.md"
+      ],
+      "script_dependencies": [
+        "scripts/audit_figure1_vigor_alignment.py",
+        "scripts/build_figure1_legacy_vigor_heatmaps.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure1_legacy_cadence.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_figure1_vigor_alignment.py",
+      "bytes": 9477,
+      "sha256": "3ea755e6f899d06fdfcb3318d71899c78115dc7ec439fa1061bfdef4bbcf2ccc",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Reproduce Figure 1E/F frame, detector and bin alignment without changing panels.",
+      "consumers": [
+        "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md",
+        "scripts/audit_figure1_camera_gaps.py",
+        "scripts/audit_figure1_legacy_cadence.py",
+        "scripts/build_figure1_same_frame_vigor_review.py",
+        "scripts/repeat_figure1_nan_mask_audit.py"
+      ],
+      "script_dependencies": [
+        "scripts/build_figure1_legacy_vigor_heatmaps.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure1_vigor_alignment.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_figure2_bout_only_statistics.py",
+      "bytes": 5371,
+      "sha256": "f18fa4eb0b398f40db50294723d1afead5f4bd797e720c9a7e0da9d96d5db4f6",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Recheck B rank tests and separately audit its zero-baseline reference.",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/review_figure2_block_log_median.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure2_bout_only_statistics.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_figure2_delay_lmm.py",
+      "bytes": 10834,
+      "sha256": "cdd604811f78a36c532bdb5b7095852fee0bbdccfd067f3d9599996cfab9f8e6",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Reproduce all saved Delay LMMs and independently check contrast algebra.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure2_delay_lmm.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_mac_ssd_handoff.py",
+      "bytes": 3194,
+      "sha256": "bad74a6e2bb0a97f73871dfd981696b927a2656e2b7afe174c5049e3a20716f4",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Read-only SSD data-coverage audit; write only a small handoff report.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_mac_ssd_handoff.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_preprocessing_archival_routes.py",
+      "bytes": 2619,
+      "sha256": "6c39f9c49374c7090571ee0f15518255fdcdfcb50c6ccd8e449bc1a32cad3f54",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Static archival route audit plus read-only protocol samples; no legacy imports.",
+      "consumers": [
+        "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated historical preprocessing report generator; durable audit report and generic contract audit retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_preprocessing_archival_routes.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_preprocessing_contract.py",
+      "bytes": 5406,
+      "sha256": "602b635d1708ffd4bbbf461d9ee238f28492647368a154b30ffc3cf8341ca494",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Read-only preprocessing evidence; writes only a new audit directory.",
+      "consumers": [
+        "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_preprocessing_contract.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_preprocessing_historical_compression.py",
+      "bytes": 875,
+      "sha256": "d39f53d1b441a7228201979929f8bfe55d770eb75a1bcffbee73878b934a21a9",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Read gzip-pickled historical tables stored with .pkl extension.",
+      "consumers": [
+        "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated historical preprocessing report generator; durable audit report and generic contract audit retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_preprocessing_historical_compression.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_preprocessing_historical_tables.py",
+      "bytes": 2240,
+      "sha256": "784c3afd2b9dee85d6ce079afa21cae5eba4a8ea1f4c8a11c16ea1d85aeecbc1",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Read trusted local historical tables and source endpoints; never rewrite them.",
+      "consumers": [
+        "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated historical preprocessing report generator; durable audit report and generic contract audit retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_preprocessing_historical_tables.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_preprocessing_original_cadence.py",
+      "bytes": 1742,
+      "sha256": "e4aab90ce7ff99a7e8bd8d384835aee23c3e133eb32fd373d6f202a6862922ec",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Execute original cadence arithmetic with plotting replaced by no-ops.",
+      "consumers": [
+        "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated historical preprocessing report generator; durable audit report and generic contract audit retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_preprocessing_original_cadence.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/audit_preprocessing_routes_and_filters.py",
+      "bytes": 3586,
+      "sha256": "87e4f7847267cef64c17dafd3ecefb74615dd936ecf729eae6143edf6bb2c5e3",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Additional route/protocol and finite-window numerical audit, without publishing data.",
+      "consumers": [
+        "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated historical preprocessing report generator; durable audit report and generic contract audit retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_preprocessing_routes_and_filters.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_cadence_review_v5.py",
+      "bytes": 14035,
+      "sha256": "4bfd85ad5fd673f067a4840190410287f6215d4b7fa2abf0c81782e48e873989",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Rebuild Figure 1 D-H on presumed acquisition cadence; preserve all snapshots.",
+      "consumers": [
+        "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md"
+      ],
+      "script_dependencies": [
+        "scripts/assemble_svg_figure.py",
+        "scripts/build_figure1_legacy_vigor_heatmaps.py",
+        "scripts/build_figure1_trace_panels.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_cadence_review_v5.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_heatmap_bin_inset.py",
+      "bytes": 6391,
+      "sha256": "f0ada5a8b9cf4e2f4c0100cd4084318007e21dea0b21dcabe8b51d7ac80421d4",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Panel E review: raw frame vigor with a short inset of exact heatmap bins.",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/build_figure1_trace_panels.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_heatmap_bin_inset.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_legacy_vigor_heatmaps.py",
+      "bytes": 14447,
+      "sha256": "206843129827dae5f2451eda3f9f522932e63631bbb6c03b7c0a9db6d942f013",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Build matching, fully vector Figure 1 single-fish legacy-vigor heatmaps.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE1_HEATMAPS.md",
+        "scripts/audit_figure1_legacy_cadence.py",
+        "scripts/audit_figure1_vigor_alignment.py",
+        "scripts/build_figure1_cadence_review_v5.py",
+        "scripts/build_figure1_vigor_zoom.py",
+        "scripts/repeat_figure1_nan_mask_audit.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_legacy_vigor_heatmaps.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_panel_a.py",
+      "bytes": 1491,
+      "sha256": "e1dcc5f0969b3dae8d56033bd778b41dd0ec626760cedb2d8ac6782c37491d68",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Normalize the supplied vector preparation scheme to the plot font.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md"
+      ],
+      "script_dependencies": [
+        "scripts/assemble_svg_figure.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_panel_a.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_panel_b.py",
+      "bytes": 19965,
+      "sha256": "9b56c6066a07d80f17efcc8aead2db8c0f81dadd28441fdca90d9ee172054060",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Draw an exploratory, fully vector Figure 1B from active experiment timing.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE1_PANEL_B_REDESIGN.md",
+        "tests/test_figure1_panel_b.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_figure1_panel_b.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_panel_b.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_panel_c.py",
+      "bytes": 11779,
+      "sha256": "7d2adecc89314ca5f41c81f364a2709582a8aa42dd48d0d90b507f183e5f2435",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Build an editable SVG schematic of the Figure 1 session protocol.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE1_PANEL_C_REDESIGN.md",
+        "tests/test_figure1_panel_c.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_figure1_panel_c.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_panel_c.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_same_frame_vigor_review.py",
+      "bytes": 6898,
+      "sha256": "3d936c9193aad3a27367c4e348a95c2fb737f9725c4c6ce1cc4a59ea1699d5b4",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Compare raw and signed bout vigor with exactly the same frame support.",
+      "consumers": [
+        "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md"
+      ],
+      "script_dependencies": [
+        "scripts/audit_figure1_vigor_alignment.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_same_frame_vigor_review.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure1_trace_panels.py",
+      "bytes": 8413,
+      "sha256": "43e7fb764f63b0df89e277e50b01c34a8f4674a57c89943a54ee46e2ff9fcb12",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Build separate vector Figure 1D/E traces from the same measured Delay fish.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+        "scripts/build_figure1_cadence_review_v5.py",
+        "scripts/build_figure1_heatmap_bin_inset.py",
+        "scripts/build_figure1_vigor_overlay.py",
+        "scripts/build_figure1_vigor_zoom.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_legacy_ssd_example_traces.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_trace_panels.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md"
+      ]
+    },
+    {
+      "path": "scripts/build_figure1_vigor_overlay.py",
+      "bytes": 6358,
+      "sha256": "babea5abacdcef6825730cf97a2495ccf3f043eb22172914e3c2b7694480fd59",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "All five Figure 1E trials: raw vigor over exact, baseline-centred heatmap bins.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md"
+      ],
+      "script_dependencies": [
+        "scripts/build_figure1_trace_panels.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_vigor_overlay.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md"
+      ]
+    },
+    {
+      "path": "scripts/build_figure1_vigor_zoom.py",
+      "bytes": 11513,
+      "sha256": "a23685a16a28c066bbf996bfbeeee6420b37e1671149d07e916f035db1e1a719",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Figure 1E: raw overview plus two vector y-only zooms with detected-bout bars.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE1_HEATMAPS.md"
+      ],
+      "script_dependencies": [
+        "scripts/build_figure1_legacy_vigor_heatmaps.py",
+        "scripts/build_figure1_trace_panels.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure1_vigor_zoom.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_figure2_assembly.py",
+      "bytes": 9674,
+      "sha256": "94b426cc14bb72a43066317098ab1ee79f782bb140d1a9231e176219f4755fb3",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Build the Figure 2 review layout, preserving SSD versions and source provenance.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md",
+        "docs/maintenance/transfers/MAC_SSD_20261009.md"
+      ],
+      "script_dependencies": [
+        "scripts/assemble_svg_figure.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure2_assembly.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+      "bytes": 11616,
+      "sha256": "ea1df05e91c06829234ee3fd68d2b1305e1dc12bf3def15856ee4c2aef539e49",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Single HTML Panel E review using the current frozen V12 half-second bins.",
+      "consumers": [
+        "docs/analysis/PANEL_E_PRESENTATION_REVIEW_2026-10-07.md",
+        "records/frozen-analyses/figure1-panel-e-20261009/candidate.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/check-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-preparer-snapshot.py",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/version-history-source.md",
+        "scripts/prepare_panel_e_heatmap_rows_freeze.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_panel_e_frozen_v12_heatmap_rows_review.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure1-panel-e-20261009/candidate.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/check-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-preparer-snapshot.py",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/version-history-source.md"
+      ]
+    },
+    {
+      "path": "scripts/catalog_figure2_versions.py",
+      "bytes": 5934,
+      "sha256": "5806994dcc998d673ed537795c1252d6a76289521715c417b792b84a5d806cc7",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Show recovered Figure 2 drafts alongside the unchanged historical reviews.",
+      "consumers": [
+        "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md"
+      ],
+      "script_dependencies": [
+        "scripts/assemble_svg_figure.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/catalog_figure2_versions.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/clean_archived_delay_reviews.ps1",
+      "bytes": 3967,
+      "sha256": "a52be0c3c4478efc76fa382f331be1c044565e421cbfa2767fc0bc5b716a7ea0",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "$ErrorActionPreference='Stop'",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/clean_archived_delay_reviews.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/complete-3strace-move-after-review.ps1",
+      "bytes": 4234,
+      "sha256": "3aa40fa365ee43382f4fbc9a0e2725fd15f2ee9358a6fa0c73ab5c43061faa8f",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<#",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/verify_3strace_move_readiness.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/complete-3strace-move-after-review.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/complete-allDelay-to-lme-windows.ps1",
+      "bytes": 4100,
+      "sha256": "3197a08860ec11bfe57cb29d3a1325953fdd8c876252995a17af49bcc25ceaac",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "param(",
+      "consumers": [
+        "scripts/README.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/complete-allDelay-to-lme-windows.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/complete_delay_logmedian_on_f.py",
+      "bytes": 2141,
+      "sha256": "dc9588c78fb27a3ef281d592c4fce226e5dc520f590c8f763335f76c463fb120",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Resume the fully authenticated frame extraction after a gated local failure.",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/render_figure2_delay_logmedian.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/complete_delay_logmedian_on_f.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/continue-3strace-after-pipeline.ps1",
+      "bytes": 3042,
+      "sha256": "80518f5e113d8fd14c541f6ef859a33ec18d0cbe9658c874342ca694945bb340",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<#",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/run-3strace-exploratory-post.ps1"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/continue-3strace-after-pipeline.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/continue-3strace-legacy-preview.ps1",
+      "bytes": 4751,
+      "sha256": "e75659eaccc1d1711dd2982408e1241986c3a8278a6273fa8011c770a022fc0f",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<# Complete the isolated 53-fish legacy-metric Figure 2/3/4 preview. #>",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/finalize_3strace_exploratory.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/continue-3strace-legacy-preview.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/continue-3strace-partial-window13.ps1",
+      "bytes": 5042,
+      "sha256": "472b8d5312b42ec45a45a08bb6428754c003394cf814bae4743e79469e38bdac",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<# Finish the immutable 36-fish 0\u201313 s preview without touching full-run IDs. #>",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/finalize_3strace_exploratory.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/continue-3strace-partial-window13.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/continue-3strace-window13-after-rebuild.ps1",
+      "bytes": 2265,
+      "sha256": "b0e8c7683568e579973b95f70090422ef46116fa01ded72c093c75bd874d1e06",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<# Wait for all 59 fish to use the 0\u201313 s response window, then rebuild dependent outputs. #>",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/run-3strace-window13-post.ps1"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/continue-3strace-window13-after-rebuild.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/copy-3strace-project-to-f.ps1",
+      "bytes": 4711,
+      "sha256": "903f4b1750c70a63686abcde9237faea456c7bcb13a3d9fee15cf4fe1683af1c",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<#",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/copy-3strace-project-to-f.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/copy-3strace-staging-to-f.ps1",
+      "bytes": 3326,
+      "sha256": "9e4ed5784273752068dad596f924a2d1bae544f65c5a47467aa5dee4c59c9f16",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<# Copies and verifies the two legacy intake staging folders within the named 3sTrace project. #>",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/copy-3strace-staging-to-f.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/finalize_3strace_exploratory.py",
+      "bytes": 10735,
+      "sha256": "a863258a08389ed8e7222f71c225c469b5a005b13e69f9a95994fd33d5b07f37",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Freeze the complete 3sTrace cohort and package provisional WIP labels.",
+      "consumers": [
+        "scripts/continue-3strace-legacy-preview.ps1",
+        "scripts/continue-3strace-partial-window13.ps1",
+        "scripts/run-3strace-exploratory-post.ps1",
+        "scripts/run-3strace-window13-post.ps1",
+        "scripts/run_3strace_legacy_full59.py",
+        "tests/test_3strace_finalize.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_3strace_finalize.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finalize_3strace_exploratory.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/finalize_figure2_B_candidates.py",
+      "bytes": 3365,
+      "sha256": "1a1b372f9f8d2fbeb42950d0970d7a7eb4f5d3da323462b44041679734a241a2",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Record the performed B visual review and preserve small code snapshots.",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/prepare_figure2_B_freeze.py",
+        "scripts/review_figure2_block_log_median.py",
+        "scripts/review_figure2_bout_only.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Completed scoped selection registration/candidate packaging; selections and exact frozen snapshots already retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finalize_figure2_B_candidates.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/finalize_preprocessing_audit_report.py",
+      "bytes": 3433,
+      "sha256": "f4a2a069323118a4285a978e74210ba1a803e0b5e98c835e4a848eb274d0fd37",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Finalize report tables and code provenance without changing source artifacts.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated historical preprocessing report generator; durable audit report and generic contract audit retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finalize_preprocessing_audit_report.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/freeze_figure.py",
+      "bytes": 284,
+      "sha256": "e18568c20be5ca19da07776a183a9298e3a1c7f1287d1a1c32d62268b8ae35fe",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Standalone freeze gate, usable without importing the scientific libraries.",
+      "consumers": [
+        "configs/paper-figures/figure-elements.json",
+        "docs/analysis/PANEL_E_PRESENTATION_REVIEW_2026-10-07.md",
+        "docs/analysis/decisions/DECISIONS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+        "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/specification-snapshot.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/specification-snapshot.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure-elements.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md",
+        "scripts/freeze_figure1_panels.py",
+        "scripts/prepare_figure1_fgh_v12_freeze.py",
+        "scripts/prepare_figure2_B_freeze.py",
+        "src/classical_conditioning/cli.py",
+        "tests/test_figure_freeze.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "src/classical_conditioning/cli.py",
+        "tests/test_figure_freeze.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/freeze_figure.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/specification-snapshot.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/specification-snapshot.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure-elements.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md"
+      ]
+    },
+    {
+      "path": "scripts/freeze_figure1_panels.py",
+      "bytes": 1209,
+      "sha256": "5ddb79d68cce8b251a9f707498c0faef36c1665bc2b79ce128f4709b6bf84b80",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Verify the historical Figure 1 A-D freeze without changing its artifacts.",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/freeze_figure.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/freeze_figure1_panels.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/mac_ssd_run.py",
+      "bytes": 2814,
+      "sha256": "c6a637d578208700f477b1b580b512b4af19cd0d214eaf06e8d41a6de8aff974",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Run an existing script on macOS with opt-in Windows path relocation.",
+      "consumers": [
+        "docs/maintenance/transfers/MAC_SSD_20261009.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/mac_ssd_run.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/plot_metric_response_magnitude.py",
+      "bytes": 4287,
+      "sha256": "59924b70a97bbe550563711aabb0f4f6c9dd51a9baedef310191fc7e0a9bee22",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Descriptive fish-level suppression comparison with paired-metric bootstrap.",
+      "consumers": [
+        "docs/analysis/METRIC_SELECTION_2026-10-06.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/plot_metric_response_magnitude.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/plot_train_test_transition_metrics.py",
+      "bytes": 4996,
+      "sha256": "e8f4e70d48553a82be4fddd770bccf82fc7f2d5f941c608117c7f74ac6891b39",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Compare Pre-Train with pooled late-Train/early-Test CS trials for every fish.",
+      "consumers": [
+        "docs/analysis/METRIC_SELECTION_2026-10-06.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/plot_train_test_transition_metrics.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/populate_figure2_available.py",
+      "bytes": 23190,
+      "sha256": "4157c266a6c715db724de668fcdc2418a1f5a9343999feed9fca605842875d83",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Recover Figure 2 review panels from authenticated, existing processed data.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py",
+        "scripts/review_figure2_block_log_median.py",
+        "scripts/review_figure2_bout_only.py"
+      ],
+      "script_dependencies": [
+        "scripts/assemble_svg_figure.py",
+        "scripts/render_legacy_ssd_example_heatmaps.py",
+        "scripts/render_legacy_ssd_example_traces.py",
+        "scripts/render_legacy_ssd_figure2_delay.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/populate_figure2_available.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py"
+      ]
+    },
+    {
+      "path": "scripts/prepare-trace-runs.py",
+      "bytes": 8223,
+      "sha256": "0d102a77c5ba53a24476eeb1e465c99b3f486f12a6464f17031e8308fa40a63d",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Prepare an all-fish fixed-trace pipeline config from the raw folder.",
+      "consumers": [
+        "scripts/run-all3sTrace-full-windows.ps1",
+        "tests/test_trace_preparation.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_trace_preparation.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/prepare-trace-runs.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/prepare_figure1_fgh_v12_freeze.py",
+      "bytes": 36007,
+      "sha256": "8ea8fef56e3f64c2f80e9abb2cb01854c23a2a77ade77823ca254e4dc9ff3deb",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Prepare and package the author-selected F/G/H V12 in the single HTML review.",
+      "consumers": [
+        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+        "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/candidate.json",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/freeze.json",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py"
+      ],
+      "script_dependencies": [
+        "scripts/freeze_figure.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/prepare_figure1_fgh_v12_freeze.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/candidate.json",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/freeze.json",
+        "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py"
+      ]
+    },
+    {
+      "path": "scripts/prepare_figure2_B_freeze.py",
+      "bytes": 20218,
+      "sha256": "1f4e78fcd8a71b26e462a92be913e9e6bff20c73903f5a8f9ef7186dfdc918a9",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Prepare the selected bout-only B panels with corrected fish-level statistics.",
+      "consumers": [
+        "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_D_B.figure.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_E_B.figure.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md",
+        "scripts/finalize_figure2_B_candidates.py"
+      ],
+      "script_dependencies": [
+        "scripts/freeze_figure.py",
+        "scripts/review_figure2_bout_only.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/prepare_figure2_B_freeze.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_D_B.figure.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_E_B.figure.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md"
+      ]
+    },
+    {
+      "path": "scripts/prepare_figure2_G_logmedian_freeze.py",
+      "bytes": 16086,
+      "sha256": "c6438942104fc0e72fb8c25a9c3614104dd3bc58ef6f54f33bd9f654489aa1cb",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Prepare G from the selected, already fitted historical LogMedian revision.",
+      "consumers": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/Fig2_G_Historical_LogMedian.figure.json",
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/renderer-source.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/prepare_figure2_G_logmedian_freeze.py"
+      ],
+      "freeze_dependencies": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/renderer-source.py"
+      ],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/Fig2_G_Historical_LogMedian.figure.json",
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/renderer-source.py"
+      ]
+    },
+    {
+      "path": "scripts/prepare_mac_ssd_handoff.py",
+      "bytes": 5018,
+      "sha256": "fe055153e00f5b191e1eb93cd8122edfc69119a55a2c721c2cea5eb38bd5fb45",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Prepare the requested SSD handoff without altering existing source artifacts.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/prepare_mac_ssd_handoff.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+      "bytes": 26299,
+      "sha256": "3dce857911114e169a4f378f8670838c50f73df4dc280ebb7e26a14d79b97fb3",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Prepare the selected Panel E for the explicit freeze gate; archive into one HTML.",
+      "consumers": [
+        "docs/analysis/PANEL_E_PRESENTATION_REVIEW_2026-10-07.md",
+        "records/frozen-analyses/figure1-panel-e-20261009/candidate.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/check-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze.json"
+      ],
+      "script_dependencies": [
+        "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/prepare_panel_e_heatmap_rows_freeze.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure1-panel-e-20261009/candidate.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/check-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json",
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze.json"
+      ]
+    },
+    {
+      "path": "scripts/process-ingested-trace-fish.ps1",
+      "bytes": 2407,
+      "sha256": "6541a3ec90b312b5239d642f297f5da7bb7b0ce9fdf8814e1a2e657d2343ae9d",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "<#",
+      "consumers": [
+        "scripts/README.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/process-ingested-trace-fish.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/rebuild_3strace_window13.py",
+      "bytes": 4865,
+      "sha256": "2537543f1516f1bfb0135749f0d53bcda66108533174ee2b0e1b59dcda9b3691",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Rebuild only stale 3sTrace candidate trial outcomes for the 0\u201313 s window.",
+      "consumers": [
+        "docs/analysis/figures/TRACE3_EXPLORATORY_RUN_2026-09-24.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/rebuild_3strace_window13.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/recover_delay_review_on_f.py",
+      "bytes": 6208,
+      "sha256": "3c711fff02c0710b6addbc532d68d3dd9ecdfcd04ae88096a69d6300ce277d2a",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Authenticate recorded F inputs and regenerate unavailable J previews.",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/render_figure2_delay_legacy_metric_lme.py",
+        "scripts/render_figure2_delay_logmedian.py",
+        "scripts/render_figure2_delay_phase_lmm.py",
+        "scripts/render_figure2_delay_review_display.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/recover_delay_review_on_f.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/register_figure2_B_freeze.py",
+      "bytes": 5644,
+      "sha256": "a54f8adcc00862f70be3546a2e831100ac5761386d49b08cdd08fb23df67f3e8",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Register completed D/E freezes and provide a local review landing page.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Completed scoped selection registration/candidate packaging; selections and exact frozen snapshots already retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/register_figure2_B_freeze.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/register_figure2_G_freeze.py",
+      "bytes": 6373,
+      "sha256": "eeee55d8101bf76c39d9632e4b8c3cca3c23852aee9197749fdf2c6ce4aad539",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Register the scoped G selection without changing the whole-figure assembly.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Completed scoped selection registration/candidate packaging; selections and exact frozen snapshots already retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/register_figure2_G_freeze.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_delay_all_versions.py",
+      "bytes": 12089,
+      "sha256": "dc21a3188de237712bacf7b67664e7d8fd4ba438c754844244697aded0018455",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Additional matched-input comparisons and PDF page manifest (no model refits).",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/render_figure2_delay_legacy_metric_lme.py",
+        "scripts/render_figure2_delay_logmedian.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_delay_all_versions.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_delay_lines_only.py",
+      "bytes": 5599,
+      "sha256": "3a0600e16f0ebeab9e2a9cdc90f51fb5f11b7aaf409293fe3b64af5ebe65c9f3",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Compare four observed Delay outcome definitions without bands or inference.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_delay_lines_only.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure1_3strace_example.py",
+      "bytes": 6084,
+      "sha256": "34e42a2af84983f806c26bff8a5a60e68dc0b9d3ee1a5c6eafb8547de6229906",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Render the historical 3sTrace example fish as a signed Figure 1G review heatmap.",
+      "consumers": [
+        "scripts/run-3strace-exploratory-post.ps1"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure1_3strace_example.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure1_all_frame_heatmaps.py",
+      "bytes": 8676,
+      "sha256": "bb75fd74c20e57086e8a31a5c5527ec06458a386980b0bbccab350f56f287532",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Continuous Figure 1 heatmap candidate from bout-only vigor (empty bins remain NaN) bins.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "scripts/README.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure1_all_frame_heatmaps.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure1_cd_scaled_log_review.py",
+      "bytes": 14834,
+      "sha256": "523eaad7ccaf0600b4c130f2f091a8d1cfe9228cd0adb7f38bdc0560ae2a38a7",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Compare Figure 1 C/D traces with trial-scaled log vigor baselines.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+        "scripts/README.md",
+        "src/classical_conditioning/figures/paper_panels.py",
+        "tests/test_figure1_cd_scaled_log_review.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_legacy_ssd_example_traces.py"
+      ],
+      "active_source_test_consumers": [
+        "src/classical_conditioning/figures/paper_panels.py",
+        "tests/test_figure1_cd_scaled_log_review.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure1_cd_scaled_log_review.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure1_raw_vigor_y_focus.py",
+      "bytes": 14157,
+      "sha256": "13ef385238dd4c422d0f3c7b7d9aa31e5ac0b4c7c4aa52657d0bede1544cf0eb",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Render Figure 1E with raw frames and matching single-fish heatmap bins.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+        "scripts/README.md"
+      ],
+      "script_dependencies": [
+        "scripts/render_legacy_ssd_example_traces.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure1_raw_vigor_y_focus.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure2_3strace_legacy_layout.py",
+      "bytes": 6693,
+      "sha256": "6f26c391e850ee8e8ec9732579b4240f0394e992f1be7855ffeaa4f8abe86eb2",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Render exploratory Figure 2E/H using the archived normalized-vigor layout.",
+      "consumers": [
+        "scripts/run_3strace_legacy_full59.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure2_3strace_legacy_layout.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure2_3strace_signed_review.py",
+      "bytes": 8265,
+      "sha256": "0da2b11d6200e4ef912cc4eec9e518fc0a3e6bf481f5aa1f4565b75f5bf831ee",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Render the 3sTrace/control Figure 2B signed heatmap and fish coverage review.",
+      "consumers": [
+        "scripts/run-3strace-exploratory-post.ps1"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure2_3strace_signed_review.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure2_delay_legacy_metric_lme.py",
+      "bytes": 25744,
+      "sha256": "c2f316f3bb04fc1b52be7d35158153559df6cbc65bb44bd9b688bce8fa45e34f",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Versioned Delay G mixed-effects review; fixed legacy metric, SSD outputs only.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+        "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json",
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json",
+        "scripts/recover_delay_review_on_f.py",
+        "scripts/render_delay_all_versions.py",
+        "scripts/render_figure2_delay_logmedian.py",
+        "scripts/render_figure2_delay_review_display.py",
+        "tests/test_figure2_delay_review.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_figure2_delay_review.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure2_delay_legacy_metric_lme.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json",
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json"
+      ]
+    },
+    {
+      "path": "scripts/render_figure2_delay_logmedian.py",
+      "bytes": 22786,
+      "sha256": "486d763ad6d9af71b7f2bad9277d9ccf20b4d98805e512ca2a6d9701e48f26f9",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Matched historical LogMedian outcome; unchanged corrected frames and cohort.",
+      "consumers": [
+        "scripts/complete_delay_logmedian_on_f.py",
+        "scripts/recover_delay_review_on_f.py",
+        "scripts/render_delay_all_versions.py",
+        "tests/test_figure2_delay_logmedian.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_figure2_delay_legacy_metric_lme.py",
+        "scripts/render_figure2_delay_phase_lmm.py"
+      ],
+      "active_source_test_consumers": [
+        "tests/test_figure2_delay_logmedian.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure2_delay_logmedian.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure2_delay_phase_lmm.py",
+      "bytes": 15212,
+      "sha256": "7ec5bbfa7499ec19f90fb61e10c188e13db573da027ff0fe0d792cd01caf9b94",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Observed bout-only medians and separate global/phase-aware LMM contrasts.",
+      "consumers": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json",
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json",
+        "scripts/recover_delay_review_on_f.py",
+        "scripts/render_figure2_delay_logmedian.py",
+        "tests/test_figure2_delay_phase_lmm.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_figure2_delay_phase_lmm.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure2_delay_phase_lmm.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json",
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json"
+      ]
+    },
+    {
+      "path": "scripts/render_figure2_delay_review_display.py",
+      "bytes": 12347,
+      "sha256": "dc1ffaa2055cb351c66b08f08aab6654d06048eaa1bd558ed8cc456cd4dbcdcb",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Render a corrected G preview from saved statistical results, without refits.",
+      "consumers": [
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+        "scripts/recover_delay_review_on_f.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_figure2_delay_legacy_metric_lme.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure2_delay_review_display.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure2_legacy_stats_lme_review.py",
+      "bytes": 17955,
+      "sha256": "7cb4910d4fe0f6a454c968d69fef889af1e4952c859c662cd5c1b8ea6817b87e",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Figure 2D legacy-style stars and Figure 2G authenticated LME review.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+        "scripts/README.md",
+        "src/classical_conditioning/figures/paper_panels.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "src/classical_conditioning/figures/paper_panels.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure2_legacy_stats_lme_review.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_figure3_3strace_review.py",
+      "bytes": 12607,
+      "sha256": "98115de7102ffb436ecf679c1129c9cda48b62b6924fc473658ab611bc53ca84",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Render an exploratory 3sTrace learner review from the archived WIP rule.",
+      "consumers": [
+        "scripts/run-3strace-exploratory-post.ps1",
+        "scripts/run-3strace-window13-post.ps1",
+        "scripts/run_3strace_legacy_full59.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figure3_3strace_review.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_legacy_ssd_example_heatmaps.py",
+      "bytes": 11961,
+      "sha256": "43ebd0cf8a1def0234cc4f1aa2fa1ba58a07d8e4424d6539fca55b4d81433e40",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Render paired single-fish Figure 1 heatmaps from versioned SSD artifacts.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+        "scripts/README.md",
+        "scripts/populate_figure2_available.py",
+        "scripts/render_legacy_ssd_figure2_delay.py",
+        "scripts/render_log_scaled_vigor_heatmaps.py",
+        "src/classical_conditioning/figures/paper_panels.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_legacy_ssd_example_traces.py"
+      ],
+      "active_source_test_consumers": [
+        "src/classical_conditioning/figures/paper_panels.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_legacy_ssd_example_heatmaps.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_legacy_ssd_example_traces.py",
+      "bytes": 8352,
+      "sha256": "7629fe3ee8e4caa485671b570b9be8ee2023b2132dc937f5a4d62d2e0c840f4b",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Render Figure 1 example traces from the versioned allDelay-full-v1 SSD export.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+        "scripts/README.md",
+        "scripts/build_figure1_trace_panels.py",
+        "scripts/populate_figure2_available.py",
+        "scripts/render_figure1_cd_scaled_log_review.py",
+        "scripts/render_figure1_raw_vigor_y_focus.py",
+        "scripts/render_legacy_ssd_example_heatmaps.py",
+        "scripts/render_legacy_ssd_figure2_delay.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_legacy_ssd_example_traces.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_legacy_ssd_figure2_delay.py",
+      "bytes": 18667,
+      "sha256": "1b7d13575878aa504d789de6fed5da93c133fdd6ee62f719b71f379d7f51af17",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Render descriptive Figure 2 A/D/G Delay-control panels from the SSD cohort.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py",
+        "scripts/README.md",
+        "scripts/populate_figure2_available.py",
+        "scripts/render_log_scaled_vigor_heatmaps.py",
+        "scripts/review_figure2_bout_only.py",
+        "src/classical_conditioning/figures/paper_panels.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_legacy_ssd_example_heatmaps.py",
+        "scripts/render_legacy_ssd_example_traces.py"
+      ],
+      "active_source_test_consumers": [
+        "src/classical_conditioning/figures/paper_panels.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_legacy_ssd_figure2_delay.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py"
+      ]
+    },
+    {
+      "path": "scripts/render_log_scaled_vigor_heatmaps.py",
+      "bytes": 8932,
+      "sha256": "209d4d297980bc2911fea4b6ce6aca8d05d76a165573fd6aa9c86d6387b61c8a",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Render log-vigor, per-trial P10/P90-scaled heatmaps with managua_r.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+        "docs/analysis/figures/BASELINE_WINDOW_REVIEW.md",
+        "scripts/README.md",
+        "scripts/render_ssd_per_trial_example_heatmaps.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_legacy_ssd_example_heatmaps.py",
+        "scripts/render_legacy_ssd_figure2_delay.py",
+        "scripts/render_ssd_per_trial_example_heatmaps.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_log_scaled_vigor_heatmaps.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/render_ssd_per_trial_example_heatmaps.py",
+      "bytes": 8743,
+      "sha256": "38228baa39fe46c53384bc12306c82d68643a8295253f860799421b8415a56a4",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Render archived bin-first Figure 1 example heatmaps for comparison.",
+      "consumers": [
+        "configs/paper-figures/review-variants.json",
+        "scripts/README.md",
+        "scripts/render_log_scaled_vigor_heatmaps.py"
+      ],
+      "script_dependencies": [
+        "scripts/render_log_scaled_vigor_heatmaps.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_ssd_per_trial_example_heatmaps.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/repeat_figure1_nan_mask_audit.py",
+      "bytes": 6422,
+      "sha256": "8f977af8fd5877ab60829141990166fd13ed1d02a5e04f0a4f960ae1878a2624",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Repeat angles -> raw vigor -> detector -> signed bins with explicit NaNs.",
+      "consumers": [
+        "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md"
+      ],
+      "script_dependencies": [
+        "scripts/audit_figure1_vigor_alignment.py",
+        "scripts/build_figure1_legacy_vigor_heatmaps.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/repeat_figure1_nan_mask_audit.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/repository_archive.py",
+      "bytes": 20326,
+      "sha256": "3337c811aff247cc5afb3d45cf57ef5ddb79b7c0f086f8990f07da953221addc",
+      "git_status": "untracked",
+      "role": "supported script",
+      "description": "Audit repository content and transfer payloads only after JOAQUIM verification.",
+      "consumers": [
+        "tests/test_repository_archive.py"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [
+        "tests/test_repository_archive.py"
+      ],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/repository_archive.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/resume-allDelay-full-windows.ps1",
+      "bytes": 972,
+      "sha256": "cffc35afe04827657bd67542d2a5ff2e8aeaf41876fe5477deab184cca0221e2",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "param(",
+      "consumers": [
+        "scripts/README.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/resume-allDelay-full-windows.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/review_figure2_block_log_median.py",
+      "bytes": 30361,
+      "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Compare selected D/E ratios with the legacy log-median outcome on corrected frames.",
+      "consumers": [
+        "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md",
+        "scripts/audit_figure2_bout_only_statistics.py",
+        "scripts/finalize_figure2_B_candidates.py",
+        "scripts/review_figure2_bout_only.py"
+      ],
+      "script_dependencies": [
+        "scripts/populate_figure2_available.py",
+        "scripts/review_figure2_bout_only.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_figure2_block_log_median.py"
+      ],
+      "freeze_dependencies": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py"
+      ],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md"
+      ]
+    },
+    {
+      "path": "scripts/review_figure2_bout_only.py",
+      "bytes": 15598,
+      "sha256": "05e691d3418ad04ca3d10710102c4c6f520db31c7caa8cf858fc7df4e09352fa",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Rebuild both active D/E outcomes under the standing bout-only vigor policy.",
+      "consumers": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py",
+        "scripts/finalize_figure2_B_candidates.py",
+        "scripts/prepare_figure2_B_freeze.py",
+        "scripts/review_figure2_block_log_median.py"
+      ],
+      "script_dependencies": [
+        "scripts/populate_figure2_available.py",
+        "scripts/render_legacy_ssd_figure2_delay.py",
+        "scripts/review_figure2_block_log_median.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_figure2_bout_only.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py"
+      ]
+    },
+    {
+      "path": "scripts/review_figure2_row3.py",
+      "bytes": 18413,
+      "sha256": "6aea34d1ef5dc787d8f34b9a4dadb130f8302c0c45217072663490945727fd17",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Read-only G/H audit; writes a unique row-three review on the SSD only.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Named superseded comparison/recovery recipe; selected freezes, current assembly, supported readers and tested analysis routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_figure2_row3.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/run-3strace-exploratory-post.ps1",
+      "bytes": 8834,
+      "sha256": "e362d58cc50a1ab802f76cb1b755efe32cf3a5e8934595dcd9d2f56c863c3e1a",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<#",
+      "consumers": [
+        "scripts/continue-3strace-after-pipeline.ps1"
+      ],
+      "script_dependencies": [
+        "scripts/finalize_3strace_exploratory.py",
+        "scripts/render_figure1_3strace_example.py",
+        "scripts/render_figure2_3strace_signed_review.py",
+        "scripts/render_figure3_3strace_review.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/run-3strace-exploratory-post.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/run-3strace-window13-post.ps1",
+      "bytes": 8564,
+      "sha256": "55ace903e7b656bd29644de6188f187326055a150bf9436dad5d68d485f7e46f",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<# Rebuild the exploratory 3sTrace outputs that depend on the 0\u201313 s response window. #>",
+      "consumers": [
+        "docs/analysis/figures/TRACE3_EXPLORATORY_RUN_2026-09-24.md",
+        "scripts/continue-3strace-window13-after-rebuild.ps1"
+      ],
+      "script_dependencies": [
+        "scripts/finalize_3strace_exploratory.py",
+        "scripts/render_figure3_3strace_review.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/run-3strace-window13-post.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/run-all3sTrace-full-windows.ps1",
+      "bytes": 3008,
+      "sha256": "504751dafd48692b6464be623f2edaa3ee913aa18b0d04ccf9b9a66cbf93a87d",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "<#",
+      "consumers": [
+        "docs/analysis/figures/TRACE3_EXPLORATORY_RUN_2026-09-24.md",
+        "scripts/README.md"
+      ],
+      "script_dependencies": [
+        "scripts/prepare-trace-runs.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/run-all3sTrace-full-windows.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/run-allDelay-full-windows.ps1",
+      "bytes": 7324,
+      "sha256": "d51e38e8aaeab3d4dc62aae639256f76cc1bbf4a13af3653f99562c52bbc27d2",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "<#",
+      "consumers": [
+        "docs/analysis/07_LEARNING_ONSET_LME.md",
+        "scripts/README.md"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/run-allDelay-full-windows.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/run_3strace_legacy_full59.py",
+      "bytes": 5279,
+      "sha256": "706e6d7ca0536e9264a2526eec8c9b25d4afb793d9c74d6ba95ade5dce8ea589",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Finish exploratory 3sTrace Figures 2\u20134 for all 59 complete fish.",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/finalize_3strace_exploratory.py",
+        "scripts/render_figure2_3strace_legacy_layout.py",
+        "scripts/render_figure3_3strace_review.py"
+      ],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/run_3strace_legacy_full59.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/sync-repo-outputs-to-ssd.ps1",
+      "bytes": 3479,
+      "sha256": "b447f2194a150a3b91d4f6fd0f1469d81dd10c3ecd75e33900a24aa6487c921e",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<#",
+      "consumers": [
+        "docs/analysis/SSD_OUTPUT_LOCATION.md",
+        "scripts/watch-repo-outputs-to-ssd.ps1"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Superseded repository-output mirroring model; current exports go directly outside the repository",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/sync-repo-outputs-to-ssd.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/update_latest_figure_assemblies.py",
+      "bytes": 8920,
+      "sha256": "453aa7883a48a3c28cab15071014ce79b7a9ad2cf27ab60a7046b882d82c6e48",
+      "git_status": "untracked",
+      "role": "supported script",
+      "description": "Compose the latest selected panels into one self-contained review HTML.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/update_latest_figure_assemblies.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/verify_3strace_move_readiness.py",
+      "bytes": 11532,
+      "sha256": "67fecc6d8a83e5a18604ad481b2109d9f2e53ad70d45aa3eef6094126b71a652",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "Check that the complete 3sTrace review is authenticated before J: removal.",
+      "consumers": [
+        "scripts/complete-3strace-move-after-review.ps1"
+      ],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Dated partial-cohort continuation or completed J:/F: transfer workflow; generic full-cohort routes retained",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/verify_3strace_move_readiness.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/verify_figure2_bout_only_review.py",
+      "bytes": 4257,
+      "sha256": "36ae9dc43e7b104b40a44d016c172c3338917e471f9ecdc231727e724dfa411e",
+      "git_status": "tracked",
+      "role": "supported script",
+      "description": "Validate active scientific review without changing frozen/historical files.",
+      "consumers": [],
+      "script_dependencies": [],
+      "active_source_test_consumers": [],
+      "action": "retain",
+      "state": "retained",
+      "reason": "Supported entry point, explicit freeze/extraction/verification tool, reusable scientific audit, or transitive dependency of a supported/tested route",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/verify_figure2_bout_only_review.py"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    },
+    {
+      "path": "scripts/watch-repo-outputs-to-ssd.ps1",
+      "bytes": 1331,
+      "sha256": "7f6eee05bd09775eb5a5ca7dad2232d2c53ca8846f1a91d8782e2a70471f86a3",
+      "git_status": "tracked",
+      "role": "historical one-off script",
+      "description": "<# Mirror active review outputs to J: while the current 3sTrace jobs run. #>",
+      "consumers": [],
+      "script_dependencies": [
+        "scripts/sync-repo-outputs-to-ssd.ps1"
+      ],
+      "active_source_test_consumers": [],
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Superseded repository-output mirroring model; current exports go directly outside the repository",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/watch-repo-outputs-to-ssd.ps1"
+      ],
+      "freeze_dependencies": [],
+      "frozen_provenance_references": []
+    }
+  ]
+}
