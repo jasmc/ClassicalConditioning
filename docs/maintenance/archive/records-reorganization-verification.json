@@ -3,5 +3,10 @@
   "original_hashes": "unchanged",
   "old_local_and_windows_paths": "all resolve",
   "broken_navigation_links": [],
-  "scientific_changes": false
+  "scientific_changes": false,
+  "repository_compatibility_tests": {
+    "tests": 20,
+    "result": "passed"
+  },
+  "generated_payload_check": "passed"
 }

@@ -51,3 +51,7 @@ No scientific recomputation, new freeze, raw-data transfer, restyling or Git-his
 ## Scripts follow-up
 
 The [scripts-only follow-up](scripts-cleanup-20261010/README.md) has its own immutable checkpoint and completion record. Use `--manifest <checkpoint>` for a separate transfer; do not overwrite a published archive or replace the original inventory. The resolver recognizes indexed follow-up inventories.
+
+## Frozen-record organization
+
+The [records catalogue](../../../records/README.md) uses figure/panel/version folders. [Byte-preserved moves](records-reorganization.json) and [verification](records-reorganization-verification.json) record the 70 renamed/relocated files. Prior paths are resolved through the current repository relocation map; published archive checkpoints and historical frozen contents remain unchanged.
