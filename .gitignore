@@ -220,3 +220,23 @@ __marimo__/
 /outputs/figure2-delay/
 /outputs/paper-figures/
 /outputs/legacy-learner-comparison/
+
+# Permanent scientific payloads and figure reviews live on the external archive.
+/reviews/
+/outputs/
+*.png
+*.svg
+*.pdf
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.mp4
+*.mov
+*.parquet
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.h5
+*.hdf5
