@@ -32,6 +32,7 @@ class RenderStep:
     name: str
     panels: tuple[str, ...]
     argv: tuple[str, ...]
+    selection_status: str = "review precursor; not current frozen-panel reproduction"
 
 
 def build_render_plan(
@@ -74,7 +75,7 @@ def build_render_plan(
     if figure_set in {"available", "figure1"}:
         for fish in (delay_fish, control_fish):
             steps.append(RenderStep(
-                f"figure1-cd-scaled-log-review-{fish}", ("fig-1C", "fig-1D"),
+                f"figure1-cd-scaled-log-review-{fish}", ("fig-1D", "fig-1E"),
                 ("scripts/render_figure1_cd_scaled_log_review.py", *common,
                  "--output-dir", str(output_dir / "figure1/traces"),
                  "--recording-id", fish, "--metric", metric_id,
@@ -88,7 +89,7 @@ def build_render_plan(
                 "or run the paired C/D traces directly."
             )
         steps.append(RenderStep(
-            "figure1-signed-heatmap", ("fig-1E", "fig-1G"),
+            "figure1-signed-heatmap", ("fig-1F", "fig-1H"),
             ("scripts/render_legacy_ssd_example_heatmaps.py", *common,
              "--output-dir", str(output_dir / "figure1/heatmaps"),
              "--baseline-start-s", "-20",
@@ -182,6 +183,7 @@ def run_paper_panels(
         "mode": mode,
         "scientific_status": "review_only_not_approved",
         "steps": [{"name": step.name, "panels": list(step.panels),
+                   "selection_status": step.selection_status,
                    "command": [sys.executable, *step.argv], "status": "planned"}
                   for step in steps],
         "blocked_registry_panels": {

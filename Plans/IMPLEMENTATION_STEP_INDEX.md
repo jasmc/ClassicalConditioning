@@ -4,20 +4,25 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 
 | Number | Workstream | Status |
 |---|---|---|
-| 01 | [Paper baseline and input validation](01_PAPER_BASELINE_AND_INPUT_VALIDATION.md) | Not started |
-| 02 | [Paper Cohort Completion](02_COHORT_IMPLEMENTATION.md) | In progress |
+| 01 | [Paper input validation and reproducibility](01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md) | Infrastructure implemented; paper-scale validation open |
+| 02 | [Fish Exclusion, Eligibility and Paper Cohort](02_COHORT_IMPLEMENTATION.md) | Legacy stages combined for later review; C0/C1 still open |
 | 03 | [Analysis and Statistics Design](03_ANALYSIS_AND_STATISTICS.md) | Design / validation open |
 | 04 | [Learning-Onset Analysis Completion](04_LEARNING_ONSET_IMPLEMENTATION.md) | Design / validation open |
-| 05 | [Learner Method Review](05_LEARNER_METHOD_REVIEW.md) | Design / validation open |
-| 06 | [Learner Representation and Analysis](06_LEARNER_ANALYSIS.md) | Design / validation open |
-| 07 | [Learner Outputs and Validation](07_LEARNER_OUTPUTS_AND_VALIDATION.md) | Design / validation open |
+| 05 | [Learner Analysis and Validation](05_LEARNER_ANALYSIS_AND_VALIDATION.md) | Design / validation open |
 | 08 | [Integrated Analysis and CR Profiles](08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) | In progress |
 | 09 | [Figures and Reproducible Reporting](09_FIGURES_AND_REPRODUCIBLE_REPORTING.md) | In progress |
 | 10 | [First release: Figures 1–4](10_FIRST_RELEASE_FIGURES_1_TO_4.md) | Not started |
 | 11 | [Supplementary Figures and Data](11_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
 | 12 | [Tail Mechanistic Analyses](12_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 13 | [Behavior and Imaging Integration Plan](13_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
-| 14 | [Repository cleanup and deferred external archive](14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md) | Complete; external payloads verified and pruned |
+
+Plans 06 and 07 were consolidated into Plan 05 on 2026-10-11; its three phases remain design/validation open. Other identifiers are unchanged.
+
+## Completed and retired work packages
+
+| Identifier | Record | Completion |
+|---|---|---|
+| 14 | [Repository cleanup and deferred external archive](../docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md) | Complete; external payloads, historical scripts, configurations and [documentation organization](../docs/maintenance/archive/documentation-cleanup-20261011/README.md) verified; [configuration record](../docs/maintenance/archive/configuration-cleanup-20261011/README.md) |
 
 ## Historical implementation record
 
@@ -54,7 +59,7 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | L | Learner estimand, representation, method, features, power, threshold if used, and validation | Learner claims and Figure 3 |
 | F | Figure semantics, dimensions, labels, sample sizes, and formats | Final figures |
 
-Gate answers live in [DECISIONS.md](../docs/analysis/decisions/DECISIONS.md). They are revisited only
+Gate answers live in [DECISIONS.md](../docs/scientific-decisions.md). They are revisited only
 when new evidence changes a decision.
 
 

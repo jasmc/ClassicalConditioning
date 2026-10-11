@@ -1,0 +1,422 @@
+{
+  "date": "2026-10-11",
+  "files": [
+    {
+      "path": "configs/all3sTrace-full-windows.json",
+      "bytes": 1488,
+      "sha256": "9b1b7f9fa84b6a0ea0a65f766e81bd5e27ab36c509df425c1a6beb74f09b2836",
+      "syntax": "valid JSON",
+      "role": "active run settings",
+      "purpose": "Technical fixed-trace run: 59 complete fish, legacy distal angular speed",
+      "recommendation": "Retain; recording IDs agree with the saved preflight",
+      "reference_candidates": [
+        "scripts/prepare-trace-runs.py",
+        "scripts/run-all3sTrace-full-windows.ps1",
+        "tests/test_trace_preparation.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/prepare-trace-runs.py",
+        "scripts/run-all3sTrace-full-windows.ps1",
+        "tests/test_trace_preparation.py"
+      ]
+    },
+    {
+      "path": "configs/allDelay-full-v1-cohort.csv",
+      "bytes": 11274,
+      "sha256": "18700fb33edbd41bac3617f2898781dee0c22ba8b96bc56a802b9c16671e8df6",
+      "syntax": "valid BOM-aware CSV; 57 unique recording IDs",
+      "role": "misplaced technical cohort payload",
+      "purpose": "57 fish (29 Delay, 28 control), technically approved by Codex-technical-all-complete",
+      "recommendation": "Archive full numerical/cohort payload with provenance; retain column-schema documentation; not final paper selection",
+      "reference_candidates": [
+        "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md"
+      ],
+      "executable_reference_candidates": []
+    },
+    {
+      "path": "configs/allDelay-full-windows.json",
+      "bytes": 357,
+      "sha256": "fe8cf40338678fdf60934dcc72d6107f09ed843ebbf2d57146726258397fd869",
+      "syntax": "valid JSON",
+      "role": "active run settings",
+      "purpose": "Technical allDelay Windows run and resume recipe",
+      "recommendation": "Retain; machine-specific paths; not a paper cohort approval",
+      "reference_candidates": [
+        "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+        "scripts/complete-allDelay-to-lme-windows.ps1",
+        "scripts/resume-allDelay-full-windows.ps1"
+      ],
+      "executable_reference_candidates": [
+        "scripts/complete-allDelay-to-lme-windows.ps1",
+        "scripts/resume-allDelay-full-windows.ps1"
+      ]
+    },
+    {
+      "path": "configs/example-run.json",
+      "bytes": 364,
+      "sha256": "f3ccab21daf1ae410c122efb52eee051b291a5c3f71425e148784e5b00e65171",
+      "syntax": "valid JSON",
+      "role": "active template",
+      "purpose": "Strict run-pipeline example with placeholder Windows paths",
+      "recommendation": "Retain; edit paths in a copy before use",
+      "reference_candidates": [
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md",
+        "docs/analysis/reference/01-user-workflow.md",
+        "docs/analysis/reference/03-analysis-parameter-index.md",
+        "tests/test_run_pipeline.py"
+      ],
+      "executable_reference_candidates": [
+        "tests/test_run_pipeline.py"
+      ]
+    },
+    {
+      "path": "configs/incTrace-stim-audit.json",
+      "bytes": 19874,
+      "sha256": "cbccbe2de619aa2ae5d1318af18908c7b541a1f0437b27a459584449f6f33fbe",
+      "syntax": "valid JSON",
+      "role": "misplaced audit record",
+      "purpose": "Hash-bound protocol audit classifying 14 increasing-trace recordings",
+      "recommendation": "Relocate to docs/analysis/audits; update audit writer default; retain unique evidence",
+      "reference_candidates": [
+        "scripts/audit-inc-trace-stim.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/audit-inc-trace-stim.py"
+      ]
+    },
+    {
+      "path": "configs/increasing-trace-move-manifest.json",
+      "bytes": 5676,
+      "sha256": "6badc984a0d33639daef904f4d991faf6de62b7df5b7690e31b20ed9b2d2b5eb",
+      "syntax": "valid JSON",
+      "role": "misplaced historical transfer record",
+      "purpose": "September 24 movement/renaming provenance for 14 recordings / 42 raw files",
+      "recommendation": "Relocate to docs/maintenance/transfers; retain raw identity/recovery evidence",
+      "reference_candidates": [],
+      "executable_reference_candidates": []
+    },
+    {
+      "path": "configs/paper-figures/behavior-paper.json",
+      "bytes": 9980,
+      "sha256": "433b2ebc0ca678fbb40abcad068f483272015030ea889492989ac9e81c623455",
+      "syntax": "valid JSON",
+      "role": "active dependency needing revision",
+      "purpose": "Proposed panel readiness/artifact registry read by pipeline and paper-panel command",
+      "recommendation": "Revise together with readers/tests: 26 entries and old Fig1 labels / ratios; preserve separate freeze versus release readiness",
+      "reference_candidates": [
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md",
+        "docs/analysis/reference/02-current-pipeline.md",
+        "docs/current-figures.md",
+        "docs/current-figures.md",
+        "docs/analysis/figures/history/shared/draft-comparison.md",
+        "docs/analysis/figures/README.md",
+        "src/classical_conditioning/figures/paper_panels.py",
+        "src/classical_conditioning/pipeline.py",
+        "tests/test_run_pipeline.py"
+      ],
+      "executable_reference_candidates": [
+        "src/classical_conditioning/figures/paper_panels.py",
+        "src/classical_conditioning/pipeline.py",
+        "tests/test_run_pipeline.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure-elements.json",
+      "bytes": 21676,
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "syntax": "valid JSON",
+      "role": "active freeze contract",
+      "purpose": "Versioned semantic roles, styles, exceptions and freeze validation contract",
+      "recommendation": "Retain; explicit freeze gate and preparers consume it",
+      "reference_candidates": [
+        "docs/scientific-decisions.md",
+        "docs/current-figures.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+        "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+        "scripts/prepare_figure1_fgh_v12_freeze.py",
+        "scripts/prepare_figure2_B_freeze.py",
+        "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+        "src/classical_conditioning/figure_freeze.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/prepare_figure1_fgh_v12_freeze.py",
+        "scripts/prepare_figure2_B_freeze.py",
+        "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+        "src/classical_conditioning/figure_freeze.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure1-assembly.json",
+      "bytes": 4105,
+      "sha256": "4082a166cf6bce3ef4d2ec5b1ec39df8651d3d9612ee193fa12e6095cb2208e3",
+      "syntax": "valid JSON",
+      "role": "used but older assembly",
+      "purpose": "Historical A-D selections and older E/F/G/H layout sources",
+      "recommendation": "Retain pending coordinated assembly update; scoped selections override its older panel choices",
+      "reference_candidates": [
+        "docs/current-figures.md",
+        "docs/analysis/reference/figure-01-assembly.md",
+        "docs/analysis/figures/history/figure-01/panel-b-redesign-history.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "scripts/freeze_figure1_panels.py",
+        "scripts/prepare_figure1_fgh_v12_freeze.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/freeze_figure1_panels.py",
+        "scripts/prepare_figure1_fgh_v12_freeze.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure1-cadence-review-v5.json",
+      "bytes": 4889,
+      "sha256": "34b5025bf492a3fa5c68fa02085a33566a9d850d57af7bfb073fc5a6992b6635",
+      "syntax": "valid JSON",
+      "role": "superseded historical candidate",
+      "purpose": "October 7 presumed-acquisition-cadence comparison layout",
+      "recommendation": "Archive with its named version/provenance; no active package/test/fixed builder references remain",
+      "reference_candidates": [
+        "docs/analysis/figures/history/figure-01/cadence-review-v5-2026-10-07.md"
+      ],
+      "executable_reference_candidates": []
+    },
+    {
+      "path": "configs/paper-figures/figure1-session-protocol.json",
+      "bytes": 999,
+      "sha256": "0f2ebe01a3c3f9a6b4596f2ad481c1cd3e6ef2da6d209a21386bb4f3173e005f",
+      "syntax": "valid JSON",
+      "role": "active schematic settings",
+      "purpose": "Figure 1C session phases, CS/US timing and stimulus counts",
+      "recommendation": "Retain; builder/test consume it; marked exploratory, not an approval record",
+      "reference_candidates": [
+        "docs/analysis/figures/history/figure-01/panel-c-redesign-history.md",
+        "scripts/build_figure1_panel_c.py",
+        "tests/test_figure1_panel_c.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/build_figure1_panel_c.py",
+        "tests/test_figure1_panel_c.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure2-assembly.json",
+      "bytes": 31915,
+      "sha256": "7786be1635cefa5198c90ed28d4e90d7913e469cb55a09d4e420f92e9a0142b6",
+      "syntax": "valid JSON",
+      "role": "used but older assembly",
+      "purpose": "Nine-panel layout with older D/E/G sources and C/F/I placeholders",
+      "recommendation": "Retain pending coordinated assembly update; current selected D/E B and G overlay it",
+      "reference_candidates": [
+        "docs/analysis/reference/figure-02-assembly.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+        "scripts/build_figure2_assembly.py",
+        "scripts/populate_figure2_available.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/build_figure2_assembly.py",
+        "scripts/populate_figure2_available.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/review-variants.json",
+      "bytes": 17376,
+      "sha256": "89184b63cd37335a1b89b191a062429c274291571c470f3ee79116bd6c34b5ef",
+      "syntax": "valid JSON",
+      "role": "historical version catalogue",
+      "purpose": "25 alternative version recipes, renderers and old panel-letter mappings",
+      "recommendation": "Keep scientific/version history; move to docs or explicitly label as historical; old selected_review_method tags are not current freeze authority",
+      "reference_candidates": [
+        "docs/analysis/reference/08-candidate-figures.md",
+        "docs/current-figures.md",
+        "docs/analysis/figures/history/shared/renderer-pipeline-comparison.md",
+        "docs/analysis/figures/history/shared/review-versions-2026-09-24.md",
+        "docs/analysis/figures/history/figure-01/trace-variants.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/history/shared/trace3-plot-versions-2026-10-06.md"
+      ],
+      "executable_reference_candidates": []
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json",
+      "bytes": 5152,
+      "sha256": "411ab6ca8984dc0da222006493f3b28b6ae0bc266ad61dcafc6eba2f51a8ef0f",
+      "syntax": "valid JSON",
+      "role": "immutable scientific selection pointer",
+      "purpose": "Scoped accepted choice or accepted historical freeze; ties panels to exact manifests/exports/definitions",
+      "recommendation": "Preserve bytes; resolve path/hash inconsistencies externally, do not delete or rewrite as cleanup",
+      "reference_candidates": [
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/history/figure-01/fgh-colour-and-binning-history-2026-10-09.md",
+        "docs/analysis/figures/history/figure-01/fgh-requested-corrections-2026-10-09.md",
+        "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+        "scripts/prepare_figure1_fgh_v12_freeze.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+        "scripts/prepare_figure1_fgh_v12_freeze.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-version1-freeze-20261009.json",
+      "bytes": 2065,
+      "sha256": "73ec192917e899964c9939051a6f827b7ec095df079c1640057f60f0c7adf39c",
+      "syntax": "valid JSON",
+      "role": "immutable scientific selection pointer",
+      "purpose": "Scoped accepted choice or accepted historical freeze; ties panels to exact manifests/exports/definitions",
+      "recommendation": "Preserve bytes; resolve path/hash inconsistencies externally, do not delete or rewrite as cleanup",
+      "reference_candidates": [
+        "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md",
+        "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
+        "docs/analysis/figures/freezes/README.md"
+      ],
+      "executable_reference_candidates": []
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "bytes": 7839,
+      "sha256": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+      "syntax": "valid JSON",
+      "role": "immutable scientific selection pointer",
+      "purpose": "Scoped accepted choice or accepted historical freeze; ties panels to exact manifests/exports/definitions",
+      "recommendation": "Preserve bytes; resolve path/hash inconsistencies externally, do not delete or rewrite as cleanup",
+      "reference_candidates": [
+        "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md",
+        "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/maintenance/transfers/MAC_SSD_20261009.md",
+        "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+        "scripts/prepare_figure1_fgh_v12_freeze.py",
+        "scripts/update_latest_figure_assemblies.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+        "scripts/prepare_figure1_fgh_v12_freeze.py",
+        "scripts/update_latest_figure_assemblies.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-freeze.json",
+      "bytes": 3092,
+      "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "syntax": "valid JSON",
+      "role": "immutable scientific selection pointer",
+      "purpose": "Scoped accepted choice or accepted historical freeze; ties panels to exact manifests/exports/definitions",
+      "recommendation": "Preserve bytes; resolve path/hash inconsistencies externally, do not delete or rewrite as cleanup",
+      "reference_candidates": [
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
+        "docs/analysis/figures/freezes/README.md",
+        "scripts/audit_figure1_vigor_alignment.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/audit_figure1_vigor_alignment.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "bytes": 6888,
+      "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+      "syntax": "valid JSON",
+      "role": "immutable scientific selection pointer",
+      "purpose": "Scoped accepted choice or accepted historical freeze; ties panels to exact manifests/exports/definitions",
+      "recommendation": "Preserve bytes; resolve path/hash inconsistencies externally, do not delete or rewrite as cleanup",
+      "reference_candidates": [
+        "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md",
+        "docs/analysis/figures/freezes/README.md",
+        "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+        "scripts/update_latest_figure_assemblies.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+        "scripts/update_latest_figure_assemblies.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+      "bytes": 3050,
+      "sha256": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+      "syntax": "valid JSON",
+      "role": "immutable scientific selection pointer",
+      "purpose": "Scoped accepted choice or accepted historical freeze; ties panels to exact manifests/exports/definitions",
+      "recommendation": "Preserve bytes; resolve path/hash inconsistencies externally, do not delete or rewrite as cleanup",
+      "reference_candidates": [
+        "docs/scientific-decisions.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/panel-review.md",
+        "docs/maintenance/transfers/MAC_SSD_20261009.md",
+        "scripts/update_latest_figure_assemblies.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/update_latest_figure_assemblies.py"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+      "bytes": 1768,
+      "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "syntax": "valid JSON",
+      "role": "immutable scientific selection pointer",
+      "purpose": "Scoped accepted choice or accepted historical freeze; ties panels to exact manifests/exports/definitions",
+      "recommendation": "Preserve bytes; resolve path/hash inconsistencies externally, do not delete or rewrite as cleanup",
+      "reference_candidates": [
+        "docs/scientific-decisions.md",
+        "docs/analysis/figures/history/figure-02/delay-all-versions-2026-10-09.md",
+        "docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/maintenance/transfers/MAC_SSD_20261009.md",
+        "scripts/update_latest_figure_assemblies.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/update_latest_figure_assemblies.py"
+      ]
+    },
+    {
+      "path": "configs/trace-preflight.json",
+      "bytes": 11205,
+      "sha256": "3ad4448c99b909ebb8b703a0f0cb87b7939898e3ed88c3dcbc3f5dfdb823ea46",
+      "syntax": "valid JSON",
+      "role": "misplaced audit record",
+      "purpose": "September 25 generated raw-protocol preflight; 40 trace + 19 control selected, four incomplete records",
+      "recommendation": "Relocate to docs/analysis/audits; update generator/test/document references first; retain timing evidence",
+      "reference_candidates": [
+        "docs/analysis/figures/history/shared/draft-comparison.md",
+        "docs/paper-review.md",
+        "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+        "scripts/prepare-trace-runs.py",
+        "tests/test_trace_preparation.py"
+      ],
+      "executable_reference_candidates": [
+        "scripts/prepare-trace-runs.py",
+        "tests/test_trace_preparation.py"
+      ]
+    }
+  ],
+  "checks": {
+    "json_files": 20,
+    "csv_files": 1,
+    "strict_run_configs_passed": 3,
+    "trace_selected_ids_match_run_config": true,
+    "technical_delay_cohort": {
+      "records": 57,
+      "delay": 29,
+      "control": 28
+    },
+    "panel_registry_entries": 26,
+    "intended_main_panels": 27,
+    "hash_reference_discrepancies": 8,
+    "discrepancies_predate_cleanup": true,
+    "matching_original_ssd_copies": 7,
+    "remaining_csv_discrepancy": "CRLF vs LF, expected hash reproducible without scientific recomputation",
+    "targeted_tests": {
+      "tests": 10,
+      "result": "passed",
+      "log": "/tmp/cc-config-audit-tests.log"
+    },
+    "all_existing_config_bytes_unchanged": true
+  },
+  "immutable_selection_policy": "No configuration or scientific-selection bytes changed by this assessment"
+}

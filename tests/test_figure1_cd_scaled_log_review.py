@@ -23,7 +23,7 @@ class ScaledLogVigorReviewTests(unittest.TestCase):
         traces = [step for step in steps if step.name.startswith("figure1-cd-")]
         self.assertEqual(len(traces), 2)
         for step in traces:
-            self.assertEqual(step.panels, ("fig-1C", "fig-1D"))
+            self.assertEqual(step.panels, ("fig-1D", "fig-1E"))
             self.assertIn("scripts/render_figure1_cd_scaled_log_review.py", step.argv)
             self.assertNotIn("--window-start", step.argv)
             self.assertNotIn("--window-end", step.argv)

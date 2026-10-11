@@ -12,3 +12,7 @@ One current entry per lineage. Historical candidate bundles and distinct outcome
 | Learner and Figure 4 | `outputs/trace-legacy-full-59/status.json` | Provisional analysis evidence, not an approved learner representation or frozen paper Figure 4. |
 
 Exact duplicate objects can share a canonical identity, but this first transfer preserves original bundle paths for relative links. Earlier F/G/H revisions, D/E estimators, model outcomes and provisional learner results are not merged numerically.
+
+## Current legend and layout candidate
+
+[Figures 1–2 text/layout review, 2026-10-11](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11.html>) embeds the authenticated 2026-10-10 assemblies and separate decluttered candidates with draft legends. This is a presentation review and does not supersede scoped scientific selections. [Notes and editable legends](../../analysis/figures/reviews/legend-decluttering-review.md).

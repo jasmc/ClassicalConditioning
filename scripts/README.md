@@ -1,6 +1,6 @@
 # Supported scripts
 
-This folder keeps supported commands, scientific audits, freeze/extraction tools and their dependency closure. The 2026-10-10 follow-up archived 41 historical scripts, leaving 52 supported scripts. [Assessment and exact archive map](../docs/maintenance/archive/scripts-cleanup-20261010/README.md) records every disposition. Paths of retained tools stay stable for package imports, tests and provenance.
+This folder keeps supported commands, scientific audits, freeze/extraction tools and their dependency closure. The 2026-10-10 follow-up archived 41 historical scripts, leaving 52 scripts at that checkpoint. The [2026-10-11 reassessment](../docs/maintenance/archive/scripts-reassessment-20261011/README.md) removed one verified duplicate; 48 supported scripts now remain; the three historical scripts were verified on JOAQUIM and removed locally on 2026-10-11. [Assessment and exact archive map](../docs/maintenance/archive/scripts-cleanup-20261010/README.md) records every disposition. Paths of retained tools stay stable for package imports, tests and provenance.
 
 ## Authority and normal entry points
 
@@ -16,16 +16,14 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 
 | Script | Scope |
 |---|---|
-| [archive_delay_review_versions.py](archive_delay_review_versions.py) | Build one self-contained review with a verified, content-deduplicated archive. |
-| [audit_mac_ssd_handoff.py](audit_mac_ssd_handoff.py) | Read-only SSD data-coverage audit; write only a small handoff report. |
 | [mac_ssd_run.py](mac_ssd_run.py) | Run an existing script on macOS with opt-in Windows path relocation. |
-| [prepare_mac_ssd_handoff.py](prepare_mac_ssd_handoff.py) | Prepare the requested SSD handoff without altering existing source artifacts. |
 | [repository_archive.py](repository_archive.py) | Audit repository content and transfer payloads only after JOAQUIM verification. |
 
 ### Assembly and schematic builders
 
 | Script | Scope |
 |---|---|
+| [build_figure_legend_review.py](build_figure_legend_review.py) | Authenticated Figure 1–2 text/layout candidates and draft legends in one self-contained external review; no recomputation or freeze. |
 | [assemble_svg_figure.py](assemble_svg_figure.py) | Compose replaceable SVG panels from a declarative paper-figure layout. |
 | [build_figure1_panel_a.py](build_figure1_panel_a.py) | Normalize the supplied vector preparation scheme to the plot font. |
 | [build_figure1_panel_b.py](build_figure1_panel_b.py) | Draw an exploratory, fully vector Figure 1B from active experiment timing. |
@@ -78,7 +76,6 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 | [freeze_figure1_panels.py](freeze_figure1_panels.py) | Verify the historical Figure 1 A-D freeze without changing its artifacts. |
 | [prepare_figure1_fgh_v12_freeze.py](prepare_figure1_fgh_v12_freeze.py) | Prepare and package the author-selected F/G/H V12 in the single HTML review. |
 | [prepare_figure2_B_freeze.py](prepare_figure2_B_freeze.py) | Prepare the selected bout-only B panels with corrected fish-level statistics. |
-| [prepare_figure2_G_logmedian_freeze.py](prepare_figure2_G_logmedian_freeze.py) | Prepare G from the selected, already fitted historical LogMedian revision. |
 | [prepare_panel_e_heatmap_rows_freeze.py](prepare_panel_e_heatmap_rows_freeze.py) | Prepare the selected Panel E for the explicit freeze gate; archive into one HTML. |
 
 ### Supported analysis workflows
@@ -97,3 +94,5 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 ## Maintenance rules
 
 Keep a script here when a supported command/test uses it, an active plan needs it, or it provides an explicit reusable audit/extraction contract. Keep its required imports as well. Put exact frozen code under `records/frozen-analyses/`; archive dated candidate recipes and completed transfer/continuation helpers on JOAQUIM with hashes. Do not rename supported scripts merely to group files, and do not remove unique originals before archive verification. Add new supported tools to this catalogue with their purpose and consumers.
+
+The unused G preparation script was an exact copy of the [retained frozen G source](../records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py). Its old path resolves through the relocation map. The block-log-median script also matches a frozen snapshot but stays here because supported D/E preparation and statistics tools import it.

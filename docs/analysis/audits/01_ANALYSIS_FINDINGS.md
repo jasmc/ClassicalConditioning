@@ -3,7 +3,7 @@
 > **Inherited-pipeline audit.** References below to the "current implementation"
 > describe the numbered scripts as inspected for the original audit, not the
 > supported package route today. Use the [implementation status index](../../../Plans/IMPLEMENTATION_STEP_INDEX.md)
-> and [current pipeline guide](../02_CURRENT_PIPELINE.md) for present status.
+> and [current pipeline guide](../reference/02-current-pipeline.md) for present status.
 > The issue evidence remains open for paper-level reconciliation unless a
 > later approved decision and validation close it.
 
@@ -410,7 +410,7 @@ This creates substantial researcher flexibility and makes it unclear which imple
 4. Quantify false-positive rates and label stability.
 5. Report uncertainty rather than only binary labels.
 
-The later [decision register](../decisions/DECISIONS.md) requires a learner
+The later [decision register](../../scientific-decisions.md) requires a learner
 analysis for the paper while leaving categorical classification conditional on
 Gate L. Until that gate passes, inherited labels are descriptive only.
 

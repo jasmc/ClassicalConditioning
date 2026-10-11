@@ -1,0 +1,16 @@
+{
+  "frozen_hashes_verified": 70,
+  "duplicate_canonical_sha256_verified": true,
+  "pending_sources_unchanged": 0,
+  "repository_tests": {
+    "tests": 20,
+    "result": "passed after removal"
+  },
+  "scientific_changes": false,
+  "unique_sources_removed": 3,
+  "pending_files": 0,
+  "verified_archived_scripts": 3,
+  "verified_archived_bytes": 21707,
+  "unique_local_copies_removed_after_external_verification": 3,
+  "unique_content_lost": 0
+}

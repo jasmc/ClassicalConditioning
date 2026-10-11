@@ -1,0 +1,114 @@
+[
+  {
+    "path": "configs/README.md",
+    "bytes": 2127,
+    "sha256": "f652b53080bead7e65611a6fc3d242a7d9675beb479add43337f197be24a34d8",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/all3sTrace-full-windows.json",
+    "bytes": 1488,
+    "sha256": "9b1b7f9fa84b6a0ea0a65f766e81bd5e27ab36c509df425c1a6beb74f09b2836",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/allDelay-full-windows.json",
+    "bytes": 357,
+    "sha256": "fe8cf40338678fdf60934dcc72d6107f09ed843ebbf2d57146726258397fd869",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/example-run.json",
+    "bytes": 364,
+    "sha256": "f3ccab21daf1ae410c122efb52eee051b291a5c3f71425e148784e5b00e65171",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/behavior-paper.json",
+    "bytes": 19379,
+    "sha256": "0707ec13a2ddd423b64cd25117813ec62f8fd127f29e7586a6d01af86dc212af",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/figure-elements.json",
+    "bytes": 21676,
+    "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/figure1-assembly.json",
+    "bytes": 4564,
+    "sha256": "badf9022f1316e57059cec0889bababec677bc20acd42a9fa1c02f70ec996c9b",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/figure1-session-protocol.json",
+    "bytes": 999,
+    "sha256": "0f2ebe01a3c3f9a6b4596f2ad481c1cd3e6ef2da6d209a21386bb4f3173e005f",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/figure2-assembly.json",
+    "bytes": 32356,
+    "sha256": "85499b59bb04666e068f93c82ed43576d6b1d9e96913577093ef2c417c84434e",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json",
+    "bytes": 5152,
+    "sha256": "411ab6ca8984dc0da222006493f3b28b6ae0bc266ad61dcafc6eba2f51a8ef0f",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/selections/figure1-fgh-version1-freeze-20261009.json",
+    "bytes": 2065,
+    "sha256": "73ec192917e899964c9939051a6f827b7ec095df079c1640057f60f0c7adf39c",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+    "bytes": 7839,
+    "sha256": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/selections/figure1-freeze.json",
+    "bytes": 3092,
+    "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+    "bytes": 6888,
+    "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+    "bytes": 3050,
+    "sha256": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  },
+  {
+    "path": "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+    "bytes": 1768,
+    "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+    "action": "retain",
+    "reason": "Supported setting, guide, or byte-preserved scoped scientific selection; see configs/README.md"
+  }
+]

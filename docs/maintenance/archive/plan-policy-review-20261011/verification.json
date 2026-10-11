@@ -1,0 +1,12 @@
+{
+  "frozen_hashes_unchanged": 70,
+  "discarding_tests": 11,
+  "cohort_outcome_tests": 6,
+  "tests": "passed",
+  "legacy_source_files_catalogued": 9,
+  "source_index": "docs/analysis/audits/legacy-selection-source-index-2026-10-11.json",
+  "new_rules_enabled": false,
+  "new_cohort_frozen": false,
+  "broken_document_links": [],
+  "retired_original_link": "Historical relative reference retained byte-for-byte; live navigation provided in README.md"
+}

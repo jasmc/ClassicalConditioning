@@ -2,7 +2,7 @@
 
 
 **Depends on:** approved metric/outcome contract, frozen primary technical
-cohort, and [learner classification](06_LEARNER_ANALYSIS.md)
+cohort, and [learner classification](05_LEARNER_ANALYSIS_AND_VALIDATION.md)
 **Delivers:** one authenticated post-classification analysis run plus focused
 rerender commands for population and learner-stratified outputs
 
@@ -16,11 +16,10 @@ fish population.
 
 This plan integrates rather than supersedes:
 
-- [Paper Cohort Completion](02_COHORT_IMPLEMENTATION.md);
+- [Fish Exclusion, Eligibility and Paper Cohort](02_COHORT_IMPLEMENTATION.md);
 - [Learning-Onset Analysis Completion](04_LEARNING_ONSET_IMPLEMENTATION.md);
-- [Learner Representation and Analysis](06_LEARNER_ANALYSIS.md);
-- [Learner Outputs and Validation](07_LEARNER_OUTPUTS_AND_VALIDATION.md);
-- [Learning-Onset Analysis Reference](../docs/analysis/07_LEARNING_ONSET_LME.md); and
+- [Learner Analysis and Validation](05_LEARNER_ANALYSIS_AND_VALIDATION.md);
+- [Learning-Onset Analysis Reference](../docs/analysis/reference/07-learning-onset-lme.md); and
 - [Figures and Reproducible Reporting](09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
 
 ## Scientific boundary and execution order

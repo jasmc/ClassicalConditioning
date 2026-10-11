@@ -1,0 +1,122 @@
+[
+  {
+    "selection": "figure1-fgh-full-bout-correction-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-version12-freeze-20261009.json",
+    "expected": "10b972090550a9c5d34bbe8abba050cdf2e876bc335e76e1bf14edf3e9716bd4",
+    "actual": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+    "logical": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "configs/paper-figures/figure1-fgh-version12-freeze-20261009.json"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/configs/paper-figures/figure1-fgh-version12-freeze-20261009.json"
+    ]
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\statistics.csv",
+    "expected": "d0b8b73bea3427fa9bf44357e7b76e06c0de90b0b2548a544377e72d03eef237",
+    "actual": "bb28961bb03fa11acaeaab1c7fa2676fa76d546a06bcd8d668fec3e1adccf6c8",
+    "logical": "reviews/figure2_B_freeze_20261009/statistics.csv",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "reviews/figure2_B_freeze_20261009/statistics.csv"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [],
+    "expected_csv_bytes": "Expected SHA-256 matches CRLF representation of the archived LF CSV; calculation contents unchanged. No file regenerated."
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\D.freeze.json",
+    "expected": "dd0750bc7f917779b51c4ab4e619d93d6508305a95835abffec85061dfa5e04a",
+    "actual": "e845a1a5a5a37eb73251defce3279f816f721a88e76dd781cfe72e79c034a782",
+    "logical": "reviews/figure2_B_freeze_20261009/D.freeze.json",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "reviews/figure2_B_freeze_20261009/D.freeze.json"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/reviews/figure2_B_freeze_20261009/D.freeze.json"
+    ]
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_D_B.svg",
+    "expected": "b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29",
+    "actual": "495165943f13257ec810638af34444b60ee48d4ba7ad40830b7aac2ca9d82c0a",
+    "logical": "reviews/figure2_B_freeze_20261009/Fig2_D_B.svg",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "reviews/figure2_B_freeze_20261009/Fig2_D_B.svg"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/reviews/figure2_B_freeze_20261009/Fig2_D_B.svg"
+    ]
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\E.freeze.json",
+    "expected": "a39f1f849119d319610ba50d98ff6cb5474caf65e5d1166f58443b489db2368e",
+    "actual": "ad10ef49a77357e353a97ce0b39c64521da655d818716cf5e61badd85aa0b6d2",
+    "logical": "reviews/figure2_B_freeze_20261009/E.freeze.json",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "reviews/figure2_B_freeze_20261009/E.freeze.json"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/reviews/figure2_B_freeze_20261009/E.freeze.json"
+    ]
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_E_B.svg",
+    "expected": "e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696",
+    "actual": "0776f3e56dfec0c145d53bd9100755bb9615e959854ee0f84e2de1704bca1740",
+    "logical": "reviews/figure2_B_freeze_20261009/Fig2_E_B.svg",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "reviews/figure2_B_freeze_20261009/Fig2_E_B.svg"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/reviews/figure2_B_freeze_20261009/Fig2_E_B.svg"
+    ]
+  },
+  {
+    "selection": "figure2-G-logmedian-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_delay_all_versions_20261009.html",
+    "expected": "6ebf338595492b7930145eac9de74232992be59824c4b4a92c1444e2f307d9a3",
+    "actual": "774f8cc7769503b8a9363271dfccfbc1fc65ac90275425e2e1dafc4f4dac4599",
+    "logical": "reviews/figure2_delay_all_versions_20261009.html",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "reviews/figure2_delay_all_versions_20261009.html"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/reviews/figure2_delay_all_versions_20261009.html"
+    ]
+  },
+  {
+    "selection": "figure2-G-logmedian-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\delay_versions_cleanup_20261009.json",
+    "expected": "ca59536331f780cd839a33930c271dd9c729f42ed9de527057446847924d6572",
+    "actual": "472a4709e90b1174c35c5c1433728d5dde531a8429054ad0bf264262592ec6e5",
+    "logical": "reviews/delay_versions_cleanup_20261009.json",
+    "unchanged_since_start": true,
+    "archive_checkpoint_matches": true,
+    "starting_paths_checked": [
+      "reviews/delay_versions_cleanup_20261009.json"
+    ],
+    "verified_expected_bytes_on_prior_ssd_copy": [
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/reviews/delay_versions_cleanup_20261009.json"
+    ]
+  }
+]

@@ -1,0 +1,306 @@
+{
+  "date": "2026-10-11",
+  "original_files_inventoried": 130,
+  "relocated_documents": 26,
+  "consolidated_snapshots": 1,
+  "removed_original_bytes": 766,
+  "protected_files_unchanged": 100,
+  "repository_links_missing": [],
+  "unavailable_external_links": [],
+  "archive_tests_passed": 16,
+  "legend_review_tests_passed": 5,
+  "prior_full_suite_passed": 385,
+  "prior_full_suite_scope": "Configuration cleanup before documentation changes; affected archive/legend tests rerun after documentation moves",
+  "repository_guard_issues": [],
+  "scientific_recomputation": false,
+  "new_freezes": 0,
+  "pending_transfers": [],
+  "frozen_authority_update": {
+    "original_document_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/documentation-cleanup/2026-10-11/frozen-authority",
+    "verified_original_documents": 4,
+    "original_document_hashes": {
+      "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md": "0db0ebf9009537e7562dcfd194d717d7dedbe18307582b2d113155d25082546a",
+      "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md": "c84aa35cc10df10a47213a7fe40d0f463e56b6d4eb1274c8ef51f673af67ee8c",
+      "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md": "eb65b2a6b2b7e583c6747c8e6183df7f15d72e771b55981bcc3b460a0e516a02",
+      "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md": "b6ccd1d2a77e381d1120e01d70fde1416e82397a350c26e5d814c453ddc5d99b"
+    },
+    "repository_moves": [
+      {
+        "source": "docs/analysis/decisions/DECISIONS.md",
+        "destination": "docs/scientific-decisions.md",
+        "original_sha256": "d0ffeead1e2af2c5c44a97a3eecfdd85ea5e22c1e99188a556bf9fcc0829cfc9"
+      },
+      {
+        "source": "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "destination": "docs/panel-review.md",
+        "original_sha256": "eb65b2a6b2b7e583c6747c8e6183df7f15d72e771b55981bcc3b460a0e516a02"
+      },
+      {
+        "source": "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+        "destination": "docs/paper-review.md",
+        "original_sha256": "b6ccd1d2a77e381d1120e01d70fde1416e82397a350c26e5d814c453ddc5d99b"
+      },
+      {
+        "source": "docs/analysis/01_USER_WORKFLOW.md",
+        "destination": "docs/analysis/reference/01-user-workflow.md",
+        "original_sha256": "963f6fe59601bc12326e2af583001299c2c2bb9fd96d4a613f3c216be10697c9"
+      },
+      {
+        "source": "docs/analysis/11_GLOSSARY.md",
+        "destination": "docs/analysis/reference/11-glossary.md",
+        "original_sha256": "b325d31ce5eb62c493620ce19b753261d8e1a591345d9064252d2bb7d89969f9"
+      },
+      {
+        "source": "docs/analysis/10_TROUBLESHOOTING.md",
+        "destination": "docs/analysis/reference/10-troubleshooting.md",
+        "original_sha256": "5243ee05cdd5d81991a754b2bcd4df1329f488cc2bd87a8b445cc437d80b203c"
+      },
+      {
+        "source": "docs/analysis/07_LEARNING_ONSET_LME.md",
+        "destination": "docs/analysis/reference/07-learning-onset-lme.md",
+        "original_sha256": "7745644866ec1c075da68a08a8862c1672d400ce588998147e6e237adfa3617d"
+      },
+      {
+        "source": "docs/analysis/04_DISCARDING_AND_SELECTION.md",
+        "destination": "docs/analysis/reference/04-discarding-and-selection.md",
+        "original_sha256": "089df17f0a42dba2e124ca95008591c9dfd636b7f5703b4107014ecc7bbd2f55"
+      },
+      {
+        "source": "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md",
+        "destination": "docs/analysis/reference/12-proposed-multimodal-architecture.md",
+        "original_sha256": "8e62bc21cdc126e6dddeb6dc72d865281dd1b54df256c1f06214af36efc9dfac"
+      },
+      {
+        "source": "docs/analysis/08_CANDIDATE_FIGURES.md",
+        "destination": "docs/analysis/reference/08-candidate-figures.md",
+        "original_sha256": "ed0fef7ea844c8bfe4d617a5ad2fa872aabb6000f00a905ff8d4f0ae1bcec024"
+      },
+      {
+        "source": "docs/analysis/02_CURRENT_PIPELINE.md",
+        "destination": "docs/analysis/reference/02-current-pipeline.md",
+        "original_sha256": "df719be8e8743cef1c8a42d2036f447bf45c2f9c66585886fc2126be7415729e"
+      },
+      {
+        "source": "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "destination": "docs/analysis/reference/09-output-and-provenance.md",
+        "original_sha256": "86476a87cb8fd4d17ce10286a651e05a0d62dab75b0d71efbaa342f425bc8ed0"
+      },
+      {
+        "source": "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "destination": "docs/analysis/reference/03-analysis-parameter-index.md",
+        "original_sha256": "9ef5d245e551b2decda3d95e59ea3d059d1d9359c53c0c9d98344003699c430d"
+      },
+      {
+        "source": "docs/analysis/05_METRICS_AND_BOUTS.md",
+        "destination": "docs/analysis/reference/05-metrics-and-bouts.md",
+        "original_sha256": "bc54ac771c609ebe9e36afcf520da5b42c2feaf4c22d582e7945595c1625a459"
+      },
+      {
+        "source": "docs/analysis/06_COHORT_AGGREGATION.md",
+        "destination": "docs/analysis/reference/06-cohort-aggregation.md",
+        "original_sha256": "509094c734bca63bb3e144f5a57684d35977a682cf3bb83ee04b009a423d616b"
+      },
+      {
+        "source": "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "destination": "docs/analysis/figures/history/shared/renderer-pipeline-comparison.md",
+        "original_sha256": "6a124e55c49e9d5ce5c4b9d53f732daa7a8c47dd967815f0f149a458ceb51f7f"
+      },
+      {
+        "source": "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "destination": "docs/analysis/figures/history/shared/review-versions-2026-09-24.md",
+        "original_sha256": "29281e7cdb1ccffd4236396607bf8d604943ab15a46e62c9b484ca764716caf5"
+      },
+      {
+        "source": "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+        "destination": "docs/analysis/figures/history/shared/draft-comparison.md",
+        "original_sha256": "f23b76e570eeceee00c70a35e8a7ddd5d68ecf0f601b963e1d4d32178e53f6db"
+      },
+      {
+        "source": "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md",
+        "destination": "docs/analysis/reference/figure-04-analysis-and-rendering.md",
+        "original_sha256": "f6fab477bda22a1c5690ab9b36087e4e21e8e0c823520e5ddd634cd7bc09f5f1"
+      },
+      {
+        "source": "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md",
+        "destination": "docs/analysis/reference/figure-02-assembly.md",
+        "original_sha256": "7c87c592d392c8475ef5cedde692c6ed985d63f858c421d70105d2a84485bd1a"
+      },
+      {
+        "source": "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+        "destination": "docs/analysis/reference/figure-01-assembly.md",
+        "original_sha256": "6bbc4ec687518394a707585261830b7be7564021701bdf746c8048bf16c2f0d2"
+      },
+      {
+        "source": "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "destination": "docs/analysis/figures/history/shared/former-panel-provenance.md",
+        "original_sha256": "0db0ebf9009537e7562dcfd194d717d7dedbe18307582b2d113155d25082546a"
+      },
+      {
+        "source": "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "destination": "docs/analysis/figures/history/shared/former-figure-specification.md",
+        "original_sha256": "c84aa35cc10df10a47213a7fe40d0f463e56b6d4eb1274c8ef51f673af67ee8c"
+      },
+      {
+        "source": "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+        "destination": "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
+        "original_sha256": "fc93a809758ba3c713c9e9e358f586224209c6bc376ed88d73f54b4bc6bf5768"
+      },
+      {
+        "source": "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+        "destination": "docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md",
+        "original_sha256": "531b903b8f32602fa05b9f39ee6c691f285051869e0f6a2bc34a1b1166410588"
+      },
+      {
+        "source": "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+        "destination": "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+        "original_sha256": "4e58c0c8bb8106ec6b8977fb2f7f206db46105593a17c6b093e98d07ce1b3508"
+      }
+    ],
+    "authority_aliases": {
+      "docs/analysis/decisions/DECISIONS.md": "docs/scientific-decisions.md",
+      "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md": "docs/panel-review.md",
+      "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md": "docs/paper-review.md",
+      "docs/analysis/01_USER_WORKFLOW.md": "docs/analysis/reference/01-user-workflow.md",
+      "docs/analysis/11_GLOSSARY.md": "docs/analysis/reference/11-glossary.md",
+      "docs/analysis/10_TROUBLESHOOTING.md": "docs/analysis/reference/10-troubleshooting.md",
+      "docs/analysis/07_LEARNING_ONSET_LME.md": "docs/analysis/reference/07-learning-onset-lme.md",
+      "docs/analysis/04_DISCARDING_AND_SELECTION.md": "docs/analysis/reference/04-discarding-and-selection.md",
+      "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md": "docs/analysis/reference/12-proposed-multimodal-architecture.md",
+      "docs/analysis/08_CANDIDATE_FIGURES.md": "docs/analysis/reference/08-candidate-figures.md",
+      "docs/analysis/02_CURRENT_PIPELINE.md": "docs/analysis/reference/02-current-pipeline.md",
+      "docs/analysis/09_OUTPUT_AND_PROVENANCE.md": "docs/analysis/reference/09-output-and-provenance.md",
+      "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md": "docs/analysis/reference/03-analysis-parameter-index.md",
+      "docs/analysis/05_METRICS_AND_BOUTS.md": "docs/analysis/reference/05-metrics-and-bouts.md",
+      "docs/analysis/06_COHORT_AGGREGATION.md": "docs/analysis/reference/06-cohort-aggregation.md",
+      "docs/analysis/figures/03_FIGURE_PIPELINES.md": "docs/analysis/figures/history/shared/renderer-pipeline-comparison.md",
+      "docs/analysis/figures/04_REVIEW_VARIANTS.md": "docs/analysis/figures/history/shared/review-versions-2026-09-24.md",
+      "docs/analysis/figures/05_DRAFT_COMPARISON.md": "docs/analysis/figures/history/shared/draft-comparison.md",
+      "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md": "docs/analysis/reference/figure-04-analysis-and-rendering.md",
+      "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md": "docs/analysis/reference/figure-02-assembly.md",
+      "docs/analysis/figures/FIGURE1_ASSEMBLY.md": "docs/analysis/reference/figure-01-assembly.md",
+      "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md": "docs/current-figures.md",
+      "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md": "docs/current-figures.md",
+      "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md": "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
+      "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md": "docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md",
+      "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md": "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md"
+    },
+    "protected_hashes": {
+      "records/frozen-analyses/README.md": "361273d377f144f8c7060b2190916fadcbfcc54ae659db8e8bffa16354af5515",
+      "records/frozen-analyses/index.json": "b1de1f5c682c8f8a4ca70104715883ea73bc60d425f346ce5134932053062346",
+      "records/frozen-analyses/figure-02/README.md": "f5ca08c831c5b92ae973323e6453d1d1140e87f55711948697a6df2bf70158d3",
+      "records/frozen-analyses/figure-01/README.md": "32ed5033caeaef4f03673c0ac27e230c4096db7e149d6664455efd33b29c2734",
+      "records/frozen-analyses/figure-02/panel-e/README.md": "373431110e26b83666ff41c3ab30f35f02c0a3b6e8779fa96e6d7dd7afea6a5d",
+      "records/frozen-analyses/figure-02/panel-d/README.md": "657b83696dd824b1e2b1743f02e4e8dd06471b7765281260ee83dab12de80e5f",
+      "records/frozen-analyses/figure-02/panels-d-e/README.md": "58977ae2e01a856cd273b05795d706bda17c81a888995d0f4f37aba9ab14c638",
+      "records/frozen-analyses/figure-02/panel-g/README.md": "89470b88d2a9afeb5a3ec95ba751e91b307174b817dc20e9162e4d2afdd8ec0d",
+      "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/README.md": "dadd1420f7b7c56f85f3893a3bcdfb2e1f54a0624f5e60e94747377fa4f58a25",
+      "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/sources/source-figure.json": "c22918989a6cac6874cdaf211511eddc53107fd45c68c704b757897e733fd914",
+      "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/candidate.json": "3ff47c12d04df4da9414c60632829cc736689ced5ae9d2c7428e7f38d35b87f1",
+      "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/freeze.json": "ad10ef49a77357e353a97ce0b39c64521da655d818716cf5e61badd85aa0b6d2",
+      "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/reviews/renderer-review.json": "478140ad8222e69cfc6f39f4d61c9bbf836699f0990f139fbe6af67038f5549e",
+      "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/README.md": "38c9895f3cc27521b0ab226d383163ccea1fa9d254e6a2ed67c840eada0ff73b",
+      "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/sources/source-figure.json": "b8f12166e2c9b20a1ec67ea0e68a68b522c95c660424ec481c481d9a9d44888c",
+      "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/candidate.json": "8dcb436bdad6ca30b2375fb1cb5ff0d0270769145f8fc0a147896f06e24dff2d",
+      "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/freeze.json": "e845a1a5a5a37eb73251defce3279f816f721a88e76dd781cfe72e79c034a782",
+      "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/reviews/renderer-review.json": "f1ade2b55d2314dc7b092b93e37f8784aaa995a56c7b62a507e8627dbe47d4fe",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/README.md": "608e0134ff1febd974676c0d9f655c821bce8c8449ceb3460c96e03f31372288",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-elements.json": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-element-specification.md": "359b0ac59e08c8c0f4427a2ae402b1fe8398f9326a4a4742d0c56d8cc27144cc",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_block_log_median.py": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_vigor.py": "5ff31912367946a90a5375009023be8ca2bad9242d62125e926363255a70eaf2",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/export.py": "15423c3d6937ece60f4241cc8e1848e953f99e7e23b1e0a11622091d68c77c6e",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/figure_freeze.py": "1a7960588622fb1748725f060f98c5111fac3607afe40badd8045fd86aa77304",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/experiments.py": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/prepare_figure2_B_freeze.py": "7b03bb24d3a19237055e33d1b6f7a06d4e73016cffa0c80be0627df23d9e9d3c",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_bout_only.py": "fa7961cacdac071b872856c2e0e12a97949fb157d424a586fad386c06dbbd864",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_block_statistics.py": "e36e240173c0b37f5fd02047bfe41ad3c4523b0f5a82647a82cf25cf22b7bd93",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/candidate_metric_kernel.py": "fee5305da90d1a09655af217ce3a1955ecf95c2cab1884a436e40626bae19a8b",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/original-readme.md": "3fdd566e10a2ab833dc604e2d3d819a0aae37b23a374e6ce27ebe5373f8613d7",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/handoff.md": "9a61756b7148fbe9a70dc6c579f429ece42984253ff6b8232bc1894742d4d049",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-inputs.json": "d3b62894d9c75f57fddb3e7510223183c3097330b0d56d23b1bbfdef6343a4f8",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-manifest.json": "d4af69c14a42024a86ad3b87d6d862423efd492d8127613df6a36a1c607af48f",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/scientific-selection.json": "b7b17c0d2ab32c6c9f1aad6fc7f7ffc14b030ed50ef6742c1f4cb9164d6ccc5d",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/method.json": "fece6cda05452613bf5aa0c927ee511f554c0a83dc172576524d5591e7e8324a",
+      "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/reviews/visual-review.json": "32b2798cbf8c5be9bfd2b585cec0c571720e8042c33b53088d8df5e43466bd96",
+      "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/README.md": "b395694c466f4d37f85056f92e266fbf0a6af734ae7d1218a10978765835c2e9",
+      "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py": "c6438942104fc0e72fb8c25a9c3614104dd3bc58ef6f54f33bd9f654489aa1cb",
+      "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/selected-source-inventory.json": "899f900a20c5e2b070887a82aceea715aa422f7eaa42aa2d1513c8eeeafc92b8",
+      "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/source-figure.json": "ea90c79d4dc9c3f3fe0c5c3786d16dbc39780c74891bcb128c0e3e9402fb65b2",
+      "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/scientific-selection.json": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+      "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/freeze.json": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+      "records/frozen-analyses/figure-01/panel-e/README.md": "635ed91951fff3709916ff67b5938343dcddef8183e66a35260a049aa418b66a",
+      "records/frozen-analyses/figure-01/panels-f-g-h/README.md": "6a715fb5cd2e4462a731fedc55b3ef9de7d6e529c3c1928e5e6c80c45c8a56f8",
+      "records/frozen-analyses/figure-01/panel-f/README.md": "3feb5c126840165b50cf8efbef41bfca299e75b01686c9442786a4db3b41580b",
+      "records/frozen-analyses/figure-01/panel-h/README.md": "34466f02e5e23308569b97d3a9554ffee8d6ec31f97658e65afa3137a97523ab",
+      "records/frozen-analyses/figure-01/panel-g/README.md": "2b46c1778f78fed24ce490e8a74205f2e90d7f6f12a1f59a3d95e0131d70525f",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/README.md": "1b072cdef18fc1de30fc7d124f025ff4e159413965bbb4d2d821fe3ebe9fc965",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/settings/specification-snapshot.json": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/freeze_preparer_snapshot.py": "cb2d708f9ea2874132ec7054c9f5b7931032f9ad64b6ccab5a5dc7f78947d47e",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/renderer_snapshot.py": "12e5660da722fc8a9934ce40d07f774412a1c9502f310f67882681155adb4f42",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/notes/version-history-source.md": "5181d81ccad93445af4855a6f786a9db3430a720ccd8c471760904e0a621d90b",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/candidate.json": "ec685e275e7cea3ddffd7d923b3d7b1f3753064650cfe0eff9d294d0afd08589",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/selection.json": "f180cd22e52a32d66c152b5928c9a93c95063f2be359d329f645d1bae87eb1fa",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/freeze.json": "c5e86c8a5724ba671deaf41627b661324bca47d411909718eab88d7e1c4c8299",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/check-report.json": "38f9ed1eed07e683dbd2e5213b4c9b66ac1efa1cc69f1f1b3c87b125e4a874a6",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/renderer-properties.json": "d07246352b7999e089a76c1a11160cf4ad3aa7e3992e7d5d6b9bb4be5f84f05d",
+      "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/freeze-command-report.json": "8281daf014fbae2c95280c235218391cc4c08f11ad404539ad8c9cb22e306b54",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/README.md": "5fd24f848561498cdcb691e13b4c91654eaec01bac48c109b9c70d3cb6102919",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/README.md": "9d40d514cc16e4458e0bfd99d5538f284c242af5ba1bdd5ac8b2591e6e203bd5",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/README.md": "71589be6b27a22fbcbb4afad2be6403037fe35d4810f9c369786026243e4b5ad",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/verify_replacement.py": "675968ec306628a6c7e13a26d964dcb8418faacacf38cb070aecaf83ee6521a7",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/build_new_versions.py": "fe6b17884007ddf88916e64b4602ee53c1d8d3bebb1ed99b22c232db0e4a31d9",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json": "2a6e684b1f9493e7978e4a76ffd827d92248a199695d8cc599ef7a9b4af6de54",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json": "fd8e68bf9641da380bcdfe88b08c3bbe422f3839f7646b2795271e0c86ad3e13",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json": "5c02856578813a336c348bd227c6ffd1e1f3bbc42bcb8a3227d2281d60f1ee44",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json": "ed69d6c65456b4c5d6d19b7d2dfe3869d31fa4f011e00c7a428444ecfce0eedf",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/freeze.json": "e7560d122653cc782b97b757ecc4e249a13232f6c37357f9f4b91439f33904e8",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json": "7843fbe473de6ba745002312beeed1068246f5ea3b42479a556354e15022ae5b",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json": "86c94548da863415c2a71e0207dc5b07acfc3a2c4d9e97f846d4431c62d2cb9b",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/settings/pooled-style-freeze.json": "6414d3cbba94924b6b0b6f6cc79483d85bbf022e8857b457dc6c26ae47e608ea",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/shared_colourbar.py": "cd36ec99dd29ff164475e4acf4fa8d4440ae7388ab87eb72e339a7ec0ad981c1",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/freeze_and_style.py": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/register_freeze.py": "bab4ac1605c0f70b88fa31d55f7caef993a927bf5e13fdeab129e93f678dc300",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/render_references.cjs": "b72b424ec18fff1ab5b1297d4a6e91d70afbf46abda834c9b12e688297c625f5",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/selected_processing_code.py": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/replace_trace_fish.py": "e8a81ce00ddd377c0d12bd453e8e6e8b491d6dfd0a3758330cad46edfd56eb2a",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/freeze.json": "956b9cf55451591d5456fd5b5cfe09e3c20743cd2f7bbd12f7f60c76613822f0",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json": "cc2ed4a81817e477b9978ad65e1ee450721ee2f45b80bc7ff245fc2e65b3bef8",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/layout-validation.json": "4d2bf1890c0b87b80bd8a7166d094abb0164f075a58fbb9ddb3d4bc551ff52ec",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/settings/specification-snapshot.json": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/prepare_figure1_fgh_v12_freeze.py": "a13a036ea4d05fb76bc2017b421a1f144431e7f36681edd018bb3d64df90afa5",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py": "6b42599141f1dedb4b260d8f8bfed059665fa8d0bcf34d874fa1616c75bfe0a3",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/experiments_snapshot.py": "4a94b39717bd96c716cbf07347c4a457c960076950d9970e0f43ba42d1afd861",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/candidate.json": "0943b4069a64d783c267f82240cb6e61f544a7c45832a2a02dabf23b3944e54c",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/selection.json": "2256cc5a96a1d7f2859217726f3549c2e6d7654b4868ecb9ca245be44775def0",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/freeze.json": "ca8965d74926b48ba3152b4a5c4159efafa9246fa7b1d0f251c62ba03abdf8d9",
+      "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/reviews/renderer-properties.json": "b685594f6f4c248788f75afd6d66edb019e6fc872b9f4ae24cad7dcb89ed442f",
+      "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json": "411ab6ca8984dc0da222006493f3b28b6ae0bc266ad61dcafc6eba2f51a8ef0f",
+      "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+      "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+      "configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+      "configs/paper-figures/selections/figure1-fgh-version1-freeze-20261009.json": "73ec192917e899964c9939051a6f827b7ec095df079c1640057f60f0c7adf39c",
+      "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md": "35b9dcfe4ec61cfe5b49672dd751e72ba24856e04c111e2c7cdbb2a77f637e9e",
+      "to_implement.md": "16698fa2298b39238b7a692c0b36ec914dc55632e3ff49dc6c054191b1fcefdd"
+    },
+    "status": "verified",
+    "protected_files_unchanged": 100,
+    "verified_selection_path_hash_references": 17,
+    "retained_abcd_sources_verified": 4,
+    "current_frozen_panels": 11,
+    "proposed_panels": 16,
+    "missing_repository_links": [],
+    "unavailable_external_links": [],
+    "repository_guard_issues": [],
+    "historical_checkpoint_links_preserved": [
+      {
+        "document": "docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md",
+        "original_target": "../docs/maintenance/archive/README.md",
+        "resolves_in_original_context": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/maintenance/archive/README.md"
+      }
+    ]
+  }
+}

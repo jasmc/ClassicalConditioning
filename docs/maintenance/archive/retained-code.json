@@ -43,7 +43,6 @@
     "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/prepare_figure2_B_freeze.py",
     "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_block_log_median.py",
     "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_bout_only.py",
-    "scripts/archive_delay_review_versions.py",
     "scripts/assemble_svg_figure.py",
     "scripts/audit-inc-trace-stim.py",
     "scripts/audit_figure1_camera_gaps.py",
@@ -51,7 +50,6 @@
     "scripts/audit_figure1_vigor_alignment.py",
     "scripts/audit_figure2_bout_only_statistics.py",
     "scripts/audit_figure2_delay_lmm.py",
-    "scripts/audit_mac_ssd_handoff.py",
     "scripts/audit_preprocessing_contract.py",
     "scripts/build_figure1_legacy_vigor_heatmaps.py",
     "scripts/build_figure1_panel_a.py",
@@ -70,8 +68,6 @@
     "scripts/prepare-trace-runs.py",
     "scripts/prepare_figure1_fgh_v12_freeze.py",
     "scripts/prepare_figure2_B_freeze.py",
-    "scripts/prepare_figure2_G_logmedian_freeze.py",
-    "scripts/prepare_mac_ssd_handoff.py",
     "scripts/prepare_panel_e_heatmap_rows_freeze.py",
     "scripts/process-ingested-trace-fish.ps1",
     "scripts/render_figure1_3strace_example.py",
@@ -172,5 +168,5 @@
     "src/classical_conditioning/progress.py",
     "src/classical_conditioning/run_config.py"
   ],
-  "policy": "Supported code and exact immutable frozen snapshots; records now use figure/panel/version organization"
+  "policy": "Supported code and exact frozen snapshots; historical scripts verified externally and removed"
 }

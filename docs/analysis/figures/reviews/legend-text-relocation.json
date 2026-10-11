@@ -1,0 +1,6577 @@
+{
+  "review_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html",
+  "review_sha256": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+  "edits": [
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Training trial",
+      "element_id": "heading",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Relationship",
+      "element_id": "heading",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Alternative US onsets",
+      "element_id": "row-control",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Timing varies between trials",
+      "element_id": "row-control",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "US at 9 s",
+      "element_id": "row-delay",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "During CS",
+      "element_id": "row-delay",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "US at 13 s",
+      "element_id": "row-trace-3s",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "3 s after CS offset",
+      "element_id": "row-trace-3s",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "US at 20 s",
+      "element_id": "row-trace-10s",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "10 s after CS offset",
+      "element_id": "row-trace-10s",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "action": "two-column-layout",
+      "text": "Control | Delay; Trace (3 s) | Trace (10 s); unchanged event coordinates within each translated timeline",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Session sequence",
+      "element_id": null,
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Schematic \u00b7 not to scale",
+      "element_id": null,
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "includes left-side light",
+      "element_id": "phase-priming",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Trial timing in B",
+      "element_id": "phase-training",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Short US pulses are interspersed; they are not conditioning pairings.",
+      "element_id": "protocol-notes",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Control:",
+      "element_id": "protocol-notes",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Same long-US times; training CS onsets randomized per fish",
+      "element_id": "protocol-notes",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "element_id": "protocol-notes",
+      "action": "move-explanatory-legend-key-to-caption",
+      "text": "Short-US and control key markers accompanying the removed protocol notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "action": "align-stimulus-types",
+      "text": "CS presentations, CS-only catches, paired long US and separate short US occupy common rows across phases",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Tail angle (\u00b0) \u00b7 Delay fish 20221115_07",
+      "replacement": "Tail angle (\u00b0)",
+      "element_id": "text_27",
+      "action": "retain-unit; move-fish-id-to-legend",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Distal cumulative angle; -15 to 0 s median centred",
+      "element_id": "text_28",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Raw vigor + frozen heatmap rows",
+      "element_id": "fig1__e__heading__title",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Delay 20221115_07 \u00b7 0.5 s bins \u00b7 baseline [\u221215,0) s",
+      "element_id": "fig1__e__heading__fish-baseline",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Each strip is the matching frozen V12 heatmap row \u00b7 all 80 bins shown",
+      "element_id": "fig1__e__heading__recipe",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Raw display capped at 1 rad/ms: 12 frame values exceed the range.",
+      "element_id": "fig1__e__notes__raw-clipping",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Frozen colours saturate at \u00b11 (12 bins); missing bins are black. Signed data are not clipped.",
+      "element_id": "fig1__e__notes__colour-note",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "20221115_07",
+      "element_id": "fig1__f__heading__fish-id",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "20230310_08",
+      "element_id": "fig1__g__heading__fish-id",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "20221115_09",
+      "element_id": "fig1__h__heading__fish-id",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "CS-aligned population heatmaps",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "Control versus 10sTrace",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "Reviewed matched cohort and panel data pending",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "No authenticated population SVG found",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "Interpretation: inconclusive",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "Fish median/IQR \u00b7 Holm36",
+      "element_id": "fig2__d__canvas__summary-note",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "\u2020 versus 0 \u00b7 sign / BM",
+      "element_id": "fig2__d__canvas__statistics-note",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "Fish median/IQR \u00b7 Holm36",
+      "element_id": "fig2__e__canvas__summary-note",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "\u2020 versus 0 \u00b7 sign / BM",
+      "element_id": "fig2__e__canvas__statistics-note",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "Selected-block CR ratios",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "Control versus 10sTrace",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "Reviewed matched cohort and ratio data pending",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "Response-window / ratio definition under review",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "Interpretation: inconclusive",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Delay | Historical LogMedian \u00b7 bout frames only",
+      "element_id": "fig2__g__title",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D: Holm8 \u00b7 M/R: BH9 \u00b7 trial stars: phase-aware LMM, change from Pre, BH90",
+      "element_id": "fig2__g__families",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "95% CI: 5,000 whole-fish resamples, seed 10; missing trials retained. Test3 local M/R: n/a.",
+      "element_id": "fig2__g__bootstrap",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Exploratory mixed-effects inference; heavy residual tails; stars do not establish learning onset.",
+      "element_id": "fig2__g__limits",
+      "action": "move-to-legend-or-review-notes",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "Trial-by-trial CR ratios",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "Control versus 10sTrace",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "Reviewed matched cohort and ratio data pending",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "No authenticated trial-trajectory SVG found",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "Interpretation: inconclusive",
+      "action": "replace-placeholder-explanation",
+      "replacement": "10 s Trace / Inputs unavailable / Panel pending",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md"
+    },
+    {
+      "figure": 2,
+      "panel": "assembly",
+      "text": "Figure 2 | Population-level conditioning evidence",
+      "action": "move-to-review-notes",
+      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md"
+    },
+    {
+      "figure": 2,
+      "panel": "assembly",
+      "text": "Latest selected D/E Version B and G LogMedian; other populated panels retain their previous sources",
+      "action": "move-to-review-notes",
+      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md"
+    },
+    {
+      "figure": 2,
+      "panel": "assembly",
+      "text": "Delay / matched control",
+      "action": "move-to-review-notes",
+      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md"
+    },
+    {
+      "figure": 2,
+      "panel": "assembly",
+      "text": "3sTrace / matched control",
+      "action": "move-to-review-notes",
+      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md"
+    },
+    {
+      "figure": 2,
+      "panel": "assembly",
+      "text": "10sTrace / matched control",
+      "action": "move-to-review-notes",
+      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md"
+    },
+    {
+      "figure": 2,
+      "panel": "assembly",
+      "text": "Assembly review; whole figure not frozen. C/F/I pending. A/B/H retain their earlier scientific definitions.",
+      "action": "move-to-review-notes",
+      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md"
+    },
+    {
+      "figure": 1,
+      "panel": "presentation",
+      "action": "author-requested-legacy-axis-style-and-display-transforms",
+      "details": {
+        "scope": "Figure 1 candidate only",
+        "approval_evidence": "Author requested legacy axis/tick/label style across Figure 1, right-only B arrowheads and below-axis units, and shorter heatmaps in this chat on 2026-10-11",
+        "style_source": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/legacy/helpers/plotting_style.py",
+          "sha256": "c4be46a659e4c721d56d83f98dd2246f354c45ec72b2e3507eb43b2bb1ce143f"
+        },
+        "axis_labels": {
+          "size_pt": 8,
+          "weight": "bold",
+          "color": "#000000"
+        },
+        "ticks": {
+          "size_pt": 7,
+          "length_pt": 2,
+          "pad_pt": 2,
+          "direction": "out",
+          "width_pt": 0.5
+        },
+        "trace_bottom_spine_offset_pt": 6,
+        "heatmap_spines": "retain boxed flush axes",
+        "display_transforms": {
+          "D_trace_row_y_factor": 1.5,
+          "E_trace_row_y_factor": 1.8,
+          "E_row_stride": 80,
+          "FGH_height_factor": 0.65
+        },
+        "B_arrowheads": "right only",
+        "B_unit_label_position": "below each time axis",
+        "scientific_definitions": "unchanged"
+      }
+    }
+  ],
+  "layouts": [
+    [
+      {
+        "panel": "A",
+        "translate_y": 0,
+        "source_scale": 2.374814682996703,
+        "candidate_scale": 2.374814682996703,
+        "candidate_sha256": "906bdcc46a870554aaeaff8030bce9eeadd8567b9167a7524247647010303588",
+        "extent": {
+          "x": 45.03489035123445,
+          "y": 25.0,
+          "width": 324.9302192975311,
+          "height": 379.0
+        },
+        "candidate_viewbox": "0 0 136.8234 159.5914"
+      },
+      {
+        "panel": "B",
+        "translate_y": 0,
+        "source_scale": 1.0,
+        "candidate_scale": 0.9571428571428571,
+        "candidate_sha256": "5e8af178c6cb8fd0be1c339a1f4d04adcb6e626b880278a2b31fc487de95eb15",
+        "extent": {
+          "x": 405.0,
+          "y": 35.0,
+          "width": 1340.0,
+          "height": 411.57142857142856
+        },
+        "candidate_viewbox": "0 0 1400 430"
+      },
+      {
+        "panel": "C",
+        "translate_y": 0,
+        "source_scale": 1.0,
+        "candidate_scale": 1.0,
+        "candidate_sha256": "582f15170c48a35959fd6f96e368ac88adf7a6e7af0156836ff615e420929dbc",
+        "extent": {
+          "x": 55.0,
+          "y": 465.0,
+          "width": 1690.0,
+          "height": 365.0
+        },
+        "candidate_viewbox": "0 0 1690 365"
+      },
+      {
+        "panel": "D",
+        "translate_y": 0,
+        "source_scale": 1.537512297095423,
+        "candidate_scale": 0.8805485384337783,
+        "candidate_sha256": "033c1af7d2b37af2aebb7cb7227508ed836b6ca745ac3af9b7bf609444f77b88",
+        "extent": {
+          "x": 45.0,
+          "y": 930.0,
+          "width": 840.0,
+          "height": 550.0
+        },
+        "candidate_viewbox": "-140 -15 760 624.610655737705"
+      },
+      {
+        "panel": "E",
+        "translate_y": 0,
+        "source_scale": 2.7777777777777777,
+        "candidate_scale": 1.0,
+        "candidate_sha256": "4982cb620fc074bde08eff181ed3dbafb54074d25850848fc0694982c73ff6d4",
+        "extent": {
+          "x": 915.0,
+          "y": 930.0,
+          "width": 840.0,
+          "height": 550.0
+        },
+        "candidate_viewbox": "-165 0 840 550"
+      },
+      {
+        "panel": "FGH",
+        "translate_y": -1170,
+        "source_scale": 3.469945354075877,
+        "candidate_scale": 3.469945354075877,
+        "candidate_sha256": "faa8cea56770f4eb662f247d40689a69ed20d4e25ff2883a78d8efe7d76db9a2",
+        "extent": {
+          "x": 1.1226295555388788e-06,
+          "y": 2700.0,
+          "width": 1799.999997754741,
+          "height": 1020.0
+        },
+        "candidate_viewbox": "0 0 518.740157 293.952756"
+      }
+    ],
+    [
+      {
+        "panel": "A",
+        "translate_y": -145,
+        "source_scale": 1.206896551724138,
+        "candidate_scale": 1.206896551724138,
+        "candidate_sha256": "176ab20045cdf691b20521e6458ab96988b8479b070739f678b7516631496687",
+        "extent": {
+          "x": 20.758620689655174,
+          "y": 265.84482758620686,
+          "width": 588.4827586206897,
+          "height": 483.48275862068965
+        },
+        "candidate_viewbox": "-35 -15 487.6 400.6"
+      },
+      {
+        "panel": "B",
+        "translate_y": -145,
+        "source_scale": 1.206896551724138,
+        "candidate_scale": 1.206896551724138,
+        "candidate_sha256": "11850233c01085ee9f367e58089bf3dc34af71ba8a83ff35c57f7643a772b303",
+        "extent": {
+          "x": 590.7586206896551,
+          "y": 265.84482758620686,
+          "width": 588.4827586206897,
+          "height": 483.48275862068965
+        },
+        "candidate_viewbox": "-35 -15 487.6 400.6"
+      },
+      {
+        "panel": "D",
+        "translate_y": -150,
+        "source_scale": 3.4680973175958196,
+        "candidate_scale": 3.4680973175958196,
+        "candidate_sha256": "8a8675476d5562a7e110e1fd647b25ec8b97223dd9e89944d5e11fa57e3acbb3",
+        "extent": {
+          "x": 45.143798120264705,
+          "y": 830.0,
+          "width": 539.7124037594706,
+          "height": 475.1293325106273
+        },
+        "candidate_viewbox": "0 0 155.622047 137"
+      },
+      {
+        "panel": "E",
+        "translate_y": -150,
+        "source_scale": 3.4680973175958196,
+        "candidate_scale": 3.4680973175958196,
+        "candidate_sha256": "bac058b3189f4e47b0d86d5330a85575d27ff3ba59a6b461554e85a7c83e2c4d",
+        "extent": {
+          "x": 615.1437981202647,
+          "y": 830.0,
+          "width": 539.7124037594706,
+          "height": 475.1293325106273
+        },
+        "candidate_viewbox": "0 0 155.622047 137"
+      },
+      {
+        "panel": "G",
+        "translate_y": -205,
+        "source_scale": 3.4699453584041695,
+        "candidate_scale": 3.4699453584041695,
+        "candidate_sha256": "9a3afbefb4ba5876aff8371e09fdd55c92e7316e63353fb74e3f6eab94710c1d",
+        "extent": {
+          "x": 0.0,
+          "y": 1400.0327857285974,
+          "width": 1800.0,
+          "height": 836.2568313754049
+        },
+        "candidate_viewbox": "0 0 518.740157 241"
+      },
+      {
+        "panel": "H",
+        "translate_y": -325,
+        "source_scale": 1.1188271604938271,
+        "candidate_scale": 1.1188271604938271,
+        "candidate_sha256": "5a5517c4118dcc7ae1f40d22ffebc74f357f0bb3d55f9d9152f6e5cb1b6da6f7",
+        "extent": {
+          "x": 288.070987654321,
+          "y": 2488.2175925925926,
+          "width": 584.6990740740741,
+          "height": 351.53549382716045
+        },
+        "candidate_viewbox": "-70 -15 522.6 314.2"
+      }
+    ]
+  ],
+  "checks": {
+    "selected_source_hashes": true,
+    "scientific_path_coordinates_and_payloads_preserved": true,
+    "uniform_panel_fitting": true,
+    "author_requested_resizing": true,
+    "display_y_transforms_recorded": true,
+    "figure1_panel_d_vector_svg": true
+  },
+  "typography": [
+    {
+      "figure": 1,
+      "panel": "A",
+      "text": "A",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "A",
+      "text": "US",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "A",
+      "text": "CS",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "A",
+      "text": "Basal",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "A",
+      "text": "illumination",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "B",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "CS",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "US onset",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "?",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "?",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "?",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Control",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "-5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Delay",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "-5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Trace (3 s)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "-5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Trace (10 s)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "-5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "C",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "CS (10 s)",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "short US (50 ms)",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "long US (100 ms)",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Priming /",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "habituation",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "4 CS-like",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "15 separate short US",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Pre-training",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "10 CS presentations",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "3 separate short US",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Training",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "50 CS presentations",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "46 paired long US",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "4 CS-only catch trials",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "Testing",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "30 CS presentations",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "text": "14 separate short US",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "D",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "\u2212200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Pre-Train",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "\u2212200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Early Train",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "\u2212200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Late Train",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "\u2212200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Early Test",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "\u221220",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "\u221210",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "\u2212200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "200",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Late Test",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "text": "Tail angle (\u00b0)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "mfc3059cfa0  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_2 xtick_2 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_3 xtick_3 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_4 xtick_4 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_5 xtick_5 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "m9f4646424e  line2d_6 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_6 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_7 ytick_2 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_8 ytick_3 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_9 axes_1 figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_10 axes_1 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_11 axes_1 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_3 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_4 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_12 xtick_6 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_13 xtick_7 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_14 xtick_8 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_15 xtick_9 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_16 xtick_10 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_17 ytick_4 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_18 ytick_5 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_19 ytick_6 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_20 axes_2 figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_21 axes_2 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_22 axes_2 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_23 axes_2 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_6 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_7 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_24 xtick_11 matplotlib.axis_5 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_25 xtick_12 matplotlib.axis_5 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_26 xtick_13 matplotlib.axis_5 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_27 xtick_14 matplotlib.axis_5 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_28 xtick_15 matplotlib.axis_5 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_29 ytick_7 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_30 ytick_8 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_31 ytick_9 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_32 axes_3 figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_33 axes_3 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_34 axes_3 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_35 axes_3 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_9 axes_3 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_10 axes_3 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_36 xtick_16 matplotlib.axis_7 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_37 xtick_17 matplotlib.axis_7 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_38 xtick_18 matplotlib.axis_7 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_39 xtick_19 matplotlib.axis_7 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_40 xtick_20 matplotlib.axis_7 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_41 ytick_10 matplotlib.axis_8 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_42 ytick_11 matplotlib.axis_8 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_43 ytick_12 matplotlib.axis_8 axes_4 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_44 axes_4 figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_45 axes_4 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_46 axes_4 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_12 axes_4 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_13 axes_4 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_47 xtick_21 matplotlib.axis_9 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_48 xtick_22 matplotlib.axis_9 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_49 xtick_23 matplotlib.axis_9 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_50 xtick_24 matplotlib.axis_9 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_51 xtick_25 matplotlib.axis_9 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_52 ytick_13 matplotlib.axis_10 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_53 ytick_14 matplotlib.axis_10 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": "  line2d_54 ytick_15 matplotlib.axis_10 axes_5 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_55 axes_5 figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_56 axes_5 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " line2d_57 axes_5 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_15 axes_5 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "D",
+      "element_id": " patch_16 axes_5 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "E",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0.5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Habituation",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Trial 9",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0.5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Early Train",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Trial 17",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0.5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Late Train",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Trial 63",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0.5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Early Test",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Trial 66",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0.5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Late Test",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Trial 93",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "\u221220",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "\u221210",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Time from measured CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "\u22121",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "+1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Scaled deviation from baseline",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "text": "Raw vigor (rad/ms)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "m9261971498  fig1__e__trial-9-trace__tickmymleftm0-mark ytick_1 fig1__e__trial-9-trace__axis-y fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-9-trace__tickmymleftm0-mark ytick_1 fig1__e__trial-9-trace__axis-y fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-9-trace__tickmymleftm0p5-mark ytick_2 fig1__e__trial-9-trace__axis-y fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-9-trace__tickmymleftm1-mark ytick_3 fig1__e__trial-9-trace__axis-y fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-9-trace__raw-vigor fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-9-trace__spine-left fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-9-trace__cs-onset fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-9-trace__cs-offset fig1__e__trial-9-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-9-heatmap__spine-left fig1__e__trial-9-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-9-heatmap__spine-bottom fig1__e__trial-9-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-17-trace__tickmymleftm0-mark ytick_4 fig1__e__trial-17-trace__axis-y fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-17-trace__tickmymleftm0p5-mark ytick_5 fig1__e__trial-17-trace__axis-y fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-17-trace__tickmymleftm1-mark ytick_6 fig1__e__trial-17-trace__axis-y fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-17-trace__raw-vigor fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-17-trace__spine-left fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-17-trace__cs-onset fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-17-trace__cs-offset fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-17-trace__actual-us-onset fig1__e__trial-17-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-17-heatmap__spine-left fig1__e__trial-17-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-17-heatmap__spine-bottom fig1__e__trial-17-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-63-trace__tickmymleftm0-mark ytick_7 fig1__e__trial-63-trace__axis-y fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-63-trace__tickmymleftm0p5-mark ytick_8 fig1__e__trial-63-trace__axis-y fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-63-trace__tickmymleftm1-mark ytick_9 fig1__e__trial-63-trace__axis-y fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-63-trace__raw-vigor fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-63-trace__spine-left fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-63-trace__cs-onset fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-63-trace__cs-offset fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-63-trace__actual-us-onset fig1__e__trial-63-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-63-heatmap__spine-left fig1__e__trial-63-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-63-heatmap__spine-bottom fig1__e__trial-63-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-66-trace__tickmymleftm0-mark ytick_10 fig1__e__trial-66-trace__axis-y fig1__e__trial-66-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-66-trace__tickmymleftm0p5-mark ytick_11 fig1__e__trial-66-trace__axis-y fig1__e__trial-66-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-66-trace__tickmymleftm1-mark ytick_12 fig1__e__trial-66-trace__axis-y fig1__e__trial-66-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-66-trace__raw-vigor fig1__e__trial-66-trace__axes figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-66-trace__spine-left fig1__e__trial-66-trace__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-66-trace__cs-onset fig1__e__trial-66-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-66-trace__cs-offset fig1__e__trial-66-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-66-heatmap__spine-left fig1__e__trial-66-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-66-heatmap__spine-bottom fig1__e__trial-66-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-trace__tickmymleftm0-mark ytick_13 fig1__e__trial-93-trace__axis-y fig1__e__trial-93-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-trace__tickmymleftm0p5-mark ytick_14 fig1__e__trial-93-trace__axis-y fig1__e__trial-93-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-trace__tickmymleftm1-mark ytick_15 fig1__e__trial-93-trace__axis-y fig1__e__trial-93-trace__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-93-trace__raw-vigor fig1__e__trial-93-trace__axes figure_1 ",
+      "role": "trace",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-93-trace__spine-left fig1__e__trial-93-trace__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-93-trace__cs-onset fig1__e__trial-93-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-93-trace__cs-offset fig1__e__trial-93-trace__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "mf9fd5b826a  fig1__e__trial-93-heatmap__tickmxmbottommm20-mark xtick_46 fig1__e__trial-93-heatmap__axis-x fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-heatmap__tickmxmbottommm20-mark xtick_46 fig1__e__trial-93-heatmap__axis-x fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-heatmap__tickmxmbottommm10-mark xtick_47 fig1__e__trial-93-heatmap__axis-x fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-heatmap__tickmxmbottomm0-mark xtick_48 fig1__e__trial-93-heatmap__axis-x fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-heatmap__tickmxmbottomm10-mark xtick_49 fig1__e__trial-93-heatmap__axis-x fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__trial-93-heatmap__tickmxmbottomm20-mark xtick_50 fig1__e__trial-93-heatmap__axis-x fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-93-heatmap__spine-left fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__trial-93-heatmap__spine-bottom fig1__e__trial-93-heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "m7364997815  fig1__e__colorbar__tickmymrightmm1-mark ytick_16 fig1__e__colorbar__axis-y fig1__e__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__colorbar__tickmymrightmm1-mark ytick_16 fig1__e__colorbar__axis-y fig1__e__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__colorbar__tickmymrightm0-mark ytick_17 fig1__e__colorbar__axis-y fig1__e__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": "  fig1__e__colorbar__tickmymrightm1-mark ytick_18 fig1__e__colorbar__axis-y fig1__e__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "E",
+      "element_id": " fig1__e__colorbar__spine-outline fig1__e__colorbar__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "-20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Time from CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "30",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "40",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "50",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "60",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "70",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "80",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "90",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Pre",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Train",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Test",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "-20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Time from CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "-20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Time from CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "-1.0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "-0.7",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "0.0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "0.7",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "1.0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Scaled deviation from baseline",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "F",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Delay",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "G",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "3 s Trace",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "H",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "Control",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "mb12d297adb  fig1__f__heatmap__tickmxmm20-mark xtick_1 fig1__f__heatmap__axis-x fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmxmm20-mark xtick_1 fig1__f__heatmap__axis-x fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmxm0-mark xtick_2 fig1__f__heatmap__axis-x fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmxm20-mark xtick_3 fig1__f__heatmap__axis-x fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "m8d8e4385fb  fig1__f__heatmap__tickmym10-mark ytick_1 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym10-mark ytick_1 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym20-mark ytick_2 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym30-mark ytick_3 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym40-mark ytick_4 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym50-mark ytick_5 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym60-mark ytick_6 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym70-mark ytick_7 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym80-mark ytick_8 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__tickmym90-mark ytick_9 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__f__heatmap__spine-left fig1__f__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__f__heatmap__spine-right fig1__f__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__f__heatmap__spine-bottom fig1__f__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__f__heatmap__spine-top fig1__f__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__f__heatmap__cs-onset fig1__f__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__f__heatmap__cs-offset fig1__f__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__f__heatmap__us-expected fig1__f__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmxmm20-mark xtick_4 fig1__g__heatmap__axis-x fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmxm0-mark xtick_5 fig1__g__heatmap__axis-x fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmxm20-mark xtick_6 fig1__g__heatmap__axis-x fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym10-mark ytick_10 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym20-mark ytick_11 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym30-mark ytick_12 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym40-mark ytick_13 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym50-mark ytick_14 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym60-mark ytick_15 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym70-mark ytick_16 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym80-mark ytick_17 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__g__heatmap__tickmym90-mark ytick_18 fig1__g__heatmap__axis-y fig1__g__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__g__heatmap__spine-left fig1__g__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__g__heatmap__spine-right fig1__g__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__g__heatmap__spine-bottom fig1__g__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__g__heatmap__spine-top fig1__g__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__g__heatmap__cs-onset fig1__g__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__g__heatmap__cs-offset fig1__g__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__g__heatmap__us-expected fig1__g__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmxmm20-mark xtick_7 fig1__h__heatmap__axis-x fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmxm0-mark xtick_8 fig1__h__heatmap__axis-x fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmxm20-mark xtick_9 fig1__h__heatmap__axis-x fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym10-mark ytick_19 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym20-mark ytick_20 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym30-mark ytick_21 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym40-mark ytick_22 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym50-mark ytick_23 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym60-mark ytick_24 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym70-mark ytick_25 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym80-mark ytick_26 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__heatmap__tickmym90-mark ytick_27 fig1__h__heatmap__axis-y fig1__h__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__h__heatmap__spine-left fig1__h__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__h__heatmap__spine-right fig1__h__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__h__heatmap__spine-bottom fig1__h__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__h__heatmap__spine-top fig1__h__heatmap__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__h__heatmap__cs-onset fig1__h__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__h__heatmap__cs-offset fig1__h__heatmap__axes figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "maa991839d4  fig1__h__colorbar__tickmymm1-mark ytick_28 fig1__h__colorbar__axis-y fig1__h__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__colorbar__tickmymm1-mark ytick_28 fig1__h__colorbar__axis-y fig1__h__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__colorbar__tickmymm0p7-mark ytick_29 fig1__h__colorbar__axis-y fig1__h__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__colorbar__tickmym0-mark ytick_30 fig1__h__colorbar__axis-y fig1__h__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__colorbar__tickmym0p7-mark ytick_31 fig1__h__colorbar__axis-y fig1__h__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__h__colorbar__tickmym1-mark ytick_32 fig1__h__colorbar__axis-y fig1__h__colorbar__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": " fig1__h__colorbar__spine-outline fig1__h__colorbar__axes figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "A",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "\u221220",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "Time from CS onset (s)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "30",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "40",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "50",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "60",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "70",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "80",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "90",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "Global CS trial",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "Control (n=28)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "\u221220",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "Delay (n=29)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "\u22120.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "\u22120.1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "0.0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "0.1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "0.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "text": "Mean signed log vigor",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "mfb892084a0  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_2 xtick_2 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_3 xtick_3 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "m2bd8216692  line2d_4 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_4 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_5 ytick_2 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_6 ytick_3 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_7 ytick_4 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_8 ytick_5 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_9 ytick_6 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_10 ytick_7 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_11 ytick_8 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_12 ytick_9 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_13 axes_1 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_14 axes_1 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_15 axes_1 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_16 axes_1 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_3 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_4 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_5 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_6 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_17 xtick_4 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_18 xtick_5 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_19 xtick_6 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_20 ytick_10 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_21 ytick_11 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_22 ytick_12 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_23 ytick_13 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_24 ytick_14 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_25 ytick_15 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_26 ytick_16 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_27 ytick_17 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_28 ytick_18 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_29 axes_2 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_30 axes_2 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_31 axes_2 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " line2d_32 axes_2 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_8 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_9 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_10 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_11 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "mfa6ae28dd7  line2d_33 ytick_19 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_33 ytick_19 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_34 ytick_20 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_35 ytick_21 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_36 ytick_22 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": "  line2d_37 ytick_23 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "A",
+      "element_id": " patch_13 axes_3 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "B",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "\u221220",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "Time from CS onset (s)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "30",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "40",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "50",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "60",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "70",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "80",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "90",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "Global CS trial",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "Control (n=19)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "\u221220",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "3sTrace (n=40)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "\u22120.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "\u22120.1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "0.0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "0.1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "0.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "text": "Mean signed log vigor",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "mf6b7ed9514  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_2 xtick_2 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_3 xtick_3 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "m738f02bd5b  line2d_4 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_4 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_5 ytick_2 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_6 ytick_3 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_7 ytick_4 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_8 ytick_5 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_9 ytick_6 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_10 ytick_7 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_11 ytick_8 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_12 ytick_9 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_13 axes_1 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_14 axes_1 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_15 axes_1 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_16 axes_1 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_3 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_4 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_5 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_6 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_17 xtick_4 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_18 xtick_5 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_19 xtick_6 matplotlib.axis_3 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_20 ytick_10 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_21 ytick_11 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_22 ytick_12 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_23 ytick_13 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_24 ytick_14 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_25 ytick_15 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_26 ytick_16 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_27 ytick_17 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_28 ytick_18 matplotlib.axis_4 axes_2 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_29 axes_2 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_30 axes_2 figure_1 ",
+      "role": "stimulus",
+      "final_stroke_pt": 0.7
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_31 axes_2 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " line2d_32 axes_2 figure_1 ",
+      "role": "heatmap-phase-separator",
+      "final_stroke_pt": 0.8
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_8 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_9 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_10 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_11 axes_2 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "mf22aed01be  line2d_33 ytick_19 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_33 ytick_19 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_34 ytick_20 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_35 ytick_21 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_36 ytick_22 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": "  line2d_37 ytick_23 matplotlib.axis_6 axes_3 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "B",
+      "element_id": " patch_13 axes_3 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "C",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "10 s Trace",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "Inputs unavailable",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "C",
+      "text": "Panel pending",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "D",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "PT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "ET",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "LT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "-0.4",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "-0.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "0.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "0.4",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "Median ln vigor",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "(response \u2212 baseline)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "***",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "**",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "\u2020****",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "PT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "ET",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "LT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "Delay",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "n=29/29/29",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "Control",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "n=28/24/26",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "text": "****",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "element_id": "m436a50e6d9  tick__d-delay__y__000 ytick_1 axis__d-delay__y axes__d-delay__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "element_id": "  tick__d-delay__y__000 ytick_1 axis__d-delay__y axes__d-delay__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "element_id": "  tick__d-delay__y__001 ytick_2 axis__d-delay__y axes__d-delay__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "element_id": "  tick__d-delay__y__002 ytick_3 axis__d-delay__y axes__d-delay__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "element_id": "  tick__d-delay__y__003 ytick_4 axis__d-delay__y axes__d-delay__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "D",
+      "element_id": "  tick__d-delay__y__004 ytick_5 axis__d-delay__y axes__d-delay__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "E",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "PT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "ET",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "LT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "-0.6",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "-0.4",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "-0.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "0",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "0.2",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "0.4",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "0.6",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "Median ln vigor",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "(response \u2212 baseline)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "PT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "ET",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "LT",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "3 s Trace",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "n=40/40/40",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "Control",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "text": "n=19/19/18",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "m436a50e6d9  tick__e-trace__y__000 ytick_1 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "  tick__e-trace__y__000 ytick_1 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "  tick__e-trace__y__001 ytick_2 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "  tick__e-trace__y__002 ytick_3 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "  tick__e-trace__y__003 ytick_4 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "  tick__e-trace__y__004 ytick_5 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "  tick__e-trace__y__005 ytick_6 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "E",
+      "element_id": "  tick__e-trace__y__006 ytick_7 axis__e-trace__y axes__e-trace__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "F",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "10 s Trace",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "Inputs unavailable",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "F",
+      "text": "Panel pending",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D: block interaction",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "M: block mean",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "R: slope (raw)",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "R: slope (FDR)",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Trial change (FDR)",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Pre",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Tr1",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Tr2",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Tr3",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Tr4",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Tr5",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Te1",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Te2",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Te3",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D***",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D***",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D***",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D***",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "D*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "R**",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "R*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "M**",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "M**",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "M***",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "M**",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "M***",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "R*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "R*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "n/a",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "n/a",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "n/a",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "*",
+      "role": "annotation",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "5",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "15",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "25",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "35",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "45",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "55",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "65",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "75",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "85",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "94",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Global CS trial",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "-0.20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "-0.15",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "-0.10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "-0.05",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "0.00",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "0.05",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "0.10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "0.15",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Median ln vigor",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "(response \u2212 baseline)",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "G",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Control (n=28)",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "text": "Delay (n=29)",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "m1e22b0d04d  tick__g-observed__x__000 xtick_11 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__000 xtick_11 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__001 xtick_12 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__002 xtick_13 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__003 xtick_14 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__004 xtick_15 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__005 xtick_16 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__006 xtick_17 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__007 xtick_18 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__008 xtick_19 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__x__009 xtick_20 axis__g-observed__x axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "m1c57f66349  tick__g-observed__y__000 ytick_6 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__000 ytick_6 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__001 ytick_7 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__002 ytick_8 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__003 ytick_9 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__004 ytick_10 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__005 ytick_11 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__006 ytick_12 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "G",
+      "element_id": "  tick__g-observed__y__007 ytick_13 axis__g-observed__y axes__g-observed__main figure ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "H",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "20",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "40",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "60",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "80",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "Global CS trial",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "0.90",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "0.95",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "1.00",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "1.05",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "1.10",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "Response / pre-CS baseline",
+      "role": "label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "Control (n=19)",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "text": "3sTrace (n=40)",
+      "role": "legend",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "m87b1bc9436  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_1 xtick_1 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_2 xtick_2 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_3 xtick_3 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_4 xtick_4 matplotlib.axis_1 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "m8c5cb0b9be  line2d_5 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_5 ytick_1 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_6 ytick_2 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_7 ytick_3 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_8 ytick_4 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": "  line2d_9 ytick_5 matplotlib.axis_2 axes_1 figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " line2d_10 axes_1 figure_1 ",
+      "role": "summary-curve",
+      "final_stroke_pt": 1.2
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " line2d_11 axes_1 figure_1 ",
+      "role": "summary-curve",
+      "final_stroke_pt": 1.2
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " line2d_12 axes_1 figure_1 ",
+      "role": "reference-or-phase-boundary",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " line2d_13 axes_1 figure_1 ",
+      "role": "reference-or-phase-boundary",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " line2d_14 axes_1 figure_1 ",
+      "role": "reference-or-phase-boundary",
+      "final_stroke_pt": 0.6
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " patch_3 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " patch_4 axes_1 figure_1 ",
+      "role": "spine",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " line2d_15 legend_1 axes_1 figure_1 ",
+      "role": "summary-curve",
+      "final_stroke_pt": 1.2
+    },
+    {
+      "figure": 2,
+      "panel": "H",
+      "element_id": " line2d_16 legend_1 axes_1 figure_1 ",
+      "role": "summary-curve",
+      "final_stroke_pt": 1.2
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "I",
+      "role": "panel-letter",
+      "final_size_pt": 10,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "10 s Trace",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "Inputs unavailable",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    },
+    {
+      "figure": 2,
+      "panel": "I",
+      "text": "Panel pending",
+      "role": "placeholder",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
+    }
+  ]
+}

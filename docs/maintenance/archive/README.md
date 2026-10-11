@@ -55,3 +55,7 @@ The [scripts-only follow-up](scripts-cleanup-20261010/README.md) has its own imm
 ## Frozen-record organization
 
 The [records catalogue](../../../records/README.md) uses figure/panel/version folders. [Byte-preserved moves](records-reorganization.json) and [verification](records-reorganization-verification.json) record the 70 renamed/relocated files. Prior paths are resolved through the current repository relocation map; published archive checkpoints and historical frozen contents remain unchanged.
+
+## Documentation follow-up
+
+The [complete documentation audit](documentation-cleanup-20261011/README.md) inventories all 130 original files and records their roles, moves and consolidation. Control checkpoints above remain unchanged. The live relocation map follows successive repository moves; explicit expected hashes and external payloads retain strict byte checks.

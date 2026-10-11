@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/superseded-and-cohort",
+  "files": [
+    {
+      "path": "configs/allDelay-full-v1-cohort.csv",
+      "bytes": 11274,
+      "sha256": "18700fb33edbd41bac3617f2898781dee0c22ba8b96bc56a802b9c16671e8df6",
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Technical cohort evidence or superseded V5 candidate; preserve exact bytes externally",
+      "historical_paths": []
+    },
+    {
+      "path": "configs/paper-figures/figure1-cadence-review-v5.json",
+      "bytes": 4889,
+      "sha256": "34b5025bf492a3fa5c68fa02085a33566a9d850d57af7bfb073fc5a6992b6635",
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Technical cohort evidence or superseded V5 candidate; preserve exact bytes externally",
+      "historical_paths": []
+    }
+  ]
+}

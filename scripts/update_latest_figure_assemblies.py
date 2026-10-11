@@ -55,17 +55,20 @@ def build(n):
     layout=json.loads((REPO/f'configs/paper-figures/figure{n}-assembly.json').read_text())
     panels=copy.deepcopy(layout['panels']); sources={}; provenance={}
     for p in panels:
+        if p['id'] in ({'E', 'F', 'G', 'H'} if n == 1 else {'D', 'E', 'G'}):
+            continue  # Scoped selections below replace these historical sources.
         if p.get('source'):
-            path=mapped(p['source']) if ':' in p['source'] else OLD/f'figure{n}-assembly'/p['source']
-            sources[p['id']],provenance[p['id']]=source(path,p.get('frozen_sha256') or p.get('source_provenance',{}).get('svg_sha256'))
+            reference=p['source'] if ':' in p['source'] else OLD/f'figure{n}-assembly'/p['source']
+            expected=p.get('frozen_sha256') or p.get('source_provenance',{}).get('svg_sha256')
+            sources[p['id']],provenance[p['id']]=source(resolve_artifact(reference, expected_sha256=expected),expected)
     if n==1:
         # Wide selected E and F/G/H row keep their approved source aspect ratios.
         panels=panels[:4]
         panels[3]['box']=[55,940,1690,480];panels[3]['label'].update(x=52,y=975)
         ep=json.loads((REPO/'configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json').read_text())
         fp=json.loads((REPO/'configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json').read_text())
-        sources['E'],provenance['E']=archive(mapped(ep['container']['path']),'panel-e-frozen-archive',ep['export']['embedded_entry'],ep['export']['sha256'])
-        sources['FGH'],provenance['FGH']=archive(resolve_artifact('reviews/fgh_candidate_palette_versions_20261009/index.html'),'version12-frozen-archive','frozen-candidate.svg',fp['exports'][0]['sha256'])
+        sources['E'],provenance['E']=archive(resolve_artifact(ep['container']['path'], expected_sha256=ep['container']['sha256']),'panel-e-frozen-archive',ep['export']['embedded_entry'],ep['export']['sha256'])
+        sources['FGH'],provenance['FGH']=archive(resolve_artifact(fp['container']['path'], expected_sha256=fp['container']['sha256']),'version12-frozen-archive','frozen-candidate.svg',fp['exports'][0]['sha256'])
         panels.extend([{'id':'E','box':[0,1460,1800,1200],'label':{'text':'E','x':45,'y':1500,'size':32},'selection_status':'selected frozen Panel E, 2026-10-09'}, {'id':'FGH','box':[0,2700,1800,1020],'selection_status':'selected frozen F/G/H Version 12, 2026-10-09'}])
         canvas=[1800,3750];annotations=[]
     else:
@@ -77,7 +80,7 @@ def build(n):
             p['box'][3]=560;p['content_box']=[p['box'][0],830,540,523];p['label']={'text':pid,'x':p['box'][0]+18,'y':p['box'][1]+35,'size':32};p['selection_status']='selected frozen Version B, 2026-10-09'
         panels[5]['box'][3]=560
         g=panels[6];g['box']=[0,1400,1800,964];g.pop('content_box',None);g.pop('label',None);g['selection_status']=gs['selected_version']
-        sources['G'],provenance['G']=source(mapped(gs['svg']['path']),gs['svg']['sha256'])
+        sources['G'],provenance['G']=source(resolve_artifact(gs['svg']['path'], expected_sha256=gs['svg']['sha256']),gs['svg']['sha256'])
         for p,x in [(panels[7],330),(panels[8],930)]:
             p['box']=[x,2430,540,390];p['content_box']=[x+18,2505,504,290];p['label'].update(x=x+18,y=2473)
         canvas=[1800,2920]

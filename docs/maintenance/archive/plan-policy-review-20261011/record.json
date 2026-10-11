@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-11",
+  "input_plan": {
+    "old": "Plans/01_PAPER_BASELINE_AND_INPUT_VALIDATION.md",
+    "new": "Plans/01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md",
+    "original_sha256": "59f64c2df1c4c73bb734ea879b2288d52d92b836ce3abdbc66e76c2e20dd9f95"
+  },
+  "retired_cleanup": {
+    "old": "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+    "path": "docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md",
+    "sha256": "0a452b802e3fb708c34c66d8b49fd6a426e10b4d12f5a79f2e65a49756aded98",
+    "bytes_preserved": true
+  },
+  "cohort_owner": "Plans/02_COHORT_IMPLEMENTATION.md",
+  "scientific_policy_approved": false
+}

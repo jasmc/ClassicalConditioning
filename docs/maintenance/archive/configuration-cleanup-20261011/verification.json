@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-11",
+  "tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -v",
+    "passed": 385,
+    "duration_seconds": 146.292
+  },
+  "protected_files_unchanged": 98,
+  "selection_json_unchanged": 7,
+  "frozen_extracted_records_unchanged": 70,
+  "verified_selection_path_hash_references": 17,
+  "repository_guard_issues": [],
+  "verified_archived_configs": 2,
+  "recovered_exact_hash_versions": 8,
+  "repository_moves": 4,
+  "removed_local_payload_bytes": 16163,
+  "current_panel_count": 27,
+  "assembly_verification": "Figures 1 and 2 built in memory with exact hash-checked sources; no export or freeze generated",
+  "scientific_recomputation": false,
+  "pending_transfers": []
+}

@@ -1,7 +1,7 @@
 # Figures and Reproducible Reporting
 
 
-Implementation evidence is recorded in [the dated review](../docs/analysis/figures/reviews/IMPLEMENTATION_EVIDENCE_AT_CLEANUP.md).
+Implementation evidence is recorded in [the dated review](../docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md).
 
 **Change class:** Behavior-preserving rendering first; presentation changes separately  
 **Depends on:** Implemented artifact-integrity contract and each scientific
@@ -208,12 +208,12 @@ Figure 1 follows the paper scaffold; Figure 4 follows the later user-approved
 three-assay learner-stratified block/catch layout. Figure 2 heatmaps require a
 frozen fish cohort and explicit coverage; Figure 3 and paper Figure 4 data
 remain gated on the learner manifest and reviewed cohorts.
-See the [panel-by-panel draft comparison](../docs/analysis/figures/05_DRAFT_COMPARISON.md).
+See the [panel-by-panel draft comparison](../docs/analysis/figures/history/shared/draft-comparison.md).
 
 ### Figure QC
 
 Record panel-specific criticism and selected presentation in
-[panel review comments](../docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md). Each inferential panel
+[panel review comments](../docs/panel-review.md). Each inferential panel
 must have an explicit comparison matrix linked to its saved results. A clean
 main figure may show significant comparisons only, but the companion table
 must retain every required comparison, including nonsignificant and failed
@@ -423,5 +423,10 @@ Remaining:
 - Authenticate population frames/cohorts before rebuilding Figure 2 A/B from direct-bin per-fish V12 values. Existing bout-summary caches cannot supply direct-bin medians; use a distinct candidate recipe/cache identity.
 - Compare equal-fish mean/median and document the zero-baseline pooling counterexample before selecting an estimator or additional centring. These remain open choices, not author-approved defaults. C/F/I remain unavailable without authenticated inputs.
 - Retain D/E corrected tests and G's separate phase-aware analysis within their original scopes; do not transplant them to heatmaps or other outcomes.
-- Follow [V12 population adaptation evidence](../docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md) and [bout-log processing](../docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md) for exact definitions and constraints.
+- Follow [V12 population adaptation evidence](../docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md) and [bout-log processing](../docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md) for exact definitions and constraints.
 - Produce one consolidated review per requested lineage; permanent exports/data go to the configured external artifact root. Repository records retain definitions, hashes and exact frozen code.
+
+## Legend and presentation review
+
+- Review the [Figure 1](../docs/analysis/figures/reviews/figure-01/legend-draft.md) and [Figure 2](../docs/analysis/figures/reviews/figure-02/legend-draft.md) legend drafts with the [text/layout review notes](../docs/analysis/figures/reviews/legend-decluttering-review.md). Resolve stage terminology, example-arrowhead matching and provisional outcome differences before paper approval.
+- Treat decluttered candidate assemblies as presentation reviews; preserve existing scoped selections until a separately authorized freeze.

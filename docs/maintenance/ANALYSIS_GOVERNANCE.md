@@ -11,7 +11,7 @@ their obsolete roadmaps remain in Git history.
 When documents conflict, use this order:
 
 1. an approved immutable release manifest;
-2. [DECISIONS.md](../analysis/decisions/DECISIONS.md);
+2. [DECISIONS.md](../scientific-decisions.md);
 3. the active domain plan responsible for the work;
 4. [IMPLEMENTATION_STEP_INDEX.md](../../Plans/IMPLEMENTATION_STEP_INDEX.md) for status;
 5. current documentation under `docs/analysis/`;

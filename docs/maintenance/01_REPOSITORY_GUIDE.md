@@ -9,8 +9,8 @@ generated files. It does not authorize deletion of raw scientific data.
 | `tests/` | Active automated tests | Keep aligned with supported source. |
 | `configs/` | Example/reusable run configurations | Copy before editing for a new run. |
 | `docs/analysis/` | Current workflow, proposed architecture, audit, and reference docs | Keep links current when code/documentation changes. |
-| `Plans/` | Numbered implementation plans and navigation/status indexes | Preserve decision/history context. |
-| `legacy/` | Original pre-refactor scripts and helpers | Preserve for source reference; only the isolated learner comparison executes scripts from here. |
+| `Plans/` | Numbered implementation plans and navigation/status indexes | Keep numbered future-work plans and navigation/status files; scientific decisions and history belong in docs. |
+| `legacy/` | Inherited scripts and helpers | Retain supported comparison/reproduction dependencies and frozen sources; archive unconsumed alternatives with provenance. |
 | `.venv/` | Local dependencies | Safe to recreate through the documented environment setup. |
 | `__pycache__/`, `*.egg-info/`, `.pytest_cache/` | Generated local state | Disposable; regenerates. |
 | `.git/` | Repository history/object database | Never manually delete or edit. |
@@ -19,7 +19,7 @@ generated files. It does not authorize deletion of raw scientific data.
 
 The normal raw data and `save_dir` output projects are configured outside this
 repository. Raw data are immutable input. Generated output belongs in a
-dedicated save directory; see [output and provenance](../analysis/09_OUTPUT_AND_PROVENANCE.md).
+dedicated save directory; see [output and provenance](../analysis/reference/09-output-and-provenance.md).
 Do not store a working `Paper data` project tree inside the repository unless
 that is an intentional, separately managed data release.
 
@@ -27,7 +27,7 @@ that is an intentional, separately managed data release.
 
 The root README is the landing page. Specialist guidance belongs below `docs/`:
 
-- workflow, output, figures, troubleshooting, and terminology in `docs/analysis/`;
+- workflow, output, figures, troubleshooting, and terminology in `docs/analysis/`; dated figure evidence in `docs/analysis/figures/history/`;
 - decisions in `docs/analysis/decisions/`, implementation status in `Plans/`;
 - original source in `legacy/` and historical explanation in the marked legacy documentation.
 

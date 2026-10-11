@@ -177,5 +177,11 @@
     -15,
     0
   ],
-  "freeze_manifest": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\frozen\\2026-10-05-ABCD\\freeze.json"
+  "freeze_manifest": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\frozen\\2026-10-05-ABCD\\freeze.json",
+  "authority_note": "Historical base layout/source scaffold. Newer scoped selections take precedence; this configuration alone does not reproduce the current frozen panels.",
+  "current_selection_overlays": [
+    "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+    "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+  ],
+  "current_assembly_tool": "scripts/update_latest_figure_assemblies.py"
 }

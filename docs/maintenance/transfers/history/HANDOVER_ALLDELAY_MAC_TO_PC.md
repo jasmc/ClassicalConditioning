@@ -1,8 +1,10 @@
 # allDelay analysis — Mac to Windows handover
 
+**Historical scope:** Dated evidence and historical instructions. Original methods, observations, approvals and limitations are preserved below. The repository-output mirror is no longer the current storage workflow. Use the [archive guide](../../archive/README.md) and explicit external output destinations; do not recreate repository outputs.
+
 Historical transfer instructions. For the current delay analysis, metric and
 learner-rule review, and Figure 4 readiness, see
-[`DELAY_FIGURE4_READINESS_2026-09-24.md`](../../../analysis/figures/DELAY_FIGURE4_READINESS_2026-09-24.md).
+[`DELAY_FIGURE4_READINESS_2026-09-24.md`](../../../analysis/figures/history/figure-04/delay-readiness-2026-09-24.md).
 
 Prepared: 2026-09-18
 
@@ -174,11 +176,7 @@ rows (28 control, 29 delay) and make the inclusion policy explicit. Do not
 describe it as a final publication cohort until quality-control review is
 complete.
 
-Use `configs\allDelay-full-v1-cohort.csv` as the column-format example:
-
-```text
-configs\allDelay-full-v1-cohort.csv
-```
+The historical `configs\allDelay-full-v1-cohort.csv` is now externally archived. See the [column schema and exact-byte resolver](../../../analysis/audits/technical-cohort-column-schema.md). Resolve the archive path and supply that explicit path to the command below; the original technical approval is not final paper inclusion.
 
 Every row must state the fish ID, condition, technical validity, whether it is
 primarily included, review status, reviewer, and review timestamp. Preserve
@@ -190,7 +188,7 @@ After a reviewer approves the CSV, freeze it once:
 ```powershell
 uv run classical-conditioning freeze-cohort `
   --project-dir "F:\Digested Data\allDelay-full-v1" `
-  --input configs\allDelay-full-v1-cohort.csv `
+  --input "<verified external cohort CSV path>" `
   --cohort-id allDelay-full-v1 `
   --policy-id all-complete-triplets-v1
 ```

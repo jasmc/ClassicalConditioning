@@ -1,0 +1,132 @@
+[
+  {
+    "source": "docs/analysis/METRIC_SELECTION_2026-10-06.md",
+    "destination": "docs/analysis/decisions/metric-selection-2026-10-06.md",
+    "original_sha256": "0b974ba6bbc30274a17d0704562ca84ae9fd9f807a6de75820a3385862fd5de3"
+  },
+  {
+    "source": "docs/analysis/SSD_OUTPUT_LOCATION.md",
+    "destination": "docs/maintenance/transfers/history/repository-output-mirror-2026-10-06.md",
+    "original_sha256": "beda75c307603b045c016fd2b9085be8c2024f924ef3bbf3bc5ac9221530a75c"
+  },
+  {
+    "source": "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md",
+    "destination": "docs/analysis/audits/preprocessing-contract-audit-2026-10-07.md",
+    "original_sha256": "fa90b5aaa02493696f57da47dc373bd44b837001de8d2ed63539dae7b304c5a7"
+  },
+  {
+    "source": "docs/analysis/LEGACY_ACQUISITION_TIMING_REPAIR_2026-10-06.md",
+    "destination": "docs/analysis/audits/legacy-acquisition-timing-repair-2026-10-06.md",
+    "original_sha256": "670bc285ef997cba926eb19f1661176051a22af5717f257f80124c61a13758f3"
+  },
+  {
+    "source": "docs/analysis/FIGURE1_CAMERA_GAPS_AND_BIN_MAPPING_2026-10-06.md",
+    "destination": "docs/analysis/audits/figure-01-camera-gaps-and-bin-mapping-2026-10-06.md",
+    "original_sha256": "4bf4a2515fc4b046c20a7ae249a2723d43691e1ba3001390417ecd1c00daa9eb"
+  },
+  {
+    "source": "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md",
+    "destination": "docs/analysis/audits/figure-01-vigor-alignment-audit-2026-10-06.md",
+    "original_sha256": "c6dd43adea8744b28cfdeb5aaf615235b0a03751e05868b4f3d98e84b3cda328"
+  },
+  {
+    "source": "docs/analysis/PANEL_E_PRESENTATION_REVIEW_2026-10-07.md",
+    "destination": "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md",
+    "original_sha256": "05015f890865562e1facac051e9dfa2db2156be5d567e2299349437030d074d4"
+  },
+  {
+    "source": "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md",
+    "destination": "docs/analysis/figures/history/figure-01/cadence-review-v5-2026-10-07.md",
+    "original_sha256": "6b48acbb875c60a86917e2c63305c828a4a11f50ebd751da823a62d9a5317e50"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+    "destination": "docs/analysis/figures/history/figure-01/trace-variants.md",
+    "original_sha256": "1e1bf828f1420012615bc1609be758d4c0090215a58dfb4a915ef46f8b80128b"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE1_HEATMAPS.md",
+    "destination": "docs/analysis/figures/history/figure-01/heatmap-review-history.md",
+    "original_sha256": "55b4206477cc73bdc841f224a66222531a791da7a3c7991e713d47330bbd2729"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE1_PANEL_B_REDESIGN.md",
+    "destination": "docs/analysis/figures/history/figure-01/panel-b-redesign-history.md",
+    "original_sha256": "026a5e051815cfd84082d417549eb2842c7b814f39232955dbb476777c24f2dd"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE1_PANEL_C_REDESIGN.md",
+    "destination": "docs/analysis/figures/history/figure-01/panel-c-redesign-history.md",
+    "original_sha256": "ec55a30af90be9bc143f8363c90f44c0c0b28f389bef35ebbb2c276bbb45ec5d"
+  },
+  {
+    "source": "docs/analysis/figures/BASELINE_WINDOW_REVIEW.md",
+    "destination": "docs/analysis/figures/history/shared/baseline-window-review.md",
+    "original_sha256": "b3910661e052e1a866b420472b88e1f1ffbf96c31a04212ebddc88a66bf22333"
+  },
+  {
+    "source": "docs/analysis/figures/DELAY_FIGURE4_READINESS_2026-09-24.md",
+    "destination": "docs/analysis/figures/history/figure-04/delay-readiness-2026-09-24.md",
+    "original_sha256": "6ce67fe122584b0775d3605dcbf8e179744a9f1d96e9544f85baaa9ab2be4562"
+  },
+  {
+    "source": "docs/analysis/figures/TRACE3_EXPLORATORY_RUN_2026-09-24.md",
+    "destination": "docs/analysis/figures/history/shared/trace3-exploratory-run-2026-09-24.md",
+    "original_sha256": "cf0848a433b004c9f51cee7f04e772754be68b7346ef354d10c6b8c5fd68378a"
+  },
+  {
+    "source": "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md",
+    "destination": "docs/analysis/figures/history/shared/trace3-plot-versions-2026-10-06.md",
+    "original_sha256": "729534817143967aa323ecfb02342881bd567ffb7dc4f0052e0ff5ee500eb3d6"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE2_DELAY_ALL_VERSIONS_2026-10-09.md",
+    "destination": "docs/analysis/figures/history/figure-02/delay-all-versions-2026-10-09.md",
+    "original_sha256": "c27121faae4c72a5a95482177cc48188a6526de49c7d9533e449e3c52c6c8737"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md",
+    "destination": "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+    "original_sha256": "12ad0bec73506056b4ebc3b9d4687b55dfb9421859f2c4fd833e570b942af771"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE2_DELAY_LMM_AUDIT_2026-10-09.md",
+    "destination": "docs/analysis/figures/history/figure-02/delay-lmm-audit-2026-10-09.md",
+    "original_sha256": "8cb1a7995836180eb2e7450f9f074f8f6af076ae5c66bcd9d2c9c42fc5f6a32d"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE2_DELAY_PHASE_LMM_2026-10-09.md",
+    "destination": "docs/analysis/figures/history/figure-02/delay-phase-lmm-2026-10-09.md",
+    "original_sha256": "08e0a37e999a0446130f025a8820ca4fd54772d5d1fe7117fd5619493ad99163"
+  },
+  {
+    "source": "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+    "destination": "docs/analysis/decisions/figure-02-row-3-decisions-2026-10-08.md",
+    "original_sha256": "4ba1abe3549bda086ed060f31e992bb2e5d94bbe07a064780427862a334456e5"
+  },
+  {
+    "source": "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md",
+    "destination": "docs/analysis/figures/history/figure-01/fgh-analysis-assessment-2026-10-08.md",
+    "original_sha256": "5e16a5f25dc3c0f9b536653f322c2a7b28f3b560476e2ffac211fa171d863d28"
+  },
+  {
+    "source": "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+    "destination": "docs/analysis/figures/history/figure-01/fgh-colour-and-binning-history-2026-10-09.md",
+    "original_sha256": "42963a19aff737a055839cbd60ef8aa00f8f1807c7b8fb2a4e7d463ef42cf89a"
+  },
+  {
+    "source": "docs/analysis/figures/reviews/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md",
+    "destination": "docs/analysis/figures/history/figure-01/fgh-requested-corrections-2026-10-09.md",
+    "original_sha256": "cc96995afc441a7a042ed9e3651bf280108051f1b7e5c31f20311290e9b9ae94"
+  },
+  {
+    "source": "docs/analysis/figures/reviews/figure-01-legend-draft.md",
+    "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md",
+    "original_sha256": "cb4b5b0ab258f74a1a7ce13ab53095f07b6fe17d18a5fc1aaa3365227c4db7be"
+  },
+  {
+    "source": "docs/analysis/figures/reviews/figure-02-legend-draft.md",
+    "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md",
+    "original_sha256": "ec88d03534118de3c63fa125597074a8ee2a3a3f6f67694c2b2d748db7811df7"
+  }
+]

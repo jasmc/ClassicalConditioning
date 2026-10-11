@@ -4,7 +4,7 @@
 > here is no longer installed or exposed by the CLI. Its source remains in Git
 > history; the supported package workflow is candidate-only. The
 > implementation notes below describe an earlier comparison snapshot, not the
-> current metric-column contract. See [metrics and bouts](../05_METRICS_AND_BOUTS.md)
+> current metric-column contract. See [metrics and bouts](../reference/05-metrics-and-bouts.md)
 > for the active three-metric definitions.
 
 ## Purpose

@@ -1,0 +1,22 @@
+[
+  {
+    "source": "configs/trace-preflight.json",
+    "destination": "docs/analysis/audits/trace-preflight.json",
+    "sha256": "3ad4448c99b909ebb8b703a0f0cb87b7939898e3ed88c3dcbc3f5dfdb823ea46"
+  },
+  {
+    "source": "configs/incTrace-stim-audit.json",
+    "destination": "docs/analysis/audits/inc-trace-stim-audit.json",
+    "sha256": "cbccbe2de619aa2ae5d1318af18908c7b541a1f0437b27a459584449f6f33fbe"
+  },
+  {
+    "source": "configs/increasing-trace-move-manifest.json",
+    "destination": "docs/maintenance/transfers/increasing-trace-move-manifest.json",
+    "sha256": "6badc984a0d33639daef904f4d991faf6de62b7df5b7690e31b20ed9b2d2b5eb"
+  },
+  {
+    "source": "configs/paper-figures/review-variants.json",
+    "destination": "docs/analysis/figures/reviews/review-variants.json",
+    "sha256": "89184b63cd37335a1b89b191a062429c274291571c470f3ee79116bd6c34b5ef"
+  }
+]

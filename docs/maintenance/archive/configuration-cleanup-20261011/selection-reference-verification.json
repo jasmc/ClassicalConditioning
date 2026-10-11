@@ -1,0 +1,104 @@
+[
+  {
+    "selection": "figure1-fgh-full-bout-correction-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure1-fgh-version12-freeze-20261009.json",
+    "sha256": "10b972090550a9c5d34bbe8abba050cdf2e876bc335e76e1bf14edf3e9716bd4",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/10b972090550a9c5d34bbe8abba050cdf2e876bc335e76e1bf14edf3e9716bd4/figure1-fgh-version12-freeze-20261009.json"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\statistics.csv",
+    "sha256": "d0b8b73bea3427fa9bf44357e7b76e06c0de90b0b2548a544377e72d03eef237",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/d0b8b73bea3427fa9bf44357e7b76e06c0de90b0b2548a544377e72d03eef237/statistics.csv"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\D.freeze.json",
+    "sha256": "dd0750bc7f917779b51c4ab4e619d93d6508305a95835abffec85061dfa5e04a",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/dd0750bc7f917779b51c4ab4e619d93d6508305a95835abffec85061dfa5e04a/D.freeze.json"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_D_B.svg",
+    "sha256": "b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29/Fig2_D_B.svg"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_D_B.pdf",
+    "sha256": "e1855d484bcb155bb205fbf77d21ccc27bed54dc3bd718d0dddf40aa81b9885f",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure2_B_freeze_20261009/Fig2_D_B.pdf"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_D_B.png",
+    "sha256": "9670bedd2965f2a698f4930e374c6cc4ec4fb24bd870f6c27bce947b9496a665",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure2_B_freeze_20261009/Fig2_D_B.png"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\E.freeze.json",
+    "sha256": "a39f1f849119d319610ba50d98ff6cb5474caf65e5d1166f58443b489db2368e",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/a39f1f849119d319610ba50d98ff6cb5474caf65e5d1166f58443b489db2368e/E.freeze.json"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_E_B.svg",
+    "sha256": "e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696/Fig2_E_B.svg"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_E_B.pdf",
+    "sha256": "06c7598bc2ca2c44ee5ac32a4c373f765e3c5f0abbd445f4c342cbef10769327",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure2_B_freeze_20261009/Fig2_E_B.pdf"
+  },
+  {
+    "selection": "figure2-DE-B-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_B_freeze_20261009\\Fig2_E_B.png",
+    "sha256": "febce877638daa615154f8c8823d45e210fc988bfb5ff7b3357c8b6c032846aa",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure2_B_freeze_20261009/Fig2_E_B.png"
+  },
+  {
+    "selection": "figure1-fgh-version12-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\fgh_candidate_palette_versions_20261009\\index.html",
+    "sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html"
+  },
+  {
+    "selection": "figure1-panel-e-heatmap-rows-freeze-20261009.json",
+    "reference": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure1-assembly\\frozen-panel-e-heatmap-rows-20261009\\PanelE_frozen_and_version_history.html",
+    "sha256": "b340fa58419bb8bdc017180dfd0c583740f1e280439f8062fe2592f42a69b216",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html"
+  },
+  {
+    "selection": "figure2-G-logmedian-freeze-20261009.json",
+    "reference": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.freeze.json",
+    "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.freeze.json"
+  },
+  {
+    "selection": "figure2-G-logmedian-freeze-20261009.json",
+    "reference": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.svg",
+    "sha256": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.svg"
+  },
+  {
+    "selection": "figure2-G-logmedian-freeze-20261009.json",
+    "reference": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\scientific-selection.json",
+    "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/scientific-selection.json"
+  },
+  {
+    "selection": "figure2-G-logmedian-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\figure2_delay_all_versions_20261009.html",
+    "sha256": "6ebf338595492b7930145eac9de74232992be59824c4b4a92c1444e2f307d9a3",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/6ebf338595492b7930145eac9de74232992be59824c4b4a92c1444e2f307d9a3/figure2_delay_all_versions_20261009.html"
+  },
+  {
+    "selection": "figure2-G-logmedian-freeze-20261009.json",
+    "reference": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\reviews\\delay_versions_cleanup_20261009.json",
+    "sha256": "ca59536331f780cd839a33930c271dd9c729f42ed9de527057446847924d6572",
+    "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/ca59536331f780cd839a33930c271dd9c729f42ed9de527057446847924d6572/delay_versions_cleanup_20261009.json"
+  }
+]

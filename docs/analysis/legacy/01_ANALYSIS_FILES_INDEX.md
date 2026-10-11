@@ -2,7 +2,7 @@
 
 > **Legacy reference:** This inventory documents the historical numbered-script
 > topology and overlapping implementations. Use
-> [`../CURRENT_PIPELINE_GUIDE.md`](../02_CURRENT_PIPELINE.md) for the
+> [`../CURRENT_PIPELINE_GUIDE.md`](../reference/02-current-pipeline.md) for the
 > supported package route and the active Plans for future work.
 
 ## Purpose
@@ -28,7 +28,7 @@ It identifies:
 This index records the inherited repository topology at the time of its audit.
 It does not certify scientific correctness or describe today's supported
 package route. See [analysis findings](../audits/01_ANALYSIS_FINDINGS.md) for the
-audit and [the current pipeline guide](../02_CURRENT_PIPELINE.md) for the
+audit and [the current pipeline guide](../reference/02-current-pipeline.md) for the
 supported workflow.
 
 ## Quick navigation
@@ -330,7 +330,7 @@ Earlier learner-stratified plan (Git history)
 
 At the time, this future stage would have joined fish-level learner labels to
 CS/US time-series data. Current learner-output work is in
-[`Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md`](../../../Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md),
+[`Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md`](../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md),
 and a categorical label remains optional.
 
 ## Numbered analysis scripts
@@ -1358,7 +1358,7 @@ The decision should be based on statistical validation, not filename.
 | `docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md` | Cross-repository audit of the inherited optional imaging workflow |
 | `Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md` | Active, staged plan for one canonical behavior pipeline plus optional imaging |
 | `Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md` | Plan for reproducible scientific-paper figures and interfaces |
-| `Plans/06_LEARNER_ANALYSIS.md` | Active plan for learner representation, classification, validation, and stratified outputs |
+| `Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md` | Active plan for learner representation, classification, validation, and stratified outputs |
 | `docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md` | This file |
 
 ## Workspace and editor files

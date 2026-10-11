@@ -115,6 +115,51 @@ class ArchiveTests(unittest.TestCase):
         with patch.dict('os.environ',{'CLASSICAL_CONDITIONING_ARTIFACT_ROOT':str(ROOT)}):
             with self.assertRaises(ValueError):external_output('reviews/new.html')
 
+    def test_chained_document_moves_allow_current_guidance_but_check_explicit_hash(self):
+        metadata = self.repo/'docs/maintenance/archive'
+        metadata.mkdir(parents=True)
+        guide = self.repo/'docs/decisions/current.md'
+        guide.parent.mkdir(parents=True)
+        guide.write_text('current guidance')
+        (metadata/'relocations.json').write_text(json.dumps(dict(repository_moves={
+            'Plans/decision.md': 'docs/decision.md',
+            'docs/decision.md': 'docs/decisions/current.md',
+        })))
+        (metadata/'transfer-inventory.json').write_text(json.dumps(dict(files=[
+            dict(path='Plans/decision.md', action='retain', sha256='dated-checkpoint')
+        ])))
+        self.assertEqual(resolve_artifact('Plans/decision.md', repo=self.repo), guide)
+        with self.assertRaises(ValueError):
+            resolve_artifact('Plans/decision.md', repo=self.repo, expected_sha256='dated-checkpoint')
+        (metadata/'relocations.json').write_text(json.dumps(dict(repository_moves={
+            'Plans/decision.md': 'docs/decision.md', 'docs/decision.md': 'Plans/decision.md'
+        })))
+        with self.assertRaisesRegex(ValueError, 'relocation cycle'):
+            resolve_artifact('Plans/decision.md', repo=self.repo)
+
+    def test_expected_hash_selects_verified_version_without_replacing_local_variant(self):
+        metadata = self.repo/'docs/maintenance/archive'
+        metadata.mkdir(parents=True)
+        exact = self.root/'ssd/exact.csv'
+        exact.parent.mkdir(parents=True)
+        exact.write_bytes(b'fish,value\r\nA,1\r\n')
+        expected = sha256(exact)
+        (metadata/'verified-artifact-locations.json').write_text(json.dumps(dict(entries=[
+            dict(references=['reviews/result.csv'], sha256=expected,
+                 archive_root=str(exact.parent), relative_path=exact.name)
+        ])))
+        self.assertEqual(resolve_artifact(r'C:\Users\joaquim\Documents\ClassicalConditioning\reviews\result.csv',
+                                         expected_sha256=expected, repo=self.repo), exact)
+        self.assertEqual(resolve_artifact('reviews/result.csv', repo=self.repo), self.source)
+        original = self.source.read_bytes()
+        exact.write_bytes(b'corrupted')
+        with self.assertRaises(ValueError):
+            resolve_artifact('reviews/result.csv', expected_sha256=expected, repo=self.repo)
+        exact.unlink()
+        with self.assertRaisesRegex(FileNotFoundError, 'Connect JOAQUIM'):
+            resolve_artifact('reviews/result.csv', expected_sha256=expected, repo=self.repo)
+        self.assertEqual(self.source.read_bytes(), original)
+
     def test_prune_without_publication_preserves_source(self):
         with self.assertRaises(FileNotFoundError):archive.prune(self.manifest,self.repo,self.dest,check_mount=False)
         self.assertTrue(self.source.exists())

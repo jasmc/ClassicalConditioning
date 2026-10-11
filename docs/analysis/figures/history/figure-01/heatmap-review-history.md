@@ -1,0 +1,73 @@
+# Figure 1 single-fish heatmaps: signal and colour scale
+
+**Historical scope:** Dated evidence and historical instructions. Original methods, observations, approvals and limitations are preserved below. Current selections are in the [freeze index](../../freezes/README.md); these historical recipes do not override them. Unresolved release work is tracked only in the [implementation index](../../../../../Plans/IMPLEMENTATION_STEP_INDEX.md).
+
+The current review assembly uses three individual fish: F Delay
+`20221115_07`, G 3 s Trace `20230307_12`, and H unpaired Control
+`20221115_09`. Each heatmap has one row per CS trial, grouped as Pre-Train
+(global CS trials 5–14), Train (15–64), and Test (65–94). The four priming
+presentations are not displayed. Columns span −20 to +20 s relative to CS
+onset in 0.5 s bins. Green guides mark CS onset and offset; purple Train guides
+mark the verified paired US in F and G. H has no fixed CS-relative US guide.
+
+The raw per-frame candidate is `legacy_distal_angular_speed_rad_per_ms`:
+absolute wrapped frame-to-frame change in the sum of local tail angles,
+divided by the measured frame interval. It is a historical benchmark; opposing
+segment changes can cancel. This is also the *unscaled raw* vigor in E.
+
+For each fish and CS trial, the heatmap recipe uses only valid, positive
+activity frames belonging to detected moving bouts. It takes the natural log
+of the raw metric and subtracts the median log value in that trial's
+pre-CS window [−15, 0) s. It then gives each moving-bout frame its bout's
+median centred log value. A heatmap cell averages those frame-assigned values
+in a 0.5 s bin. Missing moving-bout or baseline data remain NaN and display
+black. This is implemented in
+`src/classical_conditioning/analysis/temporal_profiles.py:_signed_bout_log_vigor`
+and `src/classical_conditioning/figures/signed_bout_heatmap.py:calculate_fish_heatmaps`.
+
+All three panels use the same `managua_r` palette and fixed display limits
+−0.25 to +0.25. Values beyond those limits saturate at the endpoint colours;
+the stored panel data are not clipped. Zero denotes the trial's pre-CS median
+log vigor, not zero movement. The colour scale is not per-fish min–max or
+0–1 normalization. A log difference of +0.25 corresponds to about 1.28 times
+the baseline raw metric, and −0.25 to about 0.78 times, before the bout/bin
+aggregation. The three fish are therefore displayed on a comparable scale.
+
+The narrow historical display range saturates many valid cells: 46.2% in
+Delay F, 40.8% in 3 s Trace G, and 7.1% in Control H. Nonmissing cells number
+3,654/7,200, 6,011/7,200, and 3,470/7,200 respectively, as measured from
+the saved panel-data Parquet files. Black cells are missing signal, not zero.
+This saturation should be reviewed before choosing a final manuscript colour
+range; the stored values have not been clipped.
+
+The editable SVGs, per-bin Parquet files, and SHA-256 sidecars are written
+directly to `J:\ClassicalConditioning Outputs\ORGER-JOAQUIM\outputs\figure1-assembly\heatmaps\`
+by `scripts/build_figure1_legacy_vigor_heatmaps.py`. This figure is a review
+example; these fish and the legacy metric have not been frozen as the final
+manuscript selection.
+
+## Review version 3 (5 October 2026)
+
+Heatmap SVG/data version 2 corrects the baseline from [−20, 0) to [−15, 0) s.
+The display window remains [−20, 20) s; this is subtraction in natural-log
+units, not division or per-trial min–max scaling. Eligibility remains valid,
+positive frames in detected moving bouts. The lower bound is included and
+CS onset is excluded. Version 1 files are retained. Other callers of the
+shared calculation retain their existing −20 s default.
+
+Panel E now has two y-only zooms (global trials 17 and 63). They use the
+same x limits and a common raw y range of 0–0.6 rad/ms, rounded upward from
+the pooled trials' 99.5th percentile. Clipped peaks remain visible in E's
+full-range overview. Orange rectangles sit behind the raw black traces;
+their vertical edges follow detected bout intervals. Their heights are
+per-bout median log vigor minus that trial's [−15, 0) moving-frame median,
+on a separate ±1.5 right axis. They show the values **before** half-second
+heatmap averaging. No-bout intervals have no rectangle. Actual frame-weighted
+averaging of these bout values reproduces both corrected heatmap rows to
+1e−12 (including missing cells).
+
+`scripts/build_figure1_vigor_zoom.py` saves the standalone E overview+zoom SVG,
+a separate wide zoom strip for assembly, bout-value Parquet data, and provenance.
+The main assembly places this strip immediately below D/E, preserving their
+aligned overview traces. All new exports are vector SVG with live DejaVu Sans
+text; PNG files are inspection previews only.

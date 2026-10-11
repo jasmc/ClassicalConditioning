@@ -1,0 +1,1799 @@
+{
+  "status": "review_pending",
+  "author_instruction": "Combine all legacy discarding stages into one review package; approve later",
+  "source_files": [
+    {
+      "path": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py",
+      "sha256": "f9bea235ea9688cf4e1a8403faaac9bc947178e31bbfe50cbf80ad558214c75e",
+      "selection_reference_candidates": [
+        {
+          "line": 9,
+          "text": "- Quality Control: Apply exclusion criteria and manage discarded fish"
+        },
+        {
+          "line": 49,
+          "text": "RUN_DISCARD = False"
+        },
+        {
+          "line": 51,
+          "text": "FILTER_FISH_ID = None"
+        },
+        {
+          "line": 163,
+          "text": "# Collect raw fish files (optionally filtered by ID)."
+        },
+        {
+          "line": 165,
+          "text": "if FILTER_FISH_ID:"
+        },
+        {
+          "line": 166,
+          "text": "all_fish_raw_data_paths = [p for p in all_fish_raw_data_paths if FILTER_FISH_ID in p.name]"
+        },
+        {
+          "line": 248,
+          "text": "# 6. Filter Data and Compute Vigor"
+        },
+        {
+          "line": 249,
+          "text": "data = analysis_utils.filter_data(data, gen_config.filtering.space_bcf_window, gen_config.filtering.time_bcf_window)"
+        },
+        {
+          "line": 261,
+          "text": "data['Vigor (deg/ms)'].rolling(window=gen_config.filtering.time_max_window, center=True).max() -"
+        },
+        {
+          "line": 262,
+          "text": "data['Vigor (deg/ms)'].rolling(window=gen_config.filtering.time_min_window, center=True).min()"
+        },
+        {
+          "line": 264,
+          "text": "data.dropna(inplace=True)"
+        },
+        {
+          "line": 288,
+          "text": "baseline_vigor = data.loc[mask_baseline, 'Vigor (deg/ms)'].dropna().values"
+        },
+        {
+          "line": 413,
+          "text": "if FILTER_FISH_ID:"
+        },
+        {
+          "line": 414,
+          "text": "all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]"
+        },
+        {
+          "line": 421,
+          "text": "# Note: Temporary filter removed. Iterates all fish."
+        },
+        {
+          "line": 817,
+          "text": "baseline_vigor = data_trial.loc[mask_baseline, 'Vigor (deg/ms)'].dropna().values"
+        },
+        {
+          "line": 1157,
+          "text": "if FILTER_FISH_ID:"
+        },
+        {
+          "line": 1158,
+          "text": "all_stimcontrol_paths = [p for p in all_stimcontrol_paths if FILTER_FISH_ID in p.name]"
+        },
+        {
+          "line": 1175,
+          "text": "if FILTER_FISH_ID:"
+        },
+        {
+          "line": 1176,
+          "text": "all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]"
+        },
+        {
+          "line": 1217,
+          "text": "# Determine CS or US trials"
+        },
+        {
+          "line": 1218,
+          "text": "if (data_filtered := data[data['Trial type'] == 'CS']).empty:"
+        },
+        {
+          "line": 1219,
+          "text": "data_filtered = data[data['Trial type'] == 'US']"
+        },
+        {
+          "line": 1224,
+          "text": "data_filtered = data_filtered.drop(columns='Trial type')"
+        },
+        {
+          "line": 1227,
+          "text": "data_cs_beg = data_filtered.loc[data_filtered['CS beg'] != 0, [time_col, 'Trial number', 'Block name']].copy()"
+        },
+        {
+          "line": 1230,
+          "text": "data_cs_end = data_filtered.loc[data_filtered['CS end'] != 0, [time_col, 'Trial number', 'Block name']].copy()"
+        },
+        {
+          "line": 1233,
+          "text": "data_us_beg = data_filtered.loc[data_filtered['US beg'] != 0, [time_col, 'Trial number', 'Block name']].copy()"
+        },
+        {
+          "line": 1236,
+          "text": "data_us_end = data_filtered.loc[data_filtered['US end'] != 0, [time_col, 'Trial number', 'Block name']].copy()"
+        },
+        {
+          "line": 1324,
+          "text": "data_events_blocks = data_events.dropna()"
+        },
+        {
+          "line": 1391,
+          "text": "# region discard"
+        },
+        {
+          "line": 1392,
+          "text": "def run_discard():"
+        },
+        {
+          "line": 1394,
+          "text": "Canonical discard flow (aligned to `Discard/Discard fish.py`)."
+        },
+        {
+          "line": 1403,
+          "text": "\"\"\"Log discard reasons to text files.\"\"\""
+        },
+        {
+          "line": 1405,
+          "text": "with open(path_processed_data / 'Fish to discard.txt', 'a') as file:"
+        },
+        {
+          "line": 1407,
+          "text": "with open(path_processed_data / 'Discarded_fish_IDs.txt', 'a') as file:"
+        },
+        {
+          "line": 1453,
+          "text": "\"\"\"Filter rows with valid block names.\"\"\""
+        },
+        {
+          "line": 1461,
+          "text": "\"\"\"Filter a block and time window.\"\"\""
+        },
+        {
+          "line": 1514,
+          "text": "def check_baseline(data_cs, blocks_trials_sets, blocks_chosen, min_trials, baseline_window):"
+        },
+        {
+          "line": 1521,
+          "text": "if trials_with_bouts < min_trials:"
+        },
+        {
+          "line": 1524,
+          "text": "f'less than {min_trials} trials with bouts in pre-CS period in {block_name}',"
+        },
+        {
+          "line": 1528,
+          "text": "def check_cr(data_cs, blocks_trials_sets, blocks_chosen, min_trials, cr_window):"
+        },
+        {
+          "line": 1535,
+          "text": "if trials_with_bouts < min_trials:"
+        },
+        {
+          "line": 1538,
+          "text": "f'less than {min_trials} trials with bouts in CR period in {block_name}',"
+        },
+        {
+          "line": 1548,
+          "text": "min_number_trials_with_bouts_per_block = config.min_number_trials_with_bouts_per_block"
+        },
+        {
+          "line": 1630,
+          "text": "if FILTER_FISH_ID:"
+        },
+        {
+          "line": 1631,
+          "text": "all_fish_data_paths = [p for p in all_fish_data_paths if FILTER_FISH_ID in p.name]"
+        },
+        {
+          "line": 1646,
+          "text": "# Write analysis parameters as header to discard file."
+        },
+        {
+          "line": 1647,
+          "text": "with open(path_processed_data / 'Fish to discard.txt', 'a') as file:"
+        },
+        {
+          "line": 1650,
+          "text": "file.write(f\"  Filter fish ID: {FILTER_FISH_ID}\\n\")"
+        },
+        {
+          "line": 1657,
+          "text": "file.write(f\"  Minimum trials with bouts per block: {min_number_trials_with_bouts_per_block}\\n\")"
+        },
+        {
+          "line": 1663,
+          "text": "# --- Main discard/QC loop ---"
+        },
+        {
+          "line": 1723,
+          "text": "min_number_trials_with_bouts_per_block,"
+        },
+        {
+          "line": 1735,
+          "text": "min_number_trials_with_bouts_per_block,"
+        },
+        {
+          "line": 1748,
+          "text": "with open(path_processed_data / 'Fish to discard.txt', 'a') as file:"
+        },
+        {
+          "line": 1754,
+          "text": "# endregion run_discard"
+        },
+        {
+          "line": 1769,
+          "text": "if RUN_DISCARD:"
+        },
+        {
+          "line": 1770,
+          "text": "run_discard()"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/2_ExampleFishPlotting.py",
+      "sha256": "772b32f76ff64ec14b19c5462643b10619bd406427a5de6aef4911e5e0717081",
+      "selection_reference_candidates": [
+        {
+          "line": 1337,
+          "text": "baseline_vigor = data_trial.loc[mask_baseline, \"Vigor (deg/ms)\"].dropna().values"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/3_FishGrouping.py",
+      "sha256": "71333dfd448e832d8dc18772f9feb0fadee32c48fab0231d667d9f7ab3407f05",
+      "selection_reference_candidates": [
+        {
+          "line": 51,
+          "text": "# Apply per-experiment discarded fish list if present under \"Processed data\"."
+        },
+        {
+          "line": 52,
+          "text": "APPLY_FISH_DISCARD = True"
+        },
+        {
+          "line": 424,
+          "text": "# region load_discard_reasons"
+        },
+        {
+          "line": 425,
+          "text": "def load_discard_reasons(path_processed_data: Path) -> dict[str, str]:"
+        },
+        {
+          "line": 426,
+          "text": "\"\"\"Load fish-ID -> discard-reason mapping from ``Fish to discard.txt``."
+        },
+        {
+          "line": 435,
+          "text": "reasons_file = path_processed_data / \"Fish to discard.txt\""
+        },
+        {
+          "line": 463,
+          "text": "# endregion load_discard_reasons"
+        },
+        {
+          "line": 474,
+          "text": "discard_reasons: dict[str, str] | None = None,"
+        },
+        {
+          "line": 480,
+          "text": "discard_reasons : dict mapping fish ID -> reason string, optional."
+        },
+        {
+          "line": 589,
+          "text": "# Show discard reason as a text box in the top-right corner"
+        },
+        {
+          "line": 590,
+          "text": "if discard_reasons is not None:"
+        },
+        {
+          "line": 591,
+          "text": "reason = discard_reasons.get(fish, discard_reasons.get(fish_lower, \"\"))"
+        },
+        {
+          "line": 625,
+          "text": "# region filter_paths_by_subset"
+        },
+        {
+          "line": 626,
+          "text": "def filter_paths_by_subset(paths: list[Path], fish_subset: list[str] | None) -> list[Path]:"
+        },
+        {
+          "line": 627,
+          "text": "\"\"\"Filter file paths to those matching the fish subset tokens.\"\"\""
+        },
+        {
+          "line": 642,
+          "text": "print(\"No file-name matches for FISH_SUBSET; falling back to per-row fish ID filtering.\")"
+        },
+        {
+          "line": 648,
+          "text": "# endregion filter_paths_by_subset"
+        },
+        {
+          "line": 679,
+          "text": "# Load discarded fish IDs (if configured)"
+        },
+        {
+          "line": 680,
+          "text": "discard_file = path_processed_data / \"Discarded_fish_IDs.txt\""
+        },
+        {
+          "line": 681,
+          "text": "fish_ids_to_discard: list[str] = []"
+        },
+        {
+          "line": 682,
+          "text": "if APPLY_FISH_DISCARD and discard_file.exists():"
+        },
+        {
+          "line": 683,
+          "text": "fish_ids_to_discard = file_utils.load_discarded_fish_ids(discard_file)"
+        },
+        {
+          "line": 684,
+          "text": "print(f\"  Loaded {len(fish_ids_to_discard)} discarded fish IDs from: {discard_file}\")"
+        },
+        {
+          "line": 699,
+          "text": "condition_paths = filter_paths_by_subset(condition_paths, FISH_SUBSET)"
+        },
+        {
+          "line": 761,
+          "text": "# --- Heatmap grids: discarded vs included fish ---"
+        },
+        {
+          "line": 771,
+          "text": "if APPLY_FISH_DISCARD and fish_ids_to_discard:"
+        },
+        {
+          "line": 772,
+          "text": "discarded_in_condition = sorted("
+        },
+        {
+          "line": 773,
+          "text": "f for f in all_condition_fish if f in fish_ids_to_discard"
+        },
+        {
+          "line": 776,
+          "text": "f for f in all_condition_fish if f not in fish_ids_to_discard"
+        },
+        {
+          "line": 779,
+          "text": "if discarded_in_condition:"
+        },
+        {
+          "line": 781,
+          "text": "discarded_in_condition,"
+        },
+        {
+          "line": 784,
+          "text": "title=f\"Discarded Fish - Scaled Vigor Heatmaps ({condition})\","
+        },
+        {
+          "line": 785,
+          "text": "filename=f\"Heatmap_Grid_Discarded_{condition}.png\","
+        },
+        {
+          "line": 789,
+          "text": "print(f\"  No discarded fish in {condition} condition.\")"
+        },
+        {
+          "line": 803,
+          "text": "# No discard list: save a single grid with all fish"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/4_ScaledVigorPlotting.py",
+      "sha256": "3bb2c8564ee4bd8fa39bcc73dfb6bbb8f0d794a738c8103a8b7ee18a1a0c35ae",
+      "selection_reference_candidates": [
+        {
+          "line": 59,
+          "text": "# Apply per-experiment discarded fish list if present under \"Processed data\"."
+        },
+        {
+          "line": 60,
+          "text": "APPLY_FISH_DISCARD = True"
+        },
+        {
+          "line": 149,
+          "text": "# Load discarded fish IDs (if configured)"
+        },
+        {
+          "line": 150,
+          "text": "discard_file = path_processed_data / \"Discarded_fish_IDs.txt\""
+        },
+        {
+          "line": 152,
+          "text": "fish_ids_to_discard: list[str] = []"
+        },
+        {
+          "line": 153,
+          "text": "discard_source: Path | None = None"
+        },
+        {
+          "line": 155,
+          "text": "if APPLY_FISH_DISCARD and discard_file.exists():"
+        },
+        {
+          "line": 156,
+          "text": "fish_ids_to_discard = file_utils.load_discarded_fish_ids(discard_file)"
+        },
+        {
+          "line": 157,
+          "text": "discard_source = discard_file"
+        },
+        {
+          "line": 159,
+          "text": "if discard_source is not None:"
+        },
+        {
+          "line": 161,
+          "text": "src_str = str(discard_source)"
+        },
+        {
+          "line": 164,
+          "text": "print(f\"  Loaded {len(fish_ids_to_discard)} discarded fish IDs from: {src_str}\")"
+        },
+        {
+          "line": 167,
+          "text": "def filter_discarded_fish_ids(df: pd.DataFrame, source: str = \"\") -> pd.DataFrame:"
+        },
+        {
+          "line": 168,
+          "text": "\"\"\"Drop rows whose Fish ID is in the discarded list (if present)."
+        },
+        {
+          "line": 170,
+          "text": "Prints unique fish count before and after discarding."
+        },
+        {
+          "line": 181,
+          "text": "print(f\"{prefix}Fish unique before discard: {before}\")"
+        },
+        {
+          "line": 183,
+          "text": "if not APPLY_FISH_DISCARD or not fish_ids_to_discard:"
+        },
+        {
+          "line": 186,
+          "text": "df_filtered = df[~df[fish_col].isin(fish_ids_to_discard)].copy()"
+        },
+        {
+          "line": 187,
+          "text": "after = df_filtered[fish_col].nunique()"
+        },
+        {
+          "line": 188,
+          "text": "print(f\"{prefix}Fish unique after discard: {after}\")"
+        },
+        {
+          "line": 189,
+          "text": "return df_filtered"
+        },
+        {
+          "line": 515,
+          "text": "\"\"\"Append `_selectedFish` to a filename stem when discard is enabled.\"\"\""
+        },
+        {
+          "line": 516,
+          "text": "if not APPLY_FISH_DISCARD:"
+        },
+        {
+          "line": 550,
+          "text": "selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else \"\""
+        },
+        {
+          "line": 585,
+          "text": "df = filter_discarded_fish_ids(df, source=path.stem)"
+        },
+        {
+          "line": 650,
+          "text": "df_binned = df_binned.drop(columns=[\"bin\"]).dropna(subset=[\"Trial time (s)\"])"
+        },
+        {
+          "line": 1121,
+          "text": "df = filter_discarded_fish_ids(df, source=p.stem)"
+        },
+        {
+          "line": 1448,
+          "text": "dropna=True,"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/5_NormalizedVigorPlotting.py",
+      "sha256": "a0997796233ea37098b12c581089656390a55a84ae6fa4f97250b60b0fceff39",
+      "selection_reference_candidates": [
+        {
+          "line": 66,
+          "text": "# Apply per-experiment discarded fish list if present under \"Processed data\"."
+        },
+        {
+          "line": 67,
+          "text": "APPLY_FISH_DISCARD = False"
+        },
+        {
+          "line": 74,
+          "text": "minimum_trials_per_fish_per_block = 6"
+        },
+        {
+          "line": 75,
+          "text": "age_filter = [\"all\"]"
+        },
+        {
+          "line": 76,
+          "text": "setup_color_filter = [\"all\"]"
+        },
+        {
+          "line": 112,
+          "text": "# warnings.filterwarnings("
+        },
+        {
+          "line": 186,
+          "text": "fish_ids_to_discard = []"
+        },
+        {
+          "line": 193,
+          "text": "global fish_ids_to_discard, skip_block_stats"
+        },
+        {
+          "line": 232,
+          "text": "# Single discard list source: Processed data/Discarded_fish_IDs.txt"
+        },
+        {
+          "line": 233,
+          "text": "discard_file = path_processed_data / \"Discarded_fish_IDs.txt\""
+        },
+        {
+          "line": 235,
+          "text": "fish_ids_to_discard = []"
+        },
+        {
+          "line": 236,
+          "text": "discard_source = None"
+        },
+        {
+          "line": 237,
+          "text": "if APPLY_FISH_DISCARD and discard_file.exists():"
+        },
+        {
+          "line": 238,
+          "text": "fish_ids_to_discard = file_utils.load_discarded_fish_ids(discard_file)"
+        },
+        {
+          "line": 239,
+          "text": "discard_source = discard_file"
+        },
+        {
+          "line": 241,
+          "text": "if discard_source is not None:"
+        },
+        {
+          "line": 243,
+          "text": "src_str = str(discard_source)"
+        },
+        {
+          "line": 246,
+          "text": "print(f\"  Loaded {len(fish_ids_to_discard)} discarded fish IDs from: {src_str}\")"
+        },
+        {
+          "line": 256,
+          "text": "def filter_discarded_fish_ids(df: pd.DataFrame, source: str = \"\") -> pd.DataFrame:"
+        },
+        {
+          "line": 257,
+          "text": "\"\"\"Drop rows whose Fish ID is in the discarded list (if present)."
+        },
+        {
+          "line": 259,
+          "text": "Prints unique fish count before and after discarding."
+        },
+        {
+          "line": 270,
+          "text": "print(f\"{prefix}Fish unique before discard: {before}\")"
+        },
+        {
+          "line": 272,
+          "text": "if not APPLY_FISH_DISCARD or not fish_ids_to_discard:"
+        },
+        {
+          "line": 275,
+          "text": "df_filtered = df[~df[fish_col].isin(fish_ids_to_discard)].copy()"
+        },
+        {
+          "line": 276,
+          "text": "after = df_filtered[fish_col].nunique()"
+        },
+        {
+          "line": 277,
+          "text": "print(f\"{prefix}Fish unique after discard: {after}\")"
+        },
+        {
+          "line": 278,
+          "text": "return df_filtered"
+        },
+        {
+          "line": 312,
+          "text": "\"\"\"Append `_selectedFish` to a filename stem when discard is enabled.\"\"\""
+        },
+        {
+          "line": 313,
+          "text": "if not APPLY_FISH_DISCARD:"
+        },
+        {
+          "line": 320,
+          "text": "\"\"\"Append `_selectedFish` to a Path name when discard is enabled.\"\"\""
+        },
+        {
+          "line": 322,
+          "text": "if not APPLY_FISH_DISCARD:"
+        },
+        {
+          "line": 373,
+          "text": "fish_suffix = \"_selectedFish\" if APPLY_FISH_DISCARD else \"_allFish\""
+        },
+        {
+          "line": 392,
+          "text": "fish_suffix = \"_selectedFish\" if APPLY_FISH_DISCARD else \"_allFish\""
+        },
+        {
+          "line": 397,
+          "text": "# Filter by csus: the suffix pattern is ..._{csus}{fish_suffix}[_nanFracFilt].pkl"
+        },
+        {
+          "line": 405,
+          "text": "def filter_pooled_data(data, apply_fish_discard=True, source: str = \"\"):"
+        },
+        {
+          "line": 407,
+          "text": "# Apply global filters shared across plots and stats."
+        },
+        {
+          "line": 415,
+          "text": "print(f\"{prefix}Fish unique before discard: {before}\")"
+        },
+        {
+          "line": 417,
+          "text": "if apply_fish_discard and APPLY_FISH_DISCARD and fish_ids_to_discard and fish_col is not None:"
+        },
+        {
+          "line": 418,
+          "text": "data = data[~data[fish_col].isin(fish_ids_to_discard)]"
+        },
+        {
+          "line": 420,
+          "text": "print(f\"{prefix}Fish unique after discard: {after}\")"
+        },
+        {
+          "line": 422,
+          "text": "if age_filter != [\"all\"]:"
+        },
+        {
+          "line": 423,
+          "text": "data = data[data[\"Age (dpf)\"].isin(age_filter)]"
+        },
+        {
+          "line": 424,
+          "text": "if setup_color_filter != [\"all\"]:"
+        },
+        {
+          "line": 426,
+          "text": "data = data[color_rigs.isin(setup_color_filter)]"
+        },
+        {
+          "line": 435,
+          "text": "return filter_pooled_data(data, source=\"load_phase_plot_data\")"
+        },
+        {
+          "line": 476,
+          "text": "def prepare_main_df(data, apply_fish_discard=True, jitter_scale=0.0, jitter_seed=42):"
+        },
+        {
+          "line": 477,
+          "text": "data = filter_pooled_data(data, apply_fish_discard=apply_fish_discard, source=\"prepare_main_df\")"
+        },
+        {
+          "line": 482,
+          "text": "df.dropna(subset=[\"Normalized vigor\", \"Trial number\", \"Block_name\", baseline_col, response_col], inplace=True)"
+        },
+        {
+          "line": 485,
+          "text": "valid_fish = counts[counts >= minimum_trials_per_fish_per_block].reset_index()[\"Fish_ID\"].unique()"
+        },
+        {
+          "line": 486,
+          "text": "df = df[df[\"Fish_ID\"].isin(valid_fish)]"
+        },
+        {
+          "line": 521,
+          "text": ".dropna()"
+        },
+        {
+          "line": 584,
+          "text": "data = filter_pooled_data(data, source=\"load_block_plot_data\")"
+        },
+        {
+          "line": 632,
+          "text": "def filter_pairs_in_data_no_hue(pairs, data: pd.DataFrame, x_col: str):"
+        },
+        {
+          "line": 633,
+          "text": "\"\"\"Filter (x1, x2) pairs to only those present in `data[x_col]`.\"\"\""
+        },
+        {
+          "line": 637,
+          "text": "x_values = set(data[x_col].dropna().unique().tolist())"
+        },
+        {
+          "line": 648,
+          "text": "def filter_pairs_in_data_with_hue(pairs, data: pd.DataFrame, x_col: str, hue_col: str):"
+        },
+        {
+          "line": 649,
+          "text": "\"\"\"Filter ((x, hue), (x, hue)) pairs to only those present in `data`.\"\"\""
+        },
+        {
+          "line": 655,
+          "text": ".dropna()"
+        },
+        {
+          "line": 736,
+          "text": "# Apply fish discarding"
+        },
+        {
+          "line": 737,
+          "text": "data = filter_discarded_fish_ids(data, source=path.stem)"
+        },
+        {
+          "line": 748,
+          "text": "selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else \"\""
+        },
+        {
+          "line": 763,
+          "text": "print(f\"  [WARN] Discarding {mask_us_beg.sum()} trials with US before CS\")"
+        },
+        {
+          "line": 838,
+          "text": "fish_suffix = \"_selectedFish\" if APPLY_FISH_DISCARD else \"_allFish\""
+        },
+        {
+          "line": 876,
+          "text": "print(\"  [SKIP] All fish discarded\")"
+        },
+        {
+          "line": 886,
+          "text": "data.dropna()"
+        },
+        {
+          "line": 986,
+          "text": "blocks_present = [b for b in blocks_chosen if b in data_cond[\"Block name\"].dropna().unique().tolist()]"
+        },
+        {
+          "line": 993,
+          "text": "pairs_within_cond = filter_pairs_in_data_no_hue(pairs_within_cond, data_cond, \"Block name\")"
+        },
+        {
+          "line": 1034,
+          "text": "][\"Normalized vigor\"].dropna()"
+        },
+        {
+          "line": 1037,
+          "text": "][\"Normalized vigor\"].dropna()"
+        },
+        {
+          "line": 1161,
+          "text": "age_label = _stringify_for_filename(age_filter)"
+        },
+        {
+          "line": 1162,
+          "text": "setup_label = _stringify_for_filename(setup_color_filter)"
+        },
+        {
+          "line": 1200,
+          "text": "data_box.dropna()"
+        },
+        {
+          "line": 1285,
+          "text": "blocks_for_stats = [b for b in blocks_chosen if b in data_box[\"Block name\"].dropna().unique().tolist()]"
+        },
+        {
+          "line": 1287,
+          "text": "print(\"  [SKIP] No blocks available for stats after filtering.\")"
+        },
+        {
+          "line": 1336,
+          "text": "pairs_between_exp = filter_pairs_in_data_with_hue(pairs_between_exp, data_box, \"Block name\", \"Exp.\")"
+        },
+        {
+          "line": 1358,
+          "text": "print(\"  [SKIP] Wilcoxon requires complete block coverage; missing blocks after filtering.\")"
+        },
+        {
+          "line": 1360,
+          "text": "# Filter data to only include fish with complete data in all blocks"
+        },
+        {
+          "line": 1363,
+          "text": "complete_fish = fish_block_counts[fish_block_counts == len(blocks_chosen)].reset_index()[['Fish', 'Exp.']]"
+        },
+        {
+          "line": 1364,
+          "text": "data_box_complete = data_box.merge(complete_fish, on=['Fish', 'Exp.'], how='inner')"
+        },
+        {
+          "line": 1372,
+          "text": "pairs_within_exp = filter_pairs_in_data_with_hue("
+        },
+        {
+          "line": 1425,
+          "text": "age_label = _stringify_for_filename(age_filter)"
+        },
+        {
+          "line": 1426,
+          "text": "setup_label = _stringify_for_filename(setup_color_filter)"
+        },
+        {
+          "line": 1450,
+          "text": "print(\"  [SKIP] All fish discarded\")"
+        },
+        {
+          "line": 1643,
+          "text": "before_any_discard = data_plot[\"Fish\"].nunique()"
+        },
+        {
+          "line": 1644,
+          "text": "print(f\"  [run_trial_by_trial] Fish unique before discard: {before_any_discard}\")"
+        },
+        {
+          "line": 1646,
+          "text": "# Apply shared discard list (from Discarded_fish_IDs.txt)"
+        },
+        {
+          "line": 1647,
+          "text": "data_plot = filter_discarded_fish_ids(data_plot, source=\"run_trial_by_trial\")"
+        },
+        {
+          "line": 1649,
+          "text": "print(f\"  Fish remaining after discard: {data_plot['Fish'].nunique()}\")"
+        },
+        {
+          "line": 1652,
+          "text": "selected_suffix = SELECTED_FISH_SUFFIX if APPLY_FISH_DISCARD else \"\""
+        },
+        {
+          "line": 1661,
+          "text": "apply_fish_discard=APPLY_FISH_DISCARD,"
+        },
+        {
+          "line": 2065,
+          "text": "fish_suffix = \"_selectedFish\" if APPLY_FISH_DISCARD else \"_allFish\""
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification.py",
+      "sha256": "de2e67bf9354d5d535439943ebc43af90703b951b801aa5abd7210485e3ccc6d",
+      "selection_reference_candidates": [
+        {
+          "line": 10,
+          "text": "1. Load and preprocess trial-level behavioral data, including block/trial structure and filtering."
+        },
+        {
+          "line": 85,
+          "text": "warnings.filterwarnings(\"ignore\")"
+        },
+        {
+          "line": 134,
+          "text": "min_pretrain_trials: int = 10"
+        },
+        {
+          "line": 135,
+          "text": "min_latetraindearlytest_trials: int = 15"
+        },
+        {
+          "line": 136,
+          "text": "min_late_test_trials: int = 10"
+        },
+        {
+          "line": 137,
+          "text": "min_trials_per_5trial_block_in_epoch: int = 3"
+        },
+        {
+          "line": 208,
+          "text": "print(f\"  Min trials per 5-trial block:    {self.min_trials_per_5trial_block_in_epoch}\")"
+        },
+        {
+          "line": 250,
+          "text": "min_pretrain_trials=6,"
+        },
+        {
+          "line": 251,
+          "text": "min_latetraindearlytest_trials=6,"
+        },
+        {
+          "line": 252,
+          "text": "min_late_test_trials=6,"
+        },
+        {
+          "line": 259,
+          "text": "min_trials_per_5trial_block_in_epoch=3,"
+        },
+        {
+          "line": 759,
+          "text": "\"\"\"Prepare data with proper block structure and filtering.\"\"\""
+        },
+        {
+          "line": 776,
+          "text": "df.dropna(subset=['Normalized vigor', 'Trial number', 'Block name 5 trials',"
+        },
+        {
+          "line": 779,
+          "text": "# Filter fish by minimum trial requirements for each selected feature."
+        },
+        {
+          "line": 780,
+          "text": "df = _filter_fish_by_trials(df, config)"
+        },
+        {
+          "line": 845,
+          "text": "def _filter_fish_by_trials(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:"
+        },
+        {
+          "line": 847,
+          "text": "Filter fish based on minimum trial requirements for the selected features."
+        },
+        {
+          "line": 850,
+          "text": "valid_fish_sets = []"
+        },
+        {
+          "line": 852,
+          "text": "# Keep only fish that meet the minimum trial counts needed to estimate each selected feature."
+        },
+        {
+          "line": 853,
+          "text": "# Use the same block definitions that are later used in extract_change_feature() so filtering is consistent."
+        },
+        {
+          "line": 856,
+          "text": "\"\"\"Fish with >= min_trials_per_5trial_block_in_epoch trials in EACH block in `blocks`.\"\"\""
+        },
+        {
+          "line": 873,
+          "text": "mask &= counts[b].to_numpy() >= int(config.min_trials_per_5trial_block_in_epoch)"
+        },
+        {
+          "line": 885,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_pretrain_trials].index)"
+        },
+        {
+          "line": 889,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 892,
+          "text": "valid_fish_sets.append(valid_acquisition)"
+        },
+        {
+          "line": 896,
+          "text": "f\">= {config.min_pretrain_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 897,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 898,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 910,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 914,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_late_test_trials].index)"
+        },
+        {
+          "line": 917,
+          "text": "valid_fish_sets.append(valid_extinction)"
+        },
+        {
+          "line": 921,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 922,
+          "text": "f\">= {config.min_late_test_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 923,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 928,
+          "text": "if valid_fish_sets:"
+        },
+        {
+          "line": 929,
+          "text": "valid_fish = set.intersection(*valid_fish_sets)"
+        },
+        {
+          "line": 931,
+          "text": "valid_fish = set(df['Fish_ID'].unique())"
+        },
+        {
+          "line": 933,
+          "text": "print(f\"  Fish filtering: {len(df['Fish_ID'].unique())} -> {len(valid_fish)} (based on selected features: {config.features_to_use})\")"
+        },
+        {
+          "line": 934,
+          "text": "return df[df['Fish_ID'].isin(valid_fish)]"
+        },
+        {
+          "line": 1101,
+          "text": "# Filter result conditions to only those present in the data passed"
+        },
+        {
+          "line": 1766,
+          "text": "# Require at least min_trials_per_5trial_block_in_epoch points in EACH constituent 5-trial block."
+        },
+        {
+          "line": 1774,
+          "text": "# The strict trial-count requirement is enforced earlier in _filter_fish_by_trials()."
+        },
+        {
+          "line": 1879,
+          "text": "# Filter result indices if condition is specified"
+        },
+        {
+          "line": 2494,
+          "text": "a = sub.loc[sub['Is_Learner'], col].dropna().astype(float)"
+        },
+        {
+          "line": 2495,
+          "text": "b = sub.loc[~sub['Is_Learner'], col].dropna().astype(float)"
+        },
+        {
+          "line": 2653,
+          "text": "# Load pooled per-trial data and enforce block/trial filters."
+        },
+        {
+          "line": 2673,
+          "text": "common_fish_sets = [set(blup_dicts[feat].keys()) for feat in config.features_to_use]"
+        },
+        {
+          "line": 2674,
+          "text": "common_fish = sorted(list(set.intersection(*common_fish_sets)))"
+        },
+        {
+          "line": 2676,
+          "text": "if len(common_fish) < 10:"
+        },
+        {
+          "line": 2677,
+          "text": "raise ValueError(f\"Only {len(common_fish)} fish have all features. Need at least 10.\")"
+        },
+        {
+          "line": 2679,
+          "text": "print(f\"  {len(common_fish)} fish with complete feature sets\")"
+        },
+        {
+          "line": 2682,
+          "text": "X = np.array([[blup_dicts[feat][f].blup for feat in config.features_to_use] for f in common_fish])"
+        },
+        {
+          "line": 2683,
+          "text": "X_se = np.array([[blup_dicts[feat][f].se for feat in config.features_to_use] for f in common_fish])"
+        },
+        {
+          "line": 2686,
+          "text": "conds = np.array([cond_map.get(f, 'unknown') for f in common_fish])"
+        },
+        {
+          "line": 2734,
+          "text": "fish_ids=np.array(common_fish),"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_WIP.py",
+      "sha256": "370274baf0bf6d287cab60ae9f228ac223c89ce934733f3f82b2bb288a9d9cea",
+      "selection_reference_candidates": [
+        {
+          "line": 13,
+          "text": "- Preprocesses into consistent 5-trial block structure and filters fish by trial coverage"
+        },
+        {
+          "line": 105,
+          "text": "APPLY_FISH_DISCARD: bool = False"
+        },
+        {
+          "line": 111,
+          "text": "\"\"\"Append `_selectedFish` to a Path name when discard is enabled.\"\"\""
+        },
+        {
+          "line": 113,
+          "text": "if not APPLY_FISH_DISCARD:"
+        },
+        {
+          "line": 133,
+          "text": "MIN_PRETRAIN_TRIALS: int = 6"
+        },
+        {
+          "line": 134,
+          "text": "MIN_LATETRAINDEARLYTEST_TRIALS: int = 6"
+        },
+        {
+          "line": 135,
+          "text": "MIN_LATE_TEST_TRIALS: int = 6"
+        },
+        {
+          "line": 136,
+          "text": "MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH: int = 3"
+        },
+        {
+          "line": 156,
+          "text": "POOLED_DATA_NAN_FILTER: str = \"no_nanFracFilt\"  # or \"no_nanFracFilt\" | \"auto\""
+        },
+        {
+          "line": 240,
+          "text": "min_pretrain_trials: int = 10"
+        },
+        {
+          "line": 241,
+          "text": "min_latetraindearlytest_trials: int = 15"
+        },
+        {
+          "line": 242,
+          "text": "min_late_test_trials: int = 10"
+        },
+        {
+          "line": 243,
+          "text": "min_trials_per_5trial_block_in_epoch: int = 3"
+        },
+        {
+          "line": 283,
+          "text": "min_pretrain_trials=MIN_PRETRAIN_TRIALS,"
+        },
+        {
+          "line": 284,
+          "text": "min_latetraindearlytest_trials=MIN_LATETRAINDEARLYTEST_TRIALS,"
+        },
+        {
+          "line": 285,
+          "text": "min_late_test_trials=MIN_LATE_TEST_TRIALS,"
+        },
+        {
+          "line": 286,
+          "text": "min_trials_per_5trial_block_in_epoch=MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH,"
+        },
+        {
+          "line": 370,
+          "text": "if POOLED_DATA_NAN_FILTER == \"nanFracFilt\":"
+        },
+        {
+          "line": 372,
+          "text": "elif POOLED_DATA_NAN_FILTER == \"no_nanFracFilt\":"
+        },
+        {
+          "line": 374,
+          "text": "# \"auto\": no extra filter"
+        },
+        {
+          "line": 377,
+          "text": "if APPLY_FISH_DISCARD:"
+        },
+        {
+          "line": 391,
+          "text": "f\"with POOLED_DATA_NAN_FILTER={POOLED_DATA_NAN_FILTER}. \""
+        },
+        {
+          "line": 511,
+          "text": "def _filter_fish_by_trials(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:"
+        },
+        {
+          "line": 512,
+          "text": "\"\"\"Filter fish based on minimum trial requirements for the selected features.\"\"\""
+        },
+        {
+          "line": 513,
+          "text": "valid_fish_sets: List[set] = []"
+        },
+        {
+          "line": 516,
+          "text": "\"\"\"Fish with >= min_trials_per_5trial_block_in_epoch trials in EACH block in `blocks`.\"\"\""
+        },
+        {
+          "line": 530,
+          "text": "mask &= counts[b].to_numpy() >= int(config.min_trials_per_5trial_block_in_epoch)"
+        },
+        {
+          "line": 539,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_pretrain_trials].index)"
+        },
+        {
+          "line": 542,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 545,
+          "text": "valid_fish_sets.append(valid_acq)"
+        },
+        {
+          "line": 549,
+          "text": "f\">= {config.min_pretrain_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 550,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 551,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 560,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 563,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_late_test_trials].index)"
+        },
+        {
+          "line": 566,
+          "text": "valid_fish_sets.append(valid_ext)"
+        },
+        {
+          "line": 570,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 571,
+          "text": "f\">= {config.min_late_test_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 572,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 575,
+          "text": "valid_fish = set.intersection(*valid_fish_sets) if valid_fish_sets else set(df[\"Fish_ID\"].unique())"
+        },
+        {
+          "line": 577,
+          "text": "f\"  Fish filtering: {len(df['Fish_ID'].unique())} -> {len(valid_fish)} \""
+        },
+        {
+          "line": 580,
+          "text": "return df[df[\"Fish_ID\"].isin(valid_fish)]"
+        },
+        {
+          "line": 584,
+          "text": "\"\"\"Prepare data with proper block structure and filtering.\"\"\""
+        },
+        {
+          "line": 601,
+          "text": "df.dropna("
+        },
+        {
+          "line": 614,
+          "text": "# Filter out non-positive or non-finite values early so downstream LME sees clean data."
+        },
+        {
+          "line": 623,
+          "text": "df = _filter_fish_by_trials(df, config)"
+        },
+        {
+          "line": 1784,
+          "text": "x_min = float(fish_block_data[\"Trial number\"].min()) if not fish_block_data.empty else 0.0"
+        },
+        {
+          "line": 1896,
+          "text": "x_min = float(fish_block_data[\"Trial number\"].min()) if not fish_block_data.empty else 0.0"
+        },
+        {
+          "line": 2356,
+          "text": "common_fish_sets = [set(blup_dicts[feat].keys()) for feat in config.features_to_use]"
+        },
+        {
+          "line": 2357,
+          "text": "common_fish = sorted(list(set.intersection(*common_fish_sets)))"
+        },
+        {
+          "line": 2358,
+          "text": "if len(common_fish) < int(MIN_FISH_WITH_ALL_FEATURES):"
+        },
+        {
+          "line": 2361,
+          "text": "f\"Only {len(common_fish)} fish have all features (need at least {MIN_FISH_WITH_ALL_FEATURES}). \""
+        },
+        {
+          "line": 2366,
+          "text": "X = np.array([[blup_dicts[feat][f].blup for feat in config.features_to_use] for f in common_fish], dtype=float)"
+        },
+        {
+          "line": 2367,
+          "text": "X_se = np.array([[blup_dicts[feat][f].se for feat in config.features_to_use] for f in common_fish], dtype=float)"
+        },
+        {
+          "line": 2370,
+          "text": "conds = np.array([cond_map.get(f, \"unknown\") for f in common_fish])"
+        },
+        {
+          "line": 2390,
+          "text": "\"Fish_ID\": np.array(common_fish),"
+        },
+        {
+          "line": 2431,
+          "text": "fish_ids=np.array(common_fish),"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_improved.py",
+      "sha256": "8cef203b63d44c406779f70a0e322b1b039e97f8219ce3223d68fdc3bddd5dd8",
+      "selection_reference_candidates": [
+        {
+          "line": 13,
+          "text": "- Preprocesses into consistent 5-trial block structure and filters fish by trial coverage"
+        },
+        {
+          "line": 114,
+          "text": "MIN_PRETRAIN_TRIALS: int = 6"
+        },
+        {
+          "line": 115,
+          "text": "MIN_LATETRAINDEARLYTEST_TRIALS: int = 6"
+        },
+        {
+          "line": 116,
+          "text": "MIN_LATE_TEST_TRIALS: int = 6"
+        },
+        {
+          "line": 117,
+          "text": "MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH: int = 3"
+        },
+        {
+          "line": 206,
+          "text": "min_pretrain_trials: int = 10"
+        },
+        {
+          "line": 207,
+          "text": "min_latetraindearlytest_trials: int = 15"
+        },
+        {
+          "line": 208,
+          "text": "min_late_test_trials: int = 10"
+        },
+        {
+          "line": 209,
+          "text": "min_trials_per_5trial_block_in_epoch: int = 3"
+        },
+        {
+          "line": 248,
+          "text": "min_pretrain_trials=MIN_PRETRAIN_TRIALS,"
+        },
+        {
+          "line": 249,
+          "text": "min_latetraindearlytest_trials=MIN_LATETRAINDEARLYTEST_TRIALS,"
+        },
+        {
+          "line": 250,
+          "text": "min_late_test_trials=MIN_LATE_TEST_TRIALS,"
+        },
+        {
+          "line": 251,
+          "text": "min_trials_per_5trial_block_in_epoch=MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH,"
+        },
+        {
+          "line": 433,
+          "text": "def _filter_fish_by_trials(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:"
+        },
+        {
+          "line": 434,
+          "text": "\"\"\"Filter fish based on minimum trial requirements for the selected features.\"\"\""
+        },
+        {
+          "line": 435,
+          "text": "valid_fish_sets: List[set] = []"
+        },
+        {
+          "line": 438,
+          "text": "\"\"\"Fish with >= min_trials_per_5trial_block_in_epoch trials in EACH block in `blocks`.\"\"\""
+        },
+        {
+          "line": 452,
+          "text": "mask &= counts[b].to_numpy() >= int(config.min_trials_per_5trial_block_in_epoch)"
+        },
+        {
+          "line": 461,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_pretrain_trials].index)"
+        },
+        {
+          "line": 464,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 467,
+          "text": "valid_fish_sets.append(valid_acq)"
+        },
+        {
+          "line": 471,
+          "text": "f\">= {config.min_pretrain_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 472,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 473,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 482,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 485,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_late_test_trials].index)"
+        },
+        {
+          "line": 488,
+          "text": "valid_fish_sets.append(valid_ext)"
+        },
+        {
+          "line": 492,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 493,
+          "text": "f\">= {config.min_late_test_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 494,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 497,
+          "text": "valid_fish = set.intersection(*valid_fish_sets) if valid_fish_sets else set(df[\"Fish_ID\"].unique())"
+        },
+        {
+          "line": 499,
+          "text": "f\"  Fish filtering: {len(df['Fish_ID'].unique())} -> {len(valid_fish)} \""
+        },
+        {
+          "line": 502,
+          "text": "return df[df[\"Fish_ID\"].isin(valid_fish)]"
+        },
+        {
+          "line": 506,
+          "text": "\"\"\"Prepare data with proper block structure and filtering.\"\"\""
+        },
+        {
+          "line": 523,
+          "text": "df.dropna("
+        },
+        {
+          "line": 535,
+          "text": "df = _filter_fish_by_trials(df, config)"
+        },
+        {
+          "line": 1681,
+          "text": "x_min = float(fish_block_data[\"Trial number\"].min()) if not fish_block_data.empty else 0.0"
+        },
+        {
+          "line": 1793,
+          "text": "x_min = float(fish_block_data[\"Trial number\"].min()) if not fish_block_data.empty else 0.0"
+        },
+        {
+          "line": 2257,
+          "text": "common_fish_sets = [set(blup_dicts[feat].keys()) for feat in config.features_to_use]"
+        },
+        {
+          "line": 2258,
+          "text": "common_fish = sorted(list(set.intersection(*common_fish_sets)))"
+        },
+        {
+          "line": 2259,
+          "text": "if len(common_fish) < int(MIN_FISH_WITH_ALL_FEATURES):"
+        },
+        {
+          "line": 2260,
+          "text": "raise ValueError(f\"Only {len(common_fish)} fish have all features. Need at least {MIN_FISH_WITH_ALL_FEATURES}.\")"
+        },
+        {
+          "line": 2262,
+          "text": "X = np.array([[blup_dicts[feat][f].blup for feat in config.features_to_use] for f in common_fish], dtype=float)"
+        },
+        {
+          "line": 2263,
+          "text": "X_se = np.array([[blup_dicts[feat][f].se for feat in config.features_to_use] for f in common_fish], dtype=float)"
+        },
+        {
+          "line": 2266,
+          "text": "conds = np.array([cond_map.get(f, \"unknown\") for f in common_fish])"
+        },
+        {
+          "line": 2286,
+          "text": "\"Fish_ID\": np.array(common_fish),"
+        },
+        {
+          "line": 2326,
+          "text": "fish_ids=np.array(common_fish),"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_new.py",
+      "sha256": "e6294ff19819854864ae6674b94dc4291747b49872ac449f95e19ef58dc813ae",
+      "selection_reference_candidates": [
+        {
+          "line": 27,
+          "text": "1. Load and preprocess trial-level behavioral data, including block/trial structure and filtering."
+        },
+        {
+          "line": 113,
+          "text": "warnings.filterwarnings(\"ignore\")"
+        },
+        {
+          "line": 154,
+          "text": "MIN_PRETRAIN_TRIALS: int = 6"
+        },
+        {
+          "line": 155,
+          "text": "MIN_LATETRAINDEARLYTEST_TRIALS: int = 6"
+        },
+        {
+          "line": 156,
+          "text": "MIN_LATE_TEST_TRIALS: int = 6"
+        },
+        {
+          "line": 157,
+          "text": "MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH: int = 3"
+        },
+        {
+          "line": 235,
+          "text": "min_pretrain_trials: int = 10"
+        },
+        {
+          "line": 236,
+          "text": "min_latetraindearlytest_trials: int = 15"
+        },
+        {
+          "line": 237,
+          "text": "min_late_test_trials: int = 10"
+        },
+        {
+          "line": 238,
+          "text": "min_trials_per_5trial_block_in_epoch: int = 3"
+        },
+        {
+          "line": 317,
+          "text": "print(f\"  Min trials per 5-trial block:    {self.min_trials_per_5trial_block_in_epoch}\")"
+        },
+        {
+          "line": 359,
+          "text": "min_pretrain_trials=MIN_PRETRAIN_TRIALS,"
+        },
+        {
+          "line": 360,
+          "text": "min_latetraindearlytest_trials=MIN_LATETRAINDEARLYTEST_TRIALS,"
+        },
+        {
+          "line": 361,
+          "text": "min_late_test_trials=MIN_LATE_TEST_TRIALS,"
+        },
+        {
+          "line": 368,
+          "text": "min_trials_per_5trial_block_in_epoch=MIN_TRIALS_PER_5TRIAL_BLOCK_IN_EPOCH,"
+        },
+        {
+          "line": 1007,
+          "text": "\"\"\"Prepare data with proper block structure and filtering.\"\"\""
+        },
+        {
+          "line": 1024,
+          "text": "df.dropna(subset=['Normalized vigor', 'Trial number', 'Block name 5 trials',"
+        },
+        {
+          "line": 1027,
+          "text": "# Filter fish by minimum trial requirements for each selected feature."
+        },
+        {
+          "line": 1028,
+          "text": "df = _filter_fish_by_trials(df, config)"
+        },
+        {
+          "line": 1093,
+          "text": "def _filter_fish_by_trials(df: pd.DataFrame, config: AnalysisConfig) -> pd.DataFrame:"
+        },
+        {
+          "line": 1095,
+          "text": "Filter fish based on minimum trial requirements for the selected features."
+        },
+        {
+          "line": 1098,
+          "text": "valid_fish_sets = []"
+        },
+        {
+          "line": 1100,
+          "text": "# Keep only fish that meet the minimum trial counts needed to estimate each selected feature."
+        },
+        {
+          "line": 1101,
+          "text": "# Use the same block definitions that are later used in extract_change_feature() so filtering is consistent."
+        },
+        {
+          "line": 1104,
+          "text": "\"\"\"Fish with >= min_trials_per_5trial_block_in_epoch trials in EACH block in `blocks`.\"\"\""
+        },
+        {
+          "line": 1121,
+          "text": "mask &= counts[b].to_numpy() >= int(config.min_trials_per_5trial_block_in_epoch)"
+        },
+        {
+          "line": 1133,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_pretrain_trials].index)"
+        },
+        {
+          "line": 1137,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 1140,
+          "text": "valid_fish_sets.append(valid_acquisition)"
+        },
+        {
+          "line": 1144,
+          "text": "f\">= {config.min_pretrain_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 1145,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 1146,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 1158,
+          "text": "valid_pre = set(pre_counts[pre_counts >= config.min_latetraindearlytest_trials].index)"
+        },
+        {
+          "line": 1162,
+          "text": "valid_post = set(post_counts[post_counts >= config.min_late_test_trials].index)"
+        },
+        {
+          "line": 1165,
+          "text": "valid_fish_sets.append(valid_extinction)"
+        },
+        {
+          "line": 1169,
+          "text": "f\">= {config.min_latetraindearlytest_trials} trials in {pre_blocks} AND \""
+        },
+        {
+          "line": 1170,
+          "text": "f\">= {config.min_late_test_trials} trials in {post_blocks}\""
+        },
+        {
+          "line": 1171,
+          "text": "f\" (and >= {config.min_trials_per_5trial_block_in_epoch} trials in EACH 5-trial block)\""
+        },
+        {
+          "line": 1176,
+          "text": "if valid_fish_sets:"
+        },
+        {
+          "line": 1177,
+          "text": "valid_fish = set.intersection(*valid_fish_sets)"
+        },
+        {
+          "line": 1179,
+          "text": "valid_fish = set(df['Fish_ID'].unique())"
+        },
+        {
+          "line": 1181,
+          "text": "print(f\"  Fish filtering: {len(df['Fish_ID'].unique())} -> {len(valid_fish)} (based on selected features: {config.features_to_use})\")"
+        },
+        {
+          "line": 1182,
+          "text": "return df[df['Fish_ID'].isin(valid_fish)]"
+        },
+        {
+          "line": 1383,
+          "text": "# Filter result conditions to only those present in the data passed"
+        },
+        {
+          "line": 2198,
+          "text": "# Require at least min_trials_per_5trial_block_in_epoch points in EACH constituent 5-trial block."
+        },
+        {
+          "line": 2206,
+          "text": "# The strict trial-count requirement is enforced earlier in _filter_fish_by_trials()."
+        },
+        {
+          "line": 2311,
+          "text": "# Filter result indices if condition is specified"
+        },
+        {
+          "line": 2745,
+          "text": "x_min = float(fish_trial_data[\"Trial number\"].min())"
+        },
+        {
+          "line": 2855,
+          "text": "# Filter result indices if condition is specified"
+        },
+        {
+          "line": 3254,
+          "text": "a = sub.loc[sub['Is_Learner'], col].dropna().astype(float)"
+        },
+        {
+          "line": 3255,
+          "text": "b = sub.loc[~sub['Is_Learner'], col].dropna().astype(float)"
+        },
+        {
+          "line": 3425,
+          "text": "# Load pooled per-trial data and enforce block/trial filters."
+        },
+        {
+          "line": 3445,
+          "text": "common_fish_sets = [set(blup_dicts[feat].keys()) for feat in config.features_to_use]"
+        },
+        {
+          "line": 3446,
+          "text": "common_fish = sorted(list(set.intersection(*common_fish_sets)))"
+        },
+        {
+          "line": 3448,
+          "text": "if len(common_fish) < int(MIN_FISH_WITH_ALL_FEATURES):"
+        },
+        {
+          "line": 3450,
+          "text": "f\"Only {len(common_fish)} fish have all features. Need at least {int(MIN_FISH_WITH_ALL_FEATURES)}.\""
+        },
+        {
+          "line": 3453,
+          "text": "print(f\"  {len(common_fish)} fish with complete feature sets\")"
+        },
+        {
+          "line": 3456,
+          "text": "X = np.array([[blup_dicts[feat][f].blup for feat in config.features_to_use] for f in common_fish])"
+        },
+        {
+          "line": 3457,
+          "text": "X_se = np.array([[blup_dicts[feat][f].se for feat in config.features_to_use] for f in common_fish])"
+        },
+        {
+          "line": 3460,
+          "text": "conds = np.array([cond_map.get(f, 'unknown') for f in common_fish])"
+        },
+        {
+          "line": 3519,
+          "text": "fish_ids=np.array(common_fish),"
+        }
+      ],
+      "note": "Static source candidates, including comments; not independent rules or an executed cohort"
+    }
+  ],
+  "scientific_policy_approved": false,
+  "executed": false
+}

@@ -34,9 +34,34 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
     A hash mismatch is never bypassed by silently selecting another version.
     """
     key = normalized_reference(value, repo)
+    # Historical paths can identify several accepted byte versions. Explicit
+    # hashes select the verified version without modifying immutable pointers.
+    locations_path = repo / 'docs/maintenance/archive/verified-artifact-locations.json'
+    if expected_sha256 and locations_path.is_file():
+        locations = json.loads(locations_path.read_text())
+        for entry in locations.get('entries', []):
+            if entry['sha256'] != expected_sha256 or key not in {
+                normalized_reference(ref, repo) for ref in entry['references']
+            }:
+                continue
+            relative = Path(entry['relative_path'])
+            if relative.is_absolute() or '..' in relative.parts:
+                raise ValueError('Invalid verified artifact location')
+            exact = Path(entry['archive_root']) / relative
+            if not exact.is_file():
+                raise FileNotFoundError(f'Artifact unavailable: {value}, SHA-256 {expected_sha256}. Connect JOAQUIM; the verified version is at {exact}.')
+            if sha256(exact) != expected_sha256:
+                raise ValueError(f'Artifact SHA-256 mismatch: {exact}')
+            return exact
     reloc_path = repo / 'docs/maintenance/archive/relocations.json'
     reloc = json.loads(reloc_path.read_text()) if reloc_path.exists() else {}
-    moved = reloc.get('repository_moves', {}).get(key, key)
+    moves = reloc.get('repository_moves', {})
+    moved, visited = key, set()
+    while moved in moves:
+        if moved in visited:
+            raise ValueError(f'Repository relocation cycle: {key}')
+        visited.add(moved)
+        moved = moves[moved]
     candidate = Path(moved) if Path(moved).is_absolute() else repo / moved
     audit = repo / 'docs/maintenance/archive'
     inventory_paths = [*sorted(audit.glob('*/transfer-inventory.json'), reverse=True),
@@ -65,7 +90,11 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
         candidate = root / 'payload' / row['path']
     if not candidate.is_file():
         raise FileNotFoundError(f'Artifact unavailable: {value}. Connect JOAQUIM or supply its verified archive root; no substitute input was selected.')
-    expected = expected_sha256 or (row['sha256'] if row else None)
+    # Retained mutable guidance can change after an inventory checkpoint.
+    # External payloads and immutable records still require exact bytes.
+    immutable = moved.startswith(('records/frozen-analyses/', 'configs/paper-figures/selections/'))
+    expected = expected_sha256 or (row['sha256'] if row and
+                                  (row.get('action') == 'archive_to_ssd' or immutable) else None)
     if expected and sha256(candidate) != expected:
         for entry in reloc.get('extracted_frozen_records', []):
             snapshot = repo / entry['record']

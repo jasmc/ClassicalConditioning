@@ -14,7 +14,8 @@ The requested repository cleanup and JOAQUIM transfer are complete. The publishe
 | `docs/maintenance/` | Governance and current/historical transfer guidance |
 | `configs/paper-figures/selections/` | Seven original byte-identical selection pointers |
 | `records/frozen-analyses/` | Seventy exact scientific definition/manifest/settings/code entries |
-| `reviews/`, `outputs/` | Navigation READMEs; payloads external |
+| `outputs/` | Removed on 2026-10-11; derived payloads remain indexed on JOAQUIM |
+| `reviews/` | Removed on 2026-10-11; review navigation lives in `docs/maintenance/archive/REVIEW_CATALOGUE.md` |
 | `src/`, `tests/`, `scripts/`, `legacy/` | Supported code, tests, adapters and consumed reproduction/comparison routes |
 | `docs/maintenance/archive/` | Inventories, relocations, review catalogue, recovery and verification evidence |
 
@@ -39,3 +40,7 @@ Working-tree payload reduction: **1,252,400,031 bytes**. Additional previously v
 Full post-transfer suite and final audit results are recorded in [verification.json](verification.json). Tests cover absent drive, changed sources, corruption, collisions, interrupted transfer, traversal, embedded hash mismatches and relocation. Scientific recomputation, raw-data movement, restyling, refreezing and Git-history rewriting did not occur.
 
 Two initially failing pre-existing tests were repaired: legacy oracle tests now restore scoped import paths, and trace preparation checks the existing author-selected metric instead of a superseded expectation. Scientific implementation was not changed by those repairs.
+
+On 2026-10-11, the author requested removal of the otherwise empty `reviews/` directory. Its only file was a redundant navigation README; the review catalogue, freeze index and archive instructions retain all its links. No evidence or payload was deleted.
+
+On 2026-10-11, the author also requested cleanup of `outputs/`. Only its redundant navigation README remained; the directory was removed. Archived outputs, provenance and relocation records remain intact, and new permanent exports require an external destination.

@@ -1,0 +1,13 @@
+{
+  "original_plans_archived": 3,
+  "original_hashes": "verified",
+  "frozen_record_hashes_unchanged": 70,
+  "broken_plan_and_reference_links": [],
+  "other_plan_numbers": "unchanged",
+  "workstream_status": "design/validation open",
+  "repository_compatibility_tests": {
+    "tests": 22,
+    "result": "passed"
+  },
+  "historical_plan_resolution": "all three exact archived originals verified"
+}

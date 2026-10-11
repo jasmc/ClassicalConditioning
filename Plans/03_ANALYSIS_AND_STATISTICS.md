@@ -21,10 +21,10 @@ should be a continuous score, responder probability, latent trajectory,
 binary/multiclass label, or a combination. Requiring learner analysis does not
 justify choosing a hard threshold before that comparison. The operational
 requirements live in
-[Learner Representation and Analysis](06_LEARNER_ANALYSIS.md).
+[Learner Representation and Analysis](05_LEARNER_ANALYSIS_AND_VALIDATION.md).
 
 The implemented exploratory model-input, LME, permutation, and bootstrap code
-is described in [the current LME reference](../docs/analysis/07_LEARNING_ONSET_LME.md).
+is described in [the current LME reference](../docs/analysis/reference/07-learning-onset-lme.md).
 The newer condition-aware implementation and its remaining paper gates are in
 [Learning-Onset Analysis Completion](04_LEARNING_ONSET_IMPLEMENTATION.md).
 Earlier statistics and learner plans remain in Git history. Their learner
@@ -73,7 +73,7 @@ requirements are in the active learner plan.
 ## Current implementation findings to resolve before paper approval
 
 Keep panel-specific concerns in
-[panel review comments](../docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md), including the Figure 2
+[panel review comments](../docs/panel-review.md), including the Figure 2
 D/E legacy-test audit and complete comparison matrix. For those block panels,
 the author excludes recording day and selects fish-level rank tests; an LMM
 is not required for the named pairwise questions. The corrected review uses
@@ -189,7 +189,7 @@ comparisons are descriptive. Confirmatory claims require held-out, cross-fitted,
 or independent evidence. If categorical classification is rejected, the paper
 must still report the approved continuous or model-based learner analysis and
 the evidence for not imposing classes. Full requirements are in
-[the learner plan](06_LEARNER_ANALYSIS.md).
+[the learner plan](05_LEARNER_ANALYSIS_AND_VALIDATION.md).
 
 ### 2.7 Define uncertainty, multiplicity, and sensitivity
 

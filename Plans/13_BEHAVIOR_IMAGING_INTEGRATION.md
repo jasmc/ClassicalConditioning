@@ -15,8 +15,8 @@ canonical behavior identities
 This plan defines an active, parallel implementation track for experiments that
 contain both behavior and imaging. It extends the rules in
 [governance](../docs/maintenance/ANALYSIS_GOVERNANCE.md), the
-[proposed architecture](../docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md),
-and the [current pipeline guide](../docs/analysis/02_CURRENT_PIPELINE.md).
+[proposed architecture](../docs/analysis/reference/12-proposed-multimodal-architecture.md),
+and the [current pipeline guide](../docs/analysis/reference/02-current-pipeline.md).
 Earlier migration plans remain in Git history.
 
 The behavior-only pipeline remains authoritative for behavior. Imaging
@@ -172,7 +172,7 @@ The following implementation mechanisms must be replaced:
 ## 6. Final dependency architecture
 
 The complete architecture is diagrammed in
-[the analysis architecture](../docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md). The governing
+[the analysis architecture](../docs/analysis/reference/12-proposed-multimodal-architecture.md). The governing
 dependency direction is:
 
 ```text

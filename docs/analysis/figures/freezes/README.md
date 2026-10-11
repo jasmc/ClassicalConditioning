@@ -1,10 +1,12 @@
 # Scoped figure freeze index
 
+The accepted frozen versions define current. Start with [Current figures](../../../current-figures.md) for the readable summary; this index also retains superseded accepted freezes as history.
+
 Selection JSON files under `configs/paper-figures/selections/` are unchanged byte records. Exact locally available manifests/settings/code have been preserved under `records/frozen-analyses/`; [extraction provenance](../../../maintenance/archive/relocations.json) lists source and SHA-256. Numerical data, figures and embedded HTML archives are stored on JOAQUIM after verified transfer; historical paths remain recorded and are resolved through the archive map, not edited inside freezes.
 
 | Scope | Selection record | Scientific definition and evidence |
 |---|---|---|
-| Figure 1 A–D historical | `figure1-freeze.json` | Historical assembly/panel choices; not authority over newer E/F–H |
+| Figure 1 A–D current retained | `figure1-freeze.json` | Accepted A–D source panels; no later replacement is recorded for those scopes. Older E/F–H references inside this record do not override newer selections. |
 | Figure 1 F–H V1 historical | `figure1-fgh-version1-freeze-20261009.json` | Repeated bout-log medians and quantile scale; historical fish replacement recorded |
 | Figure 1 F–H corrections | `figure1-fgh-full-bout-correction-20261009.json` | Correction history; subsequently selects V12 |
 | Figure 1 F–H V12 | `figure1-fgh-version12-freeze-20261009.json` | Direct half-second log medians, bin baseline [-15,0), symmetric 0.7 scaling; 183 × 103.7 mm row; embedded manifest/code extracted unchanged |

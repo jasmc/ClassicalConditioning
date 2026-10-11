@@ -1,0 +1,11 @@
+{
+  "removed_paths": [
+    "Plans/05_LEARNER_METHOD_REVIEW.md",
+    "Plans/06_LEARNER_ANALYSIS.md",
+    "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md"
+  ],
+  "removed_bytes": 62307,
+  "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/learner-plan-consolidation/2026-10-11",
+  "total_payload_bytes": 62307,
+  "all_sources_pruned": true
+}

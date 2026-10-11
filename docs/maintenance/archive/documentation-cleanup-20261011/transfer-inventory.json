@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/documentation-cleanup/2026-10-11",
+  "files": [
+    {
+      "path": "docs/analysis/figures/reviews/IMPLEMENTATION_EVIDENCE_AT_CLEANUP.md",
+      "bytes": 766,
+      "sha256": "aa10193640362b7208b2c785207690c0fc098874cc86e941c64220b6e42adb46",
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Consolidate exact implementation snapshot into owning audit; preserve original scientific/status wording as dated evidence"
+    }
+  ]
+}

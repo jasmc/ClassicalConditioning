@@ -1,0 +1,2247 @@
+{
+  "files": [
+    {
+      "path": "docs/README.md",
+      "bytes": 835,
+      "sha256": "60faf9d9a1ff2acbbb10acbfa3ce2ea36d411c06c1b401e2b9a68354a3c96c12",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/01_USER_WORKFLOW.md",
+      "bytes": 4820,
+      "sha256": "963f6fe59601bc12326e2af583001299c2c2bb9fd96d4a613f3c216be10697c9",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/README.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/01_USER_WORKFLOW.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/02_CURRENT_PIPELINE.md",
+      "bytes": 5257,
+      "sha256": "df719be8e8743cef1c8a42d2036f447bf45c2f9c66585886fc2126be7415729e",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/README.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/02_CURRENT_PIPELINE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+      "bytes": 14655,
+      "sha256": "ffb1134b68f041bd6c7c276265ef1c9f76363904fb34659b1d9835cf7c1eed2e",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/07_LEARNING_ONSET_LME.md",
+        "docs/analysis/README.md",
+        "docs/analysis/04_DISCARDING_AND_SELECTION.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/04_DISCARDING_AND_SELECTION.md",
+      "bytes": 5643,
+      "sha256": "089df17f0a42dba2e124ca95008591c9dfd636b7f5703b4107014ecc7bbd2f55",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/decisions/DECISIONS.md",
+        "Plans/02_COHORT_IMPLEMENTATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/04_DISCARDING_AND_SELECTION.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/05_METRICS_AND_BOUTS.md",
+      "bytes": 6769,
+      "sha256": "707d456895cff5f4957e707bbca74590752d03a37235a298b703d794af66f1ff",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/08_CANDIDATE_FIGURES.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/legacy/03_LEGACY_VS_CORRECTED_WORKFLOW.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "Plans/12_TAIL_MECHANISTIC_ANALYSES.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/05_METRICS_AND_BOUTS.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/06_COHORT_AGGREGATION.md",
+      "bytes": 11276,
+      "sha256": "509094c734bca63bb3e144f5a57684d35977a682cf3bb83ee04b009a423d616b",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/README.md",
+        "docs/analysis/08_CANDIDATE_FIGURES.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/06_COHORT_AGGREGATION.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/07_LEARNING_ONSET_LME.md",
+      "bytes": 23469,
+      "sha256": "7745644866ec1c075da68a08a8862c1672d400ce588998147e6e237adfa3617d",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/README.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "Plans/04_LEARNING_ONSET_IMPLEMENTATION.md",
+        "Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md",
+        "Plans/03_ANALYSIS_AND_STATISTICS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/07_LEARNING_ONSET_LME.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/08_CANDIDATE_FIGURES.md",
+      "bytes": 13401,
+      "sha256": "089af138039c0bb109ad9a13818326693b4bc58e1938d6aaa9594a721091710d",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/08_CANDIDATE_FIGURES.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+      "bytes": 4019,
+      "sha256": "86476a87cb8fd4d17ce10286a651e05a0d62dab75b0d71efbaa342f425bc8ed0",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/10_TROUBLESHOOTING.md",
+      "bytes": 2403,
+      "sha256": "5243ee05cdd5d81991a754b2bcd4df1329f488cc2bd87a8b445cc437d80b203c",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/10_TROUBLESHOOTING.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/11_GLOSSARY.md",
+      "bytes": 1931,
+      "sha256": "b325d31ce5eb62c493620ce19b753261d8e1a591345d9064252d2bb7d89969f9",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/11_GLOSSARY.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md",
+      "bytes": 12914,
+      "sha256": "8e62bc21cdc126e6dddeb6dc72d865281dd1b54df256c1f06214af36efc9dfac",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/README.md",
+        "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md",
+      "bytes": 3069,
+      "sha256": "6b48acbb875c60a86917e2c63305c828a4a11f50ebd751da823a62d9a5317e50",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/cadence-review-v5-2026-10-07.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/FIGURE1_CAMERA_GAPS_AND_BIN_MAPPING_2026-10-06.md",
+      "bytes": 4947,
+      "sha256": "4bf4a2515fc4b046c20a7ae249a2723d43691e1ba3001390417ecd1c00daa9eb",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/audits/figure-01-camera-gaps-and-bin-mapping-2026-10-06.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md",
+      "bytes": 10012,
+      "sha256": "c6dd43adea8744b28cfdeb5aaf615235b0a03751e05868b4f3d98e84b3cda328",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/audits/figure-01-vigor-alignment-audit-2026-10-06.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/LEGACY_ACQUISITION_TIMING_REPAIR_2026-10-06.md",
+      "bytes": 6432,
+      "sha256": "670bc285ef997cba926eb19f1661176051a22af5717f257f80124c61a13758f3",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md",
+        "docs/analysis/FIGURE1_CAMERA_GAPS_AND_BIN_MAPPING_2026-10-06.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/audits/legacy-acquisition-timing-repair-2026-10-06.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/METRIC_SELECTION_2026-10-06.md",
+      "bytes": 4398,
+      "sha256": "0b974ba6bbc30274a17d0704562ca84ae9fd9f807a6de75820a3385862fd5de3",
+      "git_status": "tracked",
+      "role": "scientific decision and author approval record",
+      "consumers": [
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/05_METRICS_AND_BOUTS.md",
+        "docs/analysis/decisions/DECISIONS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+        "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md",
+        "configs/paper-figures/behavior-paper.json"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/decisions/metric-selection-2026-10-06.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/PANEL_E_PRESENTATION_REVIEW_2026-10-07.md",
+      "bytes": 16551,
+      "sha256": "05015f890865562e1facac051e9dfa2db2156be5d567e2299349437030d074d4",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "scripts/prepare_panel_e_heatmap_rows_freeze.py"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md",
+      "bytes": 19440,
+      "sha256": "fa90b5aaa02493696f57da47dc373bd44b837001de8d2ed63539dae7b304c5a7",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/audits/preprocessing-contract-audit-2026-10-07.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/README.md",
+      "bytes": 2903,
+      "sha256": "882d5f90759a22d8719dc9dabdfae349ce650d896fa3776bca0033aa4755c6bb",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/SSD_OUTPUT_LOCATION.md",
+      "bytes": 1631,
+      "sha256": "beda75c307603b045c016fd2b9085be8c2024f924ef3bbf3bc5ac9221530a75c",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/maintenance/transfers/history/repository-output-mirror-2026-10-06.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+      "bytes": 22538,
+      "sha256": "b327bf5751fc0f2c5402ca792dcf6288146c5cce3f53e93aa5c14b2777b2f983",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/analysis/audits/02_ISSUE_REGISTER.md",
+        "docs/analysis/audits/README.md",
+        "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/decisions/DECISIONS.md",
+        "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md",
+        "Plans/05_LEARNER_METHOD_REVIEW.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/02_ISSUE_REGISTER.md",
+      "bytes": 9653,
+      "sha256": "a76b4bb1d083608272c61cd723ed0a4ff1570cf37106d357777153733a6d5c80",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/analysis/audits/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/02_ISSUE_REGISTER.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md",
+      "bytes": 25437,
+      "sha256": "5c8ed23dd5e64f6fcdd929c220a02851af808fda3c2d691df2af7b940499690f",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md",
+        "docs/analysis/audits/README.md",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+      "bytes": 11332,
+      "sha256": "72665eb672936c940009430079039de57ed98c3672a6804a5bca670a1ad055a5",
+      "git_status": "untracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv",
+      "bytes": 9585,
+      "sha256": "e281746b51a24d97dcc191825031787711ed504eaa784909fcc5e3f30feec7b2",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "Plans/02_COHORT_IMPLEMENTATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md",
+      "bytes": 1430,
+      "sha256": "ed00d02efb7f0914b42253659eb19e26d70252fe07718e950b2fc51fbfd31fb5",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/README.md",
+      "bytes": 408,
+      "sha256": "22bdb97fe910ec6e668204fca2c81fce0fb934660a94d05a6227f5c2eae352fe",
+      "git_status": "tracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+      "bytes": 20022,
+      "sha256": "b10e40fa395cffdd8e6868c0c126eec18ed86370789624c2444896236d65d089",
+      "git_status": "untracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/inc-trace-stim-audit.json",
+      "bytes": 19874,
+      "sha256": "cbccbe2de619aa2ae5d1318af18908c7b541a1f0437b27a459584449f6f33fbe",
+      "git_status": "untracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "scripts/audit-inc-trace-stim.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/inc-trace-stim-audit.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/technical-cohort-column-schema.md",
+      "bytes": 1163,
+      "sha256": "cf01359f8aeff673279562149358e7f1c160412341ad24c777dcfa763f77b121",
+      "git_status": "untracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/technical-cohort-column-schema.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/audits/trace-preflight.json",
+      "bytes": 11205,
+      "sha256": "3ad4448c99b909ebb8b703a0f0cb87b7939898e3ed88c3dcbc3f5dfdb823ea46",
+      "git_status": "untracked",
+      "role": "dated audit evidence or schema",
+      "consumers": [
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+        "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+        "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+        "scripts/prepare-trace-runs.py",
+        "tests/test_trace_preparation.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/trace-preflight.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+      "bytes": 2147,
+      "sha256": "d993e1dda672a39c9f875557e13561d0ba3348bd414b6a98851e58e7569030d0",
+      "git_status": "tracked",
+      "role": "scientific decision and author approval record",
+      "consumers": [
+        "docs/analysis/decisions/DECISIONS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/decisions/DECISIONS.md",
+      "bytes": 14158,
+      "sha256": "d06f40341cd2b74b5333895ad7cd5e22cc8f3782a37fe870929e9b19c5231ac5",
+      "git_status": "tracked",
+      "role": "scientific decision and author approval record",
+      "consumers": [
+        "docs/analysis/05_METRICS_AND_BOUTS.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+        "docs/maintenance/transfers/MAC_SSD_20261009.md",
+        "src/classical_conditioning/ingestion/tracking_audit.py",
+        "src/classical_conditioning/analysis/inference/mixed_effects.py",
+        "Plans/06_LEARNER_ANALYSIS.md",
+        "Plans/04_LEARNING_ONSET_IMPLEMENTATION.md",
+        "Plans/05_LEARNER_METHOD_REVIEW.md",
+        "Plans/README.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/decisions/DECISIONS.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+      "bytes": 16776,
+      "sha256": "43f5a46f58de685997724b8734d23cddbbac6c32b9559f3b0814036e386ad873",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/README.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+      "bytes": 14185,
+      "sha256": "add621b770049ea13f250368fc60ca807562ca45dd0086950ebadf619153f6ed",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/README.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+        "configs/paper-figures/behavior-paper.json",
+        "Plans/11_SUPPLEMENTARY_FIGURES.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+      "bytes": 9087,
+      "sha256": "824b8b852333d1e73a7555dc8e699531a0718908fe3509203b8619d150cc0c42",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/08_CANDIDATE_FIGURES.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+      "bytes": 16198,
+      "sha256": "99556b9a798848e19d6155b5b3a0cf2f25803ee3d0790eb0d6c0e19f9f326bd3",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "configs/paper-figures/behavior-paper.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+      "bytes": 14618,
+      "sha256": "f23b76e570eeceee00c70a35e8a7ddd5d68ecf0f601b963e1d4d32178e53f6db",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/05_DRAFT_COMPARISON.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md",
+      "bytes": 5473,
+      "sha256": "0a303e3f66971c473b3da0a844bc35d8f1a692360ea1e8b94aa479caf390b14d",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/08_CANDIDATE_FIGURES.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/maintenance/transfers/FIGURE4_TRANSFER.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md",
+      "bytes": 10447,
+      "sha256": "7c87c592d392c8475ef5cedde692c6ed985d63f858c421d70105d2a84485bd1a",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/BASELINE_WINDOW_REVIEW.md",
+      "bytes": 6375,
+      "sha256": "b3910661e052e1a866b420472b88e1f1ffbf96c31a04212ebddc88a66bf22333",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/README.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/shared/baseline-window-review.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/DELAY_FIGURE4_READINESS_2026-09-24.md",
+      "bytes": 4634,
+      "sha256": "6ce67fe122584b0775d3605dcbf8e179744a9f1d96e9544f85baaa9ab2be4562",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/README.md",
+        "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+        "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-04/delay-readiness-2026-09-24.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+      "bytes": 8814,
+      "sha256": "6bbc4ec687518394a707585261830b7be7564021701bdf746c8048bf16c2f0d2",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/FIGURE1_ASSEMBLY.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+      "bytes": 5716,
+      "sha256": "1e1bf828f1420012615bc1609be758d4c0090215a58dfb4a915ef46f8b80128b",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/README.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/trace-variants.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_HEATMAPS.md",
+      "bytes": 4393,
+      "sha256": "55b4206477cc73bdc841f224a66222531a791da7a3c7991e713d47330bbd2729",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/FIGURE1_ASSEMBLY.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/heatmap-review-history.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_PANEL_B_REDESIGN.md",
+      "bytes": 7664,
+      "sha256": "026a5e051815cfd84082d417549eb2842c7b814f39232955dbb476777c24f2dd",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/panel-b-redesign-history.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE1_PANEL_C_REDESIGN.md",
+      "bytes": 8440,
+      "sha256": "ec55a30af90be9bc143f8363c90f44c0c0b28f389bef35ebbb2c276bbb45ec5d",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/panel-c-redesign-history.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_ALL_VERSIONS_2026-10-09.md",
+      "bytes": 9979,
+      "sha256": "c27121faae4c72a5a95482177cc48188a6526de49c7d9533e449e3c52c6c8737",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-02/delay-all-versions-2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md",
+      "bytes": 8205,
+      "sha256": "12ad0bec73506056b4ebc3b9d4687b55dfb9421859f2c4fd833e570b942af771",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+        "docs/analysis/figures/FIGURE2_DELAY_PHASE_LMM_2026-10-09.md",
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+      "bytes": 8241,
+      "sha256": "0adee354004884c6ae88ec2a28cd3de00964fd1b77def213986b44affbba3c1e",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_LMM_AUDIT_2026-10-09.md",
+      "bytes": 8177,
+      "sha256": "8cb1a7995836180eb2e7450f9f074f8f6af076ae5c66bcd9d2c9c42fc5f6a32d",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md",
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-02/delay-lmm-audit-2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_PHASE_LMM_2026-10-09.md",
+      "bytes": 8844,
+      "sha256": "08e0a37e999a0446130f025a8820ca4fd54772d5d1fe7117fd5619493ad99163",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-02/delay-phase-lmm-2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md",
+      "bytes": 9562,
+      "sha256": "4ba1abe3549bda086ed060f31e992bb2e5d94bbe07a064780427862a334456e5",
+      "git_status": "tracked",
+      "role": "scientific decision and author approval record",
+      "consumers": [],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/decisions/figure-02-row-3-decisions-2026-10-08.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "bytes": 29094,
+      "sha256": "35b9dcfe4ec61cfe5b49672dd751e72ba24856e04c111e2c7cdbb2a77f637e9e",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/decisions/DECISIONS.md",
+        "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+        "configs/paper-figures/figure-elements.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/README.md",
+      "bytes": 3290,
+      "sha256": "6faf7e3dc4a21490bb0825b1a8ddb7f1e493b1c887499243258569a4b5b308e0",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+      "bytes": 4834,
+      "sha256": "1a4c5c71d7a9392fd17831f2af99b516e5c8e7efec9f5995a869958af9c8bc19",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/decisions/DECISIONS.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/TRACE3_EXPLORATORY_RUN_2026-09-24.md",
+      "bytes": 4993,
+      "sha256": "cf0848a433b004c9f51cee7f04e772754be68b7346ef354d10c6b8c5fd68378a",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md",
+        "docs/maintenance/transfers/FIGURE4_TRANSFER.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/shared/trace3-exploratory-run-2026-09-24.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md",
+      "bytes": 3703,
+      "sha256": "729534817143967aa323ecfb02342881bd567ffb7dc4f0052e0ff5ee500eb3d6",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/reviews/review-variants.json"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/shared/trace3-plot-versions-2026-10-06.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+      "bytes": 6666,
+      "sha256": "531b903b8f32602fa05b9f39ee6c691f285051869e0f6a2bc34a1b1166410588",
+      "git_status": "tracked",
+      "role": "accepted freeze narrative and scope index",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/decisions/DECISIONS.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+      "bytes": 7242,
+      "sha256": "1e4950c4fec7bc84cc25ea7a9af9769fe11eeff45082aa899d6a261ab1a0dd07",
+      "git_status": "tracked",
+      "role": "accepted freeze narrative and scope index",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+      "bytes": 16579,
+      "sha256": "206ac5f184e70f5b5fc3a984ba7d2381bae4829b2b3f9531b2b8024764ef34e9",
+      "git_status": "tracked",
+      "role": "accepted freeze narrative and scope index",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/maintenance/transfers/MAC_SSD_20261009.md",
+        "scripts/prepare_figure1_fgh_v12_freeze.py",
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/README.md",
+      "bytes": 3219,
+      "sha256": "29888c90d303c130b7dfcb5724fb2e0d0191c5b9648f268925ea83fddb1d4395",
+      "git_status": "tracked",
+      "role": "accepted freeze narrative and scope index",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/freezes/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md",
+      "bytes": 15472,
+      "sha256": "5e16a5f25dc3c0f9b536653f322c2a7b28f3b560476e2ffac211fa171d863d28",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/fgh-analysis-assessment-2026-10-08.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+      "bytes": 16975,
+      "sha256": "42963a19aff737a055839cbd60ef8aa00f8f1807c7b8fb2a4e7d463ef42cf89a",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+        "scripts/prepare_figure1_fgh_v12_freeze.py"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/fgh-colour-and-binning-history-2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md",
+      "bytes": 18730,
+      "sha256": "cc96995afc441a7a042ed9e3651bf280108051f1b7e5c31f20311290e9b9ae94",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/history/figure-01/fgh-requested-corrections-2026-10-09.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/IMPLEMENTATION_EVIDENCE_AT_CLEANUP.md",
+      "bytes": 766,
+      "sha256": "aa10193640362b7208b2c785207690c0fc098874cc86e941c64220b6e42adb46",
+      "git_status": "tracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md",
+      "reason": "Exact body integrated in owning audit; original file verified externally before removal",
+      "action": "consolidate_then_archive",
+      "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/documentation-cleanup/2026-10-11"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+      "bytes": 40578,
+      "sha256": "a1a73d67cf60d75fc208e0ae9cf81085c10db989059f902716f3e2a924b33a4b",
+      "git_status": "tracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+        "docs/analysis/decisions/DECISIONS.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+        "Plans/03_ANALYSIS_AND_STATISTICS.md",
+        "Plans/README.md",
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+      "bytes": 6616,
+      "sha256": "e4dec6e44ffa4a7629f7f401a2ebc9c7350a75d63e3f16dcd283e2d038cd9cdc",
+      "git_status": "tracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "Plans/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01-legend-draft.md",
+      "bytes": 3077,
+      "sha256": "cb4b5b0ab258f74a1a7ce13ab53095f07b6fe17d18a5fc1aaa3365227c4db7be",
+      "git_status": "untracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "docs/analysis/figures/reviews/legend-text-relocation.json",
+        "docs/analysis/figures/reviews/legend-decluttering-review.md",
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-02-legend-draft.md",
+      "bytes": 4028,
+      "sha256": "ec88d03534118de3c63fa125597074a8ee2a3a3f6f67694c2b2d748db7811df7",
+      "git_status": "untracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "docs/analysis/figures/reviews/legend-text-relocation.json",
+        "docs/analysis/figures/reviews/legend-decluttering-review.md",
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "relocate_within_repository",
+      "destination": "docs/analysis/figures/reviews/figure-02/legend-draft.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "relocate_within_repository"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/legend-decluttering-review.md",
+      "bytes": 2924,
+      "sha256": "391fd838cdba9f1912b8538097bf03042562aadc5c53aea96d219df20084536f",
+      "git_status": "untracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "docs/analysis/figures/reviews/legend-text-relocation.json",
+        "scripts/build_figure_legend_review.py",
+        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/legend-review-verification.json",
+      "bytes": 1253,
+      "sha256": "38883a585c9b04aad03abccd4409dcaf6a38d6f7b6c459ea8e7e4e1128c657b4",
+      "git_status": "untracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/reviews/legend-review-verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/legend-text-relocation.json",
+      "bytes": 23234,
+      "sha256": "08bdb88112a2eca215a6a7be31c64eba533fd84db7cf2c27cf00f12106abda01",
+      "git_status": "untracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "docs/analysis/figures/reviews/legend-decluttering-review.md",
+        "scripts/build_figure_legend_review.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/reviews/legend-text-relocation.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/review-variants.json",
+      "bytes": 17376,
+      "sha256": "89184b63cd37335a1b89b191a062429c274291571c470f3ee79116bd6c34b5ef",
+      "git_status": "untracked",
+      "role": "review agenda, concerns or draft legend",
+      "consumers": [
+        "docs/analysis/08_CANDIDATE_FIGURES.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md",
+        "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "configs/README.md",
+        "configs/paper-figures/behavior-paper.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/figures/reviews/review-variants.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+      "bytes": 39606,
+      "sha256": "2bf42fa9d2ea7debc935eb5b1751a24b09a74064bda38bf9afe14fad8bebf6da",
+      "git_status": "tracked",
+      "role": "historical executable-route reference",
+      "consumers": [
+        "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+        "docs/analysis/legacy/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+      "bytes": 10716,
+      "sha256": "fd2454dc7d81d0fa09da9685f773df1c62ce3a06d0a9d1f2ad7d149c1e073f05",
+      "git_status": "tracked",
+      "role": "historical executable-route reference",
+      "consumers": [
+        "docs/analysis/legacy/README.md",
+        "docs/analysis/decisions/DECISIONS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/legacy/03_LEGACY_VS_CORRECTED_WORKFLOW.md",
+      "bytes": 5337,
+      "sha256": "db5146da1a0c2e986762613124de0de39d26528df774a7861a43e3fedf6bd7d5",
+      "git_status": "tracked",
+      "role": "historical executable-route reference",
+      "consumers": [
+        "docs/analysis/legacy/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/legacy/03_LEGACY_VS_CORRECTED_WORKFLOW.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md",
+      "bytes": 5180,
+      "sha256": "7ef8c201fb645de546a81db9d2304bfd69246332b0c8a5c6d6f071a123fe1380",
+      "git_status": "tracked",
+      "role": "historical executable-route reference",
+      "consumers": [
+        "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+        "docs/analysis/legacy/README.md",
+        "Plans/05_LEARNER_METHOD_REVIEW.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/legacy/05_LEGACY_LEARNER_COMPARISON.md",
+      "bytes": 3370,
+      "sha256": "7e23e8395b2894f01743b2f659c806f2ab83ebac1acf986564680c9cbbf33808",
+      "git_status": "tracked",
+      "role": "historical executable-route reference",
+      "consumers": [
+        "docs/analysis/legacy/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/legacy/05_LEGACY_LEARNER_COMPARISON.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/analysis/legacy/README.md",
+      "bytes": 458,
+      "sha256": "534e85648ae2d004a0287034c776d36cd72ccf71901b09c8f66953292fc0230e",
+      "git_status": "tracked",
+      "role": "historical executable-route reference",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/analysis/legacy/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/01_REPOSITORY_GUIDE.md",
+      "bytes": 2995,
+      "sha256": "fd1ac97e013c7dee38f97c1ac4e255f66e78c819494af987e73dd9bc633147fa",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/01_REPOSITORY_GUIDE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+      "bytes": 5895,
+      "sha256": "8892dbaa1863b2f9c8f5fa8f23226d946782435d70e7f6d8c8393b7969f8a165",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "Plans/README.md",
+        "Plans/01_PAPER_BASELINE_AND_INPUT_VALIDATION.md",
+        "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "bytes": 500577,
+      "sha256": "0ac50985a1200fa898a17d8cbc1aef298e395d58ee5191958066e64edf6d5ffd",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+        "docs/analysis/decisions/DECISIONS.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+        "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+        "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/CLEANUP_RECORD.md",
+      "bytes": 5407,
+      "sha256": "4cd3b502215bd62ecba8bda090686c5e10aa12db4c1a00699ff7956aee9475cb",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/CLEANUP_RECORD.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/README.md",
+      "bytes": 4969,
+      "sha256": "e77da4050b9d4c32b4bc06e16aaeb84626d8042c61c9a2f6c26828a111ae4430",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/REQUEST_CONTEXT_20261010.md",
+      "bytes": 5523,
+      "sha256": "16698fa2298b39238b7a692c0b36ec914dc55632e3ff49dc6c054191b1fcefdd",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/REQUEST_CONTEXT_20261010.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/REVIEW_CATALOGUE.md",
+      "bytes": 2151,
+      "sha256": "0376485b3e9599a81d732acaf337cfa8674f361600682d10e9db7f4e06718015",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/REVIEW_CATALOGUE.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/completed-transfer.json",
+      "bytes": 205012,
+      "sha256": "bec5637c6ee6cac9ff3b5541bf9a83a216591965d13e614829ca77307b38480a",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "scripts/repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/completed-transfer.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/README.md",
+      "bytes": 2192,
+      "sha256": "64a8b4a81933b56145df6baad90819cb8d654d7dddc301afaf270d23bfbb0fbe",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/completed-transfer.json",
+      "bytes": 307,
+      "sha256": "b7f4338a6639b0482c543ed35dbdec1b003d7cdbc41199eb5b1a52f22654c62d",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "scripts/repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/completed-transfer.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/documentation-link-audit.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/documentation-link-audit.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-inventory.json",
+      "bytes": 6757,
+      "sha256": "5f403d3978ad1ede82e681340b8bc0c24d881eaf7687b581c2dd4e532346cfd1",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-inventory.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-verification.json",
+      "bytes": 182,
+      "sha256": "68953ef337b63ce3a052422066332d7964b608a7703867393d94dd38e5bb05f2",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/protected-hashes.json",
+      "bytes": 16062,
+      "sha256": "e59690222ba6f191e265c75d13f45a259b0ea2354b79f1d98b359b2f3c627cb8",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/protected-hashes.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/repository-moves.json",
+      "bytes": 871,
+      "sha256": "3e93ca1f412a8b752bbe5cf54abffa7af0960ce5ca93004ce8e6359cc24119a4",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/repository-moves.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/retained-configurations.json",
+      "bytes": 5011,
+      "sha256": "6e1136a173db1b2d7637c61f30fb8cac410a003d01081d3663b64e1b5c0b7098",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/retained-configurations.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/selection-reference-verification.json",
+      "bytes": 8043,
+      "sha256": "909efec1fab0c46078b9c305bb49fe788458930ecb2d764411e5a09ebfc6f62c",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/selection-reference-verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/transfer-inventory.json",
+      "bytes": 956,
+      "sha256": "20e8598bf52870f26a5cb21bb57c816335d314134a235781ba7bb8a469900c70",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/technical-cohort-column-schema.md",
+        "src/classical_conditioning/external_artifacts.py",
+        "scripts/repository_archive.py",
+        "tests/test_repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/transfer-inventory.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/verification.json",
+      "bytes": 713,
+      "sha256": "04d15377230697e3f2127038b5f5c4d4e2811d5eb3e989cc8b86a2b6045375fa",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "scripts/review_figure2_block_log_median.py",
+        "scripts/verify_figure2_bout_only_review.py",
+        "scripts/repository_archive.py",
+        "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-cleanup-20261011/verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-pointer-discrepancies-20261011.json",
+      "bytes": 6403,
+      "sha256": "f0e470055975418494e587122471a67aca9bd798301d007cc35a63a72f2ca08d",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/configuration-pointer-discrepancies-20261011.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/deletions.json",
+      "bytes": 641,
+      "sha256": "5e1c60248e49ddfa5c6b8275f51f25d4c78687fe062c08808a134f296fba9182",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/deletions.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/historical-link-recovery.json",
+      "bytes": 2135,
+      "sha256": "e4bf2a73329679ebbca46fb70726b17ff738b29f97c354d8f0f7205a892db6ba",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/historical-link-recovery.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/post-transfer-link-audit.json",
+      "bytes": 294,
+      "sha256": "f6d2c5ac1bccb2c26d7487fdf39d644b0e2040eda262e251844f129bb71536f2",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/post-transfer-link-audit.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/post-transfer-repository-inventory.json",
+      "bytes": 153716,
+      "sha256": "eac6d5744b3ae59d10c641696aa5fac3497ce00ff47ae31e90861a23daf0ceaf",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/post-transfer-repository-inventory.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/records-reorganization-before.json",
+      "bytes": 27750,
+      "sha256": "4600b2ae9749095a95feb3d0eceab6c1bcf12f3c4e3f7222bfc909aa8dc588fc",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/records-reorganization-before.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/records-reorganization-verification.json",
+      "bytes": 293,
+      "sha256": "ae9905303765eed97f8a40d2e25db394c729b7e036b34a1e7799658e8ff2caea",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/records-reorganization-verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/records-reorganization.json",
+      "bytes": 29826,
+      "sha256": "3a7c68e1fe481ad0fc488371e2c5eb395710cc401faa5b8d95c03ad648dad3eb",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/records-reorganization.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/relocations.json",
+      "bytes": 52837,
+      "sha256": "a563bb101f6602952b076436a25aa01431f7c302d783eeda3776ecfe67ed14c9",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/figures/freezes/README.md",
+        "src/classical_conditioning/external_artifacts.py",
+        "scripts/repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/relocations.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/retained-code.json",
+      "bytes": 10395,
+      "sha256": "c51bee589b6c0376a021fa5ccf0fe7adf7a94404ed4da77a3aadd55e1380c872",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "scripts/repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/retained-code.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/review-lineages.json",
+      "bytes": 1981,
+      "sha256": "744b8f2f14298fc1ab1d240a6a590b15977d7992fdaa6b569aa098598f808d5e",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/review-lineages.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/README.md",
+      "bytes": 17607,
+      "sha256": "e5faa1f780c6e613fe94ab72b952e41ad6f2401345f4d7c9089b65776181b0e6",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-cleanup-20261010/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/completed-transfer.json",
+      "bytes": 2230,
+      "sha256": "fc1c1b1621acd6d876b68793965c6d38e440fbce8de0926fe072db64fed69e86",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "scripts/repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-cleanup-20261010/completed-transfer.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/current-retained-scripts.json",
+      "bytes": 14140,
+      "sha256": "d605e4eb473ff54f494eaf9d94530c5888a1c72f85fd1b68618c18afa3679d93",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-cleanup-20261010/current-retained-scripts.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/transfer-inventory.json",
+      "bytes": 105685,
+      "sha256": "6846b90c1398f02ad89bd14f78f8a7b82693798896160536d0948455e191b77f",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/technical-cohort-column-schema.md",
+        "src/classical_conditioning/external_artifacts.py",
+        "scripts/repository_archive.py",
+        "tests/test_repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-cleanup-20261010/transfer-inventory.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/verification.json",
+      "bytes": 689,
+      "sha256": "a1e2ed401fd3c7f42b703469e0184d083a04818113c743d08ed9c7b8ec0c1dc2",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "scripts/review_figure2_block_log_median.py",
+        "scripts/verify_figure2_bout_only_review.py",
+        "scripts/repository_archive.py",
+        "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-cleanup-20261010/verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/README.md",
+      "bytes": 2039,
+      "sha256": "6937cb43abccd2234636961fad9716ae35fbf3fc10e398cc6cef654e48e5cf8a",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/README.md",
+        "docs/analysis/01_USER_WORKFLOW.md",
+        "docs/analysis/README.md",
+        "docs/analysis/02_CURRENT_PIPELINE.md",
+        "docs/analysis/09_OUTPUT_AND_PROVENANCE.md",
+        "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md",
+        "docs/maintenance/01_REPOSITORY_GUIDE.md",
+        "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/03_FIGURE_PIPELINES.md",
+        "docs/analysis/figures/04_REVIEW_VARIANTS.md",
+        "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+        "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md",
+        "docs/analysis/figures/freezes/README.md",
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+        "scripts/README.md",
+        "scripts/repository_archive.py",
+        "configs/README.md",
+        "Plans/README.md",
+        "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-reassessment-20261011/README.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/completed-transfer.json",
+      "bytes": 345,
+      "sha256": "4ed1b8fcf7769f06aae28a80b72b51b4da80326d256fc1d1df9a7632b426a760",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "scripts/repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-reassessment-20261011/completed-transfer.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/transfer-inventory.json",
+      "bytes": 31342,
+      "sha256": "3fe5072d1449ed3300e532a7f08e1824724a25b59d7f0c956a2486fa9a6327e0",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/technical-cohort-column-schema.md",
+        "src/classical_conditioning/external_artifacts.py",
+        "scripts/repository_archive.py",
+        "tests/test_repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-reassessment-20261011/transfer-inventory.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/verification.json",
+      "bytes": 445,
+      "sha256": "5ce8c5338bb68d5415817173bd49a14e7e2d5b12dcb0ba57a84be313071ba014",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "scripts/review_figure2_block_log_median.py",
+        "scripts/verify_figure2_bout_only_review.py",
+        "scripts/repository_archive.py",
+        "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/scripts-reassessment-20261011/verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/ssd-readonly-inspection.json",
+      "bytes": 747,
+      "sha256": "f67a6b0787ed92d66d118e8390b5e6592db3df07c31c4075f8a5c554a6a558de",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/ssd-readonly-inspection.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/starting-inventory.json",
+      "bytes": 599788,
+      "sha256": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "scripts/repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/starting-inventory.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/transfer-inventory.json",
+      "bytes": 2829763,
+      "sha256": "e718dfcb14debaf9241f1dd1b9232e6dcee7b77e221e0a6e6cd96133f94c3b9d",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md",
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/technical-cohort-column-schema.md",
+        "src/classical_conditioning/external_artifacts.py",
+        "scripts/repository_archive.py",
+        "tests/test_repository_archive.py"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/transfer-inventory.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/verification.json",
+      "bytes": 1441,
+      "sha256": "4a892dfa55cb929cea0b83b3410268946d2b039c7f645a52afaa5630a0965f21",
+      "git_status": "tracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+        "scripts/review_figure2_block_log_median.py",
+        "scripts/verify_figure2_bout_only_review.py",
+        "scripts/repository_archive.py",
+        "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/verification.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/archive/verified-artifact-locations.json",
+      "bytes": 6951,
+      "sha256": "42fea62b34bace6d3c14adc872c7bdd35a69dc1bf265066ad6995cea3ff659ce",
+      "git_status": "untracked",
+      "role": "archive control, provenance or recovery index",
+      "consumers": [
+        "src/classical_conditioning/external_artifacts.py",
+        "tests/test_repository_archive.py",
+        "configs/README.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/archive/verified-artifact-locations.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+      "bytes": 9591,
+      "sha256": "a91f70b17108c304df1c12a6f6864842c2441f4b36ce98cb2e48b8a38b68c15e",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+        "docs/analysis/figures/README.md",
+        "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/transfers/MAC_SSD_20261009.md",
+      "bytes": 6387,
+      "sha256": "769771b07c778c8c467bbf8c4eb5221c7987d0a673d5cc88a773621fb3269571",
+      "git_status": "tracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/transfers/MAC_SSD_20261009.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+      "bytes": 11669,
+      "sha256": "ace2a89a6d36b2f732bbe4948bde5b520a9d2c6ebe629dcee946dc8725aba76f",
+      "git_status": "tracked",
+      "role": "dated scientific/version/transfer evidence; not current execution authority",
+      "consumers": [
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    },
+    {
+      "path": "docs/maintenance/transfers/increasing-trace-move-manifest.json",
+      "bytes": 5676,
+      "sha256": "6badc984a0d33639daef904f4d991faf6de62b7df5b7690e31b20ed9b2d2b5eb",
+      "git_status": "untracked",
+      "role": "current guide or specialist reference",
+      "consumers": [
+        "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+        "docs/analysis/audits/configuration-inventory-2026-10-11.json"
+      ],
+      "proposed_action": "retain",
+      "destination": "docs/maintenance/transfers/increasing-trace-move-manifest.json",
+      "reason": "Keep unique definitions, limitations, approvals and provenance; organize by document role, not age",
+      "action": "retain"
+    }
+  ]
+}

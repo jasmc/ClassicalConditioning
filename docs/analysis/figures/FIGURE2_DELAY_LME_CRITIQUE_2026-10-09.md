@@ -2,7 +2,7 @@
 
 **Superseded for the selected Delay review:** the run described below used
 all valid frames. The author subsequently required bout-only frames. See
-[bout-only correction and historical log audit](FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md)
+[bout-only correction and historical log audit](history/figure-02/delay-bout-only-comparison-2026-10-09.md)
 for fresh results and the distinction between raw mean-ratio and historical
 LogMedian pipelines. The previous results are retained as provenance.
 

@@ -952,5 +952,11 @@
       "text": "Provisional descriptive ratio; no inferential marks",
       "panel_note": true
     }
-  ]
+  ],
+  "authority_note": "Historical base layout/source scaffold. Newer scoped selections take precedence; this configuration alone does not reproduce the current frozen panels.",
+  "current_selection_overlays": [
+    "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+    "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json"
+  ],
+  "current_assembly_tool": "scripts/update_latest_figure_assemblies.py"
 }

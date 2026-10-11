@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/learner-plan-consolidation/2026-10-11",
+  "files": [
+    {
+      "path": "Plans/05_LEARNER_METHOD_REVIEW.md",
+      "bytes": 13672,
+      "sha256": "7406a2ceb1a0e1b782bc81c93d9e718c76bcd043ca0fb61c7d3b58f85859b482",
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Pre-consolidation source retained exactly; unique requirements transferred to merged plan and technical documentation"
+    },
+    {
+      "path": "Plans/06_LEARNER_ANALYSIS.md",
+      "bytes": 13064,
+      "sha256": "3e6933d4d714fc585cbc126fd62c7feebba7be1509aa1a4b6e514cf3ca0f26d6",
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Pre-consolidation source retained exactly; unique requirements transferred to merged plan and technical documentation"
+    },
+    {
+      "path": "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md",
+      "bytes": 35571,
+      "sha256": "afbb40a32384701148be3dcf9bcb4e9152aca856752975675848f8f510aa433d",
+      "action": "archive_to_ssd",
+      "state": "pending_transfer",
+      "reason": "Pre-consolidation source retained exactly; unique requirements transferred to merged plan and technical documentation"
+    }
+  ]
+}

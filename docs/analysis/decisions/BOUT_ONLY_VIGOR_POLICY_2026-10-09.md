@@ -12,4 +12,4 @@ Compatibility column names `baseline_total_activity`, `response_total_activity` 
 
 The active D/E comparison offers two estimators of bout intensity: arithmetic-mean ratio and legacy-style log-median difference. This instruction approves their shared sampling rule, not a final A/B selection, new panel freeze, or new whole-figure freeze. F has no authenticated inputs.
 
-[Updated panel review](../figures/reviews/PANEL_REVIEW_COMMENTS.md) · [active comparison](../../maintenance/archive/ARTIFACT_INDEX.md#artifact-d997da3311ab).
+[Updated panel review](../../panel-review.md) · [active comparison](../../maintenance/archive/ARTIFACT_INDEX.md#artifact-d997da3311ab).

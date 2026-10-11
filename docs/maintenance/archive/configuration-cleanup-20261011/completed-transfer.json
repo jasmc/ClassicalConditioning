@@ -1,0 +1,9 @@
+{
+  "verified_files": 2,
+  "removed_paths": [
+    "configs/allDelay-full-v1-cohort.csv",
+    "configs/paper-figures/figure1-cadence-review-v5.json"
+  ],
+  "removed_bytes": 16163,
+  "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/superseded-and-cohort"
+}
