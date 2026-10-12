@@ -1,0 +1,188 @@
+{
+  "date": "2026-10-12",
+  "scope": "Figure workspace tooling and task-created intermediate outputs only; no historical freeze cleanup",
+  "improvements": {
+    "separate_current_frozen_and_draft": true,
+    "native_editable_svg": true,
+    "shorter_agents_rules_and_linked_workflow": true,
+    "final_svg_measurement": true,
+    "pre_edit_ticket_and_guarded_publication": true
+  },
+  "semantic_registry": {
+    "copied_scientific_elements": 276,
+    "verified_colorbar_mappable_links": 16,
+    "structural_handles": 1940,
+    "legacy_A_D_semantics": "No invented role assignments; explicit classification required for new freeze"
+  },
+  "verification": {
+    "targeted_tests": 46,
+    "freeze_gate_tests_included": true,
+    "draft_tick_spine_findings_before": 37,
+    "draft_tick_spine_findings_after": 0,
+    "frozen_records_unchanged": 70,
+    "Figure2": "authenticated reviewed SVG bytes carried forward exactly",
+    "freeze_performed": false
+  },
+  "dispositions": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v1.svg",
+      "sha256": "2ed7797fd79a1415bca001269a4da63cab358cafd4470b037c3989fee8616d1a",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-draft-working-2026-10-12-v1.svg",
+      "sha256": "9ab77e8da13e8c9e111b8ac572d23ccbc937d545259e03d44591b6a83bd68c6e",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v2.svg",
+      "sha256": "6c3bfceb89a7a7a398a2785a194ad4ca2c8464bd64bdf640cefc7f988db1e108",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-draft-working-2026-10-12-v2.svg",
+      "sha256": "6908cfbbf7c6005d1e7246fba10098bc47929a5f537e5902263072603d8012af",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v3.html",
+      "sha256": "9dbbcbff34295d85b0e9189f16a5567fdfad096acd8cfbbd647e88b9c8f0e257",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v3.svg",
+      "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v4.html",
+      "sha256": "6a0398140f3badc8abcb29fe2e664de7923a41a88d80503b6186a2dbaf864027",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v4.svg",
+      "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+      "action": "deleted",
+      "reason": "Task-created unaccepted intermediate or duplicate working export; exact selected frozen sources and current reviewed copies remain authenticated",
+      "canonical_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+        "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25"
+      },
+      "canonical_frozen_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+        "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+        "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+      },
+      "canonical_draft_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+        "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+        "source_svg_sha256": "7378b68096949469f69389b019a7a58225e8c14c12b5d31a3394f25188988dd4"
+      }
+    }
+  ]
+}

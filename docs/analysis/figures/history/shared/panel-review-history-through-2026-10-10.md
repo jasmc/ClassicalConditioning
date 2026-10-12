@@ -167,18 +167,18 @@ each remaining panel, linking the applicable analysis evidence.
 ## Figure 3
 
 Add individual panel entries as learner-method and validation questions are
-reviewed. Follow [the unified learner plan](../../../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md). No new panel-specific inference
+reviewed. Follow [the unified learner plan](../../../../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md). No new panel-specific inference
 is approved by this Figure 2 discussion.
 
 ## Figure 4
 
 Add individual panel entries as CR profiles and their intended claims are
-reviewed. Follow [integrated analysis and CR profiles](../../../../../Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
+reviewed. Follow [integrated analysis and CR profiles](../../../../../Plans/05_FIGURE_4_CR_PROFILES.md).
 Keep learner-stratified descriptions distinct from independent inference.
 
 ## Supplementary figures
 
 Add entries with the approved parent figure and stable content/panel ID. Do
 not assign final supplementary numbers merely to organize comments. Follow
-[supplementary figures](../../../../../Plans/11_SUPPLEMENTARY_FIGURES.md) and retain the same
+[supplementary figures](../../../../../Plans/09_SUPPLEMENTARY_FIGURES.md) and retain the same
 claim, outcome, comparison, missingness and evidence fields used above.

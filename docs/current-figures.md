@@ -46,15 +46,15 @@ These retain planned composition only. They have no current frozen method under 
 
 | Panels | Proposed purpose | Owning work |
 |---|---|---|
-| **2A/B/C** | Delay/control, 3sTrace/control and 10sTrace/control population heatmaps | [Figures/reporting](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md), [cohorts](../Plans/02_COHORT_IMPLEMENTATION.md) |
-| **2F** | 10sTrace/control block comparison | [Analysis/statistics](../Plans/03_ANALYSIS_AND_STATISTICS.md) |
-| **2H/I** | 3sTrace and 10sTrace trial trajectories | [Analysis/statistics](../Plans/03_ANALYSIS_AND_STATISTICS.md) |
-| **3A–G** | Learner representation, distributions, uncertainty, fractions if validated, paired change, examples and validation | [Learner method](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md), [learner analysis](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md) |
-| **4A/B/C** | Delay, 3sTrace and 10sTrace learner-stratified response profiles | [Integrated analysis](../Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) |
+| **2A/B/C** | Delay/control, 3sTrace/control and 10sTrace/control population heatmaps | [Figures/reporting](../Plans/07_FIGURE_BUILD_TOOLS.md), [cohorts](../Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) |
+| **2F** | 10sTrace/control block comparison | [Analysis/statistics](../Plans/06_ANALYSIS_AND_STATISTICS.md) |
+| **2H/I** | 3sTrace and 10sTrace trial trajectories | [Analysis/statistics](../Plans/06_ANALYSIS_AND_STATISTICS.md) |
+| **3A–G** | Learner representation, distributions, uncertainty, fractions if validated, paired change, examples and validation | [Learner method](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md), [learner analysis](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md) |
+| **4A/B/C** | Delay, 3sTrace and 10sTrace learner-stratified response profiles | [Integrated analysis](../Plans/05_FIGURE_4_CR_PROFILES.md) |
 
 Population adaptation of V12 is a proposal until specifically accepted; a single-fish freeze does not select pooling. The old ratio routes for 2F/H/I are legacy proposals, not current accepted definitions. Figures 3–4 depend on their own cohort/learner/validation choices. Do not extrapolate a scoped freeze into those panels.
 
-Supplementary content stays grouped by parent figure: protocol/QC/controls for 1, population coverage and inference diagnostics for 2, learner validation for 3, and catch/movement/coverage/timing controls for 4. Its composition remains in [Plan 11](../Plans/11_SUPPLEMENTARY_FIGURES.md), separate from first-release status.
+Supplementary content stays grouped by parent figure: protocol/QC/controls for 1, population coverage and inference diagnostics for 2, learner validation for 3, and catch/movement/coverage/timing controls for 4. Its composition remains in [Plan 09](../Plans/09_SUPPLEMENTARY_FIGURES.md), separate from first-release status.
 
 ## Sources, review and reproduction
 

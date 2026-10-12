@@ -73,7 +73,7 @@ The renderer also exports individual catches, movement probability, and signed-s
 ## Supplementary support by main figure
 
 The [paper specification](../../../../current-figures.md#supplementary-figures-and-data)
-and [Plan 11](../../../../../Plans/11_SUPPLEMENTARY_FIGURES.md) group supporting
+and [Plan 09](../../../../../Plans/09_SUPPLEMENTARY_FIGURES.md) group supporting
 outputs by the main figure they explain. Final supplementary numbers and panel
 letters are assigned after analysis and layout review.
 
@@ -85,7 +85,7 @@ letters are assigned after analysis and layout review.
 | **Figure 2: population heatmap coverage** | From each Figure 2 heatmap panel data, render contributing-fish fraction on its own 0…1 `managua_r` scale and show counts. Delay review writes `supplementary/figure-2A-coverage_*` via [`render_legacy_ssd_figure2_delay.py`](../../../../../scripts/render_legacy_ssd_figure2_delay.py). | Delay review exists; Trace cohorts and final cohort/metric remain. |
 | **Figure 2: trajectories and inference checks** | Render authenticated per-fish trial outcomes, example-selection context, block/trial diagnostics, and sensitivity with cohort membership and eligibility visible. | Trial outcomes and Delay review traces exist; approved inference and any extinction estimator remain open. |
 | **Figure 3: learner validation** | Render fish scores, eligibility, uncertainty, control calibration, method sensitivity, and independent validation from the frozen Gate L artifacts. | Learner representation and final validation artifacts are open. |
-| **Figure 4: catches and response timing** | Use configured catch IDs (global 25/39/53/59 and, for the pooled set, 65). Figure 4 already renders individual-catch signed/movement/coverage families. Independent onset/peak/offset timing and catch-selection sensitivity follow the [supplementary plan](../../../../../Plans/11_SUPPLEMENTARY_FIGURES.md). | Descriptive catches exist; independent timing estimator and final composition open. |
+| **Figure 4: catches and response timing** | Use configured catch IDs (global 25/39/53/59 and, for the pooled set, 65). Figure 4 already renders individual-catch signed/movement/coverage families. Independent onset/peak/offset timing and catch-selection sensitivity follow the [supplementary plan](../../../../../Plans/09_SUPPLEMENTARY_FIGURES.md). | Descriptive catches exist; independent timing estimator and final composition open. |
 | **Figure 4: visual controls** | Compare approved red-CS/visual-control cohorts and metric-consistent outcomes with cohort and protocol provenance. | Required cohort and analysis approval absent. |
 
 ## Checking a particular exported figure

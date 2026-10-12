@@ -1,66 +1,102 @@
 # Repository instructions
 
-## Panel and figure freezes
+Author directions recorded on 2026-10-09 through 2026-10-12 remain standing
+instructions. Detailed procedures are in the [figure workflow](docs/analysis/figures/reviews/figure-iteration-workflow.md).
 
-Whenever the user asks to freeze a panel or a whole figure, apply the
-[figure element specification](docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md)
-and its [versioned roles and styles](configs/paper-figures/figure-elements.json).
-This is a standing author instruction, recorded on 2026-10-09.
+## Authority and scope
 
-1. Identify the exact selected source revision and its scientific definitions.
-   Check scoped current-selection records; the full assembly can be older than
-   the selected panel. Preserve existing frozen files and their hashes.
-2. Assign or verify unique element IDs, scientific roles, Matplotlib/SVG types,
-   data mappings, units, normalization, coordinate systems and composite groups.
-   Record tick values. Never infer a scientific role from color or position alone.
-3. Apply the common styles to a separate, reviewable candidate. Resolve fonts
-   and stroke widths at the intended final assembly scale. Do not change data,
-   cohort membership, transformations, event times or statistical results as a
-   styling operation.
-4. Check semantic IDs, scientific mappings, effective opacity, stacking order,
-   legibility, clipping, shared axes and colorbar meaning at that scale.
-5. Ask a targeted question only for an unresolved exception, such as a selected
-   appearance conflicting with a default, a visibility requirement, or ambiguous
-   event identity. Complete independent candidate work first. Existing explicit
-   approvals remain authorized within their original scope; do not ask again.
-   An observed appearance alone is not evidence of approval. If the user has
-   already authorized replacing an older style, use the new instruction.
-6. Record each approved exception's ID, element role, property, value, reason,
-   panel/figure scope, and approval evidence. Keep scientific definitions
-   separate from presentation exceptions. In a noninteractive command-line
-   workflow, report unresolved exceptions and do not finalize the freeze or
-   invent approval.
-7. Use `python scripts/freeze_figure.py --candidate <candidate.json> --output
-   <new-freeze.json>` (or `classical-conditioning freeze-figure`) for every new
-   panel or whole-figure freeze. Run `--check-only` first; resolve every reported
-   issue before publication. Populate confidence/evidence/protection records,
-   renderer-property review evidence and scientific/structure/visual reviews.
-   Freeze the accepted candidate with the specification version and SHA-256,
-   resolved styles, scoped exceptions, source/data hashes, assembly scale,
-   element registry, and export paths/hashes. Follow the freeze-record contract
-   in the specification. User-authorized freezing needs no redundant approval;
-   ask only about decisions that remain unresolved.
+- Preserve other work and uncommitted changes. Continue the requested panels;
+  do not restart cleanup, change unrelated figures, or recompute scientific
+  definitions as a presentation operation.
+- Scientific authority is the current scoped accepted freeze, resolved through
+  [Current figures](docs/current-figures.md) and selection records. An older full
+  assembly never overrides a newer panel selection. Frozen originals, hashes,
+  source data and reproducibility dependencies remain immutable.
+- Presentation authority is the scoped `current-state.json` linked by the
+  workflow. It separately identifies the frozen display and active draft.
+  Other review/audit files are version-bound evidence, not competing pointers.
+- Read those records when resuming; do not choose by filename age or assume a
+  chat preview is current. Check external storage before loading/regenerating.
 
-These checks run only through the explicit freeze command. Normal rendering,
-exporting and exploratory reviews do not invoke them. The agent prepares and
-styles the candidate using the existing theme/export tools and relevant renderer;
-the command validates it and refuses unresolved cases. It does not infer roles,
-restyle input files or invent review/approval evidence. Do not claim compliance
-from a configuration pointer alone. Do not retroactively
-restyle, refreeze, or overwrite historical artifacts without a user request.
+## Display and iteration
 
-## Single-file review artifacts
+- "Show Figure 1" defaults to an authenticated editable SVG working copy of
+  the current frozen selections. Reuse its recorded copy; open/show the SVG
+  itself. An HTML link or raster preview alone is insufficient. If only panels
+  are frozen, label the result an assembly of frozen panels, not a whole-figure
+  freeze. Identify unfrozen scopes explicitly. A draft/comparison requires an
+  explicit request; preserve the active draft when showing the frozen selection.
+- Keep SVG vector groups, text, paths and source mappings addressable. Preserve
+  authentic embedded raster data. An SVG source editor supports XML edits;
+  do not claim graphical drag-and-drop editing unless the chosen app supports it.
+- Implement repeatable edits in supported code. Save one self-contained HTML
+  review with requested versions, legends and provenance. The author's editable
+  SVG preference permits one recorded working SVG per frozen/draft state;
+  avoid redundant copies or extra media formats. Use in-memory previews where
+  possible and remove task-created temporary render files after verification.
+- Measure effective fonts, strokes, tick spacing and coordinate mappings after
+  all transforms at final assembly scale. Record unresolved measurements and
+  real visual/renderer evidence; nominal settings alone are not verification.
+- Before work, snapshot current state, working-copy and bound input hashes.
+  Recheck under the figure-state publication lock before saving. On conflicts,
+  preserve both editors' work and reconcile; never silently overwrite. Use
+  `figure_working_copy.py` and the guarded review generator described in the
+  workflow. Publish verified artifacts/evidence before the atomic state pointer.
 
-Standing author preference recorded on 2026-10-09: save one consolidated review
-file containing all requested versions. Do not also save separate PDFs, SVGs,
-images, alternate output formats, or redundant data copies unless the user
-explicitly requests them. Embed the required figures and provenance in the
-single file. Use in-memory rendering and verification where possible; remove
-task-created temporary files after verification. Preserve existing scientific
-source data and historical frozen artifacts.
+## Scientific relationships, alignment and legends
 
-## Repository and external artifact storage
+- Read the semantic registry as an explicit map from stable element IDs to
+  scientific roles, source/data identity, units, transformations and groups.
+  Structural XML IDs alone are not scientific classifications. Report partial
+  coverage honestly; historical resolved styles do not verify current styles.
+- For related panels, record and verify shared fish/cohort, trial/frame IDs,
+  time origin, event definitions and raw-to-scaled processing relationships.
+  Match data-axis widths/heights, row centres/order, block/trial labels and time
+  limits where requested; exclude colourbars from body-size comparisons.
+  Use time relative to CS onset when applicable. Check alignment at final scale.
+  Treat a change in source data, masks or timing as a scientific draft change,
+  record it explicitly, and preserve accepted freezes.
+- Create a companion legend with each new panel/figure. During edits, update it
+  only when scientific definitions or necessary explanations change. Move
+  method details, fish identifiers and explanatory clutter to the legend while
+  keeping essential axis labels, units, ticks and scientific marks visible.
 
-Author-approved on 2026-10-10: `Plans/` contains numbered future-work plans plus README/index only. Decisions, governance, audits, review concerns and transfer guidance live under `docs/`. Supported source/tests/tools remain in the repository; exact frozen definitions/manifests/code live under `records/frozen-analyses/`. Permanent media, visual HTML reviews, numerical payloads and superseded candidate code belong on JOAQUIM. Use `scripts/repository_archive.py` and the archive indexes; never remove a pending original before its external copy is verified. Preserve historical freeze bytes and resolve relocated paths externally. New permanent exports must use explicit external destinations; temporary test/render files are allowed.
+## Freeze and previous versions
 
-Frozen-record naming and structure: use `records/frozen-analyses/figure-NN/panel-x/YYYY-MM-DD-description/` for single panels and `panels-x-y-z/` for shared scopes. Use role subfolders (`manifests`, `settings`, `code`, `sources`, `reviews`, `notes`), lowercase hyphenated JSON/Markdown names and underscore-separated source-module names. Preserve original frozen bytes and path aliases when reorganizing; see `records/frozen-analyses/README.md`.
+- Only explicit freeze requests invoke the [element specification](docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md)
+  and [versioned roles/styles](configs/paper-figures/figure-elements.json).
+  Build a separate candidate with exact sources, scientific element mappings,
+  evidence/protection, resolved styles and scoped approved exceptions.
+- Run `.venv/bin/python scripts/freeze_figure.py --candidate <candidate.json>
+  --check-only`, resolve every issue, then use the same command with
+  `--output <new-freeze.json>` for every new panel/figure freeze. The installed
+  `classical-conditioning freeze-figure` command is equivalent. The gate checks;
+  it does not infer roles, restyle, invent evidence, or freeze normal exports.
+- Preserve approved choices within their original scope. Complete independent
+  candidate work before asking about unresolved scientific choices/exceptions.
+  A freeze request supplies authorization; do not ask redundantly. Record each
+  exception's ID, role, property/value, reason, scope and approval evidence.
+  Appearance alone is not approval. Noninteractive unresolved cases must fail.
+- After a successful new freeze, prepare an inventory of prior versions within
+  that scope, with dependencies and recommendations to keep, archive or delete.
+  The author reviews and chooses the disposition. A freeze request alone does
+  not authorize deleting or archiving earlier versions. Preserve everything
+  pending those choices; execute only approved dispositions, verify external
+  copies before pruning, preserve frozen bytes and update indexes/navigation.
+  A check-only run or rule change does not trigger historical cleanup.
+
+## Storage
+
+- `Plans/` contains numbered future-work plans and its README/index. Governance,
+  decisions, reviews, audits and handoff records live under `docs/`. Supported
+  code/tests/tools remain local; exact frozen records belong under
+  `records/frozen-analyses/figure-NN/panel-x/YYYY-MM-DD-description/` or joint
+  `panels-x-y-z/` scopes, using role subfolders and existing naming conventions.
+- Permanent media, HTML reviews, numerical data and superseded candidate code
+  belong on JOAQUIM, with explicit external destinations. Use
+  `scripts/repository_archive.py`, archive indexes and relocation resolution.
+  Preserve original frozen bytes/path aliases; never delete a pending original
+  before its external copy is verified. See [record layout](records/frozen-analyses/README.md).
+- If storage is unavailable, keep originals, record pending work and continue
+  independent code/doc work. Do not fabricate a mount, substitute an older
+  figure, or claim to inspect an inaccessible artifact.

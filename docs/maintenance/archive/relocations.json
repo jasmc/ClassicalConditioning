@@ -8,15 +8,6 @@
     "configs/paper-figures/figure1-panel-e-heatmap-rows-freeze-20261009.json": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
     "configs/paper-figures/figure2-DE-B-freeze-20261009.json": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
     "configs/paper-figures/figure2-G-logmedian-freeze-20261009.json": "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
-    "Plans/01_COHORT_IMPLEMENTATION.md": "Plans/02_COHORT_IMPLEMENTATION.md",
-    "Plans/02_ANALYSIS_AND_STATISTICS.md": "Plans/03_ANALYSIS_AND_STATISTICS.md",
-    "Plans/03_LEARNING_ONSET_IMPLEMENTATION.md": "Plans/04_LEARNING_ONSET_IMPLEMENTATION.md",
-    "Plans/07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md": "Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md",
-    "Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md": "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md",
-    "Plans/09_TAIL_MECHANISTIC_ANALYSES.md": "Plans/12_TAIL_MECHANISTIC_ANALYSES.md",
-    "Plans/10_SUPPLEMENTARY_FIGURES.md": "Plans/11_SUPPLEMENTARY_FIGURES.md",
-    "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md": "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md",
-    "Plans/12_FINAL_ANALYSIS_RELEASE.md": "Plans/10_FIRST_RELEASE_FIGURES_1_TO_4.md",
     "Plans/GOVERNANCE.md": "docs/maintenance/ANALYSIS_GOVERNANCE.md",
     "Plans/DECISIONS.md": "docs/analysis/decisions/DECISIONS.md",
     "Plans/EXCLUSION_AND_SELECTION_INVENTORY.csv": "docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv",
@@ -171,10 +162,7 @@
     "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md": "docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md",
     "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md": "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
     "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md": "docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md",
-    "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md": "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
-    "Plans/05_LEARNER_METHOD_REVIEW.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/06_LEARNER_ANALYSIS.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md"
+    "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md": "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md"
   },
   "extracted_frozen_records": [
     {
@@ -785,12 +773,31 @@
     ]
   },
   "consolidated_documents": {
-    "Plans/04_LEARNER_METHOD_REVIEW.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/05_LEARNER_ANALYSIS.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/06_LEARNER_OUTPUTS_AND_VALIDATION.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/05_LEARNER_METHOD_REVIEW.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/06_LEARNER_ANALYSIS.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
-    "Plans/01_PAPER_BASELINE_AND_INPUT_VALIDATION.md": "Plans/01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md"
+    "Plans/04_LEARNER_METHOD_REVIEW.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/05_LEARNER_ANALYSIS.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/06_LEARNER_OUTPUTS_AND_VALIDATION.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/05_LEARNER_METHOD_REVIEW.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/06_LEARNER_ANALYSIS.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/01_PAPER_BASELINE_AND_INPUT_VALIDATION.md": "Plans/01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md",
+    "Plans/02_COHORT_IMPLEMENTATION.md": "Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md",
+    "Plans/01_COHORT_IMPLEMENTATION.md": "Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md",
+    "Plans/02_ANALYSIS_AND_STATISTICS.md": "Plans/06_ANALYSIS_AND_STATISTICS.md",
+    "Plans/03_LEARNING_ONSET_IMPLEMENTATION.md": "Plans/03_FIGURE_2_LEARNING_ONSET.md",
+    "Plans/07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md": "Plans/05_FIGURE_4_CR_PROFILES.md",
+    "Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md": "Plans/07_FIGURE_BUILD_TOOLS.md",
+    "Plans/09_TAIL_MECHANISTIC_ANALYSES.md": "Plans/10_TAIL_MECHANISTIC_ANALYSES.md",
+    "Plans/10_SUPPLEMENTARY_FIGURES.md": "Plans/09_SUPPLEMENTARY_FIGURES.md",
+    "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md": "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md",
+    "Plans/12_FINAL_ANALYSIS_RELEASE.md": "Plans/08_FIRST_RELEASE_FIGURES_1_TO_4.md",
+    "Plans/04_LEARNING_ONSET_IMPLEMENTATION.md": "Plans/03_FIGURE_2_LEARNING_ONSET.md",
+    "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md": "Plans/05_FIGURE_4_CR_PROFILES.md",
+    "Plans/03_ANALYSIS_AND_STATISTICS.md": "Plans/06_ANALYSIS_AND_STATISTICS.md",
+    "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md": "Plans/07_FIGURE_BUILD_TOOLS.md",
+    "Plans/10_FIRST_RELEASE_FIGURES_1_TO_4.md": "Plans/08_FIRST_RELEASE_FIGURES_1_TO_4.md",
+    "Plans/11_SUPPLEMENTARY_FIGURES.md": "Plans/09_SUPPLEMENTARY_FIGURES.md",
+    "Plans/12_TAIL_MECHANISTIC_ANALYSES.md": "Plans/10_TAIL_MECHANISTIC_ANALYSES.md",
+    "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md": "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md"
   }
 }

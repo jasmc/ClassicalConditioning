@@ -1,14 +1,14 @@
-# Learning-Onset Analysis Completion
+# Figure 2 — Learning-Onset Analysis
 
 
 
 **Input dependency:** A reviewed, immutable cohort and authenticated
 `cohort-trial-outcomes` artifact from the
-[cohort plan](02_COHORT_IMPLEMENTATION.md). This plan does not decide fish
+[cohort plan](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md). This plan does not decide fish
 membership. Its trial-level eligibility may change model contributions
 without changing the cohort.
 
-The [analysis and statistics plan](03_ANALYSIS_AND_STATISTICS.md)
+The [analysis and statistics plan](06_ANALYSIS_AND_STATISTICS.md)
 owns the primary estimand, outcome family, condition contrast, model choice,
 uncertainty, diagnostics, and validation decision. Approved choices are
 recorded in [DECISIONS.md](../docs/scientific-decisions.md). The

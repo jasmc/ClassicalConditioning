@@ -2,7 +2,7 @@
 
 ## Purpose and boundary
 
-Authenticate the paper-scale inputs and reproducible processing state for the first Figures 1–4 release. Existing pipeline, provenance and fixture infrastructure are implemented; this plan owns the remaining paper-scale evidence, not a fresh implementation from zero. [Plan 02](02_COHORT_IMPLEMENTATION.md) owns fish inclusion/eligibility policy and the reviewed cohort; [Plan 03](03_ANALYSIS_AND_STATISTICS.md) owns outcome/inference choices.
+Authenticate the paper-scale inputs and reproducible processing state for the first Figures 1–4 release. Existing pipeline, provenance and fixture infrastructure are implemented; this plan owns the remaining paper-scale evidence, not a fresh implementation from zero. [Plan 02](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) owns fish inclusion/eligibility policy and the reviewed cohort; [Plan 06](06_ANALYSIS_AND_STATISTICS.md) owns outcome/inference choices.
 
 ## Remaining evidence
 

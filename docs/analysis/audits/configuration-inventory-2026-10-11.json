@@ -60,7 +60,7 @@
       "purpose": "Strict run-pipeline example with placeholder Windows paths",
       "recommendation": "Retain; edit paths in a copy before use",
       "reference_candidates": [
-        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md",
+        "Plans/07_FIGURE_BUILD_TOOLS.md",
         "docs/analysis/reference/01-user-workflow.md",
         "docs/analysis/reference/03-analysis-parameter-index.md",
         "tests/test_run_pipeline.py"
@@ -104,7 +104,7 @@
       "purpose": "Proposed panel readiness/artifact registry read by pipeline and paper-panel command",
       "recommendation": "Revise together with readers/tests: 26 entries and old Fig1 labels / ratios; preserve separate freeze versus release readiness",
       "reference_candidates": [
-        "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md",
+        "Plans/07_FIGURE_BUILD_TOOLS.md",
         "docs/analysis/reference/02-current-pipeline.md",
         "docs/current-figures.md",
         "docs/current-figures.md",

@@ -1,8 +1,8 @@
 {
   "date": "2026-10-11",
   "scope": "All displayed Figure 1 and Figure 2 candidate panels",
-  "review_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11.html",
-  "review_sha256": "e684d5bea17fbf785dbda33508826e82287fab0c1d9e7b5e00b29527105773bd",
+  "review_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html",
+  "review_sha256": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
   "independent_agent": "panel_consistency",
   "status": "Reviewed draft; not a new freeze",
   "styles": [
@@ -59,15 +59,6 @@
       "final_size_pt": 10,
       "font_family": "DejaVu Sans",
       "weight": "bold"
-    },
-    {
-      "figure": 1,
-      "panel": "B",
-      "text": "Time relative to CS onset (s)",
-      "role": "label",
-      "final_size_pt": 8,
-      "font_family": "DejaVu Sans",
-      "weight": "normal"
     },
     {
       "figure": 1,
@@ -162,6 +153,15 @@
     {
       "figure": 1,
       "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
       "text": "Delay",
       "role": "label",
       "final_size_pt": 8,
@@ -203,6 +203,15 @@
       "final_size_pt": 7,
       "font_family": "DejaVu Sans",
       "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -252,6 +261,15 @@
     {
       "figure": 1,
       "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
       "text": "Trace (10 s)",
       "role": "label",
       "final_size_pt": 8,
@@ -293,6 +311,15 @@
       "final_size_pt": 7,
       "font_family": "DejaVu Sans",
       "weight": "normal"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "Time relative to CS onset (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -658,10 +685,10 @@
       "figure": 1,
       "panel": "D",
       "text": "Time relative to CS onset (s)",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -703,10 +730,10 @@
       "figure": 1,
       "panel": "D",
       "text": "Tail angle (\u00b0)",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -1474,10 +1501,10 @@
       "figure": 1,
       "panel": "E",
       "text": "Time from measured CS onset (s)",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -1510,19 +1537,19 @@
       "figure": 1,
       "panel": "E",
       "text": "Scaled deviation from baseline",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
       "panel": "E",
       "text": "Raw vigor (rad/ms)",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -1968,10 +1995,10 @@
       "figure": 1,
       "panel": "FGH",
       "text": "Time from CS onset (s)",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -2112,10 +2139,10 @@
       "figure": 1,
       "panel": "FGH",
       "text": "Time from CS onset (s)",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -2148,10 +2175,10 @@
       "figure": 1,
       "panel": "FGH",
       "text": "Time from CS onset (s)",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -2202,10 +2229,10 @@
       "figure": 1,
       "panel": "FGH",
       "text": "Scaled deviation from baseline",
-      "role": "label",
+      "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
-      "weight": "normal"
+      "weight": "bold"
     },
     {
       "figure": 1,
@@ -5847,7 +5874,39 @@
     "figure1_D": "Archived scripts/build_figure1_trace_panels.py draw sequence: measured trace first, then named event table events",
     "figure2_A_B_H": "scripts/populate_figure2_available.py; selected sidecars bind renderer SHA-256 4157c266a6c715db724de668fcdc2418a1f5a9343999feed9fca605842875d83"
   },
-  "visual_review": "Agent confirmed typography consistency, matched D/E plotting widths, resolved adjacent-row and colourbar collisions; final candidate raster inspected by primary agent",
-  "limitation": "D/E numerical ticks remain compact within each row",
-  "frozen_originals": "Byte-identical original comparisons; no selections replaced or new freezes created"
+  "visual_review": "Final embedded candidate independently inspected by axis_style_review before drive disconnected. Original Figure 1 and both Figure 2 embedded assemblies confirmed byte-identical by independent agent.",
+  "limitation": "Existing scientific stage terminology and example-selection concerns remain open",
+  "frozen_originals": "Byte-identical original comparisons; no selections replaced or new freezes created",
+  "presentation": {
+    "scope": "Figure 1 candidate only",
+    "approval_evidence": "Author requested legacy axis/tick/label style across Figure 1, right-only B arrowheads and below-axis units, and shorter heatmaps in this chat on 2026-10-11",
+    "style_source": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/legacy/helpers/plotting_style.py",
+      "sha256": "c4be46a659e4c721d56d83f98dd2246f354c45ec72b2e3507eb43b2bb1ce143f"
+    },
+    "axis_labels": {
+      "size_pt": 8,
+      "weight": "bold",
+      "color": "#000000"
+    },
+    "ticks": {
+      "size_pt": 7,
+      "length_pt": 2,
+      "pad_pt": 2,
+      "direction": "out",
+      "width_pt": 0.5
+    },
+    "trace_bottom_spine_offset_pt": 6,
+    "heatmap_spines": "retain boxed flush axes",
+    "display_transforms": {
+      "D_trace_row_y_factor": 1.5,
+      "E_trace_row_y_factor": 1.8,
+      "E_row_stride": 80,
+      "FGH_height_factor": 0.65
+    },
+    "B_arrowheads": "right only",
+    "B_unit_label_position": "below each time axis",
+    "scientific_definitions": "unchanged"
+  },
+  "storage_access": "JOAQUIM available; saved review re-read and SHA-256 verified on 2026-10-12"
 }

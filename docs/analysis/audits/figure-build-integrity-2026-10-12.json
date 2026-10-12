@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-12",
+  "scope": "Plan 07 source preflight, candidate replacement, baseline verification and guarded artifact publication",
+  "implemented": [
+    "no-write CLI and reusable preflight",
+    "archive/Windows source resolution",
+    "original-versus-override identity and candidate status",
+    "before/after source, geometry, panel/clipping/shared-context comparisons",
+    "snapshot/lock publication with rollback and post-save checks",
+    "explicit extra exports included in transaction"
+  ],
+  "reused": [
+    "external artifact resolver",
+    "existing SVG renderer",
+    "artifact staging/transaction helpers",
+    "figure workspace snapshots and locks",
+    "existing current-state/review workflow"
+  ],
+  "not_added": [
+    "second scientific selection registry",
+    "new HTML review generator",
+    "second current-state writer",
+    "new general-purpose CLI/API framework"
+  ],
+  "frozen_entries_verified": 70,
+  "real_figures_regenerated": false,
+  "scientific_definitions_changed": false,
+  "current_pointers_updated": false,
+  "full_suite": {
+    "tests": 424,
+    "seconds": 173.317,
+    "result": "passed",
+    "log": "/tmp/cc-plan07-implementation-complete-tests.log"
+  },
+  "code_sha256": {
+    "scripts/assemble_svg_figure.py": "ca2cf35d9e17e74696fdfef2fbc84ee8b698b56f74ae31c3257306af9428bf0f",
+    "src/classical_conditioning/figures/assembly_sources.py": "c979e8d5164d77e200436f35669cafa267c3d13cba1005b36eeaf8e9f4a6e9c7",
+    "src/classical_conditioning/artifacts.py": "4199c10b882367b8947e5c47a1c40f095927aed80e25e90e778a0185372fe3b2",
+    "tests/test_assembly_integrity.py": "4cbcee1ec2576fd18be292dcfcf64cd9bb8408a66cef91239079f0d51153823b"
+  },
+  "remaining": "Complete approved paper routing and renderer/visual-QC integration; actual appearance/freeze validation remains in existing workflow"
+}

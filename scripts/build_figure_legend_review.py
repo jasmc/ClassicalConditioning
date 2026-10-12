@@ -4,9 +4,13 @@ import argparse, base64, copy, hashlib, html, json, re, sys
 from pathlib import Path
 import xml.etree.ElementTree as ET
 from collections import Counter
+from datetime import datetime
+from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'src'))
 from classical_conditioning.external_artifacts import resolve_artifact
+from classical_conditioning.figures.aligned_example_pair import build_pair, dependencies as pair_dependencies
+from classical_conditioning.figure_workspace import Snapshot, editable_svg, measured_presentation, publish_state, file_hash, draft_axis_findings, bind_loaded_state
 NS = 'http://www.w3.org/2000/svg'
 ET.register_namespace('', NS)
 def tag(name): return '{'+NS+'}'+name
@@ -155,7 +159,7 @@ def image_extent(attrs,old,new):
     x,y,w,h=(float(attrs[k]) for k in ('x','y','width','height'));scale=min(w/bw,h/bh)
     return dict(x=x+(w-bw*scale)/2+(nx-bx)*scale,y=y+(h-bh*scale)/2+(ny-by)*scale,width=nw*scale,height=nh*scale,scale=scale)
 
-def build_candidate(source):
+def build_candidate(source, aligned_panels=None):
     n=source['number'];root=copy.deepcopy(source['root']);edits=[];layout=[]
     # Reuse selected source graphics; apply only requested presentation/layout changes.
     shifts={1:{'FGH':-1170},2:{'A':-145,'B':-145,'C':-145,'D':-150,'E':-150,'F':-150,'G':-205,'H':-325,'I':-325}}
@@ -168,6 +172,8 @@ def build_candidate(source):
         if shift:child.set('transform',f'translate(0 {shift})')
         if original['bytes']:
             candidate,panel_edits=transform_panel(n,pid,original['bytes'])
+            if n==1 and aligned_panels and pid in aligned_panels:
+                candidate=aligned_panels[pid];panel_edits=[dict(action='shared-D-E-renderer',text='Author-requested D measured-frame input and common layout; E colours recomputed')]
             edits.extend(dict(figure=n,panel=pid,**e) for e in panel_edits)
             im=next(child.iter(tag('image')));extent=image_extent(original['placement'],original['bytes'],candidate)
             if n==1 and pid=='B':
@@ -219,6 +225,11 @@ def harmonize_typography(data,layout,number):
         image=next(group.iter(tag('image')),None)
         if image is None:continue
         panel=ET.fromstring(base64.b64decode(image.get('href').split(',',1)[1]))
+        if panel.get('data-renderer')=='aligned-example-pair':
+            # Already rendered at final assembly scale from explicit scientific roles.
+            # Do not apply the old renderer-ID/affine D/E adjustments.
+            report.append(dict(figure=number,panel=pid,role='shared-renderer',final_axis_labels_pt=8,final_ticks_pt=7,source='named D/E semantic registry'))
+            continue
         protected_before=graphic_signature(panel)
         # Enlarged labels require real gutters, not merely a font substitution.
         if number==1 and pid=='D':
@@ -355,6 +366,10 @@ def legacy_axes_style(panel,pid,pt_per_source):
         dx,dy=nums[2]-nums[0],nums[3]-nums[1]
         length=abs(dx or dy)
         if not length:continue
+        # A template's explicit stroke width overrides the use element's width.
+        # Inherit the compensated width from each use; retain marker geometry.
+        shape.attrib.pop('stroke-width',None)
+        shape.set('style',';'.join(part for part in shape.get('style','').split(';') if not re.match(r'\s*stroke-width\s*:',part)))
         ratio=2/pt_per_source/length
         x=float(node.get('x','0'));y=float(node.get('y','0'))
         node.set('transform',f'translate({x} {y}) scale({ratio if dx else 1} {ratio if dy else 1}) translate({-x} {-y})')
@@ -405,6 +420,14 @@ def expand_trace_rows(panel,pid):
         if pid=='D':axis.set('transform',f"translate(0 {(int(gid.split('_')[1])-1)*30})")
         wrapper.extend(children);axis.append(wrapper)
         parents={c:p for p in wrapper.iter() for c in p}
+        for node in wrapper.iter(tag('path')):
+            ids=[];ancestor=node
+            while ancestor is not None:ids.append(ancestor.get('id',''));ancestor=parents.get(ancestor)
+            is_spine=any('__spine-bottom' in i for i in ids) or (pid=='D' and any(i in {'patch_4','patch_7','patch_10','patch_13','patch_16'} for i in ids))
+            coords=[float(v) for v in re.findall(r'-?\d+(?:\.\d+)?',node.get('d',''))]
+            if is_spine and len(coords)==4 and coords[1]==coords[3]:
+                widths=re.findall(r'stroke-width:\s*([\d.]+)',node.get('style',''))
+                if widths:node.set('style',node.get('style','')+f';stroke-width:{float(widths[-1])/factor}')
         for node in list(wrapper.iter()):
             if node.tag not in {tag('text'),tag('use')}:continue
             y=float(node.get('y','0'));transform=node.get('transform','')
@@ -504,23 +527,82 @@ def legend_html(text):
     return ''.join('<p>'+html.escape(p).replace('\n','<br>')+'</p>' for p in text.strip().split('\n\n') if not p.startswith('#'))
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--baseline',type=Path,help='Starting ticket from figure_working_copy.py begin; required after state bootstrap');parser.add_argument('--preserve-figure2-from',type=Path,help='Authenticated version-bound review to preserve Figure 2 byte-for-byte');args=parser.parse_args()
     target=args.output.resolve();assert ROOT not in target.parents, 'Permanent visual reviews must be external'
+    review_day=datetime.now(ZoneInfo('Europe/Madrid'))
     assert target.parent.is_dir(),'Destination parent must already exist';assert not target.exists(),'Do not overwrite a review'
+    state_path=ROOT/'docs/analysis/figures/reviews/figure-01/current-state.json'
+    mapping_path=ROOT/'docs/analysis/figures/reviews/legend-text-relocation.json'
+    state_bytes=state_path.read_bytes() if state_path.exists() else None
+    state=json.loads(state_bytes) if state_bytes is not None else None
+    starting=None
+    if state:
+        if args.baseline is None:parser.error('--baseline is required; capture it with figure_working_copy.py begin before editing')
+        ticket=json.loads(args.baseline.read_text())
+        if ticket.get('state_path')!=str(state_path) or str(state_path.resolve()) not in ticket.get('starting_hashes',{}):raise ValueError('Baseline ticket does not bind the current figure state')
+        starting=Snapshot([]);starting.hashes=ticket['starting_hashes'];starting.check()
+    dependencies=[state_path,mapping_path,Path(__file__),ROOT/'src/classical_conditioning/figure_workspace.py',
+                  ROOT/'docs/analysis/figures/reviews/legend-decluttering-review.md',
+                  *(ROOT/f'docs/analysis/figures/reviews/figure-{n:02d}/legend-draft.md' for n in (1,2)),
+                  *(ROOT/'configs/paper-figures/selections'/p for p in ('figure1-freeze.json','figure1-panel-e-heatmap-rows-freeze-20261009.json','figure1-fgh-version12-freeze-20261009.json','figure2-DE-B-freeze-20261009.json','figure2-G-logmedian-freeze-20261009.json')),
+                  resolve_artifact('reviews/latest_figure_assemblies_20261010.html'), *pair_dependencies()]
+    if state:
+        for key in ('frozen_display','draft'):
+            item=state[key].get('working_svg')
+            if item:
+                if file_hash(item['path'])!=item['sha256']:raise ValueError('Working SVG changed: reconcile before generating a replacement')
+                dependencies.append(Path(item['path']))
+            evidence=state[key].get('effective_presentation')
+            if evidence:
+                if file_hash(evidence['path'])!=evidence['sha256']:raise ValueError('Measurement evidence changed/unavailable')
+                dependencies.append(Path(evidence['path']))
+        old_review=state['draft']['review'];dependencies.append(Path(old_review['path']))
+        if file_hash(old_review['path'])!=old_review['sha256']:raise ValueError('Bound draft review changed/unavailable')
+        for selection in state['scientific_selection']['records']:
+            if file_hash(selection['path'])!=selection['sha256']:raise ValueError('Frozen selection changed; update scoped state explicitly')
+    previous_review=None;authenticated_bytes=None
+    if state:
+        if args.preserve_figure2_from:
+            authenticated_bytes=(ROOT/'docs/analysis/figures/reviews/legend-review-verification.json').read_bytes()
+            authenticated=json.loads(authenticated_bytes)
+            if args.preserve_figure2_from.resolve()!=Path(authenticated['review_path']).resolve() or file_hash(args.preserve_figure2_from)!=authenticated['review_sha256']:
+                raise ValueError('Figure 2 preservation input is not the authenticated version-bound review')
+            previous_review=dict(path=str(args.preserve_figure2_from.resolve()),sha256=authenticated['review_sha256'])
+            dependencies.append(ROOT/'docs/analysis/figures/reviews/legend-review-verification.json')
+        else:previous_review=state.get('preserved_figures',{}).get('figure2',state['draft']['review'])
+        dependencies.append(Path(previous_review['path']))
+        if file_hash(previous_review['path'])!=previous_review['sha256']:raise ValueError('Figure 2 preservation source changed/unavailable')
+    snapshot=Snapshot(dependencies)
+    bind_loaded_state(snapshot,state,state_bytes,state_path)
+    if previous_review:snapshot.hashes[str(Path(previous_review['path']).resolve())]=previous_review['sha256']
+    if authenticated_bytes is not None:snapshot.hashes[str((ROOT/'docs/analysis/figures/reviews/legend-review-verification.json').resolve())]=digest(authenticated_bytes)
+    if starting:snapshot.hashes.update(starting.hashes)
+    snapshot.check()
     sources,container=load_sources();outputs=[];edits=[];layouts=[];typography=[]
+    aligned_panels,aligned_registry,pair_report=build_pair()
     for source in sources:
-        candidate,changes,layout=build_candidate(source);candidate,text_styles=harmonize_typography(candidate,layout,source['number']);typography+=text_styles;outputs.append((source['bytes'],candidate));edits+=changes;layouts.append(layout)
+        if state and source['number']==2:
+            previous=Path(previous_review['path']).read_text()
+            embedded=re.findall(r'<img class="figure"[^>]*src="data:image/svg\+xml;base64,([^"]+)"',previous)
+            if len(embedded)!=4:raise ValueError('Figure 2 preservation review has an unexpected structure')
+            original=base64.b64decode(embedded[3]);candidate=base64.b64decode(embedded[2])
+            if original!=source['bytes']:raise ValueError('Preserved Figure 2 original does not match current scoped sources')
+            outputs.append((original,candidate));layouts.append([])
+            edits.append(dict(figure=2,panel='assembly',action='preserve-authenticated-review-bytes',text='Figure 2 unchanged; no regeneration',source=previous_review))
+            continue
+        candidate,changes,layout=build_candidate(source,aligned_panels);candidate,text_styles=harmonize_typography(candidate,layout,source['number']);typography+=text_styles;outputs.append((source['bytes'],candidate));edits+=changes;layouts.append(layout)
     for edit in edits:
         edit['destination']='docs/analysis/figures/reviews/legend-decluttering-review.md' if edit['panel']=='assembly' else f"docs/analysis/figures/reviews/figure-{edit['figure']:02d}/legend-draft.md"
     legend_paths=[ROOT/f'docs/analysis/figures/reviews/figure-{n:02d}/legend-draft.md' for n in (1,2)]
     legends=[p.read_text() for p in legend_paths]
     notes=(ROOT/'docs/analysis/figures/reviews/legend-decluttering-review.md').read_text().split('\n\n[Open the consolidated original/candidate review]')[0]
     legacy=ROOT/'legacy/helpers/plotting_style.py'
-    presentation=dict(scope='Figure 1 candidate only',approval_evidence='Author requested legacy axis/tick/label style across Figure 1, right-only B arrowheads and below-axis units, and shorter heatmaps in this chat on 2026-10-11',style_source=dict(path=str(legacy),sha256=digest(legacy.read_bytes())),axis_labels=dict(size_pt=8,weight='bold',color='#000000'),ticks=dict(size_pt=7,length_pt=2,pad_pt=2,direction='out',width_pt=.5),trace_bottom_spine_offset_pt=6,heatmap_spines='retain boxed flush axes',display_transforms=dict(D_trace_row_y_factor=1.5,E_trace_row_y_factor=1.8,E_row_stride=80,FGH_height_factor=.65),B_arrowheads='right only',B_unit_label_position='below each time axis',scientific_definitions='unchanged')
+    presentation=dict(scope='Figure 1 candidate only',approval_evidence='Author requested legacy axis/tick/label style across Figure 1, right-only B arrowheads and below-axis units, and shorter heatmaps in this chat on 2026-10-11',style_source=dict(path=str(legacy),sha256=digest(legacy.read_bytes())),axis_labels=dict(size_pt=8,weight='bold',color='#000000'),ticks=dict(size_pt=7,length_pt=2,pad_pt=2,direction='out',width_pt=.5),trace_bottom_spine_offset_pt=6,heatmap_spines='retain boxed flush axes',display_transforms=dict(DE='shared native axis rectangles; no affine row stretching',FGH_height_factor=.65),B_arrowheads='right only',B_unit_label_position='below each time axis',scientific_definitions='D preserved; E recomputed from D input on author request; FGH unchanged')
     edits.append(dict(figure=1,panel='presentation',action='author-requested-legacy-axis-style-and-display-transforms',details=presentation))
-    provenance=dict(date='2026-10-11',status='review draft; no new freeze',source_container=container,original_assemblies=[s['metadata'] for s in sources],edits=edits,layouts=layouts,typography=typography,presentation=presentation,legend_sources=[dict(path=str(p),sha256=digest(p.read_bytes())) for p in legend_paths],generator=dict(path=str(Path(__file__).resolve()),sha256=digest(Path(__file__).read_bytes()),source_base64=base64.b64encode(Path(__file__).read_bytes()).decode()),checks=dict(selected_source_hashes=True,scientific_path_coordinates_and_payloads_preserved=True,uniform_panel_fitting=True,author_requested_resizing=True,display_y_transforms_recorded=True,figure1_panel_d_vector_svg=True),width_mm=183)
+    provenance=dict(date=review_day.date().isoformat(),status='review draft; no new freeze',source_container=container,original_assemblies=[s['metadata'] for s in sources],edits=edits,layouts=layouts,typography=typography,presentation=presentation,aligned_pair=pair_report,legend_sources=[dict(path=str(p),sha256=digest(p.read_bytes())) for p in legend_paths],generator=dict(path=str(Path(__file__).resolve()),sha256=digest(Path(__file__).read_bytes()),source_base64=base64.b64encode(Path(__file__).read_bytes()).decode()),checks=dict(selected_source_hashes=True,selected_frozen_bytes_preserved=True,unmodified_panels_coordinates_and_payloads_preserved=True,DE_mapping_verified=pair_report['verification'],uniform_panel_fitting=True,author_requested_resizing=True,display_y_transforms_recorded=True,figure1_panel_d_vector_svg=True),width_mm=183)
     css='body{font:16px/1.55 system-ui;color:#20272c;background:#eceff1;margin:0}main{max-width:1100px;margin:auto;padding:24px}header,section,details{background:white;padding:24px;margin:20px 0;border-radius:8px}h1{font-size:28px}nav{display:flex;gap:20px}button{padding:8px 16px;cursor:pointer;border:1px solid #789;background:white;border-radius:4px;margin:0 6px 12px 0}button.active{background:#20272c;color:white}.figure{display:block;width:100%;height:auto;background:white}.version[hidden]{display:none}.legend{max-width:85ch;border-top:1px solid #ddd;padding-top:20px}pre{white-space:pre-wrap;font-size:12px}.status{color:#59656e}table{border-collapse:collapse;width:100%}td,th{padding:8px;border-bottom:1px solid #ddd;text-align:left}@media print{body{background:white}button,nav{display:none}.version.original{display:none}header,section{padding:0;border-radius:0}.figure{width:183mm;max-width:100%}}'
-    page='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Figures 1–2: legend and layout drafts</title><style>'+css+'</style><main><header><h1>Figures 1–2 · legend and layout drafts</h1><p>11 October 2026. Candidate shown first. Switch to the authenticated original to compare. Data coordinates, sample counts and statistical marks are preserved. Figure 1 uses legacy axis styling, taller individual trace rows and shorter heatmaps through recorded display transforms. Figure 2 is unchanged. These drafts are not frozen.</p><nav><a href="#figure1">Figure 1</a><a href="#figure2">Figure 2</a><a href="#concerns">Review notes</a></nav></header>'
+    page='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Figures 1–2: legend and layout drafts</title><style>'+css+'</style><main><header><h1>Figures 1–2 · legend and layout drafts</h1><p>11 October 2026. Candidate shown first. Switch to the authenticated original to compare. Frozen sources are preserved. Draft D/E share measured frames, event guides and aligned axes; E raw and scaled vigor are recomputed from D’s stored vigor. Other panels retain their selected data. Figure 1 uses legacy axis styling and shorter F–H heatmaps. Figure 2 is unchanged. These drafts are not frozen.</p><nav><a href="#figure1">Figure 1</a><a href="#figure2">Figure 2</a><a href="#concerns">Review notes</a></nav></header>'
+    page=page.replace('11 October 2026.',review_day.strftime('%d %B %Y')+'.',1)
     for n,(old,new) in enumerate(outputs,1):
         page+=f'<section id="figure{n}"><h2>Figure {n}</h2><button class="active" onclick="showVersion({n},\'candidate\',this)">Decluttered draft</button><button onclick="showVersion({n},\'original\',this)">Original selected assembly</button>'
         for kind,data in [('candidate',new),('original',old)]:
@@ -528,8 +610,41 @@ def main():
         page+='<div class="legend"><h3>Draft legend</h3>'+legend_html(legends[n-1])+'</div></section>'
     page+='<section id="concerns"><h2>Review notes</h2>'+legend_html(notes)+'</section><details><summary>Text-relocation record and exact provenance</summary><pre>'+html.escape(json.dumps(provenance,indent=2))+'</pre></details><script type="application/json" id="review-provenance">'+json.dumps(provenance).replace('<','\\u003c')+'</script><script>function showVersion(n,kind,button){const section=document.getElementById("figure"+n);section.querySelectorAll(".version").forEach(el=>el.hidden=!el.classList.contains(kind));section.querySelectorAll("button").forEach(el=>el.classList.toggle("active",el===button));}</script></main></html>'
     assert not re.search(r'(?:src|href)="(?:https?://|file:)',page)
-    target.write_text(page)
+    page_bytes=page.encode()
     assert digest(resolve_artifact('reviews/latest_figure_assemblies_20261010.html').read_bytes())==container['sha256']
-    (ROOT/'docs/analysis/figures/reviews/legend-text-relocation.json').write_text(json.dumps(dict(review_path=str(target),review_sha256=digest(target.read_bytes()),edits=edits,layouts=layouts,checks=provenance['checks'],typography=typography),indent=2)+'\n')
+    mapping=dict(review_path=str(target),review_sha256=digest(page_bytes),edits=edits,layouts=layouts,checks=provenance['checks'],typography=typography)
+    if state:
+        draft_svg,meta=editable_svg(outputs[0][1],kind='Figure 1: current unfrozen presentation draft',source_records=sources[0]['metadata']['panels'],registries=aligned_registry)
+        svg_path=target.with_suffix('.svg')
+        measurements=measured_presentation(draft_svg)
+        measurements['axis_findings']=draft_axis_findings(measurements)
+        measurement_path=ROOT/'docs/analysis/figures/reviews/figure-01'/f'{target.stem}-effective-presentation.json'
+        measurement_bytes=(json.dumps(measurements,indent=2)+'\n').encode()
+        snapshot.hashes[str(measurement_path.resolve())]=file_hash(measurement_path)
+        state['draft'].update(review=dict(path=str(target),sha256=digest(page_bytes)),
+                              working_svg=dict(path=str(svg_path),sha256=digest(draft_svg),source_svg_sha256=digest(outputs[0][1])),
+                              source_assembly_sha256=digest(outputs[0][1]),
+                              effective_presentation=dict(path=str(measurement_path),sha256=digest(measurement_bytes)))
+        state.pop('effective_presentation',None)
+        state['draft']['semantic_registry']=dict(scope='D/E explicit artists and cross-panel relationships',scientific_records=len(meta['scientific_registry']),whole_figure_complete=False,relationships=pair_report['shared_contract'],verification=pair_report['verification'])
+        state['draft']['scientific_changes']=pair_report['scientific_changes']
+        state['outstanding_questions']=[q for q in state.get('outstanding_questions',[]) if 'trial 9' not in str(q).lower()]
+        state['verification']=dict(current_sources_authenticated=True,editable_source_structure=True,
+                                   visual_review='pending review of this new candidate',
+                                   measured_axis_findings=len(measurements['axis_findings']),
+                                   concurrency='Starting ticket and captured inputs checked under exclusive publication lock')
+        state['preserved_figures']={'figure2':previous_review}
+        # Current state is the sole pointer. Legacy mapping is a version-bound
+        # evidence record; write it only after guarded artifact publication.
+        mapping['state_authority']=str(state_path)
+        publish_state(state_path,state,snapshot,[(target,page_bytes),(svg_path,draft_svg),(measurement_path,measurement_bytes)],
+                      [(mapping_path,(json.dumps(mapping,indent=2)+'\n').encode())])
+    else:
+        # Bootstrap requires explicit working-copy preparation before subsequent
+        # guarded figure edits. Existing workflows retain their behavior here.
+        snapshot.check()
+        with target.open('xb') as stream:stream.write(page_bytes)
+        from classical_conditioning.artifacts import write_json_atomic
+        write_json_atomic(mapping_path,mapping)
     print(target);print(json.dumps(dict(text_edits=len(edits),single_self_contained_review=True)))
 if __name__=='__main__':main()

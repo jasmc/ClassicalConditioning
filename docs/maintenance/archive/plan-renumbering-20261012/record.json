@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-12",
+  "moves": [
+    {
+      "old": "Plans/04_LEARNING_ONSET_IMPLEMENTATION.md",
+      "new": "Plans/03_FIGURE_2_LEARNING_ONSET.md",
+      "original_sha256": "925734b5e8caca57c114631b4cafd5c9545781b9bc1d6c9d7f407bb462ecfabb"
+    },
+    {
+      "old": "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md",
+      "new": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+      "original_sha256": "3e6ee80d6352e6240391d133c6e2167a1a2d43d15a7cb72932f8970bfbb08d5c"
+    },
+    {
+      "old": "Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md",
+      "new": "Plans/05_FIGURE_4_CR_PROFILES.md",
+      "original_sha256": "46ec0c135250fce3ad31429d0a6b9b6d478144fb0153e2500b1db85be214f8dd"
+    },
+    {
+      "old": "Plans/03_ANALYSIS_AND_STATISTICS.md",
+      "new": "Plans/06_ANALYSIS_AND_STATISTICS.md",
+      "original_sha256": "0d618256fbb4265b50942c60a64d6746f51214c1100c3ca946becb8e35c21d69"
+    },
+    {
+      "old": "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md",
+      "new": "Plans/07_FIGURE_BUILD_TOOLS.md",
+      "original_sha256": "c84842d0a2809837b62ab086009ac228fda0ff385568642d772c55365eaaae13"
+    },
+    {
+      "old": "Plans/10_FIRST_RELEASE_FIGURES_1_TO_4.md",
+      "new": "Plans/08_FIRST_RELEASE_FIGURES_1_TO_4.md",
+      "original_sha256": "d87436cf8e4d3223380f93e5404b6400c4703657023e196124f9d438b5a48803"
+    },
+    {
+      "old": "Plans/11_SUPPLEMENTARY_FIGURES.md",
+      "new": "Plans/09_SUPPLEMENTARY_FIGURES.md",
+      "original_sha256": "207d56a04437f1311a580ba76bd55bf0e30e0dd3619134044cadee26038c3476"
+    },
+    {
+      "old": "Plans/12_TAIL_MECHANISTIC_ANALYSES.md",
+      "new": "Plans/10_TAIL_MECHANISTIC_ANALYSES.md",
+      "original_sha256": "5a5b8971e931297f8f8d4c45e62914efa5746a7f643d279f7ca56166d1c13522"
+    },
+    {
+      "old": "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md",
+      "new": "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md",
+      "original_sha256": "d7e9759ac65779597d4470d7c7175440a368ede01149f6100d7b6415bc7af433"
+    }
+  ],
+  "original_build_design": "docs/analysis/figures/figure-build-tooling-design.md",
+  "scientific_dependencies": "unchanged; numbering is not execution order"
+}

@@ -37,7 +37,7 @@ four rules; do not interpret agreement as a biological ground truth.
 The four rules all use acquisition and later recovery data to form labels.
 Analyses of those same data by label are descriptive. A paper-level learner
 claim still needs the representation choice, continuous-method comparison,
-provenance, and non-circular validation required by Plans 04–06.
+provenance, and non-circular validation required by Plans 03–06.
 
 To render the archived scripts' summary trajectory, feature-space, BLUP
 overlay, and available caterpillar plots after comparison:

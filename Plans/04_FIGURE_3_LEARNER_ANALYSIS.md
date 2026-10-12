@@ -1,10 +1,10 @@
-# Learner Analysis and Validation
+# Figure 3 — Learner Analysis and Validation
 
 **Scope:** Individual conditioned behavioral expression, Figure 3, and learner-dependent Figure 4/CR-profile outputs using existing recordings. No additional experiments are available. A categorical learner/non-learner label is optional; an approved continuous or longitudinal result still completes the learner workstream.
 
 **Depends on:** Frozen corrected preprocessing and selected metric/detector; authenticated technical/exploratory assessment; label-independent primary cohort (C1); approved outcomes (O) and the necessary population-analysis contract (S). Final method selection waits for stable inputs. Gate L approves the learner representation and validation design.
 
-**Unlocks:** Reviewed learner-focused claims and Figure 3, plus learner-aware outputs in [Plan 08](08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md), [figure reporting](09_FIGURES_AND_REPRODUCIBLE_REPORTING.md) and [the Figures 1–4 release](10_FIRST_RELEASE_FIGURES_1_TO_4.md). Population membership and inference remain independent of learner results.
+**Unlocks:** Reviewed learner-focused claims and Figure 3, plus learner-aware outputs in [Plan 05](05_FIGURE_4_CR_PROFILES.md), [figure reporting](07_FIGURE_BUILD_TOOLS.md) and [the Figures 1–4 release](08_FIRST_RELEASE_FIGURES_1_TO_4.md). Population membership and inference remain independent of learner results.
 
 ## Phase 1: Method review and Gate L decision
 
@@ -23,7 +23,7 @@ Scientific comparison and literature: [method-review reference](../docs/analysis
 1. Wrap and characterize the four legacy classifiers with explicit immutable inputs/configuration, isolated external destinations and versioned manifests; preserve algorithm identity and authenticated regression results before adaptation.
 2. Implement the approved representation and evidence-rich fish-level manifest. Preserve experiment/condition/fish identity, cohort/policy and assessment hashes, metric/detector/method versions, source/code identity, features or scores/trajectories, uncertainty, eligibility reasons, any rules/thresholds and disjoint construction/evaluation trial sets.
 3. Annotate derived CS/US time-series, trial summaries and panel data through validated many-to-one joins. Stop on duplicate keys; report unmatched fish. Keep controls as references and insufficient-information fish explicit. Model-specific feature failures never remove fish from the frozen primary cohort or create an independent discard path.
-4. Reuse approved outcome functions and Plan 08 aggregation/selectors for movement occurrence, fraction moving, bouts, conditional vigor and approved zero-inclusive activity. Resolve catches and blocks from experiment configuration; aggregate samples → trials → within fish → across fish, with contributing counts and fish-level or justified hierarchical uncertainty.
+4. Reuse approved outcome functions and Plan 05 aggregation/selectors for movement occurrence, fraction moving, bouts, conditional vigor and approved zero-inclusive activity. Resolve catches and blocks from experiment configuration; aggregate samples → trials → within fish → across fish, with contributing counts and fish-level or justified hierarchical uncertainty.
 5. Validate the chosen method with the prespecified existing-trial/phase holdout or cross-fitting design. Evaluation outcomes must not inform score design, thresholds, reference fitting, behavioral eligibility or corresponding labels. Same-data strata describe rule-selected behavior; their differences are not independent confirmation of learning.
 6. Run manifest/identity, cohort-hash, eligibility, join-cardinality, fixed-seed, legacy-regression, selector-consistency, coverage, fish-first aggregation and leakage checks. Revisit and revalidate the recipe if upstream metric, outcomes or preprocessing change.
 
@@ -36,7 +36,7 @@ Interfaces and tests: [implementation contract](../docs/analysis/learners/IMPLEM
 1. Produce representation/eligibility and sample-flow tables, feature/score distributions, individual examples/atlas, trial trajectories and validated learner-focused results. For approved categories, retain underlying continuous evidence and reference/unclassified counts; otherwise use the approved scores or trajectories.
 2. Supply individual-fish, selected single-trial, catch, grouped/five-trial-block, phase and trial-by-trial views with movement occurrence alongside conditional vigor. Reuse configured pooled catches and ten-trial selectors for the integrated run; do not silently substitute one block definition for another.
 3. Keep panel-data generation separate from rendering. Every sidecar/caption identifies cohort/input/method hashes, eligibility, alignment, windows, event identity, contributing fish/trials, uncertainty and validation mode. Adapt downstream Figure 4 grouping to the approved representation rather than forcing categories.
-4. Integrate with Plans 08 and 09 and review Figure 3 plus applicable downstream claims for the first Figures 1–4 release. Save one consolidated external review containing requested versions/provenance; numerical payloads and media remain external. Panel/figure freezing uses the explicit freeze gate and its scientific, structural and visual checks.
+4. Integrate with Plans 05 and 07 and review Figure 3 plus applicable downstream claims for the first Figures 1–4 release. Save one consolidated external review containing requested versions/provenance; numerical payloads and media remain external. Panel/figure freezing uses the explicit freeze gate and its scientific, structural and visual checks.
 
 **Exit:** Reviewed panels and downstream results express the approved representation faithfully, show coverage and uncertainty, and distinguish descriptive characterization from held-out prediction or confirmatory evidence.
 
@@ -50,4 +50,4 @@ Interfaces and tests: [implementation contract](../docs/analysis/learners/IMPLEM
 - [ ] Figure 3 and learner-dependent Figure 4/profile outputs preserve approved semantics and provenance.
 - [ ] Original scientific data and historical classifier results remain intact; permanent outputs are external.
 
-This is the sole active learner plan. Former plans 05, 06 and 07 are consolidated here; identifiers 06/07 are retired, and plans 08–14 keep their existing numbers. Detailed requirements remain in [learner documentation](../docs/analysis/learners/README.md). Track progress only in the [implementation index](IMPLEMENTATION_STEP_INDEX.md).
+This is the sole active learner plan, including the former method-review and output/validation workstreams. Detailed requirements remain in [learner documentation](../docs/analysis/learners/README.md). Track progress only in the [implementation index](IMPLEMENTATION_STEP_INDEX.md).

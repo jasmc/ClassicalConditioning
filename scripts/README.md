@@ -23,6 +23,7 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 
 | Script | Scope |
 |---|---|
+| [figure_working_copy.py](figure_working_copy.py) | Prepare/reuse hash-verified editable frozen/draft SVGs, measure effective SVG properties and verify the scoped current state. |
 | [build_figure_legend_review.py](build_figure_legend_review.py) | Authenticated Figure 1–2 text/layout candidates and draft legends in one self-contained external review; no recomputation or freeze. |
 | [assemble_svg_figure.py](assemble_svg_figure.py) | Compose replaceable SVG panels from a declarative paper-figure layout. |
 | [build_figure1_panel_a.py](build_figure1_panel_a.py) | Normalize the supplied vector preparation scheme to the plot font. |
@@ -96,3 +97,5 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 Keep a script here when a supported command/test uses it, an active plan needs it, or it provides an explicit reusable audit/extraction contract. Keep its required imports as well. Put exact frozen code under `records/frozen-analyses/`; archive dated candidate recipes and completed transfer/continuation helpers on JOAQUIM with hashes. Do not rename supported scripts merely to group files, and do not remove unique originals before archive verification. Add new supported tools to this catalogue with their purpose and consumers.
 
 The unused G preparation script was an exact copy of the [retained frozen G source](../records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py). Its old path resolves through the relocation map. The block-log-median script also matches a frozen snapshot but stays here because supported D/E preparation and statistics tools import it.
+
+Assembly use: see [preflight and panel replacement](../docs/analysis/figures/assembly-preflight-and-replacement.md). The assembler supports no-write `--plan`, an explicit external `--output`, verified `--baseline-manifest` comparison and candidate-only `--overwrite`. Current figure-state artifacts continue through the existing guarded working-copy/review workflow.

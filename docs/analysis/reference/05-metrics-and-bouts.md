@@ -109,7 +109,7 @@ probability of moving with how intensely a fish moves once a bout occurs.
 The scientific decisions are in
 [docs/scientific-decisions.md](../../scientific-decisions.md). Earlier metric and tail plans
 remain in Git history. Future mechanistic extensions are separated into
-[Tail Mechanistic Analyses](../../../Plans/12_TAIL_MECHANISTIC_ANALYSES.md).
+[Tail Mechanistic Analyses](../../../Plans/10_TAIL_MECHANISTIC_ANALYSES.md).
 
 ## Current recipe reference
 

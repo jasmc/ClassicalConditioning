@@ -89,5 +89,5 @@ inference are approved. Figure 2 population heatmaps require frozen-cohort
 fish coverage; per-fish profiles are not substitutes. Figure 4 signed,
 baseline-centered learner timing must be defined independently of classifier
 features. See the [draft comparison](../figures/history/shared/draft-comparison.md) for
-panel-level gaps and the [cohort plan](../../../Plans/02_COHORT_IMPLEMENTATION.md)
+panel-level gaps and the [cohort plan](../../../Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md)
 for remaining assessment gates.

@@ -81,4 +81,4 @@ uncertainty, and manuscript role are approved. Until then these analyses must
 not influence selection of the primary activity metric or learner threshold.
 
 
-This follow-on work does not block [the first release](10_FIRST_RELEASE_FIGURES_1_TO_4.md).
+This follow-on work does not block [the first release](08_FIRST_RELEASE_FIGURES_1_TO_4.md).

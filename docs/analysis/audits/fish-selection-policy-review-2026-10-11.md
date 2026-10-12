@@ -1,6 +1,6 @@
 # Fish exclusion and eligibility: combined legacy review
 
-**Review pending.** Author instruction, 2026-10-11: combine all legacy discarding steps; review them later. This document collects their behavior and ownership in one package. It does not approve numerical thresholds, enable exclusion switches, recompute a cohort or change accepted panel freezes. [Plan 02](../../../Plans/02_COHORT_IMPLEMENTATION.md) owns the review before [Analysis and Statistics](../../../Plans/03_ANALYSIS_AND_STATISTICS.md).
+**Review pending.** Author instruction, 2026-10-11: combine all legacy discarding steps; review them later. This document collects their behavior and ownership in one package. It does not approve numerical thresholds, enable exclusion switches, recompute a cohort or change accepted panel freezes. [Plan 02](../../../Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) owns the review before [Analysis and Statistics](../../../Plans/06_ANALYSIS_AND_STATISTICS.md).
 
 ## What currently runs automatically
 

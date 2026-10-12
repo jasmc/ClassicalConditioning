@@ -29,7 +29,7 @@ Extend these facilities when integrating this specification; do not introduce
 a competing export format. Current renderers do not all use these facilities.
 
 Related records are the [paper specification](02_PAPER_FIGURE_SPECIFICATION.md),
-[figure reporting plan](../../../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md),
+[figure reporting plan](../../../Plans/07_FIGURE_BUILD_TOOLS.md),
 [panel comments](reviews/PANEL_REVIEW_COMMENTS.md) and
 [legacy style configuration](../../../legacy/helpers/plotting_style.py).
 

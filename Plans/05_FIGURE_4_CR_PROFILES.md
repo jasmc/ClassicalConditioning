@@ -1,8 +1,8 @@
-# Integrated Analysis and CR Profiles
+# Figure 4 — CR Profiles
 
 
 **Depends on:** approved metric/outcome contract, frozen primary technical
-cohort, and [learner classification](05_LEARNER_ANALYSIS_AND_VALIDATION.md)
+cohort, and [learner classification](04_FIGURE_3_LEARNER_ANALYSIS.md)
 **Delivers:** one authenticated post-classification analysis run plus focused
 rerender commands for population and learner-stratified outputs
 
@@ -16,11 +16,11 @@ fish population.
 
 This plan integrates rather than supersedes:
 
-- [Fish Exclusion, Eligibility and Paper Cohort](02_COHORT_IMPLEMENTATION.md);
-- [Learning-Onset Analysis Completion](04_LEARNING_ONSET_IMPLEMENTATION.md);
-- [Learner Analysis and Validation](05_LEARNER_ANALYSIS_AND_VALIDATION.md);
+- [Fish Discarding, Eligibility and Paper Cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md);
+- [Learning-Onset Analysis Completion](03_FIGURE_2_LEARNING_ONSET.md);
+- [Learner Analysis and Validation](04_FIGURE_3_LEARNER_ANALYSIS.md);
 - [Learning-Onset Analysis Reference](../docs/analysis/reference/07-learning-onset-lme.md); and
-- [Figures and Reproducible Reporting](09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- [Figures and Reproducible Reporting](07_FIGURE_BUILD_TOOLS.md).
 
 ## Scientific boundary and execution order
 

@@ -3,7 +3,7 @@
 
 
 > Learner analysis is required for the paper and is governed by
-> [the learner-analysis plan](../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md). This companion
+> [the learner-analysis plan](../../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md). This companion
 > retains the detailed schemas, joins, outcomes, temporal views, modules,
 > configuration, validation checklist, implementation phases, and completion
 > criteria from the original learner-stratified design. A categorical label is
@@ -1160,7 +1160,7 @@ At least one learner-stratified result is evaluated on behavior that did not def
 ### Stage 6: Build paper panels
 
 1. Integrate the analysis with
-   [Plan 09: Figures and Reproducible Reporting](../../../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+   [Plan 07: Figure Build Tools](../../../Plans/07_FIGURE_BUILD_TOOLS.md).
 2. Create reusable learner-profile panel renderers.
 3. Compose:
    - Classification flow

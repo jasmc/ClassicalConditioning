@@ -11,7 +11,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Retained frozen preparation panel.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig1-B
@@ -19,7 +19,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Retained frozen contingency panel.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig1-C
@@ -27,7 +27,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Retained frozen session protocol.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig1-D
@@ -35,7 +35,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Retained frozen measured tail-angle panel.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig1-E
@@ -43,7 +43,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Frozen raw traces and exact V12 rows.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig1-F
@@ -51,7 +51,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Frozen V12 Delay heatmap.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig1-G
@@ -59,7 +59,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Frozen V12 3sTrace heatmap.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig1-H
@@ -67,7 +67,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Frozen V12 control heatmap.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ## Figure 2
@@ -77,7 +77,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-B
@@ -85,7 +85,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-C
@@ -93,7 +93,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-D
@@ -101,7 +101,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Frozen B block comparison.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-E
@@ -109,7 +109,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Frozen B block comparison.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-F
@@ -117,7 +117,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-G
@@ -126,7 +126,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** Preserve selected source bytes and scope; check final assembly placement, legend/claim consistency and applicable remaining release evidence.
 - **Recorded limitation:** Exploratory; heavy residual tails; Test3 local M/R unavailable; no learning-onset claim.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-H
@@ -134,7 +134,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig2-I
@@ -142,7 +142,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 09](../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md).
+- **Owner:** [Plan 07](../Plans/07_FIGURE_BUILD_TOOLS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ## Figure 3
@@ -152,7 +152,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 05](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- **Owner:** [Plan 04](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig3-B
@@ -160,7 +160,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 05](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- **Owner:** [Plan 04](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig3-C
@@ -168,7 +168,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 05](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- **Owner:** [Plan 04](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig3-D
@@ -176,7 +176,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 05](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- **Owner:** [Plan 04](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig3-E
@@ -184,7 +184,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 05](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- **Owner:** [Plan 04](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig3-F
@@ -192,7 +192,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 05](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- **Owner:** [Plan 04](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig3-G
@@ -200,7 +200,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 05](../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- **Owner:** [Plan 04](../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ## Figure 4
@@ -210,7 +210,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 08](../Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
+- **Owner:** [Plan 05](../Plans/05_FIGURE_4_CR_PROFILES.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig4-B
@@ -218,7 +218,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 08](../Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
+- **Owner:** [Plan 05](../Plans/05_FIGURE_4_CR_PROFILES.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ### Fig4-C
@@ -226,7 +226,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Current selection:** Proposed; no accepted freeze recorded.
 - **Review:** Not reviewed here for the final first-release assembly; this placeholder does not revoke existing scoped approvals.
 - **Open review:** No completed current-panel review recorded. Establish its own scientific definition and evidence before accepting a version; older recipes remain legacy/proposed.
-- **Owner:** [Plan 08](../Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md).
+- **Owner:** [Plan 05](../Plans/05_FIGURE_4_CR_PROFILES.md).
 - **Comments:** Not reviewed; add specific concerns, evidence and proposed remedies here.
 
 ## Supplementary review by parent figure
@@ -236,7 +236,7 @@ Detailed earlier critiques and their IDs remain in [panel review history](analys
 - **Figure 3:** Learner calibration, stability and independent validation — not reviewed here.
 - **Figure 4:** Individual catches, movement/coverage and independent timing — not reviewed here.
 
-Use [Plan 11](../Plans/11_SUPPLEMENTARY_FIGURES.md) for composition. Existing approved supporting evidence remains valid within its recorded scope.
+Use [Plan 09](../Plans/09_SUPPLEMENTARY_FIGURES.md) for composition. Existing approved supporting evidence remains valid within its recorded scope.
 
 ## Adding a review comment
 

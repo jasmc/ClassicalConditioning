@@ -1,6 +1,6 @@
 # Learner implementation contract
 
-Technical interface, provenance and compatibility requirements for [Plan 05](../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md). Method choice, execution phases and acceptance gates are owned by that plan. Classification-specific requirements apply only when Gate L approves categories; otherwise use the approved score or trajectory with the same identity, cohort and validation contracts.
+Technical interface, provenance and compatibility requirements for [Plan 04](../../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md). Method choice, execution phases and acceptance gates are owned by that plan. Classification-specific requirements apply only when Gate L approves categories; otherwise use the approved score or trajectory with the same identity, cohort and validation contracts.
 
 ## Existing variants
 
@@ -160,7 +160,7 @@ remain explicit as `Unclassified` rather than silently disappearing.
 
 ### 8. Build stratified outcomes
 
-Reuse the outcome/profile functions governed by Plans 03 and 08. Do not duplicate:
+Reuse the outcome/profile functions governed by Plans 06 and 05. Do not duplicate:
 
 - time binning;
 - block mapping;

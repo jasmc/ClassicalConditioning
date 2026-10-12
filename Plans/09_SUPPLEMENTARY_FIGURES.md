@@ -2,7 +2,7 @@
 
 
 **Scope:** Complete the data, controls, sensitivity analyses, and figures that support each main Figure 1–4. Final supplementary numbering and panel letters are assigned during paper composition, not used as analysis-step names.
-**Figure infrastructure:** [Figures and Reproducible Reporting](09_FIGURES_AND_REPRODUCIBLE_REPORTING.md) owns rendering, provenance, and QC. The [paper figure specification](../docs/current-figures.md) records the current proposed slot map.
+**Figure infrastructure:** [Figures and Reproducible Reporting](07_FIGURE_BUILD_TOOLS.md) owns rendering, provenance, and QC. The [paper figure specification](../docs/current-figures.md) records the current proposed slot map.
 
 ## Order and shared rules
 
@@ -21,7 +21,7 @@ Prepare the supplementary data for a figure alongside that figure. Figure 4 supp
 - Export contributing-fish counts, valid-bin fractions, and QC for every pooled heatmap on their own labeled scales.
 - Show individual-fish trial trajectories and the context for any selected examples, without changing the reviewed cohort.
 - Provide US-aligned paired and unpaired summaries that distinguish direct post-US behavior from anticipatory conditioned responses.
-- Preserve fish-level block and trial tables, model diagnostics, uncertainty, multiplicity rules, and sensitivity to the selected metric, cohort, coverage, and outcome. Supplementary claims about learning onset or loss of an established response require prespecified definitions and passing inference gates in [analysis and statistics](03_ANALYSIS_AND_STATISTICS.md) and [learning-onset completion](04_LEARNING_ONSET_IMPLEMENTATION.md).
+- Preserve fish-level block and trial tables, model diagnostics, uncertainty, multiplicity rules, and sensitivity to the selected metric, cohort, coverage, and outcome. Supplementary claims about learning onset or loss of an established response require prespecified definitions and passing inference gates in [analysis and statistics](06_ANALYSIS_AND_STATISTICS.md) and [learning-onset completion](03_FIGURE_2_LEARNING_ONSET.md).
 
 ## Figure 3 support: individual learning
 

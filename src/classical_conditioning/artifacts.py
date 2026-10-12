@@ -13,7 +13,7 @@ import os
 import shutil
 import tempfile
 import uuid
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
@@ -110,8 +110,12 @@ def publish_transaction(
     *,
     overwrite: bool,
     removals: tuple[Path, ...] = (),
+    verify_published: Callable[[], None] | None = None,
 ) -> None:
-    """Publish related artifacts with rollback if any replacement fails."""
+    """Publish related artifacts with rollback on replacement/verification failure.
+
+    A caller may verify saved bytes/inputs before the retained backups are removed.
+    """
     # Validate the planned transaction before changing any existing destination.
     if not units:
         raise ValueError("Artifact publication requires at least one unit.")
@@ -172,6 +176,9 @@ def publish_transaction(
         for staged_path, final_path in units:
             os.replace(staged_path, final_path)
             published.append(final_path)
+        # Keep backups until caller-specific saved-byte/input checks pass.
+        if verify_published is not None:
+            verify_published()
     except Exception as publish_error:
         # Remove any newly published subset, then restore backups in reverse order.
         rollback_errors: list[str] = []

@@ -21,12 +21,12 @@ should be a continuous score, responder probability, latent trajectory,
 binary/multiclass label, or a combination. Requiring learner analysis does not
 justify choosing a hard threshold before that comparison. The operational
 requirements live in
-[Learner Representation and Analysis](05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+[Learner Representation and Analysis](04_FIGURE_3_LEARNER_ANALYSIS.md).
 
 The implemented exploratory model-input, LME, permutation, and bootstrap code
 is described in [the current LME reference](../docs/analysis/reference/07-learning-onset-lme.md).
 The newer condition-aware implementation and its remaining paper gates are in
-[Learning-Onset Analysis Completion](04_LEARNING_ONSET_IMPLEMENTATION.md).
+[Learning-Onset Analysis Completion](03_FIGURE_2_LEARNING_ONSET.md).
 Earlier statistics and learner plans remain in Git history. Their learner
 requirements are in the active learner plan.
 
@@ -87,7 +87,7 @@ This scoped choice does not replace the separate trajectory/onset workstream.
   contrast or its interaction with learning time. The newer learning-onset
   route implements condition-aware block and longitudinal models, but its
   scientific configuration and paper-scale validation remain open; see
-  [learning-onset implementation](04_LEARNING_ONSET_IMPLEMENTATION.md).
+  [learning-onset implementation](03_FIGURE_2_LEARNING_ONSET.md).
 - The older exploratory permutation and bootstrap routes pool conditions and
   test overall change. The learning-onset route has condition-aware fish-level
   robustness checks; their paper-scale calibration and interpretation remain
@@ -189,7 +189,7 @@ comparisons are descriptive. Confirmatory claims require held-out, cross-fitted,
 or independent evidence. If categorical classification is rejected, the paper
 must still report the approved continuous or model-based learner analysis and
 the evidence for not imposing classes. Full requirements are in
-[the learner plan](05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+[the learner plan](04_FIGURE_3_LEARNER_ANALYSIS.md).
 
 ### 2.7 Define uncertainty, multiplicity, and sensitivity
 

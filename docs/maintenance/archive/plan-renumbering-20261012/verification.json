@@ -1,0 +1,27 @@
+{
+  "plan_numbers": [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11"
+  ],
+  "broken_active_links": [],
+  "frozen_files_unchanged": 70,
+  "scientific_definitions_changed": false,
+  "targeted_tests": {
+    "repository": 22,
+    "mixed_effects": 3,
+    "fish_permutation": 3,
+    "fish_bootstrap": 2,
+    "total": 30,
+    "result": "passed"
+  },
+  "whitespace_check": "passed excluding unchanged author-restored to_implement.md"
+}

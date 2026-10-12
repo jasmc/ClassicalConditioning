@@ -21,6 +21,13 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO / "src"))
+from classical_conditioning.artifacts import artifact_staging, publish_transaction
+from classical_conditioning.external_artifacts import resolve_artifact
+from classical_conditioning.figure_workspace import Snapshot, StaleFigureState, state_lock
+from classical_conditioning.figures.assembly_sources import preflight, prepare_layout, object_hash
+
 SVG = "http://www.w3.org/2000/svg"
 XLINK = "http://www.w3.org/1999/xlink"
 ET.register_namespace("", SVG)
@@ -43,24 +50,8 @@ def storage_root(layout: dict, layout_path: Path) -> Path:
 
 
 def panel_layout(layout: dict, panel_id: str) -> dict:
-    """Make a standalone canvas for visual review of one named panel."""
-    matches = [panel for panel in layout["panels"] if panel["id"] == panel_id]
-    if len(matches) != 1:
-        raise ValueError(f"Unknown or duplicate panel ID: {panel_id}")
-    panel = copy.deepcopy(matches[0])
-    x, y, width, height = panel["box"]
-    panel["box"] = [0, 0, width, height]
-    if "content_box" in panel:
-        cx, cy, cw, ch = panel["content_box"]
-        panel["content_box"] = [cx - x, cy - y, cw, ch]
-    if "label" in panel:
-        panel["label"]["x"] = panel["label"].get("x", x + 6) - x
-        panel["label"]["y"] = panel["label"].get("y", y + 34) - y
-    result = {key: value for key, value in layout.items() if key not in {"panels", "annotations"}}
-    result["title"] = f"{layout.get('title', 'Figure')} — panel {panel_id} preview"
-    result["canvas"] = [width, height]
-    result["panels"] = [panel]
-    return result
+    """Use the same standalone geometry in preflight and composition."""
+    return prepare_layout(layout, only_panel=panel_id)[1]
 
 
 def safe_name(value: str) -> str:
@@ -191,28 +182,31 @@ def repair_source_typography(source: ET.Element, panel: dict) -> None:
         ET.SubElement(source, q("text"), attributes).text = addition["text"]
 
 
-def render(layout_path: Path, output_path: Path, *, strict: bool = False,
-           only_panel: str | None = None,
-           source_overrides: dict[str, str] | None = None) -> dict:
-    layout_path = layout_path.resolve()
-    layout = json.loads(layout_path.read_text(encoding="utf-8"))
-    if source_overrides:
-        known = {panel["id"] for panel in layout["panels"]}
-        unknown = set(source_overrides) - known
-        if unknown:
-            raise ValueError(f"Unknown panel source override: {', '.join(sorted(unknown))}")
-        for panel in layout["panels"]:
-            if panel["id"] in source_overrides:
-                panel["source"] = source_overrides[panel["id"]]
-                # Illustrator-specific crops and text repairs belong to the
-                # selected source, not to a newly authored replacement SVG.
-                for key in ("view_box", "remove_lines_crossing_crop",
-                            "flatten_text", "text_adjustments",
-                            "remove_groups_by_class", "omit_text_exact",
-                            "add_source_text"):
-                    panel.pop(key, None)
-    if only_panel:
-        layout = panel_layout(layout, only_panel)
+def _panel_payload_hash(group):
+    canonical = ET.canonicalize(ET.tostring(group,encoding='unicode'),rewrite_prefixes=True)
+    return hashlib.sha256(canonical.encode()).hexdigest()
+
+
+def _clip_payload_hash(root, panel_id):
+    clip = root.find(f"./{q('defs')}/{q('clipPath')}[@id='clip-{panel_id}']")
+    return _panel_payload_hash(clip) if clip is not None else None
+
+
+def _shared_payload_hash(root):
+    shared = copy.deepcopy(root)
+    for node in list(shared):
+        if node.tag==q('g') and node.get('id','').startswith('panel-'):
+            shared.remove(node)
+        elif node.tag==q('defs'):
+            for child in list(node):
+                if child.tag==q('clipPath') and child.get('id','').startswith('clip-'):
+                    node.remove(child)
+            if not len(node): shared.remove(node)
+    return _panel_payload_hash(shared)
+
+
+def _compose(layout_path, layout, inspection):
+    """Build in memory from inspected source identities; publication is separate."""
     asset_base = storage_root(layout, layout_path)
     width, height = layout["canvas"]
     font_family = layout.get("font_family", "DejaVu Sans")
@@ -231,6 +225,7 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
     })
     seen: set[str] = set()
     records = []
+    inspected = {item["id"]: item for item in inspection["panels"]}
     for panel in layout["panels"]:
         panel_id = safe_name(panel["id"])
         if panel_id in seen:
@@ -256,7 +251,8 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
                 "stroke-width": str(panel["frame"].get("width", 1.5)),
             })
         source_name = panel.get("source")
-        source_path = (asset_base / source_name).resolve() if source_name else None
+        source_info = inspected[panel["id"]]
+        source_path = Path(source_info["source"]["path"]) if source_info["source"]["path"] else None
         if source_path and source_path.is_file():
             if panel.get("frozen_sha256") and digest(source_path) != panel["frozen_sha256"]:
                 raise ValueError(f"Frozen panel {panel_id} differs from its approved SVG")
@@ -297,8 +293,8 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
             state = "source"
             source_hash = digest(source_path)
         else:
-            if strict or panel.get("frozen_sha256"):
-                raise FileNotFoundError(f"Required panel {panel_id}: {source_name or 'source unset'}")
+            if source_info['source']['status'] == 'ready':
+                raise StaleFigureState(f"Verified panel source disappeared: {panel_id}")
             ET.SubElement(group, q("rect"), {
                 "x": str(x), "y": str(y), "width": str(w), "height": str(h),
                 "fill": "#fafafa", "stroke": "#b8b8b8", "stroke-width": "1.5",
@@ -331,6 +327,10 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
             "source": str(source_path) if source_path else None,
             "sha256": source_hash, "source_kind": source_kind,
             "box": [x, y, w, h], "content_box": [content_x, content_y, content_w, content_h],
+            "panel_payload_sha256": _panel_payload_hash(group),
+            "clip_payload_sha256": _clip_payload_hash(root,panel_id),
+            "original_source": source_info["original_source"],
+            "replacement": source_info["replacement"],
             **{key: panel[key] for key in ("selection_status", "pending_inputs", "scientific_definition", "source_provenance") if key in panel},
         })
     for index, annotation in enumerate(layout.get("annotations", [])):
@@ -340,25 +340,207 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
             "font-weight": annotation.get("weight", "normal"),
             "text-anchor": annotation.get("anchor", "start"), "fill": annotation.get("fill", "#333"),
         }).text = annotation["text"]
-    output_path.parent.mkdir(parents=True, exist_ok=True)
     payload = ET.tostring(root, encoding="utf-8", xml_declaration=True)
-    temp = output_path.with_suffix(output_path.suffix + ".tmp")
-    temp.write_bytes(payload)
-    temp.replace(output_path)
     sidecar = {
-        "title": layout.get("title"), "layout": str(layout_path),
-        "storage_root": str(asset_base),
-        "layout_sha256": digest(layout_path), "output": str(output_path.resolve()),
-        "font_family": font_family,
-        "source_overrides": source_overrides or {},
-        "output_sha256": digest(output_path), "panels": records,
-        "note": "Composition is a layout preview. Panel scientific approval is separate.",
+        "schema_version": 2, "title": layout.get("title"), "layout": str(layout_path),
+        "storage_root": str(asset_base), "layout_sha256": inspection["layout_sha256"],
+        "font_family": font_family, "panels": records,
+        "rendering_context_sha256": _shared_payload_hash(root),
+        "rendering_context_scope": "shared-svg-v1",
+        "effective_layout_sha256": object_hash(layout),
+        "note": "Composition is an unfrozen layout preview; overrides are candidates, not approved scientific selections.",
         **{key: layout[key] for key in ("baseline_s", "baseline_interval", "metric_id", "scientific_status", "interpretation", "inventory_manifest") if key in layout},
     }
-    output_path.with_suffix(output_path.suffix + ".json").write_text(
-        json.dumps(sidecar, indent=2) + "\n", encoding="utf-8"
-    )
-    return sidecar
+    return payload, sidecar
+
+
+def _destination(output_path, inputs, *, suffix=".svg", protect_existing=True):
+    output = Path(output_path).expanduser().resolve()
+    for manifest in (REPO/'docs/maintenance/archive').glob('**/transfer-inventory.json'):
+        archive = json.loads(manifest.read_text()).get('archive_root')
+        if archive and Path(archive).resolve() in (output, *output.parents):
+            raise ValueError('Published archives are immutable; choose a candidate destination')
+    if output.suffix.lower() != suffix:
+        raise ValueError("Assembly output must be an editable .svg file")
+    if output == REPO or REPO in output.parents:
+        raise ValueError("Permanent assembly outputs must be outside the repository")
+    if protect_existing and output.is_file():
+        current_hash = digest(output)
+        definitions = [*(REPO/'configs/paper-figures/selections').glob('*.json'),
+                       *(REPO/'records/frozen-analyses').glob('**/manifests/freeze.json')]
+        def hashes(value):
+            if isinstance(value, dict):
+                for key,item in value.items():
+                    if 'sha256' in key.lower() and isinstance(item,str): yield item.lower()
+                    yield from hashes(item)
+            elif isinstance(value,list):
+                for item in value: yield from hashes(item)
+        if any(current_hash in set(hashes(json.loads(p.read_text()))) for p in definitions):
+            raise ValueError('Existing output matches accepted frozen bytes; create a separate candidate')
+    if output in {Path(p).resolve() for p in inputs} or output.with_suffix(output.suffix+'.json') in {Path(p).resolve() for p in inputs}:
+        raise ValueError("Assembly output would overwrite a bound input")
+    if str(output).startswith('/Volumes/'):
+        mount = Path('/Volumes') / output.parts[2]
+        if not os.path.ismount(mount):
+            raise FileNotFoundError(f"External destination unavailable: {mount}; no mount will be fabricated")
+    # Current figure-state artifacts have a separate guarded publication protocol.
+    for state in (REPO/'docs/analysis/figures/reviews').glob('figure-*/current-state.json'):
+        def paths(value):
+            if isinstance(value, dict):
+                if isinstance(value.get('path'), str):
+                    yield Path(value['path']).expanduser().resolve()
+                for v in value.values(): yield from paths(v)
+            elif isinstance(value, list):
+                for v in value: yield from paths(v)
+        if output in set(paths(json.loads(state.read_text()))):
+            raise ValueError("Output is managed by a current figure state; use the guarded review/working-copy workflow or a new candidate destination")
+    return output
+
+
+def _baseline(path):
+    metadata = resolve_artifact(path)
+    result = json.loads(metadata.read_text())
+    if not isinstance(result.get('panels'), list) or not result.get('output_sha256') or not result.get('output'):
+        raise ValueError("Baseline needs a recorded assembly and panel provenance")
+    image = resolve_artifact(result['output'], expected_sha256=result['output_sha256'])
+    root = ET.parse(image).getroot()
+    if root.tag != q('svg'):
+        raise ValueError("Baseline output is not SVG")
+    groups = {node.get('id'):node for node in root if node.tag==q('g')}
+    for panel in result['panels']:
+        if 'panel_payload_sha256' in panel:
+            group = groups.get('panel-'+panel['id'])
+            if group is None or _panel_payload_hash(group)!=panel['panel_payload_sha256']:
+                raise ValueError('Baseline panel provenance does not match saved artwork: '+panel['id'])
+        if 'clip_payload_sha256' in panel and _clip_payload_hash(root,panel['id'])!=panel['clip_payload_sha256']:
+            raise ValueError('Baseline clipping provenance does not match artwork: '+panel['id'])
+    if result.get('rendering_context_scope')=='shared-svg-v1' and _shared_payload_hash(root)!=result.get('rendering_context_sha256'):
+        raise ValueError('Baseline shared rendering context does not match artwork')
+    ids = [p['id'] for p in result['panels']]
+    if len(ids) != len(set(ids)): raise ValueError("Duplicate baseline panel ID")
+    return result, metadata, image
+
+
+def _comparison(baseline, candidate, replaced, *, enforce):
+    before = {p['id']: p for p in baseline['panels']}; after = {p['id']: p for p in candidate['panels']}
+    records = []
+    context_same = (baseline.get('rendering_context_sha256') == candidate['rendering_context_sha256']
+                    if baseline.get('rendering_context_sha256') and baseline.get('rendering_context_scope')==candidate.get('rendering_context_scope') else None)
+    for pid in sorted(set(before) | set(after)):
+        old, new = before.get(pid), after.get(pid)
+        source_same = bool(old and new and old.get('sha256') == new.get('sha256'))
+        geometry_same = bool(old and new and old.get('box') == new.get('box') and old.get('content_box') == new.get('content_box'))
+        payload_same = (old['panel_payload_sha256'] == new.get('panel_payload_sha256')
+                        if old and 'panel_payload_sha256' in old and new else None)
+        clip_same = (old['clip_payload_sha256']==new.get('clip_payload_sha256')
+                     if old and 'clip_payload_sha256' in old and new and 'clip_payload_sha256' in new else None)
+        unchanged = source_same and geometry_same and payload_same is not False and clip_same is not False and context_same is not False
+        if enforce and pid not in replaced and not unchanged:
+            raise ValueError(f"Unrequested panel changed relative to baseline: {pid}")
+        records.append(dict(id=pid, requested_replacement=pid in replaced, source_unchanged=source_same,
+                            geometry_unchanged=geometry_same, embedded_payload_unchanged=payload_same, clipping_unchanged=clip_same,
+                            unchanged=unchanged, before_sha256=old.get('sha256') if old else None,
+                            after_sha256=new.get('sha256') if new else None))
+    return dict(panels=records, rendering_context_unchanged=context_same,
+                payload_check='compared where baseline records panel payloads; older sidecars support source/geometry checks only')
+
+
+def render(layout_path: Path, output_path: Path, *, strict: bool = False,
+           only_panel: str | None = None, source_overrides: dict[str, str] | None = None,
+           baseline_manifest: Path | None = None, overwrite: bool = True,
+           export_formats: tuple[str, ...] = (), font_directory: Path | None = None) -> dict:
+    if len(export_formats) != len(set(export_formats)) or set(export_formats)-{'png','pdf'}:
+        raise ValueError('Explicit exports support distinct png/pdf formats only')
+    inspection = preflight(layout_path, strict=strict, only_panel=only_panel, source_overrides=source_overrides)
+    if not inspection['can_render']:
+        message = '; '.join(inspection['errors'])
+        if any(p['status']=='blocked' and any(s['status'] in {'unavailable', 'unset'} for s in (p['source'],p['original_source'])) for p in inspection['panels']):
+            raise FileNotFoundError(message)
+        raise ValueError(message)
+    layout_path = Path(layout_path).resolve()
+    _, layout = prepare_layout(json.loads(layout_path.read_text()), source_overrides, only_panel)
+    inputs = [layout_path, Path(__file__), *[REPO/'src/classical_conditioning'/name for name in ('figures/assembly_sources.py','external_artifacts.py','artifacts.py','figure_workspace.py')]]
+    for panel in inspection['panels']:
+        inputs.extend(Path(s['path']) for s in (panel['source'], panel['original_source']) if s.get('path'))
+    if font_directory and export_formats:
+        inputs.extend(Path(font_directory)/name for name in ('DejaVuSans.ttf','DejaVuSans-Bold.ttf'))
+    output = _destination(output_path, inputs)
+    sidecar_path = _destination(output.with_suffix(output.suffix+'.json'), inputs, suffix='.json')
+    extra_paths = {fmt:_destination(output.with_suffix('.'+fmt),inputs,suffix='.'+fmt) for fmt in export_formats}
+    previous = None; baseline_paths = []
+    if output.exists() != sidecar_path.exists():
+        raise ValueError("Existing assembly/provenance pair is incomplete; preserve it and use a new destination")
+    if output.exists():
+        if not overwrite: raise FileExistsError(output)
+        previous, metadata, image = _baseline(sidecar_path)
+        if image.resolve() != output: raise ValueError("Existing sidecar identifies a different assembly output")
+        baseline_paths.extend((metadata, image))
+    if baseline_manifest is not None:
+        previous, metadata, image = _baseline(baseline_manifest); baseline_paths.extend((metadata, image))
+    for fmt,path in extra_paths.items():
+        if path.exists():
+            recorded = next((e for e in (previous or {}).get('extra_exports',[]) if Path(e['path']).resolve()==path), None)
+            if not overwrite or recorded is None or digest(path)!=recorded['sha256']:
+                raise ValueError('Existing extra export is unverified or changed: '+str(path))
+    snapshot = Snapshot([*inputs, *baseline_paths, output, sidecar_path, *extra_paths.values()])
+    if snapshot.hashes[str(layout_path)] != inspection['layout_sha256']:
+        raise StaleFigureState('Layout changed after preflight')
+    for panel in inspection['panels']:
+        for record in (panel['source'], panel['original_source']):
+            if record.get('path') and snapshot.hashes[str(Path(record['path']).resolve())] != record['sha256']:
+                raise StaleFigureState('Source changed after preflight: '+record['path'])
+    payload, result = _compose(layout_path, layout, inspection)
+    result.update(output=str(output), output_sha256=hashlib.sha256(payload).hexdigest(),
+                  source_overrides=source_overrides or {}, preflight=inspection,
+                  renderer={'path':str(Path(__file__).resolve()),'sha256':digest(Path(__file__))})
+    command = [sys.executable, str(Path(__file__).resolve()), str(layout_path), '--output', str(output)]
+    if strict: command += ['--strict']
+    if only_panel: command += ['--panel', only_panel]
+    for pid, reference in (source_overrides or {}).items(): command += ['--replace-panel-source', pid+'='+str(reference)]
+    if overwrite: command += ['--overwrite']
+    if baseline_manifest is not None: command += ['--baseline-manifest', str(baseline_manifest)]
+    if export_formats: command += ['--export',*export_formats]
+    result['reproduction_command'] = command
+    result['bound_inputs'] = {str(Path(path).resolve()): snapshot.hashes[str(Path(path).resolve())] for path in inputs}
+    if previous is not None:
+        result['comparison'] = _comparison(previous, result, {safe_name(pid) for pid in (source_overrides or {})},
+                                            enforce=bool(source_overrides) or baseline_manifest is not None)
+        result['comparison']['baseline_sha256'] = digest(metadata)
+        result['comparison']['baseline_manifest'] = str(metadata)
+        result['comparison']['baseline_output_sha256'] = previous['output_sha256']
+        result['comparison']['baseline_reference_retained'] = metadata.resolve() != sidecar_path
+        result['comparison']['baseline_panel_identities'] = [{key: p.get(key) for key in ('id','sha256','panel_payload_sha256','clip_payload_sha256','box','content_box')} for p in previous['panels']]
+    else:
+        result['comparison'] = {'status':'no prior assembly baseline; original source provenance retained'}
+    snapshot.check()
+    # No competing current-state pointer: publish a verified artifact pair only.
+    with artifact_staging(output.parent, prefix='.assembly-') as stage:
+        staged_svg = stage/output.name; staged_json = stage/sidecar_path.name
+        staged_svg.write_bytes(payload)
+        staged_extras = []
+        result['extra_exports'] = []
+        if export_formats:
+            export_with_inkscape(staged_svg,list(export_formats),font_directory=font_directory)
+            for fmt,path in extra_paths.items():
+                staged = staged_svg.with_suffix('.'+fmt)
+                result['extra_exports'].append({'format':fmt,'path':str(path),'sha256':digest(staged)})
+                staged_extras.append((staged,path))
+        result['unmodified_prior_exports'] = [e for e in (previous or {}).get('extra_exports',[]) if e['format'] not in export_formats]
+        staged_json.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
+        units = ((staged_svg,output), *staged_extras, (staged_json,sidecar_path))
+        expected = {destination:digest(staged) for staged,destination in units}
+        def verify_saved():
+            for path, value in expected.items():
+                _destination(path, inputs, suffix=path.suffix, protect_existing=False)
+                if digest(path) != value: raise ValueError('Saved assembly hash mismatch: '+str(path))
+            snapshot.check(ignore=expected)
+        with state_lock(sidecar_path):
+            snapshot.check()
+            for destination in expected:
+                _destination(destination, inputs, suffix=destination.suffix)
+            publish_transaction(units,stage,
+                                overwrite=overwrite,verify_published=verify_saved)
+    return result
 
 
 def export_with_inkscape(svg: Path, formats: list[str], *, font_directory: Path | None = None) -> None:
@@ -400,32 +582,57 @@ def main() -> None:
     parser.add_argument("--replace-panel-source", action="append", default=[], metavar="ID=PATH",
                         help="Preview one alternate SSD source without changing the layout JSON")
     parser.add_argument("--strict", action="store_true", help="Require every panel source")
+    parser.add_argument("--plan", action="store_true", help="Check sources/hashes/geometry without rendering or writing")
+    parser.add_argument("--baseline-manifest", type=Path, help="Verified assembly sidecar for replacement protection")
+    parser.add_argument("--overwrite", action="store_true", help="Replace a verified existing candidate pair under snapshot/lock protection")
     parser.add_argument("--export", nargs="*", choices=["png", "pdf"], default=[])
     parser.add_argument("--watch", action="store_true", help="Rebuild when the layout or a source changes")
     args = parser.parse_args()
+    if args.plan and (args.watch or args.export): parser.error("--plan cannot export or watch")
+    if not args.plan and not args.output: parser.error("Provide an explicit external --output destination")
     source_overrides = {}
     for item in args.replace_panel_source:
         panel_id, separator, source = item.partition("=")
         if not separator or not panel_id or not source:
             parser.error("--replace-panel-source requires ID=PATH")
+        if panel_id in source_overrides: parser.error('Duplicate panel source override: '+panel_id)
         source_overrides[panel_id] = source
+    if args.plan:
+        report = preflight(args.layout, strict=args.strict, only_panel=args.panel, source_overrides=source_overrides)
+        try:
+            if args.output:
+                sources = [s['path'] for p in report['panels'] for s in (p['source'],p['original_source']) if s.get('path')]
+                report['output'] = str(_destination(args.output,sources))
+            if args.baseline_manifest and report['can_render']:
+                baseline, metadata, _ = _baseline(args.baseline_manifest)
+                _, prepared = prepare_layout(json.loads(args.layout.read_text()),source_overrides,args.panel)
+                candidate = {'panels':[{'id':safe_name(p['id']),'sha256':p['source']['sha256'],'box':p['box'],
+                                       'content_box':next(x for x in prepared['panels'] if x['id']==p['id']).get('content_box',p['box'])}
+                                      for p in report['panels']],
+                             'rendering_context_sha256':object_hash({'canvas':prepared['canvas'],
+                               'font_family':prepared.get('font_family','DejaVu Sans'),
+                               'annotations':prepared.get('annotations',[])})}
+                report['comparison'] = _comparison(baseline,candidate,{safe_name(pid) for pid in source_overrides},enforce=True)
+                report['comparison']['check_scope'] = 'source identities and geometry only; embedded payload compared when rendering'
+                report['comparison']['baseline_sha256'] = digest(metadata)
+        except (ValueError,FileNotFoundError) as error:
+            report['can_render']=False; report['status']='blocked';report['errors'].append(str(error))
+        print(json.dumps(report, indent=2, allow_nan=False))
+        raise SystemExit(0 if report['can_render'] else 1)
+    built = False
     while True:
         layout = json.loads(args.layout.read_text(encoding="utf-8"))
         root = storage_root(layout, args.layout)
-        if args.output:
-            output_path = args.output
-        elif args.panel:
-            figure_prefix = safe_name(layout["figure_id"]) + "_Panel" if layout.get("figure_id") else ""
-            output_path = root / "panels" / f"{figure_prefix}{safe_name(args.panel)}.svg"
-        else:
-            output_path = root / layout.get("output", "figure.svg")
+        output_path = args.output
+        font_directory = None
+        if args.export and layout.get('font_directory'):
+            from classical_conditioning.figures.assembly_sources import _source_reference
+            font_directory = resolve_artifact(_source_reference(layout,args.layout,layout['font_directory']+'/DejaVuSans.ttf')).parent
         sidecar = render(args.layout, output_path, strict=args.strict,
-                         only_panel=args.panel, source_overrides=source_overrides)
-        font_directory = (
-            (root / layout["font_directory"]).resolve()
-            if layout.get("font_directory") else None
-        )
-        export_with_inkscape(output_path, args.export, font_directory=font_directory)
+                         only_panel=args.panel, source_overrides=source_overrides,
+                         baseline_manifest=args.baseline_manifest, overwrite=args.overwrite or (args.watch and built),
+                         export_formats=tuple(args.export),font_directory=font_directory)
+        built = True
         print(f"Built {output_path}: " + ", ".join(f"{p['id']}={p['status']}" for p in sidecar["panels"]), flush=True)
         if not args.watch:
             break

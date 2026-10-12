@@ -5,18 +5,18 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | Number | Workstream | Status |
 |---|---|---|
 | 01 | [Paper input validation and reproducibility](01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md) | Infrastructure implemented; paper-scale validation open |
-| 02 | [Fish Exclusion, Eligibility and Paper Cohort](02_COHORT_IMPLEMENTATION.md) | Legacy stages combined for later review; C0/C1 still open |
-| 03 | [Analysis and Statistics Design](03_ANALYSIS_AND_STATISTICS.md) | Design / validation open |
-| 04 | [Learning-Onset Analysis Completion](04_LEARNING_ONSET_IMPLEMENTATION.md) | Design / validation open |
-| 05 | [Learner Analysis and Validation](05_LEARNER_ANALYSIS_AND_VALIDATION.md) | Design / validation open |
-| 08 | [Integrated Analysis and CR Profiles](08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md) | In progress |
-| 09 | [Figures and Reproducible Reporting](09_FIGURES_AND_REPRODUCIBLE_REPORTING.md) | In progress |
-| 10 | [First release: Figures 1–4](10_FIRST_RELEASE_FIGURES_1_TO_4.md) | Not started |
-| 11 | [Supplementary Figures and Data](11_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
-| 12 | [Tail Mechanistic Analyses](12_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
-| 13 | [Behavior and Imaging Integration Plan](13_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
+| 02 | [Fish discarding, eligibility and paper cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) | Detailed all-stage consolidation/review workflow specified; evaluation and C0/C1 approval pending |
+| 03 | [Figure 2 — learning onset](03_FIGURE_2_LEARNING_ONSET.md) | Design / validation open |
+| 04 | [Figure 3 — learner analysis and validation](04_FIGURE_3_LEARNER_ANALYSIS.md) | Design / validation open |
+| 05 | [Figure 4 — CR profiles](05_FIGURE_4_CR_PROFILES.md) | In progress |
+| 06 | [Analysis and statistics](06_ANALYSIS_AND_STATISTICS.md) | Design / validation open |
+| 07 | [Reliable figure builds and panel replacement](07_FIGURE_BUILD_TOOLS.md) | Assembly preflight, replacement protection and verified publication implemented; complete paper-route/assembly-QC integration open |
+| 08 | [First release — Figures 1–4](08_FIRST_RELEASE_FIGURES_1_TO_4.md) | Not started |
+| 09 | [Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
+| 10 | [Tail mechanisms](10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
+| 11 | [Behavior/imaging integration](11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
 
-Plans 06 and 07 were consolidated into Plan 05 on 2026-10-11; its three phases remain design/validation open. Other identifiers are unchanged.
+Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../docs/maintenance/archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 
 ## Completed and retired work packages
 

@@ -6,7 +6,7 @@ This is the durable visual inventory for the legacy analysis and the supported
 refactored candidate workflow. It describes what each pipeline can render and
 where coverage differs; it does not approve scientific outcomes, cohorts, or
 inferential models. Those decisions live in
-[the analysis and statistics plan](../../../../../Plans/03_ANALYSIS_AND_STATISTICS.md).
+[the analysis and statistics plan](../../../../../Plans/06_ANALYSIS_AND_STATISTICS.md).
 
 The archive inventory reflects the preserved historical scripts. A figure
 family may create many files because legacy scripts loop over fish, condition,
@@ -130,10 +130,10 @@ The maintained and historical scripts are catalogued in
 
 ## Related implementation and decisions
 
-- [Figures and reproducible reporting](../../../../../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md)
+- [Figures and reproducible reporting](../../../../../Plans/07_FIGURE_BUILD_TOOLS.md)
   owns paper registries, supported rendering interfaces, panels, validation,
   and final figure outputs for the analysis release.
-- [Analysis and statistics](../../../../../Plans/03_ANALYSIS_AND_STATISTICS.md)
+- [Analysis and statistics](../../../../../Plans/06_ANALYSIS_AND_STATISTICS.md)
   owns Gate O/S decisions and prerequisites for confirmatory results.
-- [Learner representation and analysis](../../../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md)
+- [Learner representation and analysis](../../../../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md)
   owns learner-panel inputs and validation status.

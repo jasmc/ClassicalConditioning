@@ -6,7 +6,7 @@ after separate approval
 **Primary purpose:** Integrate optional two-photon imaging with the canonical
 behavior analysis without creating a second behavior pipeline  
 **Implementation dependencies:** I00 may inventory sources independently; I01+
-depend on existing migration Steps 02-05, approved behavior recipes, and
+depend on historical migration Steps 02-05, approved behavior recipes, and
 canonical behavior identities  
 **Does not block:** Completion of the behavior-only migration and its final analysis release
 
@@ -443,7 +443,7 @@ recorded without inference.
 
 ### I01 - Shared contracts and package boundaries
 
-**Depends on:** Main Steps 02-03 and Gate I0.
+**Depends on:** Historical migration Steps 02-03 and Gate I0.
 
 **Purpose:** Add imaging concepts without changing behavior contracts.
 
@@ -779,7 +779,7 @@ artifact, and one configuration hash.
 
 ### I10 - Cohorts, statistics, and sensitivity
 
-**Depends on:** Main Steps 08-10 and I09.
+**Depends on:** Historical migration Steps 08-10 and I09.
 
 #### Cohort hierarchy
 
@@ -1063,7 +1063,7 @@ inventory and reference-preservation work.
 | Wave | Scope | Can proceed when |
 | --- | --- | --- |
 | A | I00 inventory and reference preservation | Approved to inspect local sources |
-| B | I01 contracts and I02 intake | Main Steps 02-03 pass relevant gates |
+| B | I01 contracts and I02 intake | Historical migration Steps 02-03 pass relevant gates |
 | C | I03 synchronization | Canonical trial map and clock evidence exist |
 | D | I04-I05 registration and frame QC | Intake and synchronization fixtures pass |
 | E | I06-I07 pixel and ROI routes | Final registered artifact and QC are stable |

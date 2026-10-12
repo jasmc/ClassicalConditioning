@@ -1,0 +1,3 @@
+# Consecutive plan numbering — 2026-10-12
+
+Active plans now run 01–11 without gaps. Figure 2, 3 and 4 plans identify their figures; statistics follows Figure 4 in navigation while remaining a prerequisite for final inferential analyses. The old shared figure/reporting plan is shortened to software implementation work, with detailed design retained under figure documentation. AGENTS.md remains the standing workflow authority. [Move map](record.json) preserves former identities; old numbered references in historical snapshots remain historical. No scientific result, selection, threshold or freeze was changed.

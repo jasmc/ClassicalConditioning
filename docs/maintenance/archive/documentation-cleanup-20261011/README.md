@@ -1,5 +1,12 @@
 # Documentation organization — 2026-10-11
 
+## Frozen authority and author entry points
+
+Completed in response to the author instruction that frozen versions define current. The four author documents are [Current figures](../../../current-figures.md), [Scientific decisions](../../../scientific-decisions.md), [Panel review](../../../panel-review.md) and [Paper review](../../../paper-review.md). Technical manuals now sit in `docs/analysis/reference/`; superseded recipe/specification/review bodies are history. Retained frozen 1A–D remain current, alongside 1E/FGH V12 and 2D/E B/G. Unfrozen panels are proposed.
+
+Four exact pre-edit originals were verified on JOAQUIM before replacing conflicting current text. The existing [verification record](verification.json) records original hashes, moves and preserved frozen bytes. Short compatibility pages retain links from the byte-preserved element/style contract. The earlier assessment below is historical; its proposed moves should be read against these completed changes.
+
+
 All 130 original documentation files were inventoried, including hidden files. There were no exact duplicates. [Starting inventory](starting-inventory.json) records hashes, roles, candidate consumers and dispositions. Documents were classified by content and consumers; dates alone did not establish staleness.
 
 Twenty-six documents moved to their owning sections. [Repository moves](repository-moves.json) records original hashes and destinations. Dated figure evidence is grouped by figure under `docs/analysis/figures/history/`; audits and decisions have dedicated indexes; transfer history is distinguished from current storage guidance. Current numbered guides remain stable. The versioned element specification and two documents linked from it retain their paths and specification bytes.

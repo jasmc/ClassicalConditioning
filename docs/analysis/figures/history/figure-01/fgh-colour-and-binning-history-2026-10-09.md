@@ -2,7 +2,7 @@
 
 **Historical scope:** Dated evidence and historical instructions. Original methods, observations, approvals and limitations are preserved below. Current selections are in the [freeze index](../../freezes/README.md); these historical recipes do not override them. Unresolved release work is tracked only in the [implementation index](../../../../../Plans/IMPLEMENTATION_STEP_INDEX.md).
 
-Consolidated 2026-10-10 from the dated handoff, preserving definitions, evidence and scoped authorizations. Historical instructions below do not supersede newer selections. Remaining implementation belongs to [Plan 09](../../../../../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md); unresolved choices remain unresolved.
+Consolidated 2026-10-10 from the dated handoff, preserving definitions, evidence and scoped authorizations. Historical instructions below do not supersede newer selections. Remaining implementation belongs to [Plan 07](../../../../../Plans/07_FIGURE_BUILD_TOOLS.md); unresolved choices remain unresolved.
 
 Prepared 9 October 2026. Repository: `C:/Users/joaquim/Documents/ClassicalConditioning` (PowerShell). Read the current `AGENTS.md` before working. This is a handoff for a fresh chat, not a request to refreeze existing panels.
 

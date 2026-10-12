@@ -2,7 +2,7 @@
 
 **Legacy/source-evidence scope:** This preserves the original recipes, comparisons, approvals and limitations. The accepted frozen selections in [Current figures](../../../../current-figures.md) define the current methods. In particular, population adaptation proposals and older candidate formulas here are not accepted merely because their source was retained.
 
-Consolidated 2026-10-10 from the dated handoff, preserving definitions, evidence and scoped authorizations. Historical instructions below do not supersede newer selections. Remaining implementation belongs to [Plan 09](../../../../../Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md); unresolved choices remain unresolved.
+Consolidated 2026-10-10 from the dated handoff, preserving definitions, evidence and scoped authorizations. Historical instructions below do not supersede newer selections. Remaining implementation belongs to [Plan 07](../../../../../Plans/07_FIGURE_BUILD_TOOLS.md); unresolved choices remain unresolved.
 
 Prepared 9 October 2026. Read repository `AGENTS.md` first. This handoff prepares
 future work; Figure 2 has **not** been recalculated, selected or frozen here.

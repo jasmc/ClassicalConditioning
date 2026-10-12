@@ -1,6 +1,6 @@
 # Learner scientific and technical references
 
-The single workstream owner is [Plan 05: Learner Analysis and Validation](../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md). Progress is tracked only in the implementation index.
+The single workstream owner is [Plan 04: Learner Analysis and Validation](../../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md). Progress is tracked only in the implementation index.
 
 | Reference | Purpose |
 |---|---|

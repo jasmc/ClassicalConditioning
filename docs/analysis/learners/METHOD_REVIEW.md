@@ -4,7 +4,7 @@
 
 **Scope:** Existing recordings and experiment conditions only; no additional experiments are possible
 
-**Relationship:** Scientific comparison reference for [Plan 05](../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md). The plan owns work sequencing; this reference records candidate assumptions, limitations and literature. It does not approve a method.
+**Relationship:** Scientific comparison reference for [Plan 04](../../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md). The plan owns work sequencing; this reference records candidate assumptions, limitations and literature. It does not approve a method.
 
 ## The question to answer
 
@@ -19,7 +19,7 @@ The first question belongs to the label-independent population analysis. The lea
 
 ## Constraints from this repository
 
-- Gate L requires a learner-focused paper result but leaves the continuous, longitudinal, probabilistic, and categorical representation open. A hard label is optional [active plan](../../../Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md).
+- Gate L requires a learner-focused paper result but leaves the continuous, longitudinal, probabilistic, and categorical representation open. A hard label is optional [active plan](../../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md).
 - The primary fish cohort must be fixed using label-independent technical criteria. The current two-stage assessment records a merged pre-fit learner-input prerequisite; method-specific feature eligibility and reasons remain for the learner analysis. Neither may redefine the primary cohort [decision register](../../scientific-decisions.md).
 - The chosen activity metric, detector, outcome transformation, windows, and population inference are not yet paper-frozen. This review cannot select a final method by comparing results on two local fixture fish.
 - Existing outcomes must keep immobility distinct from missing tracking. A conditional-on-movement vigor score alone can miss strong suppression [analysis findings](../audits/01_ANALYSIS_FINDINGS.md).

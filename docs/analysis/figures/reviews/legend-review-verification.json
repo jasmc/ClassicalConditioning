@@ -1,21 +1,21 @@
 {
   "date": "2026-10-11",
-  "review_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11.html",
-  "review_sha256": "e684d5bea17fbf785dbda33508826e82287fab0c1d9e7b5e00b29527105773bd",
+  "review_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html",
+  "review_sha256": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
   "single_self_contained_review": true,
   "original_and_candidate_assemblies": 4,
   "current_scoped_selection_hashes": "verified",
   "frozen_records_unchanged": 70,
   "scientific_svg_geometry_and_counts": "Path coordinates and numerical/image payload signatures verified before/after typography and stroke edits. Original source hashes remain unchanged.",
-  "original_plot_scale": "Candidate-only uniform fitting; D row groups translated to increase spacing; actual D/E plot widths match.",
-  "figure1_row_overlap_checks": "passed; D/E equal 840 \u00d7 440 frames at y=930",
-  "visual_review": "Both final candidates raster-inspected; independent agent inspected consistency across both figures. Original comparison SVGs remain byte-identical.",
+  "original_plot_scale": "Uniform SVG viewport fitting; explicit candidate-only y display transforms recorded: D trace rows 1.5, E trace rows 1.8/stride 80, FGH .65",
+  "figure1_row_overlap_checks": "Independent final visual review passed: equal 840 \u00d7 550 frames, matched data widths, D/E tick and x-label collisions resolved",
+  "visual_review": "Final embedded candidate independently inspected by axis_style_review before drive disconnected. Original Figure 1 and both Figure 2 embedded assemblies confirmed byte-identical by independent agent.",
   "external_image_dependencies": 0,
   "tests": {
     "legend_edit_and_scale": 7,
     "svg_assembly": 6
   },
-  "temporary_qa_files": "removed after final candidate-byte comparison",
+  "temporary_qa_files": "Temporary preview files no longer present on final access attempt",
   "figure1_panel_d": {
     "format": "vector SVG",
     "embedded_raster_images": 0
@@ -25,10 +25,43 @@
     "label_and_title_pt": 8,
     "tick_legend_annotation_pt": 7,
     "panel_letter_pt": 10,
-    "normal_weight_except_bold_panel_letters": true,
-    "measurement_width_mm": 183
+    "normal_weight_except_bold_panel_letters": false,
+    "measurement_width_mm": 183,
+    "weight_policy": "Figure 1 axis labels bold per author instruction; Figure 2 unchanged; panel letters bold"
   },
-  "remaining_layout_limitations": [
-    "D/E within-row numerical ticks remain visually dense, with no definite glyph overlap observed."
-  ]
+  "remaining_layout_limitations": [],
+  "presentation": {
+    "scope": "Figure 1 candidate only",
+    "approval_evidence": "Author requested legacy axis/tick/label style across Figure 1, right-only B arrowheads and below-axis units, and shorter heatmaps in this chat on 2026-10-11",
+    "style_source": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/legacy/helpers/plotting_style.py",
+      "sha256": "c4be46a659e4c721d56d83f98dd2246f354c45ec72b2e3507eb43b2bb1ce143f"
+    },
+    "axis_labels": {
+      "size_pt": 8,
+      "weight": "bold",
+      "color": "#000000"
+    },
+    "ticks": {
+      "size_pt": 7,
+      "length_pt": 2,
+      "pad_pt": 2,
+      "direction": "out",
+      "width_pt": 0.5
+    },
+    "trace_bottom_spine_offset_pt": 6,
+    "heatmap_spines": "retain boxed flush axes",
+    "display_transforms": {
+      "D_trace_row_y_factor": 1.5,
+      "E_trace_row_y_factor": 1.8,
+      "E_row_stride": 80,
+      "FGH_height_factor": 0.65
+    },
+    "B_arrowheads": "right only",
+    "B_unit_label_position": "below each time axis",
+    "scientific_definitions": "unchanged"
+  },
+  "figure2_candidate_unchanged": true,
+  "original_comparisons_byte_identical": true,
+  "storage_access": "JOAQUIM available; saved review re-read and SHA-256 verified on 2026-10-12"
 }
