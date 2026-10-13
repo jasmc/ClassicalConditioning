@@ -26,8 +26,12 @@ class LegendReviewTests(unittest.TestCase):
         ET.SubElement(root,review.tag('g'),{'id':'heading'})
         ET.SubElement(root,review.tag('g'),{'id':'shared-time-axis'})
         events=[]
-        for name,cy in [('control',82),('delay',151),('trace-3s',220),('trace-10s',289)]:
+        conditions=[('control',82,'Control','#333333'),('delay',151,'Delay','#0000ff'),
+                    ('trace-3s',220,'Trace (3 s)','#ff0000'),('trace-10s',289,'Trace (10 s)','#008000')]
+        for name,cy,title,colour in conditions:
             group=ET.SubElement(root,review.tag('g'),{'id':'row-'+name})
+            ET.SubElement(group,review.tag('rect'),{'x':'24','fill':colour})
+            ET.SubElement(group,review.tag('text')).text=title
             event=ET.SubElement(group,review.tag('circle'),{'id':'event-'+name,'cx':'542.5','cy':str(cy),'r':'7.2','data-time-s':'9'})
             events.append(ET.tostring(event))
         output=review.grid_timing(root)
@@ -36,6 +40,10 @@ class LegendReviewTests(unittest.TestCase):
         self.assertEqual([ET.tostring(next(g.iter(review.tag('circle')))) for g in cells],events)
         self.assertEqual(cells[0].get('transform'),'translate(-180 18)')
         self.assertEqual(cells[1].get('transform'),'translate(530 -51)')
+        for cell,(_,_,title,colour) in zip(cells,conditions):
+            label=next(node for node in cell.iter(review.tag('text')) if node.text==title)
+            self.assertEqual(label.get('fill'),colour)
+            self.assertFalse(any(node.get('x')=='24' for node in cell.iter(review.tag('rect'))))
     def test_protocol_row_moves_preserve_symbol_and_count(self):
         root=ET.Element(review.tag('svg'))
         for name in ['priming','pretraining','testing']:

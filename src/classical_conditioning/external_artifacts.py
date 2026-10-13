@@ -36,7 +36,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
     key = normalized_reference(value, repo)
     # Historical paths can identify several accepted byte versions. Explicit
     # hashes select the verified version without modifying immutable pointers.
-    locations_path = repo / 'docs/maintenance/archive/verified-artifact-locations.json'
+    locations_path = repo / 'records/repository-archive/verified-artifact-locations.json'
     if expected_sha256 and locations_path.is_file():
         locations = json.loads(locations_path.read_text())
         for entry in locations.get('entries', []):
@@ -53,7 +53,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
             if sha256(exact) != expected_sha256:
                 raise ValueError(f'Artifact SHA-256 mismatch: {exact}')
             return exact
-    reloc_path = repo / 'docs/maintenance/archive/relocations.json'
+    reloc_path = repo / 'records/repository-archive/relocations.json'
     reloc = json.loads(reloc_path.read_text()) if reloc_path.exists() else {}
     moves = reloc.get('repository_moves', {})
     moved, visited = key, set()
@@ -63,7 +63,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
         visited.add(moved)
         moved = moves[moved]
     candidate = Path(moved) if Path(moved).is_absolute() else repo / moved
-    audit = repo / 'docs/maintenance/archive'
+    audit = repo / 'records/repository-archive'
     inventory_paths = [*sorted(audit.glob('*/transfer-inventory.json'), reverse=True),
                        audit / 'transfer-inventory.json']
     inventory, row = {}, None
@@ -100,6 +100,22 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
             snapshot = repo / entry['record']
             if entry['sha256'] == expected and snapshot.is_file() and sha256(snapshot) == expected:
                 return snapshot  # Exact historical bytes, never a scientific substitute.
+        # Consolidated guidance has a current canonical destination and an
+        # authenticated original. Only an explicit hash requests that original;
+        # ordinary navigation continues to use current guidance.
+        migrations = sorted((repo / 'records/repository-history').glob('*/migration.json'))
+        for migration in migrations if expected_sha256 else []:
+            for entry in json.loads(migration.read_text()).get('dispositions', []):
+                if (entry.get('sha256') != expected_sha256
+                        or (key != entry['original_path'] and moved != entry['canonical_path'])
+                        or not entry.get('preserved_original')):
+                    continue
+                snapshot = repo / entry['preserved_original']
+                if not snapshot.resolve().is_relative_to(repo.resolve()):
+                    raise ValueError('Invalid preserved original location')
+                if not snapshot.is_file() or sha256(snapshot) != expected_sha256:
+                    raise ValueError(f'Artifact SHA-256 mismatch: {snapshot}')
+                return snapshot
         raise ValueError(f'Artifact SHA-256 mismatch: {candidate}')
     return candidate
 

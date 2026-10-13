@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "active_doc_prefixes": [
+    "docs/paper/",
+    "docs/running-analysis/",
+    "docs/project-maintenance/"
+  ],
+  "compatibility_files": [
+    "docs/README.md",
+    "docs/current-figures.md",
+    "docs/panel-review.md",
+    "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+    "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+    "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+    "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+    "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+    "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+    "docs/maintenance/archive/ARTIFACT_INDEX.md"
+  ],
+  "byte_sensitive_documents": [
+    "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+    "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+    "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md"
+  ],
+  "forbidden_paths": [
+    "docs/analysis/learners",
+    "docs/analysis/audits",
+    "docs/analysis/reference"
+  ],
+  "migration_manifest": "records/repository-history/2026-10-13-paper-structure/migration.json",
+  "future_work_headings": [
+    "Future command surface",
+    "Implementation sequence",
+    "Pilot progress"
+  ],
+  "root_request_file": "to_implement.md"
+}

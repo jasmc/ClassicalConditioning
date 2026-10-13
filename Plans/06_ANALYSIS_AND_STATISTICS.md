@@ -24,7 +24,7 @@ requirements live in
 [Learner Representation and Analysis](04_FIGURE_3_LEARNER_ANALYSIS.md).
 
 The implemented exploratory model-input, LME, permutation, and bootstrap code
-is described in [the current LME reference](../docs/analysis/reference/07-learning-onset-lme.md).
+is described in [the current LME reference](../docs/running-analysis/learning-models.md).
 The newer condition-aware implementation and its remaining paper gates are in
 [Learning-Onset Analysis Completion](03_FIGURE_2_LEARNING_ONSET.md).
 Earlier statistics and learner plans remain in Git history. Their learner
@@ -73,7 +73,7 @@ requirements are in the active learner plan.
 ## Current implementation findings to resolve before paper approval
 
 Keep panel-specific concerns in
-[panel review comments](../docs/panel-review.md), including the Figure 2
+[panel review comments](../docs/paper/figures/README.md), including the Figure 2
 D/E legacy-test audit and complete comparison matrix. For those block panels,
 the author excludes recording day and selects fish-level rank tests; an LMM
 is not required for the named pairwise questions. The corrected review uses

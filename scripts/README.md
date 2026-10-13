@@ -1,12 +1,12 @@
 # Supported scripts
 
-This folder keeps supported commands, scientific audits, freeze/extraction tools and their dependency closure. The 2026-10-10 follow-up archived 41 historical scripts, leaving 52 scripts at that checkpoint. The [2026-10-11 reassessment](../docs/maintenance/archive/scripts-reassessment-20261011/README.md) removed one verified duplicate; 48 supported scripts now remain; the three historical scripts were verified on JOAQUIM and removed locally on 2026-10-11. [Assessment and exact archive map](../docs/maintenance/archive/scripts-cleanup-20261010/README.md) records every disposition. Paths of retained tools stay stable for package imports, tests and provenance.
+This folder keeps supported commands, scientific audits, freeze/extraction tools and their dependency closure. The 2026-10-10 follow-up archived 41 historical scripts, leaving 52 scripts at that checkpoint. The [2026-10-11 reassessment](../records/repository-archive/scripts-reassessment-20261011/README.md) removed one verified duplicate; 48 supported scripts now remain; the three historical scripts were verified on JOAQUIM and removed locally on 2026-10-11. [Assessment and exact archive map](../records/repository-archive/scripts-cleanup-20261010/README.md) records every disposition. Paths of retained tools stay stable for package imports, tests and provenance.
 
 ## Authority and normal entry points
 
-Use `classical-conditioning render-paper-panels` for the package’s supported paper-review route. Use `python scripts/freeze_figure.py` or `classical-conditioning freeze-figure` for new freezes, with `--check-only` first. An old preparation or registration recipe does not authorize a new freeze. Current scoped scientific selections are listed in the [freeze index](../docs/analysis/figures/freezes/README.md); exploratory learner/trace outputs are not publication approval.
+Use `classical-conditioning render-paper-panels` for the package’s supported paper-review route. Use `python scripts/freeze_figure.py` or `classical-conditioning freeze-figure` for new freezes, with `--check-only` first. An old preparation or registration recipe does not authorize a new freeze. Current scoped scientific selections are listed in the [freeze index](../records/frozen-analyses/selections.md); exploratory learner/trace outputs are not publication approval.
 
-Permanent exports belong on JOAQUIM or another explicit external destination. Follow the [archive/storage instructions](../docs/maintenance/archive/README.md) and AGENTS.md. A new review should be one consolidated artifact. Temporary synthetic test files are allowed. Historical configurations and provenance may name an archived script; `resolve_artifact` resolves those references through the inventories without rewriting frozen bytes.
+Permanent exports belong on JOAQUIM or another explicit external destination. Follow the [archive/storage instructions](../records/repository-archive/README.md) and AGENTS.md. A new review should be one consolidated artifact. Temporary synthetic test files are allowed. Historical configurations and provenance may name an archived script; `resolve_artifact` resolves those references through the inventories without rewriting frozen bytes.
 
 ## Retained tool catalogue
 
@@ -98,4 +98,8 @@ Keep a script here when a supported command/test uses it, an active plan needs i
 
 The unused G preparation script was an exact copy of the [retained frozen G source](../records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py). Its old path resolves through the relocation map. The block-log-median script also matches a frozen snapshot but stays here because supported D/E preparation and statistics tools import it.
 
-Assembly use: see [preflight and panel replacement](../docs/analysis/figures/assembly-preflight-and-replacement.md). The assembler supports no-write `--plan`, an explicit external `--output`, verified `--baseline-manifest` comparison and candidate-only `--overwrite`. Current figure-state artifacts continue through the existing guarded working-copy/review workflow.
+Assembly use: see [preflight and panel replacement](../docs/paper/figures/shared/assembly-preflight.md). The assembler supports no-write `--plan`, an explicit external `--output`, verified `--baseline-manifest` comparison and candidate-only `--overwrite`. Current figure-state artifacts continue through the existing guarded working-copy/review workflow.
+
+## Structure validation
+
+[check_repository_structure.py](check_repository_structure.py) performs read-only folder ownership, active-link, relocation, immutable evidence and scoped-state checks. Add `--external` for selected SSD artifacts, transaction payloads and recovered expected versions. Current folder rules are in [project maintenance](../docs/project-maintenance/structure.md); archive control records are under `records/repository-archive/`.

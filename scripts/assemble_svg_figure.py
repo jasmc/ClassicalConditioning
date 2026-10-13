@@ -356,7 +356,7 @@ def _compose(layout_path, layout, inspection):
 
 def _destination(output_path, inputs, *, suffix=".svg", protect_existing=True):
     output = Path(output_path).expanduser().resolve()
-    for manifest in (REPO/'docs/maintenance/archive').glob('**/transfer-inventory.json'):
+    for manifest in (REPO/'records/repository-archive').glob('**/transfer-inventory.json'):
         archive = json.loads(manifest.read_text()).get('archive_root')
         if archive and Path(archive).resolve() in (output, *output.parents):
             raise ValueError('Published archives are immutable; choose a candidate destination')
@@ -384,7 +384,7 @@ def _destination(output_path, inputs, *, suffix=".svg", protect_existing=True):
         if not os.path.ismount(mount):
             raise FileNotFoundError(f"External destination unavailable: {mount}; no mount will be fabricated")
     # Current figure-state artifacts have a separate guarded publication protocol.
-    for state in (REPO/'docs/analysis/figures/reviews').glob('figure-*/current-state.json'):
+    for state in (REPO/'docs/paper/figures').glob('figure-*/current-state.json'):
         def paths(value):
             if isinstance(value, dict):
                 if isinstance(value.get('path'), str):

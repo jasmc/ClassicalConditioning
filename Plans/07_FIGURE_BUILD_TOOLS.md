@@ -1,58 +1,55 @@
 # Reliable Figure Builds and Panel Replacement
 
-## Why keep this plan
+## Purpose
 
-Make the existing figure tools dependable for everyday work: identify the correct panel, replace or reproduce it without changing unrelated panels or science, and save an auditable assembly review. This is shared implementation work for Figures 1–4, not another scientific decision or approval process.
+Make the existing tools usable across Figures 1–4: resolve the correct selected panel, reproduce or replace it without changing unrelated panels or scientific definitions, and publish an auditable review through the existing workflow.
 
-AGENTS.md defines how reviews, storage, styling and freezes must be handled. This plan covers the remaining integration that makes those rules practical. Scientific analysis and approvals belong to Plans 01–06; release packaging belongs to Plan 08. A blocked/unavailable panel is an explicit outcome, not permission to substitute old evidence.
+AGENTS.md defines review, storage and freeze rules. This plan covers their implementation across supported paper builds. Scientific choices belong to Plans 01–06; release packaging belongs to Plan 08. Unavailable or unapproved evidence must be reported explicitly.
 
-## What already exists
+## Implementation to reuse
 
-Checked against the current code on 2026-10-12:
+The assembler now provides no-write source/geometry preflight, external-artifact resolution, original/candidate provenance, reproduction commands, baseline comparisons and locked transactional publication. It checks panel payloads, clipping and shared assembly context; protects bound inputs and accepted/managed artifacts; and rolls back failed publication. These are existing building blocks, not tasks to implement again.
 
-- [SVG composition](../scripts/assemble_svg_figure.py) supports standalone panel previews, source replacement, source/layout hashes and sidecars. [Assembly tests](../tests/test_svg_figure_assembly.py) verify that updating one source preserves the other panel's source hash and that strict mode rejects missing sources.
-- [Paper-panel orchestration](../src/classical_conditioning/figures/paper_panels.py) declares commands, supports a no-write `plan_only` mode, and records step outcomes and blocked registry panels. It covers selected Figure 1, Figure 2 Delay and Figure 4 routes; several routes are explicitly review precursors, not reproduction of current frozen panels.
-- [The selected-assembly updater](../scripts/update_latest_figure_assemblies.py) authenticates and embeds selected Figure 1/2 panel sources. Its figure-specific wiring is not a complete Figures 1–4 build route.
-- Semantic export, theme tools, relocation resolution and the explicit [freeze gate](../scripts/freeze_figure.py) exist. Existing validators should be connected consistently, not duplicated.
+Use the [preflight and replacement guide](../docs/paper/figures/shared/assembly-preflight.md). The [implementation audit](../records/scientific-evidence/audits/figure-build-integrity-2026-10-12.json) records 424 passing tests and 70 unchanged frozen records for that implementation. Those checks used synthetic assembly inputs; they do not establish complete paper routing, scientific identity or final visual quality for Figures 1–4.
 
-The focused assembly implementation is documented in [preflight and replacement](../docs/analysis/figures/assembly-preflight-and-replacement.md): no-write source/geometry plans, archive resolution, original/candidate provenance, baseline protection and locked transactional publication. Reuse it when connecting the remaining paper routes; do not reimplement these checks. Final-scale visual/scientific review and current-state publication remain separate existing workflows.
+Reuse [paper-panel orchestration](../src/classical_conditioning/figures/paper_panels.py), [selected-assembly wiring](../scripts/update_latest_figure_assemblies.py), semantic/theme validators and the existing guarded review/current-state workflow. Do not add a second selection registry, review generator or state writer.
 
-## Five core integration contracts
+## Remaining work
 
-### 1. Resolve current panel sources consistently
+### 1. Connect current selections to supported builds
 
-Connect the registry, scoped selections, external-artifact resolver and assembly configurations so each build identifies its exact source, hash, scientific status and renderer. A newer scoped panel takes precedence over an older whole-figure assembly. Preserve the distinction between a selected frozen panel, a candidate and paper-release readiness.
+Connect registry entries, scoped selection records, presentation state and assembly configurations to exact source hashes and rendering routes. The generic assembler authenticates explicitly supplied inputs; it does not discover the scientifically current selection.
 
-**Done when:** Supported builds select the recorded current source or give a clear missing/stale/blocked result; they do not choose a version by filename age or silently use a review precursor instead of frozen evidence.
+A newer scoped panel selection takes precedence over an older whole-figure assembly. Keep frozen selection, active draft and release readiness distinct. A review precursor must never silently substitute for a selected frozen panel.
 
-### 2. Make replacement and reproduction reliable
+**Acceptance:** Each supported route resolves the recorded current source or reports a clear missing, stale, blocked or unavailable result. Source selection is never based on filename age.
 
-Build on the existing single-panel/replacement functionality. Record the source override and reproduction call; authenticate saved panel data and scientific definitions before rendering. Verify that untouched panels retain their source identities and protected scientific payload, while intended assembly geometry remains reviewable. Changing layout must not silently rerun statistics or alter a cohort, window or learner definition.
+### 2. Complete available paper reproduction routes
 
-**Done when:** One selected panel can be previewed, replaced and reproduced with traceable inputs, and unrelated panels/scientific results remain protected. Historical snapshots remain unchanged; new changes produce separate reviewable candidates.
+Extend existing commands for approved, available panels, including Figure 3 and current-source wiring for the other figures. Connect the assembler preflight and provenance to these routes. Document exact inputs, settings, renderer and reproduction command; identify unresolved scientific dependencies rather than inventing defaults.
 
-### 3. Connect the supported build routes
+Exercise selected-panel preview, candidate replacement and reproduction on authenticated paper inputs when available. Check untouched panel identities and protected scientific payloads as well as intended geometry. The generic synthetic tests already cover publication failures and replacement safeguards; add route-specific checks where they establish something new.
 
-Extend the existing entry points as approved panels become available, including the Figure 3 route and current-source wiring for the other figures. Reuse no-write planning and existing renderers; report which inputs are valid, stale or unavailable and which work will execute. Make interrupted/failed builds recoverable from matching hashes without publishing a success-shaped partial result or overwriting accepted artifacts.
+**Acceptance:** Each available release panel/figure has a supported reproducible command and meaningful preflight/run record. Failures preserve prior accepted work; no build reports a partial result as complete. Missing scientific approvals remain owned by their scientific plans.
 
-**Done when:** A documented supported command can reproduce each available paper figure/panel from explicit inputs, with a meaningful preflight and run record. This does not require implementing every proposed CLI/API/notebook interface.
+### 3. Connect final assembly checks
 
-### 4. Apply existing QC consistently at assembly scale
+Apply existing semantic mappings, source identities, dimensions, effective fonts/strokes, clipping, legends and protected-payload checks at final assembly scale. Generic geometry and XML integrity checks are implemented; they do not verify scientific roles, visual appearance or effective styling across renderers.
 
-Integrate source/panel identity, semantic element mappings, sidecars, dimensions, effective fonts/strokes, clipping, legend/colorbar meaning and protected-payload checks across supported renderers and final-scale assemblies. Use the existing export/theme system and freeze validator. Add approved visual references when available; keep intentional scientific corrections distinct from presentation changes.
+Use real renderer/visual evidence and approved references where available. Report incomplete semantic coverage and unresolved measurements explicitly. Keep scientific corrections distinguishable from presentation edits.
 
-**Done when:** Structural, provenance and relevant visual checks cover the supported paper builds and detect stale/wrong sources or unintended changes. Freezing remains a separate explicitly requested operation under AGENTS.md.
+**Acceptance:** Supported paper builds detect wrong/stale sources and unintended assembly changes, with evidence for relevant final-scale measurements and visual checks. The explicit freeze gate remains a separate author-requested operation.
 
-### 5. Save one verified review with usable provenance
+### 4. Connect builds to the existing review workflow
 
-Connect build output to the current review workflow: one consolidated external review containing requested versions, editable candidate geometry and source/settings/layout/reproduction provenance. Verify the saved artifact before updating its current pointer. Preserve unavailable panels explicitly and make external-path/hash failures clear.
+Pass verified build artifacts and their provenance into the existing consolidated external HTML review and guarded working-copy workflow. Preserve requested versions, editable SVGs, legends, settings and reproduction information. Use the existing figure-state publication lock and snapshot checks when updating a current pointer; assembler-side publication alone does not publish figure state.
 
-**Done when:** Another researcher or agent can locate the exact reviewed artifact and reproduce or replace its panels without relying on a chat preview or undocumented manual edits. Permanent media/data remain external; definitions and exact frozen code remain in the repository.
+**Acceptance:** A reader can locate the exact reviewed artifact and reproduce or replace its panels. Saved artifacts/evidence are verified before atomic state publication; concurrent work is preserved. Missing external evidence remains explicit. Permanent media/data stay external.
 
-## Scope limits and completion
+## Scope and completion
 
-Figure 1 example/trial selection, Figure 2 pooling/centring, cohorts, learner representations, unavailable assays and presentation exceptions require their owning scientific/presentation decisions. This plan supplies the wiring once those choices are approved; it does not choose them. Current scoped freezes remain authoritative within their original scope.
+This plan does not choose cohorts, learner methods, examples, trial matching, pooling, centring or presentation exceptions. It connects approved choices without recomputing or refreezing them. Historical frozen snapshots remain immutable; candidates remain separate.
 
-Notebooks, a broader inspection API and a new general-purpose command framework are optional design ideas, not release prerequisites. The [detailed tooling reference](../docs/analysis/figures/figure-build-tooling-design.md) preserves those ideas and background specifications without making them mandatory work.
+Additional notebooks, inspection APIs and a general command framework are optional, not first-release prerequisites. Background ideas remain in the [preserved tooling design](../records/repository-history/tooling-designs/figure-build-tools.md).
 
-Complete this plan when the five practical contracts above pass appropriate replacement, source-resolution, preflight/failure, provenance and assembly-QC checks for the supported release builds. Track progress only in the [implementation index](IMPLEMENTATION_STEP_INDEX.md); review/approval rules remain in AGENTS.md.
+Complete this plan when the four integration requirements above are demonstrated for supported Figures 1–4 release builds, with unavailable scopes and their owning dependencies explicitly recorded. Generic assembler implementation alone is not completion. Track progress only in the [implementation index](IMPLEMENTATION_STEP_INDEX.md).

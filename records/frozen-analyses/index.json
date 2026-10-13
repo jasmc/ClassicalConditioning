@@ -4,127 +4,127 @@
   "files": [
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/freeze_and_style.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/freeze_and_style.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/freeze_and_style.py",
       "sha256": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed",
       "source": "reviews/fgh_v1_layout_freeze_20261009/freeze_and_style.py"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/freeze.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/manifests/freeze.json",
       "sha256": "956b9cf55451591d5456fd5b5cfe09e3c20743cd2f7bbd12f7f60c76613822f0",
       "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/selected_processing_code.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/selected_processing_code.py",
       "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
       "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json",
       "sha256": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34",
       "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/layout-validation.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/reviews/layout-validation.json",
       "sha256": "4d2bf1890c0b87b80bd8a7166d094abb0164f075a58fbb9ddb3d4bc551ff52ec",
       "source": "reviews/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/settings/pooled-style-freeze.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/settings/pooled-style-freeze.json",
       "sha256": "6414d3cbba94924b6b0b6f6cc79483d85bbf022e8857b457dc6c26ae47e608ea",
       "source": "reviews/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/register_freeze.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/register_freeze.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/register_freeze.py",
       "sha256": "bab4ac1605c0f70b88fa31d55f7caef993a927bf5e13fdeab129e93f678dc300",
       "source": "reviews/fgh_v1_layout_freeze_20261009/register_freeze.py"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/render_references.cjs",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/render_references.cjs",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/render_references.cjs",
       "sha256": "b72b424ec18fff1ab5b1297d4a6e91d70afbf46abda834c9b12e688297c625f5",
       "source": "reviews/fgh_v1_layout_freeze_20261009/render_references.cjs"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/replace_trace_fish.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/replace_trace_fish.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/replace_trace_fish.py",
       "sha256": "e8a81ce00ddd377c0d12bd453e8e6e8b491d6dfd0a3758330cad46edfd56eb2a",
       "source": "reviews/fgh_v1_layout_freeze_20261009/replace_trace_fish.py"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json",
       "sha256": "cc2ed4a81817e477b9978ad65e1ee450721ee2f45b80bc7ff245fc2e65b3bef8",
       "source": "reviews/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared_colourbar.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/shared_colourbar.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/shared_colourbar.py",
       "sha256": "cd36ec99dd29ff164475e4acf4fa8d4440ae7388ab87eb72e339a7ec0ad981c1",
       "source": "reviews/fgh_v1_layout_freeze_20261009/shared_colourbar.py"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/build_new_versions.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/build_new_versions.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/build_new_versions.py",
       "sha256": "fe6b17884007ddf88916e64b4602ee53c1d8d3bebb1ed99b22c232db0e4a31d9",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/build_new_versions.py"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json",
       "sha256": "ed69d6c65456b4c5d6d19b7d2dfe3869d31fa4f011e00c7a428444ecfce0eedf",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json",
       "sha256": "2a6e684b1f9493e7978e4a76ffd827d92248a199695d8cc599ef7a9b4af6de54",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json",
       "sha256": "5c02856578813a336c348bd227c6ffd1e1f3bbc42bcb8a3227d2281d60f1ee44",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/freeze.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/freeze.json",
       "sha256": "e7560d122653cc782b97b757ecc4e249a13232f6c37357f9f4b91439f33904e8",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py",
       "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/manifest.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json",
       "sha256": "fd8e68bf9641da380bcdfe88b08c3bbe422f3839f7646b2795271e0c86ad3e13",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/manifest.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/replacement_verification.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json",
       "sha256": "86c94548da863415c2a71e0207dc5b07acfc3a2c4d9e97f846d4431c62d2cb9b",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/replacement_verification.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json",
       "sha256": "7843fbe473de6ba745002312beeed1068246f5ea3b42479a556354e15022ae5b",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json"
     },
     {
       "original_path": "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/verify_replacement.py",
-      "path": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/verify_replacement.py",
+      "path": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/verify_replacement.py",
       "sha256": "675968ec306628a6c7e13a26d964dcb8418faacacf38cb070aecaf83ee6521a7",
       "source": "reviews/fgh_v1_trace20230310_08_20261009/verify_replacement.py"
     },

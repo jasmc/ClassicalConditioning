@@ -60,7 +60,10 @@ def transform_panel(number, panel, data):
         x,y,w,h=CROP[number,panel];candidate.set('viewBox',f'{x} {y} {w} {h}');candidate.set('width',str(w));candidate.set('height',str(h))
     if number==1 and panel=='B':
         candidate=grid_timing(candidate)
-        edits.append(dict(action='two-column-layout', text='Control | Delay; Trace (3 s) | Trace (10 s); unchanged event coordinates within each translated timeline'))
+        edits.append(dict(action='two-column-layout', text='Control | Delay; Trace (3 s) | Trace (10 s); experiment names use FGH colours; vertical colour markers removed; event coordinates unchanged'))
+    if number==1 and panel=='FGH':
+        move_delay_example_arrows(candidate)
+        edits.append(dict(action='move-example-arrows-G-to-F',text='Delay fish 20221115_07: trials 9, 17, 63, 66, 93, matching D/E; heatmap data unchanged'))
     if number==1 and panel=='C':
         align_stimulus_rows(candidate)
         edits.append(dict(action='align-stimulus-types', text='CS presentations, CS-only catches, paired long US and separate short US occupy common rows across phases'))
@@ -88,10 +91,16 @@ def grid_timing(source):
         # Full-width phase separators are decoration belonging to the old rows.
         for node in list(row):
             if node.tag==tag('line') and node.get('x1')=='20' and node.get('x2')=='1090':row.remove(node)
+        condition_colour=next(n.get('fill') for n in row if n.tag==tag('rect') and n.get('x')=='24')
         title=ET.Element(tag('g'),{'transform':'translate(190 -40)'})
         for node in list(row):
             if (node.tag==tag('text') and label(node) in {'Control','Delay','Trace (3 s)','Trace (10 s)'}) or (node.tag==tag('rect') and node.get('x')=='24'):
-                row.remove(node);title.append(node)
+                row.remove(node)
+                if node.tag==tag('text'):
+                    color=condition_colour
+                    node.set('fill',color);node.set('style',node.get('style','')+';fill:'+color)
+                    node.set('data-condition',name);title.append(node)
+                # Author requested removal of the former coloured vertical marker.
         row.append(title);cell.append(row)
         ticks=copy.deepcopy(axis);ticks.set('id','time-axis-'+name);ticks.set('transform',f'translate(0 {cy+40-324})')
         for node in list(ticks):
@@ -105,6 +114,26 @@ def grid_timing(source):
             match=next(e for e in result.iter() if e.get('id')==original.get('id'))
             assert ET.tostring(match)==ET.tostring(original)
     return result
+
+def move_delay_example_arrows(panel):
+    """Move only named example arrows, preserving trial y mappings and cell pixels."""
+    axes={pid:next(n for n in panel.iter() if n.get('id')==f'fig1__{pid}__heatmap__axes') for pid in ('f','g')}
+    def bounds(pid):
+        bg=next(n for n in panel.iter() if n.get('id')==f'fig1__{pid}__heatmap__background')
+        nums=[float(v) for v in re.findall(r'-?\d+(?:\.\d+)?',next(bg.iter(tag('path'))).get('d'))]
+        return min(nums[::2]),max(nums[::2]),min(nums[1::2]),max(nums[1::2])
+    f,g=bounds('f'),bounds('g')
+    assert f[2:]==g[2:] and abs((f[1]-f[0])-(g[1]-g[0]))<1e-5
+    for trial in (9,17,63,66,93):
+        node=next(n for n in axes['g'] if n.get('id')==f'fig1__g__heatmap__example-trial-{trial}')
+        path=next(node.iter(tag('path')));nums=[float(v) for v in re.findall(r'-?\d+(?:\.\d+)?',path.get('d'))]
+        expected=g[2]+(trial-4.5)/90*(g[3]-g[2])
+        assert abs(nums[1]-expected)<2e-6,'Arrow trial centre does not match heatmap coordinate'
+        axes['g'].remove(node);node.set('id',f'fig1__f__heatmap__example-trial-{trial}')
+        node.set('transform',f'translate({f[1]-g[1]} 0)')
+        node.set('data-fish-id','20221115_07');node.set('data-trial',str(trial))
+        node.set('data-linked-panels','D E');axes['f'].append(node)
+
 
 def align_stimulus_rows(source):
     for phase in [g for g in source.iter(tag('g')) if g.get('id','').startswith('phase-') and g.get('id')!='phase-arrows']:
@@ -531,8 +560,8 @@ def main():
     target=args.output.resolve();assert ROOT not in target.parents, 'Permanent visual reviews must be external'
     review_day=datetime.now(ZoneInfo('Europe/Madrid'))
     assert target.parent.is_dir(),'Destination parent must already exist';assert not target.exists(),'Do not overwrite a review'
-    state_path=ROOT/'docs/analysis/figures/reviews/figure-01/current-state.json'
-    mapping_path=ROOT/'docs/analysis/figures/reviews/legend-text-relocation.json'
+    state_path=ROOT/'docs/paper/figures/figure-01/current-state.json'
+    mapping_path=ROOT/'records/figure-reviews/legend-text-relocation.json'
     state_bytes=state_path.read_bytes() if state_path.exists() else None
     state=json.loads(state_bytes) if state_bytes is not None else None
     starting=None
@@ -542,8 +571,8 @@ def main():
         if ticket.get('state_path')!=str(state_path) or str(state_path.resolve()) not in ticket.get('starting_hashes',{}):raise ValueError('Baseline ticket does not bind the current figure state')
         starting=Snapshot([]);starting.hashes=ticket['starting_hashes'];starting.check()
     dependencies=[state_path,mapping_path,Path(__file__),ROOT/'src/classical_conditioning/figure_workspace.py',
-                  ROOT/'docs/analysis/figures/reviews/legend-decluttering-review.md',
-                  *(ROOT/f'docs/analysis/figures/reviews/figure-{n:02d}/legend-draft.md' for n in (1,2)),
+                  ROOT/'docs/paper/figures/shared/review.md',
+                  *(ROOT/f'docs/paper/figures/figure-{n:02d}/legend.md' for n in (1,2)),
                   *(ROOT/'configs/paper-figures/selections'/p for p in ('figure1-freeze.json','figure1-panel-e-heatmap-rows-freeze-20261009.json','figure1-fgh-version12-freeze-20261009.json','figure2-DE-B-freeze-20261009.json','figure2-G-logmedian-freeze-20261009.json')),
                   resolve_artifact('reviews/latest_figure_assemblies_20261010.html'), *pair_dependencies()]
     if state:
@@ -563,23 +592,24 @@ def main():
     previous_review=None;authenticated_bytes=None
     if state:
         if args.preserve_figure2_from:
-            authenticated_bytes=(ROOT/'docs/analysis/figures/reviews/legend-review-verification.json').read_bytes()
+            authenticated_bytes=(ROOT/'records/figure-reviews/legend-review-verification.json').read_bytes()
             authenticated=json.loads(authenticated_bytes)
             if args.preserve_figure2_from.resolve()!=Path(authenticated['review_path']).resolve() or file_hash(args.preserve_figure2_from)!=authenticated['review_sha256']:
                 raise ValueError('Figure 2 preservation input is not the authenticated version-bound review')
             previous_review=dict(path=str(args.preserve_figure2_from.resolve()),sha256=authenticated['review_sha256'])
-            dependencies.append(ROOT/'docs/analysis/figures/reviews/legend-review-verification.json')
+            dependencies.append(ROOT/'records/figure-reviews/legend-review-verification.json')
         else:previous_review=state.get('preserved_figures',{}).get('figure2',state['draft']['review'])
         dependencies.append(Path(previous_review['path']))
         if file_hash(previous_review['path'])!=previous_review['sha256']:raise ValueError('Figure 2 preservation source changed/unavailable')
     snapshot=Snapshot(dependencies)
     bind_loaded_state(snapshot,state,state_bytes,state_path)
     if previous_review:snapshot.hashes[str(Path(previous_review['path']).resolve())]=previous_review['sha256']
-    if authenticated_bytes is not None:snapshot.hashes[str((ROOT/'docs/analysis/figures/reviews/legend-review-verification.json').resolve())]=digest(authenticated_bytes)
+    if authenticated_bytes is not None:snapshot.hashes[str((ROOT/'records/figure-reviews/legend-review-verification.json').resolve())]=digest(authenticated_bytes)
     if starting:snapshot.hashes.update(starting.hashes)
     snapshot.check()
     sources,container=load_sources();outputs=[];edits=[];layouts=[];typography=[]
     aligned_panels,aligned_registry,pair_report=build_pair()
+    aligned_registry['FGH']={f'fig1__f__heatmap__example-trial-{t}':dict(scientific_role='annotation.example_trial',figure_id='fig1',panel_id='f',svg_type='g',scientific_context=dict(fish_id='20221115_07',condition='delay',trial=t,linked_panels=['D','E'],status='author-selected illustrative trial'),geometry=dict(trial=t,coordinate='heatmap trial centre; x outside right edge'),historical_source_element_id=f'fig1__g__heatmap__example-trial-{t}',role_evidence='Author requested moving G arrows to F for matching D/E Delay fish/trials on 2026-10-13; verified named trial y positions before relocation',review_status='draft; historical freeze preserved') for t in pair_report['shared_contract']['trials']}
     for source in sources:
         if state and source['number']==2:
             previous=Path(previous_review['path']).read_text()
@@ -592,10 +622,10 @@ def main():
             continue
         candidate,changes,layout=build_candidate(source,aligned_panels);candidate,text_styles=harmonize_typography(candidate,layout,source['number']);typography+=text_styles;outputs.append((source['bytes'],candidate));edits+=changes;layouts.append(layout)
     for edit in edits:
-        edit['destination']='docs/analysis/figures/reviews/legend-decluttering-review.md' if edit['panel']=='assembly' else f"docs/analysis/figures/reviews/figure-{edit['figure']:02d}/legend-draft.md"
-    legend_paths=[ROOT/f'docs/analysis/figures/reviews/figure-{n:02d}/legend-draft.md' for n in (1,2)]
+        edit['destination']='docs/paper/figures/shared/review.md' if edit['panel']=='assembly' else f"docs/paper/figures/figure-{edit['figure']:02d}/legend.md"
+    legend_paths=[ROOT/f'docs/paper/figures/figure-{n:02d}/legend.md' for n in (1,2)]
     legends=[p.read_text() for p in legend_paths]
-    notes=(ROOT/'docs/analysis/figures/reviews/legend-decluttering-review.md').read_text().split('\n\n[Open the consolidated original/candidate review]')[0]
+    notes=(ROOT/'docs/paper/figures/shared/review.md').read_text().split('\n\n[Open the consolidated original/candidate review]')[0]
     legacy=ROOT/'legacy/helpers/plotting_style.py'
     presentation=dict(scope='Figure 1 candidate only',approval_evidence='Author requested legacy axis/tick/label style across Figure 1, right-only B arrowheads and below-axis units, and shorter heatmaps in this chat on 2026-10-11',style_source=dict(path=str(legacy),sha256=digest(legacy.read_bytes())),axis_labels=dict(size_pt=8,weight='bold',color='#000000'),ticks=dict(size_pt=7,length_pt=2,pad_pt=2,direction='out',width_pt=.5),trace_bottom_spine_offset_pt=6,heatmap_spines='retain boxed flush axes',display_transforms=dict(DE='shared native axis rectangles; no affine row stretching',FGH_height_factor=.65),B_arrowheads='right only',B_unit_label_position='below each time axis',scientific_definitions='D preserved; E recomputed from D input on author request; FGH unchanged')
     edits.append(dict(figure=1,panel='presentation',action='author-requested-legacy-axis-style-and-display-transforms',details=presentation))
@@ -618,7 +648,7 @@ def main():
         svg_path=target.with_suffix('.svg')
         measurements=measured_presentation(draft_svg)
         measurements['axis_findings']=draft_axis_findings(measurements)
-        measurement_path=ROOT/'docs/analysis/figures/reviews/figure-01'/f'{target.stem}-effective-presentation.json'
+        measurement_path=ROOT/'records/figure-reviews/figure-01'/f'{target.stem}-effective-presentation.json'
         measurement_bytes=(json.dumps(measurements,indent=2)+'\n').encode()
         snapshot.hashes[str(measurement_path.resolve())]=file_hash(measurement_path)
         state['draft'].update(review=dict(path=str(target),sha256=digest(page_bytes)),
@@ -626,9 +656,10 @@ def main():
                               source_assembly_sha256=digest(outputs[0][1]),
                               effective_presentation=dict(path=str(measurement_path),sha256=digest(measurement_bytes)))
         state.pop('effective_presentation',None)
-        state['draft']['semantic_registry']=dict(scope='D/E explicit artists and cross-panel relationships',scientific_records=len(meta['scientific_registry']),whole_figure_complete=False,relationships=pair_report['shared_contract'],verification=pair_report['verification'])
+        state['draft']['semantic_registry']=dict(scope='D/E explicit artists and cross-panel relationships; F selected-trial annotations',scientific_records=len(meta['scientific_registry']),whole_figure_complete=False,relationships=pair_report['shared_contract'],verification=pair_report['verification'])
         state['draft']['scientific_changes']=pair_report['scientific_changes']
-        state['outstanding_questions']=[q for q in state.get('outstanding_questions',[]) if 'trial 9' not in str(q).lower()]
+        state['outstanding_questions']=[q for q in state.get('outstanding_questions',[]) if 'trial 9' not in str(q).lower() and 'arrowheads' not in str(q).lower()]
+        state['draft']['example_arrows']=dict(panel='F',fish='20221115_07',trials=[9,17,63,66,93],linked_panels=['D','E'],heatmap_values_unchanged=True)
         state['verification']=dict(current_sources_authenticated=True,editable_source_structure=True,
                                    visual_review='pending review of this new candidate',
                                    measured_axis_findings=len(measurements['axis_findings']),

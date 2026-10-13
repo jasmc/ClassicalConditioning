@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+      "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+      "status": "bound-current",
+      "current_role": "frozen_display/working_svg",
+      "disposition": "retain; current dependency"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html",
+      "sha256": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+      "status": "bound-current",
+      "current_role": "preserved/figure2",
+      "disposition": "retain; current dependency"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11.html",
+      "sha256": "e684d5bea17fbf785dbda33508826e82287fab0c1d9e7b5e00b29527105773bd",
+      "status": "unselected-existing-version",
+      "current_role": null,
+      "disposition": "retain pending dependency/disposition review; not selected merely by age"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.html",
+      "sha256": "64e5b6b20bb76ed0fa11708edbace5e324cc93c338f43a5de1ebe9d4c34e7b25",
+      "status": "unselected-existing-version",
+      "current_role": null,
+      "disposition": "retain pending dependency/disposition review; not selected merely by age"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5.svg",
+      "sha256": "a6b105c3dbd1efe0081cef98d577043a55b5630cd6ea0cb500a9e684eb4a856d",
+      "status": "unselected-existing-version",
+      "current_role": null,
+      "disposition": "retain pending dependency/disposition review; not selected merely by age"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-12-aligned-de-v8.html",
+      "sha256": "dc43a7eee5c4edc66b28cb4da48c9c5decce871ff1b6c52601b28c226391a3a4",
+      "status": "unselected-existing-version",
+      "current_role": null,
+      "disposition": "retain pending dependency/disposition review; not selected merely by age"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-12-aligned-de-v8.svg",
+      "sha256": "b2db33fbec684d22aff301d735015eab2f9cf6e2752dea511e39188d6bf49ffb",
+      "status": "unselected-existing-version",
+      "current_role": null,
+      "disposition": "retain pending dependency/disposition review; not selected merely by age"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.html",
+      "sha256": "492deb58844f4b91bb2f92d7c4d2836f320f86457eedd0118bdf35e63b556334",
+      "status": "bound-current",
+      "current_role": "draft/review",
+      "disposition": "retain; current dependency"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.svg",
+      "sha256": "db5b4852d4e1da458b850dce8793ad168263a968dafa1403e416bf0260afbcd9",
+      "status": "bound-current",
+      "current_role": "draft/working_svg",
+      "disposition": "retain; current dependency"
+    }
+  ],
+  "bound_current": 4,
+  "unselected_existing": 5,
+  "performed_moves": 0,
+  "purpose": "Plan-completion assessment only. No new freeze and no version-disposal approval inferred."
+}

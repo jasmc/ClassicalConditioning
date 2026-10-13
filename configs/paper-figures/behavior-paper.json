@@ -11,12 +11,12 @@
     "metric_id": "legacy_distal_angular_speed",
     "display_name": "Tail bend angular speed",
     "units": "rad/ms",
-    "decision_record": "docs/analysis/decisions/metric-selection-2026-10-06.md"
+    "decision_record": "records/scientific-evidence/decisions/metric-selection-2026-10-06.md"
   },
   "label_status": "proposed",
-  "review_variants_registry": "docs/analysis/figures/reviews/review-variants.json",
-  "figure_specification": "docs/current-figures.md",
-  "version_comparison": "docs/analysis/figures/history/shared/review-versions-2026-09-24.md",
+  "review_variants_registry": "records/figure-history/shared/review-variants.json",
+  "figure_specification": "docs/paper/figures/README.md",
+  "version_comparison": "records/figure-history/shared/review-versions-2026-09-24.md",
   "rendering": {
     "routine_format": "png",
     "publication_formats": [

@@ -4,12 +4,33 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 import xml.etree.ElementTree as ET
 
 from classical_conditioning.figure_workspace import (Snapshot, StaleFigureState, editable_svg,
     measured_presentation, publish_state, tag, verify_mapping_baseline,bind_loaded_state,sha,draft_axis_findings)
 
 class FigureWorkspaceTests(unittest.TestCase):
+    def test_authorized_removal_rolls_back_if_state_publication_fails(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);state=root/'state.json';old=root/'old.svg'
+            state.write_text('{}');old.write_bytes(b'preserve until committed')
+            with patch('classical_conditioning.figure_workspace.os.replace',side_effect=OSError('publication failed')):
+                with self.assertRaises(OSError):
+                    publish_state(state,{'default_display':'draft'},Snapshot([state,old]),removals=[old])
+            self.assertEqual(old.read_bytes(),b'preserve until committed')
+            self.assertEqual(state.read_text(),'{}')
+
+    def test_authorized_removal_commits_with_state_and_rejects_stale_copy(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder);state=root/'state.json';old=root/'old.svg'
+            state.write_text('{}');old.write_bytes(b'original');snapshot=Snapshot([state,old])
+            old.write_bytes(b'another editor')
+            with self.assertRaises(StaleFigureState):publish_state(state,{},snapshot,removals=[old])
+            self.assertEqual(old.read_bytes(),b'another editor')
+            publish_state(state,{'default_display':'draft'},Snapshot([state,old]),removals=[old])
+            self.assertFalse(old.exists());self.assertEqual(json.loads(state.read_text())['default_display'],'draft')
+
     def test_vectors_are_editable_and_css_resource_ids_remain_isolated(self):
         root=ET.Element(tag('svg'),{'viewBox':'0 0 40 20'})
         for pid,color,x in [('A','red',0),('B','blue',20)]:

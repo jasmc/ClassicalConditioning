@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "dispositions": [
+    {
+      "original_path": "docs/running-analysis/figure-build-tools.md",
+      "sha256": "927240939b0a9fdd68d621a3e8b7f171c3df4d0de6c569813aa60cbeb75d50af",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/figure-build-tools.md",
+      "canonical_path": "docs/running-analysis/figure-build-tools.md"
+    },
+    {
+      "original_path": "Plans/07_FIGURE_BUILD_TOOLS.md",
+      "sha256": "43bd8eecf78c9aff7232399952108e3d6cd41d0065ee098bd1253e3278842c94",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/Plans/07_FIGURE_BUILD_TOOLS.md",
+      "canonical_path": "Plans/07_FIGURE_BUILD_TOOLS.md"
+    },
+    {
+      "original_path": "docs/running-analysis/learning-models.md",
+      "sha256": "6f21f07ce13674e184645c8529d8930cd5e454ff3e29d4bac4aad9bce4cbaae9",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/learning-models.md",
+      "canonical_path": "docs/running-analysis/learning-models.md"
+    },
+    {
+      "original_path": "docs/paper/methods/README.md",
+      "sha256": "91657794523a88542ef0e160daba4a2430708abe9c7eb3d84e54a29f0061bd7e",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/methods/README.md",
+      "canonical_path": "docs/paper/methods/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-02/panels-d-e/README.md",
+      "sha256": "25a3dc92f5b14b8b2caec3244a3f949cbb6a28a777f51e5a965eb7cd4ca669a4",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-02/panels-d-e/README.md",
+      "canonical_path": "docs/paper/figures/figure-02/panels-d-e/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-02/README.md",
+      "sha256": "058765f9a590ddb59fadf15f9cd0751a94779c128f6eec1d802df917ac7f84d7",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-02/README.md",
+      "canonical_path": "docs/paper/figures/figure-02/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-02/panel-g/README.md",
+      "sha256": "df951da5f50d8c8cfc08a3285281737c23cdfc718c52e9522ce502606e0058b9",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-02/panel-g/README.md",
+      "canonical_path": "docs/paper/figures/figure-02/panel-g/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-01/panels-f-g-h/README.md",
+      "sha256": "c56942cff330b05f62862cbe5313e7cf958e7453f986a8c5951e71c7e22b20be",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-01/panels-f-g-h/README.md",
+      "canonical_path": "docs/paper/figures/figure-01/panels-f-g-h/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-01/README.md",
+      "sha256": "56de09ebad9e072ca13624b2b28e087878763e04a7ff865f8bae41f52b1f5347",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-01/README.md",
+      "canonical_path": "docs/paper/figures/figure-01/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-03/README.md",
+      "sha256": "2df4f967c05fb76108495e9ff9c99bdc4b4e118d2195659aacf49be4483d0081",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-03/README.md",
+      "canonical_path": "docs/paper/figures/figure-03/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-04/README.md",
+      "sha256": "736e3688b1acfdb233255bc32ccdc85f53e4fc888e33c87ad720cda490ac8cbb",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-04/README.md",
+      "canonical_path": "docs/paper/figures/figure-04/README.md"
+    },
+    {
+      "original_path": "README.md",
+      "sha256": "8857978273ce88126281f02b5568f82fb87a79374efd656c90dcfafc5c621a96",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/README.md",
+      "canonical_path": "README.md"
+    },
+    {
+      "original_path": "docs/project-maintenance/governance.md",
+      "sha256": "d1acbdf3033a699cd141cb6d5426c4b01480bf8d5b93a6febf8e3425532e734d",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/project-maintenance/governance.md",
+      "canonical_path": "docs/project-maintenance/governance.md"
+    },
+    {
+      "original_path": "docs/running-analysis/parameters.md",
+      "canonical_path": "docs/running-analysis/parameters.md",
+      "sha256": "795e68cadc455cfa8159508d7f9ba36452bfbca0fe7852d9b17d85431e208daf",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/parameters.md"
+    },
+    {
+      "original_path": "docs/running-analysis/outputs-and-provenance.md",
+      "canonical_path": "docs/running-analysis/outputs-and-provenance.md",
+      "sha256": "e129b6eda439d454020478f9a0905c2e1a61d517f5d0b9378bd77fbb3c8772c6",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/outputs-and-provenance.md"
+    },
+    {
+      "original_path": "docs/project-maintenance/figure-04-transfer.md",
+      "canonical_path": "docs/project-maintenance/figure-04-transfer.md",
+      "sha256": "323d2927ed09a58c3ee21a71bd30f4a2cb70140874a55d37523e799927aa45a3",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/project-maintenance/figure-04-transfer.md"
+    },
+    {
+      "original_path": "docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "canonical_path": "docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "sha256": "3f724b289e56a9ee86d1adb456441c72931040d52c9995c31e0961917861397f",
+      "preserved_original": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/maintenance/archive/ARTIFACT_INDEX.md"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/figure-build-tools.md",
+      "sha256": "927240939b0a9fdd68d621a3e8b7f171c3df4d0de6c569813aa60cbeb75d50af"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/Plans/07_FIGURE_BUILD_TOOLS.md",
+      "sha256": "43bd8eecf78c9aff7232399952108e3d6cd41d0065ee098bd1253e3278842c94"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/learning-models.md",
+      "sha256": "6f21f07ce13674e184645c8529d8930cd5e454ff3e29d4bac4aad9bce4cbaae9"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/methods/README.md",
+      "sha256": "91657794523a88542ef0e160daba4a2430708abe9c7eb3d84e54a29f0061bd7e"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-02/panels-d-e/README.md",
+      "sha256": "25a3dc92f5b14b8b2caec3244a3f949cbb6a28a777f51e5a965eb7cd4ca669a4"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-02/README.md",
+      "sha256": "058765f9a590ddb59fadf15f9cd0751a94779c128f6eec1d802df917ac7f84d7"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-02/panel-g/README.md",
+      "sha256": "df951da5f50d8c8cfc08a3285281737c23cdfc718c52e9522ce502606e0058b9"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-01/panels-f-g-h/README.md",
+      "sha256": "c56942cff330b05f62862cbe5313e7cf958e7453f986a8c5951e71c7e22b20be"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-01/README.md",
+      "sha256": "56de09ebad9e072ca13624b2b28e087878763e04a7ff865f8bae41f52b1f5347"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-03/README.md",
+      "sha256": "2df4f967c05fb76108495e9ff9c99bdc4b4e118d2195659aacf49be4483d0081"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/paper/figures/figure-04/README.md",
+      "sha256": "736e3688b1acfdb233255bc32ccdc85f53e4fc888e33c87ad720cda490ac8cbb"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/README.md",
+      "sha256": "8857978273ce88126281f02b5568f82fb87a79374efd656c90dcfafc5c621a96"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/project-maintenance/governance.md",
+      "sha256": "d1acbdf3033a699cd141cb6d5426c4b01480bf8d5b93a6febf8e3425532e734d"
+    },
+    {
+      "path": "records/repository-history/tooling-designs/figure-build-tools.md",
+      "sha256": "927240939b0a9fdd68d621a3e8b7f171c3df4d0de6c569813aa60cbeb75d50af"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/parameters.md",
+      "sha256": "795e68cadc455cfa8159508d7f9ba36452bfbca0fe7852d9b17d85431e208daf"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/running-analysis/outputs-and-provenance.md",
+      "sha256": "e129b6eda439d454020478f9a0905c2e1a61d517f5d0b9378bd77fbb3c8772c6"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/project-maintenance/figure-04-transfer.md",
+      "sha256": "323d2927ed09a58c3ee21a71bd30f4a2cb70140874a55d37523e799927aa45a3"
+    },
+    {
+      "path": "records/repository-history/2026-10-13-paper-structure-review/original-documents/docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "sha256": "3f724b289e56a9ee86d1adb456441c72931040d52c9995c31e0961917861397f"
+    }
+  ],
+  "repository_moves": {},
+  "scope": "Documentation consolidation and plan audit; no scientific sources, state, media or archived payloads modified"
+}

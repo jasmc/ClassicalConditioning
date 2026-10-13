@@ -11,8 +11,8 @@ without changing the cohort.
 The [analysis and statistics plan](06_ANALYSIS_AND_STATISTICS.md)
 owns the primary estimand, outcome family, condition contrast, model choice,
 uncertainty, diagnostics, and validation decision. Approved choices are
-recorded in [DECISIONS.md](../docs/scientific-decisions.md). The
-[LME pipeline reference](../docs/analysis/reference/07-learning-onset-lme.md)
+recorded in [DECISIONS.md](../docs/paper/decisions.md). The
+[LME pipeline reference](../docs/running-analysis/learning-models.md)
 documents current formulas, public parameters, artifacts, and failure gates.
 
 ## Questions and implemented route

@@ -67,7 +67,7 @@ def state_lock(path):
     finally:
         lock.unlink()
 
-def publish_state(path, state, snapshot, artifacts=(), evidence_updates=()):
+def publish_state(path, state, snapshot, artifacts=(), evidence_updates=(), removals=()):
     """Exclusive new artifacts; atomic state replacement is the commit point.
 
     All writers must capture/check the same state file. Existing output copies
@@ -76,10 +76,15 @@ def publish_state(path, state, snapshot, artifacts=(), evidence_updates=()):
     path=Path(path)
     if str(path.resolve()) not in snapshot.hashes:
         raise ValueError('State path must be captured in the starting snapshot')
-    created=[];previous={}
+    created=[];previous={};removed={}
     with state_lock(path):
         snapshot.check()
         try:
+            for destination in removals:
+                destination=Path(destination)
+                if str(destination.resolve()) not in snapshot.hashes or snapshot.hashes[str(destination.resolve())] is None:
+                    raise ValueError('Removal must bind an existing artifact in the starting snapshot')
+                removed[destination]=destination.read_bytes()
             for destination,data in artifacts:
                 destination=Path(destination)
                 if not destination.parent.is_dir():raise FileNotFoundError(destination.parent)
@@ -100,6 +105,8 @@ def publish_state(path, state, snapshot, artifacts=(), evidence_updates=()):
                     os.replace(name,destination)
                 finally:
                     if Path(name).exists():Path(name).unlink()
+            snapshot.check(ignore=[*created,*previous])
+            for destination in removed:destination.unlink()
             descriptor,name=tempfile.mkstemp(prefix='.'+path.name+'.',dir=path.parent)
             try:
                 with os.fdopen(descriptor,'w') as stream:
@@ -108,6 +115,9 @@ def publish_state(path, state, snapshot, artifacts=(), evidence_updates=()):
             finally:
                 if Path(name).exists():Path(name).unlink()
         except BaseException:
+            for destination,data in removed.items():
+                if not destination.exists():
+                    with destination.open('xb') as stream:stream.write(data)
             for destination,data in previous.items():
                 if data is None:destination.unlink(missing_ok=True)
                 else:destination.write_bytes(data)

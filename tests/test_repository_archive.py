@@ -81,7 +81,7 @@ class ArchiveTests(unittest.TestCase):
         with self.assertRaises(ValueError):archive.embedded_checks(html)
 
     def test_historical_windows_reference_resolves_and_checks_hash(self):
-        metadata=self.repo/'docs/maintenance/archive';metadata.mkdir(parents=True)
+        metadata=self.repo/'records/repository-archive';metadata.mkdir(parents=True)
         (metadata/'transfer-inventory.json').write_text(json.dumps(self.manifest))
         self.assertEqual(resolve_artifact(r'C:\Users\joaquim\Documents\ClassicalConditioning\reviews\result.csv',repo=self.repo),self.source)
         self.transfer();self.source.unlink()
@@ -90,7 +90,7 @@ class ArchiveTests(unittest.TestCase):
         with self.assertRaises(ValueError):resolve_artifact('reviews/result.csv',repo=self.repo)
 
     def test_followup_inventory_resolves_without_rewriting_original_checkpoint(self):
-        metadata = self.repo/'docs/maintenance/archive'
+        metadata = self.repo/'records/repository-archive'
         metadata.mkdir(parents=True)
         original = metadata/'transfer-inventory.json'
         original.write_text(json.dumps(dict(archive_root='original-archive', files=[
@@ -116,7 +116,7 @@ class ArchiveTests(unittest.TestCase):
             with self.assertRaises(ValueError):external_output('reviews/new.html')
 
     def test_chained_document_moves_allow_current_guidance_but_check_explicit_hash(self):
-        metadata = self.repo/'docs/maintenance/archive'
+        metadata = self.repo/'records/repository-archive'
         metadata.mkdir(parents=True)
         guide = self.repo/'docs/decisions/current.md'
         guide.parent.mkdir(parents=True)
@@ -138,7 +138,7 @@ class ArchiveTests(unittest.TestCase):
             resolve_artifact('Plans/decision.md', repo=self.repo)
 
     def test_expected_hash_selects_verified_version_without_replacing_local_variant(self):
-        metadata = self.repo/'docs/maintenance/archive'
+        metadata = self.repo/'records/repository-archive'
         metadata.mkdir(parents=True)
         exact = self.root/'ssd/exact.csv'
         exact.parent.mkdir(parents=True)
@@ -163,6 +163,30 @@ class ArchiveTests(unittest.TestCase):
     def test_prune_without_publication_preserves_source(self):
         with self.assertRaises(FileNotFoundError):archive.prune(self.manifest,self.repo,self.dest,check_mount=False)
         self.assertTrue(self.source.exists())
+
+    def test_consolidated_guide_keeps_exact_hash_addressed_original(self):
+        metadata = self.repo/'records/repository-archive'
+        metadata.mkdir(parents=True)
+        guide = self.repo/'docs/paper/guide.md'
+        guide.parent.mkdir(parents=True)
+        guide.write_text('current guidance')
+        original = self.repo/'records/history/original.md'
+        original.parent.mkdir(parents=True)
+        original.write_text('original scoped evidence')
+        expected = sha256(original)
+        (metadata/'relocations.json').write_text(json.dumps({'repository_moves': {
+            'docs/old-guide.md': 'docs/paper/guide.md'}}))
+        migration = self.repo/'records/repository-history/2026-10-13-paper-structure'
+        migration.mkdir(parents=True)
+        (migration/'migration.json').write_text(json.dumps({'dispositions': [{
+            'original_path': 'docs/old-guide.md', 'canonical_path': 'docs/paper/guide.md',
+            'sha256': expected, 'preserved_original': 'records/history/original.md'}]}))
+        self.assertEqual(resolve_artifact('docs/old-guide.md', repo=self.repo), guide)
+        self.assertEqual(resolve_artifact('docs/old-guide.md', expected_sha256=expected,
+                                         repo=self.repo), original)
+        original.write_text('corrupted original')
+        with self.assertRaises(ValueError):
+            resolve_artifact('docs/old-guide.md', expected_sha256=expected, repo=self.repo)
 
 
 if __name__=='__main__':unittest.main()

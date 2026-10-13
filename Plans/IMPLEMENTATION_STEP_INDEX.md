@@ -10,19 +10,19 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 04 | [Figure 3 — learner analysis and validation](04_FIGURE_3_LEARNER_ANALYSIS.md) | Design / validation open |
 | 05 | [Figure 4 — CR profiles](05_FIGURE_4_CR_PROFILES.md) | In progress |
 | 06 | [Analysis and statistics](06_ANALYSIS_AND_STATISTICS.md) | Design / validation open |
-| 07 | [Reliable figure builds and panel replacement](07_FIGURE_BUILD_TOOLS.md) | Assembly preflight, replacement protection and verified publication implemented; complete paper-route/assembly-QC integration open |
+| 07 | [Reliable figure builds and panel replacement](07_FIGURE_BUILD_TOOLS.md) | Generic assembler safeguards implemented ([audit](../records/scientific-evidence/audits/figure-build-integrity-2026-10-12.json)); current-selection routing, paper reproduction, final-scale QC and review/state integration open |
 | 08 | [First release — Figures 1–4](08_FIRST_RELEASE_FIGURES_1_TO_4.md) | Not started |
 | 09 | [Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
 | 10 | [Tail mechanisms](10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
 
-Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../docs/maintenance/archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
+Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 
 ## Completed and retired work packages
 
 | Identifier | Record | Completion |
 |---|---|---|
-| 14 | [Repository cleanup and deferred external archive](../docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md) | Complete; external payloads, historical scripts, configurations and [documentation organization](../docs/maintenance/archive/documentation-cleanup-20261011/README.md) verified; [configuration record](../docs/maintenance/archive/configuration-cleanup-20261011/README.md) |
+| 14 | [Repository cleanup and deferred external archive](../records/repository-archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md) | Complete; external payloads, historical scripts, configurations and [documentation organization](../records/repository-archive/documentation-cleanup-20261011/README.md) verified; [configuration record](../records/repository-archive/configuration-cleanup-20261011/README.md) |
 
 ## Historical implementation record
 
@@ -59,7 +59,7 @@ Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering
 | L | Learner estimand, representation, method, features, power, threshold if used, and validation | Learner claims and Figure 3 |
 | F | Figure semantics, dimensions, labels, sample sizes, and formats | Final figures |
 
-Gate answers live in [DECISIONS.md](../docs/scientific-decisions.md). They are revisited only
+Gate answers live in [DECISIONS.md](../docs/paper/decisions.md). They are revisited only
 when new evidence changes a decision.
 
 

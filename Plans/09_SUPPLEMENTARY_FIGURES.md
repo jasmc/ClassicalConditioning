@@ -2,7 +2,7 @@
 
 
 **Scope:** Complete the data, controls, sensitivity analyses, and figures that support each main Figure 1–4. Final supplementary numbering and panel letters are assigned during paper composition, not used as analysis-step names.
-**Figure infrastructure:** [Figures and Reproducible Reporting](07_FIGURE_BUILD_TOOLS.md) owns rendering, provenance, and QC. The [paper figure specification](../docs/current-figures.md) records the current proposed slot map.
+**Figure infrastructure:** [Figures and Reproducible Reporting](07_FIGURE_BUILD_TOOLS.md) owns rendering, provenance, and QC. The [paper figure specification](../docs/paper/figures/README.md) records the current proposed slot map.
 
 ## Order and shared rules
 

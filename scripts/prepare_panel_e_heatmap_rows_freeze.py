@@ -192,7 +192,7 @@ def publish():
         history+='<details><summary>'+html.escape(folder+' · '+description)+'</summary>'+preview+'<pre>'+html.escape(json.dumps(items,indent=2))+'</pre></details>'
     catalogue.append({'kind':'different scientific alternatives','folder':str(ROOT/'outputs/figure1-cd-baseline-review'),'description':'Earlier tail_length_weighted_angular_l1 P10–P90 scaled-log alternatives; different metric/scaling, not substitutes for the selected frozen V12 legacy metric','artifacts':[artifact(p) for p in (ROOT/'outputs/figure1-cd-baseline-review').glob('*.figure.json')]})
     history+='<details><summary>Earlier alternative metric/scaling</summary><pre>'+html.escape(json.dumps(catalogue[-1],indent=2))+'</pre></details>'
-    chronology=ROOT/'docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md'
+    chronology=ROOT/'records/figure-history/figure-01/panel-e-presentation-review-2026-10-07.md'
     archive['files']['version-history-source.md']={'sha256':sha(chronology),'base64':base64.b64encode(chronology.read_bytes()).decode()}
     history='<details open><summary>Chronology, A–H definitions and calculation changes</summary><pre>'+html.escape(chronology.read_text(encoding='utf-8'))+'</pre></details>'+history
     page='<!doctype html><html><meta charset="utf-8"><title>Frozen Figure 1 E and version history</title><style>body{font:15px system-ui;max-width:1200px;margin:24px auto;padding:0 20px;color:#222}svg,img{width:100%;height:auto}pre{white-space:pre-wrap;font-size:11px}details{margin:15px 0;padding:10px;border:1px solid #ddd}summary{cursor:pointer}</style><body><h1>Frozen Figure 1 · Panel E</h1>'+svg

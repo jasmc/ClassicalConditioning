@@ -44,7 +44,7 @@ GATE_T0_LEGACY_EVIDENCE = {
         "legacy/modules/my_functions.py: Vectorized conversion from radian to degree",
         "preprocessing.legacy.prepare_legacy_tracking",
         "preprocessing.candidate_metric_kernel geometry agreement and rad_per_px naming",
-        "docs/scientific-decisions.md Gate T0",
+        "docs/paper/decisions.md Gate T0",
     ],
 }
 

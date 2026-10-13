@@ -9,9 +9,9 @@ Learning-onset model choices and validation are owned by
 
 ## Boundary and evidence
 
-The [selection inventory](../docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv) records
+The [selection inventory](../records/scientific-evidence/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv) records
 active, legacy, and deferred selection operations. The implemented
-[`assess-discarding` guide](../docs/analysis/reference/04-discarding-and-selection.md) specifies
+[`assess-discarding` guide](../docs/paper/methods/recording-quality-and-cohorts.md) specifies
 the technical evidence and exploratory legacy-rule projection. The latter,
 including its merged learner-input prerequisite, cannot set primary membership.
 
@@ -33,11 +33,11 @@ imaging-valid groups; none replaces the behavior-primary cohort.
 
 Automatic assessment already exists: the corrected `run-pipeline` route invokes `assess-discarding` after per-fish processing and before exploratory comparison. A focused assessment command is also available. These technical/exploratory tables do not remove raw/processed files, publish an approved cohort or silently authorize paper exclusions. Frozen-cohort application is a separate downstream operation. Whether a job is currently running requires its run ledger; code presence alone does not establish an active job.
 
-This work was already planned on 2026-09-02 in Git revision `83cbeee`, `Plans/steps/08_FULL_REPROCESSING_QC_AND_COHORT.md`. That version separated local fixture plumbing from paper C0/C1 review. Its decision register deferred the historical per-block OR/AND completeness issue pending real cohort counts. The present Plan 02 is the successor, before Analysis and Statistics, not a new competing plan. See the [current/historical route audit and decision proposal](../docs/analysis/audits/fish-selection-policy-review-2026-10-11.md).
+This work was already planned on 2026-09-02 in Git revision `83cbeee`, `Plans/steps/08_FULL_REPROCESSING_QC_AND_COHORT.md`. That version separated local fixture plumbing from paper C0/C1 review. Its decision register deferred the historical per-block OR/AND completeness issue pending real cohort counts. The present Plan 02 is the successor, before Analysis and Statistics, not a new competing plan. See the [current/historical route audit and decision proposal](../records/scientific-evidence/audits/fish-selection-policy-review-2026-10-11.md).
 
 ## Author-requested consolidation before later review
 
-On 2026-10-11 the author requested combining **all legacy discarding steps**, with review later. The [combined review package](../docs/analysis/audits/fish-selection-policy-review-2026-10-11.md) now covers preprocessing, propagation through grouping/scaled plots, normalized-vigor row/completeness and paired-test filters, all four learner variants and display selectors. Preserve each original rule, order, default, threshold/configuration, AND/OR logic and bypass; do not silently intersect all rules into a new primary population. Later review must approve the disposition and numerical policy before activation. Current automatic assessment omits some of these later families; documentation consolidation does not change that execution.
+On 2026-10-11 the author requested combining **all legacy discarding steps**, with review later. The [combined review package](../records/scientific-evidence/audits/fish-selection-policy-review-2026-10-11.md) now covers preprocessing, propagation through grouping/scaled plots, normalized-vigor row/completeness and paired-test filters, all four learner variants and display selectors. Preserve each original rule, order, default, threshold/configuration, AND/OR logic and bypass; do not silently intersect all rules into a new primary population. Later review must approve the disposition and numerical policy before activation. Current automatic assessment omits some of these later families; documentation consolidation does not change that execution.
 
 ## Detailed consolidation and later-review workflow
 
@@ -48,7 +48,7 @@ This sequence implements the author's request to collect all legacy discarding s
 - Authenticate all nine legacy scripts: preprocessing/discarding, example plotting, grouping, scaled vigor, normalized vigor, and nominal/new/improved/WIP learners. Include their helper/configuration dependencies and earlier revisions where a rule changed.
 - For every selection-related operation, record its source revision/hash, function/call site, execution stage, affected unit, inputs and output consumers. Distinguish actual instantiated settings from unused dataclass defaults or comments.
 - Record the complete expected paper recording denominator supplied by Plan 01, including incomplete, ambiguous, failed, unprocessed and unavailable recordings. Identify which saved inputs can authenticate each legacy recipe; absent inputs remain explicit.
-- Extend the existing [source index](../docs/analysis/audits/legacy-selection-source-index-2026-10-11.json) and [selection inventory](../docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv), rather than creating another independent fish list.
+- Extend the existing [source index](../records/scientific-evidence/audits/legacy-selection-source-index-2026-10-11.json) and [selection inventory](../records/scientific-evidence/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv), rather than creating another independent fish list.
 
 **Deliverable:** One source-linked rule catalogue and expected-recording inventory. Source-line candidates are reviewed into actual operations; comments and repeated calls are not counted as independent rules.
 

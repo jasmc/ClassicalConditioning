@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "figure_id": "fig1",
+  "updated_at": "2026-10-13T08:23:16.799833+02:00",
+  "default_display": "frozen_display",
+  "active_edit_scope": [
+    "Figure 1"
+  ],
+  "scientific_selection": {
+    "authority": "scoped accepted freezes; this state file does not select new science",
+    "whole_figure_frozen": false,
+    "records": [
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json",
+        "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3"
+      },
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+        "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314"
+      },
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+        "sha256": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb"
+      }
+    ]
+  },
+  "frozen_display": {
+    "status": "assembly-of-current-frozen-panels",
+    "working_svg": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v3.svg",
+      "sha256": "94cfdadf8a4a6a0542c061b41f20adaf354f065f8840f4f886cffc98fd926e04",
+      "source_svg_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8"
+    },
+    "structural_elements": 1940,
+    "mapped_scientific_elements": 276,
+    "registry_limitations": "Legacy A-D have structural handles/source provenance; no complete new freeze registry is invented. Draft registry meanings require review after label/layout changes.",
+    "source_assembly_sha256": "11f3ac65b38288412d439b2aac5a09c5348582f844a79fb854b5f85239e4e3c8",
+    "effective_presentation": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json",
+      "sha256": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed"
+    },
+    "semantic_relationships_verified": 16
+  },
+  "draft": {
+    "status": "unfrozen-author-requested-DE-scientific-and-presentation-candidate",
+    "review": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.html",
+      "sha256": "492deb58844f4b91bb2f92d7c4d2836f320f86457eedd0118bdf35e63b556334"
+    },
+    "working_svg": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.svg",
+      "sha256": "db5b4852d4e1da458b850dce8793ad168263a968dafa1403e416bf0260afbcd9",
+      "source_svg_sha256": "0b7b0f25743531d3f3d32510b34b7f12d3b668f950b3adbd1246462d7626b2c4"
+    },
+    "source_assembly_sha256": "0b7b0f25743531d3f3d32510b34b7f12d3b668f950b3adbd1246462d7626b2c4",
+    "author_directions_record": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/legend-review-verification.json",
+    "preserved_other_figure": "Figure 2 original/candidate unchanged",
+    "effective_presentation": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/figure-01/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10-effective-presentation.json",
+      "sha256": "52fddb71a773e40101b40264a8a7fe1a6971198db1757c6f12e7a87d2e469951"
+    },
+    "semantic_registry": {
+      "scope": "D/E explicit artists and cross-panel relationships; F selected-trial annotations",
+      "scientific_records": 568,
+      "whole_figure_complete": false,
+      "relationships": {
+        "figure": "fig1",
+        "panels": [
+          "D",
+          "E"
+        ],
+        "fish": "20221115_07",
+        "trials": [
+          9,
+          17,
+          63,
+          66,
+          93
+        ],
+        "D_body_size": [
+          750,
+          550
+        ],
+        "E_body_size": [
+          750,
+          550
+        ],
+        "E_colourbar_outside_body": true,
+        "x_limits_s": [
+          -20,
+          20
+        ],
+        "time_coordinate": "measured time relative to CS onset",
+        "rows": [
+          {
+            "trial": 9,
+            "block": "Pre-Train",
+            "axis": {
+              "x": 260,
+              "y": 30,
+              "width": 450,
+              "height": 60,
+              "x_limits_s": [
+                -20,
+                20
+              ],
+              "row_center": 60.0
+            }
+          },
+          {
+            "trial": 17,
+            "block": "Early Train",
+            "axis": {
+              "x": 260,
+              "y": 115,
+              "width": 450,
+              "height": 60,
+              "x_limits_s": [
+                -20,
+                20
+              ],
+              "row_center": 145.0
+            }
+          },
+          {
+            "trial": 63,
+            "block": "Late Train",
+            "axis": {
+              "x": 260,
+              "y": 200,
+              "width": 450,
+              "height": 60,
+              "x_limits_s": [
+                -20,
+                20
+              ],
+              "row_center": 230.0
+            }
+          },
+          {
+            "trial": 66,
+            "block": "Early Test",
+            "axis": {
+              "x": 260,
+              "y": 285,
+              "width": 450,
+              "height": 60,
+              "x_limits_s": [
+                -20,
+                20
+              ],
+              "row_center": 315.0
+            }
+          },
+          {
+            "trial": 93,
+            "block": "Late Test",
+            "axis": {
+              "x": 260,
+              "y": 370,
+              "width": 450,
+              "height": 60,
+              "x_limits_s": [
+                -20,
+                20
+              ],
+              "row_center": 400.0
+            }
+          }
+        ]
+      },
+      "verification": {
+        "same_fish": true,
+        "same_trials": true,
+        "same_frame_ids": true,
+        "same_time_values": true,
+        "raw_and_scaled_vigor_share_input": true,
+        "equal_axis_rectangles": true,
+        "equal_body_size_excluding_colourbar": true,
+        "row_labels_and_centres_match": true,
+        "serialized_geometry_labels_and_bin_colours": true
+      },
+      "freeze_ready": false
+    },
+    "scientific_changes": {
+      "E": "D stored Vigor and measured time replace previous E raw values and cadence timing; retained E bout mask; same log/bin/baseline/scale recipe; recomputed colours",
+      "D": "selected angle values and centring preserved; layout only"
+    },
+    "example_arrows": {
+      "panel": "F",
+      "fish": "20221115_07",
+      "trials": [
+        9,
+        17,
+        63,
+        66,
+        93
+      ],
+      "linked_panels": [
+        "D",
+        "E"
+      ],
+      "heatmap_values_unchanged": true
+    }
+  },
+  "outstanding_questions": [],
+  "verification": {
+    "current_sources_authenticated": true,
+    "editable_source_structure": true,
+    "visual_review": {
+      "status": "passed",
+      "artifact_sha256": "db5b4852d4e1da458b850dce8793ad168263a968dafa1403e416bf0260afbcd9",
+      "evidence": "Final v10 native SVG rendered and inspected. B colour labels clear with no vertical markers. Five F arrows align with the selected trial centres; no G arrows. No material clipping/overlap."
+    },
+    "measured_axis_findings": 0,
+    "concurrency": "Starting ticket and captured inputs checked under exclusive publication lock",
+    "annotation_checks": {
+      "B_colours_match_condition_colours": true,
+      "B_markers_removed": true,
+      "F_arrows_match_DE_trials": true,
+      "heatmap_raster_payloads_identical": true,
+      "panels_ACDE_identical": true,
+      "figure2_bytes_identical": true
+    }
+  },
+  "reproduction": {
+    "command": ".venv/bin/python scripts/figure_working_copy.py prepare --output-dir \"/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews\" --revision 2026-10-12-v2",
+    "generator_sha256": "bb7729a852d89d2f3761c4526ea14d0a9d28342cf19a27a7be9d14d23c5d05fd",
+    "verification_tool_sha256": "87ec433ff00dac61f17377e6f233f0434adbab31dae489520eee383b15dd68f9",
+    "bootstrap_snapshot": {
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/figure-01/current-state.json": "844b1765603606002b78bfeeefb110ef8fd7c65cda2f6b1daa5d6e0b744165ec",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/legend-review-verification.json": "3349e423ebb1ad8258ec25d4c6f9e418028424d534aa08c51249de83819f9b05",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+      "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/latest_figure_assemblies_20261010.html": "f959191ce0e87e45905c1245a4b528e6d0ba21f3d65ec3b02ff3f9f735ded3f2",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/candidate.json": "ec685e275e7cea3ddffd7d923b3d7b1f3753064650cfe0eff9d294d0afd08589",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/candidate.json": "0943b4069a64d783c267f82240cb6e61f544a7c45832a2a02dabf23b3944e54c",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/index.json": "b1de1f5c682c8f8a4ca70104715883ea73bc60d425f346ce5134932053062346",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "98adbb2ed209804f7a8bd2c924967fc36c21488cb02b4a314688cc089a43cd9e",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure_working_copy.py": "bb7729a852d89d2f3761c4526ea14d0a9d28342cf19a27a7be9d14d23c5d05fd",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figure_workspace.py": "bef7838eb7b6f352adb33175afa49ba2ca470abef682b0a9f845e212d1187b21",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-frozen-working-2026-10-12-v1.svg": "2ed7797fd79a1415bca001269a4da63cab358cafd4470b037c3989fee8616d1a",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-draft-working-2026-10-12-v1.svg": "9ab77e8da13e8c9e111b8ac572d23ccbc937d545259e03d44591b6a83bd68c6e",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/figure-01/effective-presentation-audit-2026-10-12-v2.json": null
+    },
+    "bootstrap_snapshot_interpretation": "Historical starting identities, not current required input paths. Discarded in-progress exports are logged in implementation record; reconstruction uses authenticated frozen sources and review."
+  },
+  "measurement_policy": "Separate version-bound measurements linked from frozen_display/draft; unresolved values block any consistency claim until reviewed",
+  "effective_measurement_limitations": [
+    "Curved strokes under affine transforms are measured as directional ranges",
+    "Tick-to-text anchors are not glyph-edge padding; visual layout separately reviewed",
+    "Legacy A-D registry is incomplete for a new freeze; structural IDs do not invent scientific roles",
+    "The explicit freeze gate still requires scientific/structure/visual evidence and supported transformations; no new freeze was performed"
+  ],
+  "preserved_figures": {
+    "figure2": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html",
+      "sha256": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6"
+    }
+  },
+  "implementation_record": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/figure-01/workflow-implementation-2026-10-12.json"
+}

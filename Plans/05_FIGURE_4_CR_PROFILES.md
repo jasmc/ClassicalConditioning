@@ -19,7 +19,7 @@ This plan integrates rather than supersedes:
 - [Fish Discarding, Eligibility and Paper Cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md);
 - [Learning-Onset Analysis Completion](03_FIGURE_2_LEARNING_ONSET.md);
 - [Learner Analysis and Validation](04_FIGURE_3_LEARNER_ANALYSIS.md);
-- [Learning-Onset Analysis Reference](../docs/analysis/reference/07-learning-onset-lme.md); and
+- [Learning-Onset Analysis Reference](../docs/running-analysis/learning-models.md); and
 - [Figures and Reproducible Reporting](07_FIGURE_BUILD_TOOLS.md).
 
 ## Scientific boundary and execution order
@@ -145,7 +145,7 @@ the same authentication and may not accept arbitrary fish lists.
 
 ## Remaining integration work
 
-Existing behavior is described in [the dated implementation evidence](../docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md).
+Existing behavior is described in [the dated implementation evidence](../records/scientific-evidence/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md).
 
 Still required before the learner workstream can execute:
 
@@ -189,3 +189,7 @@ single selected metric. Primary membership is independent of learning
 expression; behavior-dependent legacy screening is visible only as a named
 sensitivity analysis; all catches include trial 65; and every output is
 traceable to common authenticated identities.
+
+## Preserved detailed requirements
+
+The [implementation design](../records/scientific-evidence/designs/individual-learning-implementation.md) and [outputs/validation design](../records/scientific-evidence/designs/individual-learning-outputs-and-validation.md) preserve unique conditional schemas, joins, output families and validation requirements. Use them with the approved representation; categorical examples are conditional on Gate L. Current scientific principles live in [shared methods](../docs/paper/methods/individual-learning.md), with [interface guidance](../docs/running-analysis/individual-learning-interfaces.md).

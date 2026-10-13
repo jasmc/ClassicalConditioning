@@ -19,8 +19,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
 from classical_conditioning.figure_workspace import (Snapshot,editable_svg,file_hash,measured_presentation,publish_state,sha,StaleFigureState,draft_axis_findings,bind_loaded_state)
 
-REVIEW_ROOT=ROOT/'docs/analysis/figures/reviews'
-STATE=REVIEW_ROOT/'figure-01/current-state.json'
+REVIEW_ROOT=ROOT/'records/figure-reviews'
+STATE=ROOT/'docs/paper/figures/figure-01/current-state.json'
 SELECTIONS=[ROOT/'configs/paper-figures/selections'/p for p in (
     'figure1-freeze.json','figure1-panel-e-heatmap-rows-freeze-20261009.json','figure1-fgh-version12-freeze-20261009.json')]
 
@@ -40,7 +40,7 @@ def begin(ticket):
     """Record candidate/source hashes before an editing turn, not after it."""
     raw=STATE.read_bytes();state=verify_state(expected_bytes=raw)
     paths=[STATE,*[Path(i['path']) for i in state['scientific_selection']['records']],
-           Path(state['draft']['review']['path']),*[Path(state[k]['working_svg']['path']) for k in ('frozen_display','draft')]]
+           Path(state['draft']['review']['path']),*[Path(state[k]['working_svg']['path']) for k in ('frozen_display','draft') if state[k].get('working_svg')]]
     snapshot=Snapshot(paths)
     bind_loaded_state(snapshot,state,raw,STATE)
     value=dict(schema_version=1,figure_id='fig1',state_path=str(STATE),starting_hashes=snapshot.hashes,
@@ -67,6 +67,9 @@ def prepare(output_dir,revision,refresh=False):
     state_bytes=STATE.read_bytes() if STATE.exists() else None
     if state_bytes is not None:
         state=verify_state(expected_bytes=state_bytes)
+        if state.get('working_copy_policy')=='single-author-selected-draft':
+            if refresh:raise ValueError('Author selected one working SVG; use guarded draft edits instead of recreating frozen/draft copies')
+            return state
         if not refresh and all(state[key].get('working_svg') for key in ('frozen_display','draft')):
             return state  # Authenticated reusable copies; never discard manual changes.
     legacy=REVIEW_ROOT/'legend-review-verification.json'
@@ -81,7 +84,7 @@ def prepare(output_dir,revision,refresh=False):
     container=resolve_artifact('reviews/latest_figure_assemblies_20261010.html')
     dependencies=[STATE,legacy,review_path,container,*SELECTIONS,*registry_paths,
                   ROOT/'scripts/build_figure_legend_review.py',Path(__file__),ROOT/'src/classical_conditioning/figure_workspace.py']
-    if STATE.exists():dependencies.extend(Path(state[k]['working_svg']['path']) for k in ('frozen_display','draft'))
+    if STATE.exists():dependencies.extend(Path(state[k]['working_svg']['path']) for k in ('frozen_display','draft') if state[k].get('working_svg'))
     snapshot=Snapshot(dependencies)
     bind_loaded_state(snapshot,state if state_bytes is not None else None,state_bytes,STATE)
     snapshot.hashes[str(legacy.resolve())]=sha(legacy_bytes)

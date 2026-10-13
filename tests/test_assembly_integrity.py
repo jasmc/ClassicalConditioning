@@ -56,7 +56,7 @@ class AssemblyIntegrityTests(unittest.TestCase):
         self.assertFalse(self.output.exists())
 
     def test_archive_resolver_handles_windows_source_and_disconnected_archive(self):
-        repo=self.root/'repo'; metadata=repo/'docs/maintenance/archive';metadata.mkdir(parents=True)
+        repo=self.root/'repo'; metadata=repo/'records/repository-archive';metadata.mkdir(parents=True)
         archive=self.root/'ssd/archive';target=archive/'payload/reviews/a.svg';target.parent.mkdir(parents=True);target.write_bytes(self.a.read_bytes())
         (metadata/'transfer-inventory.json').write_text(json.dumps({'archive_root':str(archive),'files':[{'path':'reviews/a.svg','sha256':assembly.digest(self.a),'action':'archive_to_ssd'}]}))
         self.data['storage_root']='C:/Users/joaquim/Documents/ClassicalConditioning'
@@ -139,7 +139,7 @@ class AssemblyIntegrityTests(unittest.TestCase):
         self.assertFalse(destination.parent.exists())
 
     def test_managed_working_copy_uses_existing_guarded_workflow(self):
-        repo=self.root/'repo';states=repo/'docs/analysis/figures/reviews/figure-01';states.mkdir(parents=True)
+        repo=self.root/'repo';states=repo/'docs/paper/figures/figure-01';states.mkdir(parents=True)
         (states/'current-state.json').write_text(json.dumps({'draft':{'working_svg':{'path':str(self.output)}}}))
         with patch.object(assembly,'REPO',repo):
             with self.assertRaisesRegex(ValueError,'managed by a current figure state'):self.render()

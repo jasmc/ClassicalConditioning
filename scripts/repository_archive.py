@@ -25,7 +25,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / 'src'))
 from classical_conditioning.external_artifacts import DEFAULT_ARCHIVE, sha256
 
-AUDIT = REPO / 'docs/maintenance/archive'
+AUDIT = REPO / 'records/repository-archive'
 MANIFEST = AUDIT / 'transfer-inventory.json'
 MEDIA = {'.png', '.svg', '.pdf', '.jpg', '.jpeg', '.gif', '.webp', '.mp4', '.mov', '.mp3', '.wav'}
 DATA = {'.parquet', '.pkl', '.pickle', '.npy', '.npz', '.h5', '.hdf5', '.arrow'}
@@ -94,14 +94,14 @@ def embedded_checks(path):
 
 def inventory(repo=REPO):
     tracked = set(subprocess.check_output(['git', 'ls-files', '-z'], cwd=repo).decode().split('\0'))
-    starting = json.loads((repo / 'docs/maintenance/archive/starting-inventory.json').read_text())
+    starting = json.loads((repo / 'records/repository-archive/starting-inventory.json').read_text())
     start_hash = {r['path']: r.get('sha256') for r in starting['files']}
     text_sources = {}
     for folder in ('src', 'tests', 'scripts', 'docs', 'Plans', 'configs'):
         for p in (repo / folder).rglob('*'):
             if p.is_file() and p.suffix in {'.md', '.py', '.json', '.ps1'} and '__pycache__' not in p.parts:
                 text_sources[str(p.relative_to(repo))] = p.read_text(errors='replace')
-    reloc = json.loads((repo / 'docs/maintenance/archive/relocations.json').read_text())
+    reloc = json.loads((repo / 'records/repository-archive/relocations.json').read_text())
     frozen_hashes = {e['sha256'] for e in reloc['extracted_frozen_records']}
     frozen_refs = defaultdict(set)
     historical_refs = defaultdict(set)
@@ -123,7 +123,7 @@ def inventory(repo=REPO):
         rel = p.relative_to(repo)
         if any(x in rel.parts for x in ('.git', '.venv', '__pycache__', '.pytest_cache')) or not p.is_file():
             continue
-        if str(rel).startswith('docs/maintenance/archive/'):
+        if str(rel).startswith('records/repository-archive/'):
             continue  # Inventory records are control files, not recursive inputs.
         if p.is_symlink():
             raise ValueError(f'Repository content symlink needs explicit review: {rel}')
@@ -142,7 +142,10 @@ def inventory(repo=REPO):
             transfer = True
         role = 'supported code/documentation/configuration'
         reason = 'Retained active repository contract or implementation; consumer names are reference candidates, not inferred scientific approval'
-        if rel.parts[0] == 'records': role = 'exact frozen definition/code'; reason = 'Immutable copy/extraction with SHA-256 evidence'
+        if key.startswith('records/frozen-analyses/'):
+            role = 'exact frozen definition/code'; reason = 'Immutable copy/extraction with SHA-256 evidence'
+        elif rel.parts[0] == 'records':
+            role = 'preserved evidence or navigation'; reason = 'Historical scientific/repository evidence; indexed original identities retained'
         if transfer:
             role = 'frozen payload' if frozen or 'freeze' in key else 'alternative/review evidence'
             reason = 'External scientific/visual payload; original stays until verified transfer'
@@ -160,7 +163,7 @@ def inventory(repo=REPO):
         if r['action'] == 'archive_to_ssd': r['canonical_copy'] = min(duplicates[r['sha256']])
     return dict(schema_version=1, date='2026-10-10', archive_root=str(DEFAULT_ARCHIVE),
                 files=rows, inventory_policy='Reference-based audit; hash-protected snapshots retained; pending originals never pruned by inventory',
-                control_files='docs/maintenance/archive/* are retained control records and excluded from recursive inventory',
+                control_files='records/repository-archive/* are retained control records and excluded from recursive inventory',
                 environment_and_caches=starting['environment_and_caches'])
 
 
@@ -221,7 +224,7 @@ def bundle_links(manifest, repo, root):
     Immutable HTML is not rewritten. Relocated repository links resolve through
     the accompanying map; missing historical/external inputs remain explicit.
     """
-    reloc_path = repo/'docs/maintenance/archive/relocations.json'
+    reloc_path = repo/'records/repository-archive/relocations.json'
     moves = json.loads(reloc_path.read_text()).get('repository_moves', {}) if reloc_path.exists() else {}
     report = []
     for row in pending(manifest):
@@ -288,7 +291,7 @@ def transfer(manifest, repo, destination, *, check_mount=True):
     write_json(stage / 'link-report.json', bundle_links(manifest, repo, stage))
     write_json(stage / 'existing-copy-inspection.json', existing_copy_report)
     # Preserve all repository and historical identities alongside the payload.
-    relocations = repo/'docs/maintenance/archive/relocations.json'
+    relocations = repo/'records/repository-archive/relocations.json'
     if relocations.is_file(): shutil.copyfile(relocations, stage/'relocations.json')
     write_json(stage / 'transfer-inventory.json', manifest)
     write_json(stage / 'verification.json', dict(verified_files=count, manifest_sha256=control_hash, payload_hashes_verified=True))
@@ -323,7 +326,7 @@ def prune(manifest, repo, destination, *, check_mount=True):
 def check_repository(manifest, repo):
     approved = {r['path']: r['sha256'] for r in pending(manifest)}
     issues = []
-    relocations = repo/'docs/maintenance/archive/relocations.json'
+    relocations = repo/'records/repository-archive/relocations.json'
     if relocations.is_file():
         for entry in json.loads(relocations.read_text()).get('extracted_frozen_records', []):
             record = repo / safe_relative(entry['record'])

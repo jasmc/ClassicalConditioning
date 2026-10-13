@@ -1,0 +1,753 @@
+{
+  "date": "2026-10-13",
+  "files": [
+    {
+      "path": "docs/paper-review.md",
+      "sha256": "5e79230e4b4131390f40ee21cddd3c0fbcd76e84a9197186251e6a6a30721620"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "237f47cc918bc167369bee45479fe8f2ef11a6d312ad4a3e870b5edfebe112e5"
+    },
+    {
+      "path": "docs/panel-review.md",
+      "sha256": "8e4b5c7bda4085b6911815095e4856bed85d0b7bd03c5f7a9c88c5b2a1df3972"
+    },
+    {
+      "path": "docs/scientific-decisions.md",
+      "sha256": "4f755dfe38b6f7bc479235a4ae215954772e122dc841f71f5746baa66adc4281"
+    },
+    {
+      "path": "docs/current-figures.md",
+      "sha256": "63e789ebfbaa1c7752bf8f26faa82704b46c0f33095ee5de12685deac89f81cf"
+    },
+    {
+      "path": "docs/analysis/README.md",
+      "sha256": "e07cd647c0699c584d78f3409464c754c7184909b5c676634a83fff6b14f2217"
+    },
+    {
+      "path": "docs/maintenance/01_REPOSITORY_GUIDE.md",
+      "sha256": "cd7aee6987c7b09eb151c8aa679fcdf8301658a910fa6d8cb1c42c7540c70161"
+    },
+    {
+      "path": "docs/maintenance/README.md",
+      "sha256": "eed8c55c92e7de2585df399313c2f0d66fea4e2a85d848b7295dcd51d09f12bd"
+    },
+    {
+      "path": "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+      "sha256": "fb95d5c689a5fe7502a3730e23f56f91803b1b5d144a6f0a4aa4c6f51fcc06df"
+    },
+    {
+      "path": "docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md",
+      "sha256": "299b0d2315906a05dab04868be60572546ec07ffa95827405104c8979351951b"
+    },
+    {
+      "path": "docs/analysis/audits/figure-01-camera-gaps-and-bin-mapping-2026-10-06.md",
+      "sha256": "69cb7ff8f3886f6dac7d0e5d289d4f1facdb3d8cf5946db1b90441675bca7e64"
+    },
+    {
+      "path": "docs/analysis/audits/figure-build-integrity-2026-10-12.json",
+      "sha256": "17ee4853d2fac9299856266171a3ca1049d66c0ffc40583cd4deb31b2a515b11"
+    },
+    {
+      "path": "docs/analysis/audits/inc-trace-stim-audit.json",
+      "sha256": "cbccbe2de619aa2ae5d1318af18908c7b541a1f0437b27a459584449f6f33fbe"
+    },
+    {
+      "path": "docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md",
+      "sha256": "d315c97750e586e6350496d6cc17babe92583ee2f064aca3912c71e688a77309"
+    },
+    {
+      "path": "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+      "sha256": "57ac3d1586b975a576edd7e1f8e776c59d8de81ee6607004d2ce8dc38d476102"
+    },
+    {
+      "path": "docs/analysis/audits/fish-selection-policy-review-2026-10-11.md",
+      "sha256": "3913af082071c09ca4f182dffb86047afeebe705de48e7fa374fe129a9e52133"
+    },
+    {
+      "path": "docs/analysis/audits/01_ANALYSIS_FINDINGS.md",
+      "sha256": "f6770684aa8d7d166021a0590afc170d12f825ce4eecf505b3d9b6c7b8c8d7cc"
+    },
+    {
+      "path": "docs/analysis/audits/legacy-selection-source-index-2026-10-11.json",
+      "sha256": "de414b6d16718a302b62e8a0f071f5ea5a4ee2e5b9c02a8fef1eec3b999a67be"
+    },
+    {
+      "path": "docs/analysis/audits/02_ISSUE_REGISTER.md",
+      "sha256": "4b757e7155ddeadce7671fac1eaee5649e185745bbdd8dd9a756c1bc3c86f9f8"
+    },
+    {
+      "path": "docs/analysis/audits/README.md",
+      "sha256": "63b20289992359d848d1d8ace02efefc2498919f89ec20a3103a0afb6f63f323"
+    },
+    {
+      "path": "docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv",
+      "sha256": "10e4bb5948af5d9349a4e6357df616b7fc61c13ec31d22e03804a731309f08b5"
+    },
+    {
+      "path": "docs/analysis/audits/trace-preflight.json",
+      "sha256": "3ad4448c99b909ebb8b703a0f0cb87b7939898e3ed88c3dcbc3f5dfdb823ea46"
+    },
+    {
+      "path": "docs/analysis/audits/legacy-acquisition-timing-repair-2026-10-06.md",
+      "sha256": "670bc285ef997cba926eb19f1661176051a22af5717f257f80124c61a13758f3"
+    },
+    {
+      "path": "docs/analysis/audits/preprocessing-contract-audit-2026-10-07.md",
+      "sha256": "fa90b5aaa02493696f57da47dc373bd44b837001de8d2ed63539dae7b304c5a7"
+    },
+    {
+      "path": "docs/analysis/audits/technical-cohort-column-schema.md",
+      "sha256": "cf01359f8aeff673279562149358e7f1c160412341ad24c777dcfa763f77b121"
+    },
+    {
+      "path": "docs/analysis/audits/figure-01-vigor-alignment-audit-2026-10-06.md",
+      "sha256": "52c877c3c1e09ca4b0560ae830c8ffb353af83ff63d81e6931365748d7ac5ba3"
+    },
+    {
+      "path": "docs/analysis/audits/configuration-inventory-2026-10-11.json",
+      "sha256": "99f99f952233386176c90928d4992322cc77189da19340c2c059f35128480061"
+    },
+    {
+      "path": "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+      "sha256": "fd2454dc7d81d0fa09da9685f773df1c62ce3a06d0a9d1f2ad7d149c1e073f05"
+    },
+    {
+      "path": "docs/analysis/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md",
+      "sha256": "7ef8c201fb645de546a81db9d2304bfd69246332b0c8a5c6d6f071a123fe1380"
+    },
+    {
+      "path": "docs/analysis/legacy/README.md",
+      "sha256": "534e85648ae2d004a0287034c776d36cd72ccf71901b09c8f66953292fc0230e"
+    },
+    {
+      "path": "docs/analysis/legacy/05_LEGACY_LEARNER_COMPARISON.md",
+      "sha256": "aa7bb43912a69916920bec7b2a185f7eba67972ab31be41cd86f5ef86213ad5f"
+    },
+    {
+      "path": "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md",
+      "sha256": "dcca25bbac761255ca80b4959c84af57f5fed84f2b28add2fba5bf0cbb00622d"
+    },
+    {
+      "path": "docs/analysis/legacy/03_LEGACY_VS_CORRECTED_WORKFLOW.md",
+      "sha256": "aeb5a003ee4adfc0666f9f8670877e820f27b393abb0e36debc9dd601fce65d1"
+    },
+    {
+      "path": "docs/analysis/decisions/metric-selection-2026-10-06.md",
+      "sha256": "0b974ba6bbc30274a17d0704562ca84ae9fd9f807a6de75820a3385862fd5de3"
+    },
+    {
+      "path": "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+      "sha256": "4a00972e4a828f29235f1969341231d63852499f2c628a9c2907d549d5953eb1"
+    },
+    {
+      "path": "docs/analysis/decisions/README.md",
+      "sha256": "fb019686ce9cd5ad269b1eb3e249983c76783d2999e3bdcbcdbcb2501c20023d"
+    },
+    {
+      "path": "docs/analysis/decisions/figure-02-row-3-decisions-2026-10-08.md",
+      "sha256": "cb5515a7d62bc663b507f733eb1c06a264dafbd9251291d2a3308cd5116c4c00"
+    },
+    {
+      "path": "docs/analysis/learners/METHOD_REVIEW.md",
+      "sha256": "734726491189074992ccae93f7606266f2086fd639af8e4b6aa3373030e23532"
+    },
+    {
+      "path": "docs/analysis/learners/IMPLEMENTATION_CONTRACT.md",
+      "sha256": "f7f34d38fad7b6f3335bc8b765792b2d5697fdbf37dcaa4808ef3495190ea916"
+    },
+    {
+      "path": "docs/analysis/learners/README.md",
+      "sha256": "0a4d06133e100d40d7795adeaf7edb26cc15d295e4e9610a0415c1357fa1b68f"
+    },
+    {
+      "path": "docs/analysis/learners/OUTPUTS_AND_VALIDATION.md",
+      "sha256": "ea126c27a991bb5bcdfc5e325fd1d35ce89170eda99c39812b337e120403a9f8"
+    },
+    {
+      "path": "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+      "sha256": "1a4c5c71d7a9392fd17831f2af99b516e5c8e7efec9f5995a869958af9c8bc19"
+    },
+    {
+      "path": "docs/analysis/figures/figure-build-tooling-design.md",
+      "sha256": "8f79e8ab1fb1410fa25ab752230aab993a47168b6f7a6399d9f16af181711ca5"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+      "sha256": "7874d0815aee108b0f603e96afd1edbbbe028838946c3ec042eed6c7ab9c677c"
+    },
+    {
+      "path": "docs/analysis/figures/README.md",
+      "sha256": "6fe330fe25aacc444650799d046bb9a29947012e8ea77a3c68e0a0a5eb85afb7"
+    },
+    {
+      "path": "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+      "sha256": "fd1476279dcbcf36c0eb3ecc2da1c4118b1c0655d94ff488358fe8ef0f9e4a05"
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "sha256": "ae3382a5baafb70969b4db337169751653b2c8e2fe23fd341832d4abb0a270e4"
+    },
+    {
+      "path": "docs/analysis/figures/assembly-preflight-and-replacement.md",
+      "sha256": "5e89e5b3ed8c80a1933c2aec092e322704d34e47e7313f8e89fe404d5b38de6e"
+    },
+    {
+      "path": "docs/analysis/reference/06-cohort-aggregation.md",
+      "sha256": "1bc929533388933545d3762a36d4257ca79dee760369195b6c13423853a0d343"
+    },
+    {
+      "path": "docs/analysis/reference/10-troubleshooting.md",
+      "sha256": "d42c725e2575dbe0cad5630b9589847a592c85d7abe3b4708a8125fa6ea6a2e8"
+    },
+    {
+      "path": "docs/analysis/reference/07-learning-onset-lme.md",
+      "sha256": "3373f6d2fc964740226546fc03961465e8c21ac5eea92a750d438fb65ba753fe"
+    },
+    {
+      "path": "docs/analysis/reference/figure-04-analysis-and-rendering.md",
+      "sha256": "0c36c842f9ebad63b5565ece61a1a3c180536de40ae1c27882931e7a252942ca"
+    },
+    {
+      "path": "docs/analysis/reference/09-output-and-provenance.md",
+      "sha256": "f1d93aefc6c03c9a042eea871bdc4c8312fc70a9fa0fda890ed11b4dbe937250"
+    },
+    {
+      "path": "docs/analysis/reference/README.md",
+      "sha256": "b25bd46522c220c52ec6a52d218674346520cc6656aa67cf185908e2ca05b1c4"
+    },
+    {
+      "path": "docs/analysis/reference/figure-01-assembly.md",
+      "sha256": "9067c20827c1f2ffab9608d46521c967508fef0a4caa1266b2daad97cec3103f"
+    },
+    {
+      "path": "docs/analysis/reference/01-user-workflow.md",
+      "sha256": "3decd81700a6fb7bc79fe9199e736ec82a31679a77e7beb8fbb2f52bc565be82"
+    },
+    {
+      "path": "docs/analysis/reference/05-metrics-and-bouts.md",
+      "sha256": "9a11be6b431c18b0d1416ad3e9c13ac074d86a90f4af2f28cf14dc153e6240f1"
+    },
+    {
+      "path": "docs/analysis/reference/12-proposed-multimodal-architecture.md",
+      "sha256": "a5d3a35f49002fcd4f6bac7e3a95a7463c656a0a8b6ff6752b8c8bc32bf05cbd"
+    },
+    {
+      "path": "docs/analysis/reference/08-candidate-figures.md",
+      "sha256": "d24fcaea7cd8f7b6f06362689a8fb2dcce6d8f83431e5079ed1490ddd3daf4c8"
+    },
+    {
+      "path": "docs/analysis/reference/11-glossary.md",
+      "sha256": "ea2be67be5c1b1e1f4ee0e962e76919f023f9c74554d0e543ff4c1c471f9d2b3"
+    },
+    {
+      "path": "docs/analysis/reference/figure-02-assembly.md",
+      "sha256": "a338c03ef2ffe2ea9427b7885b2194de802427e43b30e4dc38e74ba37b96d53e"
+    },
+    {
+      "path": "docs/analysis/reference/02-current-pipeline.md",
+      "sha256": "1dc50f0b5f4936fd4c3962208b544e349360120e9bf60b9912d3c97380f5ee6d"
+    },
+    {
+      "path": "docs/analysis/reference/03-analysis-parameter-index.md",
+      "sha256": "27eabe30793e463adb38e168bb1eed24ab1000dbca361c9594ddfea4304d9057"
+    },
+    {
+      "path": "docs/analysis/reference/04-discarding-and-selection.md",
+      "sha256": "efe34e1b55c0f127c186fe2c663c9c72faa071262db4f6d0f993f4880db8495c"
+    },
+    {
+      "path": "docs/analysis/figures/freezes/README.md",
+      "sha256": "8cc1ede65a07dd461ccae4a55741e52b2c8aac34fbcf85bcb47584d466701420"
+    },
+    {
+      "path": "docs/analysis/figures/history/README.md",
+      "sha256": "27716c782488b460b1d5baf741f744cd41945a8ca555b27415e2900b38f5cd49"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-iteration-workflow.md",
+      "sha256": "75b39f207c1ee97968fd183c6f63896968a8377343ed6a72c54d46d8ef94043b"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/legend-text-relocation.json",
+      "sha256": "1c9bff1b3cad0b3842385307f62032af07cd04b42dcc1aa8fa370b2ac849162d"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/legend-review-verification.json",
+      "sha256": "3349e423ebb1ad8258ec25d4c6f9e418028424d534aa08c51249de83819f9b05"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/README.md",
+      "sha256": "4b7f6d742cb7855ae86c65f10e66ac7fa53d96e06239bf89421998cdf1924cc0"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/legend-decluttering-review.md",
+      "sha256": "950635b724119f4ddbd1622a6a34421bad078b85e44cdd2030c288500f1f23f7"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+      "sha256": "021e41f1a3cc2c2125445511ee1961e89e7b4433320cfbd274f236733347d1fd"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/review-variants.json",
+      "sha256": "89184b63cd37335a1b89b191a062429c274291571c470f3ee79116bd6c34b5ef"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/panel-style-consistency-audit.json",
+      "sha256": "0e1a9c0bcc23004185eab74d6177dee58f96781946e5c6efd28645fd132a89c3"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-02/delay-all-versions-2026-10-09.md",
+      "sha256": "6a14d5f2945a760fa237498c1e0cef0bcab32e4d636b00f7f80bfedf5d103baa"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-02/delay-lmm-audit-2026-10-09.md",
+      "sha256": "eaa76ce71673e0838484e4cce186046bddd1ee49f705861237512f7065a76fd6"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-02/README.md",
+      "sha256": "650cb258b3fce123f4939eb71a8491f0df6bce2b1e1204750b02fea703d1d36b"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+      "sha256": "fecfbe906feb40999116777e11e4af40576708a0779505afda050aaf0199e395"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-02/delay-phase-lmm-2026-10-09.md",
+      "sha256": "ca86b2cd3d15a63895ea269e0479901d72ab4b320b48c01fc245b1ba1f48b04e"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-04/delay-readiness-2026-09-24.md",
+      "sha256": "9897a0b996833070107739dd389a01f773af8ee513732ce0640d2e6e8838dc8b"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-04/README.md",
+      "sha256": "a9561c8b9ba4db4cc939e7eb708c5cbcb438a34cf09cf00d7bf26a5eac6e6ac9"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md",
+      "sha256": "f21e5dd64d588b550d04a0001e0e02264ce1287376b0c1d1f429a08153763b77"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/trace3-exploratory-run-2026-09-24.md",
+      "sha256": "521a4fa31ffb6e26123dd0d89c42bff6a85212e3d8e29955c892df6f9938e3a2"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/trace3-plot-versions-2026-10-06.md",
+      "sha256": "25d80c915931929b465fffaa1e3fd5d9ac6ace9b58e7062d9f5299756e776300"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/panel-review-history-through-2026-10-10.md",
+      "sha256": "56db75630c0f702e9f7df089f0655b5c1074924008bd9b8ebae9b24b38e91c1c"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/renderer-pipeline-comparison.md",
+      "sha256": "0518cc26c5425685413fc23fcbb40ec14dc27179a994315ac338aa0b90e9bbcd"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/README.md",
+      "sha256": "b3558f1a75a4d5f14e058c20bdaef2a70bf173262cd6d5a2061d160e3e47110a"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/baseline-window-review.md",
+      "sha256": "f446bac21c555eebe92a3718ec2bf694a3eedb28f799301526aea23b6d927f04"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/review-versions-2026-09-24.md",
+      "sha256": "ef1376810215ab8a33d63d7626d53fafaf3c2fe3a2765d2a4ef5f48278e25fc2"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/former-panel-provenance.md",
+      "sha256": "de6aed3698ce434499ebc0c330202c6a18e6445ccb2dd17eb7b9b085c6da3b17"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/draft-comparison.md",
+      "sha256": "f4a118de0b24935b0708ee8381e435387dbbd6418fca2acf5eee04970496b1ca"
+    },
+    {
+      "path": "docs/analysis/figures/history/shared/former-figure-specification.md",
+      "sha256": "966cb13ba56692d3066eaee2f25b2f60b6b9b49b600868bb6ba63b2d32ad5db6"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
+      "sha256": "46b23cc66075960705b17ec22fe9edfd18df92009d8398824f3671f0de06d26b"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/fgh-colour-and-binning-history-2026-10-09.md",
+      "sha256": "4029e32943c754427803784c8c5a83721a934c09fb41322bb805c0414ca0dff0"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md",
+      "sha256": "4b3da5cd491d9b6408f59ed2440466d8f7a7ee9fb9d6efd1b0c5eaa6bbd39c6f"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/trace-variants.md",
+      "sha256": "e0ba1354371c264a64340ea9ddd187d62db4d325ed56c3cb160305ffda14da6c"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/fgh-analysis-assessment-2026-10-08.md",
+      "sha256": "01046acef7d4a8fc83417e4e382ea99f2e2c0810145c0d15f9dd917d99d9473f"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/README.md",
+      "sha256": "5a912bdcea27d222b367f9338e968360daccceaf0fca8a07dbf203c480e46cb9"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/cadence-review-v5-2026-10-07.md",
+      "sha256": "92a980146b75348d8cd37650eb2b654e888a15cdd05be59aca3eebaaafbbba5f"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/panel-c-redesign-history.md",
+      "sha256": "116402a693e52148e226628c939870526f8ccb636fc6e3124db19a327a68290f"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/panel-b-redesign-history.md",
+      "sha256": "03d3edbb72f26c2519d808dfd47ba29c4fa9c168444d0a92c393356ed3402e63"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/fgh-requested-corrections-2026-10-09.md",
+      "sha256": "84dee8c4a360922de49a5e357b7649f4babb0ee29d9e8d94262caebff4b735f1"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+      "sha256": "b5d4d02237af2eb467b6840ae961be55a269569b6151f9117b4312eb0715291a"
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-01/heatmap-review-history.md",
+      "sha256": "8966deb8e02f704633ee580b4b7834df862d39be4927982382c645e1a90999b1"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-02/legend-draft.md",
+      "sha256": "ec88d03534118de3c63fa125597074a8ee2a3a3f6f67694c2b2d748db7811df7"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v4-effective-presentation.json",
+      "sha256": "2d91e8bd1be716d611c8b10af92f7469f34a6d2ad6f5a0839c2207edbb21d514"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/semantic-registry-audit-2026-10-12.md",
+      "sha256": "f9c308a3da217babbde9bf7c61f06647d8f3940530649bf3859e35029392a2ba"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/effective-presentation-audit-2026-10-12-v2.json",
+      "sha256": "0de39c9277262b1909605b7227e4d6d7b612d5f12dce1b9ecf897d22acd1baa8"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10-effective-presentation.json",
+      "sha256": "52fddb71a773e40101b40264a8a7fe1a6971198db1757c6f12e7a87d2e469951"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/legend-draft.md",
+      "sha256": "84273ce8c16d2f2741512695265043130cf3636a6818186ec8cc780338bb801e"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5-effective-presentation.json",
+      "sha256": "2d91e8bd1be716d611c8b10af92f7469f34a6d2ad6f5a0839c2207edbb21d514"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v3-effective-presentation.json",
+      "sha256": "2d91e8bd1be716d611c8b10af92f7469f34a6d2ad6f5a0839c2207edbb21d514"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/workflow-implementation-2026-10-12.json",
+      "sha256": "89508e43cbdcab132dcd6da76893f615e7f21f0e816d79e49e21bc45ecc015df"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/current-state.json",
+      "sha256": "679a836aad6820dff27c70a0a1ddb2803b22bb8bc434e69e702913812fcbba81"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/figures-01-02-review-2026-10-12-aligned-de-v8-effective-presentation.json",
+      "sha256": "00c8bf9e9b276c406035b59231c7af1c9cd412364c2e9b3b4106ac66a711fe2e"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/effective-presentation-audit.json",
+      "sha256": "33e473aa5d815074b6bc48d388e71f92bcb33aad4d0eb6f8dfba6f381379fea4"
+    },
+    {
+      "path": "docs/analysis/figures/reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json",
+      "sha256": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed"
+    },
+    {
+      "path": "docs/maintenance/archive/deletions.json",
+      "sha256": "5e1c60248e49ddfa5c6b8275f51f25d4c78687fe062c08808a134f296fba9182"
+    },
+    {
+      "path": "docs/maintenance/archive/completed-transfer.json",
+      "sha256": "bec5637c6ee6cac9ff3b5541bf9a83a216591965d13e614829ca77307b38480a"
+    },
+    {
+      "path": "docs/maintenance/archive/starting-inventory.json",
+      "sha256": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3"
+    },
+    {
+      "path": "docs/maintenance/archive/REVIEW_CATALOGUE.md",
+      "sha256": "0376485b3e9599a81d732acaf337cfa8674f361600682d10e9db7f4e06718015"
+    },
+    {
+      "path": "docs/maintenance/archive/REQUEST_CONTEXT_20261010.md",
+      "sha256": "16698fa2298b39238b7a692c0b36ec914dc55632e3ff49dc6c054191b1fcefdd"
+    },
+    {
+      "path": "docs/maintenance/archive/post-transfer-repository-inventory.json",
+      "sha256": "eac6d5744b3ae59d10c641696aa5fac3497ce00ff47ae31e90861a23daf0ceaf"
+    },
+    {
+      "path": "docs/maintenance/archive/records-reorganization-verification.json",
+      "sha256": "ae9905303765eed97f8a40d2e25db394c729b7e036b34a1e7799658e8ff2caea"
+    },
+    {
+      "path": "docs/maintenance/archive/review-lineages.json",
+      "sha256": "744b8f2f14298fc1ab1d240a6a590b15977d7992fdaa6b569aa098598f808d5e"
+    },
+    {
+      "path": "docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "sha256": "0ac50985a1200fa898a17d8cbc1aef298e395d58ee5191958066e64edf6d5ffd"
+    },
+    {
+      "path": "docs/maintenance/archive/records-reorganization.json",
+      "sha256": "3a7c68e1fe481ad0fc488371e2c5eb395710cc401faa5b8d95c03ad648dad3eb"
+    },
+    {
+      "path": "docs/maintenance/archive/retained-code.json",
+      "sha256": "c51bee589b6c0376a021fa5ccf0fe7adf7a94404ed4da77a3aadd55e1380c872"
+    },
+    {
+      "path": "docs/maintenance/archive/transfer-inventory.json",
+      "sha256": "e718dfcb14debaf9241f1dd1b9232e6dcee7b77e221e0a6e6cd96133f94c3b9d"
+    },
+    {
+      "path": "docs/maintenance/archive/README.md",
+      "sha256": "52a169001d2cfb0860b3e967bd1062417a7336f1af36701c52fd2ce2ebda7879"
+    },
+    {
+      "path": "docs/maintenance/archive/records-reorganization-before.json",
+      "sha256": "4600b2ae9749095a95feb3d0eceab6c1bcf12f3c4e3f7222bfc909aa8dc588fc"
+    },
+    {
+      "path": "docs/maintenance/archive/ssd-readonly-inspection.json",
+      "sha256": "f67a6b0787ed92d66d118e8390b5e6592db3df07c31c4075f8a5c554a6a558de"
+    },
+    {
+      "path": "docs/maintenance/archive/verification.json",
+      "sha256": "4a892dfa55cb929cea0b83b3410268946d2b039c7f645a52afaa5630a0965f21"
+    },
+    {
+      "path": "docs/maintenance/archive/post-transfer-link-audit.json",
+      "sha256": "f6d2c5ac1bccb2c26d7487fdf39d644b0e2040eda262e251844f129bb71536f2"
+    },
+    {
+      "path": "docs/maintenance/archive/historical-link-recovery.json",
+      "sha256": "e4bf2a73329679ebbca46fb70726b17ff738b29f97c354d8f0f7205a892db6ba"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-pointer-discrepancies-20261011.json",
+      "sha256": "f0e470055975418494e587122471a67aca9bd798301d007cc35a63a72f2ca08d"
+    },
+    {
+      "path": "docs/maintenance/archive/relocations.json",
+      "sha256": "236d38b42cb59af7d72839d0b06926fd63b39f65e4468f1eb0aae79e071978a3"
+    },
+    {
+      "path": "docs/maintenance/archive/verified-artifact-locations.json",
+      "sha256": "19d4994bdccde60a4fe98dd5d2ccdd47ed6d118eb167a32122ec75fd26a0c655"
+    },
+    {
+      "path": "docs/maintenance/archive/CLEANUP_RECORD.md",
+      "sha256": "4cd3b502215bd62ecba8bda090686c5e10aa12db4c1a00699ff7956aee9475cb"
+    },
+    {
+      "path": "docs/maintenance/transfers/increasing-trace-move-manifest.json",
+      "sha256": "6badc984a0d33639daef904f4d991faf6de62b7df5b7690e31b20ed9b2d2b5eb"
+    },
+    {
+      "path": "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+      "sha256": "43be80d9042e8b2c90e16a910169143eae9f794618e977d8977364d493f9de1d"
+    },
+    {
+      "path": "docs/maintenance/transfers/MAC_SSD_20261009.md",
+      "sha256": "077e2c6285f99030a2c88d7c252bd5f3f2458cec728d2f58c0c5097d864aa2d8"
+    },
+    {
+      "path": "docs/maintenance/transfers/README.md",
+      "sha256": "7826c8d2a94b5875dbc7d3ebc792d87a07df0a275ce9022a31aef03e7e8214b9"
+    },
+    {
+      "path": "docs/maintenance/archive/learner-plan-consolidation-20261011/completed-transfer.json",
+      "sha256": "37e2107d36616c77c6323c0b9d16bccbc7bef09e3c552d62bbff035a8cfc10a1"
+    },
+    {
+      "path": "docs/maintenance/archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+      "sha256": "602204140516a646d91a819296b6dfcdafe496e05af4b7010295fc4d437a1101"
+    },
+    {
+      "path": "docs/maintenance/archive/learner-plan-consolidation-20261011/README.md",
+      "sha256": "852708bf5833f088cf5a0405f18a04d1c445d107ad05ee4bca5cc3aec4644e2a"
+    },
+    {
+      "path": "docs/maintenance/archive/learner-plan-consolidation-20261011/verification.json",
+      "sha256": "cc2421d46dcba920bb5af3f32b152faacc1d2c53887c90849479936a3eb83472"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/dispositions.json",
+      "sha256": "668da13eadbc74cff768ce6ae5e4e4c5d86aa3d19338fc6ce88af0e74b0f305d"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/final-inventory.json",
+      "sha256": "619043ceeca48e5f89c701928e8e632eeb08bc4cb5ecffdb335fe0d2e8692a0b"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/completed-transfer.json",
+      "sha256": "52a46937253d284ea1d23276e7b6102d77754a2379743bb24e54758aff6b6896"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/starting-inventory.json",
+      "sha256": "ccad1eda4f801d658ed6c533adcfbd95327baed0b0f7d9015ee93565e4450bac"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/documentation-links.json",
+      "sha256": "22725a0bedbcb77adfe6bdab5177da317ad05eba40b3551c86235cf454a91bfa"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/repository-moves.json",
+      "sha256": "f93c5b5c0f553623a368e3f0c3644215688751e6c6f45c4719a1b9619e3ccaad"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/transfer-inventory.json",
+      "sha256": "2c3d9f5da2afddf3a18fa78888b3d97cc0ed9e79b5e50d7011cd30c765d55178"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/README.md",
+      "sha256": "6f744ce077931f703ad823f247f7782ec9ab150bfc8e81d7c611a850631b81a3"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/protected-hashes.json",
+      "sha256": "93c3e3a97280f10875727438db7b1a466fa951d5fe9b1601ff53c619e4127dc5"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/verification.json",
+      "sha256": "1d366fe3cd14185d2773fff4292696f44f60d03b557891ca003c8897384c3922"
+    },
+    {
+      "path": "docs/maintenance/archive/documentation-cleanup-20261011/consolidation.json",
+      "sha256": "972d198b99d4738a1d916dac7d3c3af3559cbad1352ffcadfccfe0c7fb142ac8"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/completed-transfer.json",
+      "sha256": "4ed1b8fcf7769f06aae28a80b72b51b4da80326d256fc1d1df9a7632b426a760"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/transfer-inventory.json",
+      "sha256": "3fe5072d1449ed3300e532a7f08e1824724a25b59d7f0c956a2486fa9a6327e0"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/README.md",
+      "sha256": "6937cb43abccd2234636961fad9716ae35fbf3fc10e398cc6cef654e48e5cf8a"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-reassessment-20261011/verification.json",
+      "sha256": "5ce8c5338bb68d5415817173bd49a14e7e2d5b12dcb0ba57a84be313071ba014"
+    },
+    {
+      "path": "docs/maintenance/archive/plan-policy-review-20261011/record.json",
+      "sha256": "5e95ffa18d5fb334604f79b6af09619f536913dbf2c27ad646e185473d28f21a"
+    },
+    {
+      "path": "docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md",
+      "sha256": "0a452b802e3fb708c34c66d8b49fd6a426e10b4d12f5a79f2e65a49756aded98"
+    },
+    {
+      "path": "docs/maintenance/archive/plan-policy-review-20261011/README.md",
+      "sha256": "78915ca9531043cc11af807e8a4800c216a549727e69a07ba16030b41c7da96f"
+    },
+    {
+      "path": "docs/maintenance/archive/plan-policy-review-20261011/verification.json",
+      "sha256": "dd1f08e700ed03bbd9df6af7a46cb162eb7fb9392694dd7b1f98b0e60c7ec49c"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/completed-transfer.json",
+      "sha256": "b7f4338a6639b0482c543ed35dbdec1b003d7cdbc41199eb5b1a52f22654c62d"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/documentation-link-audit.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/repository-moves.json",
+      "sha256": "3e93ca1f412a8b752bbe5cf54abffa7af0960ce5ca93004ce8e6359cc24119a4"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/retained-configurations.json",
+      "sha256": "713e527cf7aa23fff48cde25300ab880c3e737aa8b7678aa91ce9796db69ae9d"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-verification.json",
+      "sha256": "68953ef337b63ce3a052422066332d7964b608a7703867393d94dd38e5bb05f2"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/transfer-inventory.json",
+      "sha256": "20e8598bf52870f26a5cb21bb57c816335d314134a235781ba7bb8a469900c70"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/README.md",
+      "sha256": "64a8b4a81933b56145df6baad90819cb8d654d7dddc301afaf270d23bfbb0fbe"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-inventory.json",
+      "sha256": "5f403d3978ad1ede82e681340b8bc0c24d881eaf7687b581c2dd4e532346cfd1"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/protected-hashes.json",
+      "sha256": "e59690222ba6f191e265c75d13f45a259b0ea2354b79f1d98b359b2f3c627cb8"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/verification.json",
+      "sha256": "04d15377230697e3f2127038b5f5c4d4e2811d5eb3e989cc8b86a2b6045375fa"
+    },
+    {
+      "path": "docs/maintenance/archive/configuration-cleanup-20261011/selection-reference-verification.json",
+      "sha256": "909efec1fab0c46078b9c305bb49fe788458930ecb2d764411e5a09ebfc6f62c"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/completed-transfer.json",
+      "sha256": "fc1c1b1621acd6d876b68793965c6d38e440fbce8de0926fe072db64fed69e86"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/current-retained-scripts.json",
+      "sha256": "d605e4eb473ff54f494eaf9d94530c5888a1c72f85fd1b68618c18afa3679d93"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/transfer-inventory.json",
+      "sha256": "6846b90c1398f02ad89bd14f78f8a7b82693798896160536d0948455e191b77f"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/README.md",
+      "sha256": "e5faa1f780c6e613fe94ab72b952e41ad6f2401345f4d7c9089b65776181b0e6"
+    },
+    {
+      "path": "docs/maintenance/archive/scripts-cleanup-20261010/verification.json",
+      "sha256": "a1e2ed401fd3c7f42b703469e0184d083a04818113c743d08ed9c7b8ec0c1dc2"
+    },
+    {
+      "path": "docs/maintenance/archive/plan-renumbering-20261012/record.json",
+      "sha256": "ce9b8cedae6c838977543696bfc084b7752bb8e76e6325736311ce68f9ff7d78"
+    },
+    {
+      "path": "docs/maintenance/archive/plan-renumbering-20261012/README.md",
+      "sha256": "5013ae55b1443d346ce83c6dd9ea65f41e28e72bc4df2561a8612747d86be33f"
+    },
+    {
+      "path": "docs/maintenance/archive/plan-renumbering-20261012/verification.json",
+      "sha256": "7cc4721fedb419facf8bc7b8c8c42653a8e424ade57e755824751a31bfe5f383"
+    },
+    {
+      "path": "docs/maintenance/transfers/history/repository-output-mirror-2026-10-06.md",
+      "sha256": "da08bc09d12593059abedc61aa5b91ab941f8b470978ea59cd354de63aef5066"
+    },
+    {
+      "path": "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+      "sha256": "fbeb0ecc49c334aad0dd0f6a696a782149588fe6c09e973c66fe5affeb591c95"
+    }
+  ]
+}

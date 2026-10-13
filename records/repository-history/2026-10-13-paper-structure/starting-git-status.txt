@@ -1,0 +1,9 @@
+ M Plans/07_FIGURE_BUILD_TOOLS.md
+ M Plans/IMPLEMENTATION_STEP_INDEX.md
+ M Plans/README.md
+ M docs/analysis/figures/reviews/figure-01/current-state.json
+ M docs/analysis/figures/reviews/figure-01/legend-draft.md
+ M docs/analysis/figures/reviews/figure-iteration-workflow.md
+ M docs/analysis/figures/reviews/legend-text-relocation.json
+ M scripts/build_figure_legend_review.py
+?? docs/analysis/figures/reviews/figure-01/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10-effective-presentation.json

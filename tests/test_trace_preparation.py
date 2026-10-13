@@ -50,7 +50,7 @@ class TracePreparationTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "20230301_03"):
                 PREPARE(raw, digested, configs)
             self.assertFalse(config_path.exists())
-            report = json.loads((configs.parent / "docs/analysis/audits/trace-preflight.json").read_text())
+            report = json.loads((configs.parent / "records/scientific-evidence/audits/trace-preflight.json").read_text())
             self.assertEqual(report["status"], "blocked")
 
             partial = PREPARE(raw, digested, configs, allow_incomplete=True)

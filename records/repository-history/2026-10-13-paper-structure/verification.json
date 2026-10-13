@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-13",
+  "structure": {
+    "issues": [],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 244,
+    "current_states_checked": 1,
+    "verified_transactions": [
+      {
+        "manifest": "records/repository-archive/transfer-inventory.json",
+        "files": 2050
+      },
+      {
+        "manifest": "records/repository-archive/configuration-cleanup-20261011/transfer-inventory.json",
+        "files": 2
+      },
+      {
+        "manifest": "records/repository-archive/documentation-cleanup-20261011/transfer-inventory.json",
+        "files": 1
+      },
+      {
+        "manifest": "records/repository-archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+        "files": 3
+      },
+      {
+        "manifest": "records/repository-archive/scripts-cleanup-20261010/transfer-inventory.json",
+        "files": 41
+      },
+      {
+        "manifest": "records/repository-archive/scripts-reassessment-20261011/transfer-inventory.json",
+        "files": 3
+      }
+    ],
+    "external_verification": "passed"
+  },
+  "documentation_files_before": 187,
+  "documentation_files_after": 56,
+  "full_suite": {
+    "tests": 435,
+    "status": "passed"
+  },
+  "latest_structure_archive_tests": {
+    "tests": 24,
+    "status": "passed"
+  },
+  "working_copy_verify": "passed",
+  "begin_ticket_new_state": "passed",
+  "current_frozen_source_load": "passed",
+  "historical_originals_resolved": 18,
+  "scientific_selections_unchanged": true,
+  "current_working_svg_and_review_records_unchanged": true,
+  "preserved_figure2_record_unchanged": true,
+  "permanent_exports_created": 0,
+  "ssd_payloads_modified": 0,
+  "diff_whitespace_check": "passed",
+  "previous_versions": "V1 local records/pointer separated; external media preserved because existing active/historical dependencies remain"
+}

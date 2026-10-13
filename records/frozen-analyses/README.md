@@ -14,6 +14,10 @@ Within each version, use `manifests/`, `settings/`, `code/`, `sources/`, `review
 
 ## Preservation and authority
 
-All 70 relocated frozen files retain their exact bytes and SHA-256. Their embedded filenames, imports, historical paths and freeze IDs are unchanged; directory names are navigation, not new scientific identities. Historical snapshots are not assumed executable from their relocated folders. Reconstruct original paths when needed using the [relocation map](../../docs/maintenance/archive/relocations.json); use supported tools for current execution.
+All 70 relocated frozen files retain their exact bytes and SHA-256. Their embedded filenames, imports, historical paths and freeze IDs are unchanged; directory names are navigation, not new scientific identities. Historical snapshots are not assumed executable from their relocated folders. Reconstruct original paths when needed using the [relocation map](../repository-archive/relocations.json); use supported tools for current execution.
 
-[Machine-readable index](index.json) records every current path, prior path and hash. [Move record](../../docs/maintenance/archive/records-reorganization.json) records this reorganization. [Scoped freeze authority](../../docs/analysis/figures/freezes/README.md) remains separate from the folder layout. Permanent data/media are on JOAQUIM; they were not moved or altered in this reorganization.
+[Machine-readable index](index.json) records every current path, prior path and hash. [Move record](../repository-archive/records-reorganization.json) records this reorganization. [Scoped freeze authority](selections.md) remains separate from the folder layout. Permanent data/media are on JOAQUIM; they were not moved or altered in this reorganization.
+
+## Current and historical separation
+
+Current dated record folders remain directly within their figure/panel scope. Superseded accepted versions use that scope's `history/` folder, retaining original dated names, role subfolders and bytes. The [selection index](selections.md) distinguishes current, superseded and supporting lineage; an older source remains current until replaced within its own scope. This organization is navigation, not a new freeze.

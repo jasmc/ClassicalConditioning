@@ -1,3 +1,3 @@
 # Panel review
 
-The active [panel review](../../../panel-review.md) is now at the documentation root. This compatibility page preserves the link from the byte-preserved element/style contract.
+This compatibility path preserves the immutable element specification's link. Current panel concerns are owned by the [paper figure folders](../../../paper/figures/README.md). It defines no alternative current review.

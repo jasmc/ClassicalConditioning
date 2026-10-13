@@ -84,7 +84,7 @@ def audit(root: Path) -> dict:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-dir", type=Path, default=Path(r"J:\Raw Data\incTrace"))
-    parser.add_argument("--report", type=Path, default=Path(__file__).resolve().parents[1] / "docs/analysis/audits/inc-trace-stim-audit.json")
+    parser.add_argument("--report", type=Path, default=Path(__file__).resolve().parents[1] / "records/scientific-evidence/audits/inc-trace-stim-audit.json")
     arguments = parser.parse_args()
     result = audit(arguments.raw_dir)
     arguments.report.parent.mkdir(parents=True, exist_ok=True)

@@ -14,9 +14,9 @@ canonical behavior identities
 
 This plan defines an active, parallel implementation track for experiments that
 contain both behavior and imaging. It extends the rules in
-[governance](../docs/maintenance/ANALYSIS_GOVERNANCE.md), the
-[proposed architecture](../docs/analysis/reference/12-proposed-multimodal-architecture.md),
-and the [current pipeline guide](../docs/analysis/reference/02-current-pipeline.md).
+[governance](../docs/project-maintenance/governance.md), the
+[proposed architecture](../records/scientific-evidence/designs/proposed-multimodal-architecture.md),
+and the [current pipeline guide](../docs/running-analysis/pipeline.md).
 Earlier migration plans remain in Git history.
 
 The behavior-only pipeline remains authoritative for behavior. Imaging
@@ -26,7 +26,7 @@ path, movement detector, outcome definition, cohort rule, or learner method.
 The source imaging implementation is in the sibling `analysis_learning`
 repository. It is evidence for the intended workflow, not a specification to
 copy literally. Its risks and migration disposition are recorded in
-[the imaging pipeline critique](../docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md).
+[the imaging pipeline critique](../records/scientific-evidence/audits/03_IMAGING_PIPELINE_CRITIQUE.md).
 
 The implementation step index tracks this workstream separately from the
 behavior-only paper path.
@@ -172,7 +172,7 @@ The following implementation mechanisms must be replaced:
 ## 6. Final dependency architecture
 
 The complete architecture is diagrammed in
-[the analysis architecture](../docs/analysis/reference/12-proposed-multimodal-architecture.md). The governing
+[the analysis architecture](../records/scientific-evidence/designs/proposed-multimodal-architecture.md). The governing
 dependency direction is:
 
 ```text

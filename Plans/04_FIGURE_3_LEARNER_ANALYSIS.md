@@ -12,11 +12,11 @@
 2. Compare a prespecified continuous acquisition contrast, a control-calibrated score when eligible controls suffice, and longitudinal/state-space/change-point approaches when trial dynamics warrant them. Consider component/PCA diagnostics and mixture/clustering alternatives without treating components or clusters as validated learner classes.
 3. Separate acquisition from recovery, immobility from missing tracking, and biological interpretation from classifier eligibility. Preserve the legacy nominal/new/improved/WIP variants as historical comparators, not ground truth or a canonical method by default.
 4. Design simulations/power checks, individual uncertainty, control calibration and validation splits before comparing candidate results. Compare null performance, gradual/abrupt effects, serial dependence, missingness, window/metric sensitivity, resampling stability and later held-out prediction on identical authenticated inputs.
-5. Record alternatives, assumptions, rejection reasons, feasible precision and the rationale for imposing or declining categories. Approve Gate L in the [decision register](../docs/scientific-decisions.md): estimand, representation, implementation/version, metric/detector, transformation, features/direction, coverage, reference/calibration, any meaningful-effect margin or threshold/rule, seed/resampling, validation mode and permitted claims.
+5. Record alternatives, assumptions, rejection reasons, feasible precision and the rationale for imposing or declining categories. Approve Gate L in the [decision register](../docs/paper/decisions.md): estimand, representation, implementation/version, metric/detector, transformation, features/direction, coverage, reference/calibration, any meaningful-effect margin or threshold/rule, seed/resampling, validation mode and permitted claims.
 
 **Exit:** One justified representation and prospective validation design are approved. Rejecting categories does not remove the required individual-learning analysis. Independent new-cohort validation is unavailable; insufficient existing-data independence limits claims to descriptive results.
 
-Scientific comparison and literature: [method-review reference](../docs/analysis/learners/METHOD_REVIEW.md).
+Scientific comparison and literature: [method-review reference](../docs/paper/methods/individual-learning.md).
 
 ## Phase 2: Implementation and scientific validation
 
@@ -29,7 +29,7 @@ Scientific comparison and literature: [method-review reference](../docs/analysis
 
 **Exit:** Auditable derived artifacts and validation results satisfy Gate L; the primary cohort and original datasets remain unchanged. Inadequate precision/calibration or validation is reported as a limitation, never concealed by favorable learner splits.
 
-Interfaces and tests: [implementation contract](../docs/analysis/learners/IMPLEMENTATION_CONTRACT.md). Schemas and QC: [outputs and validation specification](../docs/analysis/learners/OUTPUTS_AND_VALIDATION.md).
+Interfaces and tests: [implementation contract](../records/scientific-evidence/designs/individual-learning-implementation.md). Schemas and QC: [outputs and validation specification](../records/scientific-evidence/designs/individual-learning-outputs-and-validation.md).
 
 ## Phase 3: Figure 3 and downstream outputs
 
@@ -50,4 +50,8 @@ Interfaces and tests: [implementation contract](../docs/analysis/learners/IMPLEM
 - [ ] Figure 3 and learner-dependent Figure 4/profile outputs preserve approved semantics and provenance.
 - [ ] Original scientific data and historical classifier results remain intact; permanent outputs are external.
 
-This is the sole active learner plan, including the former method-review and output/validation workstreams. Detailed requirements remain in [learner documentation](../docs/analysis/learners/README.md). Track progress only in the [implementation index](IMPLEMENTATION_STEP_INDEX.md).
+This is the sole active learner plan, including the former method-review and output/validation workstreams. Detailed requirements remain in [learner documentation](../docs/paper/methods/README.md). Track progress only in the [implementation index](IMPLEMENTATION_STEP_INDEX.md).
+
+## Preserved detailed requirements
+
+The [implementation design](../records/scientific-evidence/designs/individual-learning-implementation.md) and [outputs/validation design](../records/scientific-evidence/designs/individual-learning-outputs-and-validation.md) preserve unique conditional schemas, joins, output families and validation requirements. Use them with the approved representation; categorical examples are conditional on Gate L. Current scientific principles live in [shared methods](../docs/paper/methods/individual-learning.md), with [interface guidance](../docs/running-analysis/individual-learning-interfaces.md).
