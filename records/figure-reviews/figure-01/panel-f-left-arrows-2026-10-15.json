@@ -1,0 +1,84 @@
+{
+  "scope": [
+    "F"
+  ],
+  "author_direction": "2026-10-15: move arrowheads to left side, flip, align with trial numbers",
+  "source_svg_sha256": "c4167f4c9c89a1dbfb503383b8f32d0727adfec1709f7b0c2bc1cf6124cd9f26",
+  "svg_sha256": "dc6c47d007eb22f92e3e004bd3896058c16aa5cf672f9b10be27a020fa1ca057",
+  "arrows": [
+    {
+      "element_id": "edit-FGH-fig1__f__heatmap__example-trial-9",
+      "acquisition_trial": 9,
+      "display_trial": 5,
+      "tip_x": 46.186614,
+      "centre_y": 34.8236216,
+      "number_anchor_x": 41.686614,
+      "path": "M 46.186614 34.823622 L 42.686614 33.703622 L 42.686614 35.943622 z"
+    },
+    {
+      "element_id": "edit-FGH-fig1__f__heatmap__example-trial-17",
+      "acquisition_trial": 17,
+      "display_trial": 13,
+      "tip_x": 46.186614,
+      "centre_y": 49.56377911111112,
+      "number_anchor_x": 41.686614,
+      "path": "M 46.186614 49.563779 L 42.686614 48.443779 L 42.686614 50.683779 z"
+    },
+    {
+      "element_id": "edit-FGH-fig1__f__heatmap__example-trial-63",
+      "acquisition_trial": 63,
+      "display_trial": 59,
+      "tip_x": 46.186614,
+      "centre_y": 134.3196848,
+      "number_anchor_x": 41.686614,
+      "path": "M 46.186614 134.319685 L 42.686614 133.199685 L 42.686614 135.439685 z"
+    },
+    {
+      "element_id": "edit-FGH-fig1__f__heatmap__example-trial-66",
+      "acquisition_trial": 66,
+      "display_trial": 62,
+      "tip_x": 46.186614,
+      "centre_y": 139.84724386666667,
+      "number_anchor_x": 41.686614,
+      "path": "M 46.186614 139.847244 L 42.686614 138.727244 L 42.686614 140.967244 z"
+    },
+    {
+      "element_id": "edit-FGH-fig1__f__heatmap__example-trial-93",
+      "acquisition_trial": 93,
+      "display_trial": 89,
+      "tip_x": 46.186614,
+      "centre_y": 189.59527546666666,
+      "number_anchor_x": 41.686614,
+      "path": "M 46.186614 189.595275 L 42.686614 188.475275 L 42.686614 190.715275 z"
+    }
+  ],
+  "verification": {
+    "only_arrow_nodes_and_mapping_changed": true,
+    "unrelated_panels_and_heatmap_pixels_preserved": true,
+    "override_idempotent": true,
+    "trial_centres_preserved": true,
+    "arrow_column_between_numbers_and_heatmap": true
+  },
+  "starting_hashes": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "37cafd95c6889f9d7e535e607ff2e50e0041c11120c8c3f096411531a82c85d3",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "c4167f4c9c89a1dbfb503383b8f32d0727adfec1709f7b0c2bc1cf6124cd9f26",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "3954acc72c4c1f6264d78dd7d08f63aea0662eb1ad83ce9a46aa08426799658c",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "e059982d46fd4602f3715a881cc0b14324bbe4bcbd5a634fca98ece21694fba2",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panels-fgh-current.html": "50f7f7879334b4f119adac8edd9f491b6e3b3fe0617f49e512e48ac423aeb581",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_f_arrow_position.py": "683fc76ffd7d8c13a6cc68486e2b32f192e9ca160813864289e98a98849a7738",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure1_fgh_one_second.py": "9268882e9ea8a050a25df0b43f8f811ae8c9e2b23b02f8934b925e654050f395",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "56c9ede3132c5ac15c87e9dad1dc87084ee3715f2a510a7216096e47b2e8ccb2",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figure_workspace.py": "bea41c1ed9226a0e39e813a010079ada0dadeea9f0b141bbb8cf47bdb83e1034",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed"
+  },
+  "frozen": false,
+  "visual_review": {
+    "status": "passed",
+    "observations": "Inspected full Figure 1 and enlarged FGH in browser: five right-pointing arrowheads sit beside the trial-number column at rows 5,13,59,62,89, clear of labels and phase text; axes, heatmap and other panels preserved."
+  }
+}

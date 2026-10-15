@@ -1,0 +1,152 @@
+{
+  "schema": "figure3-individual-display-source-review/1.0",
+  "date": "2026-10-15",
+  "scope": "Planning and read-only inspection of legacy-metric classifiers, selection operations, fish grids and outputs; no classifier/cohort approval or new analysis run",
+  "author_request": "Plan illustrative individual learner/nonlearner data, inspect legacy classifiers, discarding and every-fish heatmap summaries. Group behavioral comparisons remain Figure 4 only.",
+  "sources": [
+    {
+      "path": "legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py",
+      "sha256": "f9bea235ea9688cf4e1a8403faaac9bc947178e31bbfe50cbf80ad558214c75e"
+    },
+    {
+      "path": "legacy/scripts/3_FishGrouping.py",
+      "sha256": "71333dfd448e832d8dc18772f9feb0fadee32c48fab0231d667d9f7ab3407f05"
+    },
+    {
+      "path": "legacy/scripts/4_ScaledVigorPlotting.py",
+      "sha256": "3bb2c8564ee4bd8fa39bcc73dfb6bbb8f0d794a738c8103a8b7ee18a1a0c35ae"
+    },
+    {
+      "path": "legacy/scripts/5_NormalizedVigorPlotting.py",
+      "sha256": "a0997796233ea37098b12c581089656390a55a84ae6fa4f97250b60b0fceff39"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification.py",
+      "sha256": "de2e67bf9354d5d535439943ebc43af90703b951b801aa5abd7210485e3ccc6d"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_new.py",
+      "sha256": "e6294ff19819854864ae6674b94dc4291747b49872ac449f95e19ef58dc813ae"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_improved.py",
+      "sha256": "8cef203b63d44c406779f70a0e322b1b039e97f8219ce3223d68fdc3bddd5dd8"
+    },
+    {
+      "path": "legacy/scripts/6_LearnersQuantification_WIP.py",
+      "sha256": "370274baf0bf6d287cab60ae9f228ac223c89ce934733f3f82b2bb288a9d9cea"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learner_worker.py",
+      "sha256": "b964de25b3bf1d4e84b615d482f2af0aad0c34c0974d770475f5fa8fb5b2ace8"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learners.py",
+      "sha256": "eefdc293dc21f5c541df0946ad708b9f87196a4d0dcaf338bc26d853abcc0aa3"
+    },
+    {
+      "path": "records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md",
+      "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683"
+    }
+  ],
+  "verified_archived_artifacts": [
+    {
+      "logical_path": "outputs/legacy-learner-comparison/allDelay-full-v1-distal/comparison.json",
+      "resolved_path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/legacy-learner-comparison/allDelay-full-v1-distal/comparison.json",
+      "sha256": "b9ebad4dd6a06d635d98a2e268f861689e24266ad4ff0a387dd110e58cbed356",
+      "verified": true,
+      "inspection": "metadata"
+    },
+    {
+      "logical_path": "outputs/legacy-learner-comparison/allDelay-full-v1-distal/figures/legacy-wip/Individual_Fish_Plots_Combined/delay/20240618_02_combined_wip.png",
+      "resolved_path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/legacy-learner-comparison/allDelay-full-v1-distal/figures/legacy-wip/Individual_Fish_Plots_Combined/delay/20240618_02_combined_wip.png",
+      "sha256": "ca2fc3acb406d52d4bb67bd3b6f69c76d2ac0d47faedbe81a3cb00fef6a39520",
+      "verified": true,
+      "inspection": "visual; historical content only, no final-scale acceptance"
+    },
+    {
+      "logical_path": "outputs/legacy-learner-comparison/allDelay-full-v1-distal/figures/legacy-wip/Individual_Fish_Plots_Combined/All_Fish_Combined_Summary_Grid_delay_wip.png",
+      "resolved_path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/legacy-learner-comparison/allDelay-full-v1-distal/figures/legacy-wip/Individual_Fish_Plots_Combined/All_Fish_Combined_Summary_Grid_delay_wip.png",
+      "sha256": "9119c07c2b2b49fe404dcfa02b1d89e257504a3230c60d42f277fa39215c6026",
+      "verified": true,
+      "inspection": "visual; historical content only, no final-scale acceptance"
+    }
+  ],
+  "historical_comparison": {
+    "generated_at": "2026-09-24T09:21:51.745086+00:00",
+    "metric_id": "legacy_distal_angular_speed",
+    "primary_fish": 57,
+    "conditioned_fish": 29,
+    "controls": 28,
+    "vigor_sample_policy_recorded": null,
+    "status": "Historical pre-2026-10-09 evidence; cannot supply current bout-only paper labels.",
+    "variants": [
+      {
+        "variant": "legacy-nominal",
+        "status": "completed",
+        "eligible_delay": 29,
+        "learner_delay": 7,
+        "eligible_control": 28,
+        "control_flagged": 0,
+        "unclassified_delay": 0,
+        "algorithm_sha256": "de2e67bf9354d5d535439943ebc43af90703b951b801aa5abd7210485e3ccc6d",
+        "config_sha256": "4cf2d8ac97255111a65dafd40bb68c74b2b44345e1e4a8410bbd88fb025e1395",
+        "result_sha256": "83cbb7f57df5d79620ac10a818f10c8faaae077d4e9f8f33573aef81f937e422"
+      },
+      {
+        "variant": "legacy-new",
+        "status": "completed",
+        "eligible_delay": 29,
+        "learner_delay": 7,
+        "eligible_control": 28,
+        "control_flagged": 2,
+        "unclassified_delay": 0,
+        "algorithm_sha256": "e6294ff19819854864ae6674b94dc4291747b49872ac449f95e19ef58dc813ae",
+        "config_sha256": "ac90cdfa676950b5c1303fc6c8b0b1a56f3ee8361cf6c304fe6173bc69f16696",
+        "result_sha256": "25aa4d7b44305c30af26a1b1789941836ccb8977b94d11879b8c9b01e135513b"
+      },
+      {
+        "variant": "legacy-improved",
+        "status": "completed",
+        "eligible_delay": 29,
+        "learner_delay": 6,
+        "eligible_control": 28,
+        "control_flagged": 1,
+        "unclassified_delay": 0,
+        "algorithm_sha256": "8cef203b63d44c406779f70a0e322b1b039e97f8219ce3223d68fdc3bddd5dd8",
+        "config_sha256": "06a6e19b6c2ea78622539136c4c4004b83de8ee21e3601c4f5e9a326ef974fec",
+        "result_sha256": "3efe362fbe4dae0f604f3d69c8c0a0c4f2bdc6cedf483f4f103a80c6f1e07878"
+      },
+      {
+        "variant": "legacy-wip",
+        "status": "completed",
+        "eligible_delay": 29,
+        "learner_delay": 19,
+        "eligible_control": 28,
+        "control_flagged": 2,
+        "unclassified_delay": 0,
+        "algorithm_sha256": "370274baf0bf6d287cab60ae9f228ac223c89ce934733f3f82b2bb288a9d9cea",
+        "config_sha256": "0be64d554e1104f52768f3ab06e7f4fef7b31fca6e1870f15a95824e24d45303",
+        "result_sha256": "af7b7896260af8d9313af36e583f56e717dafc3357befcb462940d56633c6a8e"
+      }
+    ]
+  },
+  "source_findings": [
+    "Nominal actual voting multiplier is 0.5 SE, while reported intervals use 1.96 SE; dataclass defaults/comments do not select actual settings.",
+    "Nominal middle epoch uses CS60-69; new/improved/WIP use CS40-69, assuming the configured CS5-94 schedule. All use Pre5-14 and LateTest85-94.",
+    "WIP display key middle markers use Late Train + Early Test although its feature construction includes Train6-9 too.",
+    "WIP phi-direction scores, joint statistic threshold and empirical tail rank are distinct outputs; actual label is T above quantile and all direction votes.",
+    "Legacy heatmap grids load pre-existing images, identify fish using the first two filename tokens, crop 2% and only iterate classified fish.",
+    "Grouping grid splits included/discarded fish, but its pooled numerical rows are not equivalently filtered; normalized-vigor uses a later ANY-block rule.",
+    "Legacy scaled heatmaps use bout-mean replacement, per-trial baseline quantile scaling and clipping; this does not equal the classifier outcome transformation.",
+    "Legacy scalar grids overlay a cumulative two-feature BLUP schematic on an independently scaled secondary axis; it is not a fitted trial-by-trial trajectory.",
+    "The supported isolated worker disables legacy heatmap-grid output even when other individual figure flags are enabled.",
+    "Source code supports raw/scaled heatmap grids; the checked archive inventories and scanned mounted roots did not yield their saved Heatmap_Grid files. Combined scalar-grid artifacts were found, hash-verified and inspected.",
+    "2026-10-15 G review reports failed individual trajectory coverage and no assigned learner labels; it does not approve individual timing intervals for Figure 3."
+  ],
+  "planning_targets_before_edit": {
+    "docs/paper/figures/figure-03/README.md": "ed8eba4b1b251de200e1e9fed4c3b2580469e0a00b0cdbfbf01e48fabfaaedf7",
+    "plans/04_FIGURE_3_LEARNER_ANALYSIS.md": "b08bbc1eeab503ba96b559ed828806cda606c2e1f38310c7dd76588c211b4177",
+    "to_implement.md": "2a3e28aa440a47ae528cdc9b414d210c05cdee022976d8533b54a5942a5914ab"
+  }
+}

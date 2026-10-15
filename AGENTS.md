@@ -19,14 +19,27 @@ If skill discovery is unavailable, read that skill file directly.
   workflow. Keep frozen display and active draft separate. Read saved authority
   before resuming; filename age, previews and historical audits do not select
   current work. Check external storage before loading or regenerating artifacts.
-- A figure display follows its recorded `default_display`. Author selection
-  on 2026-10-13 makes v10 the sole Figure 1 working SVG and the default draft
-  display. Show frozen selections or historical comparisons on explicit request. A panel assembly is not a whole-figure freeze. Identify unfrozen
-  scopes, and show the SVG itself rather than only HTML or a raster preview.
+- Opening a specific figure/panel defaults to self-contained HTML containing
+  only that scope’s selected working SVG and associated legend, in the built-in
+  browser for visual review and annotation. Notes, provenance displays, other
+  figures/panels, comparisons and versions require an explicit request. Follow scoped
+  state for the selected version; keep its matching editable SVG as the figure
+  artifact and open it on explicit request. Resolve the recorded HTML path;
+  stale localhost copies and browser tabs are not current authority. Verify
+  the rendered scope before reporting a successful open. Figure 1 uses v10 as its sole
+  working version. Frozen selections/comparisons require an explicit request;
+  identify unfrozen scopes and never infer a whole-figure freeze.
+- Plural requests to show the main-paper figures use the authenticated ordered
+  collection (`scripts/main_paper_figures.py build`, then `display-target`).
+  A particular figure/panel request still shows only its own SVG and legend.
+  Collection inclusion does not create a scientific freeze.
 - Preserve manual working-copy edits. Snapshot state, working-copy and bound
   input hashes before edits; recheck under the publication lock. Preserve and
   reconcile conflicts. Publish verified artifacts/evidence before the atomic
   state pointer, using supported guarded tools.
+- “Ensure consistency” requests also update the scoped draft registry and
+  version-bound evidence for the named relationships/properties; follow the
+  workflow. Preserve scientific meaning and record unresolved coverage.
 - Scientific roles require explicit source/data mappings. Changes to data,
   masks, timing or transformations are scientific draft changes. Nominal styles
   and structural XML IDs do not prove scientific or final-scale consistency.
@@ -60,6 +73,22 @@ Superseded freezes retain their figure/panel scope, dated role folders and
 and continue independent code/doc work. Never fabricate a mount, substitute
 older artifacts or claim inspection of inaccessible files.
 
+Author exception, 2026-10-15: all Figure 1/2 panel artwork, including unfrozen
+panels and existing placeholders, is also available on this Mac at
+`/Users/joaquim/Documents/ClassicalConditioning Figures/`. For offline layout
+or aesthetic work, read [the local artwork guide](docs/paper/figures/shared/offline-artwork.md)
+and the folder's `ALL-PANELS.md`/`workspace.json` before requiring JOAQUIM.
+These are verified source snapshots, not automatically synchronized active
+drafts. Compare their recorded state/selection hashes with repository authority,
+preserve originals and publish requested derivatives through scoped guards.
+
 Author request on 2026-10-13: keep `to_implement.md` at the repository root as
 working request notes. Its historical copy remains in archive records; it does
 not replace numbered plans, the implementation index or scientific authority.
+
+Author direction 2026-10-15: future paper, supplementary and analysis figures
+use invisible figure/panel layout frames with one shared physical inset,
+shared outside margins and two panel insets between adjacent contents. Follow
+the invisible-frame section of the figure workflow for calibration, ownership,
+exact-render evidence and new-freeze checks. The author selected the shared inset on 2026-10-15; use the active policy
+value and do not retrofit current drafts without a scoped edit request.

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "request": "Add axis and related scientific-scope identification to the existing figure registries",
+  "html_sha256": "e06f0c0f4910c73138cce71d796137b442e69ad6e78406217f6b592c184674b7",
+  "source_ticket": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-registration-20261015/starting-hashes.json",
+    "sha256": "53cd9999e30c6caa95032e49a438196b3ceb075552661b79a8140f3edd4eb706"
+  },
+  "figures": [
+    {
+      "figure_id": "fig1",
+      "axis_count": 24,
+      "distinct_element_address_count": 235,
+      "registration_evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-registration-20261015/figure-01-axis-registration.json",
+        "sha256": "618c534bd3d62dd8428c7a07b72d60bea558b827e6ad8f822c85dcba2e4bd636"
+      },
+      "artwork_legend_scientific_selection_unchanged": true,
+      "prior_registry_entries_preserved": true,
+      "whole_figure_freeze_ready": false,
+      "remaining": [
+        "Inventory does not classify every non-axis scientific mark",
+        "Legacy anonymous axis descendants still require stable IDs for a new freeze",
+        "Do not infer matched-control roster equality from similar cohort counts",
+        "Legacy spine subtypes without explicit source mappings remain unresolved"
+      ]
+    },
+    {
+      "figure_id": "fig2",
+      "axis_count": 24,
+      "distinct_element_address_count": 244,
+      "registration_evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-registration-20261015/figure-02-axis-registration.json",
+        "sha256": "82ebb794bbdbb85f5387b2e86d37e5ff8a3840915138f1d58d4a4a9844f1a01c"
+      },
+      "artwork_legend_scientific_selection_unchanged": true,
+      "prior_registry_entries_preserved": true,
+      "whole_figure_freeze_ready": false,
+      "remaining": [
+        "Inventory does not classify every non-axis scientific mark",
+        "Legacy anonymous axis descendants still require stable IDs for a new freeze",
+        "Do not infer matched-control roster equality from similar cohort counts",
+        "Legacy spine subtypes without explicit source mappings remain unresolved"
+      ]
+    }
+  ],
+  "collection": {
+    "visible_html_byte_identical": true,
+    "visible_html_sha256": "7f3923251216d53b6e9b1c4e534eed70d914519f594321b577e3886e74b8dc2e",
+    "changed_content": "nonvisual source-state provenance only",
+    "previous_html_sha256": "afc30dbae16f2f3a2ab96c4e63a9f978269b920896afca6681f301fe5c9f8263",
+    "previous_screen_and_print_verification": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/panel-relationships-axis-titles-20261015.json",
+      "sha256": "d4514b0cc9286125d8e1ebc5e02ef8e429457b28f646d7dfdd174de89bf41c69"
+    },
+    "new_browser_or_print_inspection": false,
+    "reason": "Identical artwork, legends, embedded SVG/style bytes and visible HTML; prior visual evidence retained"
+  },
+  "tests": {
+    "command": "unittest: test_axis_registration, test_main_paper_figures, test_layout_frames, test_panel_relationships",
+    "passed": 28
+  },
+  "no_freeze_created": true
+}

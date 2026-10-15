@@ -31,7 +31,7 @@ REMOVE = {
 }
 REPLACE = {(1,'D'): {'Tail angle (°) · Delay fish 20221115_07':'Tail angle (°)'}}
 # Whitespace trims and the expanded stimulus-aligned protocol-card viewport.
-CROP = {(1,'C'):(0,0,1690,365),(1,'E'):(0,64,648,334),(2,'D'):(0,0,155.622047,137),(2,'E'):(0,0,155.622047,137),(2,'G'):(0,0,518.740157,241)}
+CROP = {(1,'C'):(0,0,1690,295),(1,'E'):(0,64,648,334),(2,'D'):(0,0,155.622047,137),(2,'E'):(0,0,155.622047,137),(2,'G'):(0,0,518.740157,241)}
 
 def transform_panel(number, panel, data):
     original = ET.fromstring(data); candidate = copy.deepcopy(original)
@@ -63,10 +63,16 @@ def transform_panel(number, panel, data):
         edits.append(dict(action='two-column-layout', text='Control | Delay; Trace (3 s) | Trace (10 s); experiment names use FGH colours; vertical colour markers removed; event coordinates unchanged'))
     if number==1 and panel=='FGH':
         move_delay_example_arrows(candidate)
+        renumber_heatmap_display(candidate)
+        for node in candidate.iter(tag('text')):
+            if label(node) in {'3 s Trace','3s Trace','Trace (3 s)'}:node.text='3sTrace'
         edits.append(dict(action='move-example-arrows-G-to-F',text='Delay fish 20221115_07: trials 9, 17, 63, 66, 93, matching D/E; heatmap data unchanged'))
     if number==1 and panel=='C':
         align_stimulus_rows(candidate)
         edits.append(dict(action='align-stimulus-types', text='CS presentations, CS-only catches, paired long US and separate short US occupy common rows across phases'))
+        edits.append(dict(action='tighten-panel-crop',text='Trim excess whitespace below the session cards while retaining a 4-unit bottom margin'))
+    if number==1 and panel=='E':
+        edits.append(dict(action='match-shared-heatmap-colour-scale',text='Use the same ±1 diverging scale, tick values and tick-label precision as F–H; retain the panel-specific Scaled vigor title'))
     return svg_bytes(candidate), edits
 
 def grid_timing(source):
@@ -80,8 +86,10 @@ def grid_timing(source):
     for node in list(heading):
         if node.tag==tag('text') and label(node)=='Time relative to CS onset (s)':
             heading.remove(node)
-        elif 'x' in node.attrib:node.set('x',str(float(node.get('x'))+370))
-        elif 'cx' in node.attrib:node.set('cx',str(float(node.get('cx'))+370))
+        elif 'x' in node.attrib:node.set('x',str(float(node.get('x'))+480))
+        elif 'cx' in node.attrib:node.set('cx',str(float(node.get('cx'))+480))
+    for node in heading.iter(tag('text')):
+        if label(node)=='US onset':node.text='US'
     result.append(heading)
     axis=next(g for g in source if g.get('id')=='shared-time-axis')
     for index,(name,cy) in enumerate([('control',82),('delay',151),('trace-3s',220),('trace-10s',289)]):
@@ -99,6 +107,7 @@ def grid_timing(source):
                 if node.tag==tag('text'):
                     color=condition_colour
                     node.set('fill',color);node.set('style',node.get('style','')+';fill:'+color)
+                    node.text={'Trace (3 s)':'3sTrace','Trace (10 s)':'10sTrace'}.get(label(node),label(node))
                     node.set('data-condition',name);title.append(node)
                 # Author requested removal of the former coloured vertical marker.
         row.append(title);cell.append(row)
@@ -106,8 +115,9 @@ def grid_timing(source):
         for node in list(ticks):
             if node.tag==tag('polygon') and node.get('points','').startswith('227.5,'):
                 ticks.remove(node)
-        ET.SubElement(ticks,tag('text'),{'x':'531.25','y':'386','text-anchor':'middle','data-role':'axis-label'}).text='Time relative to CS onset (s)'
         cell.append(ticks)
+    for column,x in (('left',351.25),('right',1061.25)):
+        ET.SubElement(result,tag('text'),{'id':'column-time-label-'+column,'x':str(x),'y':'408','text-anchor':'middle','data-role':'axis-label'}).text='t (s)'
     # Recomposition cannot alter any event or its scientific identity.
     for original in source.iter():
         if original.get('data-start-s') is not None or original.get('data-time-s') is not None or original.get('data-example-time-s') is not None:
@@ -135,11 +145,42 @@ def move_delay_example_arrows(panel):
         node.set('data-linked-panels','D E');axes['f'].append(node)
 
 
+def renumber_heatmap_display(panel):
+    """Display the selected acquisition trials 5..94 as rows 1..90."""
+    selected=json.loads((ROOT/'records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/selection.json').read_text())
+    assert selected['trial_range']==[5,94]
+    background=next(g for g in panel.iter(tag('g')) if g.get('id')=='fig1__f__heatmap__background')
+    coords=[float(v) for v in re.findall(r'-?\d+(?:\.\d+)?',next(background.iter(tag('path'))).get('d'))]
+    top,bottom=min(coords[1::2]),max(coords[1::2])
+    parents={c:p for p in panel.iter() for c in p}
+    old_marks=[next(g for g in panel.iter(tag('g')) if g.get('id')==f'fig1__f__heatmap__tickmym{t}-mark') for t in range(10,91,10)]
+    old_labels=[next(g for g in panel.iter(tag('g')) if g.get('id')==f'fig1__f__heatmap__tickmym{t}-label') for t in range(10,91,10)]
+    # Reuse existing tick artists; clone only the final marker/label pair.
+    last_mark=copy.deepcopy(old_marks[-1]);last_label=copy.deepcopy(old_labels[-1])
+    for n in list(last_mark):
+        if n.tag==tag('defs'):last_mark.remove(n)
+    last_mark.set('id','fig1__f__heatmap__display-row90-mark');last_label.set('id','fig1__f__heatmap__display-row90-label')
+    parents[old_marks[-1]].append(last_mark);parents[old_labels[-1]].append(last_label)
+    for row,mark,label_group in zip([1,*range(10,91,10)],old_marks+[last_mark],old_labels+[last_label]):
+        use=next(mark.iter(tag('use')));old_y=float(use.get('y'))
+        target=top+(row-.5)/90*(bottom-top)
+        mark.set('transform',f'translate(0 {target-old_y})');label_group.set('transform',f'translate(0 {target-old_y})')
+        text=next(label_group.iter(tag('text')));text.text=str(row)
+        mark.set('data-display-row',str(row));mark.set('data-acquisition-trial',str(row+4))
+        label_group.set('data-display-row',str(row));label_group.set('data-acquisition-trial',str(row+4))
+    for node in panel.iter(tag('g')):
+        if '__heatmap__example-trial-' in node.get('id',''):
+            trial=int(node.get('data-trial'));node.set('data-display-row',str(trial-4))
+
 def align_stimulus_rows(source):
+    for node in source.iter(tag('text')):
+        if label(node)=='CS (10 s)':node.text='CS'
+        elif label(node)=='short US (50 ms)':node.text='short US'
+        elif label(node)=='long US (100 ms)':node.text='long US'
     for phase in [g for g in source.iter(tag('g')) if g.get('id','').startswith('phase-') and g.get('id')!='phase-arrows']:
-        box=phase.find(tag('rect'));box.set('height','250')
+        box=phase.find(tag('rect'));box.set('height','190')
         # Shift symbol and its count label together, preserving their relative geometry.
-        types=[('short-US','separate short US',34),('long-US','paired long US',27),('catch-CS','CS-only catch trials',-49)]
+        types=[('short-US','separate short US',-26),('long-US','paired long US',27),('catch-CS','CS-only catch trials',-49)]
         for name,phrase,delta in types:
             text=next((e for e in phase.findall(tag('text')) if phrase in label(e)),None)
             if text is None:continue
@@ -147,6 +188,9 @@ def align_stimulus_rows(source):
             assert symbol.tag in {tag('rect'),tag('circle')}
             wrapper=ET.SubElement(phase,tag('g'),{'id':phase.get('id')+'-'+name,'transform':f'translate(0 {delta})'})
             phase.remove(symbol);phase.remove(text);wrapper.extend([symbol,text])
+            if name=='catch-CS':
+                # Align the glyph top to the top of its open-square CS-only mark.
+                text.set('y',str(float(text.get('y'))+5))
 
 
 def load_sources():
@@ -191,7 +235,7 @@ def image_extent(attrs,old,new):
 def build_candidate(source, aligned_panels=None):
     n=source['number'];root=copy.deepcopy(source['root']);edits=[];layout=[]
     # Reuse selected source graphics; apply only requested presentation/layout changes.
-    shifts={1:{'FGH':-1170},2:{'A':-145,'B':-145,'C':-145,'D':-150,'E':-150,'F':-150,'G':-205,'H':-325,'I':-325}}
+    shifts={1:{'FGH':-1230},2:{'A':-145,'B':-145,'C':-145,'D':-150,'E':-150,'F':-150,'G':-205,'H':-325,'I':-325}}
     for child in list(root):
         if child.tag==tag('text'):
             edits.append(dict(figure=n,panel='assembly',text=label(child),action='move-to-review-notes'));root.remove(child)
@@ -210,9 +254,10 @@ def build_candidate(source, aligned_panels=None):
             if n==1 and pid in {'D','E'}:
                 # Identical allocated frames; xMidYMid meet prevents stretching.
                 vx,vy,vw,vh=map(float,ET.fromstring(candidate).get('viewBox').split())
-                extent=dict(x=45 if pid=='D' else 915,y=930,width=840,height=550,scale=min(840/vw,550/vh))
+                allocated_width=840 if pid=='D' else 885
+                extent=dict(x=45 if pid=='D' else 915,y=870,width=allocated_width,height=550,scale=min(allocated_width/vw,550/vh))
                 for node in child.findall(tag('text')):
-                    node.set('x',str(extent['x']));node.set('y','910')
+                    node.set('x',str(extent['x']));node.set('y','850')
             for key in ('x','y','width','height'):im.set(key,str(extent[key]))
             im.set('href','data:image/svg+xml;base64,'+base64.b64encode(candidate).decode())
             original_extent=image_extent(original['placement'],original['bytes'],original['bytes'])
@@ -232,9 +277,10 @@ def build_candidate(source, aligned_panels=None):
         c=by_id['C'];d=by_id['D'];e=by_id['E'];f=by_id['FGH']
         assert c['extent']['y']+c['extent']['height'] <= d['extent']['y']-40
         assert d['extent']['y']==e['extent']['y']
-        assert d['extent']['width']==e['extent']['width'] and d['extent']['height']==e['extent']['height']
+        assert d['extent']['height']==e['extent']['height']
+        assert d['extent']['scale']==e['extent']['scale'], 'D/E data widths must match after viewport fitting'
         assert d['extent']['y']+d['extent']['height'] < f['extent']['y']+f['translate_y']
-    height=2330 if n==1 else 2600
+    height=2270 if n==1 else 2600
     root.set('viewBox',f'0 0 1800 {height}');root.set('height',str(height))
     root.set('aria-label',f'Figure {n}: text and layout review draft; not frozen')
     background=root.find(tag('rect'));background.set('height',str(height))
@@ -328,7 +374,8 @@ def harmonize_typography(data,layout,number):
             if number==2 and pid=='H' and value=='Global CS trial':
                 text.set('y','285');text.set('transform',f"rotate(0 {text.get('x')} 285)")
             role='label';size=8;weight='normal' 
-            if re.search(r'xtick|ytick|tick.label|tick-label',context):role='tick';size=7
+            if number==1 and pid=='B' and 'heading' in context and value in {'CS','US'}:role='legend';size=7
+            elif re.search(r'xtick|ytick|tick.label|tick-label',context):role='tick';size=7
             elif re.search(r'legend|sample.count|sample-count|stimulus-key',context):role='legend';size=7
             elif (value in {'F','G','H'} and number==1 and pid=='FGH') or (value=='G' and number==2 and pid=='G'):role='panel-letter';size=10;weight='bold'
             elif number==1 and pid=='B' and (('time-axis' in context and text.get('data-role')!='axis-label') or value=='?'):role='tick';size=7
@@ -349,10 +396,31 @@ def harmonize_typography(data,layout,number):
             legacy_axes_style(panel,pid,scale*pt_per_unit)
             if pid in {'D','E'}:expand_trace_rows(panel,pid)
             if pid=='FGH':shorten_heatmaps(panel,scale*pt_per_unit)
+        if number==1 and pid in {'B','C'}:right_align_stimulus_key(panel,pid)
         assert graphic_signature(panel)==protected_before, 'Scientific coordinates or embedded payload changed during styling'
         image.set('href','data:image/svg+xml;base64,'+base64.b64encode(svg_bytes(panel)).decode())
         entry=next(e for e in layout if e['panel']==pid);entry['candidate_sha256']=digest(svg_bytes(panel));entry['candidate_scale']=scale;entry['extent']={k:float(image.get(k)) for k in ('x','y','width','height')};entry['candidate_viewbox']=panel.get('viewBox')
     return svg_bytes(root),report
+
+def right_align_stimulus_key(panel,pid):
+    """Align the rendered key's right glyph edge to its panel's right boundary."""
+    from matplotlib.textpath import TextPath
+    from matplotlib.font_manager import FontProperties
+    group=next(g for g in panel.iter(tag('g')) if g.get('id')==('heading' if pid=='B' else 'stimulus-key'))
+    bounds=[]
+    for node in group.iter(tag('text')):
+        font=FontProperties(family='DejaVu Sans',weight=node.get('font-weight','normal'))
+        edge=TextPath((0,0),label(node),size=float(node.get('font-size')),prop=font).get_extents().x1
+        bounds.append(float(node.get('x'))+edge)
+    if pid=='B':target=1372
+    else:
+        boxes=[g.find(tag('rect')) for g in panel.iter(tag('g')) if g.get('id','').startswith('phase-') and g.get('id')!='phase-arrows' and g.find(tag('rect')) is not None]
+        target=max(float(r.get('x'))+float(r.get('width')) for r in boxes)
+    delta=target-max(bounds)
+    group.set('transform',f'translate({delta} 0)')
+    last=list(group.iter(tag('text')))[-1]
+    last.set('x',str(target-delta));last.set('text-anchor','end')
+    group.set('data-right-edge',str(target))
 
 def legacy_axes_style(panel,pid,pt_per_source):
     """Candidate-only axis formatting from legacy/helpers/plotting_style.py.
@@ -376,10 +444,10 @@ def legacy_axes_style(panel,pid,pt_per_source):
                     if node.get('x1')==node.get('x2'):
                         node.set('y1','324');node.set('y2',str(324+2/pt_per_source))
                 elif node.tag==tag('text') and node.get('data-role')!='axis-label':
-                    node.set('y',str(324+4/pt_per_source+float(node.get('font-size'))*.76))
+                    node.set('y',str(324+10/pt_per_source))
             for node in axis.iter(tag('text')):
                 if node.get('data-role')=='axis-label':
-                    node.set('y',str(324+4/pt_per_source+7/pt_per_source+4/pt_per_source+8/pt_per_source*.76))
+                    node.set('y',str(324+(65*183/25.4*72/1800)/pt_per_source))
         return
     if pid not in {'D','E','FGH'}:return
     # Normalize referenced tick markers without editing their original paths.
@@ -555,15 +623,92 @@ def set_font(node,size,weight):
 def legend_html(text):
     return ''.join('<p>'+html.escape(p).replace('\n','<br>')+'</p>' for p in text.strip().split('\n\n') if not p.startswith('#'))
 
+def figure_font_paths():
+    from matplotlib.font_manager import FontProperties,findfont
+    return [Path(findfont(FontProperties(family='DejaVu Sans',weight=weight),fallback_to_default=False)) for weight in ('normal','bold')]
+
+def embed_consistent_svg_fonts(data):
+    """Keep labels as text; bind regular/bold faces so fallback cannot vary by panel."""
+    root=ET.fromstring(data)
+    for pid in ('D','E'):
+        group=next(g for g in root if g.get('id')=='panel-'+pid)
+        for node in group.iter(tag('text')):
+            if node.get('data-source-id','').startswith('trial-') and node.get('data-source-id','').endswith('-name'):
+                trial=int(node.get('data-source-id').split('-')[1]);node.text=f'Trial {trial-4}'
+                node.set('data-acquisition-trial',str(trial));node.set('data-display-trial',str(trial-4))
+    for node in root.iter(tag('g')):
+        if any(node.get('data-source-id','')==f'fig1__{pid}__heatmap__axes' for pid in ('f','g','h')):
+            node.set('data-trial-display-offset','4');node.set('data-first-display-row','1');node.set('data-last-display-row','90')
+    # Match raw-data body viewports; the E scale has its own independent viewport.
+    for pid in ('D','E'):
+        group=next(g for g in root if g.get('id')=='panel-'+pid)
+        panel=group.find(tag('svg'))
+        panel.set('viewBox','0 0 750 550');panel.set('width','750')
+        if pid=='E':
+            scale=ET.SubElement(group,tag('svg'),{'id':'edit-E-independent-colourbar','x':str(float(panel.get('x'))+750),'y':panel.get('y'),'width':'135','height':'550','viewBox':'750 0 135 550','overflow':'hidden'})
+            for node in list(panel):
+                if node.get('id')=='edit-E-colour-scale' or node.get('id','').startswith('edit-E-colour__ytick') or node.get('id')=='edit-E-colour-label':
+                    panel.remove(node);scale.append(node)
+    for node in root.iter():
+        if node.tag not in {tag('text'),tag('tspan')}:continue
+        node.set('font-family','DejaVu Sans, sans-serif');node.set('font-style','normal')
+        style=node.get('style','')
+        style=re.sub(r'(?:font-family|font-style)\s*:[^;]*(?:;|$)','',style)
+        node.set('style',style+';font-family:"DejaVu Sans",sans-serif !important;font-style:normal !important')
+    defs=ET.SubElement(root,tag('defs'),{'id':'figure-font-resources'})
+    css=[];resources=[]
+    for weight,path in zip((400,700),figure_font_paths()):
+        raw=path.read_bytes();encoded=base64.b64encode(raw).decode()
+        css.append('@font-face{font-family:"DejaVu Sans";font-style:normal;font-weight:'+str(weight)+';src:url("data:font/ttf;base64,'+encoded+'") format("truetype");}')
+        resources.append(dict(path=str(path),sha256=digest(raw),weight=weight))
+    ET.SubElement(defs,tag('style'),{'type':'text/css'}).text=''.join(css)
+    meta=next(n for n in root if n.get('id')=='editable-copy-provenance')
+    record=json.loads(meta.text)
+    for entry in record['scientific_registry'].values():
+        if entry.get('panel_id') in {'d','e'} and 'row_label' in entry:
+            source_trial=entry['data_mapping']['trial'];entry['row_label']['trial']=f'Trial {source_trial-4}';entry['row_label'].update(acquisition_trial=source_trial,display_trial=source_trial-4)
+    record['trial_numbering']={'display_trial_offset':4,'source_acquisition_trial_ids_preserved':True,'scope':['D','E','F','G','H']}
+    record['embedded_font_resources']=resources;record['font_policy']='All labels remain native SVG text; common DejaVu Sans regular/bold faces and sans-serif fallback';meta.text=json.dumps(record)
+    return svg_bytes(root),resources
+
+def svg_editing_page(svg, *, scope_label='Figure 1', legend=None):
+    """Display exactly the scoped native SVG and its associated legend."""
+    if ET.fromstring(svg).tag!=tag('svg'):raise ValueError('Expected a scoped SVG')
+    page='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+    page+='<title>'+html.escape(scope_label)+'</title><style>body{margin:0;background:white;color:#20272c;font:16px/1.55 system-ui}main{max-width:1100px;margin:auto;padding:24px}main>svg{display:block;width:100%;height:auto}.legend{border-top:1px solid #ddd;margin-top:24px;padding-top:16px;max-width:85ch}@media print{main{padding:0}main>svg{width:183mm;max-width:100%}}</style>'
+    page+='<main aria-label="'+html.escape(scope_label,quote=True)+'">'+svg.decode('utf-8')
+    if legend is not None:page+='<div class="legend" aria-label="Associated legend">'+legend_html(legend)+'</div>'
+    return page+'</main></html>'
+
+def working_review_page(page, figure=1, version_label='Current working version'):
+    """Remove a scoped historical comparison without changing its working SVG."""
+    pattern=rf'(<section id="figure{figure}">)(.*?)(</section>)'
+    match=re.search(pattern,page,re.S)
+    if match is None:raise ValueError('Working figure section missing')
+    body=match[2]
+    candidate=re.search(r'<div class="version candidate">.*?</div>',body,re.S)
+    original=re.search(r'<div class="version original" hidden>.*?</div>',body,re.S)
+    if candidate is None or original is None:raise ValueError('Expected one working and one original figure')
+    before=candidate[0]
+    body=body.replace(original[0],'',1)
+    body=re.sub(r'<button\b[^>]*>.*?</button>','',body,flags=re.S)
+    body=body.replace(f'<h2>Figure {figure}</h2>',f'<h2>Figure {figure} · {html.escape(version_label)}</h2>',1)
+    if before not in body:raise ValueError('Working figure changed during display cleanup')
+    page=page[:match.start()]+match[1]+body+match[3]+page[match.end():]
+    return page.replace('Candidate shown first. Switch to the authenticated original to compare.',
+                        f'Figure {figure} shows only the selected working version.',1)
+
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--baseline',type=Path,help='Starting ticket from figure_working_copy.py begin; required after state bootstrap');parser.add_argument('--preserve-figure2-from',type=Path,help='Authenticated version-bound review to preserve Figure 2 byte-for-byte');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--baseline',type=Path,help='Starting ticket from figure_working_copy.py begin; required after state bootstrap');parser.add_argument('--preserve-figure2-from',type=Path,help='Authenticated version-bound review to preserve Figure 2 byte-for-byte');parser.add_argument('--update-current',action='store_true',help='Guarded replacement of the exact active HTML/SVG pair; no extra working version');parser.add_argument('--panel-e-legend',type=Path,help='Stage a replacement Figure 1 legend as a guarded input and publish it with the current draft');parser.add_argument('--visual-review-note',help='Record an actually completed visual review against the saved Figure 1 SVG');parser.add_argument('--layout-frames',type=Path,help='Explicit future layout frame metadata; current geometry is not rearranged');parser.add_argument('--comparison-review',action='store_true',help='Explicitly requested expanded review with original/candidate figures, notes and provenance');args=parser.parse_args()
     target=args.output.resolve();assert ROOT not in target.parents, 'Permanent visual reviews must be external'
     review_day=datetime.now(ZoneInfo('Europe/Madrid'))
-    assert target.parent.is_dir(),'Destination parent must already exist';assert not target.exists(),'Do not overwrite a review'
+    assert target.parent.is_dir(),'Destination parent must already exist';assert args.update_current or not target.exists(),'Do not overwrite a review'
     state_path=ROOT/'docs/paper/figures/figure-01/current-state.json'
     mapping_path=ROOT/'records/figure-reviews/legend-text-relocation.json'
     state_bytes=state_path.read_bytes() if state_path.exists() else None
     state=json.loads(state_bytes) if state_bytes is not None else None
+    if args.update_current:
+        if not state or target!=Path(state['draft']['review']['path']).resolve() or target.with_suffix('.svg')!=Path(state['draft']['working_svg']['path']).resolve():raise ValueError('--update-current must target the exact current HTML/SVG pair')
     starting=None
     if state:
         if args.baseline is None:parser.error('--baseline is required; capture it with figure_working_copy.py begin before editing')
@@ -571,11 +716,26 @@ def main():
         if ticket.get('state_path')!=str(state_path) or str(state_path.resolve()) not in ticket.get('starting_hashes',{}):raise ValueError('Baseline ticket does not bind the current figure state')
         starting=Snapshot([]);starting.hashes=ticket['starting_hashes'];starting.check()
     dependencies=[state_path,mapping_path,Path(__file__),ROOT/'src/classical_conditioning/figure_workspace.py',
+                  ROOT/'src/classical_conditioning/figures/layout_frames.py',
+                  ROOT/'src/classical_conditioning/figures/layout_frames_browser.js',
+                  ROOT/'configs/paper-figures/layout-frames.json',
                   ROOT/'docs/paper/figures/shared/review.md',
                   *(ROOT/f'docs/paper/figures/figure-{n:02d}/legend.md' for n in (1,2)),
                   *(ROOT/'configs/paper-figures/selections'/p for p in ('figure1-freeze.json','figure1-panel-e-heatmap-rows-freeze-20261009.json','figure1-fgh-version12-freeze-20261009.json','figure2-DE-B-freeze-20261009.json','figure2-G-logmedian-freeze-20261009.json')),
-                  resolve_artifact('reviews/latest_figure_assemblies_20261010.html'), *pair_dependencies()]
+                  resolve_artifact('reviews/latest_figure_assemblies_20261010.html'), *pair_dependencies(), *figure_font_paths()]
+    if args.layout_frames:
+        from classical_conditioning.figures.layout_frames import POLICY, COLLECTOR
+        dependencies.extend([args.layout_frames.resolve(), POLICY, COLLECTOR,
+                             ROOT/'src/classical_conditioning/figures/layout_frames.py'])
+    if args.panel_e_legend:
+        args.panel_e_legend=args.panel_e_legend.resolve()
+        dependencies.append(args.panel_e_legend)
     if state:
+        if state['draft'].get('layout_spacing_override'):
+            dependencies.append(ROOT/'scripts/figure1_layout_spacing.py')
+        if state.get('scoped_fgh_freeze'):
+            dependencies.extend(Path(state['scoped_fgh_freeze'][key]['path']) for key in ('svg','data','freeze_manifest'))
+            dependencies.append(ROOT/'scripts/publish_figure1_fgh_one_second.py')
         for key in ('frozen_display','draft'):
             item=state[key].get('working_svg')
             if item:
@@ -613,9 +773,11 @@ def main():
     for source in sources:
         if state and source['number']==2:
             previous=Path(previous_review['path']).read_text()
-            embedded=re.findall(r'<img class="figure"[^>]*src="data:image/svg\+xml;base64,([^"]+)"',previous)
-            if len(embedded)!=4:raise ValueError('Figure 2 preservation review has an unexpected structure')
-            original=base64.b64decode(embedded[3]);candidate=base64.b64decode(embedded[2])
+            section=re.search(r'<section id="figure2">.*?</section>',previous,re.S)
+            if section is None:raise ValueError('Figure 2 preservation section missing')
+            embedded=re.findall(r'<img class="figure"[^>]*src="data:image/svg\+xml;base64,([^"]+)"',section[0])
+            if len(embedded)!=2:raise ValueError('Figure 2 preservation review has an unexpected structure')
+            original=base64.b64decode(embedded[1]);candidate=base64.b64decode(embedded[0])
             if original!=source['bytes']:raise ValueError('Preserved Figure 2 original does not match current scoped sources')
             outputs.append((original,candidate));layouts.append([])
             edits.append(dict(figure=2,panel='assembly',action='preserve-authenticated-review-bytes',text='Figure 2 unchanged; no regeneration',source=previous_review))
@@ -625,6 +787,12 @@ def main():
         edit['destination']='docs/paper/figures/shared/review.md' if edit['panel']=='assembly' else f"docs/paper/figures/figure-{edit['figure']:02d}/legend.md"
     legend_paths=[ROOT/f'docs/paper/figures/figure-{n:02d}/legend.md' for n in (1,2)]
     legends=[p.read_text() for p in legend_paths]
+    if args.panel_e_legend:
+        legends[0]=args.panel_e_legend.read_text()
+    row_note='Displayed trial numbers in D–H exclude acquisition trials 1–4 (displayed trial = acquisition trial − 4). F–H therefore run from 1 to 90, and the D/E examples and marked F rows are 5, 13, 59, 62 and 89. Original acquisition IDs 9, 17, 63, 66 and 93 remain in the source mappings. In B, t (s) is relative to CS onset, with t = 0 at CS onset.'
+    legends[0]=legends[0].replace('Heatmap display rows are numbered 1–90 after omitting acquisition trials 1–4 (display row = acquisition trial − 4). D/E retain acquisition trial IDs; their trials 9, 17, 63, 66 and 93 are marked at displayed rows 5, 13, 59, 62 and 89 in F.',row_note).replace('(9, 17, 63, 66 and 93)','(5, 13, 59, 62 and 89)').replace('Trial 9 is pre-training','Trial 5 is pre-training')
+    if row_note not in legends[0]:legends[0]=legends[0].rstrip()+'\n\n'+row_note+'\n'
+    legend_updates=[(legend_paths[0],legends[0].encode())] if legend_paths[0].read_text()!=legends[0] else []
     notes=(ROOT/'docs/paper/figures/shared/review.md').read_text().split('\n\n[Open the consolidated original/candidate review]')[0]
     legacy=ROOT/'legacy/helpers/plotting_style.py'
     presentation=dict(scope='Figure 1 candidate only',approval_evidence='Author requested legacy axis/tick/label style across Figure 1, right-only B arrowheads and below-axis units, and shorter heatmaps in this chat on 2026-10-11',style_source=dict(path=str(legacy),sha256=digest(legacy.read_bytes())),axis_labels=dict(size_pt=8,weight='bold',color='#000000'),ticks=dict(size_pt=7,length_pt=2,pad_pt=2,direction='out',width_pt=.5),trace_bottom_spine_offset_pt=6,heatmap_spines='retain boxed flush axes',display_transforms=dict(DE='shared native axis rectangles; no affine row stretching',FGH_height_factor=.65),B_arrowheads='right only',B_unit_label_position='below each time axis',scientific_definitions='D preserved; E recomputed from D input on author request; FGH unchanged')
@@ -640,36 +808,141 @@ def main():
         page+='<div class="legend"><h3>Draft legend</h3>'+legend_html(legends[n-1])+'</div></section>'
     page+='<section id="concerns"><h2>Review notes</h2>'+legend_html(notes)+'</section><details><summary>Text-relocation record and exact provenance</summary><pre>'+html.escape(json.dumps(provenance,indent=2))+'</pre></details><script type="application/json" id="review-provenance">'+json.dumps(provenance).replace('<','\\u003c')+'</script><script>function showVersion(n,kind,button){const section=document.getElementById("figure"+n);section.querySelectorAll(".version").forEach(el=>el.hidden=!el.classList.contains(kind));section.querySelectorAll("button").forEach(el=>el.classList.toggle("active",el===button));}</script></main></html>'
     assert not re.search(r'(?:src|href)="(?:https?://|file:)',page)
-    page_bytes=page.encode()
-    assert digest(resolve_artifact('reviews/latest_figure_assemblies_20261010.html').read_bytes())==container['sha256']
-    mapping=dict(review_path=str(target),review_sha256=digest(page_bytes),edits=edits,layouts=layouts,checks=provenance['checks'],typography=typography)
     if state:
         draft_svg,meta=editable_svg(outputs[0][1],kind='Figure 1: current unfrozen presentation draft',source_records=sources[0]['metadata']['panels'],registries=aligned_registry)
+        if state.get('scoped_fgh_freeze'):
+            from publish_figure1_fgh_one_second import apply_selected_fgh
+            draft_svg,selected_fgh_report,selected_fgh_registry=apply_selected_fgh(draft_svg,state['scoped_fgh_freeze'])
+            pair_report['F_band_evidence'].update(selected_fgh_report)
+            pair_report['shared_contract'].update(E_strip_colour_limits=[-.25,.25],E_band_normalization='Exact selected frozen F 1 s direct log-bin median subtraction; no amplitude scaling')
+            for key,record in selected_fgh_registry.items():
+                aligned_registry['E'][key.removeprefix('edit-E-')]=record
+            for numerical,band in zip(pair_report['numerical'],selected_fgh_report['bands']):
+                numerical.update(F_row_rgba_sha256=band['rgba_sha256'],F_row_values_sha256=band['values_sha256'])
+            import pandas as pd
+            selected_table=pd.read_csv(state['scoped_fgh_freeze']['data']['path'])
+            for numerical in pair_report['numerical']:
+                rows=selected_table[selected_table.panel.eq('F')&selected_table.acquisition_trial.eq(numerical['trial'])].sort_values('bin_index')
+                numerical.update(scaled_bins=[None if pd.isna(v) else float(v) for v in rows.delta_log_vigor],median_log_bins=[None if pd.isna(v) else float(v) for v in rows.bin_log_vigor],eligible_counts=rows.eligible_frames.tolist(),F_band_parameters={'baseline_log':float(rows.baseline_log_vigor.iloc[0]),'amplitude_scaling':False,'bin_width_s':1})
+            pair_report['scientific_changes']['FGH']='Author-frozen 1 s direct log-frame medians, baseline [-15,0), no amplitude scaling, managua_r ±0.25; Trace 20230519_11.'
+            pair_report['scientific_changes']['E_bands']='Exact selected F 40-cell rows and rendered RGB; E black traces preserved.'
+        exported_nodes={node.get('id'):node for node in ET.fromstring(draft_svg).iter() if node.get('id')}
+        f_image=exported_nodes['edit-FGH-fig1__f__heatmap__vigor-cells']
+        f_png=base64.b64decode((f_image.get('href') or f_image.get('{http://www.w3.org/1999/xlink}href')).split(',')[1])
+        if digest(f_png)!=pair_report['F_band_evidence']['F_raster_png_sha256']:
+            raise ValueError('Current F raster differs from the frozen rows used for E bands')
+        for trial in (9,17,63,66,93):
+            for bin_index in range(40 if state.get('scoped_fgh_freeze') else 80):
+                element=f'trial-{trial}-bin-{bin_index}'
+                if exported_nodes['edit-E-'+element].get('fill')!=aligned_registry['E'][element]['geometry']['fill']:
+                    raise ValueError('Assembled E band differs from its exact F row')
+        draft_svg,font_resources=embed_consistent_svg_fonts(draft_svg)
+        if state['draft'].get('layout_spacing_override'):
+            from figure1_layout_spacing import apply_layout_spacing
+            draft_svg,_=apply_layout_spacing(draft_svg)
+        comparison_bytes=page.encode() if args.comparison_review else None
+        if args.layout_frames:
+            from classical_conditioning.figures.layout_frames import embed_spec
+            draft_svg=embed_spec(draft_svg,json.loads(args.layout_frames.read_text()))
+        page=svg_editing_page(draft_svg,legend=legends[0])
+    review_target=target.with_name(target.stem+'-editing.html') if state and args.comparison_review else target
+    page_bytes=page.encode()
+    assert digest(resolve_artifact('reviews/latest_figure_assemblies_20261010.html').read_bytes())==container['sha256']
+    mapping=dict(review_path=str(review_target),review_sha256=digest(page_bytes),edits=edits,layouts=layouts,checks=provenance['checks'],typography=typography)
+    if state:
         svg_path=target.with_suffix('.svg')
         measurements=measured_presentation(draft_svg)
         measurements['axis_findings']=draft_axis_findings(measurements)
         measurement_path=ROOT/'records/figure-reviews/figure-01'/f'{target.stem}-effective-presentation.json'
+        requests=[
+            dict(id='fig1-annotation-20261013-b-legend-right',author_direction='Ensure consistency and align the CS/US-onset key to the right of its figure panel.',scope=['B'],elements=['edit-B-heading'],property='legend alignment',expected='right edge aligned within panel B; event marks and axes unchanged',implementation='grid_timing heading translation',status='partial'),
+            dict(id='fig1-annotation-20261013-c-catch-label',author_direction='Align horizontally with the top of the CS-only marker.',scope=['C'],elements=['edit-C-node-36','edit-C-node-37'],property='marker-to-label vertical alignment',expected='catch-trial text glyph top aligns to the open-square marker top',implementation='align_stimulus_rows',status='partial'),
+            dict(id='fig1-annotation-20261013-c-whitespace',author_direction='Remove white space if there is too much.',scope=['C'],elements=['panel-C'],property='panel crop',expected='4-unit bottom margin below the phase cards',implementation='scoped C viewBox crop',status='partial'),
+            dict(id='fig1-annotation-20261013-e-fgh-scale',author_direction='Ensure consistency; these two colour scales are the same thing. Follow the style at the bottom.',scope=['E','F','G','H'],elements=['edit-E-colour-scale','edit-FGH-fig1__h__colorbar__axes'],property='shared normalized colour scale presentation',expected='same diverging palette, linear range [-1,+1], zero midpoint, and ticks at -1,-0.7,0,+0.7,+1; same scale title, matching F–H',implementation='aligned_example_pair colourbar renderer',status='partial'),
+        ]
+        requests.extend([
+            dict(id='fig1-e-no-log-black-trace-20261013',author_direction='Try not taking the log in the black trace only in E.',scope=['E'],property='black trace frame transformation',expected='0.7*(V-B)/max(-P10,P90) of unbinned baseline-frame raw deviations; B is median raw baseline frames; no log, binning or smoothing; exact F bands preserved',implementation='scale_frames raw deviations and raw-frame percentile spread',status='verified',verification={'trace_log_transform':False,'trace_temporal_binning':False,'trace_smoothing':False,'F_bands_preserved':True}),
+            dict(id='fig1-e-unbinned-trace-exact-f-band-20261013',author_direction='For the black trace nothing should be binned; use raw-frame baseline. The colour band below must match rows from F.',scope=['E','F'],property='independent unbinned frame trace and exact selected F bands',expected='black trace baseline and scale use raw eligible frames; E bands reproduce F display rows 5,13,59,62,89 for acquisition trials 9,17,63,66,93, including exact cell RGB and missingness',implementation='scale_frames and authenticated frozen F raster/row extraction',status='verified',verification=pair_report['F_band_evidence']),
+            dict(id='fig1-dh-display-trials-20261013',author_direction='Update trial numbers in D/E to match F; apply same subtraction to G/H.',scope=['D','E','F','G','H'],property='shared displayed trial index',expected='display = acquisition minus4 across D–H; examples5,13,59,62,89',implementation='explicit source/display mapping after assembly',status='partial'),
+            dict(id='fig1-b-shared-short-time-label-20261013',author_direction='Use one t (s) axis title per column in B.',scope=['B'],property='time-axis captions per column',expected='two t (s) captions, one centered below each column; ticks and event geometry unchanged',implementation='grid_timing column-time-label-left/right; zero defined in legend',status='partial'),
+            dict(id='fig1-trial-display-offset-20261013',author_direction='Subtract deliberately omitted initial trials so the first heatmap row is 1.',scope=['F','G','H'],property='displayed heatmap row numbering',expected='display index = acquisition trial minus 4; F marked rows 5,13,59,62,89 retain source trials 9,17,63,66,93',implementation='renumber_heatmap_display and explicit source/display IDs',status='partial'),
+            dict(id='fig1-bc-key-font-20261013',author_direction='B/C legends including CS/US colour labels must use the same font size and styling.',scope=['B','C'],property='key typography',expected='7 pt DejaVu Sans normal throughout both keys',implementation='harmonize_typography explicit B heading legend role',status='partial'),
+            dict(id='fig1-raw-data-width-independent-20261013',author_direction='Match E raw-vigor width to D tail-angle width, excluding the colour scale.',scope=['D','E'],property='raw-data region and scale independence',expected='identical 750x550 body viewports and 450-unit data clips; E colourbar in separate viewport',implementation='independent E colourbar SVG viewport',status='partial'),
+            dict(id='fig1-trace-condition-labels-20261013',author_direction='Use 3sTrace/10sTrace in B and 3sTrace in G.',scope=['B','G'],property='condition names',expected='3sTrace and 10sTrace without parentheses or internal spaces',implementation='named source text replacements',status='partial'),
+            dict(id='fig1-font-consistency-20261013',author_direction='Ensure font consistency across every panel and labels; use SVG text.',scope=list('ABCDEFGH'),property='font family and text representation',expected='embedded DejaVu Sans regular/bold; same fallback and normal font style; labels remain text',implementation='embed_consistent_svg_fonts',status='partial'),
+            dict(id='fig1-c-short-long-key-20261013',author_direction='Remove 50 ms and 100 ms from C key.',scope=['C'],property='legend key text',expected='CS; short US; long US',implementation='align_stimulus_rows',status='partial'),
+            dict(id='fig1-c-key-right-20261013',author_direction='Align the colour legends in B and C to the right.',scope=['B','C'],property='key rendered right edge',expected='each key ends at its own panel right boundary',implementation='right_align_stimulus_key using final font glyph bounds',status='partial'),
+            dict(id='fig1-c-short-us-catch-row-20261013',author_direction='Align separate short US horizontally with CS-only catch trials.',scope=['C'],property='common row baseline',expected='short-US and catch-trial labels share y=240; cards end at291',implementation='align_stimulus_rows shared baseline and compact phase cards',status='partial'),
+            dict(id='fig1-b-xaxis-match-de-20261013',author_direction='Ensure consistency in B x axis and ticks following D/E.',scope=['B','D','E'],property='x axis presentation',expected='0.5 pt black spine; 2 pt outward ticks; 7 pt tick text; 8 pt bold axis label; matching baseline offsets',implementation='legacy_axes_style B uses D/E physical offsets',status='partial'),
+            dict(id='fig1-de-data-width-20261013',author_direction='E data region must be the same width as D; colour scale outside.',scope=['D','E'],property='final data-axis width',expected='450 assembly units in both panels; E colourbar begins at 754, outside data end 710 and body end 750',implementation='E viewport enlarged to 885 without changing data geometry or scale',status='partial')
+        ])
+        for request in requests:
+            request['affected_artifact_hashes']={'svg':digest(draft_svg),'review':digest(page_bytes)}
+            request['evidence_reference']=str(measurement_path)
+            if args.visual_review_note and request['id'] in {'fig1-annotation-20261013-e-fgh-scale','fig1-raw-data-width-independent-20261013','fig1-de-data-width-20261013'}:
+                request['status']='verified'
+                request['verification']={'svg_sha256':digest(draft_svg),'renderer':'bundled sharp/libvips','visual_review':args.visual_review_note,
+                                         'numeric_layout_and_scale_checks':{'D_E_equal_axis_rectangles':True,'E_colourbar_outside_body':True,'E_FGH_scale_range':[-1,1],'E_FGH_midpoint':0,'E_FGH_ticks':[-1,-.7,0,.7,1]}}
+            if request['id']=='fig1-raw-data-width-independent-20261013':
+                request['property']='data-axis width and independent colour-scale viewport'
+                request['expected']='identical 750x550 body viewports and 450-unit data clips; E colourbar in separate viewport'
+        measurements['embedded_font_resources']=font_resources
+        measurements['consistency_requests']=requests
+        measurements['consistency_evidence']={
+            'scope':'Figure 1 draft only; accepted scientific sources remain unchanged',
+            'review_status':'candidate visually reviewed; author selection pending' if args.visual_review_note else 'rendered review pending inspection',
+            'artifact_hashes':{'svg':digest(draft_svg),'review':digest(page_bytes)},
+            'panel_c_card_bottom':291,'panel_c_viewbox_bottom':295,
+            'panel_e_scale':{'range':[-1,1],'midpoint':0,'tick_labels':['1.0','0.7','0.0','−0.7','−1.0'],'title':'Scaled deviation from baseline'},
+            'panel_fgh_scale':{'range':[-1,1],'midpoint':0,'tick_labels':['1.0','0.7','0.0','−0.7','−1.0'],'title':'Scaled deviation from baseline'},
+            'panel_e_trace':{'quantity':'black trace: each eligible scaled raw-vigor frame (no log); colour strip: scaled 0.5 s median bins','baseline':'B=median eligible raw baseline frames in [-15,0); zero at V-B=0; scale from P10/P90 of unbinned baseline-frame raw deviations','display_limits':pair_report['shared_contract']['E_trace_y_limits'],'numeric_clipping':False,'trace_temporal_binning':False,'trace_smoothing':False,'trace_log_transform':False,'colour_strips_share_trace_normalization':False,'colour_strips_are_exact_F_rows':True},
+            'legend_preserved':not bool(legend_updates),'scientific_pixels_changed':True,'numerical_recipe_changed':True,'unmodified_panels_preserved':['A','B','C','D','F','G','H']
+        }
+        if args.visual_review_note:
+            measurements['consistency_evidence']['visual_review']={'renderer':'bundled sharp/libvips','scope':'saved Figure 1 SVG at 900 px assembly width; Panel E evaluated in full assembly','svg_sha256':digest(draft_svg),'observations':args.visual_review_note}
+        measurements['consistency_evidence']['panel_e_trace']['frame_counts']={str(n['trial']):n['finite_scaled_trace_frames'] for n in pair_report['numerical']}
+        measurements['consistency_evidence']['panel_e_trace']['frames_outside_display']=sum(n['scaled_trace_frames_outside_display'] for n in pair_report['numerical'])
+        measurements['consistency_evidence']['F_band_match']=pair_report['F_band_evidence'] | {'rows':{str(n['trial']):{'display_row':n['trial']-4,'rgba_sha256':n['F_row_rgba_sha256'],'values_sha256':n['F_row_values_sha256']} for n in pair_report['numerical']}}
+        measurements['consistency_evidence']['panel_e_trace']['baseline_parameters']={str(n['trial']):n['parameters'] for n in pair_report['numerical']}
         measurement_bytes=(json.dumps(measurements,indent=2)+'\n').encode()
         snapshot.hashes[str(measurement_path.resolve())]=file_hash(measurement_path)
-        state['draft'].update(review=dict(path=str(target),sha256=digest(page_bytes)),
+        state['draft'].update(review=dict(path=str(review_target),sha256=digest(page_bytes)),
                               working_svg=dict(path=str(svg_path),sha256=digest(draft_svg),source_svg_sha256=digest(outputs[0][1])),
                               source_assembly_sha256=digest(outputs[0][1]),
                               effective_presentation=dict(path=str(measurement_path),sha256=digest(measurement_bytes)))
         state.pop('effective_presentation',None)
         state['draft']['semantic_registry']=dict(scope='D/E explicit artists and cross-panel relationships; F selected-trial annotations',scientific_records=len(meta['scientific_registry']),whole_figure_complete=False,relationships=pair_report['shared_contract'],verification=pair_report['verification'])
+        state['draft']['consistency_requests']=requests
+        if state.get('scoped_fgh_freeze'):
+            for request in requests:
+                if request['id']=='fig1-annotation-20261013-e-fgh-scale':
+                    request.update(expected='Same managua_r palette, physical range [-0.25,+0.25], zero midpoint, ticks -0.25/0/+0.25',status='verified')
+            measurements['consistency_evidence']['panel_fgh_scale'].update(range=[-.25,.25],tick_labels=['0.25','0.00','−0.25'],title='Log vigor relative to baseline')
+            measurements['consistency_evidence']['panel_e_scale'].update(range=[-.25,.25],tick_labels=['0.25','0.00','−0.25'],title='Log vigor relative to baseline')
+            measurements['consistency_evidence']['panel_e_trace']['quantity']='black trace: each eligible scaled raw-vigor frame (no log); color strip: selected frozen 1 s direct log-frame median bins, no amplitude scaling'
+            measurement_bytes=(json.dumps(measurements,indent=2)+'\n').encode()
+            state['draft']['effective_presentation']['sha256']=digest(measurement_bytes)
         state['draft']['scientific_changes']=pair_report['scientific_changes']
+        state['draft']['legend']=dict(path=str(legend_paths[0]),sha256=digest(legends[0].encode()),panel_ids=list('ABCDEFGH'))
+        state['draft']['review_display']='requested SVG and associated legend only'
         state['outstanding_questions']=[q for q in state.get('outstanding_questions',[]) if 'trial 9' not in str(q).lower() and 'arrowheads' not in str(q).lower()]
         state['draft']['example_arrows']=dict(panel='F',fish='20221115_07',trials=[9,17,63,66,93],linked_panels=['D','E'],heatmap_values_unchanged=True)
         state['verification']=dict(current_sources_authenticated=True,editable_source_structure=True,
-                                   visual_review='pending review of this new candidate',
+                                   visual_review=({'renderer':'bundled sharp/libvips','scope':'saved Figure 1 SVG; Panel E reviewed in full assembly at 900 px width','svg_sha256':digest(draft_svg),'observations':args.visual_review_note} if args.visual_review_note else 'pending review of this new candidate'),
                                    measured_axis_findings=len(measurements['axis_findings']),
                                    concurrency='Starting ticket and captured inputs checked under exclusive publication lock')
         state['preserved_figures']={'figure2':previous_review}
         # Current state is the sole pointer. Legacy mapping is a version-bound
         # evidence record; write it only after guarded artifact publication.
         mapping['state_authority']=str(state_path)
-        publish_state(state_path,state,snapshot,[(target,page_bytes),(svg_path,draft_svg),(measurement_path,measurement_bytes)],
-                      [(mapping_path,(json.dumps(mapping,indent=2)+'\n').encode())])
+        artifacts=[(review_target,page_bytes),(svg_path,draft_svg),(measurement_path,measurement_bytes)]
+        if comparison_bytes is not None:
+            artifacts.append((target,comparison_bytes))
+            state['draft']['comparison_review']=dict(path=str(target),sha256=digest(comparison_bytes),display='explicit requests only')
+        evidence_updates=legend_updates+[(mapping_path,(json.dumps(mapping,indent=2)+'\n').encode())]
+        if args.update_current:
+            evidence_updates=artifacts+evidence_updates;artifacts=[]
+        publish_state(state_path,state,snapshot,artifacts,evidence_updates)
     else:
         # Bootstrap requires explicit working-copy preparation before subsequent
         # guarded figure edits. Existing workflows retain their behavior here.

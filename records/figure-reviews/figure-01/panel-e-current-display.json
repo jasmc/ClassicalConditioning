@@ -1,0 +1,634 @@
+{
+  "svg_sha256": "c4167f4c9c89a1dbfb503383b8f32d0727adfec1709f7b0c2bc1cf6124cd9f26",
+  "starting_svg_sha256": "01a15b02ddff17df06649b3d797052e833c94c0bdab50b58c54a772885771671",
+  "trace_quantity": "raw vigor minus raw-frame median baseline, scaled by unbinned raw baseline-frame percentile spread; no log",
+  "trace_y_limits": [
+    0.0,
+    5.0
+  ],
+  "frame_counts": {
+    "9": {
+      "finite_frames": 6950,
+      "upper_frames": 26,
+      "lower_frames": 3429,
+      "numerical_values_changed": false
+    },
+    "17": {
+      "finite_frames": 8993,
+      "upper_frames": 61,
+      "lower_frames": 4886,
+      "numerical_values_changed": false
+    },
+    "63": {
+      "finite_frames": 9716,
+      "upper_frames": 45,
+      "lower_frames": 5146,
+      "numerical_values_changed": false
+    },
+    "66": {
+      "finite_frames": 12595,
+      "upper_frames": 35,
+      "lower_frames": 6529,
+      "numerical_values_changed": false
+    },
+    "93": {
+      "finite_frames": 17304,
+      "upper_frames": 63,
+      "lower_frames": 8799,
+      "numerical_values_changed": false
+    }
+  },
+  "frame_value_hashes": {
+    "9": "cbcbb7ccb1dc1dfa02f045a85900e39137ebf428e3199cef807379c315bd281a",
+    "17": "57af8afebebbd33d568e05a6f68745b1225c95c1ff5a3d1958d3b51462074297",
+    "63": "6acf35e0796071acb3f75916c004dcab1aeb982f6876d0318cca5583fd5a21b6",
+    "66": "5a2bbd04c3adf4be2cb861cdf0867cc7732cd09e13af9531c28f67ab9af2c6de",
+    "93": "2419bc45e774718b1aa8b28ba0b718e7f10d3ab7be2f9a29f0f1c57f13067595"
+  },
+  "numerical_values_changed": false,
+  "F_band_match": {
+    "F_raster_png_sha256": "81315704aee3783bac637eacb8998796cdeb149b8cc746d9eeb5d36bcf4a837f",
+    "frozen_svg_sha256": "cb01a274089e765180b28d0c54fe7d68a7936dc89c7ea00daf3873b4c35487a0",
+    "bands": [
+      {
+        "acquisition_trial": 9,
+        "display_trial": 5,
+        "cells": 40,
+        "rgba_sha256": "350379a211fb57b2d7d6629b505cedb8d8c852a3cd53a37a9306ffd6f2184150",
+        "values_sha256": "c847f9d4b4ae48454123ff8379f92a69ac3232db551db33a0b2a2fe2fff7e1ed"
+      },
+      {
+        "acquisition_trial": 17,
+        "display_trial": 13,
+        "cells": 40,
+        "rgba_sha256": "9fae5d563c15cd156c765f972b88933f18560e11d11606ee5eae2fc4433a09f7",
+        "values_sha256": "0cead47bbcf5146044ddc72ba3c57088d5257cc32d1aad0fe196eb08a39455b3"
+      },
+      {
+        "acquisition_trial": 63,
+        "display_trial": 59,
+        "cells": 40,
+        "rgba_sha256": "c6b550c74126602b3b11c876e94d27f431f552d6bc905690b47ef1c7e5fb290c",
+        "values_sha256": "bb6d6850336a06c72bcffa7e3782e9117fc7e9dbfdb960e154cf1f553ed31520"
+      },
+      {
+        "acquisition_trial": 66,
+        "display_trial": 62,
+        "cells": 40,
+        "rgba_sha256": "c4c814e611751228bbd297814e71701b2ebbb6d48b4090d580a852dd3351fe58",
+        "values_sha256": "b1090e3c2090891ece71975c0b2899aef4ab3afbd2480b2194bdd559cf3e24d8"
+      },
+      {
+        "acquisition_trial": 93,
+        "display_trial": 89,
+        "cells": 40,
+        "rgba_sha256": "f71885305b736eba22def7278b47bf393baf9ef940815c75b5091ff03dc521af",
+        "values_sha256": "ec730ddbf6b2db83a1d2c38277f9f6eb1fff564ea73ee5a357f60c1c9d15799e"
+      }
+    ],
+    "range": [
+      -0.25,
+      0.25
+    ],
+    "ticks": [
+      -0.25,
+      0,
+      0.25
+    ],
+    "palette": "managua_r",
+    "zero": 0,
+    "E_black_trace_changed": false,
+    "D_changed": false,
+    "FGH_display_trials": [
+      1,
+      90
+    ],
+    "source": {
+      "figure_id": "fig1",
+      "panel_ids": [
+        "f",
+        "g",
+        "h"
+      ],
+      "status": "author-frozen",
+      "selected_version": "historical-fish-1s-direct-log-medians-managua-r",
+      "freeze_scope": "F/G/H only; not whole Figure 1",
+      "scientific_definition": {
+        "metric": "legacy_distal_angular_speed_rad_per_ms",
+        "eligibility": "finite positive valid adjacent detected-bout frames",
+        "frame_transform": "natural log",
+        "bin_width_s": 1,
+        "bin_estimator": "median of eligible original log frames",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+        "centre": "bin_log_vigor-baseline_log_vigor",
+        "scale": "none",
+        "minimum_finite_baseline_bins": 1,
+        "units": "natural-log vigor difference",
+        "numeric_clipping": false,
+        "colour_limits": [
+          -0.25,
+          0.25
+        ],
+        "missing": "NaN black; entire trial undefined without baseline data",
+        "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+        "statistical_inference": "none; descriptive examples"
+      },
+      "fish": {
+        "F": "20221115_07",
+        "G": "20230307_12",
+        "H": "20221115_09"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-historical-one-second-managua-freeze-2026-10-13/frozen-candidate.svg",
+        "sha256": "cb01a274089e765180b28d0c54fe7d68a7936dc89c7ea00daf3873b4c35487a0"
+      },
+      "data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-historical-one-second-managua-freeze-2026-10-13/dependency-figure-01-historical-fish-one-second-managua-2026-10-13.csv",
+        "sha256": "d7009b6c43a79041bda5f7e7fe033917fbf6ee2882b645db0c967dd42bed3f2f"
+      },
+      "freeze_manifest": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-historical-fish-one-second-managua/manifests/freeze.json",
+        "sha256": "19174577d78f6d76965df6d58e2b6ca8b9108c47544320a1cf4bc964625f2c76"
+      },
+      "author_instruction": "Author, 2026-10-13: freeze these panels. Refers to the displayed historical-fish F/G/H row: Delay 20221115_07, Trace 20230307_12, Control 20221115_09; 1 s medians, no amplitude scaling, managua_r +/-0.25. Scope F/G/H only.",
+      "assembly_scale": {
+        "final_width_mm": 183,
+        "final_height_mm": 78,
+        "scope": "assembled F/G/H row; whole Fig1 not frozen",
+        "source_to_final_transforms": {
+          "root_user_unit_to_final_pt": 1.0000000009259262,
+          "svg_transforms": [
+            {
+              "element_id": "fig1__f__heatmap__vigor-cells",
+              "transform": "scale(1 -1) translate(0 -165.84)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 46.686614 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 103.748031 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 160.809449 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 103.748031 213.212493)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 30.112996)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 46.695674)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 65.12087)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 83.546067)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 101.971264)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 120.396461)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 138.821658)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 157.246855)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 175.672052)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 41.686614 194.097248)"
+            },
+            {
+              "element_id": null,
+              "transform": "translate(16.93972 42.102382) rotate(-90)"
+            },
+            {
+              "element_id": null,
+              "transform": "translate(16.93972 100.615472) rotate(-90)"
+            },
+            {
+              "element_id": null,
+              "transform": "translate(16.93972 172.59751) rotate(-90)"
+            },
+            {
+              "element_id": "fig1__g__heatmap__vigor-cells",
+              "transform": "scale(1 -1) translate(0 -165.84)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 184.152756 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 241.214173 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 298.275591 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 241.214173 213.212493)"
+            },
+            {
+              "element_id": "fig1__h__heatmap__vigor-cells",
+              "transform": "scale(1 -1) translate(0 -165.84)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 321.618898 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 378.680315 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 435.741732 202.677961)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 378.680315 213.212493)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 478.091024 177.330319)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 478.091024 112.105122)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 478.091024 46.879926)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-90 505.28118 109.445669)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 28.530709 14.4778)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 103.748031 13.925925)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 103.748031 21.892737)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 165.99685 14.4778)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 241.214173 13.925925)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 241.214173 21.892737)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 303.462992 14.4778)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 378.680315 13.925925)"
+            },
+            {
+              "element_id": null,
+              "transform": "rotate(-0 378.680315 21.892737)"
+            }
+          ]
+        }
+      },
+      "superseded_selection": {
+        "figure_id": "fig1",
+        "panel_ids": [
+          "f",
+          "g",
+          "h"
+        ],
+        "status": "author-frozen",
+        "selected_version": "1s-direct-log-medians-managua-r",
+        "freeze_scope": "F/G/H only; not whole Figure 1",
+        "scientific_definition": {
+          "metric": "legacy_distal_angular_speed_rad_per_ms",
+          "eligibility": "finite positive valid adjacent detected-bout frames",
+          "frame_transform": "natural log",
+          "bin_width_s": 1,
+          "bin_estimator": "median of eligible original log frames",
+          "baseline_s": [
+            -15,
+            0
+          ],
+          "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+          "centre": "bin_log_vigor-baseline_log_vigor",
+          "scale": "none",
+          "minimum_finite_baseline_bins": 1,
+          "units": "natural-log vigor difference",
+          "numeric_clipping": false,
+          "colour_limits": [
+            -0.25,
+            0.25
+          ],
+          "missing": "NaN black; entire trial undefined without baseline data",
+          "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+          "statistical_inference": "none; descriptive examples"
+        },
+        "fish": {
+          "F": "20221115_07",
+          "G": "20230519_11",
+          "H": "20221115_09"
+        },
+        "svg": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-candidate.svg",
+          "sha256": "02bfbfb922c8a2f629d8cd5af8081f5d87127bd909bec6c640269f69dd87160d"
+        },
+        "data": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-figure-01-one-second-medians-cyan-palettes-2026-10-13.csv",
+          "sha256": "4e826a1efbe7075aa1d9e5ca9e61307735093cd6139e0bd3e7068f2b6ee8c053"
+        },
+        "freeze_manifest": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/manifests/freeze.json",
+          "sha256": "d5f9c8fd440db4227226c093b3781411450b44a6e2c915e00a5aeba2ca5d7dbe"
+        },
+        "author_instruction": "Author, 2026-10-13: great. freeze this last version. adapt to include in figure 1 (add the CS green lines, etc). Scope: approved F/G/H 1 s median managua_r review; whole figure not frozen.",
+        "assembly_scale": {
+          "final_width_mm": 183,
+          "final_height_mm": 78,
+          "scope": "assembled F/G/H row; whole Fig1 not frozen",
+          "source_to_final_transforms": {
+            "root_user_unit_to_final_pt": 1.0000000009259262,
+            "svg_transforms": [
+              {
+                "element_id": "fig1__f__heatmap__vigor-cells",
+                "transform": "scale(1 -1) translate(0 -165.84)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 46.686614 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 103.748031 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 160.809449 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 103.748031 213.212493)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 30.112996)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 46.695674)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 65.12087)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 83.546067)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 101.971264)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 120.396461)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 138.821658)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 157.246855)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 175.672052)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 41.686614 194.097248)"
+              },
+              {
+                "element_id": null,
+                "transform": "translate(16.93972 42.102382) rotate(-90)"
+              },
+              {
+                "element_id": null,
+                "transform": "translate(16.93972 100.615472) rotate(-90)"
+              },
+              {
+                "element_id": null,
+                "transform": "translate(16.93972 172.59751) rotate(-90)"
+              },
+              {
+                "element_id": "fig1__g__heatmap__vigor-cells",
+                "transform": "scale(1 -1) translate(0 -165.84)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 184.152756 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 241.214173 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 298.275591 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 241.214173 213.212493)"
+              },
+              {
+                "element_id": "fig1__h__heatmap__vigor-cells",
+                "transform": "scale(1 -1) translate(0 -165.84)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 321.618898 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 378.680315 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 435.741732 202.677961)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 378.680315 213.212493)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 478.091024 177.330319)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 478.091024 112.105122)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 478.091024 46.879926)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-90 505.28118 109.445669)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 28.530709 14.4778)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 103.748031 13.925925)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 103.748031 21.892737)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 165.99685 14.4778)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 241.214173 13.925925)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 241.214173 21.892737)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 303.462992 14.4778)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 378.680315 13.925925)"
+              },
+              {
+                "element_id": null,
+                "transform": "rotate(-0 378.680315 21.892737)"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "E_color_legend_reference": "Exact current H colorbar subtree, uniform scale identical to H; translated only"
+  },
+  "preserved_panel_hashes": {
+    "panel-A": "733bb9a85db9e12a1431b79de89e7c29697fc6c562526fad75d3a46e77904c12",
+    "panel-B": "529fd5a1e50a268fb75882eb0a501e35be06a98558c0c97cd614c3ebbbe78898",
+    "panel-C": "83e6213980ffacefebb4bbfe8857016065d2ffa47074d513ff87e31d7ba1ee3b",
+    "panel-D": "3477e9792521d1fedda5dfea56773081c409c017d21c060ace24d6a6c7a5f6f9",
+    "panel-FGH": "198431148494fa04f73676b8b07706b8a11fe1b5170af9e64a586d0939fc306c"
+  },
+  "visual_review": "Codex inspected the exact saved frozen-candidate.svg rendered at 1200 pixels, with final E width 91.5 mm in a 183-mm assembly: all five 0/2.5/5 scales legible, no dashed baseline reference, exactly 2 CS boundaries continuous from first trace top to final strip bottom; native H managua_r boxed ramp and log labels visible, no overlap/cropping. Black frame values unchanged, display clipping retained; phase/trial text and axes bounded. The final padding-exception metadata update leaves the inspected SVG bytes unchanged.",
+  "scoped_freeze": {
+    "figure_id": "fig1",
+    "panel_ids": [
+      "e"
+    ],
+    "status": "author-frozen",
+    "selected_revision": "unbinned-raw-baseline-scaled-0-5-F-one-second-bands",
+    "svg": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/frozen-candidate.svg",
+      "sha256": "fbd4dcbad4d26cc0e4d69e20a9e8ed799ca878a51d7ff770f14f827e06d5e94b"
+    },
+    "freeze_manifest": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panel-e/2026-10-13-raw-frame/manifests/freeze.json",
+      "sha256": "51d38b93f552bc95522b690982caf0aa69ba7c30fb31b96e8dee546962e090c9"
+    },
+    "candidate": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/candidate.json",
+      "sha256": "fe48dc43a4810acabdde0c285628301e97d2816c5a547fdeafc3cc11a28784c6"
+    },
+    "data": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/frame-and-band-mappings.json",
+      "sha256": "c9355233ba84dbc940d6bca541fd413b3cff05a6e3f2b697778b1a2d28346c85"
+    },
+    "selection_record": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json",
+      "sha256": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281"
+    },
+    "assembly_scale": {
+      "final_width_mm": 91.5,
+      "final_height_mm": 64.55833333333334,
+      "scope": "E alone at its half-width position in the 183-mm Figure 1 assembly",
+      "source_to_final_transforms": {
+        "root_user_unit_to_final_pt": 0.28818897637795277,
+        "svg_transforms": [
+          {
+            "element_id": "edit-E-value-label",
+            "transform": "rotate(-90 24 245)"
+          },
+          {
+            "element_id": "edit-E-colour-scale",
+            "transform": "translate(754 30) scale(3.469945355) translate(-466.866142 -44.220472)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 177.330319)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 112.105122)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 46.879926)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-90 499 109.445669)"
+          }
+        ]
+      }
+    },
+    "author_instruction": "Author in current panel E chat, 2026-10-13: use 0 to 5 in y axis; remove dashed line marking baseline; use color legend as in H; freeze this panel. Follow-up: CS vertical lines from top to very bottom, single lines.",
+    "scope": "Panel E only; no whole-figure freeze"
+  }
+}

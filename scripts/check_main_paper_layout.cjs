@@ -1,0 +1,6 @@
+// Browser evidence collector for prepared external layout candidates.
+// Usage: node this.cjs external-directory browser-executable [temporary-screenshot-directory]
+const fs=require('fs');const path=require('path');const {chromium}=require('playwright');
+(async()=>{const dir=process.argv[2];const b=await chromium.launch({executablePath:process.argv[3],headless:true});try{const p=await b.newPage({viewport:{width:1000,height:1000}});p.on('console',m=>console.log(m.text()));
+for(const n of [1,2]){const base=`figure-0${n}`;await p.goto(`http://127.0.0.1:8766/${path.basename(dir)}/${base}-check.html`,{waitUntil:'domcontentloaded',timeout:120000});await p.getByRole('button',{name:'Measure saved SVGs in this browser'}).click();await p.waitForFunction(()=>document.querySelector('#status').textContent.includes('complete')||document.querySelector('#status').textContent.includes('unresolved'),{timeout:0},{timeout:240000});const result=await p.locator('#result').inputValue();if(!result)throw Error(await p.locator('#status').innerText());fs.writeFileSync(path.join(dir,base+'-browser.json'),result);console.log(base,JSON.parse(result)[base+'-layout.svg'].issues);await p.screenshot({path:path.join(process.argv[4]||require('os').tmpdir(),base+'-layout.png'),fullPage:true});}
+}finally{await b.close()}})().catch(e=>{console.error(e);process.exit(1)})

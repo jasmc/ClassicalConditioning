@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "figures": [
+    {
+      "figure_id": "fig1",
+      "state": "docs/paper/figures/figure-01/current-state.json"
+    },
+    {
+      "figure_id": "fig2",
+      "state": "docs/paper/figures/figure-02/current-state.json"
+    }
+  ],
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html",
+    "sha256": "79823974cd4eab73023d6ebe3eb32635a9e19618802c37b95d278e3aa1a886b5"
+  },
+  "inputs": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/main_paper_figures.py": "de2d2e4af041211c2529666783dee5d5d562102ffb6adeb861abdbc4058e1587",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/layout_frames_browser.js": "d70337842622808ea89cf7b2b6c1b95f7f963d32d9a1b4841f75c4eb9ee35fce",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/layout_frames.py": "6285e8190951d8c2cc9f44ecc0b5da8506a25ecf1553bd4ad57f2260167e8853",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "5b9fabaf99335fc607ab3dca164cae14f693ece60a16695073da78b727b49892",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "af70cb36b994ed30594ceed68367e5bd2e885d37f5df0df21674dda4412ab309",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "2ded096941e54f67ecabec9040395350f7f315dad896f0a9e45907046aecbfad",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "fbe7030f46957b77673d7f01122f8aa56d1268336d3d2d3def102f98e6e1ce1f",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": "4891630470d54ec85ffe45e3991bad36153501a637271d2215b6ce04ac49d965",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg": "fbeacee0ed415d3dcb2babb2ce76c2edd731e6228fcb894d4578d8562153af95",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md": "39b22b9e94b0f9494a3c88df1bc1ca79c16da5de0ac194a54120a2e1970897e8",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html": "88bb932b29d53f67c24bad78b8507411238ee4ced019a90a26cef5fbd7faef0d",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-layout-evidence.json": "124a46870975c3fc08ebdce2c213891b90e31b4e727fa358f89ccabd7a37b53d"
+  },
+  "provenance": {
+    "figures": [
+      {
+        "id": "fig1",
+        "state": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+          "sha256": "5b9fabaf99335fc607ab3dca164cae14f693ece60a16695073da78b727b49892"
+        },
+        "svg": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+          "sha256": "af70cb36b994ed30594ceed68367e5bd2e885d37f5df0df21674dda4412ab309",
+          "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+        },
+        "legend": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+          "sha256": "2ded096941e54f67ecabec9040395350f7f315dad896f0a9e45907046aecbfad",
+          "panel_ids": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        "layout_frames": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json",
+          "sha256": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267"
+        },
+        "whole_figure_frozen": false,
+        "embedded_svg_sha256": "954d274b415a981041168230d185e9700f752379776cae8503ed923061d7e70b"
+      },
+      {
+        "id": "fig2",
+        "state": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+          "sha256": "4891630470d54ec85ffe45e3991bad36153501a637271d2215b6ce04ac49d965"
+        },
+        "svg": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+          "sha256": "fbeacee0ed415d3dcb2babb2ce76c2edd731e6228fcb894d4578d8562153af95"
+        },
+        "legend": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+          "sha256": "39b22b9e94b0f9494a3c88df1bc1ca79c16da5de0ac194a54120a2e1970897e8",
+          "panel_ids": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ]
+        },
+        "layout_frames": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-layout-evidence.json",
+          "sha256": "124a46870975c3fc08ebdce2c213891b90e31b4e727fa358f89ccabd7a37b53d"
+        },
+        "whole_figure_frozen": false,
+        "embedded_svg_sha256": "a8ea8955cde0219f8ef74c0af092f92fabc463f6d654727fe30b8d081fea7b94"
+      }
+    ],
+    "builder": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/main_paper_figures.py",
+      "sha256": "de2d2e4af041211c2529666783dee5d5d562102ffb6adeb861abdbc4058e1587"
+    },
+    "layout_policy": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/layout-frames.json",
+      "sha256": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+    },
+    "scientific_status": "Presentation collection; scope-specific freezes remain authoritative"
+  },
+  "refresh_policy": "Follow selected figure states on plural paper-figure requests",
+  "scope": "main-paper-figures",
+  "layout_verified": true,
+  "verification": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/control-first-ordering-20261015.json",
+    "sha256": "5193f86c1ccda02b3515ce8cebc913d5551f0f22d72a2b3e21dd20e0707fb394"
+  }
+}

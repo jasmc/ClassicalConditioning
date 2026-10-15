@@ -1,0 +1,121 @@
+{
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "comparison_number": 4,
+  "trace_replacement": {
+    "fish": "20230519_11",
+    "experiment": "all3sTrace",
+    "cadence": {
+      "interval_ms": 1.4233466199598879,
+      "reference_position": 2908,
+      "end_position": 8425811,
+      "reference_frame_id": 508348,
+      "missing_frame_ids": 0,
+      "buffer_capacity_exceeded": false,
+      "maximum_delay_ms": 235.8746033590287
+    },
+    "detector": {
+      "smoothing_window_ms": 10.0,
+      "envelope_max_window_ms": 28.57142857142857,
+      "envelope_min_window_ms": 571.4285714285714,
+      "envelope_threshold_deg_per_ms": 4.0,
+      "bout_amplitude_threshold_deg_per_ms": 1.0,
+      "minimum_valid_tail_fraction": 0.8,
+      "minimum_bout_duration_ms": 57.14285714285714,
+      "maximum_interbout_gap_ms": 14.285714285714285,
+      "positive_control_window_ms": 500.0,
+      "control_baseline_start_ms": -5000.0,
+      "control_baseline_end_ms": -1000.0
+    },
+    "context_ms": 5000,
+    "minimum_selected_bout_context_margin_ms": 4388.177734375,
+    "expected_us_s": 13.0,
+    "paired_training_trials": 46,
+    "sources": {
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet": "e69c0cc9059245bb57fe22a536c73beef80bdaba09cb6ae6837cc13aa554fa1f",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet": "af0eae0eba30d4b18bd261a59614eafe48dceb0979b80f1608f33cd424574044",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet": "0f2bd9aaf9c6ae44b8b8b1b2279507c1725d0b158a0c805c51c91f3e5ecd70e7",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet": "13ca3b3425bfb90309f271ed5455bb3da751eadd369fb6568a985fa00b3be10b",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json": "8fe7775319aaabd71b2d33fcd35c804d95cb062c69de3937fc7ac60d6d2ac699",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json": "43c4d7644139422979d303736225267f1ebee8a392fc631ad9b2091e779b51f7",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json": "3ad1470d66f5a46d2daf7c1c2e859ebbefd5fcb17697f6fa544adf5d2a8afb27"
+    },
+    "finite_cells": 1796,
+    "defined_trials": 84,
+    "saturated_cells": 611,
+    "baseline_zero_verified": true,
+    "bin_estimator": "median",
+    "independent_frame_bins_verified": true,
+    "mean_log_values_sha256": "2df77d5227e65395b136854ecdd3b1fefcf0c0f28ed8f4b15998d427d276d031"
+  },
+  "unchanged_fish": [
+    "20221115_07",
+    "20221115_09"
+  ],
+  "bin_width_s": 0.5,
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "bin_estimator": "median of eligible natural-log raw frame vigor",
+  "baseline_estimator": "median of finite baseline-bin medians",
+  "minimum_baseline_bins": 1,
+  "amplitude_scaling": false,
+  "numerical_clipping": false,
+  "color_limits": [
+    -0.25,
+    0.25
+  ],
+  "palettes": [
+    "magma_r",
+    [
+      "#60d8f5",
+      "#383842",
+      "#857b70"
+    ]
+  ],
+  "sources": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/starting-inventory.json": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_version04_trace_palettes.py": "3a3d524f974cfa3a92514e0f37a6b728e48f5c4f766b87a8429936cf49fc9f60",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_best_learners_version08.py": "5a653e0d5cc150adbbb840cea02136470c9f4ba06ff8590ffb48d167557d9bff",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/PanelF_median_bins.csv": "bf56b75b5a35a43069b4bde30cdbc537066efd4e26fe966adf4d7580c0401a69",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/PanelH_median_bins.csv": "9a31b3a4736e459b66223afa460f83fbe410703e76798706eefab5fc359eaabc",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/build_version4.py": "985494590dbd69b12f0554ec32c9c186bc9709081ea8c9b5bfa789cbb0b32fd6",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet": "e69c0cc9059245bb57fe22a536c73beef80bdaba09cb6ae6837cc13aa554fa1f",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet": "af0eae0eba30d4b18bd261a59614eafe48dceb0979b80f1608f33cd424574044",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet": "0f2bd9aaf9c6ae44b8b8b1b2279507c1725d0b158a0c805c51c91f3e5ecd70e7",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet": "13ca3b3425bfb90309f271ed5455bb3da751eadd369fb6568a985fa00b3be10b",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json": "8fe7775319aaabd71b2d33fcd35c804d95cb062c69de3937fc7ac60d6d2ac699",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json": "43c4d7644139422979d303736225267f1ebee8a392fc631ad9b2091e779b51f7",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json": "3ad1470d66f5a46d2daf7c1c2e859ebbefd5fcb17697f6fa544adf5d2a8afb27"
+  },
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-version04-trace-palettes-2026-10-13.html",
+    "sha256": "2016b8f70364ad4cb74acfd4076ce619288bcb6c26553a2b18dea3bc1bc5e0df"
+  },
+  "trace_data": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-version04-trace-palettes-2026-10-13.csv",
+    "sha256": "5a86a7f26df07f67ccfb0d4b08e894c7e3a52c37d0145dba23f8ace58b6f6b89"
+  },
+  "active_selection_changed": false,
+  "baseline_verification": {
+    "maximum_absolute_baseline_median": 2.500170209751573e-16,
+    "undefined_acquisition_trials": [
+      14,
+      74,
+      75,
+      77,
+      80,
+      90
+    ]
+  },
+  "visual_review": {
+    "renderer": "sharp/libvips",
+    "width_px": 1500,
+    "observations": "Both saved SVGs rendered and inspected. F/G/H labels, fish IDs, original acquisition trial labels, timing/phase guides and -0.25/0/+0.25 bars visible. Trace reductions appear light yellow with magma_r and cyan with the proposed palette. Missing cells remain black. No text overlap or clipping observed."
+  }
+}

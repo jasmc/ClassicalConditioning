@@ -1,0 +1,48 @@
+{
+  "comparison_number": 4,
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "sources": {
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/FGH_V4_direct_bin_medians_log025.svg": "634cdd82aa80c541fd8ea01dfb939e9ad98b29eb12fead792c30c9dc168d4c51",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/build_version4.py": "985494590dbd69b12f0554ec32c9c186bc9709081ea8c9b5bfa789cbb0b32fd6",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/PanelF_median_bins.csv": "bf56b75b5a35a43069b4bde30cdbc537066efd4e26fe966adf4d7580c0401a69",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/PanelG_median_bins.csv": "7a4c962b0123f1d075437f7ba754c69ecd25bbcd44c7b6a1df43a4d7db410139",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/PanelH_median_bins.csv": "9a31b3a4736e459b66223afa460f83fbe410703e76798706eefab5fc359eaabc"
+  },
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-version04-zero-baseline-2026-10-13.html",
+    "sha256": "11586b1fc6cc08afe6a6ae43ac3805ead4f91390669c0591fd0328bc3963cf77"
+  },
+  "baseline_checks": [
+    {
+      "panel": "F",
+      "defined_trials": 90,
+      "maximum_absolute_baseline_median": 2.5066754227864863e-16
+    },
+    {
+      "panel": "G",
+      "defined_trials": 90,
+      "maximum_absolute_baseline_median": 2.5153490401663703e-16
+    },
+    {
+      "panel": "H",
+      "defined_trials": 90,
+      "maximum_absolute_baseline_median": 2.5066754227864863e-16
+    }
+  ],
+  "color_limits": [
+    -0.25,
+    0.25
+  ],
+  "zero_normalized_color_coordinate": 0.5,
+  "analysis_changed": false,
+  "active_selection_changed": false,
+  "visual_review": {
+    "renderer": "sharp/libvips",
+    "scope": "Authenticated original SVG, 1600 px width",
+    "observations": "F/G/H and original fish labels visible; colorbar ticks -0.25, 0.00, +0.25; zero centrally placed; cyan reductions, dark purple zero, yellow increases; black missing cells retained."
+  }
+}

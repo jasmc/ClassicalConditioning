@@ -1,0 +1,105 @@
+{
+  "figure_id": "fig1",
+  "panel_ids": [
+    "e"
+  ],
+  "status": "author-frozen",
+  "selected_revision": "unbinned-raw-baseline-scaled-0-5-F-one-second-bands",
+  "svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/frozen-candidate.svg",
+    "sha256": "fbd4dcbad4d26cc0e4d69e20a9e8ed799ca878a51d7ff770f14f827e06d5e94b"
+  },
+  "freeze_manifest": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panel-e/2026-10-13-raw-frame/manifests/freeze.json",
+    "sha256": "51d38b93f552bc95522b690982caf0aa69ba7c30fb31b96e8dee546962e090c9"
+  },
+  "candidate": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/candidate.json",
+    "sha256": "fe48dc43a4810acabdde0c285628301e97d2816c5a547fdeafc3cc11a28784c6"
+  },
+  "data": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/frame-and-band-mappings.json",
+    "sha256": "c9355233ba84dbc940d6bca541fd413b3cff05a6e3f2b697778b1a2d28346c85"
+  },
+  "assembly_scale": {
+    "final_width_mm": 91.5,
+    "final_height_mm": 64.55833333333334,
+    "scope": "E alone at its half-width position in the 183-mm Figure 1 assembly",
+    "source_to_final_transforms": {
+      "root_user_unit_to_final_pt": 0.28818897637795277,
+      "svg_transforms": [
+        {
+          "element_id": "edit-E-value-label",
+          "transform": "rotate(-90 24 245)"
+        },
+        {
+          "element_id": "edit-E-colour-scale",
+          "transform": "translate(754 30) scale(3.469945355) translate(-466.866142 -44.220472)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 177.330319)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 112.105122)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-0 478.091024 46.879926)"
+        },
+        {
+          "element_id": null,
+          "transform": "rotate(-90 499 109.445669)"
+        }
+      ]
+    }
+  },
+  "author_instruction": "Author in current panel E chat, 2026-10-13: use 0 to 5 in y axis; remove dashed line marking baseline; use color legend as in H; freeze this panel. Follow-up: CS vertical lines from top to very bottom, single lines.",
+  "scope": "Panel E only; no whole-figure freeze",
+  "scientific_definition": {
+    "black_trace": "Black trace scientific draft change: B is median eligible raw baseline frames in [-15,0); raw frame V-B is scaled using P10/P90 of unbinned baseline-frame raw deviations; no logarithm. No trace, baseline or scaling binning/smoothing. Shared display y limits [0,5]; baseline zero at bottom; 230 upper and 28789 lower frame values visually clipped, numerical values unchanged. Colour bands copy the corresponding exact selected F rows (values and rendered RGB), with F cadence timing and baseline-bin normalization preserved. Black trace timing remains measured D time.",
+    "bands": {
+      "metric": "legacy_distal_angular_speed_rad_per_ms",
+      "eligibility": "finite positive valid adjacent detected-bout frames",
+      "frame_transform": "natural log",
+      "bin_width_s": 1,
+      "bin_estimator": "median of eligible original log frames",
+      "baseline_s": [
+        -15,
+        0
+      ],
+      "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+      "centre": "bin_log_vigor-baseline_log_vigor",
+      "scale": "none",
+      "minimum_finite_baseline_bins": 1,
+      "units": "natural-log vigor difference",
+      "numeric_clipping": false,
+      "colour_limits": [
+        -0.25,
+        0.25
+      ],
+      "missing": "NaN black; entire trial undefined without baseline data",
+      "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+      "statistical_inference": "none; descriptive examples"
+    }
+  },
+  "trials": [
+    9,
+    17,
+    63,
+    66,
+    93
+  ],
+  "display_trials": [
+    5,
+    13,
+    59,
+    62,
+    89
+  ],
+  "supersedes": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+    "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314"
+  }
+}

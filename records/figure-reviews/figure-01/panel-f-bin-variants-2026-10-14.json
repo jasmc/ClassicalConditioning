@@ -1,0 +1,533 @@
+{
+  "scope": [
+    "F"
+  ],
+  "status": "unfrozen-comparison",
+  "source_working_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+    "sha256": "c4167f4c9c89a1dbfb503383b8f32d0727adfec1709f7b0c2bc1cf6124cd9f26",
+    "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+  },
+  "source_selection": "historical-fish-1s-direct-log-medians-managua-r",
+  "starting_hashes": {
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_c_bout_vs_bins_20261008/outputs/PanelF_sample_data.parquet": "a32607d54c520f5781d6e6c42d77f3be92ff3befdcf5501fdc2c072b9b0cf6c6",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_c_bout_vs_bins_20261008/outputs/manifest.json": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/starting-inventory.json": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "a7bd9c55f5f43999b0368b6203144596bdb2de1fab156b6c82d921b540d5e460",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "c4167f4c9c89a1dbfb503383b8f32d0727adfec1709f7b0c2bc1cf6124cd9f26",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-historical-one-second-managua-freeze-2026-10-13/dependency-figure-01-historical-fish-one-second-managua-2026-10-13.csv": "d7009b6c43a79041bda5f7e7fe033917fbf6ee2882b645db0c967dd42bed3f2f",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_panel_f_bin_variants.py": "c69ed4adfb58dcfa527c80206c3e3d943d349cb5268ae9b2b8b9240f7cd61971",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "56c9ede3132c5ac15c87e9dad1dc87084ee3715f2a510a7216096e47b2e8ccb2",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figure_workspace.py": "bea41c1ed9226a0e39e813a010079ada0dadeea9f0b141bbb8cf47bdb83e1034",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "3954acc72c4c1f6264d78dd7d08f63aea0662eb1ad83ce9a46aa08426799658c",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "e059982d46fd4602f3715a881cc0b14324bbe4bcbd5a634fca98ece21694fba2",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27"
+  },
+  "scientific_definition": {
+    "fixed_bins": "direct original eligible log-frame medians; equal-bin baseline median",
+    "bout_bins": "named bout median repeated over eligible frame intervals; median repeated summaries over eligible baseline frames",
+    "baseline_s": [
+      -15,
+      0
+    ],
+    "timepoint_weight": "one per eligible frame, established constant camera cadence",
+    "nonbout_frames": "excluded as in current F",
+    "colour_limits": [
+      -0.25,
+      0.25
+    ],
+    "amplitude_scaling": false
+  },
+  "verification": {
+    "one_second_reproduces_accepted_F": true,
+    "cached_bout_medians_match_recomputed": true,
+    "trials": 90,
+    "defined_trials": {
+      "1": 90,
+      "0.5": 90,
+      "0.25": 90
+    },
+    "bout_runs": 9474,
+    "bout_baselines": [
+      {
+        "trial": 5,
+        "baseline_eligible_frames": 2793,
+        "baseline_log": -2.1679855184164354
+      },
+      {
+        "trial": 6,
+        "baseline_eligible_frames": 3673,
+        "baseline_log": -2.1059920294396655
+      },
+      {
+        "trial": 7,
+        "baseline_eligible_frames": 2799,
+        "baseline_log": -2.0261579066225313
+      },
+      {
+        "trial": 8,
+        "baseline_eligible_frames": 2368,
+        "baseline_log": -2.0156846273821354
+      },
+      {
+        "trial": 9,
+        "baseline_eligible_frames": 2520,
+        "baseline_log": -2.170461261850563
+      },
+      {
+        "trial": 10,
+        "baseline_eligible_frames": 2316,
+        "baseline_log": -2.1127531835384694
+      },
+      {
+        "trial": 11,
+        "baseline_eligible_frames": 2131,
+        "baseline_log": -2.368887433298849
+      },
+      {
+        "trial": 12,
+        "baseline_eligible_frames": 3179,
+        "baseline_log": -2.015876247977743
+      },
+      {
+        "trial": 13,
+        "baseline_eligible_frames": 2955,
+        "baseline_log": -2.004455183107082
+      },
+      {
+        "trial": 14,
+        "baseline_eligible_frames": 4604,
+        "baseline_log": -2.137221950258782
+      },
+      {
+        "trial": 15,
+        "baseline_eligible_frames": 4548,
+        "baseline_log": -2.4554766742409777
+      },
+      {
+        "trial": 16,
+        "baseline_eligible_frames": 4051,
+        "baseline_log": -2.1514749352306195
+      },
+      {
+        "trial": 17,
+        "baseline_eligible_frames": 3203,
+        "baseline_log": -2.207171492517251
+      },
+      {
+        "trial": 18,
+        "baseline_eligible_frames": 2823,
+        "baseline_log": -2.25488202033479
+      },
+      {
+        "trial": 19,
+        "baseline_eligible_frames": 3541,
+        "baseline_log": -2.2821383462339426
+      },
+      {
+        "trial": 20,
+        "baseline_eligible_frames": 3577,
+        "baseline_log": -2.2348228496836997
+      },
+      {
+        "trial": 21,
+        "baseline_eligible_frames": 3188,
+        "baseline_log": -2.3221528915358243
+      },
+      {
+        "trial": 22,
+        "baseline_eligible_frames": 3872,
+        "baseline_log": -2.2194203145138776
+      },
+      {
+        "trial": 23,
+        "baseline_eligible_frames": 3949,
+        "baseline_log": -2.350830039933212
+      },
+      {
+        "trial": 24,
+        "baseline_eligible_frames": 3318,
+        "baseline_log": -2.3707196972474147
+      },
+      {
+        "trial": 25,
+        "baseline_eligible_frames": 4422,
+        "baseline_log": -2.3099341847432697
+      },
+      {
+        "trial": 26,
+        "baseline_eligible_frames": 3947,
+        "baseline_log": -2.264540296841517
+      },
+      {
+        "trial": 27,
+        "baseline_eligible_frames": 3614,
+        "baseline_log": -2.3147052274868583
+      },
+      {
+        "trial": 28,
+        "baseline_eligible_frames": 3769,
+        "baseline_log": -2.2784341310086385
+      },
+      {
+        "trial": 29,
+        "baseline_eligible_frames": 4169,
+        "baseline_log": -2.4739116356031046
+      },
+      {
+        "trial": 30,
+        "baseline_eligible_frames": 4105,
+        "baseline_log": -2.3721579646930735
+      },
+      {
+        "trial": 31,
+        "baseline_eligible_frames": 4018,
+        "baseline_log": -2.279665490594358
+      },
+      {
+        "trial": 32,
+        "baseline_eligible_frames": 3629,
+        "baseline_log": -2.3971950773584942
+      },
+      {
+        "trial": 33,
+        "baseline_eligible_frames": 3392,
+        "baseline_log": -2.4709569559637483
+      },
+      {
+        "trial": 34,
+        "baseline_eligible_frames": 3757,
+        "baseline_log": -2.3681951007270947
+      },
+      {
+        "trial": 35,
+        "baseline_eligible_frames": 3861,
+        "baseline_log": -2.351081909429822
+      },
+      {
+        "trial": 36,
+        "baseline_eligible_frames": 3443,
+        "baseline_log": -2.25710343591399
+      },
+      {
+        "trial": 37,
+        "baseline_eligible_frames": 3211,
+        "baseline_log": -2.5592807201263414
+      },
+      {
+        "trial": 38,
+        "baseline_eligible_frames": 3438,
+        "baseline_log": -2.381735033604562
+      },
+      {
+        "trial": 39,
+        "baseline_eligible_frames": 4239,
+        "baseline_log": -2.4198282417779104
+      },
+      {
+        "trial": 40,
+        "baseline_eligible_frames": 4135,
+        "baseline_log": -2.4085233108750685
+      },
+      {
+        "trial": 41,
+        "baseline_eligible_frames": 3343,
+        "baseline_log": -2.5363499569010513
+      },
+      {
+        "trial": 42,
+        "baseline_eligible_frames": 3890,
+        "baseline_log": -2.379435201601785
+      },
+      {
+        "trial": 43,
+        "baseline_eligible_frames": 3995,
+        "baseline_log": -2.3300899414217864
+      },
+      {
+        "trial": 44,
+        "baseline_eligible_frames": 3684,
+        "baseline_log": -2.488325135219119
+      },
+      {
+        "trial": 45,
+        "baseline_eligible_frames": 4265,
+        "baseline_log": -2.3665319108754113
+      },
+      {
+        "trial": 46,
+        "baseline_eligible_frames": 4023,
+        "baseline_log": -2.4274971915675696
+      },
+      {
+        "trial": 47,
+        "baseline_eligible_frames": 4129,
+        "baseline_log": -2.5513548830939707
+      },
+      {
+        "trial": 48,
+        "baseline_eligible_frames": 3788,
+        "baseline_log": -2.610847076572249
+      },
+      {
+        "trial": 49,
+        "baseline_eligible_frames": 3975,
+        "baseline_log": -2.4886770541518404
+      },
+      {
+        "trial": 50,
+        "baseline_eligible_frames": 4312,
+        "baseline_log": -2.4154459084890507
+      },
+      {
+        "trial": 51,
+        "baseline_eligible_frames": 4625,
+        "baseline_log": -2.545982298255342
+      },
+      {
+        "trial": 52,
+        "baseline_eligible_frames": 4298,
+        "baseline_log": -2.426333911162636
+      },
+      {
+        "trial": 53,
+        "baseline_eligible_frames": 4434,
+        "baseline_log": -2.478933299402337
+      },
+      {
+        "trial": 54,
+        "baseline_eligible_frames": 2965,
+        "baseline_log": -2.3287548449343056
+      },
+      {
+        "trial": 55,
+        "baseline_eligible_frames": 4621,
+        "baseline_log": -2.4188124306968684
+      },
+      {
+        "trial": 56,
+        "baseline_eligible_frames": 5053,
+        "baseline_log": -2.3818023398143606
+      },
+      {
+        "trial": 57,
+        "baseline_eligible_frames": 4301,
+        "baseline_log": -2.48695201792304
+      },
+      {
+        "trial": 58,
+        "baseline_eligible_frames": 4046,
+        "baseline_log": -2.5422931390461594
+      },
+      {
+        "trial": 59,
+        "baseline_eligible_frames": 4283,
+        "baseline_log": -2.4531021577600955
+      },
+      {
+        "trial": 60,
+        "baseline_eligible_frames": 4122,
+        "baseline_log": -2.435440096582122
+      },
+      {
+        "trial": 61,
+        "baseline_eligible_frames": 4468,
+        "baseline_log": -2.3968382977472387
+      },
+      {
+        "trial": 62,
+        "baseline_eligible_frames": 4157,
+        "baseline_log": -2.513980073124461
+      },
+      {
+        "trial": 63,
+        "baseline_eligible_frames": 3496,
+        "baseline_log": -2.383611510679443
+      },
+      {
+        "trial": 64,
+        "baseline_eligible_frames": 4023,
+        "baseline_log": -2.448177036742634
+      },
+      {
+        "trial": 65,
+        "baseline_eligible_frames": 3419,
+        "baseline_log": -2.3466661602540775
+      },
+      {
+        "trial": 66,
+        "baseline_eligible_frames": 4856,
+        "baseline_log": -2.4112445325210974
+      },
+      {
+        "trial": 67,
+        "baseline_eligible_frames": 5937,
+        "baseline_log": -2.3930578459489897
+      },
+      {
+        "trial": 68,
+        "baseline_eligible_frames": 4570,
+        "baseline_log": -2.4364915535715572
+      },
+      {
+        "trial": 69,
+        "baseline_eligible_frames": 5174,
+        "baseline_log": -2.265666666639242
+      },
+      {
+        "trial": 70,
+        "baseline_eligible_frames": 4118,
+        "baseline_log": -2.3053016983765713
+      },
+      {
+        "trial": 71,
+        "baseline_eligible_frames": 5198,
+        "baseline_log": -2.4625321229294546
+      },
+      {
+        "trial": 72,
+        "baseline_eligible_frames": 4312,
+        "baseline_log": -2.536641558841198
+      },
+      {
+        "trial": 73,
+        "baseline_eligible_frames": 4878,
+        "baseline_log": -2.571648166301856
+      },
+      {
+        "trial": 74,
+        "baseline_eligible_frames": 5232,
+        "baseline_log": -2.7553547496836033
+      },
+      {
+        "trial": 75,
+        "baseline_eligible_frames": 4960,
+        "baseline_log": -2.5730911935150185
+      },
+      {
+        "trial": 76,
+        "baseline_eligible_frames": 5047,
+        "baseline_log": -2.812573367725658
+      },
+      {
+        "trial": 77,
+        "baseline_eligible_frames": 5373,
+        "baseline_log": -2.8503787704532506
+      },
+      {
+        "trial": 78,
+        "baseline_eligible_frames": 6332,
+        "baseline_log": -2.712691034972662
+      },
+      {
+        "trial": 79,
+        "baseline_eligible_frames": 6170,
+        "baseline_log": -2.8399930498887076
+      },
+      {
+        "trial": 80,
+        "baseline_eligible_frames": 5509,
+        "baseline_log": -2.783807975814913
+      },
+      {
+        "trial": 81,
+        "baseline_eligible_frames": 6197,
+        "baseline_log": -2.792785589191789
+      },
+      {
+        "trial": 82,
+        "baseline_eligible_frames": 6380,
+        "baseline_log": -2.733757119458705
+      },
+      {
+        "trial": 83,
+        "baseline_eligible_frames": 5799,
+        "baseline_log": -2.776614329494061
+      },
+      {
+        "trial": 84,
+        "baseline_eligible_frames": 5317,
+        "baseline_log": -2.7259426097819235
+      },
+      {
+        "trial": 85,
+        "baseline_eligible_frames": 6689,
+        "baseline_log": -2.806116950983181
+      },
+      {
+        "trial": 86,
+        "baseline_eligible_frames": 6698,
+        "baseline_log": -2.752367980137303
+      },
+      {
+        "trial": 87,
+        "baseline_eligible_frames": 7819,
+        "baseline_log": -2.693453074027107
+      },
+      {
+        "trial": 88,
+        "baseline_eligible_frames": 6359,
+        "baseline_log": -2.8461907209780106
+      },
+      {
+        "trial": 89,
+        "baseline_eligible_frames": 6590,
+        "baseline_log": -2.794472595714808
+      },
+      {
+        "trial": 90,
+        "baseline_eligible_frames": 6531,
+        "baseline_log": -2.7890282483725466
+      },
+      {
+        "trial": 91,
+        "baseline_eligible_frames": 6164,
+        "baseline_log": -2.758520599796954
+      },
+      {
+        "trial": 92,
+        "baseline_eligible_frames": 6630,
+        "baseline_log": -2.7308600411676482
+      },
+      {
+        "trial": 93,
+        "baseline_eligible_frames": 6633,
+        "baseline_log": -2.655309358517548
+      },
+      {
+        "trial": 94,
+        "baseline_eligible_frames": 6540,
+        "baseline_log": -2.730941010512615
+      }
+    ]
+  },
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-f-bin-variants-2026-10-14.html",
+    "sha256": "d374a348e779b91953a2fc609b60bfe044e27bd192c040a5d098bc68ffcfe95a"
+  },
+  "data": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-f-bin-variants-2026-10-14.csv",
+    "sha256": "5ffc2551fb2dbd4b490ffd469b759a4ad9b92c4f2a863d08143e3e7093e6ebc7"
+  },
+  "legend_association": {
+    "scope": "F per variant",
+    "source": "version-bound inline legends in comparison HTML",
+    "texts": {
+      "1": "F. Delay fish 20221115_07; trials 1\u201390 (acquisition 5\u201394). Natural-log legacy distal angular vigor, original movement eligibility and cadence timing. Baseline [\u221215,0) s. No amplitude scaling or numerical clipping. Same managua_r colour scale \u00b10.25; black means missing or ineligible. CS/US guides, phase boundaries and illustrative arrows retained. Current reference: median eligible original log frames in each 1 s bin; subtract the median of finite baseline-bin medians, each bin one vote.",
+      "0.5": "F. Delay fish 20221115_07; trials 1\u201390 (acquisition 5\u201394). Natural-log legacy distal angular vigor, original movement eligibility and cadence timing. Baseline [\u221215,0) s. No amplitude scaling or numerical clipping. Same managua_r colour scale \u00b10.25; black means missing or ineligible. CS/US guides, phase boundaries and illustrative arrows retained. Median eligible original log frames in each 0.5 s bin; subtract the median of finite baseline-bin medians, each bin one vote. Bin width is the only scientific change.",
+      "0.25": "F. Delay fish 20221115_07; trials 1\u201390 (acquisition 5\u201394). Natural-log legacy distal angular vigor, original movement eligibility and cadence timing. Baseline [\u221215,0) s. No amplitude scaling or numerical clipping. Same managua_r colour scale \u00b10.25; black means missing or ineligible. CS/US guides, phase boundaries and illustrative arrows retained. Median eligible original log frames in each 0.25 s bin; subtract the median of finite baseline-bin medians, each bin one vote. Bin width is the only scientific change.",
+      "bouts": "F. Delay fish 20221115_07; trials 1\u201390 (acquisition 5\u201394). Natural-log legacy distal angular vigor, original movement eligibility and cadence timing. Baseline [\u221215,0) s. No amplitude scaling or numerical clipping. Same managua_r colour scale \u00b10.25; black means missing or ineligible. CS/US guides, phase boundaries and illustrative arrows retained. Each named bout\u2019s median eligible original log frames is displayed over its eligible sample intervals, preserving gaps. For the baseline median, repeat the bout median at every eligible baseline timepoint: one vote per eligible frame, so longer eligible bout periods contribute more. Only the part inside the baseline contributes. Non-bout timepoints remain excluded. Unfrozen scientific draft."
+    }
+  },
+  "active_assembly_changed": false,
+  "frozen": false,
+  "visual_review": {
+    "status": "passed",
+    "evidence": "Browser rendering of exact comparison page inspected: four F-only views with shared colourbar, unchanged guides/axes/arrows, finer fixed bins and sparse bout intervals; no clipping."
+  }
+}

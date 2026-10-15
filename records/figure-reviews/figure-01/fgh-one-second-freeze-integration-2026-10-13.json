@@ -1,0 +1,300 @@
+{
+  "F_raster_png_sha256": "81315704aee3783bac637eacb8998796cdeb149b8cc746d9eeb5d36bcf4a837f",
+  "frozen_svg_sha256": "02bfbfb922c8a2f629d8cd5af8081f5d87127bd909bec6c640269f69dd87160d",
+  "bands": [
+    {
+      "acquisition_trial": 9,
+      "display_trial": 5,
+      "cells": 40,
+      "rgba_sha256": "350379a211fb57b2d7d6629b505cedb8d8c852a3cd53a37a9306ffd6f2184150",
+      "values_sha256": "c847f9d4b4ae48454123ff8379f92a69ac3232db551db33a0b2a2fe2fff7e1ed"
+    },
+    {
+      "acquisition_trial": 17,
+      "display_trial": 13,
+      "cells": 40,
+      "rgba_sha256": "9fae5d563c15cd156c765f972b88933f18560e11d11606ee5eae2fc4433a09f7",
+      "values_sha256": "0cead47bbcf5146044ddc72ba3c57088d5257cc32d1aad0fe196eb08a39455b3"
+    },
+    {
+      "acquisition_trial": 63,
+      "display_trial": 59,
+      "cells": 40,
+      "rgba_sha256": "c6b550c74126602b3b11c876e94d27f431f552d6bc905690b47ef1c7e5fb290c",
+      "values_sha256": "bb6d6850336a06c72bcffa7e3782e9117fc7e9dbfdb960e154cf1f553ed31520"
+    },
+    {
+      "acquisition_trial": 66,
+      "display_trial": 62,
+      "cells": 40,
+      "rgba_sha256": "c4c814e611751228bbd297814e71701b2ebbb6d48b4090d580a852dd3351fe58",
+      "values_sha256": "b1090e3c2090891ece71975c0b2899aef4ab3afbd2480b2194bdd559cf3e24d8"
+    },
+    {
+      "acquisition_trial": 93,
+      "display_trial": 89,
+      "cells": 40,
+      "rgba_sha256": "f71885305b736eba22def7278b47bf393baf9ef940815c75b5091ff03dc521af",
+      "values_sha256": "ec730ddbf6b2db83a1d2c38277f9f6eb1fff564ea73ee5a357f60c1c9d15799e"
+    }
+  ],
+  "range": [
+    -0.25,
+    0.25
+  ],
+  "ticks": [
+    -0.25,
+    0,
+    0.25
+  ],
+  "palette": "managua_r",
+  "zero": 0,
+  "E_black_trace_changed": false,
+  "D_changed": false,
+  "FGH_display_trials": [
+    1,
+    90
+  ],
+  "source": {
+    "figure_id": "fig1",
+    "panel_ids": [
+      "f",
+      "g",
+      "h"
+    ],
+    "status": "author-frozen",
+    "selected_version": "1s-direct-log-medians-managua-r",
+    "freeze_scope": "F/G/H only; not whole Figure 1",
+    "scientific_definition": {
+      "metric": "legacy_distal_angular_speed_rad_per_ms",
+      "eligibility": "finite positive valid adjacent detected-bout frames",
+      "frame_transform": "natural log",
+      "bin_width_s": 1,
+      "bin_estimator": "median of eligible original log frames",
+      "baseline_s": [
+        -15,
+        0
+      ],
+      "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+      "centre": "bin_log_vigor-baseline_log_vigor",
+      "scale": "none",
+      "minimum_finite_baseline_bins": 1,
+      "units": "natural-log vigor difference",
+      "numeric_clipping": false,
+      "colour_limits": [
+        -0.25,
+        0.25
+      ],
+      "missing": "NaN black; entire trial undefined without baseline data",
+      "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+      "statistical_inference": "none; descriptive examples"
+    },
+    "fish": {
+      "F": "20221115_07",
+      "G": "20230519_11",
+      "H": "20221115_09"
+    },
+    "svg": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-candidate.svg",
+      "sha256": "02bfbfb922c8a2f629d8cd5af8081f5d87127bd909bec6c640269f69dd87160d"
+    },
+    "data": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-figure-01-one-second-medians-cyan-palettes-2026-10-13.csv",
+      "sha256": "4e826a1efbe7075aa1d9e5ca9e61307735093cd6139e0bd3e7068f2b6ee8c053"
+    },
+    "freeze_manifest": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/manifests/freeze.json",
+      "sha256": "d5f9c8fd440db4227226c093b3781411450b44a6e2c915e00a5aeba2ca5d7dbe"
+    },
+    "author_instruction": "Author, 2026-10-13: great. freeze this last version. adapt to include in figure 1 (add the CS green lines, etc). Scope: approved F/G/H 1 s median managua_r review; whole figure not frozen.",
+    "assembly_scale": {
+      "final_width_mm": 183,
+      "final_height_mm": 78,
+      "scope": "assembled F/G/H row; whole Fig1 not frozen",
+      "source_to_final_transforms": {
+        "root_user_unit_to_final_pt": 1.0000000009259262,
+        "svg_transforms": [
+          {
+            "element_id": "fig1__f__heatmap__vigor-cells",
+            "transform": "scale(1 -1) translate(0 -165.84)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 46.686614 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 103.748031 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 160.809449 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 103.748031 213.212493)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 30.112996)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 46.695674)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 65.12087)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 83.546067)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 101.971264)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 120.396461)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 138.821658)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 157.246855)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 175.672052)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 41.686614 194.097248)"
+          },
+          {
+            "element_id": null,
+            "transform": "translate(16.93972 42.102382) rotate(-90)"
+          },
+          {
+            "element_id": null,
+            "transform": "translate(16.93972 100.615472) rotate(-90)"
+          },
+          {
+            "element_id": null,
+            "transform": "translate(16.93972 172.59751) rotate(-90)"
+          },
+          {
+            "element_id": "fig1__g__heatmap__vigor-cells",
+            "transform": "scale(1 -1) translate(0 -165.84)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 184.152756 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 241.214173 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 298.275591 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 241.214173 213.212493)"
+          },
+          {
+            "element_id": "fig1__h__heatmap__vigor-cells",
+            "transform": "scale(1 -1) translate(0 -165.84)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 321.618898 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 378.680315 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 435.741732 202.677961)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 378.680315 213.212493)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 177.330319)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 112.105122)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 46.879926)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-90 505.28118 109.445669)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 28.530709 14.4778)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 103.748031 13.925925)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 103.748031 21.892737)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 165.99685 14.4778)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 241.214173 13.925925)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 241.214173 21.892737)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 303.462992 14.4778)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 378.680315 13.925925)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 378.680315 21.892737)"
+          }
+        ]
+      }
+    }
+  },
+  "active_svg_sha256": "9a0327fda42e17e0aa73d4e9d6b1b1b53d97cb829b4874e63c2d521b2f8da24e",
+  "active_html_sha256": "e9844ca4c9176fc8b241af1be4d1232c60b96314c5515ffdcbb1b3fdecbb442d",
+  "preserved_panels": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "E_black_trace_preserved": true,
+  "visual_review": {
+    "status": "passed",
+    "evidence": "Inspected exact integrated SVG rendering: A\u2013D preserved; E black traces preserved with 40-cell matching F bands and \u00b10.25 colorbar; F\u2013H fit the existing assembly, with CS/US guides, phases and Delay arrows; no clipping."
+  },
+  "current_registry_reconciled": true,
+  "colorbar_antialias_seams_removed_in_working_display": true
+}

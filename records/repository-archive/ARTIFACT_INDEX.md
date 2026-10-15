@@ -3592,11 +3592,11 @@ All 2,050 inventoried payloads were verified on JOAQUIM and their local original
 
 <a id="artifact-f2c177a992fb"></a>
 
-`outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json` — `cd69fcdcaac7b2057426ed738b7422ed8fda1c6ecc410ee8d7f4604971d6199c`; 22335 bytes; verified external archive.
+`outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json` — `cd69fcdcaac7b2057426ed738b7422ed8fda1c6ecc410ee8d7f4604971d6199c`; 22335 bytes; author-requested deletion, 2026-10-15 ([disposition](figure3-legacy-only-20261015/disposition.json)); historical identity retained, payload unavailable.
 
 <a id="artifact-752027f15636"></a>
 
-`outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png` — `64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693`; 506232 bytes; verified external archive.
+`outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png` — `64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693`; 506232 bytes; author-requested deletion, 2026-10-15 ([disposition](figure3-legacy-only-20261015/disposition.json)); historical identity retained, payload unavailable.
 
 <a id="artifact-ef493e11015d"></a>
 

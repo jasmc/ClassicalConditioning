@@ -8,3 +8,5 @@
 | [Panel G](panel-g/README.md) | Selected Historical LogMedian manifest and scientific selection |
 
 A shared D/E folder identifies joint provenance, not another independent freeze. Whole-figure assembly approval and remaining panels are not inferred from these records.
+
+[A scoped freeze and previous versions](panel-a/README.md): current compact pair within the six-heatmap row; no B/C or whole-figure freeze.

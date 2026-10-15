@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "reviewed_utc": "2026-10-14T17:38:57.625406+00:00",
+  "status": "review_complete_with_unresolved_findings",
+  "review": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md",
+    "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca"
+  },
+  "run_directory": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01",
+  "scope": "independent G prototype; no selected G/state/cohort/numerical changes",
+  "tests": {
+    "command": "PYTHONPATH=src .venv/bin/python -m unittest discover -s tests -p 'test_panel_g_independent_review.py' -v",
+    "passed": 9,
+    "failed": 0,
+    "statistical_validation_implied": false
+  },
+  "current_sources": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_figure2_g_independent.py",
+      "sha256": "515b1b932f4ab79dc450da6427bc6ebb72f289eaf8a50a92b6ad99f8fc5d6ac0"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/test_panel_g_independent_review.py",
+      "sha256": "2470d74a3e1ecc0212517e7df9e4c9bfc796c49503f3b6893dccb105b54557af"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_companions.py",
+      "sha256": "052d1554ff6cfaa1f7f917db2cb3c62a808d8d6a0ade867172761d103ca47f24"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_individual.py",
+      "sha256": "d056a290ec5e64900b00483bd5b9b6a0b26c7e72bcf61299e3f5eaf70523bd80"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_missingness.py",
+      "sha256": "768e624d33205b8f5ee5835fa4868b928e42335f989bb7e07506f4a6b844c59b"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_review.py",
+      "sha256": "d5c4781a9542a9b4ecf9bac319312807db285ce83d54143387c0a9baf30b8b01"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_review_extensions.py",
+      "sha256": "9be524f1d27bbf5d518133ea0cd565cb7538e15e306a2b218746d55a73b92704"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_review_visuals.py",
+      "sha256": "37c51cf6d2343dd145b3f1fdaca6a1e567a7a04cbef8c9eb10cd5bd7fdbbb71e"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_sensitivities.py",
+      "sha256": "8127c9f99cf3f0cab95fe8de2b29e7086cb176e62ea0bc0bd2d7859bf77354b7"
+    }
+  ],
+  "inspected_run_artifacts": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/artifact-manifest.json",
+      "sha256": "9efba74aad38e445adc0f38606173bddd1eeec7a4cdd7b8eda633d63493ed1b3"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/run-config.json",
+      "sha256": "6fad6ed6c99aa15d7673d41847e7c184dbdb8ccb7a1b04259777a8b56a6d0e66"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/protected-originals.json",
+      "sha256": "a29373c4632c5e5431eafd123cebbbda6ae40930e3f328b94a31848027fb51a2"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/input-verification.json",
+      "sha256": "eaec5763d3765d4a85a0c410c40e9f09826a221a1961eabe7dc442814e58be58"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/final-input-verification.json",
+      "sha256": "03d273290f9933265ea97c7eaf566eedf7578e3600adf2aa64787fd870731ffc"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/individual-timing-candidates.csv",
+      "sha256": "647e5f134e6bcf557b5969920804c7ef685499e2113a612480d5afb6dfa4335f"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/individual-observed-run-first-attempt.csv",
+      "sha256": "fc9c384a6551e21dbbfd6d7260aef8de0735ee6270682e86af23f2f1c09aad4c"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/calibration-pilot.csv",
+      "sha256": "c1a0cafff2c803cbcef734f1e03bedae9c9abf507a60fb59b54e0e3c28c56ef2"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/individual-calibration-pilot.csv",
+      "sha256": "63a681d7222cb27ca94062fb4c6e19da3c47e93eae053b27359639773f5618c6"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/report-complete.json",
+      "sha256": "91eb10f68bf0d73e87b2a28ed8d97aef14a951bc06429d0d677d56ef485714f2"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/review.html",
+      "sha256": "72446d020053b80f22cce648889ca97f2797158757a3e15c69e2ecc6495dccca"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/difference/result.json",
+      "sha256": "b9267c7e46097320dbc2712fc1012b53d577e17b57a8a150dedc889c0fccbc52"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/difference/planned-phase-contrasts.csv",
+      "sha256": "90a09a73dcef093e26eab936491658b61fbd2eae4ad3381c88c982ba3baa1164"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/difference/random-effects-sensitivity.json",
+      "sha256": "662c385013171537eca9564aaf1d1f05f00fbe072b6f4b03e7de42fd6c3af3d6"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/difference/leave-one-fish-out.csv",
+      "sha256": "93eeaf4a7afddbd8c60d076ca3a9ba37a1ba931768f83c93b0d9c01235664616"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/adjusted_response/result.json",
+      "sha256": "64df604ab1c650a8db62e983b956435c235e8889e0840365ba2e92172efbc0e8"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/adjusted_response/planned-phase-contrasts.csv",
+      "sha256": "c19e5086e4148b4abb44873620a58e02e2024e8b9b6bf43e2eca9c447e3dc21b"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/adjusted_response/random-effects-sensitivity.json",
+      "sha256": "4be349ef155ac00b0deab50cde03cfe820177388171dc2ed4332b4968d9d6088"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/adjusted_response/leave-one-fish-out.csv",
+      "sha256": "8ad807551d066ad127e718f9cfc3348c4d712111ee83cc6f25d85a7e2ac96c60"
+    }
+  ],
+  "protected_originals": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+      "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "verified_unchanged": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/freeze.json",
+      "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+      "verified_unchanged": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/scientific-selection.json",
+      "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+      "verified_unchanged": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/selected-source-inventory.json",
+      "sha256": "899f900a20c5e2b070887a82aceea715aa422f7eaa42aa2d1513c8eeeafc92b8",
+      "verified_unchanged": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.svg",
+      "sha256": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979",
+      "verified_unchanged": true
+    }
+  ],
+  "legacy_sources": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure1_heatmap_20261007/history/2026-02-14_1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py",
+      "sha256": "7f6b27d82da0568b3cb911e83178c24729a9bf82b979a954b3631ba2f54281fd",
+      "transfer_inventory_match": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure1_heatmap_20261007/history/2026-03-24_1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py",
+      "sha256": "7f6b27d82da0568b3cb911e83178c24729a9bf82b979a954b3631ba2f54281fd",
+      "transfer_inventory_match": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure2_def_legacy_log_audit_20261009/2026-02-14/5_NormalizedVigorPlotting_LogMedian.py",
+      "sha256": "ba957a2d96442e646eb30c2cdc7e20e0a450d7d1c7f947f6979b22510a5f6dac",
+      "transfer_inventory_match": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure2_def_legacy_log_audit_20261009/2026-03-24/5_NormalizedVigorPlotting_LogMedian.py",
+      "sha256": "ba957a2d96442e646eb30c2cdc7e20e0a450d7d1c7f947f6979b22510a5f6dac",
+      "transfer_inventory_match": true
+    }
+  ],
+  "findings": {
+    "population_band_coverage_failures": 8,
+    "individual_point_estimates_changed_by_corrected_rule": 33,
+    "individual_10pct_point_estimates_changed": 8,
+    "individual_validation_matches_final_rule": false,
+    "difference_failed_leave_one_fish_out_fits": 2,
+    "difference_US_overlap_sensitivity_passed": false,
+    "manifest_mismatches": [
+      "report-complete.json"
+    ],
+    "failed_full_target_reproduction": "FileNotFoundError: missing bootstrap-failures.json",
+    "full_input_hash_sweep_repeated_in_this_review": false,
+    "paper_inference_approved": false
+  }
+}

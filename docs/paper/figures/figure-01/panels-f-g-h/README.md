@@ -1,15 +1,5 @@
 # Figure 1 F/G/H
 
-The accepted V12 scope is joint. Frozen code and definitions stay in the joint record; no independent per-panel freeze is created.
+Current scoped freeze: 2026-10-13, 1 s direct natural-log frame medians; subtract the median of finite baseline-bin medians over [-15,0), no amplitude scaling. Native managua_r, limits ±0.25, zero midpoint, black missing values. Fish: Delay 20221115_07, Trace 20230307_12, Control 20221115_09. One finite baseline bin suffices; all 90 baseline references are defined in each fish.
 
-Use the owning [figure overview](../README.md), [review](../review.md) and [scoped selection index](../../../../../records/frozen-analyses/selections.md).
-
-## Frozen scientific definition
-
-E preserves the selected raw traces and exact V12 heatmap rows. F/G/H use finite, positive, valid adjacent detected-bout frames, transformed by natural log. Each left-inclusive/right-exclusive 0.5 s bin is the median of eligible original log frames. The baseline is the median of finite bin medians over **[-15,0) s**, with each bin one vote. If `d` is the bin value minus that baseline, the frozen normalization is:
-
-```text
-z = 0.7 * d / max(-P10(d_baseline), P90(d_baseline))
-```
-
-At least ten finite baseline bins are required. Insufficient/collapsed baselines remain missing; there is no numerical clipping. Display limits are −1…+1 with NaNs black. These descriptive heatmaps use the frozen authenticated cadence-reconstructed timing and original movement-mask recipe. Cleanup does not replace that timing with a new reconstruction or add smoothing. E's raw vigor remains in rad/ms; its heatmap rows retain the separate frozen dimensionless scale.
+[Selection](../../../../../configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). E’s working color bands copy exact frozen F rows; its black traces remain a separate draft. Historical V12 is preserved. This freeze covers F/G/H only.

@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-13T09:33:59.435022+02:00",
+  "scope": "Figure 1 HTML display only",
+  "previous_review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.html",
+    "sha256": "492deb58844f4b91bb2f92d7c4d2836f320f86457eedd0118bdf35e63b556334"
+  },
+  "working_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.svg",
+    "sha256": "db5b4852d4e1da458b850dce8793ad168263a968dafa1403e416bf0260afbcd9",
+    "source_svg_sha256": "0b7b0f25743531d3f3d32510b34b7f12d3b668f950b3adbd1246462d7626b2c4"
+  },
+  "new_review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-working-v10.html",
+    "sha256": "d8a8f38d3f1ec09dde55dcf788982ef4d2bb84a05ae82067df068f7aa37af500"
+  },
+  "checks": {
+    "Figure1_selected_payload_identical": true,
+    "Figure1_original_payload_removed": true,
+    "Figure1_version_controls_removed": true,
+    "Figure2_section_identical": true,
+    "SVG_unchanged": true
+  },
+  "historical_review_disposition": "preserved as historical evidence; not active review"
+}

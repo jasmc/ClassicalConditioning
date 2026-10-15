@@ -1,0 +1,19 @@
+{
+  "archived_freeze": {
+    "valid": true,
+    "elements": 161,
+    "issues": []
+  },
+  "selected_freeze": {
+    "valid": true,
+    "elements": 161,
+    "issues": []
+  },
+  "previous_local_manifest_alias": {
+    "original": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/manifests/freeze.json",
+    "resolved": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-13-one-second-managua/manifests/freeze.json",
+    "sha256": "d5f9c8fd440db4227226c093b3781411450b44a6e2c915e00a5aeba2ca5d7dbe"
+  },
+  "working_figure_authenticated": true,
+  "archived_files": 53
+}

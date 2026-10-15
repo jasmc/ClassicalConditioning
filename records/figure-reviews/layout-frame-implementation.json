@@ -1,0 +1,498 @@
+{
+  "activation": {
+    "historical_evidence": "Calibration reports retain their original policy hashes; future candidates require fresh evidence against the active policy",
+    "policy": "configs/paper-figures/layout-frames.json",
+    "scope": "future outputs; existing drafts not converted",
+    "status": "active"
+  },
+  "calibration": {
+    "evidence_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/layout-frame-calibration-evidence.json",
+    "evidence_sha256": "e114fb122d00834f25ee4840db6dd37e57fce8d7388613e1019a90ef9df93bb6",
+    "manifest_sha256": "ece2f67b68040087e5d4778de8ca0108079eec7a1ae09996cf15b5f595fdc956",
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/layout-frame-calibration.html",
+    "sha256": "9d378a0f1192da68bc40ca8d07fb93d455fa51c784e0994e830789fcc3b3e998",
+    "status": "six presets verified under the pre-activation policy; author selected 1.0 mm on 2026-10-15"
+  },
+  "concurrent_changes_detected": [
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html"
+  ],
+  "current_drafts": "not converted; concurrent changes detected separately",
+  "date": "2026-10-15",
+  "direct_export_routes": [
+    {
+      "path": "scripts/render_figure2_delay_logmedian.py",
+      "savefig_lines": [
+        163,
+        184
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/render_figure2_3strace_legacy_layout.py",
+      "savefig_lines": [
+        87,
+        114
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/review_figure2_block_log_median.py",
+      "savefig_lines": [
+        225,
+        252,
+        253
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/prepare_figure1_fgh_v12_freeze.py",
+      "savefig_lines": [
+        185,
+        188,
+        189
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/audit_figure1_legacy_cadence.py",
+      "savefig_lines": [
+        112,
+        112
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/plot_train_test_transition_metrics.py",
+      "savefig_lines": [
+        84,
+        85
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/build_figure2_heatmap_row.py",
+      "savefig_lines": [
+        139,
+        140
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/audit_figure1_vigor_alignment.py",
+      "savefig_lines": [
+        99,
+        99
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/render_figure2_delay_phase_lmm.py",
+      "savefig_lines": [
+        132,
+        214
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/render_figure2_delay_legacy_metric_lme.py",
+      "savefig_lines": [
+        179,
+        349
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/prepare_figure2_B_freeze.py",
+      "savefig_lines": [
+        171,
+        176
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+      "savefig_lines": [
+        101,
+        103
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/populate_figure2_available.py",
+      "savefig_lines": [
+        171,
+        172
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/render_figure1_best_learners_version08.py",
+      "savefig_lines": [
+        172
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/prepare_figure1_historical_fgh_freeze.py",
+      "savefig_lines": [
+        153,
+        156,
+        157
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/audit_figure1_camera_gaps.py",
+      "savefig_lines": [
+        106,
+        106
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+      "savefig_lines": [
+        102,
+        126,
+        126
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "scripts/plot_metric_response_magnitude.py",
+      "savefig_lines": [
+        66,
+        67
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "src/classical_conditioning/intake.py",
+      "savefig_lines": [
+        740,
+        783,
+        823
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learner_controls.py",
+      "savefig_lines": [
+        116,
+        117
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learner_worker.py",
+      "savefig_lines": [
+        82,
+        87
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "src/classical_conditioning/figures/export.py",
+      "savefig_lines": [
+        314,
+        317
+      ],
+      "status": "frame-aware opt-in"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/trace_review.py",
+      "savefig_lines": [
+        597
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_review_visuals.py",
+      "savefig_lines": [
+        14
+      ],
+      "status": "direct export; adapter/mapping required"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_review_extensions.py",
+      "savefig_lines": [
+        412
+      ],
+      "status": "direct export; adapter/mapping required"
+    }
+  ],
+  "limitations": [
+    "Direct writers and specialised Figure 2\u20134 builders require explicit adapters/ownership before future compliant publication",
+    "Browser containment does not establish scientific meaning or aesthetic approval",
+    "Frame-aware static PNG-only export is rejected: use a publication SVG to establish exact saved-artifact evidence"
+  ],
+  "policy": "configs/paper-figures/layout-frames.json",
+  "renderer_regression": {
+    "passed": 9,
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/layout-frame-renderer-evidence.json",
+    "sha256": "f7f3d4f8c0fcef91cdbda10d3de391125a49fb08c49fae52568d74b78d2d89aa"
+  },
+  "status": "implemented; author-selected 1.0 mm policy active",
+  "supported": [
+    "generic SVG assembler (explicit opt-in)",
+    "shared Matplotlib publication exporter (explicit opt-in)",
+    "Figure 1 review builder explicit metadata; measured_presentation reports incomplete evidence"
+  ],
+  "svg_writer_candidates": [
+    {
+      "path": "scripts/render_figure1_historical_fish_one_second.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        73,
+        74
+      ]
+    },
+    {
+      "path": "scripts/publish_figure2_heatmap_row.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        48,
+        72,
+        73,
+        76,
+        105
+      ]
+    },
+    {
+      "path": "scripts/build_figure2_assembly.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        127,
+        162
+      ]
+    },
+    {
+      "path": "scripts/prepare_figure1_fgh_v12_freeze.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        35,
+        201,
+        252,
+        267
+      ]
+    },
+    {
+      "path": "scripts/update_figure2_panel_a_freeze.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        12,
+        25,
+        30,
+        51,
+        53
+      ]
+    },
+    {
+      "path": "scripts/build_figure1_panel_a.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        35
+      ]
+    },
+    {
+      "path": "scripts/layout_figure2_compact_rows.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        101,
+        102,
+        105,
+        105,
+        116,
+        118
+      ]
+    },
+    {
+      "path": "scripts/style_figure2_placeholders.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        40,
+        42,
+        46,
+        47,
+        61,
+        63
+      ]
+    },
+    {
+      "path": "scripts/build_figure2_heatmap_row.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        22,
+        44,
+        145,
+        148,
+        158,
+        159
+      ]
+    },
+    {
+      "path": "scripts/publish_figure1_fgh_one_second.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        165,
+        166,
+        169
+      ]
+    },
+    {
+      "path": "scripts/prepare_figure1_panel_e_current_freeze.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        10,
+        15,
+        15,
+        75,
+        94,
+        100
+      ]
+    },
+    {
+      "path": "scripts/prepare_figure2_B_freeze.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        48
+      ]
+    },
+    {
+      "path": "scripts/build_figure1_panel_c.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        257
+      ]
+    },
+    {
+      "path": "scripts/assemble_svg_figure.py",
+      "status": "supported explicit adapter",
+      "write_call_lines": [
+        527,
+        537,
+        571
+      ]
+    },
+    {
+      "path": "scripts/build_figure1_panel_b.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        400
+      ]
+    },
+    {
+      "path": "scripts/build_figure2_pooled_heatmaps.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        32,
+        189,
+        193,
+        196,
+        197
+      ]
+    },
+    {
+      "path": "scripts/populate_figure2_available.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        46
+      ]
+    },
+    {
+      "path": "scripts/check_layout_frames.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        96
+      ]
+    },
+    {
+      "path": "scripts/build_figure1_fgh_version_comparison.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        218
+      ]
+    },
+    {
+      "path": "scripts/build_figure1_legacy_vigor_heatmaps.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        265,
+        276
+      ]
+    },
+    {
+      "path": "scripts/prepare_figure1_historical_fgh_freeze.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        22,
+        34,
+        55,
+        58,
+        167,
+        173
+      ]
+    },
+    {
+      "path": "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        35,
+        203
+      ]
+    },
+    {
+      "path": "scripts/update_latest_figure_assemblies.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        115
+      ]
+    },
+    {
+      "path": "scripts/build_figure_legend_review.py",
+      "status": "supported explicit adapter",
+      "write_call_lines": [
+        950
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figure_freeze.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        618
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/export.py",
+      "status": "supported explicit adapter",
+      "write_call_lines": [
+        238,
+        454
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_review_visuals.py",
+      "status": "direct SVG writer candidate; explicit mapping/integration required",
+      "write_call_lines": [
+        51
+      ]
+    }
+  ],
+  "verification": {
+    "browser_scenarios_passed": 9,
+    "calibration_presets_passed": 6,
+    "frozen_and_selection_bytes": "All files captured under records/frozen-analyses and configs/paper-figures/selections match the starting snapshot; only concurrent presentation states/working pairs changed",
+    "latest_affected_regression_tests_passed": 45,
+    "latest_frame_tests_passed": 12,
+    "python_tests_passed": 83,
+    "wider_checks": {
+      "figure_legend_review": "Two pre-existing failures in grid label names and protocol-row offsets; unrelated code left intact",
+      "repository_structure": "Pre-existing broken plan/backlog links, preserved-byte warnings and scientific registry/state disagreements; no new active-link issue from this implementation."
+    }
+  }
+}

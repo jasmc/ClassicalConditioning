@@ -1,8 +1,11 @@
 # Figure 1: Protocol and individual behavioral examples
 
-A–D, E and F/G/H V12 have accepted scoped freezes. The whole figure is not frozen.
+A–D, E and F/G/H 1 s medians (2026-10-13) have accepted scoped freezes. The whole figure is not frozen.
 
-Author selection on 2026-10-13: v10 is the sole working SVG and default display.
+Author selection on 2026-10-13: v10 is the sole working version. Show its
+minimal HTML with only its SVG and associated legend by default for annotation;
+retain the matching SVG
+as the editable figure artifact and open it on request.
 It remains an unfrozen draft; previous standalone working copies were removed
 by author instruction. Historical reviews and frozen scientific sources remain preserved.
 
@@ -18,7 +21,7 @@ Scientific authority: [scoped selection index](../../../../records/frozen-analys
 
 A shows preparation/illumination; B shows the four within-trial contingencies; C shows the session timeline; D shows the selected measured tail-angle traces. Their accepted source bytes come from the retained A–D freeze. Older approval dates alone do not make those panels obsolete.
 
-E retains its selected raw traces and linked V12 heatmap rows. The joint [F/G/H definition](panels-f-g-h/README.md#frozen-scientific-definition) owns their processing, eligibility, normalization and display units. The active D/E draft has a separately recorded scientific change; use [state](current-state.json) rather than treating its recomputed E values as frozen.
+E’s scoped 2026-10-13 freeze uses unbinned raw-baseline-scaled black traces (0–5) and exact rows from the selected frozen F heatmap. The joint [F/G/H definition](panels-f-g-h/README.md#frozen-scientific-definition) owns their processing, eligibility, normalization and display units. E’s current scientific definition is accepted by its separate scoped freeze; D and whole-figure draft changes remain separately recorded in [state](current-state.json).
 
 ## Panel composition
 
@@ -30,7 +33,9 @@ These roles describe the paper composition; proposed panels have no accepted fre
 | B | within-trial CS–US protocol contingencies: Delay, 3sTrace, 10sTrace and unpaired control |
 | C | across-session protocol, phase trial counts and US pulse durations |
 | D | representative measured tail angle for selected fish and trials |
-| E | matching raw frame vigor trace with exact selected V12 heatmap rows on a separate axis |
-| F | Delay single-fish V12 baseline-spread normalized bout-log heatmap |
-| G | 3sTrace single-fish V12 baseline-spread normalized bout-log heatmap |
-| H | unpaired-control single-fish V12 baseline-spread normalized bout-log heatmap |
+| E | matching frozen frame-vigor with exact selected 1 s F heatmap rows on a separate color scale |
+| F | Delay single-fish 1 s baseline-centered direct log-frame median heatmap |
+| G | 3sTrace single-fish 1 s baseline-centered direct log-frame median heatmap |
+| H | unpaired-control single-fish 1 s baseline-centered direct log-frame median heatmap |
+
+Current F/G/H selection: [1 s direct log-frame medians, managua_r](/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). The 2026-10-09 V12 source is superseded within F/G/H and remains preserved; no whole-figure freeze is inferred.

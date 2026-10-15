@@ -1,6 +1,6 @@
 # Figure 2: Population responses and inference
 
-D/E B and G LogMedian have accepted scoped freezes. A/B/C/F/H/I remain proposed.
+A, D/E B and G LogMedian have accepted scoped freezes. B/C/F/H/I remain proposed.
 
 - [Review concerns](review.md)
 
@@ -23,7 +23,7 @@ These roles describe the paper composition; proposed panels have no accepted fre
 
 | Panel | Purpose |
 |---|---|
-| A | Control versus Delay equal-fish pooled signed bout-log-vigor heatmaps, managua_r at −0.25 to +0.25 |
+| A | Control versus Delay, direct 1 s log-frame medians centred within each fish/trial, pooled with equal fish weight; managua_r at −0.25 to +0.25 |
 | B | frozen-cohort Control versus 3sTrace CS-aligned population heatmaps |
 | C | frozen-cohort Control versus 10sTrace CS-aligned population heatmaps; inconclusive |
 | D | Delay selected-block median log positive valid bout-frame response minus baseline (frozen B) |
@@ -32,3 +32,6 @@ These roles describe the paper composition; proposed panels have no accepted fre
 | G | Delay NativeHistoricalLogMedian response-minus-baseline trajectory with phase-aware LMM (scoped freeze) |
 | H | 3sTrace trial-by-trial CR ratio |
 | I | 10sTrace trial-by-trial CR ratio; inconclusive |
+
+
+Current display: [Figure 2 state](current-state.json). [A scientific definition and scoped state](panel-a/README.md). The top row contains A/B/C with two heatmaps each and one shared colourbar at the far right. A is frozen; B retains earlier data by author direction; C has two pending slots. Future B/C must follow A’s pooled pipeline and the Figure 1 F/G/H element formatting.

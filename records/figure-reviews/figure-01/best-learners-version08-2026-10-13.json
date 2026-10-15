@@ -1,0 +1,150 @@
+{
+  "status": "new-fish scientific draft; not frozen",
+  "comparison_number": 8,
+  "original_recipe": "V5 one-second direct means",
+  "panels": [
+    {
+      "fish": "20221122_03",
+      "experiment": "allDelay",
+      "cadence": {
+        "interval_ms": 1.4233471970496128,
+        "reference_position": 9709,
+        "end_position": 8364138,
+        "reference_frame_id": 1144418,
+        "missing_frame_ids": 0,
+        "buffer_capacity_exceeded": false,
+        "maximum_delay_ms": 143.80614419840276
+      },
+      "detector": {
+        "smoothing_window_ms": 10.0,
+        "envelope_max_window_ms": 28.57142857142857,
+        "envelope_min_window_ms": 571.4285714285714,
+        "envelope_threshold_deg_per_ms": 4.0,
+        "bout_amplitude_threshold_deg_per_ms": 1.0,
+        "minimum_valid_tail_fraction": 0.8,
+        "minimum_bout_duration_ms": 57.14285714285714,
+        "maximum_interbout_gap_ms": 14.285714285714285,
+        "positive_control_window_ms": 500.0,
+        "control_baseline_start_ms": -5000.0,
+        "control_baseline_end_ms": -1000.0
+      },
+      "context_ms": 5000,
+      "minimum_selected_bout_context_margin_ms": 2961.9853515625,
+      "expected_us_s": 8.998,
+      "paired_training_trials": 46,
+      "sources": {
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/camera.parquet": "342540f20a9336e56f6a38c333bcab824f7cbfd5ff5875096fa802f91ed5b6bc",
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/stimulus_events.parquet": "d083168e4cbe366314225c0f29b1ad08b41b7ff080cb70f13863503e2051ea2d",
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/frame_preprocessed_corrected-v1.parquet": "9884b7e20b5032f2803c312a4f6bb1a2e4b226a5575e1c89a7660268b901057f",
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/frame_activity_candidates-corrected-v1.parquet": "0de6169be0d2d13ef7e324fb1bbc97b5401fc5cbd89ac810651206aa256446a9",
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221122_03_source_manifest.json": "6917193745ed2404d88c59b97c97a1f1c4f18f4b8d98636087438893bbb4425c",
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221122_03_corrected-preprocess-v1_complete.json": "1faa5d15d749ed27e1c2b55c2a15b8349e69d8dda3732fd2ec51c742fa34ad3f",
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221122_03_candidate-corrected-v1_complete.json": "5ab57cd468fe9787315cb366a9baf128f2e2cfd76ad8d878fab73786f1e51531"
+      },
+      "finite_cells": 2678,
+      "defined_trials": 90,
+      "saturated_cells": 419,
+      "baseline_mean_zero_verified": true,
+      "independent_frame_bin_means_verified": true,
+      "mean_log_values_sha256": "aaeea486377ea1450b75f12548ac4487ba2f49abb840e84d5e3903cbd6324117"
+    },
+    {
+      "fish": "20230519_11",
+      "experiment": "all3sTrace",
+      "cadence": {
+        "interval_ms": 1.4233466199598879,
+        "reference_position": 2908,
+        "end_position": 8425811,
+        "reference_frame_id": 508348,
+        "missing_frame_ids": 0,
+        "buffer_capacity_exceeded": false,
+        "maximum_delay_ms": 235.8746033590287
+      },
+      "detector": {
+        "smoothing_window_ms": 10.0,
+        "envelope_max_window_ms": 28.57142857142857,
+        "envelope_min_window_ms": 571.4285714285714,
+        "envelope_threshold_deg_per_ms": 4.0,
+        "bout_amplitude_threshold_deg_per_ms": 1.0,
+        "minimum_valid_tail_fraction": 0.8,
+        "minimum_bout_duration_ms": 57.14285714285714,
+        "maximum_interbout_gap_ms": 14.285714285714285,
+        "positive_control_window_ms": 500.0,
+        "control_baseline_start_ms": -5000.0,
+        "control_baseline_end_ms": -1000.0
+      },
+      "context_ms": 5000,
+      "minimum_selected_bout_context_margin_ms": 4388.177734375,
+      "expected_us_s": 13.0,
+      "paired_training_trials": 46,
+      "sources": {
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet": "e69c0cc9059245bb57fe22a536c73beef80bdaba09cb6ae6837cc13aa554fa1f",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet": "af0eae0eba30d4b18bd261a59614eafe48dceb0979b80f1608f33cd424574044",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet": "0f2bd9aaf9c6ae44b8b8b1b2279507c1725d0b158a0c805c51c91f3e5ecd70e7",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet": "13ca3b3425bfb90309f271ed5455bb3da751eadd369fb6568a985fa00b3be10b",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json": "8fe7775319aaabd71b2d33fcd35c804d95cb062c69de3937fc7ac60d6d2ac699",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json": "43c4d7644139422979d303736225267f1ebee8a392fc631ad9b2091e779b51f7",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json": "3ad1470d66f5a46d2daf7c1c2e859ebbefd5fcb17697f6fa544adf5d2a8afb27"
+      },
+      "finite_cells": 1446,
+      "defined_trials": 87,
+      "saturated_cells": 451,
+      "baseline_mean_zero_verified": true,
+      "independent_frame_bin_means_verified": true,
+      "mean_log_values_sha256": "7ee64f4154fd803be3a5f3e6be54be04b2d14e34e014696425f758e5e7887dac"
+    }
+  ],
+  "bin_width_s": 1,
+  "baseline_s": [
+    -20,
+    0
+  ],
+  "bin_estimator": "arithmetic mean of eligible positive frame natural-log vigor",
+  "baseline_estimator": "arithmetic mean of finite baseline-bin means; one vote per bin",
+  "percentile_scaling": false,
+  "numerical_clipping": false,
+  "colour_limits": [
+    -0.25,
+    0.25
+  ],
+  "palette": "managua_r",
+  "trial_mapping": "acquisition minus 4; acquisition 5\u201394 maps to displayed 1\u201390",
+  "timing": "accepted legacy cadence reconstruction, anchored to camera arrival reference",
+  "source_snapshot": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/fgh-version-numbering-2026-10-13.json": "9bf8fb7b6f6725ccb5bca590f2ac2bff6231fa3f9eccb474ee01be484c24fe31",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_best_learners_version08.py": "451fb3e6b447eee9ac2739e0b4f6797c050d65bed4ea37d1bd34b331436880e7",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_colour_binning_candidates_20261009/FGH_Version5_DirectBinMeans_legacy_layout.svg": "9d0a3c1a808494f15b440cb2fd7befbd46ab746f016d14a46289b2db1dbe4aff",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.json": "d3f275a014af052042239c65d90f3e1eeed371cc75819c3b2433b010286872cc",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.npz": "6f27022c0672a01e9bd35bb26440d7665e684319b5fe5e4de2c17413eb24e003",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.parquet": "bc9e5fcf5a786262758f1ea6bca677510955dacb78cfea89b302e8d57a3b2b14",
+    "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/camera.parquet": "342540f20a9336e56f6a38c333bcab824f7cbfd5ff5875096fa802f91ed5b6bc",
+    "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/stimulus_events.parquet": "d083168e4cbe366314225c0f29b1ad08b41b7ff080cb70f13863503e2051ea2d",
+    "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/frame_preprocessed_corrected-v1.parquet": "9884b7e20b5032f2803c312a4f6bb1a2e4b226a5575e1c89a7660268b901057f",
+    "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221122_03/frame_activity_candidates-corrected-v1.parquet": "0de6169be0d2d13ef7e324fb1bbc97b5401fc5cbd89ac810651206aa256446a9",
+    "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221122_03_source_manifest.json": "6917193745ed2404d88c59b97c97a1f1c4f18f4b8d98636087438893bbb4425c",
+    "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221122_03_corrected-preprocess-v1_complete.json": "1faa5d15d749ed27e1c2b55c2a15b8349e69d8dda3732fd2ec51c742fa34ad3f",
+    "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221122_03_candidate-corrected-v1_complete.json": "5ab57cd468fe9787315cb366a9baf128f2e2cfd76ad8d878fab73786f1e51531",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet": "e69c0cc9059245bb57fe22a536c73beef80bdaba09cb6ae6837cc13aa554fa1f",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet": "af0eae0eba30d4b18bd261a59614eafe48dceb0979b80f1608f33cd424574044",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet": "0f2bd9aaf9c6ae44b8b8b1b2279507c1725d0b158a0c805c51c91f3e5ecd70e7",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet": "13ca3b3425bfb90309f271ed5455bb3da751eadd369fb6568a985fa00b3be10b",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json": "8fe7775319aaabd71b2d33fcd35c804d95cb062c69de3937fc7ac60d6d2ac699",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json": "43c4d7644139422979d303736225267f1ebee8a392fc631ad9b2091e779b51f7",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json": "3ad1470d66f5a46d2daf7c1c2e859ebbefd5fcb17697f6fa544adf5d2a8afb27"
+  },
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13.html",
+    "sha256": "a68888a0db3809dba0405e40dcac42f913ed1e6f4436ff911123728db7b422b5"
+  },
+  "data": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13.csv",
+    "sha256": "025e1267d9010ab9227c05501459cd63da3ea8e077066b981dca7a463af63133"
+  },
+  "visual_review": {
+    "renderer": "bundled sharp/libvips",
+    "scope": "Exact saved two-panel SVG rendered at 1500 px width; temporary preview outer whitespace trimmed only",
+    "observations": "Reviewed Delay 20221122_03 and 3sTrace 20230519_11. Both show all 90 display rows and the Pre/Train/Test boundaries, shared \u00b10.25 scale, CS and nominal paired-US guides. Fish identities, axes and labels are legible without material overlap or clipping. Black missing/undefined bins remain visible. Delay has 90 defined baseline references; 3sTrace has 87.",
+    "numeric_checks": "7200 saved bins; left-inclusive/right-exclusive 1 s bins; direct framewise log means independently match pandas groupby means; finite equal-bin baseline means centre to zero; acquisition trials map to displayed trials by minus four."
+  }
+}

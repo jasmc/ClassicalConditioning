@@ -89,6 +89,15 @@ def prepare_layout(layout, overrides=None, only_panel=None):
             panel['label']['y'] = panel['label'].get('y', y+34)-y
         layout['panels'] = [panel]; layout['canvas'] = [w, h]; layout.pop('annotations', None)
         layout['title'] = f"{layout.get('title', 'Figure')} — panel {only_panel} preview"
+    if layout.get("layout_frames") is not None:
+        from .layout_frames import assembly_layout
+        if only_panel:
+            original_width = original["canvas"][0]
+            layout["layout_frames"]["final_width_mm"] *= layout["canvas"][0]/original_width
+            layout["layout_frames"]["scope"] = "panel"
+            layout["layout_frames"]["alignments"] = []
+            layout["layout_frames"]["grouping_gaps"] = []
+        layout, _ = assembly_layout(layout)
     return original, layout
 
 

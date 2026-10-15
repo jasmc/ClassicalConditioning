@@ -1,0 +1,21 @@
+{
+  "figure": "fig1",
+  "working_version": "v16",
+  "selection_basis": "Author-requested cross-panel font consistency and shortened C keys",
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+    "sha256": "93679780d0e2366adcf17832f88c2c89e7c1a29886a2622aa46e68da19bda7ca"
+  },
+  "working_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+    "sha256": "91c2ac41a55641bba72cd352eea4e8be62bb9150023251b8cda279e8aaaa1bcf",
+    "source_svg_sha256": "244a05aeae827dbebd2d280c39def1d543f7e7c50635587f91d9c256ccfc0049"
+  },
+  "prior_approved_v15": "Preserved with existing pending formal freeze record",
+  "update_policy": {
+    "mode": "update same active HTML/SVG paths under publication lock",
+    "author_direction": "Do not keep piling up multiple working versions; keep updating the same current one.",
+    "command": "build_figure_legend_review.py --update-current",
+    "approved_v15_candidate": "preserved separately; immutable approval snapshot"
+  }
+}

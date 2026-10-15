@@ -133,6 +133,536 @@
       "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/documentation-cleanup/2026-10-11/frozen-authority",
       "relative_path": "payload/original-documents/docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
       "recovery_method": "Exact pre-edit documentation bytes; current guidance separated from historical recipes"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json"
+      ],
+      "sha256": "3ad1470d66f5a46d2daf7c1c2e859ebbefd5fcb17697f6fa544adf5d2a8afb27",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json"
+      ],
+      "sha256": "43c4d7644139422979d303736225267f1ebee8a392fc631ad9b2091e779b51f7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json"
+      ],
+      "sha256": "8fe7775319aaabd71b2d33fcd35c804d95cb062c69de3937fc7ac60d6d2ac699",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet"
+      ],
+      "sha256": "e69c0cc9059245bb57fe22a536c73beef80bdaba09cb6ae6837cc13aa554fa1f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet"
+      ],
+      "sha256": "13ca3b3425bfb90309f271ed5455bb3da751eadd369fb6568a985fa00b3be10b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet"
+      ],
+      "sha256": "0f2bd9aaf9c6ae44b8b8b1b2279507c1725d0b158a0c805c51c91f3e5ecd70e7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet"
+      ],
+      "sha256": "af0eae0eba30d4b18bd261a59614eafe48dceb0979b80f1608f33cd424574044",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/tracking.parquet",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/tracking.parquet"
+      ],
+      "sha256": "4850cb5eaabdd1e023c625fcb9e0be2f933518331821fb7c8f4ebdd3d061f167",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/tracking.parquet",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/acquisition_report.html",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/acquisition_report.html"
+      ],
+      "sha256": "0a6bf72025960038ce48bd1967021e5b2ff8bfe298abfb99510420463fb5f681",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/acquisition_report.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/acquisition_summary.json",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/acquisition_summary.json"
+      ],
+      "sha256": "31def9dcd922469de72313e0d2ea99899f3dd6b006892b0659dcb778933443a9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/acquisition_summary.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/candidate-corrected_activity_summary.json",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/candidate-corrected_activity_summary.json"
+      ],
+      "sha256": "06cea759ce6a04e9583d571b411b636c212ac583ec0bcd5cde36719021ea6679",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/candidate-corrected_activity_summary.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/corrected_preprocessing_summary.json",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/corrected_preprocessing_summary.json"
+      ],
+      "sha256": "e274f4b49493a8d94537e48f728223bf37460899840ec6a979d90e069c58a3fa",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/corrected_preprocessing_summary.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/camera_timing.png",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/camera_timing.png"
+      ],
+      "sha256": "3c1b0febc6322891d0caf6a18e51e7efe4beeca3c4059aa463fc14f59c1df68a",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/camera_timing.png",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/protocol_timeline.png",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/protocol_timeline.png"
+      ],
+      "sha256": "69ac2461f3c81b76d0e9c1f05778f583e937168a5e7937153c464cca6b17cb65",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/protocol_timeline.png",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/tracking_overview.png",
+        "figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/tracking_overview.png"
+      ],
+      "sha256": "64308aeaf502d1bdb19c0517f19b59beba958e3bc5312a62ae9bb9046b6dda15",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/Quality checks/20230519_11/figures/tracking_overview.png",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.json",
+        "figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.json"
+      ],
+      "sha256": "d3f275a014af052042239c65d90f3e1eeed371cc75819c3b2433b010286872cc",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.npz",
+        "figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.npz"
+      ],
+      "sha256": "6f27022c0672a01e9bd35bb26440d7665e684319b5fe5e4de2c17413eb24e003",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.npz",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.parquet",
+        "figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.parquet"
+      ],
+      "sha256": "bc9e5fcf5a786262758f1ea6bca677510955dacb78cfea89b302e8d57a3b2b14",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13-inputs/delay-version08-prepared.parquet",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13.csv",
+        "figure-01-best-learners-version08-2026-10-13.csv"
+      ],
+      "sha256": "025e1267d9010ab9227c05501459cd63da3ea8e077066b981dca7a463af63133",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13.csv",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13.html",
+        "figure-01-best-learners-version08-2026-10-13.html"
+      ],
+      "sha256": "a68888a0db3809dba0405e40dcac42f913ed1e6f4436ff911123728db7b422b5",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-best-learners-version08-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-all-versions-comparison-2026-10-13.html",
+        "figure-01-fgh-all-versions-comparison-2026-10-13.html"
+      ],
+      "sha256": "df98deb2aa30bf44862e9416cfc94be86919ee168d906f6513ac71dfa8b7c346",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-all-versions-comparison-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-magma-comparison-2026-10-13.html",
+        "figure-01-fgh-magma-comparison-2026-10-13.html"
+      ],
+      "sha256": "1097d68879e4f7f671bfa05ad0336b2690cfa054881c686a1cbadd44f83aa7cd",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-magma-comparison-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/candidate.json",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/candidate.json"
+      ],
+      "sha256": "2878d1b17fadec036f32f9acf95afa81fe264e4a0d86d2e6f544ed8c17e22a86",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/candidate.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-experiments.py",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-experiments.py"
+      ],
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-experiments.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-figure-01-one-second-medians-cyan-palettes-2026-10-13.csv",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-figure-01-one-second-medians-cyan-palettes-2026-10-13.csv"
+      ],
+      "sha256": "4e826a1efbe7075aa1d9e5ca9e61307735093cd6139e0bd3e7068f2b6ee8c053",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-figure-01-one-second-medians-cyan-palettes-2026-10-13.csv",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-one-second-managua-r-2026-10-13.json",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-one-second-managua-r-2026-10-13.json"
+      ],
+      "sha256": "62fa45947bf360d0bf119d2fa605c9769a1a6ad6ccfb89d7fa2f7019607d4ea3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-one-second-managua-r-2026-10-13.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-one-second-medians-cyan-palettes-2026-10-13.json",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-one-second-medians-cyan-palettes-2026-10-13.json"
+      ],
+      "sha256": "40f05e73d3ae37d0f27fa10a8b57511f37af26d472a0e0874ee6370f100d52a9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-one-second-medians-cyan-palettes-2026-10-13.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-candidate.svg",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-candidate.svg"
+      ],
+      "sha256": "02bfbfb922c8a2f629d8cd5af8081f5d87127bd909bec6c640269f69dd87160d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-candidate.svg",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-review.html",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-review.html"
+      ],
+      "sha256": "8a44b28cba50877c4d85dc1705962513db4a79b0530897a9bdecbac0bdf763b0",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-review.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/renderer-properties.json",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/renderer-properties.json"
+      ],
+      "sha256": "34bea3935d076a19dbb8b9eda5bac238e1cdf7a40969620138b3cba0c71032c5",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/renderer-properties.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/renderer-snapshot.py",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/renderer-snapshot.py"
+      ],
+      "sha256": "0817192636a32121455e339b29328afe07394c1ae6493b596882c007b0a20b82",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/renderer-snapshot.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/selected-original.svg",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/selected-original.svg"
+      ],
+      "sha256": "b5a0258648ab38b2dc134dae42144395b93bf901bcdf82cef5ca4634e3d2f3a5",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/selected-original.svg",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/selection.json",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/selection.json"
+      ],
+      "sha256": "c78d121c5005722c43e6d2af44bc941ca028d06388e0d8f81608e7399391c460",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/selection.json",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/visual-review.png",
+        "figure-01-fgh-one-second-managua-freeze-2026-10-13/visual-review.png"
+      ],
+      "sha256": "bead2ba571ce46d702561149928d11dd0fec5cd7d89bea1d3129f141735827af",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-one-second-managua-freeze-2026-10-13/visual-review.png",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.html",
+        "figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.html"
+      ],
+      "sha256": "0fc1b76314fb423ba7829b52d57c1cd36467ea8a793f51759c5b8bfb05106373",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.npz",
+        "figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.npz"
+      ],
+      "sha256": "e6c318ca30f4712b0ae0b0b633a842f080c762d647c768f2a53e9d51411ddf6d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.npz",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-version04-zero-baseline-2026-10-13.html",
+        "figure-01-fgh-version04-zero-baseline-2026-10-13.html"
+      ],
+      "sha256": "11586b1fc6cc08afe6a6ae43ac3805ead4f91390669c0591fd0328bc3963cf77",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-fgh-version04-zero-baseline-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-historical-fish-one-second-managua-2026-10-13.csv",
+        "figure-01-historical-fish-one-second-managua-2026-10-13.csv"
+      ],
+      "sha256": "d7009b6c43a79041bda5f7e7fe033917fbf6ee2882b645db0c967dd42bed3f2f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-historical-fish-one-second-managua-2026-10-13.csv",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-historical-fish-one-second-managua-2026-10-13.html",
+        "figure-01-historical-fish-one-second-managua-2026-10-13.html"
+      ],
+      "sha256": "854b1d8361d017fd249dd1137a87ab49e6dad6a6b217b7388c7f1adc1a3b66fd",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-historical-fish-one-second-managua-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-blue-orange-transition-2026-10-13.html",
+        "figure-01-one-second-blue-orange-transition-2026-10-13.html"
+      ],
+      "sha256": "b12ed038c51fb3175b970603889eb6a083f46db46c8c479a6dbbc15c83f4c986",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-one-second-blue-orange-transition-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-managua-r-2026-10-13.html",
+        "figure-01-one-second-managua-r-2026-10-13.html"
+      ],
+      "sha256": "3170fb47129e881d385317a47450368182d1247ea882c6edd74d1f1b20107443",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-one-second-managua-r-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-medians-cyan-palettes-2026-10-13.csv",
+        "figure-01-one-second-medians-cyan-palettes-2026-10-13.csv"
+      ],
+      "sha256": "4e826a1efbe7075aa1d9e5ca9e61307735093cd6139e0bd3e7068f2b6ee8c053",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-one-second-medians-cyan-palettes-2026-10-13.csv",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-medians-cyan-palettes-2026-10-13.html",
+        "figure-01-one-second-medians-cyan-palettes-2026-10-13.html"
+      ],
+      "sha256": "0b3e397525ff7e3d21ffa894a316306a395eaa4aeae4336b0ffa39a5fb1e7bd1",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-one-second-medians-cyan-palettes-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-swapped-proposed-2026-10-13.html",
+        "figure-01-one-second-swapped-proposed-2026-10-13.html"
+      ],
+      "sha256": "bbb528805b0cf752de3646facf28fed31061d4498f180aea801317a5fb33523e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-one-second-swapped-proposed-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-version04-trace-palettes-2026-10-13.csv",
+        "figure-01-version04-trace-palettes-2026-10-13.csv"
+      ],
+      "sha256": "5a86a7f26df07f67ccfb0d4b08e894c7e3a52c37d0145dba23f8ace58b6f6b89",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-version04-trace-palettes-2026-10-13.csv",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-version04-trace-palettes-2026-10-13.html",
+        "figure-01-version04-trace-palettes-2026-10-13.html"
+      ],
+      "sha256": "2016b8f70364ad4cb74acfd4076ce619288bcb6c26553a2b18dea3bc1bc5e0df",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-superseded",
+      "relative_path": "payload/figure-01-version04-trace-palettes-2026-10-13.html",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_palette_review.py",
+        "scripts/build_figure1_fgh_palette_review.py"
+      ],
+      "sha256": "d0f2ca92398f593cf66edc8da356076fe2932c10765622c6d553ac9aa38d4996",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+      "relative_path": "payload/scripts/build_figure1_fgh_palette_review.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/organize_figure1_fgh_comparison.py",
+        "scripts/organize_figure1_fgh_comparison.py"
+      ],
+      "sha256": "3aa24d76b4a9997b9de977de09f37f5ec52403497819e65202bf92aff887b5cd",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+      "relative_path": "payload/scripts/organize_figure1_fgh_comparison.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/show_figure1_fgh_version04.py",
+        "scripts/show_figure1_fgh_version04.py"
+      ],
+      "sha256": "4acad68651c507873d105f20c92aa17fc800c03e9d47229160e2591c1ef21d68",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+      "relative_path": "payload/scripts/show_figure1_fgh_version04.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_version04_trace_palettes.py",
+        "scripts/render_figure1_version04_trace_palettes.py"
+      ],
+      "sha256": "3a3d524f974cfa3a92514e0f37a6b728e48f5c4f766b87a8429936cf49fc9f60",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+      "relative_path": "payload/scripts/render_figure1_version04_trace_palettes.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_one_second_cyan_palettes.py",
+        "scripts/render_figure1_one_second_cyan_palettes.py"
+      ],
+      "sha256": "8b593ee2941d033f0c325da6607b1cb4bffebaabbc549de972988217faa48431",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+      "relative_path": "payload/scripts/render_figure1_one_second_cyan_palettes.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_blue_orange_transition.py",
+        "scripts/render_figure1_blue_orange_transition.py"
+      ],
+      "sha256": "8a9d4f2d3c73caec04b3337c485ef56131f34a9d83f25c8ea65dfa5d16751961",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+      "relative_path": "payload/scripts/render_figure1_blue_orange_transition.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare_figure1_fgh_one_second_freeze.py",
+        "scripts/prepare_figure1_fgh_one_second_freeze.py"
+      ],
+      "sha256": "0817192636a32121455e339b29328afe07394c1ae6493b596882c007b0a20b82",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+      "relative_path": "payload/scripts/prepare_figure1_fgh_one_second_freeze.py",
+      "recovery_method": "Author-authorized single-fish archive; verified exact bytes before prune"
     }
   ]
 }

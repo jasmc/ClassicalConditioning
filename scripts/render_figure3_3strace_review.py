@@ -22,7 +22,7 @@ from classical_conditioning.figures.export import (
 
 
 METRIC = "legacy_distal_angular_speed"
-METRICS = ("tail_length_weighted_angular_l1", "whole_tail_xy_mean_speed_normalized", "legacy_distal_angular_speed")
+METRICS = (METRIC,)
 VARIANT = "legacy-wip"
 
 

@@ -1,0 +1,31 @@
+{
+  "activation": "active",
+  "author_selection": {
+    "answer": "1.0 mm \u2014 tighter",
+    "date": "2026-10-15",
+    "scope": "Future main, supplementary and analysis figures and panels; current drafts unchanged",
+    "source": "Author reply in this chat to the spacing calibration question"
+  },
+  "calibration_presets_mm": [
+    1.0,
+    1.5,
+    2.0
+  ],
+  "coverage": [
+    "main",
+    "supplementary",
+    "analysis"
+  ],
+  "interior_spacing": "two-panel-insets",
+  "outside_edges": "shared-not-additive",
+  "paint": {
+    "fill": "none",
+    "stroke": "none"
+  },
+  "policy_id": "paper-invisible-frames",
+  "provisional_recommendation_mm": 1.5,
+  "selected_inset_mm": 1.0,
+  "tolerance_mm": 0.1,
+  "units": "mm",
+  "version": "1.0.1"
+}

@@ -1,0 +1,28 @@
+{
+  "current": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-a/2026-10-14-pooled-six-heatmap-row/manifests/freeze.json",
+    "sha256": "9e6a4b84408ed28c8ec030a8b09df022a16c37a51bf8b3359c1d17b6ca3f88a0"
+  },
+  "authorization": "Freezing does not authorize removal",
+  "items": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-a/2026-10-14-pooled-one-second/manifests/freeze.json",
+      "role": "previous wider freeze; dependencies also current scientific inputs",
+      "recommendation": "keep",
+      "disposition": "pending author choice"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/prior-working-copies",
+      "role": "prior A draft pair/state, original whole Figure 2 HTML and legend",
+      "recommendation": "retain as history",
+      "disposition": "pending author choice"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-freeze-2026-10-14/assembly-candidate.svg",
+      "role": "superseded vertical assembly candidate",
+      "recommendation": "archive with previous version",
+      "disposition": "pending author choice"
+    }
+  ],
+  "executed_dispositions": []
+}

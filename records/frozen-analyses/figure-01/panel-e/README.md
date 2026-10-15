@@ -1,5 +1,5 @@
 # Figure 1 panel E
 
-Current scoped heatmap-row record. [Shared F/G/H V12](../panels-f-g-h/2026-10-09-version-12/README.md) supplies the selected row definition.
+Current: [2026-10-13 unbinned raw-baseline-scaled black traces and current F bands](../../../../configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json). Exact SVG, data mappings, dependencies and gate manifest are on JOAQUIM at the selected paths.
 
-[Record collection](2026-10-09-heatmap-rows/README.md). Original definitions and approvals are in the unchanged manifests.
+Historical: [2026-10-09 heatmap-row record collection](2026-10-09-heatmap-rows/README.md), its V12 definition and original approvals remain unchanged.

@@ -1,0 +1,146 @@
+{
+  "status": "unselected palette comparison; not frozen",
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "source_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+    "sha256": "37a9515d5cc8c3fee8fb752c962f398a967a49c74c146e7186e36918888d3c9b"
+  },
+  "source_state_sha256": "668757d2f7a2a2887a0ebc495c757cdaaf41910e6d386b4f7ac23b54e476a976",
+  "source_legend": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+    "sha256": "529d802d982fd0e6268f27e78b9fc1b9b2f29b5e164bd69f1cff654e7fe61aea"
+  },
+  "frozen_scientific_container": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+    "sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+    "audit_id": "version11-audit",
+    "value_mapping": "V12 = 0.7 * saved scaled_baseline_vigor"
+  },
+  "historical_palette_reference": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/figure1-heatmaps/figure-1-E_delay-control_legacy_distal_angular_speed.figure.json",
+    "sha256": "5b18a775863f41e50649b6cd2385609e7eeaa0fb6d4777122dae12627635c714",
+    "date": "January association not confirmed"
+  },
+  "palette": {
+    "name": "magma",
+    "range": [
+      -1,
+      1
+    ],
+    "normalization": "u=(z+1)/2; colour saturation only",
+    "missing": "#000000",
+    "zero": "#b73779",
+    "matplotlib_version": "3.10.9"
+  },
+  "scope_bounds": "0 0 518.740157 293.952756",
+  "checks": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "acquisition_trials": [
+        5,
+        94
+      ],
+      "display_trials": [
+        1,
+        90
+      ],
+      "image_size": [
+        919,
+        476,
+        4
+      ],
+      "original_png_sha256": "fd270fed2adab7f68436decb99a67fd36bb00ffcb47fea5ad5a359f7ad689292",
+      "magma_png_sha256": "5d76b36428fae84ec4eadeff4668c824b8b0fb70561d1eca1cab16a6e73c28a6",
+      "all_7200_source_cell_centres_verified": true,
+      "missing_mask_unchanged": true,
+      "all_raster_pixels_match_saved_source": true,
+      "exact_cell_boundaries_preserved": true,
+      "alpha_unchanged": true
+    },
+    {
+      "panel": "G",
+      "fish": "20230310_08",
+      "acquisition_trials": [
+        5,
+        94
+      ],
+      "display_trials": [
+        1,
+        90
+      ],
+      "image_size": [
+        919,
+        476,
+        4
+      ],
+      "original_png_sha256": "e3d2f8a94010ce8be96590bf0add4aa5e36be98a2d3e844639f5e8a5d85aae29",
+      "magma_png_sha256": "e999ea00dc3e893cc5c89b399902f54d1376f3139ec1fd4211763c6e4ab00688",
+      "all_7200_source_cell_centres_verified": true,
+      "missing_mask_unchanged": true,
+      "all_raster_pixels_match_saved_source": true,
+      "exact_cell_boundaries_preserved": true,
+      "alpha_unchanged": true
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "acquisition_trials": [
+        5,
+        94
+      ],
+      "display_trials": [
+        1,
+        90
+      ],
+      "image_size": [
+        919,
+        476,
+        4
+      ],
+      "original_png_sha256": "2c56ccd4bb3f332ca7a98df5b16102b6763775cc84ffc52587a72816b8550434",
+      "magma_png_sha256": "3e3c09dc19c543d32ccc3ff8d5dd68ffb7f27d8d00d1d14bf7c09f286552ec74",
+      "all_7200_source_cell_centres_verified": true,
+      "missing_mask_unchanged": true,
+      "all_raster_pixels_match_saved_source": true,
+      "exact_cell_boundaries_preserved": true,
+      "alpha_unchanged": true
+    }
+  ],
+  "all_nonpalette_nodes_unchanged": true,
+  "colourbar_rendering": "crispEdges prevents antialias seams between native vector swatches; all ramp coordinates retained",
+  "starting_hashes": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "668757d2f7a2a2887a0ebc495c757cdaaf41910e6d386b4f7ac23b54e476a976",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "3d27267b2ddfeac642c71ed7a0786bc5ca21e76b974d93c97b6303b8d50a98e6",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "37a9515d5cc8c3fee8fb752c962f398a967a49c74c146e7186e36918888d3c9b",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "675ba6c60f9dfa28363b504ed2a2f4b64403cc9be49fd65d69a6ff35226fd02f",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "529d802d982fd0e6268f27e78b9fc1b9b2f29b5e164bd69f1cff654e7fe61aea",
+    "/private/tmp/figure-01-fgh-magma-reconciled-start.json": "b2e733d47dd328246fff253eff3e15a8028db7187d7f75f78bcc529ce12dd8c9",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py": "6b42599141f1dedb4b260d8f8bfed059665fa8d0bcf34d874fa1616c75bfe0a3",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/figure1-heatmaps/figure-1-E_delay-control_legacy_distal_angular_speed.figure.json": "5b18a775863f41e50649b6cd2385609e7eeaa0fb6d4777122dae12627635c714",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_palette_review.py": "60f14d0b53c6ab7451e459f78077d5046a7554b0dbdbef913bb11743d5ceda9a",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "e00fbaa14f0ece6d34740a34a85ad6ab73bbaf0fa32871b601c30d5853bc1f8b"
+  },
+  "active_pair_updated": false,
+  "standalone_svg_created": false,
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-magma-comparison-2026-10-13.html",
+    "sha256": "1097d68879e4f7f671bfa05ad0336b2690cfa054881c686a1cbadd44f83aa7cd"
+  },
+  "visual_review": {
+    "renderer": "bundled sharp/libvips",
+    "scope": "Exact saved F\u2013H native SVG at 1500 px width; temporary preview whitespace trimmed only",
+    "observations": "Reviewed Delay, 3sTrace and Control heatmaps, row labels 1\u201390, five F arrowheads, phase separators, event guides and shared magma colourbar. All remain visible without overlaps or clipping. The vector colourbar spans dark purple/black at \u22121 through magenta at zero to pale yellow at +1. Black missing bins are preserved.",
+    "source_review_sha256": "1097d68879e4f7f671bfa05ad0336b2690cfa054881c686a1cbadd44f83aa7cd"
+  }
+}

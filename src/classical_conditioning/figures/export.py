@@ -296,10 +296,25 @@ def export_matplotlib_figure(
     overwrite: bool = False,
     allow_dirty_publication: bool = False,
     formats: tuple[str, ...] | None = None,
+    layout_frames: dict | None = None,
 ) -> FigureExportResult:
     """Export one Matplotlib figure in publication or static mode."""
+    if layout_frames is not None and mode != FigureMode.PUBLICATION:
+        raise ValueError('Frame-aware export requires a publication SVG for saved-artifact verification')
     if mode == FigureMode.INTERACTIVE:
         raise ValueError("Interactive HTML requires a native interactive builder.")
+    if layout_frames is not None:
+        from .layout_frames import validate_spec
+        validate_spec(layout_frames)
+        actual_size = [float(v)*25.4 for v in figure.get_size_inches()]
+        if any(abs(a-b)>1e-6 for a,b in zip(actual_size, layout_frames['final_size_mm'])):
+            raise ValueError('Frame final size must match the declared Matplotlib canvas')
+    def savefig(*args, **kwargs):
+        if layout_frames is None:
+            return figure.savefig(*args, **kwargs)
+        import matplotlib as mpl
+        with mpl.rc_context({'savefig.bbox': None, 'savefig.pad_inches': 0}):
+            return figure.savefig(*args, **kwargs)
     output_base = output_base.resolve()
     extensions = ("svg", "pdf") if mode == FigureMode.PUBLICATION else ("png",)
     if formats is not None:
@@ -316,6 +331,14 @@ def export_matplotlib_figure(
     if existing and not overwrite:
         raise FileExistsError(f"Figure outputs already exist: {existing}")
 
+    frame_snapshot = None
+    if layout_frames is not None:
+        from classical_conditioning.figure_workspace import Snapshot, state_lock
+        from .layout_frames import POLICY, COLLECTOR
+        frame_snapshot = Snapshot([POLICY, COLLECTOR, Path(__file__).with_name('layout_frames.py'),
+                                   Path(__file__), Path(provenance.source_file).resolve(),
+                                   *[Path(a['path']) for a in provenance.input_artifacts],
+                                   *final_outputs, sidecar])
     registry = assign_axes_semantic_ids(
         figure,
         panel_ids,
@@ -345,6 +368,13 @@ def export_matplotlib_figure(
         "mode": mode.value,
     }
 
+    if layout_frames is not None:
+        from .layout_frames import POLICY, COLLECTOR
+        sidecar_payload['layout_frames'] = {'spec': layout_frames, 'status': 'unresolved',
+            'issues': ['Exact saved-artifact browser evidence required']}
+        sidecar_payload['code_dependencies'].extend([
+            {'path': str(p), 'sha256': sha256_file(p)}
+            for p in (POLICY, COLLECTOR, Path(__file__).with_name('layout_frames.py'))])
     output_base.parent.mkdir(parents=True, exist_ok=True)
     with artifact_staging(
         output_base.parent,
@@ -355,7 +385,7 @@ def export_matplotlib_figure(
         for extension in extensions:
             staged = staging_root / f"{output_base.name}.{extension}"
             if extension == "pdf":
-                figure.savefig(
+                savefig(
                     staged,
                     format="pdf",
                     metadata={
@@ -380,7 +410,7 @@ def export_matplotlib_figure(
                     }
                 )
             else:
-                figure.savefig(staged, format="png", dpi=300)
+                savefig(staged, format="png", dpi=300)
                 output_records.append(
                     {
                         "path": str(
@@ -410,7 +440,7 @@ def export_matplotlib_figure(
         if mode == FigureMode.PUBLICATION:
             svg_index = extensions.index("svg")
             staged_svg = staged_outputs[svg_index]
-            figure.savefig(
+            savefig(
                 staged_svg,
                 format="svg",
                 metadata={
@@ -419,10 +449,20 @@ def export_matplotlib_figure(
                 },
             )
             _embed_svg_metadata(staged_svg, compact)
+            if layout_frames is not None:
+                from .layout_frames import embed_spec
+                staged_svg.write_bytes(embed_spec(staged_svg.read_bytes(), layout_frames))
             _validate_svg_registry(staged_svg, registry)
-        publish_transaction(
-            tuple(zip((*staged_outputs, staged_sidecar), (*final_outputs, sidecar))),
-            staging_root,
-            overwrite=overwrite,
-        )
+        units = tuple(zip((*staged_outputs, staged_sidecar), (*final_outputs, sidecar)))
+        if frame_snapshot is None:
+            publish_transaction(units, staging_root, overwrite=overwrite)
+        else:
+            expected = {destination: sha256_file(staged) for staged, destination in units}
+            def verify_saved():
+                frame_snapshot.check(ignore=expected)
+                if any(sha256_file(path) != value for path, value in expected.items()):
+                    raise ValueError('Saved frame-aware export differs from verified staged bytes')
+            with state_lock(sidecar):
+                frame_snapshot.check()
+                publish_transaction(units, staging_root, overwrite=overwrite, verify_published=verify_saved)
     return FigureExportResult(outputs=final_outputs, sidecar=sidecar)

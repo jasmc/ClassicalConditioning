@@ -1,0 +1,84 @@
+{
+  "scope": [
+    "E",
+    "F",
+    "G",
+    "H"
+  ],
+  "source_svg_sha256": "18ab3c029192b6cec6f1a4ebed0ebe12542ce92b787c95ada13e40c573f8277d",
+  "svg_sha256": "1cf60066d3af6901c80c688692df726274d3e98dcb8fa1e26217e60726015a34",
+  "starting_hashes": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "74c36583fcc71c5ff8528693dd02ac680917cf3f6db289f1cee7bfeba6adadd2",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "8d337c41d3ec5ca6af14b9c06d003b4754ba844fcff15d984363b0cce78c731d",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "18ab3c029192b6cec6f1a4ebed0ebe12542ce92b787c95ada13e40c573f8277d",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "dad66ba12475bf984b02ecddbf0811a7cce3240491fba48cedd0d36e9adae9db",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_colourbar_row_alignment.py": "c650bb3a5fbf82d2544f542ce26e585087674c51eb4ab1276b89e6d92cd480b8",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure1_layout_spacing.py": "eb2bfd1a1988cd397b3f61628443cd78770cc018576f395e02b3e87a6e42bfe8",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "4edfcd99c2e2db3865db98ed4bdff0b771113740add6230a31a2de274fb4e7e6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_version_comparison.py": "b7ed1c1e5577e064a5cc753c306c01481be17439d8fe22f65512082d233c2473",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure1_fgh_one_second.py": "db02fc9e06e2c966ac9b206e448ca4cd00caf39fbc4ec4c4b0d03cc2b4705f47",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panels-fgh-current.html": "baecaadf57885bc06255f3ab649adc6fa4e9b49391d1e3aebd7e82a5414f9385",
+    "/private/tmp/figure1-EH-FGH-visual.json": "5075bb4247b6e1ff1ddf7826427e3e0e6df6096690129d64af259a9f2e785d3c"
+  },
+  "source_code_before_edit": {
+    "scripts/figure1_layout_spacing.py": "927826ce86428b706ecb6d0bf7757becbef849be70d8e50044fd53ae46f6dc4e",
+    "scripts/build_figure_legend_review.py": "4edfcd99c2e2db3865db98ed4bdff0b771113740add6230a31a2de274fb4e7e6",
+    "scripts/update_figure1_panel_e_display.py": "66f43ca6075483059bd1aa5b6da5d1d1467af9dd7ad7bb8dd9a05973b407ce7f",
+    "scripts/publish_figure1_fgh_one_second.py": "9268882e9ea8a050a25df0b43f8f811ae8c9e2b23b02f8934b925e654050f395"
+  },
+  "details": {
+    "shared_colourbar_left_assembly": 1645.0,
+    "heatmap_width_native": 114.12283500000001,
+    "equal_gutter_native": 28.33858232352939,
+    "translations": {
+      "edit-FGH-fig1__g__heatmap__axes": "translate(4.995275324 0)",
+      "edit-FGH-fig1__g__heading__panel-letter": "translate(4.995275324 0)",
+      "edit-FGH-fig1__g__heading__condition": "translate(4.995275324 0)",
+      "edit-FGH-fig1__g__heading__fish-id": "translate(4.995275324 0)",
+      "edit-FGH-fig1__h__heatmap__axes": "translate(9.990550647 0)",
+      "edit-FGH-fig1__h__heading__panel-letter": "translate(9.990550647 0)",
+      "edit-FGH-fig1__h__heading__condition": "translate(9.990550647 0)",
+      "edit-FGH-fig1__h__heading__fish-id": "translate(9.990550647 0)",
+      "edit-FGH-fig1__h__colorbar__axes": "translate(7.204723971 0)"
+    },
+    "heatmap_shifts": {
+      "f": 0.0,
+      "g": 4.99527532352937,
+      "h": 9.990550647058797
+    }
+  },
+  "verification": {
+    "only_named_group_translations_changed": true,
+    "heatmap_rasters_axes_and_labels_preserved": true,
+    "F_arrows_unchanged": true,
+    "override_idempotent": true
+  },
+  "visual_review": {
+    "svg_sha256": "1cf60066d3af6901c80c688692df726274d3e98dcb8fa1e26217e60726015a34",
+    "checks_passed": true,
+    "renderer": "Codex in-app browser",
+    "final_width_mm": 183,
+    "bar_left_difference_pt": 3.3327775331537506e-05,
+    "bar_right_difference_pt": 0,
+    "title_right_difference_pt": -3.3327775331537506e-05,
+    "gutters_pt": [
+      28.33837406997902,
+      28.338340742203687,
+      28.338340742203687
+    ],
+    "heatmap_widths_pt": [
+      114.12200978322984,
+      114.12201811517367,
+      114.12203477906134
+    ],
+    "H_title_right_clearance_pt": 4.529611273084594,
+    "observations": "Inspected full figure rendering: E and H bars, ticks and titles share their x positions; F-G, G-H and H-colourbar gaps are equal; headings move with their panels; no clipping or overlap. Heatmap sizes, all data and F arrows preserved."
+  },
+  "frozen": false
+}

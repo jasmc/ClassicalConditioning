@@ -1,0 +1,135 @@
+{
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "bin_width_s": 1,
+  "baseline_s": [
+    -15,
+    0
+  ],
+  "bin_estimator": "direct eligible natural-log frame median",
+  "baseline_estimator": "median of finite baseline-bin medians",
+  "amplitude_scaling": false,
+  "numerical_clipping": false,
+  "color_limits": [
+    -0.25,
+    0.25
+  ],
+  "palettes": [
+    [
+      "Cyan\u2013charcoal\u2013yellow",
+      "cyan-yellow",
+      [
+        "#60d8f5",
+        "#383842",
+        "#e9c84a"
+      ]
+    ],
+    [
+      "Cyan\u2013charcoal\u2013orange",
+      "cyan-orange",
+      [
+        "#60d8f5",
+        "#383842",
+        "#e7983a"
+      ]
+    ]
+  ],
+  "panels": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "defined_trials": 90,
+      "finite_cells": 3507
+    },
+    {
+      "panel": "G",
+      "fish": "20230519_11",
+      "experiment": "all3sTrace",
+      "cadence": {
+        "interval_ms": 1.4233466199598879,
+        "reference_position": 2908,
+        "end_position": 8425811,
+        "reference_frame_id": 508348,
+        "missing_frame_ids": 0,
+        "buffer_capacity_exceeded": false,
+        "maximum_delay_ms": 235.8746033590287
+      },
+      "detector": {
+        "smoothing_window_ms": 10.0,
+        "envelope_max_window_ms": 28.57142857142857,
+        "envelope_min_window_ms": 571.4285714285714,
+        "envelope_threshold_deg_per_ms": 4.0,
+        "bout_amplitude_threshold_deg_per_ms": 1.0,
+        "minimum_valid_tail_fraction": 0.8,
+        "minimum_bout_duration_ms": 57.14285714285714,
+        "maximum_interbout_gap_ms": 14.285714285714285,
+        "positive_control_window_ms": 500.0,
+        "control_baseline_start_ms": -5000.0,
+        "control_baseline_end_ms": -1000.0
+      },
+      "context_ms": 5000,
+      "minimum_selected_bout_context_margin_ms": 4388.177734375,
+      "expected_us_s": 13.0,
+      "paired_training_trials": 46,
+      "sources": {
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet": "e69c0cc9059245bb57fe22a536c73beef80bdaba09cb6ae6837cc13aa554fa1f",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet": "af0eae0eba30d4b18bd261a59614eafe48dceb0979b80f1608f33cd424574044",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet": "0f2bd9aaf9c6ae44b8b8b1b2279507c1725d0b158a0c805c51c91f3e5ecd70e7",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet": "13ca3b3425bfb90309f271ed5455bb3da751eadd369fb6568a985fa00b3be10b",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json": "8fe7775319aaabd71b2d33fcd35c804d95cb062c69de3937fc7ac60d6d2ac699",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json": "43c4d7644139422979d303736225267f1ebee8a392fc631ad9b2091e779b51f7",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json": "3ad1470d66f5a46d2daf7c1c2e859ebbefd5fcb17697f6fa544adf5d2a8afb27"
+      },
+      "finite_cells": 1428,
+      "defined_trials": 84,
+      "saturated_cells": 438,
+      "baseline_zero_verified": true,
+      "bin_estimator": "median",
+      "independent_frame_bins_verified": true,
+      "mean_log_values_sha256": "77cfe2812f8cb07f6520e9ee7164f749e2f219cca99e7a808d4c3f21bbb4034d"
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "defined_trials": 90,
+      "finite_cells": 2734
+    }
+  ],
+  "sources": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+    "/private/tmp/figure-01-one-second-cyan-start.json": "d0fa6618ce7867e576ce058e0848242d6899a6572889d0337516e4a5c13e3052",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/starting-inventory.json": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_one_second_cyan_palettes.py": "8b593ee2941d033f0c325da6607b1cb4bffebaabbc549de972988217faa48431",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_best_learners_version08.py": "eac158420d3c25a434ddcabc8674614a77edee69e606869ceb48cf37dedd9560",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_version04_trace_palettes.py": "3a3d524f974cfa3a92514e0f37a6b728e48f5c4f766b87a8429936cf49fc9f60",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_full_bouts_baseline_samples_20261009/PanelF_complete_bout_sample_data.parquet": "0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_full_bouts_baseline_samples_20261009/PanelH_complete_bout_sample_data.parquet": "13c4c40754cb0b95f5a97eeea13c179e617d2da24b666730a1fd9a9f1c9c4c92",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/camera.parquet": "e69c0cc9059245bb57fe22a536c73beef80bdaba09cb6ae6837cc13aa554fa1f",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/stimulus_events.parquet": "af0eae0eba30d4b18bd261a59614eafe48dceb0979b80f1608f33cd424574044",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_preprocessed_corrected.parquet": "0f2bd9aaf9c6ae44b8b8b1b2279507c1725d0b158a0c805c51c91f3e5ecd70e7",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Processed data/20230519_11/frame_activity_candidates-corrected.parquet": "13ca3b3425bfb90309f271ed5455bb3da751eadd369fb6568a985fa00b3be10b",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_source_manifest.json": "8fe7775319aaabd71b2d33fcd35c804d95cb062c69de3937fc7ac60d6d2ac699",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_corrected-preprocess_complete.json": "43c4d7644139422979d303736225267f1ebee8a392fc631ad9b2091e779b51f7",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-best-learners-version08-2026-10-13-inputs/Metadata/20230519_11_candidate-corrected_complete.json": "3ad1470d66f5a46d2daf7c1c2e859ebbefd5fcb17697f6fa544adf5d2a8afb27"
+  },
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-medians-cyan-palettes-2026-10-13.html",
+    "sha256": "0b3e397525ff7e3d21ffa894a316306a395eaa4aeae4336b0ffa39a5fb1e7bd1"
+  },
+  "data": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-medians-cyan-palettes-2026-10-13.csv",
+    "sha256": "4e826a1efbe7075aa1d9e5ca9e61307735093cd6139e0bd3e7068f2b6ee8c053"
+  },
+  "active_selection_changed": false,
+  "baseline_verification": {
+    "maximum_absolute_median": 2.500170209751573e-16,
+    "all_defined_baseline_medians_zero": true
+  },
+  "visual_review": {
+    "renderer": "sharp/libvips at 1500px",
+    "observations": "Both palettes inspected: F/G/H and fish labels, timing/phase guides and central zero colorbar ticks visible; coarser 1 s cells intact; missing black cells preserved. Orange temporary preview used local DejaVu Sans after embedded-font raster rendering omitted text; permanent native HTML retains embedded fonts."
+  }
+}

@@ -27,6 +27,7 @@ from classical_conditioning.artifacts import artifact_staging, publish_transacti
 from classical_conditioning.external_artifacts import resolve_artifact
 from classical_conditioning.figure_workspace import Snapshot, StaleFigureState, state_lock
 from classical_conditioning.figures.assembly_sources import preflight, prepare_layout, object_hash
+from classical_conditioning.figures.layout_frames import assembly_layout, embed_spec, assess, POLICY, COLLECTOR
 
 SVG = "http://www.w3.org/2000/svg"
 XLINK = "http://www.w3.org/1999/xlink"
@@ -221,7 +222,7 @@ def _compose(layout_path, layout, inspection):
     ET.SubElement(root, q("title")).text = layout.get("title", layout_path.stem)
     definitions = ET.SubElement(root, q("defs"))
     ET.SubElement(root, q("rect"), {
-        "x": "0", "y": "0", "width": str(width), "height": str(height), "fill": "white",
+         **({"id": "figure-background"} if layout.get("layout_frames") else {}), "x": "0", "y": "0", "width": str(width), "height": str(height), "fill": "white",
     })
     seen: set[str] = set()
     records = []
@@ -464,6 +465,8 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
         inputs.extend(Path(s['path']) for s in (panel['source'], panel['original_source']) if s.get('path'))
     if font_directory and export_formats:
         inputs.extend(Path(font_directory)/name for name in ('DejaVuSans.ttf','DejaVuSans-Bold.ttf'))
+    if layout.get("layout_frames") is not None:
+        inputs.extend([POLICY, COLLECTOR, REPO/"src/classical_conditioning/figures/layout_frames.py"])
     output = _destination(output_path, inputs)
     sidecar_path = _destination(output.with_suffix(output.suffix+'.json'), inputs, suffix='.json')
     extra_paths = {fmt:_destination(output.with_suffix('.'+fmt),inputs,suffix='.'+fmt) for fmt in export_formats}
@@ -490,6 +493,11 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
             if record.get('path') and snapshot.hashes[str(Path(record['path']).resolve())] != record['sha256']:
                 raise StaleFigureState('Source changed after preflight: '+record['path'])
     payload, result = _compose(layout_path, layout, inspection)
+    if layout.get("layout_frames") is not None:
+        _, frame_spec = assembly_layout(layout)
+        payload = embed_spec(payload, frame_spec)
+        result["layout_frames"] = assess(payload)
+        result["rendering_context_sha256"] = _shared_payload_hash(ET.fromstring(payload))
     result.update(output=str(output), output_sha256=hashlib.sha256(payload).hexdigest(),
                   source_overrides=source_overrides or {}, preflight=inspection,
                   renderer={'path':str(Path(__file__).resolve()),'sha256':digest(Path(__file__))})

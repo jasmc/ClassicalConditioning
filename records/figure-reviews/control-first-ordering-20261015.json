@@ -1,0 +1,218 @@
+{
+  "html_sha256": "79823974cd4eab73023d6ebe3eb32635a9e19618802c37b95d278e3aa1a886b5",
+  "reports": [
+    {
+      "id": "fig1",
+      "artwork": {
+        "x": 154.171875,
+        "y": 24,
+        "width": 691.640625,
+        "height": 802.3125,
+        "top": 24,
+        "right": 845.8125,
+        "bottom": 826.3125,
+        "left": 154.171875
+      },
+      "legend": {
+        "x": 154.171875,
+        "y": 837.640625,
+        "width": 691.640625,
+        "height": 626.125,
+        "top": 837.640625,
+        "right": 845.8125,
+        "bottom": 1463.765625,
+        "left": 154.171875
+      },
+      "fonts": [
+        "\"fig1--DejaVu Sans\", sans-serif",
+        "\"fig1--DejaVu Sans\", sans-serif",
+        "\"fig1--DejaVu Sans\", sans-serif"
+      ]
+    },
+    {
+      "id": "fig2",
+      "artwork": {
+        "x": 154.171875,
+        "y": 1509.109375,
+        "width": 691.640625,
+        "height": 733.5625,
+        "top": 1509.109375,
+        "right": 845.8125,
+        "bottom": 2242.671875,
+        "left": 154.171875
+      },
+      "legend": {
+        "x": 154.171875,
+        "y": 2254,
+        "width": 691.640625,
+        "height": 695.078125,
+        "top": 2254,
+        "right": 845.8125,
+        "bottom": 2949.078125,
+        "left": 154.171875
+      },
+      "fonts": [
+        "\"fig2--DejaVu Sans\"",
+        "\"fig2--DejaVu Sans\"",
+        "\"fig2--DejaVu Sans\""
+      ]
+    }
+  ],
+  "mobile": {
+    "width": 360,
+    "scrollWidth": 360,
+    "figures": 2
+  },
+  "errors": [],
+  "status": "passed",
+  "figures": [
+    {
+      "id": "fig1",
+      "working_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+        "sha256": "af70cb36b994ed30594ceed68367e5bd2e885d37f5df0df21674dda4412ab309",
+        "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+      },
+      "legend": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+        "sha256": "2ded096941e54f67ecabec9040395350f7f315dad896f0a9e45907046aecbfad",
+        "panel_ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ]
+      },
+      "layout_frames": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json",
+        "sha256": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267"
+      },
+      "condition_order": [
+        {
+          "display_panel": "F",
+          "source_panel": "H",
+          "condition": "Control",
+          "fish_id": "20221115_09",
+          "owner_group": "layout-H",
+          "axis_element": "edit-FGH-fig1__h__heatmap__background",
+          "source_svg": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+            "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
+            "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+          }
+        },
+        {
+          "display_panel": "G",
+          "source_panel": "F",
+          "condition": "Delay",
+          "fish_id": "20221115_07",
+          "owner_group": "layout-F",
+          "axis_element": "edit-FGH-fig1__f__heatmap__background",
+          "source_svg": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+            "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
+            "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+          }
+        },
+        {
+          "display_panel": "H",
+          "source_panel": "G",
+          "condition": "3 s Trace",
+          "fish_id": "20230307_12",
+          "owner_group": "layout-G",
+          "axis_element": "edit-FGH-fig1__g__heatmap__background",
+          "source_svg": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+            "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
+            "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+          }
+        }
+      ],
+      "preserved_starting_artwork": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-before/selected.svg",
+        "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850"
+      }
+    },
+    {
+      "id": "fig2",
+      "working_svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+        "sha256": "fbeacee0ed415d3dcb2babb2ce76c2edd731e6228fcb894d4578d8562153af95"
+      },
+      "legend": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+        "sha256": "39b22b9e94b0f9494a3c88df1bc1ca79c16da5de0ac194a54120a2e1970897e8",
+        "panel_ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I"
+        ]
+      },
+      "layout_frames": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-layout-evidence.json",
+        "sha256": "124a46870975c3fc08ebdce2c213891b90e31b4e727fa358f89ccabd7a37b53d"
+      },
+      "condition_order": [
+        {
+          "display_panel": "D",
+          "condition_order": [
+            "control",
+            "delay"
+          ],
+          "source_svg": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+            "sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6"
+          },
+          "condition_axis_groups": [
+            "edit-D-axes__d-control__main",
+            "edit-D-axes__d-delay__main"
+          ],
+          "between_condition_annotations": "Symmetric ET\u2013ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
+        },
+        {
+          "display_panel": "E",
+          "condition_order": [
+            "control",
+            "trace"
+          ],
+          "source_svg": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+            "sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6"
+          },
+          "condition_axis_groups": [
+            "edit-E-axes__e-control__main",
+            "edit-E-axes__e-trace__main"
+          ],
+          "between_condition_annotations": "Symmetric ET\u2013ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
+        },
+        {
+          "display_panel": "F",
+          "condition_order": [
+            "control",
+            "10sTrace"
+          ],
+          "status": "pending authenticated data; placeholder preserved"
+        }
+      ],
+      "preserved_starting_artwork": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-before/selected.svg",
+        "sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6"
+      }
+    }
+  ],
+  "visual_review": "Inspected both exact browser-rendered standalone candidates and both refreshed collection artworks. Control-first ordering, annotations, axes and legends verified.",
+  "print_review": "Print export generated during automated checks; page-by-page PDF review not performed.",
+  "scientific_changes": false,
+  "new_freeze": false,
+  "pending": "Figure 2 F remains a placeholder; Control then 10 s Trace registered for future data."
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-15T18:05:20.937509+02:00",
+  "workspace": "/Users/joaquim/Documents/ClassicalConditioning Figures",
+  "inventory": {
+    "path": "/Users/joaquim/Documents/ClassicalConditioning Figures/inventory.json",
+    "sha256": "bf89f01cabed4cdbe99f3f81110b40adb05e4acc9cf75e6bca048966dd2cb4ef"
+  },
+  "coverage": {
+    "figure1": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H"
+    ],
+    "figure2": [
+      "A",
+      "D",
+      "E",
+      "G"
+    ]
+  },
+  "whole_figures_frozen": false,
+  "artwork_files": 10,
+  "total_bytes": 28530346,
+  "source_snapshot": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "defd9762b12a60677f2dcb457b251ee3346abc88d6e1c9a6f4b4fac1d3114560",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": "20628a31cd499d806bad503277f1b770febf27e878270560783f74c4a96b54f2",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen/2026-10-05-ABCD/Fig1_PanelA_frozen.svg": "3512cf4798f8cb9d56424de455bddba5dfb89a7ab8aef1d11f8c08ae247ccf43",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen/2026-10-05-ABCD/Fig1_PanelB_frozen.svg": "57a6d07f2acca94c1371747502c33175b94f69f56abbc32dabaefaca4c7864d3",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen/2026-10-05-ABCD/Fig1_PanelC_frozen.svg": "9a15d64b798102696ee30d8f5e3f9447d3cd24960b50623ace46e5fe0be2e3e9",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen/2026-10-05-ABCD/Fig1_PanelD_frozen.svg": "0c450976f593160219892864129ae69f2c1098abea25c3e0fd781c27152186b8",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/frozen-candidate.svg": "fbd4dcbad4d26cc0e4d69e20a9e8ed799ca878a51d7ff770f14f827e06d5e94b",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-historical-one-second-managua-freeze-2026-10-13/frozen-candidate.svg": "cb01a274089e765180b28d0c54fe7d68a7936dc89c7ea00daf3873b4c35487a0",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/frozen-panel-a.svg": "6d149a5d87a9bffb1ce79c3fad809b8f7bc73768ee89b63dad9b3eb424584d53",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.svg": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29/Fig2_D_B.svg": "b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696/Fig2_E_B.svg": "e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panel-e/2026-10-13-raw-frame/manifests/freeze.json": "51d38b93f552bc95522b690982caf0aa69ba7c30fb31b96e8dee546962e090c9",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-historical-fish-one-second-managua/manifests/freeze.json": "19174577d78f6d76965df6d58e2b6ca8b9108c47544320a1cf4bc964625f2c76",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-a/2026-10-14-pooled-six-heatmap-row/manifests/freeze.json": "9e6a4b84408ed28c8ec030a8b09df022a16c37a51bf8b3359c1d17b6ca3f88a0",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/dd0750bc7f917779b51c4ab4e619d93d6508305a95835abffec85061dfa5e04a/D.freeze.json": "dd0750bc7f917779b51c4ab4e619d93d6508305a95835abffec85061dfa5e04a",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/a39f1f849119d319610ba50d98ff6cb5474caf65e5d1166f58443b489db2368e/E.freeze.json": "a39f1f849119d319610ba50d98ff6cb5474caf65e5d1166f58443b489db2368e",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.freeze.json": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb"
+  },
+  "verification": {
+    "sha256_all_copies": true,
+    "svg_external_resources": false,
+    "analysis_rerun": false,
+    "active_drafts_modified": false
+  }
+}

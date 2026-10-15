@@ -1,0 +1,16 @@
+{
+  "figure": "fig1",
+  "working_version": "v15",
+  "selection_basis": "All prior author annotations audited and repeated/corrected on 2026-10-13",
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v15-editing.html",
+    "sha256": "daf0113601f4e9c1beac5f8d39e2adce897a0ac07f8b848e7fb2c617ab1c562d"
+  },
+  "working_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v15-editing.svg",
+    "sha256": "d641ffa50c6725283d3693025d753d9a760e696e12d96c354183db75a7181ce7",
+    "source_svg_sha256": "2798ca443bef55b4276901c232c974094708148e281c110c6725a4b32a1858a2"
+  },
+  "status": "active draft; formal freeze after review",
+  "previous_versions": "preserved pending author disposition"
+}

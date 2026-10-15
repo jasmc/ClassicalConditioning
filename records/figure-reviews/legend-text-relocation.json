@@ -1,6 +1,6 @@
 {
-  "review_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.html",
-  "review_sha256": "492deb58844f4b91bb2f92d7c4d2836f320f86457eedd0118bdf35e63b556334",
+  "review_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+  "review_sha256": "8f11e9b394346bda7507988fe48609aa1796591966f3a2c1cf1f964676f2680b",
   "edits": [
     {
       "figure": 1,
@@ -8,7 +8,7 @@
       "text": "Training trial",
       "element_id": "heading",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -16,7 +16,7 @@
       "text": "Relationship",
       "element_id": "heading",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -24,7 +24,7 @@
       "text": "Alternative US onsets",
       "element_id": "row-control",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -32,7 +32,7 @@
       "text": "Timing varies between trials",
       "element_id": "row-control",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -40,7 +40,7 @@
       "text": "US at 9 s",
       "element_id": "row-delay",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -48,7 +48,7 @@
       "text": "During CS",
       "element_id": "row-delay",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -56,7 +56,7 @@
       "text": "US at 13 s",
       "element_id": "row-trace-3s",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -64,7 +64,7 @@
       "text": "3 s after CS offset",
       "element_id": "row-trace-3s",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -72,7 +72,7 @@
       "text": "US at 20 s",
       "element_id": "row-trace-10s",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -80,14 +80,14 @@
       "text": "10 s after CS offset",
       "element_id": "row-trace-10s",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
       "panel": "B",
       "action": "two-column-layout",
       "text": "Control | Delay; Trace (3 s) | Trace (10 s); experiment names use FGH colours; vertical colour markers removed; event coordinates unchanged",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -95,7 +95,7 @@
       "text": "Session sequence",
       "element_id": null,
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -103,7 +103,7 @@
       "text": "Schematic \u00b7 not to scale",
       "element_id": null,
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -111,7 +111,7 @@
       "text": "includes left-side light",
       "element_id": "phase-priming",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -119,7 +119,7 @@
       "text": "Trial timing in B",
       "element_id": "phase-training",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -127,7 +127,7 @@
       "text": "Short US pulses are interspersed; they are not conditioning pairings.",
       "element_id": "protocol-notes",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -135,7 +135,7 @@
       "text": "Control:",
       "element_id": "protocol-notes",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -143,7 +143,7 @@
       "text": "Same long-US times; training CS onsets randomized per fish",
       "element_id": "protocol-notes",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -151,28 +151,35 @@
       "element_id": "protocol-notes",
       "action": "move-explanatory-legend-key-to-caption",
       "text": "Short-US and control key markers accompanying the removed protocol notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
       "panel": "C",
       "action": "align-stimulus-types",
       "text": "CS presentations, CS-only catches, paired long US and separate short US occupy common rows across phases",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
+    },
+    {
+      "figure": 1,
+      "panel": "C",
+      "action": "tighten-panel-crop",
+      "text": "Trim excess whitespace below the session cards while retaining a 4-unit bottom margin",
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
       "panel": "D",
       "action": "shared-D-E-renderer",
       "text": "Author-requested D measured-frame input and common layout; E colours recomputed",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
       "panel": "E",
       "action": "shared-D-E-renderer",
       "text": "Author-requested D measured-frame input and common layout; E colours recomputed",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -180,7 +187,7 @@
       "text": "20221115_07",
       "element_id": "fig1__f__heading__fish-id",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -188,7 +195,7 @@
       "text": "20230310_08",
       "element_id": "fig1__g__heading__fish-id",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
@@ -196,14 +203,14 @@
       "text": "20221115_09",
       "element_id": "fig1__h__heading__fish-id",
       "action": "move-to-legend-or-review-notes",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 1,
       "panel": "FGH",
       "action": "move-example-arrows-G-to-F",
       "text": "Delay fish 20221115_07: trials 9, 17, 63, 66, 93, matching D/E; heatmap data unchanged",
-      "destination": "docs/analysis/figures/reviews/figure-01/legend-draft.md"
+      "destination": "docs/paper/figures/figure-01/legend.md"
     },
     {
       "figure": 2,
@@ -214,7 +221,7 @@
         "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html",
         "sha256": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6"
       },
-      "destination": "docs/analysis/figures/reviews/legend-decluttering-review.md"
+      "destination": "docs/paper/figures/shared/review.md"
     },
     {
       "figure": 1,
@@ -272,7 +279,7 @@
         "translate_y": 0,
         "source_scale": 1.0,
         "candidate_scale": 0.9571428571428571,
-        "candidate_sha256": "a7f19673ece09181c86a39bee6e9e3957e9d004b06d88157d8c628783ac2373d",
+        "candidate_sha256": "740ae1efb7e0085054664821c53606525830650b5b99b8b72e292096a4ab9364",
         "extent": {
           "x": 405.0,
           "y": 35.0,
@@ -286,14 +293,14 @@
         "translate_y": 0,
         "source_scale": 1.0,
         "candidate_scale": 1.0,
-        "candidate_sha256": "582f15170c48a35959fd6f96e368ac88adf7a6e7af0156836ff615e420929dbc",
+        "candidate_sha256": "d2fbab6cd65039a18514c400ecff104a6a013d6d629951d7e9c166a7cf8eefea",
         "extent": {
           "x": 55.0,
           "y": 465.0,
           "width": 1690.0,
-          "height": 365.0
+          "height": 295.0
         },
-        "candidate_viewbox": "0 0 1690 365"
+        "candidate_viewbox": "0 0 1690 295"
       },
       {
         "panel": "D",
@@ -303,7 +310,7 @@
         "candidate_sha256": "7ab0809891b4f5e8e63706771e332642ee7ec7bb40b3dc5f3cc104ac143eb162",
         "extent": {
           "x": 45,
-          "y": 930,
+          "y": 870,
           "width": 840,
           "height": 550,
           "scale": 1.0
@@ -314,21 +321,21 @@
         "translate_y": 0,
         "source_scale": 2.7777777777777777,
         "candidate_scale": 1.0,
-        "candidate_sha256": "49db5275c1da95f179c8d642ad16a237a097e9f341bc01b8012570bdc90ff057",
+        "candidate_sha256": "dffbf79506ea419e610a0631b116723d511b4bf27817e75fa2a974d337481482",
         "extent": {
           "x": 915,
-          "y": 930,
-          "width": 840,
+          "y": 870,
+          "width": 885,
           "height": 550,
           "scale": 1.0
         }
       },
       {
         "panel": "FGH",
-        "translate_y": -1170,
+        "translate_y": -1230,
         "source_scale": 3.469945354075877,
         "candidate_scale": 3.469945354075877,
-        "candidate_sha256": "b0e4dabce2211187c900f03c45103887626a25d8851781e899090a0ef1adbb0f",
+        "candidate_sha256": "8779b0e3201b45181c9c3c9cc3fdc231f3d309cffc0ff267fd18230756d75684",
         "extent": {
           "x": 1.1226295555388788e-06,
           "y": 2700.0,
@@ -349,11 +356,14 @@
       "same_trials": true,
       "same_frame_ids": true,
       "same_time_values": true,
-      "raw_and_scaled_vigor_share_input": true,
+      "black_trace_uses_D_vigor": true,
+      "colour_bands_are_exact_F_rows": true,
       "equal_axis_rectangles": true,
       "equal_body_size_excluding_colourbar": true,
       "row_labels_and_centres_match": true,
-      "serialized_geometry_labels_and_bin_colours": true
+      "serialized_geometry_labels_and_bin_colours": true,
+      "serialized_one_point_per_scaled_frame": true,
+      "black_trace_baseline_and_scaling_use_unbinned_frames": true
     },
     "uniform_panel_fitting": true,
     "author_requested_resizing": true,
@@ -419,17 +429,17 @@
       "figure": 1,
       "panel": "B",
       "text": "CS",
-      "role": "label",
-      "final_size_pt": 8,
+      "role": "legend",
+      "final_size_pt": 7,
       "font_family": "DejaVu Sans",
       "weight": "normal"
     },
     {
       "figure": 1,
       "panel": "B",
-      "text": "US onset",
-      "role": "label",
-      "final_size_pt": 8,
+      "text": "US",
+      "role": "legend",
+      "final_size_pt": 7,
       "font_family": "DejaVu Sans",
       "weight": "normal"
     },
@@ -508,15 +518,6 @@
     {
       "figure": 1,
       "panel": "B",
-      "text": "Time relative to CS onset (s)",
-      "role": "axis-label",
-      "final_size_pt": 8,
-      "font_family": "DejaVu Sans",
-      "weight": "bold"
-    },
-    {
-      "figure": 1,
-      "panel": "B",
       "text": "Delay",
       "role": "label",
       "final_size_pt": 8,
@@ -562,16 +563,7 @@
     {
       "figure": 1,
       "panel": "B",
-      "text": "Time relative to CS onset (s)",
-      "role": "axis-label",
-      "final_size_pt": 8,
-      "font_family": "DejaVu Sans",
-      "weight": "bold"
-    },
-    {
-      "figure": 1,
-      "panel": "B",
-      "text": "Trace (3 s)",
+      "text": "3sTrace",
       "role": "label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
@@ -616,16 +608,7 @@
     {
       "figure": 1,
       "panel": "B",
-      "text": "Time relative to CS onset (s)",
-      "role": "axis-label",
-      "final_size_pt": 8,
-      "font_family": "DejaVu Sans",
-      "weight": "bold"
-    },
-    {
-      "figure": 1,
-      "panel": "B",
-      "text": "Trace (10 s)",
+      "text": "10sTrace",
       "role": "label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
@@ -670,7 +653,16 @@
     {
       "figure": 1,
       "panel": "B",
-      "text": "Time relative to CS onset (s)",
+      "text": "t (s)",
+      "role": "axis-label",
+      "final_size_pt": 8,
+      "font_family": "DejaVu Sans",
+      "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "B",
+      "text": "t (s)",
       "role": "axis-label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
@@ -688,7 +680,7 @@
     {
       "figure": 1,
       "panel": "C",
-      "text": "CS (10 s)",
+      "text": "CS",
       "role": "legend",
       "final_size_pt": 7,
       "font_family": "DejaVu Sans",
@@ -697,7 +689,7 @@
     {
       "figure": 1,
       "panel": "C",
-      "text": "short US (50 ms)",
+      "text": "short US",
       "role": "legend",
       "final_size_pt": 7,
       "font_family": "DejaVu Sans",
@@ -706,7 +698,7 @@
     {
       "figure": 1,
       "panel": "C",
-      "text": "long US (100 ms)",
+      "text": "long US",
       "role": "legend",
       "final_size_pt": 7,
       "font_family": "DejaVu Sans",
@@ -907,6 +899,15 @@
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
       "weight": "bold"
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "text": "1",
+      "role": "tick",
+      "final_size_pt": 7,
+      "font_family": "DejaVu Sans",
+      "weight": "normal"
     },
     {
       "figure": 1,
@@ -1172,7 +1173,7 @@
     {
       "figure": 1,
       "panel": "FGH",
-      "text": "3 s Trace",
+      "text": "3sTrace",
       "role": "label",
       "final_size_pt": 8,
       "font_family": "DejaVu Sans",
@@ -1291,6 +1292,13 @@
       "figure": 1,
       "panel": "FGH",
       "element_id": "  fig1__f__heatmap__tickmym90-mark ytick_9 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
+      "role": "tick",
+      "final_stroke_pt": 0.5
+    },
+    {
+      "figure": 1,
+      "panel": "FGH",
+      "element_id": "  fig1__f__heatmap__display-row90-mark ytick_9 fig1__f__heatmap__axis-y fig1__f__heatmap__axes figure_1 ",
       "role": "tick",
       "final_stroke_pt": 0.5
     },
@@ -1652,5 +1660,5 @@
       "final_stroke_pt": 0.5
     }
   ],
-  "state_authority": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/figure-01/current-state.json"
+  "state_authority": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json"
 }

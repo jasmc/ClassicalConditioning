@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "scope": "main-paper-figures",
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html",
+    "sha256": "089a78a891e77a3761d8b1e44b7dd0da1dc2c75b90d814b2337b0836608329fb"
+  },
+  "html_sha256": "089a78a891e77a3761d8b1e44b7dd0da1dc2c75b90d814b2337b0836608329fb",
+  "figures": [
+    {
+      "id": "fig1",
+      "state": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+        "sha256": "700daaffbedc0967d99c21ddc296603a0f9c936e799a028d6ce27f579dfaf7a6"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+        "sha256": "51553b4d4f540c830d2e1efb9c0f1ddae31e42117b7f25813f97ac24cb0d574b",
+        "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+      },
+      "legend": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+        "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+        "panel_ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ]
+      },
+      "layout_frames": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-layout-20261015/figure-01-layout-evidence.json",
+        "sha256": "f79a5dd7190b2b9c0a455bcd53705712263c1ee1e33946651dd26450d4166f5a"
+      },
+      "whole_figure_frozen": false
+    },
+    {
+      "id": "fig2",
+      "state": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+        "sha256": "f0791c0bc99e578d86cc33b517e3aa8f70f51ca32d2a35ec3076fa45e88b1ff0"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+        "sha256": "d5c1b7ed171889b5e1c9ec4cfa69cde942a28a83917c3a387bd33ea1d2c831c4"
+      },
+      "legend": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+        "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616",
+        "panel_ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I"
+        ]
+      },
+      "layout_frames": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-layout-20261015/figure-02-layout-evidence.json",
+        "sha256": "846686a57c50fb715a33badcc26c9c8a430179e7fc7d3cf7ca3bb6e806bdb167"
+      },
+      "whole_figure_frozen": false
+    }
+  ],
+  "browser": {
+    "html_sha256": "089a78a891e77a3761d8b1e44b7dd0da1dc2c75b90d814b2337b0836608329fb",
+    "reports": [
+      {
+        "id": "fig1",
+        "artwork": {
+          "x": 154.171875,
+          "y": 24,
+          "width": 691.640625,
+          "height": 802.3125,
+          "top": 24,
+          "right": 845.8125,
+          "bottom": 826.3125,
+          "left": 154.171875
+        },
+        "legend": {
+          "x": 154.171875,
+          "y": 837.640625,
+          "width": 691.640625,
+          "height": 626.125,
+          "top": 837.640625,
+          "right": 845.8125,
+          "bottom": 1463.765625,
+          "left": 154.171875
+        },
+        "fonts": [
+          "\"fig1--DejaVu Sans\", sans-serif",
+          "\"fig1--DejaVu Sans\", sans-serif",
+          "\"fig1--DejaVu Sans\", sans-serif"
+        ]
+      },
+      {
+        "id": "fig2",
+        "artwork": {
+          "x": 154.171875,
+          "y": 1509.109375,
+          "width": 691.640625,
+          "height": 733.5625,
+          "top": 1509.109375,
+          "right": 845.8125,
+          "bottom": 2242.671875,
+          "left": 154.171875
+        },
+        "legend": {
+          "x": 154.171875,
+          "y": 2254,
+          "width": 691.640625,
+          "height": 695.078125,
+          "top": 2254,
+          "right": 845.8125,
+          "bottom": 2949.078125,
+          "left": 154.171875
+        },
+        "fonts": [
+          "\"fig2--DejaVu Sans\"",
+          "\"fig2--DejaVu Sans\"",
+          "\"fig2--DejaVu Sans\""
+        ]
+      }
+    ],
+    "mobile": {
+      "width": 360,
+      "scrollWidth": 360,
+      "figures": 2
+    },
+    "errors": []
+  },
+  "visual_review": {
+    "status": "reviewed",
+    "browser": "Chromium plus built-in browser",
+    "checks": [
+      "Figure 1 then complete legend, Figure 2 then complete legend",
+      "183 mm artwork width",
+      "Existing scientific marks, labels, headings, rasters and Pending panels retained",
+      "Namespaced embedded SVG visually matches standalone selected SVG; fractional CSS pixel raster rounding is not claimed pixel-identical",
+      "No observed content clipping; source and embedded scientific geometry preserved"
+    ],
+    "print": {
+      "page_count": 4,
+      "paper": "A4",
+      "scale": "183 mm artwork",
+      "status": "All four rasterized pages inspected; artwork unbroken, legends continue without clipping or lost text"
+    }
+  },
+  "tests": {
+    "new_collection_tests": {
+      "passed": 8
+    },
+    "layout_frame_tests": {
+      "passed": 12
+    },
+    "figure1_working_copy_verify": "passed",
+    "source_scientific_selection_hashes": "unchanged",
+    "unchanged_build_reuse": "passed",
+    "legacy_legend_review_tests": {
+      "passed": 7,
+      "failed": 2,
+      "failures": [
+        "test_grid_preserves_exact_event_metadata_and_order: expects older condition title",
+        "test_protocol_row_moves_preserve_symbol_and_count: expects old translate(0 34), current pre-existing implementation uses translate(0 -26)"
+      ],
+      "scope_note": "These functions and legacy test expectations were not changed in this task"
+    }
+  },
+  "freeze_created": false,
+  "coverage": "Presentation layout and collection rendering verified; inherited scientific mappings and unfinished scopes remain partial",
+  "verifier": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_main_paper_collection.cjs",
+    "sha256": "af8ce94f56d293c28d75525258f6d850d294cbd11122a389e274db97a74631c0"
+  }
+}

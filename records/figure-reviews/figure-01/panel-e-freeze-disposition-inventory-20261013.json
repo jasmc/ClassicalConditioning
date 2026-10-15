@@ -1,0 +1,112 @@
+{
+  "scope": "E",
+  "new_freeze": {
+    "figure_id": "fig1",
+    "panel_ids": [
+      "e"
+    ],
+    "status": "author-frozen",
+    "selected_revision": "unbinned-raw-baseline-scaled-0-5-F-one-second-bands",
+    "svg": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/frozen-candidate.svg",
+      "sha256": "fbd4dcbad4d26cc0e4d69e20a9e8ed799ca878a51d7ff770f14f827e06d5e94b"
+    },
+    "freeze_manifest": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panel-e/2026-10-13-raw-frame/manifests/freeze.json",
+      "sha256": "51d38b93f552bc95522b690982caf0aa69ba7c30fb31b96e8dee546962e090c9"
+    },
+    "candidate": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/candidate.json",
+      "sha256": "fe48dc43a4810acabdde0c285628301e97d2816c5a547fdeafc3cc11a28784c6"
+    },
+    "data": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/frame-and-band-mappings.json",
+      "sha256": "c9355233ba84dbc940d6bca541fd413b3cff05a6e3f2b697778b1a2d28346c85"
+    },
+    "selection_record": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json",
+      "sha256": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281"
+    },
+    "assembly_scale": {
+      "final_width_mm": 91.5,
+      "final_height_mm": 64.55833333333334,
+      "scope": "E alone at its half-width position in the 183-mm Figure 1 assembly",
+      "source_to_final_transforms": {
+        "root_user_unit_to_final_pt": 0.28818897637795277,
+        "svg_transforms": [
+          {
+            "element_id": "edit-E-value-label",
+            "transform": "rotate(-90 24 245)"
+          },
+          {
+            "element_id": "edit-E-colour-scale",
+            "transform": "translate(754 30) scale(3.469945355) translate(-466.866142 -44.220472)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 177.330319)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 112.105122)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-0 478.091024 46.879926)"
+          },
+          {
+            "element_id": null,
+            "transform": "rotate(-90 499 109.445669)"
+          }
+        ]
+      }
+    },
+    "author_instruction": "Author in current panel E chat, 2026-10-13: use 0 to 5 in y axis; remove dashed line marking baseline; use color legend as in H; freeze this panel. Follow-up: CS vertical lines from top to very bottom, single lines.",
+    "scope": "Panel E only; no whole-figure freeze"
+  },
+  "status": "Pending author disposition; preserve all earlier versions and dependencies",
+  "recommendation": "Keep the new freeze and shared active working pair. Retain old E freeze/history and approved v15 candidate as historical evidence until author decides.",
+  "prior_selected_records": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314"
+    }
+  ],
+  "preserved_approved_candidate": {
+    "version": "v15",
+    "authorization": {
+      "request": "freeze 15",
+      "scope": "Figure 1 whole assembly A\u2013H",
+      "source": "User message in this chat on 2026-10-13",
+      "authorized": true
+    },
+    "candidate": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v15-freeze-candidate-2026-10-13/candidate.json",
+      "sha256": "f2d6f71db43870b8b7d386c99d27f77d52ce5bb98a34bc99f1bdf5077bb4c7a2"
+    },
+    "status": "gate-failed; exact v15 approved by author and preserved; formal freeze not published",
+    "check_report": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/freeze-v15-check-2026-10-13.json",
+      "sha256": "9ec7ed892952ee5668c7db3130ff91f3d4f3d78c800cc05e6d0fb98ccdd4723a"
+    },
+    "issue_counts": {
+      "review": 2,
+      "element": 572,
+      "unregistered-visible-element": 1610,
+      "svg-evidence": 552
+    }
+  },
+  "previous_working_source": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e-raw-frame-freeze-2026-10-13/working-source.svg",
+    "sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+  },
+  "historical_catalogue": {
+    "selection_record": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314"
+    },
+    "version_count": 22,
+    "note": "Prior E archive retains its 22-version catalogue and all byte-bound dependencies; new freeze grants no disposition authorization"
+  },
+  "pending_dispositions": "keep/archive/delete choices; none executed"
+}

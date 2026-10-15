@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "scope": "Previous Figure 1 single-fish F/G/H heatmap versions only",
+  "author_authorization": "archive the previous versions of these singlefish heatmaps",
+  "source_root": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code",
+  "files": [
+    {
+      "path": "scripts/build_figure1_fgh_palette_review.py",
+      "historical_paths": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_palette_review.py"
+      ],
+      "sha256": "d0f2ca92398f593cf66edc8da356076fe2932c10765622c6d553ac9aa38d4996",
+      "bytes": 17479,
+      "action": "archive_to_ssd",
+      "reason": "Superseded single-fish heatmap review, input cache, freeze dependency or candidate code"
+    },
+    {
+      "path": "scripts/organize_figure1_fgh_comparison.py",
+      "historical_paths": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/organize_figure1_fgh_comparison.py"
+      ],
+      "sha256": "3aa24d76b4a9997b9de977de09f37f5ec52403497819e65202bf92aff887b5cd",
+      "bytes": 21261,
+      "action": "archive_to_ssd",
+      "reason": "Superseded single-fish heatmap review, input cache, freeze dependency or candidate code"
+    },
+    {
+      "path": "scripts/show_figure1_fgh_version04.py",
+      "historical_paths": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/show_figure1_fgh_version04.py"
+      ],
+      "sha256": "4acad68651c507873d105f20c92aa17fc800c03e9d47229160e2591c1ef21d68",
+      "bytes": 4021,
+      "action": "archive_to_ssd",
+      "reason": "Superseded single-fish heatmap review, input cache, freeze dependency or candidate code"
+    },
+    {
+      "path": "scripts/render_figure1_version04_trace_palettes.py",
+      "historical_paths": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_version04_trace_palettes.py"
+      ],
+      "sha256": "3a3d524f974cfa3a92514e0f37a6b728e48f5c4f766b87a8429936cf49fc9f60",
+      "bytes": 7671,
+      "action": "archive_to_ssd",
+      "reason": "Superseded single-fish heatmap review, input cache, freeze dependency or candidate code"
+    },
+    {
+      "path": "scripts/render_figure1_one_second_cyan_palettes.py",
+      "historical_paths": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_one_second_cyan_palettes.py"
+      ],
+      "sha256": "8b593ee2941d033f0c325da6607b1cb4bffebaabbc549de972988217faa48431",
+      "bytes": 6158,
+      "action": "archive_to_ssd",
+      "reason": "Superseded single-fish heatmap review, input cache, freeze dependency or candidate code"
+    },
+    {
+      "path": "scripts/render_figure1_blue_orange_transition.py",
+      "historical_paths": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_blue_orange_transition.py"
+      ],
+      "sha256": "8a9d4f2d3c73caec04b3337c485ef56131f34a9d83f25c8ea65dfa5d16751961",
+      "bytes": 4396,
+      "action": "archive_to_ssd",
+      "reason": "Superseded single-fish heatmap review, input cache, freeze dependency or candidate code"
+    },
+    {
+      "path": "scripts/prepare_figure1_fgh_one_second_freeze.py",
+      "historical_paths": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare_figure1_fgh_one_second_freeze.py"
+      ],
+      "sha256": "0817192636a32121455e339b29328afe07394c1ae6493b596882c007b0a20b82",
+      "bytes": 20264,
+      "action": "archive_to_ssd",
+      "reason": "Superseded single-fish heatmap review, input cache, freeze dependency or candidate code"
+    }
+  ]
+}

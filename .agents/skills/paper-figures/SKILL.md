@@ -13,27 +13,59 @@ before figure work. Maintain procedures there, rather than copying them here.
 
 ## Resolve the requested state
 
+Plural main-paper requests (for example, “show me the figures of the paper”)
+use the ordered collection: run `scripts/main_paper_figures.py build` with
+`.venv/bin/python`, then `display-target`, and open/inspect its authenticated
+HTML in the built-in browser. This refreshes from selected scoped figure states
+and requires current passing layout evidence. A request for a particular figure
+or panel still shows only that scope and its legend. See the workflow's
+**Main-paper collection** section; collection inclusion does not create a freeze.
+
 Read [Current figures](../../../docs/paper/figures/README.md), the requested
 figure's selection records, legend and scoped `current-state.json` when present.
 Check storage and authenticate bound sources before loading or regenerating.
 Resolve relocated artifacts through archive indexes; do not choose by age.
 
-- **Show:** follow the recorded `default_display` and open/show its authenticated
-  SVG itself. The author selected v10 as the sole Figure 1 working version on
-  2026-10-13; default display is the active draft. Show frozen selections only
-  when explicitly requested. Identify unfrozen scopes and preserve scientific freezes.
+- **Show:** open only the requested figure/panel’s selected SVG and associated
+  legend in minimal self-contained HTML in the built-in browser. No page header,
+  navigation, notes, provenance display, other figures/panels, version switches
+  or comparisons unless explicitly requested. Keep provenance nonvisual. Follow scoped
+  state (`default_display` and `default_display_format`); Use the single current pair resolved from state.
+  Keep the matching editable SVG as the figure artifact; open it when requested.
+  Identify unfrozen scopes. Show frozen selections/comparisons only on request.
+  A panel request needs a view of that panel alone, preserving authenticated
+  source coordinates/resources; scrolling to a panel in a full figure is not
+  isolation. Do not create extra standalone working SVGs for panel previews.
 - **Create/edit/compare:** capture starting hashes before changing code or
   inputs. Implement repeatable edits in supported code. Preserve addressable
   SVG groups/text/paths, source mappings and authentic embedded raster data.
-  Maintain one recorded working SVG per frozen/draft state and one
-  self-contained HTML review with requested versions, legends and provenance.
+  Maintain one active working SVG and its matching self-contained HTML review
+  with requested versions, legends and provenance. Preserve historical records
+  according to author dispositions; do not create competing working versions.
   Use temporary/in-memory previews and remove task-created render files after
   verification. An XML editor does not imply graphical drag-and-drop support.
+- **Style edits:** resolve named roles and existing consistency groups before
+  editing. Apply local requests locally; preserve and recheck recorded group
+  requirements. Propagate a shared change only across the author-named scope,
+  using supported code, registry updates and final-scale evidence. Semantic
+  lookup alone does not automatically restyle other panels.
+- **Ensure consistency:** implement the named scoped relationship/property in
+  supported draft code, and update the existing draft registry and version-bound
+  evidence as described in the workflow’s consistency-request procedure. A
+  request does not by itself revise shared freeze rules or scientific definitions.
+  Register related-panel groups by type: layout (equal measured gaps, shared
+  axis layout), scientific (authenticated data/cohort/control/experiment links)
+  and presentation style (named role groups, including cross-figure axis titles).
+  Check each declared relationship at final scale; containment alone does not
+  verify spacing. Preserve distinctions between visual grouping and shared data.
 - **Verify:** read the selected semantic registry, distinguish structural IDs
   from scientific roles, check linked-panel relationships and measure the
   exact saved SVG at final assembly scale. Perform real renderer/visual review;
   record unresolved measurements and partial coverage honestly. Create a
-  companion legend for each new panel/figure; edit existing legends only when
+  companion legend for each new panel/figure, with an explicit source path/hash
+  and panel association in state. A figure legend’s panel-specific paragraph may
+  serve as the panel legend; do not duplicate files unnecessarily. Show the
+  associated legend with the SVG by default. Edit existing legends only when
   definitions or necessary explanations change. Keep essential units, axes,
   ticks and scientific marks visible; move explanatory clutter to the legend.
 
@@ -42,6 +74,11 @@ Resolve relocated artifacts through archive indexes; do not choose by age.
 Run commands from the repository root with `.venv/bin/python`. Read the
 workflow's concurrency/publication section for destinations and command options.
 
+- `scripts/figure_working_copy.py display-target` resolves the authenticated
+  current Figure 1 HTML, SVG and legend paths from state. Open that exact HTML;
+  do not copy a historical review to a generic `figure1.html` or reuse an old
+  browser URL without checking its backing file and hash. Inspect the actual
+  page before reporting a successful open.
 - `scripts/figure_working_copy.py verify` authenticates Figure 1 working state.
   Use `begin --ticket <temporary-ticket.json>` before Figure 1 edits.
   `prepare --output-dir <existing-external-directory> --revision <revision>`
@@ -49,7 +86,9 @@ workflow's concurrency/publication section for destinations and command options.
   unreviewed manual edits.
 - `scripts/build_figure_legend_review.py --baseline <ticket.json> --output
   <new-external-review.html>` publishes the Figure 1 draft/review with guarded
-  hashes, measurements and atomic state update, preserving Figure 2.
+  hashes, measurements and atomic state update, preserving Figure 2. Author direction
+  on 2026-10-13: update the same active HTML/SVG pair with `--update-current`;
+  do not create a new working version for each edit. Preserve approved freeze candidates.
 - For other figures, use their supported builder and
   [assembly safeguards](../../../docs/paper/figures/shared/assembly-preflight.md).
   The two tools above currently target Figure 1; do not direct another figure
@@ -77,3 +116,11 @@ inventory earlier versions for author disposition. Preserve all pending versions
 For approved transfer/pruning, follow the
 [archive procedure](../../../records/repository-archive/README.md) and use
 `scripts/repository_archive.py`; never treat this skill as cleanup authorization.
+
+## Invisible layout frames
+
+Future paper/supplementary/analysis figure edits follow the workflow's
+**Invisible layout frames** section: shared outside blank strip, explicitly
+owned content, final-scale browser evidence and scoped freeze checks. The
+shared inset is author-selected and active in the layout policy. Do not retrofit
+current drafts without a scoped edit request; future evidence must bind the active policy.

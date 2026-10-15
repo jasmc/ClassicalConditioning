@@ -1,0 +1,29 @@
+{
+  "reviewed_utc": "2026-10-14T21:57:52.923362+00:00",
+  "status": "passed",
+  "model": "same Gaussian maximum likelihood; random intercept/slope; full observed-information fixed covariance",
+  "input": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/model-input.parquet",
+    "sha256": "7e5d857988041eca7ae123f45e4f4a6776e24cf3f71f5955aa0b7e28532a8220"
+  },
+  "comparisons": [
+    {
+      "target": "difference",
+      "max_contrast_difference": 1.8879930806237066e-07,
+      "max_SE_relative_difference": 3.2269843261323317e-05,
+      "likelihood_difference": 2.889055394916795e-07
+    },
+    {
+      "target": "adjusted_response",
+      "max_contrast_difference": 1.2636804305743432e-07,
+      "max_SE_relative_difference": 1.6835486335464722e-05,
+      "likelihood_difference": 2.7493115339893848e-08
+    }
+  ],
+  "scoped_tests_passed": 19,
+  "source": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_fast_lmm.py",
+    "sha256": "f25392054fa421da4947a4c0028884dd3042e3376c9b8aef8d6f74eb16ac87b9"
+  },
+  "paper_calibration_implied": false
+}

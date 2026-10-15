@@ -1,0 +1,413 @@
+{
+  "compared_utc": "2026-10-15T07:05:34.644366+00:00",
+  "scope": "selected 2026-10-09 G versus independent exploratory analysis-02; read-only comparison",
+  "old_verified_numeric_sources": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/phase-contrasts.csv",
+      "sha256": "6c2a5f04bfdcc42c7f4d706b920b34322e69302be86c281a8c833ac8feb11572",
+      "matched_selected_freeze_inventory": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/phase-fixed-covariance.csv",
+      "sha256": "97c1493fa3ed41de68e1662a2a640a58ba6c606c023217b845a63fb1128c9eea",
+      "matched_selected_freeze_inventory": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/phase-coefficients.csv",
+      "sha256": "8eb835343a8c9e818ac2220be81b78e73b31dcb084ac7077f9726da4a8d06e00",
+      "matched_selected_freeze_inventory": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/phase-contrast-matrices.npz",
+      "sha256": "ee1c5573241789d76a97dc8676c3e1d16810e3f437d9f82f8a6816ba708e1cf4",
+      "matched_selected_freeze_inventory": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/D-interaction-tests.csv",
+      "sha256": "10979c126981a9cdef235ea04388194f6e808126ae7255ae4d0812089dea96ff",
+      "matched_selected_freeze_inventory": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/fish-logmedian-differences.parquet",
+      "sha256": "e8026cea91001905c3bd0ac708e5e804166f9b4a3e250314cf21f639da1cfd13",
+      "matched_selected_freeze_inventory": true
+    }
+  ],
+  "selected_svg_sha256": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979",
+  "selected_sidecar": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.figure.json",
+    "sha256": "ea90c79d4dc9c3f3fe0c5c3786d16dbc39780c74891bcb128c0e3e9402fb65b2"
+  },
+  "new_state": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/analysis-state.json",
+    "sha256": "471a5892b0d480ea7a2326cdeafd676074a0559dd65e9feed0749d097b209077"
+  },
+  "new_bound_numeric_sources": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/adjusted_response/population-trajectory.csv",
+      "sha256": "abaef799ed1661022ff7e85eeff1c9e3919a9614d8c464d13f844971be5e7cc8"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/difference/population-trajectory.csv",
+      "sha256": "ba2a294c68d24f1bae6c9cd60fb63322ec97dfbcd2cfa2b4e7654edddf0cbb90"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/adjusted_response/planned-phase-contrasts.csv",
+      "sha256": "32710cffad219b22a725324963b4d853d0717d6a921bbe793a0ba07aeaaa8194"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/difference/planned-phase-contrasts.csv",
+      "sha256": "c705d6d449fa14fa0a730bc0c280d4745e73cc3ce61752f5156f6a00a68f46b5"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/unsmoothed-fish-change-phases.csv",
+      "sha256": "04eb65c89081b09be618c292a05460a8a19933213610f0dbe0bcafb6fff48b07"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/legacy-cohort-phase-results.csv",
+      "sha256": "2a6d00ff9d5cd4cbb584fe4303d420aa9d7f3a1c4964bddafd8079b04c171e9f"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/technical-phase-results.csv",
+      "sha256": "378a22bb59826598026b9ab3fbc078ffcc113365f4312a2bc2f0d27e80cd31e3"
+    }
+  ],
+  "adjusted_trial_estimates_max_absolute_difference": 1.51227258979314e-08,
+  "adjusted_trial_SE_max_absolute_difference": 5.5494449001380897e-08,
+  "old_BH90_significant_trials": [
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71
+  ],
+  "old_model_derived_phase_summaries": [
+    {
+      "contrast": "late_training",
+      "old_saved_model_estimate": 0.09474346843996805,
+      "old_derived_pointwise_gaussian_interval": [
+        0.057948457386307266,
+        0.13153847949362882
+      ],
+      "note": "Derived now from frozen covariance, not an originally displayed planned-phase interval"
+    },
+    {
+      "contrast": "early_testing",
+      "old_saved_model_estimate": 0.06514975465569209,
+      "old_derived_pointwise_gaussian_interval": [
+        0.02431944128131784,
+        0.10598006803006634
+      ],
+      "note": "Derived now from frozen covariance, not an originally displayed planned-phase interval"
+    },
+    {
+      "contrast": "late_testing",
+      "old_saved_model_estimate": 0.026176468834576923,
+      "old_derived_pointwise_gaussian_interval": [
+        -0.022922882998527586,
+        0.07527582066768143
+      ],
+      "note": "Derived now from frozen covariance, not an originally displayed planned-phase interval"
+    }
+  ],
+  "old_D_tests": [
+    {
+      "block_10_name": "Train 1",
+      "center": 19.535922330097087,
+      "estimate": -0.0408749555660201,
+      "p_raw": 0.0040642359131441,
+      "p_holm": 0.0121927077394322
+    },
+    {
+      "block_10_name": "Train 2",
+      "center": 29.453686200378076,
+      "estimate": -0.0885423084861226,
+      "p_raw": 2.19262478689511e-09,
+      "p_holm": 1.754099829516088e-08
+    },
+    {
+      "block_10_name": "Train 3",
+      "center": 39.54307116104869,
+      "estimate": -0.086356556512678,
+      "p_raw": 5.12599913015666e-08,
+      "p_holm": 3.075599478093996e-07
+    },
+    {
+      "block_10_name": "Train 4",
+      "center": 49.49624060150376,
+      "estimate": -0.1000593391437851,
+      "p_raw": 6.918682952110028e-09,
+      "p_holm": 4.84307806647702e-08
+    },
+    {
+      "block_10_name": "Train 5",
+      "center": 59.50850661625709,
+      "estimate": -0.0911504464872343,
+      "p_raw": 1.5220176173136784e-06,
+      "p_holm": 7.610088086568392e-06
+    },
+    {
+      "block_10_name": "Test 1",
+      "center": 69.5,
+      "estimate": -0.061731619680336,
+      "p_raw": 0.0028832803341406,
+      "p_holm": 0.0115331213365624
+    },
+    {
+      "block_10_name": "Test 2",
+      "center": 79.51476014760148,
+      "estimate": -0.0116217832321298,
+      "p_raw": 0.608468062287292,
+      "p_holm": 0.888968250855972
+    },
+    {
+      "block_10_name": "Test 3",
+      "center": 89.48154981549816,
+      "estimate": -0.0189225955506373,
+      "p_raw": 0.444484125427986,
+      "p_holm": 0.888968250855972
+    }
+  ],
+  "old_MR_displayed_annotations_from_saved_sidecar": [
+    {
+      "element_id": "fig2__g__stats__mean_p_fdr-2",
+      "column": "mean_p_fdr",
+      "p": 0.0062115875711908,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 2,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__mean_p_fdr-3",
+      "column": "mean_p_fdr",
+      "p": 0.004535684793834,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 3,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__mean_p_fdr-4",
+      "column": "mean_p_fdr",
+      "p": 0.0003147160570376,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 4,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__mean_p_fdr-5",
+      "column": "mean_p_fdr",
+      "p": 0.0062115875711908,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 5,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__mean_p_fdr-6",
+      "column": "mean_p_fdr",
+      "p": 0.0003147160570376,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 6,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__mean_p_fdr-8",
+      "column": "mean_p_fdr",
+      "p": null,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 8,
+      "status": "failed"
+    },
+    {
+      "element_id": "fig2__g__stats__slope_p_fdr-1",
+      "column": "slope_p_fdr",
+      "p": 0.0453177372425884,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 1,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__slope_p_fdr-6",
+      "column": "slope_p_fdr",
+      "p": 0.0459041466113179,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 6,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__slope_p_fdr-8",
+      "column": "slope_p_fdr",
+      "p": null,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 8,
+      "status": "failed"
+    },
+    {
+      "element_id": "fig2__g__stats__slope_p_raw-1",
+      "column": "slope_p_raw",
+      "p": 0.0050353041380653,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 1,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__slope_p_raw-6",
+      "column": "slope_p_raw",
+      "p": 0.0102009214691817,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 6,
+      "status": "ok"
+    },
+    {
+      "element_id": "fig2__g__stats__slope_p_raw-8",
+      "column": "slope_p_raw",
+      "p": null,
+      "path": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+      "row": 8,
+      "status": "failed"
+    }
+  ],
+  "new_adjusted_trial_positive_joint_interval": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "new_planned_phases": {
+    "difference": [
+      {
+        "contrast": "late_training",
+        "estimate": 0.1029249017450486,
+        "se": 0.0161739380353788,
+        "simultaneous_lower": 0.0385833405890585,
+        "simultaneous_upper": 0.1672664629010386
+      },
+      {
+        "contrast": "early_testing",
+        "estimate": 0.0738065529840385,
+        "se": 0.0169641139427585,
+        "simultaneous_lower": 0.0063215921589359,
+        "simultaneous_upper": 0.1412915138091411
+      },
+      {
+        "contrast": "late_testing",
+        "estimate": 0.0144020347690626,
+        "se": 0.0183569225655466,
+        "simultaneous_lower": -0.0586236596105821,
+        "simultaneous_upper": 0.0874277291487075
+      }
+    ],
+    "adjusted_response": [
+      {
+        "contrast": "late_training",
+        "estimate": 0.0947434692880564,
+        "se": 0.0187732808018234,
+        "simultaneous_lower": 0.0116851658300198,
+        "simultaneous_upper": 0.1778017727460929
+      },
+      {
+        "contrast": "early_testing",
+        "estimate": 0.0651497559724148,
+        "se": 0.0208321375956553,
+        "simultaneous_lower": -0.0270175121979653,
+        "simultaneous_upper": 0.157317024142795
+      },
+      {
+        "contrast": "late_testing",
+        "estimate": 0.026176462809121,
+        "se": 0.0250510940090929,
+        "simultaneous_lower": -0.084656661679218,
+        "simultaneous_upper": 0.1370095872974601
+      }
+    ]
+  },
+  "limits": [
+    "D/M/R families were not independently replicated or calibrated by the new phase-contrast workflow",
+    "New full-curve simulation failures concern the shared smooth trajectory family; they do not measure validity of every old BH/Holm test",
+    "Old median trajectory and model mean contrasts differ in estimand",
+    "No selected or frozen artifact changed"
+  ]
+}

@@ -1,6 +1,6 @@
 # Figure element identities, shared style and freeze contract
 
-Version **1.1.1**, author instruction recorded **2026-10-09**. The
+Version **1.1.2**, author instruction recorded **2026-10-09**. The
 [machine-readable specification](../../../configs/paper-figures/figure-elements.json)
 is authoritative for role identifiers and numerical style defaults. This file
 explains their meaning and records the inspected Figure 1-2 sources. The root
@@ -383,3 +383,7 @@ of direct integration.
   and scientific approval status separate from presentation compliance.
 - Verify unchanged data/source hashes for presentation-only work, validate
   JSON and documentation links, and preserve existing freezes.
+
+### 2026-10-13 semantic representation extension
+
+The E freeze maps `trace.scaled_vigor_series` to framewise vigor with an explicit baseline/scaling context, preserving the measured trace defaults. `heatmap.vigor` also accepts direct SVG rectangles and groups of explicitly mapped cells. These additions name the current renderer representations; numerical style defaults remain unchanged.

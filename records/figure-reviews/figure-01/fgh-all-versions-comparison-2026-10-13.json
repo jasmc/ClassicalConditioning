@@ -1,0 +1,1192 @@
+{
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "status": "read-only historical comparison; not a working-version selection",
+  "current_state_sha256": "a32bd9e47cad587def6a6619d4dd867e0a79258254eb67ceab775b50e530803e",
+  "sources": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "a32bd9e47cad587def6a6619d4dd867e0a79258254eb67ceab775b50e530803e",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "3d27267b2ddfeac642c71ed7a0786bc5ca21e76b974d93c97b6303b8d50a98e6",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "37a9515d5cc8c3fee8fb752c962f398a967a49c74c146e7186e36918888d3c9b",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "a26e9af6be5ae9710e21a08d81204bb25d0a444fac75d877aa1ff8360bed0881",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "529d802d982fd0e6268f27e78b9fc1b9b2f29b5e164bd69f1cff654e7fe61aea",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/starting-inventory.json": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3",
+    "/private/tmp/figure-01-fgh-all-start.json": "a841e7c246e3c33114bf30a8b0cd82034072c580cd2cd1261731ca617b3600aa",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_version_comparison.py": "b7ed1c1e5577e064a5cc753c306c01481be17439d8fe22f65512082d233c2473",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/fgh-magma-comparison-2026-10-13.json": "7a706718cb5115c9be99ebaa7ff8298c41011725b690a3c797ca4b29e81a5186",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-magma-comparison-2026-10-13.html": "1097d68879e4f7f671bfa05ad0336b2690cfa054881c686a1cbadd44f83aa7cd",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/FGH_V4_direct_bin_medians_log025.svg": "634cdd82aa80c541fd8ea01dfb939e9ad98b29eb12fead792c30c9dc168d4c51",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_quartersecond_means_20261009/FGH_Version4_DirectBinMeans_legacy_layout.svg": "63fd1ac8eebe12ee329e8a7e279ba1388c982c80c2e927ee22cba86ee7467b3e",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_colour_binning_candidates_20261009/FGH_Version5_DirectBinMeans_legacy_layout.svg": "9d0a3c1a808494f15b440cb2fd7befbd46ab746f016d14a46289b2db1dbe4aff",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version7_unpooled_recipe_20261009/history/original_frame_centred/FGH_Version7_UnpooledRecipe_legacy_layout.svg": "d3bdba656da4f840fc793a8121757d6eefc0fae8c0b36d77af98e6e3621e9c0c",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/working-version-selection-2026-10-13-v10.json": "db6232e3e7a3683d1429e034d4ae69b63f8ce95401be5589af32d05ea3eb6ddd",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.svg": "db5b4852d4e1da458b850dce8793ad168263a968dafa1403e416bf0260afbcd9",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v11-editing-effective-presentation.json": "9780915f8517397bc728e0e9aee7b7f308fdc10104ae76a25c60df102133ea03",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v11-editing.svg": "2eb35c0b44adc25f52c739b8e95a85a388aaf0726752081073e45e79e7510434",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v12-editing-effective-presentation.json": "dc4cc98fbdb9358813dcf6f943174db91c4beda7d63252b86c5c7d40fae8ec62",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v12-editing.svg": "4bcd00719630b81e2d2eff40a05000bd9b53ce45cf01b2eaaac8bc8380bd6a78",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v13-editing-effective-presentation.json": "089bf90bb2488dd999f2f7cfdaf32bb557048e5c36afd696a043882726261e6e",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v13-editing.svg": "3218707174e77eff705de77e77d1635cd8397e3ba16107587289113f2db6fbc1",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v14-editing-effective-presentation.json": "dc6e3db99ca3b071ce3c092bf70197e3e370b318b2818a546261cc13b1e17201",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v14-editing.svg": "5ccf3ae75d67c70e50e42da310c888e3a4b84cdc3bd541bf088c05e611f94683",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v15-editing-effective-presentation.json": "e14ad1325a3c2deff2164987f5f0c99bc5e6bb4c6f86bbd2046a57fea09cd0db",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v15-editing.svg": "d641ffa50c6725283d3693025d753d9a760e696e12d96c354183db75a7181ce7"
+  },
+  "cards": [
+    {
+      "id": "current",
+      "title": "Current Figure 1 draft v16",
+      "family": "latest",
+      "difference": "Accepted F\u2013H V12 values and bright blue\u2013charcoal\u2013red palette. Display rows 1\u201390; F arrows mark 5, 13, 59, 62, 89. Native DejaVu Sans text; G is labelled 3sTrace.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+        "sha256": "37a9515d5cc8c3fee8fb752c962f398a967a49c74c146e7186e36918888d3c9b",
+        "scoped_svg_sha256": "6cbfd6eb5ceb51743bb1e9313bd9b73ac0751e07db937e1b27d6e422635aab10"
+      },
+      "notes": "Current presentation draft; no whole-figure formal freeze.",
+      "legend": "(F\u2013H) Example heatmaps for Delay (20221115_07), 3 s Trace (20230310_08) and Control (20221115_09). Vigor is calculated from distal angular speed using the specified movement detector. Finite, strictly positive, valid adjacent detected-bout frames are log-transformed; other frames are excluded before taking the median within each left-inclusive, right-exclusive 0.5 s bin. The baseline is the median of finite bin medians over [\u221215, 0) s, with one vote per bin. For bin deviation d from that baseline, the displayed value is 0.7d / max(\u2212P10, P90), where the percentiles are computed from baseline-bin deviations using linear quantiles. At least 10 finite baseline bins and a noncollapsed baseline spread are required. Black cells indicate missing values, not zero activity. Colours saturate at \u00b11 without clipping the numerical values; 15 draft-E bins exceed the colour limits. Timing in F\u2013H uses the established cadence reconstruction; no additional analytical smoothing is applied. Arrowheads in F mark the five Delay-fish trials shown in D/E (5, 13, 59, 62 and 89); horizontal boundaries separate session phases. These panels are descriptive examples and do not support population-level inference.\n\nDisplayed trial numbers in D\u2013H exclude acquisition trials 1\u20134 (displayed trial = acquisition trial \u2212 4). F\u2013H therefore run from 1 to 90, and the D/E examples and marked F rows are 5, 13, 59, 62 and 89. Original acquisition IDs 9, 17, 63, 66 and 93 remain in the source mappings."
+    },
+    {
+      "id": "magma",
+      "title": "Magma alternative on current F\u2013H values",
+      "family": "latest",
+      "difference": "Palette only: sequential magma over the same \u22121\u2026+1 scale. Zero is the midpoint colour; missing bins stay black. Cell values, bounds, timing, guides, arrows and numbering match its authenticated v16 source.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-magma-comparison-2026-10-13.html",
+        "sha256": "1097d68879e4f7f671bfa05ad0336b2690cfa054881c686a1cbadd44f83aa7cd"
+      },
+      "notes": "Unselected alternative. Archived magma use confirmed; association with January remains unconfirmed.",
+      "legend": "(F\u2013H) Example heatmaps for Delay (20221115_07), 3 s Trace (20230310_08) and Control (20221115_09). Vigor is calculated from distal angular speed using the specified movement detector. Finite, strictly positive, valid adjacent detected-bout frames are log-transformed; other frames are excluded before taking the median within each left-inclusive, right-exclusive 0.5 s bin. The baseline is the median of finite bin medians over [\u221215, 0) s, with one vote per bin. For bin deviation d from that baseline, the displayed value is 0.7d / max(\u2212P10, P90), where the percentiles are computed from baseline-bin deviations using linear quantiles. At least 10 finite baseline bins and a noncollapsed baseline spread are required. Black cells indicate missing values, not zero activity. Colours saturate at \u00b11 without clipping the numerical values; 15 draft-E bins exceed the colour limits. Timing in F\u2013H uses the established cadence reconstruction; no additional analytical smoothing is applied. Arrowheads in F mark the five Delay-fish trials shown in D/E (5, 13, 59, 62 and 89); horizontal boundaries separate session phases. These panels are descriptive examples and do not support population-level inference.\n\nDisplayed trial numbers in D\u2013H exclude acquisition trials 1\u20134 (displayed trial = acquisition trial \u2212 4). F\u2013H therefore run from 1 to 90, and the D/E examples and marked F rows are 5, 13, 59, 62 and 89. Original acquisition IDs 9, 17, 63, 66 and 93 remain in the source mappings."
+    },
+    {
+      "id": "recipe-v1-c",
+      "title": "F\u2013H recipe Version 1 C",
+      "family": "recipe",
+      "difference": "Eligible sample timing, with complete-bout log medians repeated on their eligible frames; [\u221215,0) sample baseline. Divide by half the P10\u2013P90 width and numerically clip to \u00b11. 269/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v1-c",
+        "image_sha256": "3772880469a1375833419b34baa2fc396818c41f7eb1ae091d409b5717498d4e",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Complete-bout eligible log median, including support outside the display crop \u2192 repeat on eligible samples \u2192 subtract baseline P50 \u2192 divide by (P90\u2212P10)/2 \u2192 clip to \u00b11. Baseline: [\u221215,0); timepoints carrying complete-bout medians \u00b7 Defined: 269/270 Colours: Continuous; median-centred P10/P90 width scale; blue\u2013charcoal\u2013amber candidate Pros: Fine timing; robust bout summary. Cons: Within-bout detail lost; more saturation; complete bouts can cross CS."
+    },
+    {
+      "id": "recipe-v1-d",
+      "title": "F\u2013H recipe Version 1 D",
+      "family": "recipe",
+      "difference": "Same bout summaries and baseline as V1 C; denominator is max(P50\u2212P10, P90\u2212P50). Numerical clipping to \u00b11 remains; equal or less saturation. 269/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v1-d",
+        "image_sha256": "5779f078d945b67ffc3a22e90b8aeb161e9f2ffa79eabef7b420f194bc407fe3",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Same summaries and baseline as V1 C; divide centred values by max(P50\u2212P10,P90\u2212P50), then clip to \u00b11. Baseline: [\u221215,0); same as V1 C \u00b7 Defined: 269/270 Colours: Continuous; larger symmetric denominator; blue\u2013charcoal\u2013amber candidate Pros: Less or equal saturation than C. Cons: Same bout-summary limitations; weaker contrast."
+    },
+    {
+      "id": "recipe-v2",
+      "title": "F\u2013H recipe Version 2 C",
+      "family": "recipe",
+      "difference": "Direct mean of eligible log frames in 0.5 s bins; equal finite-bin baseline median over [\u221215,0). Half P10\u2013P90 width scaling and numerical clipping to \u00b11. 269/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v2",
+        "image_sha256": "c4ca56b439805212c5e3a76572497ffa3927ce0ee49627876d53a7fa8eaa7ae0",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Mean eligible original log frames in each 0.5 s bin \u2192 subtract baseline-bin P50 \u2192 divide by (P90\u2212P10)/2 \u2192 clip to \u00b11. Baseline: [\u221215,0); finite bin means \u00b7 Defined: 269/270 Colours: Continuous; median-centred P10/P90 width scale; blue\u2013charcoal\u2013amber candidate Pros: Finer bins; retains direct frame variation. Cons: Scaling hides physical magnitudes; one undefined trial."
+    },
+    {
+      "id": "recipe-v6-five",
+      "title": "F\u2013H recipe Version 6 \u00b7 five colours",
+      "family": "recipe",
+      "difference": "Direct 1 s log-frame means; [\u221220,0) finite-bin reference. Five percentile bands at P25/P45/P55/P75, with a dark central band. 270/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v6-five",
+        "image_sha256": "e739d3ed36108ec8c04eb3f1d4a6707d6a19883cd4ac01814c999b8030684684",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Mean eligible log frames in 1 s bins \u2192 subtract baseline P50 \u2192 assign bands using baseline P25/P45/P55/P75 \u2192 show five blue\u2013charcoal\u2013amber colours. Ties enter the upper band. Baseline: [\u221220,0); finite bin means \u00b7 Defined: 270/270 Colours: Five baseline percentile bands; P45\u2013P55 dark centre; blue\u2013charcoal\u2013amber candidate Pros: Simple categories; all trials defined. Cons: Coarser timing; hides within-band magnitude; up to 20 baseline bins."
+    },
+    {
+      "id": "recipe-v6-soft",
+      "title": "F\u2013H recipe Version 6 \u00b7 former softer-High option",
+      "family": "recipe",
+      "difference": "Same data and percentile bands as V6 five colours. The two views are visually identical under the common candidate palette; the earlier distinction was the High colour.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v6-soft",
+        "image_sha256": "e739d3ed36108ec8c04eb3f1d4a6707d6a19883cd4ac01814c999b8030684684",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Identical data and bands to the other Version 6 row. With the common candidate palette, these two Version 6 options are visually identical; their original distinction was only the managua High colour. Baseline: Same as V6 \u00b7 Defined: 270/270 Colours: Same five candidate colours as the other Version 6 row Pros: Same recipe and appearance as candidate V6. Cons: Duplicate under a common palette."
+    },
+    {
+      "id": "recipe-v7-physical",
+      "title": "F\u2013H recipe Version 7 \u00b7 physical scale (earlier)",
+      "family": "recipe",
+      "difference": "0.5 s means of repeated bout summaries, then median-centred over finite baseline bins [\u221215,0). Physical log difference, no percentile amplitude scaling; colours saturate at \u00b10.25. 270/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v7-physical",
+        "image_sha256": "b44ef58e276679a6bcc839b28438462f97982be449f0ddba5bf6b9b013f47d8a",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Subtract original eligible log-frame baseline median \u2192 take each bout median within [\u221220,+20) \u2192 repeat on eligible frames \u2192 mean in 0.5 s bins \u2192 subtract median of finite baseline bins. No percentile amplitude scaling. Colour saturation only beyond \u00b10.25. Baseline: [\u221215,0); median of finite bout-summary bins \u00b7 Defined: 270/270 Colours: Continuous physical log differences; \u00b10.25; blue\u2013charcoal\u2013amber candidate Pros: Common physical log scale; all trials defined. Cons: Baseline contrast varies across trials and fish."
+    },
+    {
+      "id": "recipe-v7-scaled",
+      "title": "F\u2013H recipe Version 7 \u00b7 scaled (historical scaled option)",
+      "family": "recipe",
+      "difference": "Same V7 bout-summary bins, with separate lower/upper P10/P90 stretches; anchors at \u00b10.7 and colour limits \u00b11. Minimum 10 baseline bins; 257/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v7-scaled",
+        "image_sha256": "3c1866943d1b063ff59c53d6d586e4cc271fe7c7cfab09b28a10a1b6a3248760",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Use V7 physical centred bins \u2192 fit separate lower/upper P10/P90 stretches with a symmetric median-preserving centre \u2192 apply to all trial bins. At least 10 finite baseline bins required; sparse/degenerate scaled trials undefined. Scaled exports remain unclipped. Baseline: [\u221215,0); median and P10/P90 of finite bins \u00b7 Defined: 257/270 Colours: Continuous; P10/P90 at \u00b10.7; limits \u00b11; blue\u2013charcoal\u2013amber candidate Pros: Comparable baseline extents; continuous response headroom. Cons: Physical magnitude differs for equal colours; 13 sparse Control trials undefined."
+    },
+    {
+      "id": "recipe-v8",
+      "title": "F\u2013H recipe Version 8 \u00b7 endpoint saturation",
+      "family": "recipe",
+      "difference": "V7 scaled values divided by 0.7: baseline anchors reach \u00b11, increasing contrast and colour saturation. The same 13 sparse Control trials remain undefined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v8",
+        "image_sha256": "87214d8a989895ba2a17a27b6673c0bb6ce1bdaa8e807e987b3a007e83768154",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Divide Version 7 scaled values by 0.7. Keep the same baseline references, centre width and defined-trial mask. P10/P90 reach colour endpoints; values beyond them have saturated colours. Baseline: Same as V7 \u00b7 Defined: 257/270 Colours: Continuous; P10/P90 at \u00b11; tails saturated; blue\u2013charcoal\u2013amber candidate Pros: Stronger baseline contrast; full colour range. Cons: Large responses beyond anchors share endpoint colours."
+    },
+    {
+      "id": "recipe-v9",
+      "title": "F\u2013H recipe Version 9 \u00b7 discrete Version 7",
+      "family": "recipe",
+      "difference": "Unchanged V7 scaled values placed in five fixed bands at \u22120.5/\u22120.1/+0.1/+0.5. Within-band magnitudes are hidden; 257/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v9",
+        "image_sha256": "265a7aa2f00d3d0ae0d0c554de51ec3bfda9d2e63fb1f0d18f94fc267a9763c1",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Start from unchanged Version 7 scaled 0.5 s bout-summary values and its defined-trial mask. Assign fixed bands at -0.5, -0.1, +0.1 and +0.5. Exact threshold ties enter the upper band. Zero lies in the dark central band [-0.1,+0.1). Apply Version 6 blue\u2013charcoal\u2013amber colours with the candidate High colour (#e9b978); this uses fixed scaled boundaries rather than Version 6 percentile boundaries. Baseline: [\u221215,0); Version 7 baseline \u00b7 Defined: 257/270 Colours: Five V6 colours with softer High; fixed scaled boundaries -0.5/-0.1/+0.1/+0.5; blue\u2013charcoal\u2013amber candidate Pros: Bout-summary recipe with simple five-colour categories. Cons: Within-band differences hidden; sparse V7 trials remain undefined."
+    },
+    {
+      "id": "recipe-v10",
+      "title": "F\u2013H recipe Version 10 \u00b7 three colours",
+      "family": "recipe",
+      "difference": "V7 values in three bands with boundaries \u22120.1/+0.1; lower and upper categories merge moderate and extreme deviations. Same missing trials as V7/V9.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v10",
+        "image_sha256": "d63543c57024972cbd6604931b854d4de2f8a841e79bd9d12290496c62718d23",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Use unchanged Version 9 physical and Version 7 scaled values. Merge Low with Below (old classes 1/2), retain Centre (old class 3), and merge Above with High (old classes 4/5). Fixed boundaries are -0.1 and +0.1; exact ties enter the upper band. Cyan #81bddc represents Low/Below, dark purple #383842 represents Centre, and candidate amber #e9b978 represents Above/High. The same 13 sparse Control trials remain undefined. Baseline: [\u221215,0); Version 7 baseline \u00b7 Defined: 257/270 Colours: Three V9 colours; fixed boundaries -0.1/+0.1; dark centre and softer amber; blue\u2013charcoal\u2013amber candidate Pros: Simplest display: lower, near-baseline, higher; dark centre. Cons: Merges moderate and extreme deviations; magnitude detail reduced further."
+    },
+    {
+      "id": "recipe-v11",
+      "title": "F\u2013H recipe Version 11 \u00b7 direct log-bin medians",
+      "family": "recipe",
+      "difference": "Direct medians of eligible log frames in 0.5 s bins; subtract median of finite baseline-bin medians [\u221215,0). One symmetric max(\u2212P10,P90) denominator, without the 0.7 factor. 257/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v11",
+        "image_sha256": "684b1ed1047e5678b2c704824af830e131073ac93077054f37af18e5f26d5c43",
+        "native_frozen_svg_sha256": null
+      },
+      "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+      "legend": "Bin-median-centred log vigor, symmetrically baseline-spread scaled. Original eligible log frames \u2192 median within each 0.5 s bin \u2192 subtract median of finite baseline bins [\u221215,0) \u2192 divide by max(\u2212P10, P90) of the centred finite baseline bins. One positive denominator per trial, shared by reductions and increases. No repeated bout medians or bin means. Baseline median = 0. The wider P10/P90 side reaches its colour endpoint (\u22121 or +1); the narrower side stays nearer zero. Reciprocal proportional changes have equal opposite scaled values. No 0.7 headroom factor. Continuous blue\u2013charcoal\u2013amber, limits \u00b11; out-of-range colours saturate, numeric values remain unclipped. Dark charcoal is zero; black is missing. Each finite baseline bin has one vote; frames have one vote inside each bin. Equal colours describe change relative to each trial\u2019s symmetric baseline-spread denominator; physical ratios can differ across trials. 257/270 scaled trials defined; 13 undefined. Minimum 10 finite baseline bins; no borrowing of scales. H trial 15: fewer than 10 finite baseline bins (3 baseline bins); H trial 16: fewer than 10 finite baseline bins (1 baseline bins); H trial 19: fewer than 10 finite baseline bins (9 baseline bins); H trial 23: fewer than 10 finite baseline bins (9 baseline bins); H trial 26: fewer than 10 finite baseline bins (7 baseline bins); H trial 64: fewer than 10 finite baseline bins (6 baseline bins); H trial 68: fewer than 10 finite baseline bins (8 baseline bins); H trial 69: fewer than 10 finite baseline bins (4 baseline bins); H trial 70: fewer than 10 finite baseline bins (4 baseline bins); H trial 72: fewer than 10 finite baseline bins (9 baseline bins); H trial 73: fewer than 10 finite baseline bins (9 baseline bins); H trial 77: fewer than 10 finite baseline bins (8 baseline bins); H trial 88: fewer than 10 finite baseline bins (9 baseline bins) Compared with V7, this changes the underlying calculation to direct bin medians with a symmetric display scale replacing the separate-side Version 7 scaling. V1 uses complete-bout summaries; V2 uses direct bin means and symmetric scaling; V6 uses 1 s means and discrete percentiles; V8 changes saturation; V9/V10 discretize V7. V11 is a display adaptation of the handoff, not the frozen D/E B outcome: its baseline is estimated from bins. Timing and movement masks are preserved from the authenticated existing cache; timing uses camera-cadence reconstruction."
+    },
+    {
+      "id": "recipe-v12",
+      "title": "F\u2013H recipe Version 12 \u00b7 frozen continuous bright blue\u2013charcoal\u2013red",
+      "family": "recipe",
+      "difference": "Same direct log-bin medians, baseline and missingness as V11. Multiply the symmetric scaled values by 0.7 for response headroom; continuous bright blue\u2013charcoal\u2013red, limits \u00b11. 257/270 defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+        "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+        "entry": "v12",
+        "image_sha256": "dcfd86b0e5635173db1c854f9f85f07831f4d1531c5f2333d6e2cbde59a7d2aa",
+        "native_frozen_svg_sha256": "dcfd86b0e5635173db1c854f9f85f07831f4d1531c5f2333d6e2cbde59a7d2aa"
+      },
+      "notes": "Accepted scoped scientific freeze.",
+      "legend": "Continuous diverging colours on the updated Version 11 values. Eligible log frames \u2192 median within each 0.5 s bin \u2192 subtract the median of finite baseline bins [\u221215,0) \u2192 multiply by 0.7 and divide by max(\u2212P10,P90). One symmetric denominator per trial; wider baseline side at \u00b10.7, leaving response headroom to \u00b11; colours saturate beyond \u00b11, numeric values remain unclipped. Brighter sky blue #00bfff at \u22121 indicates reductions; dark charcoal #383842 (the established managua centre) at zero indicates baseline; brighter red #ff5252 at +1 indicates increases. Interpolate continuously in CIELAB through the three anchors, without solid bands. Bright blue and vivid red distinguish opposite directions; the dark managua centre is restored as explicitly requested. Black remains NaN. Colours close to zero approach dark charcoal; the 0.7 factor reduces saturation but values sufficiently far from baseline can still saturate; saturated endpoint colours indicate opposite directions. 257/270 trials defined; the same 13 sparse Control trials are missing. The physical bin values, baseline reference, eligibility and annotations match updated Version 11. Version 12 display values are 0.7 times Version 11\u2019s values; the baseline-spread denominator is unchanged. Equal opposite scaled values are symmetric around zero; equal colours across trials describe baseline-relative spread rather than equal physical ratios. Author-frozen 9 October 2026, F/G/H only. Explicit freeze gate passed for 159 registered elements under specification 1.1.1. Final row width 183 mm; baseline median zero; wider baseline side \u00b10.7; colour limits \u00b11. Common fonts, strokes, protocol guide patterns and shared-axis label suppression applied at that scale. CS offset is dashed and expected US is dotted; strong CS width/opacity and the custom palette are scoped approved exceptions. Original scientific SVG, styled SVG, gate input/output and code/specification snapshots are embedded losslessly in this file. Older freezes and all other version images are preserved."
+    },
+    {
+      "id": "history-v4-medians",
+      "title": "V4 earlier: direct 0.5 s bin medians",
+      "family": "history",
+      "difference": "Eligible log-frame medians; subtract median of finite baseline bins [\u221215,0). No percentile scaling or numeric clipping; physical colour limits \u00b10.25. All 270 baselines defined.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/FGH_V4_direct_bin_medians_log025.svg",
+        "sha256": "634cdd82aa80c541fd8ea01dfb939e9ad98b29eb12fead792c30c9dc168d4c51"
+      },
+      "notes": "Historical saved SVG, unchanged scientific contents.",
+      "legend": ""
+    },
+    {
+      "id": "history-v4-quarter",
+      "title": "V4 revised: direct 0.25 s means",
+      "family": "history",
+      "difference": "Ignore non-bout/invalid NaNs. Direct eligible log-frame means in 0.25 s bins; subtract the equal-bin baseline mean over [\u221220,0). No scaling; physical colour limits \u00b10.25. All 270 defined; mean-zero does not imply median-zero.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_quartersecond_means_20261009/FGH_Version4_DirectBinMeans_legacy_layout.svg",
+        "sha256": "63fd1ac8eebe12ee329e8a7e279ba1388c982c80c2e927ee22cba86ee7467b3e"
+      },
+      "notes": "Historical saved SVG, unchanged scientific contents.",
+      "legend": ""
+    },
+    {
+      "id": "history-v5",
+      "title": "V5: direct 1 s means",
+      "family": "history",
+      "difference": "V4 revised recipe with 1 s bins instead of 0.25 s: equal-bin [\u221220,0) mean baseline, no percentile scaling or numeric clipping, physical colour limits \u00b10.25. Coarser timing.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_colour_binning_candidates_20261009/FGH_Version5_DirectBinMeans_legacy_layout.svg",
+        "sha256": "9d0a3c1a808494f15b440cb2fd7befbd46ab746f016d14a46289b2db1dbe4aff"
+      },
+      "notes": "Historical saved SVG, unchanged scientific contents.",
+      "legend": ""
+    },
+    {
+      "id": "history-v7-original",
+      "title": "V7 earlier: original frame-centred reference",
+      "family": "history",
+      "difference": "Earlier bout-summary/mean-bin view centred using a frame baseline; its displayed baseline-bin median is not guaranteed to be zero. Superseded by the bin-centred V7 options.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version7_unpooled_recipe_20261009/history/original_frame_centred/FGH_Version7_UnpooledRecipe_legacy_layout.svg",
+        "sha256": "d3bdba656da4f840fc793a8121757d6eefc0fae8c0b36d77af98e6e3621e9c0c"
+      },
+      "notes": "Historical saved SVG, unchanged scientific contents.",
+      "legend": ""
+    },
+    {
+      "id": "draft-10",
+      "title": "Figure 1 presentation draft v10 \u00b7 F\u2013H only",
+      "family": "draft",
+      "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.svg",
+        "sha256": "db5b4852d4e1da458b850dce8793ad168263a968dafa1403e416bf0260afbcd9",
+        "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+      },
+      "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+      "legend": ""
+    },
+    {
+      "id": "draft-11",
+      "title": "Figure 1 presentation draft v11 \u00b7 F\u2013H only",
+      "family": "draft",
+      "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v11-editing.svg",
+        "sha256": "2eb35c0b44adc25f52c739b8e95a85a388aaf0726752081073e45e79e7510434",
+        "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+      },
+      "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+      "legend": ""
+    },
+    {
+      "id": "draft-12",
+      "title": "Figure 1 presentation draft v12 \u00b7 F\u2013H only",
+      "family": "draft",
+      "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v12-editing.svg",
+        "sha256": "4bcd00719630b81e2d2eff40a05000bd9b53ce45cf01b2eaaac8bc8380bd6a78",
+        "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+      },
+      "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+      "legend": ""
+    },
+    {
+      "id": "draft-13",
+      "title": "Figure 1 presentation draft v13 \u00b7 F\u2013H only",
+      "family": "draft",
+      "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v13-editing.svg",
+        "sha256": "3218707174e77eff705de77e77d1635cd8397e3ba16107587289113f2db6fbc1",
+        "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+      },
+      "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+      "legend": ""
+    },
+    {
+      "id": "draft-14",
+      "title": "Figure 1 presentation draft v14 \u00b7 F\u2013H only",
+      "family": "draft",
+      "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v14-editing.svg",
+        "sha256": "5ccf3ae75d67c70e50e42da310c888e3a4b84cdc3bd541bf088c05e611f94683",
+        "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+      },
+      "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+      "legend": ""
+    },
+    {
+      "id": "draft-15",
+      "title": "Figure 1 presentation draft v15 \u00b7 F\u2013H only",
+      "family": "draft",
+      "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v15-editing.svg",
+        "sha256": "d641ffa50c6725283d3693025d753d9a760e696e12d96c354183db75a7181ce7",
+        "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+      },
+      "notes": "v15 was approved, but its whole-figure freeze gate failed; approved candidate is preserved.",
+      "legend": ""
+    },
+    {
+      "id": "draft-16",
+      "title": "Figure 1 presentation draft v16 \u00b7 current F\u2013H",
+      "family": "draft",
+      "difference": "Same current row shown at the top: displayed trial = acquisition trial \u22124, rows 1\u201390; F examples 5, 13, 59, 62, 89; condition 3sTrace and embedded DejaVu Sans regular/bold. Heatmap pixel payloads preserve scientific V12.",
+      "reference": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+        "sha256": "37a9515d5cc8c3fee8fb752c962f398a967a49c74c146e7186e36918888d3c9b",
+        "scoped_svg_sha256": "6cbfd6eb5ceb51743bb1e9313bd9b73ac0751e07db937e1b27d6e422635aab10"
+      },
+      "notes": "Current draft, duplicated here to complete the v10\u2013v16 sequence.",
+      "legend": ""
+    }
+  ],
+  "draft_v10_v15_identical_fgh_scope": {
+    "10": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3",
+    "11": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3",
+    "12": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3",
+    "13": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3",
+    "14": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3",
+    "15": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+  },
+  "missing_version_3": true,
+  "active_pair_updated": false,
+  "scientific_recalculation": false,
+  "standalone_svg_created": false,
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-all-versions-comparison-2026-10-13.html",
+    "sha256": "df98deb2aa30bf44862e9416cfc94be86919ee168d906f6513ac71dfa8b7c346",
+    "bytes": 25909898
+  },
+  "visual_review": {
+    "scope": "Removal-only organization; surviving image/SVG visual blocks retained from the verified numbered page",
+    "checks": "25 cards; #05/#06 absent from cards/index/embedded version catalogue; source IDs absent; surviving anchors resolve and DOM IDs unique; saved comparison filters passed."
+  },
+  "latest_scoped_authority_recheck": {
+    "state_sha256": "d7fc3c7075e50718d60d6537f63155a50b2bd2cf3340573d7d4b69b7cd08f4cd",
+    "active_svg_sha256": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7",
+    "FGH_nested_svg_sha256": "6cbfd6eb5ceb51743bb1e9313bd9b73ac0751e07db937e1b27d6e422635aab10",
+    "same_FGH_scope_as_saved_comparison": true,
+    "note": "Concurrent publications outside F\u2013H do not replace this version-bound comparison snapshot."
+  },
+  "organization": {
+    "scope": [
+      "F",
+      "G",
+      "H"
+    ],
+    "status": "numbered comparison; not a working-version selection",
+    "previous_html_sha256": "68be3fd4e48aca2817114d53132309ff4273e357e9a35000cb90686819f05389",
+    "source_state_sha256": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+    "numbered_versions": [
+      {
+        "number": 1,
+        "identifier": "#01",
+        "source_id": "recipe-v1-c",
+        "title": "Original recipe V1 C",
+        "analysis": "Complete-bout log medians repeated on eligible frames; sample-timed display. Baseline: sample P50 over [\u221215,0). Divide by (P90\u2212P10)/2; numerical clipping to \u00b11. 269/270 trials defined.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v1-c",
+          "title": "F\u2013H recipe Version 1 C",
+          "family": "recipe",
+          "difference": "Eligible sample timing, with complete-bout log medians repeated on their eligible frames; [\u221215,0) sample baseline. Divide by half the P10\u2013P90 width and numerically clip to \u00b11. 269/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v1-c",
+            "image_sha256": "3772880469a1375833419b34baa2fc396818c41f7eb1ae091d409b5717498d4e",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Complete-bout eligible log median, including support outside the display crop \u2192 repeat on eligible samples \u2192 subtract baseline P50 \u2192 divide by (P90\u2212P10)/2 \u2192 clip to \u00b11. Baseline: [\u221215,0); timepoints carrying complete-bout medians \u00b7 Defined: 269/270 Colours: Continuous; median-centred P10/P90 width scale; blue\u2013charcoal\u2013amber candidate Pros: Fine timing; robust bout summary. Cons: Within-bout detail lost; more saturation; complete bouts can cross CS."
+        }
+      },
+      {
+        "number": 2,
+        "identifier": "#02",
+        "source_id": "recipe-v1-d",
+        "title": "Original recipe V1 D",
+        "analysis": "Same bout summaries and sample baseline as #01. Denominator changes to max(P50\u2212P10, P90\u2212P50); numerical clipping to \u00b11. 269/270 defined.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v1-d",
+          "title": "F\u2013H recipe Version 1 D",
+          "family": "recipe",
+          "difference": "Same bout summaries and baseline as V1 C; denominator is max(P50\u2212P10, P90\u2212P50). Numerical clipping to \u00b11 remains; equal or less saturation. 269/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v1-d",
+            "image_sha256": "5779f078d945b67ffc3a22e90b8aeb161e9f2ffa79eabef7b420f194bc407fe3",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Same summaries and baseline as V1 C; divide centred values by max(P50\u2212P10,P90\u2212P50), then clip to \u00b11. Baseline: [\u221215,0); same as V1 C \u00b7 Defined: 269/270 Colours: Continuous; larger symmetric denominator; blue\u2013charcoal\u2013amber candidate Pros: Less or equal saturation than C. Cons: Same bout-summary limitations; weaker contrast."
+        }
+      },
+      {
+        "number": 3,
+        "identifier": "#03",
+        "source_id": "recipe-v2",
+        "title": "Original recipe V2",
+        "analysis": "Direct eligible log-frame means in 0.5 s bins. Baseline: median of finite baseline-bin means over [\u221215,0), one vote per bin. Half P10\u2013P90 width scaling; numerical clipping to \u00b11. 269/270 defined.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v2",
+          "title": "F\u2013H recipe Version 2 C",
+          "family": "recipe",
+          "difference": "Direct mean of eligible log frames in 0.5 s bins; equal finite-bin baseline median over [\u221215,0). Half P10\u2013P90 width scaling and numerical clipping to \u00b11. 269/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v2",
+            "image_sha256": "c4ca56b439805212c5e3a76572497ffa3927ce0ee49627876d53a7fa8eaa7ae0",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Mean eligible original log frames in each 0.5 s bin \u2192 subtract baseline-bin P50 \u2192 divide by (P90\u2212P10)/2 \u2192 clip to \u00b11. Baseline: [\u221215,0); finite bin means \u00b7 Defined: 269/270 Colours: Continuous; median-centred P10/P90 width scale; blue\u2013charcoal\u2013amber candidate Pros: Finer bins; retains direct frame variation. Cons: Scaling hides physical magnitudes; one undefined trial."
+        }
+      },
+      {
+        "number": 4,
+        "identifier": "#04",
+        "source_id": "history-v4-medians",
+        "title": "V4: direct bin medians",
+        "analysis": "Direct eligible log-frame medians in 0.5 s bins. Subtract median of finite baseline-bin medians over [\u221215,0). No percentile scaling or numerical clipping; physical log units, displayed range \u00b10.25. 270/270 baseline references defined.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "history-v4-medians",
+          "title": "V4 earlier: direct 0.5 s bin medians",
+          "family": "history",
+          "difference": "Eligible log-frame medians; subtract median of finite baseline bins [\u221215,0). No percentile scaling or numeric clipping; physical colour limits \u00b10.25. All 270 baselines defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_bin_medians_20261009/FGH_V4_direct_bin_medians_log025.svg",
+            "sha256": "634cdd82aa80c541fd8ea01dfb939e9ad98b29eb12fead792c30c9dc168d4c51"
+          },
+          "notes": "Historical saved SVG, unchanged scientific contents.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 7,
+        "identifier": "#07",
+        "source_id": "history-v4-quarter",
+        "title": "V4: quarter-second means",
+        "analysis": "Non-bout/invalid samples return to NaN. Direct eligible log-frame means in 0.25 s bins; subtract mean of finite baseline-bin means over [\u221220,0), one vote per bin. No percentile scaling or numerical clipping; physical log range \u00b10.25. 270/270 defined.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "history-v4-quarter",
+          "title": "V4 revised: direct 0.25 s means",
+          "family": "history",
+          "difference": "Ignore non-bout/invalid NaNs. Direct eligible log-frame means in 0.25 s bins; subtract the equal-bin baseline mean over [\u221220,0). No scaling; physical colour limits \u00b10.25. All 270 defined; mean-zero does not imply median-zero.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version4_quartersecond_means_20261009/FGH_Version4_DirectBinMeans_legacy_layout.svg",
+            "sha256": "63fd1ac8eebe12ee329e8a7e279ba1388c982c80c2e927ee22cba86ee7467b3e"
+          },
+          "notes": "Historical saved SVG, unchanged scientific contents.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 8,
+        "identifier": "#08",
+        "source_id": "history-v5",
+        "title": "V5: one-second means",
+        "analysis": "Same processing as #07, with 1 s bins instead of 0.25 s. Baseline remains the equal-bin arithmetic mean over [\u221220,0); no percentile scaling or numerical clipping; physical log range \u00b10.25.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "history-v5",
+          "title": "V5: direct 1 s means",
+          "family": "history",
+          "difference": "V4 revised recipe with 1 s bins instead of 0.25 s: equal-bin [\u221220,0) mean baseline, no percentile scaling or numeric clipping, physical colour limits \u00b10.25. Coarser timing.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_colour_binning_candidates_20261009/FGH_Version5_DirectBinMeans_legacy_layout.svg",
+            "sha256": "9d0a3c1a808494f15b440cb2fd7befbd46ab746f016d14a46289b2db1dbe4aff"
+          },
+          "notes": "Historical saved SVG, unchanged scientific contents.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 9,
+        "identifier": "#09",
+        "source_id": "recipe-v6-five",
+        "title": "V6: five percentile classes",
+        "analysis": "Direct eligible log-frame means in 1 s bins; finite-bin reference over [\u221220,0). Classify using each trial\u2019s baseline P25/P45/P55/P75. Exact ties enter the upper class. 270/270 defined.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v6-five",
+          "title": "F\u2013H recipe Version 6 \u00b7 five colours",
+          "family": "recipe",
+          "difference": "Direct 1 s log-frame means; [\u221220,0) finite-bin reference. Five percentile bands at P25/P45/P55/P75, with a dark central band. 270/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v6-five",
+            "image_sha256": "e739d3ed36108ec8c04eb3f1d4a6707d6a19883cd4ac01814c999b8030684684",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Mean eligible log frames in 1 s bins \u2192 subtract baseline P50 \u2192 assign bands using baseline P25/P45/P55/P75 \u2192 show five blue\u2013charcoal\u2013amber colours. Ties enter the upper band. Baseline: [\u221220,0); finite bin means \u00b7 Defined: 270/270 Colours: Five baseline percentile bands; P45\u2013P55 dark centre; blue\u2013charcoal\u2013amber candidate Pros: Simple categories; all trials defined. Cons: Coarser timing; hides within-band magnitude; up to 20 baseline bins."
+        }
+      },
+      {
+        "number": 10,
+        "identifier": "#10",
+        "source_id": "recipe-v6-soft",
+        "title": "V6: second saved variant",
+        "analysis": "No analysis difference from #09: identical source values, baseline and percentile classes.",
+        "same_underlying_analysis_as": 9,
+        "source": {
+          "id": "recipe-v6-soft",
+          "title": "F\u2013H recipe Version 6 \u00b7 former softer-High option",
+          "family": "recipe",
+          "difference": "Same data and percentile bands as V6 five colours. The two views are visually identical under the common candidate palette; the earlier distinction was the High colour.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v6-soft",
+            "image_sha256": "e739d3ed36108ec8c04eb3f1d4a6707d6a19883cd4ac01814c999b8030684684",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Identical data and bands to the other Version 6 row. With the common candidate palette, these two Version 6 options are visually identical; their original distinction was only the managua High colour. Baseline: Same as V6 \u00b7 Defined: 270/270 Colours: Same five candidate colours as the other Version 6 row Pros: Same recipe and appearance as candidate V6. Cons: Duplicate under a common palette."
+        }
+      },
+      {
+        "number": 11,
+        "identifier": "#11",
+        "source_id": "history-v7-original",
+        "title": "V7: frame-centred reference",
+        "analysis": "Original eligible log-frame baseline median over [\u221215,0); bout medians repeated on eligible frames and then averaged within 0.5 s bins. No subsequent bin-median recentering, so the displayed baseline-bin median need not be zero. No percentile amplitude scaling; physical log range \u00b10.25.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "history-v7-original",
+          "title": "V7 earlier: original frame-centred reference",
+          "family": "history",
+          "difference": "Earlier bout-summary/mean-bin view centred using a frame baseline; its displayed baseline-bin median is not guaranteed to be zero. Superseded by the bin-centred V7 options.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_version7_unpooled_recipe_20261009/history/original_frame_centred/FGH_Version7_UnpooledRecipe_legacy_layout.svg",
+            "sha256": "d3bdba656da4f840fc793a8121757d6eefc0fae8c0b36d77af98e6e3621e9c0c"
+          },
+          "notes": "Historical saved SVG, unchanged scientific contents.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 12,
+        "identifier": "#12",
+        "source_id": "recipe-v7-physical",
+        "title": "V7: bin-centred physical values",
+        "analysis": "Same bout-summary/0.5 s bin-mean construction as #11; additionally subtract the median of finite baseline bins [\u221215,0). No percentile amplitude scaling or numerical clipping; physical log range \u00b10.25. 270/270 defined.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v7-physical",
+          "title": "F\u2013H recipe Version 7 \u00b7 physical scale (earlier)",
+          "family": "recipe",
+          "difference": "0.5 s means of repeated bout summaries, then median-centred over finite baseline bins [\u221215,0). Physical log difference, no percentile amplitude scaling; colours saturate at \u00b10.25. 270/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v7-physical",
+            "image_sha256": "b44ef58e276679a6bcc839b28438462f97982be449f0ddba5bf6b9b013f47d8a",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Subtract original eligible log-frame baseline median \u2192 take each bout median within [\u221220,+20) \u2192 repeat on eligible frames \u2192 mean in 0.5 s bins \u2192 subtract median of finite baseline bins. No percentile amplitude scaling. Colour saturation only beyond \u00b10.25. Baseline: [\u221215,0); median of finite bout-summary bins \u00b7 Defined: 270/270 Colours: Continuous physical log differences; \u00b10.25; blue\u2013charcoal\u2013amber candidate Pros: Common physical log scale; all trials defined. Cons: Baseline contrast varies across trials and fish."
+        }
+      },
+      {
+        "number": 13,
+        "identifier": "#13",
+        "source_id": "recipe-v7-scaled",
+        "title": "V7: separately scaled baseline sides",
+        "analysis": "Use #12 physical bins. Fit separate lower/upper P10/P90 stretches with a symmetric median-preserving centre; baseline anchors at \u00b10.7. Minimum 10 finite baseline bins; 257/270 defined. Numerical values remain unclipped; displayed range \u00b11.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v7-scaled",
+          "title": "F\u2013H recipe Version 7 \u00b7 scaled (historical scaled option)",
+          "family": "recipe",
+          "difference": "Same V7 bout-summary bins, with separate lower/upper P10/P90 stretches; anchors at \u00b10.7 and colour limits \u00b11. Minimum 10 baseline bins; 257/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v7-scaled",
+            "image_sha256": "3c1866943d1b063ff59c53d6d586e4cc271fe7c7cfab09b28a10a1b6a3248760",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Use V7 physical centred bins \u2192 fit separate lower/upper P10/P90 stretches with a symmetric median-preserving centre \u2192 apply to all trial bins. At least 10 finite baseline bins required; sparse/degenerate scaled trials undefined. Scaled exports remain unclipped. Baseline: [\u221215,0); median and P10/P90 of finite bins \u00b7 Defined: 257/270 Colours: Continuous; P10/P90 at \u00b10.7; limits \u00b11; blue\u2013charcoal\u2013amber candidate Pros: Comparable baseline extents; continuous response headroom. Cons: Physical magnitude differs for equal colours; 13 sparse Control trials undefined."
+        }
+      },
+      {
+        "number": 14,
+        "identifier": "#14",
+        "source_id": "recipe-v8",
+        "title": "V8: full baseline-side stretch",
+        "analysis": "Divide #13 values by 0.7. The separate-side baseline anchors reach \u00b11; source bins, baseline reference and undefined-trial mask are unchanged. Numerical values remain unclipped; displayed range \u00b11.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v8",
+          "title": "F\u2013H recipe Version 8 \u00b7 endpoint saturation",
+          "family": "recipe",
+          "difference": "V7 scaled values divided by 0.7: baseline anchors reach \u00b11, increasing contrast and colour saturation. The same 13 sparse Control trials remain undefined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v8",
+            "image_sha256": "87214d8a989895ba2a17a27b6673c0bb6ce1bdaa8e807e987b3a007e83768154",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Divide Version 7 scaled values by 0.7. Keep the same baseline references, centre width and defined-trial mask. P10/P90 reach colour endpoints; values beyond them have saturated colours. Baseline: Same as V7 \u00b7 Defined: 257/270 Colours: Continuous; P10/P90 at \u00b11; tails saturated; blue\u2013charcoal\u2013amber candidate Pros: Stronger baseline contrast; full colour range. Cons: Large responses beyond anchors share endpoint colours."
+        }
+      },
+      {
+        "number": 15,
+        "identifier": "#15",
+        "source_id": "recipe-v9",
+        "title": "V9: five fixed classes",
+        "analysis": "Underlying analysis is unchanged from #13. Its scaled values are displayed in five fixed classes separated at \u22120.5, \u22120.1, +0.1, +0.5; exact ties enter the upper class. Same 257 defined trials.",
+        "same_underlying_analysis_as": 13,
+        "source": {
+          "id": "recipe-v9",
+          "title": "F\u2013H recipe Version 9 \u00b7 discrete Version 7",
+          "family": "recipe",
+          "difference": "Unchanged V7 scaled values placed in five fixed bands at \u22120.5/\u22120.1/+0.1/+0.5. Within-band magnitudes are hidden; 257/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v9",
+            "image_sha256": "265a7aa2f00d3d0ae0d0c554de51ec3bfda9d2e63fb1f0d18f94fc267a9763c1",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Start from unchanged Version 7 scaled 0.5 s bout-summary values and its defined-trial mask. Assign fixed bands at -0.5, -0.1, +0.1 and +0.5. Exact threshold ties enter the upper band. Zero lies in the dark central band [-0.1,+0.1). Apply Version 6 blue\u2013charcoal\u2013amber colours with the candidate High colour (#e9b978); this uses fixed scaled boundaries rather than Version 6 percentile boundaries. Baseline: [\u221215,0); Version 7 baseline \u00b7 Defined: 257/270 Colours: Five V6 colours with softer High; fixed scaled boundaries -0.5/-0.1/+0.1/+0.5; blue\u2013charcoal\u2013amber candidate Pros: Bout-summary recipe with simple five-colour categories. Cons: Within-band differences hidden; sparse V7 trials remain undefined."
+        }
+      },
+      {
+        "number": 16,
+        "identifier": "#16",
+        "source_id": "recipe-v10",
+        "title": "V10: three fixed classes",
+        "analysis": "Underlying analysis is unchanged from #13. Its scaled values are displayed in three fixed classes separated at \u22120.1 and +0.1. Same 257 defined trials.",
+        "same_underlying_analysis_as": 13,
+        "source": {
+          "id": "recipe-v10",
+          "title": "F\u2013H recipe Version 10 \u00b7 three colours",
+          "family": "recipe",
+          "difference": "V7 values in three bands with boundaries \u22120.1/+0.1; lower and upper categories merge moderate and extreme deviations. Same missing trials as V7/V9.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v10",
+            "image_sha256": "d63543c57024972cbd6604931b854d4de2f8a841e79bd9d12290496c62718d23",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Use unchanged Version 9 physical and Version 7 scaled values. Merge Low with Below (old classes 1/2), retain Centre (old class 3), and merge Above with High (old classes 4/5). Fixed boundaries are -0.1 and +0.1; exact ties enter the upper band. Cyan #81bddc represents Low/Below, dark purple #383842 represents Centre, and candidate amber #e9b978 represents Above/High. The same 13 sparse Control trials remain undefined. Baseline: [\u221215,0); Version 7 baseline \u00b7 Defined: 257/270 Colours: Three V9 colours; fixed boundaries -0.1/+0.1; dark centre and softer amber; blue\u2013charcoal\u2013amber candidate Pros: Simplest display: lower, near-baseline, higher; dark centre. Cons: Merges moderate and extreme deviations; magnitude detail reduced further."
+        }
+      },
+      {
+        "number": 17,
+        "identifier": "#17",
+        "source_id": "recipe-v11",
+        "title": "V11: direct bin medians; full symmetric spread",
+        "analysis": "Direct eligible log-frame medians in 0.5 s bins; subtract median of finite baseline-bin medians over [\u221215,0). Divide by one max(\u2212P10,P90) denominator shared by both signs. The wider baseline side reaches magnitude 1; the narrower side need not. Minimum 10 finite baseline bins; 257/270 defined. No numerical clipping; displayed range \u00b11.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v11",
+          "title": "F\u2013H recipe Version 11 \u00b7 direct log-bin medians",
+          "family": "recipe",
+          "difference": "Direct medians of eligible log frames in 0.5 s bins; subtract median of finite baseline-bin medians [\u221215,0). One symmetric max(\u2212P10,P90) denominator, without the 0.7 factor. 257/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v11",
+            "image_sha256": "684b1ed1047e5678b2c704824af830e131073ac93077054f37af18e5f26d5c43",
+            "native_frozen_svg_sha256": null
+          },
+          "notes": "Historical recipe review. Original acquisition labels and saved annotations retained.",
+          "legend": "Bin-median-centred log vigor, symmetrically baseline-spread scaled. Original eligible log frames \u2192 median within each 0.5 s bin \u2192 subtract median of finite baseline bins [\u221215,0) \u2192 divide by max(\u2212P10, P90) of the centred finite baseline bins. One positive denominator per trial, shared by reductions and increases. No repeated bout medians or bin means. Baseline median = 0. The wider P10/P90 side reaches its colour endpoint (\u22121 or +1); the narrower side stays nearer zero. Reciprocal proportional changes have equal opposite scaled values. No 0.7 headroom factor. Continuous blue\u2013charcoal\u2013amber, limits \u00b11; out-of-range colours saturate, numeric values remain unclipped. Dark charcoal is zero; black is missing. Each finite baseline bin has one vote; frames have one vote inside each bin. Equal colours describe change relative to each trial\u2019s symmetric baseline-spread denominator; physical ratios can differ across trials. 257/270 scaled trials defined; 13 undefined. Minimum 10 finite baseline bins; no borrowing of scales. H trial 15: fewer than 10 finite baseline bins (3 baseline bins); H trial 16: fewer than 10 finite baseline bins (1 baseline bins); H trial 19: fewer than 10 finite baseline bins (9 baseline bins); H trial 23: fewer than 10 finite baseline bins (9 baseline bins); H trial 26: fewer than 10 finite baseline bins (7 baseline bins); H trial 64: fewer than 10 finite baseline bins (6 baseline bins); H trial 68: fewer than 10 finite baseline bins (8 baseline bins); H trial 69: fewer than 10 finite baseline bins (4 baseline bins); H trial 70: fewer than 10 finite baseline bins (4 baseline bins); H trial 72: fewer than 10 finite baseline bins (9 baseline bins); H trial 73: fewer than 10 finite baseline bins (9 baseline bins); H trial 77: fewer than 10 finite baseline bins (8 baseline bins); H trial 88: fewer than 10 finite baseline bins (9 baseline bins) Compared with V7, this changes the underlying calculation to direct bin medians with a symmetric display scale replacing the separate-side Version 7 scaling. V1 uses complete-bout summaries; V2 uses direct bin means and symmetric scaling; V6 uses 1 s means and discrete percentiles; V8 changes saturation; V9/V10 discretize V7. V11 is a display adaptation of the handoff, not the frozen D/E B outcome: its baseline is estimated from bins. Timing and movement masks are preserved from the authenticated existing cache; timing uses camera-cadence reconstruction."
+        }
+      },
+      {
+        "number": 18,
+        "identifier": "#18",
+        "source_id": "recipe-v12",
+        "title": "Accepted F\u2013H recipe V12",
+        "analysis": "Same physical bins, baseline and symmetric denominator as #17; multiply by 0.7. The wider baseline side reaches magnitude 0.7. Same missingness and 257 defined trials; numerical values remain unclipped; displayed range \u00b11.",
+        "same_underlying_analysis_as": null,
+        "source": {
+          "id": "recipe-v12",
+          "title": "F\u2013H recipe Version 12 \u00b7 frozen continuous bright blue\u2013charcoal\u2013red",
+          "family": "recipe",
+          "difference": "Same direct log-bin medians, baseline and missingness as V11. Multiply the symmetric scaled values by 0.7 for response headroom; continuous bright blue\u2013charcoal\u2013red, limits \u00b11. 257/270 defined.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "container_sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "entry": "v12",
+            "image_sha256": "dcfd86b0e5635173db1c854f9f85f07831f4d1531c5f2333d6e2cbde59a7d2aa",
+            "native_frozen_svg_sha256": "dcfd86b0e5635173db1c854f9f85f07831f4d1531c5f2333d6e2cbde59a7d2aa"
+          },
+          "notes": "Accepted scoped scientific freeze.",
+          "legend": "Continuous diverging colours on the updated Version 11 values. Eligible log frames \u2192 median within each 0.5 s bin \u2192 subtract the median of finite baseline bins [\u221215,0) \u2192 multiply by 0.7 and divide by max(\u2212P10,P90). One symmetric denominator per trial; wider baseline side at \u00b10.7, leaving response headroom to \u00b11; colours saturate beyond \u00b11, numeric values remain unclipped. Brighter sky blue #00bfff at \u22121 indicates reductions; dark charcoal #383842 (the established managua centre) at zero indicates baseline; brighter red #ff5252 at +1 indicates increases. Interpolate continuously in CIELAB through the three anchors, without solid bands. Bright blue and vivid red distinguish opposite directions; the dark managua centre is restored as explicitly requested. Black remains NaN. Colours close to zero approach dark charcoal; the 0.7 factor reduces saturation but values sufficiently far from baseline can still saturate; saturated endpoint colours indicate opposite directions. 257/270 trials defined; the same 13 sparse Control trials are missing. The physical bin values, baseline reference, eligibility and annotations match updated Version 11. Version 12 display values are 0.7 times Version 11\u2019s values; the baseline-spread denominator is unchanged. Equal opposite scaled values are symmetric around zero; equal colours across trials describe baseline-relative spread rather than equal physical ratios. Author-frozen 9 October 2026, F/G/H only. Explicit freeze gate passed for 159 registered elements under specification 1.1.1. Final row width 183 mm; baseline median zero; wider baseline side \u00b10.7; colour limits \u00b11. Common fonts, strokes, protocol guide patterns and shared-axis label suppression applied at that scale. CS offset is dashed and expected US is dotted; strong CS width/opacity and the custom palette are scoped approved exceptions. Original scientific SVG, styled SVG, gate input/output and code/specification snapshots are embedded losslessly in this file. Older freezes and all other version images are preserved."
+        }
+      },
+      {
+        "number": 19,
+        "identifier": "#19",
+        "source_id": "draft-10",
+        "title": "Figure 1 draft v10 \u00b7 F\u2013H",
+        "analysis": "No analysis difference from #18: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "draft-10",
+          "title": "Figure 1 presentation draft v10 \u00b7 F\u2013H only",
+          "family": "draft",
+          "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10.svg",
+            "sha256": "db5b4852d4e1da458b850dce8793ad168263a968dafa1403e416bf0260afbcd9",
+            "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+          },
+          "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 20,
+        "identifier": "#20",
+        "source_id": "draft-11",
+        "title": "Figure 1 draft v11 \u00b7 F\u2013H",
+        "analysis": "No analysis difference from #18: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "draft-11",
+          "title": "Figure 1 presentation draft v11 \u00b7 F\u2013H only",
+          "family": "draft",
+          "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v11-editing.svg",
+            "sha256": "2eb35c0b44adc25f52c739b8e95a85a388aaf0726752081073e45e79e7510434",
+            "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+          },
+          "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 21,
+        "identifier": "#21",
+        "source_id": "draft-12",
+        "title": "Figure 1 draft v12 \u00b7 F\u2013H",
+        "analysis": "No analysis difference from #18: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "draft-12",
+          "title": "Figure 1 presentation draft v12 \u00b7 F\u2013H only",
+          "family": "draft",
+          "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v12-editing.svg",
+            "sha256": "4bcd00719630b81e2d2eff40a05000bd9b53ce45cf01b2eaaac8bc8380bd6a78",
+            "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+          },
+          "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 22,
+        "identifier": "#22",
+        "source_id": "draft-13",
+        "title": "Figure 1 draft v13 \u00b7 F\u2013H",
+        "analysis": "No analysis difference from #18: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "draft-13",
+          "title": "Figure 1 presentation draft v13 \u00b7 F\u2013H only",
+          "family": "draft",
+          "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v13-editing.svg",
+            "sha256": "3218707174e77eff705de77e77d1635cd8397e3ba16107587289113f2db6fbc1",
+            "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+          },
+          "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 23,
+        "identifier": "#23",
+        "source_id": "draft-14",
+        "title": "Figure 1 draft v14 \u00b7 F\u2013H",
+        "analysis": "No analysis difference from #18: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "draft-14",
+          "title": "Figure 1 presentation draft v14 \u00b7 F\u2013H only",
+          "family": "draft",
+          "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v14-editing.svg",
+            "sha256": "5ccf3ae75d67c70e50e42da310c888e3a4b84cdc3bd541bf088c05e611f94683",
+            "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+          },
+          "notes": "Historical presentation draft. Whole-figure differences outside F\u2013H are omitted.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 24,
+        "identifier": "#24",
+        "source_id": "draft-15",
+        "title": "Figure 1 draft v15 \u00b7 F\u2013H",
+        "analysis": "No analysis difference from #18: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "draft-15",
+          "title": "Figure 1 presentation draft v15 \u00b7 F\u2013H only",
+          "family": "draft",
+          "difference": "Same F\u2013H source row as presentation drafts v10\u2013v15, verified by scoped SVG hash. V12 scientific values and blue\u2013charcoal\u2013red colours; F arrows preserve acquisition IDs 9, 17, 63, 66, 93. Pre-v16 trial-label convention and condition typography retained.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v15-editing.svg",
+            "sha256": "d641ffa50c6725283d3693025d753d9a760e696e12d96c354183db75a7181ce7",
+            "scoped_svg_sha256": "2887dd12c5eeb9f117d6107ab5718c3aaadd436ef05ba0422abcfd411a1936a3"
+          },
+          "notes": "v15 was approved, but its whole-figure freeze gate failed; approved candidate is preserved.",
+          "legend": ""
+        }
+      },
+      {
+        "number": 25,
+        "identifier": "#25",
+        "source_id": "current",
+        "title": "Current Figure 1 draft v16 \u00b7 F\u2013H",
+        "analysis": "No analysis difference from #18: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness. This row consolidates the two previously duplicated current-v16 views.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "current",
+          "title": "Current Figure 1 draft v16",
+          "family": "latest",
+          "difference": "Accepted F\u2013H V12 values and bright blue\u2013charcoal\u2013red palette. Display rows 1\u201390; F arrows mark 5, 13, 59, 62, 89. Native DejaVu Sans text; G is labelled 3sTrace.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+            "sha256": "37a9515d5cc8c3fee8fb752c962f398a967a49c74c146e7186e36918888d3c9b",
+            "scoped_svg_sha256": "6cbfd6eb5ceb51743bb1e9313bd9b73ac0751e07db937e1b27d6e422635aab10"
+          },
+          "notes": "Current presentation draft; no whole-figure formal freeze.",
+          "legend": "(F\u2013H) Example heatmaps for Delay (20221115_07), 3 s Trace (20230310_08) and Control (20221115_09). Vigor is calculated from distal angular speed using the specified movement detector. Finite, strictly positive, valid adjacent detected-bout frames are log-transformed; other frames are excluded before taking the median within each left-inclusive, right-exclusive 0.5 s bin. The baseline is the median of finite bin medians over [\u221215, 0) s, with one vote per bin. For bin deviation d from that baseline, the displayed value is 0.7d / max(\u2212P10, P90), where the percentiles are computed from baseline-bin deviations using linear quantiles. At least 10 finite baseline bins and a noncollapsed baseline spread are required. Black cells indicate missing values, not zero activity. Colours saturate at \u00b11 without clipping the numerical values; 15 draft-E bins exceed the colour limits. Timing in F\u2013H uses the established cadence reconstruction; no additional analytical smoothing is applied. Arrowheads in F mark the five Delay-fish trials shown in D/E (5, 13, 59, 62 and 89); horizontal boundaries separate session phases. These panels are descriptive examples and do not support population-level inference.\n\nDisplayed trial numbers in D\u2013H exclude acquisition trials 1\u20134 (displayed trial = acquisition trial \u2212 4). F\u2013H therefore run from 1 to 90, and the D/E examples and marked F rows are 5, 13, 59, 62 and 89. Original acquisition IDs 9, 17, 63, 66 and 93 remain in the source mappings."
+        }
+      },
+      {
+        "number": 26,
+        "identifier": "#26",
+        "source_id": "magma",
+        "title": "Magma alternative",
+        "analysis": "No analysis difference from #18 or #25: the same V12 physical bins, baseline, 0.7 symmetric scaling and missingness.",
+        "same_underlying_analysis_as": 18,
+        "source": {
+          "id": "magma",
+          "title": "Magma alternative on current F\u2013H values",
+          "family": "latest",
+          "difference": "Palette only: sequential magma over the same \u22121\u2026+1 scale. Zero is the midpoint colour; missing bins stay black. Cell values, bounds, timing, guides, arrows and numbering match its authenticated v16 source.",
+          "reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-magma-comparison-2026-10-13.html",
+            "sha256": "1097d68879e4f7f671bfa05ad0336b2690cfa054881c686a1cbadd44f83aa7cd"
+          },
+          "notes": "Unselected alternative. Archived magma use confirmed; association with January remains unconfirmed.",
+          "legend": "(F\u2013H) Example heatmaps for Delay (20221115_07), 3 s Trace (20230310_08) and Control (20221115_09). Vigor is calculated from distal angular speed using the specified movement detector. Finite, strictly positive, valid adjacent detected-bout frames are log-transformed; other frames are excluded before taking the median within each left-inclusive, right-exclusive 0.5 s bin. The baseline is the median of finite bin medians over [\u221215, 0) s, with one vote per bin. For bin deviation d from that baseline, the displayed value is 0.7d / max(\u2212P10, P90), where the percentiles are computed from baseline-bin deviations using linear quantiles. At least 10 finite baseline bins and a noncollapsed baseline spread are required. Black cells indicate missing values, not zero activity. Colours saturate at \u00b11 without clipping the numerical values; 15 draft-E bins exceed the colour limits. Timing in F\u2013H uses the established cadence reconstruction; no additional analytical smoothing is applied. Arrowheads in F mark the five Delay-fish trials shown in D/E (5, 13, 59, 62 and 89); horizontal boundaries separate session phases. These panels are descriptive examples and do not support population-level inference.\n\nDisplayed trial numbers in D\u2013H exclude acquisition trials 1\u20134 (displayed trial = acquisition trial \u2212 4). F\u2013H therefore run from 1 to 90, and the D/E examples and marked F rows are 5, 13, 59, 62 and 89. Original acquisition IDs 9, 17, 63, 66 and 93 remain in the source mappings."
+        }
+      },
+      {
+        "number": 27,
+        "identifier": "#27",
+        "source_id": "new-fullspread",
+        "title": "New cyan\u2013charcoal\u2013muted-grey candidate",
+        "analysis": "Same analysis as #17. Relative to #18, remove the 0.7 multiplier: every finite value is V12/0.7. Retain the direct 0.5 s log-bin medians, [\u221215,0) bin-median baseline, single symmetric denominator and missingness. The wider baseline side reaches magnitude 1; values remain numerically unclipped; displayed range \u00b11.",
+        "same_underlying_analysis_as": 17,
+        "source": {
+          "status": "unselected scientific/palette draft candidate; not frozen",
+          "scope": [
+            "F",
+            "G",
+            "H"
+          ],
+          "source_svg": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+            "sha256": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7"
+          },
+          "source_state_sha256": "72c84c7a429d55354f5f6d0a79a94dd5f099bbdb3aad9494397b8783359d9f0b",
+          "source_legend": {
+            "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+            "sha256": "68dcdfc11d200cfb2347e9338abe0e75a6fb01eb63a7310a562cbdf817d83f1e"
+          },
+          "frozen_scientific_container": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+            "sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "audit_id": "version11-audit",
+            "value_mapping": "V12 = 0.7 * saved scaled_baseline_vigor"
+          },
+          "historical_palette_reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/figure1-heatmaps/figure-1-E_delay-control_legacy_distal_angular_speed.figure.json",
+            "sha256": "5b18a775863f41e50649b6cd2385609e7eeaa0fb6d4777122dae12627635c714",
+            "date": "January association not confirmed"
+          },
+          "palette": {
+            "name": "cyan-charcoal-muted-grey",
+            "anchors": [
+              "#60d8f5",
+              "#383842",
+              "#857b70"
+            ],
+            "anchor_values": [
+              -1,
+              0,
+              1
+            ],
+            "interpolation": "513 piecewise CIELAB samples",
+            "range": [
+              -1,
+              1
+            ],
+            "normalization": "u=(z+1)/2; colour saturation only",
+            "missing": "#000000",
+            "zero": "#383842",
+            "matplotlib_version": "3.10.9"
+          },
+          "scientific_change": {
+            "baseline_factor": 1.0,
+            "original_baseline_factor": 0.7,
+            "formula": "z=1.0*d/max(-P10(d_baseline),P90(d_baseline))",
+            "source": "authenticated saved V12/V11 normalized bin values; no source-frame analysis rerun",
+            "negative_positive_same_denominator": true,
+            "numerical_clipping": false,
+            "source_cells_eligibility_baseline_and_timing_preserved": true
+          },
+          "colourbar_ticks": [
+            -1,
+            0,
+            1
+          ],
+          "removed_intermediate_ticks": [
+            "ytick_29",
+            "ytick_31"
+          ],
+          "numeric_payload": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.npz",
+            "sha256": "e6c318ca30f4712b0ae0b0b633a842f080c762d647c768f2a53e9d51411ddf6d"
+          },
+          "scope_bounds": "0 0 518.740157 293.952756",
+          "checks": [
+            {
+              "panel": "F",
+              "fish": "20221115_07",
+              "acquisition_trials": [
+                5,
+                94
+              ],
+              "display_trials": [
+                1,
+                90
+              ],
+              "image_size": [
+                919,
+                476,
+                4
+              ],
+              "original_png_sha256": "fd270fed2adab7f68436decb99a67fd36bb00ffcb47fea5ad5a359f7ad689292",
+              "candidate_png_sha256": "907d0ae8bd79ffbe9e8995ef2654468d8f5f87c1fae133b85f96e453c33e6d5b",
+              "original_values_sha256": "dfcf72ecd3d72b6702a6f1964b6f22e6da42cf66e0f8a7f8fa3ef021fd8c2677",
+              "candidate_values_sha256": "b754092134a76f6590c98417016ed60aa32e4f179b8848c33df5aee49c2c2eeb",
+              "scaling_ratio": 1.4285714285714286,
+              "zero_baseline_medians_preserved": true,
+              "wider_baseline_quantile_side_anchor": 1.0,
+              "finite_cells": 6446,
+              "colour_saturated_cells": 1040,
+              "all_7200_source_cell_centres_verified": true,
+              "missing_mask_unchanged": true,
+              "all_raster_pixels_match_saved_source": true,
+              "exact_cell_boundaries_preserved": true,
+              "alpha_unchanged": true
+            },
+            {
+              "panel": "G",
+              "fish": "20230310_08",
+              "acquisition_trials": [
+                5,
+                94
+              ],
+              "display_trials": [
+                1,
+                90
+              ],
+              "image_size": [
+                919,
+                476,
+                4
+              ],
+              "original_png_sha256": "e3d2f8a94010ce8be96590bf0add4aa5e36be98a2d3e844639f5e8a5d85aae29",
+              "candidate_png_sha256": "d94a05d97c79e4da68bf43a8452620ab94da688305e892d3e627e4d7c07b8cb2",
+              "original_values_sha256": "bf8ed01711b80125a977f3973c205395503e68b96a6b6e98e5fa6302a1f90d8d",
+              "candidate_values_sha256": "bfc49fd468cae6bf8d58276d9608909f745fcbe645b1be2101331caa38c5ca77",
+              "scaling_ratio": 1.4285714285714286,
+              "zero_baseline_medians_preserved": true,
+              "wider_baseline_quantile_side_anchor": 1.0,
+              "finite_cells": 7138,
+              "colour_saturated_cells": 1494,
+              "all_7200_source_cell_centres_verified": true,
+              "missing_mask_unchanged": true,
+              "all_raster_pixels_match_saved_source": true,
+              "exact_cell_boundaries_preserved": true,
+              "alpha_unchanged": true
+            },
+            {
+              "panel": "H",
+              "fish": "20221115_09",
+              "acquisition_trials": [
+                5,
+                94
+              ],
+              "display_trials": [
+                1,
+                90
+              ],
+              "image_size": [
+                919,
+                476,
+                4
+              ],
+              "original_png_sha256": "2c56ccd4bb3f332ca7a98df5b16102b6763775cc84ffc52587a72816b8550434",
+              "candidate_png_sha256": "d878a3bc05b35b82e0446cf9b74f60d105208b6c02a485e7c9aff39889f26f76",
+              "original_values_sha256": "5cceb301614e6209ee45e15ca524fbae2aa3d251ad0a9d5aa068d839c0d4211e",
+              "candidate_values_sha256": "3ede318eb5ddf20435467749e428f72ff4190948cc985ab05e2126ee1c9f4a6f",
+              "scaling_ratio": 1.4285714285714286,
+              "zero_baseline_medians_preserved": true,
+              "wider_baseline_quantile_side_anchor": 1.0,
+              "finite_cells": 3539,
+              "colour_saturated_cells": 603,
+              "all_7200_source_cell_centres_verified": true,
+              "missing_mask_unchanged": true,
+              "all_raster_pixels_match_saved_source": true,
+              "exact_cell_boundaries_preserved": true,
+              "alpha_unchanged": true
+            }
+          ],
+          "all_nonpalette_nodes_unchanged": true,
+          "colourbar_rendering": "crispEdges prevents antialias seams between native vector swatches; all ramp coordinates retained",
+          "starting_hashes": {
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "72c84c7a429d55354f5f6d0a79a94dd5f099bbdb3aad9494397b8783359d9f0b",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+            "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "8f11e9b394346bda7507988fe48609aa1796591966f3a2c1cf1f964676f2680b",
+            "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7",
+            "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "1e0d191e0388444934bea98c1c39da2c1a22545e3e064654ae8ce8355f15e091",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "68dcdfc11d200cfb2347e9338abe0e75a6fb01eb63a7310a562cbdf817d83f1e",
+            "/private/tmp/figure-01-fgh-cyan-fullspread-start.json": "0ddc73ae65b6d808c1d0366aaede1e6cd088b7beb1828057adb2b52849319648",
+            "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py": "6b42599141f1dedb4b260d8f8bfed059665fa8d0bcf34d874fa1616c75bfe0a3",
+            "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/figure1-heatmaps/figure-1-E_delay-control_legacy_distal_angular_speed.figure.json": "5b18a775863f41e50649b6cd2385609e7eeaa0fb6d4777122dae12627635c714",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_palette_review.py": "d0f2ca92398f593cf66edc8da356076fe2932c10765622c6d553ac9aa38d4996",
+            "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "ae19a115bd870e9c6727e1f4244eedefa9c6419fb47bee1d87bf7440f1ed9902"
+          },
+          "active_pair_updated": false,
+          "standalone_svg_created": false,
+          "review": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.html",
+            "sha256": "0fc1b76314fb423ba7829b52d57c1cd36467ea8a793f51759c5b8bfb05106373"
+          },
+          "latest_state_recheck": {
+            "sha256": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+            "source_svg_matches_creation": true,
+            "note": "State-only concurrent update detected; candidate remains bound to its creation snapshot."
+          },
+          "author_request": "Make a new V12-based version with proposed cyan\u2013charcoal\u2013muted grey, changing the 0.7 scaling factor to 1; show only this new version.",
+          "visual_review": {
+            "renderer": "bundled sharp/libvips",
+            "scope": "Exact saved F/G/H SVG at 1500 px width; only whitespace trimmed in temporary preview",
+            "observations": "Cyan reductions, charcoal zero and muted warm-grey increases are visible. Native colourbar shows \u22121, 0, +1. Axes, rows 1\u201390, five F arrows, phase separators and event guides remain visible without clipping or overlaps. Black missing bins and all raster cell boundaries are intact.",
+            "checks": "Saved NPZ values equal V12/0.7; baseline medians zero, wider-side quantile anchor magnitude 1, missingness and alpha unchanged; trial mapping and saved tick labels verified."
+          }
+        }
+      }
+    ],
+    "latest_current_reference": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+      "sha256": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7",
+      "FGH_scope_sha256": "6cbfd6eb5ceb51743bb1e9313bd9b73ac0751e07db937e1b27d6e422635aab10"
+    },
+    "duplicate_current_v16_consolidated": true,
+    "missing_original_recipe_v3": true,
+    "author_request": "Remove numbered versions 05 and 06 completely from the comparison; summarize analysis differences only.",
+    "source_hashes": {
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/fgh-v12-cyan-muted-fullspread-2026-10-13.json": "be14a6983b3a2b213ab7cfd16a2dc3f450f85e34bbeae893f398d16f642d575d",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.html": "0fc1b76314fb423ba7829b52d57c1cd36467ea8a793f51759c5b8bfb05106373",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/organize_figure1_fgh_comparison.py": "eba65ec4a972d5d3cb006550ad5609b9e44f8ad911fe4df05b45f61122505f90",
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/fgh-version-numbering-2026-10-13.json": null,
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_version_comparison.py": "b7ed1c1e5577e064a5cc753c306c01481be17439d8fe22f65512082d233c2473"
+    },
+    "removed_comparison_numbers": [
+      5,
+      6
+    ],
+    "numbering_policy": "Keep surviving identifiers stable; author-removed numbers are not reassigned."
+  },
+  "removed_comparison_numbers": [
+    5,
+    6
+  ]
+}

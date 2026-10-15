@@ -1,0 +1,57 @@
+{
+  "fish": {
+    "F": "20221115_07",
+    "G": "20230307_12",
+    "H": "20221115_09"
+  },
+  "legacy_identity_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_c_bout_vs_bins_20261008/outputs/manifest.json",
+    "sha256": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34"
+  },
+  "git_context": {
+    "February_commit": "2f63ef4",
+    "March_commit": "bf46bf7",
+    "file": "2_ExampleFishPlotting.py",
+    "interpretation": "Delay 20221115_07 active; Trace 20230307_12 and Control 20221115_09 listed as commented examples; actual legacy F/G/H set confirmed by hash-authenticated artifact manifest"
+  },
+  "analysis": {
+    "bin_width_s": 1,
+    "bin_estimator": "direct original eligible natural-log frame median",
+    "baseline_s": [
+      -15,
+      0
+    ],
+    "baseline_estimator": "median finite baseline-bin medians",
+    "amplitude_scaling": false,
+    "color_limits": [
+      -0.25,
+      0.25
+    ],
+    "palette": "managua_r"
+  },
+  "trace_defined_trials": 90,
+  "trace_maximum_baseline_median_residual": 2.220446049250313e-16,
+  "sources": {
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_c_bout_vs_bins_20261008/outputs/PanelG_sample_data.parquet": "05772a8c4e24c1afcbab4af9cca4f556adf4deae7026964d2a0cad142dcb1c49",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_c_bout_vs_bins_20261008/outputs/manifest.json": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/starting-inventory.json": "d5d552c1ffa5a135e79255b23fc218e6f419e93288b76d28694ad4ea3628b1c3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/frozen-candidate.svg": "02bfbfb922c8a2f629d8cd5af8081f5d87127bd909bec6c640269f69dd87160d",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-one-second-managua-freeze-2026-10-13/dependency-figure-01-one-second-medians-cyan-palettes-2026-10-13.csv": "4e826a1efbe7075aa1d9e5ca9e61307735093cd6139e0bd3e7068f2b6ee8c053",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_historical_fish_one_second.py": "10b8eab250bc6846c384a2c862e98355b0d9909ef9241ddf01e5e83f0845646f"
+  },
+  "active_selection_changed": false,
+  "frozen": false,
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-historical-fish-one-second-managua-2026-10-13.html",
+    "sha256": "854b1d8361d017fd249dd1137a87ab49e6dad6a6b217b7388c7f1adc1a3b66fd"
+  },
+  "data": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-historical-fish-one-second-managua-2026-10-13.csv",
+    "sha256": "d7009b6c43a79041bda5f7e7fe033917fbf6ee2882b645db0c967dd42bed3f2f"
+  },
+  "visual_review": {
+    "renderer": "sharp/libvips, 1600px",
+    "observations": "Authentic legacy Trace 20230307_12 label, all 90 trial rows, native managua_r, zero midpoint, CS/expected-US guides and phase boundaries visible. F/H retain the new freeze numerical values. Baseline medians independently verified zero."
+  }
+}

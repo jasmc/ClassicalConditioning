@@ -8,6 +8,7 @@ before an immutable manifest is published. No scientific roles are inferred.
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import json
 import math
@@ -127,11 +128,25 @@ def _paint(value: str) -> tuple[str, float]:
     raise ValueError(f"Unresolved SVG color: {value}")
 
 
+def _embedded_font_hashes(css: str) -> set[str]:
+    """Accept resource-only, pinned DejaVu faces; never accept presentation rules."""
+    pattern=re.compile(r'@font-face\s*\{\s*font-family:\s*"DejaVu Sans";\s*font-weight:\s*(400|700);\s*src:\s*url\(data:font/ttf;base64,([A-Za-z0-9+/=]+)\)\s*format\("truetype"\)\s*;?\s*\}')
+    hashes=set();position=0
+    for match in pattern.finditer(css):
+        if css[position:match.start()].strip():raise ValueError('Unsupported font stylesheet')
+        payload=base64.b64decode(match[2],validate=True)
+        if len(payload)<12 or payload[:4]!=b'\x00\x01\x00\x00':raise ValueError('Invalid embedded TrueType resource')
+        hashes.add(hashlib.sha256(payload).hexdigest());position=match.end()
+    if not hashes or css[position:].strip():raise ValueError('Unsupported font stylesheet')
+    return hashes
+
+
 class SvgEvidence:
     def __init__(self, path: Path, final_width_mm: float):
         self.root = ET.parse(path).getroot()
         self.nodes = list(self.root.iter()); self.parent = {c: p for p in self.nodes for c in p}
         self.ids = {}
+        self.embedded_font_hashes=set()
         for node in self.nodes:
             if node.get("id"):
                 if node.get("id") in self.ids:
@@ -144,7 +159,7 @@ class SvgEvidence:
                 if name.lower().startswith("on") or (name in {"href", "src"} and not value.startswith(("#", "data:image/png;base64,", "data:image/jpeg;base64,"))):
                     raise ValueError("SVG contains active or external references")
             if _tag(node) == "style" and node.text and not re.fullmatch(r"\s*\*\s*\{\s*stroke-linejoin:\s*round;\s*stroke-linecap:\s*butt\s*\}\s*", node.text):
-                raise ValueError("Stylesheet rules need resolution to inline presentation before freeze")
+                self.embedded_font_hashes.update(_embedded_font_hashes(node.text))
         box = [float(v) for v in re.split(r"[ ,]+", self.root.get("viewBox", "").strip())]
         if len(box) != 4 or box[2] <= 0 or box[3] <= 0:
             raise ValueError("SVG requires a positive viewBox for final-size verification")
@@ -281,7 +296,17 @@ def _check_candidate(candidate_path: Path, specification_path: Path) -> dict:
         if not _passed_review(candidate.get("verification", {}).get(name)):
             issue("review", f"Record completed {name} with evidence; SVG alone cannot validate scientific definitions/plot-family structure")
     def artifact_path(record):
-        path = Path(record["path"]); return (candidate_path.parent/path).resolve() if not path.is_absolute() else path.resolve()
+        path = Path(record["path"])
+        path = (candidate_path.parent/path).resolve() if not path.is_absolute() else path.resolve()
+        if not path.is_file():
+            # Archived immutable manifests retain their original paths. Recover
+            # only the explicitly hash-bound bytes registered by the archive.
+            try:
+                from .external_artifacts import resolve_artifact
+            except ImportError:
+                from external_artifacts import resolve_artifact
+            return resolve_artifact(path, expected_sha256=record.get("sha256"))
+        return path
     artifacts = []; svg = None; original = None
     for group in ["source_artifacts", "data_artifacts", "exports"]:
         for record in candidate.get(group, []):
@@ -310,12 +335,41 @@ def _check_candidate(candidate_path: Path, specification_path: Path) -> dict:
         if svg is None or original is None:
             raise ValueError("A hashed SVG export and an original_svg source are required")
         evidence = SvgEvidence(svg, width); baseline = SvgEvidence(original, width)
+        for resource_hash in evidence.embedded_font_hashes | baseline.embedded_font_hashes:
+            if resource_hash not in {a['sha256'] for a in artifacts}:
+                raise ValueError('Embedded font needs a hash-authenticated source artifact')
         transforms = candidate["assembly_scale"]["source_to_final_transforms"]
         measured_transforms = [{"element_id": node.get("id"), "transform": node.get("transform")} for node in evidence.nodes if node.get("transform")]
         if not isinstance(transforms, dict) or transforms.get("svg_transforms") != measured_transforms or not math.isclose(float(transforms.get("root_user_unit_to_final_pt", 0)), evidence.root_scale, rel_tol=1e-6):
             raise ValueError("Recorded assembly transforms do not match the exported SVG")
     except (OSError, ValueError, ET.ParseError) as error:
         issue("svg-evidence", str(error))
+    if specification.get("layout_frames", {}).get("required_for_new_freezes") and svg is not None:
+        from classical_conditioning.figures.layout_frames import freeze_issues
+        frame_record = candidate.get("verification", {}).get("layout_frames")
+        if isinstance(frame_record, dict) and frame_record.get("path"):
+            frame_record = dict(frame_record)
+            frame_path = Path(frame_record["path"])
+            if not frame_path.is_absolute():
+                frame_record["path"] = str(candidate_path.parent/frame_path)
+        frame_problems = freeze_issues(svg.read_bytes(), frame_record,
+                                      candidate.get("assembly_scale", {}).get("final_width_mm", 0),
+                                      candidate.get("panel_ids", []))
+        for message in frame_problems:
+            issue("layout-frames", message)
+        if not frame_problems:
+            from classical_conditioning.figures.layout_frames import POLICY, COLLECTOR
+            frame_bytes = Path(frame_record['path']).read_bytes()
+            if hashlib.sha256(frame_bytes).hexdigest() != frame_record['sha256']:
+                issue('layout-frames', 'Frame evidence changed during validation')
+            else:
+                frame_report = _read_json(frame_bytes)
+                for frame_input, expected_hash in (
+                    (Path(frame_record['path']), frame_record['sha256']),
+                    (POLICY, frame_report['policy_sha256']),
+                    (COLLECTOR, frame_report['collector_sha256']),
+                    (COLLECTOR.with_name('layout_frames.py'), frame_report['helper_sha256'])):
+                    artifacts.append({'path': str(frame_input.resolve()), 'sha256': expected_hash})
     exceptions = candidate.get("approved_exceptions", [])
     exception_ids = set()
     for exception in exceptions:

@@ -7,6 +7,23 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('legend_review',ROOT/'scripts/build_figure_legend_review.py')
 review=importlib.util.module_from_spec(spec);spec.loader.exec_module(review)
 class LegendReviewTests(unittest.TestCase):
+    def test_scoped_editing_page_preserves_native_svg_and_only_associated_legend(self):
+        svg=b'<svg xmlns="http://www.w3.org/2000/svg"><g id="panel-D"><text>Data label</text></g></svg>'
+        page=review.svg_editing_page(svg,scope_label='Figure 1 panel D',legend='# Legend\n\n(D) Tail angle.')
+        self.assertIn(svg.decode(),page);self.assertIn('(D) Tail angle.',page)
+        self.assertNotIn('<button',page);self.assertNotIn('figure2',page)
+        self.assertNotIn('<details',page);self.assertNotIn('<img',page)
+
+    def test_working_review_removes_only_scoped_comparison_preserving_payload(self):
+        selected='<div class="version candidate"><img class="figure" src="data:image/svg+xml;base64,EXACT"></div>'
+        other='<section id="figure2"><h2>Figure 2</h2><button>Original selected assembly</button></section>'
+        page='<header>Candidate shown first. Switch to the authenticated original to compare.</header><section id="figure1"><h2>Figure 1</h2><button>Decluttered draft</button>'+selected+'<div class="version original" hidden><img src="OLD"></div><div class="legend">Legend unchanged</div></section>'+other
+        output=review.working_review_page(page,version_label='v10')
+        self.assertIn(selected,output);self.assertIn(other,output)
+        self.assertIn('<div class="legend">Legend unchanged</div>',output)
+        self.assertNotIn('OLD',output);self.assertNotIn('Decluttered draft',output)
+        self.assertNotIn('Switch to the authenticated original',output)
+
     def test_text_cleanup_preserves_duplicate_graphics_and_units(self):
         data=b'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0 0L5 5"/><path d="M0 0L5 5"/><text>Distal cumulative angle; -15 to 0 s median centred</text><text>Tail angle (\xc2\xb0) \xc2\xb7 Delay fish 20221115_07</text></svg>'
         output,edits=review.transform_panel(1,'D',data)

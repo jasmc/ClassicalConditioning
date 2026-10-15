@@ -1,20 +1,4 @@
-
-
-/Plan mode
-
-see what is at /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans. anything that is not a real plan, move or plan to delete if stale. decisions, handoffs, freezing of panels or figures or any other decisions are not to be here. e.g., /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/EXCLUSION_AND_SELECTION_INVENTORY.csv should not be here.
-except for README or Index or sth like that, all real true plans must be renamed and given a number, as most of the current plans. order them as it makes sense. 
-these files /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/PANEL_REVIEW_COMMENTS.md and
-/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/PAPER_REVIEW_CONSIDERATIONS.md might need to be updated and contain placeholders or so for all other figures. i think /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/GOVERNANCE.md is also misplaced.
-plan this very carefully. if needed, and in case it makes sense to keep them, move them to other folders (create new ones if needed)
-
-the files defining the frozen figures, etc need to be in an appropriate folder as well.
-
-the plans that are to be kept (even if they need to be first updated) have to be coordinated with the remaining plans and their structure, so there is a clean story at Plans folder. remember that the first release is going to be the first 4 figures.
-
-see what can be removed from /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Handovers, etc. perhaps, some things there can be integrated in decisions or freezing files, to be kept in other folders.
-
-
+The color range scale in E is much, has a huge white space from the data in E, whereas in H that doesn't happen. I want the color scales in E and H to be aligned to the right, but I also want to fill in this space a bit better. But this is something that we'll leave for later because this will require making the data region in D and E larger. So E's data can approach the other color scale range. There are lots of constraints because I must also not separate too much D from E and all of that. Like, in terms of the frames, I'm not sure that those frames that now are kind of ensured automatically worked well at F, G, H. I know there are some conflicting things. Yeah, we should just point that out. Like F and G and G to H, they are not fulfilling this exactly because there's more space. But then if we shorten it here, then the figure frame is also not matched. So I understand all of that.
 
 
 /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/reviews is full of shit and images. clean up from stale items, redundant items, and move the figures to the SSD Joaquim. a lot of what is in reviews might need to be merged together as well.
@@ -112,7 +96,41 @@ add comments explaining all code blocks of the repo so that i can review everyth
 
 understand everything in Plans, src, docs
 
+Figure 3 / Figure 4 scope — author direction, clarified 2026-10-14:
+Figure 3 metric direction, 2026-10-15: keep only the legacy metric
+(`legacy_distal_angular_speed`, tail bend angular speed); delete Figure 3
+drafts for other metrics and restrict its renderer accordingly.
+Figure 3 develops, quantifies and validates the individual-learning
+representation / learner definition.
+The Control–Learner, Control–Nonlearner and Learner–Nonlearner behavioral
+comparisons belong in Figure 4 only. Figure 4 compares these groups within
+each experiment (Delay, 3sTrace, 10sTrace), as well as across experiments.
+The learner definition and validation remain to be resolved under Plan 04 /
+Gate L. Keep insufficient-information fish explicit, and distinguish
+same-data descriptive comparisons from evaluation on observations that did
+not define learner status.
+
+Author 2026-10-15 — individual fish: plan Figure 3 illustrations using the
+legacy classifiers, discarding rules and old per-fish heatmap/summary-grid
+outputs. Deliberately choose a few illustrative fish for the main paper and
+show all fish in supplementary data. Connect heatmaps, exact trial outcomes,
+classification evidence and eligibility/coverage; do not silently omit
+unclassified or excluded fish. Detailed proposed display and source review:
+docs/paper/figures/figure-03/individual-fish-display.md.
 
 
 
 
+
+
+---
+
+Author 2026-10-15 — invisible frames: implement shared rules/tooling for future
+paper, supplementary and analysis figures, without rearranging current drafts.
+One millimetre-based inset is shared at the figure outside edge; adjacent panels
+supply two insets. Preserve natural shapes and scientific geometry. Calibration
+compared 1.0/1.5/2.0 mm at 89/183 mm; author selected 1.0 mm (tighter) on
+2026-10-15. The shared policy is active for future work; current drafts stay unchanged.
+Implementation and remaining route coverage are recorded in
+records/figure-reviews/layout-frame-implementation.json; procedures live in the
+figure workflow's invisible-frame section. No freeze or cleanup is requested.

@@ -33,6 +33,18 @@ Interfaces and tests: [implementation contract](../records/scientific-evidence/d
 
 ## Phase 3: Figure 3 and downstream outputs
 
+Author direction, 2026-10-15: choose a few illustrative learner/nonlearner
+fish for the main paper and show all fish in supplementary data. Implement
+the [individual-fish display design](../docs/paper/figures/figure-03/individual-fish-display.md):
+build and review the complete inventory-linked atlas before selecting examples;
+join each heatmap to its exact classifier input, feature epochs, continuous
+decision evidence and coverage/eligibility reasons. Preserve unclassified and
+technically excluded entries separately, and retain informative borderline or
+cross-method disagreements in the atlas. Use only the selected legacy metric.
+The source/output review is [recorded here](../records/scientific-evidence/audits/figure3-individual-display-legacy-review-2026-10-15.json).
+Main examples are explanatory illustrations, not independent validation.
+Aggregate Control/Learner/Nonlearner behavioral comparisons remain Figure 4 only.
+
 1. Produce representation/eligibility and sample-flow tables, feature/score distributions, individual examples/atlas, trial trajectories and validated learner-focused results. For approved categories, retain underlying continuous evidence and reference/unclassified counts; otherwise use the approved scores or trajectories.
 2. Supply individual-fish, selected single-trial, catch, grouped/five-trial-block, phase and trial-by-trial views with movement occurrence alongside conditional vigor. Reuse configured pooled catches and ten-trial selectors for the integrated run; do not silently substitute one block definition for another.
 3. Keep panel-data generation separate from rendering. Every sidecar/caption identifies cohort/input/method hashes, eligibility, alignment, windows, event identity, contributing fish/trials, uncertainty and validation mode. Adapt downstream Figure 4 grouping to the approved representation rather than forcing categories.

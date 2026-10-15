@@ -50,7 +50,7 @@ def bind_loaded_state(snapshot,state,state_bytes,path):
     if state:
         records=state.get('scientific_selection',{}).get('records',[])+list(state.get('preserved_figures',{}).values())
         for scope in ('frozen_display','draft'):
-            records=records+[state[scope][key] for key in ('working_svg','effective_presentation','review') if state[scope].get(key)]
+            records=records+[state[scope][key] for key in ('working_svg','effective_presentation','review','legend') if state[scope].get(key)]
         for item in records:snapshot.hashes[str(Path(item['path']).resolve())]=item['sha256']
     snapshot.check()
 
@@ -103,6 +103,7 @@ def publish_state(path, state, snapshot, artifacts=(), evidence_updates=(), remo
                 try:
                     with os.fdopen(descriptor,'wb') as stream:stream.write(data)
                     os.replace(name,destination)
+                    if file_hash(destination)!=sha(data):raise OSError('Saved-byte mismatch: '+str(destination))
                 finally:
                     if Path(name).exists():Path(name).unlink()
             snapshot.check(ignore=[*created,*previous])
@@ -321,7 +322,9 @@ def measured_presentation(data, *, width_mm=183.):
             spacing.append(dict(tick_element_id=tick['element_id'],label_element_id=nearest['element_id'],
                                 endpoint_to_text_anchor_pt=math.dist(nearest['anchor_pt'],tick['end_pt']),
                                 interpretation='Measured anchor distance, not glyph-edge padding; padding/legibility still needs renderer or visual review'))
-    return dict(svg_sha256=sha(data),final_width_mm=width_mm,texts=texts,strokes=strokes,ticks=ticks,tick_label_spacing=spacing,
+    from classical_conditioning.figures.layout_frames import assess
+    frames = assess(data)
+    return dict(layout_frames=frames,svg_sha256=sha(data),final_width_mm=width_mm,texts=texts,strokes=strokes,ticks=ticks,tick_label_spacing=spacing,
                 coordinate_maps=maps,unresolved=issues,freeze_compliance='not evaluated; use explicit freeze gate with scientific registry and review evidence')
 
 def draft_axis_findings(report):

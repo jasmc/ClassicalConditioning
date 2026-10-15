@@ -1,0 +1,124 @@
+{
+  "date": "2026-10-15",
+  "authorization": "i just want the legacy metric. delete all that concerns the other metrics.",
+  "scope": "Figure 3 draft outputs and renderer; preserve shared multi-metric inputs and other figures",
+  "status": "complete",
+  "targets": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "logical_path": "outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693",
+      "canonical_archive_sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693",
+      "bytes": 506232,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+      "logical_path": "outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+      "sha256": "cd69fcdcaac7b2057426ed738b7422ed8fda1c6ecc410ee8d7f4604971d6199c",
+      "canonical_archive_sha256": "cd69fcdcaac7b2057426ed738b7422ed8fda1c6ecc410ee8d7f4604971d6199c",
+      "bytes": 22335,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "logical_path": "outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693",
+      "canonical_archive_sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693",
+      "bytes": 506232,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+      "logical_path": "outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+      "sha256": "5e2c9bfa0cbc7087978ab19181007854f4151f37271f6a024be7f9612868f7af",
+      "canonical_archive_sha256": "cd69fcdcaac7b2057426ed738b7422ed8fda1c6ecc410ee8d7f4604971d6199c",
+      "bytes": 23167,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "logical_path": "outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693",
+      "canonical_archive_sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693",
+      "bytes": 506232,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+      "logical_path": "outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+      "sha256": "5e2c9bfa0cbc7087978ab19181007854f4151f37271f6a024be7f9612868f7af",
+      "canonical_archive_sha256": "cd69fcdcaac7b2057426ed738b7422ed8fda1c6ecc410ee8d7f4604971d6199c",
+      "bytes": 23167,
+      "deleted": true
+    }
+  ],
+  "protected_legacy_drafts": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-legacy-full-59/figures/figure3-3strace-window13-legacy-59fish/figure-3-3strace-review_legacy_distal_angular_speed.figure.json",
+      "sha256": "b8aac514d6fba6bd1be71f152ac6a4040690b6566de35b6f8efb4be3bdb87718"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-legacy-full-59/figures/figure3-3strace-window13-legacy-59fish/figure-3-3strace-review_legacy_distal_angular_speed.png",
+      "sha256": "3bbf6eb96e1455571996309cade797124aaec96bf06cc939d5e9d3b7aee24565"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-legacy-preview/20260925-window13/figures/figure3-3strace-window13-legacy-53fish/figure-3-3strace-review_legacy_distal_angular_speed.figure.json",
+      "sha256": "3db532a0d1f11149333d6e29f83ce42f9b9228a7b70cb0f3780744023980b9ab"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-legacy-preview/20260925-window13/figures/figure3-3strace-window13-legacy-53fish/figure-3-3strace-review_legacy_distal_angular_speed.png",
+      "sha256": "cd1ae54ba60ab86014e5dada2ce79432e5ab3a84d3f79425b87b8d93f0f2321a"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-legacy-full-59/figures/figure3-3strace-window13-legacy-59fish/figure-3-3strace-review_legacy_distal_angular_speed.figure.json",
+      "sha256": "271f42354e7aa420d7cc6c3f136d12b0f83c59cd644120824ee53af170cd5da5"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-legacy-full-59/figures/figure3-3strace-window13-legacy-59fish/figure-3-3strace-review_legacy_distal_angular_speed.png",
+      "sha256": "3bbf6eb96e1455571996309cade797124aaec96bf06cc939d5e9d3b7aee24565"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-legacy-preview/20260925-window13/figures/figure3-3strace-window13-legacy-53fish/figure-3-3strace-review_legacy_distal_angular_speed.figure.json",
+      "sha256": "684ba12114322090a05ca71c01111a155f87d9a69c06d529dcb7d019603b4e96"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-legacy-preview/20260925-window13/figures/figure3-3strace-window13-legacy-53fish/figure-3-3strace-review_legacy_distal_angular_speed.png",
+      "sha256": "cd1ae54ba60ab86014e5dada2ce79432e5ab3a84d3f79425b87b8d93f0f2321a"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/trace-legacy-full-59/figures/figure3-3strace-window13-legacy-59fish/figure-3-3strace-review_legacy_distal_angular_speed.figure.json",
+      "sha256": "271f42354e7aa420d7cc6c3f136d12b0f83c59cd644120824ee53af170cd5da5"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/trace-legacy-full-59/figures/figure3-3strace-window13-legacy-59fish/figure-3-3strace-review_legacy_distal_angular_speed.png",
+      "sha256": "3bbf6eb96e1455571996309cade797124aaec96bf06cc939d5e9d3b7aee24565"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/trace-legacy-preview/20260925-window13/figures/figure3-3strace-window13-legacy-53fish/figure-3-3strace-review_legacy_distal_angular_speed.figure.json",
+      "sha256": "684ba12114322090a05ca71c01111a155f87d9a69c06d529dcb7d019603b4e96"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/trace-legacy-preview/20260925-window13/figures/figure3-3strace-window13-legacy-53fish/figure-3-3strace-review_legacy_distal_angular_speed.png",
+      "sha256": "cd1ae54ba60ab86014e5dada2ce79432e5ab3a84d3f79425b87b8d93f0f2321a"
+    }
+  ],
+  "starting_local_hashes": {
+    "scripts/render_figure3_3strace_review.py": "98115de7102ffb436ecf679c1129c9cda48b62b6924fc473658ab611bc53ca84",
+    "docs/paper/figures/figure-03/README.md": "bdc49542b7ddc473da4600d00420fe64db0a972d935d8f586678fe72d9414521",
+    "to_implement.md": "e41e3c65a39b5f19032c4f9a486b0eb4822d1cc9be4a5a8f5d38a92eab174e16",
+    "records/repository-archive/ARTIFACT_INDEX.md": "0ac50985a1200fa898a17d8cbc1aef298e395d58ee5191958066e64edf6d5ffd"
+  },
+  "freeze_dependency_check": "No target path/hash references in active selections or frozen records.",
+  "duplicate_check": "Backup sidecars have identical parsed JSON but different newline serialization; each exact byte hash recorded.",
+  "deleted_file_count": 6,
+  "deleted_bytes": 1587365,
+  "legacy_drafts_unchanged": true,
+  "final_local_hashes": {
+    "scripts/render_figure3_3strace_review.py": "396e531fe56bcf09f56645fdde7b85838c0c25725c3f6b1ac01f3d756fec3edc",
+    "docs/paper/figures/figure-03/README.md": "ed8eba4b1b251de200e1e9fed4c3b2580469e0a00b0cdbfbf01e48fabfaaedf7",
+    "to_implement.md": "2a3e28aa440a47ae528cdc9b414d210c05cdee022976d8533b54a5942a5914ab",
+    "records/repository-archive/ARTIFACT_INDEX.md": "6aa965b673013efc30afd429ad4d33cc181b18c5e7177fd6ac7861a9fed1f06c"
+  },
+  "historical_inventory_policy": "Original transfer inventories/completion records unchanged; live artifact index marks deliberate deletions."
+}

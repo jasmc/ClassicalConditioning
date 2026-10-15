@@ -1,0 +1,206 @@
+{
+  "status": "unselected scientific/palette draft candidate; not frozen",
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "source_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+    "sha256": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7"
+  },
+  "source_state_sha256": "72c84c7a429d55354f5f6d0a79a94dd5f099bbdb3aad9494397b8783359d9f0b",
+  "source_legend": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+    "sha256": "68dcdfc11d200cfb2347e9338abe0e75a6fb01eb63a7310a562cbdf817d83f1e"
+  },
+  "frozen_scientific_container": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html",
+    "sha256": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+    "audit_id": "version11-audit",
+    "value_mapping": "V12 = 0.7 * saved scaled_baseline_vigor"
+  },
+  "historical_palette_reference": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/figure1-heatmaps/figure-1-E_delay-control_legacy_distal_angular_speed.figure.json",
+    "sha256": "5b18a775863f41e50649b6cd2385609e7eeaa0fb6d4777122dae12627635c714",
+    "date": "January association not confirmed"
+  },
+  "palette": {
+    "name": "cyan-charcoal-muted-grey",
+    "anchors": [
+      "#60d8f5",
+      "#383842",
+      "#857b70"
+    ],
+    "anchor_values": [
+      -1,
+      0,
+      1
+    ],
+    "interpolation": "513 piecewise CIELAB samples",
+    "range": [
+      -1,
+      1
+    ],
+    "normalization": "u=(z+1)/2; colour saturation only",
+    "missing": "#000000",
+    "zero": "#383842",
+    "matplotlib_version": "3.10.9"
+  },
+  "scientific_change": {
+    "baseline_factor": 1.0,
+    "original_baseline_factor": 0.7,
+    "formula": "z=1.0*d/max(-P10(d_baseline),P90(d_baseline))",
+    "source": "authenticated saved V12/V11 normalized bin values; no source-frame analysis rerun",
+    "negative_positive_same_denominator": true,
+    "numerical_clipping": false,
+    "source_cells_eligibility_baseline_and_timing_preserved": true
+  },
+  "colourbar_ticks": [
+    -1,
+    0,
+    1
+  ],
+  "removed_intermediate_ticks": [
+    "ytick_29",
+    "ytick_31"
+  ],
+  "numeric_payload": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.npz",
+    "sha256": "e6c318ca30f4712b0ae0b0b633a842f080c762d647c768f2a53e9d51411ddf6d"
+  },
+  "scope_bounds": "0 0 518.740157 293.952756",
+  "checks": [
+    {
+      "panel": "F",
+      "fish": "20221115_07",
+      "acquisition_trials": [
+        5,
+        94
+      ],
+      "display_trials": [
+        1,
+        90
+      ],
+      "image_size": [
+        919,
+        476,
+        4
+      ],
+      "original_png_sha256": "fd270fed2adab7f68436decb99a67fd36bb00ffcb47fea5ad5a359f7ad689292",
+      "candidate_png_sha256": "907d0ae8bd79ffbe9e8995ef2654468d8f5f87c1fae133b85f96e453c33e6d5b",
+      "original_values_sha256": "dfcf72ecd3d72b6702a6f1964b6f22e6da42cf66e0f8a7f8fa3ef021fd8c2677",
+      "candidate_values_sha256": "b754092134a76f6590c98417016ed60aa32e4f179b8848c33df5aee49c2c2eeb",
+      "scaling_ratio": 1.4285714285714286,
+      "zero_baseline_medians_preserved": true,
+      "wider_baseline_quantile_side_anchor": 1.0,
+      "finite_cells": 6446,
+      "colour_saturated_cells": 1040,
+      "all_7200_source_cell_centres_verified": true,
+      "missing_mask_unchanged": true,
+      "all_raster_pixels_match_saved_source": true,
+      "exact_cell_boundaries_preserved": true,
+      "alpha_unchanged": true
+    },
+    {
+      "panel": "G",
+      "fish": "20230310_08",
+      "acquisition_trials": [
+        5,
+        94
+      ],
+      "display_trials": [
+        1,
+        90
+      ],
+      "image_size": [
+        919,
+        476,
+        4
+      ],
+      "original_png_sha256": "e3d2f8a94010ce8be96590bf0add4aa5e36be98a2d3e844639f5e8a5d85aae29",
+      "candidate_png_sha256": "d94a05d97c79e4da68bf43a8452620ab94da688305e892d3e627e4d7c07b8cb2",
+      "original_values_sha256": "bf8ed01711b80125a977f3973c205395503e68b96a6b6e98e5fa6302a1f90d8d",
+      "candidate_values_sha256": "bfc49fd468cae6bf8d58276d9608909f745fcbe645b1be2101331caa38c5ca77",
+      "scaling_ratio": 1.4285714285714286,
+      "zero_baseline_medians_preserved": true,
+      "wider_baseline_quantile_side_anchor": 1.0,
+      "finite_cells": 7138,
+      "colour_saturated_cells": 1494,
+      "all_7200_source_cell_centres_verified": true,
+      "missing_mask_unchanged": true,
+      "all_raster_pixels_match_saved_source": true,
+      "exact_cell_boundaries_preserved": true,
+      "alpha_unchanged": true
+    },
+    {
+      "panel": "H",
+      "fish": "20221115_09",
+      "acquisition_trials": [
+        5,
+        94
+      ],
+      "display_trials": [
+        1,
+        90
+      ],
+      "image_size": [
+        919,
+        476,
+        4
+      ],
+      "original_png_sha256": "2c56ccd4bb3f332ca7a98df5b16102b6763775cc84ffc52587a72816b8550434",
+      "candidate_png_sha256": "d878a3bc05b35b82e0446cf9b74f60d105208b6c02a485e7c9aff39889f26f76",
+      "original_values_sha256": "5cceb301614e6209ee45e15ca524fbae2aa3d251ad0a9d5aa068d839c0d4211e",
+      "candidate_values_sha256": "3ede318eb5ddf20435467749e428f72ff4190948cc985ab05e2126ee1c9f4a6f",
+      "scaling_ratio": 1.4285714285714286,
+      "zero_baseline_medians_preserved": true,
+      "wider_baseline_quantile_side_anchor": 1.0,
+      "finite_cells": 3539,
+      "colour_saturated_cells": 603,
+      "all_7200_source_cell_centres_verified": true,
+      "missing_mask_unchanged": true,
+      "all_raster_pixels_match_saved_source": true,
+      "exact_cell_boundaries_preserved": true,
+      "alpha_unchanged": true
+    }
+  ],
+  "all_nonpalette_nodes_unchanged": true,
+  "colourbar_rendering": "crispEdges prevents antialias seams between native vector swatches; all ramp coordinates retained",
+  "starting_hashes": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "72c84c7a429d55354f5f6d0a79a94dd5f099bbdb3aad9494397b8783359d9f0b",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "8f11e9b394346bda7507988fe48609aa1796591966f3a2c1cf1f964676f2680b",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "1e0d191e0388444934bea98c1c39da2c1a22545e3e064654ae8ce8355f15e091",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "68dcdfc11d200cfb2347e9338abe0e75a6fb01eb63a7310a562cbdf817d83f1e",
+    "/private/tmp/figure-01-fgh-cyan-fullspread-start.json": "0ddc73ae65b6d808c1d0366aaede1e6cd088b7beb1828057adb2b52849319648",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/fgh_candidate_palette_versions_20261009/index.html": "fe0711988b769eb2b489a58fc1cbe07375f215b7bc69d7c5eb3b3c73d33bedcb",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py": "6b42599141f1dedb4b260d8f8bfed059665fa8d0bcf34d874fa1616c75bfe0a3",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/figure1-heatmaps/figure-1-E_delay-control_legacy_distal_angular_speed.figure.json": "5b18a775863f41e50649b6cd2385609e7eeaa0fb6d4777122dae12627635c714",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_palette_review.py": "d0f2ca92398f593cf66edc8da356076fe2932c10765622c6d553ac9aa38d4996",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "ae19a115bd870e9c6727e1f4244eedefa9c6419fb47bee1d87bf7440f1ed9902"
+  },
+  "active_pair_updated": false,
+  "standalone_svg_created": false,
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-v12-cyan-muted-fullspread-2026-10-13.html",
+    "sha256": "0fc1b76314fb423ba7829b52d57c1cd36467ea8a793f51759c5b8bfb05106373"
+  },
+  "latest_state_recheck": {
+    "sha256": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+    "source_svg_matches_creation": true,
+    "note": "State-only concurrent update detected; candidate remains bound to its creation snapshot."
+  },
+  "author_request": "Make a new V12-based version with proposed cyan\u2013charcoal\u2013muted grey, changing the 0.7 scaling factor to 1; show only this new version.",
+  "visual_review": {
+    "renderer": "bundled sharp/libvips",
+    "scope": "Exact saved F/G/H SVG at 1500 px width; only whitespace trimmed in temporary preview",
+    "observations": "Cyan reductions, charcoal zero and muted warm-grey increases are visible. Native colourbar shows \u22121, 0, +1. Axes, rows 1\u201390, five F arrows, phase separators and event guides remain visible without clipping or overlaps. Black missing bins and all raster cell boundaries are intact.",
+    "checks": "Saved NPZ values equal V12/0.7; baseline medians zero, wider-side quantile anchor magnitude 1, missingness and alpha unchanged; trial mapping and saved tick labels verified."
+  }
+}

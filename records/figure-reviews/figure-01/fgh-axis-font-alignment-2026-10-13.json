@@ -1,0 +1,215 @@
+{
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "before": [
+    {
+      "element_id": null,
+      "text": "Time from CS onset (s)",
+      "font_family": "'DejaVu Sans'",
+      "weight": "normal",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        103.7480312901807,
+        636.8502882070554
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__f__heatmap__axes",
+        "edit-FGH-fig1__f__heatmap__axis-x",
+        "edit-FGH-fig1__f__heatmap__label-x",
+        ""
+      ]
+    },
+    {
+      "element_id": null,
+      "text": "Time from CS onset (s)",
+      "font_family": "'DejaVu Sans'",
+      "weight": "normal",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        241.21417324599352,
+        636.8502882070554
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__g__heatmap__axes",
+        "edit-FGH-fig1__g__heatmap__axis-x",
+        "edit-FGH-fig1__g__heatmap__label-x",
+        ""
+      ]
+    },
+    {
+      "element_id": null,
+      "text": "Time from CS onset (s)",
+      "font_family": "'DejaVu Sans'",
+      "weight": "normal",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        378.6803152018064,
+        636.8502882070554
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__h__heatmap__axes",
+        "edit-FGH-fig1__h__heatmap__axis-x",
+        "edit-FGH-fig1__h__heatmap__label-x",
+        ""
+      ]
+    },
+    {
+      "element_id": null,
+      "text": "Log vigor relative to baseline",
+      "font_family": "'DejaVu Sans'",
+      "weight": "normal",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        505.2811801611118,
+        533.0834642404103
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__h__colorbar__axes",
+        "edit-FGH-fig1__h__colorbar__axis-y",
+        "edit-FGH-fig1__h__colorbar__label-y",
+        ""
+      ]
+    }
+  ],
+  "after": [
+    {
+      "element_id": null,
+      "text": "Time from CS onset (s)",
+      "font_family": "\"DejaVu Sans\",sans-serif",
+      "weight": "bold",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        103.7480312901807,
+        636.8502882070554
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__f__heatmap__axes",
+        "edit-FGH-fig1__f__heatmap__axis-x",
+        "edit-FGH-fig1__f__heatmap__label-x",
+        ""
+      ]
+    },
+    {
+      "element_id": null,
+      "text": "Time from CS onset (s)",
+      "font_family": "\"DejaVu Sans\",sans-serif",
+      "weight": "bold",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        241.21417324599352,
+        636.8502882070554
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__g__heatmap__axes",
+        "edit-FGH-fig1__g__heatmap__axis-x",
+        "edit-FGH-fig1__g__heatmap__label-x",
+        ""
+      ]
+    },
+    {
+      "element_id": null,
+      "text": "Time from CS onset (s)",
+      "font_family": "\"DejaVu Sans\",sans-serif",
+      "weight": "bold",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        378.6803152018064,
+        636.8502882070554
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__h__heatmap__axes",
+        "edit-FGH-fig1__h__heatmap__axis-x",
+        "edit-FGH-fig1__h__heatmap__label-x",
+        ""
+      ]
+    },
+    {
+      "element_id": null,
+      "text": "Log vigor relative to baseline",
+      "font_family": "\"DejaVu Sans\",sans-serif",
+      "weight": "bold",
+      "font_height_pt": 7.999999997428478,
+      "font_width_scale_pt": 7.999999997428478,
+      "anchor_pt": [
+        505.2811801611118,
+        533.0834642404103
+      ],
+      "context": [
+        "assembly-node-0",
+        "panel-FGH",
+        "edit-FGH-node-0",
+        "edit-FGH-figure_1",
+        "edit-FGH-fig1__h__colorbar__axes",
+        "edit-FGH-fig1__h__colorbar__axis-y",
+        "edit-FGH-fig1__h__colorbar__label-y",
+        ""
+      ]
+    }
+  ],
+  "reference": "Existing B, D and E axis labels: DejaVu Sans, effective 8 pt, bold; ticks 7 pt normal",
+  "scientific_rasters_preserved": true,
+  "other_panels_preserved": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "frozen_originals_preserved": true,
+  "svg_sha256": "03b66116ffff7dc213f66d0158496e6a44aafa375b5bc558b5c7dee81ef6b01d",
+  "visual_review": {
+    "renderer": "sharp/libvips at 1400px",
+    "observations": "The three F-H x labels and shared colorbar label now match D/E weight and size. Tick labels remain normal; labels are visible with no clipping or overlap."
+  },
+  "sources": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "4faf314aea6f0fc5b6dfdd96d381dfa3838cac9ffda7c8f4b2fa91a9e885cf5f",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "5789ef9d180a08b2e92e1724759a3c249e479fe489aa8e1b4efb290b8ae77122",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "464a478c37ce934aa4d291ee0fd32d2fd336565b83756c711e113f0c9508db3d",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "9ed8c7d442d83f952f4e99f8a9234db0e207dbd09c11858843da35b9ab0c4b3e",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "0e02b80adb445c03c5f659f8e119d070d379101056c3925a1a4064b10a3d4338",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panels-fgh-current.html": null,
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/align_figure1_fgh_fonts.py": "085c330001e9f06342c6c048a4b956c0d7374e87822cf196cf9671333d09c286",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure1_fgh_one_second.py": "7ffecf807ae24f43c644cf24fd15afb4932b6ce8167081b0836fb618e29ef90d",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-historical-one-second-managua-freeze-2026-10-13/frozen-candidate.svg": "cb01a274089e765180b28d0c54fe7d68a7936dc89c7ea00daf3873b4c35487a0",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-fgh-historical-one-second-managua-freeze-2026-10-13/dependency-figure-01-historical-fish-one-second-managua-2026-10-13.csv": "d7009b6c43a79041bda5f7e7fe033917fbf6ee2882b645db0c967dd42bed3f2f",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-historical-fish-one-second-managua/manifests/freeze.json": "19174577d78f6d76965df6d58e2b6ca8b9108c47544320a1cf4bc964625f2c76"
+  }
+}

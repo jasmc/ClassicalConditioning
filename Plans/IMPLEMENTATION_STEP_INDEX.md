@@ -5,11 +5,11 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | Number | Workstream | Status |
 |---|---|---|
 | 01 | [Paper input validation and reproducibility](01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md) | Infrastructure implemented; paper-scale validation open |
-| 02 | [Fish discarding, eligibility and paper cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) | Detailed all-stage consolidation/review workflow specified; evaluation and C0/C1 approval pending |
-| 03 | [Figure 2 — learning onset](03_FIGURE_2_LEARNING_ONSET.md) | Design / validation open |
-| 04 | [Figure 3 — learner analysis and validation](04_FIGURE_3_LEARNER_ANALYSIS.md) | Design / validation open |
+| 02 | [Fish discarding, eligibility and paper cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) | G historical-rule projections and separate technical exclusion sensitivity run; primary 57 fish preserved; paper-wide evaluation and C0/C1 approval open |
+| 03 | [Figure 2 — learning onset](03_FIGURE_2_LEARNING_ONSET.md) | Independent G exploratory workflow completed and reviewed; baseline/threshold selection and timing calibration open; current freeze preserved |
+| 04 | [Figure 3 — learner analysis and validation](04_FIGURE_3_LEARNER_ANALYSIS.md) | G training-only timing rule unified across full/control/simulation routes; holdout and covariance sensitivities run; individual coverage fails; Gate L open. [57-fish Delay/control exploratory atlas](../docs/running-analysis/figure3-individual-atlas.md) implements all four legacy rules and complete individual cards; Trace inputs pending |
 | 05 | [Figure 4 — CR profiles](05_FIGURE_4_CR_PROFILES.md) | In progress |
-| 06 | [Analysis and statistics](06_ANALYSIS_AND_STATISTICS.md) | Design / validation open |
+| 06 | [Analysis and statistics](06_ANALYSIS_AND_STATISTICS.md) | G expanded shape/availability simulations and unsmoothed comparison completed; smooth curve coverage fails for abrupt/transient truth; scientific approval open ([review](../records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md)) |
 | 07 | [Reliable figure builds and panel replacement](07_FIGURE_BUILD_TOOLS.md) | Generic assembler safeguards implemented ([audit](../records/scientific-evidence/audits/figure-build-integrity-2026-10-12.json)); current-selection routing, paper reproduction, final-scale QC and review/state integration open |
 | 08 | [First release — Figures 1–4](08_FIRST_RELEASE_FIGURES_1_TO_4.md) | Not started |
 | 09 | [Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Design / validation open |

@@ -51,7 +51,14 @@ def panel(root,p,b,records,prov):
     if p.get('label'):
         l=p['label']; ET.SubElement(g,tag('text'),{'x':str(l['x']),'y':str(l['y']),'font-size':str(l['size']),'font-weight':'bold'}).text=l['text']
     records.append({'id':p['id'],'box':p['box'],'selection':p.get('selection_status'),'source':prov,'status':'embedded source' if b else 'placeholder'})
-def build(n):
+def build(n, *, prefer_current=True):
+    # Scoped presentation authority supersedes this legacy composition recipe.
+    current=REPO/f'docs/paper/figures/figure-{n:02d}/current-state.json'
+    if n==2 and prefer_current and current.is_file():
+        state=json.loads(current.read_text());display=state[state['default_display']]
+        bound=display['working_svg'];b,record=source(Path(bound['path']),bound['sha256'])
+        return b,{'figure':n,'svg_sha256':record['sha256'],'current_state':str(current),'panels':[], 'scope':'authenticated current Figure 2 working assembly; no new freeze'}
+
     layout=json.loads((REPO/f'configs/paper-figures/figure{n}-assembly.json').read_text())
     panels=copy.deepcopy(layout['panels']); sources={}; provenance={}
     for p in panels:

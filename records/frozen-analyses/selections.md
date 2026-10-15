@@ -10,7 +10,7 @@ Selection JSON files under `configs/paper-figures/selections/` are unchanged byt
 | Figure 1 F–H V1 historical | [figure1-fgh-version1-freeze-20261009.json](../../configs/paper-figures/selections/history/figure1-fgh-version1-freeze-20261009.json) | Repeated bout-log medians and quantile scale; historical fish replacement recorded |
 | Figure 1 F–H corrections | [figure1-fgh-full-bout-correction-20261009.json](../../configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json) | Correction history; subsequently selects V12 |
 | Figure 1 F–H V12 | [figure1-fgh-version12-freeze-20261009.json](../../configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json) | Direct half-second log medians, bin baseline [-15,0), symmetric 0.7 scaling; 183 × 103.7 mm row; embedded manifest/code extracted unchanged |
-| Figure 1 E | [figure1-panel-e-heatmap-rows-freeze-20261009.json](../../configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json) | Raw traces and exact V12 rows; external container hash verified on newly mounted SSD; ten exact definition/code entries extracted |
+| Figure 1 E historical | [figure1-panel-e-heatmap-rows-freeze-20261009.json](../../configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json) | Raw traces and exact V12 rows; external container hash verified on newly mounted SSD; ten exact definition/code entries extracted |
 | Figure 2 D/E B | [figure2-DE-B-freeze-20261009.json](../../configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json) | Bout-log response minus baseline; sign/Brunner–Munzel t, Holm36; 54.9 × 53.2 mm; exact manifests/settings/code retained |
 | Figure 2 G | [figure2-G-logmedian-freeze-20261009.json](../../configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json) | Native Historical LogMedian, phase-aware LMM; 183 × 98 mm; external manifest and scientific-selection hash verified on newly mounted SSD; exact records retained |
 | Figures 3–4 | Not frozen by these records | Learner/validation and paper analysis gates remain open |
@@ -27,3 +27,11 @@ The [records catalogue](README.md) groups exact records by figure, panel scope a
 - [Figure 2 G](figure-02/panel-g/README.md)
 
 All 70 files retained their original SHA-256 during reorganization. Names and directories are navigation only; immutable freeze IDs, definitions, approvals, embedded paths and original code are unchanged. The repository relocation map resolves prior record paths.
+
+Current F/G/H selection: [1 s direct log-frame medians, managua_r](../../configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). The 2026-10-09 V12 source is superseded within F/G/H and remains preserved; no whole-figure freeze is inferred.
+
+Current E selection: [unbinned raw-baseline-scaled black traces, 0–5, exact current F bands](../../configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json). The earlier V12-row E freeze remains historical; E only is frozen, not the whole assembly.
+
+Earlier single-fish heatmap reviews, input cache and candidate code were archived on 2026-10-13. [Archive and recovery record](/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/singlefish-heatmaps-20261013/README.md). Current Figure 1 and its selected F/G/H freeze remain active.
+
+Current Figure 2 A: [pooled one-second direct log-frame medians, compact six-heatmap row](../../configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json). A only; previous wider A freeze remains preserved. B retains earlier data; B/C pipeline adoption remains pending.

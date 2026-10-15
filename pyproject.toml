@@ -37,3 +37,6 @@ where = ["src"]
 
 [tool.unittest]
 start-directory = "tests"
+
+[tool.setuptools.package-data]
+"classical_conditioning.figures" = ["layout_frames_browser.js"]

@@ -28,6 +28,7 @@ def verify_state(path=STATE,expected_bytes=None):
     raw=path.read_bytes() if expected_bytes is None else expected_bytes
     state=json.loads(raw)
     records=state['scientific_selection']['records']+[state['draft']['review']]+list(state.get('preserved_figures',{}).values())
+    if state['draft'].get('legend'):records.append(state['draft']['legend'])
     for key in ('frozen_display','draft'):
         if state[key].get('working_svg'):records.append(state[key]['working_svg'])
         if state[key].get('effective_presentation'):records.append(state[key]['effective_presentation'])
@@ -139,8 +140,13 @@ def prepare(output_dir,revision,refresh=False):
 def main():
     parser=argparse.ArgumentParser(description=__doc__);sub=parser.add_subparsers(dest='command',required=True)
     p=sub.add_parser('prepare');p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--revision',required=True);p.add_argument('--refresh',action='store_true',help='Create new versioned copies; preserve existing authenticated copies')
-    sub.add_parser('verify');p=sub.add_parser('begin');p.add_argument('--ticket',type=Path,required=True);args=parser.parse_args()
+    sub.add_parser('verify');sub.add_parser('display-target',help='Resolve the authenticated current HTML/SVG/legend from state; never infer a browser route');p=sub.add_parser('begin');p.add_argument('--ticket',type=Path,required=True);args=parser.parse_args()
     if args.command=='begin':print(json.dumps(begin(args.ticket),indent=2));return
+    if args.command=='display-target':
+        state=verify_state();scope=state[state['default_display']]
+        print(json.dumps(dict(figure_id=state['figure_id'],format=state.get('default_display_format'),
+                              html=scope.get('review'),svg=scope.get('working_svg'),legend=scope.get('legend'),
+                              policy=state.get('display_policy')),indent=2));return
     result=prepare(args.output_dir.resolve(),args.revision,args.refresh) if args.command=='prepare' else verify_state()
     print(json.dumps({key:result[key] for key in ('frozen_display','draft')},indent=2))
 

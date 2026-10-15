@@ -1,0 +1,911 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "scope": "related panel spacing and cross-figure axis-title formatting",
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html",
+    "sha256": "afc30dbae16f2f3a2ab96c4e63a9f978269b920896afca6681f301fe5c9f8263"
+  },
+  "html_sha256": "afc30dbae16f2f3a2ab96c4e63a9f978269b920896afca6681f301fe5c9f8263",
+  "spacing_gaps_mm": {
+    "fig1": {
+      "fig1-FGH-equal-spacing": [
+        14.823505602736276,
+        14.8235056027373
+      ]
+    },
+    "fig2": {
+      "fig2-ABC-equal-spacing": [
+        9.82846096904963,
+        9.828460800833838
+      ],
+      "fig2-DEF-equal-spacing": [
+        2.1162280701754383,
+        2.0739035087719486
+      ],
+      "fig2-GHI-equal-spacing": [
+        2.1162280701754383,
+        2.1162280701754526
+      ]
+    }
+  },
+  "axis_titles": {
+    "fig1": [
+      {
+        "element_id": "edit-B-column-time-label-left",
+        "text": "t (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 8.000000000000806,
+        "font_width_scale_pt": 8.000000000000806,
+        "anchor_pt": [
+          208.15496746602727,
+          118.03386050305997
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-B",
+          "edit-B-node-0",
+          "column-time-label-left"
+        ]
+      },
+      {
+        "element_id": "edit-B-column-time-label-right",
+        "text": "t (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 8.000000000000806,
+        "font_width_scale_pt": 8.000000000000806,
+        "anchor_pt": [
+          403.99996184173034,
+          118.03386050305997
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-B",
+          "edit-B-node-0",
+          "column-time-label-right"
+        ]
+      },
+      {
+        "element_id": "edit-D-time-label",
+        "text": "Time relative to CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.9999999999913385,
+        "font_width_scale_pt": 7.9999999999913385,
+        "anchor_pt": [
+          141.94960629921826,
+          384.34480895561296
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-D",
+          "edit-D-node-0",
+          "time-label"
+        ]
+      },
+      {
+        "element_id": "edit-D-value-label",
+        "text": "Tail angle (\u00b0)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.9999999999913385,
+        "font_width_scale_pt": 7.9999999999913385,
+        "anchor_pt": [
+          9.094488188982048,
+          300.7700058060066
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-D",
+          "edit-D-node-0",
+          "value-label"
+        ]
+      },
+      {
+        "element_id": "edit-E-time-label",
+        "text": "Time relative to CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.9999999999913385,
+        "font_width_scale_pt": 7.9999999999913385,
+        "anchor_pt": [
+          355.8738605910803,
+          384.34480895561296
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-E",
+          "layout-E",
+          "edit-E-node-0",
+          "time-label"
+        ]
+      },
+      {
+        "element_id": "edit-E-value-label",
+        "text": "Scaled vigor (baseline units)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.9999999999913385,
+        "font_width_scale_pt": 7.9999999999913385,
+        "anchor_pt": [
+          223.01874248084408,
+          300.7700058060066
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-E",
+          "layout-E",
+          "edit-E-node-0",
+          "value-label"
+        ]
+      },
+      {
+        "element_id": "edit-E-H-fig1__h__colorbar__label-y--axis-title-0",
+        "text": "Log vigor relative to baseline",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999999056,
+        "font_width_scale_pt": 7.999999999999056,
+        "anchor_pt": [
+          513.9932629760112,
+          304.03457288115175
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-E",
+          "edit-E-independent-colourbar",
+          "edit-E-colour-scale",
+          "edit-E-H-fig1__h__colorbar__axes",
+          "edit-E-H-fig1__h__colorbar__axis-y",
+          "edit-E-H-fig1__h__colorbar__label-y",
+          "edit-E-H-fig1__h__colorbar__label-y--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "edit-FGH-fig1__f__heatmap__label-x--axis-title-0",
+        "text": "Time from CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999998478,
+        "font_width_scale_pt": 7.999999999998478,
+        "anchor_pt": [
+          95.90279944133246,
+          597.6575507671536
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-FGH",
+          "edit-FGH-node-0",
+          "edit-FGH-figure_1",
+          "layout-F",
+          "edit-FGH-fig1__f__heatmap__axes",
+          "edit-FGH-fig1__f__heatmap__axis-x",
+          "edit-FGH-fig1__f__heatmap__label-x",
+          "edit-FGH-fig1__f__heatmap__label-x--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "edit-FGH-fig1__g__heatmap__label-x--axis-title-0",
+        "text": "Time from CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999998478,
+        "font_width_scale_pt": 7.999999999998478,
+        "anchor_pt": [
+          252.04502058041206,
+          597.6575507671536
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-FGH",
+          "edit-FGH-node-0",
+          "edit-FGH-figure_1",
+          "layout-G",
+          "edit-FGH-fig1__g__heatmap__axes",
+          "edit-FGH-fig1__g__heatmap__axis-x",
+          "edit-FGH-fig1__g__heatmap__label-x",
+          "edit-FGH-fig1__g__heatmap__label-x--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "edit-FGH-fig1__h__heatmap__label-x--axis-title-0",
+        "text": "Time from CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999998478,
+        "font_width_scale_pt": 7.999999999998478,
+        "anchor_pt": [
+          408.18725854062166,
+          597.6575507671536
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-FGH",
+          "edit-FGH-node-0",
+          "edit-FGH-figure_1",
+          "layout-H",
+          "edit-FGH-fig1__h__heatmap__axes",
+          "edit-FGH-fig1__h__heatmap__axis-x",
+          "edit-FGH-fig1__h__heatmap__label-x",
+          "edit-FGH-fig1__h__heatmap__label-x--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "edit-FGH-fig1__h__colorbar__label-y--axis-title-0",
+        "text": "Log vigor relative to baseline",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999998478,
+        "font_width_scale_pt": 7.999999999998478,
+        "anchor_pt": [
+          514.02903948545,
+          493.8907268005085
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-FGH",
+          "edit-FGH-node-0",
+          "edit-FGH-figure_1",
+          "edit-FGH-fig1__h__colorbar__axes",
+          "edit-FGH-fig1__h__colorbar__axis-y",
+          "edit-FGH-fig1__h__colorbar__label-y",
+          "edit-FGH-fig1__h__colorbar__label-y--axis-title-0"
+        ]
+      }
+    ],
+    "fig2": [
+      {
+        "element_id": "fig2__a0__heatmap__label-x--axis-title-0",
+        "text": "Time from CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999997408,
+        "font_width_scale_pt": 7.999999999997408,
+        "anchor_pt": [
+          103.5578087328069,
+          209.26461573902353
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-ABC",
+          "",
+          "figure_1",
+          "layout-A",
+          "fig2__a0__heatmap__axes",
+          "fig2__a0__heatmap__axis-x",
+          "fig2__a0__heatmap__label-x",
+          "fig2__a0__heatmap__label-x--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "fig2__b0__heatmap__label-x--axis-title-0",
+        "text": "Time from CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999997408,
+        "font_width_scale_pt": 7.999999999997408,
+        "anchor_pt": [
+          253.84069108008774,
+          209.26461573902353
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-ABC",
+          "",
+          "figure_1",
+          "layout-B",
+          "fig2__b0__heatmap__axes",
+          "fig2__b0__heatmap__axis-x",
+          "fig2__b0__heatmap__label-x",
+          "fig2__b0__heatmap__label-x--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "fig2__c0__heatmap__label-x--axis-title-0",
+        "text": "Time from CS onset (s)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999997408,
+        "font_width_scale_pt": 7.999999999997408,
+        "anchor_pt": [
+          404.12357422668856,
+          209.26461573902353
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-ABC",
+          "",
+          "figure_1",
+          "layout-C",
+          "fig2__c0__heatmap__axes",
+          "fig2__c0__heatmap__axis-x",
+          "fig2__c0__heatmap__label-x",
+          "fig2__c0__heatmap__label-x--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "fig2__shared__colorbar__label-y--axis-title-0",
+        "text": "Log vigor relative to baseline",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999997408,
+        "font_width_scale_pt": 7.999999999997408,
+        "anchor_pt": [
+          514.0004871748764,
+          105.49779164294323
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-ABC",
+          "",
+          "figure_1",
+          "fig2__shared__colorbar__axes",
+          "fig2__shared__colorbar__axis-y",
+          "fig2__shared__colorbar__label-y",
+          "fig2__shared__colorbar__label-y--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "edit-D-node-125",
+        "text": "Median ln vigor",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 8.000000000001066,
+        "font_width_scale_pt": 8.000000000001066,
+        "anchor_pt": [
+          11.267231758459468,
+          346.30215252743636
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-D",
+          "edit-D-node-0",
+          "figure",
+          "axes__d-delay__main",
+          "axis__e-trace__y",
+          "axis-title__d-delay__y",
+          "edit-D-node-125"
+        ]
+      },
+      {
+        "element_id": "edit-D-node-126",
+        "text": "(response \u2212 baseline)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 8.000000000001066,
+        "font_width_scale_pt": 8.000000000001066,
+        "anchor_pt": [
+          20.220710737277663,
+          359.3833070006477
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-D",
+          "edit-D-node-0",
+          "figure",
+          "axes__d-delay__main",
+          "axis__e-trace__y",
+          "axis-title__d-delay__y",
+          "edit-D-node-126"
+        ]
+      },
+      {
+        "element_id": "fig2__g__native__label-x--axis-title-0",
+        "text": "Global CS trial",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 8.000000000001066,
+        "font_width_scale_pt": 8.000000000001066,
+        "anchor_pt": [
+          99.5237956721276,
+          533.3967075321237
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-G",
+          "",
+          "fig2-g-native-figure",
+          "fig2__g__native__axes",
+          "matplotlib.axis_1",
+          "fig2__g__native__label-x",
+          "fig2__g__native__label-x--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "fig2__g__native__label-y--axis-title-0",
+        "text": "Median ln vigor",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 8.000000000001066,
+        "font_width_scale_pt": 8.000000000001066,
+        "anchor_pt": [
+          11.267231758459468,
+          516.255961284893
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-G",
+          "",
+          "fig2-g-native-figure",
+          "fig2__g__native__axes",
+          "matplotlib.axis_2",
+          "fig2__g__native__label-y",
+          "fig2__g__native__label-y--axis-title-0"
+        ]
+      },
+      {
+        "element_id": "fig2__g__native__label-y--axis-title-1",
+        "text": "(response \u2212 baseline)",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 8.000000000001066,
+        "font_width_scale_pt": 8.000000000001066,
+        "anchor_pt": [
+          20.220710737277663,
+          529.3371157581042
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-G",
+          "",
+          "fig2-g-native-figure",
+          "fig2__g__native__axes",
+          "matplotlib.axis_2",
+          "fig2__g__native__label-y",
+          "fig2__g__native__label-y--axis-title-1"
+        ]
+      },
+      {
+        "element_id": "edit-H-node-55",
+        "text": "Global CS trial",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999993823,
+        "font_width_scale_pt": 7.999999999993823,
+        "anchor_pt": [
+          252.3463718740552,
+          491.27521313239384
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-H",
+          "edit-H-node-0",
+          "figure_1",
+          "axes_1",
+          "matplotlib.axis_1",
+          "text_5",
+          "edit-H-node-55"
+        ]
+      },
+      {
+        "element_id": "edit-H-node-90",
+        "text": "Response / pre-CS baseline",
+        "font_family": "\"DejaVu Sans\",sans-serif",
+        "weight": "normal",
+        "font_height_pt": 7.999999999993823,
+        "font_width_scale_pt": 7.999999999993823,
+        "anchor_pt": [
+          170.7954057479352,
+          439.49870227371883
+        ],
+        "context": [
+          "assembly-node-0",
+          "panel-H",
+          "edit-H-node-0",
+          "figure_1",
+          "axes_1",
+          "matplotlib.axis_2",
+          "text_11",
+          "edit-H-node-90"
+        ]
+      }
+    ]
+  },
+  "typed_relationships": {
+    "fig1": [
+      {
+        "id": "fig1-FGH-equal-spacing",
+        "type": "layout",
+        "panels": [
+          "F",
+          "G",
+          "H"
+        ],
+        "properties": [
+          "equal plot-body gaps",
+          "aligned data-axis tops/bottoms"
+        ],
+        "spacing_group": {
+          "id": "fig1-FGH-equal-spacing",
+          "target": "data_axes",
+          "axis": "x",
+          "ids": [
+            "F",
+            "G",
+            "H"
+          ],
+          "minimum_gap_mm": 2.0
+        },
+        "shared_axis_information": {
+          "axis": "y",
+          "quantity": "displayed trial number",
+          "mapping": "acquisition trial minus 4",
+          "sharing": "common row coordinate and first-panel labels"
+        },
+        "source": "Author identification; authenticated selected SVG and existing data-axis mappings",
+        "status": "verified",
+        "artifact_sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
+        "verification_evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/panel-relations-20261015/figure-01-layout-evidence.json",
+          "sha256": "7f0ae0314ccd91fb3eadd85d1b01688692e3cdaf15cfb7c2feb2819a68ad8101"
+        }
+      },
+      {
+        "id": "fig1-DEF-example-data-link",
+        "type": "scientific",
+        "panels": [
+          "D",
+          "E",
+          "F"
+        ],
+        "relations": [
+          "D and E use the same fish, acquisition trials and measured frame times",
+          "E black traces use D stored vigor with the documented raw baseline/scaling",
+          "E colour bands copy the exact corresponding selected F heatmap rows"
+        ],
+        "source_mapping": {
+          "figure": "fig1",
+          "panels": [
+            "D",
+            "E"
+          ],
+          "fish": "20221115_07",
+          "trials": [
+            9,
+            17,
+            63,
+            66,
+            93
+          ],
+          "D_body_size": [
+            750,
+            550
+          ],
+          "E_body_size": [
+            750,
+            550
+          ],
+          "E_colourbar_outside_body": true,
+          "x_limits_s": [
+            -20,
+            20
+          ],
+          "E_trace_y_limits": [
+            0.0,
+            5.0
+          ],
+          "E_strip_colour_limits": [
+            -0.25,
+            0.25
+          ],
+          "E_band_time_coordinate": "F accepted cadence-reconstructed timing",
+          "E_band_normalization": "Frozen 1 s direct-log-bin median subtraction; no amplitude scaling",
+          "time_coordinate": "measured time relative to CS onset",
+          "rows": [
+            {
+              "trial": 9,
+              "block": "Pre-Train",
+              "axis": {
+                "x": 260,
+                "y": 30,
+                "width": 450,
+                "height": 60,
+                "x_limits_s": [
+                  -20,
+                  20
+                ],
+                "row_center": 60.0
+              }
+            },
+            {
+              "trial": 17,
+              "block": "Early Train",
+              "axis": {
+                "x": 260,
+                "y": 115,
+                "width": 450,
+                "height": 60,
+                "x_limits_s": [
+                  -20,
+                  20
+                ],
+                "row_center": 145.0
+              }
+            },
+            {
+              "trial": 63,
+              "block": "Late Train",
+              "axis": {
+                "x": 260,
+                "y": 200,
+                "width": 450,
+                "height": 60,
+                "x_limits_s": [
+                  -20,
+                  20
+                ],
+                "row_center": 230.0
+              }
+            },
+            {
+              "trial": 66,
+              "block": "Early Test",
+              "axis": {
+                "x": 260,
+                "y": 285,
+                "width": 450,
+                "height": 60,
+                "x_limits_s": [
+                  -20,
+                  20
+                ],
+                "row_center": 315.0
+              }
+            },
+            {
+              "trial": 93,
+              "block": "Late Test",
+              "axis": {
+                "x": 260,
+                "y": 370,
+                "width": 450,
+                "height": 60,
+                "x_limits_s": [
+                  -20,
+                  20
+                ],
+                "row_center": 400.0
+              }
+            }
+          ]
+        },
+        "verification": {
+          "same_fish": true,
+          "same_trials": true,
+          "same_frame_ids": true,
+          "same_time_values": true,
+          "black_trace_uses_D_vigor": true,
+          "colour_bands_are_exact_F_rows": true,
+          "equal_axis_rectangles": true,
+          "equal_body_size_excluding_colourbar": true,
+          "row_labels_and_centres_match": true,
+          "serialized_geometry_labels_and_bin_colours": true,
+          "serialized_one_point_per_scaled_frame": true,
+          "black_trace_baseline_and_scaling_use_unbinned_frames": true
+        },
+        "selected_freezes": [
+          {
+            "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json",
+            "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3"
+          },
+          {
+            "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
+            "sha256": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf"
+          },
+          {
+            "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json",
+            "sha256": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281"
+          }
+        ],
+        "caution": "E black trace and F-matched bands retain distinct normalization and timing definitions; no common layout group is implied",
+        "status": "inherited verified mappings retained",
+        "artifact_sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
+        "verification_evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/panel-relations-20261015/figure-01-layout-evidence.json",
+          "sha256": "7f0ae0314ccd91fb3eadd85d1b01688692e3cdaf15cfb7c2feb2819a68ad8101"
+        }
+      }
+    ],
+    "fig2": [
+      {
+        "id": "fig2-ABC-equal-spacing",
+        "type": "layout",
+        "panels": [
+          "A",
+          "B",
+          "C"
+        ],
+        "properties": [
+          "equal plot-body gaps",
+          "aligned data-axis tops/bottoms"
+        ],
+        "spacing_group": {
+          "id": "fig2-ABC-equal-spacing",
+          "target": "data_axes",
+          "axis": "x",
+          "ids": [
+            "A-pair",
+            "B-pair",
+            "C-pair"
+          ],
+          "minimum_gap_mm": 2.0
+        },
+        "shared_axis_information": {
+          "axis": "y",
+          "quantity": "displayed trial number",
+          "mapping": "acquisition trial minus 4",
+          "sharing": "common row coordinate and first-panel labels"
+        },
+        "source": "Author identification; authenticated selected SVG and existing data-axis mappings",
+        "status": "verified",
+        "artifact_sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6",
+        "verification_evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/panel-relations-20261015/figure-02-layout-evidence.json",
+          "sha256": "909cc35cd792e04aa597179c287ba3d5c0fc138a1bf811e40b8696bf9d31b98e"
+        }
+      },
+      {
+        "id": "fig2-DEF-equal-spacing",
+        "type": "layout",
+        "panels": [
+          "D",
+          "E",
+          "F"
+        ],
+        "properties": [
+          "equal outer panel-content gaps"
+        ],
+        "spacing_group": {
+          "id": "fig2-DEF-equal-spacing",
+          "target": "content",
+          "axis": "x",
+          "ids": [
+            "D",
+            "E",
+            "F"
+          ],
+          "minimum_gap_mm": 2.0
+        },
+        "source": "Author identification; explicit owned panel contents",
+        "scientific_equivalence": "Not inferred; H ratio differs from G log difference, and placeholders carry no data",
+        "status": "verified",
+        "artifact_sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6",
+        "verification_evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/panel-relations-20261015/figure-02-layout-evidence.json",
+          "sha256": "909cc35cd792e04aa597179c287ba3d5c0fc138a1bf811e40b8696bf9d31b98e"
+        }
+      },
+      {
+        "id": "fig2-GHI-equal-spacing",
+        "type": "layout",
+        "panels": [
+          "G",
+          "H",
+          "I"
+        ],
+        "properties": [
+          "equal outer panel-content gaps"
+        ],
+        "spacing_group": {
+          "id": "fig2-GHI-equal-spacing",
+          "target": "content",
+          "axis": "x",
+          "ids": [
+            "G",
+            "H",
+            "I"
+          ],
+          "minimum_gap_mm": 2.0
+        },
+        "source": "Author identification; explicit owned panel contents",
+        "scientific_equivalence": "Not inferred; H ratio differs from G log difference, and placeholders carry no data",
+        "status": "verified",
+        "artifact_sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6",
+        "verification_evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/panel-relations-20261015/figure-02-layout-evidence.json",
+          "sha256": "909cc35cd792e04aa597179c287ba3d5c0fc138a1bf811e40b8696bf9d31b98e"
+        }
+      }
+    ]
+  },
+  "browser": {
+    "html_sha256": "afc30dbae16f2f3a2ab96c4e63a9f978269b920896afca6681f301fe5c9f8263",
+    "reports": [
+      {
+        "id": "fig1",
+        "artwork": {
+          "x": 154.171875,
+          "y": 24,
+          "width": 691.640625,
+          "height": 802.3125,
+          "top": 24,
+          "right": 845.8125,
+          "bottom": 826.3125,
+          "left": 154.171875
+        },
+        "legend": {
+          "x": 154.171875,
+          "y": 837.640625,
+          "width": 691.640625,
+          "height": 626.125,
+          "top": 837.640625,
+          "right": 845.8125,
+          "bottom": 1463.765625,
+          "left": 154.171875
+        },
+        "fonts": [
+          "\"fig1--DejaVu Sans\", sans-serif",
+          "\"fig1--DejaVu Sans\", sans-serif",
+          "\"fig1--DejaVu Sans\", sans-serif"
+        ]
+      },
+      {
+        "id": "fig2",
+        "artwork": {
+          "x": 154.171875,
+          "y": 1509.109375,
+          "width": 691.640625,
+          "height": 733.5625,
+          "top": 1509.109375,
+          "right": 845.8125,
+          "bottom": 2242.671875,
+          "left": 154.171875
+        },
+        "legend": {
+          "x": 154.171875,
+          "y": 2254,
+          "width": 691.640625,
+          "height": 695.078125,
+          "top": 2254,
+          "right": 845.8125,
+          "bottom": 2949.078125,
+          "left": 154.171875
+        },
+        "fonts": [
+          "\"fig2--DejaVu Sans\"",
+          "\"fig2--DejaVu Sans\"",
+          "\"fig2--DejaVu Sans\""
+        ]
+      }
+    ],
+    "mobile": {
+      "width": 360,
+      "scrollWidth": 360,
+      "figures": 2
+    },
+    "errors": []
+  },
+  "verification": {
+    "margin_alignment_spacing": "passed exact 600 dpi painted and unclipped checks",
+    "axis_title_style": "22 named text artists, DejaVu Sans normal 8 pt at 183 mm; existing ticks and other title roles outside this change",
+    "scientific_content": "Protected coordinates, data text, units, raster resources and non-font styles preserved; source selection hashes unchanged",
+    "visual_review": "Inspected exact saved SVGs and refreshed main-paper built-in browser; equal heatmap gaps visible; source axes titles and H enlarged titles visible without observed clipping",
+    "print_review": "All four A4 pages rasterized and inspected; each SVG unbroken, legends continue on following pages",
+    "tests": {
+      "panel_relationship_tests": 3,
+      "layout_frame_tests": 14,
+      "collection_tests": 8,
+      "result": "25 passed"
+    },
+    "known_legacy_failures": "Two unrelated legacy legend-layout tests remain documented in the preceding collection verification; no full-suite pass is claimed"
+  },
+  "limitations": [
+    "Scientific element registry coverage is still partial",
+    "Figure 2 H remains a ratio outcome distinct from G; placeholder panels carry no data",
+    "Layout association does not establish shared cohorts, controls or experiments"
+  ],
+  "reproduction": {
+    "candidate_generator": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/correct_panel_relationships.py",
+      "sha256": "d3b90bbc2523352d5e6fa6193285825b5ae59054294d79b56a35c3a50d213d0f"
+    },
+    "publisher": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/layout_main_paper_figures.py",
+      "sha256": "23d440977f55c750b4932e855200b0cf2f609a2020eecfc69a1a2150fdb28af8"
+    },
+    "directory": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/panel-relations-20261015"
+  },
+  "freeze_created": false
+}

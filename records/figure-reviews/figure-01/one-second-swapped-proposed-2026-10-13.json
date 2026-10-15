@@ -1,0 +1,37 @@
+{
+  "scope": [
+    "F",
+    "G",
+    "H"
+  ],
+  "palette_anchors": [
+    "#60d8f5",
+    "#857b70",
+    "#383842"
+  ],
+  "interpolation": "linear RGB",
+  "zero_color": "#857b70",
+  "color_limits": [
+    -0.25,
+    0.25
+  ],
+  "analysis_changed": false,
+  "active_selection_changed": false,
+  "sources": {
+    "/private/tmp/figure-01-swapped-proposed-start.json": "82551188823aa5e402d2a8acacc87e448ca0a2d95ef69e9b58522abb09760a28",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/one-second-medians-cyan-palettes-2026-10-13.json": "40f05e73d3ae37d0f27fa10a8b57511f37af26d472a0e0874ee6370f100d52a9",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-medians-cyan-palettes-2026-10-13.csv": "4e826a1efbe7075aa1d9e5ca9e61307735093cd6139e0bd3e7068f2b6ee8c053",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "2e72f282dc8af1536c9cea9385503beabc55527da88acf19b546dc2ce7c4eb98",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_blue_orange_transition.py": "2299a9e5688bb2269f4c0f0364d0bd65a79fac3b55fc4e32bc7ce3f8ead9c82c",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_version04_trace_palettes.py": "3a3d524f974cfa3a92514e0f37a6b728e48f5c4f766b87a8429936cf49fc9f60"
+  },
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-one-second-swapped-proposed-2026-10-13.html",
+    "sha256": "bbb528805b0cf752de3646facf28fed31061d4498f180aea801317a5fb33523e"
+  },
+  "baseline_maximum_absolute_median": 2.500170209751573e-16,
+  "visual_review": {
+    "renderer": "sharp/libvips, 1500 px",
+    "observations": "F/G/H labels, fish IDs, trial/timing axes and colorbar visible. Cyan reductions, warm-grey zero midpoint, charcoal increases; missing cells remain black. Numerical baseline is unchanged. No clipping or overlap observed."
+  }
+}

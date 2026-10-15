@@ -1,0 +1,75 @@
+{
+  "figure_id": "fig2",
+  "panel_ids": [
+    "a"
+  ],
+  "scientific_definition": {
+    "metric": "legacy_distal_angular_speed_rad_per_ms",
+    "eligibility": "finite positive valid adjacent detected-bout frames",
+    "frame_transform": "natural log",
+    "bin_width_s": 1,
+    "bin_estimator": "median of eligible original log frames",
+    "baseline_s": [
+      -15,
+      0
+    ],
+    "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+    "centre": "bin_log_vigor-baseline_log_vigor",
+    "scale": "none",
+    "minimum_finite_baseline_bins": 1,
+    "units": "natural-log vigor difference",
+    "numeric_clipping": false,
+    "colour_limits": [
+      -0.25,
+      0.25
+    ],
+    "missing": "NaN black; entire trial undefined without baseline data",
+    "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+    "statistical_inference": "none; descriptive population heatmaps",
+    "condition": "control",
+    "cohort_hash": "9ef4b9297c939e0d34a99a4d606d0f9c8c2a42a0a7b9aee20d947823ef66f2d5",
+    "pooling": "equal-fish arithmetic mean after individual trial baseline-bin median subtraction",
+    "data": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-pooled/pooled-bins.parquet",
+      "sha256": "cf6f310099bcd71b3beb5d4933e420698ca9c067efaf0f4985335c8520b913fb"
+    },
+    "conditions": [
+      "control",
+      "delay"
+    ],
+    "cohort_counts": {
+      "control": 28,
+      "delay": 29
+    },
+    "trial_mapping": "display 1\u201390 = acquisition 5\u201394"
+  },
+  "author_instruction": "Author 2026-10-14: freeze Figure 2 A; reduce A/B/C to six heatmaps in one row; retain earlier B data; one shared colourbar at far right; exact Figure 1 F/G/H axes, labels and guide styles. A only frozen.",
+  "layout": "six axes across 183 mm; shared row colourbar outside scoped A",
+  "data": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-freeze-2026-10-14/fish-bins.parquet",
+      "sha256": "2a68e35ea74a5c58858297a492fd74a16cf9a2e4462c80210f06fc93af280b6c"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-freeze-2026-10-14/pooled-bins.parquet",
+      "sha256": "cf6f310099bcd71b3beb5d4933e420698ca9c067efaf0f4985335c8520b913fb"
+    }
+  ],
+  "retained_B": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/sources/20261008T200908002798Z/Fig2_PanelB_all3sTrace_signed-pre15.parquet",
+    "sha256": "b98698800b90a5e4b9347d03a0b647273e3c2d0235884e395cf635a4024a0cd0"
+  },
+  "future_B_C": "Follow A pipeline and Figure 1 F/G/H formatting; B remains earlier exploratory calculation until full processed inputs available",
+  "freeze_manifest": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-a/2026-10-14-pooled-six-heatmap-row/manifests/freeze.json",
+    "sha256": "9e6a4b84408ed28c8ec030a8b09df022a16c37a51bf8b3359c1d17b6ca3f88a0"
+  },
+  "svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/frozen-panel-a.svg",
+    "sha256": "6d149a5d87a9bffb1ce79c3fad809b8f7bc73768ee89b63dad9b3eb424584d53"
+  },
+  "freeze_scope": [
+    "A"
+  ],
+  "status": "current accepted compact A freeze"
+}

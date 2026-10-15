@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "figure_id": "fig2",
+  "panel_ids": [
+    "A"
+  ],
+  "default_display": "frozen_display",
+  "default_display_format": "html-svg-and-legend",
+  "scientific_selection": {
+    "records": [
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json",
+        "sha256": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385"
+      },
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/frozen-analyses/figure-02/panel-a/2026-10-14-pooled-six-heatmap-row/manifests/freeze.json",
+        "sha256": "9e6a4b84408ed28c8ec030a8b09df022a16c37a51bf8b3359c1d17b6ca3f88a0"
+      }
+    ]
+  },
+  "frozen_display": {
+    "status": "frozen A compact display",
+    "working_svg": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-pooled.svg",
+      "sha256": "6d149a5d87a9bffb1ce79c3fad809b8f7bc73768ee89b63dad9b3eb424584d53"
+    },
+    "review": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-pooled.html",
+      "sha256": "7eab5144550fc5c5b1c1602ea8515f3dc2af99798337a27cce8ecb729ae499f4"
+    },
+    "legend": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+      "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616",
+      "panel_ids": [
+        "A"
+      ],
+      "extraction": "A paragraph and shared colourbar definition"
+    },
+    "semantic_registry": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-02/six-heatmap-row-evidence.json",
+      "sha256": "0b981c5d6a530f565c166246d054730ae5ccf391362caa2deeb6976c491ed4b8"
+    },
+    "assembly_scale": {
+      "final_width_mm": 61,
+      "final_height_mm": 78,
+      "native_element_scale": 1
+    },
+    "consistency_requests": [
+      {
+        "id": "fig2-abc-pooled-pipeline-and-fgh-formatting",
+        "scope": [
+          "A",
+          "B",
+          "C"
+        ],
+        "author_direction": "Author 2026-10-14: freeze Figure 2 A; reduce A/B/C to six heatmaps in one row; retain earlier B data; one shared colourbar at far right; exact Figure 1 F/G/H axes, labels and guide styles. A only frozen.",
+        "reference": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
+          "sha256": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf"
+        },
+        "status": "partial",
+        "verified": [
+          "A scientific method and styles",
+          "six heatmap slots",
+          "single shared colourbar",
+          "retained earlier B values"
+        ],
+        "pending": [
+          "B and C scientific pipeline after full processed Trace inputs"
+        ],
+        "evidence": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-02/six-heatmap-row-evidence.json",
+          "sha256": "0b981c5d6a530f565c166246d054730ae5ccf391362caa2deeb6976c491ed4b8"
+        }
+      }
+    ]
+  },
+  "draft": {
+    "status": "no active scientific draft; current working copy derives from accepted A freeze",
+    "previous_draft": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/prior-working-copies/current-state.json",
+      "sha256": "fad383d5ed5fd9d86be2ca2503c506dd7c7d5abf89c5bdeea252944d85f7b63d"
+    }
+  },
+  "whole_figure_frozen": false,
+  "assembly_integration": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json"
+}

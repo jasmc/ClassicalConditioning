@@ -1,0 +1,16 @@
+{
+  "figure": "fig1",
+  "working_version": "v13",
+  "selection_basis": "Author-requested B/C labels, B x-axis consistency and D/E data width on 2026-10-13",
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v13-editing.html",
+    "sha256": "ecca46bc4dcc36056aa10cdf8bf2d8b3ec172a3451076c7e709bc4b02098cd3a"
+  },
+  "working_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v13-editing.svg",
+    "sha256": "3218707174e77eff705de77e77d1635cd8397e3ba16107587289113f2db6fbc1",
+    "source_svg_sha256": "3e1ff7ad5fca6a7a23d43892edd6bbe782bf000954c7aa6e42a78b55350d0e5b"
+  },
+  "status": "active draft; formal freeze follows review",
+  "previous_versions": "preserved pending author disposition"
+}

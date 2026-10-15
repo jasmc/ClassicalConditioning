@@ -26,6 +26,13 @@ class FigureFreezeTests(unittest.TestCase):
         self.folder = ROOT/".cache"/"figure-freeze-tests"/uuid.uuid4().hex
         self.folder.mkdir(parents=True)
         self.addCleanup(self.cleanup_folder)
+        # Isolate pre-frame scientific/style fixtures under their explicit
+        # legacy contract; current-contract framing has independent gate tests.
+        legacy_spec = copy.deepcopy(SPEC)
+        legacy_spec.pop('layout_frames', None)
+        legacy_spec['specification_version'] = '1.1.2'
+        self.specification_path = self.folder/'legacy-specification.json'
+        self.specification_path.write_text(json.dumps(legacy_spec))
         self.svg = self.folder/"candidate.svg"
         self.original = self.folder/"original.svg"
         self.data = self.folder/"data.csv"; self.data.write_text("x,y\n0,1\n")
@@ -70,27 +77,27 @@ class FigureFreezeTests(unittest.TestCase):
         self.candidate_path.write_text(json.dumps(self.candidate), encoding="utf-8")
 
     def check(self):
-        self.save(); return freeze.check_candidate(self.candidate_path)
+        self.save(); return freeze.check_candidate(self.candidate_path, self.specification_path)
 
     def assert_invalid(self, phrase):
         report = self.check()
         self.assertFalse(report["valid"], report)
         self.assertIn(phrase, json.dumps(report))
         output = self.folder/"frozen.json"
-        self.assertFalse(freeze.freeze_candidate(self.candidate_path, output)["valid"])
+        self.assertFalse(freeze.freeze_candidate(self.candidate_path, output, self.specification_path)["valid"])
         self.assertFalse(output.exists())
 
     def test_valid_freeze_and_no_overwrite(self):
         self.assertTrue(self.check()["valid"])
         output = self.folder/"frozen.json"
-        report = freeze.freeze_candidate(self.candidate_path, output)
+        report = freeze.freeze_candidate(self.candidate_path, output, self.specification_path)
         self.assertTrue(report["valid"], report)
         frozen = json.loads(output.read_text())
-        self.assertEqual(frozen["specification_sha256"], freeze.digest(freeze.DEFAULT_SPECIFICATION))
+        self.assertEqual(frozen["specification_sha256"], freeze.digest(self.specification_path))
         self.assertEqual(frozen["exports"][0]["path"], str(self.svg.resolve()))
         before = output.read_bytes()
         with self.assertRaises(FileExistsError):
-            freeze.freeze_candidate(self.candidate_path, output)
+            freeze.freeze_candidate(self.candidate_path, output, self.specification_path)
         self.assertEqual(output.read_bytes(), before)
 
     def test_actual_style_checked_not_just_declarations(self):
@@ -161,16 +168,16 @@ class FigureFreezeTests(unittest.TestCase):
         self.assert_invalid("Scientific text changed")
 
     def test_stale_inputs_between_check_and_publication_block(self):
-        self.save(); report = freeze.check_candidate(self.candidate_path)
+        self.save(); report = freeze.check_candidate(self.candidate_path, self.specification_path)
         self.data.write_text("changed during review")
         with patch.object(freeze, "check_candidate", return_value=report):
-            result = freeze.freeze_candidate(self.candidate_path, self.folder/"frozen.json")
+            result = freeze.freeze_candidate(self.candidate_path, self.folder/"frozen.json", self.specification_path)
         self.assertFalse(result["valid"])
         self.assertEqual(result["issues"][0]["code"], "stale-review")
 
     def test_cli_check_only_and_failure_exit(self):
         self.save()
-        args = [sys.executable, str(ROOT/"scripts/freeze_figure.py"), "--candidate", str(self.candidate_path), "--check-only"]
+        args = [sys.executable, str(ROOT/"scripts/freeze_figure.py"), "--candidate", str(self.candidate_path), "--check-only", "--specification", str(self.specification_path)]
         result = subprocess.run(args, text=True, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
         self.assertTrue(json.loads(result.stdout)["valid"])
@@ -229,7 +236,7 @@ class FigureFreezeTests(unittest.TestCase):
         self.assert_invalid("above scientific data")
         self.save()
         self.candidate_path.write_text(self.candidate_path.read_text().replace('"figure_id": "fig1"', '"figure_id": "fig1", "figure_id": "fig2"', 1))
-        self.assertIn("Duplicate JSON key", json.dumps(freeze.check_candidate(self.candidate_path)))
+        self.assertIn("Duplicate JSON key", json.dumps(freeze.check_candidate(self.candidate_path, self.specification_path)))
 
     def test_main_cli_freeze_parser_and_dispatch(self):
         # Exercise the real parser without importing unrelated analysis libraries.
@@ -238,7 +245,7 @@ class FigureFreezeTests(unittest.TestCase):
         namespace = {"argparse": argparse, "Path": Path, "Sequence": list, "sys": sys,
                      "PAPER_METRIC_ID": "fixture", "ensure_supported_runtime": lambda: None}
         exec(compile(ast.Module(body=functions, type_ignores=[]), "cli.py", "exec"), namespace)
-        args = namespace["build_parser"]().parse_args(["freeze-figure", "--candidate", "candidate.json", "--check-only"])
+        args = namespace["build_parser"]().parse_args(["freeze-figure", "--candidate", "candidate.json", "--check-only", "--specification", str(self.specification_path)])
         self.assertEqual(args.candidate, Path("candidate.json"))
         self.assertTrue(args.check_only)
         import types

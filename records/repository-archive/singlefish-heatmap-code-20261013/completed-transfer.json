@@ -1,0 +1,13 @@
+{
+  "removed_paths": [
+    "scripts/build_figure1_fgh_palette_review.py",
+    "scripts/organize_figure1_fgh_comparison.py",
+    "scripts/show_figure1_fgh_version04.py",
+    "scripts/render_figure1_version04_trace_palettes.py",
+    "scripts/render_figure1_one_second_cyan_palettes.py",
+    "scripts/render_figure1_blue_orange_transition.py",
+    "scripts/prepare_figure1_fgh_one_second_freeze.py"
+  ],
+  "removed_bytes": 81250,
+  "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/figure-01/singlefish-heatmaps/2026-10-13-candidate-code"
+}

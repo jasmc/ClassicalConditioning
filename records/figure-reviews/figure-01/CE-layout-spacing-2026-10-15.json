@@ -1,0 +1,91 @@
+{
+  "scope": [
+    "C",
+    "E"
+  ],
+  "starting_hashes": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "f3f595005f485f33f7fcc51c22ab1a30fa83fc4a927755f4151a5fb6f9d7581b",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "8c992715bfa301704ca951ed3a714cff422042bcda4f7add87bfbd40b12d739f",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "dc6c47d007eb22f92e3e004bd3896058c16aa5cf672f9b10be27a020fa1ca057",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-01-02-legend-layout-review-2026-10-11-axis-style-v2.html": "c58b5c150744ac37b92efad95fd212a9b33fcb27b551978e7f19a88c6901bff6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "4b3de651ba5892e463c18f9bac68749781acb9d36056fd4b2479293f353dfaed",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json": "2d89a0fb7f865f3285d871f7a48751e1f767fac46d179dd55cab05fd890af890",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_layout_spacing.py": "c1177784fd9e17d0b54183f4f40729cf9a0fce39e4ae461b648acf74d7bc9e4c",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure1_layout_spacing.py": "927826ce86428b706ecb6d0bf7757becbef849be70d8e50044fd53ae46f6dc4e",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py": "4edfcd99c2e2db3865db98ed4bdff0b771113740add6230a31a2de274fb4e7e6",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_panel_e_display.py": "66f43ca6075483059bd1aa5b6da5d1d1467af9dd7ad7bb8dd9a05973b407ce7f",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-panel-e.html": "03c69122e830d5cec3e72697a61364279793385bcc1de6e4a2059b342b78e8b6",
+    "/private/tmp/figure1-CE-visual-evidence.json": "8b28ac050690aefc3a6a9b4f0c4d29626024064b580127c02a325ee3b38b7b23"
+  },
+  "source_code_before_edit": {
+    "scripts/build_figure_legend_review.py": "56c9ede3132c5ac15c87e9dad1dc87084ee3715f2a510a7216096e47b2e8ccb2",
+    "scripts/update_figure1_panel_e_display.py": "33227679aa359e2c4241e2c9cd9e687cb66ca33b9d97a351aa50831d0230eaf9",
+    "scripts/publish_figure1_fgh_one_second.py": "9268882e9ea8a050a25df0b43f8f811ae8c9e2b23b02f8934b925e654050f395"
+  },
+  "source_svg_sha256": "dc6c47d007eb22f92e3e004bd3896058c16aa5cf672f9b10be27a020fa1ca057",
+  "svg_sha256": "18ab3c029192b6cec6f1a4ebed0ebe12542ce92b787c95ada13e40c573f8277d",
+  "details": {
+    "cards": [
+      {
+        "element_id": "edit-C-phase-priming",
+        "box_x": 95,
+        "box_width": 350,
+        "box_height": 210
+      },
+      {
+        "element_id": "edit-C-phase-pretraining",
+        "box_x": 475,
+        "box_width": 350,
+        "box_height": 210
+      },
+      {
+        "element_id": "edit-C-phase-training",
+        "box_x": 855,
+        "box_width": 350,
+        "box_height": 210
+      },
+      {
+        "element_id": "edit-C-phase-testing",
+        "box_x": 1235,
+        "box_width": 350,
+        "box_height": 210
+      }
+    ],
+    "E_scale_transform": "translate(730 30) scale(3.469945355) translate(-466.866142 -44.220472)",
+    "E_title_x": "505.28118",
+    "H_title_x": "505.28118"
+  },
+  "visual_review": {
+    "svg_sha256": "18ab3c029192b6cec6f1a4ebed0ebe12542ce92b787c95ada13e40c573f8277d",
+    "checks_passed": true,
+    "renderer": "Codex in-app browser; exact SVG embedded in self-contained HTML",
+    "final_width_mm": 183,
+    "card_min_text_padding_pt": {
+      "priming": 2.636325235818277,
+      "pretraining": 4.941850978361778,
+      "training": 4.941850978361778,
+      "testing": 4.941850978361778
+    },
+    "card_text_overlaps": [],
+    "E_tick_to_title_gap_pt": 1.6264051371685873,
+    "H_tick_to_title_gap_pt": 1.6263697062752802,
+    "E_title_right_viewport_clearance_pt": 4.268083564131498,
+    "E_scale_left_viewport_clearance_pt": 1.4404852992044483,
+    "viewport_measurement": "Actual allocated E viewport computed from its x/width and full assembly viewBox; SVG content bounding boxes are not viewport bounds",
+    "visual_observations": "Full Figure 1 inspected: equal C cards contain all text; priming title lines and rows separated; connecting arrows clear; E scale tick labels and full title visible with matching H separation. F arrows unchanged."
+  },
+  "preserved_panels": {
+    "panel-A": "733bb9a85db9e12a1431b79de89e7c29697fc6c562526fad75d3a46e77904c12",
+    "panel-B": "529fd5a1e50a268fb75882eb0a501e35be06a98558c0c97cd614c3ebbbe78898",
+    "panel-D": "3477e9792521d1fedda5dfea56773081c409c017d21c060ace24d6a6c7a5f6f9",
+    "panel-FGH": "0232778f00372287f32c50d69fb122f05482c956e9f8a65b7bc275befff11dd0"
+  },
+  "E_outside_colourbar_preserved": true,
+  "F_arrowheads_preserved": true,
+  "all_text_and_scientific_values_preserved": true,
+  "frozen": false
+}
