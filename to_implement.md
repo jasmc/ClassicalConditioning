@@ -134,3 +134,57 @@ compared 1.0/1.5/2.0 mm at 89/183 mm; author selected 1.0 mm (tighter) on
 Implementation and remaining route coverage are recorded in
 records/figure-reviews/layout-frame-implementation.json; procedures live in the
 figure workflow's invisible-frame section. No freeze or cleanup is requested.
+
+---
+
+Author 2026-10-16 — Nature figure rules: first define the complete Nature target
+and record everything to implement/fix, before choosing the Figure 2 A/B/C
+stacked-control layout. Plan 07, section 5, owns the N01–N28 implementation
+checklist and F01–F18 fixes/decisions; progress stays in the implementation index.
+Official sources and conflicts are recorded in
+records/figure-reviews/nature-guidance-20261016.md.
+
+Cover every visible element and its semantic/scientific mappings, matched
+controls/experiments, related panels, shared axes/scales, exact physical
+typography/ticks/strokes/gaps, invisible frames, keys, condition names, colors,
+images, statistics, concise captions/Methods, source data, editable exports,
+Extended Data, final-size browser/print review and guarded publication. Preserve
+the compatible author rules already recorded; distinguish them from journal
+requirements and our exact role-size choices.
+
+Known fixes include excessive figure heights, 8-pt ordinary text/10-pt uppercase
+panel-letter defaults, 1.2-pt summary strokes, tiny statistical annotations,
+colored headings, D/E colorbar whitespace, F–H spacing, A/B/C aspect/layout,
+unjustified estimator/colorbar sharing, ratio versus log-difference family
+semantics, long captions, incomplete registries and unfinished Figure 2 scopes.
+Reconcile hard-coded renderers and validators with the new profile; verify actual
+saved output. Stage: rules and checklist recorded; executable profile and artwork
+migration remain to implement. This request does not freeze science or authorize
+cleanup/disposal.
+
+Author 2026-10-16 — review of Nature implementation: maintained selected rules
+now live in docs/paper/figures/shared/nature-style.md; AGENTS.md and the existing
+paper-figures skill link there, workflow owns procedure, Plan 07 owns N01–N28
+and F01–F22 implementation work. Added detailed major/minor ticks, spine sides
+and offsets, label alignment/rotation, scientific multipliers, shared/twin/inset
+axes and number-format checks. Exact physical gaps/direction/count choices are
+author/project rules, not universal Nature prescriptions. Verify painted glyph
+gaps rather than treating renderer pad values as evidence. Preserve byte-sensitive
+historical specifications and contract copies when implementing the versioned
+profile. Removed stale v10/sole-Figure-1 authority wording; current scoped state
+still selects the working versions. Executable enforcement and artwork changes
+remain pending, and no freeze/cleanup is requested.
+
+Author 2026-10-16 — further Nature/coding-efficiency review: machine-readable
+exact values now live in configs/paper-figures/nature-main.json. The read-only
+presentation_profiles module resolves existing roles/colors/frame policy and
+offers section lookup with input hashes; get_theme(profile="nature-main") is
+an explicit adapter in the existing shared theme. Legacy defaults and selected
+artwork remain unchanged. Guide/AGENTS/skill/workflow/index route to this entry
+point; do not copy per-panel numbers or reread full planning/history for routine
+styling. The maintained guide covers strokes, colors/composites, opacity, fonts,
+sizes, image/export requirements and conditional scientific content. Exact marker,
+dash/cap/key dimensions and glyph embedding still need rendered pilot evidence;
+Nature does not supply universal numbers for them. Sixteen targeted tests pass.
+Remaining renderer/QA/export/publication/freeze integration and figure migration
+stay in Plan 07; no scientific freeze or historical cleanup is requested.

@@ -1,0 +1,94 @@
+{
+  "schema": "figure3-G-observed-outcome-and-reference-style/1.0",
+  "date": "2026-10-15",
+  "state": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/exploratory-state.json",
+    "sha256": "7eb65d7f09a936f664323c684d67bda59dea42c2fc3073f6c0cc11969730527e"
+  },
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/review.html",
+    "sha256": "787a5ba1bf69efeddebfc2a24902c2ef49e86e9d57f49deb73133abe99e5302a"
+  },
+  "working_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/overview.svg",
+    "sha256": "ca9fa0e736e314971a6c590ae8ca70dffa39eb65ca28f72bf3712ecd9e7e6098"
+  },
+  "scope": "57 Delay/control fish; Figure 3 exploratory atlas only; no freeze",
+  "observed_trial_outcome": {
+    "definition": "median ln positive response-bout vigor minus median ln positive baseline-bout vigor",
+    "reference": "Figure 2 G observed-outcome definition",
+    "baseline_s": [
+      -15,
+      0
+    ],
+    "response_s": [
+      0,
+      9
+    ],
+    "data": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/g-logmedian-outcomes.csv",
+      "sha256": "4864288de4efd945550e94a65f67cb5bae93d15298806ae88627e0aeaf359ad4"
+    },
+    "main_axis": "includes at least +/-0.25; expands to retain all observed individual values",
+    "legacy_input_data": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/classifier-input.parquet",
+      "sha256": "95ecd4395c96b734327ca526ba77bdf88425137aaf25f1b09541cc5ad4b6c2ee"
+    },
+    "legacy_display": "Separate exact WIP log arithmetic-mean ratio and conditional arithmetic means; original four classifier results retained",
+    "scientific_status": "author-selected observed display quantity; no learner-method approval or transfer of population inference"
+  },
+  "reference_style": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/reference-style.json",
+    "sha256": "c193ab7736efaedf6de364df4ce5ebef3ef5d8de15be4dd3029ed3ff8ca133f2"
+  },
+  "consistency_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/consistency-evidence.json",
+    "sha256": "ed01dde0c5656394ced130ca22cfa0de2f9a65d8b8fa0c64cef3d429b3184496"
+  },
+  "semantic_registry": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/draft-registry.json",
+    "sha256": "c45ec3a935411cf3e3b02252f878c53052bf1d79eb941cc3355d427be9e9ef31"
+  },
+  "layout_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/layout-evidence.json",
+    "sha256": "83641fae09966625a5cb5d3528d93ec760eeaa6b055dc1da6667627a1e611b1c"
+  },
+  "visual_review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/visual-review.json",
+    "sha256": "8ae7cddbe1824169d803edaccd1a2f345e5d701dddb356ab48fecca258065c2c"
+  },
+  "G_trial_rows_verified": 5130,
+  "cards_verified": 61,
+  "exact_layout_checks": 58,
+  "unchanged_numerical_and_classifier_files": 34,
+  "targeted_tests": {
+    "passed": 9,
+    "modules": [
+      "tests.test_individual_atlas",
+      "tests.test_legacy_learner_adapter"
+    ],
+    "result": "Ran 9 tests; OK"
+  },
+  "source_authentication": true,
+  "presentation_dependencies_rechecked_under_publication_lock": 36,
+  "other_figure_records": {
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": {
+      "before": "4891630470d54ec85ffe45e3991bad36153501a637271d2215b6ce04ac49d965",
+      "after": "7a40978f11e3e869e46f15fa556526f0b225775f7ff0cffb7c886228e5e27d3e",
+      "changed_outside_this_task": true
+    },
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": {
+      "before": "5b9fabaf99335fc607ab3dca164cae14f693ece60a16695073da78b727b49892",
+      "after": "7954b59179d576bd7f56803504e09474c60073d63822c1cedf318b7bb55de50d",
+      "changed_outside_this_task": true
+    }
+  },
+  "reference_reconciliation": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/reference-reconciliation.json",
+    "sha256": "9b2fbd2a67fe77666b13873b05d5e5941716eb43ca531738b7a11c61739e093e"
+  },
+  "previous_review_preserved": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration/review.html",
+    "sha256": "21d7848b3232f682d1b3fb44d865ae78493459cb97e9f22b42b8ee239456aab9"
+  }
+}

@@ -13,8 +13,20 @@ const {chromium} = require('playwright');
   await page.evaluate(()=>document.fonts.ready);
   const count=await page.locator('article.fish').count();
   if(count!==57)throw Error('Incomplete HTML fish inventory: '+count);
+  const duplicatePaintIds=await page.evaluate(()=>{
+    const seen=new Set(),duplicates=[];
+    for(const n of document.querySelectorAll('svg [id]')){
+      if(n.tagName==='metadata')continue;
+      if(seen.has(n.id))duplicates.push(n.id);seen.add(n.id);
+    }
+    return duplicates;
+  });
+  if(duplicatePaintIds.length)throw Error('Duplicate SVG painted IDs: '+duplicatePaintIds.slice(0,4));
   await page.locator('#search').fill('20240618_08');
   if(await page.locator('article.fish:visible').count()!==1)throw Error('Search failed');
+  await page.locator('#search').fill('');
+  await page.locator('#search').fill('20240618_08');
+  await page.locator('article.fish:visible').screenshot({path:path.join(screenshotDir,'figure3-selected-learner.png')});
   await page.locator('#search').fill('');
   await page.locator('#rule').selectOption('legacy-wip');
   await page.locator('#condition').selectOption('delay');
@@ -35,6 +47,15 @@ const {chromium} = require('playwright');
   const cases={overview:fs.readFileSync(path.join(directory,'overview.svg'),'utf8')};
   const cards=JSON.parse(fs.readFileSync(path.join(directory,'card-svg-data.json'),'utf8'));
   for(const [fish,encoded] of Object.entries(cards))cases[fish]=Buffer.from(encoded,'base64').toString('utf8');
+  // Review exact artwork without sticky HTML controls covering screenshot regions.
+  const artwork=await browser.newPage({viewport:{width:1000,height:1200}});
+  for(const [name,file] of [['overview','figure3-exact-overview.png'],
+      ['20221115_09','figure3-exact-control.png'],['20240618_08','figure3-exact-learner.png']]){
+    await artwork.setContent('<!doctype html><body style="margin:0;background:white">'+cases[name]+'</body>');
+    await artwork.evaluate(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(x=>x.decode()));});
+    await artwork.locator('svg').first().screenshot({path:path.join(screenshotDir,file)});
+  }
+  await artwork.close();
   const measurements={};
   for(const [name,svg] of Object.entries(cases)) {
     measurements[name]=await page.evaluate(async ({svg,hash})=>await collectLayoutFrames(svg,hash),{svg,hash:collectorHash});
@@ -45,6 +66,7 @@ const {chromium} = require('playwright');
   if(errors.length)throw Error(errors.join('\n'));
   fs.writeFileSync(path.join(directory,'browser-ui-checks.json'),JSON.stringify({
     fish_count:count,search_passed:true,unclassified_filter_passed:true,reset_passed:true,
-    page_errors:errors,overview_and_full_cards_visually_captured:true,url:baseURL+'/review.html'},null,2));
+    page_errors:errors,duplicate_svg_paint_ids:duplicatePaintIds,
+    overview_and_full_cards_visually_captured:true,url:baseURL+'/review.html'},null,2));
   await browser.close();
 })().catch(e=>{console.error(e);process.exit(1)});

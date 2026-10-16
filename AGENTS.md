@@ -7,6 +7,13 @@ verification or freezing, read and use the repository
 in the authoritative [figure workflow](docs/paper/figures/shared/iteration-workflow.md).
 If skill discovery is unavailable, read that skill file directly.
 
+For new paper-figure presentation work, Nature is the selected target; read the
+[maintained Nature guidance](docs/paper/figures/shared/nature-style.md).
+Use its read-only profile lookup and explicit shared-theme selection for new
+paper candidates. Full rendered-artifact checks and migration remain pending:
+retain compatible author rules, validate actual output, and do not infer
+compliance from profile selection or restyle artwork just to display it.
+
 ## Essential protections
 
 - Preserve other work and uncommitted changes. Stay within requested panels;
@@ -26,8 +33,9 @@ If skill discovery is unavailable, read that skill file directly.
   state for the selected version; keep its matching editable SVG as the figure
   artifact and open it on explicit request. Resolve the recorded HTML path;
   stale localhost copies and browser tabs are not current authority. Verify
-  the rendered scope before reporting a successful open. Figure 1 uses v10 as its sole
-  working version. Frozen selections/comparisons require an explicit request;
+  the rendered scope before reporting a successful open. Resolve Figure 1's sole
+  working version from scoped state, rather than a hard-coded version name.
+  Frozen selections/comparisons require an explicit request;
   identify unfrozen scopes and never infer a whole-figure freeze.
 - Plural requests to show the main-paper figures use the authenticated ordered
   collection (`scripts/main_paper_figures.py build`, then `display-target`).

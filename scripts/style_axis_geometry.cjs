@@ -2,14 +2,14 @@
 // Usage: node style_axis_geometry.cjs external-directory browser-executable
 const fs=require('fs'),path=require('path'),{chromium}=require('playwright');
 (async()=>{
- const dir=process.argv[2],verify=process.argv[4]==='--verify',browser=await chromium.launch({executablePath:process.argv[3],headless:true});
+ const dir=process.argv[2],centerOnly=process.argv[4]==='--center-labels',verify=process.argv[4]==='--verify'||centerOnly,browser=await chromium.launch({executablePath:process.argv[3],headless:true});
  const p=await browser.newPage({viewport:{width:1000,height:1000}});
  for(const n of [1,2]){
-  const input=JSON.parse(fs.readFileSync(path.join(dir,`figure-0${n}-input.json`))),svg=fs.readFileSync(verify?path.join(dir,`figure-0${n}-layout.svg`):input.svg.path,'utf8');
+  const extra=path.join(dir,`figure-0${n}-axis-input.json`),input=JSON.parse(fs.readFileSync(verify&&fs.existsSync(extra)?extra:path.join(dir,`figure-0${n}-input.json`))),svg=fs.readFileSync(verify?path.join(dir,`figure-0${n}-layout.svg`):input.svg.path,'utf8');
   await p.setContent('<html><head><style>body{margin:0}svg{width:183mm;height:auto;display:block}</style></head><body></body></html>');
   await p.evaluate(svg=>{const xml=new DOMParser().parseFromString(svg,'image/svg+xml');if(xml.querySelector('parsererror'))throw Error('Invalid SVG XML');document.body.appendChild(document.importNode(xml.documentElement,true))},svg);
   await p.evaluate(()=>document.fonts.ready);
-  const result=await p.evaluate(({input,n,verify})=>{
+  const result=await p.evaluate(({input,n,verify,centerOnly})=>{
    const root=document.querySelector('svg'),mm=25.4/96,pt=96/72,changes=new Map();
    const at=a=>a.xml_index_path.reduce((node,i)=>node.children[i],root);
    const original=new Map([...root.querySelectorAll('*'),root].map(node=>[node,{attrs:[...node.attributes].map(a=>[a.name,a.value]),text:node.textContent}]));
@@ -65,6 +65,9 @@ const fs=require('fs'),path=require('path'),{chromium}=require('playwright');
     const delta=(sign>0?lb[normal+2]+3*25.4/72:lb[normal]-3*25.4/72)-(sign>0?tb[normal]:tb[normal+2]);
     for(const node of g.nodes)shift(node,normal===0?delta:0,normal===1?delta:0);
    }
+   if(centerOnly)for(const a of axes){if(!a.tick_nodes.length)continue;const tangent=a.orientation==='x'?0:1;
+    for(const label of a.label_nodes){const lb=box(label),center=(lb[tangent]+lb[tangent+2])/2;const tb=a.tick_nodes.map(box).sort((u,v)=>Math.abs((u[tangent]+u[tangent+2])/2-center)-Math.abs((v[tangent]+v[tangent+2])/2-center))[0];const delta=(tb[tangent]+tb[tangent+2])/2-center;shift(label,tangent===0?delta:0,tangent===1?delta:0)}
+   }
    // Example row descriptions sit outside the Y-title column. They must not
    // occupy the now explicitly reserved tick-label-to-axis-title strip.
    const exampleLabels=[];
@@ -85,10 +88,10 @@ const fs=require('fs'),path=require('path'),{chromium}=require('playwright');
     measured.push({id:a.id,ticks,tick_label_gaps_mm:gaps,title_gap_mm:titleGap,tick_labels:a.label_nodes.map(textRecord),titles:a.title_nodes.map(textRecord),tickless:!ticks.length});
    }
    return {svg:new XMLSerializer().serializeToString(root),changes:[...changes].map(([node,r])=>({...r,after_attributes:[...node.attributes].map(a=>[a.name,a.value])})),axes:measured,example_labels:exampleLabels};
-  },{input,n,verify});
-  if(!verify)fs.writeFileSync(path.join(dir,`figure-0${n}-layout.svg`),result.svg);delete result.svg;
+  },{input,n,verify,centerOnly});
+  if(!verify||centerOnly)fs.writeFileSync(path.join(dir,`figure-0${n}-layout.svg`),result.svg);delete result.svg;
   result.artifact_sha256=require('crypto').createHash('sha256').update(verify?svg:fs.readFileSync(path.join(dir,`figure-0${n}-layout.svg`))).digest('hex');
-  fs.writeFileSync(path.join(dir,`figure-0${n}-axis-geometry${verify?'-verification':''}.json`),JSON.stringify(result,null,2));
+  fs.writeFileSync(path.join(dir,`figure-0${n}-axis-geometry${centerOnly?'-centering':verify?'-verification':''}.json`),JSON.stringify(result,null,2));
   console.log(n,'registered modified leaves',result.changes.length,'ticks',result.axes.reduce((s,a)=>s+a.ticks.length,0));
  }
  await browser.close();

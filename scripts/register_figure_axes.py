@@ -72,8 +72,12 @@ def build_inventory(svg,number,legend_ref,selections,existing):
     def address(node):
         identity=node.get('id');return {'element_id':identity,'unique_id':bool(identity) and len(ids.get(identity,[]))==1,'xml_index_path':paths[node],'svg_type':node.tag.rsplit('}',1)[-1],'source_element_id':node.get('data-source-id',node.get('data-comparison-source-id'))}
     records=[];unresolved=[]
-    for definition in axis_definitions(number):
+    definitions=axis_definitions(number)
+    if number==2 and 'fig2-E-visible-y'in ids:
+        definitions.append({'id':'E-local-shared-y','panel':'E','orientation':'y','quantity':'median natural-log positive valid response-bout vigor minus baseline','units':'natural-log vigor difference','group_ids':['fig2-E-visible-y'],'title_ids':[],'spine_ids':['fig2-E-visible-y-spine'],'condition':'Control / 3sTrace','shared_axis_group':'fig2-DE-response-minus-baseline-y','scientific_definition':'Authored shared D/E y scale; E boundary/ticks retained locally; numerical labels and quantity title shared with D'})
+    for definition in definitions:
         record=copy.deepcopy(definition);groups=[];missing=[]
+        if isinstance(record.get('condition'),str):record['condition']=record['condition'].replace('3 s Trace','3sTrace').replace('10 s Trace','10sTrace')
         for mapping in existing.get('condition_order_mapping',{}).get('mapping',[]):
             if mapping.get('source_panel')==definition['panel']:
                 record['source_panel']=definition['panel'];record['panel']=mapping['display_panel']

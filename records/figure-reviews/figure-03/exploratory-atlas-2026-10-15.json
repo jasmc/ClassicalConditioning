@@ -1,0 +1,136 @@
+{
+  "schema": "figure3-exploratory-atlas-review/1.0",
+  "date": "2026-10-15",
+  "scope": "57-fish Delay/control exploratory Figure 3; no learner-method approval or freeze",
+  "state": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/exploratory-state.json",
+    "sha256": "e1a90f43aba06587a70b96233abdf90c78db08fde7423059e33f2d57e593dca4"
+  },
+  "review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration/review.html",
+    "sha256": "21d7848b3232f682d1b3fb44d865ae78493459cb97e9f22b42b8ee239456aab9"
+  },
+  "working_svg": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration/overview.svg",
+    "sha256": "651dba8f0d9ba6997524f51d2316ce866f76eb7a2d17cb0ff10a33e4a9cbae69"
+  },
+  "artifact_manifest": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration/artifact-manifest.json",
+    "sha256": "e3eefcd70aff6af1852c7749e676add916fbc63abdaca14038b0254541de8bdf"
+  },
+  "layout_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration/layout-evidence.json",
+    "sha256": "7010dfdc6f7931efc20747c13812994b38ad6b86feda2401004b2f6e435b6a22"
+  },
+  "exact_svg_checks": 58,
+  "fish": 57,
+  "fish_method_rows": 228,
+  "scheduled_trials": 5130,
+  "all_reconstructed_conditional_means_match": true,
+  "source_authentication": true,
+  "presentation_dependencies_rechecked_under_publication_lock": 29,
+  "targeted_tests": {
+    "passed": 8,
+    "modules": [
+      "tests.test_individual_atlas",
+      "tests.test_legacy_learner_adapter"
+    ]
+  },
+  "browser_checks": {
+    "fish_count": 57,
+    "search_passed": true,
+    "unclassified_filter_passed": true,
+    "reset_passed": true,
+    "page_errors": [],
+    "overview_and_full_cards_visually_captured": true,
+    "url": "http://127.0.0.1:8773/review.html"
+  },
+  "visual_review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration/visual-review.json",
+    "sha256": "e50428983f21c6d09b22ec4c46781d9ef6f8ac6affe5bfad6cc7dd050bcecd0d"
+  },
+  "selected_examples": [
+    {
+      "condition_id": "delay",
+      "fish_id": "20240618_08",
+      "reason": "Clear agreement: all four rules flag this fish"
+    },
+    {
+      "condition_id": "delay",
+      "fish_id": "20240612_08",
+      "reason": "Agreement: all four rules leave this fish unflagged"
+    },
+    {
+      "condition_id": "delay",
+      "fish_id": "20240702_01",
+      "reason": "Disagreement across legacy rules"
+    },
+    {
+      "condition_id": "delay",
+      "fish_id": "20221123_02",
+      "reason": "Close to the WIP score threshold; all direction criteria still apply"
+    }
+  ],
+  "limitations": [
+    "Delay/control only: authenticated processed Trace inputs unavailable in checked mounted roots",
+    "All legacy default labels use acquisition and recovery, including late Test; descriptive, not held-out validation",
+    "Legacy fit warnings and numerical fallbacks retained; individual uncertainty and method remain unapproved"
+  ],
+  "other_figure_records": {
+    "docs/paper/figures/figure-01/current-state.json": {
+      "before": "a9720c74de7f97b3c09cd8d781292284b4df0854e7080a7b85fe18b00e7e1b1a",
+      "after": "5b9fabaf99335fc607ab3dca164cae14f693ece60a16695073da78b727b49892",
+      "changed_outside_this_task": true
+    },
+    "docs/paper/figures/figure-02/current-state.json": {
+      "before": "c7e337faf966a38b386118a35749a8b6ff2e9233873fc62f3b272bb8bf2bdd7e",
+      "after": "4891630470d54ec85ffe45e3991bad36153501a637271d2215b6ce04ac49d965",
+      "changed_outside_this_task": true
+    },
+    "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json": {
+      "before": "411ab6ca8984dc0da222006493f3b28b6ae0bc266ad61dcafc6eba2f51a8ef0f",
+      "after": "411ab6ca8984dc0da222006493f3b28b6ae0bc266ad61dcafc6eba2f51a8ef0f",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": {
+      "before": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+      "after": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json": {
+      "before": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+      "after": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json": {
+      "before": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+      "after": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure1-freeze.json": {
+      "before": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "after": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json": {
+      "before": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+      "after": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": {
+      "before": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+      "after": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json": {
+      "before": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
+      "after": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
+      "changed_outside_this_task": false
+    },
+    "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json": {
+      "before": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "after": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "changed_outside_this_task": false
+    }
+  }
+}

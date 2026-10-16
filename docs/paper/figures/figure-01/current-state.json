@@ -42,19 +42,19 @@
     "status": "Presentation draft with verified 1 mm invisible frames; inherited unfinished scientific scopes retained",
     "review": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
-      "sha256": "fbe7030f46957b77673d7f01122f8aa56d1268336d3d2d3def102f98e6e1ce1f"
+      "sha256": "46f738fe10792e87947704f26632fc3b68a5b4c7a612a9cceb7b55104a833678"
     },
     "working_svg": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-      "sha256": "af70cb36b994ed30594ceed68367e5bd2e885d37f5df0df21674dda4412ab309",
+      "sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
       "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
     },
     "source_assembly_sha256": "e452920b07388fc90af70301948edc4a17b7b42c3d23969b500027e30419296c",
     "author_directions_record": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/legend-review-verification.json",
     "preserved_other_figure": "Figure 2 original/candidate unchanged",
     "effective_presentation": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-effective-presentation.json",
-      "sha256": "370221f920422a39404ec5ec653ec9da54e431319c540df91199c95f6d414923"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-effective-presentation.json",
+      "sha256": "2a9f3eb89a1c6ef863d2fc0b5ae6dd77f4013e145ab9a70f33f5db1d53ce8f12"
     },
     "semantic_registry": {
       "scope": "D/E explicit artists, exact new frozen F bands and complete 161-element scoped F/G/H freeze registry",
@@ -223,9 +223,9 @@
           {
             "box_mm": [
               0.0,
-              0.0,
-              35.45175438596491,
-              43.07190314536536
+              0,
+              35.44111842105263,
+              43.388485961975064
             ],
             "group_ids": [
               "panel-A"
@@ -235,10 +235,10 @@
           },
           {
             "box_mm": [
-              35.45175438596491,
-              0.0,
-              147.5482456140351,
-              43.07190314536536
+              35.44111842105263,
+              0,
+              147.55888157894736,
+              43.388485961975064
             ],
             "group_ids": [
               "panel-B"
@@ -249,9 +249,9 @@
           {
             "box_mm": [
               0.0,
-              43.07190314536536,
+              43.388485961975064,
               183.0,
-              32.40566389677851
+              32.42588302438373
             ],
             "group_ids": [
               "panel-C"
@@ -262,9 +262,9 @@
           {
             "box_mm": [
               0.0,
-              75.47756704214387,
-              75.4484649122807,
-              61.52619009926959
+              75.8143689863588,
+              77.96372807017543,
+              63.32433918052917
             ],
             "group_ids": [
               "panel-D"
@@ -274,10 +274,10 @@
           },
           {
             "box_mm": [
-              75.4484649122807,
-              75.47756704214387,
-              91.14583333333331,
-              61.52619009926959
+              77.96372807017543,
+              75.8143689863588,
+              81.78462719298246,
+              63.32433918052917
             ],
             "group_ids": [
               "layout-E"
@@ -287,10 +287,10 @@
           },
           {
             "box_mm": [
-              166.59429824561403,
-              75.47756704214387,
-              16.40570175438598,
-              61.52619009926959
+              159.7483552631579,
+              75.8143689863588,
+              23.25164473684211,
+              63.32433918052917
             ],
             "group_ids": [
               "edit-E-independent-colourbar"
@@ -301,9 +301,9 @@
           {
             "box_mm": [
               0.0,
-              137.00375714141347,
-              58.95241228070175,
-              75.2822526222487
+              139.13870816688797,
+              58.82354166666666,
+              76.31862142701777
             ],
             "group_ids": [
               "layout-H"
@@ -313,10 +313,10 @@
           },
           {
             "box_mm": [
-              58.95241228070175,
-              137.00375714141347,
-              55.17006578947367,
-              75.2822526222487
+              58.82354166666666,
+              139.13870816688797,
+              54.91232456140351,
+              76.31862142701777
             ],
             "group_ids": [
               "layout-F"
@@ -326,10 +326,10 @@
           },
           {
             "box_mm": [
-              114.12247807017542,
-              137.00375714141347,
-              52.51414473684213,
-              75.2822526222487
+              113.73586622807017,
+              139.13870816688797,
+              52.37474780701757,
+              76.31862142701777
             ],
             "group_ids": [
               "layout-G"
@@ -339,10 +339,10 @@
           },
           {
             "box_mm": [
-              166.63662280701755,
-              137.00375714141347,
-              16.363377192982462,
-              75.2822526222487
+              166.11061403508774,
+              139.13870816688797,
+              16.889385964912265,
+              76.31862142701777
             ],
             "group_ids": [
               "edit-FGH-fig1__h__colorbar__axes"
@@ -352,8 +352,8 @@
           }
         ],
         "evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json",
-          "sha256": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
+          "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
         },
         "scientific_registry_coverage": "Existing coverage retained; layout ownership does not establish scientific roles",
         "spacing_groups": [
@@ -371,8 +371,8 @@
         ],
         "spacing_measurements_mm": {
           "fig1-FGH-equal-spacing": [
-            14.823505602736276,
-            14.8235056027373
+            14.56194043673647,
+            14.561946492566257
           ]
         },
         "panel_relationships": [
@@ -405,8 +405,13 @@
               "minimum_gap_mm": 2.0,
               "target": "data_axes"
             },
-            "status": "required",
-            "type": "layout"
+            "status": "verified",
+            "type": "layout",
+            "artifact_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+            "verification_evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
+              "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
+            }
           },
           {
             "caution": "Source mappings and frozen panel identifiers retain original F; displayed Delay panel is G. Distinct normalizations are unchanged.",
@@ -877,8 +882,13 @@
             "minimum_gap_mm": 2.0,
             "target": "data_axes"
           },
-          "status": "required",
-          "type": "layout"
+          "status": "verified",
+          "type": "layout",
+          "artifact_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+          "verification_evidence": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
+            "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
+          }
         },
         {
           "caution": "Source mappings and frozen panel identifiers retain original F; displayed Delay panel is G. Distinct normalizations are unchanged.",
@@ -1332,15 +1342,81 @@
             }
           ],
           "evidence": {
-            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/panel-relations-20261015/figure-01-layout-evidence.json",
-            "sha256": "7f0ae0314ccd91fb3eadd85d1b01688692e3cdaf15cfb7c2feb2819a68ad8101"
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+            "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+          }
+        },
+        "axis_geometry": {
+          "group_id": "main-paper-axis-geometry",
+          "scope": [
+            "Figure 1",
+            "Figure 2"
+          ],
+          "expected": {
+            "tick_length_pt": 2.0,
+            "tick_stroke_width_pt": 0.5,
+            "tick_color": "#000000",
+            "tick_linecap": "butt",
+            "tick_label_size_pt": 7.0,
+            "axis_title_size_pt": 8.0,
+            "tick_label_edge_gap_pt": 3.0,
+            "title_label_edge_gap_pt": 3.0,
+            "measurement_tolerance_mm": 0.01,
+            "font_size_tolerance_pt": 0.01
+          },
+          "axes": [
+            "B-control-x",
+            "B-delay-x",
+            "B-trace-3s-x",
+            "B-trace-10s-x",
+            "D-x",
+            "D-9-y",
+            "D-17-y",
+            "D-63-y",
+            "D-66-y",
+            "D-93-y",
+            "E-x",
+            "E-9-y",
+            "E-17-y",
+            "E-63-y",
+            "E-66-y",
+            "E-93-y",
+            "F-x",
+            "F-y",
+            "G-x",
+            "G-y",
+            "H-x",
+            "H-y",
+            "E-band-colorbar",
+            "FGH-colorbar"
+          ],
+          "tickless_axes": [],
+          "tickless_policy": "Retain intentionally absent categorical/statistical ticks; no invented scientific marks",
+          "evidence": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+            "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+          },
+          "recheck_after_edits": true
+        },
+        "example_trial_labels": {
+          "scope": [
+            "D",
+            "E"
+          ],
+          "block_size_pt": 8.0,
+          "trial_size_pt": 7.0,
+          "family": "DejaVu Sans",
+          "weight": "normal",
+          "evidence": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+            "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
           }
         }
       },
       "axis_inventory": {
         "schema_version": 1,
         "figure_id": "fig1",
-        "source_svg_sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
+        "source_svg_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
         "axes": [
           {
             "id": "B-control-x",
@@ -1532,17 +1608,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -1752,17 +1818,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -1972,17 +2028,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -2192,17 +2238,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -2545,17 +2581,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -2794,17 +2820,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -3043,17 +3059,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -3292,17 +3298,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -3541,17 +3537,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -3790,17 +3776,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -4166,17 +4142,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -4430,17 +4396,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -4694,17 +4650,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -4958,17 +4904,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -5222,17 +5158,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -5486,17 +5412,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -5518,7 +5434,7 @@
           },
           {
             "id": "F-x",
-            "panel": "F",
+            "panel": "G",
             "orientation": "x",
             "quantity": "cadence-reconstructed time relative to CS onset",
             "units": "s",
@@ -5536,6 +5452,8 @@
               "edit-FGH-fig1__f__heatmap__spine-bottom",
               "edit-FGH-fig1__f__heatmap__spine-top"
             ],
+            "source_panel": "F",
+            "display_mapping_reference": "condition_order_mapping in this same semantic registry",
             "scientific_role": "axis.component",
             "axis_artists": [
               {
@@ -5576,8 +5494,8 @@
             ],
             "tick_labels": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-898",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -5595,8 +5513,8 @@
                 "display_text": "-20"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-904",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -5614,8 +5532,8 @@
                 "display_text": "0"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-910",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -5635,8 +5553,8 @@
             ],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-896",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -5655,8 +5573,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-902",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -5675,8 +5593,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-908",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -5705,7 +5623,7 @@
                   2,
                   1,
                   0,
-                  6
+                  5
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__f__heatmap__spine-bottom",
@@ -5720,7 +5638,7 @@
                   2,
                   1,
                   0,
-                  7
+                  6
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__f__heatmap__spine-top",
@@ -5731,17 +5649,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -5763,7 +5671,7 @@
           },
           {
             "id": "F-y",
-            "panel": "F",
+            "panel": "G",
             "orientation": "y",
             "quantity": "displayed trial number",
             "units": "trial",
@@ -5779,6 +5687,8 @@
               "edit-FGH-fig1__f__heatmap__spine-left",
               "edit-FGH-fig1__f__heatmap__spine-right"
             ],
+            "source_panel": "F",
+            "display_mapping_reference": "condition_order_mapping in this same semantic registry",
             "scientific_role": "axis.component",
             "axis_artists": [
               {
@@ -5788,9 +5698,9 @@
                   6,
                   0,
                   2,
-                  1,
+                  3,
                   0,
-                  3
+                  11
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__f__heatmap__axis-y"
@@ -5799,15 +5709,15 @@
             "titles": [],
             "tick_labels": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1131",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   0,
                   1,
                   0
@@ -5818,15 +5728,15 @@
                 "display_text": "1"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1137",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   1,
                   1,
                   0
@@ -5837,15 +5747,15 @@
                 "display_text": "10"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1143",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   2,
                   1,
                   0
@@ -5856,15 +5766,15 @@
                 "display_text": "20"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1149",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   3,
                   1,
                   0
@@ -5875,15 +5785,15 @@
                 "display_text": "30"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1155",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   4,
                   1,
                   0
@@ -5894,15 +5804,15 @@
                 "display_text": "40"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1161",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   5,
                   1,
                   0
@@ -5913,15 +5823,15 @@
                 "display_text": "50"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1167",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   6,
                   1,
                   0
@@ -5932,15 +5842,15 @@
                 "display_text": "60"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1173",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   7,
                   1,
                   0
@@ -5951,15 +5861,15 @@
                 "display_text": "70"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1179",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   8,
                   1,
                   0
@@ -5970,15 +5880,15 @@
                 "display_text": "80"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1185",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   9,
                   1,
                   0
@@ -5991,15 +5901,15 @@
             ],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1129",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   0,
                   0,
                   1,
@@ -6011,15 +5921,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1135",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   1,
                   0,
                   0,
@@ -6031,15 +5941,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1141",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   2,
                   0,
                   0,
@@ -6051,15 +5961,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1147",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   3,
                   0,
                   0,
@@ -6071,15 +5981,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1153",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   4,
                   0,
                   0,
@@ -6091,15 +6001,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1159",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   5,
                   0,
                   0,
@@ -6111,15 +6021,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1165",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   6,
                   0,
                   0,
@@ -6131,15 +6041,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1171",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   7,
                   0,
                   0,
@@ -6151,15 +6061,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1177",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   8,
                   0,
                   0,
@@ -6171,15 +6081,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1183",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  1,
-                  0,
                   3,
+                  0,
+                  11,
                   9,
                   0,
                   0,
@@ -6201,7 +6111,7 @@
                   2,
                   1,
                   0,
-                  4
+                  3
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__f__heatmap__spine-left",
@@ -6216,7 +6126,7 @@
                   2,
                   1,
                   0,
-                  5
+                  4
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__f__heatmap__spine-right",
@@ -6227,17 +6137,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -6259,7 +6159,7 @@
           },
           {
             "id": "G-x",
-            "panel": "G",
+            "panel": "H",
             "orientation": "x",
             "quantity": "cadence-reconstructed time relative to CS onset",
             "units": "s",
@@ -6269,7 +6169,7 @@
             "title_ids": [
               "edit-FGH-fig1__g__heatmap__label-x"
             ],
-            "condition": "3 s Trace",
+            "condition": "3sTrace",
             "fish": "20230307_12",
             "coordinate_origin": "CS onset",
             "shared_axis_group": null,
@@ -6277,6 +6177,8 @@
               "edit-FGH-fig1__g__heatmap__spine-bottom",
               "edit-FGH-fig1__g__heatmap__spine-top"
             ],
+            "source_panel": "G",
+            "display_mapping_reference": "condition_order_mapping in this same semantic registry",
             "scientific_role": "axis.component",
             "axis_artists": [
               {
@@ -6317,8 +6219,8 @@
             ],
             "tick_labels": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1000",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6336,8 +6238,8 @@
                 "display_text": "-20"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1006",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6355,8 +6257,8 @@
                 "display_text": "0"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1012",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6376,8 +6278,8 @@
             ],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-998",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6396,8 +6298,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1004",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6416,8 +6318,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1010",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6472,17 +6374,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -6504,7 +6396,7 @@
           },
           {
             "id": "G-y",
-            "panel": "G",
+            "panel": "H",
             "orientation": "y",
             "quantity": "displayed trial number",
             "units": "trial",
@@ -6512,7 +6404,7 @@
               "edit-FGH-fig1__g__heatmap__axis-y"
             ],
             "title_ids": [],
-            "condition": "3 s Trace",
+            "condition": "3sTrace",
             "fish": "20230307_12",
             "coordinate_origin": "acquisition trial minus 4",
             "shared_axis_group": "fig1-FGH-trial-y",
@@ -6520,6 +6412,8 @@
               "edit-FGH-fig1__g__heatmap__spine-left",
               "edit-FGH-fig1__g__heatmap__spine-right"
             ],
+            "source_panel": "G",
+            "display_mapping_reference": "condition_order_mapping in this same semantic registry",
             "scientific_role": "axis.component",
             "axis_artists": [
               {
@@ -6541,8 +6435,8 @@
             "tick_labels": [],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1019",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6561,8 +6455,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1023",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6581,8 +6475,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1027",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6601,8 +6495,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1031",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6621,8 +6515,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1035",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6641,8 +6535,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1039",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6661,8 +6555,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1043",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6681,8 +6575,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1047",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6701,8 +6595,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1051",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6721,8 +6615,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1055",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6777,17 +6671,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -6809,7 +6693,7 @@
           },
           {
             "id": "H-x",
-            "panel": "H",
+            "panel": "F",
             "orientation": "x",
             "quantity": "cadence-reconstructed time relative to CS onset",
             "units": "s",
@@ -6827,6 +6711,8 @@
               "edit-FGH-fig1__h__heatmap__spine-bottom",
               "edit-FGH-fig1__h__heatmap__spine-top"
             ],
+            "source_panel": "H",
+            "display_mapping_reference": "condition_order_mapping in this same semantic registry",
             "scientific_role": "axis.component",
             "axis_artists": [
               {
@@ -6867,8 +6753,8 @@
             ],
             "tick_labels": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1092",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6886,8 +6772,8 @@
                 "display_text": "-20"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1098",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6905,8 +6791,8 @@
                 "display_text": "0"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1104",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6926,8 +6812,8 @@
             ],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1090",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6946,8 +6832,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1096",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6966,8 +6852,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1102",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -6996,7 +6882,7 @@
                   2,
                   3,
                   0,
-                  6
+                  5
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__h__heatmap__spine-bottom",
@@ -7011,7 +6897,7 @@
                   2,
                   3,
                   0,
-                  7
+                  6
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__h__heatmap__spine-top",
@@ -7022,17 +6908,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -7054,7 +6930,7 @@
           },
           {
             "id": "H-y",
-            "panel": "H",
+            "panel": "F",
             "orientation": "y",
             "quantity": "displayed trial number",
             "units": "trial",
@@ -7070,6 +6946,8 @@
               "edit-FGH-fig1__h__heatmap__spine-left",
               "edit-FGH-fig1__h__heatmap__spine-right"
             ],
+            "source_panel": "H",
+            "display_mapping_reference": "condition_order_mapping in this same semantic registry",
             "scientific_role": "axis.component",
             "axis_artists": [
               {
@@ -7079,9 +6957,9 @@
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3
+                  17
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__h__heatmap__axis-y"
@@ -7091,15 +6969,15 @@
             "tick_labels": [],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-945",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   0,
                   0,
                   0,
@@ -7111,15 +6989,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-949",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   1,
                   0,
                   0,
@@ -7131,15 +7009,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-953",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   2,
                   0,
                   0,
@@ -7151,15 +7029,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-957",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   3,
                   0,
                   0,
@@ -7171,15 +7049,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-961",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   4,
                   0,
                   0,
@@ -7191,15 +7069,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-965",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   5,
                   0,
                   0,
@@ -7211,15 +7089,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-969",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   6,
                   0,
                   0,
@@ -7231,15 +7109,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-973",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   7,
                   0,
                   0,
@@ -7251,15 +7129,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-977",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   8,
                   0,
                   0,
@@ -7271,15 +7149,15 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-981",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
                   2,
-                  3,
+                  1,
                   0,
-                  3,
+                  17,
                   9,
                   0,
                   0,
@@ -7301,7 +7179,7 @@
                   2,
                   3,
                   0,
-                  4
+                  3
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__h__heatmap__spine-left",
@@ -7316,7 +7194,7 @@
                   2,
                   3,
                   0,
-                  5
+                  4
                 ],
                 "svg_type": "g",
                 "source_element_id": "fig1__h__heatmap__spine-right",
@@ -7327,17 +7205,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -7416,8 +7284,8 @@
             ],
             "tick_labels": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-849",
+                "unique_id": true,
                 "xml_index_path": [
                   5,
                   1,
@@ -7434,8 +7302,8 @@
                 "display_text": "-0.25"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-855",
+                "unique_id": true,
                 "xml_index_path": [
                   5,
                   1,
@@ -7452,8 +7320,8 @@
                 "display_text": "0.00"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-861",
+                "unique_id": true,
                 "xml_index_path": [
                   5,
                   1,
@@ -7472,8 +7340,8 @@
             ],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-847",
+                "unique_id": true,
                 "xml_index_path": [
                   5,
                   1,
@@ -7491,8 +7359,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-853",
+                "unique_id": true,
                 "xml_index_path": [
                   5,
                   1,
@@ -7510,8 +7378,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-859",
+                "unique_id": true,
                 "xml_index_path": [
                   5,
                   1,
@@ -7549,17 +7417,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -7638,8 +7496,8 @@
             ],
             "tick_labels": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1467",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -7656,8 +7514,8 @@
                 "display_text": "-0.25"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1473",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -7674,8 +7532,8 @@
                 "display_text": "0.00"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1479",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -7694,8 +7552,8 @@
             ],
             "axis_marks": [
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1465",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -7713,8 +7571,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1471",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -7732,8 +7590,8 @@
                 "classification": "mark under named renderer tick artist"
               },
               {
-                "element_id": null,
-                "unique_id": false,
+                "element_id": "fig1-axis-registered-1477",
+                "unique_id": true,
                 "xml_index_path": [
                   6,
                   0,
@@ -7771,17 +7629,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
-                "panel_ids": [
-                  "A",
-                  "B",
-                  "C",
-                  "D",
-                  "E",
-                  "F",
-                  "G",
-                  "H"
-                ]
+                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
               },
               "scientific_selections": [
                 {
@@ -7805,7 +7653,7 @@
         "axis_count": 24,
         "address_count": 337,
         "distinct_element_address_count": 235,
-        "unique_id_address_count": 267,
+        "unique_id_address_count": 337,
         "panels_without_numerical_axes": [
           "A",
           "C"
@@ -7836,8 +7684,8 @@
         },
         "unresolved": [],
         "registration_evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-registration-20261015/figure-01-axis-registration.json",
-          "sha256": "618c534bd3d62dd8428c7a07b72d60bea558b827e6ad8f822c85dcba2e4bd636"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
         }
       },
       "element_identification_requirements": {
@@ -7867,7 +7715,7 @@
         "freeze_readiness": "partial; do not claim all elements or scientific links registered"
       },
       "condition_order_mapping": {
-        "artifact_sha256": "af70cb36b994ed30594ceed68367e5bd2e885d37f5df0df21674dda4412ab309",
+        "artifact_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
         "mapping": [
           {
             "display_panel": "F",
@@ -7910,10 +7758,164 @@
           }
         ],
         "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+        },
+        "source_ids": "Preserved original scientific source identifiers; displayed letters resolved by this mapping",
+        "inherited_evidence": {
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json",
           "sha256": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267"
+        }
+      },
+      "plot_legends": {
+        "semantic_role": "legend.key",
+        "semantic_tags": [
+          "plot.legend.condition-key",
+          "plot.legend.stimulus-key"
+        ],
+        "alignment": "Group right edge coincides with its named plot/reference right edge",
+        "font_size_pt": 7.0,
+        "tolerance_mm": 0.01,
+        "groups": [
+          {
+            "element_id": "edit-B-heading",
+            "panel": "B",
+            "semantic_tag": "plot.legend.stimulus-key",
+            "scientific_role": "legend.key",
+            "alignment_reference": {
+              "element_id": "edit-B-time-axis-delay"
+            },
+            "right_edge_delta_mm": -4.454312147572637e-06,
+            "experiment": null,
+            "entries": [
+              {
+                "element_id": "edit-B-node-5",
+                "label": "CS",
+                "size_pt": 6.999986563750438,
+                "family": "\"DejaVu Sans\", sans-serif",
+                "weight": "400",
+                "baseline_mm": 4.481407812832125,
+                "scientific_role": "legend.key",
+                "glyph_artist": {
+                  "element_id": "edit-B-node-4",
+                  "xml_index_path": [
+                    2,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              },
+              {
+                "element_id": "edit-B-node-7",
+                "label": "US",
+                "size_pt": 6.999986563750438,
+                "family": "\"DejaVu Sans\", sans-serif",
+                "weight": "400",
+                "baseline_mm": 4.481407812832125,
+                "scientific_role": "legend.key",
+                "glyph_artist": {
+                  "element_id": "edit-B-node-6",
+                  "xml_index_path": [
+                    2,
+                    0,
+                    2,
+                    2
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "element_id": "edit-C-stimulus-key",
+            "panel": "C",
+            "semantic_tag": "plot.legend.stimulus-key",
+            "scientific_role": "legend.key",
+            "alignment_reference": {
+              "local_right_edge": 1585
+            },
+            "right_edge_delta_mm": -6.205011885640488e-06,
+            "experiment": null,
+            "entries": [
+              {
+                "element_id": "edit-C-node-5",
+                "label": "CS",
+                "size_pt": 6.999967214633146,
+                "family": "\"DejaVu Sans\", sans-serif",
+                "weight": "400",
+                "baseline_mm": 50.75823348200314,
+                "scientific_role": "legend.key",
+                "glyph_artist": {
+                  "element_id": "edit-C-node-4",
+                  "xml_index_path": [
+                    3,
+                    0,
+                    2,
+                    0
+                  ]
+                }
+              },
+              {
+                "element_id": "edit-C-node-7",
+                "label": "short US",
+                "size_pt": 6.999967214633146,
+                "family": "\"DejaVu Sans\", sans-serif",
+                "weight": "400",
+                "baseline_mm": 50.75823348200314,
+                "scientific_role": "legend.key",
+                "glyph_artist": {
+                  "element_id": "edit-C-node-6",
+                  "xml_index_path": [
+                    3,
+                    0,
+                    2,
+                    2
+                  ]
+                }
+              },
+              {
+                "element_id": "edit-C-node-9",
+                "label": "long US",
+                "size_pt": 6.999967214633146,
+                "family": "\"DejaVu Sans\", sans-serif",
+                "weight": "400",
+                "baseline_mm": 50.75823348200314,
+                "scientific_role": "legend.key",
+                "glyph_artist": {
+                  "element_id": "edit-C-node-8",
+                  "xml_index_path": [
+                    3,
+                    0,
+                    2,
+                    4
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
         },
-        "source_ids": "Preserved original scientific source identifiers; displayed letters resolved by this mapping"
+        "recheck_after_edits": true
+      },
+      "heading_semantics": {
+        "condition_headings": [],
+        "experiment_vs_condition": {
+          "experiment": "Assay including paired and matched-control cohorts",
+          "condition": "Individual cohort/treatment within its experiment",
+          "G_heading": "Removed; line legend identifies Control/Delay conditions, caption identifies Delay experiment"
+        },
+        "nomenclature": {
+          "trace_3s": "3sTrace",
+          "trace_10s": "10sTrace"
+        },
+        "sample_counts": "Caption rather than color-key or experiment-heading text",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+        }
       }
     },
     "scientific_changes": {
@@ -7957,17 +7959,7 @@
     "review_display": "requested SVG and associated legend only",
     "legend": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-      "sha256": "2ded096941e54f67ecabec9040395350f7f315dad896f0a9e45907046aecbfad",
-      "panel_ids": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H"
-      ]
+      "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
     },
     "consistency_requests": [
       {
@@ -9160,6 +9152,50 @@
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json",
           "sha256": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267"
         }
+      },
+      {
+        "id": "fig1-axis-physical-geometry-20261015",
+        "author_direction": "Exact physical axis-title/tick-label/tick gaps; identical horizontal/vertical ticks and D/E example-label sizes",
+        "scope": [
+          "Figure 1"
+        ],
+        "status": "verified-for-registered-axis-artists",
+        "expected": {
+          "tick_length_pt": 2.0,
+          "tick_stroke_width_pt": 0.5,
+          "tick_color": "#000000",
+          "tick_linecap": "butt",
+          "tick_label_size_pt": 7.0,
+          "axis_title_size_pt": 8.0,
+          "tick_label_edge_gap_pt": 3.0,
+          "title_label_edge_gap_pt": 3.0,
+          "measurement_tolerance_mm": 0.01,
+          "font_size_tolerance_pt": 0.01
+        },
+        "affected_artifact_hashes": {
+          "svg": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf"
+        },
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+        }
+      },
+      {
+        "id": "fig1-legend-alignment-heading-semantics-20261015",
+        "scope": [
+          "Figure 1"
+        ],
+        "author_direction": "Right-align all plot color keys, tag their semantic role, separate experiment from condition headings, use 3sTrace/10sTrace, move sample counts to captions, remove G Delay experiment heading, retain E local Y boundary/ticks",
+        "property": "legend right edges; centered condition headings; experiment/condition meaning; trace naming; sample-count placement",
+        "status": "verified-for-registered-artists",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+        },
+        "affected_artifact_hashes": {
+          "svg": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+          "legend": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+        }
       }
     ],
     "heatmap_row_numbering": {
@@ -9262,23 +9298,27 @@
       "sha256": "69457d4b4c5a8563c32ce99ec7dc5745c1385fdc6397ece728015b4bbb2edf6a"
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json",
-      "sha256": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
+      "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
     },
     "assembly_scale": {
       "final_width_mm": 183,
-      "final_height_mm": 212.28600976366218
+      "final_height_mm": 215.45732959390574
     },
     "reproduction": {
       "generator": {
-        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/reorder_control_first.py",
-        "sha256": "4dfa7ec2db02c24b5d34e13a821f1791dcc648884250abbb31bfdc7a0b79f464"
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_axis_geometry.py",
+        "sha256": "2e21e299d3026c7ce5a6e9eec198f73978cf2b36d269fff74f112835ce1e57e0"
+      },
+      "browser_helper": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_axis_geometry.cjs",
+        "sha256": "14bccd4663eefe35c3564c633655e8a051f40dab1a882c8e4ab4a7c61a643e42"
       },
       "inputs": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/ordering.json",
-        "sha256": "9d3b37ca6ad7dffdfe771c509e2da5876c84635776c23c1e248c11ba2fc3c932"
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-input.json",
+        "sha256": "f4006888297868e309b4189aa915080050c0738fb7e473ce7cb34c254a7b10ae"
       },
-      "command": "prepare; standard browser collector; refine and recollect if needed; publish --visual-review-note"
+      "command": "style_axis_geometry.cjs; collect bounds and repack; refine_paper_annotations.py; align_paper_annotations.cjs; regenerate pages; collect fresh layout/axis/annotation verification; publish with actual visual review note"
     },
     "condition_order": [
       {

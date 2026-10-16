@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
 from publish_axis_geometry import verify_protection,verify_metrics
 from classical_conditioning.figures.layout_frames import embed_spec
-from classical_conditioning.figure_workspace import sha
+from classical_conditioning.figure_workspace import sha,measured_presentation
 
 
 class AxisGeometryTests(unittest.TestCase):
@@ -26,5 +26,10 @@ class AxisGeometryTests(unittest.TestCase):
         with self.assertRaises(ValueError):verify_metrics(report,b'new-svg')
         report['axes'][0]['tick_label_gaps_mm']=[.4]
         with self.assertRaises(ValueError):verify_metrics(report,b'svg')
+
+    def test_svg_transform_whitespace_is_not_mistaken_for_css(self):
+        raw=self.fixture().replace(b'id="tick"',b'id="tick" transform=" translate(0 1) "')
+        measured_presentation(raw)
+        with self.assertRaises(ValueError):measured_presentation(raw.replace(b'id="tick"',b'id="tick" style="transform:scale(2)"'))
 
 if __name__=='__main__':unittest.main()

@@ -14,7 +14,7 @@ manifest and exact-render layout evidence. All media and numerical payloads are
 under the explicit external destination:
 
 ```text
-/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration
+/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015
 ```
 
 The review has four proposed illustrative cases, a complete cross-method
@@ -41,10 +41,19 @@ in this pilot). `input-lineage.json` records 177 consumed source files.
 
 The heatmap estimator is direct 1 s median log positive bout intensity, minus
 the median of defined baseline-bin medians over −15 to 0 s. All fish use
-fixed limits −1 to +1, with saturation indicated and numerical values retained.
-This display differs deliberately from each classifier's exact transformation;
-the WIP trial plot shows `ln(CR/base)` and five-trial medians. Full cards also
-show baseline and CR conditional means on the same absolute rad/ms scale.
+fixed limits −0.25 to +0.25 with native `managua_r`, undefined intensity black,
+and saturation indicated while numerical values remain unclipped. This matches
+the selected Figure 2 A/Figure 1 F–H heatmap pipeline and color scale. Condition
+marks and trial points use the selected Figure 2 G colors: Control `#00aeef`,
+Delay `#ec008c`.
+The main trial plot uses Figure 2 G's observed outcome: median ln positive
+response-bout vigor [0,9) minus median ln positive baseline-bout vigor [−15,0).
+It shows every available trial and descriptive five-trial medians. Its axis
+includes at least ±0.25 and expands to retain individual observations outside
+that range. No second log or arithmetic-mean-ratio substitution is applied.
+`g-logmedian-outcomes.csv` exports all 5,130 scheduled rows with both source
+log medians. Full cards separately retain the exact WIP `ln(CR/base)` input,
+and baseline/CR conditional arithmetic means on the same absolute rad/ms scale.
 No-bout intensity is undefined. Moving fractions are shown separately.
 
 `movement.valid` measures **detector-eligible observed time**, not independent
@@ -89,7 +98,7 @@ uses the existing isolated legacy worker and leaves the four originals intact.
 For the current review, authenticate without rebuilding:
 
 ```sh
-.venv/bin/python scripts/build_figure3_individual_atlas.py verify --output-dir '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration'
+.venv/bin/python scripts/build_figure3_individual_atlas.py verify --output-dir '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015'
 ```
 
 For an authorized presentation change, `render` checks the prior working-output
@@ -106,14 +115,27 @@ Evidence binds the active 1.0 mm policy and exact artifacts; visual review is
 still required. The saved browser checks and layout evidence accompany the
 artifact manifest. Final source snapshots include the browser checker.
 
+The 2026-10-15 reference-style edit preserves the earlier published review and
+all numerical/classifier bytes. `reference-style.json` binds the exact Figure 2
+references; `numerical-preservation.json` compares 34 input/result files;
+`draft-registry.json` maps the heatmap quantities and condition marks; and
+`consistency-evidence.json` checks exact rendered palette pixels, condition
+colors and colorbar labels. The ±0.25 saturation limit applies to the heatmap log difference,
+not movement fractions or the four classifiers' distinct score scales. Figure
+2 G's response-minus-baseline **log-median** outcome is the main observed trial
+plot by explicit author choice; it remains distinct from the exact legacy
+classifier inputs. This transfers the observed-outcome definition, not G's
+population LMM/bootstrap inference or a new learner recipe.
+
 `publish` deep-authenticates all consumed sources and rendering dependencies,
 reassesses all 58 exact SVGs against browser evidence, checks the starting state
 ticket and publishes only the separate Figure 3 exploratory pointer under the
 supported lock. Changes to other figures' pointers are recorded, never
 overwritten. The first pilot's starting ticket was captured before creation.
 
-Eight targeted tests cover the existing legacy adapter and atlas semantics,
+Nine targeted tests cover the existing legacy adapter and atlas semantics,
 including no-bout versus unavailable detector time, duration weighting,
-unclassified labels and distinct example selection without fabricated agreement.
+unclassified labels, distinct example selection without fabricated agreement,
+and the G outcome's difference of log medians with missingness retained.
 Review the whole atlas before approving examples or deciding a learner method;
 calibration, stability and independent evaluation remain open under Gate L.

@@ -11,14 +11,39 @@ instructions require reading it for figure work even if discovery is unavailable
 Keep the workflow here as the single procedural authority; the skill is an
 entrypoint, not another scientific selection or style specification.
 
+## Nature target and migration status
+
+Author direction, 2026-10-16: use Nature's figure guidance for the next
+paper-figure presentation revision, including the complete element registry,
+scientific identities, typography, layout, captions and delivery checks.
+The [maintained Nature target](nature-style.md) owns the selected rules and
+exact project choices. The [Nature implementation checklist](../../../../Plans/07_FIGURE_BUILD_TOOLS.md#5-nature-main-figure-presentation-profile)
+owns remaining code/artwork work, known fixes and sequence;
+the [source comparison](../../../../records/figure-reviews/nature-guidance-20261016.md)
+links the official guidance. Track implementation in the existing plan index.
+
+The read-only `nature-main` profile resolver and explicit shared-theme adapter
+are implemented; full rendered-artifact checks and artwork migration are pending.
+Use the coding entry point in the maintained guidance for exact values and input
+hashes. Profile lookup does not publish state or execute the freeze gate.
+The DejaVu/8-pt/10-pt/1.2-pt values in existing contracts and version-bound
+procedures describe the prior profile, not Nature compliance. Parameterize
+consumers and reconcile those live rules together when implementing the new
+profile; do not silently apply them to Nature candidates. Preserve compatible
+author rules, including invisible frames, absolute axis spacing, right-aligned
+keys and typed panel/scientific relationships. Current saved drafts remain
+authoritative until replacements pass scoped guarded publication. This direction
+does not select new science, freeze a figure or authorize historical cleanup.
+
 ## Two separate current states
 
 Scientific authority remains the scoped selections linked by
 [Current figures](../README.md). Panel selections supersede older
 whole-assembly sources only within their own scope.
 
-[Figure 1 current state](../figure-01/current-state.json) is the sole presentation
-pointer. It separates:
+Each scoped current state is its figure's presentation authority, including
+[Figure 1](../figure-01/current-state.json) and
+[Figure 2](../figure-02/current-state.json). Figure 1's state separates:
 
 - `scientific_selection`: paths/hashes of the accepted scoped freeze records;
   a summary, not another source of scientific authority.
@@ -609,3 +634,28 @@ the saved candidate without editing it; `publish_axis_geometry.py` protects all
 other scientific payloads and uses the guarded state publisher after passing
 physical geometry, invisible-frame and visual checks. Refresh the collection
 after publication. Recheck these groups after subsequent affected edits.
+
+Author additions, 2026-10-15: every plot color/stimulus key has the canonical
+`legend.key` role and a specific `plot.legend.condition-key` or
+`plot.legend.stimulus-key` tag in the existing draft registry and SVG. Align
+the whole key's right edge to its explicitly named data-axis/reference right
+edge, within 0.01 mm at publication size; use 7 pt regular DejaVu Sans.
+Direct schematic labels next to a stimulus are annotations, not color keys.
+Keep sample/cohort counts in the caption rather than in key text or headings.
+Use the displayed condition names `3sTrace` and `10sTrace` everywhere.
+
+Distinguish `heading.condition` (canonical `title.condition`) from experiment
+scope: center each D/E condition heading over its own data rectangle, with a
+common baseline within the panel. The Delay experiment contains both Control
+and Delay conditions; a mixed-condition trajectory must not carry an ambiguous
+top "Delay" heading. Its key identifies the conditions; its caption identifies
+the experiment and cohort counts. Keep E's own shared-scale Y spine and ticks;
+its numerical labels and quantity title may remain shared with D, as heatmap
+panels retain local ticks while sharing trial labels. Register the restored
+artists and their authenticated common-scale mapping explicitly.
+
+The supported annotation stage is `refine_paper_annotations.py`, followed by
+`align_paper_annotations.cjs`; its `--verify` mode measures the saved candidate.
+This stage may reposition the categorical statistical rows and the complete G
+trajectory plot to keep full-size labels separate, preserving data paths,
+values, text and markers. It does not recompute hypotheses or statistics.

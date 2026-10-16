@@ -264,7 +264,7 @@ def measured_presentation(data, *, width_mm=183.):
     texts=[];strokes=[];ticks=[];maps=[];issues=[]
     def walk(node,matrix,props,opacity,context,in_resource=False):
         local=_props(node);props={**props,**local};opacity*=float(local.get('opacity','1'))
-        if local.get('transform','')!=node.get('transform',''):
+        if local.get('transform','')!=node.get('transform','').strip():
             raise ValueError('Resolve CSS transforms into SVG transform attributes before measurement')
         for property_name in ('mask','filter','vector-effect','mix-blend-mode'):
             if local.get(property_name,'none') not in {'none','normal'}:

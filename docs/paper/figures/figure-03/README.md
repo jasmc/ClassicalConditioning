@@ -1,6 +1,8 @@
 # Figure 3: Individual learning representation and validation
 
-A–F remain proposed; individual-learning method and validation gates remain open.
+A–E have a single-path main-paper draft; individual-learning method and validation gates remain open.
+The [scoped draft state](current-state.json) selects its SVG, HTML and legend.
+Reproduction and limitations are in the [main-paper draft guide](../../../running-analysis/figure3-main-paper-draft.md).
 
 Author direction, 2026-10-15: Figure 3 uses only tail bend angular speed
 (`legacy_distal_angular_speed`). The historical 59-fish and 53-fish 3sTrace
@@ -14,6 +16,13 @@ This metric restriction does not approve the historical classifier or a panel.
 - [Exploratory atlas: implementation, outputs and limitations](../../../running-analysis/figure3-individual-atlas.md)
 - [Separate exploratory display state](exploratory-state.json) — 57 Delay/control fish; no paper method selected
 
+Author direction, 2026-10-15: all exploratory heatmaps use the selected
+Figure 2/Figure 1 `managua_r` scale at −0.25 to +0.25, missing intensity black;
+condition marks use Figure 2 G's colors. Main individual trial plots use G's
+response-minus-baseline log-median outcome; full cards retain exact legacy
+classifier inputs separately. This selects the observed display quantity,
+not a learner method or the population model for individual inference.
+
 
 Scientific authority: [scoped selection index](../../../../records/frozen-analyses/selections.md). Use [shared methods](../../methods/README.md) rather than duplicating cross-figure contracts.
 
@@ -25,16 +34,32 @@ These roles describe the paper composition; proposed panels have no accepted fre
 
 | Panel | Purpose |
 |---|---|
-| A | Exact trial/epoch inputs and classification workflow |
-| B | All-fish continuous features/scores, decision criteria, eligibility and class counts |
-| C | Selected illustrative learner fish: matched heatmaps, trial outcomes and decision evidence |
-| D | Selected illustrative nonlearner fish using the same display and scales |
-| E | Borderline, discordant or insufficient-information cases; main versus supplementary placement remains to be reviewed |
-| F | All-eligible-fish calibration, stability and validation, distinguished from same-data illustration |
+| A | Define the G trial outcome and Pre-minus-late-training acquisition contrast |
+| B | One acquisition score per fish; controls provide a reference, and example fish are identified |
+| C | Illustrative larger acquisition contrast (20240618_08) |
+| D | Illustrative intermediate contrast (20240618_02) |
+| E | Illustrative near-zero contrast (20240612_08) |
+
+Author correction, 2026-10-16: the main figure contains only the recommended
+analysis path, not competing classifier recipes. It follows G observed trial
+outcomes → one acquisition contrast → examples illustrating that same contrast.
+The four legacy methods, their count comparison and disagreement illustrations
+remain in the exploratory review; they do not appear in the main figure.
+
+The score table retains all 57 fish. Main cards use shared heatmap/trial scales
+and explicitly display the two epoch medians used in the score. Example titles
+describe continuous magnitudes rather than learner classes. The recommendation
+for this descriptive draft follows the [method review](../../methods/individual-learning.md):
+transparent acquisition contrasts avoid requiring recovery, while individual
+model coverage and categorical calibration remain unresolved. Neither a binary
+threshold nor individual uncertainty is approved. This presentation correction
+does not close Gate L or claim an independently validated best method.
+Trace inputs remain pending. All fish and exact legacy classifier inputs remain
+available through the separate [exploratory state](exploratory-state.json).
 
 Author direction, 2026-10-15: deliberately choose a few illustrative fish for
-the main paper and show all fish in supplementary data. C–E form an individual-
-example module; exact card count and lettering remain proposed. The complete
+the main paper and show all fish in supplementary data. C–E form the current three-fish individual-example module; final selection
+remains reviewable. The complete
 atlas accounts for excluded/unclassified fish and unavailable recordings as
 well as classified fish. Aggregate Control/Learner/Nonlearner behavioral
 comparisons within/across experiments belong in Figure 4 only. Controls here

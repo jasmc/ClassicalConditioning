@@ -248,3 +248,18 @@ Unresolved decisions are the learner recipe, numerical eligibility/coverage
 rules, exact heatmap transformation/bin, number of main examples and whether
 one pair per experiment fits. Resolve these from the full atlas and applicable
 scientific review; this design does not invent approvals.
+
+## Current main-paper draft
+
+The [current draft composition](README.md) uses one G-based acquisition path
+throughout. C–E illustrate larger (20240618_08), intermediate (20240618_02), and
+near-zero (20240612_08) Pre-minus-late-training contrasts. These are explanatory
+examples selected by observed magnitude, not representative sampling or binary
+learner assignments. Four-rule comparisons and discordance remain exploratory
+supplementary material. All 57 full cards remain available.
+
+Main cards share a −0.6 to +0.6 G trial axis containing every illustrated
+observation, direct1sec heatmaps at ±0.25, and movement strips. Black horizontal
+bars mark the two observed epoch medians entering the score; five-trial medians
+remain pink. The contrast does not require recovery. Exact legacy inputs and
+labels remain intact in the atlas, outside the main-paper analysis path.

@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "html_sha256": "f8ea21a44b1df0e368fa925589aee4de0a6a7508ed73e2592f01e851b45fc925",
+  "scope": "Physical axes, D/E example labels, restored E Y boundary, typed color-key legends, condition/experiment headings, trace names and caption sample counts",
+  "figures": [
+    {
+      "figure_id": "fig1",
+      "state": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+        "sha256": "7954b59179d576bd7f56803504e09474c60073d63822c1cedf318b7bb55de50d"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+        "sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+        "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+      },
+      "legend": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+        "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+      },
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
+        "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+      },
+      "registered_axes": 24,
+      "ticks_verified": 101,
+      "legend_groups": [
+        {
+          "element_id": "edit-B-heading",
+          "panel": "B",
+          "semantic_tag": "plot.legend.stimulus-key",
+          "scientific_role": "legend.key",
+          "alignment_reference": {
+            "element_id": "edit-B-time-axis-delay"
+          },
+          "right_edge_delta_mm": -4.454312147572637e-06,
+          "experiment": null,
+          "entries": [
+            {
+              "element_id": "edit-B-node-5",
+              "label": "CS",
+              "size_pt": 6.999986563750438,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 4.481407812832125,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "edit-B-node-4",
+                "xml_index_path": [
+                  2,
+                  0,
+                  2,
+                  0
+                ]
+              }
+            },
+            {
+              "element_id": "edit-B-node-7",
+              "label": "US",
+              "size_pt": 6.999986563750438,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 4.481407812832125,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "edit-B-node-6",
+                "xml_index_path": [
+                  2,
+                  0,
+                  2,
+                  2
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "element_id": "edit-C-stimulus-key",
+          "panel": "C",
+          "semantic_tag": "plot.legend.stimulus-key",
+          "scientific_role": "legend.key",
+          "alignment_reference": {
+            "local_right_edge": 1585
+          },
+          "right_edge_delta_mm": -6.205011885640488e-06,
+          "experiment": null,
+          "entries": [
+            {
+              "element_id": "edit-C-node-5",
+              "label": "CS",
+              "size_pt": 6.999967214633146,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 50.75823348200314,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "edit-C-node-4",
+                "xml_index_path": [
+                  3,
+                  0,
+                  2,
+                  0
+                ]
+              }
+            },
+            {
+              "element_id": "edit-C-node-7",
+              "label": "short US",
+              "size_pt": 6.999967214633146,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 50.75823348200314,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "edit-C-node-6",
+                "xml_index_path": [
+                  3,
+                  0,
+                  2,
+                  2
+                ]
+              }
+            },
+            {
+              "element_id": "edit-C-node-9",
+              "label": "long US",
+              "size_pt": 6.999967214633146,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 50.75823348200314,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "edit-C-node-8",
+                "xml_index_path": [
+                  3,
+                  0,
+                  2,
+                  4
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "condition_headings": [],
+      "axis_geometry": {
+        "tick_length_pt": 2.0,
+        "tick_stroke_width_pt": 0.5,
+        "tick_color": "#000000",
+        "tick_linecap": "butt",
+        "tick_label_size_pt": 7.0,
+        "axis_title_size_pt": 8.0,
+        "tick_label_edge_gap_pt": 3.0,
+        "title_label_edge_gap_pt": 3.0,
+        "measurement_tolerance_mm": 0.01,
+        "font_size_tolerance_pt": 0.01
+      },
+      "source_scientific_selection_unchanged": true
+    },
+    {
+      "figure_id": "fig2",
+      "state": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+        "sha256": "7a40978f11e3e869e46f15fa556526f0b225775f7ff0cffb7c886228e5e27d3e"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+        "sha256": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3"
+      },
+      "legend": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+        "sha256": "5da5dcdf2abfe40750617b21fc9c85c7f127992a5b24ffe70d96f32335b91d85"
+      },
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-axis-evidence.json",
+        "sha256": "e1e51e2322e5e2ee93ea648eaa0343f1bcc0d2aa3df4aaff0c06089b8ed08402"
+      },
+      "registered_axes": 25,
+      "ticks_verified": 114,
+      "legend_groups": [
+        {
+          "element_id": "legend_1",
+          "panel": "G",
+          "semantic_tag": "plot.legend.condition-key",
+          "scientific_role": "legend.key",
+          "alignment_reference": {
+            "element_id": "fig2__g__native__spine-bottom"
+          },
+          "right_edge_delta_mm": 2.4209636094951748e-05,
+          "experiment": "Delay",
+          "entries": [
+            {
+              "element_id": "fig2-legend-element-5-0-2-1-14-1-0",
+              "label": "Control",
+              "size_pt": 6.999971230335498,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 173.2984372126538,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "line2d_3",
+                "xml_index_path": [
+                  5,
+                  0,
+                  2,
+                  1,
+                  14,
+                  0
+                ]
+              }
+            },
+            {
+              "element_id": "fig2-legend-element-5-0-2-1-14-3-0",
+              "label": "Delay",
+              "size_pt": 6.999971230335498,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 173.2984372126538,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "line2d_4",
+                "xml_index_path": [
+                  5,
+                  0,
+                  2,
+                  1,
+                  14,
+                  2
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "element_id": "edit-H-legend_1",
+          "panel": "H",
+          "semantic_tag": "plot.legend.condition-key",
+          "scientific_role": "legend.key",
+          "alignment_reference": {
+            "element_id": "edit-H-patch_2"
+          },
+          "right_edge_delta_mm": 3.209502418144439e-05,
+          "experiment": "3sTrace",
+          "entries": [
+            {
+              "element_id": "edit-H-node-109",
+              "label": "Control",
+              "size_pt": 6.999968322966048,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 143.1393628235735,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "edit-H-line2d_15",
+                "xml_index_path": [
+                  6,
+                  0,
+                  2,
+                  1,
+                  12,
+                  0
+                ]
+              }
+            },
+            {
+              "element_id": "edit-H-node-113",
+              "label": "3sTrace",
+              "size_pt": 6.999968322966048,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 144.68304618842197,
+              "scientific_role": "legend.key",
+              "glyph_artist": {
+                "element_id": "edit-H-line2d_16",
+                "xml_index_path": [
+                  6,
+                  0,
+                  2,
+                  1,
+                  12,
+                  2
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "condition_headings": [
+        {
+          "element_id": "edit-D-fig2__d__delay__condition-title",
+          "panel": "D",
+          "semantic_tag": "heading.condition",
+          "scientific_role": "title.condition",
+          "experiment": "Delay",
+          "condition": "Delay",
+          "alignment_reference": "edit-D-fig2__d__delay__background",
+          "alignment": "glyph center over own data-axis rectangle; common baseline within panel",
+          "center_delta_mm": 0,
+          "text_metrics": [
+            {
+              "element_id": "edit-D-node-540",
+              "label": "Delay",
+              "size_pt": 7.9999656926194564,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 84.46845213538299
+            }
+          ]
+        },
+        {
+          "element_id": "edit-D-fig2__d__control__condition-title",
+          "panel": "D",
+          "semantic_tag": "heading.condition",
+          "scientific_role": "title.condition",
+          "experiment": "Delay",
+          "condition": "Control",
+          "alignment_reference": "edit-D-fig2__d__control__background",
+          "alignment": "glyph center over own data-axis rectangle; common baseline within panel",
+          "center_delta_mm": -2.689959565316258e-06,
+          "text_metrics": [
+            {
+              "element_id": "edit-D-node-544",
+              "label": "Control",
+              "size_pt": 7.9999656926194564,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 84.46845213538299
+            }
+          ]
+        },
+        {
+          "element_id": "edit-E-fig2__e__trace__condition-title",
+          "panel": "E",
+          "semantic_tag": "heading.condition",
+          "scientific_role": "title.condition",
+          "experiment": "3sTrace",
+          "condition": "3sTrace",
+          "alignment_reference": "edit-E-fig2__e__trace__background",
+          "alignment": "glyph center over own data-axis rectangle; common baseline within panel",
+          "center_delta_mm": 3.3624494548689654e-06,
+          "text_metrics": [
+            {
+              "element_id": "edit-E-node-567",
+              "label": "3sTrace",
+              "size_pt": 7.9999656926194564,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 84.46845213538299
+            }
+          ]
+        },
+        {
+          "element_id": "edit-E-fig2__e__control__condition-title",
+          "panel": "E",
+          "semantic_tag": "heading.condition",
+          "scientific_role": "title.condition",
+          "experiment": "3sTrace",
+          "condition": "Control",
+          "alignment_reference": "edit-E-fig2__e__control__background",
+          "alignment": "glyph center over own data-axis rectangle; common baseline within panel",
+          "center_delta_mm": -2.6899595795271125e-06,
+          "text_metrics": [
+            {
+              "element_id": "edit-E-node-571",
+              "label": "Control",
+              "size_pt": 7.9999656926194564,
+              "family": "\"DejaVu Sans\", sans-serif",
+              "weight": "400",
+              "baseline_mm": 84.46845213538299
+            }
+          ]
+        }
+      ],
+      "axis_geometry": {
+        "tick_length_pt": 2.0,
+        "tick_stroke_width_pt": 0.5,
+        "tick_color": "#000000",
+        "tick_linecap": "butt",
+        "tick_label_size_pt": 7.0,
+        "axis_title_size_pt": 8.0,
+        "tick_label_edge_gap_pt": 3.0,
+        "title_label_edge_gap_pt": 3.0,
+        "measurement_tolerance_mm": 0.01,
+        "font_size_tolerance_pt": 0.01
+      },
+      "source_scientific_selection_unchanged": true
+    }
+  ],
+  "browser": {
+    "html_sha256": "f8ea21a44b1df0e368fa925589aee4de0a6a7508ed73e2592f01e851b45fc925",
+    "reports": [
+      {
+        "id": "fig1",
+        "artwork": {
+          "x": 154.171875,
+          "y": 24,
+          "width": 691.640625,
+          "height": 814.296875,
+          "top": 24,
+          "right": 845.8125,
+          "bottom": 838.296875,
+          "left": 154.171875
+        },
+        "legend": {
+          "x": 154.171875,
+          "y": 849.625,
+          "width": 691.640625,
+          "height": 626.125,
+          "top": 849.625,
+          "right": 845.8125,
+          "bottom": 1475.75,
+          "left": 154.171875
+        },
+        "fonts": [
+          "\"fig1--DejaVu Sans\", sans-serif",
+          "\"fig1--DejaVu Sans\", sans-serif",
+          "\"fig1--DejaVu Sans\", sans-serif"
+        ]
+      },
+      {
+        "id": "fig2",
+        "artwork": {
+          "x": 154.171875,
+          "y": 1521.09375,
+          "width": 691.640625,
+          "height": 768.8125,
+          "top": 1521.09375,
+          "right": 845.8125,
+          "bottom": 2289.90625,
+          "left": 154.171875
+        },
+        "legend": {
+          "x": 154.171875,
+          "y": 2301.234375,
+          "width": 691.640625,
+          "height": 695.078125,
+          "top": 2301.234375,
+          "right": 845.8125,
+          "bottom": 2996.3125,
+          "left": 154.171875
+        },
+        "fonts": [
+          "\"fig2--DejaVu Sans\", sans-serif",
+          "\"fig2--DejaVu Sans\", sans-serif",
+          "\"fig2--DejaVu Sans\", sans-serif"
+        ]
+      }
+    ],
+    "mobile": {
+      "width": 360,
+      "scrollWidth": 360,
+      "figures": 2
+    },
+    "errors": []
+  },
+  "embedding_comparison": {
+    "1": {
+      "mean_absolute_difference_255": 4.039827062425381,
+      "bbox": [
+        3,
+        4,
+        689,
+        811
+      ],
+      "compared_size": [
+        692,
+        815
+      ]
+    },
+    "2": {
+      "mean_absolute_difference_255": 2.0018046358030723,
+      "bbox": [
+        3,
+        3,
+        689,
+        766
+      ],
+      "compared_size": [
+        692,
+        769
+      ]
+    }
+  },
+  "embedding_visual_review": "Compared each selected standalone SVG with its collection rendering; appearance agrees. Nonzero pixel differences remain from subpixel rasterization; pixel identity is not claimed. Embedded SVGs preserve source geometry/resources under ID and font-family namespacing.",
+  "print_review": {
+    "pages": 4,
+    "format": "A4",
+    "review": "All four pages rasterized and inspected: each complete SVG remains together at publication width, headings and caption continuations are present, no new clipped artwork observed."
+  },
+  "built_in_browser": "Refreshed existing collection tab and visually inspected Figure 2 D/E/G/H with updated keys and captions",
+  "tests": {
+    "passed": 32,
+    "framework": "unittest",
+    "modules": [
+      "paper_annotation_semantics",
+      "axis_registration",
+      "axis_geometry",
+      "main_paper_figures",
+      "layout_frames",
+      "panel_relationships"
+    ]
+  },
+  "limitations": [
+    "Scientific identification and unregistered annotation typography remain partial; this is not a whole-figure freeze",
+    "B retains its earlier estimator; H retains its distinct ratio outcome; Pending panels retain no scientific result",
+    "No cross-panel cohort equality is inferred from layout or counts"
+  ],
+  "freeze_created": false,
+  "source_ticket": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/starting-ticket.json",
+    "sha256": "d33ff16933a58f494d9087e8e17df8b21a0c3d28b6d6c1d98842fe2ebcb04701"
+  },
+  "generators": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_axis_geometry.py",
+      "sha256": "2e21e299d3026c7ce5a6e9eec198f73978cf2b36d269fff74f112835ce1e57e0"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_axis_geometry.cjs",
+      "sha256": "14bccd4663eefe35c3564c633655e8a051f40dab1a882c8e4ab4a7c61a643e42"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/refine_paper_annotations.py",
+      "sha256": "ef4f32c2c39c41ad305da63a0ded30548a8df516871ec7e6e388ca0ddd625c58"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/align_paper_annotations.cjs",
+      "sha256": "c27463af012942c9f43738297ca4c69e66dc435f2aded8b57206b21f9f916ef4"
+    }
+  ]
+}

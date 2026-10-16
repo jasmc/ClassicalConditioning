@@ -27,30 +27,19 @@
     "status": "Presentation draft with verified 1 mm invisible frames; inherited unfinished scientific scopes retained",
     "working_svg": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
-      "sha256": "fbeacee0ed415d3dcb2babb2ce76c2edd731e6228fcb894d4578d8562153af95"
+      "sha256": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3"
     },
     "review": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
-      "sha256": "88bb932b29d53f67c24bad78b8507411238ee4ced019a90a26cef5fbd7faef0d"
+      "sha256": "f2b9a8ee4a9f797aa7c1e260b6902bd6c3874e439eb2c6bbea131ec267a3da77"
     },
     "legend": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
-      "sha256": "39b22b9e94b0f9494a3c88df1bc1ca79c16da5de0ac194a54120a2e1970897e8",
-      "panel_ids": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I"
-      ]
+      "sha256": "5da5dcdf2abfe40750617b21fc9c85c7f127992a5b24ffe70d96f32335b91d85"
     },
     "semantic_registry": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-draft-registry.json",
-      "sha256": "0244378adb30d1d4c8178027039fe02a8038d1556cca4628206c3d41c3deb5af"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-semantic-registry.json",
+      "sha256": "3d404c80920ee7cba04c969cb6b4979ea58a653cc113061d728f35f2792abce9"
     },
     "consistency_requests": [
       {
@@ -594,31 +583,79 @@
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-layout-evidence.json",
           "sha256": "124a46870975c3fc08ebdce2c213891b90e31b4e727fa358f89ccabd7a37b53d"
         }
+      },
+      {
+        "id": "fig2-axis-physical-geometry-20261015",
+        "author_direction": "Exact physical axis-title/tick-label/tick gaps; identical horizontal/vertical ticks and D/E example-label sizes",
+        "scope": [
+          "Figure 2"
+        ],
+        "status": "verified-for-registered-axis-artists",
+        "expected": {
+          "tick_length_pt": 2.0,
+          "tick_stroke_width_pt": 0.5,
+          "tick_color": "#000000",
+          "tick_linecap": "butt",
+          "tick_label_size_pt": 7.0,
+          "axis_title_size_pt": 8.0,
+          "tick_label_edge_gap_pt": 3.0,
+          "title_label_edge_gap_pt": 3.0,
+          "measurement_tolerance_mm": 0.01,
+          "font_size_tolerance_pt": 0.01
+        },
+        "affected_artifact_hashes": {
+          "svg": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3"
+        },
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-axis-evidence.json",
+          "sha256": "e1e51e2322e5e2ee93ea648eaa0343f1bcc0d2aa3df4aaff0c06089b8ed08402"
+        }
+      },
+      {
+        "id": "fig2-legend-alignment-heading-semantics-20261015",
+        "scope": [
+          "Figure 2"
+        ],
+        "author_direction": "Right-align all plot color keys, tag their semantic role, separate experiment from condition headings, use 3sTrace/10sTrace, move sample counts to captions, remove G Delay experiment heading, retain E local Y boundary/ticks",
+        "property": "legend right edges; centered condition headings; experiment/condition meaning; trace naming; sample-count placement",
+        "status": "verified-for-registered-artists",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-axis-evidence.json",
+          "sha256": "e1e51e2322e5e2ee93ea648eaa0343f1bcc0d2aa3df4aaff0c06089b8ed08402"
+        },
+        "affected_artifact_hashes": {
+          "svg": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3",
+          "legend": "5da5dcdf2abfe40750617b21fc9c85c7f127992a5b24ffe70d96f32335b91d85"
+        }
       }
     ],
     "reproduction": {
       "generator": {
-        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/reorder_control_first.py",
-        "sha256": "4dfa7ec2db02c24b5d34e13a821f1791dcc648884250abbb31bfdc7a0b79f464"
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_axis_geometry.py",
+        "sha256": "2e21e299d3026c7ce5a6e9eec198f73978cf2b36d269fff74f112835ce1e57e0"
+      },
+      "browser_helper": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_axis_geometry.cjs",
+        "sha256": "14bccd4663eefe35c3564c633655e8a051f40dab1a882c8e4ab4a7c61a643e42"
       },
       "inputs": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/ordering.json",
-        "sha256": "9d3b37ca6ad7dffdfe771c509e2da5876c84635776c23c1e248c11ba2fc3c932"
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-input.json",
+        "sha256": "8899c0bc2a4a6fdebf9b3af748a6ddf735397a2d107507e859ca51d9a9e66632"
       },
-      "command": "prepare; standard browser collector; refine and recollect if needed; publish --visual-review-note"
+      "command": "style_axis_geometry.cjs; collect bounds and repack; refine_paper_annotations.py; align_paper_annotations.cjs; regenerate pages; collect fresh layout/axis/annotation verification; publish with actual visual review note"
     },
     "assembly_scale": {
       "final_width_mm": 183,
-      "final_height_mm": 194.09484035374314,
+      "final_height_mm": 203.4216241189558,
       "A_native_scale": 1
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-layout-evidence.json",
-      "sha256": "124a46870975c3fc08ebdce2c213891b90e31b4e727fa358f89ccabd7a37b53d"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-layout-evidence.json",
+      "sha256": "45aa07568af754fa09d0a696d0d29af7803a2a5da388f11c63da297e17a57052"
     },
     "effective_presentation": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-02-effective-presentation.json",
-      "sha256": "29243b37bce24f2ff0451393eb310574f91200f5ccd113657ea9903c756d7932"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-effective-presentation.json",
+      "sha256": "df80c319bcba366783cf8f7ffd36e19b218451d51e1eb80381410c7c40556124"
     },
     "condition_order": [
       {

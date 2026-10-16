@@ -1,7 +1,7 @@
-"""Immutable visual language for scientific Matplotlib figures.
+"""Shared Matplotlib visual parameters with legacy defaults and opt-in profiles.
 
-Review note: all figure builders use these shared dimensions, colours, fonts,
-and axes conventions so output is consistent across modules and systems.
+Renderers must opt in explicitly; this module does not restyle saved artwork or
+certify final glyph geometry, resource embedding or scientific identity.
 """
 
 from __future__ import annotations
@@ -57,12 +57,15 @@ def condition_color(spec: ConditionSpec) -> tuple[float, float, float]:
     return rgb_255_to_unit(spec.color_rgb_255)
 
 
-def resolve_sans_serif_fonts() -> tuple[str, ...]:
-    """Use Matplotlib's bundled font consistently across systems."""
+def resolve_sans_serif_fonts(
+    preferred: tuple[str, ...] = PREFERRED_SANS_SERIF,
+) -> tuple[str, ...]:
+    """Resolve one declared face; never silently substitute an undeclared font."""
     available = {font.name for font in fontManager.ttflist}
-    if "DejaVu Sans" not in available:
-        raise RuntimeError("Matplotlib's DejaVu Sans font is unavailable.")
-    return PREFERRED_SANS_SERIF
+    for family in preferred:
+        if family in available:
+            return (family,)
+    raise RuntimeError(f"Declared figure font is unavailable: {', '.join(preferred)}")
 
 
 def stimulus_duration_s(
@@ -120,6 +123,12 @@ class FigureTheme:
     constrained_w_pad: float = 0.04
     left_spine_offset: float = 0.0
     bottom_spine_offset: float = 0.0
+    # Explicit profiles may choose another declared face; legacy output stays bundled.
+    font_sans_serif: tuple[str, ...] = PREFERRED_SANS_SERIF
+    font_style: str | None = None
+    font_weight: str | None = None
+    text_color: str | None = None
+    tick_color: str | None = None
 
 
 # Default theme is a reusable immutable value, not mutable global plotting state.
@@ -127,20 +136,29 @@ DEFAULT_THEME = FigureTheme()
 
 
 # Share one immutable default theme across figure builders.
-def get_theme() -> FigureTheme:
-    return DEFAULT_THEME
+def get_theme(*, profile: str | None = None) -> FigureTheme:
+    if profile is None:
+        return DEFAULT_THEME
+    from classical_conditioning.figures.presentation_profiles import load_presentation_profile
+    return FigureTheme(**load_presentation_profile(profile).theme_parameters())
 
 
 def apply_theme(theme: FigureTheme | None = None) -> FigureTheme:
     """Apply the scientific theme to Matplotlib rcParams."""
     # Resolve optional override and installed fonts before updating global rcParams.
     theme = theme or DEFAULT_THEME
-    sans = list(resolve_sans_serif_fonts())
+    sans = list(resolve_sans_serif_fonts(theme.font_sans_serif))
     # Apply typography, axes, layout, export, and no-LaTeX portability settings together.
     mpl.rcParams.update(
         {
             "font.family": "sans-serif",
             "font.sans-serif": sans,
+            **({"font.style": theme.font_style} if theme.font_style is not None else {}),
+            **({"font.weight": theme.font_weight} if theme.font_weight is not None else {}),
+            **({"text.color": theme.text_color} if theme.text_color is not None else {}),
+            **({key: theme.tick_color for key in (
+                "xtick.color", "ytick.color", "xtick.labelcolor", "ytick.labelcolor",
+            )} if theme.tick_color is not None else {}),
             "font.size": theme.font_size,
             "axes.labelsize": theme.axes_labelsize,
             "axes.titlesize": theme.axes_titlesize,

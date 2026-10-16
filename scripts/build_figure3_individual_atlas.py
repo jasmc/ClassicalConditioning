@@ -20,7 +20,7 @@ import numpy as np
 import pandas as pd
 from classical_conditioning.analysis.review.individual_atlas import prepare,classify,sha,save_json,VARIANTS
 from classical_conditioning.figure_workspace import Snapshot,publish_state,state_lock
-from classical_conditioning.figures.individual_atlas import render,results_for,decision,feature_value,score_value
+from classical_conditioning.figures.individual_atlas import render,results_for,decision,feature_value,score_value,COLOURS,HEATMAP_LIMIT
 
 STATE=ROOT/'docs/paper/figures/figure-03/exploratory-state.json'
 G_ROOT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02')
@@ -99,6 +99,15 @@ def render_guarded(out):
         classification_manifest(out)
         inputs=[out/'trial-data.parquet',out/'heatmaps.npz',out/'fish-inventory.csv',
             *sorted((out/'classifiers').glob('*/*.parquet')),*source_paths()]
+        if (out/'reference-style.json').exists():
+            reference=json.loads((out/'reference-style.json').read_text())
+            if reference['condition_colors']!=COLOURS or reference['heatmap_limits']!=[-HEATMAP_LIMIT,HEATMAP_LIMIT]:
+                raise ValueError('Figure 3 style differs from authenticated Figure 2 reference')
+            inputs.append(out/'reference-style.json')
+            for record in reference['references']:
+                if sha(record['path'])!=record['sha256']:
+                    raise ValueError('Changed Figure 2 reference: '+record['path'])
+                inputs.append(Path(record['path']))
         snapshot={str(p):sha(p) for p in inputs}
         with tempfile.TemporaryDirectory(dir=out,prefix='.render-') as temp:
             temp=Path(temp)
@@ -108,7 +117,7 @@ def render_guarded(out):
             for p,h in snapshot.items():
                 if sha(p)!=h:raise ValueError('Source/input changed while rendering: '+p)
             check_outputs(out)
-            names=['overview.svg','review.html','legend.md','selected-examples.json','card-svg-data.json']
+            names=['overview.svg','review.html','legend.md','selected-examples.json','card-svg-data.json','g-logmedian-outcomes.csv']
             # Keep a previous matching pair recoverable when refining this unpublished review.
             if (out/'review.html').exists():
                 history=out/'history';history.mkdir(exist_ok=True)
@@ -153,7 +162,18 @@ def publish(out):
         if actual['status']!='passed' or actual['artifact_sha256']!=layout[name]['artifact_sha256']:
             raise ValueError('Stale/invalid exact-render evidence: '+name)
     ticket=json.loads((out/'start-ticket.json').read_text())
-    snapshot=Snapshot([STATE])
+    bound=[STATE,out/'start-ticket.json',out/'render-inputs.json',out/'render-outputs.json',evidence,
+           *[Path(r['path']) for r in json.loads((out/'render-inputs.json').read_text())],
+           *[out/r['path'] for r in json.loads((out/'render-outputs.json').read_text())]]
+    for name in ['draft-registry.json','consistency-evidence.json','visual-review.json']:
+        if (out/name).exists():bound.append(out/name)
+    snapshot=Snapshot(bound)
+    for r in json.loads((out/'render-inputs.json').read_text()):
+        if snapshot.hashes[str(Path(r['path']).resolve())]!=r['sha256']:
+            raise ValueError('Changed presentation input before publication: '+r['path'])
+    for r in json.loads((out/'render-outputs.json').read_text()):
+        if snapshot.hashes[str((out/r['path']).resolve())]!=r['sha256']:
+            raise ValueError('Manual output edit before publication: '+r['path'])
     if snapshot.hashes[str(STATE.resolve())]!=ticket['state_before']:
         raise ValueError('Exploratory state changed since starting ticket')
     # Current pointers of unrelated work may advance; record, never overwrite them.
@@ -175,6 +195,17 @@ def publish(out):
         'limitations':['Delay/control only: authenticated processed Trace inputs unavailable in checked mounted roots',
             'All legacy default labels use acquisition and recovery, including late Test; descriptive, not held-out validation',
             'Legacy fit warnings and numerical fallbacks retained; individual uncertainty and method remain unapproved']}
+    if (out/'draft-registry.json').exists():
+        state['semantic_registry']=record('draft-registry.json')
+        state['consistency_requests']=[{'id':'fig3-figure2-heatmap-scale-and-G-colors-20261015',
+            'scope':'All 57 full fish cards and four illustrative cards',
+            'author_direction':'Use Figure 2 analysis and plotting scales/colors (0.25)',
+            'properties':['native managua_r at -0.25 to +0.25; undefined intensity black',
+                          'selected Figure 2 G condition colors',
+                          'unchanged source heatmap values and original classifier decisions'],
+            'evidence':record('consistency-evidence.json'),'status':'verified for listed properties'}]
+    # Recheck the final manifest and all bound presentation data under publication lock.
+    snapshot.hashes[str((out/'artifact-manifest.json').resolve())]=sha(out/'artifact-manifest.json')
     publish_state(STATE,state,snapshot)
     print(STATE,flush=True)
 

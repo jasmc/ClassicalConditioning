@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-16",
+  "scope": "Figure 3 main-paper correction; single analysis path A-E",
+  "author_direction": "figure must only contain the best analysis path",
+  "status": "unfrozen descriptive draft published",
+  "state": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json",
+    "sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6"
+  },
+  "output_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016",
+  "recommended_path": "G observed trial outcome -> Pre-minus-late-training acquisition contrast -> same-score individual examples",
+  "removed_from_main": [
+    "Legacy-method comparison",
+    "WIP-based titles and labels",
+    "Rule-disagreement example"
+  ],
+  "panels": {
+    "A": "G observed outcome and acquisition definition",
+    "B": "All 57 individual acquisition scores",
+    "C": "20240618_08; larger contrast",
+    "D": "20240618_02; intermediate contrast",
+    "E": "20240612_08; near-zero contrast"
+  },
+  "verification": {
+    "visual_review": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/visual-review.json",
+      "sha256": "25c0c4d3e59af9b29c469cc20cbbce1a8857c04db1e5b33f45f376903a38e462"
+    },
+    "artifact_manifest": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/artifact-manifest.json",
+      "sha256": "62e05710f087865d6056c6dc3acf617efbec1a7b14c5c085884bf5e7838d4d63"
+    }
+  },
+  "layout_frames": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/layout-evidence.json",
+    "sha256": "bf3a45219c921a076861a86f584ee5c14547153672412255760db4de0960ce19"
+  },
+  "targeted_tests": {
+    "passed": 12,
+    "run": 12
+  },
+  "display": {
+    "url": "http://127.0.0.1:8776/review.html",
+    "verified": "Built-in browser DOM and exact figure visual review"
+  },
+  "preserved": [
+    "Previous main-paper assembly bytes and state",
+    "Exploratory atlas with original legacy methods",
+    "Other figures and main collection"
+  ],
+  "limitations": [
+    "No final learner method selected; G acquisition score is descriptive only",
+    "Retrospective observations and examples do not validate learner categories",
+    "Delay/control pilot; full Trace inputs pending"
+  ]
+}

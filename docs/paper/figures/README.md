@@ -11,6 +11,7 @@ The first paper release covers Figures 1–4. Figure folders are the main worksp
 
 - [Iteration and handoff](shared/iteration-workflow.md): SVG working copies, review HTML and guarded state publication.
 - [Shared assembly safeguards](shared/assembly-preflight.md)
+- [Nature presentation target and coding entry point](shared/nature-style.md): shared profile/roles, exact values and remaining render checks.
 - [Cross-figure editorial notes](shared/review.md)
 - [Exact scientific selections](../../../records/frozen-analyses/selections.md)
 - [Methods](../methods/README.md), [decisions](../decisions.md) and [paper-wide review](../review.md)

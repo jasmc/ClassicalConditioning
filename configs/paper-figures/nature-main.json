@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "profile_id": "nature-main",
+  "version": "1.0.0",
+  "selected_on": "2026-10-16",
+  "sources_retrieved_on": "2026-10-16",
+  "scope": "Nature main research artwork; explicit opt-in, no current-artwork migration",
+  "base_contract": "configs/paper-figures/figure-elements.json",
+  "layout_policy": "configs/paper-figures/layout-frames.json",
+  "sources": {
+    "specifications": "https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/",
+    "production": "https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/",
+    "final": "https://www.nature.com/nature/for-authors/final-submission",
+    "formatting": "https://www.nature.com/nature/for-authors/formatting-guide",
+    "integrity": "https://research-figure-guide.nature.com/figures/image-integrity/",
+    "extended_data": "https://research-figure-guide.nature.com/figures/extended-data-formatting-guidelines/",
+    "ai": "https://www.nature.com/nature-portfolio/editorial-policies/ai"
+  },
+  "rules": {
+    "journal.dimensions": {
+      "origin": "journal-requirement",
+      "sources": ["production", "final"],
+      "value": {"widths_mm": [89, 183], "conditional_width_range_mm": [120, 136], "max_height_mm": 170}
+    },
+    "journal.text": {
+      "origin": "journal-requirement",
+      "sources": ["specifications"],
+      "value": {"ordinary_min_pt": 5, "ordinary_max_pt": 7, "panel_letter_pt": 8, "panel_letter_case": "lower", "panel_letter_weight": "bold", "panel_letter_style": "normal", "same_family_across_paper": true, "editable": true, "outlined": false}
+    },
+    "journal.stroke": {
+      "origin": "journal-requirement",
+      "sources": ["final"],
+      "value": {"min_pt": 0.25, "max_pt": 1, "measurement_space": "final artwork; all visible strokes"}
+    },
+    "journal.axes": {
+      "origin": "journal-requirement",
+      "sources": ["specifications", "formatting"],
+      "value": {"axis_lines": true, "tick_marks": true, "units": "parentheses; identify dimensionless measures", "label_case": "sentence", "terminal_full_stop": false, "numeric_units": "SI with number-unit space"}
+    },
+    "journal.accessibility": {
+      "origin": "journal-recommendation",
+      "sources": ["production", "specifications"],
+      "value": {"text_contrast_ratio_above": 4.5, "avoid": ["red-green confusion", "rainbow scales", "color-only identification", "decorative hatching", "gridlines", "drop shadows", "busy backgrounds"], "palette": "accessible choices; example palette is not compulsory", "color_identity": "graphical keys with high-contrast text"}
+    },
+    "journal.export": {
+      "origin": "journal-requirement",
+      "sources": ["production", "specifications"],
+      "value": {"preferred_formats": ["pdf", "ai", "eps"], "accepted_editable_master": "plain SVG", "embedded_resources": true, "editable_text_and_vectors": true, "font_type": "TrueType 2/42; no Type 3", "color_space": "RGB recommended", "file_budget_mb_target": 50, "file_budget_is_hard_limit": false}
+    },
+    "journal.images": {
+      "origin": "journal-requirement",
+      "sources": ["specifications", "integrity"],
+      "value": {"photographic_min_dpi": 300, "production_export_dpi_target": 450, "dpi_source_conflict": true, "artificial_upsampling": false, "scale_bars": "separate editable layer; not magnification factors", "adjustments": "whole image, equally to matched controls", "composites_and_duplicates": "authenticate, demarcate and explain", "discrete_heatmaps": "preserve authenticated cells; do not apply photographic DPI blindly", "generative_imagery": "preserve authentic assets; conflicting/evolving AI guidance requires source review"}
+    },
+    "journal.caption": {
+      "origin": "journal-requirement",
+      "sources": ["formatting"],
+      "value": {"word_limit_exclusive": 300, "title": "brief whole-figure title", "define": ["panels", "symbols", "uncertainty", "statistics", "sample sizes and units"], "methods": "shared Methods, no loss of definitions", "production": "separate from artwork in manuscript text"}
+    },
+    "author.axis_geometry": {
+      "origin": "author-rule",
+      "value": {"tick_end_to_label_edge_pt": 3, "label_envelope_to_title_edge_pt": 3, "tick_length_pt": 2, "tick_width_pt": 0.5, "tick_cap": "butt", "tick_color": "#000000", "measurement": "painted glyph bounds through final transforms; renderer padding is not evidence"}
+    },
+    "author.frames": {
+      "origin": "author-rule",
+      "value": {"binding": "layout_policy", "inset_key": "selected_inset_mm", "outside": "shared-not-additive", "adjacent_contents": "two-panel-insets", "larger_gaps": "named grouping reason required"}
+    },
+    "author.keys_and_names": {
+      "origin": "author-rule",
+      "value": {"legend_role": "legend.key", "alignment": "right edge of named reference", "condition_names": ["3sTrace", "10sTrace"], "headings": "center over own data rectangle; distinguish experiment from condition", "relationships": ["layout", "presentation style", "scientific"]}
+    },
+    "project.typography": {
+      "origin": "project-default",
+      "value": {"family": "Arial", "allowed_families": ["Arial"], "base_size_pt": 6, "font_style": "normal", "font_weight": "normal", "alternative_policy": "explicit recorded profile change; never machine-dependent fallback"}
+    },
+    "project.style_overrides": {
+      "origin": "project-default",
+      "value": {
+        "label": {"font_size_pt": 7},
+        "title": {"font_size_pt": 7},
+        "condition_title": {"font_size_pt": 7, "color": "#000000", "color_source": null},
+        "panel_letter": {"font_size_pt": 8},
+        "tick_label": {"font_size_pt": 6},
+        "legend": {"font_size_pt": 6},
+        "annotation": {"font_size_pt": 6},
+        "summary_curve": {"linewidth_pt": 1},
+        "median_iqr": {"linewidth_pt": 1}
+      }
+    },
+    "project.axes": {
+      "origin": "project-default",
+      "value": {"major_direction": "out", "minor_ticks_default": "off", "ordinary_spines": ["left", "bottom"], "spine_offset_pt": 0, "boxed_heatmaps": "explicit family exception", "label_visibility": "separate from local spines/ticks", "tick_count_and_values": "preserve selected scientific coordinates; no universal count or zero-origin rule"}
+    },
+    "project.colors": {
+      "origin": "project-default",
+      "value": {"tokens": "base_contract.colors; scientific series from ConditionSpec and selected sources", "missingness": "base contract; never infer zero", "alpha_and_layering": "inherit identified role styles; inspect resolved composites", "palette_changes": "scoped candidate; authenticated raster bytes remain protected"}
+    },
+    "project.review": {
+      "origin": "project-default",
+      "value": {"caption_font_pt": 9, "caption_family": "serif", "draft_caption_word_target_max": 250, "format": "selected native SVG plus legend in self-contained scoped HTML"}
+    },
+    "project.unresolved": {
+      "origin": "project-default",
+      "value": {"pilot_measurements_required": ["marker diameter and edge width per role", "arrowhead dimensions", "physical dash arrays and offsets", "IQR/error-bar cap dimensions", "key symbol size and symbol-text spacing", "multiline leading and heading gaps", "resolved font glyphs and embedding", "effective opacity and visibility at final size"], "conditional_content": ["amino-acid sequences", "chemical structures", "gels/blots", "Extended Data tables"], "scientific_scope": "scoped selections remain authoritative; inherited legacy plot families are not selected scientific definitions", "render_evidence": "required; policy resolution and theme application do not certify a figure"}
+    }
+  }
+}

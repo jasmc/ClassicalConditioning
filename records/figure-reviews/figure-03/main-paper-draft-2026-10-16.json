@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-16",
+  "scope": "Figure 3 main-paper draft A-F",
+  "status": "published unfrozen draft; exact-render layout passed",
+  "state": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json",
+    "sha256": "96d9198604d44c4a199297d958675d4c8a27cf751f5fd4f20658d0abe5ffd9fa"
+  },
+  "output_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-draft-20261016",
+  "panels": {
+    "A": "G outcome and descriptive acquisition definition",
+    "B": "All 57 fish; Pre-minus-late-Train score",
+    "C": "Original legacy rule sensitivity and eligibility",
+    "D": "20240618_08; four-rule flag agreement",
+    "E": "20240612_08; four-rule unflagged agreement",
+    "F": "20240702_01; WIP-only flag"
+  },
+  "verification": {
+    "visual_review": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-draft-20261016/visual-review.json",
+      "sha256": "86cc845f959f09026c96acd8324cc24d4ea20ea515fe81601bfedd6e4bf14918"
+    },
+    "artifact_manifest": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-draft-20261016/artifact-manifest.json",
+      "sha256": "59f5b30272639f383de08540eb3bbe44409f5c91adc008203b4489e7398853fa"
+    }
+  },
+  "layout_frames": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-draft-20261016/layout-evidence.json",
+    "sha256": "4b480c7f3ec6dbde62794f26590c40d2e6574735c18f8c5acb1c2597fc45cfed"
+  },
+  "tests": {
+    "run": 12,
+    "passed": 12
+  },
+  "display": {
+    "url": "http://127.0.0.1:8775/review.html",
+    "verified": "Built-in browser; visible six-panel SVG and associated legend"
+  },
+  "preservation": {
+    "source_atlas": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/exploratory-state.json",
+      "sha256": "7eb65d7f09a936f664323c684d67bda59dea42c2fc3073f6c0cc11969730527e"
+    },
+    "other_figure_records": {
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": {
+        "before": "7954b59179d576bd7f56803504e09474c60073d63822c1cedf318b7bb55de50d",
+        "after": "7954b59179d576bd7f56803504e09474c60073d63822c1cedf318b7bb55de50d",
+        "changed_outside_this_task": false
+      },
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": {
+        "before": "7a40978f11e3e869e46f15fa556526f0b225775f7ff0cffb7c886228e5e27d3e",
+        "after": "7a40978f11e3e869e46f15fa556526f0b225775f7ff0cffb7c886228e5e27d3e",
+        "changed_outside_this_task": false
+      },
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/main-paper-current-state.json": {
+        "before": "caf57a1d0a6e805f523c6bd473220c883dd3f6f3f125033bc73758b834336157",
+        "after": "caf57a1d0a6e805f523c6bd473220c883dd3f6f3f125033bc73758b834336157",
+        "changed_outside_this_task": false
+      }
+    },
+    "main_collection_changed_by_this_task": false
+  },
+  "limitations": [
+    "No final learner method selected; G acquisition score is descriptive only",
+    "Legacy labels use Late Test; current examples do not validate them",
+    "Delay/control pilot; full Trace inputs pending"
+  ]
+}

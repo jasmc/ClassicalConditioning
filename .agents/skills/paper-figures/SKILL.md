@@ -11,6 +11,20 @@ below from its root; do not depend on a machine-specific checkout path. Read
 [iteration workflow](../../../docs/paper/figures/shared/iteration-workflow.md)
 before figure work. Maintain procedures there, rather than copying them here.
 
+For creation, style edits, verification or journal-rule work, read the maintained
+[Nature target](../../../docs/paper/figures/shared/nature-style.md). It separates
+journal requirements from exact author/project choices, including axis geometry.
+Use its profile lookup and explicit shared-theme adapter for new paper candidates;
+full render checks and artwork migration remain pending. Existing selected
+artwork is not automatically compliant; showing it does not request migration.
+Preserve historical contracts and use the existing scoped registry/publication
+pipeline; presentation checks do not execute an unrequested freeze.
+
+For routine styling, query only the needed profile section and named registry
+roles/groups. Consult plans/history when a rule is unresolved, scientific scope
+changes or supported checks expose a gap. Reuse the implemented helper and
+source-bound evidence rather than copying per-panel values or adding another tool.
+
 ## Resolve the requested state
 
 Plural main-paper requests (for example, “show me the figures of the paper”)

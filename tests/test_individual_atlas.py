@@ -3,10 +3,17 @@ import unittest
 import numpy as np
 import pandas as pd
 from classical_conditioning.analysis.review.individual_atlas import bin_trial,VARIANTS
-from classical_conditioning.figures.individual_atlas import decision,select_examples,feature_value
+from classical_conditioning.figures.individual_atlas import decision,select_examples,feature_value,g_trial_outcome
 
 
 class IndividualAtlasTests(unittest.TestCase):
+    def test_g_outcome_uses_logmedians_without_second_log_or_mean_ratio(self):
+        data=pd.DataFrame({'baseline_logmedian':[-3.,-2.,-4.],
+            'response_logmedian':[-2.,-2.,np.nan],
+            'baseline_bout_mean':[100.,100.,100.],
+            'response_bout_mean':[1.,2.,3.],'classifier_ratio':[.01,.02,.03]})
+        np.testing.assert_allclose(g_trial_outcome(data),[1.,0.,np.nan],equal_nan=True)
+
     def test_immobility_is_observed_but_intensity_is_undefined(self):
         heat,movement,coverage,counts,_=bin_trial(
             np.array([-15000,0,500,1000]),np.array([1.,0.,0.,7.]),
