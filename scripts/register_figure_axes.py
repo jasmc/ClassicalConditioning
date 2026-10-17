@@ -82,6 +82,12 @@ def build_inventory(svg,number,legend_ref,selections,existing):
             if mapping.get('source_panel')==definition['panel']:
                 record['source_panel']=definition['panel'];record['panel']=mapping['display_panel']
                 record['display_mapping_reference']='condition_order_mapping in this same semantic registry'
+        if number==1 and definition['id']=='E-band-colorbar':
+            # The frozen band source keeps its immutable F ID after the
+            # control-first display mapping moves that Delay example to G.
+            selected=next((m for m in existing.get('condition_order_mapping',{}).get('mapping',[])if m.get('source_panel')=='F'),None)
+            if selected:
+                record.update(source_heatmap_panel='F',display_heatmap_panel=selected['display_panel'],applies_to='E bands matching displayed '+selected['display_panel']+' (frozen source F); not E black traces',display_mapping_reference='condition_order_mapping in this same semantic registry')
         for identity in definition['group_ids']:
             if len(ids.get(identity,[]))!=1:missing.append(identity)
             else:groups.append(ids[identity][0])

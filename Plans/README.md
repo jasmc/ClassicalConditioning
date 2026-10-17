@@ -10,11 +10,11 @@ This folder contains future work, this navigation page and the [implementation i
 | [04 Figure 3 — learner analysis and validation](04_FIGURE_3_LEARNER_ANALYSIS.md) | Select and validate individual-learning representation and Figure 3 |
 | [05 Figure 4 — CR profiles](05_FIGURE_4_CR_PROFILES.md) | Build Figure 4 conditioned-response profiles and the consistent integrated analysis run |
 | [06 Analysis and statistics](06_ANALYSIS_AND_STATISTICS.md) | Approve outcomes, models, uncertainty and inferential claims |
-| [07 Reliable figure builds and panel replacement](07_FIGURE_BUILD_TOOLS.md) | Integrate implemented assembler safeguards with current selections, paper reproduction, final-scale QC and reviews |
-| [08 First release — Figures 1–4](08_FIRST_RELEASE_FIGURES_1_TO_4.md) | Review and publish the first four figures and required evidence |
+| [07 Reliable figure builds and panel replacement](07_FIGURE_BUILD_TOOLS.md) | Current selections, reproduction, final-scale QC and reviews; [Nature completion handoff](07_FIGURE_BUILD_TOOLS.md#6-nature-completion-handoff-2026-10-17) bundles remaining implementation and latest author constraints |
+| [08 First release — Figures 1–4](08_FIRST_RELEASE_FIGURES_1_TO_4.md) | Scientific/presentation acceptance gates and immutable release manifest for the first four figures |
 | [09 Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Supporting controls, sensitivity analyses and supplementary panels |
-| [10 Tail mechanisms](10_TAIL_MECHANISTIC_ANALYSES.md) | Later tail-mechanism analyses |
-| [11 Behavior/imaging integration](11_BEHAVIOR_IMAGING_INTEGRATION.md) | Optional imaging integration |
+| [10 Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Later tail-mechanism analyses |
+| [11 Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Optional imaging integration |
 
 The first release covers main Figures 1–4 and necessary scientific evidence. Supplementary composition, tail mechanisms and imaging are separate. Required learner validation and main-claim controls remain mandatory.
 

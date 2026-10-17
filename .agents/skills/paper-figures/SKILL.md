@@ -15,13 +15,21 @@ For creation, style edits, verification or journal-rule work, read the maintaine
 [Nature target](../../../docs/paper/figures/shared/nature-style.md). It separates
 journal requirements from exact author/project choices, including axis geometry.
 Use its profile lookup and explicit shared-theme adapter for new paper candidates;
-full render checks and artwork migration remain pending. Existing selected
+use the workflow’s scoped migration route for an explicit artwork update.
+Remaining production/scientific checks stay open. Existing selected
 artwork is not automatically compliant; showing it does not request migration.
+Pre-Nature styling is retired for new paper work. Unprofiled theme calls and
+historical style contracts remain only for compatibility/reproduction; do not
+reuse their numerical typography as an alternative target. The
+[retirement record](../../../records/repository-archive/2026-10-17-retired-styling/README.md)
+indexes archived guidance and retained dependencies.
 Preserve historical contracts and use the existing scoped registry/publication
 pipeline; presentation checks do not execute an unrequested freeze.
 
 For routine styling, query only the needed profile section and named registry
-roles/groups. Consult plans/history when a rule is unresolved, scientific scope
+roles/groups. Load one profile snapshot per build and pass the same theme to
+axes/stimulus helpers inside `matplotlib.rc_context()`. Consult plans/history
+when a rule is unresolved, scientific scope
 changes or supported checks expose a gap. Reuse the implemented helper and
 source-bound evidence rather than copying per-panel values or adding another tool.
 

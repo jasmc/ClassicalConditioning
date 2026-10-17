@@ -22,14 +22,17 @@ owns remaining code/artwork work, known fixes and sequence;
 the [source comparison](../../../../records/figure-reviews/nature-guidance-20261016.md)
 links the official guidance. Track implementation in the existing plan index.
 
-The read-only `nature-main` profile resolver and explicit shared-theme adapter
-are implemented; full rendered-artifact checks and artwork migration are pending.
+The `nature-main` profile resolver, shared-theme adapter and scoped Figure 1/2
+migration tooling are implemented; final migration publication and broader
+renderer/production integration remain pending.
 Use the coding entry point in the maintained guidance for exact values and input
 hashes. Profile lookup does not publish state or execute the freeze gate.
-The DejaVu/8-pt/10-pt/1.2-pt values in existing contracts and version-bound
-procedures describe the prior profile, not Nature compliance. Parameterize
-consumers and reconcile those live rules together when implementing the new
-profile; do not silently apply them to Nature candidates. Preserve compatible
+Author direction, 2026-10-17: pre-Nature styling is retired for new paper work.
+Its numerical instructions have been removed from current procedures and
+[archived with their original bytes](../../../../records/repository-archive/2026-10-17-retired-styling/README.md).
+Unprofiled renderers and historical contracts remain compatibility/reproduction
+dependencies, not alternative paper styling targets. Resolve new typography and
+stroke values through the Nature profile. Preserve compatible
 author rules, including invisible frames, absolute axis spacing, right-aligned
 keys and typed panel/scientific relationships. Current saved drafts remain
 authoritative until replacements pass scoped guarded publication. This direction
@@ -494,7 +497,10 @@ serve an old collection as current. Add subsequent main figures only on explicit
 selection. Frozen-only or comparison requests remain separately scoped.
 
 The collection is self-contained native SVG, Figure 1/legend then Figure 2/legend,
-183 mm wide, with responsive uniform screen fitting and 9 pt serif legends.
+at each selected SVG's native publication width, with responsive uniform screen
+fitting and 9 pt serif legends. The initial 183-mm selection was superseded for
+the current Nature revision by the author's 2026-10-17 compact 136-mm preference
+where feasible. Never enlarge an intermediate-width SVG to fill 183 mm.
 It has no visible review UI. SVG IDs and references are namespaced and each
 artwork uses a declarative shadow root. Embedded font faces have figure-specific
 names and are registered at document level because Chromium does not register
@@ -576,9 +582,10 @@ establish a correct layout. Register relationships with explicit types:
   relationship does not imply that D/E/F belong to one layout row or share a
   normalization. Retain authenticated frame/trial/source mappings.
 - **Presentation style:** Register axis-title text artists separately from tick,
-  condition and panel titles. The author-requested cross-figure correction uses
-  normal DejaVu Sans at 8 pt at final scale for all named axis titles, including
-  colorbar quantity labels and Figure 2 H. Wording, units and scientific scales
+  condition and panel titles. Resolve the Nature profile's `axis.label` role
+  for new axis-title edits, including colorbar quantity labels and Figure 2 H;
+  query `--role axis.label` for the current value. Existing state-bound
+  pre-Nature measurements remain historical evidence. Wording, units and scientific scales
   are unchanged. This does not certify all remaining typography or science.
 
 Keep these in each current draft's existing semantic registry and
@@ -597,23 +604,20 @@ Composite data bodies use explicit `data_axes.element_ids` lists; the browser
 measures their union. Equal allocation widths or equal panel-letter positions
 are not substitutes for the declared spacing target.
 
-`scripts/correct_panel_relationships.py prepare --ticket <pre-edit-ticket>
---directory <existing-external-directory>` stages these scoped corrections from
-current authenticated assemblies. Collect real browser reports with the
-supported browser helper; `refine --directory <directory>` repacks outer
-contents after font changes. Recollect reports for the changed bytes and inspect
-the exact final render. Publish with `layout_main_paper_figures.py publish` only
-after all spacing, alignment, margin and axis-title checks pass. Protection
-permits only named owner translations, registered font properties/IDs and frame
-metadata changes; all scientific text, coordinates, raster resources and
-non-font styles remain protected. Refresh the main-paper collection afterwards.
+The earlier `correct_panel_relationships.py` correction recipe is retained for
+reproduction of its recorded pre-Nature candidates. For new selected Figure 1/2
+presentation work, use the Nature migration route below with the same typed
+relationships and exact browser measurements. Do not run the historical recipe
+to restore retired typography. Recollect evidence after affected edits and
+refresh the collection only after guarded publication.
 
 ### Physical axis geometry and related example labels
 
 Author direction, 2026-10-15: axis typography and spacing must agree in absolute
 publication units across horizontal/vertical axes, panels and figures. Use the
-existing paper contract: 2 pt outward ticks with a solid black 0.5 pt butt-cap
-stroke, 7 pt regular tick labels and 8 pt regular axis titles in DejaVu Sans.
+resolved Nature roles `axis.tick`, `axis.tick_label` and `axis.label` for
+tick strokes, typography and physical inputs; do not use the unoverlaid
+historical contract as the presentation target.
 Compensate for every assembly transform; equal source attributes are not proof.
 Measure 3 pt from the outward tick endpoint to the nearest tick-label geometric
 glyph edge, and 3 pt from the outer tick-label envelope to the nearest axis-title
@@ -622,8 +626,9 @@ Keep each tick and label's scientific coordinate fixed along the axis. Shared
 titles use the envelope of their explicitly registered labels. Retain intentional
 tickless categorical/statistical axes and register the inapplicable tick-gap check.
 
-Figure 1 D/E example block labels use 8 pt and trial labels 7 pt, with matching
-fonts/weights and a separate column outside the Y title. Do not let row descriptions
+Figure 1 D/E example block/trial labels use their profile-bound annotation roles,
+with matching declared fonts/weights and a separate column outside the Y title.
+Do not let row descriptions
 occupy the title-to-tick-label strip. Reallocate/translate whole panels and canvas
 space as needed, preserving data shapes, scientific clipping and related-panel
 alignments/spacing. Record requirements in the existing draft's
@@ -639,7 +644,8 @@ Author additions, 2026-10-15: every plot color/stimulus key has the canonical
 `legend.key` role and a specific `plot.legend.condition-key` or
 `plot.legend.stimulus-key` tag in the existing draft registry and SVG. Align
 the whole key's right edge to its explicitly named data-axis/reference right
-edge, within 0.01 mm at publication size; use 7 pt regular DejaVu Sans.
+edge, within 0.01 mm at publication size; resolve typography through `legend.key`
+in the Nature profile.
 Direct schematic labels next to a stimulus are annotations, not color keys.
 Keep sample/cohort counts in the caption rather than in key text or headings.
 Use the displayed condition names `3sTrace` and `10sTrace` everywhere.
@@ -659,3 +665,84 @@ The supported annotation stage is `refine_paper_annotations.py`, followed by
 This stage may reposition the categorical statistical rows and the complete G
 trajectory plot to keep full-size labels separate, preserving data paths,
 values, text and markers. It does not recompute hypotheses or statistics.
+
+
+### Nature presentation migration of selected main drafts
+
+For an explicit migration request, `scripts/nature_main_figures.py` stages the
+selected Figure 1/2 SVGs and uses the existing physical-axis, annotation and frame
+checks, then `publish_state` for scoped guarded publication. It does not execute
+historical plotting code or select cached panels. `prepare --directory <existing
+external directory>` captures the states, sources, legends, registries, selections,
+profile inputs and implementation hashes before artwork edits. A changed manual
+source fails publication; implementation revisions are recorded explicitly.
+Never reuse a source ticket to authorize changes in scientific inputs.
+
+The supported sequence is: prepare; `style_axis_geometry.cjs`; then
+`align_paper_annotations.cjs`. The scoped `refine_nature_layout.cjs` is a one-time
+composition refinement of those candidates: Figure 1 fish/condition headings are
+separated, and Figure 2 G is enlarged uniformly. Reapply the axis/annotation
+helpers after refinement. `--center-labels` on the axis helper centers actual
+glyphs and, for profile-bound inputs, title groups on their registered axis
+extent. It does not change tick values or data coordinates.
+
+Generate check pages using `publish_axis_geometry.py pages`. Collect exact
+browser bounds with `check_main_paper_layout.cjs`; use `nature_main_figures.py
+repack --exact --directory ...` to pack those measurements. A geometric packing
+bootstrap (`measure_nature_packing.cjs`) is explicitly nonpublication evidence
+and can overestimate unpainted content; it must never replace the exact collector.
+The 2026-10-17 author-selected compact route uses `compact --directory ...`
+once, preserving the preceding candidates and their presentation maps. It
+uniformly reduces Figure 2 A/B/C and the empty I placeholder, compensates text,
+and retains G's larger statistical inset. Rerun axis/annotation/stroke helpers
+and exact bounds, then `repack --exact --width-mm 136 --directory ...`.
+After the initial compact exact render, `pair-spacing --directory ...` transfers
+1 mm into each Figure 2 Control/condition pair so the unchanged 6-pt endpoint
+labels remain separate. It records the complete moved axis and heading groups;
+its exact-derived packing estimate is provisional, never publication evidence.
+Recenter shared X titles and collect fresh exact bounds after this step.
+Changing the root width also changes its viewBox width at the same physical
+unit scale; source protection rejects a global shrink of data/font units.
+Repacking prepares both candidates before writing either and fails at the Nature
+height limit. The per-owner resizes are uniform; all selected raster bytes,
+data paths, timing, values and scientific texts remain protected.
+
+`check_nature_presentation.cjs` applies profile-resolved physical stroke roles
+and checks every mapped visible text and stroke; `--verify` is read-only. Named
+renderer roles identify spines, traces, median/IQR, stimulus and boundary marks;
+unclassified strokes retain their inherited hierarchy within the journal range
+and remain explicitly unclassified scientifically. Physical stroke compensation
+uses non-scaling strokes to avoid directional distortion from historical nested
+axis transforms. Tick geometry remains with the existing axis checker. This is
+not complete scientific registration or a production PDF-font/accessibility gate.
+
+After the last change, regenerate pages and collect fresh exact painted/unclipped
+frame reports, axis `--verify`, annotation `--verify` and Nature `--verify` reports.
+Inspect both exact candidates at their native publication size and the dense G inset. Only then run
+`nature_main_figures.py publish --directory ... --visual-review-note <actual
+review>`. It authenticates all inputs, checks the source/candidate scientific
+payload, saves prior artwork/captions/state and verified evidence, then updates
+the same selected SVG/HTML pairs through scoped locks and atomic pointers.
+Concise captions remain below 300 whitespace-delimited words; detailed previous
+wording is retained in [figure-specific Methods](figure-specific-methods.md).
+Refresh the authenticated collection last and inspect browser and print output.
+
+The HTML renderer uses each SVG’s native millimetre dimensions for its inner
+sheet inside an outer responsive transform. This uniformly scales text, markers and non-scaling SVG strokes on
+narrow screens; printing restores the native publication scale. No scientific
+freeze, missing-panel approval or full Nature/submission-readiness follows.
+
+Dense G annotations use explicitly registered phase-header artists rather than
+the empty historical X-axis container. Redundant D/M/R prefixes may be omitted
+from significance glyphs only through recorded source/display aliases: every
+star and its unchanged labeled hypothesis row are preserved and guarded. Shared
+tick path definitions delegate width to their registered instances using
+`stroke-width:inherit`; a definition’s specified width must not silently override
+the measured instance width. Ordinary and non-scaling stroke measurement have
+separate tested paths. Pure measurement/CLI imports do not load unrelated
+scientific parquet inputs.
+
+The 2026-10-16/17 migration was interrupted by disconnected storage before
+publication; [resume evidence](../../../../records/figure-reviews/nature-main-migration-20261017.md)
+records the exact status. Read selected state before treating any candidate as
+current.

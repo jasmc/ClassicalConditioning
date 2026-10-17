@@ -12,29 +12,29 @@
   ],
   "html": {
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html",
-    "sha256": "f8ea21a44b1df0e368fa925589aee4de0a6a7508ed73e2592f01e851b45fc925"
+    "sha256": "3c1de5fc9157a335406ab060e7c96c43e5f0587fc5018614126e07af1e767010"
   },
   "inputs": {
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/main_paper_figures.py": "de2d2e4af041211c2529666783dee5d5d562102ffb6adeb861abdbc4058e1587",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/main_paper_figures.py": "8cf06168bd16f3ef860e8193efac386695c2dc6d48fa9151bc2a67f32679dc46",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/layout_frames_browser.js": "d70337842622808ea89cf7b2b6c1b95f7f963d32d9a1b4841f75c4eb9ee35fce",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/layout_frames_browser.js": "ad2d9fb1ba817f6de6002162cac0c2b927962182f95cdee3f39f9d4b761ecbb9",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/layout_frames.py": "6285e8190951d8c2cc9f44ecc0b5da8506a25ecf1553bd4ad57f2260167e8853",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "7954b59179d576bd7f56803504e09474c60073d63822c1cedf318b7bb55de50d",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "46f738fe10792e87947704f26632fc3b68a5b4c7a612a9cceb7b55104a833678",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "cc337418b556d30d758f8e725df348f3a86452f9fc8ebb1a8ae651a2202b075c",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "974beeacb849a1ac7ed239b619d8b9510454d4edb2542be66f11d337fc83e103",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": "7a40978f11e3e869e46f15fa556526f0b225775f7ff0cffb7c886228e5e27d3e",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md": "5da5dcdf2abfe40750617b21fc9c85c7f127992a5b24ffe70d96f32335b91d85",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html": "f2b9a8ee4a9f797aa7c1e260b6902bd6c3874e439eb2c6bbea131ec267a3da77",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout-evidence.json": "4c49ef4167061ecd22a9c57ebfbb8ed753d1b26f1f86db8c47bbb881b5dc01b8",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": "9650d685b05a38482c963a6edb23089dee5c8f6019e6f663633ddb4542e28d76",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html": "feeaf95263ba229c7f48eceaedb3b9840ff7efeace7b81e4ce2f92e3ec6e6383",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-layout-evidence.json": "45aa07568af754fa09d0a696d0d29af7803a2a5da388f11c63da297e17a57052"
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-layout-evidence.json": "eaf10d31c297648abeea59b1cb298a072be518b5209e7fc38f5669b8e23fbd72"
   },
   "provenance": {
     "figures": [
@@ -42,49 +42,57 @@
         "id": "fig1",
         "state": {
           "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
-          "sha256": "7954b59179d576bd7f56803504e09474c60073d63822c1cedf318b7bb55de50d"
+          "sha256": "cc337418b556d30d758f8e725df348f3a86452f9fc8ebb1a8ae651a2202b075c"
         },
         "svg": {
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-          "sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+          "sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
           "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
         },
         "legend": {
           "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-          "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+          "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
         },
         "layout_frames": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
-          "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout-evidence.json",
+          "sha256": "4c49ef4167061ecd22a9c57ebfbb8ed753d1b26f1f86db8c47bbb881b5dc01b8"
         },
         "whole_figure_frozen": false,
-        "embedded_svg_sha256": "d34499d7e60e3e932333d052009c452ee0ddad50ea10b995a0a464fdd49af318"
+        "embedded_svg_sha256": "6903c2a9e537b45ea520f1a3c8d75cff2fd5036f72228ed026ef75d4856c524d",
+        "publication_size_mm": [
+          136.0,
+          163.69779259402225
+        ]
       },
       {
         "id": "fig2",
         "state": {
           "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
-          "sha256": "7a40978f11e3e869e46f15fa556526f0b225775f7ff0cffb7c886228e5e27d3e"
+          "sha256": "9650d685b05a38482c963a6edb23089dee5c8f6019e6f663633ddb4542e28d76"
         },
         "svg": {
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
-          "sha256": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3"
+          "sha256": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc"
         },
         "legend": {
           "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
-          "sha256": "5da5dcdf2abfe40750617b21fc9c85c7f127992a5b24ffe70d96f32335b91d85"
+          "sha256": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd"
         },
         "layout_frames": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-layout-evidence.json",
-          "sha256": "45aa07568af754fa09d0a696d0d29af7803a2a5da388f11c63da297e17a57052"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-layout-evidence.json",
+          "sha256": "eaf10d31c297648abeea59b1cb298a072be518b5209e7fc38f5669b8e23fbd72"
         },
         "whole_figure_frozen": false,
-        "embedded_svg_sha256": "3489ce01bca81b5545e10e95eea9d48d56700957352ba4c93d977c4f2313fe3a"
+        "embedded_svg_sha256": "248d62e5ab9d953ffbccc4d5697ae8ab6d0b6e7e5d687628e2ba756334e84ebe",
+        "publication_size_mm": [
+          136.0,
+          156.46844886241664
+        ]
       }
     ],
     "builder": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/main_paper_figures.py",
-      "sha256": "de2d2e4af041211c2529666783dee5d5d562102ffb6adeb861abdbc4058e1587"
+      "sha256": "8cf06168bd16f3ef860e8193efac386695c2dc6d48fa9151bc2a67f32679dc46"
     },
     "layout_policy": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/layout-frames.json",
@@ -94,9 +102,5 @@
   },
   "refresh_policy": "Follow selected figure states on plural paper-figure requests",
   "scope": "main-paper-figures",
-  "layout_verified": true,
-  "verification": {
-    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/axis-geometry-legends-20261015.json",
-    "sha256": "3c6170867c7df135b591de8ea85587cf6229c16ded70ad6dc6e7416031d99877"
-  }
+  "layout_verified": true
 }

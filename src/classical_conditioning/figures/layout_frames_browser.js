@@ -65,7 +65,8 @@ globalThis.collectLayoutFrames = async function(svgText, collectorHash) {
       const pts=[[b.x,b.y],[b.x+b.width,b.y],[b.x,b.y+b.height],[b.x+b.width,b.y+b.height]].map(([x,y])=>new DOMPoint(x,y).matrixTransform(m));
       const s=getComputedStyle(node), line=s.stroke!=='none'?parseFloat(s.strokeWidth)||0:0;
       // Frobenius norm bounds any affine normal; include miter joins conservatively.
-      const pad=line/2*Math.hypot(m.a,m.b,m.c,m.d)*(s.strokeLinejoin==='miter'?Math.max(1,+s.strokeMiterlimit):1);
+      const strokeMatrix=s.vectorEffect==='non-scaling-stroke'?rootInverse:m;
+      const pad=line/2*Math.hypot(strokeMatrix.a,strokeMatrix.b,strokeMatrix.c,strokeMatrix.d)*(s.strokeLinejoin==='miter'?Math.max(1,+s.strokeMiterlimit):1);
       const xs=pts.map(p=>p.x),ys=pts.map(p=>p.y);
       return [Math.min(...xs)-pad,Math.min(...ys)-pad,Math.max(...xs)+pad,Math.max(...ys)+pad];
     };
@@ -76,7 +77,7 @@ globalThis.collectLayoutFrames = async function(svgText, collectorHash) {
       if(!ownerOf(n))issue('Unowned visible content: '+(n.id||n.localName));
       if(s.mask&&s.mask!=='none')issue('Unsupported mask: '+n.id);
       if(s.filter!=='none'||s.maskImage&&s.maskImage!=='none'||s.mixBlendMode!=='normal')issue('Unsupported filter/mask/blending: '+n.id);
-      if(s.vectorEffect&&s.vectorEffect!=='none')issue('Unsupported vector effect: '+n.id);
+      if(s.vectorEffect&&!['none','non-scaling-stroke'].includes(s.vectorEffect))issue('Unsupported vector effect: '+n.id);
       try{allBounds.push(geomBounds(n));}catch(e){issue('Unmeasurable geometry: '+n.id);}
     }
     // Expand the raster canvas to include pre-clip geometry, preventing a crop
@@ -90,7 +91,17 @@ globalThis.collectLayoutFrames = async function(svgText, collectorHash) {
       const clone=live.cloneNode(true), originals=[...live.querySelectorAll(drawable)],copies=[...clone.querySelectorAll(drawable)];
       for(let i=0;i<originals.length;i++) {
         const n=originals[i];if(n.closest('defs,clipPath,mask,marker,pattern,symbol'))continue;
-        if(ignored(n)||ownerOf(n)!==owner)copies[i].remove();
+        if(ignored(n)||ownerOf(n)!==owner){copies[i].remove();continue;}
+        const style=getComputedStyle(n);
+        if(style.vectorEffect==='non-scaling-stroke') {
+          // Changing the root viewport to raster pixels must not turn a
+          // physical 1-pt stroke into a single pixel at 600 dpi. Keep the
+          // vector effect, compensating CSS-pixel stroke/dash lengths only.
+          const factor=report.raster_dpi/96;
+          copies[i].style.setProperty('stroke-width',parseFloat(style.strokeWidth)*factor+'px','important');
+          if(style.strokeDasharray!=='none')copies[i].style.setProperty('stroke-dasharray',style.strokeDasharray.replace(/[-+]?(?:\d*\.)?\d+(?:e[-+]?\d+)?/gi,v=>String(Number(v)*factor)),'important');
+          if(parseFloat(style.strokeDashoffset))copies[i].style.setProperty('stroke-dashoffset',parseFloat(style.strokeDashoffset)*factor+'px','important');
+        }
       }
       const allowedClips=new Set((spec.scientific_clips||[]).map(c=>c.id));
       for(const n of clone.querySelectorAll('*')) {

@@ -10,3 +10,5 @@ This folder holds archive control records, not archived media. Current procedure
 - Follow-up transaction folders retain independent inventories and published destinations.
 
 The [original archive procedure](../repository-history/2026-10-13-paper-structure/original-navigation/repository-archive/README.md) is preserved as historical evidence. Current folder ownership and procedures are documentation; historical paths in preserved records resolve through the map rather than being rewritten.
+
+- [Pre-Nature styling retirement, 2026-10-17](2026-10-17-retired-styling/README.md): verified original guidance snapshots; compatibility dependencies retained.

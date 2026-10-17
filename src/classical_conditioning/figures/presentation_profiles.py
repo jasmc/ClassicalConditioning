@@ -43,6 +43,11 @@ class PresentationProfile:
             "font_weight": typography["font_weight"],
             "text_color": styles["label"]["color"],
             "tick_color": styles["tick"]["color"],
+            "spine_color": styles["spine"]["color"],
+            "tick_capstyle": self.rule("author.axis_geometry")["tick_cap"],
+            "cs_linewidth": styles["stimulus_cs_onset"]["linewidth_pt"],
+            "us_linewidth": styles["stimulus_us_actual"]["linewidth_pt"],
+            "stimulus_span_zorder": styles["stimulus_window"]["zorder"],
             "font_size": typography["base_size_pt"],
             "axes_labelsize": styles["label"]["font_size_pt"],
             "axes_titlesize": styles["title"]["font_size_pt"],
@@ -56,6 +61,7 @@ class PresentationProfile:
             "tick_major_pad": styles["tick"]["pad_pt"],
             "axes_labelpad": styles["label"]["pad_pt"],
             "axes_titlepad": styles["title"]["pad_pt"],
+            "axes_titlelocation": self.rule("project.axes")["title_location"],
             "cs_color": rgb(colors["cs"]),
             "us_color": rgb(colors["us"]),
             "heatmap_bad_color": rgb(colors["heatmap_missing"]),
@@ -94,7 +100,8 @@ def load_presentation_profile(
         for source in rule.get("sources", []):
             if source not in policy["sources"]:
                 raise ValueError(f"Unresolved policy source: {source}")
-    contract = copy.deepcopy(read(policy["base_contract"]))
+    # Each JSON read already owns fresh data; no second full-contract copy is needed.
+    contract = read(policy["base_contract"])
     layout = read(policy["layout_policy"])
     if layout.get("activation") != "active" or layout["selected_inset_mm"] <= 0:
         raise ValueError("Profile requires an active selected layout policy")

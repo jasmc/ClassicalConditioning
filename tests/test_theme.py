@@ -24,6 +24,21 @@ from classical_conditioning.figures.theme import (
 
 
 class FigureThemeTests(unittest.TestCase):
+    def test_shared_labels_do_not_remove_local_ticks_or_spines(self) -> None:
+        with mpl.rc_context():
+            apply_theme()
+            figure, axis = plt.subplots()
+            try:
+                axis.set_yticks([0, 1, 2])
+                style_axes(axis, show_yticks=True, show_yticklabels=False)
+                self.assertTrue(axis.spines["left"].get_visible())
+                self.assertEqual(tuple(axis.get_yticks()), (0, 1, 2))
+                for tick in axis.yaxis.get_major_ticks():
+                    self.assertTrue(tick.tick1line.get_visible())
+                    self.assertFalse(tick.label1.get_visible())
+            finally:
+                plt.close(figure)
+
     def test_rgb_converts_with_255(self) -> None:
         self.assertEqual(rgb_255_to_unit((0, 174, 239)), (0 / 255, 174 / 255, 239 / 255))
         self.assertNotEqual(rgb_255_to_unit((0, 174, 239))[1], 174 / 256)

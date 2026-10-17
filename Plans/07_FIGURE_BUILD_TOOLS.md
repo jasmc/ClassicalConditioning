@@ -6,6 +6,11 @@ Make the existing tools usable across Figures 1–4: resolve the correct selecte
 
 AGENTS.md defines review, storage and freeze rules. This plan covers their implementation across supported paper builds. Scientific choices belong to Plans 01–06; release packaging belongs to Plan 08. Unavailable or unapproved evidence must be reported explicitly.
 
+For the current Nature work, start with the
+[2026-10-17 completion handoff](#6-nature-completion-handoff-2026-10-17): latest
+author constraints, authenticated baseline, H01–H10 work packages and acceptance.
+The N/F tables below retain the detailed requirement/finding identifiers.
+
 ## Implementation to reuse
 
 The assembler now provides no-write source/geometry preflight, external-artifact resolution, original/candidate provenance, reproduction commands, baseline comparisons and locked transactional publication. It checks panel payloads, clipping and shared assembly context; protects bound inputs and accepted/managed artifacts; and rolls back failed publication. These are existing building blocks, not tasks to implement again.
@@ -72,7 +77,11 @@ Keep one semantic registry and one guarded publication workflow. Bind per-rule
 origins, source URLs/date, profile hash and submission stage into evidence.
 Retain byte-sensitive specifications and accepted contract copies; profile
 resolution must preserve legacy reproduction and scoped freeze compatibility.
-The adapter is explicit; legacy defaults and selected artwork have not changed.
+The adapter is explicit; legacy defaults remain available for exact historical
+reproduction. Selected Figure 1/2 presentation drafts have since migrated through
+the guarded route. Resolve their current states and read the
+[2026-10-17 handoff](#6-nature-completion-handoff-2026-10-17) before resuming;
+neither this dated plan nor a browser tab selects an artifact.
 
 #### Complete implementation checklist
 
@@ -113,10 +122,11 @@ in the implementation index; exact results belong in version-bound evidence.
 
 #### Known fixes and decisions to carry into the first audit
 
-The following are grounded in repository contracts, selected state, prior
-version-bound evidence or author notes. The selected artwork hashes and canvas
-dimensions were rechecked on 2026-10-16; no fresh full visual/element audit is
-claimed here.
+The following retain the original 2026-10-16 audit findings and stable finding
+IDs. They are not a list of defects all still present in current artwork. Later
+measured changes and outstanding work are distinguished in the handoff below
+and in state-bound evidence. Do not rerun the original migration or apply an old
+finding without checking the current selected bytes and latest author scope.
 
 | ID | Observed issue / decision | Required resolution |
 |---|---|---|
@@ -189,6 +199,264 @@ requires all applicable checks, including completed selected scientific content.
 The current saved drafts remain authoritative until reviewed replacements are
 published through the existing guarded workflow. This planning step does not
 publish figures, rewrite their captions, freeze science or remove history.
+
+### 6. Nature completion handoff, 2026-10-17
+
+This is the execution handoff for the remaining N01–N28 and F01–F22 work, merged
+here rather than creating a competing numbered plan. Plan 07 owns tooling,
+semantic/presentation checks and supported figure delivery. [Plan 08](08_FIRST_RELEASE_FIGURES_1_TO_4.md)
+owns acceptance of the Figures 1–4 release. Plans 01–06 own scientific evidence
+and unresolved scientific decisions. Update live progress only in the
+[implementation index](IMPLEMENTATION_STEP_INDEX.md); record measurements under
+`records/` or in authenticated external evidence, not in another status registry.
+
+#### Latest author scope: preserve before improving
+
+- Keep the Nature typography, axes, ticks, physical spacing, strokes, keys,
+  naming, semantic mappings and invisible-frame rules already applied.
+- The final clarification was **“do nothing but marking with the black box”**,
+  followed by the instruction to retain the other Nature changes. The black
+  136 × 170 mm rectangle is an HTML review guide. It must not replace invisible
+  allocation metadata, modify the artwork, become a scientific element or enter
+  final submission artwork. Its review wrapper may reserve caption clearance
+  without changing native SVG dimensions or transforms.
+- No further shrinking, stretching, automatic repacking, canvas change, stacking
+  or rollback to the old eLife artwork follows from this plan or from displaying
+  the guide. The author previously allowed the eLife outer dimensions, then
+  restricted the immediate edit to the box. Do not infer an instruction to
+  restore old sizes or undo Nature styling. Prepare a concrete proposal only
+  when a later scoped layout request calls for it.
+- **Learner counts belong to Figure 3 only**, under [Plan 04](04_FIGURE_3_LEARNER_ANALYSIS.md).
+  Do not add learner counts, learner percentages or learner classifications to
+  Figures 1/2, their captions, registries or Nature checks. Fish/cohort counts
+  and block-specific denominators remain required where applicable; they are
+  distinct from learner counts. This handoff does not choose a learner rule.
+- Do not recompute cohorts, timing, binning, normalization, significance,
+  estimators or missing results as presentation work. Preserve frozen originals,
+  manual edits, selected dependencies and unrelated Figure 3/4 work. No freeze,
+  release, archive, deletion or historical cleanup is authorized by this plan.
+
+#### Start here: authority and measured baseline
+
+Read `AGENTS.md`, the repository paper-figures skill, the authoritative
+[iteration workflow](../docs/paper/figures/shared/iteration-workflow.md) and the
+[maintained Nature target](../docs/paper/figures/shared/nature-style.md). Resolve
+`docs/paper/figures/figure-01/current-state.json`, Figure 2's corresponding state
+and `main-paper-current-state.json`; authenticate their SVG, caption, registry,
+scientific-selection and evidence references. Check storage before reading media.
+Use the offline artwork procedure only within its documented snapshot limits.
+
+The 2026-10-17 read-only audit found the following; these are dated observations,
+not replacement selection pointers or blanket compliance claims:
+
+| Checked area | Observation and reuse boundary |
+|---|---|
+| Selected artwork | Figure 1: approximately 136 × 163.70 mm; Figure 2: 136 × 156.47 mm. Both SVG hashes matched their scoped states. Do not apply the original 215.46/203.42-mm findings as current dimensions. |
+| Invisible frames | Both exact painted/unclipped checks passed against the active policy hash. Panel and shared-colorbar ownership and the selected inset remain present. |
+| Relationships | Figure 1 F/G/H layout and D/E/displayed-G scientific links remain registered. Figure 2 A/B/C, D/E/F and G/H/I layout groups remain registered; their declared spacing checks passed. |
+| Larger gaps | F1 F/G/H data-body gaps ≈11.15 mm; F2 A/B/C pair-body gaps ≈11.13 mm; F2 D/E/F whole-content gaps ≈7.15 mm; F2 G/H/I whole-content gaps ≈3.89 mm. The target types differ. Equal measured gaps do not mean every adjacent content gap is the normal two-inset gap, or that composition is finally approved. |
+| Styling and axes | State-bound reports cover measured typography, strokes, registered axes, key/heading alignment and dense G annotations. The axis inventory reports no unresolved ownership; this does not establish complete scientific identity for every mark. |
+| Incomplete roles | The audited presentation reports contain 55 Figure 1 and 372 Figure 2 stroke instances with generic `unclassified.presentation.stroke` tags. Audit by element/instance and source before assigning scientific roles; these counts are not missing-data or learner counts. |
+| Captions | Concise current captions and preserved detailed definitions exist. Authenticate current caption/Methods references; do not replace them with the original long legends or shorten them again without a reason. |
+| Delivery evidence | Browser/responsive and two-page print review exist. Embedding screenshots have nonzero pixel differences; the DOM comparison includes hidden zero-box nodes and needs correction before numerical equivalence can be claimed. Actual production-PDF font/editability validation remains open. |
+| Scientific scope | Figure 2 C/F/I remain Pending. B/H retain distinct unfinished estimators; H ratios are not the D/E/G log-difference outcome. No whole-figure freeze or submission readiness follows. |
+
+The external review area is
+`/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/`.
+`size-guide.html` and its evidence are an explicitly annotated review;
+`main-paper-figures.html` is the collection destination resolved through state.
+Neither a filename nor an older `candidate.html` is authority. The chronological
+[migration record](../records/figure-reviews/nature-main-migration-20261017.md)
+contains interruption-era wording; reconcile its latest disposition against
+current state before following any old resume instruction. Do not run `prepare`,
+`compact` or `pair-spacing` over the existing directory as a generic resume step.
+
+#### Work packages and acceptance evidence
+
+Execute H01 first. H02–H06 can progress without changing artwork geometry.
+H07 composition implementation waits for a later scoped request. H08–H10 depend
+on authenticated inputs and the applicable earlier checks. IDs below bundle the
+existing N/F requirements; they do not introduce new semantic roles or approvals.
+
+**H01 — Reconcile authority, coverage and reproducibility (N01, N04, N27, N28).**
+Capture starting hashes for the exact scoped inputs and only the implementation
+files being changed. Distinguish a rule being recorded, implemented, measured,
+human-reviewed, scientifically accepted and release-ready. Reconcile stale
+“migration pending” guidance/resume notes and any historical baseline assertions
+without rewriting dated evidence. Audit Figure 2's legacy
+`assembly_scale.A_native_scale = 1` against the source-relative allocation map;
+do not use that field as proof of current native scale. Check generator/evidence
+hashes, source/display aliases and caption provenance together. Produce one dated
+coverage report mapping every applicable N/F ID to existing evidence, remaining
+work or a justified not-applicable disposition. Missing storage or changed manual
+inputs stop publication; independent code/doc work can continue.
+
+**H02 — Complete element and scientific registration (N02, N03, N09, N17–N19,
+N21; F10, F11, F13, F14).** Extend each existing draft registry, not a new index.
+For every visible element and referenced instance, record stable draft identity,
+canonical role/subtype, renderer/source alias, visibility, owner/allocation,
+style group and source/result mapping where scientific. Include glyphs inside
+text spans, markers and marker edges, bands, clipping boundaries, statistical
+rows/brackets/stars, arrows, stimuli, scale bars, colorbars, raster matrices and
+schematics. Distinguish resource definitions from rendered instances. Preserve
+source IDs; add aliases or deterministic draft IDs without modifying frozen bytes.
+
+Map experiment, condition and matched control separately. Bind cohort/FishKey,
+trial/frame/block, exclusions, estimator, aggregation, baseline, event windows,
+normalization, uncertainty and statistical contrast/correction family to exact
+sources. Represent layout, style, shared-coordinate and scientific relationships
+as different types. Record which elements share which axis or mappable, and why
+labels are suppressed. A color, structural ID or successful bounds check is not
+scientific evidence. No invented mappings or approval may close an unknown.
+Acceptance requires an inventory-to-render reconciliation and zero unexplained
+visible instances for any scope claimed complete; unknown scopes stay explicit.
+
+**H03 — Finish typography and axis edge cases (N06–N10, N15; F02, F04–F06,
+F17, F20, F22).** Reuse the resolved profile and existing axis/annotation helpers.
+Keep exact values in configuration, not per-panel patches. Verify X/Y ticks,
+colorbars, shared/secondary/inset axes and schematic-coordinate exceptions at
+native size through all transforms. Check tick values and side/visibility,
+length/normal stroke/cap, label centering, nearest painted-glyph gaps, title
+centering, multiline/rotated text and offset/exponent envelopes. Include nested
+spans and inherited/reference styles; a parent text style is insufficient.
+
+Keep E's local vertical spine at its data edge while sharing only the explicitly
+named labels. Check D/E example block/trial labels at identical physical sizes;
+the same applies across figures for each shared role. Preserve `3sTrace` and
+`10sTrace`, lowercase displayed panel aliases, right-aligned graphical keys and
+black key text. Center condition headings on their own columns and check common
+baselines. Keep Figure 2 G's misleading experiment/condition heading absent and
+its cohort counts in the caption. Resolve actual normal/bold/Greek/math fonts,
+glyph coverage and line spacing. Evidence must name each measured role and exact
+SVG; author-selected geometry is not a universal Nature-prescribed number.
+
+**H04 — Complete the graphical-role pilot (N11, N12, N17, N19; F03, F04).**
+Classify remaining generic strokes from renderer/source context. Audit effective
+directional widths, referenced tick paths, marker outlines, schematic arrows,
+comparison lines and colorbar outlines. Define missing physical marker diameter,
+arrowhead, error-cap and dash-length/offset choices by role using a representative
+rendered pilot; record their origin as project/author choices rather than inventing
+Nature mandates. Check line caps/joins, opacity multiplication, uncertainty-band
+visibility, fill-only regions and layer order. Scientific dashed guides remain
+meaningful; decorative patterns/grids/shadows require review, not indiscriminate
+deletion. Preserve the statistical contrast and star count when relocating or
+restyling marks. Reuse the ordinary/non-scaling-stroke calibration and test use/defs
+inheritance, horizontal/vertical marks and nested anisotropic transforms. Acceptance
+is role-specific measured and visual evidence, not only a permitted-width range.
+
+**H05 — Accessibility and source-image integrity (N07, N16–N18, N23).**
+Inspect normal vision, relevant color-vision simulations and grayscale where useful;
+check text contrast and condition/phase/uncertainty discrimination without color
+alone. Inventory actual palette/opacity/missing/zero/saturation meanings, including
+CS/US, Control/condition traces and heatmap keys. Preserve authenticated raster
+bytes; an accessibility-driven recoloring needs a separate traceable candidate,
+not silent editing of accepted cells. Confirm native image resolution by asset
+type, editable scale bars/annotations, crop/composite/reuse provenance and relevant
+permissions. Distinguish drawings from measured images. Do not upsample to claim
+new detail, apply photographic DPI rules to discrete matrices, or synthesize data.
+Resolve the guide's source/stage conflicts and any actual glyph fallback explicitly.
+
+**H06 — Close caption, Methods and source-table lineage (N08, N19–N22;
+F10–F12, F14, F15).** Reconcile panel aliases, counts/sample units, variable
+denominators, omitted data, keys, units, central tendency/uncertainty and every
+statistical symbol with the selected sources. Preserve A/B estimator differences
+and H ratio semantics; styling must not harmonize them. Verify concise captions
+against their retained detailed definitions and manuscript references, including
+an explicit old-to-new definition map where still missing. Resolve shared Methods
+into the canonical scientific-methods home; avoid divergent duplicate definitions.
+Map exported numerical tables to panel/series/contrast IDs, code, configuration,
+cohort/exclusion evidence and reproduction commands. Missing outputs or controls
+remain explicit and owned by Plans 01–06. Keep learner counts out of Figures 1/2.
+
+**H07 — Composition proposal only when requested (N05, N13, N14, N25;
+F01, F07–F09, F17).** Keep invisible figure/panel/shared allocations, the shared
+outside strip and normal two-inset content spacing. Measure content envelopes
+and data rectangles separately; document each larger grouping gap with actual
+width, members, reason and review disposition. Reassess D/E/colorbar proximity,
+F/G/H shared-axis layout and each Figure 2 row together. A named gap or equal
+spacing is not aesthetic approval. If later requested, compare side-by-side and
+stacked Control/condition arrangements for A/B/C against Figure 1 F/G/H ratios,
+legibility and control identity. Stacking and changed scientific aspect targets
+remain unselected. Use suitable journal dimensions, not a compulsory 183-mm canvas
+or automatic 136-mm shrink. Respect the latest no-resize/box-only instruction;
+this work package currently authorizes planning and measurement, not reflow.
+
+**H08 — Native export and collection equivalence (N05, N07, N18, N22–N25).**
+Use the existing exporter/collection renderer. Validate final editable vector
+artwork and manuscript captions separately from review HTML. Inspect the actual
+PDF's font types/embedding/subsets, editable glyphs and vectors, RGB resources,
+physical dimensions, native raster resources and linked-resource absence. A browser
+print preview or font configuration flag does not certify production export.
+Keep main, Extended Data and other delivery profiles separate; implement only
+the output scope needed for the release, with conditional content marked N/A.
+
+Extend `verify_main_paper_collection.cjs` rather than adding a competing checker.
+Compare standalone and embedded saved SVGs using corresponding visible geometry,
+computed styles/fonts, raster payloads and screenshots. Exclude hidden zero-box
+nodes/resource-only definitions from geometric comparison; explain subpixel
+capture/antialiasing differences and bind meaningful tolerances instead of
+claiming pixel identity. Check all figures/legends in order, self-containment,
+unique IDs/internal references, stylesheet/font isolation, native-size print,
+uniform narrow-screen fitting including non-scaling strokes, clipping and every
+printed page. Ensure the black guide is absent from submission/normal collection
+artwork. Bind final collection verification to the exact HTML hash and publish
+its evidence before any verification pointer. Reuse unchanged verified output.
+
+**H09 — Efficient durable integration and failure handling (N01, N04, N21,
+N23, N25–N28; F13, F16, F19–F22).** Use one resolved profile per build and pass
+the same theme through plotting helpers inside scoped Matplotlib rc contexts.
+Extend `presentation_profiles.py`, `theme.py`, `export.py`, `paper_panels.py`,
+`figure_workspace.py` and the existing figure-specific adapters only where the
+coverage report identifies a gap. Route ordinary edits by named role/group, not
+by repeatedly reading every plan, running every renderer or copying constants.
+Keep a small supported build/check/publication entrypoint and explicit legacy
+reproduction; consolidate disposable migration steps into reproducible supported
+adapters where warranted. Migrate Figures 3/4 only within their requested scope.
+
+Cache/reuse expensive renderer evidence only when exact SVG, fonts/resources,
+profile/policy, collector/helper code, dimensions and scientific-selection inputs
+are unchanged. A changed owner/shared style invalidates affected relationships;
+unchanged unrelated figures need no rerender. Keep AGENTS.md and the skill short;
+maintained guidance owns rules, the workflow owns procedures, state owns selection
+and this plan owns future work. Resolve stale historical-default wording without
+changing byte-bound historical contracts. Check-only and display remain read-only.
+
+Add meaningful route checks for stale/manual inputs, changed profiles/fonts,
+unsupported widths/effects, absent storage, missing role/source mappings, duplicate
+IDs, false axis sharing, unembedded resources, source/display alias mistakes and
+state/output write failures. Test multi-figure publication interruptions: recovery
+must identify exactly which scope was published, preserve prior state/artifacts
+and never expose a mixed collection as verified. Reuse existing rollback tests
+where they already establish the property. Preserve all preexisting work.
+
+**H10 — Reviewed delivery, optional freeze and release handoff (N20–N28).**
+Record actual visual review at native size, measurements, protection checks and
+open scientific coverage on exact saved bytes. Publish artifacts/evidence before
+atomic scoped state under existing locks; refresh the ordered collection only
+after its selected scopes pass. Particular figure/panel requests show only their
+own selected SVG and legend; plural paper requests use the authenticated collection.
+Do not add Figures 3/4 to the selected collection implicitly. A later explicit
+freeze requires complete scoped element/scientific registration and the existing
+freeze gate, never a generic-stroke or nominal-style substitute. Hand the verified
+artifact/evidence references to Plan 08 without silently closing scientific gates.
+
+#### Minimum evidence row and completion contract
+
+For each applicable check, record: N/F ID; figure/panel/element or typed
+relationship ID; canonical role; source/selection and artifact hashes; rule origin
+and profile/policy version/hash; expected and actual values with physical units;
+tolerance and measurement method; tool/font/resource hashes; exact reproduction
+command; result (`pass`, `fail`, `unresolved` or justified `not applicable`);
+reviewer/review evidence; and owning scientific dependency where relevant.
+Separate scientific meaning, presentation conformance and storage/publication
+status. Human review is valid evidence only for the explicitly reviewed scope.
+
+Complete the handoff when H01–H10 and all applicable N/F requirements have a
+traceable disposition, the selected output is reproducible, role/scientific
+coverage is complete for any scope claimed complete, and Plan 08 has the required
+delivery references. Do not claim final Nature or release readiness while
+applicable production/scientific checks remain unresolved. The planning request
+does not execute these packages, resize artwork, alter selections or freeze data.
 
 ## Scope and completion
 

@@ -7,7 +7,7 @@ certify final glyph geometry, resource embedding or scientific identity.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Sequence
+from typing import TYPE_CHECKING, Sequence
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -16,6 +16,9 @@ from matplotlib.figure import Figure
 from matplotlib.font_manager import fontManager
 
 from classical_conditioning.config.domain import Alignment, ConditionSpec
+
+if TYPE_CHECKING:
+    from classical_conditioning.figures.presentation_profiles import PresentationProfile
 
 # Physical layout constants and bundled font for cross-platform consistency.
 MM_PER_INCH = 25.4
@@ -129,6 +132,12 @@ class FigureTheme:
     font_weight: str | None = None
     text_color: str | None = None
     tick_color: str | None = None
+    spine_color: str | None = None
+    tick_capstyle: str | None = None
+    cs_linewidth: float | None = None
+    us_linewidth: float | None = None
+    stimulus_span_zorder: float = 3
+    axes_titlelocation: str = "left"
 
 
 # Default theme is a reusable immutable value, not mutable global plotting state.
@@ -136,17 +145,31 @@ DEFAULT_THEME = FigureTheme()
 
 
 # Share one immutable default theme across figure builders.
-def get_theme(*, profile: str | None = None) -> FigureTheme:
+def get_theme(*, profile: str | PresentationProfile | None = None) -> FigureTheme:
+    """Return legacy defaults or adapt one named/already-resolved policy snapshot."""
     if profile is None:
         return DEFAULT_THEME
-    from classical_conditioning.figures.presentation_profiles import load_presentation_profile
-    return FigureTheme(**load_presentation_profile(profile).theme_parameters())
+    from classical_conditioning.figures.presentation_profiles import (
+        PresentationProfile,
+        load_presentation_profile,
+    )
+    if isinstance(profile, str):
+        profile = load_presentation_profile(profile)
+    elif not isinstance(profile, PresentationProfile):
+        raise TypeError("profile must be a name or resolved PresentationProfile")
+    return FigureTheme(**profile.theme_parameters())
 
 
-def apply_theme(theme: FigureTheme | None = None) -> FigureTheme:
-    """Apply the scientific theme to Matplotlib rcParams."""
+def apply_theme(
+    theme: FigureTheme | None = None,
+    *,
+    profile: str | PresentationProfile | None = None,
+) -> FigureTheme:
+    """Apply one explicit theme/profile; callers can isolate it with mpl.rc_context."""
+    if theme is not None and profile is not None:
+        raise ValueError("Pass either theme or profile, not both")
     # Resolve optional override and installed fonts before updating global rcParams.
-    theme = theme or DEFAULT_THEME
+    theme = theme if theme is not None else get_theme(profile=profile)
     sans = list(resolve_sans_serif_fonts(theme.font_sans_serif))
     # Apply typography, axes, layout, export, and no-LaTeX portability settings together.
     mpl.rcParams.update(
@@ -164,7 +187,7 @@ def apply_theme(theme: FigureTheme | None = None) -> FigureTheme:
             "axes.titlesize": theme.axes_titlesize,
             "axes.titleweight": "normal",
             "axes.labelweight": "normal",
-            "axes.titlelocation": "left",
+            "axes.titlelocation": theme.axes_titlelocation,
             "axes.titlepad": theme.axes_titlepad,
             "axes.labelpad": theme.axes_labelpad,
             "axes.linewidth": theme.axes_linewidth,
@@ -219,12 +242,21 @@ def style_axes(
     theme: FigureTheme | None = None,
     show_xticks: bool = True,
     show_yticks: bool = True,
+    show_xticklabels: bool | None = None,
+    show_yticklabels: bool | None = None,
     xlabel: str | None = None,
     ylabel: str | None = None,
 ) -> None:
-    """Hide unused spines and ticks on one axes."""
+    """Style ordinary left/bottom axes, preserving data coordinates and tick values.
+
+    Pass the build's resolved theme explicitly. Boxed/shared scientific families
+    retain their own registered visibility rules; this is not their layout engine.
+    """
     # Set visibility/spacing first, then label behaviour based on requested tick axes.
     theme = theme or DEFAULT_THEME
+    # Resolve declared profile text before changing any existing artist.
+    profile_text = theme.font_style is not None or theme.font_weight is not None
+    family = resolve_sans_serif_fonts(theme.font_sans_serif) if profile_text else None
     ax.grid(False)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -234,13 +266,17 @@ def style_axes(
         ax.spines["left"].set_position(("outward", theme.left_spine_offset))
     if show_xticks:
         ax.spines["bottom"].set_position(("outward", theme.bottom_spine_offset))
+    if theme.spine_color is not None:
+        for spine in ax.spines.values():
+            spine.set_color(theme.spine_color)
+            spine.set_linewidth(theme.axes_linewidth)
     ax.tick_params(
         axis="both",
         which="major",
         bottom=show_xticks,
-        labelbottom=show_xticks,
+        labelbottom=show_xticks if show_xticklabels is None else show_xticklabels,
         left=show_yticks,
-        labelleft=show_yticks,
+        labelleft=show_yticks if show_yticklabels is None else show_yticklabels,
         top=False,
         right=False,
         direction="out",
@@ -248,6 +284,7 @@ def style_axes(
         width=theme.tick_major_width,
         pad=theme.tick_major_pad,
         labelsize=theme.tick_labelsize,
+        **({"colors": theme.tick_color} if theme.tick_color is not None else {}),
     )
     ax.tick_params(
         axis="both", which="minor", bottom=False, left=False,
@@ -257,6 +294,24 @@ def style_axes(
     ax.yaxis.label.set_fontsize(theme.axes_labelsize)
     ax.xaxis.labelpad = theme.axes_labelpad
     ax.yaxis.labelpad = theme.axes_labelpad
+    text_artists = [(ax.xaxis.label, theme.text_color), (ax.yaxis.label, theme.text_color)]
+    for axis in (ax.xaxis, ax.yaxis):
+        for tick in axis.get_major_ticks():
+            label_color = theme.tick_color if theme.tick_color is not None else theme.text_color
+            text_artists.extend(((tick.label1, label_color), (tick.label2, label_color)))
+            if theme.tick_capstyle is not None:
+                for line in (tick.tick1line, tick.tick2line):
+                    line.set_solid_capstyle(theme.tick_capstyle)
+                    line.set_dash_capstyle(theme.tick_capstyle)
+    for text, color in text_artists:
+        if family is not None:
+            text.set_fontfamily(family)
+        if theme.font_style is not None:
+            text.set_fontstyle(theme.font_style)
+        if theme.font_weight is not None:
+            text.set_fontweight(theme.font_weight)
+        if color is not None:
+            text.set_color(color)
     if xlabel is not None:
         ax.set_xlabel(xlabel if show_xticks else "")
     elif not show_xticks:
@@ -288,13 +343,14 @@ def add_stimulus_window(
         facecolor=color,
         edgecolor="none",
         alpha=theme.stimulus_span_alpha,
-        zorder=3,
+        zorder=theme.stimulus_span_zorder,
         clip_on=True,
     )
+    onset_width = theme.cs_linewidth if value == Alignment.CS.value else theme.us_linewidth
     onset = ax.axvline(
         onset_s,
         color=color,
-        linewidth=theme.lines_linewidth,
+        linewidth=theme.lines_linewidth if onset_width is None else onset_width,
         zorder=4,
         clip_on=True,
     )

@@ -11,3 +11,11 @@ The frozen outcome is `median(ln positive response bout frames) − median(ln po
 The selected scientific record preserves the whole-fish trajectory bootstrap (5,000 resamples, seed 10, pointwise percentile 95% intervals) and the recorded block/local/trial model families. Its trial LMM is phase-aware and baseline-adjusted, with fish random intercept/slope and the frozen contrast/reference/correction definitions. Consult the [exact scientific selection](../../../../../records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/scientific-selection.json) for model terms and multiplicity.
 
 **Frozen limitations remain:** exploratory analysis, heavy residual tails, unavailable Test3 local M/R, and no learning-onset claim. Freezing selects an exact result with its limitations; it does not remove them.
+
+## Analysis study guide
+
+The author-requested [explanatory source](analysis-guide.md) builds a separate,
+dated HTML guide covering G, its alternatives, independent analyses, exclusions
+and legacy learner counts. Delivery identities and browser checks are recorded
+in [the guide review record](../../../../../records/figure-reviews/figure-02/g-analysis-guide-20261017.json).
+This teaching/notebook artifact does not update scientific or presentation selections.

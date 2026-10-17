@@ -266,7 +266,9 @@ def measured_presentation(data, *, width_mm=183.):
         local=_props(node);props={**props,**local};opacity*=float(local.get('opacity','1'))
         if local.get('transform','')!=node.get('transform','').strip():
             raise ValueError('Resolve CSS transforms into SVG transform attributes before measurement')
-        for property_name in ('mask','filter','vector-effect','mix-blend-mode'):
+        if local.get('vector-effect','none')not in {'none','non-scaling-stroke'}:
+            raise ValueError('Unsupported measured SVG vector effect')
+        for property_name in ('mask','filter','mix-blend-mode'):
             if local.get(property_name,'none') not in {'none','normal'}:
                 raise ValueError('Unsupported measured SVG property requires resolution: '+property_name)
         matrix=_multiply(matrix,_transform(node.get('transform','')))
@@ -291,19 +293,21 @@ def measured_presentation(data, *, width_mm=183.):
                 if target is None:raise ValueError('Broken use reference: '+ref)
                 if target.get('transform'):raise ValueError('Transformed use templates require explicit resolution before measurement')
                 # Referenced element properties override properties inherited by use.
-                paint={**props,**_props(target)}
+                paint={**props,**{k:v for k,v in _props(target).items()if v!='inherit'}}
             if paint.get('stroke','none')!='none':
                 width=float(paint.get('stroke-width','1').removesuffix('px'));det=abs(a*d-b*c)
                 trace=a*a+b*b+c*c+d*d;disc=max(0.,trace*trace-4*det*det)
                 hi=math.sqrt((trace+math.sqrt(disc))/2);lo=det/hi if hi else 0
                 record=dict(element_id=node.get('id'),context=context,color=paint['stroke'],effective_opacity=opacity*float(paint.get('stroke-opacity','1')),
                             width_range_pt=[width*lo*unit,width*hi*unit])
+                non_scaling=paint.get('vector-effect')=='non-scaling-stroke'
+                if non_scaling:record.update(width_range_pt=[width*72/96,width*72/96],normal_width_pt=width*72/96,vector_effect='non-scaling-stroke')
                 nums=[float(v) for v in re.findall(NUMBER,target.get('d',''))] if name in {'path','use'} else []
                 if name=='line':nums=[float(node.get(k)) for k in ('x1','y1','x2','y2')]
                 if len(nums)==4 and (name=='line' or re.fullmatch(r'\s*M\s*'+NUMBER+r'[ ,]+'+NUMBER+r'\s*L\s*'+NUMBER+r'[ ,]+'+NUMBER+r'\s*',target.get('d',''))):
                     dx,dy=nums[2]-nums[0],nums[3]-nums[1];length=math.hypot(dx,dy)
                     mapped=math.hypot(a*dx+c*dy,b*dx+d*dy)
-                    if mapped:record['normal_width_pt']=width*det*length/mapped*unit
+                    if mapped and not non_scaling:record['normal_width_pt']=width*det*length/mapped*unit
                     scheme_tick=any(s.startswith('time-axis-') for s in context) and name=='line' and dx==0
                     if re.search(r'xtick|ytick', ' '.join(context)) or scheme_tick:
                         x=float(node.get('x','0')) if name=='use' else 0;y=float(node.get('y','0')) if name=='use' else 0

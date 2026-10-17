@@ -27,19 +27,19 @@
     "status": "Presentation draft with verified 1 mm invisible frames; inherited unfinished scientific scopes retained",
     "working_svg": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
-      "sha256": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3"
+      "sha256": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc"
     },
     "review": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
-      "sha256": "f2b9a8ee4a9f797aa7c1e260b6902bd6c3874e439eb2c6bbea131ec267a3da77"
+      "sha256": "feeaf95263ba229c7f48eceaedb3b9840ff7efeace7b81e4ce2f92e3ec6e6383"
     },
     "legend": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
-      "sha256": "5da5dcdf2abfe40750617b21fc9c85c7f127992a5b24ffe70d96f32335b91d85"
+      "sha256": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd"
     },
     "semantic_registry": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-semantic-registry.json",
-      "sha256": "3d404c80920ee7cba04c969cb6b4979ea58a653cc113061d728f35f2792abce9"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-semantic-registry.json",
+      "sha256": "57a5b6f90e7ebae9ca8d29cf6184b2bca87dc78891c0ffae7b5b534f93d74373"
     },
     "consistency_requests": [
       {
@@ -627,35 +627,51 @@
           "svg": "7decdf68b414f4a34cc6f01a345ec5a1d7381768b86787cdf6aeca73379903d3",
           "legend": "5da5dcdf2abfe40750617b21fc9c85c7f127992a5b24ffe70d96f32335b91d85"
         }
+      },
+      {
+        "id": "fig2-nature-presentation-20261016",
+        "scope": [
+          "Figure 2"
+        ],
+        "status": "verified measured typography/axis geometry/frames/relationships; partial overall coverage",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-nature-evidence.json",
+          "sha256": "b29a573416c15077eab41e4854ce4aa603c26a0825855309dba36e6fa2168b31"
+        },
+        "affected_artifact_hashes": {
+          "svg": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc",
+          "legend": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd"
+        }
       }
     ],
     "reproduction": {
       "generator": {
-        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_axis_geometry.py",
-        "sha256": "2e21e299d3026c7ce5a6e9eec198f73978cf2b36d269fff74f112835ce1e57e0"
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/nature_main_figures.py",
+        "sha256": "c223c760285fc6c9175ea0dc1675576ee40f55748f356315d7abe9b67348df5e"
       },
-      "browser_helper": {
-        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_axis_geometry.cjs",
-        "sha256": "14bccd4663eefe35c3564c633655e8a051f40dab1a882c8e4ab4a7c61a643e42"
+      "directory": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016",
+      "profile_inputs": {
+        "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+        "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+        "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
       },
-      "inputs": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-input.json",
-        "sha256": "8899c0bc2a4a6fdebf9b3af748a6ddf735397a2d107507e859ca51d9a9e66632"
-      },
-      "command": "style_axis_geometry.cjs; collect bounds and repack; refine_paper_annotations.py; align_paper_annotations.cjs; regenerate pages; collect fresh layout/axis/annotation verification; publish with actual visual review note"
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-nature-evidence.json",
+        "sha256": "b29a573416c15077eab41e4854ce4aa603c26a0825855309dba36e6fa2168b31"
+      }
     },
     "assembly_scale": {
-      "final_width_mm": 183,
-      "final_height_mm": 203.4216241189558,
+      "final_width_mm": 136,
+      "final_height_mm": 156.46844886241252,
       "A_native_scale": 1
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-layout-evidence.json",
-      "sha256": "45aa07568af754fa09d0a696d0d29af7803a2a5da388f11c63da297e17a57052"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-layout-evidence.json",
+      "sha256": "eaf10d31c297648abeea59b1cb298a072be518b5209e7fc38f5669b8e23fbd72"
     },
     "effective_presentation": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-02-effective-presentation.json",
-      "sha256": "df80c319bcba366783cf8f7ffd36e19b218451d51e1eb80381410c7c40556124"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-effective-presentation.json",
+      "sha256": "6b72eb728082e34440a1e182308f2b6d0d24665f53b8d561ac37c390113ccc07"
     },
     "condition_order": [
       {
@@ -698,6 +714,20 @@
         ],
         "status": "pending authenticated data; placeholder preserved"
       }
-    ]
+    ],
+    "presentation_profile": {
+      "id": "nature-main",
+      "version": "1.0.1",
+      "inputs": {
+        "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+        "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+        "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+      },
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-nature-evidence.json",
+        "sha256": "b29a573416c15077eab41e4854ce4aa603c26a0825855309dba36e6fa2168b31"
+      },
+      "status": "verified measured presentation properties; remaining coverage explicit in evidence"
+    }
   }
 }

@@ -1,0 +1,8 @@
+{
+  "changed_guidance_local_links_checked": 72,
+  "link_issues": [],
+  "protected_inputs_unchanged": 7,
+  "archive_payloads_verified": 7,
+  "repository_structure_check": "Reports issues outside this retirement: backlog/navigation links, existing protected-byte mismatches, Figure 1 registry/state disagreements; these files were not changed by this task.",
+  "runtime_changes": false
+}

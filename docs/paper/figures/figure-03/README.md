@@ -12,6 +12,8 @@ see the [disposition record](../../../../records/repository-archive/figure3-lega
 This metric restriction does not approve the historical classifier or a panel.
 
 - [Review concerns](review.md)
+- [Independent-review HTML guide: saved file, sources and verification](../../../../records/figure-reviews/figure-03/explanation-guide-2026-10-17.json) — all fish, methods, exclusions, drafts and decision worksheet
+- [Dated chat summary: author choices, corrections and BLUP comparison request](../../../../records/figure-reviews/figure-03/conversation-summary-2026-10-16.md)
 - [Individual-fish illustrations and complete supplementary atlas](individual-fish-display.md)
 - [Exploratory atlas: implementation, outputs and limitations](../../../running-analysis/figure3-individual-atlas.md)
 - [Separate exploratory display state](exploratory-state.json) — 57 Delay/control fish; no paper method selected

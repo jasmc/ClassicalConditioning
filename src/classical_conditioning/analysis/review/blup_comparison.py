@@ -44,7 +44,7 @@ def epoch_data(trials, inventory, epochs=((5,14),(40,64)), outcome='g'):
         if len(d)!=90 or set(d.trial_number)!=set(range(5,95)):raise ValueError('Scheduled inventory not reconciled')
         if outcome=='g':values=d.response_logmedian-d.baseline_logmedian
         elif outcome=='legacy':
-            values=np.log(d.response_mean.where(d.response_mean.gt(0))/d.baseline_mean.where(d.baseline_mean.gt(0)))
+            values=np.log(d.response_bout_mean.where(d.response_bout_mean.gt(0))/d.baseline_bout_mean.where(d.baseline_bout_mean.gt(0)))
         else:raise ValueError(outcome)
         for j,(a,b) in enumerate(epochs):
             mask=d.trial_number.between(a,b)&np.isfinite(values)
@@ -124,7 +124,7 @@ def simulate(data, model, rng, scenario='matched'):
     G=model['G'];beta=model['beta'].reshape(2,2).copy();sigma=model['sigma'];phi=model['phi']
     b=rng.multivariate_normal(np.zeros(2),G,size=len(data.fish));means=beta[data.conditions]+b
     if scenario=='null':
-        beta[1]=beta[0];base=rng.normal(0,np.sqrt(np.mean(np.diag(G))),len(data.fish));b=np.column_stack([base,base]);means=beta[data.conditions]+b
+        beta[1]=beta[0];beta[:,1]=beta[:,0];base=rng.normal(0,np.sqrt(np.mean(np.diag(G))),len(data.fish));b=np.column_stack([base,base]);means=beta[data.conditions]+b
     y=np.zeros_like(data.y)
     for i in range(len(data.fish)):
         for epoch in (0,1):

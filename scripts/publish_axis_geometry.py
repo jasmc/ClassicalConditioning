@@ -11,7 +11,6 @@ from classical_conditioning.figures.layout_frames import read_spec,embed_spec,as
 from main_paper_figures import reference,encode,authenticate
 from register_figure_axes import build_inventory
 from check_layout_frames import review_page
-from build_figure_legend_review import svg_editing_page
 from correct_panel_relationships import matrices,find,union,retile
 
 EXPECTED={'tick_length_pt':2.,'tick_stroke_width_pt':.5,'tick_color':'#000000','tick_linecap':'butt','tick_label_size_pt':7.,'axis_title_size_pt':8.,'tick_label_edge_gap_pt':3.,'title_label_edge_gap_pt':3.,'measurement_tolerance_mm':.01,'font_size_tolerance_pt':.01}
@@ -50,7 +49,7 @@ def verify_protection(source,candidate,manifest,annotations=None,alignment=None)
             m=_transform(aa.pop('transform',''));n=_transform(bb.pop('transform',''))
             if any(abs(v-w)>1e-9 for v,w in zip(m[:4],n[:4])):raise ValueError('Owner stretch forbidden')
         if id(x)in edits:
-            roles=edits[id(x)]['roles'];allowed=tick_styles if 'axis.tick'in roles else fonts
+            roles=edits[id(x)]['roles'];allowed=tick_styles if any(role in roles for role in ('axis.tick','axis.tick_definition')) else fonts
             ca,cb=css(aa.pop('style','')),css(bb.pop('style',''))
             if {k:v for k,v in ca.items()if k not in allowed}!={k:v for k,v in cb.items()if k not in allowed}:raise ValueError('Protected style changed: '+str(x.get('id')))
             for k in ('id','transform'):aa.pop(k,None);bb.pop(k,None)
@@ -68,21 +67,22 @@ def verify_protection(source,candidate,manifest,annotations=None,alignment=None)
         if aa!=bb or expected_text!=y.text:raise ValueError('Protected scientific content changed: '+str(x.get('id')))
     return {'scientific_geometry_text_rasters_preserved':True,'allowed':'registered axis leaf style/normal offsets; example-label fonts; whole allocation translations; frame metadata/canvas height; empty I placeholder width and Pending centering','changed_registered_leaves':len(edits)}
 
-def verify_metrics(report,svg):
+def verify_metrics(report,svg,expected=None):
+    expected=expected or {**EXPECTED,'family':'DejaVu Sans','block_size_pt':8.,'trial_size_pt':7.}
     if report['artifact_sha256']!=sha(svg):raise ValueError('Stale axis measurements')
     for axis in report['axes']:
         for tick in axis['ticks']:
-            if abs(tick['length_pt']-2)>.01 or abs(tick['stroke_width_pt']-.5)>.01 or tick['stroke']!='rgb(0, 0, 0)' or tick['linecap']!='butt':raise ValueError('Inconsistent tick: '+tick['element_id'])
+            if abs(tick['length_pt']-expected['tick_length_pt'])>.01 or abs(tick['stroke_width_pt']-expected['tick_stroke_width_pt'])>.01 or tick['stroke']!='rgb(0, 0, 0)' or tick['linecap']!=expected['tick_linecap']:raise ValueError('Inconsistent tick: '+tick['element_id'])
         for label in axis['tick_labels']:
-            if abs(label['size_pt']-7)>.01 or 'DejaVu Sans'not in label.get('font_family','') or label.get('font_weight')not in ('normal','400'):raise ValueError('Inconsistent tick font')
+            if abs(label['size_pt']-expected['tick_label_size_pt'])>.01 or expected['family']not in label.get('font_family','') or label.get('font_weight')not in ('normal','400'):raise ValueError('Inconsistent tick font')
         for title in axis.get('titles',[]):
-            if abs(title['size_pt']-8)>.01 or 'DejaVu Sans'not in title['font_family'] or title['font_weight']not in ('normal','400'):raise ValueError('Inconsistent axis title font')
+            if abs(title['size_pt']-expected['axis_title_size_pt'])>.01 or expected['family']not in title['font_family'] or title['font_weight']not in ('normal','400'):raise ValueError('Inconsistent axis title font')
         for gap in axis['tick_label_gaps_mm']:
-            if abs(gap-3*25.4/72)>.01:raise ValueError(('Inconsistent tick gap',axis['id'],gap))
-        if axis['title_gap_mm']is not None and abs(axis['title_gap_mm']-3*25.4/72)>.01:raise ValueError(('Inconsistent title gap',axis['id'],axis['title_gap_mm']))
+            if abs(gap-expected['tick_label_edge_gap_pt']*25.4/72)>.01:raise ValueError(('Inconsistent tick gap',axis['id'],gap))
+        if axis['title_gap_mm']is not None and abs(axis['title_gap_mm']-expected['title_label_edge_gap_pt']*25.4/72)>.01:raise ValueError(('Inconsistent title gap',axis['id'],axis['title_gap_mm']))
     for label in report.get('example_labels',[]):
-        expected=8 if label['element_id'].endswith('-block')else 7
-        if abs(label['size_pt']-expected)>.01 or abs(label['gap_to_y_title_mm']-3*25.4/72)>.01:raise ValueError('Inconsistent example-row label: '+label['element_id'])
+        size=expected['block_size_pt'] if label['element_id'].endswith('-block')else expected['trial_size_pt']
+        if abs(label['size_pt']-size)>.01 or abs(label['gap_to_y_title_mm']-3*25.4/72)>.01:raise ValueError('Inconsistent example-row label: '+label['element_id'])
 
 def pages(directory):
     for n in (1,2):
@@ -133,6 +133,7 @@ def repack(directory):
     pages(directory)
 
 def publish(directory,note):
+    from build_figure_legend_review import svg_editing_page
     if not Path('/Volumes/JOAQUIM').is_mount():raise ValueError('JOAQUIM unavailable; publication stopped')
     baseline=json.loads((directory/'starting-ticket.json').read_text());snapshot=Snapshot([]);snapshot.hashes=baseline;snapshot.check()
     snapshot.hashes.update(Snapshot([Path(__file__),ROOT/'scripts/style_axis_geometry.cjs',ROOT/'scripts/register_figure_axes.py',ROOT/'src/classical_conditioning/figure_workspace.py']).hashes)

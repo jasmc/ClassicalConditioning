@@ -6,11 +6,12 @@ const fs=require('fs'),path=require('path'),{chromium}=require('playwright');
  const p=await browser.newPage({viewport:{width:1000,height:1000}});
  for(const n of [1,2]){
   const extra=path.join(dir,`figure-0${n}-axis-input.json`),input=JSON.parse(fs.readFileSync(verify&&fs.existsSync(extra)?extra:path.join(dir,`figure-0${n}-input.json`))),svg=fs.readFileSync(verify?path.join(dir,`figure-0${n}-layout.svg`):input.svg.path,'utf8');
-  await p.setContent('<html><head><style>body{margin:0}svg{width:183mm;height:auto;display:block}</style></head><body></body></html>');
+  await p.setContent('<html><head><style>body{margin:0}svg{height:auto;display:block}</style></head><body></body></html>');
   await p.evaluate(svg=>{const xml=new DOMParser().parseFromString(svg,'image/svg+xml');if(xml.querySelector('parsererror'))throw Error('Invalid SVG XML');document.body.appendChild(document.importNode(xml.documentElement,true))},svg);
   await p.evaluate(()=>document.fonts.ready);
   const result=await p.evaluate(({input,n,verify,centerOnly})=>{
    const root=document.querySelector('svg'),mm=25.4/96,pt=96/72,changes=new Map();
+   const style={tick_length_pt:2,tick_stroke_width_pt:.5,tick_color:'#000000',tick_linecap:'butt',tick_label_edge_gap_pt:3,title_label_edge_gap_pt:3,...(input.axis_style||{family:'DejaVu Sans',tick_label_size_pt:7,axis_title_size_pt:8,block_size_pt:8,trial_size_pt:7})};
    const at=a=>a.xml_index_path.reduce((node,i)=>node.children[i],root);
    const original=new Map([...root.querySelectorAll('*'),root].map(node=>[node,{attrs:[...node.attributes].map(a=>[a.name,a.value]),text:node.textContent}]));
    const nodes=[root,...root.querySelectorAll('*')];
@@ -21,7 +22,7 @@ const fs=require('fs'),path=require('path'),{chromium}=require('playwright');
    const union=bs=>[Math.min(...bs.map(b=>b[0])),Math.min(...bs.map(b=>b[1])),Math.max(...bs.map(b=>b[2])),Math.max(...bs.map(b=>b[3]))];
    function shift(node,dx,dy){touch(node,'presentation-offset');const m=ctm(node),det=m.a*m.d-m.b*m.c,x=(m.d*dx-m.c*dy)/mm/det,y=(-m.b*dx+m.a*dy)/mm/det;node.setAttribute('transform',(node.getAttribute('transform')||'')+` translate(${x} ${y})`)}
    function applyStyle(node,properties){node.setAttribute('style',(node.getAttribute('style')||'')+';'+Object.entries(properties).map(([k,v])=>k+':'+v+' !important').join(';'))}
-   function font(node,size,role){touch(node,role);const m=ctm(node),local=size*pt/Math.hypot(m.c,m.d);applyStyle(node,{'font-size':local+'px','font-family':'"DejaVu Sans",sans-serif','font-weight':'normal','font-style':'normal'})}
+   function font(node,size,role){touch(node,role);const m=ctm(node),local=size*pt/Math.hypot(m.c,m.d);applyStyle(node,{'font-size':local+'px','font-family':'"'+style.family+'",sans-serif','font-weight':'normal','font-style':'normal'})}
    function ends(node){let x1,y1,x2,y2,geom=node;
     if(node.localName==='use'){geom=root.querySelector('[id="'+(node.getAttribute('href')||node.getAttributeNS('http://www.w3.org/1999/xlink','href')).slice(1)+'"]')}
     if(geom.localName==='line'){[x1,y1,x2,y2]=['x1','y1','x2','y2'].map(k=>Number(geom.getAttribute(k)))}
@@ -36,22 +37,30 @@ const fs=require('fs'),path=require('path'),{chromium}=require('playwright');
     // and each other line connects a labelled time to its outward tick endpoint.
     if(a.panel==='B'&&n===1)a.tick_nodes=a.axis_marks.map(at).filter(node=>node.localName==='line'&&node.getAttribute('x1')===node.getAttribute('x2'));
     a.label_nodes=a.tick_labels.map(at);a.title_nodes=a.titles.map(at);
-    if(!verify)for(const node of a.tick_nodes){touch(node,'axis.tick');const [x1,y1,x2,y2]=ends(node),m=ctm(node),v=new DOMPoint(x2-x1,y2-y1).matrixTransform(new DOMMatrix([m.a,m.b,m.c,m.d,0,0])),length=Math.hypot(v.x,v.y),ratio=2*pt/length;
+    if(!verify)for(const node of a.tick_nodes){touch(node,'axis.tick');const [x1,y1,x2,y2]=ends(node),m=ctm(node),v=new DOMPoint(x2-x1,y2-y1).matrixTransform(new DOMMatrix([m.a,m.b,m.c,m.d,0,0])),length=Math.hypot(v.x,v.y),ratio=style.tick_length_pt*pt/length;
      const vertical=Math.abs(x2-x1)<1e-8,sx=vertical?1:ratio,sy=vertical?ratio:1;
      node.setAttribute('transform',(node.getAttribute('transform')||'')+` translate(${x1} ${y1}) scale(${sx} ${sy}) translate(${-x1} ${-y1})`);
      const cross=vertical?Math.hypot(m.a,m.b):Math.hypot(m.c,m.d);
-     applyStyle(node,{'stroke-width':.5*pt/cross,'stroke':'#000000','stroke-linecap':'butt','stroke-linejoin':'miter','stroke-dasharray':'none','fill':'none','opacity':'1'});
+     applyStyle(node,{'stroke-width':style.tick_stroke_width_pt*pt/cross,'stroke':style.tick_color,'stroke-linecap':style.tick_linecap,'stroke-linejoin':'miter','stroke-dasharray':'none','fill':'none','opacity':'1'});
     }
-    if(!verify)for(const node of a.label_nodes)font(node,7,'axis.tick_label');
-    if(!verify)for(const node of a.title_nodes)font(node,8,'axis.label');
+    if(!verify&&input.axis_style)for(const node of a.tick_nodes)if(node.localName==='use'){
+     const href=node.getAttribute('href')||node.getAttributeNS('http://www.w3.org/1999/xlink','href');
+     const target=root.querySelector('[id="'+href.slice(1)+'"]');
+     if(!target)throw Error('Unresolved tick definition '+href);
+     // A specified width on a referenced path overrides its <use>'s inherited
+     // width. Delegate that one property to each registered tick instance.
+     touch(target,'axis.tick_definition');applyStyle(target,{'stroke-width':'inherit'});
+    }
+    if(!verify)for(const node of a.label_nodes)font(node,style.tick_label_size_pt,'axis.tick_label');
+    if(!verify)for(const node of a.title_nodes)font(node,style.axis_title_size_pt,'axis.label');
    }
-   if(!verify&&n===1)for(const panel of ['D','E'])for(const node of root.querySelectorAll(`[id^="edit-${panel}-trial-"]`))if(node.localName==='text'&&/-((name)|(block))$/.test(node.id))font(node,node.id.endsWith('-block')?8:7,'example-trial-label');
+   if(!verify&&n===1)for(const panel of ['D','E'])for(const node of root.querySelectorAll(`[id^="edit-${panel}-trial-"]`))if(node.localName==='text'&&/-((name)|(block))$/.test(node.id))font(node,node.id.endsWith('-block')?style.block_size_pt:style.trial_size_pt,'example-trial-label');
    // Use geometric glyph edges, not baseline/anchor padding. Move only normal
    // to the axis, preserving the data coordinate of each tick and label.
    for(const a of axes){if(verify||!a.tick_nodes.length)continue;const normal=a.orientation==='x'?1:0,tangent=1-normal;
     for(const label of a.label_nodes){const b=box(label),center=(b[tangent]+b[tangent+2])/2;
      const tick=[...a.tick_nodes].sort((u,v)=>{const U=box(u),V=box(v);return Math.abs((U[tangent]+U[tangent+2])/2-center)-Math.abs((V[tangent]+V[tangent+2])/2-center)})[0];
-     const [x1,y1,x2,y2]=ends(tick),m=ctm(tick),start=new DOMPoint(x1,y1).matrixTransform(m),end=new DOMPoint(x2,y2).matrixTransform(m),sign=Math.sign(normal===1?end.y-start.y:end.x-start.x),target=(normal===1?end.y:end.x)*mm+sign*3*25.4/72,delta=target-(sign>0?b[normal]:b[normal+2]);
+     const [x1,y1,x2,y2]=ends(tick),m=ctm(tick),start=new DOMPoint(x1,y1).matrixTransform(m),end=new DOMPoint(x2,y2).matrixTransform(m),sign=Math.sign(normal===1?end.y-start.y:end.x-start.x),target=(normal===1?end.y:end.x)*mm+sign*style.tick_label_edge_gap_pt*25.4/72,delta=target-(sign>0?b[normal]:b[normal+2]);
      shift(label,normal===0?delta:0,normal===1?delta:0);
     }
    }
@@ -62,11 +71,18 @@ const fs=require('fs'),path=require('path'),{chromium}=require('playwright');
     const labels=[...new Set(g.axes.flatMap(a=>a.label_nodes))];if(!labels.length)continue;
     const a=g.axes[0],normal=a.orientation==='x'?1:0,lb=union(labels.map(box)),tb=union(g.nodes.map(box));
     let sign=1;if(normal===0){const ticks=g.axes.flatMap(a=>a.tick_nodes);sign=ticks.length&&box(ticks[0])[0]>lb[2]?-1:1}
-    const delta=(sign>0?lb[normal+2]+3*25.4/72:lb[normal]-3*25.4/72)-(sign>0?tb[normal]:tb[normal+2]);
+    const delta=(sign>0?lb[normal+2]+style.title_label_edge_gap_pt*25.4/72:lb[normal]-style.title_label_edge_gap_pt*25.4/72)-(sign>0?tb[normal]:tb[normal+2]);
     for(const node of g.nodes)shift(node,normal===0?delta:0,normal===1?delta:0);
    }
    if(centerOnly)for(const a of axes){if(!a.tick_nodes.length)continue;const tangent=a.orientation==='x'?0:1;
     for(const label of a.label_nodes){const lb=box(label),center=(lb[tangent]+lb[tangent+2])/2;const tb=a.tick_nodes.map(box).sort((u,v)=>Math.abs((u[tangent]+u[tangent+2])/2-center)-Math.abs((v[tangent]+v[tangent+2])/2-center))[0];const delta=(tb[tangent]+tb[tangent+2])/2-center;shift(label,tangent===0?delta:0,tangent===1?delta:0)}
+   }
+   if(centerOnly&&input.axis_style)for(const g of titleGroups.values()){
+    const a=g.axes[0],tangent=a.orientation==='x'?0:1;
+    const references=g.axes.flatMap(a=>[...a.axis_marks,...(a.explicit_spines||[])]).map(at);
+    if(!references.length)continue;
+    const rb=union(references.map(box)),tb=union(g.nodes.map(box)),delta=(rb[tangent]+rb[tangent+2]-tb[tangent]-tb[tangent+2])/2;
+    for(const node of g.nodes)shift(node,tangent===0?delta:0,tangent===1?delta:0);
    }
    // Example row descriptions sit outside the Y-title column. They must not
    // occupy the now explicitly reserved tick-label-to-axis-title strip.

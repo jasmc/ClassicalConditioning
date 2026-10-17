@@ -85,5 +85,13 @@ def test_duplicate_unreferenced_legacy_handles_are_isolated():
         paper.embedded_svg(svg.replace(b'<use xlink:href="#mark"/>',b'<use xlink:href="#legacy-tick"/>'),'fig2--')
 
 
+def test_native_intermediate_width_is_not_scaled_to_double_column():
+    svg=SVG.replace(b'viewBox="0 0 183 90"',b'width="136mm" viewBox="0 0 136 90"')
+    page,meta=paper.render([{'id':'fig1','svg_bytes':svg,'legend_text':'Figure 1 | Test'}])
+    assert meta['figures'][0]['publication_size_mm']==[136,90]
+    assert b'data-width-mm="136.0"' in page and b'width:136mm' in page
+    assert b'width:183mm' not in page
+
+
 def load_tests(loader, tests, pattern):
     return unittest.TestSuite(unittest.FunctionTestCase(fn) for name,fn in globals().items() if name.startswith("test_"))

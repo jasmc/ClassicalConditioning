@@ -3,13 +3,24 @@
 Selected by the author on 2026-10-16 for the next paper-figure revision.
 This is the maintained presentation target, not a passing compliance report.
 Read-only profile resolution and an explicit shared-theme adapter are implemented.
-Rendered-artwork checks, remaining consumers and current-artwork migration are pending.
+A scoped Figure 1/2 migration route now measures typography, axes, strokes, frames
+and related-panel gaps through the existing guards; see the workflow. Remaining
+consumers, complete scientific identities, accessibility and production checks
+remain pending.
 Showing selected artwork does not trigger migration. The
 [iteration workflow](iteration-workflow.md) owns procedures and publication;
 [Plan 07](../../../../Plans/07_FIGURE_BUILD_TOOLS.md#5-nature-main-figure-presentation-profile)
 owns remaining implementation; the
 [source review](../../../../records/figure-reviews/nature-guidance-20261016.md)
 owns dated source comparisons and audit findings.
+
+Author direction, 2026-10-17: pre-Nature styling is retired as a target for new
+paper work. Existing unprofiled renderers and immutable contracts remain
+compatibility/reproduction dependencies, not another supported paper style.
+The [retirement record](../../../../records/repository-archive/2026-10-17-retired-styling/README.md)
+indexes verified external snapshots of the superseded guidance. Use this target
+and its resolved role values for new work; change a paper-wide styling choice
+through an explicit recorded profile revision.
 
 ## Requirements, choices and precedence
 
@@ -23,7 +34,13 @@ sets 89/183 mm widths and a 170 mm artwork-height limit.
 Nature's [final-submission page](https://www.nature.com/nature/for-authors/final-submission)
 also allows 120–136 mm widths where necessary and asks authors to identify
 essential panel alignments; its final stroke range is 0.25–1 pt.
-Intermediate widths are a recorded composition choice, not the default.
+Choose the smallest appropriate width for content and legibility; 183 mm is
+an available double-column size, not a requirement for every figure. Never
+spread uniformly reduced panels apart just to fill that width. On 2026-10-17
+the author selected compact 136-mm compositions where feasible for the current
+Figure 1/2 revision. Record each native width in its SVG, frames and state;
+retain physical text/tick/stroke sizes when changing the canvas. Intermediate
+widths remain an explicit composition choice, not a claim of editorial approval.
 
 Specific editorial instructions override generic web guidance for that
 submission. Keep main/Extended Data and review/production requirements distinct.
@@ -51,15 +68,24 @@ For new or author-requested presentation candidates, opt in through the existing
 shared API; legacy calls keep their original defaults:
 
 ```python
+import matplotlib as mpl
+
 from classical_conditioning.figures.presentation_profiles import load_presentation_profile
-from classical_conditioning.figures.theme import apply_theme, get_theme, style_axes
+from classical_conditioning.figures.theme import apply_theme, style_axes
 
 profile = load_presentation_profile("nature-main")
-theme = apply_theme(get_theme(profile="nature-main"))
-# After constructing the axes:
-# style_axes(ax, theme=theme, xlabel="Time (s)", ylabel="Activity")
-# Non-theme artists use identified role values from profile.contract["styles"].
+with mpl.rc_context():
+    theme = apply_theme(profile=profile)
+    # Construct, style and export the figure inside this context.
+    # style_axes(ax, theme=theme, xlabel="Time (s)", ylabel="Activity")
+    # Non-theme artists use identified role values from profile.contract["styles"].
 ```
+
+Load once per build and reuse the same snapshot for role values and evidence.
+`get_theme(profile=profile)` also accepts that resolved object without re-reading
+files; `apply_theme(profile="nature-main")` is the shorter option when a build
+needs only the theme. Passing both `theme` and `profile` is rejected. No global
+profile cache can hide an edited config; a later build resolves fresh bytes.
 
 The selected Arial face must be available; a paper-wide alternative requires
 an explicit recorded profile change, not machine-dependent fallback. SVG/PDF
@@ -132,6 +158,13 @@ are identified separately. Register every component and visibility decision.
 
 These retained defaults must be reconciled with each existing scientific plot
 family; no source selection, tick value or scientific exception is inferred.
+
+`style_axes` styles ordinary axes; pass `show_yticklabels=False` while retaining
+`show_yticks=True` to keep local ticks/spines with shared numerical labels.
+The equivalent X flags are independent too. Quantity-title sharing remains an
+explicit group/caller decision. Existing profile-styled axes receive the declared
+font, colors, spine widths and tick caps as well as sizes. The stimulus-window
+helper uses the CS/US role widths and layer order without changing event timing.
 
 ## Strokes, colors, fonts and physical sizes
 
@@ -229,7 +262,7 @@ byte-sensitive historical specifications and frozen contracts; update permitted
 consumers to resolve the new profile rather than rewriting accepted history.
 Presentation validation of requested edits is distinct from an explicit freeze.
 
-The selected drafts retain their prior profile until guarded replacements are
-implemented and verified.
+Selected drafts change only after the scoped migration passes verification and
+guarded publication. Read their state-bound profile/evidence for the exact coverage.
 No whole-figure scientific freeze or submission-readiness claim follows from
 this guidance, collection inclusion or a check-only run.

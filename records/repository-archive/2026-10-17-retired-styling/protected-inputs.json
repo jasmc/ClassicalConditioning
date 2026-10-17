@@ -1,0 +1,9 @@
+{
+  "src/classical_conditioning/figures/theme.py": "12dcf95debf20f626e413ab326efb055b35c5f93ad87a938befc71a4433dbe2d",
+  "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+  "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+  "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md": "7addc9a24c071d2621794a48164a163911b325a65da685afb429aed3568d91bb",
+  "docs/paper/figures/figure-01/current-state.json": "cc337418b556d30d758f8e725df348f3a86452f9fc8ebb1a8ae651a2202b075c",
+  "docs/paper/figures/figure-02/current-state.json": "9650d685b05a38482c963a6edb23089dee5c8f6019e6f663633ddb4542e28d76",
+  "docs/paper/figures/main-paper-current-state.json": "d6148b56071a1003d59e28bad3efb76399d58a1136ac78408bc4703dbb77fe2b"
+}

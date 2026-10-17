@@ -5,6 +5,7 @@ from collections import Counter
 from contextlib import ExitStack
 import html
 import json
+import math
 from pathlib import Path
 import re
 import sys
@@ -106,17 +107,27 @@ def legend_html(text):
     return '<p><strong>'+html.escape(paragraphs[0])+'</strong></p>'+''.join('<p>'+html.escape(p)+'</p>' for p in paragraphs[1:])
 
 
+def publication_size(data):
+    root=ET.fromstring(data);vb=[float(v)for v in root.get('viewBox').split()]
+    native=root.get('width','183mm')
+    if not re.fullmatch(r'[0-9]+(?:[.][0-9]+)?mm',native):raise ValueError('Publication width must use mm')
+    width=float(native[:-2]);height=width*vb[3]/vb[2]
+    if not all(math.isfinite(v)and v>0 for v in [width,height]):raise ValueError('Invalid publication size')
+    return width,height
+
+
 def render(figures):
-    sections=[];provenance=[];fonts=[]
+    sections=[];provenance=[];fonts=[];widths=[]
     for f in figures:
         svg=embedded_svg(f['svg_bytes'],f['id']+'--')
         fonts.extend(re.findall(r'@font-face\s*\{[^}]*\}',svg))
-        root=ET.fromstring(f['svg_bytes']);vb=[float(v) for v in root.get('viewBox').split()];height=183*vb[3]/vb[2]
-        sections.append('<figure id="'+f['id']+'"><div class="artwork" style="aspect-ratio:183/'+str(height)+'"><template shadowrootmode="open"><style>:host{display:block;width:100%;height:100%}svg{display:block;width:100%;height:100%}</style>'+svg+'</template></div><figcaption>'+legend_html(f['legend_text'])+'</figcaption></figure>')
-        provenance.append({**{k:v for k,v in f.items() if k not in ('svg_bytes','legend_text')},'embedded_svg_sha256':sha(svg.encode())})
+        width,height=publication_size(f['svg_bytes']);widths.append(width)
+        sections.append('<figure id="'+f['id']+'" style="--native-width:'+str(width)+'mm"><div class="artwork" data-width-mm="'+str(width)+'" style="aspect-ratio:'+str(width)+'/'+str(height)+'"><template shadowrootmode="open"><style>:host{display:block;width:100%;height:100%}.sheet{width:'+str(width)+'mm;height:'+str(height)+'mm;transform-origin:top left;transform:scale(var(--paper-scale,1))}svg{display:block;width:100%;height:100%}</style><div class="sheet">'+svg+'</div></template></div><figcaption>'+legend_html(f['legend_text'])+'</figcaption></figure>')
+        provenance.append({**{k:v for k,v in f.items() if k not in ('svg_bytes','legend_text')},'embedded_svg_sha256':sha(svg.encode()),'publication_size_mm':[width,height]})
     metadata={'figures':provenance,'builder':reference(Path(__file__)),'layout_policy':reference(POLICY),'scientific_status':'Presentation collection; scope-specific freezes remain authoritative'}
-    css='''html{background:white;color:#111}body{margin:0}main{width:183mm;max-width:calc(100% - 24px);margin:24px auto}figure{margin:0 0 12mm}figcaption{font:9pt/1.35 "Times New Roman",Times,serif;margin-top:3mm}figcaption p{margin:0 0 1.8mm}figcaption p:first-child{break-after:avoid}.artwork{width:100%;break-inside:avoid;page-break-inside:avoid}@page{size:A4;margin:10mm 13.5mm}@media print{main{width:183mm;max-width:none;margin:0}figure{margin-bottom:8mm}.artwork{width:183mm}figcaption{orphans:3;widows:3}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}'''
-    return ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Main paper figures</title><style>'+css+'\n'+'\n'.join(fonts)+'</style></head><body><main>'+''.join(sections)+'</main><script type="application/json" id="paper-figure-provenance">'+json.dumps(metadata).replace('<','\\u003c')+'</script></body></html>').encode(),metadata
+    css='''html{background:white;color:#111}body{margin:0}main{width:COLLECTION_WIDTHmm;max-width:calc(100% - 24px);margin:24px auto}figure{width:var(--native-width);max-width:100%;margin:0 auto 12mm}figcaption{font:9pt/1.35 "Times New Roman",Times,serif;margin-top:3mm}figcaption p{margin:0 0 1.8mm}figcaption p:first-child{break-after:avoid}.artwork{width:100%;break-inside:avoid;page-break-inside:avoid}@page{size:A4;margin:10mm 13.5mm}@media print{main{width:COLLECTION_WIDTHmm;max-width:none;margin:0}figure{margin-bottom:8mm}.artwork{width:var(--native-width)}figcaption{orphans:3;widows:3}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}'''
+    css=css.replace('COLLECTION_WIDTH',format(max(widths),'g'))
+    return ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Main paper figures</title><style>'+css+'\n'+'\n'.join(fonts)+'</style></head><body><main>'+''.join(sections)+'</main><script type="application/json" id="paper-figure-provenance">'+json.dumps(metadata).replace('<','\\u003c')+'</script><script>const fit=()=>{for(const el of document.querySelectorAll(".artwork"))el.style.setProperty("--paper-scale",el.getBoundingClientRect().width/(Number(el.dataset.widthMm)*96/25.4));};const observer=new ResizeObserver(fit);document.querySelectorAll(".artwork").forEach(el=>observer.observe(el));addEventListener("beforeprint",fit);fit();</script></body></html>').encode(),metadata
 
 
 def display_target(state_path=STATE):

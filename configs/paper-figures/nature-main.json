@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "profile_id": "nature-main",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "selected_on": "2026-10-16",
   "sources_retrieved_on": "2026-10-16",
   "scope": "Nature main research artwork; explicit opt-in, no current-artwork migration",
@@ -89,7 +89,7 @@
     },
     "project.axes": {
       "origin": "project-default",
-      "value": {"major_direction": "out", "minor_ticks_default": "off", "ordinary_spines": ["left", "bottom"], "spine_offset_pt": 0, "boxed_heatmaps": "explicit family exception", "label_visibility": "separate from local spines/ticks", "tick_count_and_values": "preserve selected scientific coordinates; no universal count or zero-origin rule"}
+      "value": {"major_direction": "out", "minor_ticks_default": "off", "ordinary_spines": ["left", "bottom"], "spine_offset_pt": 0, "title_location": "center", "boxed_heatmaps": "explicit family exception", "label_visibility": "separate from local spines/ticks", "tick_count_and_values": "preserve selected scientific coordinates; no universal count or zero-origin rule"}
     },
     "project.colors": {
       "origin": "project-default",

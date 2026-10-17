@@ -1,0 +1,65 @@
+{
+  "schema": "figure2-g-analysis-guide-review/1",
+  "created_utc": "2026-10-17T15:43:56.354147+00:00",
+  "purpose": "Author-requested teaching guide and review notebook, Delay and Figure 2 G only",
+  "scientific_status": "Documentation of existing evidence; no models refitted, cohort changes, figure selections or freezes",
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
+    "sha256": "f02f1a2c377a947bd698fb02ddaf9759b60c5f59b078759c56506165377bc101"
+  },
+  "manifest": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/evidence-manifest.json",
+    "sha256": "deebd87bbdcb3f3d53086ef3c6801323abff68fa517b947e1abd05f1d8d36504"
+  },
+  "browser_url": "http://127.0.0.1:50717/figure-02-g-analysis-guide-20261017-v01/review.html",
+  "topic_inventory": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/topic-inventory.json",
+    "sha256": "ec9021dd7ca887db57fd90dac0adc4eb2caab9870396e203ed4fbdb6a9471df0"
+  },
+  "browser_verification": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-qa-v01-final/browser-verification.json",
+    "sha256": "8bb9415fa170328ad4138d0f18e1e05f7b83a604ba7e00cdecd74d38ad45b119",
+    "tests_passed": 15,
+    "decoded_images": 20
+  },
+  "verification": {
+    "all_protected_sources_unchanged": true,
+    "protected_sources": 105,
+    "guide_artifacts_verified": 144,
+    "coverage_topics": 39,
+    "python_compile_passed": true,
+    "git_diff_check_passed": true,
+    "print_review": "Browser PDF generated; first page and planned-phase table rendering visually inspected. All 68 preview print pages contained text. Final browser print check also generated.",
+    "visual_review": "Current G HTML excerpt and authentic frozen G inspected; readable phase table and print typography; responsive sidebar/table overflow corrected; final in-app browser opened."
+  },
+  "implementation": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure2_g_analysis_guide.py",
+      "sha256": "916f547f2a47d5b83daf392cfbe792924acd405e4939ce4c9d8efe41dc818428"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure2_g_guide_notebook.js",
+      "sha256": "4f997a4832192f802c7ea93d9815dcca98a6bfd20f32ba67f33fa33cb84158e6"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_figure2_g_analysis_guide.cjs",
+      "sha256": "b197433e3b78ba156f04e5536208d09603ee52fa005c23fcf9a63f0edbb9b962"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+      "sha256": "af4aec6dfbc2a91a0e5692404e67492cd494846857eb8934f375975f93f5af2e"
+    }
+  ],
+  "known_gaps": [
+    "Original executed February/March discarded-fish rosters not established",
+    "Original segmented frame/Bout/700 FPS data unavailable for exact last-US viability reconstruction",
+    "Complete selected MR-local-block-tests.csv unrecovered; displayed entries available in authenticated selected sidecar",
+    "Intended values of corrupted protocol timestamps unknown"
+  ],
+  "source_findings": [
+    "Exact selected model input and several tables recovered by content hash from the embedded October 9 archive",
+    "September learner counts are later reapplications; metadata explicitly denies exact historical equivalence",
+    "Last-US threshold is annotated US-end time >=0.4 s with a separate bout-presence condition, not minimum bout duration"
+  ],
+  "notebook_scope": "Fresh browser contexts used for testing; no user notes or scientific state altered"
+}

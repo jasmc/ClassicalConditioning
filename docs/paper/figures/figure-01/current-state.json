@@ -42,19 +42,19 @@
     "status": "Presentation draft with verified 1 mm invisible frames; inherited unfinished scientific scopes retained",
     "review": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
-      "sha256": "46f738fe10792e87947704f26632fc3b68a5b4c7a612a9cceb7b55104a833678"
+      "sha256": "974beeacb849a1ac7ed239b619d8b9510454d4edb2542be66f11d337fc83e103"
     },
     "working_svg": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-      "sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+      "sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
       "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
     },
     "source_assembly_sha256": "e452920b07388fc90af70301948edc4a17b7b42c3d23969b500027e30419296c",
     "author_directions_record": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/legend-review-verification.json",
     "preserved_other_figure": "Figure 2 original/candidate unchanged",
     "effective_presentation": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-effective-presentation.json",
-      "sha256": "2a9f3eb89a1c6ef863d2fc0b5ae6dd77f4013e145ab9a70f33f5db1d53ce8f12"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-effective-presentation.json",
+      "sha256": "50b83c3aa69d422478168c4e921d15dc5b79e2b2ab1937da80d0f6255030ab16"
     },
     "semantic_registry": {
       "scope": "D/E explicit artists, exact new frozen F bands and complete 161-element scoped F/G/H freeze registry",
@@ -222,10 +222,10 @@
         "allocations": [
           {
             "box_mm": [
-              0.0,
               0,
-              35.44111842105263,
-              43.388485961975064
+              0,
+              30.89678167584807,
+              33.40059687127938
             ],
             "group_ids": [
               "panel-A"
@@ -235,10 +235,10 @@
           },
           {
             "box_mm": [
-              35.44111842105263,
+              30.89678167584807,
               0,
-              147.55888157894736,
-              43.388485961975064
+              105.10321832415192,
+              33.40059687127938
             ],
             "group_ids": [
               "panel-B"
@@ -248,10 +248,10 @@
           },
           {
             "box_mm": [
-              0.0,
-              43.388485961975064,
-              183.0,
-              32.42588302438373
+              0,
+              33.40059687127938,
+              136,
+              23.538108277222417
             ],
             "group_ids": [
               "panel-C"
@@ -261,10 +261,10 @@
           },
           {
             "box_mm": [
-              0.0,
-              75.8143689863588,
-              77.96372807017543,
-              63.32433918052917
+              0,
+              56.938705148501796,
+              60.500136271383006,
+              47.91919596038469
             ],
             "group_ids": [
               "panel-D"
@@ -274,10 +274,10 @@
           },
           {
             "box_mm": [
-              77.96372807017543,
-              75.8143689863588,
-              81.78462719298246,
-              63.32433918052917
+              60.500136271383006,
+              56.938705148501796,
+              59.99769788344447,
+              47.91919596038469
             ],
             "group_ids": [
               "layout-E"
@@ -287,10 +287,10 @@
           },
           {
             "box_mm": [
-              159.7483552631579,
-              75.8143689863588,
-              23.25164473684211,
-              63.32433918052917
+              120.49783415482747,
+              56.938705148501796,
+              15.502165845172527,
+              47.91919596038469
             ],
             "group_ids": [
               "edit-E-independent-colourbar"
@@ -300,10 +300,10 @@
           },
           {
             "box_mm": [
-              0.0,
-              139.13870816688797,
-              58.82354166666666,
-              76.31862142701777
+              0,
+              104.8579011088865,
+              43.302259643567396,
+              58.83989148513448
             ],
             "group_ids": [
               "layout-H"
@@ -313,10 +313,10 @@
           },
           {
             "box_mm": [
-              58.82354166666666,
-              139.13870816688797,
-              54.91232456140351,
-              76.31862142701777
+              43.302259643567396,
+              104.8579011088865,
+              40.18501594665119,
+              58.83989148513448
             ],
             "group_ids": [
               "layout-F"
@@ -326,10 +326,10 @@
           },
           {
             "box_mm": [
-              113.73586622807017,
-              139.13870816688797,
-              52.37474780701757,
-              76.31862142701777
+              83.48727559021859,
+              104.8579011088865,
+              38.41302014767645,
+              58.83989148513448
             ],
             "group_ids": [
               "layout-G"
@@ -339,10 +339,10 @@
           },
           {
             "box_mm": [
-              166.11061403508774,
-              139.13870816688797,
-              16.889385964912265,
-              76.31862142701777
+              121.90029573789504,
+              104.8579011088865,
+              14.099704262104964,
+              58.83989148513448
             ],
             "group_ids": [
               "edit-FGH-fig1__h__colorbar__axes"
@@ -352,8 +352,8 @@
           }
         ],
         "evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
-          "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout-evidence.json",
+          "sha256": "4c49ef4167061ecd22a9c57ebfbb8ed753d1b26f1f86db8c47bbb881b5dc01b8"
         },
         "scientific_registry_coverage": "Existing coverage retained; layout ownership does not establish scientific roles",
         "spacing_groups": [
@@ -371,8 +371,8 @@
         ],
         "spacing_measurements_mm": {
           "fig1-FGH-equal-spacing": [
-            14.56194043673647,
-            14.561946492566257
+            11.153821381307772,
+            11.153819238217881
           ]
         },
         "panel_relationships": [
@@ -598,10 +598,14 @@
             "renderer_artist": "edit-B-column-time-label-left",
             "text": "t (s)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -625,10 +629,14 @@
             "renderer_artist": "edit-B-column-time-label-right",
             "text": "t (s)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -651,10 +659,14 @@
             "renderer_artist": "edit-D-time-label",
             "text": "Time relative to CS onset (s)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -678,10 +690,14 @@
             "renderer_artist": "edit-D-value-label",
             "text": "Tail angle (\u00b0)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -704,10 +720,14 @@
             "renderer_artist": "edit-E-time-label",
             "text": "Time relative to CS onset (s)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -731,10 +751,14 @@
             "renderer_artist": "edit-E-value-label",
             "text": "Scaled vigor (baseline units)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -756,10 +780,14 @@
             "renderer_artist": "edit-E-H-fig1__h__colorbar__label-y",
             "text": "Log vigor relative to baseline",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -778,10 +806,14 @@
             "renderer_artist": "edit-FGH-fig1__h__colorbar__label-y",
             "text": "Log vigor relative to baseline",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -800,10 +832,14 @@
             "renderer_artist": "edit-FGH-fig1__f__heatmap__label-x",
             "text": "Time from CS onset (s)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -822,10 +858,14 @@
             "renderer_artist": "edit-FGH-fig1__g__heatmap__label-x",
             "text": "Time from CS onset (s)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           },
           {
@@ -844,13 +884,31 @@
             "renderer_artist": "edit-FGH-fig1__h__heatmap__label-x",
             "text": "Time from CS onset (s)",
             "expected": {
-              "family": "DejaVu Sans",
-              "size_pt": 8.0,
+              "family": "Arial",
+              "size_pt": 7,
               "weight": "normal",
               "style": "normal"
+            },
+            "evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+              "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
             }
           }
-        ]
+        ],
+        "larger_gap_disposition": {
+          "measurements_mm": {
+            "fig1-FGH-equal-spacing": [
+              11.153821381307772,
+              11.153819238217881
+            ]
+          },
+          "reason": "Author-selected compact 136-mm composition; equal data-body gaps also accommodate the wider first-panel shared Y-axis labels. Remaining row width is distributed equally within named related groups; no fixed 183-mm endpoint constraint.",
+          "status": "measured draft composition; not final aesthetic approval",
+          "evidence": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+            "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+          }
+        }
       },
       "panel_relationships": [
         {
@@ -884,10 +942,10 @@
           },
           "status": "verified",
           "type": "layout",
-          "artifact_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+          "artifact_sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
           "verification_evidence": {
-            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
-            "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout-evidence.json",
+            "sha256": "4c49ef4167061ecd22a9c57ebfbb8ed753d1b26f1f86db8c47bbb881b5dc01b8"
           }
         },
         {
@@ -1061,8 +1119,8 @@
             "Figure 2"
           ],
           "expected": {
-            "family": "DejaVu Sans",
-            "size_pt": 8.0,
+            "family": "Arial",
+            "size_pt": 7,
             "weight": "normal",
             "style": "normal"
           },
@@ -1088,10 +1146,14 @@
               "renderer_artist": "edit-B-column-time-label-left",
               "text": "t (s)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1115,10 +1177,14 @@
               "renderer_artist": "edit-B-column-time-label-right",
               "text": "t (s)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1141,10 +1207,14 @@
               "renderer_artist": "edit-D-time-label",
               "text": "Time relative to CS onset (s)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1168,10 +1238,14 @@
               "renderer_artist": "edit-D-value-label",
               "text": "Tail angle (\u00b0)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1194,10 +1268,14 @@
               "renderer_artist": "edit-E-time-label",
               "text": "Time relative to CS onset (s)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1221,10 +1299,14 @@
               "renderer_artist": "edit-E-value-label",
               "text": "Scaled vigor (baseline units)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1246,10 +1328,14 @@
               "renderer_artist": "edit-E-H-fig1__h__colorbar__label-y",
               "text": "Log vigor relative to baseline",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1268,10 +1354,14 @@
               "renderer_artist": "edit-FGH-fig1__h__colorbar__label-y",
               "text": "Log vigor relative to baseline",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1290,10 +1380,14 @@
               "renderer_artist": "edit-FGH-fig1__f__heatmap__label-x",
               "text": "Time from CS onset (s)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1312,10 +1406,14 @@
               "renderer_artist": "edit-FGH-fig1__g__heatmap__label-x",
               "text": "Time from CS onset (s)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             },
             {
@@ -1334,17 +1432,23 @@
               "renderer_artist": "edit-FGH-fig1__h__heatmap__label-x",
               "text": "Time from CS onset (s)",
               "expected": {
-                "family": "DejaVu Sans",
-                "size_pt": 8.0,
+                "family": "Arial",
+                "size_pt": 7,
                 "weight": "normal",
                 "style": "normal"
+              },
+              "evidence": {
+                "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+                "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
               }
             }
           ],
           "evidence": {
-            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
-            "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
-          }
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+            "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+          },
+          "family": "Arial",
+          "size_pt": 7
         },
         "axis_geometry": {
           "group_id": "main-paper-axis-geometry",
@@ -1353,16 +1457,19 @@
             "Figure 2"
           ],
           "expected": {
-            "tick_length_pt": 2.0,
+            "tick_length_pt": 2,
             "tick_stroke_width_pt": 0.5,
             "tick_color": "#000000",
             "tick_linecap": "butt",
-            "tick_label_size_pt": 7.0,
-            "axis_title_size_pt": 8.0,
-            "tick_label_edge_gap_pt": 3.0,
-            "title_label_edge_gap_pt": 3.0,
+            "tick_label_size_pt": 6,
+            "axis_title_size_pt": 7,
+            "tick_label_edge_gap_pt": 3,
+            "title_label_edge_gap_pt": 3,
             "measurement_tolerance_mm": 0.01,
-            "font_size_tolerance_pt": 0.01
+            "font_size_tolerance_pt": 0.01,
+            "family": "Arial",
+            "block_size_pt": 7,
+            "trial_size_pt": 6
           },
           "axes": [
             "B-control-x",
@@ -1393,8 +1500,8 @@
           "tickless_axes": [],
           "tickless_policy": "Retain intentionally absent categorical/statistical ticks; no invented scientific marks",
           "evidence": {
-            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
-            "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+            "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
           },
           "recheck_after_edits": true
         },
@@ -1403,20 +1510,20 @@
             "D",
             "E"
           ],
-          "block_size_pt": 8.0,
-          "trial_size_pt": 7.0,
-          "family": "DejaVu Sans",
+          "block_size_pt": 7,
+          "trial_size_pt": 6,
+          "family": "Arial",
           "weight": "normal",
           "evidence": {
-            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
-            "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+            "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
           }
         }
       },
       "axis_inventory": {
         "schema_version": 1,
         "figure_id": "fig1",
-        "source_svg_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+        "source_svg_sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
         "axes": [
           {
             "id": "B-control-x",
@@ -1608,7 +1715,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -1818,7 +1925,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -2028,7 +2135,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -2238,7 +2345,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -2581,7 +2688,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -2820,7 +2927,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -3059,7 +3166,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -3298,7 +3405,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -3537,7 +3644,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -3776,7 +3883,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -4142,7 +4249,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -4396,7 +4503,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -4650,7 +4757,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -4904,7 +5011,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -5158,7 +5265,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -5412,7 +5519,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -5649,7 +5756,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -6137,7 +6244,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -6374,7 +6481,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -6671,7 +6778,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -6908,7 +7015,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -7205,7 +7312,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -7238,7 +7345,7 @@
               "edit-E-H-fig1__h__colorbar__label-y"
             ],
             "condition": null,
-            "applies_to": "E F-matched bands only; not E black traces",
+            "applies_to": "E bands matching displayed G (frozen source F); not E black traces",
             "display_limits": [
               -0.25,
               0.25
@@ -7246,6 +7353,9 @@
             "spine_ids": [
               "edit-E-H-fig1__h__colorbar__spine-outline"
             ],
+            "source_heatmap_panel": "F",
+            "display_heatmap_panel": "G",
+            "display_mapping_reference": "condition_order_mapping in this same semantic registry",
             "scientific_role": "axis.component",
             "axis_artists": [
               {
@@ -7417,7 +7527,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -7629,7 +7739,7 @@
               "kind": "named renderer axis artists plus associated legend/scoped selections",
               "legend": {
                 "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-                "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+                "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
               },
               "scientific_selections": [
                 {
@@ -7684,8 +7794,8 @@
         },
         "unresolved": [],
         "registration_evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
-          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
         }
       },
       "element_identification_requirements": {
@@ -7715,7 +7825,7 @@
         "freeze_readiness": "partial; do not claim all elements or scientific links registered"
       },
       "condition_order_mapping": {
-        "artifact_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+        "artifact_sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
         "mapping": [
           {
             "display_panel": "F",
@@ -7758,8 +7868,8 @@
           }
         ],
         "evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
-          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
         },
         "source_ids": "Preserved original scientific source identifiers; displayed letters resolved by this mapping",
         "inherited_evidence": {
@@ -7774,7 +7884,7 @@
           "plot.legend.stimulus-key"
         ],
         "alignment": "Group right edge coincides with its named plot/reference right edge",
-        "font_size_pt": 7.0,
+        "font_size_pt": 6,
         "tolerance_mm": 0.01,
         "groups": [
           {
@@ -7785,16 +7895,16 @@
             "alignment_reference": {
               "element_id": "edit-B-time-axis-delay"
             },
-            "right_edge_delta_mm": -4.454312147572637e-06,
+            "right_edge_delta_mm": -3.2071565101432498e-06,
             "experiment": null,
             "entries": [
               {
                 "element_id": "edit-B-node-5",
                 "label": "CS",
-                "size_pt": 6.999986563750438,
-                "family": "\"DejaVu Sans\", sans-serif",
+                "size_pt": 6.000080618426491,
+                "family": "Arial, sans-serif",
                 "weight": "400",
-                "baseline_mm": 4.481407812832125,
+                "baseline_mm": 3.5079468724911274,
                 "scientific_role": "legend.key",
                 "glyph_artist": {
                   "element_id": "edit-B-node-4",
@@ -7809,10 +7919,10 @@
               {
                 "element_id": "edit-B-node-7",
                 "label": "US",
-                "size_pt": 6.999986563750438,
-                "family": "\"DejaVu Sans\", sans-serif",
+                "size_pt": 6.000080618426491,
+                "family": "Arial, sans-serif",
                 "weight": "400",
-                "baseline_mm": 4.481407812832125,
+                "baseline_mm": 3.5079468724911274,
                 "scientific_role": "legend.key",
                 "glyph_artist": {
                   "element_id": "edit-B-node-6",
@@ -7834,16 +7944,16 @@
             "alignment_reference": {
               "local_right_edge": 1585
             },
-            "right_edge_delta_mm": -6.205011885640488e-06,
+            "right_edge_delta_mm": -4.467680710718014e-06,
             "experiment": null,
             "entries": [
               {
                 "element_id": "edit-C-node-5",
                 "label": "CS",
-                "size_pt": 6.999967214633146,
-                "family": "\"DejaVu Sans\", sans-serif",
+                "size_pt": 6.000080618426491,
+                "family": "Arial, sans-serif",
                 "weight": "400",
-                "baseline_mm": 50.75823348200314,
+                "baseline_mm": 38.619705248674386,
                 "scientific_role": "legend.key",
                 "glyph_artist": {
                   "element_id": "edit-C-node-4",
@@ -7858,10 +7968,10 @@
               {
                 "element_id": "edit-C-node-7",
                 "label": "short US",
-                "size_pt": 6.999967214633146,
-                "family": "\"DejaVu Sans\", sans-serif",
+                "size_pt": 6.000080618426491,
+                "family": "Arial, sans-serif",
                 "weight": "400",
-                "baseline_mm": 50.75823348200314,
+                "baseline_mm": 38.619705248674386,
                 "scientific_role": "legend.key",
                 "glyph_artist": {
                   "element_id": "edit-C-node-6",
@@ -7876,10 +7986,10 @@
               {
                 "element_id": "edit-C-node-9",
                 "label": "long US",
-                "size_pt": 6.999967214633146,
-                "family": "\"DejaVu Sans\", sans-serif",
+                "size_pt": 6.000080618426491,
+                "family": "Arial, sans-serif",
                 "weight": "400",
-                "baseline_mm": 50.75823348200314,
+                "baseline_mm": 38.619705248674386,
                 "scientific_role": "legend.key",
                 "glyph_artist": {
                   "element_id": "edit-C-node-8",
@@ -7895,8 +8005,8 @@
           }
         ],
         "evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
-          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
         },
         "recheck_after_edits": true
       },
@@ -7913,8 +8023,2497 @@
         },
         "sample_counts": "Caption rather than color-key or experiment-heading text",
         "evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-axis-evidence.json",
-          "sha256": "90e9e19ff61e8e00e1e02f33a9f1016e41cf6f9e21e8d8fe9e041ed037119ee0"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+        }
+      },
+      "presentation_profile": {
+        "id": "nature-main",
+        "version": "1.0.1",
+        "inputs": {
+          "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+          "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+          "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+        },
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+        },
+        "status": "verified measured presentation properties; remaining coverage explicit in evidence"
+      },
+      "text_presentation_inventory": {
+        "source_sha256": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
+        "profile_inputs": {
+          "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+          "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+          "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+        },
+        "text": [
+          {
+            "xml_index_path": [
+              1,
+              0,
+              1,
+              42
+            ],
+            "element_id": "edit-A-node-45",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "US",
+            "display_text": "US",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              1,
+              0,
+              1,
+              43
+            ],
+            "element_id": "edit-A-node-47",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "CS",
+            "display_text": "CS",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              1,
+              0,
+              2
+            ],
+            "element_id": "edit-A-node-49",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Basal",
+            "display_text": "Basal",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              1,
+              0,
+              3
+            ],
+            "element_id": "edit-A-node-50",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "illumination",
+            "display_text": "illumination",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              1,
+              1
+            ],
+            "element_id": "assembly-node-54",
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "A",
+            "display_text": "a",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              2,
+              1
+            ],
+            "element_id": "edit-B-node-5",
+            "role": "legend.key",
+            "size_pt": 6,
+            "source_text": "CS",
+            "display_text": "CS",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              2,
+              3
+            ],
+            "element_id": "edit-B-node-7",
+            "role": "legend.key",
+            "size_pt": 6,
+            "source_text": "US",
+            "display_text": "US",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              0,
+              6
+            ],
+            "element_id": "edit-B-node-16",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "?",
+            "display_text": "?",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              0,
+              8
+            ],
+            "element_id": "edit-B-node-18",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "?",
+            "display_text": "?",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              0,
+              10
+            ],
+            "element_id": "edit-B-node-20",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "?",
+            "display_text": "?",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              0,
+              11,
+              0
+            ],
+            "element_id": "edit-B-node-22",
+            "role": "title.condition",
+            "size_pt": 7,
+            "source_text": "Control",
+            "display_text": "Control",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              1,
+              3
+            ],
+            "element_id": "edit-B-node-27",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-5",
+            "display_text": "-5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              1,
+              5
+            ],
+            "element_id": "edit-B-node-29",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              1,
+              7
+            ],
+            "element_id": "edit-B-node-31",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "10",
+            "display_text": "10",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              3,
+              1,
+              9
+            ],
+            "element_id": "edit-B-node-33",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              4,
+              0,
+              3,
+              0
+            ],
+            "element_id": "edit-B-node-40",
+            "role": "title.condition",
+            "size_pt": 7,
+            "source_text": "Delay",
+            "display_text": "Delay",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              4,
+              1,
+              3
+            ],
+            "element_id": "edit-B-node-45",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-5",
+            "display_text": "-5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              4,
+              1,
+              5
+            ],
+            "element_id": "edit-B-node-47",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              4,
+              1,
+              7
+            ],
+            "element_id": "edit-B-node-49",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "10",
+            "display_text": "10",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              4,
+              1,
+              9
+            ],
+            "element_id": "edit-B-node-51",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              5,
+              0,
+              3,
+              0
+            ],
+            "element_id": "edit-B-node-58",
+            "role": "title.condition",
+            "size_pt": 7,
+            "source_text": "3sTrace",
+            "display_text": "3sTrace",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              5,
+              1,
+              3
+            ],
+            "element_id": "edit-B-node-63",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-5",
+            "display_text": "-5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              5,
+              1,
+              5
+            ],
+            "element_id": "edit-B-node-65",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              5,
+              1,
+              7
+            ],
+            "element_id": "edit-B-node-67",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "10",
+            "display_text": "10",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              5,
+              1,
+              9
+            ],
+            "element_id": "edit-B-node-69",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              6,
+              0,
+              3,
+              0
+            ],
+            "element_id": "edit-B-node-76",
+            "role": "title.condition",
+            "size_pt": 7,
+            "source_text": "10sTrace",
+            "display_text": "10sTrace",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              6,
+              1,
+              3
+            ],
+            "element_id": "edit-B-node-81",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-5",
+            "display_text": "-5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              6,
+              1,
+              5
+            ],
+            "element_id": "edit-B-node-83",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              6,
+              1,
+              7
+            ],
+            "element_id": "edit-B-node-85",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "10",
+            "display_text": "10",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              6,
+              1,
+              9
+            ],
+            "element_id": "edit-B-node-87",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              7
+            ],
+            "element_id": "edit-B-column-time-label-left",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "t (s)",
+            "display_text": "t (s)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              0,
+              8
+            ],
+            "element_id": "edit-B-column-time-label-right",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "t (s)",
+            "display_text": "t (s)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              2,
+              1
+            ],
+            "element_id": "assembly-node-146",
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "B",
+            "display_text": "b",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              2,
+              1
+            ],
+            "element_id": "edit-C-node-5",
+            "role": "legend.key",
+            "size_pt": 6,
+            "source_text": "CS",
+            "display_text": "CS",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              2,
+              3
+            ],
+            "element_id": "edit-C-node-7",
+            "role": "legend.key",
+            "size_pt": 6,
+            "source_text": "short US",
+            "display_text": "short US",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              2,
+              5
+            ],
+            "element_id": "edit-C-node-9",
+            "role": "legend.key",
+            "size_pt": 6,
+            "source_text": "long US",
+            "display_text": "long US",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              3,
+              1
+            ],
+            "element_id": "edit-C-node-12",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Priming /",
+            "display_text": "Priming /",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              3,
+              2
+            ],
+            "element_id": "edit-C-node-13",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "habituation",
+            "display_text": "habituation",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              3,
+              4
+            ],
+            "element_id": "edit-C-node-15",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "4 CS-like",
+            "display_text": "4 CS-like",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              3,
+              5,
+              1
+            ],
+            "element_id": "edit-C-node-18",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "15 separate short US",
+            "display_text": "15 separate short US",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              4,
+              1
+            ],
+            "element_id": "edit-C-node-21",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Pre-training",
+            "display_text": "Pre-training",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              4,
+              3
+            ],
+            "element_id": "edit-C-node-23",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "10 CS presentations",
+            "display_text": "10 CS presentations",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              4,
+              4,
+              1
+            ],
+            "element_id": "edit-C-node-26",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "3 separate short US",
+            "display_text": "3 separate short US",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              5,
+              1
+            ],
+            "element_id": "edit-C-node-29",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Training",
+            "display_text": "Training",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              5,
+              3
+            ],
+            "element_id": "edit-C-node-31",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "50 CS presentations",
+            "display_text": "50 CS presentations",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              5,
+              4,
+              1
+            ],
+            "element_id": "edit-C-node-34",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "46 paired long US",
+            "display_text": "46 paired long US",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              5,
+              5,
+              1
+            ],
+            "element_id": "edit-C-node-37",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "4 CS-only catch trials",
+            "display_text": "4 CS-only catch trials",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              6,
+              1
+            ],
+            "element_id": "edit-C-node-40",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Testing",
+            "display_text": "Testing",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              6,
+              3
+            ],
+            "element_id": "edit-C-node-42",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "30 CS presentations",
+            "display_text": "30 CS presentations",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              0,
+              6,
+              4,
+              1
+            ],
+            "element_id": "edit-C-node-45",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "14 separate short US",
+            "display_text": "14 separate short US",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              3,
+              1
+            ],
+            "element_id": "assembly-node-201",
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "C",
+            "display_text": "c",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              1
+            ],
+            "element_id": "edit-D-trial-9-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Pre-Train",
+            "display_text": "Pre-Train",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              2
+            ],
+            "element_id": "edit-D-trial-9-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 5",
+            "display_text": "Trial 5",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              5
+            ],
+            "element_id": "edit-D-trial-9__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              7
+            ],
+            "element_id": "edit-D-trial-9__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              9
+            ],
+            "element_id": "edit-D-trial-9__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "200",
+            "display_text": "200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              13
+            ],
+            "element_id": "edit-D-trial-17-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Early Train",
+            "display_text": "Early Train",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              14
+            ],
+            "element_id": "edit-D-trial-17-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 13",
+            "display_text": "Trial 13",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              17
+            ],
+            "element_id": "edit-D-trial-17__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              19
+            ],
+            "element_id": "edit-D-trial-17__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              21
+            ],
+            "element_id": "edit-D-trial-17__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "200",
+            "display_text": "200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              26
+            ],
+            "element_id": "edit-D-trial-63-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Late Train",
+            "display_text": "Late Train",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              27
+            ],
+            "element_id": "edit-D-trial-63-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 59",
+            "display_text": "Trial 59",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              30
+            ],
+            "element_id": "edit-D-trial-63__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              32
+            ],
+            "element_id": "edit-D-trial-63__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              34
+            ],
+            "element_id": "edit-D-trial-63__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "200",
+            "display_text": "200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              39
+            ],
+            "element_id": "edit-D-trial-66-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Early Test",
+            "display_text": "Early Test",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              40
+            ],
+            "element_id": "edit-D-trial-66-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 62",
+            "display_text": "Trial 62",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              43
+            ],
+            "element_id": "edit-D-trial-66__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              45
+            ],
+            "element_id": "edit-D-trial-66__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              47
+            ],
+            "element_id": "edit-D-trial-66__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "200",
+            "display_text": "200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              51
+            ],
+            "element_id": "edit-D-trial-93-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Late Test",
+            "display_text": "Late Test",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              52
+            ],
+            "element_id": "edit-D-trial-93-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 89",
+            "display_text": "Trial 89",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              55
+            ],
+            "element_id": "edit-D-trial-93__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              57
+            ],
+            "element_id": "edit-D-trial-93__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              59
+            ],
+            "element_id": "edit-D-trial-93__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "200",
+            "display_text": "200",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              65
+            ],
+            "element_id": "edit-D-time__xtick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u221220",
+            "display_text": "\u221220",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              67
+            ],
+            "element_id": "edit-D-time__xtick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u221210",
+            "display_text": "\u221210",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              69
+            ],
+            "element_id": "edit-D-time__xtick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              71
+            ],
+            "element_id": "edit-D-time__xtick_3-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "10",
+            "display_text": "10",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              73
+            ],
+            "element_id": "edit-D-time__xtick_4-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              74
+            ],
+            "element_id": "edit-D-time-label",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Time relative to CS onset (s)",
+            "display_text": "Time relative to CS onset (s)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              0,
+              75
+            ],
+            "element_id": "edit-D-value-label",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Tail angle (\u00b0)",
+            "display_text": "Tail angle (\u00b0)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              4,
+              1
+            ],
+            "element_id": "assembly-node-290",
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "D",
+            "display_text": "d",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              1
+            ],
+            "element_id": "edit-E-trial-9-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Pre-Train",
+            "display_text": "Pre-Train",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              2
+            ],
+            "element_id": "edit-E-trial-9-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 5",
+            "display_text": "Trial 5",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              5
+            ],
+            "element_id": "edit-E-trial-9__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              7
+            ],
+            "element_id": "edit-E-trial-9__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "2.5",
+            "display_text": "2.5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              9
+            ],
+            "element_id": "edit-E-trial-9__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "5",
+            "display_text": "5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              12
+            ],
+            "element_id": "edit-E-trial-17-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Early Train",
+            "display_text": "Early Train",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              13
+            ],
+            "element_id": "edit-E-trial-17-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 13",
+            "display_text": "Trial 13",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              16
+            ],
+            "element_id": "edit-E-trial-17__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              18
+            ],
+            "element_id": "edit-E-trial-17__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "2.5",
+            "display_text": "2.5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              20
+            ],
+            "element_id": "edit-E-trial-17__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "5",
+            "display_text": "5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              24
+            ],
+            "element_id": "edit-E-trial-63-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Late Train",
+            "display_text": "Late Train",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              25
+            ],
+            "element_id": "edit-E-trial-63-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 59",
+            "display_text": "Trial 59",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              28
+            ],
+            "element_id": "edit-E-trial-63__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              30
+            ],
+            "element_id": "edit-E-trial-63__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "2.5",
+            "display_text": "2.5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              32
+            ],
+            "element_id": "edit-E-trial-63__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "5",
+            "display_text": "5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              36
+            ],
+            "element_id": "edit-E-trial-66-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Early Test",
+            "display_text": "Early Test",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              37
+            ],
+            "element_id": "edit-E-trial-66-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 62",
+            "display_text": "Trial 62",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              40
+            ],
+            "element_id": "edit-E-trial-66__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              42
+            ],
+            "element_id": "edit-E-trial-66__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "2.5",
+            "display_text": "2.5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              44
+            ],
+            "element_id": "edit-E-trial-66__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "5",
+            "display_text": "5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              47
+            ],
+            "element_id": "edit-E-trial-93-block",
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Late Test",
+            "display_text": "Late Test",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              48
+            ],
+            "element_id": "edit-E-trial-93-name",
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "Trial 89",
+            "display_text": "Trial 89",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              51
+            ],
+            "element_id": "edit-E-trial-93__ytick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              53
+            ],
+            "element_id": "edit-E-trial-93__ytick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "2.5",
+            "display_text": "2.5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              55
+            ],
+            "element_id": "edit-E-trial-93__ytick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "5",
+            "display_text": "5",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              60
+            ],
+            "element_id": "edit-E-time__xtick_0-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u221220",
+            "display_text": "\u221220",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              62
+            ],
+            "element_id": "edit-E-time__xtick_1-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "\u221210",
+            "display_text": "\u221210",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              64
+            ],
+            "element_id": "edit-E-time__xtick_2-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              66
+            ],
+            "element_id": "edit-E-time__xtick_3-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "10",
+            "display_text": "10",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              68
+            ],
+            "element_id": "edit-E-time__xtick_4-label",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              69
+            ],
+            "element_id": "edit-E-time-label",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Time relative to CS onset (s)",
+            "display_text": "Time relative to CS onset (s)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              0,
+              70
+            ],
+            "element_id": "edit-E-value-label",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Scaled vigor (baseline units)",
+            "display_text": "Scaled vigor (baseline units)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              0,
+              1
+            ],
+            "element_id": "assembly-node-1057",
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "E",
+            "display_text": "e",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              5,
+              1,
+              0,
+              0,
+              3,
+              0,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-849",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-0.25",
+            "display_text": "-0.25",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              1,
+              0,
+              0,
+              3,
+              1,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-855",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0.00",
+            "display_text": "0.00",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              1,
+              0,
+              0,
+              3,
+              2,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-861",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0.25",
+            "display_text": "0.25",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              5,
+              1,
+              0,
+              0,
+              3,
+              3,
+              0
+            ],
+            "element_id": "edit-E-H-fig1__h__colorbar__label-y--axis-title-0",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Log vigor relative to baseline",
+            "display_text": "Log vigor relative to baseline",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              1,
+              0,
+              2,
+              0,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-898",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-20",
+            "display_text": "-20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              1,
+              0,
+              2,
+              1,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-904",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              1,
+              0,
+              2,
+              2,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-910",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              1,
+              0,
+              2,
+              3,
+              0
+            ],
+            "element_id": "edit-FGH-fig1__f__heatmap__label-x--axis-title-0",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Time from CS onset (s)",
+            "display_text": "Time from CS onset (s)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              1,
+              1,
+              0
+            ],
+            "element_id": null,
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "G",
+            "display_text": "g",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              1,
+              2,
+              0
+            ],
+            "element_id": null,
+            "role": "title.condition",
+            "size_pt": 7,
+            "source_text": "Delay",
+            "display_text": "Delay",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              1,
+              3,
+              0
+            ],
+            "element_id": null,
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "20221115_07",
+            "display_text": "20221115_07",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              2,
+              0,
+              2,
+              0,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1000",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-20",
+            "display_text": "-20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              2,
+              0,
+              2,
+              1,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1006",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              2,
+              0,
+              2,
+              2,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1012",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              2,
+              0,
+              2,
+              3,
+              0
+            ],
+            "element_id": "edit-FGH-fig1__g__heatmap__label-x--axis-title-0",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Time from CS onset (s)",
+            "display_text": "Time from CS onset (s)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              2,
+              1,
+              0
+            ],
+            "element_id": null,
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "H",
+            "display_text": "h",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              2,
+              2,
+              0
+            ],
+            "element_id": null,
+            "role": "title.condition",
+            "size_pt": 7,
+            "source_text": "3sTrace",
+            "display_text": "3sTrace",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              2,
+              3,
+              0
+            ],
+            "element_id": null,
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "20230307_12",
+            "display_text": "20230307_12",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              2,
+              0,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1092",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-20",
+            "display_text": "-20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              2,
+              1,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1098",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0",
+            "display_text": "0",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              2,
+              2,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1104",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              2,
+              3,
+              0
+            ],
+            "element_id": "edit-FGH-fig1__h__heatmap__label-x--axis-title-0",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Time from CS onset (s)",
+            "display_text": "Time from CS onset (s)",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              0,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1131",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "1",
+            "display_text": "1",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              1,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1137",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "10",
+            "display_text": "10",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              2,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1143",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "20",
+            "display_text": "20",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              3,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1149",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "30",
+            "display_text": "30",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              4,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1155",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "40",
+            "display_text": "40",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              5,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1161",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "50",
+            "display_text": "50",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              6,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1167",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "60",
+            "display_text": "60",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              7,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1173",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "70",
+            "display_text": "70",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              8,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1179",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "80",
+            "display_text": "80",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              11,
+              9,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1185",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "90",
+            "display_text": "90",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              12,
+              0
+            ],
+            "element_id": null,
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Pre",
+            "display_text": "Pre",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              13,
+              0
+            ],
+            "element_id": null,
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Train",
+            "display_text": "Train",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              0,
+              14,
+              0
+            ],
+            "element_id": null,
+            "role": "title",
+            "size_pt": 7,
+            "source_text": "Test",
+            "display_text": "Test",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              1,
+              0
+            ],
+            "element_id": null,
+            "role": "panel.letter",
+            "size_pt": 8,
+            "source_text": "F",
+            "display_text": "f",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              2,
+              0
+            ],
+            "element_id": null,
+            "role": "title.condition",
+            "size_pt": 7,
+            "source_text": "Control",
+            "display_text": "Control",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              3,
+              3,
+              0
+            ],
+            "element_id": null,
+            "role": "annotation",
+            "size_pt": 6,
+            "source_text": "20221115_09",
+            "display_text": "20221115_09",
+            "scientific_identity": "presentation classification only"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              4,
+              3,
+              0,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1467",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "-0.25",
+            "display_text": "-0.25",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              4,
+              3,
+              1,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1473",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0.00",
+            "display_text": "0.00",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "element_id": "fig1-axis-registered-1479",
+            "role": "axis.tick_label",
+            "size_pt": 6,
+            "source_text": "0.25",
+            "display_text": "0.25",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          },
+          {
+            "xml_index_path": [
+              6,
+              0,
+              2,
+              4,
+              3,
+              3,
+              0
+            ],
+            "element_id": "edit-FGH-fig1__h__colorbar__label-y--axis-title-0",
+            "role": "axis.label",
+            "size_pt": 7,
+            "source_text": "Log vigor relative to baseline",
+            "display_text": "Log vigor relative to baseline",
+            "scientific_identity": "inherited explicit axis/legend mapping"
+          }
+        ],
+        "panel_aliases": {
+          "A": "a",
+          "B": "b",
+          "C": "c",
+          "D": "d",
+          "E": "e",
+          "F": "f",
+          "G": "g",
+          "H": "h"
+        },
+        "uniform_allocation_scale": 0.72,
+        "unresolved": [
+          "Scientific coverage remains inherited and partial; presentation annotation tags do not establish experiment/cohort identity.",
+          "Per-role arrows, markers, dash spacing and color accessibility require visual review; no whole-figure compliance or freeze."
+        ],
+        "composition_refined": true,
+        "allocation_scales": {
+          "A": 0.72,
+          "B": 0.72,
+          "C": 0.72,
+          "D": 0.72,
+          "E": 0.72,
+          "E-colorbar": 0.72,
+          "F": 0.72,
+          "G": 0.72,
+          "H": 0.72,
+          "FGH-colorbar": 0.72
+        },
+        "composition_changes": [
+          {
+            "element_id": "",
+            "text": "20221115_09",
+            "dy_mm": -0.3507453462669332
+          },
+          {
+            "element_id": "",
+            "text": "Control",
+            "dy_mm": -1.4084653439591364
+          },
+          {
+            "element_id": "",
+            "text": "f",
+            "dy_mm": -1.548638663219947
+          },
+          {
+            "element_id": "",
+            "text": "20221115_07",
+            "dy_mm": -0.3507453462669332
+          },
+          {
+            "element_id": "",
+            "text": "Delay",
+            "dy_mm": -1.4084653439591364
+          },
+          {
+            "element_id": "",
+            "text": "g",
+            "dy_mm": -1.6130355860746164
+          },
+          {
+            "element_id": "",
+            "text": "20230307_12",
+            "dy_mm": -0.3507453462669332
+          },
+          {
+            "element_id": "",
+            "text": "3sTrace",
+            "dy_mm": -1.4084653439591364
+          },
+          {
+            "element_id": "",
+            "text": "h",
+            "dy_mm": -1.548638663219947
+          }
+        ],
+        "stroke_styles": {
+          "spine": 0.5,
+          "trace": 0.6,
+          "summary": 1,
+          "stimulus": 0.7,
+          "separator": 0.8
+        },
+        "compact_composition": {
+          "width_mm": 136,
+          "author_selection": "2026-10-17: Compact 136 mm where feasible",
+          "allocation_factors": {},
+          "reason": "Minimize inter-panel whitespace; preserve native data ratios and physical typography. G statistical inset remains enlarged; I is an empty Pending placeholder."
         }
       }
     },
@@ -7959,7 +10558,7 @@
     "review_display": "requested SVG and associated legend only",
     "legend": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-      "sha256": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
+      "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
     },
     "consistency_requests": [
       {
@@ -9196,6 +11795,21 @@
           "svg": "e0f2db1f613c1cd149db5697f152054d570ea6dfa33d4efb10a27cc4648727bf",
           "legend": "c09065e687d99a49c844b830f03e86b76d5ec987223cc10ea9255b1c0dd1e74d"
         }
+      },
+      {
+        "id": "fig1-nature-presentation-20261016",
+        "scope": [
+          "Figure 1"
+        ],
+        "status": "verified measured typography/axis geometry/frames/relationships; partial overall coverage",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+        },
+        "affected_artifact_hashes": {
+          "svg": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
+          "legend": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
+        }
       }
     ],
     "heatmap_row_numbering": {
@@ -9298,27 +11912,28 @@
       "sha256": "69457d4b4c5a8563c32ce99ec7dc5745c1385fdc6397ece728015b4bbb2edf6a"
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-layout-evidence.json",
-      "sha256": "dceeb7407ba5a81c38a56bb19d1d4d12f1df13bbeb2e97902dcfbeb98f904c10"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout-evidence.json",
+      "sha256": "4c49ef4167061ecd22a9c57ebfbb8ed753d1b26f1f86db8c47bbb881b5dc01b8"
     },
     "assembly_scale": {
-      "final_width_mm": 183,
-      "final_height_mm": 215.45732959390574
+      "final_width_mm": 136,
+      "final_height_mm": 163.69779259402097
     },
     "reproduction": {
       "generator": {
-        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_axis_geometry.py",
-        "sha256": "2e21e299d3026c7ce5a6e9eec198f73978cf2b36d269fff74f112835ce1e57e0"
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/nature_main_figures.py",
+        "sha256": "c223c760285fc6c9175ea0dc1675576ee40f55748f356315d7abe9b67348df5e"
       },
-      "browser_helper": {
-        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_axis_geometry.cjs",
-        "sha256": "14bccd4663eefe35c3564c633655e8a051f40dab1a882c8e4ab4a7c61a643e42"
+      "directory": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016",
+      "profile_inputs": {
+        "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+        "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+        "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
       },
-      "inputs": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/axis-geometry-reconciled-20261015/figure-01-input.json",
-        "sha256": "f4006888297868e309b4189aa915080050c0738fb7e473ce7cb34c254a7b10ae"
-      },
-      "command": "style_axis_geometry.cjs; collect bounds and repack; refine_paper_annotations.py; align_paper_annotations.cjs; regenerate pages; collect fresh layout/axis/annotation verification; publish with actual visual review note"
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+        "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+      }
     },
     "condition_order": [
       {
@@ -9360,7 +11975,21 @@
           "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
         }
       }
-    ]
+    ],
+    "presentation_profile": {
+      "id": "nature-main",
+      "version": "1.0.1",
+      "inputs": {
+        "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+        "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+        "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+      },
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
+        "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+      },
+      "status": "verified measured presentation properties; remaining coverage explicit in evidence"
+    }
   },
   "outstanding_questions": [],
   "verification": {

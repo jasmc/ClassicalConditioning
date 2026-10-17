@@ -188,3 +188,50 @@ dash/cap/key dimensions and glyph embedding still need rendered pilot evidence;
 Nature does not supply universal numbers for them. Sixteen targeted tests pass.
 Remaining renderer/QA/export/publication/freeze integration and figure migration
 stay in Plan 07; no scientific freeze or historical cleanup is requested.
+
+
+Author 2026-10-16 — Figure 3 analysis choice: the main figure must show only
+one selected analysis path. Compare candidate methods separately for author
+review before selection. Include a statistically corrected BLUP-based version
+inspired by the legacy code; assess calibration, uncertainty, coverage/retention
+and sensitivity rather than choosing solely by learner count. Preserve original
+legacy results, the full-fish atlas and current main draft during comparison.
+The full discussion and corrections are recorded in
+records/figure-reviews/figure-03/conversation-summary-2026-10-16.md.
+
+Author 2026-10-16 — shared Python plotting update: theme.py is the supported
+plotting entry point. Resolve the Nature profile once per build, reuse the same
+object/theme across helpers, and scope Matplotlib settings with rc_context.
+Direct apply_theme(profile=...) is supported. Ordinary axes reapply declared
+font/colors/spine widths/tick caps; shared tick labels can be suppressed without
+removing local ticks/spines. CS/US guides use their own role widths and layering,
+preserving event timing and data coordinates. AGENTS.md/skill/guide route here;
+legacy defaults and selected artwork remain intact. Twenty-one targeted tests
+pass; version-bound evidence is in
+records/figure-reviews/plotting-theme-integration-20261016.md. Saved-figure
+geometry/font embedding and guarded migration remain separate work in Plan 07.
+
+
+Author 2026-10-16 — apply the Nature presentation work to the selected Figure 1/2
+drafts and show their combined HTML. JOAQUIM was reconnected and authenticated;
+older offline snapshots were not substituted. Use the scoped migration route
+in the figure workflow, preserving frozen originals and partial scientific
+coverage. Captions are shortened with full prior definitions retained in
+docs/paper/figures/shared/figure-specific-methods.md. Exact results and remaining
+checks follow the state-bound Nature evidence; this does not authorize a freeze.
+
+2026-10-17 — JOAQUIM disconnected again before Nature-draft publication. Preserve staged work and resume from records/figure-reviews/nature-main-migration-20261017.md. Selected figure/collection pointers remain unchanged; do not present their previous HTML as newly restyled.
+
+- 2026-10-17: Author selected compact 136-mm Figure 1/2 compositions where feasible;
+  excessive spacing in the staged 183-mm Nature candidate is a layout error.
+  Preserve native font/tick/stroke sizes and verify native-width collection output
+  before guarded publication; Nature does not require every figure to be 183 mm.
+
+- 2026-10-17: Consolidated the complete Nature completion handoff into Plan 07
+  section 6 (H01–H10, retaining N01–N28/F01–F22) and Plan 08 release gates
+  R01–R10. Keep all applied Nature/author rules; latest visual scope is the black
+  review box only, with no further resize/reflow or eLife rollback implied.
+  Learner counts/classifications are Figure 3 only; relevant fish/cohort n remain
+  required in Figures 1/2. This is planning, not implementation/freeze approval.
+
+- 2026-10-17: Author requested archiving old styling where possible. Pre-Nature numerical guidance is retired for new paper work; seven original guidance/dependency snapshots are verified on JOAQUIM. Existing unprofiled renderers/contracts remain compatibility dependencies. Disposition and hashes: records/repository-archive/2026-10-17-retired-styling/README.md.

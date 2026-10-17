@@ -23,16 +23,20 @@ in their paths.
 
 ## Shared visual specification
 
-Matplotlib figures use `figures/theme.py`: 89 mm single-column or 183 mm
-double-column widths, an 8 pt DejaVu Sans base font on every system, 7 pt
-tick and legend text, and default 0.5 pt
-axes and line strokes. `apply_theme()` sets the defaults; figure builders call
-`style_axes()` for the axes themselves. The latter fixes tick length at 2 pt,
-the gap from tick end to label at 3 pt, and the axis-label pad at 3 pt. These
-are physical typographic distances, independent of pixel resolution and figure
-size. Both visible spines sit at zero offset. Use `mm_to_in()` for new figure
-sizes and the theme's colour tokens for repeated visual meanings. Intake QC
-plots use the same typography and axis spacing.
+New paper artwork uses the [Nature presentation target](../paper/figures/shared/nature-style.md)
+through `figures/theme.py`. Resolve `nature-main` once per build, apply it inside
+`matplotlib.rc_context()`, and pass that same theme to `style_axes()` and other
+helpers. Resolve numerical values from the profile rather than copying an old
+recipe. Use `mm_to_in()` for physical dimensions and the bound role/color tokens.
+Renderer padding does not prove a glyph-edge gap; final saved artwork needs the
+workflow's physical measurements.
+
+Existing unprofiled analysis/QC renderers retain their compatibility appearance.
+Their defaults are retired as a target for new paper work; the `publication`
+output mode selects an export format, not Nature styling or compliance.
+The [retirement record](../../records/repository-archive/2026-10-17-retired-styling/README.md)
+indexes the archived prior instructions. Saved drafts and frozen reproductions
+keep their recorded styling until an explicitly scoped edit is published.
 
 ## Per-recording temporal profiles
 

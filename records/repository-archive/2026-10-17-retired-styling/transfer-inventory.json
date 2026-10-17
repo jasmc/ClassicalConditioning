@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "purpose": "Pre-retirement snapshots of old styling guidance and compatibility dependencies; no source pruning authorized by this manifest",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/2026-10-17-retired-styling",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6991,
+      "sha256": "1471e2b93680516331a86cb734f34a6f5bdfc3a77095dd6c1cf5045794f0fba2",
+      "action": "archive_to_ssd",
+      "role": "pre-retirement snapshot; retained source may be revised",
+      "reason": "Preserve exact pre-existing bytes including uncommitted work before retiring old styling directions"
+    },
+    {
+      "path": ".agents/skills/paper-figures/SKILL.md",
+      "bytes": 9431,
+      "sha256": "222d575152e13be5159884de1343330d2842138979b049d0f36c3c4ba25e6730",
+      "action": "archive_to_ssd",
+      "role": "pre-retirement snapshot; retained source may be revised",
+      "reason": "Preserve exact pre-existing bytes including uncommitted work before retiring old styling directions"
+    },
+    {
+      "path": "docs/paper/figures/shared/iteration-workflow.md",
+      "bytes": 48888,
+      "sha256": "8348737aca4f5ce4987a4d87f6bf236d620bf0af93283b1eaad2f6afa94e1b31",
+      "action": "archive_to_ssd",
+      "role": "pre-retirement snapshot; retained source may be revised",
+      "reason": "Preserve exact pre-existing bytes including uncommitted work before retiring old styling directions"
+    },
+    {
+      "path": "docs/paper/figures/shared/nature-style.md",
+      "bytes": 16372,
+      "sha256": "b3b5b5f16504613f5879d9b6d75cc3c037faa01e780ba1e2902f6eeffa80f677",
+      "action": "archive_to_ssd",
+      "role": "pre-retirement snapshot; retained source may be revised",
+      "reason": "Preserve exact pre-existing bytes including uncommitted work before retiring old styling directions"
+    },
+    {
+      "path": "docs/running-analysis/rendering.md",
+      "bytes": 13782,
+      "sha256": "bb55ab480b6f78bd334a314b5cd16a59e3655920c29c0c693f7cb6f800766a2d",
+      "action": "archive_to_ssd",
+      "role": "pre-retirement snapshot; retained source may be revised",
+      "reason": "Preserve exact pre-existing bytes including uncommitted work before retiring old styling directions"
+    },
+    {
+      "path": "src/classical_conditioning/figures/theme.py",
+      "bytes": 16098,
+      "sha256": "12dcf95debf20f626e413ab326efb055b35c5f93ad87a938befc71a4433dbe2d",
+      "action": "archive_to_ssd",
+      "role": "pre-retirement snapshot; retained source may be revised",
+      "reason": "Preserve exact pre-existing bytes including uncommitted work before retiring old styling directions"
+    },
+    {
+      "path": "configs/paper-figures/figure-elements.json",
+      "bytes": 27314,
+      "sha256": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+      "action": "archive_to_ssd",
+      "role": "pre-retirement snapshot; retained source may be revised",
+      "reason": "Preserve exact pre-existing bytes including uncommitted work before retiring old styling directions"
+    }
+  ]
+}

@@ -9,10 +9,20 @@ If skill discovery is unavailable, read that skill file directly.
 
 For new paper-figure presentation work, Nature is the selected target; read the
 [maintained Nature guidance](docs/paper/figures/shared/nature-style.md).
-Use its read-only profile lookup and explicit shared-theme selection for new
-paper candidates. Full rendered-artifact checks and migration remain pending:
+Use the [shared plotting module](src/classical_conditioning/figures/theme.py)
+with one resolved profile per build; pass the same theme to its plotting helpers
+and keep Matplotlib rc changes scoped. Explicit selected-draft migration uses the
+workflow’s scoped Nature route; remaining renderer/production checks stay open:
 retain compatible author rules, validate actual output, and do not infer
 compliance from profile selection or restyle artwork just to display it.
+
+Author direction 2026-10-17: retire pre-Nature styling as a choice for new paper
+work. Legacy theme defaults and historical contracts are compatibility and
+reproduction dependencies only; do not copy their font/size values into new
+work or use an unprofiled call as the paper styling entry point. Resolve current
+role values through `nature-main`. Preserve compatible author geometry and
+scientific mappings. See the [retirement record](records/repository-archive/2026-10-17-retired-styling/README.md)
+for verified archived guidance and dependencies retained in place.
 
 ## Essential protections
 
