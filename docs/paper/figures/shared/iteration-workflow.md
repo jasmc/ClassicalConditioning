@@ -242,7 +242,7 @@ unresolved for any new freeze.
    and pending dispositions. Check-only runs or rule edits do not trigger cleanup.
 
 
-The [element/style specification](../../../analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md) and
+The [element/style specification](figure-element-specification.md) and
 [versioned role contract](../../../../configs/paper-figures/figure-elements.json)
 remain the detailed freeze authority. The gate validates the registry prepared
 by the agent/renderer; it does not itself establish scientific truth or conduct
@@ -252,11 +252,13 @@ governs verified transfer and pruning.
 ## Current Figure 1 handoff
 
 A–D, E and F–H have scoped freezes; the current F–H selection is the author-frozen 2026-10-13 historical-fish 1 s direct log-frame median managua_r version (Trace 20230307_12). V12 remains preserved as superseded F–H evidence; no whole-figure freeze is recorded.
-The legacy-style/shorter-heatmap candidate remains the active unfrozen draft.
+The active unfrozen draft is the pair selected by state; its bound profile and
+measurement evidence record current presentation coverage.
 Figure 2 is preserved. The current D/E working pair uses the same D measured frame table, named semantic
 artists, matching axis rectangles and the D block labels (trial 9: Pre-Train).
-E’s accepted 2026-10-13 scoped freeze uses D’s stored vigor with the inherited bout mask: unbinned raw baseline and scaling, no black-trace log, 0–5 display, no baseline reference, exact current F bands/H color legend, and two continuous CS boundaries. Older E/V12 freezes remain preserved. D and whole-figure draft approval remain separate. The author resolved the arrow relationship on 2026-10-13: the five arrows
-are now in F, marking the Delay trials shown in D/E. G has no draft arrows.
+E’s accepted 2026-10-13 scoped freeze uses D’s stored vigor with the inherited bout mask: unbinned raw baseline and scaling, no black-trace log, 0–5 display, no baseline reference, exact frozen source F bands/shared color legend (Delay displayed as G), and two continuous CS boundaries. Older E/V12 freezes remain preserved. D and whole-figure draft approval remain separate. The author resolved the arrow relationship on 2026-10-13: the five arrows
+are attached to the Delay source panel F, now displayed as G after the
+recorded control-first reorder. They mark the five trials shown in D/E.
 See state for exact copies/hashes and evidence, and the editable
 [Figure 1 legend](../figure-01/legend.md),
 [editorial notes](review.md) and
@@ -278,7 +280,7 @@ new author comments or storage limitation; read the saved records before work.
   [figure-elements.json](../../../../configs/paper-figures/figure-elements.json)
   is authoritative for reusable role IDs, numerical style defaults and
   plot-family rules; the
-  [element specification](../../../analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md)
+  [element specification](figure-element-specification.md)
   explains them. These apply to separate future freeze candidates on explicit
   freeze requests, with author-approved exceptions limited to recorded scopes.
 - **Rendering foundation:**

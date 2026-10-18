@@ -120,7 +120,7 @@ workflow's concurrency/publication section for destinations and command options.
 ## Explicit freeze only
 
 Read the workflow's freeze section and the
-[element specification](../../../docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md).
+[element specification](../../../docs/paper/figures/shared/figure-element-specification.md).
 Use [figure-elements.json](../../../configs/paper-figures/figure-elements.json)
 for role identifiers, numerical defaults and plot-family rules. Prepare a
 separate styled candidate with exact source/data mappings, final-scale evidence,

@@ -76,7 +76,7 @@ not change other panels, the separate onset/trajectory review, or literal
 The author selected a uniform paper style and requested a durable repository
 contract for **every panel or whole-figure freeze**. Its scientific role catalog,
 Matplotlib/SVG identities, current Figure 1-2 source inventory and shared styles
-are in the [element specification](../analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md)
+are in the [element specification](figures/shared/figure-element-specification.md)
 and [versioned machine specification](../../configs/paper-figures/figure-elements.json).
 The [root repository instructions](../../AGENTS.md) require applying these rules
 to a reviewable candidate, checking final assembly scale, and asking targeted

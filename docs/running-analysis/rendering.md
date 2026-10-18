@@ -177,7 +177,7 @@ then give each fish equal weight in the condition median and IQR.
 The selected-block ratio figure uses final Pre-Train trials 10–14, Early Test
 65–69, and Late Test 90–94. Its response/baseline ratios are not the same
 quantity as the 0–1 scaled catch/block profiles. The separate
-[signed learner-stratified Figure 4 route](../paper/figures/figure-04/analysis-and-rendering.md)
+[signed learner-stratified Figure 4 route](figure4.md)
 consumes a frozen classifier manifest and derives signed bins from corrected
 metrics. Its paper figures remain gated on reviewed cohorts and that manifest.
 

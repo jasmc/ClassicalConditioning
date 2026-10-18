@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "purpose": "Author-authorized organization reconciliation; no new scientific selection, rendering, freeze or disposal",
+  "dispositions": [
+    {
+      "original_path": "AGENTS.md",
+      "canonical_path": "AGENTS.md",
+      "sha256": "22a8079ddff0b70299fd42d3a1b03f7a8f63f0cf4c5acb9895d1d40af7075740",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/AGENTS.md"
+    },
+    {
+      "original_path": ".agents/skills/paper-figures/SKILL.md",
+      "canonical_path": ".agents/skills/paper-figures/SKILL.md",
+      "sha256": "58a1282fbfe7f8badcc423278da383fbe43edc03c78dd17956a9f10a0661beeb",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/.agents/skills/paper-figures/SKILL.md"
+    },
+    {
+      "original_path": "configs/paper-figures/behavior-paper.json",
+      "canonical_path": "configs/paper-figures/behavior-paper.json",
+      "sha256": "b412e309fd2da004251d58994a676fec8d2d80c25ec7788d0595099b0a52d26b",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/configs/paper-figures/behavior-paper.json"
+    },
+    {
+      "original_path": "configs/README.md",
+      "canonical_path": "configs/README.md",
+      "sha256": "22d62447ca767d03bf202210d413f0d109d35de8d90a292d9dfb13d4f539b05b",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/configs/README.md"
+    },
+    {
+      "original_path": "scripts/README.md",
+      "canonical_path": "scripts/README.md",
+      "sha256": "3d7178233697aeb80d799e14e96ccd86ad6428a6b46b30a418c95aad7fd13db6",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/scripts/README.md"
+    },
+    {
+      "original_path": "docs/project-maintenance/structure.md",
+      "canonical_path": "docs/project-maintenance/structure.md",
+      "sha256": "7adc66e8d1c654520acfc889f4a990bf16112fdac75630ad098cce1a8a6fbce3",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/structure.md"
+    },
+    {
+      "original_path": "docs/project-maintenance/structure-policy.json",
+      "canonical_path": "docs/project-maintenance/structure-policy.json",
+      "sha256": "9bdc762cd1b6978dd2df5a47b49a4200d4a6663cc729be1bccab7bcd0bf5c785",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/structure-policy.json"
+    },
+    {
+      "original_path": "docs/project-maintenance/README.md",
+      "canonical_path": "docs/project-maintenance/README.md",
+      "sha256": "4b83057e8472fd4f206ef48d7f4bc1aaf63f771e09a649efebb284d4b67d4e14",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/README.md"
+    },
+    {
+      "original_path": "docs/project-maintenance/storage.md",
+      "canonical_path": "docs/project-maintenance/storage.md",
+      "sha256": "ecd928b928650f37cbf78fecf94797805cfb6003b6cf7ffa54d0d93602ba1b50",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/storage.md"
+    },
+    {
+      "original_path": "docs/project-maintenance/figure-04-transfer.md",
+      "canonical_path": "docs/project-maintenance/figure-04-transfer.md",
+      "sha256": "ab22263a6b5bb3d7df6c9856a5ccd67bca853e37b4f23a88ab4cfba8698c268d",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/figure-04-transfer.md"
+    },
+    {
+      "original_path": "docs/running-analysis/README.md",
+      "canonical_path": "docs/running-analysis/README.md",
+      "sha256": "f4f9f6c5f35a6f1603dd368acee3d75bc715b86bc14ccb0b69aafeee8b62be31",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/README.md"
+    },
+    {
+      "original_path": "docs/running-analysis/rendering.md",
+      "canonical_path": "docs/running-analysis/rendering.md",
+      "sha256": "9af2e385695ade16682d9177e6d808ae2809a29b1e443baf9bf7f2da091aced6",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/rendering.md"
+    },
+    {
+      "original_path": "docs/running-analysis/parameters.md",
+      "canonical_path": "docs/running-analysis/parameters.md",
+      "sha256": "2488bbc3d818b72d081c5e218636e4f6cc3d6681db6c452b28fe8870dfbff1bf",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/parameters.md"
+    },
+    {
+      "original_path": "docs/running-analysis/figure-build-tools.md",
+      "canonical_path": "docs/running-analysis/figure-build-tools.md",
+      "sha256": "23ffb85895afcf913e4f6fb9a111e76f5c0cebd720faaffc6de76bc263a6f240",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/figure-build-tools.md"
+    },
+    {
+      "original_path": "docs/running-analysis/figure2-g-independent-review.md",
+      "canonical_path": "docs/running-analysis/figure2-g-independent-review.md",
+      "sha256": "c309b6d2b46ad5efa3f671b56a4890539e7b719748c1dca51ee1a7bb142d57d9",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/figure2-g-independent-review.md"
+    },
+    {
+      "original_path": "docs/paper/decisions.md",
+      "canonical_path": "docs/paper/decisions.md",
+      "sha256": "c77ec4d36d8d46538f245d714ebef38be2adf2f59c2dc6f41f554cfb1ec5e30c",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/decisions.md"
+    },
+    {
+      "original_path": "docs/paper/figures/README.md",
+      "canonical_path": "docs/paper/figures/README.md",
+      "sha256": "61fbb4b243f5e4b297895f11c824b3f85aa957db530224c70894ee86c64c379d",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/shared/iteration-workflow.md",
+      "canonical_path": "docs/paper/figures/shared/iteration-workflow.md",
+      "sha256": "89f6ce83ce73337cd5437d3db885e384cbdb9e174b86eb2e5b56f49443731f46",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/shared/iteration-workflow.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-01/README.md",
+      "canonical_path": "docs/paper/figures/figure-01/README.md",
+      "sha256": "bc0b1c14e00892065a96d3d35c251658cf3541cf883154e98593f5b8798717ca",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-01/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-01/panels-f-g-h/README.md",
+      "canonical_path": "docs/paper/figures/figure-01/panels-f-g-h/README.md",
+      "sha256": "d1406b44eed891e0621818c48516184a3896f60017ec144443793922b2a0283b",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-01/panels-f-g-h/README.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-04/README.md",
+      "canonical_path": "docs/paper/figures/figure-04/README.md",
+      "sha256": "f0508a09e9a7542f6c300722087166cd405943cdfc6c69864359cc2e31696082",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-04/README.md"
+    },
+    {
+      "original_path": "docs/paper/methods/activity-and-bouts.md",
+      "canonical_path": "docs/paper/methods/activity-and-bouts.md",
+      "sha256": "25ae3ae74d137eec895b3669f947a8be097fbf46279dae20c5faf826e71d6a82",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/methods/activity-and-bouts.md"
+    },
+    {
+      "original_path": "Plans/backlog/10_TAIL_MECHANISTIC_ANALYSES.md",
+      "canonical_path": "Plans/backlog/10_TAIL_MECHANISTIC_ANALYSES.md",
+      "sha256": "a0907bb1cf714b876bee009b5f6f8a2b9c0bb9691b1041c6387cf315467a687f",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/backlog/10_TAIL_MECHANISTIC_ANALYSES.md"
+    },
+    {
+      "original_path": "Plans/backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md",
+      "canonical_path": "Plans/backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md",
+      "sha256": "dfbdf33bc9792f9fd694daf6082e5f2f6375a93706378042acd65862c9feab0a",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-04/analysis-and-rendering.md",
+      "canonical_path": "docs/running-analysis/figure4.md",
+      "sha256": "33b2513d54cbaa8c63b19ce356df3457c7cb0f0b60863660c9a8299cf5a2aa29",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-04/analysis-and-rendering.md"
+    },
+    {
+      "original_path": "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "canonical_path": "docs/paper/figures/shared/figure-element-specification.md",
+      "sha256": "7addc9a24c071d2621794a48164a163911b325a65da685afb429aed3568d91bb",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md"
+    },
+    {
+      "original_path": "docs/paper/figures/shared/figure-element-specification.md",
+      "canonical_path": "docs/paper/figures/shared/figure-element-specification.md",
+      "sha256": "b3d5cdc1201825e4439185db68a0147cb7324bcf16f3c458a5c97f6f88dc1e05",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/shared/figure-element-specification.md"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-02/legend.md",
+      "canonical_path": "docs/paper/figures/figure-02/legend.md",
+      "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/recovered-originals/figure-02-legend-at-A-freeze.md",
+      "recovered_from": "/Users/joaquim/Documents/ClassicalConditioning Figures/records/figure-02-legend.md",
+      "purpose": "Exact frozen A legend; current Figure 2 draft keeps its own unchanged bound legend"
+    },
+    {
+      "original_path": "records/repository-archive/relocations.json",
+      "canonical_path": "records/repository-archive/relocations.json",
+      "sha256": "0db193aa387044eb07bdf9e32b970ace993886c78bf2abad183e148026144e8a",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-archive/relocations.json"
+    },
+    {
+      "original_path": "records/repository-history/README.md",
+      "canonical_path": "records/repository-history/README.md",
+      "sha256": "3712f6fb45b89343cd87451223e52b1051d42a525518f22df46cd966699aebda",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-history/README.md"
+    },
+    {
+      "original_path": "Plans/IMPLEMENTATION_STEP_INDEX.md",
+      "canonical_path": "Plans/IMPLEMENTATION_STEP_INDEX.md",
+      "sha256": "bd380018e92d33f2834c29806734e1c2e0b611fef6780f89e6bf42578baa9fc9",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/IMPLEMENTATION_STEP_INDEX.md"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/AGENTS.md",
+      "sha256": "22a8079ddff0b70299fd42d3a1b03f7a8f63f0cf4c5acb9895d1d40af7075740"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/.agents/skills/paper-figures/SKILL.md",
+      "sha256": "58a1282fbfe7f8badcc423278da383fbe43edc03c78dd17956a9f10a0661beeb"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/configs/paper-figures/behavior-paper.json",
+      "sha256": "b412e309fd2da004251d58994a676fec8d2d80c25ec7788d0595099b0a52d26b"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/configs/README.md",
+      "sha256": "22d62447ca767d03bf202210d413f0d109d35de8d90a292d9dfb13d4f539b05b"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/scripts/README.md",
+      "sha256": "3d7178233697aeb80d799e14e96ccd86ad6428a6b46b30a418c95aad7fd13db6"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/structure.md",
+      "sha256": "7adc66e8d1c654520acfc889f4a990bf16112fdac75630ad098cce1a8a6fbce3"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/structure-policy.json",
+      "sha256": "9bdc762cd1b6978dd2df5a47b49a4200d4a6663cc729be1bccab7bcd0bf5c785"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/README.md",
+      "sha256": "4b83057e8472fd4f206ef48d7f4bc1aaf63f771e09a649efebb284d4b67d4e14"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/storage.md",
+      "sha256": "ecd928b928650f37cbf78fecf94797805cfb6003b6cf7ffa54d0d93602ba1b50"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/project-maintenance/figure-04-transfer.md",
+      "sha256": "ab22263a6b5bb3d7df6c9856a5ccd67bca853e37b4f23a88ab4cfba8698c268d"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/README.md",
+      "sha256": "f4f9f6c5f35a6f1603dd368acee3d75bc715b86bc14ccb0b69aafeee8b62be31"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/rendering.md",
+      "sha256": "9af2e385695ade16682d9177e6d808ae2809a29b1e443baf9bf7f2da091aced6"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/parameters.md",
+      "sha256": "2488bbc3d818b72d081c5e218636e4f6cc3d6681db6c452b28fe8870dfbff1bf"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/figure-build-tools.md",
+      "sha256": "23ffb85895afcf913e4f6fb9a111e76f5c0cebd720faaffc6de76bc263a6f240"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/figure2-g-independent-review.md",
+      "sha256": "c309b6d2b46ad5efa3f671b56a4890539e7b719748c1dca51ee1a7bb142d57d9"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/decisions.md",
+      "sha256": "c77ec4d36d8d46538f245d714ebef38be2adf2f59c2dc6f41f554cfb1ec5e30c"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/README.md",
+      "sha256": "61fbb4b243f5e4b297895f11c824b3f85aa957db530224c70894ee86c64c379d"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/shared/iteration-workflow.md",
+      "sha256": "89f6ce83ce73337cd5437d3db885e384cbdb9e174b86eb2e5b56f49443731f46"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-01/README.md",
+      "sha256": "bc0b1c14e00892065a96d3d35c251658cf3541cf883154e98593f5b8798717ca"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-01/panels-f-g-h/README.md",
+      "sha256": "d1406b44eed891e0621818c48516184a3896f60017ec144443793922b2a0283b"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-04/README.md",
+      "sha256": "f0508a09e9a7542f6c300722087166cd405943cdfc6c69864359cc2e31696082"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/methods/activity-and-bouts.md",
+      "sha256": "25ae3ae74d137eec895b3669f947a8be097fbf46279dae20c5faf826e71d6a82"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/backlog/10_TAIL_MECHANISTIC_ANALYSES.md",
+      "sha256": "a0907bb1cf714b876bee009b5f6f8a2b9c0bb9691b1041c6387cf315467a687f"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md",
+      "sha256": "dfbdf33bc9792f9fd694daf6082e5f2f6375a93706378042acd65862c9feab0a"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-04/analysis-and-rendering.md",
+      "sha256": "33b2513d54cbaa8c63b19ce356df3457c7cb0f0b60863660c9a8299cf5a2aa29"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "sha256": "7addc9a24c071d2621794a48164a163911b325a65da685afb429aed3568d91bb"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/migration-originals/records/repository-archive/ARTIFACT_INDEX.md",
+      "sha256": "0ac50985a1200fa898a17d8cbc1aef298e395d58ee5191958066e64edf6d5ffd"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/migration-originals/records/repository-archive/verified-artifact-locations.json",
+      "sha256": "19d4994bdccde60a4fe98dd5d2ccdd47ed6d118eb167a32122ec75fd26a0c655"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/shared/figure-element-specification.md",
+      "sha256": "b3d5cdc1201825e4439185db68a0147cb7324bcf16f3c458a5c97f6f88dc1e05"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/recovered-originals/figure-02-legend-at-A-freeze.md",
+      "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-archive/relocations.json",
+      "sha256": "0db193aa387044eb07bdf9e32b970ace993886c78bf2abad183e148026144e8a"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-history/README.md",
+      "sha256": "3712f6fb45b89343cd87451223e52b1051d42a525518f22df46cd966699aebda"
+    },
+    {
+      "path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/IMPLEMENTATION_STEP_INDEX.md",
+      "sha256": "bd380018e92d33f2834c29806734e1c2e0b611fef6780f89e6bf42578baa9fc9"
+    }
+  ],
+  "scientific_authority": {
+    "state_path": "docs/paper/figures/figure-01/current-state.json",
+    "state_sha256": "cc337418b556d30d758f8e725df348f3a86452f9fc8ebb1a8ae651a2202b075c",
+    "records": [
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json",
+        "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3"
+      },
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
+        "sha256": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf"
+      },
+      {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json",
+        "sha256": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281"
+      }
+    ],
+    "publication": "Registry metadata reconciled under the Figure 1 lock; presentation state and artwork unchanged."
+  }
+}

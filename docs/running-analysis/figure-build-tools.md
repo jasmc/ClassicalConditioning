@@ -13,7 +13,7 @@ Use these tools with authenticated scientific inputs. Capability does not establ
 | `scripts/build_figure_legend_review.py --baseline <ticket> --output <external-review.html>` | Guarded consolidated review and editable draft publication; retain unchanged other-figure material |
 | `scripts/freeze_figure.py` | Explicit author-requested freeze gate; run `--check-only` first |
 
-Consult each command's `--help` for its actual interface. The generic assembler composes supplied sources; it does not select scientifically current panels. Figure-specific source routing is described with [Figure 1](../paper/figures/figure-01/assembly.md), [Figure 2](../paper/figures/figure-02/assembly.md) and [Figure 4](../paper/figures/figure-04/analysis-and-rendering.md).
+Consult each command's `--help` for its actual interface. The generic assembler composes supplied sources; it does not select scientifically current panels. Figure-specific source routing is described with [Figure 1](../paper/figures/figure-01/assembly.md), [Figure 2](../paper/figures/figure-02/assembly.md) and [Figure 4](figure4.md).
 
 Use the [assembly preflight/replacement guide](../paper/figures/shared/assembly-preflight.md) for replacements and the [iteration workflow](../paper/figures/shared/iteration-workflow.md) for current-state updates. The assembler's transaction is not the figure-state publication protocol. Missing sources and approvals must remain explicit; do not substitute a review precursor for a frozen selection.
 

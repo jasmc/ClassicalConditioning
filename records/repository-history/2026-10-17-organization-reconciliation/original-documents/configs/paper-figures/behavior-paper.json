@@ -1,0 +1,429 @@
+{
+  "paper_id": "behavior-paper",
+  "schema_version": 1,
+  "authority": [
+    "ClassicalConditioningPaper/Helpers/Paper_Scaffold.md",
+    "ClassicalConditioningPaper/Helpers/List of Figures.md"
+  ],
+  "activity_metric": {
+    "status": "frozen",
+    "decision_id": "tail-bend-angular-speed-2026-10-06",
+    "metric_id": "legacy_distal_angular_speed",
+    "display_name": "Tail bend angular speed",
+    "units": "rad/ms",
+    "decision_record": "records/scientific-evidence/decisions/metric-selection-2026-10-06.md"
+  },
+  "label_status": "proposed",
+  "review_variants_registry": "records/figure-history/shared/review-variants.json",
+  "figure_specification": "docs/paper/figures/README.md",
+  "version_comparison": "records/figure-history/shared/review-versions-2026-09-24.md",
+  "rendering": {
+    "routine_format": "png",
+    "publication_formats": [
+      "svg",
+      "pdf"
+    ],
+    "semantic_svg_ids": true,
+    "artist_data_mapping": true,
+    "physical_units_required": true,
+    "provenance_sidecar_required": true,
+    "structural_svg_check_required": true
+  },
+  "authentication": {
+    "cohort_sha256": null,
+    "metric_sha256": null,
+    "settings_sha256": null,
+    "upstream_sha256": null,
+    "note": "Run hashes are resolved in each summary. The activity metric is frozen; cohort, outcome and statistical approvals are separate."
+  },
+  "artifact_templates": {
+    "experiment definition": "src/classical_conditioning/config/experiments.py",
+    "trial map": "Metadata/trial_map_{experiment}.json",
+    "source manifest": "Metadata/{recording_id}_source_manifest.json",
+    "selected fish tracking.parquet": "Processed data/{recording_id}/tracking.parquet",
+    "corrected frames": "Processed data/{recording_id}/frame_preprocessed_corrected.parquet",
+    "corrected candidate metrics": "Processed data/{recording_id}/frame_activity_candidates-corrected.parquet",
+    "corrected temporal profile": "Processed data/{recording_id}/candidate_temporal_outcomes-corrected.parquet",
+    "fish-level temporal profiles": "Processed data/{recording_id}/candidate_temporal_outcomes-corrected.parquet",
+    "reviewed cohort": "Processed data/Cohorts/{cohort_id}/cohort-manifest.parquet",
+    "reviewed Delay cohort": "Processed data/Cohorts/{delay_cohort_id}/cohort-manifest.parquet",
+    "reviewed 3sTrace cohort": "Processed data/Cohorts/{trace3_cohort_id}/cohort-manifest.parquet",
+    "reviewed 10sTrace cohort": "Processed data/Cohorts/{trace10_cohort_id}/cohort-manifest.parquet",
+    "population heatmap": "Processed data/Analyses/{analysis_id}/population-heatmap_{metric}.parquet",
+    "selected-block ratio": "Figures/{mode}/Analyses/{analysis_id}/cohort-selected-block-ratio_{metric}_total-activity.{format}",
+    "trial ratio": "Figures/{mode}/Analyses/{analysis_id}/cohort-trial-ratio_{metric}_total-activity.{format}",
+    "cohort trial outcomes": "Processed data/Cohorts/{cohort_id}/cohort-trial-outcomes.parquet"
+  },
+  "panels": {
+    "fig-1A": {
+      "role": "head-fixed preparation, CS, basal illumination and optovin US",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-freeze.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing frozen panel is current within its scope; whole-figure assembly and first-release readiness remain separate",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-freeze.json",
+      "freeze_scope_status": "author-approved retained frozen panel"
+    },
+    "fig-1B": {
+      "role": "within-trial CS\u2013US protocol contingencies: Delay, 3sTrace, 10sTrace and unpaired control",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-freeze.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing frozen panel is current within its scope; whole-figure assembly and first-release readiness remain separate",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-freeze.json",
+      "freeze_scope_status": "author-approved retained frozen panel"
+    },
+    "fig-1C": {
+      "role": "across-session protocol, phase trial counts and US pulse durations",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-freeze.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing frozen panel is current within its scope; whole-figure assembly and first-release readiness remain separate",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-freeze.json",
+      "freeze_scope_status": "author-approved retained frozen panel"
+    },
+    "fig-1D": {
+      "role": "representative measured tail angle for selected fish and trials",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-freeze.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing frozen panel is current within its scope; whole-figure assembly and first-release readiness remain separate",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-freeze.json",
+      "freeze_scope_status": "author-approved retained frozen panel"
+    },
+    "fig-1E": {
+      "role": "matching raw frame vigor trace with exact selected V12 heatmap rows on a separate axis",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "freeze_scope_status": "author-frozen",
+      "scientific_definition": {
+        "metric": "legacy_distal_angular_speed_rad_per_ms",
+        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+        "frame_transform": "natural log",
+        "bin_width_s": 0.5,
+        "bin_interval": "left-inclusive right-exclusive",
+        "bin_estimator": "median of eligible original log frames",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+        "centre": "d=bin_median_log-baseline_bin_median_log",
+        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
+        "minimum_finite_baseline_bins": 10,
+        "units": "dimensionless baseline-spread units; raw rad/ms",
+        "numeric_clipping": false,
+        "colour_limits": [
+          -1,
+          1
+        ],
+        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
+        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
+        "statistical_inference": "none; descriptive example heatmaps"
+      }
+    },
+    "fig-1F": {
+      "role": "Delay single-fish V12 baseline-spread normalized bout-log heatmap",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "freeze_scope_status": "author-frozen",
+      "scientific_definition": {
+        "metric": "legacy_distal_angular_speed_rad_per_ms",
+        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+        "frame_transform": "natural log",
+        "bin_width_s": 0.5,
+        "bin_interval": "left-inclusive right-exclusive",
+        "bin_estimator": "median of eligible original log frames",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+        "centre": "d=bin_median_log-baseline_bin_median_log",
+        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
+        "minimum_finite_baseline_bins": 10,
+        "units": "dimensionless baseline-spread units; raw rad/ms",
+        "numeric_clipping": false,
+        "colour_limits": [
+          -1,
+          1
+        ],
+        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
+        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
+        "statistical_inference": "none; descriptive example heatmaps"
+      }
+    },
+    "fig-1G": {
+      "role": "3sTrace single-fish V12 baseline-spread normalized bout-log heatmap",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "freeze_scope_status": "author-frozen",
+      "scientific_definition": {
+        "metric": "legacy_distal_angular_speed_rad_per_ms",
+        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+        "frame_transform": "natural log",
+        "bin_width_s": 0.5,
+        "bin_interval": "left-inclusive right-exclusive",
+        "bin_estimator": "median of eligible original log frames",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+        "centre": "d=bin_median_log-baseline_bin_median_log",
+        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
+        "minimum_finite_baseline_bins": 10,
+        "units": "dimensionless baseline-spread units; raw rad/ms",
+        "numeric_clipping": false,
+        "colour_limits": [
+          -1,
+          1
+        ],
+        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
+        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
+        "statistical_inference": "none; descriptive example heatmaps"
+      }
+    },
+    "fig-1H": {
+      "status": "blocked",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+      ],
+      "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
+      "role": "unpaired-control single-fish V12 baseline-spread normalized bout-log heatmap",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "freeze_scope_status": "author-frozen",
+      "scientific_definition": {
+        "metric": "legacy_distal_angular_speed_rad_per_ms",
+        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+        "frame_transform": "natural log",
+        "bin_width_s": 0.5,
+        "bin_interval": "left-inclusive right-exclusive",
+        "bin_estimator": "median of eligible original log frames",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+        "centre": "d=bin_median_log-baseline_bin_median_log",
+        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
+        "minimum_finite_baseline_bins": 10,
+        "units": "dimensionless baseline-spread units; raw rad/ms",
+        "numeric_clipping": false,
+        "colour_limits": [
+          -1,
+          1
+        ],
+        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
+        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
+        "statistical_inference": "none; descriptive example heatmaps"
+      }
+    },
+    "fig-2A": {
+      "role": "Control versus Delay equal-fish pooled signed bout-log-vigor heatmaps, managua_r at \u22120.25 to +0.25",
+      "source_artifacts": [
+        "reviewed Delay cohort",
+        "corrected candidate metrics",
+        "shared movement state",
+        "signed fish/trial bins"
+      ],
+      "status": "blocked",
+      "reason": "Figure 1 and 2 review heatmap measures are aligned; paper cohort remains unapproved"
+    },
+    "fig-2B": {
+      "role": "frozen-cohort Control versus 3sTrace CS-aligned population heatmaps",
+      "source_artifacts": [
+        "reviewed 3sTrace cohort",
+        "fish-level temporal profiles",
+        "population heatmap"
+      ],
+      "status": "blocked",
+      "reason": "descriptive all-valid-frame heatmap exists; matched paper cohort and signal semantics await approval"
+    },
+    "fig-2C": {
+      "role": "frozen-cohort Control versus 10sTrace CS-aligned population heatmaps; inconclusive",
+      "source_artifacts": [
+        "reviewed 10sTrace cohort",
+        "fish-level temporal profiles",
+        "population heatmap"
+      ],
+      "status": "blocked",
+      "reason": "descriptive all-valid-frame heatmap exists; matched paper cohort and inconclusive interpretation await approval"
+    },
+    "fig-2D": {
+      "role": "Delay selected-block median log positive valid bout-frame response minus baseline (frozen B)",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
+      "scoped_selection_record": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+      "freeze_scope_status": "frozen via explicit gate"
+    },
+    "fig-2E": {
+      "role": "3sTrace selected-block median log positive valid bout-frame response minus baseline (frozen B)",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
+      "scoped_selection_record": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+      "freeze_scope_status": "frozen via explicit gate"
+    },
+    "fig-2F": {
+      "role": "10sTrace block CR ratios at trials 10\u201314, 65\u201369, 90\u201394; inconclusive",
+      "source_artifacts": [
+        "reviewed 10sTrace cohort",
+        "selected-block ratio",
+        "approved inference"
+      ],
+      "status": "blocked",
+      "reason": "matched cohort and inference are not approved",
+      "method_status": "Historical/proposed ratio route; no current scoped freeze recorded"
+    },
+    "fig-2G": {
+      "role": "Delay NativeHistoricalLogMedian response-minus-baseline trajectory with phase-aware LMM (scoped freeze)",
+      "source_artifacts": [
+        "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json"
+      ],
+      "status": "blocked",
+      "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
+      "scoped_selection_record": "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+      "freeze_scope_status": "frozen"
+    },
+    "fig-2H": {
+      "role": "3sTrace trial-by-trial CR ratio",
+      "source_artifacts": [
+        "reviewed 3sTrace cohort",
+        "trial ratio",
+        "approved inference"
+      ],
+      "status": "blocked",
+      "reason": "matched cohort and inference are not approved",
+      "method_status": "Historical/proposed ratio route; no current scoped freeze recorded"
+    },
+    "fig-2I": {
+      "role": "10sTrace trial-by-trial CR ratio; inconclusive",
+      "source_artifacts": [
+        "reviewed 10sTrace cohort",
+        "trial ratio",
+        "approved inference"
+      ],
+      "status": "blocked",
+      "reason": "matched cohort and inference are not approved",
+      "method_status": "Historical/proposed ratio route; no current scoped freeze recorded"
+    },
+    "fig-3A": {
+      "role": "classification workflow",
+      "source_artifacts": [
+        "frozen learner representation",
+        "validation protocol"
+      ],
+      "status": "blocked",
+      "reason": "Gate L is not frozen"
+    },
+    "fig-3B": {
+      "role": "continuous learning-score distributions",
+      "source_artifacts": [
+        "frozen learner scores",
+        "reviewed cohorts"
+      ],
+      "status": "blocked",
+      "reason": "Gate L is not frozen"
+    },
+    "fig-3C": {
+      "role": "threshold, false positives, uncertainty and stability",
+      "source_artifacts": [
+        "frozen learner validation"
+      ],
+      "status": "blocked",
+      "reason": "Gate L is not frozen"
+    },
+    "fig-3D": {
+      "role": "learner fractions with uncertainty",
+      "source_artifacts": [
+        "frozen learner assignments"
+      ],
+      "status": "blocked",
+      "reason": "Gate L is not frozen"
+    },
+    "fig-3E": {
+      "role": "all-fish paired change",
+      "source_artifacts": [
+        "reviewed cohort outcomes"
+      ],
+      "status": "blocked",
+      "reason": "learner validation mode is not frozen"
+    },
+    "fig-3F": {
+      "role": "representative positive, negative, intermediate and borderline trajectories",
+      "source_artifacts": [
+        "frozen learner assignments",
+        "prespecified example fish"
+      ],
+      "status": "blocked",
+      "reason": "Gate L and examples are not frozen"
+    },
+    "fig-3G": {
+      "role": "all-eligible-fish validation",
+      "source_artifacts": [
+        "reviewed cohort outcomes",
+        "frozen learner analysis"
+      ],
+      "status": "blocked",
+      "reason": "Gate L is not frozen"
+    },
+    "fig-4A": {
+      "role": "Delay learner and nonlearner signed CR profiles across nine blocks and pooled catches, with control classifier groups",
+      "source_artifacts": [
+        "frozen Delay cohort",
+        "frozen learner manifest",
+        "signed Figure 4 panel data",
+        "verified paired-US timing"
+      ],
+      "status": "blocked",
+      "reason": "Gate L manifest and complete authenticated Figure 4 analysis are not available"
+    },
+    "fig-4B": {
+      "role": "3sTrace learner and nonlearner signed CR profiles across nine blocks and pooled catches, with control classifier groups",
+      "source_artifacts": [
+        "frozen 3sTrace cohort",
+        "frozen learner manifest",
+        "signed Figure 4 panel data",
+        "verified paired-US timing"
+      ],
+      "status": "blocked",
+      "reason": "Gate L manifest, authenticated Figure 4 analysis and reconciled US timing are not available"
+    },
+    "fig-4C": {
+      "role": "10sTrace learner and nonlearner signed CR profiles across nine blocks and pooled catches, with control classifier groups",
+      "source_artifacts": [
+        "frozen 10sTrace cohort",
+        "frozen learner manifest",
+        "signed Figure 4 panel data",
+        "verified paired-US timing"
+      ],
+      "status": "blocked",
+      "reason": "Gate L manifest and complete authenticated Figure 4 analysis are not available"
+    }
+  },
+  "readiness_policy": "Panel status describes first-release readiness. Existing scoped author freezes are recorded separately and do not imply approval of a whole assembly or unresolved release gates.",
+  "current_panel_map_date": "2026-10-11",
+  "current_definition_policy": "Latest explicit accepted freeze within each panel scope defines the current version. Superseded recipes are legacy; panels without an accepted freeze are proposed. Release readiness is tracked separately."
+}

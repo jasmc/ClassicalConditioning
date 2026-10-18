@@ -176,49 +176,25 @@ author decisions. The prototype local coverage floor is six fish per condition,
 not an approved numerical policy. Outcome availability may be informative:
 conditional vigor is undefined for no-bout windows, rather than zero activity.
 
-Population/individual simulation pilots include null, pre-existing differences,
-gradual/abrupt/transient effects, tracking gaps, informative availability and
-selected missingness/outlier scenarios. Availability stress depends on
-simulated baseline/response; it does not assign intensity to a real no-bout
-trial. Curve coverage, phase coverage, onset recovery, false supported runs
-and numerical failure remain separate checks.
-They are engineering and feasibility evidence. Paper inference additionally
-requires substantial calibration, outcome-dependent missingness stress tests,
-fit-failure/singularity review and individual hyperparameter sensitivity.
-The expanded LMM check uses 110 independent simulated datasets (11 scenarios,
-ten repetitions), each fitted with both targets and 99 bootstrap resamples.
-Both targets fail full-curve coverage in all ten abrupt and ten transient
-examples. The separate unsmoothed comparator uses 1,100 independent experiments
-and 499 resamples each: full-curve coverage ranges from 92% to 98% across the
-tested scenarios, with broad or unbounded onset intervals. Its late-training
-joint interval on the actual data includes zero, although the smooth-model
-phase intervals are positive; estimands and statistical strength differ.
-Neither population nor individual timing uncertainty is approved from this run.
-Successful fit/optimizer checks do not override those findings.
+Simulation studies and technical sensitivities are engineering/review evidence.
+They do not approve population or individual timing uncertainty. Fit/optimizer
+success does not replace calibration, missingness and fit-failure review. The
+[detailed 15 October evidence](../../records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md)
+owns the completed-run counts, coverage results, exclusions and interpretations.
 
-## Completed independent review
+## Technical sensitivity command
 
-The completed exploratory run is `20261014-analysis-02` in the external
-`figure2-G-independent-review` namespace. The computational review, numerical
-results and remaining scientific gates are recorded in
-[the 2026-10-15 review](../../records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md).
-Run `20261014-analysis-01`, unpublished failed candidates and superseded reports
-remain preserved. A calibration-summary status-filter defect was repaired;
-the 1,100 saved unsmoothed replicates were unchanged and a regression test
-checks accepted counts separately from timing-localization status.
+```sh
+.venv/bin/python scripts/review_figure2_g_technical.py \
+  --parent /absolute/selected/stage \
+  --output-dir /absolute/new/external/destination
+```
 
-An additional source-only technical sensitivity is available through
-`scripts/review_figure2_g_technical.py --parent /absolute/selected/stage
---output-dir /absolute/new/external/destination`. It records its protocol rule
-before fitting, authenticates acquisition/preprocessing/event sources, and
-leaves the primary cohort unchanged. `technical-followup-02` excludes only
-Delay fish `20221122_03` for malformed/out-of-acquisition protocol events.
-Raw protocol inspection confirms timestamp precision loss; intended timestamps
-were not reconstructed. Small stream-boundary offsets alone are not an
-exclusion. The bound supplemental manifest and raw trace are copied into the
-selected report. The technical sensitivity retains positive late-training
-LMM intervals and does not resolve acquisition timing.
+This source-only sensitivity records its protocol rule before fitting,
+authenticates acquisition/preprocessing/event sources and leaves the primary
+cohort unchanged. Saved raw-source and supplemental evidence belong with the
+selected report; this command does not reconstruct intended timestamps.
 
 The owning workstreams remain Plans 02 (cohort), 06 (estimand/model), 03
 (population timing), 04 (individual expression) and 07 (figure reporting).
-An explicit later freeze request is required to replace any accepted selection.
+An explicit later freeze request is required to replace an accepted selection.

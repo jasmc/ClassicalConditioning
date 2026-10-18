@@ -21,3 +21,10 @@ For an existing transaction:
 Transfer copies/verifies without removal. Prune rechecks all originals and published bytes first. Missing/corrupt destinations, changed originals and collisions fail. Keep originals until verification; use an independent manifest and destination for new transactions. Never overwrite a published checkpoint or rewrite historical frozen paths.
 
 After a new freeze, prepare a scoped prior-version inventory and recommendations. The author chooses dispositions; the freeze request alone authorizes no archiving/deletion. Preserve shared active dependencies and pending versions. Historical transfers and dated handoffs remain recoverable through records.
+
+`check_repository_structure.py --external` is a read-only archive audit. It
+authenticates the completed disposition records bound in the structure policy
+and recognizes only their exact deleted path/hash/size triples. Other missing
+or corrupt payloads fail. The transfer inventories stay immutable, and
+`repository_archive.py verify`, transfer and prune still require every payload;
+audit exceptions cannot weaken those mutation safeguards.

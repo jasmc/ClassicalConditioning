@@ -62,7 +62,7 @@ for verified archived guidance and dependencies retained in place.
   masks, timing or transformations are scientific draft changes. Nominal styles
   and structural XML IDs do not prove scientific or final-scale consistency.
 - Only an explicit freeze request activates the
-  [element specification](docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md)
+  [element specification](docs/paper/figures/shared/figure-element-specification.md)
   and [role/style contract](configs/paper-figures/figure-elements.json).
   Prepare a separate candidate, preserve scoped approvals, and pass
   `scripts/freeze_figure.py --check-only` before publishing with `--output`.

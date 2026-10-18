@@ -10,5 +10,6 @@ This area explains using the supported code; it does not choose scientific metho
 - [Learning-model command reference](learning-models.md)
 - [Individual-learning interfaces](individual-learning-interfaces.md)
 - [Figure build tools](figure-build-tools.md)
+- [Figure 4 analysis and rendering](figure4.md)
 
 Figure-specific assembly instructions live with their [paper figures](../paper/figures/README.md). Scientific definitions live in [shared methods](../paper/methods/README.md).

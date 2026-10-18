@@ -218,6 +218,36 @@ def verify_payload(manifest, root):
     return count
 
 
+def audit_payload(manifest, root, *, dispositions=()):
+    """Read-only audit allowing only exact, recorded author-deleted absences.
+
+    Transfer, verify and prune deliberately keep using strict verify_payload.
+    Callers authenticate disposition files before passing their parsed contents.
+    """
+    deleted = set()
+    for disposition in dispositions:
+        if disposition.get('status') != 'complete' or not disposition.get('authorization', '').strip():
+            raise ValueError('Archive disposition lacks completed author authorization')
+        for target in disposition.get('targets', []):
+            if target.get('deleted') is True:
+                path = Path(target['path'])
+                if not path.is_absolute() or '..' in path.parts:
+                    raise ValueError('Invalid archive disposition path')
+                deleted.add((path, target['sha256'], target['bytes']))
+    verified = 0
+    absent = []
+    for row in pending(manifest):
+        path = payload_path(root, row)
+        if not path.exists() and (path, row['sha256'], row['bytes']) in deleted:
+            absent.append(str(path))
+            continue
+        if not path.is_file() or path.stat().st_size != row['bytes'] or sha256(path) != row['sha256']:
+            raise ValueError(f'Archive hash/size mismatch or missing payload: {path}')
+        embedded_checks(path)
+        verified += 1
+    return {'files': verified, 'authorized_absences': absent}
+
+
 def bundle_links(manifest, repo, root):
     """Check archive-relative links and identify historical/external references.
 

@@ -66,7 +66,7 @@
       "freeze_scope_status": "author-approved retained frozen panel"
     },
     "fig-1B": {
-      "role": "within-trial CS\u2013US protocol contingencies: Delay, 3sTrace, 10sTrace and unpaired control",
+      "role": "within-trial CS–US protocol contingencies: Delay, 3sTrace, 10sTrace and unpaired control",
       "source_artifacts": [
         "configs/paper-figures/selections/figure1-freeze.json"
       ],
@@ -96,147 +96,169 @@
       "freeze_scope_status": "author-approved retained frozen panel"
     },
     "fig-1E": {
-      "role": "matching raw frame vigor trace with exact selected V12 heatmap rows on a separate axis",
+      "role": "matching unbinned raw-baseline-scaled vigor traces with exact selected 1 s Delay heatmap rows on a separate color scale",
       "source_artifacts": [
-        "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json"
+        "configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json"
       ],
       "status": "blocked",
       "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
-      "scoped_selection_record": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json",
       "freeze_scope_status": "author-frozen",
       "scientific_definition": {
-        "metric": "legacy_distal_angular_speed_rad_per_ms",
-        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
-        "frame_transform": "natural log",
-        "bin_width_s": 0.5,
-        "bin_interval": "left-inclusive right-exclusive",
-        "bin_estimator": "median of eligible original log frames",
-        "baseline_s": [
-          -15,
-          0
-        ],
-        "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
-        "centre": "d=bin_median_log-baseline_bin_median_log",
-        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
-        "minimum_finite_baseline_bins": 10,
-        "units": "dimensionless baseline-spread units; raw rad/ms",
-        "numeric_clipping": false,
-        "colour_limits": [
-          -1,
-          1
-        ],
-        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
-        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
-        "statistical_inference": "none; descriptive example heatmaps"
+        "black_trace": "Black trace scientific draft change: B is median eligible raw baseline frames in [-15,0); raw frame V-B is scaled using P10/P90 of unbinned baseline-frame raw deviations; no logarithm. No trace, baseline or scaling binning/smoothing. Shared display y limits [0,5]; baseline zero at bottom; 230 upper and 28789 lower frame values visually clipped, numerical values unchanged. Colour bands copy the corresponding exact selected F rows (values and rendered RGB), with F cadence timing and baseline-bin normalization preserved. Black trace timing remains measured D time.",
+        "bands": {
+          "metric": "legacy_distal_angular_speed_rad_per_ms",
+          "eligibility": "finite positive valid adjacent detected-bout frames",
+          "frame_transform": "natural log",
+          "bin_width_s": 1,
+          "bin_estimator": "median of eligible original log frames",
+          "baseline_s": [
+            -15,
+            0
+          ],
+          "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
+          "centre": "bin_log_vigor-baseline_log_vigor",
+          "scale": "none",
+          "minimum_finite_baseline_bins": 1,
+          "units": "natural-log vigor difference",
+          "numeric_clipping": false,
+          "colour_limits": [
+            -0.25,
+            0.25
+          ],
+          "missing": "NaN black; entire trial undefined without baseline data",
+          "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+          "statistical_inference": "none; descriptive examples"
+        }
+      },
+      "presentation_mapping": {
+        "display_panel": "E",
+        "band_source_frozen_panel": "F",
+        "band_source_display_panel": "G"
       }
     },
     "fig-1F": {
-      "role": "Delay single-fish V12 baseline-spread normalized bout-log heatmap",
+      "role": "Control single-fish 1 s baseline-centered direct log-frame median heatmap",
       "source_artifacts": [
-        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+        "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json"
       ],
       "status": "blocked",
       "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
-      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
       "freeze_scope_status": "author-frozen",
       "scientific_definition": {
         "metric": "legacy_distal_angular_speed_rad_per_ms",
-        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+        "eligibility": "finite positive valid adjacent detected-bout frames",
         "frame_transform": "natural log",
-        "bin_width_s": 0.5,
-        "bin_interval": "left-inclusive right-exclusive",
+        "bin_width_s": 1,
         "bin_estimator": "median of eligible original log frames",
         "baseline_s": [
           -15,
           0
         ],
         "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
-        "centre": "d=bin_median_log-baseline_bin_median_log",
-        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
-        "minimum_finite_baseline_bins": 10,
-        "units": "dimensionless baseline-spread units; raw rad/ms",
+        "centre": "bin_log_vigor-baseline_log_vigor",
+        "scale": "none",
+        "minimum_finite_baseline_bins": 1,
+        "units": "natural-log vigor difference",
         "numeric_clipping": false,
         "colour_limits": [
-          -1,
-          1
+          -0.25,
+          0.25
         ],
-        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
-        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
-        "statistical_inference": "none; descriptive example heatmaps"
+        "missing": "NaN black; entire trial undefined without baseline data",
+        "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+        "statistical_inference": "none; descriptive examples"
+      },
+      "presentation_mapping": {
+        "display_panel": "F",
+        "source_panel": "H",
+        "condition": "Control",
+        "fish_id": "20221115_09"
       }
     },
     "fig-1G": {
-      "role": "3sTrace single-fish V12 baseline-spread normalized bout-log heatmap",
+      "role": "Delay single-fish 1 s baseline-centered direct log-frame median heatmap",
       "source_artifacts": [
-        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+        "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json"
       ],
       "status": "blocked",
       "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
-      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
       "freeze_scope_status": "author-frozen",
       "scientific_definition": {
         "metric": "legacy_distal_angular_speed_rad_per_ms",
-        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+        "eligibility": "finite positive valid adjacent detected-bout frames",
         "frame_transform": "natural log",
-        "bin_width_s": 0.5,
-        "bin_interval": "left-inclusive right-exclusive",
+        "bin_width_s": 1,
         "bin_estimator": "median of eligible original log frames",
         "baseline_s": [
           -15,
           0
         ],
         "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
-        "centre": "d=bin_median_log-baseline_bin_median_log",
-        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
-        "minimum_finite_baseline_bins": 10,
-        "units": "dimensionless baseline-spread units; raw rad/ms",
+        "centre": "bin_log_vigor-baseline_log_vigor",
+        "scale": "none",
+        "minimum_finite_baseline_bins": 1,
+        "units": "natural-log vigor difference",
         "numeric_clipping": false,
         "colour_limits": [
-          -1,
-          1
+          -0.25,
+          0.25
         ],
-        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
-        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
-        "statistical_inference": "none; descriptive example heatmaps"
+        "missing": "NaN black; entire trial undefined without baseline data",
+        "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+        "statistical_inference": "none; descriptive examples"
+      },
+      "presentation_mapping": {
+        "display_panel": "G",
+        "source_panel": "F",
+        "condition": "Delay",
+        "fish_id": "20221115_07"
       }
     },
     "fig-1H": {
       "status": "blocked",
       "source_artifacts": [
-        "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+        "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json"
       ],
       "reason": "Existing scoped author freeze retained; whole-figure assembly and remaining first-release gates require review",
-      "role": "unpaired-control single-fish V12 baseline-spread normalized bout-log heatmap",
-      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "role": "3 s Trace single-fish 1 s baseline-centered direct log-frame median heatmap",
+      "scoped_selection_record": "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
       "freeze_scope_status": "author-frozen",
       "scientific_definition": {
         "metric": "legacy_distal_angular_speed_rad_per_ms",
-        "eligibility": "finite strictly-positive valid adjacent detected-bout frames; no-bout/invalid excluded before log",
+        "eligibility": "finite positive valid adjacent detected-bout frames",
         "frame_transform": "natural log",
-        "bin_width_s": 0.5,
-        "bin_interval": "left-inclusive right-exclusive",
+        "bin_width_s": 1,
         "bin_estimator": "median of eligible original log frames",
         "baseline_s": [
           -15,
           0
         ],
         "baseline_estimator": "median of finite baseline-bin medians; each bin one vote",
-        "centre": "d=bin_median_log-baseline_bin_median_log",
-        "scale": "z=0.7*d/max(-P10(d_baseline),P90(d_baseline)); numpy linear quantiles",
-        "minimum_finite_baseline_bins": 10,
-        "units": "dimensionless baseline-spread units; raw rad/ms",
+        "centre": "bin_log_vigor-baseline_log_vigor",
+        "scale": "none",
+        "minimum_finite_baseline_bins": 1,
+        "units": "natural-log vigor difference",
         "numeric_clipping": false,
         "colour_limits": [
-          -1,
-          1
+          -0.25,
+          0.25
         ],
-        "missing": "NaN black; entire trial missing if insufficient or collapsed baseline",
-        "timing": "Uses authenticated existing cadence-reconstructed time_s; not a new measured-AbsoluteTime reconstruction. Movement masks retain their original detection recipe; no analytical smoothing added.",
-        "statistical_inference": "none; descriptive example heatmaps"
+        "missing": "NaN black; entire trial undefined without baseline data",
+        "timing": "established camera cadence reconstruction; not measured AbsoluteTime reanalysis",
+        "statistical_inference": "none; descriptive examples"
+      },
+      "presentation_mapping": {
+        "display_panel": "H",
+        "source_panel": "G",
+        "condition": "3 s Trace",
+        "fish_id": "20230307_12"
       }
     },
     "fig-2A": {
-      "role": "Control versus Delay equal-fish pooled signed bout-log-vigor heatmaps, managua_r at \u22120.25 to +0.25",
+      "role": "Control versus Delay equal-fish pooled signed bout-log-vigor heatmaps, managua_r at −0.25 to +0.25",
       "source_artifacts": [
         "reviewed Delay cohort",
         "corrected candidate metrics",
@@ -287,7 +309,7 @@
       "freeze_scope_status": "frozen via explicit gate"
     },
     "fig-2F": {
-      "role": "10sTrace block CR ratios at trials 10\u201314, 65\u201369, 90\u201394; inconclusive",
+      "role": "10sTrace block CR ratios at trials 10–14, 65–69, 90–94; inconclusive",
       "source_artifacts": [
         "reviewed 10sTrace cohort",
         "selected-block ratio",
@@ -424,6 +446,6 @@
     }
   },
   "readiness_policy": "Panel status describes first-release readiness. Existing scoped author freezes are recorded separately and do not imply approval of a whole assembly or unresolved release gates.",
-  "current_panel_map_date": "2026-10-11",
+  "current_panel_map_date": "2026-10-17",
   "current_definition_policy": "Latest explicit accepted freeze within each panel scope defines the current version. Superseded recipes are legacy; panels without an accepted freeze are proposed. Release readiness is tracked separately."
 }

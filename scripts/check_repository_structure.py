@@ -33,6 +33,7 @@ def markdown_anchors(path: Path) -> set[str]:
 
 
 def check(repo: Path = ROOT, *, external: bool = False) -> dict:
+    repo = repo.resolve()
     issues: list[str] = []
     unavailable: list[str] = []
     policy = json.loads((repo / 'docs/project-maintenance/structure-policy.json').read_text())
@@ -49,7 +50,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
             for heading in headings:
                 if any(heading.casefold().startswith(prefix.casefold()) for prefix in policy.get('future_work_headings', [])):
                     issues.append('Future work/progress in operational guide: ' + key + ' -> ' + heading)
-    for path in (repo / 'Plans').iterdir():
+    for path in (repo / 'Plans').rglob('*'):
         if path.is_file() and path.name not in {'README.md', 'IMPLEMENTATION_STEP_INDEX.md'} and not re.fullmatch(r'\d{2}_[A-Z0-9_]+\.md', path.name):
             issues.append('Misplaced plan material: ' + path.name)
     for key in policy['forbidden_paths']:
@@ -72,16 +73,34 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     index = json.loads((repo / 'records/frozen-analyses/index.json').read_text())
     main_manifest = repo / policy['migration_manifest']
     manifests = [main_manifest, *[p for p in sorted((repo / 'records/repository-history').glob('*/migration.json')) if p != main_manifest]]
-    protected = list(index['files'])
+    # Frozen-index requirements cannot be relaxed by mutable-index policy.
+    protected = [(entry, False) for entry in index['files']]
     for manifest in manifests:
-        protected.extend(json.loads(manifest.read_text()).get('protected_files', []))
+        protected.extend((entry, True) for entry in json.loads(manifest.read_text()).get('protected_files', []))
+    originals = {(entry['path'], entry['sha256']): entry['preserved_original']
+                 for entry in policy.get('mutable_index_originals', [])}
     checked = set()
-    for entry in protected:
+    for entry, migration_original in protected:
         key = entry['path']
-        if key in checked:
+        identity = (key, entry['sha256'], migration_original)
+        if identity in checked:
             continue
-        checked.add(key)
+        checked.add(identity)
         path = repo / key
+        original = originals.get((key, entry['sha256'])) if migration_original else None
+        if original:
+            # Only named live recovery indexes can have evolving bytes. Their
+            # migration originals remain checked independently and exactly.
+            if key not in {'records/repository-archive/ARTIFACT_INDEX.md',
+                           'records/repository-archive/verified-artifact-locations.json'}:
+                issues.append('Invalid mutable index exception: ' + key)
+                continue
+            snapshot = repo / original
+            if (not snapshot.resolve().is_relative_to(repo / 'records/repository-history')
+                    or not path.is_file() or not snapshot.is_file()
+                    or sha256(snapshot) != entry['sha256']):
+                issues.append('Preserved index original changed: ' + key)
+            continue
         if not path.is_file() or sha256(path) != entry['sha256']:
             issues.append('Preserved bytes changed: ' + key)
     # Current links must work directly. Historical evidence is byte-preserved
@@ -89,6 +108,22 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     documents = [repo / 'README.md', repo / 'AGENTS.md']
     for folder in ('docs', 'Plans'):
         documents.extend((repo / folder).rglob('*.md'))
+    documents.extend((repo / '.agents/skills').rglob('*.md'))
+    for key in policy.get('active_navigation', []):
+        if not (repo / key).is_file():
+            issues.append('Missing active navigation: ' + key)
+        documents.append(repo / key)
+    catalogue = policy.get('script_catalogue')
+    if catalogue:
+        catalogue_path = repo / catalogue
+        if not catalogue_path.is_file():
+            issues.append('Missing script catalogue: ' + catalogue)
+        else:
+            body = catalogue_path.read_text()
+            for path in (repo / 'scripts').iterdir():
+                if path.is_file() and path.suffix in {'.py', '.js', '.cjs', '.ps1'}:
+                    if f']({path.name})' not in body:
+                        issues.append('Uncatalogued script: ' + path.name)
     documents.extend((repo / 'records/frozen-analyses').rglob('README.md'))
     documents.extend([repo / 'records/frozen-analyses/selections.md', repo / 'records/README.md',
                       repo / 'configs/README.md', repo / 'scripts/README.md', repo / 'legacy/README.md'])
@@ -117,7 +152,11 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
                     anchor_cache[destination] = markdown_anchors(destination)
                 if unquote(fragment) not in anchor_cache[destination]:
                     issues.append('Broken heading link: ' + key + ' -> ' + target + '#' + fragment)
-    state_paths = list((repo / 'docs/paper/figures').glob('figure-*/current-state.json'))
+    state_paths = sorted((repo / 'docs/paper/figures').rglob('current-state.json'))
+    state_paths += [repo / key for key in policy.get('additional_figure_states', [])]
+    collection = repo / 'docs/paper/figures/main-paper-current-state.json'
+    if collection.is_file():
+        state_paths.append(collection)
     registry_path = repo / 'configs/paper-figures/behavior-paper.json'
     registry = json.loads(registry_path.read_text()).get('panels', {}) if registry_path.is_file() else {}
     for panel_id, panel in registry.items():
@@ -125,28 +164,77 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         if selection and ('/history/' in selection or not (repo / selection).is_file()):
             issues.append('Invalid current scientific selection: ' + panel_id + ' -> ' + selection)
     for state_path in state_paths:
+        if not state_path.is_file():
+            issues.append('Missing figure state: ' + str(state_path.relative_to(repo)))
+            continue
         state = json.loads(state_path.read_text())
-        entries = list(state['scientific_selection']['records'])
-        selected_paths = {Path(item['path']).resolve() for item in entries}
-        figure_number = int(state_path.parent.name.removeprefix('figure-'))
-        for panel_id, panel in registry.items():
-            selection = panel.get('scoped_selection_record')
-            if panel_id.startswith(f'fig-{figure_number}') and selection and (repo / selection).resolve() not in selected_paths:
-                issues.append('Scientific registry/state disagreement: ' + panel_id)
+        def resolved(value):
+            path = Path(value)
+            return (path if path.is_absolute() else repo / path).resolve()
+        entries = list(state.get('scientific_selection', {}).get('records', []))
+        selected_paths = {resolved(item['path']) for item in entries}
+        # A panel-only/exploratory state must not be compared with every panel
+        # of its parent figure. Only the whole-figure summary owns that check.
+        whole_figure = re.fullmatch(r'figure-(\d+)', state_path.parent.name)
+        if whole_figure:
+            figure_number = int(whole_figure[1])
+            for panel_id, panel in registry.items():
+                selection = panel.get('scoped_selection_record')
+                if re.match(rf'^fig-{figure_number}[A-Za-z]', panel_id) and selection:
+                    if resolved(selection) not in selected_paths:
+                        issues.append('Scientific registry/state disagreement: ' + panel_id)
+                    elif panel.get('scientific_definition'):
+                        source = repo / selection
+                        if source.is_file():
+                            definition = json.loads(source.read_text()).get('scientific_definition')
+                            if definition is not None and definition != panel['scientific_definition']:
+                                issues.append('Scientific definition/selection disagreement: ' + panel_id)
+            for mapping in state.get('draft', {}).get('condition_order', []):
+                panel_id = f"fig-{figure_number}{mapping['display_panel']}"
+                recorded = registry.get(panel_id, {}).get('presentation_mapping')
+                if recorded is not None and any(recorded.get(k) != mapping.get(k)
+                                                for k in ('display_panel', 'source_panel', 'condition', 'fish_id')):
+                    issues.append('Presentation mapping/state disagreement: ' + panel_id)
         entries += list(state.get('preserved_figures', {}).values())
-        for scope in ('frozen_display', 'draft'):
-            entries += [state[scope][key] for key in ('working_svg', 'review', 'effective_presentation') if state.get(scope, {}).get(key)]
+        # Direct bound objects are current requirements. Do not recursively
+        # demand that historical provenance inside evidence match today's code.
+        entries += [value for value in state.values()
+                    if isinstance(value, dict) and 'path' in value and 'sha256' in value]
+        frozen_entries = [value for value in state.get('frozen_display', {}).values()
+                          if isinstance(value, dict) and 'path' in value and 'sha256' in value]
+        entries += frozen_entries
+        entries += [value for value in state.get('draft', {}).values()
+                    if isinstance(value, dict) and 'path' in value and 'sha256' in value]
+        for figure in state.get('figures', []):
+            if not (repo / figure['state']).is_file():
+                issues.append('Missing collection figure state: ' + figure['state'])
         for item in entries:
-            path = Path(item['path'])
+            path = resolved(item['path'])
             if path.is_relative_to(repo):
                 if not path.is_file() or sha256(path) != item['sha256']:
-                    issues.append('Bound figure record changed: ' + str(path))
+                    # A frozen display may retain an old legend at a mutable
+                    # logical path. Only exact recorded recovery is permitted;
+                    # active draft edits must still fail on the direct bytes.
+                    try:
+                        if not any(item is entry for entry in frozen_entries):
+                            raise ValueError('Active draft requires direct bytes')
+                        resolve_artifact(path, expected_sha256=item['sha256'], repo=repo)
+                    except (ValueError, FileNotFoundError):
+                        issues.append('Bound figure record changed: ' + str(path))
             elif external:
                 if not path.is_file():
                     unavailable.append(str(path))
                 elif sha256(path) != item['sha256']:
                     issues.append('Bound external artifact changed: ' + str(path))
     verified_transactions = []
+    dispositions = []
+    for binding in policy.get('archive_dispositions', []):
+        path = repo / binding['path']
+        if (not path.resolve().is_relative_to(archive) or not path.is_file()
+                or sha256(path) != binding['sha256']):
+            issues.append('Archive disposition changed: ' + binding['path'])
+        else:
+            dispositions.append(json.loads(path.read_text()))
     if external:
         if not Path('/Volumes/JOAQUIM').is_mount():
             unavailable.append('JOAQUIM is not mounted; external verification incomplete')
@@ -157,8 +245,8 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
             for manifest_path in [archive / 'transfer-inventory.json', *sorted(archive.glob('*/transfer-inventory.json'))]:
                 manifest = json.loads(manifest_path.read_text())
                 try:
-                    count = module.verify_payload(manifest, Path(manifest['archive_root']))
-                    verified_transactions.append({'manifest': str(manifest_path.relative_to(repo)), 'files': count})
+                    audit = module.audit_payload(manifest, Path(manifest['archive_root']), dispositions=dispositions)
+                    verified_transactions.append({'manifest': str(manifest_path.relative_to(repo)), **audit})
                 except FileNotFoundError as error:
                     unavailable.append(str(error))
                 except (ValueError, OSError) as error:

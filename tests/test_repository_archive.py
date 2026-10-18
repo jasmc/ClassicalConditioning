@@ -54,6 +54,43 @@ class ArchiveTests(unittest.TestCase):
         with self.assertRaises(ValueError):archive.prune(self.manifest,self.repo,self.dest,check_mount=False)
         self.assertTrue(self.source.exists())
 
+    def deletion_disposition(self):
+        row = self.manifest['files'][0]
+        return dict(status='complete', authorization='Author: delete this exact output', targets=[
+            dict(path=str(self.dest/'payload'/row['path']), sha256=row['sha256'],
+                 bytes=row['bytes'], deleted=True)])
+
+    def test_read_only_audit_recognizes_exact_authorized_absence_but_prune_stays_strict(self):
+        self.transfer()
+        (self.dest/'payload/reviews/result.csv').unlink()
+        result = archive.audit_payload(self.manifest, self.dest, dispositions=[self.deletion_disposition()])
+        self.assertEqual(result['files'], 0)
+        self.assertEqual(len(result['authorized_absences']), 1)
+        with self.assertRaises(ValueError):
+            archive.verify_payload(self.manifest, self.dest)
+        with self.assertRaises(ValueError):
+            archive.prune(self.manifest, self.repo, self.dest, check_mount=False)
+        self.assertTrue(self.source.exists())
+
+    def test_disposition_cannot_cover_other_bytes_or_missing_authorization(self):
+        self.transfer()
+        (self.dest/'payload/reviews/result.csv').unlink()
+        for field, replacement in [('sha256', 'wrong'), ('bytes', 999), ('path', str(self.root/'other'))]:
+            disposition = self.deletion_disposition()
+            disposition['targets'][0][field] = replacement
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                archive.audit_payload(self.manifest, self.dest, dispositions=[disposition])
+        disposition = self.deletion_disposition()
+        disposition['authorization'] = ''
+        with self.assertRaises(ValueError):
+            archive.audit_payload(self.manifest, self.dest, dispositions=[disposition])
+
+    def test_disposition_does_not_hide_present_corruption(self):
+        self.transfer()
+        (self.dest/'payload/reviews/result.csv').write_text('corrupt')
+        with self.assertRaises(ValueError):
+            archive.audit_payload(self.manifest, self.dest, dispositions=[self.deletion_disposition()])
+
     def test_destination_collision_is_not_overwritten(self):
         self.dest.mkdir(parents=True);(self.dest/'keep').write_text('existing')
         with self.assertRaises(FileExistsError):self.transfer()

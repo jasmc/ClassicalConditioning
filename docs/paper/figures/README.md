@@ -27,6 +27,6 @@ not a whole-figure scientific freeze.
 
 Supplementary content is grouped by parent figure and owned by [Plan 09](../../../Plans/09_SUPPLEMENTARY_FIGURES.md). Progress belongs only in the [implementation index](../../../Plans/IMPLEMENTATION_STEP_INDEX.md).
 
-Current F/G/H selection: [1 s direct log-frame medians, managua_r](/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). The 2026-10-09 V12 source is superseded within F/G/H and remains preserved; no whole-figure freeze is inferred.
+Current F/G/H selection: [1 s direct log-frame medians, managua_r](../../../configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). The 2026-10-09 V12 source is superseded within F/G/H and remains preserved; no whole-figure freeze is inferred.
 
 Current E selection: [unbinned raw-baseline-scaled traces, 0–5, current F bands](../../../configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json); E only is frozen.

@@ -24,6 +24,8 @@ Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering
 |---|---|---|
 | 14 | [Repository cleanup and deferred external archive](../records/repository-archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md) | Complete; external payloads, historical scripts, configurations and [documentation organization](../records/repository-archive/documentation-cleanup-20261011/README.md) verified; [configuration record](../records/repository-archive/configuration-cleanup-20261011/README.md) |
 
+Completed maintenance on 2026-10-17: [organization reconciliation](../records/repository-history/2026-10-17-organization-reconciliation/README.md) implements the authority/preservation fixes, navigation, documentation ownership, script classification and routine local checks. All scripts remain retained; any archive/delete dispositions remain separate author choices. This maintenance does not close scientific gates.
+
 ## Historical implementation record
 
 | Former step | Status | Recorded result or remaining gap |

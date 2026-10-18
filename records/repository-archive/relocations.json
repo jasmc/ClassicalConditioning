@@ -371,7 +371,8 @@
     "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/README.md": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-13-one-second-managua/README.md",
     "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/manifests/previous-version-disposition.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-13-one-second-managua/manifests/previous-version-disposition.json",
     "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/manifests/freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-13-one-second-managua/manifests/freeze.json",
-    "configs/paper-figures/selections/figure1-fgh-one-second-managua-freeze-20261013.json": "configs/paper-figures/selections/history/figure1-fgh-one-second-managua-freeze-20261013.json"
+    "configs/paper-figures/selections/figure1-fgh-one-second-managua-freeze-20261013.json": "configs/paper-figures/selections/history/figure1-fgh-one-second-managua-freeze-20261013.json",
+    "docs/paper/figures/figure-04/analysis-and-rendering.md": "docs/running-analysis/figure4.md"
   },
   "extracted_frozen_records": [
     {

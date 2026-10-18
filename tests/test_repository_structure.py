@@ -98,6 +98,121 @@ class StructureChecks(unittest.TestCase):
             'scientific_selection': {'records': []}, 'frozen_display': {}, 'draft': {}})
         self.assertIn('Scientific registry/state disagreement: fig-1F', structure.check(self.repo)['issues'])
 
+    def test_nested_panel_legend_is_checked_without_whole_figure_selection_comparison(self):
+        panel = self.repo / 'docs/paper/figures/figure-02/panel-g/exploratory'
+        panel.mkdir(parents=True)
+        legend = panel/'legend.md'
+        legend.write_text('original legend')
+        state = {'draft': {'legend': {'path': str(legend), 'sha256': structure.sha256(legend)}}}
+        (panel/'current-state.json').write_text(json.dumps(state))
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+        legend.write_text('manual edit')
+        self.assertIn('Bound figure record changed: '+str(legend.resolve()), structure.check(self.repo)['issues'])
+
+    def test_repository_skill_links_are_part_of_active_navigation(self):
+        skill = self.repo/'.agents/skills/paper-figures'
+        skill.mkdir(parents=True)
+        (skill/'SKILL.md').write_text('[Workflow](../../../docs/paper/missing.md)')
+        self.assertTrue(any('Broken active link: .agents/skills/' in issue
+                            for issue in structure.check(self.repo)['issues']))
+
+    def test_current_definition_and_display_mapping_must_match_bound_authority(self):
+        figure = self.repo/'docs/paper/figures/figure-01'
+        figure.mkdir()
+        configs = self.repo/'configs/paper-figures'
+        configs.mkdir(parents=True)
+        selection = configs/'accepted.json'
+        selection.write_text(json.dumps({'scientific_definition': {'bin_width_s': 1}}))
+        self.write('configs/paper-figures/behavior-paper.json', {'panels': {'fig-1F': {
+            'scoped_selection_record': 'configs/paper-figures/accepted.json',
+            'scientific_definition': {'bin_width_s': 0.5},
+            'presentation_mapping': {'display_panel': 'F', 'source_panel': 'F'}}}})
+        self.write('docs/paper/figures/figure-01/current-state.json', {
+            'scientific_selection': {'records': [{'path': str(selection), 'sha256': structure.sha256(selection)}]},
+            'draft': {'condition_order': [{'display_panel': 'F', 'source_panel': 'H'}]}})
+        issues = structure.check(self.repo)['issues']
+        self.assertIn('Scientific definition/selection disagreement: fig-1F', issues)
+        self.assertIn('Presentation mapping/state disagreement: fig-1F', issues)
+
+    def test_mutable_index_keeps_exact_original_and_cannot_exempt_frozen_records(self):
+        key = 'records/repository-archive/ARTIFACT_INDEX.md'
+        live = self.repo/key
+        live.write_text('old index')
+        expected = structure.sha256(live)
+        snapshot = self.repo/'records/repository-history/test/original.md'
+        snapshot.parent.mkdir(parents=True)
+        snapshot.write_bytes(live.read_bytes())
+        policy_path = self.repo/'docs/project-maintenance/structure-policy.json'
+        policy = json.loads(policy_path.read_text())
+        policy['mutable_index_originals'] = [{'path': key, 'sha256': expected,
+            'preserved_original': str(snapshot.relative_to(self.repo))}]
+        policy_path.write_text(json.dumps(policy))
+        self.write('records/history/migration.json', {'protected_files': [{'path': key, 'sha256': expected}]})
+        live.write_text('new authorized index entries')
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+        self.write('records/frozen-analyses/index.json', {'files': [{'path': key, 'sha256': expected}]})
+        self.assertIn('Preserved bytes changed: '+key, structure.check(self.repo)['issues'])
+        self.write('records/frozen-analyses/index.json', {'files': []})
+        snapshot.write_text('changed original')
+        self.assertIn('Preserved index original changed: '+key, structure.check(self.repo)['issues'])
+
+    def test_differing_protected_versions_are_not_silently_deduplicated(self):
+        path = self.repo/'records/history/original.md'
+        path.write_text('one version')
+        self.write('records/history/migration.json', {'protected_files': [
+            {'path': 'records/history/original.md', 'sha256': structure.sha256(path)},
+            {'path': 'records/history/original.md', 'sha256': 'another-version'}]})
+        self.assertIn('Preserved bytes changed: records/history/original.md', structure.check(self.repo)['issues'])
+
+    def test_disposition_binding_is_checked_even_without_external_storage(self):
+        path = self.repo/'records/repository-archive/disposition.json'
+        path.write_text('{}')
+        policy_path = self.repo/'docs/project-maintenance/structure-policy.json'
+        policy = json.loads(policy_path.read_text())
+        policy['archive_dispositions'] = [{'path': str(path.relative_to(self.repo)), 'sha256': structure.sha256(path)}]
+        policy_path.write_text(json.dumps(policy))
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+        path.write_text('{"altered":true}')
+        self.assertTrue(any('Archive disposition changed' in issue for issue in structure.check(self.repo)['issues']))
+
+    def test_exact_frozen_legend_recovery_cannot_hide_manual_draft_edits(self):
+        panel = self.repo/'docs/paper/figures/figure-02/panel-a'
+        panel.mkdir(parents=True)
+        legend = panel/'legend.md'
+        legend.write_text('frozen original legend')
+        expected = structure.sha256(legend)
+        original = self.repo/'records/history/legend.md'
+        original.write_bytes(legend.read_bytes())
+        migration = self.repo/'records/repository-history/test'
+        migration.mkdir(parents=True)
+        key = str(legend.relative_to(self.repo))
+        (migration/'migration.json').write_text(json.dumps({'dispositions': [{
+            'original_path': key, 'canonical_path': key, 'sha256': expected,
+            'preserved_original': str(original.relative_to(self.repo))}]}))
+        legend.write_text('current later legend')
+        record = {'path': str(legend), 'sha256': expected}
+        state_path = panel/'current-state.json'
+        state_path.write_text(json.dumps({'frozen_display': {'legend': record}}))
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+        state_path.write_text(json.dumps({'draft': {'legend': record}}))
+        self.assertIn('Bound figure record changed: '+str(legend.resolve()), structure.check(self.repo)['issues'])
+        # Even equal-valued records in the two scopes must be checked separately.
+        state_path.write_text(json.dumps({'frozen_display': {'legend': record}, 'draft': {'legend': record}}))
+        self.assertIn('Bound figure record changed: '+str(legend.resolve()), structure.check(self.repo)['issues'])
+
+    def test_script_catalogue_must_link_every_retained_tool(self):
+        scripts = self.repo/'scripts'
+        scripts.mkdir()
+        (scripts/'review.py').write_text('"""retained review"""')
+        (scripts/'README.md').write_text('# Tools')
+        policy_path = self.repo/'docs/project-maintenance/structure-policy.json'
+        policy = json.loads(policy_path.read_text())
+        policy['script_catalogue'] = 'scripts/README.md'
+        policy_path.write_text(json.dumps(policy))
+        self.assertIn('Uncatalogued script: review.py', structure.check(self.repo)['issues'])
+        (scripts/'README.md').write_text('[Review](review.py)')
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+
 
 if __name__ == '__main__':
     unittest.main()

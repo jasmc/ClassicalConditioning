@@ -33,5 +33,32 @@
     "Implementation sequence",
     "Pilot progress"
   ],
-  "root_request_file": "to_implement.md"
+  "root_request_file": "to_implement.md",
+  "mutable_index_originals": [
+    {
+      "path": "records/repository-archive/ARTIFACT_INDEX.md",
+      "sha256": "0ac50985a1200fa898a17d8cbc1aef298e395d58ee5191958066e64edf6d5ffd",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/migration-originals/records/repository-archive/ARTIFACT_INDEX.md"
+    },
+    {
+      "path": "records/repository-archive/verified-artifact-locations.json",
+      "sha256": "19d4994bdccde60a4fe98dd5d2ccdd47ed6d118eb167a32122ec75fd26a0c655",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/migration-originals/records/repository-archive/verified-artifact-locations.json"
+    }
+  ],
+  "archive_dispositions": [
+    {
+      "path": "records/repository-archive/figure3-legacy-only-20261015/disposition.json",
+      "sha256": "246fe720922cde38a2679be81a00192ebb5329d8a2c723e7b1776858cd9c1587"
+    }
+  ],
+  "additional_figure_states": [
+    "docs/paper/figures/figure-03/exploratory-state.json"
+  ],
+  "active_navigation": [
+    "docs/project-maintenance/rules.md",
+    "docs/project-maintenance/script-lifecycle.md",
+    "records/repository-history/2026-10-17-organization-reconciliation/README.md"
+  ],
+  "script_catalogue": "scripts/README.md"
 }

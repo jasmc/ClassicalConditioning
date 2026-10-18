@@ -1,6 +1,12 @@
 # Supported scripts
 
-This folder keeps supported commands, scientific audits, freeze/extraction tools and their dependency closure. The 2026-10-10 follow-up archived 41 historical scripts, leaving 52 scripts at that checkpoint. The [2026-10-11 reassessment](../records/repository-archive/scripts-reassessment-20261011/README.md) removed one verified duplicate; 48 supported scripts now remain; the three historical scripts were verified on JOAQUIM and removed locally on 2026-10-11. [Assessment and exact archive map](../records/repository-archive/scripts-cleanup-20261010/README.md) records every disposition. Paths of retained tools stay stable for package imports, tests and provenance.
+This folder keeps supported commands, audits, reproduction tools and their
+dependency closure. Earlier cleanup counts describe their dated checkpoints;
+they are not the current inventory. Every retained tool is linked below.
+The [lifecycle policy](../docs/project-maintenance/script-lifecycle.md) separates
+supported work from historical candidates. The
+[dated inventory and consumer candidates](../records/repository-history/2026-10-17-organization-reconciliation/script-inventory.json)
+records the current assessment. Retention does not approve scientific use.
 
 ## Authority and normal entry points
 
@@ -72,7 +78,7 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 
 | Script | Scope |
 |---|---|
-| [build_panel_e_frozen_v12_heatmap_rows_review.py](build_panel_e_frozen_v12_heatmap_rows_review.py) | Single HTML Panel E review using the current frozen V12 half-second bins. |
+| [build_panel_e_frozen_v12_heatmap_rows_review.py](build_panel_e_frozen_v12_heatmap_rows_review.py) | Single HTML Panel E review using the historical V12 half-second bins. |
 | [freeze_figure.py](freeze_figure.py) | Standalone freeze gate, usable without importing the scientific libraries. |
 | [freeze_figure1_panels.py](freeze_figure1_panels.py) | Verify the historical Figure 1 A-D freeze without changing its artifacts. |
 | [prepare_figure1_fgh_v12_freeze.py](prepare_figure1_fgh_v12_freeze.py) | Prepare and package the author-selected F/G/H V12 in the single HTML review. |
@@ -103,3 +109,67 @@ Assembly use: see [preflight and panel replacement](../docs/paper/figures/shared
 ## Structure validation
 
 [check_repository_structure.py](check_repository_structure.py) performs read-only folder ownership, active-link, relocation, immutable evidence and scoped-state checks. Add `--external` for selected SSD artifacts, transaction payloads and recovered expected versions. Current folder rules are in [project maintenance](../docs/project-maintenance/structure.md); archive control records are under `records/repository-archive/`.
+
+## Additional retained tools
+
+Current display and Nature entry points are `main_paper_figures.py`,
+`figure_working_copy.py` and `nature_main_figures.py`; follow the figure workflow
+for scope and guarded publication. Historical-candidate rows below retain code
+for provenance; they are not entry points for new styling.
+
+| Tool | Purpose | Lifecycle |
+|---|---|---|
+| [align_figure1_fgh_fonts.py](align_figure1_fgh_fonts.py) | Match working F/G/H axis labels to the existing 8 pt bold Figure 1 labels. | historical-candidate-retained |
+| [align_paper_annotations.cjs](align_paper_annotations.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [archive_figure1_singlefish_versions.py](archive_figure1_singlefish_versions.py) | Archive author-disposed single-fish reviews using the verified transfer tools. | retained-pending-classification |
+| [build_figure1_fgh_version_comparison.py](build_figure1_fgh_version_comparison.py) | Assemble a self-contained, unselected F–H history comparison without re-analysis. | supported-or-dependency |
+| [build_figure1_panel_f_bin_variants.py](build_figure1_panel_f_bin_variants.py) | Panel F comparison from authenticated frames; leaves active assembly unchanged. | retained-pending-classification |
+| [build_figure2_g_analysis_guide.py](build_figure2_g_analysis_guide.py) | Build an evidence-bound teaching guide; never fit models or publish figure state. | supported-or-dependency |
+| [build_figure2_g_exploratory.py](build_figure2_g_exploratory.py) | Separate, authenticated Figure 2 G presentation of saved exploratory results. | supported-or-dependency |
+| [build_figure2_heatmap_row.py](build_figure2_heatmap_row.py) | Prepare the author-approved F/G/H 1 s physical log median freeze candidate. | supported-or-dependency |
+| [build_figure2_pooled_heatmaps.py](build_figure2_pooled_heatmaps.py) | Build scoped Figure 2 A with the selected Figure 1 F–H pipeline and styles. | supported-or-dependency |
+| [build_figure3_explanation.py](build_figure3_explanation.py) | Build a source-bound, offline educational guide; never select analysis/figure state. | retained-pending-classification |
+| [build_figure3_individual_atlas.py](build_figure3_individual_atlas.py) | Build/verify/publish a guarded exploratory Figure 3 atlas on external storage. | supported-or-dependency |
+| [build_figure3_main_paper.py](build_figure3_main_paper.py) | Build and guard the Figure 3 main-paper draft; no classifier fit or freeze. | supported-or-dependency |
+| [calibrate_layout_frames.py](calibrate_layout_frames.py) | Separate preset comparison; never rewrites selected figure artifacts or state. | supported-or-dependency |
+| [check_figure3_atlas.cjs](check_figure3_atlas.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [check_figure3_main_paper.cjs](check_figure3_main_paper.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [check_layout_frames.py](check_layout_frames.py) | Read-only frame checks, browser review generation and bound evidence collection. | supported-or-dependency |
+| [check_main_paper_layout.cjs](check_main_paper_layout.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [check_nature_presentation.cjs](check_nature_presentation.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [correct_panel_relationships.py](correct_panel_relationships.py) | Correct typed panel relationships and named axis-title formatting in drafts. | supported-or-dependency |
+| [figure1_layout_spacing.py](figure1_layout_spacing.py) | Working presentation overrides for Figure 1 C cards and E colourbar spacing. | supported-or-dependency |
+| [figure2_g_guide_notebook.js](figure2_g_guide_notebook.js) | Retained technical workflow helper | supported-or-dependency |
+| [layout_figure2_compact_rows.py](layout_figure2_compact_rows.py) | Presentation-only shared D/E scale and compact G/H/I trial layout. | historical-candidate-retained |
+| [layout_main_paper_figures.py](layout_main_paper_figures.py) | Apply explicit main-paper layout ownership to authenticated selected drafts. | supported-or-dependency |
+| [main_paper_figures.py](main_paper_figures.py) | Build or resolve the authenticated, self-contained main-paper figure collection. | supported-or-dependency |
+| [measure_main_paper_layout.cjs](measure_main_paper_layout.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [measure_nature_packing.cjs](measure_nature_packing.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [move_figure2_block_notes.py](move_figure2_block_notes.py) | Move scoped D/E/F sample counts and method notes to the bound legend. | historical-candidate-retained |
+| [nature_main_figures.py](nature_main_figures.py) | Stage and guard the selected main-paper SVG presentation migration. | supported-or-dependency |
+| [prepare_figure1_historical_fgh_freeze.py](prepare_figure1_historical_fgh_freeze.py) | Prepare the author-approved F/G/H 1 s physical log median freeze candidate. | supported-or-dependency |
+| [prepare_figure1_panel_e_current_freeze.py](prepare_figure1_panel_e_current_freeze.py) | Prepare the authenticated current E alone for the explicit freeze gate. | retained-pending-classification |
+| [publish_axis_geometry.py](publish_axis_geometry.py) | Guarded publication of measured axis presentation corrections; no science edits. | supported-or-dependency |
+| [publish_figure1_fgh_one_second.py](publish_figure1_fgh_one_second.py) | Guarded installation of the scoped 1 s F/G/H freeze and linked E bands. | supported-or-dependency |
+| [publish_figure1_historical_fgh_freeze.py](publish_figure1_historical_fgh_freeze.py) | Select and integrate the author-frozen historical-fish F/G/H row. | retained-pending-classification |
+| [publish_figure1_panel_e_current_freeze.py](publish_figure1_panel_e_current_freeze.py) | Publish the checked E-only freeze into the guarded current Figure 1 display. | retained-pending-classification |
+| [publish_figure2_heatmap_row.py](publish_figure2_heatmap_row.py) | Integrate the selected compact A freeze and retained B into Figure 2. | retained-pending-classification |
+| [readjust_figure2_g.py](readjust_figure2_g.py) | G draft: native D/Figure-1 plot typography and strokes, compact stats only. | historical-candidate-retained |
+| [refine_nature_layout.cjs](refine_nature_layout.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [refine_paper_annotations.py](refine_paper_annotations.py) | Stage author-requested legend/heading semantics on measured axis candidates. | supported-or-dependency |
+| [register_figure_axes.py](register_figure_axes.py) | Extend existing draft registries with explicit axis identities; never edit SVGs. | supported-or-dependency |
+| [render_figure1_best_learners_version08.py](render_figure1_best_learners_version08.py) | Render two candidate learners with numbered #08's one-second mean analysis. | supported-or-dependency |
+| [render_figure1_historical_fish_one_second.py](render_figure1_historical_fish_one_second.py) | Apply the approved 1 s recipe to the authenticated legacy F/G/H fish. | retained-pending-classification |
+| [reorder_control_first.py](reorder_control_first.py) | Guarded presentation-only control-first ordering for Figure 1 F–H and Figure 2 D–F. | retained-pending-classification |
+| [review_figure2_g_independent.py](review_figure2_g_independent.py) | Run the isolated Figure 2 G analysis without changing any selected figure. | supported-or-dependency |
+| [review_figure2_g_technical.py](review_figure2_g_technical.py) | Run the independent, source-only technical protocol sensitivity. | supported-or-dependency |
+| [style_axis_geometry.cjs](style_axis_geometry.cjs) | Retained technical workflow helper | supported-or-dependency |
+| [style_figure2_placeholders.py](style_figure2_placeholders.py) | Match Figure 2 F/I pending placeholders to the current C presentation. | historical-candidate-retained |
+| [update_figure1_colourbar_row_alignment.py](update_figure1_colourbar_row_alignment.py) | Guarded rigid translations for Figure 1 E/H colourbars and FGH spacing. | retained-pending-classification |
+| [update_figure1_f_arrow_position.py](update_figure1_f_arrow_position.py) | Guarded local arrow presentation edit, preserving the active Figure 1 pair. | retained-pending-classification |
+| [update_figure1_layout_spacing.py](update_figure1_layout_spacing.py) | Guarded update of C box sizes and E colourbar title clearance only. | retained-pending-classification |
+| [update_figure1_panel_e_display.py](update_figure1_panel_e_display.py) | Guarded E-only display edits using the current trace and selected frozen F rows. | supported-or-dependency |
+| [update_figure2_panel_a_freeze.py](update_figure2_panel_a_freeze.py) | Prepare and integrate the explicitly requested Figure 2 A scoped freeze. | supported-or-dependency |
+| [verify_figure2_g_analysis_guide.cjs](verify_figure2_g_analysis_guide.cjs) | Retained technical workflow helper | retained-pending-classification |
+| [verify_figure3_reference_style.py](verify_figure3_reference_style.py) | Verify exact Figure 3 heatmap/color roles and G observed-outcome transfer. | retained-pending-classification |
+| [verify_main_paper_collection.cjs](verify_main_paper_collection.cjs) | Retained technical workflow helper | supported-or-dependency |

@@ -4,7 +4,7 @@ A–C remain proposed; downstream profiles depend on approved cohort and individ
 
 - [Review concerns](review.md)
 
-- [Analysis and rendering](analysis-and-rendering.md)
+- [Analysis and rendering](../../../running-analysis/figure4.md)
 
 Scientific authority: [scoped selection index](../../../../records/frozen-analyses/selections.md). Use [shared methods](../../methods/README.md) rather than duplicating cross-figure contracts.
 

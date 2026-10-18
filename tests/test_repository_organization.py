@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import importlib.util
 import sys
 import unittest
 from pathlib import Path
@@ -82,6 +83,14 @@ class RepositoryOrganizationTests(unittest.TestCase):
     def test_reviewed_stale_root_artifacts_are_absent(self) -> None:
         self.assertFalse((self.root / "jasmc.code-profile").exists())
         self.assertFalse((self.root / "tmp_axis_title_spine_anchor.png").exists())
+
+    def test_current_repository_satisfies_structure_policy(self) -> None:
+        spec = importlib.util.spec_from_file_location(
+            'live_structure_check', self.root / 'scripts/check_repository_structure.py')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        report = module.check(self.root)
+        self.assertEqual(report['issues'], [], '\n'.join(report['issues']))
 
 
 if __name__ == "__main__":

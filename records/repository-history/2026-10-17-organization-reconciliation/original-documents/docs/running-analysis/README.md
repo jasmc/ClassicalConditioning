@@ -1,0 +1,14 @@
+# Running the analysis
+
+This area explains using the supported code; it does not choose scientific methods.
+
+- [Run, resume and troubleshoot](run-pipeline.md)
+- [Pipeline execution and trust boundaries](pipeline.md)
+- [Parameters](parameters.md)
+- [Outputs and provenance](outputs-and-provenance.md)
+- [Rendering](rendering.md)
+- [Learning-model command reference](learning-models.md)
+- [Individual-learning interfaces](individual-learning-interfaces.md)
+- [Figure build tools](figure-build-tools.md)
+
+Figure-specific assembly instructions live with their [paper figures](../paper/figures/README.md). Scientific definitions live in [shared methods](../paper/methods/README.md).

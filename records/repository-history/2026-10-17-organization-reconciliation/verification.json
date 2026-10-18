@@ -1,0 +1,109 @@
+{
+  "completed_on": "2026-10-18",
+  "timezone": "Europe/Lisbon",
+  "local_structure_check": {
+    "issues": [],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 365,
+    "current_states_checked": 7,
+    "verified_transactions": [],
+    "external_verification": "not-requested"
+  },
+  "external_structure_check_on_2026_10_17": {
+    "issues": [],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 365,
+    "current_states_checked": 7,
+    "verified_transactions": [
+      {
+        "manifest": "records/repository-archive/transfer-inventory.json",
+        "files": 2048,
+        "authorized_absences": [
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png"
+        ]
+      },
+      {
+        "manifest": "records/repository-archive/2026-10-17-retired-styling/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/configuration-cleanup-20261011/transfer-inventory.json",
+        "files": 2,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/documentation-cleanup-20261011/transfer-inventory.json",
+        "files": 1,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-cleanup-20261010/transfer-inventory.json",
+        "files": 41,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-reassessment-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmap-code-20261013/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmaps-20261013/transfer-inventory.json",
+        "files": 46,
+        "authorized_absences": []
+      }
+    ],
+    "external_verification": "passed"
+  },
+  "targeted_tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -p 'test_repository_*.py' -q",
+    "output": "----------------------------------------------------------------------\nRan 44 tests in 4.708s\n\nOK\n",
+    "passed": 44
+  },
+  "git_diff_check": {
+    "maintained_files": "passed",
+    "preserved_snapshot_exception": "Three original Markdown hard-line-break whitespace occurrences in the exact preserved imaging-plan snapshot; original bytes and recorded hashes retained."
+  },
+  "unchanged_protected_inputs": {
+    "checked": 124,
+    "changes": []
+  },
+  "external_artifact_preservation": {
+    "checked": 74,
+    "changes": [],
+    "unavailable_on_final_check": []
+  },
+  "exact_historical_recovery": [
+    {
+      "original_path": "docs/paper/figures/figure-04/analysis-and-rendering.md",
+      "recovered_path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/figure-04/analysis-and-rendering.md",
+      "sha256": "33b2513d54cbaa8c63b19ce356df3457c7cb0f0b60863660c9a8299cf5a2aa29"
+    },
+    {
+      "original_path": "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "recovered_path": "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "sha256": "7addc9a24c071d2621794a48164a163911b325a65da685afb429aed3568d91bb"
+    },
+    {
+      "original_path": "docs/paper/figures/figure-02/legend.md",
+      "recovered_path": "records/repository-history/2026-10-17-organization-reconciliation/recovered-originals/figure-02-legend-at-A-freeze.md",
+      "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616"
+    }
+  ],
+  "script_inventory_hashes": "all 105 match",
+  "separate_concurrent_changes_preserved": [
+    "to_implement.md"
+  ],
+  "scope": "Metadata, documentation ownership and validation only; no scientific computation, artwork/state change, new freeze, script archival or deletion."
+}
