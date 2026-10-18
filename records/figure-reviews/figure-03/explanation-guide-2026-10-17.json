@@ -3,7 +3,7 @@
   "date": "2026-10-17",
   "html": {
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/figure3-review-guide.html",
-    "sha256": "24d6dc596a443482e8fddb08caaa8a6272273f768833bb0a289c5968228b1e07"
+    "sha256": "848000cde537ead9e56188b9df5df27c098c53dadcfdf4ea1d0cbf05eaa91b02"
   },
   "source_inputs": {
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/exploratory-state.json": "7eb65d7f09a936f664323c684d67bda59dea42c2fc3073f6c0cc11969730527e",
@@ -82,8 +82,16 @@
     "Only Delay/control pilot authenticated",
     "Historical discard projections not exact historical cohorts"
   ],
-  "verification": {
+  "link_repair": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/link-repair-20261018.json",
+    "sha256": "2b61889056da93024ea56383e07cf10fea5ecbfbb54818fd53b046f0f65e3392"
+  },
+  "verification_before_link_repair": {
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/guide-verification.json",
     "sha256": "268f191c03cab309c4b707509e06a70fdf3ede1dd0fde8af20648df4bc0c6b78"
+  },
+  "verification": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/link-verification-20261018.json",
+    "sha256": "d5a38c9be87cef2c57e504b6a06b6063708b4cacd03c4312412bc885d630843e"
   }
 }

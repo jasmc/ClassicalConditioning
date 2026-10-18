@@ -3,6 +3,7 @@
 This area explains using the supported code; it does not choose scientific methods.
 
 - [Run, resume and troubleshoot](run-pipeline.md)
+- [PC/JOAQUIM handoff for additional Figure 1/2 fish (18 October 2026)](pc-handoff-2026-10-18.md)
 - [Pipeline execution and trust boundaries](pipeline.md)
 - [Parameters](parameters.md)
 - [Outputs and provenance](outputs-and-provenance.md)

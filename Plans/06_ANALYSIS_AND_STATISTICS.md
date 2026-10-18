@@ -157,6 +157,10 @@ problem that the LME/GEE cannot and priors plus diagnostics can be reviewed.
 GAM/functional curves, point-process models, and HMMs remain exploratory tools
 unless the scientific question specifically requires them.
 
+The bounded [Figure 2 G GAMM exploration](03_FIGURE_2_LEARNING_ONSET.md#gamm-exploration--2026-10-18)
+specifies the proposed population-model comparison, boundary assumptions and
+calibration gates; it does not select a new primary model.
+
 ### 2.5 Match models to outcome families
 
 - Continuous positive activity/intensity: assess log-normal, Gamma, or another

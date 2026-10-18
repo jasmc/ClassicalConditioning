@@ -1,0 +1,422 @@
+{
+  "prepared_date": "2026-10-18",
+  "timestamp_utc": "2026-10-18T07:07:23.269670+00:00",
+  "source_repository": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+  "head": "b6ce3af1a3996ee8215b4773cec772d410aa027a",
+  "scope": [
+    "Figure 1",
+    "Figure 2",
+    "additional Delay fish",
+    "additional fixed 3-second trace fish",
+    "additional fixed 10-second trace fish"
+  ],
+  "author_clarification": "Fixed 10-second trace fish, not increasing trace",
+  "ssd": "/Volumes/JOAQUIM",
+  "free_bytes": 154370572288,
+  "raw_data": [
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace",
+      "group_count": 63,
+      "complete_by_condition": {
+        "control": 19,
+        "trace": 40
+      },
+      "incomplete": [
+        {
+          "recording_id": "20230227_01",
+          "condition": "trace",
+          "present": [
+            "camera"
+          ],
+          "missing": [
+            "protocol",
+            "tracking"
+          ]
+        },
+        {
+          "recording_id": "20230302_12",
+          "condition": "trace",
+          "present": [
+            "camera"
+          ],
+          "missing": [
+            "protocol",
+            "tracking"
+          ]
+        },
+        {
+          "recording_id": "20230426_08",
+          "condition": "trace",
+          "present": [
+            "camera"
+          ],
+          "missing": [
+            "protocol",
+            "tracking"
+          ]
+        },
+        {
+          "recording_id": "20230426_10",
+          "condition": "trace",
+          "present": [
+            "protocol"
+          ],
+          "missing": [
+            "camera",
+            "tracking"
+          ]
+        }
+      ],
+      "complete_trace_protocols": [
+        {
+          "recording_id": "20230306_01",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230306_01_trace_orange-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "e443d70e499098e450bd5689b42b9cd356143e48cfa0607a6f4cd191a591db54"
+        },
+        {
+          "recording_id": "20230306_07",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230306_07_trace_blue-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "89f3cb9b0029c116da2f5b25180d4b100181514862c0a83ccb3e840e1ff0f89b"
+        },
+        {
+          "recording_id": "20230306_10",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230306_10_trace_brown-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "479a8ca7ba28548f9c4a4d08aa546c473c92ad29c043c7fef7af8cc32064c089"
+        },
+        {
+          "recording_id": "20230307_03",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230307_03_trace_blue-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "44638f97945c30564f23732dfe5a65837768b82f7e7bf24bae1725570836c9ca"
+        },
+        {
+          "recording_id": "20230307_06",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230307_06_trace_brown-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "16987ec8b7a701395eb00994b67893c7c4f91911faba4efef15e41023638f98a"
+        },
+        {
+          "recording_id": "20230307_09",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230307_09_trace_orange-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "b03ebd2393eaa26ea4d3bdbc95f7eeba1cf19e4fea0b04b36964381e037103ef"
+        },
+        {
+          "recording_id": "20230307_12",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230307_12_trace_black-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "f57e62447afa5c259c35b9d8959b131905669a3a1d6a0f139efc9e6c0f6a6e1d"
+        },
+        {
+          "recording_id": "20230309_09",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230309_09_trace_orange-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "a683558641e9056b44f67b972316205c8013c3a71126a81eba4ec0a1c5173fe5"
+        },
+        {
+          "recording_id": "20230309_11",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230309_11_trace_blue-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "6ca97636e4f0426f424539578cb7b3d8fba26f7465af5613a5ee72355781fb00"
+        },
+        {
+          "recording_id": "20230310_02",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230310_02_trace_brown-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "589c9ef265f405621d423a3aa02e7bd1026d1cc5004b12f0c820645e64b5a7b7"
+        },
+        {
+          "recording_id": "20230310_05",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230310_05_trace_orange-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "37112abddc1b00da9b4faf3c6d2290718ddedce0d6a61f896df54ceaea5249e3"
+        },
+        {
+          "recording_id": "20230310_08",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230310_08_trace_black-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "7f4b8202f68a87b14ef2533f5de027a7c0d87c7188b7cdc10ea9741a4723713c"
+        },
+        {
+          "recording_id": "20230310_11",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230310_11_trace_blue-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "a31bd7de3b81704b2e7372a2ca03d547c474af971dd56e26ce4b767b065659aa"
+        },
+        {
+          "recording_id": "20230314_01",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230314_01_trace_orange-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "2961b43f1453d38ac9b3889920de316bd50e99cf851b3925bd55943a3209b02a"
+        },
+        {
+          "recording_id": "20230314_04",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230314_04_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "c202ca89b2a9c8e1265db06f61f4eafab4742ca016be1f65ee82fbd82768decd"
+        },
+        {
+          "recording_id": "20230314_06",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230314_06_trace_brown-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "bdf8c3d8b9b03e105c48f3538c2ebd815e4c667434326f1ae093879fdc9f1ffa"
+        },
+        {
+          "recording_id": "20230314_11",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230314_11_trace_blue_5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "deaf83f7d467a13160785503dbef2ee2279b230a23b903edf97e76d0991be950"
+        },
+        {
+          "recording_id": "20230315_02",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230315_02_trace_brown-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "f973a904db64c09e456ae9d47addb71591909e4d83cb7efc8b03b646903d7547"
+        },
+        {
+          "recording_id": "20230315_06",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230315_06_trace_brown-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "ed2aa0cf8a0df3737c873ff99af738fdd1a7ee032786f771e97e014d10c74d0f"
+        },
+        {
+          "recording_id": "20230316_03",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230316_03_trace_blue-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "e68acd5e33a65dc4d0b4a729cbec60dfa2dfd0298054f6e085e7c9b629ab7852"
+        },
+        {
+          "recording_id": "20230316_06",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230316_06_trace_brown-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "112a5d556c1c40c0cf024f14fb0983496ef97e0b8aaef611c95664e9c7f59592"
+        },
+        {
+          "recording_id": "20230316_09",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230316_09_trace_orange-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "fdff30c7695a47fa4f2592d75071cedc653419b292c325ed54b6e060cf273b33"
+        },
+        {
+          "recording_id": "20230316_12",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230316_12_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "8d5c41cc7a52072239767649f8bfffed068b4aa0efb049f2e90e90b39cc6cd63"
+        },
+        {
+          "recording_id": "20230516_01",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230516_01_trace_orange-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "4cf037bb4092794edd04ddf0b87772f41b9c3aa61ad304a7fd1ac3e08efab663"
+        },
+        {
+          "recording_id": "20230516_08",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230516_08_trace_black-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "3f887bbef051fd20c7647fa9ce1b84a98e4709d08071c71a86c4188405b5795f"
+        },
+        {
+          "recording_id": "20230516_10",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230516_10_trace_brown-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "ecccbffbe2e9a6c95ce28daaafbe974bc1b5bdda147098ef5e939b9ef14d38e8"
+        },
+        {
+          "recording_id": "20230517_03",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230517_03_trace_blue-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "de79c5f2521ff931eef59d7035e425a30ea1e61db581ca5e89bffbe972af8767"
+        },
+        {
+          "recording_id": "20230517_05",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230517_05_trace_orange-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "2b867ce1daaf97e9db0a4636091e90f3176eb2a367135e220f9907cd0d406026"
+        },
+        {
+          "recording_id": "20230517_12",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230517_12_trace_black-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "0eaaec34eb797c16333e298759c04e8ec7b98e388c7d9a395c43510449d6e765"
+        },
+        {
+          "recording_id": "20230518_02",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230518_02_trace_brown-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "bff15ba1dd215967396abd49e57c1f1d58fec4e45b6120cfb3d5b79bc26f629b"
+        },
+        {
+          "recording_id": "20230518_05",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230518_05_trace_orange-2_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "24540a72020579d14eead1a7ded0b3a846eca151050cdc9d37a8e23836de469f"
+        },
+        {
+          "recording_id": "20230518_12",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230518_12_trace_black-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "8b4eed67cccce3bf1caaab5f39f0956433e12362eb8f356c9aca731da51cfb02"
+        },
+        {
+          "recording_id": "20230519_04",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230519_04_trace_black-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "2614318bc9c7caca1900aaa697ce32263b4e7762c5b11c43436242aadccc0f35"
+        },
+        {
+          "recording_id": "20230519_11",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230519_11_trace_blue-3_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "2cc57ef518bc0471cd66cc86fbe29af250f7ffe3d1980487592a91a847238aab"
+        },
+        {
+          "recording_id": "20230802_03",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230802_03_trace_blue-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "79f6db683149c7c148f97d9f4b403b0f0704149033f7b6fd60e559428790d5b9"
+        },
+        {
+          "recording_id": "20230802_08",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230802_08_trace_black-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "dd27eae0b20da16ba18c60d34ae07ce4ac587a7413604de44aa0b8dddb65c720"
+        },
+        {
+          "recording_id": "20230802_09",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230802_09_trace_orange-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+          "protocol_sha256": "6d921504454b8590894cbf03d08f0ac5cafc4d302ae1cc2e282d84fbe82bf0c4"
+        },
+        {
+          "recording_id": "20230803_02",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230803_02_trace_brown-4_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "ffce18be9eda2ff577f1db92e9a29b10a4af9e31d35d046e940d05102f2d6a25"
+        },
+        {
+          "recording_id": "20230803_07",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230803_07_trace_blue-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "1006758450aa0dcb6d36d0ac51db4d02d6d03be0e986bc37a9ee8f4fb7550451"
+        },
+        {
+          "recording_id": "20230803_12",
+          "schedule": "fixed",
+          "protocol_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230803_12_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_7dpf_stim control.txt",
+          "protocol_sha256": "107cb42a7da6b5204e8d50a9a8b0b51773dfe17c76e26bf738aab0f9e4b9f225"
+        }
+      ]
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/allDelay",
+      "group_count": 57,
+      "complete_by_condition": {
+        "delay": 29,
+        "control": 28
+      },
+      "incomplete": [],
+      "complete_trace_protocols": []
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/incTrace",
+      "group_count": 14,
+      "complete_by_condition": {
+        "trace": 14
+      },
+      "incomplete": [],
+      "complete_trace_protocols": []
+    }
+  ],
+  "selected_artifact_checks": [
+    {
+      "figure": "figure-01",
+      "state": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+      "state_sha256": "cc337418b556d30d758f8e725df348f3a86452f9fc8ebb1a8ae651a2202b075c",
+      "artifacts": [
+        {
+          "role": "working_svg",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+          "expected_sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
+          "actual_sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
+          "matches": true
+        },
+        {
+          "role": "review",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+          "expected_sha256": "974beeacb849a1ac7ed239b619d8b9510454d4edb2542be66f11d337fc83e103",
+          "actual_sha256": "974beeacb849a1ac7ed239b619d8b9510454d4edb2542be66f11d337fc83e103",
+          "matches": true
+        },
+        {
+          "role": "legend",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+          "expected_sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2",
+          "actual_sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "figure": "figure-02",
+      "state": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+      "state_sha256": "9650d685b05a38482c963a6edb23089dee5c8f6019e6f663633ddb4542e28d76",
+      "artifacts": [
+        {
+          "role": "working_svg",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+          "expected_sha256": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc",
+          "actual_sha256": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc",
+          "matches": true
+        },
+        {
+          "role": "review",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
+          "expected_sha256": "feeaf95263ba229c7f48eceaedb3b9840ff7efeace7b81e4ce2f92e3ec6e6383",
+          "actual_sha256": "feeaf95263ba229c7f48eceaedb3b9840ff7efeace7b81e4ce2f92e3ec6e6383",
+          "matches": true
+        },
+        {
+          "role": "legend",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+          "expected_sha256": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd",
+          "actual_sha256": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "No Windows execution",
+    "No real cohort reprocessing",
+    "No full camera/tracking source rehash",
+    "No reviewed expanded cohort selection",
+    "PC-only paths not accessible from this Mac",
+    "Windows resolution of Mac absolute paths not implemented by this handoff",
+    "No new freeze or figure publication"
+  ],
+  "verification": {
+    "figure_working_copy_verify": {
+      "exit_code": 0,
+      "scope": "Supported Figure 1 authentication command; no rendered visual review"
+    },
+    "unittest": {
+      "result": "pass",
+      "count": 11,
+      "elapsed_seconds": 70.675,
+      "command": ".venv/bin/python -m unittest tests.test_configuration tests.test_trace_preparation tests.test_run_pipeline.PipelineRunConfigTests.test_loads_valid_config tests.test_run_pipeline.PipelineRunConfigTests.test_defaults_to_the_single_corrected_route tests.test_run_pipeline.PipelineRunConfigTests.test_rejects_retired_legacy_settings tests.test_run_pipeline.PipelineRunConfigTests.test_end_to_end_twice_reuses_intake_and_refreshes_stable_derived_paths"
+    },
+    "repository_structure": {
+      "exit_code": 1,
+      "issues": [
+        "Uncatalogued script: repair_figure3_guide_downloads.py"
+      ],
+      "protected_files_checked": 365,
+      "current_states_checked": 7,
+      "interpretation": "Unrelated script from concurrent work; preserved without modification. No whole-repository passing check is claimed."
+    }
+  },
+  "packet_destination": "/Volumes/JOAQUIM/ClassicalConditioning-PC-20261018"
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "Figure 2 G guide links only",
+  "date": "2026-10-18",
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
+    "sha256": "4dac30f24140af5bf88fa917871d6fdc252787364e7bce19bcc49c8df771e8b4"
+  },
+  "verification": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261018-links/final-link-check.json",
+    "sha256": "62ab827b1f3cc4c5b215ac234131b41e9b2cf3fc2fcc1eb06e20e34a83e01561"
+  },
+  "maintenance": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261018-links/link-maintenance.json",
+    "sha256": "55cb1965380d4df22acbde1f0faf5edf1504bbf759b34a3f2b4f9e5376a84f27"
+  },
+  "local_http_targets_passed": 144,
+  "internal_anchor_targets_passed": 89,
+  "external_links_opened": 4,
+  "notes_preserved": true,
+  "scientific_changes": false
+}

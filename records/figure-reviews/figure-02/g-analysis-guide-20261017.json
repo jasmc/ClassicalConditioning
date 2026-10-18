@@ -5,11 +5,11 @@
   "scientific_status": "Documentation of existing evidence; no models refitted, cohort changes, figure selections or freezes",
   "html": {
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
-    "sha256": "f02f1a2c377a947bd698fb02ddaf9759b60c5f59b078759c56506165377bc101"
+    "sha256": "4dac30f24140af5bf88fa917871d6fdc252787364e7bce19bcc49c8df771e8b4"
   },
   "manifest": {
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/evidence-manifest.json",
-    "sha256": "deebd87bbdcb3f3d53086ef3c6801323abff68fa517b947e1abd05f1d8d36504"
+    "sha256": "54f80355885c95485e7ba9952c168cb31e645df6e637b76e37a6b900232c6828"
   },
   "browser_url": "http://127.0.0.1:50717/figure-02-g-analysis-guide-20261017-v01/review.html",
   "topic_inventory": {
@@ -47,7 +47,7 @@
     },
     {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/analysis-guide.md",
-      "sha256": "af4aec6dfbc2a91a0e5692404e67492cd494846857eb8934f375975f93f5af2e"
+      "sha256": "52a13653b223407574640318d1184658aef57baf0dfd12d76c3a93407f3a604e"
     }
   ],
   "known_gaps": [
@@ -61,5 +61,11 @@
     "September learner counts are later reapplications; metadata explicitly denies exact historical equivalence",
     "Last-US threshold is annotated US-end time >=0.4 s with a separate bout-presence condition, not minimum bout duration"
   ],
-  "notebook_scope": "Fresh browser contexts used for testing; no user notes or scientific state altered"
+  "notebook_scope": "Fresh browser contexts used for testing; no user notes or scientific state altered",
+  "updated_utc": "2026-10-18T07:07:48.243976+00:00",
+  "link_maintenance": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261018-links/link-maintenance.json",
+    "prior_html_sha256": "f02f1a2c377a947bd698fb02ddaf9759b60c5f59b078759c56506165377bc101",
+    "notebook_identity_preserved": true
+  }
 }

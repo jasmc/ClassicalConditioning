@@ -1,3 +1,33 @@
+
+explain all parameters you set to perform the different lme analysis.
+explain the statistical variables and how exactly these was modeled (fixed effects, random intercept, random slope)
+residuals, tails?
+how exactly are the data processed (log, median or mean, etc), aggregated, etc before the lme?
+
+if you describe G as “movement suppression,”
+i mean the intensity of movement when a valid bouts are detected across the whole window. do you understand?
+
+i want to understand Baseline subtraction versus baseline adjustment. why using one or the other? what does adjustment exactly mean?
+
+why using IQR vs confidence interval
+
+i did not understand:
+  Why multiplicity matters, and why Holm and BH differ
+  Numerical checks and scientific validation
+  The longitudinal model behind the trial stars
+
+
+in figure 3, is extinction during Testing considered??
+
+
+prepare a new clean chat to keep understanding and discussing everything related to Figure 2 G, also handing over the html you just prepared
+
+
+
+
+
+
+
 The color range scale in E is much, has a huge white space from the data in E, whereas in H that doesn't happen. I want the color scales in E and H to be aligned to the right, but I also want to fill in this space a bit better. But this is something that we'll leave for later because this will require making the data region in D and E larger. So E's data can approach the other color scale range. There are lots of constraints because I must also not separate too much D from E and all of that. Like, in terms of the frames, I'm not sure that those frames that now are kind of ensured automatically worked well at F, G, H. I know there are some conflicting things. Yeah, we should just point that out. Like F and G and G to H, they are not fulfilling this exactly because there's more space. But then if we shorten it here, then the figure frame is also not matched. So I understand all of that.
 
 
