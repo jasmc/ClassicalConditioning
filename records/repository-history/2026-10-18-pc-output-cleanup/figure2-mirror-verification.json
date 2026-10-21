@@ -1,0 +1,596 @@
+[
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\all-fit-diagnostics.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\all-fit-diagnostics.csv",
+    "sha256": "28b2ae0de734f635c88d48bc6b54ef7a3cf1d759f8e2575b4f8b331eec67dc11",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\analysis-script.py",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\analysis-script.py",
+    "sha256": "efeafcb58dba96e5a458e4e20b5332340fb065c089720127c0aba9f3a0dcfd96",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-coefficients.csv",
+    "sha256": "9a920b5f6180e8700fdf0d7dbbedbbc2704aa54e7585a6580e536c20139eaaf6",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-diagnostics.json",
+    "sha256": "ef31e1a276602a03a77cdc727bd3f1e052d7722ecd5d0b852c3c7018ceb0c868",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-fixed-covariance.csv",
+    "sha256": "fbfc5325d70c45fa4d8e89ced7aef8ae0de576a3ad8868e212987d38b7fbf51c",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-random-covariance.json",
+    "sha256": "9148699d23961cb05bbf0bedef9f9792c4e9c9ed5fd7e8966ea8b934d7514f20",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-residuals.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\block-residuals.parquet",
+    "sha256": "d4bb82889eed35b15e24e5ed379b5265a37ea68585db7186a207c1c132222238",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\bootstrap-summary.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\bootstrap-summary.parquet",
+    "sha256": "595d32cedadd8e50b870d4002f242dccdebfd04ac571424db2d4ed91c48951ee",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\candidate-specification.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\candidate-specification.json",
+    "sha256": "36ed551e43f0c32d9ee5aeb91d9ec07b7716fff746c8feda62234b31a99f446c",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\control-bootstrap-draws.npz",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\control-bootstrap-draws.npz",
+    "sha256": "8560efee5f359db3bbaee0c719846468c8fbc5271e2e63468ad97bc8f73b6d93",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\D-interaction-tests.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\D-interaction-tests.csv",
+    "sha256": "10979c126981a9cdef235ea04388194f6e808126ae7255ae4d0812089dea96ff",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\delay-bootstrap-draws.npz",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\delay-bootstrap-draws.npz",
+    "sha256": "2df3fcf384c13c559d41b3505553961725cdc092c3628ecfa0327f63ce6af58d",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\extraction-complete.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\extraction-complete.json",
+    "sha256": "f2ea5509e9fbeb373f9b5dc83f2ccccf483faf4eb3f965e716e6fe0c4bfa2904",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Fig2_Delay_LogMedian.figure.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Fig2_Delay_LogMedian.figure.json",
+    "sha256": "c8f4e280264839c1bbfb9608b97f66aa515375ad901ab4c0bede214655fc52ed",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\fish-logmedian-differences.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\fish-logmedian-differences.parquet",
+    "sha256": "e8026cea91001905c3bd0ac708e5e804166f9b4a3e250314cf21f639da1cfd13",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\frame-source-manifest.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\frame-source-manifest.json",
+    "sha256": "6737eb461c9d050cb3d6229954caf5d2ef0b0e4e38a0ef9cb20841f70648e4a8",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-coefficients.csv",
+    "sha256": "f4be5ba788d26ae7ed1327643bb8323bd25c6d3c7d40c1870d1c8c8762795487",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-contrast-matrices.npz",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-contrast-matrices.npz",
+    "sha256": "cfbedf15aee7cee86d603b9655c683ae103fed7296a75e877d41ae647d4b388d",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-contrasts.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-contrasts.csv",
+    "sha256": "c6c4f9ae471ac307e7e61d7bc8d7280a82bd51b032353211faf5ac6c60a7b9e2",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-diagnostics.json",
+    "sha256": "79fbaff03063b7c96e6cf7a8894c081fb0a3ac39ba9ae63ab2eb69896ee4a745",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-fixed-covariance.csv",
+    "sha256": "057796ed6dcf7d1389dccbdf128a2fdfc4d844165974213282ee4b691a19da50",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-random-covariance.json",
+    "sha256": "421f6b1889eba182c5316ea83da15a267e61a0b7d7d9ecd84d600ba689590d5e",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-residuals.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\global-residuals.parquet",
+    "sha256": "1db7a8bf87a27ac8d83908ab1a00a0f4a9f0b0361899b9dec44e60e26c0a1329",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\joint-interaction-test.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\joint-interaction-test.csv",
+    "sha256": "4b306d1ac9529a52dd93970b5fae1b9c76e77da8751d4b6296ccb3912ca169b3",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\model-input.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\model-input.parquet",
+    "sha256": "9fe9af7ef7f37a6dc07e3ee07ce4fe0ef82f9b2bb6fb37ff8301b35ca204b5e9",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\MR-local-block-tests.csv",
+    "sha256": "ec2f50e0d94c241217c1f46bfd70b54addc71bb1beca7bfd7f4688b2f95b9d38",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-coefficients.csv",
+    "sha256": "8eb835343a8c9e818ac2220be81b78e73b31dcb084ac7077f9726da4a8d06e00",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-contrast-matrices.npz",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-contrast-matrices.npz",
+    "sha256": "ee1c5573241789d76a97dc8676c3e1d16810e3f437d9f82f8a6816ba708e1cf4",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-contrasts.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-contrasts.csv",
+    "sha256": "6c2a5f04bfdcc42c7f4d706b920b34322e69302be86c281a8c833ac8feb11572",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-diagnostics.json",
+    "sha256": "074d34f4eea87fbb686a15b4e31a83e5d8f1b8f47fbfc060441bfa092faa4512",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-fixed-covariance.csv",
+    "sha256": "97c1493fa3ed41de68e1662a2a640a58ba6c606c023217b845a63fb1128c9eea",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-coefficients.csv",
+    "sha256": "548bbc2280a0a7579f62683a6fda15b1be6a9ae5d006fabab8404e225ceaf747",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-contrast-matrices.npz",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-contrast-matrices.npz",
+    "sha256": "ee1c5573241789d76a97dc8676c3e1d16810e3f437d9f82f8a6816ba708e1cf4",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-contrasts.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-contrasts.csv",
+    "sha256": "56d0654f2ba153331035895f53426b2a32c1043f5026c7e1e099606b7cb76977",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-diagnostics.json",
+    "sha256": "0991084a2dc1fa3923a267384a95480ed7bd49b915862b98d70890d1934513b7",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-fixed-covariance.csv",
+    "sha256": "8f82f0982911784d49f3ae16fc2347f98a28e40c5bd4351ed2bd4c95e6500bb0",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-random-covariance.json",
+    "sha256": "667364e4f90563ea748fcb3083e43f2a46875747d6f8f73065338840543694f1",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-residuals.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-intercept-residuals.parquet",
+    "sha256": "d334cbd7c1dfbda5b7c68a350de79e1a758c2446ab58336bd2f889eebd2a0f89",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-leave-one-fish-out.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-leave-one-fish-out.csv",
+    "sha256": "e6bcaf7ce014e87770546f6e1ebcf94b05bd6bc6096b51a13275b6d522bee406",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-coefficients.csv",
+    "sha256": "defc846d07ea17847d0a53e8bb937f0b0a5bae5c23ebcbe26ec6e1e29d1b0078",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-contrast-matrices.npz",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-contrast-matrices.npz",
+    "sha256": "ee1c5573241789d76a97dc8676c3e1d16810e3f437d9f82f8a6816ba708e1cf4",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-contrasts.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-contrasts.csv",
+    "sha256": "d39aede687f7a95a60bc5c7e8fbf14b51e6be6d905c8f896b527d6fbb1df47a7",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-diagnostics.json",
+    "sha256": "b9ebd4cea1180fff3a1583be647055080390c4d42ad9153d8f82db1e231d7f49",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-fixed-covariance.csv",
+    "sha256": "fe9f6911d937d9f4cf5faecb7b394d809684608ce22fa296f976d559aefefe61",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-random-covariance.json",
+    "sha256": "9b79209b5c3610ef22487a90b81787bee929b34013eb2fec468821c14705973c",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-residuals.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-powell-residuals.parquet",
+    "sha256": "3165bef1601e3f99f188ee76028d0be09d6e55013367db6c47b3e01d88aeda00",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-random-covariance.json",
+    "sha256": "6e5184562772587c2ffc6b6aeca5aa5d655eaa3b955f28f5325bd7b170370dd7",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-residuals.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\phase-residuals.parquet",
+    "sha256": "cc6651884db1dd1b95dc6a10b3a6cd8418c5eaa8f3a59cb7cc95294f9e29602c",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-coefficients.csv",
+    "sha256": "ac85a663fd3a97077ca6325401e89e51a06be5fe535109d31fdb8fcfbc987d70",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-diagnostics.json",
+    "sha256": "983378f691d294c149056f2bde6109b2dd31788ac5a0dede392c815f38dc15b0",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-fixed-covariance.csv",
+    "sha256": "0457700cb8a39607d09d397d534e8c58e1cd7c7eb1194b3d3ab1f6b20ae7afb0",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Pre-train-local-random-covariance.json",
+    "sha256": "5a0262d715ea1e5baba2d126d515ab366f36819dab0236deb201197170e84aa3",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\render_figure2_delay_legacy_metric_lme.py",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\render_figure2_delay_legacy_metric_lme.py",
+    "sha256": "c2f316f3bb04fc1b52be7d35158153559df6cbc65bb44bd9b688bce8fa45e34f",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\render_figure2_delay_phase_lmm.py",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\render_figure2_delay_phase_lmm.py",
+    "sha256": "7ec5bbfa7499ec19f90fb61e10c188e13db573da027ff0fe0d792cd01caf9b94",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\result-summary.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\result-summary.json",
+    "sha256": "d0acf34220e453ea765a2aa440c2f056b01a7af5eb079970b95cde8776d8f6e4",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-coefficients.csv",
+    "sha256": "707811248eb015df1479db1c25f8f3ea4f81fb41eacf55933cf4bd53c83aa048",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-diagnostics.json",
+    "sha256": "01d633d398c063237c439c6a6cfc73e22ec4af7d344c37ab43ad73f1b7dea5b5",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-fixed-covariance.csv",
+    "sha256": "9e8d0ef6a474d6f7ec4a00140c8ed11a849a37d9c116c74f8c03ccae3485e041",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-1-local-random-covariance.json",
+    "sha256": "6df961f4f28d70378f19f14d3ae496e941688705a234aa420f2cd0bf75fc7753",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-coefficients.csv",
+    "sha256": "38cd839d98af2788dda1b94383680e0ba26afbecb4a30d9f0c29de8da2e12119",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-diagnostics.json",
+    "sha256": "1d0ce1c28b00c980d84ec3a0bfa6690406f32ce97d2855cc8cae98c1bf80d261",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-fixed-covariance.csv",
+    "sha256": "62299f0d61a4b9c7668adcd0931f3270ef64fc0a87d4ae2c9d4ed5b8e35657e8",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-2-local-random-covariance.json",
+    "sha256": "72f3b8bb68face77c0fb086000e55b3ff950e7a8362d0c3a66726564a738e843",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-3-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-3-local-coefficients.csv",
+    "sha256": "81a20e9fde7e7fb3958d206b75be1c3c0a53f927aafd2e9edd096fbcfacca96d",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-3-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Test-3-local-diagnostics.json",
+    "sha256": "037c39d7ad27bb4eafeae887226ed7125f1a1899c75289a292b5b997faa62e3d",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-coefficients.csv",
+    "sha256": "f27d86c55234d6ede05fe153e5e316daa7fb29c0cfb19b69449ced293d33d555",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-diagnostics.json",
+    "sha256": "689e690df10a087668466d4db2fbebf45c5b0d35c56085ee57c2a76e5feaa378",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-fixed-covariance.csv",
+    "sha256": "432d404c21baea405142e4d551c20bd56e2ef1b539bce8d5aff7fd371648c668",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-1-local-random-covariance.json",
+    "sha256": "41adcfa5a417babfde8ec894d916e2345ca4400e7a7ecb643a4c6a3cf7e3671d",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-coefficients.csv",
+    "sha256": "2bd177696f39c60b11038b365d8c750faef076a671bf37ba41a9c7a21b119d4d",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-diagnostics.json",
+    "sha256": "f2a6f46f3d6654874a5eb93a61bcfc4661db10291a15ff720310325319eb8af4",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-fixed-covariance.csv",
+    "sha256": "d9dd2e91612a1fdc2ec4f012fd18b34b6992d594959f9fcf83ae8cc6a929be19",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-2-local-random-covariance.json",
+    "sha256": "9a745445849608ca5fea7b75336ade19081c784e54ae600bcd13eb238e170057",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-coefficients.csv",
+    "sha256": "ae6c2b8790f8ac51df8e2081cc1e17eb630d7f82e324c5b58d7795f47a275ca8",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-diagnostics.json",
+    "sha256": "94de1904a03d6b16fddaf9b106f791c9c8ebe639c442fa6f17f01bb1f6a67332",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-fixed-covariance.csv",
+    "sha256": "6f26e29fb2e81f9c03439757eefdc9815995a273ec177cdb9534ddab6d61c4ea",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-3-local-random-covariance.json",
+    "sha256": "f7703cd26b5e7fa3ba393bdeef5c130480bc8b288ca011a5c2ed71552fcee0fc",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-coefficients.csv",
+    "sha256": "bac5bbeb1752e4514eb9e958d0d8a8a693de97a7b723c4e5faacba6469ad6b8a",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-diagnostics.json",
+    "sha256": "5054303e51ee19382eb94946364ba6eed20dfa18d7951d4d25be0c3151fdcd6a",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-fixed-covariance.csv",
+    "sha256": "d1d65210b6dbcf503b888ecf0af6327d2717ec9ee9116011c3810d4d7fdbd143",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-4-local-random-covariance.json",
+    "sha256": "23b17d616de121c692c04caee51496feedc5ad3ab8d46c9e824b33ca6ae6f1e1",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-coefficients.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-coefficients.csv",
+    "sha256": "65178dc4cb75fa605248dcc0e51eb7033970fec6d44ebae2bbe1516a60177350",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-diagnostics.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-diagnostics.json",
+    "sha256": "4202bc6b079deefea6bc0f075d660a9a6452dcbbdd217a00b804781922d10029",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-fixed-covariance.csv",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-fixed-covariance.csv",
+    "sha256": "2529b146c538fcfb52eae07e9cdc2836d992f62c7ee7d98c1e28f3e3c5a2b5be",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-random-covariance.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\Train-5-local-random-covariance.json",
+    "sha256": "ca978f45f3373e3dce35e7fb4140eb0016d8b1f9f904d78e7fec965e63b75d25",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\window-logmedians-all-trials.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\window-logmedians-all-trials.parquet",
+    "sha256": "484692ec0db0365d83a127fa7ccb14a7a45dadf8e27cc9712dac622e0fa59b1e",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.figure.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.figure.json",
+    "sha256": "ea90c79d4dc9c3f3fe0c5c3786d16dbc39780c74891bcb128c0e3e9402fb65b2",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.freeze.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.freeze.json",
+    "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.svg",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.svg",
+    "sha256": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\G_candidate.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\G_candidate.json",
+    "sha256": "375cdcc547a1239764f66537f6667079de8076f7779726c6360c457175ce6b03",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\G_selected_scientific.svg",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\G_selected_scientific.svg",
+    "sha256": "d10ec293c6d9bc675119922632d24ddbdcf702a880d0de651a5d103d21070ff9",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\renderer-review.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\renderer-review.json",
+    "sha256": "04300ffeffb999d1afa6621770e2e76563444858269571851becb24f3042a7bf",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\renderer-source.py",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\renderer-source.py",
+    "sha256": "c6438942104fc0e72fb8c25a9c3614104dd3bc58ef6f54f33bd9f654489aa1cb",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\scientific-selection.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\scientific-selection.json",
+    "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\selected-source-inventory.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\selected-source-inventory.json",
+    "sha256": "899f900a20c5e2b070887a82aceea715aa422f7eaa42aa2d1513c8eeeafc92b8",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\row3-trial-ratio-review\\f-recovery-current.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\row3-trial-ratio-review\\f-recovery-current.json",
+    "sha256": "10b2eaf652e7e99066c34cb2260deb367d87226aaaa3e9e4ff770d0fd8d36d60",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261009T153011211227Z-authenticated-f-recovery\\authenticated-legacy-source.figure.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\sources\\20261009T153011211227Z-authenticated-f-recovery\\authenticated-legacy-source.figure.json",
+    "sha256": "6aa47fe431e83cd1e05a746d03d57ecac3504b20c80fc077f8795221fecf753b",
+    "exact_match": true
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261009T153011211227Z-authenticated-f-recovery\\regenerated-all-frame-reference.parquet",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\sources\\20261009T153011211227Z-authenticated-f-recovery\\regenerated-all-frame-reference.parquet",
+    "sha256": "25f51b2ec69ebfaf4ec632869c92392214b3d9da7a7170efb6bcca2a0e7890b4",
+    "exact_match": false
+  },
+  {
+    "source": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\sources\\20261009T153011211227Z-authenticated-f-recovery\\storage-recovery.json",
+    "counterpart": "J:\\ClassicalConditioning-Mac-20261009\\pc-outputs\\figure2-assembly\\sources\\20261009T153011211227Z-authenticated-f-recovery\\storage-recovery.json",
+    "sha256": "6723956ee85c6a060715ebe4543afd2f5127da7860f495849c18dbf80f4f6b3a",
+    "exact_match": true
+  }
+]

@@ -108,6 +108,14 @@ def parse_recording_identity(
         condition.source_name.lower(): condition.condition_id
         for condition in experiment.conditions
     }
+    if experiment_name == "all10sTrace":
+        # Authenticated fixed-10s acquisitions use both historical spellings.
+        # Preserve source recording_name; publish the canonical outcome label.
+        condition_by_source.update({"10strace": "trace", "trace": "trace"})
+    if experiment_name == "all3sTrace":
+        # These explicit source aliases identify untreated acquisitions in the
+        # MK801 experiment. Keep their raw names and canonical outcome roles.
+        condition_by_source.update({"tracenomk801": "trace", "controlnomk801": "control"})
     if condition_source not in condition_by_source:
         raise SchemaValidationError(
             f"Recording condition is not configured for {experiment_name}: "

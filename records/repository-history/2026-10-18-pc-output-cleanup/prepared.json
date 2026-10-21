@@ -1,0 +1,14 @@
+{
+  "status": "ready",
+  "source_roots": [
+    "F:\\ClassicalConditioning Outputs",
+    "F:\\Results_refactored"
+  ],
+  "source_recordings_verified": 56,
+  "source_artifacts_verified": 168,
+  "figure2_exact_handoff_matches": 47,
+  "figure2_total": 99,
+  "archive": "J:\\ClassicalConditioning-Archive\\pc-output-cleanup\\2026-10-18",
+  "obsolete_derivatives": "Unreferenced September delay-cohort-v1 legacy/candidate results, replaced by allDelay-full-v1",
+  "deletion_authorization": "Author explicitly requested deletion of old, no-longer-useful contents of these two roots"
+}

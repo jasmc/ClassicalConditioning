@@ -78,7 +78,12 @@ def analyze_recording(project, fish, suffix, experiment, condition):
     manifest_path = metadata / f'{fish}_source_manifest.json'
     manifest = json.loads(manifest_path.read_text())
     assert manifest['recording_id'] == fish
-    assert manifest['condition_id'] == condition
+    # Untreated NoMK801 source names retain their original condition token;
+    # resolve it through the supported experiment-specific identity mapping.
+    from classical_conditioning.analysis.trial_outcomes import parse_recording_identity
+    identity = parse_recording_identity(manifest['recording_name'], experiment_name=experiment)
+    assert identity['recording_id'] == fish
+    assert identity['condition_id'] == condition
     frame_marker = metadata / f'{fish}_corrected-preprocess{suffix}_complete.json'
     metric_marker = metadata / f'{fish}_candidate-corrected{suffix}_complete.json'
     fm, mm = json.loads(frame_marker.read_text()), json.loads(metric_marker.read_text())

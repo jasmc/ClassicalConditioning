@@ -1,0 +1,122 @@
+{
+  "scope": [
+    "E/B",
+    "F/C"
+  ],
+  "direction": "Align E with B and F with C",
+  "selected_svg": {
+    "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.svg",
+    "sha256": "31e7ad0979ce797548bc708290be5d40f620ec3fb5ec5f45e1d1ed2a7bcb6365"
+  },
+  "evidence": {
+    "source": {
+      "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.svg",
+      "sha256": "3daba1407e6a70b3942af77acceae3d4bfd1f686e3cb5bca3d0a7ac63bbcb4ed"
+    },
+    "svg": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\column-alignment\\figure2-columns.svg",
+      "sha256": "31e7ad0979ce797548bc708290be5d40f620ec3fb5ec5f45e1d1ed2a7bcb6365"
+    },
+    "html": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\column-alignment\\figure2-columns.html",
+      "sha256": "d2b3c22b8a1d2d967aaf290dac33903a264c0ffc9d7b8cde2c2cc0d05233c1b3"
+    },
+    "generator": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\align_figure2_columns.py",
+      "sha256": "440ecb6d4d26f419e2c70f00e46c75c85c0ce13237e514d7b57b1562c38cea81"
+    },
+    "initial_browser_geometry_mm": {
+      "B_pair": [
+        50.60625486800983,
+        79.59199163987431
+      ],
+      "C_pair": [
+        90.7268606127332,
+        119.7125907475116
+      ],
+      "E_pair": [
+        59.83828674684527,
+        88.28312755112997
+      ],
+      "F_placeholder": [
+        95.33899828151526,
+        134.8668901152315
+      ],
+      "B_letter_left": 47.04874421119577,
+      "C_letter_left": 87.16934996437332,
+      "E_letter_left": 47.49120431711656,
+      "F_letter_left": 95.3390248298596
+    },
+    "translations_mm": {
+      "E": -8.96158389504555,
+      "F": -9.883218518250999
+    },
+    "protected_subtrees": {
+      "layout-A": "2635db1b56db5b49598fb34edcf89d5c6d6de7739c73c31f7a3db9ab318c7cd0",
+      "layout-B": "6a94a4567b49d9822d3db0831860978b7584ca6fd3884a2400863b8b9625262e",
+      "layout-C": "4af5f0f389911bceb2e087a380421a2842a0bb835eeb3b9c81bedb4a8b7403a7",
+      "panel-D": "249ce1f51f7fcc89b5b37344673af491a4b8f756d89164d7aad0023a3fd83e8b",
+      "panel-G": "089fe77d447f0c027a5fa1e01f5c7774755f8277591946210c2ce8ab8390abab",
+      "panel-H": "e9009fa06847c7f0fd4fa3e1fc125115f528a552a1f1c144a399694a9d61e981",
+      "panel-I": "f313cd199403c2825028147d73edb1d9bc0102aabbff818dab3e416f0f262549",
+      "fig2__shared__colorbar__axes": "2187ad17d4d6006d3933309ed392b2308adc094433a04ccecdce0433b0c5e4b3"
+    },
+    "superseded_spacing": {
+      "axis": "x",
+      "id": "fig2-DEF-equal-spacing",
+      "ids": [
+        "D",
+        "E",
+        "F"
+      ],
+      "minimum_gap_mm": 2.0,
+      "target": "content"
+    },
+    "relationship": {
+      "id": "fig2-E-B-F-C-column-centres-20261019",
+      "type": "layout",
+      "panels": [
+        "B",
+        "C",
+        "E",
+        "F"
+      ],
+      "properties": [
+        "E data-pair centre equals B heatmap-pair centre",
+        "F placeholder centre equals C heatmap-pair centre",
+        "E/F panel-letter left edges match B/C"
+      ],
+      "tolerance_mm": 0.02,
+      "author_direction": "Align E with B and F with C",
+      "status": "requires exact saved browser verification"
+    },
+    "data_statistics_and_panel_sizes_unchanged": true,
+    "legend_unchanged": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\legend.md",
+      "sha256": "40cea3716fe3de5ec6f1e7a31885e54618ed16b9634cf356ac264b5f2d8ee84d",
+      "panel_ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+      ]
+    },
+    "layout_frames": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\column-alignment\\layout-evidence.json",
+      "sha256": "ee330cfebeb9f25205eb583478acd90678e9185b73b700841818cba197cad3be"
+    },
+    "measurements": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\column-alignment\\alignment-evidence.json",
+      "sha256": "ec62f734b230a1d3c0d94f3cd55734aaad004c5ae3bdaf33b2f57740fc8a9672"
+    },
+    "visual_review": "Inspected the saved Figure 2: E paired plots centered below B heatmaps; F placeholder centered below C heatmaps; E/F panel-letter left edges aligned with B/C. Column-center differences below 0.00004 mm in actual minimal HTML. Exact 600 dpi frame containment and retained spacing relationships passed. Translation-only edit; panel sizes, data, statistics, legend and other panels unchanged. New column alignment supersedes the second-row outer-content equal-gap arrangement. No freeze.",
+    "precedence": "E/B and F/C centres supersede D/E/F equal outer-content gaps; all other prior relationships retained."
+  },
+  "sizes_data_statistics_unchanged": true,
+  "freeze": false
+}

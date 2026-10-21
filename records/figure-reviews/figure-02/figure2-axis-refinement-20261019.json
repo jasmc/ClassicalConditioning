@@ -1,0 +1,51 @@
+{
+  "scope": "Figure 2 A/B/C shared x-axis titles; D/E display range",
+  "state_sha256": "f538ca5d0c0be86dec3d416749bef7d22485f9821a138b4314d95719f3e92fde",
+  "selected_artifacts": {
+    "working_svg": {
+      "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.svg",
+      "sha256": "3daba1407e6a70b3942af77acceae3d4bfd1f686e3cb5bca3d0a7ac63bbcb4ed"
+    },
+    "review": {
+      "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.html",
+      "sha256": "e77b2850a286313523419aa547cc883190aadae330818351d9a1c266ee84641c"
+    },
+    "legend": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\legend.md",
+      "sha256": "40cea3716fe3de5ec6f1e7a31885e54618ed16b9634cf356ac264b5f2d8ee84d",
+      "panel_ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+      ]
+    },
+    "semantic_registry": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\axis-refinement\\semantic-registry.json",
+      "sha256": "d0914e01c3d842b6bfd5bbdc217449739d200615e1161dcc57c0bf29bf2b2eb0"
+    }
+  },
+  "evidence": {
+    "evidence": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\axis-refinement\\edit-evidence.json",
+      "sha256": "a063a364a70771f77a92e056b967f7dfc5e7ff1b2bb98a39b23fd0639f005bdf"
+    },
+    "layout_frames": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\axis-refinement\\layout-evidence.json",
+      "sha256": "c4c94c1d3b02e72606be4e76081dae672ff3525c829159a11301f700df2e30f8"
+    },
+    "pair_title_measurements": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\axis-refinement\\title-centres.json",
+      "sha256": "ee5e86ddeafcff043ce2e6351438bfab9423806b81cb572d826a21dcb1c71248"
+    },
+    "visual_review": "Verified one centered shared x-axis title for each A/B/C heatmap pair and D/E display limits -0.25 to 0.25. Browser glyph centers agree with pair centers within 0.00001 mm. Exact rendered frame margins and spacing passed. Heatmap data, F/G/H/I, source observations and statistical results are preserved. No freeze."
+  },
+  "data_and_statistics_unchanged": true,
+  "F": "pending; requested range recorded for future populated panel",
+  "freeze": false
+}

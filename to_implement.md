@@ -57,6 +57,17 @@ i might also change the control and 3strace example fish.
 
 
 Figure 2 needs the full datasets.
+Author direction 2026-10-19: build Figure 2 B/E/H from the expanded fixed-3sTrace
+dataset without inferential statistics. Always match the corresponding current
+Delay panels A/D/G; H uses G's log response-minus-baseline measure rather than
+the older activity ratio. Build status and exact assay-specific definitions:
+docs/paper/figures/figure-02/panels-b-e-h/README.md.
+Later author direction 2026-10-19 supersedes "without inferential statistics":
+show full Figure 2 with B/E/H matching the first column and the same selected
+Delay statistical families. Omit the four timing-flagged fish from every
+3sTrace panel, keep their flags and use the same roster across B/E/H.
+Published draft: 90 Control + 89 3sTrace; scoped current state and methods are
+linked above. This is not a new scientific freeze.
 the stats need to then be frozen.
 all LLM need to be audited and confirmed.
 

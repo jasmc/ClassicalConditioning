@@ -1,0 +1,48 @@
+{
+  "purpose": "Fresh chat: identify fixed-3sTrace learners and choose best Figure 1 candidate",
+  "sources": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\current-state.json",
+      "sha256": "4c4a63add3b74fec95166357b263c276fab707b83cf9ec16aa565e09ef937369"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\current-state.json",
+      "sha256": "51db6d8d405d560ec1e318f5ed5f56fd184063ff4c0a39a46e15725665607a37"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\selections\\figure1-fgh-historical-one-second-managua-freeze-20261013.json",
+      "sha256": "d76da631a38b447f2aa9687cc38a90950485ba1df045a148c89e763bdbf694bb"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\plan.json",
+      "sha256": "73b36f357084e3f65f5bae81a9963312ce9ea8659f43d64b80e07243aee75934"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\windows.parquet",
+      "sha256": "b7fe18c9da23c7ab7b373af92df5734408981ce96f4de6ace98dff39951617cb"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\ab-analysis-review\\audit.json",
+      "sha256": "2f39a4411288069d93c5365fb1bef050dc699056e7532c1b0f5f2b5618f9bdca"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\ab-analysis-review\\followup.json",
+      "sha256": "a9f50128697498d342545b7f5522f41a8a91555c750daf5c1c54f10edff83b82"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\records\\figure-reviews\\figure-01\\trace3-learner-handoff-20261019.md",
+      "sha256": "f12a7d3fd6db5ada5a16151b5fcd6aac495c20ae7f20136662ccb51bfa2c6caa"
+    }
+  ],
+  "cohort": {
+    "control": 90,
+    "trace": 89
+  },
+  "excluded": [
+    "20230426_01",
+    "20230802_01",
+    "20230803_12",
+    "20230822_04"
+  ],
+  "figure_replacement_or_freeze_requested": false
+}

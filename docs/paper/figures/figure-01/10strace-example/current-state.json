@@ -1,0 +1,40 @@
+{
+  "figure_id": "fig1-10strace-example",
+  "recording_id": "20230307_04",
+  "default_display": "draft",
+  "whole_figure_frozen": false,
+  "parent_figure_selection_changed": false,
+  "draft": {
+    "working_svg": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-10strace-example-20261019\\single-fish.svg",
+      "sha256": "68a198a87460593a32c3ce8aff4565cbd21ea7b5719d3f672b88150b00b9cc32"
+    },
+    "review": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-10strace-example-20261019\\single-fish.html",
+      "sha256": "5cd804fa217c864c917010b9dbc832ee87cb4911b3a6d50b56f000d91690969f"
+    },
+    "legend": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-10strace-example-20261019\\legend.md",
+      "sha256": "74d7cd66a23103ffb10eb8bdf380897db34e29bb1dd62ba247680dcb3fcd18d0"
+    },
+    "calculation": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-10strace-example-20261019\\calculation.json",
+      "sha256": "6ffdf356f89f7d2db62ae3c12e71e21e206f71f61dabb495e4af925d83f9a056"
+    }
+  },
+  "verification": {
+    "visual_review": {
+      "status": "performed",
+      "note": "Inspected exact browser-rendered native-size SVG and matching UTF-8 legend. All 90 trial rows, axes, colourbar, phase labels and stimulus guides are visible; no text clipping or frame overflow. Browser painted and unclipped bounds pass the active shared-inset gate. This is a provisional historical example, not a completed cohort ranking."
+    },
+    "scientific_method": "supported selected 1-s heatmap pipeline; source hashes rechecked",
+    "layout_frames": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-10strace-example-20261019\\layout-evidence.json",
+      "sha256": "9eef9c4da0a05ea4a685ba74fa1cd7fb7ca0ef1afe7882dc45625dabf894edd3"
+    },
+    "renderer": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\finish_trace10_example.py",
+      "sha256": "52f91362e08adb688d073b7a7a3c24251be4892c04527b8420a0f2732e6faefd"
+    }
+  }
+}

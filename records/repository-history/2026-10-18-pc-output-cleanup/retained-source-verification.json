@@ -1,0 +1,906 @@
+{
+  "recordings": [
+    "20221115_04",
+    "20221115_07",
+    "20221115_09",
+    "20221116_02",
+    "20221116_06",
+    "20221116_12",
+    "20221117_04",
+    "20221118_03",
+    "20221118_04",
+    "20221122_03",
+    "20221122_05",
+    "20221122_06",
+    "20221122_08",
+    "20221122_11",
+    "20221122_12",
+    "20221123_01",
+    "20221123_02",
+    "20221123_04",
+    "20221123_07",
+    "20221123_08",
+    "20221124_07",
+    "20221124_09",
+    "20221124_10",
+    "20240607_01",
+    "20240607_02",
+    "20240610_07",
+    "20240610_08",
+    "20240612_07",
+    "20240612_08",
+    "20240613_01",
+    "20240613_02",
+    "20240618_01",
+    "20240618_02",
+    "20240618_07",
+    "20240618_08",
+    "20240620_05",
+    "20240620_06",
+    "20240621_03",
+    "20240624_03",
+    "20240624_04",
+    "20240624_05",
+    "20240624_06",
+    "20240625_03",
+    "20240625_04",
+    "20240625_07",
+    "20240625_08",
+    "20240626_01",
+    "20240626_02",
+    "20240702_01",
+    "20240702_02",
+    "20240702_05",
+    "20240702_06",
+    "20240703_07",
+    "20240703_08",
+    "20240703_09",
+    "20240703_10"
+  ],
+  "files": [
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_04\\camera.parquet",
+      "bytes": 74712375,
+      "sha256": "744be6e40d1fbde22d8be520f0f8c54ac7a1032e525224299625be51b5962d46"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_04\\stimulus_events.parquet",
+      "bytes": 3251,
+      "sha256": "a3a83220e0363c5e58b968ac3a573819ef946c8d293da0c4ae002a542d98b745"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_04\\tracking.parquet",
+      "bytes": 1839686870,
+      "sha256": "f110c6b4d672aaffdd1040a818567ea38bb043d5a0983461e6b75d7d488d68c9"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\camera.parquet",
+      "bytes": 74711255,
+      "sha256": "04c6ed4e9338f5065a50aeed557cf1c53db1db0b97cf47e81a7ec781b62d9877"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\stimulus_events.parquet",
+      "bytes": 3251,
+      "sha256": "745a12459967fe0d9835513408bd30a3881e692decc172e8bfd678369a9450b2"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_07\\tracking.parquet",
+      "bytes": 1926203386,
+      "sha256": "470c438b8f15dd9082461021449ed3a144d8045984559915719d63ecfaa39718"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\camera.parquet",
+      "bytes": 74195747,
+      "sha256": "956138576d02094eb6363655fef7fe9db4bec44d394e64df96cd7964a26ff404"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\stimulus_events.parquet",
+      "bytes": 3265,
+      "sha256": "67627727ddbac1b3a999ee16423292a97dd4f2de0cbbe79defd1274614095bc8"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221115_09\\tracking.parquet",
+      "bytes": 1755054311,
+      "sha256": "4aeb786bc4a5805e3dc342b314256ca9314fb064294766a8ecc784af80d906ba"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_02\\camera.parquet",
+      "bytes": 74594444,
+      "sha256": "d4aaeb37b47954fea701e0968d3440ba917a9f70dbb10ae2dd1b4e8a45447b2a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_02\\stimulus_events.parquet",
+      "bytes": 3267,
+      "sha256": "111c9cc2501dedd9ccf89f4dd1ea92dea951bcc481f021964582bc3eee0812f2"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_02\\tracking.parquet",
+      "bytes": 1841610193,
+      "sha256": "60ae53a105dc612df4d9ea6296e7a3a8cf89fe9dea5fb5c60e03f2231a56ba9b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_06\\camera.parquet",
+      "bytes": 74564246,
+      "sha256": "3c1f03e23b79f1e02bbc424f3e9d6b100b5a45bb870fbcb76eb1b7a4e3ab4b47"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_06\\stimulus_events.parquet",
+      "bytes": 3247,
+      "sha256": "02da42a6922f683d6c37cb1a769362c813c317febc12fd1c87ce291440fb176f"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_06\\tracking.parquet",
+      "bytes": 1762639488,
+      "sha256": "68449085894ed3961bedae34458462142b803cd2b448f4dee67433eb4a5eb234"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_12\\camera.parquet",
+      "bytes": 75242090,
+      "sha256": "e3feff202164d8fd432788a575457dc028cac4935c3e469ee6631369fcbe0d07"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_12\\stimulus_events.parquet",
+      "bytes": 3250,
+      "sha256": "495353ad4e5fac9beb444925cf3d1e2088b2be6c8ac7a55d98d0879c431c57c1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221116_12\\tracking.parquet",
+      "bytes": 1840217966,
+      "sha256": "c0048198e4fedb2b1bde50b93c9c74818b7edfa2982192f99d9485d52eb75f3a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221117_04\\camera.parquet",
+      "bytes": 74866795,
+      "sha256": "10bfa8a09ff0d80f23fad5337bd6a66b9dc99bfdd03bea90a33fabb14082b220"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221117_04\\stimulus_events.parquet",
+      "bytes": 3272,
+      "sha256": "c67f762d8661e662d27a5b3efbbff978f7806077a9fd094b06050073fbd6e66d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221117_04\\tracking.parquet",
+      "bytes": 1851106869,
+      "sha256": "16003439a912d917bcabdd35ed8b81022fb6c6125fe75aba76ccc19230f81511"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_03\\camera.parquet",
+      "bytes": 75123881,
+      "sha256": "6ccc03656a9f80104f5292674f59b26211acdb1da6e92561ca553f6831dc1005"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_03\\stimulus_events.parquet",
+      "bytes": 3261,
+      "sha256": "90e391b76777568280f4da57e9bc93aa935eb6a07b2e62ad945c45ba1d9e198d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_03\\tracking.parquet",
+      "bytes": 1842947257,
+      "sha256": "1d1bf9036ca262162d0d47be60bc9869700d75bf0215bb992ac489150830c379"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_04\\camera.parquet",
+      "bytes": 74144639,
+      "sha256": "6525a130dee9d3d36ce6d4687b618abbc45fe5bcdd96eb658bfa84726bf5b561"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_04\\stimulus_events.parquet",
+      "bytes": 3242,
+      "sha256": "158e622141a21984595dd2c6d680ef97b2772fa7349acd11d212b8eb5a996667"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221118_04\\tracking.parquet",
+      "bytes": 1799374385,
+      "sha256": "196f258eac8895a89ed9caf28a63ae2eee50f6a6b91d9491d08b5f1dcc4a26c9"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_03\\camera.parquet",
+      "bytes": 74493510,
+      "sha256": "342540f20a9336e56f6a38c333bcab824f7cbfd5ff5875096fa802f91ed5b6bc"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_03\\stimulus_events.parquet",
+      "bytes": 3251,
+      "sha256": "d083168e4cbe366314225c0f29b1ad08b41b7ff080cb70f13863503e2051ea2d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_03\\tracking.parquet",
+      "bytes": 1864785546,
+      "sha256": "678e43b06456e2a92a8bbdfa2e1278f458a31ae11fda7f7b77d4c1870cc8e492"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_05\\camera.parquet",
+      "bytes": 75270934,
+      "sha256": "8f7273c94bf7ab5177182547d9b3bab57df200fb13c80bafee3f239b99fc35af"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_05\\stimulus_events.parquet",
+      "bytes": 3269,
+      "sha256": "c747adc974bc07ec495d08650029302acfc4fb3f1718e341b295fdfd5d1c7aaf"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_05\\tracking.parquet",
+      "bytes": 1948381580,
+      "sha256": "66b99ab2fd763349369a5562075037041b2ebabbfcdbe94bb1d24abdc11c9e97"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_06\\camera.parquet",
+      "bytes": 74151070,
+      "sha256": "1f0fc5d11d57fc1c4672f483be999d28761b3752123e9f3273b9c7055d6f4655"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_06\\stimulus_events.parquet",
+      "bytes": 3252,
+      "sha256": "031c8e678556b29753e395e14de2e2fe9306df984fe7e53482f782c21e97c23d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_06\\tracking.parquet",
+      "bytes": 1814985313,
+      "sha256": "5d4f65d2ca9038e1e225559d9f0c675a9f468ce00b24b34f3975a73ffe5a7259"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_08\\camera.parquet",
+      "bytes": 74163590,
+      "sha256": "3a75dd8794c1e2b66af5eb45162e185cbe29214e8ba3c850890b2cced42f84d9"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_08\\stimulus_events.parquet",
+      "bytes": 3265,
+      "sha256": "684ff30d0b23045d2c5e96b5850af6036649dfbdafd68ec570b5ba398cc2ce02"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_08\\tracking.parquet",
+      "bytes": 1782607751,
+      "sha256": "a78e87d523ff191c76595424b3ce8b62da0e15c4822130df5c59ea39a396374c"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_11\\camera.parquet",
+      "bytes": 74618558,
+      "sha256": "f791905d1647c5cee38a1eb2688cf9b94115b1677f3de912d6bd5f0a534392b4"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_11\\stimulus_events.parquet",
+      "bytes": 3263,
+      "sha256": "4c8d55c0111e6999d5039d43e71e9f51daead24a4aefa0e8e5647c2a3dd7ccfe"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_11\\tracking.parquet",
+      "bytes": 1981897255,
+      "sha256": "ef4fdfbd1ed048f9efccbc7bef62f177463d6e74b2bc8e441ecb988140b12f58"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_12\\camera.parquet",
+      "bytes": 74329994,
+      "sha256": "032a3f4370c504660a9a0e81c2275b2979e8c90082877705ac35223c83bcf489"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_12\\stimulus_events.parquet",
+      "bytes": 3250,
+      "sha256": "6ae7e2bb3da133cf1a45c36329475f04204e6c634885200e91dc4b656df7901f"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221122_12\\tracking.parquet",
+      "bytes": 1819941803,
+      "sha256": "880ee376a2f73c799dfada55aac7d23d075595ab102d09ac6607a6345d414234"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_01\\camera.parquet",
+      "bytes": 74777428,
+      "sha256": "362fefbdefa58db84952df2b6419d373710e8888947702ffb69a3bc61ec0dd19"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_01\\stimulus_events.parquet",
+      "bytes": 3269,
+      "sha256": "877abee59822a3d4a0e110f17eb82f2ef435ca1bb9676a9157b0d459b8055528"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_01\\tracking.parquet",
+      "bytes": 1863174225,
+      "sha256": "601108853045deff4721291298f45042bb60c00fdfa8131fc27638e4bd0ab01a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_02\\camera.parquet",
+      "bytes": 73933471,
+      "sha256": "8870df4cffac0c27abc6aec67cac629e1a105b2ea8469747c4849c04a279325b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_02\\stimulus_events.parquet",
+      "bytes": 3249,
+      "sha256": "285a750baa47794060fe30b048499dfbac093adeff92cc1ebd6888c95fa88573"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_02\\tracking.parquet",
+      "bytes": 1804952413,
+      "sha256": "90f0b1170f621e7c81806faab71bf70b1f2e3ce28862df93f197d2d05143dc7a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_04\\camera.parquet",
+      "bytes": 74222693,
+      "sha256": "d7e5fbed237dffb3b534b3e3fedc02e29f64233dbdfbc5b05da985f3e99a9b6b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_04\\stimulus_events.parquet",
+      "bytes": 3267,
+      "sha256": "dabeb0efcbcaab4b1294cba24f850a08034d0ca4cf7130f6b38b3e8566535f90"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_04\\tracking.parquet",
+      "bytes": 1825894467,
+      "sha256": "c4a53c0125f9a4775f0a47ba93272a363e7ee55e0b0529fd4e40345cd434d8ff"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_07\\camera.parquet",
+      "bytes": 74738332,
+      "sha256": "06d7b8ad9ee04207fef1b803b8f0575438d6c056906dfef1f1ff3cf72b6c56e9"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_07\\stimulus_events.parquet",
+      "bytes": 3265,
+      "sha256": "abd21cba7f2475df0e4389412093f557c483bfa2b02051ecf68f45edc82755b9"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_07\\tracking.parquet",
+      "bytes": 1838408252,
+      "sha256": "c229de0e0f46fa0e942d8e43edf48d30118977c6c8dbbc51efdd77d5105e213b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_08\\camera.parquet",
+      "bytes": 74481315,
+      "sha256": "3afb531ead9d7c7ea8e9ed67fadbcb6991a17aca75624c82b8483116353bcc68"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_08\\stimulus_events.parquet",
+      "bytes": 3249,
+      "sha256": "162cc1085d1582af2b6fc9286ea0487e9aaa158a457372a76bdcefde9faffcac"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221123_08\\tracking.parquet",
+      "bytes": 1801378697,
+      "sha256": "b8a6c02275700118fbc080341234c2a0bc831a1bef066bc111b2e0c676cd2dc7"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_07\\camera.parquet",
+      "bytes": 74915334,
+      "sha256": "5b06fbf4288d04f768f3ad185cf759f3a461ba266529315ae0a6bacef840cfbd"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_07\\stimulus_events.parquet",
+      "bytes": 3250,
+      "sha256": "f522de779caa928908eed7cf0ade7b43decc3460ba6b2b86df9c030e51170db6"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_07\\tracking.parquet",
+      "bytes": 1893171775,
+      "sha256": "d1ca131c0426bf7a3d0bd47189b669ffedc5ebcc6128a376f9d2d6cc9317cce7"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_09\\camera.parquet",
+      "bytes": 75187679,
+      "sha256": "78a44734d370f4d33e2fe4ffa5e6ad2b43cf6d1937bed00e9208729bf8323729"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_09\\stimulus_events.parquet",
+      "bytes": 3270,
+      "sha256": "df2ef384f31c1470bf8ab44ca904375e2b08380e47f19585868a496ab880db80"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_09\\tracking.parquet",
+      "bytes": 1871417724,
+      "sha256": "90cde1cc7cf38f82aaa95785e25c66f835252f7164499eeaf6e479d674bc8e70"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_10\\camera.parquet",
+      "bytes": 74807075,
+      "sha256": "daeb93723a221217f095108340094ca77e6a0873adc73f5e0d38ace78d3220d1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_10\\stimulus_events.parquet",
+      "bytes": 3247,
+      "sha256": "080f12cbe1792d264c3a1499885ccfbfc8b5b141ce9833e26b93a808a21fc19e"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20221124_10\\tracking.parquet",
+      "bytes": 1937938465,
+      "sha256": "f898393a6e48f05728c55a5bc1f5ead7f204099693427ffc7a1211a7a50d2be2"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_01\\camera.parquet",
+      "bytes": 85222821,
+      "sha256": "38dc3d09de294466b55a6086d4d53e25069afc636d7048bc5e13d9d67086f1b5"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_01\\stimulus_events.parquet",
+      "bytes": 3253,
+      "sha256": "6e4563980509332834098be34fac81960ed6e6352fa95c4fcd3525de2450643c"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_01\\tracking.parquet",
+      "bytes": 2179030850,
+      "sha256": "d6163749a95ccf8b6d6423631d766f360c13b519fe398dbeb8fa089983930a62"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_02\\camera.parquet",
+      "bytes": 85484632,
+      "sha256": "5c721301a90661963014d4ce3b2a41825dad6ca9a6ede2e28fddbfb2a6c036fe"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_02\\stimulus_events.parquet",
+      "bytes": 3270,
+      "sha256": "e4f69f1cc1e8724695e6af856df1f6a57f134f625ab0088012259410851957f2"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240607_02\\tracking.parquet",
+      "bytes": 2120783790,
+      "sha256": "dec1a364c46d26c673800bf2a56c2aa1094a6f6692aba06fc4ef22f97f6ca0ff"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_07\\camera.parquet",
+      "bytes": 85759086,
+      "sha256": "760723cb65e3baed9e586e9c813976c4256e7336895319c5e35d04a94b25c62d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_07\\stimulus_events.parquet",
+      "bytes": 3239,
+      "sha256": "693f610b4625ab8afbeeeb5ad37e0858923d3ba448ac1739f3955f2b4ad56f4b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_07\\tracking.parquet",
+      "bytes": 2107577285,
+      "sha256": "99412422cc07c4a7b10a7f92f67b82eae2e83d5cfa89dbda48e950e9b7bfd86b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_08\\camera.parquet",
+      "bytes": 85098967,
+      "sha256": "7baad6f9f394b9ca297e3d23a1666856611bc1d0ab8949c58ec89cdca686794c"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_08\\stimulus_events.parquet",
+      "bytes": 3263,
+      "sha256": "bfaf28d8b6cc66706e3c4f7abb5047d9875949bdcdc3f97303b749e9ff58cd31"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240610_08\\tracking.parquet",
+      "bytes": 2044244487,
+      "sha256": "3e3479a70d58b122151a2419d951f8f7484031746f20680224f9ee9bddb79bac"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_07\\camera.parquet",
+      "bytes": 85619351,
+      "sha256": "60dba8287f26ea47f4cbb95c3d8f7603dd5f9277b4631700a4df62821e28bcb1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_07\\stimulus_events.parquet",
+      "bytes": 3268,
+      "sha256": "0dc7479523c0ce2ce79fd7a65cf4e8a06a70af1fcb2cb995bc71567b2753cfb3"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_07\\tracking.parquet",
+      "bytes": 2105787104,
+      "sha256": "3353a22c12414699ca1132c8491158bc1afea20317cb7bd324abd3d9492ce3c5"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_08\\camera.parquet",
+      "bytes": 85035342,
+      "sha256": "f4c50f8666cf46d667adc5433f8b659d4ec2f332aecdda65a58c324a5381f9b2"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_08\\stimulus_events.parquet",
+      "bytes": 3251,
+      "sha256": "dbf3aa9a49fb3a0c60acbfe8b9a94aa846e95d35f433571a404ceed9e05db0be"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240612_08\\tracking.parquet",
+      "bytes": 2007566072,
+      "sha256": "318e0512915a8100a88e097734b6807f7056d6a806ac85b3ffb5fcc33e822b7e"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_01\\camera.parquet",
+      "bytes": 85411710,
+      "sha256": "138c919327c867244f7cdfc5b1782ab645ef3a0597ad5dc00dd5cfc9c759cf2a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_01\\stimulus_events.parquet",
+      "bytes": 3271,
+      "sha256": "78c7e318331b8f2a6c24bf04d412e40a6385149fdb6534da4176cec028963037"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_01\\tracking.parquet",
+      "bytes": 2119340043,
+      "sha256": "9c2952ae89a680a8be8911907a55a7334c5d4b264e61075838642c244e38272e"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_02\\camera.parquet",
+      "bytes": 85960586,
+      "sha256": "70db79f7e62806dbc0a1c665d8a375c693e4d1c2b28394551ad6d74b1e074641"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_02\\stimulus_events.parquet",
+      "bytes": 3247,
+      "sha256": "5e6fbd1b10168c11e53cb96ca4ab3a68124dcf73ec0f11188dea2a23f2174e9f"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240613_02\\tracking.parquet",
+      "bytes": 2079145952,
+      "sha256": "436406bb036826dff65cbb0bcc3a876e95cd2e865bbe5ca7d14e230d08cf08b6"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_01\\camera.parquet",
+      "bytes": 84995286,
+      "sha256": "aed9c40c8ecb8a8d5a8ac43ad2c63f84fc5b99c6a4fc6e9d011b1737067b05ed"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_01\\stimulus_events.parquet",
+      "bytes": 3256,
+      "sha256": "01aa233aefe8f7c6154138e0d85bca728d8e5b349b598f06acd71de41fa11014"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_01\\tracking.parquet",
+      "bytes": 2095514824,
+      "sha256": "a5a7b72b3430cb9c1fd0452e697cfd2ef3406bb335f5c87498259c48537ff26b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_02\\camera.parquet",
+      "bytes": 85465396,
+      "sha256": "d8c4d946ed7e38639264d0521d2c38e3ed75a65cfd6fcfc0be51adbba416af73"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_02\\stimulus_events.parquet",
+      "bytes": 3238,
+      "sha256": "afcbb8ffd5b77fbc7e3b56494bee8735b2041c8c215cb33cdf01d2ab4c4f020b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_02\\tracking.parquet",
+      "bytes": 2021442819,
+      "sha256": "b7e42ed4f020eb535872733fb45d10b95cf854df6daec615ce7a99c70da432f4"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_07\\camera.parquet",
+      "bytes": 85900852,
+      "sha256": "dbbf84ec3df17fb42ada6da005e1a303ef794e5873ad606be7eee7bbe2173a03"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_07\\stimulus_events.parquet",
+      "bytes": 3233,
+      "sha256": "d8fc154fd46eb785c261934f634ff156942fbc88172346d42723bceccccba6ab"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_07\\tracking.parquet",
+      "bytes": 1992135548,
+      "sha256": "df8cebddf21e073ffc4250cc5211a4bc5ac9556f473d4c50b47c5b52280d73a7"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_08\\camera.parquet",
+      "bytes": 85840993,
+      "sha256": "633a6630498f49ad8f16002011fa59e9aacc852ec6a66ca943af94bec144ccdd"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_08\\stimulus_events.parquet",
+      "bytes": 3217,
+      "sha256": "1afd060aff43d89493a8f5df3c364a02ad2854098a553c73381f0b2c06b3ea59"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240618_08\\tracking.parquet",
+      "bytes": 2060371178,
+      "sha256": "f0e0ddfd5f3645e4003023e938573c7097917614f7451e47f468ef20fefb46ec"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_05\\camera.parquet",
+      "bytes": 86311731,
+      "sha256": "728144540844b5c2f3a4bc2998ee7a54712963e6283ad38660725f5658ffb594"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_05\\stimulus_events.parquet",
+      "bytes": 3206,
+      "sha256": "175c18f4e6e419065f3c58b249172cf5623f6b83e70a0eaea4a52df406400bd1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_05\\tracking.parquet",
+      "bytes": 2173116283,
+      "sha256": "30704cee2ab875077e849d848d63eaf18c78cd027a818a1dd981deff22d13341"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_06\\camera.parquet",
+      "bytes": 85757222,
+      "sha256": "ae901b76039a5e59ba07f60aa83913da53819dbe88584e72c25ec042f9737e94"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_06\\stimulus_events.parquet",
+      "bytes": 3235,
+      "sha256": "fd6e563c5e64a8d70e9b1fe2c77b34f499b08e2b1231ed38fb8f03d42b517b11"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240620_06\\tracking.parquet",
+      "bytes": 2010080388,
+      "sha256": "24f6c8885a26d4bea275edc2e3c207d97868cfa17cdcb7c2c4cd0b8fc74cef3d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240621_03\\camera.parquet",
+      "bytes": 85845588,
+      "sha256": "446b6179c78bb34d4a07c58bbefce8d9ccfab6cce0cd324758ecf81063e53d91"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240621_03\\stimulus_events.parquet",
+      "bytes": 3218,
+      "sha256": "8d0e8b9486d696ce6a226494cd44aa50d163f33671a93fc75d3f2468ccdb37ef"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240621_03\\tracking.parquet",
+      "bytes": 2142226721,
+      "sha256": "ff9ab8f6d567fd540eae7a923a90680781324ec39bd72354da004b55cfdb54d7"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_03\\camera.parquet",
+      "bytes": 85594700,
+      "sha256": "3db930424e779519a20a6cc36b25763f78caa0233e217ff68c39402852faec28"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_03\\stimulus_events.parquet",
+      "bytes": 3233,
+      "sha256": "16e8d62fa5562ba4a4fab7508033d74aff84d2698d1dcdcffce97f113754340f"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_03\\tracking.parquet",
+      "bytes": 2140792281,
+      "sha256": "6b387c6e8402a6305ee832914803ca0f6a401f64323a301c01344e493ba83bfc"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_04\\camera.parquet",
+      "bytes": 85536453,
+      "sha256": "203449977800d352dacab5728fc051625f3bcfcecff6080bbcda3da7a03028bd"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_04\\stimulus_events.parquet",
+      "bytes": 3215,
+      "sha256": "225afb0ddacfac84bdb98f914f594c517687efa64f2dea5be831b014529534b4"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_04\\tracking.parquet",
+      "bytes": 2076106240,
+      "sha256": "4602b879dc560834e55a37a5ef73fd825ba8e0fc51a7b3894399a5809bae6997"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_05\\camera.parquet",
+      "bytes": 84899371,
+      "sha256": "7e5d40fbd2a2d88078db6fb610efe04d6f9725c79cb3c082e6d64578f6a31a4d"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_05\\stimulus_events.parquet",
+      "bytes": 3217,
+      "sha256": "6bf372377e2ef04189dfa07477cc191dfe82e86b3c460231e8f49cec16e41eec"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_05\\tracking.parquet",
+      "bytes": 2117185830,
+      "sha256": "1eee6881528adfcd56db3874a00380c3ad93824ac3bf303ef9866c89ee4c040a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_06\\camera.parquet",
+      "bytes": 85617878,
+      "sha256": "315c4dd1985563d31aebd8d10b277ef8d9e467ea1d21ea8a814060972ff104f9"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_06\\stimulus_events.parquet",
+      "bytes": 3246,
+      "sha256": "feb3eae50aade36f81221020bcab6c9420f110e10294a9545553f64c22618048"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240624_06\\tracking.parquet",
+      "bytes": 2060123933,
+      "sha256": "8f9f585f6a33d3ee9a6e233b27620b00c61320c04c00c61b4a94ca7d688f8e0a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_03\\camera.parquet",
+      "bytes": 85628351,
+      "sha256": "00a657e8cc7977250a8dcdc408beb0dc8820ac3d010ed30a668d4c94233002b1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_03\\stimulus_events.parquet",
+      "bytes": 3206,
+      "sha256": "6e550a7be9dfb2ee51db955e7dc3d78727afbcce0f5532220de5ed3be8569dbe"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_03\\tracking.parquet",
+      "bytes": 2037625457,
+      "sha256": "e6e17ccb102ad31fa70051d0b4a1e2d0b875316c34f7f502b3258f8efced78d0"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_04\\camera.parquet",
+      "bytes": 85404487,
+      "sha256": "0a02b6006bd08419e142c48eec31eb06415ada9077eaf79ccf531e08cf7b76a5"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_04\\stimulus_events.parquet",
+      "bytes": 3242,
+      "sha256": "adc5c69d8b9da3b35b86c115f7eb5905e268baf952960f36edbd1f2593082231"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_04\\tracking.parquet",
+      "bytes": 1976283264,
+      "sha256": "d18679c1c13ef5f223c242f97dad67f7df9422df049b68fa01161a7676fdbc2f"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_07\\camera.parquet",
+      "bytes": 86350297,
+      "sha256": "13a6d1becfdccc4afa62a62e006cadd1f00894553ded28e9c66b76187172a4c3"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_07\\stimulus_events.parquet",
+      "bytes": 3202,
+      "sha256": "71586fb3ca1074f3c018d086ae7c7b74b7e1549a367c8434d0ba00794a35f2a3"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_07\\tracking.parquet",
+      "bytes": 2121510513,
+      "sha256": "52b37ec0b50610fa59b814a91572d09fe0a3a8216341b07998a37cb052b1d060"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_08\\camera.parquet",
+      "bytes": 85800133,
+      "sha256": "3bee60e3e8bf4dccf03cda10c0b13862d78c029684796d737180603500c5e2fa"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_08\\stimulus_events.parquet",
+      "bytes": 3234,
+      "sha256": "c25b04b0876e532d06b242eea05096ed94ab591bb6bec30ad9c46c432d284a2a"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240625_08\\tracking.parquet",
+      "bytes": 2090365381,
+      "sha256": "fd801cd01210e3bb6b06fc2503da6f895528941f5388bec40b2acdd086555ff9"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_01\\camera.parquet",
+      "bytes": 85733713,
+      "sha256": "049fee8a581db09210d7f692bc38c2b82d4d5b1a5028e07151cef9549cb4af10"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_01\\stimulus_events.parquet",
+      "bytes": 3243,
+      "sha256": "79a128cdb5951eeae3fca4cd91a9e01219ce5d2b774974cb973b34ac7db0120e"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_01\\tracking.parquet",
+      "bytes": 2049008122,
+      "sha256": "dcdbc43d08e507d88af6c7861671f476b8807f34040631ee85eaea7bc30fbd74"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_02\\camera.parquet",
+      "bytes": 85731173,
+      "sha256": "2661883f3361537e156d4d3c512a2d815e2963d0441c784988635d68d0e3afe1"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_02\\stimulus_events.parquet",
+      "bytes": 3215,
+      "sha256": "7ad6773cd218c3be116133312987ee84fa09d75d1fcb8c14a5e087d73160abe5"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240626_02\\tracking.parquet",
+      "bytes": 2071711201,
+      "sha256": "3d26fe61410a6e94886eb5cb5c93e13ae7f65532374bf43f0aa508405a0e1626"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_01\\camera.parquet",
+      "bytes": 85583443,
+      "sha256": "d1756a1a361cc15b458f3bcca988dbba79ac16a4740d8d41a555f12ce81d6784"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_01\\stimulus_events.parquet",
+      "bytes": 3204,
+      "sha256": "090bbc68ace00e78f367c5511ee7515591e0b12b37fc096c473f730fb4a8f25f"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_01\\tracking.parquet",
+      "bytes": 2176143045,
+      "sha256": "4b7066fb85b3f2c7c370e1a04eba856187737fa66c9b5e8ffc202b5148e797ed"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_02\\camera.parquet",
+      "bytes": 85822225,
+      "sha256": "667e8da7b19aed47a0f058eaee0008fa6fe3f94d21782e8190befdb3cbf4aac7"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_02\\stimulus_events.parquet",
+      "bytes": 3235,
+      "sha256": "d4c13b9ae1753bbfac1adb1dde870e526fa31661789b60f2c5ba3dc52a1493d7"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_02\\tracking.parquet",
+      "bytes": 2133571317,
+      "sha256": "9b5c1b925a2cf7ee504735c7084b3dc5cf7d8f37954ca260081c31d9aa66489c"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_05\\camera.parquet",
+      "bytes": 85187712,
+      "sha256": "ec0f92a07cd9a9eae016ead1031d81fb8a8b11fc1675d7cb5b2b4098b042cd3c"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_05\\stimulus_events.parquet",
+      "bytes": 3234,
+      "sha256": "231b6a7140db21123585c363a13299a9db8ea3cd400adcab24bb2b93dcb28261"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_05\\tracking.parquet",
+      "bytes": 2182282968,
+      "sha256": "ae04210306acc9ddaaa52ca7c5fff98a0809af0fdb9e15ccd05a07d75e26154f"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_06\\camera.parquet",
+      "bytes": 84863049,
+      "sha256": "39f5cc98ee1ca3c9919f56ac7f4dac8c4cbdb82ef65efc406fffe5f02ca9aba0"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_06\\stimulus_events.parquet",
+      "bytes": 3203,
+      "sha256": "477d6e69854c8b625b61d98994dd2dbaf0fac16ad8ea22ebf0fed39704c58730"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240702_06\\tracking.parquet",
+      "bytes": 2101229213,
+      "sha256": "3dd7648da0029da9a4f92250a4e69aaaa0f9ffc5305241377d5fb1c52f8bc770"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_07\\camera.parquet",
+      "bytes": 86405364,
+      "sha256": "0ea16222717248aa6d857518167453c827cb33b168400ea4decfba5a08e637a0"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_07\\stimulus_events.parquet",
+      "bytes": 3238,
+      "sha256": "2068e4b5bccc69322450f2b1405b56bf97fd65f9ed78f3945df725c7100250f5"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_07\\tracking.parquet",
+      "bytes": 1996807150,
+      "sha256": "941b9cedcb12e0ca9118ea970e942dce20d2bcf0d76de2e6b83c5e555e6b2fab"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_08\\camera.parquet",
+      "bytes": 85080162,
+      "sha256": "64123503cd1a4202951853bd7cb271c80eed0f1acec98af1929b39b5d7cbe604"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_08\\stimulus_events.parquet",
+      "bytes": 3220,
+      "sha256": "e6de7893c1e315bc07a54e0a3520f7824d425ea4f316cb9b567045b2aad75b2b"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_08\\tracking.parquet",
+      "bytes": 2033211369,
+      "sha256": "ed46e40963fc5991f05b9b4426ec78e1060f43bc03340923a974102a1931cc32"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_09\\camera.parquet",
+      "bytes": 85721199,
+      "sha256": "3986decaaa60d7f6145d70bd28da8d4875e28f79054ee8d5be974457c9579bb2"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_09\\stimulus_events.parquet",
+      "bytes": 3248,
+      "sha256": "6cdab1d56229010ff8dd904783c36f4eeea79e6165c7c0721e576287bc14ee16"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_09\\tracking.parquet",
+      "bytes": 2044779106,
+      "sha256": "2f45e009a836435998a40f70807647bef8eed5b0189f018c2fd0364da9b46fa3"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_10\\camera.parquet",
+      "bytes": 85112694,
+      "sha256": "12a81e53f72c6882f78a0d6f1dfa7b045bd3aec841ae22356195d8e69016a466"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_10\\stimulus_events.parquet",
+      "bytes": 3214,
+      "sha256": "f029ecb6201e5d3861cb053be5cc57b2c67fe51ebe1b29d74bb5fdd2e491d7e0"
+    },
+    {
+      "path": "J:\\Digested Data\\allDelay-full-v1\\Processed data\\20240703_10\\tracking.parquet",
+      "bytes": 1942267185,
+      "sha256": "cd48e591eadd8b51bcd55443c9efaf39bce92ca406cdaf30255c8a1cfa4a515c"
+    }
+  ],
+  "raw_sources": "Manifest SHA-256/size identities matched; raw presence and size checked",
+  "intake_identity": "Manifest logical SHA-256 matched; some Parquet byte hashes differ across Windows/Mac serialization",
+  "retained_intake": "Actual SSD camera/protocol/tracking SHA-256 verified",
+  "derivatives": "Replacement files present; old derivative bytes deliberately superseded"
+}

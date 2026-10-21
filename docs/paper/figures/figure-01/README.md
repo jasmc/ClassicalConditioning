@@ -8,6 +8,11 @@ from [current presentation state](current-state.json), using
 annotation; open its matching SVG when requested. The whole-figure draft remains
 unfrozen. Historical reviews and accepted scientific sources remain preserved.
 
+The active draft's displayed H example is 3sTrace fish **20230419_10**, selected
+by the author on 2026-10-20. Its source-bound replacement and rendered review
+are recorded in `draft.trace3_example_selection` in current state. This example
+is unfrozen; the historical F/G/H freeze retains its original fish identities.
+
 - [Review concerns](review.md)
 
 - [Current presentation state](current-state.json): frozen display and active draft, separately authenticated.
@@ -26,8 +31,9 @@ E’s scoped 2026-10-13 freeze uses unbinned raw-baseline-scaled black traces (0
 
 These roles describe the current displayed composition. Frozen F/G/H source
 identifiers retain their original order; state records the mapping H→F, F→G,
-G→H. Scientific data and normalizations are unchanged. Exact accepted definitions
-remain in the linked scope index.
+G→H. Displayed H now uses the author-selected replacement above with the same
+normalization and display scale. Exact accepted historical definitions remain
+in the linked scope index.
 
 | Panel | Purpose |
 |---|---|
@@ -41,3 +47,12 @@ remain in the linked scope index.
 | H | 3sTrace single-fish 1 s baseline-centered direct log-frame median heatmap |
 
 Current F/G/H selection: [1 s direct log-frame medians, managua_r](../../../../configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). The 2026-10-09 V12 source is superseded within F/G/H and remains preserved; no whole-figure freeze is inferred.
+## Fixed-10sTrace illustrative candidate review
+
+The author-requested 20 October learner/candidate review is complete in the
+[separate comparison scope](trace10-learner-selection/current-state.json).
+It recommends **20230309_07** provisionally as an illustration, with matched
+heatmaps, trial outcomes, full score/coverage/exclusion table and sensitivity
+audits on JOAQUIM. This does not replace selected Figure 1 artwork, validate
+binary learner categories or freeze any panel. See the
+[method/request handoff](../../../../records/figure-reviews/figure-01/trace10-learner-handoff-20261020.md).

@@ -1,0 +1,94 @@
+{
+  "figure_id": "fig1-trace10-learner-candidates",
+  "default_display": "draft",
+  "default_display_format": "html-svg-and-legend",
+  "whole_figure_frozen": false,
+  "preferred_fish": "20230309_07",
+  "parent_figures_replaced": false,
+  "draft": {
+    "working_svg": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\candidate-comparison.svg",
+      "sha256": "5b3efd40d732b6a850b57b76ac525843ea12db703392c262dab631a3f8b22305"
+    },
+    "review": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\candidate-comparison.html",
+      "sha256": "55b79323ef62e4a5d1756eb010a0263332156ea2704f3a8f3ccac6e8c5129a23"
+    },
+    "legend": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\comparison-legend.md",
+      "sha256": "4aa5e88d8554c73b7b3f489f86df2d913b68848bcd28e69faae658b3bd8aa814"
+    },
+    "scientific_registry": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\candidate-comparison.figure.json",
+      "sha256": "faab574cae92c7d2dccf4919c6491f9623d4a08104261ef6771ade8ea9e6f41b"
+    },
+    "single_fish": {
+      "svg": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\preferred-single-fish.svg",
+        "sha256": "fae51f5418dafd8b08c8022dd951038dc98b6922304a3ba4c57fb85f1cacc98a"
+      },
+      "html": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\preferred-single-fish.html",
+        "sha256": "2d733ae105d5cacbddd08848efc2543c9270767401cdae1ee650d16e0ff26c73"
+      }
+    },
+    "report": {
+      "markdown": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\selection-report.md",
+        "sha256": "32eac85b0eea4802f586dcf3fc2a53d68959221298605cca31aa1ad671178348"
+      },
+      "html": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\selection-report.html",
+        "sha256": "63c396bdf16111fa4b9a7154d48fe4056020c1d36020ffc9db968340c15936f0"
+      }
+    },
+    "score_table": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\full-score-coverage-exclusion-table-verified.csv",
+      "sha256": "b683b737fb3918d0fc08e67be7b4f78d469e3c911abdf13c129790716d00f199"
+    },
+    "selection": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\selection.json",
+      "sha256": "9f1a9c79f3f7d8617c5e674a8cb6ea33bb9cb68e0511b564be02d5684f51a7aa"
+    },
+    "method": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\records\\figure-reviews\\figure-01\\trace10-learner-method-before-ranking-20261020.md",
+      "sha256": "c5df0f71f764cceac2a507bb58588b9feda0dabb4bdf4ee334e166f927890760"
+    }
+  },
+  "verification": {
+    "layout_frames": {
+      "comparison": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\comparison-layout-evidence.json",
+        "sha256": "d1422d6947e5fe83ecc835b03d04781f9a889fee91ba9d7a5857469e1f68334c"
+      },
+      "preferred": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\preferred-layout-evidence.json",
+        "sha256": "b0aeb02d8acaca304219ee224c6a6771338fc96c1adf25f1b08e02bf86a236cf"
+      }
+    },
+    "visual_review": {
+      "status": "performed",
+      "note": "Inspected the exact seven-fish comparison and preferred single-fish SVG at their matched scales. Preferred20230309_07 shows a coherent late response-window decrease with broad finite coverage; the raw top-score fish is mainly elevatedPre, the rank2 fish has noisy outcomes and low CS-aligned validity, and the comparator has a smaller contrast. All axes, score labels, phase boundaries and legend are visible. Independent actual-US and strict-pre-US audits support timing; full tables retain all63 IDs and distinguish the61 common roster from50 feature-eligible fish. Exact600dpi painted/unclipped frame checks pass for comparison and preferred SVG. No selected Figure1/2 artwork or freeze is replaced by this standalone recommendation."
+    },
+    "coverage_audit_correction": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\coverage-audit-correction.json",
+      "sha256": "c5cab8d2d914488a653440d5e81060f7643558808dc6a2d26e101c116f7d9196"
+    },
+    "strict_pre_US": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace10-learner-selection-20261020\\strict-pre-US-sensitivity.json",
+      "sha256": "d33feb59088890d5337b301ae17fb2b16993d779b229154d75acc65eec949974"
+    },
+    "classification_status": "provisional rule and continuous scores; biological categories unvalidated",
+    "parent_state_hashes": {
+      "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\current-state.json": "e510c5563c8f576796f5c004ca990bf26c260908685336d6e331d5ad6a938878",
+      "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\current-state.json": "9a25ccb3e9a0b4f62f55cb1ca26347f2359104c30f64f656b3c93881c774334d"
+    },
+    "report_formatting": {
+      "status": "readable semantic headings, paragraphs and table; no numerical or scientific changes",
+      "generator": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\polish_trace10_report.py",
+        "sha256": "5539b05b9568c4372deb558ab91185bb420e90e99e4aa3d15414911089b9badf"
+      }
+    }
+  }
+}

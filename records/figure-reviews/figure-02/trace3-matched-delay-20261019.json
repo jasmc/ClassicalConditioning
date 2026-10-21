@@ -1,0 +1,73 @@
+{
+  "scope": "Figure 2 B/E/H common roster and matching selected Delay test families; D adjusted annotation update only",
+  "authorization": "Author 2026-10-19: same fish across all panels; exclude four timing-flagged fish and keep flagged; same statistical tests as Delay",
+  "cohort_counts": {
+    "control": 90,
+    "trace": 89
+  },
+  "excluded_recordings": [
+    "20230426_01",
+    "20230802_01",
+    "20230803_12",
+    "20230822_04"
+  ],
+  "H_eligible_trials": 15869,
+  "E_contributing_fish_PT_ET_LT": {
+    "control": [
+      90,
+      90,
+      89
+    ],
+    "trace": [
+      89,
+      89,
+      89
+    ]
+  },
+  "evidence": {
+    "plan.json": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\plan.json",
+      "sha256": "73b36f357084e3f65f5bae81a9963312ce9ea8659f43d64b80e07243aee75934"
+    },
+    "completion.json": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\completion.json",
+      "sha256": "65659165dd1e8b47be03f6dc13d7e94b110809122969473418cf91163e298f14"
+    },
+    "assembly-evidence.json": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\assembly-evidence.json",
+      "sha256": "99cdf27d4cdeae0db331f71481a8e69e43e59fb16c03353da126af180fefefa3"
+    },
+    "layout-evidence.json": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\layout-evidence.json",
+      "sha256": "a0c8b284ae338769833bec260fbdc14c51bf2968f0aca7c6bc42fc3438e4e064"
+    },
+    "matched-semantic-registry.json": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\matched-semantic-registry.json",
+      "sha256": "70d9c30e1a49d3b2a44d91d040286b71bec6aa12d2033e1b3fb8b888e5df92bb"
+    },
+    "assembly-build-source.py": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\assembly-build-source.py",
+      "sha256": "e1704727274b1cef8d398c8e64c8b681be5533626c6eb1500a86583b0cd3c9bf"
+    },
+    "verified-current-staged-panels.json": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\verified-current-staged-panels.json",
+      "sha256": "4cc8e667f14c6084f45208555b5f1e4b3c1f3e6a92c597e13eefc4c9e71e87e4"
+    },
+    "placement-adjustments.json": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\placement-adjustments.json",
+      "sha256": "54c844ee59ed2eae892aa43dce2081d6799a1e48b6bcd61052480a0f672db180"
+    }
+  },
+  "published_state": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\current-state.json",
+    "sha256": "78e2761a0766a23679bef91f089a190a2735afb6e924b0807c4984ab4d08c8d0"
+  },
+  "verification": "passing exact painted/unclipped browser frame containment and equal spacing, explicit first-column data-rectangle matching, preserved A/C/F/G/I subtrees, native-size visual review; current published paths and legend hashes authenticated",
+  "limitations": [
+    "Scientific draft; no freeze",
+    "Heavy-tailed residuals; no learning-onset claim",
+    "Influence and full production-font/PDF/accessibility audits remain separate"
+  ],
+  "scientific_freezes_modified": false,
+  "raw_or_processed_inputs_modified": false
+}

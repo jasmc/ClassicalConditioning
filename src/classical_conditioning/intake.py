@@ -1090,10 +1090,27 @@ def intake_recording(
     chunk_rows: int = 250_000,
     preview_rows: int = 25,
     overwrite: bool = False,
+    sources: RecordingSources | None = None,
 ) -> IntakeResult:
     """Convert one local immutable recording triplet and report integrity."""
     # Resolve exactly one raw triplet and enforce the raw/project directory boundary.
-    sources = discover_recording(input_dir, recording_id=recording_id)
+    if sources is None:
+        sources = discover_recording(input_dir, recording_id=recording_id)
+    else:
+        # Explicit sources support historical missing-delimiter suffixes while
+        # keeping the original paths/names in provenance and never renaming raw.
+        if recording_id is not None and sources.recording_id != recording_id:
+            raise ValueError("Explicit source identity differs from requested recording.")
+        if recording_id_from_name(sources.recording_name) != sources.recording_id:
+            raise ValueError("Explicit source name and recording identity disagree.")
+        for kind, suffix in SOURCE_SUFFIXES.items():
+            path = getattr(sources, kind)
+            if not path.is_file() or path.resolve().parent != input_dir.resolve():
+                raise ValueError("Explicit sources must be files in the selected raw directory.")
+            names = {sources.recording_name + suffix,
+                     sources.recording_name + suffix.lstrip("_")}
+            if path.name not in names:
+                raise ValueError(f"Explicit {kind} filename differs from its recording name.")
     project_dir = project_dir.resolve()
     input_dir = input_dir.resolve()
     assert_project_dir_allowed(input_dir, project_dir)

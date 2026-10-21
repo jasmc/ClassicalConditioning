@@ -1,0 +1,33 @@
+{
+  "scope": "Five H-only alternatives, no active Figure 1 edits",
+  "fish": [
+    "20230228_06",
+    "20230307_03",
+    "20230310_02",
+    "20230824_01",
+    "20230810_04"
+  ],
+  "selection": "Highest original descriptive scores with 10/10 Pre and 25/25 late-train outcomes, excluding current 20230419_10, author-rejected 20230802_08 and previously rejected raw-score leader 20230309_09",
+  "starting_hashes": {
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\current-state.json": "e510c5563c8f576796f5c004ca990bf26c260908685336d6e331d5ad6a938878",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\legend.md": "3333cca676ef937fd59c311556238eb003e72b99fb9a5c1ec9906e37dcf2e8f7",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.html": "4792f24cec3032696856fff976f1025763927f78e78d6859c24763a1d2430761",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-learner-selection-20261019\\selection-report.json": "5264b5031a66c180017906051dbb06df926e0a1549f94041e01caf8d9d141f1f",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-learner-selection-20261019\\full-score-coverage-exclusion-table.csv": "a2c4caf156955e51f080758a758ea50a1b6223ceca62833df3c0837de3515e9c",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\windows.parquet": "b7fe18c9da23c7ab7b373af92df5734408981ce96f4de6ace98dff39951617cb",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\plan.json": "73b36f357084e3f65f5bae81a9963312ce9ea8659f43d64b80e07243aee75934",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230228_06.json": "fb2e23aa565f7c88b73b94493d751e449e40bacf623ce3245f011f3de3fabaea",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230228_06-bins.parquet": "c77e817c82d29d864a63572e320860108c17e54fd444c74e954787e65d3500b7",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230307_03.json": "54c10c04156d1ce2e4de5672e07ca91d37d636e88d94bf82070275a547ebf489",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230307_03-bins.parquet": "9f196cdad6bebbfe1c7932fea388017427f21c799d319a2a76c7eca33a10b8fd",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230310_02.json": "6b0fa3adc9ed029d63a6e0f629dc718ac84b165ac2a68cdfc1dd1fc1800d0d5c",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230310_02-bins.parquet": "ca231b839ec6de41cf5489cc900e1b5f6936a9ebdbd49e288c0c89ca90056e8f",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230824_01.json": "f3e98e5ee9cdd35364fec7559dc95e6c55beea1c4aa8a50f0861aedfbd36a5a0",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230824_01-bins.parquet": "6549c1b059806c56d26b838e37cf12da4b156a8c8c70a0c07374453ed19d2d7d",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230810_04.json": "4ef437b638e5acc0e651dd0b8387129751be67d19d52535ad20d17554723cf01",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230810_04-bins.parquet": "d8e5425700b4180ffc30833d46d36c8e820ef46c3abc90abdd73d877d6fce538",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10.json": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10-bins.parquet": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
+  }
+}

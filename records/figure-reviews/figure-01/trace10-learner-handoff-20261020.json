@@ -1,0 +1,60 @@
+{
+  "purpose": "After Figure 2 analysis, identify fixed-10sTrace learners and recommend Figure 1 candidate in this chat",
+  "author_date": "2026-10-20",
+  "status": "authorized; queued after processing and Figure 2 C/F/I plus D/E corrections",
+  "processing_inventory": {
+    "trace": 31,
+    "control": 32,
+    "approved_analysis_roster": false
+  },
+  "response_window_s": [
+    0,
+    20
+  ],
+  "baseline_window_s": [
+    -15,
+    0
+  ],
+  "comparator": "20230307_04",
+  "known_short_recording": "20250715_08",
+  "read_only_drives_for_learner_task": [
+    "D:",
+    "F:"
+  ],
+  "output_directory": "J:/ClassicalConditioning Outputs/current/reviews/figure-01-trace10-learner-selection-20261020/",
+  "figure_replacement_or_freeze_requested": false,
+  "sources": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\records\\figure-reviews\\figure-01\\trace10-learner-handoff-20261020.md",
+      "sha256": "9d5f12bbffff4be71da1604b68b28c2fc9c87eb6073ce1ef88ef2ede3e1c2e92"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\records\\figure-reviews\\figure-01\\trace3-learner-handoff-20261019.md",
+      "sha256": "f12a7d3fd6db5ada5a16151b5fcd6aac495c20ae7f20136662ccb51bfa2c6caa"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\records\\figure-reviews\\figure-01\\trace3-learner-handoff-20261019.json",
+      "sha256": "7f2c404b26c16ebe309c9e65b19abf24c569b58a0222f23b0fee1974a0b615f2"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\current-state.json",
+      "sha256": "391966b1b4820035a7a06e2fbd000bbe42f2df4a63f86db5b20f69f653511b9c"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\current-state.json",
+      "sha256": "51db6d8d405d560ec1e318f5ed5f56fd184063ff4c0a39a46e15725665607a37"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\10strace-example\\current-state.json",
+      "sha256": "086cff93e6b544b1e3f695f4aa6a09a562d2b70ae9461e7c998aa1a2b91ee602"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\panels-c-f-i\\README.md",
+      "sha256": "fe5298e7dbc960c24a86ead655bb0d91b0ae4c218f2a97daa654180b25d7c12a"
+    },
+    {
+      "path": "F:\\Digested Data\\all10sTrace-full-v1\\Metadata\\trace10-additions-20261019-recovery-plan.json",
+      "sha256": "510460e33f7717ae5f17082d439785453ae232f6aa2794a3c92a0528a5f4b263"
+    }
+  ]
+}

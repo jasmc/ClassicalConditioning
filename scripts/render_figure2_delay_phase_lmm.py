@@ -52,10 +52,10 @@ def phase_features():
     return frame
 
 
-def contrasts(result, data, features):
+def contrasts(result, data, features, *, test_condition='delay'):
     """Common-baseline fixed-effect contrast; zero random effects for population."""
     rows=[]
-    for condition in ['control','delay']:
+    for condition in ['control',test_condition]:
         cases=features.copy()
         cases['condition_id']=condition
         cases['log_baseline']=data.log_baseline.mean()

@@ -1,0 +1,16 @@
+{
+  "scope": "Compare next-ranked 3sTrace example; no Figure 1 replacement",
+  "starting_hashes": {
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\current-state.json": "391966b1b4820035a7a06e2fbd000bbe42f2df4a63f86db5b20f69f653511b9c",
+    "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\legend.md": "2304d22c39709ba859e973d8eb897362ffec10afc429ee5019530b239c1632b6",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg": "d53836757d076cec4833e2e0d1cbe088cab43107aeda72b1753351b9ee02e955",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-learner-selection-20261019\\selection-report.json": "5264b5031a66c180017906051dbb06df926e0a1549f94041e01caf8d9d141f1f",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\windows.parquet": "b7fe18c9da23c7ab7b373af92df5734408981ce96f4de6ace98dff39951617cb",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230802_08.json": "62fc30c9fd5582f52881da9d9e4d5055c2151dd5f6b54ec7fad71e2fe3522d07",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230802_08-bins.parquet": "ccdc1e02bfb58bca352624ec4bcb1d6b00dbea079ec71b718e12157f4b3a71de",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230228_06.json": "fb2e23aa565f7c88b73b94493d751e449e40bacf623ce3245f011f3de3fabaea",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230228_06-bins.parquet": "c77e817c82d29d864a63572e320860108c17e54fd444c74e954787e65d3500b7",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10.json": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7",
+    "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10-bins.parquet": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
+  }
+}
