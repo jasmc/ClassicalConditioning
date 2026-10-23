@@ -15,6 +15,7 @@ This folder contains future work, this navigation page and the [implementation i
 | [09 Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Supporting controls, sensitivity analyses and supplementary panels |
 | [10 Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Later tail-mechanism analyses |
 | [11 Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Optional imaging integration |
+| [12 Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | SSD-owned Markdown/HTML workspaces, dependency-aware source migration and note preservation |
 
 The first release covers main Figures 1–4 and necessary scientific evidence. Supplementary composition, tail mechanisms and imaging are separate. Required learner validation and main-claim controls remain mandatory.
 

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-23",
+  "request": "Adapt the study-guide workflow and plan SSD ownership for discussion/study/comparison Markdown and HTML; retain numbered plans in Git.",
+  "personal_skill": {
+    "path": "/Users/joaquim/.codex/skills/analysis-review-guide",
+    "before_sha256": "1076cb070444f95713166dcdae6267fea679cf4c4984ffb586acfb8126650d4c",
+    "after": [
+      {
+        "path": "/Users/joaquim/.codex/skills/analysis-review-guide/SKILL.md",
+        "sha256": "4b88fefee51f571ea747926def205ebef46bc2ec48c78ad97ed82a8dbb0eed3c",
+        "saved_copy": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/audit-2026-10-23-study-policy/analysis-review-guide-after-SKILL.md"
+      },
+      {
+        "path": "/Users/joaquim/.codex/skills/analysis-review-guide/references/artifact-lifecycle.md",
+        "sha256": "fe05c663d7fdb0e791780e458c7ed4a55bc949d83f6008c33dc28c1fd0437b84",
+        "saved_copy": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/audit-2026-10-23-study-policy/analysis-review-guide-after-artifact-lifecycle.md"
+      }
+    ],
+    "distribution": "Local personal configuration; not included as a vendored repository skill or automatically installed on another computer.",
+    "notebook_helper_changed": false,
+    "scientific_content_changed": false
+  },
+  "project_rule": "docs/project-maintenance/review-artifacts.md",
+  "implementation_plan": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+  "future_canonical_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/",
+  "bulk_migration_executed": false,
+  "existing_builders_manuscripts_catalogue_and_html_changed": false,
+  "protected_starting_hashes_verified": 124,
+  "validation": {
+    "repository_structure": "passed; 365 preserved requirements and 7 states",
+    "skill_validation": "Skill is valid!",
+    "reference_links": "resolved",
+    "validator_runtime": "PyYAML installed only in a temporary directory; project dependencies unchanged",
+    "isolated_staged_structure": {
+      "tree_before_evidence_append": "f7025a36324754385fe755cbd3a2f53ec3c50126",
+      "result": "passed; 365 preserved requirements and 7 scoped states",
+      "canonical_new_plan_path": "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+    }
+  },
+  "source_policy": "Personal reusable workflow; repository-specific storage rule; existing scientific and presentation authority retained."
+}

@@ -15,6 +15,7 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 09 | [Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
 | 10 | [Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
+| 12 | [Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | Personal skill and new-work storage rule adapted; dependency-aware migration planned. Existing source manuscripts, builders, guide paths and notes remain unchanged. |
 
 Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 

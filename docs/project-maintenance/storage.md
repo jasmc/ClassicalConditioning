@@ -2,6 +2,12 @@
 
 Permanent media, HTML reviews, numerical payloads and superseded candidate code belong on JOAQUIM. One self-contained review embeds requested versions, legends and provenance; one recorded working SVG per frozen/draft state is permitted by the figure workflow. Temporary previews are removed after verification.
 
+Editable study/discussion/comparison Markdown also belongs beside its HTML on
+JOAQUIM under the [study-artifact policy](review-artifacts.md). Plans remain in
+Git; instructions, approved definitions, operating documentation and compact
+authority/recovery records retain their repository roles. Existing source and
+notebook migrations follow [Plan 12](../../Plans/12_STUDY_ARTIFACT_STORAGE.md).
+
 Use an explicit external destination or `CLASSICAL_CONDITIONING_ARTIFACT_ROOT`; the configured directory must exist outside the repository. Never fabricate a missing mount. `CLASSICAL_CONDITIONING_ARCHIVE_ROOT` can identify a verified archive.
 
 `ClassicalConditioning Outputs/current/` contains current working outputs; historical artifacts are retained or placed in separately indexed history/archive locations. A dated snapshot or published archive may supply a current accepted panel. Do not infer supersession from its location.

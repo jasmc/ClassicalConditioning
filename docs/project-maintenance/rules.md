@@ -18,6 +18,7 @@ their owners; this page is navigation, not a second scientific decision register
 | Running code, parameters and outputs | [Running-analysis](../running-analysis/README.md) |
 | Future work and progress | [Plans](../../Plans/README.md), [sole status index](../../Plans/IMPLEMENTATION_STEP_INDEX.md) |
 | Storage, exact recovery and historical disposition | [Storage](storage.md), [archive records](../../records/repository-archive/README.md) |
+| Study/discussion Markdown and HTML; reusable guide workflow | [Study-artifact policy](review-artifacts.md), personal `analysis-review-guide`; [migration plan](../../Plans/12_STUDY_ARTIFACT_STORAGE.md) |
 | Supported versus historical tools | [Script lifecycle](script-lifecycle.md), [tool catalogue](../../scripts/README.md) |
 
 Scientific selection, presentation selection and storage location are separate.

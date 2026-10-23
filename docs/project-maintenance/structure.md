@@ -4,8 +4,8 @@ Author-requested reorganization, 2026-10-13. Everyday paper work is figure-led; 
 
 | Location | Owns | Does not own |
 |---|---|---|
-| `docs/paper/figures/` | Figure purpose, selected panel navigation, legends, current state, review, figure-specific assembly | Duplicated shared methods, frozen code, generated media |
-| `docs/paper/methods/` | Shared scientific definitions and contracts, including individual learning | A separate folder per scientific workstream, commands or progress |
+| `docs/paper/figures/` | Figure purpose, selected panel navigation, legends, current state, review navigation and scoped concerns, figure-specific assembly | Duplicated shared methods, frozen code, generated media |
+| `docs/paper/methods/` | Shared scientific definitions and contracts, including individual learning; full candidate-method study texts migrate under Plan 12 | A separate folder per scientific workstream, commands or progress |
 | `docs/paper/decisions.md`, `review.md` | Current scoped choices and cross-paper concerns | Copies of all audit evidence |
 | `docs/running-analysis/` | Running the supported code, parameters, interfaces, outputs, troubleshooting | Scientific approval or repository cleanup |
 | `docs/project-maintenance/` | Current organization, governance and storage procedures | Historical inventories and completed cleanup reports |
@@ -21,6 +21,13 @@ Author-requested reorganization, 2026-10-13. Everyday paper work is figure-led; 
 | External storage | Permanent media, review HTML, recorded working SVGs, numerical payloads, superseded candidate code | New repository-local permanent exports |
 
 One topic has one canonical home. Create a panel or joint-panel folder only when separate work warrants it; joint records are linked rather than duplicated. Learner analysis is a shared-method topic and Figure 3/4 concern, not a special documentation branch.
+
+Author direction, 23 October 2026: full study/discussion/comparison manuscripts
+belong with their HTML on JOAQUIM, including Markdown. The [study-artifact policy](review-artifacts.md)
+distinguishes them from plans, approved definitions, instructions and operational
+documentation. Existing local narratives remain pending the dependency-aware
+[migration plan](../../Plans/12_STUDY_ARTIFACT_STORAGE.md); preserved byte-sensitive
+records are not moved or weakened automatically.
 
 Scientific status (accepted/proposed/superseded), presentation status (frozen display/active draft) and storage role (local record/external archive) are independent. Age and filenames do not establish authority. `current-state.json` is the sole scoped presentation pointer. Other JSON evidence is version-bound. Existing indexes may be mutable; frozen records and published transfer checkpoints are not.
 
