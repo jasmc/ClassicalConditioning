@@ -41,3 +41,5 @@ tests verify local corruption still fails in a relocated checkout.
 identities. Verification is recorded separately after the checks complete.
 
 The external audit detected [four current working-copy hash mismatches](external-working-copy-mismatches.json) in the Figure 1/2 HTML/SVG pairs. All recorded states and observed files were preserved. This finding remains open for scoped figure reconciliation; it is not an archive-transaction failure or an organization-rule exception.
+
+The [first GitHub Actions run](https://github.com/jasmc/ClassicalConditioning/actions/runs/39988200887) was created after push, but no job steps started: GitHub reports the account locked due to a billing issue. The isolated local locked-environment checks passed. The repository owner must resolve that account issue before hosted execution can be verified.

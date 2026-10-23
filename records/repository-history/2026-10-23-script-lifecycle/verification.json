@@ -19,7 +19,7 @@
     "structure_check": "passed with no issues",
     "repository_archive_tests": 46,
     "tests_result": "passed",
-    "actual_linux_github_actions_run": "not yet observed"
+    "actual_linux_github_actions_run": "Created, but job never started: account locked due to billing issue."
   },
   "protection": {
     "starting_hashes_checked": 124,
@@ -56,5 +56,14 @@
     "tests": 46,
     "tests_result": "passed",
     "concurrent_guide_comparison_sources_and_records_excluded": true
+  },
+  "github_actions": {
+    "commit": "6cfd49e1a5f691891ad0d92ba3e142d17d56a7b3",
+    "run_id": 39988200887,
+    "job_id": 120532796116,
+    "url": "https://github.com/jasmc/ClassicalConditioning/actions/runs/39988200887",
+    "conclusion": "failure before any job steps; runner_id 0",
+    "annotation": "The job was not started because your account is locked due to a billing issue.",
+    "next_action": "Repository owner resolves GitHub account billing; rerun workflow afterwards. No account settings or billing changes attempted."
   }
 }
