@@ -35,3 +35,7 @@ These roles describe the paper composition; proposed panels have no accepted fre
 
 
 Current display: [Figure 2 state](current-state.json). [A scientific definition and scoped state](panel-a/README.md). The top row contains A/B/C with two heatmaps each and one shared colourbar at the far right. A is frozen; B retains earlier data by author direction; C has two pending slots. Future B/C must follow A’s pooled pipeline and the Figure 1 F/G/H element formatting.
+
+## Review discussions and alternatives
+
+The [review library](../review-library.md) links G discussions and independent alternatives, plus the later [H](panel-h/README.md) and [I](panel-i/README.md) SSD drafts. The panel composition above reflects the repository-selected state; later unselected SSD results are listed separately for review.

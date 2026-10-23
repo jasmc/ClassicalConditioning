@@ -66,3 +66,5 @@ atlas accounts for excluded/unclassified fish and unavailable recordings as
 well as classified fish. Aggregate Control/Learner/Nonlearner behavioral
 comparisons within/across experiments belong in Figure 4 only. Controls here
 serve calibration/reference and individual audit purposes.
+
+Use the [review library](../review-library.md#figure-3) for the discussion guide, both Markdown conversation summaries, the selected Delay draft and later assay-specific SSD alternatives.

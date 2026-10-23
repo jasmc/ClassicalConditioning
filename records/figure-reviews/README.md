@@ -1,7 +1,16 @@
 # Figure reviews
 
-Version-bound review verification, semantic/presentation measurements and provenance. The sole current presentation pointer lives in docs/paper/figures/figure-01/current-state.json. Media remain on JOAQUIM.
+Version-bound measurements, review verification and preserved discussion records.
+Current presentation pointers live with each figure under `docs/paper/figures/`;
+these evidence records do not select a newer draft by filename.
 
-Use [project documentation](../../docs/README.md) for current guidance. Historical relative paths resolve through the repository relocation map.
+Start with the [review library](../../docs/paper/figures/review-library.md) for
+Figure 2 G/H/I, Figure 3 and Figure 4 HTML, Markdown and alternatives on JOAQUIM.
 
-- [figure-01](figure-01/)
+- [Figure 1 evidence](figure-01/)
+- [Figure 2 evidence](figure-02/) — includes G teaching-guide and chat-completeness records
+- [Figure 3 evidence](figure-03/) — includes the review guide and conversation checkpoints
+- [Figure 4 evidence](figure-04/) — planning HTML identity and readable Markdown discussion
+
+Permanent media remain on JOAQUIM. Exact accepted definitions remain in the
+[freeze index](../frozen-analyses/selections.md).

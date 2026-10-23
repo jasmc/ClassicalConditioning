@@ -1,0 +1,25 @@
+{
+  "scope": "standalone 10sTrace candidate comparison",
+  "author_request": "adjust color to -0.1 to 0.1",
+  "state": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace10-learner-selection-20261020/current-state.json",
+    "sha256": "112cbe9c7d755941d85882c7743690d8758236476724f73a6e4d4864ffb6927f"
+  },
+  "limits": [
+    -0.1,
+    0.1
+  ],
+  "heatmaps": 7,
+  "source_pixels_reconstructed_exactly": true,
+  "svg_change_allowlist_verified": [
+    "7 heatmap image payloads",
+    "2 colourbar labels",
+    "sidecar hashes"
+  ],
+  "other_starting_inputs_verified_unchanged": 53,
+  "static_render_review": "passed; sharp/libvips",
+  "browser_refresh": "blocked by local-file URL policy; user reload needed",
+  "main_figures_changed": false,
+  "preferred_panel_changed": false,
+  "new_freeze": false
+}

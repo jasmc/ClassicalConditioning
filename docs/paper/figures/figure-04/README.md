@@ -19,3 +19,5 @@ These roles describe the paper composition; proposed panels have no accepted fre
 | A | Delay learner and nonlearner signed CR profiles across nine blocks and pooled catches, with control classifier groups |
 | B | 3sTrace learner and nonlearner signed CR profiles across nine blocks and pooled catches, with control classifier groups |
 | C | 10sTrace learner and nonlearner signed CR profiles across nine blocks and pooled catches, with control classifier groups |
+
+Use the [review library](../review-library.md#figure-4) for the preserved discussion in HTML/Markdown, condition-only profiles, score-group alternatives and the later Delay/3sTrace model pilots. These saved drafts do not close the approval gates above.

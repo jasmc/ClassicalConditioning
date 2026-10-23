@@ -1,0 +1,25 @@
+{
+  "index": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html",
+  "markdown_index": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md",
+  "publication": {
+    "html_sha256": "b6a09306c47f78bc815d1e32f7a94b1159270c16dd097bdf82fb9ae85d1030b8",
+    "snapshot": "review-library/41f93a0882fe7f38",
+    "markdown_sha256": "e800a65b02b2617b9013d0cb52d2b586afcb178a23d6b94f9747a32796733707",
+    "manifest_sha256": "9056e6cef3a58985315a34dfb6363d80027ea2cad01610df115acd974e7eb65e",
+    "entries": 45
+  },
+  "manifest": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/41f93a0882fe7f38/manifest.json",
+    "sha256": "9056e6cef3a58985315a34dfb6363d80027ea2cad01610df115acd974e7eb65e"
+  },
+  "generated_html_pages_checked": 14,
+  "generated_html_links_checked": 654,
+  "stable_markdown_links_checked": 46,
+  "broken_generated_links": [],
+  "existing_reading_artifacts_rechecked": 568,
+  "unchanged_existing_reading_artifacts": 567,
+  "authorized_navigation_only_change": [
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/README.md"
+  ],
+  "browser_preview": "Blocked by in-app browser file-protocol policy. Static checks only; no rendering/interaction check or workaround claimed."
+}

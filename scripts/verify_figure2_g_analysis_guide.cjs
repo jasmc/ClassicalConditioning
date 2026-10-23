@@ -25,7 +25,9 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
       otherPanelsInG:document.querySelector('#figure-current-g').querySelectorAll('#panel-H,#panel-I,#panel-D').length,
       currentLegend:document.querySelector('#figure-current-g + details').textContent,
     }));
-    assert.equal(structure.chapters,14);assert.equal(structure.notebooks,13);
+    const guideConfig=await page.locator('#guide-config').textContent().then(JSON.parse);
+    assert.equal(structure.chapters,guideConfig.sections.length+1);
+    assert.equal(structure.notebooks,guideConfig.sections.length);
     assert.equal(structure.unresolved,false);assert.deepEqual(structure.deadAnchors,[]);
     assert.deepEqual(structure.duplicateIds,[]);assert.equal(structure.otherPanelsInG,0);
     assert.ok(structure.currentLegend.includes('(g) Delay experiment'));
@@ -96,6 +98,28 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
     await page.setViewportSize({width:1350,height:1000});
     await page.goto(url);
     await page.pdf({path:path.join(out,'guide-print-check.pdf'),preferCSSPageSize:true,printBackground:true});
+    // Compatible pre-supplement notes must survive the added chapter unchanged.
+    if(guideConfig.sections.length>13){
+      const migration=await browser.newContext({acceptDownloads:true});
+      const migrated=await migration.newPage();await migrated.goto(url,{waitUntil:'networkidle'});
+      const legacy=structuredClone(exported);
+      const added=guideConfig.sections.at(-1).id;delete legacy.sections[added];
+      await migrated.evaluate(value=>localStorage.setItem(GuideNotebook.storageKey,JSON.stringify(value)),legacy);
+      await migrated.reload({waitUntil:'networkidle'});
+      assert.equal(await migrated.locator('.notebook').first().locator('[data-field="understanding"]').inputValue(),sample);
+      const extra=migrated.locator(`.notebook[data-section="${added}"]`);
+      await extra.locator('summary').click();await extra.locator('[data-field="questions"]').fill('Keep my old notes and this new question.');
+      await migrated.reload({waitUntil:'networkidle'});
+      assert.equal(await migrated.locator('.notebook').first().locator('[data-field="understanding"]').inputValue(),sample);
+      assert.equal(await extra.locator('[data-field="questions"]').inputValue(),'Keep my old notes and this new question.');
+      await migrated.setViewportSize({width:1350,height:1000});
+      await migrated.goto(url+'#'+added);await migrated.screenshot({path:path.join(out,'completion-desktop.png')});
+      await migrated.setViewportSize({width:390,height:844});
+      await migrated.reload({waitUntil:'networkidle'});
+      assert.ok(await migrated.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      await migrated.screenshot({path:path.join(out,'completion-narrow.png')});
+      await migration.close();
+    }
     // Browser saving unavailable must be explicit, with export still usable.
     const blocked=await browser.newContext({viewport:{width:1100,height:800},acceptDownloads:true});
     await blocked.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw new Error('storage disabled for test');}}));
@@ -110,7 +134,7 @@ const sha = b => crypto.createHash('sha256').update(b).digest('hex');
     await blocked.close();
     assert.deepEqual(errors,[]);assert.deepEqual(badResponses,[]);
     const report={url,checked_at:new Date().toISOString(),structure,decoded_images:decoded,mobile,errors,badResponses,
-      tests:['source anchors and unique IDs','G-only current excerpt and matching legend','all artwork decoded','saved phase values','note persistence after reload','real export download','import mismatch preview','cancel preserves notes','confirmed import preserves downloadable backup','malformed import preserves notes','text treated as text','chapter search','narrow viewport','print rendering','storage-disabled export'],
+      tests:['source anchors and unique IDs','G-only current excerpt and matching legend','all artwork decoded','saved phase values','note persistence after reload','real export download','import mismatch preview','cancel preserves notes','confirmed import preserves downloadable backup','malformed import preserves notes','text treated as text','chapter search','narrow viewport','print rendering','storage-disabled export',...(guideConfig.sections.length>13?['pre-supplement notes retained alongside new chapter notes']:[])],
       artifacts:fs.readdirSync(out).filter(n=>fs.statSync(path.join(out,n)).isFile()).map(n=>({path:n,sha256:sha(fs.readFileSync(path.join(out,n)))}))};
     fs.writeFileSync(path.join(out,'browser-verification.json'),JSON.stringify(report,null,2)+'\n');
     console.log(JSON.stringify({passed:true,tests:report.tests.length,images:decoded.length,mobile,report:path.join(out,'browser-verification.json')},null,2));

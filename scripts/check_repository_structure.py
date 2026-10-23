@@ -56,6 +56,13 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     unavailable: list[str] = []
     policy = json.loads((repo / 'docs/project-maintenance/structure-policy.json').read_text())
     aliases = policy.get('recorded_repository_roots', [])
+    reading_catalogue = repo / 'docs/paper/figures/review-library.json'
+    if reading_catalogue.is_file():
+        spec = importlib.util.spec_from_file_location('review_library', repo / 'scripts/review_library.py')
+        library = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(library)
+        reading_report = library.check(json.loads(reading_catalogue.read_text()), repo, external=external)
+        issues.extend('Review library: ' + issue for issue in reading_report['issues'])
     exceptions = set(policy['compatibility_files'])
     for path in (repo / 'docs').rglob('*'):
         if not path.is_file():

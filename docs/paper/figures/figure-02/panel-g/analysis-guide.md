@@ -838,3 +838,300 @@ For an exclusion result, compare the recipe name in the phase table with the sav
 The guide’s source copies are explanatory evidence snapshots, not replacements for the immutable frozen source layout. SHA-256 identity establishes that bytes match; it does not establish that a model is statistically appropriate. If source state later changes, build a new dated guide rather than treating this snapshot as automatically current.
 
 {{sources:analysis-manifest,frozen-inventory,analysis-legacy-sensitivity-membership,bout-classification}}
+
+## 14. Chat completion: clarifications, model teaching and next steps
+
+**Added 23 October 2026 before the source chat is deleted.** Chapters 1–13
+remain the October evidence snapshot. This supplement preserves the later
+discussion, the author's clarification, the GAMM proposal and the questions
+handed to a new chat. It adds explanation, not a new analysis or scientific
+selection. It is a substantive summary, not a verbatim chat transcript.
+
+### The author's intended quantity is now explicit
+
+Joaquim clarified: **“the intensity of movement when valid bouts are detected
+across the whole window.”** This resolves the open wording question in chapter
+2: the intended quantity is conditional movement intensity. It is not the
+probability of moving, time spent moving, or zero-inclusive total activity.
+
+The selected estimator pools eligible **frame values** from all detected bouts
+within each window, then takes their median after logging. It does not first
+give each bout one equal-weight average. A longer bout normally contributes
+more frames. It is a typical logged intensity, not an arithmetic mean intensity.
+Whether a different bout weighting or arithmetic summary better expresses the
+biological intention remains a possible outcome decision, not a change made here.
+
+### From the recording to the number fitted by an LME
+
+For fish i and scheduled CS trial t:
+
+1. Use the selected legacy distal angular-speed metric and corrected bout
+   eligibility. Retain valid adjacent bout frames (FrameStep = 1) with finite,
+   strictly positive vigor. Non-bout samples are not set to zero and included.
+2. Select baseline [−15,0) s and response [0,9) s relative to CS onset. Take the
+   natural logarithm of each retained frame value once.
+3. Compute Bᵢₜ = median of baseline log values and Rᵢₜ = median of response log
+   values. The displayed fish-trial outcome is zᵢₜ = Rᵢₜ − Bᵢₜ. There is no
+   additional log(x+1), rolling median or downsampling in selected G.
+4. A paired outcome requires both summaries. An empty valid window gives an
+   undefined conditional-intensity outcome; it is not evidence of zero intensity.
+   The LME uses available fish-trial rows, not condition averages. The cohort is
+   still 28 controls and 29 Delay fish; 4,811 of 5,130 scheduled pairs are usable.
+5. For the descriptive line only, take the median z across available fish at
+   each trial. Its 5,000 whole-fish bootstrap resamples (seed 10) give pointwise
+   percentile confidence intervals. This bootstrap does not generate the stars.
+
+Chapter 5 compares arithmetic means, literal medians, log arithmetic-mean
+ratios, medians of logs and means of logs. Those are different estimators.
+In particular, taking a log after averaging does not undo the influence of a
+large burst on that arithmetic average.
+
+### What the fixed and random terms mean
+
+An explanatory equation for selected G's longitudinal model is:
+
+<div class="formula">Rᵢₜ = βᴮ Bᵢₜ + m(conditionᵢ, phaseₜ, trialₜ)
+ + b₀ᵢ + b₁ᵢ sₜ + εᵢₜ.</div>
+
+Here **R** and **B** are measured window summaries, **m** is the population
+fixed-effect mean, **s** is scaled scheduled trial, **b₀** is a fish-specific
+random intercept, **b₁** is a fish-specific random slope, and **ε** is the trial
+residual. A fixed intercept is included inside m. “Fixed” does not mean known:
+the population coefficients, including βᴮ, are estimated from data.
+
+The random intercept lets fish sit consistently above or below the population
+curve. The random slope lets that deviation change linearly with scaled trial.
+Their covariance is estimated: fish starting higher may tend to drift differently.
+These random effects do not supply a separate unconstrained learning curve to
+every fish. Population condition contrasts use fixed effects, not the median
+of fitted individual curves. The Gaussian LMM represents fish effects by a
+shared mean-zero covariance and residuals by an additional noise distribution;
+random intercept/slope alone does not model every possible serial dependence.
+
+**Analyst settings versus fitted parameters:** windows, references, spline
+degree/complexity, random-effect structure, estimation method, bootstrap count,
+seed and multiplicity family are settings. Regression coefficients, baseline
+coefficient, random-effect variances/covariance and residual variance are fitted
+parameters. A seed makes resampling reproducible; it does not improve validity.
+
+### Settings of the different analyses—do not mix versions
+
+| Analysis | Response and fixed effects | Random effects and inference |
+| --- | --- | --- |
+| Selected D block model | R with B covariate; condition × categorical 10-trial block, Pre reference | Fish intercept plus scaled-trial slope; ML; eight non-Pre condition×block interactions, Holm8 |
+| Selected local M/R models | R with B covariate; condition × centered within-block trial; separate fit per block | Fish intercept; M is the centered condition level difference; R is the slope interaction; BH9 separately for each family, with raw R also shown |
+| Selected phase-aware trial model | R with B covariate; condition interactions with phase intercepts, linear Pre and separate cubic df4 Train/Test bases | Fish intercept plus scaled-trial slope; ML; trial contrast is change from mean Pre gap; BH90 |
+| Older global spline comparison | Baseline-adjusted log response with condition × cubic df5 global spline | An alternative mean function across phases; its old stars are not transferable to the selected phase model |
+| Independent direct-change model | z = R−B with the phase-aware condition mean above | Same fish intercept/slope structure; 999 whole-fish model refits requested; 989 accepted |
+| Independent adjusted-response model | R with estimated B coefficient and the same phase-aware condition mean | Same structure; 999 refits requested and accepted |
+| Independent unsmoothed comparator | Fish-level changes from each fish's available Pre mean; planned phase averages | No spline LME; fish-resampled comparison, different estimator and wider uncertainty |
+
+Selected G's phase fit records **lbfgs**, 25 fixed-design columns/rank 25,
+4,811 observations, 57 fish and no random-structure fallback. Its saved
+[diagnostics](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/selected-phase-diagnostics.json>) record convergence and
+a boundary warning; the Test3 local fit is unavailable because it is singular.
+Unavailable local tests entered BH as p = 1, retaining nine scheduled tests.
+The complete selected local-test CSV remains unrecovered; do not reconstruct
+unknown values from the stars or assume software defaults prove executed settings.
+
+For the independent phase construction, scheduled trials are 5–94;
+s = (trial−49.5)/SD(5,…,94), using the population SD. The Pre term is
+(trial−9.5)/9 inside Pre and zero elsewhere. Train u = (trial−15)/49;
+Test u = (trial−65)/29. Each has four cubic B-spline basis columns, with
+include_intercept=False and bounds [0,1]; phase intercepts are separate and
+continuity is not imposed. With df4 and degree3, the basis construction has one
+interior knot at the median of its phase grid. Condition reference is control;
+phase reference is Pre. See the copied
+[independent model implementation](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-population-code.py>).
+
+The independent review configuration uses seed **20261014**, persistence **3**,
+threshold fractions **0, 0.05, 0.10, 0.20**, minimum local fish **6** and minimum
+bootstrap success fraction **0.95**. Its planned windows are CS55–64, 65–74 and
+85–94. Simultaneous uncertainty covers 90 scheduled trial contrasts plus those
+three averages. These settings are exploratory, not newly approved definitions.
+
+The saved main independent diagnostics identify lbfgs and no fallback.
+The implementation has an lbfgs→Powell numerical retry route without silently
+dropping the random slope. A later sufficient-statistics backend implements
+Gaussian ML with explicit optimizer tolerances; its current source settings
+must not be retroactively assigned to every older saved fit. Current code and
+the broader CLI parameter reference are copied for inspection, alongside the
+saved run diagnostics. An unrecovered historical optimizer option remains
+unrecovered, rather than being filled from a current default.
+
+### Baseline subtraction versus adjustment: a worked explanation
+
+**Subtraction** models z = R−B. Rewriting R = B + other terms fixes the baseline
+coefficient at exactly 1. It asks how the response differs from that trial's
+own baseline on the chosen log scale. It is direct, but baseline measurement
+noise enters the difference and a unit relationship is imposed.
+
+**Adjustment** models R = βᴮB + other terms and estimates βᴮ. It compares the
+population responses at a common baseline value, given that model. It does not
+simply replace the plotted subtraction by a new subtraction performed manually.
+
+**Toy example, not fitted data:** if the fitted βᴮ were 0.4, a baseline increase
+of 0.2 log units would predict a response increase of 0.08, holding the other
+terms fixed. Direct subtraction instead uses a coefficient of 1 and subtracts
+the full 0.2. Neither example is the measured coefficient in this experiment.
+
+Adjustment can help when the baseline-response relationship is not one-to-one.
+It can also change the scientific question: if training affects the pre-CS
+baseline, conditioning on that baseline may remove part of the behavioral
+change of interest. Baseline measurement error and model form matter for both.
+Neither method is automatically superior. Their disagreement in early Testing
+is a substantive sensitivity, not a reason to choose the more significant result.
+
+The **Pre-training reference** is a separate operation: subtracting the average
+Control–Delay gap over CS5–14 from the fitted gap at each later trial. A trial's
+pre-CS baseline B and the ten-trial Pre period must not be conflated.
+
+### Residuals, tails and the meaning of validation
+
+A conditional residual is observed R minus the fitted fixed mean and fitted
+fish deviation (and baseline contribution). It is what the model has not
+explained for that observation. Between-fish variation represented by b₀/b₁
+is not the same as the residual noise. Large residuals can reflect unusual
+behavior, errors, omitted structure or a poorly chosen distribution.
+
+Heavy tails mean extreme residuals occur more often than a Gaussian noise
+model anticipates. Selected G's phase residual excess kurtosis is about
+**8.027**, compared with zero for a Gaussian reference. That warning does not
+by itself tell us the biological effect is false; it challenges the calibration
+of model-based standard errors and p-values. Autocorrelation, unequal variance
+and smooth-curve bias need their own checks.
+
+Numerical checks ask whether the specified calculation was solved reliably:
+convergence, design rank, covariance/Hessian behavior, reproducibility and
+optimizer agreement. Scientific validation asks whether the entire procedure
+answers the intended question with adequate bias, coverage and error rates
+under relevant conditions. Chapters 6–8 preserve corrected attempts and failed
+smooth-model calibration. Successful optimization or matching another program
+is not validation of biological acquisition timing.
+
+### IQR, confidence intervals and multiplicity without shortcuts
+
+An **IQR** spans the middle half of observed fish values: it describes fish
+heterogeneity. A **confidence interval** describes uncertainty in an estimated
+population summary. More fish can narrow a CI without narrowing the population's
+IQR. G's descriptive shading is a pointwise bootstrap CI, not an IQR or the
+model interval underlying its stars. A simultaneous band targets a declared
+family together; ordinary pointwise bands do not.
+
+**Toy three-test example:** sorted raw p-values are 0.01, 0.03 and 0.04.
+At familywise level 0.05, Holm compares them sequentially with 0.05/3,
+0.05/2 and 0.05: the first passes, the second fails and testing stops.
+BH compares sorted p-values with rank×0.05/3 and takes the largest passing
+rank; here the third passes, so all three are rejected. This is not a result
+from the fish data. It shows why the procedures can give different markings.
+
+Holm controls the chance of **any** false rejection in its declared family
+when the component p-values are valid. BH controls an expected false-discovery
+proportion under its applicable dependence assumptions; it does not mean each
+star has a 5% chance of being false. Neither fixes a biased curve or invalid
+component tests. The families in G are Holm8 for D, BH9 separately for M/R,
+and BH90 for the trial strip. A simultaneous-band declaration is different
+from BH discoveries, even when both are drawn with asterisks.
+
+### The black trial stars, step by step
+
+1. Fit the adjusted response phase model to fish-trial rows.
+2. Predict the Control and Delay population means at the same baseline value
+   and each scheduled trial, using fixed effects.
+3. Form Control−Delay at that trial, then subtract its average over Pre5–14.
+4. Use the fitted coefficient covariance for the contrast standard error and
+   two-sided model-based test. Apply BH over 90 scheduled tests.
+5. Mark rejected trials: the selected saved strip is CS19–71.
+
+The spline shares information across trials, so a star is not an isolated
+comparison of the fish observed on that trial. The strip does not directly
+test the plotted condition medians, and CS19 is not an acquisition estimate.
+The independent whole-fish refit max-statistic bands are a different uncertainty
+procedure, not a relabeling of these p-values. The fitted change contrast and
+its covariance are described in chapter 4 and the copied source tables.
+
+### What the later GAMM discussion proposed
+
+The pasted other-chat summary suggested one hierarchical GAMM for global,
+block and trial differences and sustained divergence. It was a **proposal**;
+we did not establish an executed population GAMM comparison or its superiority.
+Current G is already nonlinear: “linear mixed model” refers to its coefficients,
+not a requirement for a straight trajectory. A GAMM comparison concerns penalized
+smoothness, boundary structure and within-fish dependence. It need not change
+to a non-Gaussian family. LME/LMM is a statistical model; LLM is not its fitter.
+
+That proposal defined Delay−Control level separation; current G tests the
+opposite-sign, Pre-anchored change. Both the sign and the estimand differ.
+One model also does not turn global, block, trial and timing claims into a
+single multiplicity-free hypothesis.
+
+The response is measured before the expected US. If cues and context are
+unchanged, the first Test response occurs before the first omitted US is
+experienced. This motivates testing continuity from last Train to first Test,
+rather than automatically allowing an arbitrary jump. It does not prove that
+one smooth curve across all phases is correct, especially with session gaps or
+context changes. The protocol and actual timing must be checked.
+
+The [saved GAMM exploration plan](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-plan03.md>) compares the
+existing phase LMM, penalized phase-aware and continuity-linked GAMMs, a
+categorical-block LMM and the unsmoothed fish comparator. It calls for the same
+outcomes/cohort where possible, explicit estimands, dependence and missingness
+checks, fish-level uncertainty and calibration for abrupt, gradual, plateau,
+transient, null and pre-existing effects. Pros: adaptable nonlinear trajectories
+and estimated regularization. Cons: oversmoothing, boundary assumptions,
+complex uncertainty and limited independent fish. No candidate is primary merely
+because it looks smoother, yields earlier stars or has better AIC.
+
+The [original pasted summary](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-other-chat-summary.txt>) is
+saved here so it does not depend on this chat's attachment storage. Its proposed
+individual-classifier features are discussion, not verified legacy implementation
+definitions. Exact historical rules and counts remain in chapter 10.
+
+### Figure 3: is extinction during Testing considered?
+
+**Current descriptive draft, checked 23 October:** its acquisition score is
+median z over Pre5–14 minus median z over late Train40–64. Testing65–94 does
+not enter the score. It shows continuous magnitudes and illustrative fish, not
+validated binary learner labels. Prior inspection of Testing also prevents
+calling those observations prospectively untouched validation data.
+
+**Legacy classifiers:** their final labels combine acquisition-direction
+suppression with later recovery-direction change. Thus Testing/recovery can
+affect the labels, but this selects an acquisition-plus-recovery phenotype;
+it is not a separate validated extinction test. Same-data Testing differences
+after such classification are partly built into the rule.
+
+An extinction claim needs a defined acquired response, reference, decline or
+small-remaining-effect criterion, uncertainty and validation. Failure to reject
+a late condition difference does not establish extinction. See the saved
+[Figure 3 draft methods](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-figure3-methods.md>),
+[scoped draft state](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-figure3-state.json>) and
+[individual-learning review](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-individual-methods.md>).
+
+### Questions, decisions and handover retained from this chat
+
+| Item | Status / where to continue |
+| --- | --- |
+| Conditional bout intensity is the author's intended quantity | Clarified above; final aggregation/weighting remains a scientific choice |
+| Explain all configured versus fitted LME parameters | Teaching and settings above; chapters 4–6; saved diagnostics/code/reference copies; historical missing settings remain explicit |
+| Explain subtraction, adjustment, IQR/CI, multiplicity and trial stars | Worked explanations above and chapters 3–5 |
+| Account for missing trials without automatic whole-fish discarding | Chapter 9; unequal availability remains a limitation |
+| Preserve historical exclusions, learner outputs and denominators | Chapters 9–10; original executed discard rosters remain an evidence gap |
+| Compare current G with the independent revision and figure layouts | Chapters 6, 8, 11–12; no declaration of full validation |
+| Explore GAMM and the Train/Test boundary | Saved Plan 03, cross-referenced in Plan 06; proposed, not executed/selected here |
+| Distinguish acquisition, individual learning and extinction | Chapters 7, 10, 12 and this supplement; no precise acquisition or extinction claim established |
+| Continue discussion in a clean chat | Created 22 October: “Figure 2 G — understand the models and statistics”, ID 01a16455-ca03-7de2-99a8-b433863ec2da; it received these questions, sources and guide location |
+| Choose a final replacement analysis or freeze | Not done in this chat; remains the author's later decision |
+
+The new chat's later answers are not silently incorporated here: this document
+preserves this source chat's relevant content and unresolved questions. The
+guide is usable without either chat. Sources are copied into this bundle;
+permanent external links still require internet access.
+
+**Before deleting the chat:** keep the whole guide folder, not only review.html,
+because figures and source copies use relative paths. Export any personal
+notebook notes as JSON. Notes live in browser storage and are not automatically
+written into the HTML; this update preserves the guide ID, source-note key,
+original chapter IDs and server origin so existing notes remain addressable.
+The dated supplement is bound separately in the evidence manifest. Deleting
+a chat is not an archival mechanism for browser notes.

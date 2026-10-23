@@ -28,3 +28,5 @@ jobs:
         run: uv run --no-sync python scripts/check_repository_structure.py
       - name: Test organization and archive safeguards
         run: uv run --no-sync python -m unittest discover -s tests -p 'test_repository_*.py' -v
+      - name: Test review navigation and preservation
+        run: uv run --no-sync python -m unittest discover -s tests -p 'test_review_library.py' -v

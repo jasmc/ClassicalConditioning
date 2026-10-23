@@ -4,7 +4,9 @@ Preserved scientific audits, supporting decision evidence, legacy descriptions a
 
 Use [project documentation](../../docs/README.md) for current guidance. Historical relative paths resolve through the repository relocation map.
 
-- [audits](audits/)
-- [decisions](decisions/)
+- [audits](audits/INDEX.md)
+- [decisions](decisions/INDEX.md)
 - [designs](designs/)
 - [legacy](legacy/)
+
+The linked maintained indexes provide working navigation around byte-preserved historical documents.

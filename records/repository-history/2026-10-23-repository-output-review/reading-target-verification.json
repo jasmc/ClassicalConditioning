@@ -1,0 +1,233 @@
+{
+  "issues": [],
+  "groups": 5,
+  "entries": 45,
+  "checked": [
+    {
+      "id": "g-guide",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
+      "sha256": "c25b2fc2f91bee06720ff59b8d60f4cc6fe181b786449988db8ad8decbe1ae95"
+    },
+    {
+      "id": "g-manuscript",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+      "sha256": "7324cb7f9a15fe7152fef73aae93d12b8dc96be263777f3712076b29540af6ab"
+    },
+    {
+      "id": "g-selection",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/README.md",
+      "sha256": "b727d146bd417ed053fd93e8dfe8cb8e76582c093d508cef5701d31f6f45367f"
+    },
+    {
+      "id": "g-draft",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/review.html",
+      "sha256": "b4d4b7466c0119563f8be73ee14209f699c7ba037957bcab633b4c2630bd417a"
+    },
+    {
+      "id": "g-independent",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/review.html",
+      "sha256": "72446d020053b80f22cce648889ca97f2797158757a3e15c69e2ecc6495dccca"
+    },
+    {
+      "id": "g-comparison",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/scientific-evidence/analyses/figure-02-g-independent/current-G-comparison-2026-10-15.md",
+      "sha256": "1c304e33a59ddb4ee47924f3018989278012587b05d1bf2e2e6b546a186df9c5"
+    },
+    {
+      "id": "g-gamm",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/03_FIGURE_2_LEARNING_ONSET.md",
+      "sha256": "5942732a5e5cf2b46340fbd6ec7b2d93c2856021558a78fa94126d07c8a76ff0"
+    },
+    {
+      "id": "g-history",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/reviews/figure2_delay_all_versions_20261009.html",
+      "sha256": "774f8cc7769503b8a9363271dfccfbc1fc65ac90275425e2e1dafc4f4dac4599"
+    },
+    {
+      "id": "h-descriptive",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/figure2-E-H.html",
+      "sha256": "2154f08213930d703798b5e6c7ab5bbc337daaa8b57f1bb0b3ff7abd80c1fadc"
+    },
+    {
+      "id": "h-model",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched.html",
+      "sha256": "7feffddae0bd831bf3ecdc29561130cf0cce6b26defa92c9c90c4f7c6e6f4a82"
+    },
+    {
+      "id": "h-legend",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched-legend.md",
+      "sha256": "8830aad1f419f66db3d3c296398f2cbf30ba3d60005c259c33cc8fc4d6e70c60"
+    },
+    {
+      "id": "h-diagnostics",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/phase-adequacy.json",
+      "sha256": "38395943a61b754192af4c9ccaa9c2f83decd91e315f256d240e432782de1d15"
+    },
+    {
+      "id": "ghi-decisions",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md",
+      "sha256": "cb5515a7d62bc663b507f733eb1c06a264dafbd9251291d2a3308cd5116c4c00"
+    },
+    {
+      "id": "h-notes",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-h/README.md",
+      "sha256": "99edfaa7601949307b10dc8ce1f098d2a8b86a713e80034d0607966dd0bae4cc"
+    },
+    {
+      "id": "i-render",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/figure2.html",
+      "sha256": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8"
+    },
+    {
+      "id": "i-legend",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/legend.md",
+      "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31"
+    },
+    {
+      "id": "i-evidence",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/scientific-evidence.json",
+      "sha256": "b5d0a06d03af5b562659565b00a8fdcffc30020cb3f6de6eae3dcca12e367153"
+    },
+    {
+      "id": "i-diagnostics",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/I-models/phase-adequacy.json",
+      "sha256": "d227b6629e00ce469f1127c0d578a630b7f4edc818184b5cb14acc5d79f78362"
+    },
+    {
+      "id": "i-range",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-exploratory-range-20261020/figure2-review.html",
+      "sha256": "229feb7b3ddc87200d1ccf108ae65219a25ee620ca7e33b5a5fcfe600304a26f"
+    },
+    {
+      "id": "i-pooling",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-median-pooling-20261020/figure2.html",
+      "sha256": "1490d7419ded5f85912bd45cc740189cbd45fd1c7b472e88ad1edef0c99fc5ed"
+    },
+    {
+      "id": "i-notes",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-i/README.md",
+      "sha256": "df0534387b522c9e11ae041bd1d3e017fb078890d264f2ebae8199bddba1e21d"
+    },
+    {
+      "id": "f3-guide",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/figure3-review-guide.html",
+      "sha256": "64e56e86a3872a4f0123558ce6836c4a59928fe1cda0eecc992bc8b24e4cd447"
+    },
+    {
+      "id": "f3-checkpoint",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md",
+      "sha256": "55c497afd61ca6e04daea7cc853b764644abc0772e54a0e51ca1bc548ed65cc3"
+    },
+    {
+      "id": "f3-summary",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-03/conversation-summary-2026-10-16.md",
+      "sha256": "318cbdef4ea12b32cd105c563739b4bf9f139e73bbe85b696c38f947e78382f3"
+    },
+    {
+      "id": "f3-delay",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/review.html",
+      "sha256": "cbcae84651686311cd9032678f8b5d4b30196ecf19bd14ae7162eb6bdd913be6"
+    },
+    {
+      "id": "f3-legacy",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015/review.html",
+      "sha256": "787a5ba1bf69efeddebfc2a24902c2ef49e86e9d57f49deb73133abe99e5302a"
+    },
+    {
+      "id": "f3-trace3",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-3strace-20261020/figure3-a-e/review.html",
+      "sha256": "8452e53dd2731dcc098623cbb1ec4387bb920b6f1752d9bc80662150069c0343"
+    },
+    {
+      "id": "f3-trace3-atlas",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-3strace-20261020/individual-atlas.html",
+      "sha256": "3c390e33243829111628f425551a2dffc4dd980e4c068e8c4c6ab7b59f9f9a2c"
+    },
+    {
+      "id": "f3-trace10",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-10strace-20261020/figure3.html",
+      "sha256": "fe288bccd84811cea218002ff98c42671347015eb6f4e591f56deb4cbd915bb6"
+    },
+    {
+      "id": "f3-trace10-atlas",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-10strace-20261020/all-fish-atlas.html",
+      "sha256": "952c2205de7b39c0d400e28453eea8dec30d5ffdf837c0bbf36a8a168f0c365c"
+    },
+    {
+      "id": "f3-trace10-report",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-10strace-20261020/report.md",
+      "sha256": "9aa335dc67c6dae21322cd7da915e3d1ff2ed32c65b0677928613baeb965138a"
+    },
+    {
+      "id": "f3-methods",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/methods/individual-learning.md",
+      "sha256": "9eb4046e4041c2f7bc684acb06506ae64eb30052cede7c005878e827539e1f83"
+    },
+    {
+      "id": "f4-discussion",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-04-chat-planning-20261023.html",
+      "sha256": "5c77e3f0a463644fb0ef283060218e94fe78edd9864057a3eb47cbfef22b31da"
+    },
+    {
+      "id": "f4-markdown",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-04/conversation-summary-2026-10-23.md",
+      "sha256": "f772bb5e3bf950181b5ece04354c08ff8edbe345bdc4bad08a51cbe1eea90f4c"
+    },
+    {
+      "id": "f4-condition",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-3strace-20261020/figure4-condition-profiles.html",
+      "sha256": "fcbe380ace9a5fd7931ad29384ca9440e4d4e7e0d51954e2436b64aa01c3a96a"
+    },
+    {
+      "id": "f4-score",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/figure4.html",
+      "sha256": "7d8ff68a0d9c8d42ca890f2eea31650e35a65a5270ed434fd6acb780dc476e37"
+    },
+    {
+      "id": "f4-design",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/design.md",
+      "sha256": "4f1df7a40800c205a29be62e11df2812fb7195cc75147d3466225515a09038bc"
+    },
+    {
+      "id": "f4-catches",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/individual-catches.html",
+      "sha256": "983171d11a46dfa33f447bd7736e51336133d2602bd11594d8790e0945934457"
+    },
+    {
+      "id": "f4-legacy",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-3strace-20261020/figure4-classified-preliminary/review.html",
+      "sha256": "995d084d45bfb82920b6cb111ed954e61a428e564a65ed4c27e02cc5934f805b"
+    },
+    {
+      "id": "f4-trace10",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figures-03-04-10strace-20261020/figure4.html",
+      "sha256": "45d5defcc955e764a114f536f4614b0ccc629ae2fdda06653ac2de461e2dfd76"
+    },
+    {
+      "id": "f4-delay-model",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-delay-model-draft-20261022/figure4-delay.html",
+      "sha256": "64e9d4c511534bdaf87b97a8bbbdc155b95605433e3f050cc20acf879631cae2"
+    },
+    {
+      "id": "f4-delay-legend",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md",
+      "sha256": "daf982be5fa7b0ad909f118c27c610154c7b01cd49f5ca83777c00c3e4536616"
+    },
+    {
+      "id": "f4-trace3-model",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-3strace-model-draft-20261022/figure4-3strace.html",
+      "sha256": "3bac3205256886b1826c1aee7ce2cc3938bd15dd414093d9e8cd9f3da04b16d1"
+    },
+    {
+      "id": "f4-trace3-legend",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md",
+      "sha256": "2f37b90739e72873a2c7664a9d74bf07284d5400830e8a390d76802def3e79c1"
+    },
+    {
+      "id": "f4-plan",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/05_FIGURE_4_CR_PROFILES.md",
+      "sha256": "fd0f9fe2d290e637a9ebac4c49d5eda395706100f40d56ee462166d93c7ce833"
+    }
+  ],
+  "external": true
+}

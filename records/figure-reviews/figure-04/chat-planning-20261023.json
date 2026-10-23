@@ -1,0 +1,190 @@
+{
+  "schema": "figure4-chat-planning-record/1",
+  "created_utc": "2026-10-23T16:24:26.807101+00:00",
+  "conversation_scope": "Figure 4 planning discussion from supplied conversation context, 2026-10-14 through preservation request 2026-10-23",
+  "scientific_status": "Discussion archive only; proposals remain proposals. No model run, cohort revision, scientific/presentation selection or freeze.",
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-04-chat-planning-20261023.html",
+    "sha256": "5c77e3f0a463644fb0ef283060218e94fe78edd9864057a3eb47cbfef22b31da",
+    "bytes": 84465,
+    "single_file_offline": true
+  },
+  "sources": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/03_FIGURE_2_LEARNING_ONSET.md",
+      "relative_path": "Plans/03_FIGURE_2_LEARNING_ONSET.md",
+      "sha256": "5942732a5e5cf2b46340fbd6ec7b2d93c2856021558a78fa94126d07c8a76ff0",
+      "bytes": 12322
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+      "relative_path": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+      "sha256": "39107e4205c1a92de307dfa46e750cea48b2fd45610904702e3511751870d883",
+      "bytes": 9857
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/05_FIGURE_4_CR_PROFILES.md",
+      "relative_path": "Plans/05_FIGURE_4_CR_PROFILES.md",
+      "sha256": "fd0f9fe2d290e637a9ebac4c49d5eda395706100f40d56ee462166d93c7ce833",
+      "bytes": 9276
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/06_ANALYSIS_AND_STATISTICS.md",
+      "relative_path": "Plans/06_ANALYSIS_AND_STATISTICS.md",
+      "sha256": "39c26789c26e5ace0398bd95640979a209753b96aa7596d598ce473bbd1c0ddc",
+      "bytes": 13670
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/09_SUPPLEMENTARY_FIGURES.md",
+      "relative_path": "Plans/09_SUPPLEMENTARY_FIGURES.md",
+      "sha256": "0b3796db0cc06705783ecb9b47a0be82baafee1a7a8283692e4b27a950543a0d",
+      "bytes": 5708
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/README.md",
+      "relative_path": "docs/paper/figures/figure-01/README.md",
+      "sha256": "486033779ca8660c16a05956a86fc9ce57678983d144a18f6dea80155178ec9e",
+      "bytes": 2988
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/README.md",
+      "relative_path": "docs/paper/figures/figure-02/README.md",
+      "sha256": "fa3adeaa6702dbcd3bcdeb8278aa71fe3a9804305f7ad9043d7b82408e37ee47",
+      "bytes": 2091
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/README.md",
+      "relative_path": "docs/paper/figures/figure-02/panel-g/README.md",
+      "sha256": "b727d146bd417ed053fd93e8dfe8cb8e76582c093d508cef5701d31f6f45367f",
+      "bytes": 1888
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/README.md",
+      "relative_path": "docs/paper/figures/figure-03/README.md",
+      "sha256": "e7b8c936041da0c6603ae61d86c53caf696a4b4cf23d3fac3ccc78c90f432ec3",
+      "bytes": 4812
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-04/README.md",
+      "relative_path": "docs/paper/figures/figure-04/README.md",
+      "sha256": "9266b7cb50d76c24d508c2452d7e15764bb7537fd2923717dfb9f8c4dd5f033a",
+      "bytes": 1312
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/scientific-evidence/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+      "relative_path": "records/scientific-evidence/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+      "sha256": "4a00972e4a828f29235f1969341231d63852499f2c628a9c2907d549d5953eb1",
+      "bytes": 2125
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/config/experiments.py",
+      "relative_path": "src/classical_conditioning/config/experiments.py",
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "bytes": 5977
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/figure4.py",
+      "relative_path": "src/classical_conditioning/analysis/figure4.py",
+      "sha256": "671eb05f67fc7670ed891e2431c676260bb04f5470ea403565571fc14119e1a6",
+      "bytes": 28120
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/signed_bout_heatmap.py",
+      "relative_path": "src/classical_conditioning/figures/signed_bout_heatmap.py",
+      "sha256": "f8b195336aa3fdf9f7b3193be2fd34fb48d434c60cd8e4410ec866bc94c02562",
+      "bytes": 5325
+    }
+  ],
+  "source_fingerprint": "62337385e2a49dff3f888baafe94d251d59ed7b7377c4c2adb2d3edf37fef6a2",
+  "coverage": [
+    {
+      "topic": "Initial Figures 1\u20133 review and Figure 4 narrative",
+      "section": "narrative"
+    },
+    {
+      "topic": "Author preferences and their status",
+      "section": "preferences"
+    },
+    {
+      "topic": "Initial and revised panel arrangements",
+      "section": "panels"
+    },
+    {
+      "topic": "All five catches and overlap at trial 65",
+      "section": "protocol"
+    },
+    {
+      "topic": "Nine blocks versus selected five-trial windows",
+      "section": "protocol"
+    },
+    {
+      "topic": "Fish weighting and bin coverage",
+      "section": "protocol"
+    },
+    {
+      "topic": "Conditional vigor, immobility and occupancy",
+      "section": "outcomes"
+    },
+    {
+      "topic": "Legacy field/baseline/binning mismatch",
+      "section": "outcomes"
+    },
+    {
+      "topic": "Within-trial duration and across-block dynamics",
+      "section": "duration"
+    },
+    {
+      "topic": "US contamination and censoring",
+      "section": "protocol"
+    },
+    {
+      "topic": "Onset/offset, magnitude, area and trace persistence",
+      "section": "duration"
+    },
+    {
+      "topic": "Group versus individual duration",
+      "section": "duration"
+    },
+    {
+      "topic": "Learner-specific Figure 2G trajectories",
+      "section": "learner-g"
+    },
+    {
+      "topic": "Independence, controls and held-out validation",
+      "section": "validation"
+    },
+    {
+      "topic": "Trial-resolution outputs and model alternatives",
+      "section": "trial-resolution"
+    },
+    {
+      "topic": "10sTrace unresolved classes",
+      "section": "narrative"
+    },
+    {
+      "topic": "Supplementary proposals and robustness",
+      "section": "panels"
+    },
+    {
+      "topic": "Unresolved scientific choices",
+      "section": "open-decisions"
+    },
+    {
+      "topic": "Original prompts and evolution of the advice",
+      "section": "original-prompts"
+    }
+  ],
+  "content_policy": "Substantive user prompts transcribed; assistant advice consolidated by topic and chronology. Repeated policy/environment messages and tool logs omitted. Not a verbatim platform export.",
+  "verification": {
+    "static_ids_and_internal_links": "passed",
+    "no_external_runtime_dependencies": true,
+    "sources_unchanged": true,
+    "browser": "Opened exact saved HTML; title and content verified; search/clear, chapter navigation and original-prompt disclosure checked; opening view and panel tables visually inspected at narrow in-app viewport.",
+    "offline_static_checker": "passed; 18 unique IDs; zero nonembedded runtime resources; no issues",
+    "served_bytes_match_saved_html": true,
+    "print": "Print stylesheet included. Print button invoked; in-app click timed out and no actual print preview was verified. No PDF delivery is claimed.",
+    "notes": "No notebook or persistent browser storage features included; archive uses stateless search."
+  },
+  "verified_utc": "2026-10-23T16:26:56.240933+00:00",
+  "browser_url": "http://127.0.0.1:59296/figure-04-chat-planning-20261023.html"
+}

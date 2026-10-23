@@ -1,0 +1,68 @@
+[
+  {
+    "record": "records/figure-reviews/figure-02/g-analysis-guide-20261017.json",
+    "artifact": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
+    "sha256": "c25b2fc2f91bee06720ff59b8d60f4cc6fe181b786449988db8ad8decbe1ae95",
+    "matches_record": true
+  },
+  {
+    "record": "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json",
+    "artifact": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/figure3-review-guide.html",
+    "sha256": "64e56e86a3872a4f0123558ce6836c4a59928fe1cda0eecc992bc8b24e4cd447",
+    "matches_record": true
+  },
+  {
+    "record": "records/figure-reviews/figure-04/chat-planning-20261023.json",
+    "artifact": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-04-chat-planning-20261023.html",
+    "sha256": "5c77e3f0a463644fb0ef283060218e94fe78edd9864057a3eb47cbfef22b31da",
+    "matches_record": true
+  },
+  {
+    "record": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-delay-model-draft-20261022/render-manifest.json",
+    "record_sha256": "3d840af78265412c5084430bd54782b49767ed890fac4b5c66bb046f6e418b56",
+    "review_artifacts_match_render_manifest": [
+      {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md",
+        "sha256": "daf982be5fa7b0ad909f118c27c610154c7b01cd49f5ca83777c00c3e4536616"
+      },
+      {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-delay-model-draft-20261022/figure4-delay.html",
+        "sha256": "64e9d4c511534bdaf87b97a8bbbdc155b95605433e3f050cc20acf879631cae2"
+      }
+    ],
+    "implementation_reference": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\build_figure4_delay_model_draft.py",
+      "sha256": "78ed10452f50eadaefd621dba242a54dfc7b44125946461607f787bdde0f3471"
+    },
+    "implementation_installed_in_this_checkout": false,
+    "profile_hashes_are_dated_provenance": {
+      "configs/paper-figures/nature-main.json": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56",
+      "configs/paper-figures/figure-elements.json": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb",
+      "configs/paper-figures/layout-frames.json": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+    }
+  },
+  {
+    "record": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-3strace-model-draft-20261022/render-manifest.json",
+    "record_sha256": "5245ab479756ed529ba07c2c658b8df77e391146dd086f5458349c8448576c10",
+    "review_artifacts_match_render_manifest": [
+      {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md",
+        "sha256": "2f37b90739e72873a2c7664a9d74bf07284d5400830e8a390d76802def3e79c1"
+      },
+      {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure4-3strace-model-draft-20261022/figure4-3strace.html",
+        "sha256": "3bac3205256886b1826c1aee7ce2cc3938bd15dd414093d9e8cd9f3da04b16d1"
+      }
+    ],
+    "implementation_reference": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\build_figure4_3strace_model_draft.py",
+      "sha256": "bf4f853978f4b703a09328e0eb2127ef2604e0f04c5a42620b501ab492f1ea9f"
+    },
+    "implementation_installed_in_this_checkout": false,
+    "profile_hashes_are_dated_provenance": {
+      "configs/paper-figures/nature-main.json": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56",
+      "configs/paper-figures/figure-elements.json": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb",
+      "configs/paper-figures/layout-frames.json": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+    }
+  }
+]

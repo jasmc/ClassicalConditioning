@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-23",
+  "starting_project_files": 864,
+  "starting_tracked_files": 857,
+  "counts_by_owner_root": {
+    ".gitignore": 1,
+    "AGENTS.md": 1,
+    "ClassicalConditioning.code-workspace": 1,
+    "README.md": 1,
+    "pyproject.toml": 1,
+    "to_implement.md": 1,
+    "uv.lock": 1,
+    ".agents": 1,
+    ".github": 1,
+    ".vscode": 1,
+    "configs": 23,
+    "docs": 77,
+    "legacy": 20,
+    "Plans": 13,
+    "records": 432,
+    "scripts": 110,
+    "src": 100,
+    "tests": 79
+  },
+  "findings": {
+    "new_misplaced_generated_payloads": [],
+    "repository_csv": "records/scientific-evidence/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv is an intentional audit table",
+    "large_json": "Dated evidence and frozen manifests retain their scientific/reproducibility role",
+    "runtime_metadata": "Six ignored editable-install egg-info files are normal build metadata, not authored project files",
+    "repository_skill": "One repository skill at .agents/skills/paper-figures/SKILL.md; the project does not vendor personal/plugin skill installations",
+    "case": "Canonical Git Plans/ and physical Mac plans/ were reconciled in the inventory without renaming",
+    "navigation": "Seven hash-bound README sources preserved; separate maintained INDEX.md pages and parent routes corrected",
+    "ssd": "Human reading routes were missing across later drafts; payloads remain at path-bound locations"
+  },
+  "policy": "docs/project-maintenance/structure.md",
+  "moves_or_deletions_executed": []
+}

@@ -149,6 +149,13 @@ class Guide:
         for rec in state["scientific_selection"]["records"]:
             if Path(rec["path"]).name == selection_path.name:
                 assert digest(selection_path.read_bytes()) == rec["sha256"]
+        # Preserve the later explanatory supplement on future dated builds.
+        # These snapshots do not change the selected scientific calculations.
+        from complete_figure2_g_analysis_guide import SOURCES as completion_sources
+        for key, relative in completion_sources.items():
+            self.source(key, "23 October discussion: " + Path(relative).name, REPO / relative)
+        self.source("completion-other-chat-summary", "Pasted other-chat GAMM proposal (not an executed analysis)",
+                    OUTPUTS / "current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-other-chat-summary.txt")
         self.source("frozen-definition", "Frozen G scientific definitions and annotations", FROZEN_LOCAL / "manifests/scientific-selection.json",selection["scientific_selection"]["sha256"])
         self.source("freeze-record", "October 9 scoped G freeze record", FROZEN_LOCAL / "manifests/freeze.json",selection["freeze_record"]["sha256"])
         inv = json.loads(self.source("frozen-inventory", "Selected freeze source inventory", FROZEN_LOCAL / "sources/selected-source-inventory.json"))
@@ -374,7 +381,8 @@ class Guide:
         return re.sub(r'\{\{([^{}]+)\}\}',replacement,text)
 
     def write(self, node, node_modules):
-        chunks=re.split(r'^## (.+)$',CONTENT.read_text(),flags=re.M)
+        from complete_figure2_g_analysis_guide import bundle_markdown
+        chunks=re.split(r'^## (.+)$',bundle_markdown(CONTENT.read_text()),flags=re.M)
         chapters=[]
         for i in range(1,len(chunks),2):
             title=chunks[i];slug=re.sub(r'[^a-z0-9]+','-',title.lower()).strip('-')
@@ -425,6 +433,11 @@ class Guide:
             'No-star, dense-star and bracket versions':11,'Why the figures look different':11,
             'Neuroscience reporting examples':11,'Supported conclusions and final decision checklist':12,
             'Acquisition, learners and extinction kept separate':12,'Evidence gaps':12,'Manual source review and glossary':13,
+            'Later author intensity clarification and frame weighting':14,
+            'Configured versus fitted parameters and model teaching':14,
+            'GAMM proposal, boundary argument and exploration plan':14,
+            'Figure 3 acquisition score versus legacy recovery':14,
+            'Clean-chat handover and remaining questions':14,
         }
         (self.out/'topic-inventory.json').write_text(json.dumps({'chapters':topics,'coverage':[{'topic':topic,'section':chapters[index-1][0]} for topic,index in coverage.items()],'source_ids':list(self.sources),'scope':'Delay and Figure 2 G; minimal individual-fish material','known_gaps':['Actual original historical discard rosters not established','Original segmented Bout/700 FPS inputs unavailable','Exact selected MR-local-block-tests.csv not recovered; displayed entries authenticated via sidecar'],'no_models_refitted':True},indent=2)+'\n')
         self.checks.update({'all_tokens_resolved':not re.search(r'\{\{[^{}]+\}\}',document),'source_count':len(self.sources),'chapter_count':len(chapters),'figure_count':len(self.figure_hashes)+1})

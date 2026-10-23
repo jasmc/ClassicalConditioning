@@ -32,6 +32,7 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 | [figure_working_copy.py](figure_working_copy.py) | Prepare/reuse hash-verified editable frozen/draft SVGs, measure effective SVG properties and verify the scoped current state. |
 | [build_figure_legend_review.py](build_figure_legend_review.py) | Authenticated Figure 1–2 text/layout candidates and draft legends in one self-contained external review; no recomputation or freeze. |
 | [assemble_svg_figure.py](assemble_svg_figure.py) | Compose replaceable SVG panels from a declarative paper-figure layout. |
+| [recolor_trace10_comparison.py](recolor_trace10_comparison.py) | Change the standalone 10sTrace shortlist comparison's shared heatmap scale from authenticated numerical caches; exact raster reconstruction, staged review and guarded publication. |
 | [build_figure1_panel_a.py](build_figure1_panel_a.py) | Normalize the supplied vector preparation scheme to the plot font. |
 | [build_figure1_panel_b.py](build_figure1_panel_b.py) | Draw an exploratory, fully vector Figure 1B from active experiment timing. |
 | [build_figure1_panel_c.py](build_figure1_panel_c.py) | Build an editable SVG schematic of the Figure 1 session protocol. |
@@ -174,3 +175,6 @@ for provenance; they are not entry points for new styling.
 | [verify_figure3_reference_style.py](verify_figure3_reference_style.py) | Verify exact Figure 3 heatmap/color roles and G observed-outcome transfer. | supported-scoped-verifier |
 | [verify_main_paper_collection.cjs](verify_main_paper_collection.cjs) | Retained technical workflow helper | supported-or-dependency |
 | [repair_figure3_guide_downloads.py](repair_figure3_guide_downloads.py) | Guarded, dated repair of embedded Figure 3 guide downloads; preserves embedded scientific payloads and notes. | completed-guide-repair |
+| [complete_figure2_g_analysis_guide.py](complete_figure2_g_analysis_guide.py) | Append a source-bound chat supplement to the existing Figure 2 G guide; preserve the original scientific snapshot and notebook keys. | completed-guide-supplement |
+| [preserve_figure3_guide_conversation.py](preserve_figure3_guide_conversation.py) | Preserve an authenticated conversation checkpoint in the Figure 3 guide without rebuilding scientific panels. | completed-guide-supplement |
+| [review_library.py](review_library.py) | Check review links and publish a portable SSD reading library without rewriting existing reviews or scientific state. | supported-navigation-tool |

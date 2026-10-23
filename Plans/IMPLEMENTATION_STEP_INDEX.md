@@ -28,6 +28,8 @@ Completed maintenance on 2026-10-17: [organization reconciliation](../records/re
 
 Maintenance follow-up on 2026-10-23: [script lifecycle and CI](../records/repository-history/2026-10-23-script-lifecycle/README.md) resolves the 14 pending classifications and five historical-candidate recommendations, catalogues the guide repair and implements organization CI. One completed archive helper has a proposal pending author disposition; its source remains local.
 
+Maintenance on 2026-10-23: [repository and SSD review organization](../records/repository-history/2026-10-23-repository-output-review/README.md) inventories project/output ownership, repairs maintained navigation and publishes a reading library for Figure 2 G/H/I and Figures 3/4. Scientific selections and gates are unchanged.
+
 ## Historical implementation record
 
 | Former step | Status | Recorded result or remaining gap |

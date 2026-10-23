@@ -28,3 +28,7 @@ and recognizes only their exact deleted path/hash/size triples. Other missing
 or corrupt payloads fail. The transfer inventories stay immutable, and
 `repository_archive.py verify`, transfer and prune still require every payload;
 audit exceptions cannot weaken those mutation safeguards.
+
+## Find reviews on JOAQUIM
+
+Open `ClassicalConditioning Outputs/START-HERE.html`. The maintained [review library](../paper/figures/review-library.md) owns curated reading links; its JSON catalogue supplies verified external identities. `current/reviews/` also retains historical/QA iterations and does not itself select current science. `ORGER-JOAQUIM/outputs/` is a source-machine mirror; archive and dated handoff packets keep separate recovery roles. Reorganize navigation before moving payloads with path-bound dependencies.

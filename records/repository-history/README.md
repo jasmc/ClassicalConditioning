@@ -12,3 +12,7 @@ Use [project documentation](../../docs/README.md) for current guidance. Historic
 - [17 October organization reconciliation](2026-10-17-organization-reconciliation/README.md): authority pointers, preservation validation, document ownership and retained script inventory.
 
 - [23 October script lifecycle and CI](2026-10-23-script-lifecycle/README.md): completes the pending script assessment, records dispositions and adds portable local CI checks.
+
+- [23 October repository and SSD review organization](2026-10-23-repository-output-review/README.md): full project/output inventory, repaired maintained indexes and the portable figure-review reading library.
+
+- [Transfer record navigation](transfers/INDEX.md): current transfer procedure and preserved dated handoffs.

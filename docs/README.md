@@ -4,6 +4,7 @@ Start with the [paper figures](paper/figures/README.md). This is the everyday wo
 
 | Area | Use it for |
 |---|---|
+| [Review library](paper/figures/review-library.md) | Figure 2 G/H/I and Figure 3/4 discussions, Markdown, HTML and alternatives |
 | [Paper](paper/README.md) | Figures, shared scientific methods, decisions and paper-wide questions |
 | [Running the analysis](running-analysis/README.md) | Commands, parameters, interfaces, outputs and troubleshooting |
 | [Project maintenance](project-maintenance/README.md) | Where files belong, governance, storage and transfer procedures |
