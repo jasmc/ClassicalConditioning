@@ -53,7 +53,8 @@
     }
   ],
   "additional_figure_states": [
-    "docs/paper/figures/figure-03/exploratory-state.json"
+    "docs/paper/figures/figure-03/exploratory-state.json",
+    "docs/paper/figures/figure-04/3strace-model-draft-state.json"
   ],
   "active_navigation": [
     "docs/project-maintenance/rules.md",

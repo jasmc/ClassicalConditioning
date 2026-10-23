@@ -1,0 +1,178 @@
+{
+  "scope": "3sTrace exploratory Figure 4 model draft; no freeze",
+  "requested_date": "2026-10-22",
+  "protected": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\current-state.json",
+      "sha256": "e510c5563c8f576796f5c004ca990bf26c260908685336d6e331d5ad6a938878"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\current-state.json",
+      "sha256": "04690be46b029c1bb566496e518c57fc3130d0b7c353f6a674bca343d86425dd"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-03\\current-state.json",
+      "sha256": "7231dd18ff13279a254c1816ac1baead405118ddbbe35c6eda7d9160f3bb5373"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-03\\exploratory-state.json",
+      "sha256": "d3238624c991acb0bf3bc20379f560433e50c64a1500e1a80437b2392ef6f81d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\main-paper-current-state.json",
+      "sha256": "8cdb3c34ee70c3c1aed571917fcc0ca50ad12638f3466e2df40aa47e1c739501"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-04\\delay-model-draft-state.json",
+      "sha256": "0b7339c5809f16d0187a83bceff626c922506cf563cce379f37e873a1300ef80"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-04\\3strace-model-draft-state.json",
+      "sha256": null
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\plans\\05.1_FIGURE_4_BOUT_AVAILABILITY_AND_POOLING.md",
+      "sha256": "8c9beadd1cf938b004cbdd7ac98dd4f2d1774670ab26af8a38b5b4c3bbf7a889"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\nature-main.json",
+      "sha256": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure-elements.json",
+      "sha256": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\layout-frames.json",
+      "sha256": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\build_figure4_delay_model_draft.py",
+      "sha256": "78ed10452f50eadaefd621dba242a54dfc7b44125946461607f787bdde0f3471"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\check_figure4_delay_model_draft.cjs",
+      "sha256": "2ee8d52df62cb85ef6b4e3825eff73b02845f7b0388597197ab5206a86be14f5"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\analysis\\review\\figure4_profiles.py",
+      "sha256": "c41a67c7ede41a56ba7d9df4829ee3b036be5c7131dd8f58576c9421966a7ccd"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\tests\\test_figure4_profile_models.py",
+      "sha256": "bd3b7c9b31e2ed73a56433140dbc1f52939a870a927706b4780e00fcf3b6a9b3"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\figure4-delay.svg",
+      "sha256": "aaad060ca3e74291c9eaa229a2ca782f2ea6e06e655a2a8c26c8f4ac10c72db5"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\figure4-delay.html",
+      "sha256": "64e9d4c511534bdaf87b97a8bbbdc155b95605433e3f050cc20acf879631cae2"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\legend.md",
+      "sha256": "daf982be5fa7b0ad909f118c27c610154c7b01cd49f5ca83777c00c3e4536616"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\semantic-registry.json",
+      "sha256": "7395c14dda2761360b27aafe8695dc72e14f28840f6f8ad61205c738b88be9be"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\analysis-summary.json",
+      "sha256": "b50199b1c5e9a7077d7522ac878f7460a00fa0aecce168ea223677c5b6853030"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\layout-evidence.json",
+      "sha256": "fff6e22891c82888b5ea8d8d0d6e859020d25894ea6fc4151c8b5284e88a56fa"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\visual-review.json",
+      "sha256": "b610bb72b344637f730ce6bfc51c0f3cd2a36e2ae44250556a4089c408d9eb7e"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\assay-draft-state.json",
+      "sha256": "a597fc8b15435e2bdc2719c1daaec1932545428331589f86a0fbfa9c8dbb25ba"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\figure4-classified-preliminary\\current-state.json",
+      "sha256": "67551d3fba38f50f48a4fb8ad26320d623e7c60bc56bc2896c06dcb9fa9244ce"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\figure3-a-e\\current-state.json",
+      "sha256": "512469af6c970a11dc4fe699c86319d8c79f31795aa05d2d0b923c80a3ef8e35"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\source-inventory.csv",
+      "sha256": "275fa9d83678ade1b2c48768e0acaa64d49d3f7433f295f24ad0d8e0bc1132dd"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\acquisition-scores.csv",
+      "sha256": "c61e3b687868c47d8ddf581e79ae8feb3e2ae5f3e9586756e723d81eb2d9aa0c"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\trial-bins.parquet",
+      "sha256": "48afcdf9844c34072ac4782dde8933cb77c91b63e7623a4a0ac2be0edfd1f507"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\source-authentication.json",
+      "sha256": "9fd47383ae415241789685ec3a789ba845c6aae3668de02b13db32941eba3e9c"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\reader-equivalence.json",
+      "sha256": "014c65b8342eff88aaf68fd9c32ee86fe8b5a3682618af1b13de960d6ed4eb63"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\analysis.json",
+      "sha256": "3343c6cdddb3571c00e4c4c5aa2d0743955c3c610be1d3183d49c3393e532edd"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\complete.json",
+      "sha256": "835d7321dfc769dcf30e27444b3e8b168e6cac1cc85aaadabc38104a027612b5"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\artifact-manifest.json",
+      "sha256": "260a1499df855408a8f2c1f8ddd669d33b1bbfb7fa560d087819bdcf8c857cfe"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\figure4-classified-preliminary\\analysis.json",
+      "sha256": "7835d70b24d66effeed9f7741d43ace5d388a47c3a720a76bcba23f7ce4b20b9"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figures-03-04-3strace-20261020\\figure4-classified-preliminary\\sample-flow.csv",
+      "sha256": "84b14398692459734465e79b235bd5ce463005ea65925e1ca56ac4b067e6eaa8"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Analyses\\figure4-3strace-window13-legacy-59fish\\learner-labels.csv",
+      "sha256": "acaad421c57ad803c91da3ec9c0ee1cb4eb847a90b275f8038b1756210c3499c"
+    },
+    {
+      "path": "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\Analyses\\figure4-3strace-window13-legacy-59fish\\learner-labels.manifest.json",
+      "sha256": "afb9684682bd6e03de5a80f58276b0c4a8930c0d6773c0bbb3d34720835c6b44"
+    }
+  ],
+  "source_lineage": "source-authentication.json binds every original and saved profile; original processed inputs remain at authenticated F: paths, not relocated to J:",
+  "output_directory": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022",
+  "implementation_before": {
+    "scripts/build_figure4_3strace_model_draft.py": null,
+    "scripts/check_figure4_3strace_model_draft.cjs": null,
+    "src/classical_conditioning/analysis/review/figure4_assay_profiles.py": null,
+    "tests/test_figure4_assay_profile_models.py": null
+  },
+  "documentation_before": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\plans\\IMPLEMENTATION_STEP_INDEX.md",
+      "sha256": "18a67ffe1fe1bf1ceb2b0b1e3ab8a615789b3f290da9c24e84570a7ef9ae150a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\README.md",
+      "sha256": "e3cbcf76b40841f56fcc04e1fbab9f1ad198ad6c8277dae1b962644f250117a8"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-04\\README.md",
+      "sha256": "6617494d87450350ba9a87dae1cebcbc03fd5dd5d3655fee8e89ce81387d2b59"
+    }
+  ]
+}

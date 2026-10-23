@@ -1,0 +1,43 @@
+{
+  "scope": "3sTrace Figure 4 exploratory model draft",
+  "state": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-04\\3strace-model-draft-state.json",
+    "sha256": "e50006424b2eb6fdb872538629841fa68b66c3e4bd3056b7e2843e2925eb21f4"
+  },
+  "numerical_known_answer_tests": {
+    "passed": 8,
+    "command": ".venv/Scripts/python.exe -X utf8 -B -m unittest discover -s tests -p 'test_figure4*profile_models.py' -v"
+  },
+  "actual_data_checks": [
+    "179-fish inventory and all 122 missing/unclassified labels preserved",
+    "71600 trial/time bins and 14320 fish/time summaries",
+    "independent within-fish catch aggregation equality",
+    "5287 observed model bins; 397 accepted refits; 26 pre-US centers",
+    "direct extrema independently recovered from saved contrasts",
+    "minimal HTML embeds exact saved SVG and matching legend"
+  ],
+  "layout": {
+    "status": "passed",
+    "raster_dpi": 600,
+    "issues": []
+  },
+  "protected_prior_records_verified": 24,
+  "original_source_reports": 179,
+  "repository_maintenance": {
+    "scope_issues": [],
+    "other_issue_count": 351,
+    "other_issue_examples": [
+      "Archive disposition changed: records/repository-archive/figure3-legacy-only-20261015/disposition.json",
+      "Broken active link: records/frozen-analyses/figure-01/panels-f-g-h/README.md -> /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/singlefish-heatmaps-20261013/README.md",
+      "Broken active link: records/frozen-analyses/selections.md -> /Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/singlefish-heatmaps-20261013/README.md",
+      "Presentation mapping/state disagreement: fig-1H",
+      "Preserved bytes changed: configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json"
+    ],
+    "classification": "existing archive/history/older-figure mapping and script-catalogue issues outside this task; no repository-wide pass claimed"
+  },
+  "frozen": false,
+  "publication_guard_tests": {
+    "passed": 2,
+    "command": ".venv/Scripts/python.exe -X utf8 -B -m unittest discover -s tests -p test_figure4_model_publication.py -v"
+  }
+}

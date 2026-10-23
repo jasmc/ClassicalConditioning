@@ -6,6 +6,16 @@ A–C remain proposed; downstream profiles depend on approved cohort and individ
 
 - [Analysis and rendering](../../../running-analysis/figure4.md)
 
+- [Delay model pilot](../../../running-analysis/figure4-delay-model-draft.md):
+  six exploratory panels under [scoped draft state](delay-model-draft-state.json),
+  with saved legacy-WIP flags, conditional intensity and separate movement.
+  This is unfrozen and does not select the paper's learner representation.
+
+- [3sTrace model pilot](../../../running-analysis/figure4-3strace-model-draft.md):
+  the same six-panel analysis with its own [scoped draft state](3strace-model-draft-state.json),
+  authenticated 179-fish inventory, saved WIP overlap, all matched controls and
+  protocol-verified 13 s expected US. This draft is unfrozen and exploratory.
+
 Scientific authority: [scoped selection index](../../../../records/frozen-analyses/selections.md). Use [shared methods](../../methods/README.md) rather than duplicating cross-figure contracts.
 
 Categorical workflows, thresholds, fractions and learner/nonlearner groups below are conditional proposals from the registry. Gate L may select continuous scores or trajectories instead; the figure must follow that approved representation. No categories are approved by this table.

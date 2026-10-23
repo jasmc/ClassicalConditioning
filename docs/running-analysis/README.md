@@ -12,5 +12,6 @@ This area explains using the supported code; it does not choose scientific metho
 - [Individual-learning interfaces](individual-learning-interfaces.md)
 - [Figure build tools](figure-build-tools.md)
 - [Figure 4 analysis and rendering](figure4.md)
+- [3sTrace exploratory response-profile model draft](figure4-3strace-model-draft.md)
 
 Figure-specific assembly instructions live with their [paper figures](../paper/figures/README.md). Scientific definitions live in [shared methods](../paper/methods/README.md).

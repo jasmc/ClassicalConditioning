@@ -51,7 +51,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
                 if any(heading.casefold().startswith(prefix.casefold()) for prefix in policy.get('future_work_headings', [])):
                     issues.append('Future work/progress in operational guide: ' + key + ' -> ' + heading)
     for path in (repo / 'Plans').rglob('*'):
-        if path.is_file() and path.name not in {'README.md', 'IMPLEMENTATION_STEP_INDEX.md'} and not re.fullmatch(r'\d{2}_[A-Z0-9_]+\.md', path.name):
+        if path.is_file() and path.name not in {'README.md', 'IMPLEMENTATION_STEP_INDEX.md'} and not re.fullmatch(r'\d{2}(?:\.\d+)?_[A-Z0-9_]+\.md', path.name):
             issues.append('Misplaced plan material: ' + path.name)
     for key in policy['forbidden_paths']:
         if (repo / key).exists():

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "figure_id": "fig4",
+  "scope": "Delay exploratory model draft",
+  "whole_figure_frozen": false,
+  "default_display": "draft",
+  "default_display_format": "html-svg-and-legend",
+  "scientific_selection": {
+    "status": "Unfrozen exploratory pilot; saved legacy groups, no method approval",
+    "records": []
+  },
+  "draft": {
+    "working_svg": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\figure4-delay.svg",
+      "sha256": "aaad060ca3e74291c9eaa229a2ca782f2ea6e06e655a2a8c26c8f4ac10c72db5"
+    },
+    "review": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\figure4-delay.html",
+      "sha256": "64e9d4c511534bdaf87b97a8bbbdc155b95605433e3f050cc20acf879631cae2"
+    },
+    "legend": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\legend.md",
+      "sha256": "daf982be5fa7b0ad909f118c27c610154c7b01cd49f5ca83777c00c3e4536616"
+    },
+    "semantic_registry": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\semantic-registry.json",
+      "sha256": "7395c14dda2761360b27aafe8695dc72e14f28840f6f8ad61205c738b88be9be"
+    },
+    "analysis": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\analysis-summary.json",
+      "sha256": "b50199b1c5e9a7077d7522ac878f7460a00fa0aecce168ea223677c5b6853030"
+    },
+    "layout_frames": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\layout-evidence.json",
+      "sha256": "fff6e22891c82888b5ea8d8d0d6e859020d25894ea6fc4151c8b5284e88a56fa"
+    },
+    "visual_review": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022\\visual-review.json",
+      "sha256": "b610bb72b344637f730ce6bfc51c0f3cd2a36e2ae44250556a4089c408d9eb7e"
+    }
+  },
+  "start_ticket": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\records\\figure-reviews\\figure-04\\delay-model-draft-start-20261022.json",
+    "sha256": "7ef8f99183e811172d015cc8454a56c9084c99a3fcb6a38f911909c441ce4567"
+  },
+  "limitations": [
+    "Exploratory; labels fixed and retrospective",
+    "No population or peak calibration completed",
+    "Fish bootstrap preserves each observed profile; it cannot repair informative bout availability",
+    "Fixed basis spline LMM, not a completed penalized GAMM comparison",
+    "Source groups use acquisition plus recovery, overlapping evaluation trials",
+    "No p-values or validated CR peak/onset claim; all bands and extrema are exploratory",
+    "Controls have unpaired US events; source cohort and protocol flags retained",
+    "Missing conditional intensity is not zero activity; no-bout prediction is conditional, not reconstructed movement"
+  ]
+}

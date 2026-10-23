@@ -1,0 +1,96 @@
+{
+  "scope": "Exploratory Delay Figure 4 profile model draft; no new classification or freeze",
+  "requested_date": "2026-10-22",
+  "protected": [
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\current-state.json",
+      "sha256": "e510c5563c8f576796f5c004ca990bf26c260908685336d6e331d5ad6a938878"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\current-state.json",
+      "sha256": "04690be46b029c1bb566496e518c57fc3130d0b7c353f6a674bca343d86425dd"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-03\\current-state.json",
+      "sha256": "7231dd18ff13279a254c1816ac1baead405118ddbbe35c6eda7d9160f3bb5373"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-03\\exploratory-state.json",
+      "sha256": "d3238624c991acb0bf3bc20379f560433e50c64a1500e1a80437b2392ef6f81d"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\main-paper-current-state.json",
+      "sha256": "8cdb3c34ee70c3c1aed571917fcc0ca50ad12638f3466e2df40aa47e1c739501"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-04\\delay-model-draft-state.json",
+      "sha256": null
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\Plans\\05.1_FIGURE_4_BOUT_AVAILABILITY_AND_POOLING.md",
+      "sha256": "8c9beadd1cf938b004cbdd7ac98dd4f2d1774670ab26af8a38b5b4c3bbf7a889"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\nature-main.json",
+      "sha256": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\figure-elements.json",
+      "sha256": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\configs\\paper-figures\\layout-frames.json",
+      "sha256": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\analysis\\temporal_profiles.py",
+      "sha256": "be7b4d359de727e1b2a404e938df3f95963a4a8d9e5a5e97f8eeb5a05cdec8bb"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\analysis\\inference\\panel_g_fast_lmm.py",
+      "sha256": "98c9f2128b7846050ebd0cbda0400e857ddcb5745a1e7b65c237542209f353c4"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\theme.py",
+      "sha256": "a95962062e65b870641e14a1d60c5084ec25c8fb7aa3105782fab7866a001b7b"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\layout_frames.py",
+      "sha256": "97381292ab88331e85c74d81e2afcc3969a45b77a4e21a9ee11b07dcfb1323a9"
+    },
+    {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\src\\classical_conditioning\\figures\\layout_frames_browser.js",
+      "sha256": "b34ed6c2bbc4e89e17a0348ce6bb20cd97ddacf11e8ac754283afaf6b2545f19"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure3-learner-exploration-g-style-20261015\\artifact-manifest.json",
+      "sha256": "bcc99315fcf000950757524701754785e3de68ff07255ab2bdde0cd736e0720a"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure3-learner-exploration-g-style-20261015\\classification-manifest.parquet",
+      "sha256": "9ac3319e0e1c171eb834e5570d7cd1424bc14a07c5afe12b7c8e73e6dd9f6fc9"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure3-learner-exploration-g-style-20261015\\fish-inventory.csv",
+      "sha256": "6e673331b3876b71cfda31c35335b7c5a2a0e303b70702a95d132aa1570c6ae7"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure3-learner-exploration-g-style-20261015\\trial-data.parquet",
+      "sha256": "94c6fad0d07588b456d693e5c4b90c32731f02c49a7f77c6964076da8235d634"
+    },
+    {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure3-learner-exploration-g-style-20261015\\input-lineage.json",
+      "sha256": "868426c66027870ea208738ae772469615fc61ea18f3d362adb8a9b55da855c8"
+    }
+  ],
+  "source_atlas_state": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-03\\exploratory-state.json",
+  "output_directory": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-delay-model-draft-20261022",
+  "implementation_before": {
+    "scripts/build_figure4_delay_model_draft.py": null,
+    "src/classical_conditioning/analysis/review/figure4_profiles.py": null,
+    "tests/test_figure4_profile_models.py": null,
+    "scripts/check_figure4_delay_model_draft.cjs": null
+  }
+}

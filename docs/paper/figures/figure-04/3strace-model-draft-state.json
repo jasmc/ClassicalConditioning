@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "figure_id": "fig4",
+  "scope": "3sTrace exploratory model draft",
+  "whole_figure_frozen": false,
+  "default_display": "draft",
+  "default_display_format": "html-svg-and-legend",
+  "scientific_selection": {
+    "status": "Unfrozen exploratory pilot; saved legacy groups, no method approval",
+    "records": []
+  },
+  "draft": {
+    "working_svg": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022\\figure4-3strace.svg",
+      "sha256": "07ad48084ef18abb484ed641c52d63115eb36f9b2119455e9a48a150681c0bd0"
+    },
+    "review": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022\\figure4-3strace.html",
+      "sha256": "3bac3205256886b1826c1aee7ce2cc3938bd15dd414093d9e8cd9f3da04b16d1"
+    },
+    "legend": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022\\legend.md",
+      "sha256": "2f37b90739e72873a2c7664a9d74bf07284d5400830e8a390d76802def3e79c1"
+    },
+    "semantic_registry": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022\\semantic-registry.json",
+      "sha256": "a9851ba23b18581baeb1018c62c58fc5692c84c844cd0f8a7cea059a4841b9c2"
+    },
+    "analysis": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022\\analysis-summary.json",
+      "sha256": "59d1702566487352fe85bde2630f65d560d5d08483f1485e28ed18db289ba125"
+    },
+    "layout_frames": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022\\layout-evidence.json",
+      "sha256": "47c6ac70cf7e32a423a69018cc69cbbcc0783cd1c753b62d1baea3b6b766f289"
+    },
+    "visual_review": {
+      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure4-3strace-model-draft-20261022\\visual-review.json",
+      "sha256": "e86a125b2b59583acfaef3c70658ad8e4a43a2868789ff2bb5330892e2470791"
+    }
+  },
+  "start_ticket": {
+    "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\records\\figure-reviews\\figure-04\\3strace-model-draft-start-20261022.json",
+    "sha256": "bcf6a460604bc36e2d86343f8d577b15684f10dbd031aa4025d545bfd50b43f8"
+  },
+  "limitations": [
+    "Exploratory; labels fixed and retrospective",
+    "No population or peak calibration completed",
+    "Fish bootstrap preserves each observed profile; it cannot repair informative bout availability",
+    "Fixed basis spline LMM, not a completed penalized GAMM comparison",
+    "Source groups use acquisition plus recovery, overlapping evaluation trials",
+    "No p-values or validated CR peak/onset claim; all bands and extrema are exploratory",
+    "Controls have unpaired US events; source cohort and protocol flags retained",
+    "Missing conditional intensity is not zero activity; no-bout prediction is conditional, not reconstructed movement"
+  ]
+}

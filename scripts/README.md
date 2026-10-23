@@ -36,6 +36,10 @@ Descriptions identify scope, not blanket scientific approval. Windows launchers 
 | [build_figure1_panel_b.py](build_figure1_panel_b.py) | Draw an exploratory, fully vector Figure 1B from active experiment timing. |
 | [build_figure1_panel_c.py](build_figure1_panel_c.py) | Build an editable SVG schematic of the Figure 1 session protocol. |
 | [build_figure2_assembly.py](build_figure2_assembly.py) | Build the Figure 2 review layout, preserving SSD versions and source provenance. |
+| [build_figure4_delay_model_draft.py](build_figure4_delay_model_draft.py) | Authenticated Delay-only spline-LMM pilot, external editable six-panel review and guarded exploratory state; no learner validation or freeze. |
+| [check_figure4_delay_model_draft.cjs](check_figure4_delay_model_draft.cjs) | Exact saved-SVG frame evidence and temporary visual preview for the Delay model pilot. |
+| [build_figure4_3strace_model_draft.py](build_figure4_3strace_model_draft.py) | Authenticated 3sTrace spline-LMM pilot with saved WIP overlap, all matched controls, assay-specific timing and guarded six-panel draft; preserves Delay. |
+| [check_figure4_3strace_model_draft.cjs](check_figure4_3strace_model_draft.cjs) | Exact 600-dpi saved-SVG frame evidence and temporary preview for the 3sTrace model pilot. |
 | [update_latest_figure_assemblies.py](update_latest_figure_assemblies.py) | Compose the latest selected panels into one self-contained review HTML. |
 
 ### Scientific audits and verification
