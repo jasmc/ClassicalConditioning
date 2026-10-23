@@ -58,7 +58,12 @@
   "active_navigation": [
     "docs/project-maintenance/rules.md",
     "docs/project-maintenance/script-lifecycle.md",
-    "records/repository-history/2026-10-17-organization-reconciliation/README.md"
+    "records/repository-history/2026-10-17-organization-reconciliation/README.md",
+    "records/repository-history/2026-10-23-script-lifecycle/README.md"
   ],
-  "script_catalogue": "scripts/README.md"
+  "script_catalogue": "scripts/README.md",
+  "recorded_repository_roots": [
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+    "C:/Users/joaquim/Documents/ClassicalConditioning"
+  ]
 }

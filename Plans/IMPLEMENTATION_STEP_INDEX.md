@@ -26,6 +26,8 @@ Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering
 
 Completed maintenance on 2026-10-17: [organization reconciliation](../records/repository-history/2026-10-17-organization-reconciliation/README.md) implements the authority/preservation fixes, navigation, documentation ownership, script classification and routine local checks. All scripts remain retained; any archive/delete dispositions remain separate author choices. This maintenance does not close scientific gates.
 
+Maintenance follow-up on 2026-10-23: [script lifecycle and CI](../records/repository-history/2026-10-23-script-lifecycle/README.md) resolves the 14 pending classifications and five historical-candidate recommendations, catalogues the guide repair and implements organization CI. One completed archive helper has a proposal pending author disposition; its source remains local.
+
 ## Historical implementation record
 
 | Former step | Status | Recorded result or remaining gap |

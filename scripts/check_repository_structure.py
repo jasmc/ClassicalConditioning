@@ -19,6 +19,24 @@ from classical_conditioning.external_artifacts import resolve_artifact, sha256
 LINK = re.compile(r'(?<!!)\[[^\]]+\]\((<[^>]+>|[^)]+)\)')
 
 
+def recorded_path(value: str, repo: Path, aliases=(), *, base: Path | None = None) -> Path:
+    """Resolve explicit old checkout roots without rewriting recorded bytes.
+
+    This is a local verification alias, not an external-payload substitution.
+    Unknown absolute paths retain their external identity.
+    """
+    text = str(value).replace('\\', '/')
+    for alias in aliases:
+        root = alias.replace('\\', '/').rstrip('/')
+        if text == root or text.startswith(root + '/'):
+            relative = text[len(root):].lstrip('/')
+            if '..' in Path(relative).parts:
+                raise ValueError('Recorded repository path escapes its checkout alias')
+            return (repo / relative).resolve()
+    path = Path(value)
+    return (path if path.is_absolute() else (base or repo) / path).resolve()
+
+
 def markdown_anchors(path: Path) -> set[str]:
     body = re.sub(r'```.*?```', '', path.read_text(), flags=re.S)
     anchors = set(re.findall(r'<a\b[^>]*\bid=["\']([^"\']+)', body))
@@ -37,6 +55,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     issues: list[str] = []
     unavailable: list[str] = []
     policy = json.loads((repo / 'docs/project-maintenance/structure-policy.json').read_text())
+    aliases = policy.get('recorded_repository_roots', [])
     exceptions = set(policy['compatibility_files'])
     for path in (repo / 'docs').rglob('*'):
         if not path.is_file():
@@ -143,7 +162,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
                 if external and not Path(target).exists():
                     unavailable.append(key + ': ' + target)
                 continue
-            destination = (Path(target) if Path(target).is_absolute() else path.parent / target) if target else path
+            destination = recorded_path(target, repo, aliases, base=path.parent) if target else path
             if not destination.exists():
                 issues.append('Broken active link: ' + key + ' -> ' + target)
             elif fragment and destination.suffix == '.md':
@@ -169,8 +188,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
             continue
         state = json.loads(state_path.read_text())
         def resolved(value):
-            path = Path(value)
-            return (path if path.is_absolute() else repo / path).resolve()
+            return recorded_path(value, repo, aliases)
         entries = list(state.get('scientific_selection', {}).get('records', []))
         selected_paths = {resolved(item['path']) for item in entries}
         # A panel-only/exploratory state must not be compared with every panel

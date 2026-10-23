@@ -1,0 +1,50 @@
+{
+  "scope": "Repository manuscript link ownership only; published guide, manifest and saved sources unchanged",
+  "original_manuscript": {
+    "title": "analysis-guide.md",
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+    "sha256": "f6fc44f70451853e441b5cb90c1dff58d6c1f28c61a0a44d8d47afb5cfe36527",
+    "copy": "sources/completion-guide-manuscript.md",
+    "verification": "Dated documentation/code snapshot, not proof of an executed fit",
+    "note": "Chat completeness supplement, 2026-10-23"
+  },
+  "repository_manuscript_sha256_after": "7324cb7f9a15fe7152fef73aae93d12b8dc96be263777f3712076b29540af6ab",
+  "links": [
+    {
+      "bundle_relative": "sources/selected-phase-diagnostics.json",
+      "saved_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/selected-phase-diagnostics.json",
+      "sha256": "074d34f4eea87fbb686a15b4e31a83e5d8f1b8f47fbfc060441bfa092faa4512"
+    },
+    {
+      "bundle_relative": "sources/completion-population-code.py",
+      "saved_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-population-code.py",
+      "sha256": "5edbf30f5376bc86662db7deca14d5ff38b36c58307af17450820d4505989e19"
+    },
+    {
+      "bundle_relative": "sources/completion-plan03.md",
+      "saved_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-plan03.md",
+      "sha256": "5942732a5e5cf2b46340fbd6ec7b2d93c2856021558a78fa94126d07c8a76ff0"
+    },
+    {
+      "bundle_relative": "sources/completion-other-chat-summary.txt",
+      "saved_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-other-chat-summary.txt",
+      "sha256": "c9767ac26d6b251276e93bfb45912f3a2288c100972232fb9527b4d5b0201e60"
+    },
+    {
+      "bundle_relative": "sources/completion-figure3-methods.md",
+      "saved_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-figure3-methods.md",
+      "sha256": "e6774657f533844a5e59ce6f67c150d50a7fcec04016a033b8566ab3f8488ff7"
+    },
+    {
+      "bundle_relative": "sources/completion-figure3-state.json",
+      "saved_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-figure3-state.json",
+      "sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6"
+    },
+    {
+      "bundle_relative": "sources/completion-individual-methods.md",
+      "saved_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-individual-methods.md",
+      "sha256": "9eb4046e4041c2f7bc684acb06506ae64eb30052cede7c005878e827539e1f83"
+    }
+  ],
+  "recipe_compatibility": "The supplement and full builder map these recorded bundle source paths back to relative downloads before Markdown rendering. No guide was rebuilt."
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "status": "proposal only; no transfer or prune authorized",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-lifecycle/2026-10-23",
+  "files": [
+    {
+      "path": "scripts/archive_figure1_singlefish_versions.py",
+      "sha256": "79efa2cad658be23baa716599a6cabdfa2cc7a15285e475c948ef44d867b56ae",
+      "bytes": 10254,
+      "action": "archive_to_ssd",
+      "reason": "Hard-coded 13 October transaction driver; completed-transfer records already exist. No Python importers or non-inventory record references were found. Reusable transfer support remains in repository_archive.py.",
+      "required_before_transfer": "explicit author disposition",
+      "required_before_prune": "verified exact copy, recovery alias and fresh consumer/state checks"
+    }
+  ]
+}

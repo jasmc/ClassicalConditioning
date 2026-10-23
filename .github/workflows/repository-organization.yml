@@ -1,0 +1,30 @@
+name: Repository organization
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  organization:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install the locked environment
+        run: |
+          python -m pip install uv==0.9.5
+          uv sync --frozen
+      - name: Check repository organization
+        run: uv run --no-sync python scripts/check_repository_structure.py
+      - name: Test organization and archive safeguards
+        run: uv run --no-sync python -m unittest discover -s tests -p 'test_repository_*.py' -v

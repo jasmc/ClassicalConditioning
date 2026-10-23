@@ -53,3 +53,12 @@ external check additionally needs JOAQUIM and authenticates archive payloads and
 exact recovered versions. Tests include the actual local repository policy,
 synthetic failures and strict transfer/prune protections. Passing these checks
 does not approve scientific results or certify rendered figures.
+
+The [repository-organization CI workflow](../../.github/workflows/repository-organization.yml)
+runs the local checks and repository/archive tests on pushes to `develop`, pull
+requests and manual dispatch. It uses the frozen environment and does not
+require external scientific storage. `recorded_repository_roots` in the
+structure policy maps only the known historical checkout prefixes for local
+verification in another checkout; it never substitutes external payloads or
+rewrites frozen paths. External authentication still requires `--external` on
+the connected author machine.
