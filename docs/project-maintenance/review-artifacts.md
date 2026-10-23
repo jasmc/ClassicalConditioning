@@ -61,3 +61,28 @@ redundant working source; do not weaken preservation checks or substitute an
 older artifact. If the SSD is unavailable, record pending work and continue
 independent code or planning work without creating a new canonical study copy
 in Git.
+
+## Current source resolution
+
+The [source registry](../paper/study-sources.json) records canonical source paths
+and reviewed SHA-256 identities. Supported readers call
+`classical_conditioning.external_artifacts.resolve_artifact`; they do not read
+repository navigation pointers as manuscripts. Missing or changed external
+sources fail without a historical/local fallback. Ordinary source revisions
+require reviewing actual bytes and updating registry/catalogue identities;
+never replace a recorded hash merely to silence a mismatch.
+
+An explicit historical hash resolves the preserved exact original through
+`verified-artifact-locations.json`. Transfer checkpoints remain immutable.
+Protected historical discussions stay byte-identical as compatibility evidence,
+not independent editable manuscripts. Their library reading copies remain
+read-only. The [migration dispositions](../../records/repository-archive/study-sources-20261023/dispositions.json)
+record the exceptions and source consumers.
+
+The G guide builder also accepts `--manuscript PATH --manuscript-sha256 HASH`
+for an explicitly authenticated source. Default manuscript resolution stays lazy
+and uses the registry. Existing guide HTML was not rebuilt by this migration;
+its embedded snapshots and notebook identities remain valid historical bindings.
+Original relative Markdown links describe the source's repository context;
+use the library's reading/source routes and original-reference metadata when
+following those historical links. Source-only relocation does not rewrite prose.

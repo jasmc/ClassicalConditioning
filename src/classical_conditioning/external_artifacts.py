@@ -53,6 +53,25 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
             if sha256(exact) != expected_sha256:
                 raise ValueError(f'Artifact SHA-256 mismatch: {exact}')
             return exact
+    # Current study manuscripts have one external owner. A local navigation
+    # stub must never be read as their content, even when the drive is absent.
+    studies_path = repo / 'docs/paper/study-sources.json'
+    if studies_path.is_file():
+        studies = json.loads(studies_path.read_text())
+        for entry in studies['entries']:
+            if key != entry['reference']:
+                continue
+            root = Path(studies['root'])
+            relative = Path(entry['path'])
+            candidate = root / relative
+            if (relative.is_absolute() or '..' in relative.parts
+                    or not candidate.resolve().is_relative_to(root.resolve())):
+                raise ValueError('Invalid study source location')
+            if not candidate.is_file():
+                raise FileNotFoundError(f'Study source unavailable: {candidate}. Connect JOAQUIM; no local substitute was selected.')
+            if sha256(candidate) != (expected_sha256 or entry['sha256']):
+                raise ValueError(f'Study source SHA-256 mismatch: {candidate}')
+            return candidate
     reloc_path = repo / 'records/repository-archive/relocations.json'
     reloc = json.loads(reloc_path.read_text()) if reloc_path.exists() else {}
     moves = reloc.get('repository_moves', {})
@@ -135,3 +154,32 @@ def external_output(relative: str | Path) -> Path:
     if configured and not root.is_dir():
         raise FileNotFoundError(f'Configured external artifact root is unavailable: {root}')
     return root / part
+
+
+def check_study_sources(repo: Path = REPOSITORY, *, external: bool = False) -> list[str]:
+    """Validate discovery offline; authenticate canonical bytes only on request."""
+    path = repo / 'docs/paper/study-sources.json'
+    if not path.is_file():
+        return []
+    data = json.loads(path.read_text())
+    issues, seen = [], set()
+    root = Path(data['root'])
+    if not root.is_absolute() or root.resolve().is_relative_to(repo.resolve()):
+        issues.append('Study source root must be absolute and external')
+    for entry in data['entries']:
+        ref, relative = entry['reference'], Path(entry['path'])
+        if ref in seen:
+            issues.append('Duplicate study reference: ' + ref)
+        seen.add(ref)
+        if Path(ref).is_absolute() or '..' in Path(ref).parts:
+            issues.append('Invalid study reference: ' + ref)
+        if relative.is_absolute() or '..' in relative.parts or not (root / relative).resolve().is_relative_to(root.resolve()):
+            issues.append('Invalid study source location: ' + str(relative))
+        if not re.fullmatch(r'[0-9a-f]{64}', entry['sha256']):
+            issues.append('Invalid study source SHA-256: ' + ref)
+        if external:
+            try:
+                resolve_artifact(ref, repo=repo)
+            except (ValueError, FileNotFoundError) as error:
+                issues.append(str(error))
+    return issues

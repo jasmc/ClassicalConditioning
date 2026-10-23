@@ -3,7 +3,9 @@ from pathlib import Path
 import argparse, base64, hashlib, html, io, json, re, sys, zipfile
 from html.parser import HTMLParser
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'src'))
+sys.path.insert(0, str(ROOT / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact
+
 from classical_conditioning.figure_workspace import Snapshot, publish_state
 
 def digest(data): return hashlib.sha256(data).hexdigest()
@@ -47,8 +49,8 @@ class Inventory(HTMLParser):
 def main(out):
     ticketpath=out/'conversation-preservation-ticket-20261023.json'
     ticket=json.loads(ticketpath.read_text()); record=Path(ticket['record']); path=Path(ticket['html']['path'])
-    checkpoint=ROOT/'records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md'
-    summary=ROOT/'records/figure-reviews/figure-03/conversation-summary-2026-10-16.md'
+    checkpoint=resolve_artifact('records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md', repo=ROOT)
+    summary=resolve_artifact('records/figure-reviews/figure-03/conversation-summary-2026-10-16.md', repo=ROOT)
     skill=Path(ticket['skill_root'])
     skillfiles=sorted(p for p in skill.rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.name!='.DS_Store')
     inputs=[record,path,ticketpath,checkpoint,summary,Path(__file__),*skillfiles,*map(Path,ticket['protected'])]

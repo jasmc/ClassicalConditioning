@@ -5,7 +5,7 @@ Author-requested reorganization, 2026-10-13. Everyday paper work is figure-led; 
 | Location | Owns | Does not own |
 |---|---|---|
 | `docs/paper/figures/` | Figure purpose, selected panel navigation, legends, current state, review navigation and scoped concerns, figure-specific assembly | Duplicated shared methods, frozen code, generated media |
-| `docs/paper/methods/` | Shared scientific definitions and contracts, including individual learning; full candidate-method study texts migrate under Plan 12 | A separate folder per scientific workstream, commands or progress |
+| `docs/paper/methods/` | Shared scientific definitions and contracts, including individual learning; full candidate-method study texts live on JOAQUIM under Plan 12 | A separate folder per scientific workstream, commands or progress |
 | `docs/paper/decisions.md`, `review.md` | Current scoped choices and cross-paper concerns | Copies of all audit evidence |
 | `docs/running-analysis/` | Running the supported code, parameters, interfaces, outputs, troubleshooting | Scientific approval or repository cleanup |
 | `docs/project-maintenance/` | Current organization, governance and storage procedures | Historical inventories and completed cleanup reports |

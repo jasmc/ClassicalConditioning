@@ -21,10 +21,11 @@
         {
           "id": "g-manuscript",
           "title": "Guide manuscript and chapter 14 discussion",
-          "storage": "repo",
-          "path": "docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+          "storage": "outputs",
+          "path": "studies/figure-02/panel-g/study.md",
           "status": "Markdown discussion",
-          "description": "Editable explanatory source; published snapshots remain separately hash-bound."
+          "description": "Editable explanatory source; published snapshots remain separately hash-bound.",
+          "sha256": "7324cb7f9a15fe7152fef73aae93d12b8dc96be263777f3712076b29540af6ab"
         },
         {
           "id": "g-selection",
@@ -55,10 +56,11 @@
         {
           "id": "g-comparison",
           "title": "Accepted G versus independent results",
-          "storage": "repo",
-          "path": "records/scientific-evidence/analyses/figure-02-g-independent/current-G-comparison-2026-10-15.md",
+          "storage": "outputs",
+          "path": "studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md",
           "status": "Dated scientific comparison",
-          "description": "Explains different outcomes, estimands, uncertainty and limitations."
+          "description": "Explains different outcomes, estimands, uncertainty and limitations.",
+          "sha256": "1c304e33a59ddb4ee47924f3018989278012587b05d1bf2e2e6b546a186df9c5"
         },
         {
           "id": "g-gamm",
@@ -76,6 +78,33 @@
           "status": "Historical comparison",
           "description": "Consolidated older model/outcome alternatives and embedded source archive.",
           "sha256": "774f8cc7769503b8a9363271dfccfbc1fc65ac90275425e2e1dafc4f4dac4599"
+        },
+        {
+          "id": "study-source-12",
+          "title": "Review agenda",
+          "storage": "outputs",
+          "path": "studies/figure-02/review-agenda.md",
+          "sha256": "19d0bbbc6327292ecf4e40c244bb5caddad330fb4a5e07a8546e1c9a29f2b7f6",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-02/review.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-15",
+          "title": "Implementation and review 2026 10 15",
+          "storage": "outputs",
+          "path": "studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md",
+          "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-16",
+          "title": "Review 2026 10 14",
+          "storage": "outputs",
+          "path": "studies/figure-02/panel-g/comparisons/review-2026-10-14.md",
+          "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md. Existing HTML guides retain their original paths."
         }
       ]
     },
@@ -224,18 +253,20 @@
         {
           "id": "f3-checkpoint",
           "title": "Conversation checkpoint and unresolved comparisons",
-          "storage": "repo",
-          "path": "records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md",
+          "storage": "outputs",
+          "path": "studies/figure-03/conversation-checkpoint-2026-10-23.md",
           "status": "Markdown discussion",
-          "description": "Author decisions, observed outcomes, legacy rules and unfinished BLUP comparison."
+          "description": "Author decisions, observed outcomes, legacy rules and unfinished BLUP comparison.",
+          "sha256": "55c497afd61ca6e04daea7cc853b764644abc0772e54a0e51ca1bc548ed65cc3"
         },
         {
           "id": "f3-summary",
           "title": "Earlier conversation summary",
-          "storage": "repo",
-          "path": "records/figure-reviews/figure-03/conversation-summary-2026-10-16.md",
+          "storage": "outputs",
+          "path": "studies/figure-03/conversation-summary-2026-10-16.md",
           "status": "Dated Markdown discussion",
-          "description": "Read together with the later checkpoint."
+          "description": "Read together with the later checkpoint.",
+          "sha256": "318cbdef4ea12b32cd105c563739b4bf9f139e73bbe85b696c38f947e78382f3"
         },
         {
           "id": "f3-delay",
@@ -303,10 +334,38 @@
         {
           "id": "f3-methods",
           "title": "Shared individual-learning method review",
-          "storage": "repo",
-          "path": "docs/paper/methods/individual-learning.md",
+          "storage": "outputs",
+          "path": "studies/shared/individual-learning-review.md",
           "status": "Current shared-method review",
-          "description": "Canonical source for representation and validation choices; proposals remain open."
+          "description": "Canonical source for representation and validation choices; proposals remain open.",
+          "sha256": "9eb4046e4041c2f7bc684acb06506ae64eb30052cede7c005878e827539e1f83"
+        },
+        {
+          "id": "study-source-4",
+          "title": "Explanation guide design 2026 10 17",
+          "storage": "outputs",
+          "path": "studies/figure-03/explanation-guide-design-2026-10-17.md",
+          "sha256": "45f7e8daaaad5817539fc5ac6d06c3545b4382d82807a6c9ccb05a10d36610d2",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-6",
+          "title": "Individual fish display review",
+          "storage": "outputs",
+          "path": "studies/figure-03/individual-fish-display-review.md",
+          "sha256": "c04681a5f33fe5c27b93fb8c3c94b8d8a1e9c2fa2f4fa5ca1002c8eb343c3496",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-03/individual-fish-display.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-13",
+          "title": "Review agenda",
+          "storage": "outputs",
+          "path": "studies/figure-03/review-agenda.md",
+          "sha256": "5651b99ab202c8831025b46c1fe5a612dc7963282cb3a5500e439b853defc4d3",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-03/review.md. Existing HTML guides retain their original paths."
         }
       ]
     },
@@ -327,10 +386,11 @@
         {
           "id": "f4-markdown",
           "title": "The same planning discussion as Markdown",
-          "storage": "repo",
-          "path": "records/figure-reviews/figure-04/conversation-summary-2026-10-23.md",
+          "storage": "outputs",
+          "path": "studies/figure-04/conversation-summary-2026-10-23.md",
           "status": "Markdown discussion snapshot",
-          "description": "Text extracted from the saved HTML; the source HTML remains unchanged."
+          "description": "Text extracted from the saved HTML; the source HTML remains unchanged.",
+          "sha256": "f772bb5e3bf950181b5ece04354c08ff8edbe345bdc4bad08a51cbe1eea90f4c"
         },
         {
           "id": "f4-condition",
@@ -429,6 +489,67 @@
           "path": "Plans/05_FIGURE_4_CR_PROFILES.md",
           "status": "Proposed work",
           "description": "Future implementation and decisions; not approval of a saved pilot."
+        },
+        {
+          "id": "study-source-14",
+          "title": "Review agenda",
+          "storage": "outputs",
+          "path": "studies/figure-04/review-agenda.md",
+          "sha256": "1a3eac9f5bb78f93f94dc138c56cc70c80f0d40365ad499e849be54a8f29c2fa",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-04/review.md. Existing HTML guides retain their original paths."
+        }
+      ]
+    },
+    {
+      "id": "shared-studies",
+      "title": "Shared method and presentation discussions",
+      "context": "Supporting discussion; accepted definitions, author decisions and scientific selections remain in repository records.",
+      "entries": [
+        {
+          "id": "study-source-7",
+          "title": "Paper review agenda",
+          "storage": "outputs",
+          "path": "studies/shared/paper-review-agenda.md",
+          "sha256": "4c9602f5a6e13c689caf90042fff70b1af1fd1379870489f711c56d853b9fdb1",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from docs/paper/review.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-8",
+          "title": "Figure review agenda",
+          "storage": "outputs",
+          "path": "studies/shared/figure-review-agenda.md",
+          "sha256": "cdb5412dc776e3b257fb272c5651a75fbc334d8d7bee8a5cd91260cd50a7e793",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from docs/paper/figures/shared/review.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-9",
+          "title": "Nature guidance 20261016",
+          "storage": "outputs",
+          "path": "studies/shared/nature-guidance-20261016.md",
+          "sha256": "ccb5df3cbd0aa1b73d62c75afa981d57d13058e7f23eb059a2509fc06daa5864",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from records/figure-reviews/nature-guidance-20261016.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-10",
+          "title": "Nature main migration 20261017",
+          "storage": "outputs",
+          "path": "studies/shared/nature-main-migration-20261017.md",
+          "sha256": "094142a0d13d1e6453a2726636560f6f257da6996738266709ebf007b6cabdc9",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from records/figure-reviews/nature-main-migration-20261017.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "study-source-11",
+          "title": "Review agenda",
+          "storage": "outputs",
+          "path": "studies/figure-01/review-agenda.md",
+          "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
+          "status": "Study source · discussion, not approval",
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-01/review.md. Existing HTML guides retain their original paths."
         }
       ]
     }

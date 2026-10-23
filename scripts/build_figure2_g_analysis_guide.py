@@ -2,7 +2,8 @@
 """Build an evidence-bound teaching guide; never fit models or publish figure state.
 
 Permanent output must be a NEW directory on mounted JOAQUIM. Markdown prose is
-maintained locally; all numerical tables below are read from saved artifacts.
+resolved through the authenticated SSD source registry; numerical tables are
+read from saved artifacts.
 Requires Node's `marked` package (the desktop dependency runtime supplies it).
 """
 from __future__ import annotations
@@ -21,6 +22,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+import sys
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 import xml.etree.ElementTree as ET
@@ -30,6 +32,9 @@ ET.register_namespace("", "http://www.w3.org/2000/svg")
 ET.register_namespace("xlink", "http://www.w3.org/1999/xlink")
 
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact
+
 CONTENT = REPO / "docs/paper/figures/figure-02/panel-g/analysis-guide.md"
 NOTEBOOK = REPO / "scripts/figure2_g_guide_notebook.js"
 OUTPUTS = Path("/Volumes/JOAQUIM/ClassicalConditioning Outputs")
@@ -94,8 +99,12 @@ figure{margin:26px 0;padding:15px;border:1px solid var(--line);border-radius:6px
 
 
 class Guide:
-    def __init__(self, out: Path):
+    def __init__(self, out: Path, manuscript: Path = CONTENT, manuscript_sha256=None):
         self.out = out
+        if manuscript != CONTENT and not manuscript_sha256:
+            raise ValueError("An explicit manuscript requires --manuscript-sha256")
+        self.manuscript = resolve_artifact(manuscript, expected_sha256=manuscript_sha256, repo=REPO)
+        self.manuscript_sha256 = digest(self.manuscript.read_bytes())
         self.sources = {}
         self.tokens = {}
         self.protected = {}
@@ -103,6 +112,7 @@ class Guide:
         self.figure_hashes = []
 
     def source(self, key, title, path: Path, expected=None, note="", copy_file=True):
+        path = resolve_artifact(path, expected_sha256=expected, repo=REPO)
         raw = path.read_bytes()
         actual = digest(raw)
         if expected and actual != expected:
@@ -304,7 +314,7 @@ class Guide:
         self.checks["new_joint_positive_trials"] = comparison["new_adjusted_trial_positive_joint_interval"]
         assert self.checks["old_BH_trials"]==list(range(19,72))
         assert self.checks["new_joint_positive_trials"]==list(range(22,62))
-        self.source("guide-content", "Guide explanatory source",CONTENT)
+        self.source("guide-content", "Guide explanatory source",self.manuscript,expected=self.manuscript_sha256)
         self.source("guide-builder", "Guide builder",Path(__file__))
         self.source("guide-notebook", "Review notebook browser code",NOTEBOOK)
         # Record the original technical supplement binding as well as the copy
@@ -382,7 +392,7 @@ class Guide:
 
     def write(self, node, node_modules):
         from complete_figure2_g_analysis_guide import bundle_markdown
-        chunks=re.split(r'^## (.+)$',bundle_markdown(CONTENT.read_text()),flags=re.M)
+        chunks=re.split(r'^## (.+)$',bundle_markdown(self.manuscript.read_text()),flags=re.M)
         chapters=[]
         for i in range(1,len(chunks),2):
             title=chunks[i];slug=re.sub(r'[^a-z0-9]+','-',title.lower()).strip('-')
@@ -454,6 +464,8 @@ class Guide:
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output-dir',type=Path,required=True)
+    p.add_argument('--manuscript',type=Path,default=CONTENT)
+    p.add_argument('--manuscript-sha256')
     p.add_argument('--node',default=shutil.which('node'))
     p.add_argument('--node-modules',type=Path)
     args=p.parse_args()
@@ -466,7 +478,7 @@ def main():
     stage=Path(tempfile.mkdtemp(prefix='.g-guide-build-',dir=output.parent))
     try:
         (stage/'assets').mkdir()
-        guide=Guide(stage);guide.capture();guide.write(args.node,args.node_modules)
+        guide=Guide(stage,args.manuscript,args.manuscript_sha256);guide.capture();guide.write(args.node,args.node_modules)
         # Atomic publication of a NEW guide directory, never a figure pointer.
         os.rename(stage,output)
     except BaseException:

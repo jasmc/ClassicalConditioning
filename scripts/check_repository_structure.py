@@ -14,7 +14,7 @@ from urllib.parse import unquote
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
-from classical_conditioning.external_artifacts import resolve_artifact, sha256
+from classical_conditioning.external_artifacts import resolve_artifact, sha256, check_study_sources
 
 LINK = re.compile(r'(?<!!)\[[^\]]+\]\((<[^>]+>|[^)]+)\)')
 
@@ -54,6 +54,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     repo = repo.resolve()
     issues: list[str] = []
     unavailable: list[str] = []
+    issues.extend(check_study_sources(repo, external=external))
     policy = json.loads((repo / 'docs/project-maintenance/structure-policy.json').read_text())
     aliases = policy.get('recorded_repository_roots', [])
     reading_catalogue = repo / 'docs/paper/figures/review-library.json'

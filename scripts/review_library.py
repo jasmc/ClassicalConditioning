@@ -144,8 +144,8 @@ def build(catalogue, output_root, archive_root=ARCHIVE, repo=ROOT):
             raw = source.read_bytes()
             if digest(raw) != identities[entry["id"]]:
                 raise ValueError("Source changed during build: " + str(source))
-            if entry["storage"] == "repo":
-                snapshot = "reading/" + entry["path"]
+            if entry["storage"] == "repo" or source.suffix == ".md":
+                snapshot = "reading/" + ("" if entry["storage"] == "repo" else entry["storage"] + "/") + entry["path"]
                 files[snapshot] = raw
                 href = relative + "/" + snapshot
                 if source.suffix == ".md":
@@ -153,7 +153,7 @@ def build(catalogue, output_root, archive_root=ARCHIVE, repo=ROOT):
                     back = quote(os.path.relpath(index, (destination / viewer).parent), safe="/.")
                     files[viewer] = page(entry["title"], f"<p><a href='{back}'>Back to review library</a></p>"
                         f"<h1>{html.escape(entry['title'])}</h1><p>Verbatim Markdown reading snapshot · {html.escape(catalogue['reviewed'])}</p>"
-                        f"<p><a href='{quote(source.name)}'>Open Markdown file</a></p><pre>{html.escape(raw.decode())}</pre>")
+                        f"<p><a href='{quote(source.name)}'>Read-only Markdown snapshot</a> · <a href='{quote(os.path.relpath(source, (destination / viewer).parent), safe='/ .').replace(' ', '%20')}'>Canonical source</a></p><pre>{html.escape(raw.decode())}</pre>")
                     href = relative + "/" + viewer
             else:
                 href = os.path.relpath(source, output_root).replace(os.sep, "/")

@@ -4,7 +4,9 @@ import argparse,ast,base64,hashlib,html,json,os,sys
 from pathlib import Path
 import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'src'))
+sys.path.insert(0, str(ROOT / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact
+
 from classical_conditioning.figure_workspace import Snapshot,publish_state
 
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -55,7 +57,7 @@ def build(out, update=False):
  codepaths=['legacy/scripts/1_Preprocessing_IndividualFishPlotting_ProtocolPlotting_Discarding.py','legacy/scripts/3_FishGrouping.py','legacy/scripts/4_ScaledVigorPlotting.py','legacy/scripts/5_NormalizedVigorPlotting.py','legacy/scripts/6_LearnersQuantification.py','legacy/scripts/6_LearnersQuantification_new.py','legacy/scripts/6_LearnersQuantification_improved.py','legacy/scripts/6_LearnersQuantification_WIP.py','src/classical_conditioning/analysis/review/individual_atlas.py','src/classical_conditioning/analysis/review/blup_comparison.py','src/classical_conditioning/figures/individual_atlas.py','scripts/build_figure3_main_paper.py','tests/test_blup_comparison.py']
  codes={p:read(ROOT/p).decode() for p in codepaths}
  references=['records/figure-reviews/figure-03/conversation-summary-2026-10-16.md','records/scientific-evidence/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md','records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md','docs/paper/methods/individual-learning.md','docs/paper/figures/figure-03/individual-fish-display.md','docs/running-analysis/figure3-main-paper-draft.md','docs/running-analysis/figure3-individual-atlas.md','Plans/04_FIGURE_3_LEARNER_ANALYSIS.md','Plans/06_ANALYSIS_AND_STATISTICS.md','records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md']
- for p in references:read(ROOT/p)
+ for p in references:read(resolve_artifact(p, repo=ROOT))
  runtexts={};configs={}
  for variant in ['legacy-nominal','legacy-new','legacy-improved','legacy-wip']:
   runtexts[variant]=asset('classifiers/'+variant+'/run.log').read_text();configs[variant]=json.loads(asset('classifiers/'+variant+'/results.config.json').read_text());asset('classifiers/'+variant+'/results.parquet')
@@ -167,7 +169,7 @@ Eᵢ = Aᵢ − (μcontrol,Pre − μcontrol,Late)</div><p>G has an unstructured
  downloads=''
  for name,text in codes.items():
   downloads+='<li><a download="'+esc(Path(name).name)+'" href="data:text/plain;base64,'+base64.b64encode(text.encode()).decode()+'">'+esc(name)+'</a></li>'
- downloads+='<li><a download="conversation-summary-2026-10-16.md" href="data:text/plain;base64,'+base64.b64encode((ROOT/references[0]).read_bytes()).decode()+'">Full dated conversation summary (Markdown)</a></li>'
+ downloads+='<li><a download="conversation-summary-2026-10-16.md" href="data:text/plain;base64,'+base64.b64encode(resolve_artifact(references[0], repo=ROOT).read_bytes()).decode()+'">Full dated conversation summary (Markdown)</a></li>'
  for filename in ['classification-manifest.csv','fish-inventory.csv','g-logmedian-outcomes.csv']:
   downloads+='<li><a download="'+filename+'" href="'+uri(asset(filename),'text/csv')+'">'+filename+' (saved source table)</a></li>'
  config_html=''

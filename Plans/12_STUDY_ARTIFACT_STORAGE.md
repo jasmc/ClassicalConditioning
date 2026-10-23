@@ -7,8 +7,9 @@ remain in the repository.
 
 The [storage policy](../docs/project-maintenance/review-artifacts.md) records the
 new-work rule. The personal `analysis-review-guide` skill is adapted locally;
-the migration of existing manuscripts and their consumers remains planned.
-This plan changes neither scientific selection nor an existing guide's bytes.
+the source migration and supported-reader changes are implemented. Existing
+HTML routes and notebook storage remain unchanged.
+This work changes neither scientific selection nor an existing guide's bytes.
 
 ## Ownership and mechanism
 
@@ -167,15 +168,36 @@ the recorded reading revision. Unsupported preview/print checks remain explicit.
 
 ## Verification and current status
 
-The immediate skill/rule/plan changes are documentation and configuration work.
-Run the skill validator, active-link/structure checker and relevant existing
-repository checks. Do not build a new study or move existing manuscripts merely
-to validate this plan.
+Implemented on 23 October 2026: 18 full study/discussion sources now have one
+canonical SSD home. Four supported builders resolve their logical source
+references using the existing artifact resolver; the G builder also supports
+an explicitly hash-authenticated manuscript. Repository copies are short
+navigation/boundary pages. The library has 57 curated entries and portable
+HTML readers for external Markdown, plus six topic navigation pages on JOAQUIM.
+
+Native archive transfer/verification/pruning preserved exact originals before
+replacing local bodies. Explicit historical hashes resolve those originals;
+current manuscript resolution fails on unavailable or changed SSD bytes.
+The [source registry](../docs/paper/study-sources.json),
+[dispositions](../records/repository-archive/study-sources-20261023/dispositions.json)
+and [verification](../records/repository-archive/study-sources-20261023/verification.json)
+record identities, consumers and checks. Hash-protected historical narrative
+records remain exact compatibility dependencies, with read-only library copies;
+no frozen preservation rule was relaxed.
+
+Existing HTML, embedded sources, storage keys and notebook origins were retained.
+No notebook inspection, notes migration, model execution, figure editing or
+scientific-state update was required. New navigation received static link and
+identity checks; browser-rendered usability is not claimed because the available
+browser rejected local-file access. Original relative links within preserved
+Markdown retain their historical source context; the library provides the
+maintained reading and canonical-source routes.
 
 Current status belongs in [the implementation index](IMPLEMENTATION_STEP_INDEX.md).
-[The adaptation record](../records/repository-history/2026-10-23-study-artifact-policy.json) identifies the local skill changes and exact SSD backups. Bulk migration and builder changes remain unimplemented. The four previously
-identified Figure 1/2 external working-copy mismatches and the GitHub billing
-blocker are separate from this storage plan.
+[The skill adaptation record](../records/repository-history/2026-10-23-study-artifact-policy.json)
+identifies the preceding personal-skill changes and backups. The four previously
+identified Figure 1/2 external working-copy mismatches and GitHub billing blocker
+remain separate issues; this migration does not reconcile or bypass them.
 
 The mechanism follows OpenAI's distinction between [reusable skills](https://learn.chatgpt.com/docs/build-skills)
 and [project instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md).

@@ -65,6 +65,21 @@ class ReadingLibrary(unittest.TestCase):
                     continue
                 self.assertTrue((page.parent / unquote(target)).is_file(), (page, target))
 
+    def test_external_manuscript_has_readable_snapshot_and_canonical_link(self):
+        source = self.outputs / 'study.md'
+        source.write_text('# Editable study\n\nA < B.\n')
+        self.catalogue['groups'][0]['entries'].append({
+            'id': 'external-study', 'title': 'External study', 'storage': 'outputs',
+            'path': 'study.md', 'sha256': library.digest(source.read_bytes()),
+            'status': 'Discussion', 'description': 'Canonical external source'})
+        result = self.build()
+        snapshot = self.outputs / result['snapshot']
+        self.assertEqual((snapshot / 'reading/outputs/study.md').read_bytes(), source.read_bytes())
+        viewer = (snapshot / 'reading/outputs/study.md.html').read_text()
+        self.assertIn('Canonical source', viewer)
+        self.assertIn('A &lt; B.', viewer)
+        self.assertIn('reading/outputs/study.md.html', (self.outputs / 'START-HERE.html').read_text())
+
     def test_manual_navigation_edits_are_preserved(self):
         self.build()
         page = self.outputs / "START-HERE.html"

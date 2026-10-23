@@ -16,8 +16,12 @@ import re
 import shutil
 import subprocess
 import tempfile
+import sys
 
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO / "src"))
+from classical_conditioning.external_artifacts import resolve_artifact
+
 SLUG = "14-chat-completion-clarifications-model-teaching-and-next-steps"
 TITLE = "14. Chat completion: clarifications, model teaching and next steps"
 SOURCES = {
@@ -72,7 +76,7 @@ def main():
     shutil.copytree(root, backup)
     protected = {str(p.relative_to(root)): sha(p.read_bytes()) for p in root.rglob("*")
                  if p.is_file() and p.suffix in {".svg", ".png", ".parquet"}}
-    manuscript = (REPO / SOURCES["completion-guide-manuscript"]).read_text()
+    manuscript = resolve_artifact(SOURCES["completion-guide-manuscript"], repo=REPO).read_text()
     content = manuscript.split("## " + TITLE + "\n", 1)[1]
     env = dict(os.environ, NODE_PATH=args.node_modules)
     rendered = subprocess.check_output(
@@ -95,7 +99,7 @@ def main():
     config["documentation_supplement"] = "2026-10-23; bound separately in evidence-manifest.json; core analysis snapshot and notebook key preserved"
     new = new[:config_match.start(2)] + json.dumps(config) + new[config_match.end(2):]
     additions = {}
-    source_paths = {key: REPO / rel for key, rel in SOURCES.items()}
+    source_paths = {key: resolve_artifact(rel, repo=REPO) for key, rel in SOURCES.items()}
     source_paths["completion-other-chat-summary"] = args.pasted_summary
     for key, path in source_paths.items():
         raw = path.read_bytes()
