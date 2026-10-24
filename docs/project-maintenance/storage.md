@@ -38,3 +38,15 @@ audit exceptions cannot weaken those mutation safeguards.
 ## Find reviews on JOAQUIM
 
 Open `ClassicalConditioning Outputs/START-HERE.html`. The maintained [review library](../paper/figures/review-library.md) owns curated reading links; its JSON catalogue supplies verified external identities. `current/reviews/` also retains historical/QA iterations and does not itself select current science. `ORGER-JOAQUIM/outputs/` is a source-machine mirror; archive and dated handoff packets keep separate recovery roles. Reorganize navigation before moving payloads with path-bound dependencies.
+
+## Drive-wide audit
+
+The [24 October storage audit](../../records/repository-history/2026-10-24-joaquim-storage-audit/README.md)
+records current folder sizes, processed-data status, archive integrity and the
+roles of the dated PC/Mac handoff packets. Its full Markdown/HTML explanation
+and file inventory live on JOAQUIM. Machine names and old dates do not by
+themselves identify disposable data: the Delay baseline still supplies figure
+inputs, and the old Mac handoff's pc-outputs subtree resolves selected Figure 2 G.
+Treat dated source packets as handoff/recovery snapshots, not parallel active
+repositories; preserve their dirty-copy history and bound exports before any
+future consolidation. No folders were moved or pruned by the audit.
