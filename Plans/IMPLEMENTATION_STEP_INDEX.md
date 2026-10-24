@@ -16,7 +16,7 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 10 | [Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
 | 12 | [Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | Implemented: 18 study sources externalized with exact recovery; four readers updated, 57-entry library published. Existing HTML paths/bytes and notes retained; protected historical originals remain exact compatibility records. |
-| 13 | [Script command organization](13_SCRIPT_COMMAND_ORGANIZATION.md) | All 111 tracked files audited; naming/extraction/archive proposals complete. Implementation proposed; full report publication pending JOAQUIM reconnect. No script implementation changed. |
+| 13 | [Script command organization](13_SCRIPT_COMMAND_ORGANIZATION.md) | All 111 tracked files audited; naming/extraction/archive proposals complete. Implementation proposed; full report published and hash-verified on JOAQUIM. No script implementation changed. |
 
 Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 

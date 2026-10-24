@@ -6,13 +6,14 @@ proposed treatments and external publication status. The full study/review
 material stays outside Git; [Plan 13](../../../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md)
 owns proposed implementation priorities and naming.
 
-The full report's intended home is
-[JOAQUIM](/Volumes/JOAQUIM/ClassicalConditioning%20Outputs/studies/repository/scripts-audit-2026-10-24/AUDIT.html).
-JOAQUIM disconnected before this report could be published. The manifest records
-its temporary review directory and hashes; that scratch copy is not a durable
-canonical replacement for the SSD. No mount was created or evidence inspection
-claimed after disconnection. Preserve the verified report package and publish
-it when the drive returns, then update publication status explicitly.
+The full report is published and hash-verified on
+[JOAQUIM](/Volumes/JOAQUIM/ClassicalConditioning%20Outputs/studies/repository/scripts-audit-2026-10-24/AUDIT.html),
+with its [Markdown source](/Volumes/JOAQUIM/ClassicalConditioning%20Outputs/studies/repository/scripts-audit-2026-10-24/AUDIT.md).
+After reconnection, all eight report/evidence files and the HTML's relative links
+were verified before and after atomic directory publication. The manifest records
+the external receipt and its SHA-256. The temporary package remains as a recovery
+copy; the SSD is the canonical report home. No script or scientific artifact was
+moved, modified or deleted by publication.
 
 The audit recommends 32 maintained commands, 15 package extractions, 14 helper
 extractions before recipe retirement, 18 explicit historical reproductions,

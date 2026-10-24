@@ -47,8 +47,7 @@
   ],
   "no_script_code_changed": true,
   "external_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/repository/scripts-audit-2026-10-24",
-  "publication_status": "pending-SSD-unavailable",
-  "temporary_review_root": "/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-scripts-audit-20261024-x8hmcd0x",
+  "publication_status": "published-and-verified",
   "files": [
     {
       "path": "AUDIT.html",
@@ -100,6 +99,14 @@
     "test_result": "passed",
     "full_report_static_links": "passed",
     "scientific_or_browser_execution": false,
-    "ssd_publication": "unavailable; temporary package retained"
+    "ssd_publication": "passed: exact files and local HTML links verified on mounted JOAQUIM"
+  },
+  "previous_temporary_review_root": "/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-scripts-audit-20261024-x8hmcd0x",
+  "publication": {
+    "receipt": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/repository/scripts-audit-2026-10-24/publication.json",
+    "sha256": "141267ccee69dc2f5cbb3be569fd1837c4871c2957848529f9b1a682bcf69158",
+    "published_utc": "2026-10-24T11:31:05.320158+00:00",
+    "verified_files": 8,
+    "source_scratch_retained": true
   }
 }
