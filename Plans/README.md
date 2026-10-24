@@ -16,6 +16,7 @@ This folder contains future work, this navigation page and the [implementation i
 | [10 Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Later tail-mechanism analyses |
 | [11 Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Optional imaging integration |
 | [12 Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | SSD-owned Markdown/HTML workspaces, dependency-aware source migration and note preservation |
+| [13 Script command organization](13_SCRIPT_COMMAND_ORGANIZATION.md) | Whole-folder audit, explicit side effects, package extraction and scoped figure/panel command migration |
 
 The first release covers main Figures 1–4 and necessary scientific evidence. Supplementary composition, tail mechanisms and imaging are separate. Required learner validation and main-claim controls remain mandatory.
 

@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-24",
+  "starting_head": "23c99b6bf6b2818b481563c3cd6336c72942b2e1",
+  "scope": "Every tracked scripts/ file plus all ignored files present at inventory",
+  "summary": {
+    "tracked_files": 111,
+    "python": 93,
+    "commonjs": 11,
+    "powershell": 5,
+    "browser_js": 1,
+    "readme": 1,
+    "source_lines": 18952,
+    "ignored_bytecode": 47,
+    "orphan_bytecode": 2,
+    "proposed_completed_recipe_archives": 26,
+    "live_recipe_helpers_to_extract_first": 14,
+    "maintained_commands": 32,
+    "shared_implementation_files": 15,
+    "historical_reproduction_files": 18,
+    "platform_launchers": 5,
+    "circular_import_pairs": 3,
+    "direct_importers_of_legend_hub": 21,
+    "large_exact_duplicate_function_groups": 0
+  },
+  "recommendation_counts": {
+    "keep-navigation": 1,
+    "archive-candidate-completed-recipe": 26,
+    "extract-shared-implementation": 15,
+    "keep-maintained-command": 32,
+    "keep-explicit-historical-reproduction": 18,
+    "extract-live-helpers-before-retiring-recipe": 14,
+    "consolidate-platform-workflow": 5
+  },
+  "circular_import_pairs": [
+    [
+      "scripts/correct_panel_relationships.py",
+      "scripts/layout_main_paper_figures.py"
+    ],
+    [
+      "scripts/review_figure2_block_log_median.py",
+      "scripts/review_figure2_bout_only.py"
+    ],
+    [
+      "scripts/publish_figure1_fgh_one_second.py",
+      "scripts/build_figure_legend_review.py"
+    ]
+  ],
+  "no_script_code_changed": true,
+  "external_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/repository/scripts-audit-2026-10-24",
+  "publication_status": "pending-SSD-unavailable",
+  "temporary_review_root": "/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-scripts-audit-20261024-x8hmcd0x",
+  "files": [
+    {
+      "path": "AUDIT.html",
+      "sha256": "1ced8b975295b40dae59f278b0984f5974b4e41f65c383b3e2db91f79a1af619",
+      "bytes": 602119
+    },
+    {
+      "path": "AUDIT.md",
+      "sha256": "170416babf12d2773715dd45be890d65caeb8aefab9f05ac0a5fb95eb7e8f107",
+      "bytes": 108049
+    },
+    {
+      "path": "audit-code/audit_scripts.py",
+      "sha256": "06e8820f6ef736f4c1a94a08c1cbbc3f32eaaab69b09f9b69ffe1de851436053",
+      "bytes": 4392
+    },
+    {
+      "path": "audit-code/classify_script_audit.py",
+      "sha256": "adb97c10bd85280f46c10287646a1380922e7591801ba7522a5ffff8c560b66c",
+      "bytes": 4450
+    },
+    {
+      "path": "audit-code/enrich_script_audit.py",
+      "sha256": "0800e069aa95fc29722266fe328f5b3540ed74a84b695719425df7db717b78cf",
+      "bytes": 3063
+    },
+    {
+      "path": "audit-code/publish_script_audit.py",
+      "sha256": "23e8cd57352890d9adda07bd812d2c598463e3439ea1503307af1ff728a5bb96",
+      "bytes": 34255
+    },
+    {
+      "path": "inventory.json",
+      "sha256": "e8a7656ca6c399f061271732483dbbec69f60564bfa2e42dfa3cfd311f604974",
+      "bytes": 468777
+    },
+    {
+      "path": "starting-scripts-README.md",
+      "sha256": "c01794cb18ace3615c94983cd64bbf81d34a0ef4bcae5c16377b6c9068c6e28d",
+      "bytes": 21967
+    }
+  ],
+  "verification": {
+    "all_111_tracked_files_classified": true,
+    "all_110_implementation_files_unchanged": true,
+    "python_files_ast_parsed": 93,
+    "local_structure_check": "passed: 365 preserved requirements, seven scoped states",
+    "repository_safeguard_tests": 46,
+    "test_result": "passed",
+    "full_report_static_links": "passed",
+    "scientific_or_browser_execution": false,
+    "ssd_publication": "unavailable; temporary package retained"
+  }
+}

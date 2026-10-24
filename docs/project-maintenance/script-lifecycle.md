@@ -55,3 +55,18 @@ It is specific to the completed 13 October transfer, has no discovered Python
 importers or non-inventory record references, and reusable transfer operations
 remain in `repository_archive.py`. The proposal is not authorization: keep the
 local source until the author chooses that disposition and recovery is verified.
+
+## Whole-folder reassessment
+
+The [24 October audit](../../records/repository-history/2026-10-24-scripts-audit/README.md)
+extends the earlier 20-file follow-up to every current tracked script and ignored
+cache. It distinguishes maintained actions, shared implementation, historical
+reproduction and completed recipes with live helpers. It also identifies storage
+and misleading command-name issues. The earlier retention assessments preserve
+source/provenance needs; they do not establish that every completed recipe must
+remain a permanent top-level command.
+
+[Plan 13](../../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md) owns the proposed repairs,
+extractions and per-figure/panel command organization. Those changes remain
+unimplemented. Preserve exact scientific definitions and historical bindings;
+extract shared code and verify consumers before renaming or retiring a recipe.

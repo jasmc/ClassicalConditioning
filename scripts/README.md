@@ -8,6 +8,12 @@ supported work from historical candidates. The
 [dated inventory and consumer candidates](../records/repository-history/2026-10-17-organization-reconciliation/script-inventory.json)
 records the initial assessment. The [23 October follow-up](../records/repository-history/2026-10-23-script-lifecycle/README.md) completes its pending classifications. Retention does not approve scientific use.
 
+The [24 October whole-folder audit](../records/repository-history/2026-10-24-scripts-audit/README.md)
+assesses every current file, live helper dependencies, completed recipes and
+proposed figure/panel names. [Plan 13](../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md)
+prioritizes storage/interface repairs before package extraction and scoped command
+migration. No script moves, merges or retirements have been executed by that audit.
+
 ## Authority and normal entry points
 
 Use `classical-conditioning render-paper-panels` for the package’s supported paper-review route. Use `python scripts/freeze_figure.py` or `classical-conditioning freeze-figure` for new freezes, with `--check-only` first. An old preparation or registration recipe does not authorize a new freeze. Current scoped scientific selections are listed in the [freeze index](../records/frozen-analyses/selections.md); exploratory learner/trace outputs are not publication approval.
