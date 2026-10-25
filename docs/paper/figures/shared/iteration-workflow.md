@@ -360,6 +360,21 @@ unrelated panels, scientific definitions or accepted freezes.
 
 ### Linked panels and legends
 
+When a selected scientific draft changes, reconcile its current methods reference,
+caption and discovery descriptions with that exact scoped state. Preserve dated
+and hash-bound Methods as historical evidence; label their scope and link to the
+current reference rather than rewriting their original definitions. Current
+Figure 2 uses [its working-draft methods](../figure-02/current-methods.md).
+
+For a statistical audit, bind actual saved inputs, formulas, coefficients,
+covariance, diagnostics, correction families and rendered annotation sources.
+Current command defaults do not establish historical run settings. The
+[G/H/I audit route](../../../../scripts/paper/figure_02/panels_g_h_i/audit_saved_statistics.py)
+reconciles saved arithmetic and selected SVG labels without refitting or changing
+science. Keep detailed Markdown/HTML discussion on JOAQUIM and compact evidence
+links locally. Missing source/runtime bindings and unverified renderer coverage
+remain explicit; successful arithmetic does not approve a model or freeze it.
+
 The registry supplies scientific meaning; the SVG structural inventory supplies
 editable addresses. Neither substitutes for the other. AI reads the selected
 source evidence, assigns roles and relationships, then the renderer applies

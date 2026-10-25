@@ -105,13 +105,22 @@
           "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
           "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "figure2-g-saved-statistical-audit",
+          "title": "Figure 2 G/H/I \u2014 saved statistical audit",
+          "storage": "outputs",
+          "path": "studies/figure-02/ghi-statistical-audit/report/study.html",
+          "sha256": "a7716a0d394fafcb0f3b4f436ce20193e17673795f45bbd711b0aab73dae6ee0",
+          "status": "Arithmetic and named SVG annotations verified; scientific/provenance limits open",
+          "description": "One shared report for the selected G/H/I sources: transformations, model settings, contrasts, correction families, saved bootstrap replay and explicit recovery gaps. No model refit or scientific selection."
         }
       ]
     },
     {
       "id": "figure-2-h",
       "title": "Figure 2 H \u00b7 3sTrace",
-      "context": "The older repository-selected assembly retains a different H outcome. Expanded-cohort log-difference and model drafts also exist on the SSD. These are review alternatives, not new selections.",
+      "context": "The selected working assembly uses the expanded-cohort H log-difference draft and G-matched model families. The older total-activity ratio is historical. H remains unfrozen; studies do not select science.",
       "entries": [
         {
           "id": "h-descriptive",
@@ -163,14 +172,23 @@
           "storage": "repo",
           "path": "docs/paper/figures/figure-02/panel-h/README.md",
           "status": "Review navigation",
-          "description": "Separates the older selected display from later SSD drafts."
+          "description": "Identifies the selected expanded-cohort log-difference draft and distinguishes historical ratio alternatives."
+        },
+        {
+          "id": "figure2-h-saved-statistical-audit",
+          "title": "Figure 2 G/H/I \u2014 saved statistical audit",
+          "storage": "outputs",
+          "path": "studies/figure-02/ghi-statistical-audit/report/study.html",
+          "sha256": "a7716a0d394fafcb0f3b4f436ce20193e17673795f45bbd711b0aab73dae6ee0",
+          "status": "Arithmetic and named SVG annotations verified; scientific/provenance limits open",
+          "description": "One shared report for the selected G/H/I sources: transformations, model settings, contrasts, correction families, saved bootstrap replay and explicit recovery gaps. No model refit or scientific selection."
         }
       ]
     },
     {
       "id": "figure-2-i",
       "title": "Figure 2 I \u00b7 fixed 10sTrace",
-      "context": "20 October SSD drafts exist despite the older repository overview describing I as pending. They remain scientific drafts. Fixed 10sTrace is distinct from increasing trace.",
+      "context": "The selected working assembly contains the fixed-10sTrace I draft with the common 61-fish C/F/I roster. Earlier pending-panel descriptions are historical; later range/pooling experiments remain alternatives. No scientific freeze.",
       "entries": [
         {
           "id": "i-render",
@@ -232,7 +250,16 @@
           "storage": "repo",
           "path": "docs/paper/figures/figure-02/panel-i/README.md",
           "status": "Review navigation",
-          "description": "Later SSD results and their relationship to unchanged repository selection."
+          "description": "Current fixed-10sTrace result, historical alternatives and remaining scientific approval limits."
+        },
+        {
+          "id": "figure2-i-saved-statistical-audit",
+          "title": "Figure 2 G/H/I \u2014 saved statistical audit",
+          "storage": "outputs",
+          "path": "studies/figure-02/ghi-statistical-audit/report/study.html",
+          "sha256": "a7716a0d394fafcb0f3b4f436ce20193e17673795f45bbd711b0aab73dae6ee0",
+          "status": "Arithmetic and named SVG annotations verified; scientific/provenance limits open",
+          "description": "One shared report for the selected G/H/I sources: transformations, model settings, contrasts, correction families, saved bootstrap replay and explicit recovery gaps. No model refit or scientific selection."
         }
       ]
     },
@@ -568,6 +595,15 @@
           "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
           "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/figures/figure-01/review.md. Existing HTML guides retain their original paths."
+        },
+        {
+          "id": "figure2-ghi-audit-manuscript",
+          "title": "Figure 2 G/H/I \u2014 editable audit manuscript",
+          "storage": "outputs",
+          "path": "studies/figure-02/ghi-statistical-audit/report/study.md",
+          "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
+          "status": "Canonical editable study source; discussion is not approval",
+          "description": "Markdown source beside the shared G/H/I statistical audit HTML. Existing G, H and I guides and notebook origins remain unchanged."
         }
       ]
     }

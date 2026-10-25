@@ -6,6 +6,7 @@ A, D/E B and G LogMedian have accepted scoped freezes. B/C/F/H/I remain proposed
 
 - [Assembly instructions](assembly.md)
 - [Editable legend](legend.md)
+- [Selected working-draft methods and historical differences](current-methods.md)
 
 Scientific authority: [scoped selection index](../../../../records/frozen-analyses/selections.md). Shared definitions: [methods](../../methods/README.md).
 

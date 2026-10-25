@@ -4,6 +4,10 @@ Use the [review library](../../review-library.md#figure-2-h) for direct HTML,
 Markdown and diagnostic links. H remains unfrozen. This page organizes existing
 work; it does not change the [Figure 2 presentation state](../current-state.json).
 
+Use the [selected working-draft methods](../current-methods.md) for current
+outcomes, rosters, model families and the source-bound audit. The preserved
+16 October total-activity-ratio Methods describe an earlier iteration.
+
 The current working assembly uses the expanded-cohort, G-matched H log-vigor
 difference draft, reconciled on 25 October. The older total-activity ratio
 remains historical. Available approaches include:

@@ -293,6 +293,17 @@
         "docs/paper/figures/review-library.json",
         "docs/running-analysis/figure3-blup-comparison.md"
       ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-02/statistical-audit.md",
+      "path": "studies/figure-02/ghi-statistical-audit/report/study.md",
+      "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
+      "role": "editable saved-statistics audit and review; no scientific selection",
+      "consumers": [
+        "docs/paper/figures/figure-02/current-methods.md",
+        "docs/paper/figures/review-library.json",
+        "scripts/paper/figure_02/panels_g_h_i/audit_saved_statistics.py"
+      ]
     }
   ]
 }

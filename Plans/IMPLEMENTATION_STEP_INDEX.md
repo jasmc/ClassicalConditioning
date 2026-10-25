@@ -84,3 +84,20 @@ Supplementary composition, tail mechanistic analyses and imaging do not block th
 Record only scoped accepted changes and their evidence. Keep completed descriptions in documentation, decisions in the decision register, and per-file transfer state in the archive inventory. Do not mark unrelated work complete.
 
 Completion follow-up on 2026-10-25: [guarded saved-draft reconciliation](../records/figure-reviews/authority-reconciliation-20261025/README.md) resolves all four Figure 1/2 artifact conflicts and refreshes the ordered collection. The [BLUP comparison](../docs/paper/figures/figure-03/blup-comparison.md) now contains completed numerical calibration/validation and an SSD-owned decision study. Accepted freezes, Figure 3 selection, primary cohort and Figure 4 alternatives remain unchanged.
+
+Documentation and statistics follow-up on 2026-10-25:
+[current Figure 2 methods](../docs/paper/figures/figure-02/current-methods.md)
+now separate the selected draft from the preserved 16 October Methods, whose
+bytes remain unchanged. The [G/H/I saved-statistics audit](../docs/paper/figures/figure-02/statistical-audit.md)
+passes 63 arithmetic checks, reconciles 76 coefficient rows and replays all
+30,000 saved condition-specific bootstrap resamples. Named SVG statistical
+text/marker counts agree. Eighty-six exact G artifact aliases and one H/I fitter
+alias restore direct recovery; missing historical driver/runtime bindings and
+I's original bootstrap producer-binding gap remain explicit. All 127 starting
+protected hashes are unchanged. This does not close scientific gates or renderer
+verification. The review library now contains 63 entries, with one shared audit
+linked under G/H/I; the source registry has 20 canonical manuscripts.
+
+The [canvas-overdraw correction](../docs/running-analysis/figure2-canvas-repair.md)
+remains an unselected, native-reviewed candidate awaiting fresh exact browser
+frame evidence. Selected artwork, cohort choices and scoped freezes are unchanged.

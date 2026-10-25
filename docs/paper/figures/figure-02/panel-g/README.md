@@ -4,6 +4,9 @@ Native Historical LogMedian and phase-aware LMM remain the current accepted sele
 
 Use the owning [figure overview](../README.md), [review](../review.md) and [scoped selection index](../../../../../records/frozen-analyses/selections.md).
 
+The [current G/H/I methods reference](../current-methods.md) separates the selected
+working draft from preserved older Methods and links the source-bound statistical audit.
+
 ## Frozen scientific definition
 
 The frozen outcome is `median(ln positive response bout frames) − median(ln positive baseline bout frames)`, summarized across fish. Baseline is [-15,0) s, response [0,9) s, and scheduled CS trials are 5–94. The exact selected record has 29 Delay and 28 control fish; those counts apply to this scoped selection and do not approve other populations.

@@ -5,6 +5,9 @@ Markdown and diagnostic links. I remains unfrozen. The current working
 assembly contains the fixed-10sTrace scientific draft, reconciled with its exact
 PC state/caption/evidence on 25 October; the earlier assembly called it pending.
 
+The [selected working-draft methods](../current-methods.md) record its current
+outcome, common roster, model families and source-bound statistical audit.
+
 | Approach | What to review |
 |---|---|
 | 20 October C/F/I assembly | I's observed log-difference trajectory, model annotations, contributing-fish and all-inventory sensitivity evidence |

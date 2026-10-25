@@ -69,6 +69,7 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/figure_02/panel_g/run_independent_review.py](paper/figure_02/panel_g/run_independent_review.py) | Run the isolated Figure 2 G analysis without changing any selected figure. |
 | [paper/figure_02/panel_g/run_technical_sensitivity.py](paper/figure_02/panel_g/run_technical_sensitivity.py) | Run the independent, source-only technical protocol sensitivity. |
 | [paper/figure_02/panel_g/verify_study_guide.cjs](paper/figure_02/panel_g/verify_study_guide.cjs) | Retained technical workflow helper |
+| [paper/figure_02/panels_g_h_i/audit_saved_statistics.py](paper/figure_02/panels_g_h_i/audit_saved_statistics.py) | Reconcile hash-bound saved outcomes, bootstrap draws, models and selected SVG statistical labels; produce an external audit without refitting or selecting science. |
 | [paper/figure_02/panels_a_d_g/reproduction/render_saved_delay.py](paper/figure_02/panels_a_d_g/reproduction/render_saved_delay.py) | Render descriptive Figure 2 A/D/G Delay-control panels from the SSD cohort. |
 | [paper/figure_02/panels_d_e/reproduction/audit_bout_statistics.py](paper/figure_02/panels_d_e/reproduction/audit_bout_statistics.py) | Recheck B rank tests and separately audit its zero-baseline reference. |
 | [paper/figure_02/panels_d_e/reproduction/review_block_log_median.py](paper/figure_02/panels_d_e/reproduction/review_block_log_median.py) | Compare selected D/E ratios with the legacy log-median outcome on corrected frames. |

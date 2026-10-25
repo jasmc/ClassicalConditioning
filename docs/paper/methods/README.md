@@ -2,6 +2,11 @@
 
 A method is stored once and linked from the figures that use it. No method gets a special workstream folder.
 
+For the currently selected Figure 2 presentation, use the
+[working-draft methods and historical differences](../figures/figure-02/current-methods.md).
+That reference separates current G/H/I results from the detailed Methods preserved
+on 16 October; scoped accepted freezes remain scientific authority.
+
 - [Activity measures and bout detection](activity-and-bouts.md)
 - [Recording quality and cohorts](recording-quality-and-cohorts.md)
 - [Population aggregation](population-aggregation.md)
