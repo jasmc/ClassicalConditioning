@@ -1,4 +1,15 @@
 
+
+audit every file in scripts folder. look for stale files, files that could be merged, thin deeply about a way to rename them in a coherent way, perhaps by figure and then by panel or group of panels. are all of these files needed?
+
+
+
+
+
+
+
+
+
 explain all parameters you set to perform the different lme analysis.
 explain the statistical variables and how exactly these was modeled (fixed effects, random intercept, random slope)
 residuals, tails?
