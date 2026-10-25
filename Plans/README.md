@@ -4,6 +4,7 @@ This folder contains future work, this navigation page and the [implementation i
 
 | Plan | Responsibility |
 |---|---|
+| [00 Remaining work and execution order](00_REMAINING_WORK_AND_EXECUTION_ORDER.md) | Cross-plan priorities, dependencies and acceptance map; detailed work remains in its owning plan |
 | [01 Paper input validation and reproducibility](01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md) | Authenticate paper inputs, processing and reproducibility evidence |
 | [02 Fish discarding, eligibility and paper cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) | Combine legacy rules for later review and establish one approved cohort |
 | [03 Figure 2 — learning onset](03_FIGURE_2_LEARNING_ONSET.md) | Implement and validate Figure 2 acquisition/onset analysis |
@@ -30,4 +31,10 @@ The first release covers main Figures 1–4 and necessary scientific evidence. S
 
 Put remaining work in its owning numbered plan; update progress only in the implementation index. Move implemented descriptions to documentation. Historical versions remain in Git. No plan approves a scientific change by itself.
 
-Plans were renumbered consecutively on 2026-10-12. Numbers describe the narrative/work-package order; explicit dependencies determine execution. Statistics is listed after Figure 4, but approved inferential design is still required before final figure analyses. Former learner subplans were consolidated; completed repository cleanup is retained in the historical implementation index.
+Plans 01–13 were renumbered consecutively on 2026-10-12. The author-requested
+00 roadmap was added on 2026-10-25 without renumbering those work packages.
+Numbers describe the narrative/work-package order; explicit dependencies determine
+execution. Statistics is listed after Figure 4, but approved inferential design
+is still required before final figure analyses. Former learner subplans were
+consolidated; completed repository cleanup is retained in the historical
+implementation index.

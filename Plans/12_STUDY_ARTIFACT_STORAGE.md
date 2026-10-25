@@ -196,9 +196,34 @@ maintained reading and canonical-source routes.
 Current status belongs in [the implementation index](IMPLEMENTATION_STEP_INDEX.md).
 [The skill adaptation record](../records/repository-history/2026-10-23-study-artifact-policy.json)
 identifies the preceding personal-skill changes and backups. The four previously
-identified Figure 1/2 external working-copy mismatches remain a separate
-reconciliation task. CI was removed by author direction on 25 October, so the
+identified Figure 1/2 external working-copy mismatches were subsequently closed
+by the [25 October reconciliation](../records/figure-reviews/authority-reconciliation-20261025/README.md).
+CI was removed by author direction on 25 October, so the
 former GitHub billing blocker is no longer a dependency.
+
+## Reader verification follow-up
+
+The storage migration and catalogue work remain implemented. The newly
+delivered [G/H/I audit](../docs/paper/figures/figure-02/statistical-audit.md) and
+[corrected BLUP comparison](../docs/running-analysis/figure3-blup-comparison.md)
+have source/static checks, but their browser notebook behavior and actual print
+layout remain unexercised. Complete these delivery checks at their existing
+canonical HTML paths when permitted browser access is available:
+
+- Inspect the reading path, chapter search, expandable technical/notebook
+  sections, narrow-screen table overflow and actual print output.
+- In a fresh isolated test context, verify save/reload/export, import preview,
+  cancel/confirm, backup before replacement, version/evidence warnings, invalid
+  imports and unavailable storage. Preserve personal notes and existing origins.
+- Record exact HTML/helper/source hashes, browser and performed checks in the
+  existing provenance/review records. Fix confirmed reader problems through a
+  guarded revision that preserves editable manuscripts and prior notes.
+
+Do not repeat numerical analyses, relocate older guides or re-audit every
+historical reading artifact just to perform this scoped reader verification.
+Static checks remain distinct from rendered/interactive evidence. This work
+approves neither a scientific method nor a paper figure; Plan 07 continues to
+own figure/collection rendering and production checks.
 
 The mechanism follows OpenAI's distinction between [reusable skills](https://learn.chatgpt.com/docs/build-skills)
 and [project instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md).

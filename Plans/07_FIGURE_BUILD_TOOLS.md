@@ -317,6 +317,35 @@ still own cohort, scientific method/claim decisions and applicable full-assay
 validation; Plan 08 consumes those approvals for release. CI is removed and
 repository Actions disabled; all relevant checks are local.
 
+#### Immediate verification and delivery follow-up
+
+1. Resolve the [canvas-overdraw candidate](../records/figure-reviews/figure-02/canvas-overdraw-20261025.json)
+   through its manifest and [supported preparation/measurement route](../docs/running-analysis/figure2-canvas-repair.md).
+   Authenticate current state, candidate and source hashes. Collect fresh exact
+   browser measurements and review the restored D/E content at native size.
+   Check ownership, painted/unclipped bounds and retained spacing/alignments;
+   preserve the no-resize/no-reflow constraint. Prior Edge evidence belongs to
+   the old SVG and cannot certify the changed bytes.
+2. After passing checks, reuse the supported scoped publisher or extend its
+   Figure 2 adapter where necessary; the candidate preparer has no selection
+   flag. Recheck starting/manual-edit hashes under the existing lock, preserve
+   originals, publish the same active SVG/HTML pair and fresh registry/evidence
+   before atomic state replacement, then refresh the collection last. A failed
+   check leaves the candidate unselected and current work intact.
+3. Complete H02–H06 evidence and H08's actual export/collection checks. Compare
+   visible standalone/embedded geometry, styles and resources using meaningful
+   tolerances; exclude hidden zero-box/resource nodes. Inspect actual vector PDF
+   fonts/editability/resources and every print page. Keep accessibility and
+   final-scale scientific/role coverage explicit; an HTML or native preview is
+   not production certification.
+
+The [G/H/I saved-statistics audit](../records/scientific-evidence/analyses/figure-02-ghi-statistical-audit.json)
+supplies source/numerical and named-annotation evidence for H01/H02/H06. It does
+not certify curve geometry, exact trial-marker positions, painted visibility,
+model adequacy or complete historical source closure. Plan 01 owns recovery;
+Plan 06 owns scientific inference; [Plan 12](12_STUDY_ARTIFACT_STORAGE.md#reader-verification-follow-up)
+owns the newly delivered study readers' untested notebook/browser/print behavior.
+
 #### Work packages and acceptance evidence
 
 Execute H01 first. H02–H06 can progress without changing artwork geometry.
@@ -436,7 +465,7 @@ print preview or font configuration flag does not certify production export.
 Keep main, Extended Data and other delivery profiles separate; implement only
 the output scope needed for the release, with conditional content marked N/A.
 
-Extend `verify_main_paper_collection.cjs` rather than adding a competing checker.
+Extend `scripts/paper/shared/verify_collection.cjs` rather than adding a competing checker.
 Compare standalone and embedded saved SVGs using corresponding visible geometry,
 computed styles/fonts, raster payloads and screenshots. Exclude hidden zero-box
 nodes/resource-only definitions from geometric comparison; explain subpixel

@@ -4,7 +4,8 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 
 | Number | Workstream | Status |
 |---|---|---|
-| 01 | [Paper input validation and reproducibility](01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md) | Infrastructure implemented; paper-scale validation open |
+| 00 | [Remaining work and execution order](00_REMAINING_WORK_AND_EXECUTION_ORDER.md) | Coordination roadmap; detailed tasks and acceptance remain in Plans 01–08/12, with progress recorded in this index. |
+| 01 | [Paper input validation and reproducibility](01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md) | Infrastructure implemented; paper-scale validation and remaining historical source/runtime/producer-binding evidence open; precise follow-up integrated in Plan 01. |
 | 02 | [Fish discarding, eligibility and paper cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) | G historical-rule projections and separate technical exclusion sensitivity run; primary 57 fish preserved; paper-wide evaluation and C0/C1 approval open |
 | 03 | [Figure 2 — learning onset](03_FIGURE_2_LEARNING_ONSET.md) | Independent G exploratory workflow completed and reviewed; baseline/threshold selection and timing calibration open; current freeze preserved |
 | 04 | [Figure 3 — learner analysis and validation](04_FIGURE_3_LEARNER_ANALYSIS.md) | Descriptive Delay draft and full atlas retained; later Trace drafts remain separate. [Corrected BLUP comparison](../docs/running-analysis/figure3-blup-comparison.md) completed for all 57 Delay/control fish: 999 calibration refits and four independent 499-dataset scenarios, all successful; matched pointwise coverage ≈95%, null family-bound rejection ≈5%. Full per-fish/legacy comparison published on JOAQUIM. No method selected; Gate L, meaningful margin/eligibility, full-assay validation and claims remain open. |
@@ -15,7 +16,7 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 09 | [Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
 | 10 | [Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
-| 12 | [Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | Implemented: 18 study sources externalized with exact recovery; four readers updated, 57-entry library published. Existing HTML paths/bytes and notes retained; protected historical originals remain exact compatibility records. |
+| 12 | [Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | Storage migration implemented: 18 study sources externalized with exact recovery; four readers updated; initial 57-entry library now expanded to 63 entries. Existing HTML paths/bytes and notes retained; protected historical originals remain exact compatibility records. Browser notebook/responsive/print QA for the new G/H/I audit and BLUP study remains open under Plan 12. |
 | 13 | [Script command organization](13_SCRIPT_COMMAND_ORGANIZATION.md) | Implemented needed audit repairs: scoped command tree, shared helpers/guards, 29 completed-driver retirements plus one helper facade, verified intake quarantine and drive navigation. Scientific authority unchanged; later guarded figure reconciliation complete; stale test/import expectations repaired; CI removed by author direction on 25 October. |
 
 Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
