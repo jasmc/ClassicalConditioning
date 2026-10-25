@@ -13,12 +13,12 @@ The panel map can be changed in the JSON without changing the composer.
 From the repository root, the default output goes directly to the SSD:
 
 ```powershell
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_panel_a.py
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_panel_b.py --variant v4
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_panel_c.py --variant v2
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panel_a/build.py
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panel_b/build_protocol.py --variant v4
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panel_c/build_session.py --variant v2
 & '.venv-trace\Scripts\python.exe' scripts/build_figure1_trace_panels.py
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_legacy_vigor_heatmaps.py
-& '.venv-trace\Scripts\python.exe' scripts/assemble_svg_figure.py configs/paper-figures/figure1-assembly.json --export png
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py
+& '.venv-trace\Scripts\python.exe' scripts/paper/shared/assemble_svg.py configs/paper-figures/figure1-assembly.json --export png
 ```
 
 Use `--watch` to rebuild when a source SVG or the layout JSON changes. Use
@@ -116,10 +116,10 @@ All prior versioned sources and review assemblies remain on SSD.
 Rebuild the changed assets and composition:
 
 ```powershell
-.venv-trace\Scripts\python.exe scripts/build_figure1_panel_b.py --variant v5
-.venv-trace\Scripts\python.exe scripts/build_figure1_legacy_vigor_heatmaps.py
+.venv-trace\Scripts\python.exe scripts/paper/figure_01/panel_b/build_protocol.py --variant v5
+.venv-trace\Scripts\python.exe scripts/paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py
 .venv-trace\Scripts\python.exe scripts/build_figure1_vigor_zoom.py
-.venv-trace\Scripts\python.exe scripts/assemble_svg_figure.py configs/paper-figures/figure1-assembly.json --strict --export png
+.venv-trace\Scripts\python.exe scripts/paper/shared/assemble_svg.py configs/paper-figures/figure1-assembly.json --strict --export png
 ```
 
 The E zoom builder verifies its cached measured-trace data against existing

@@ -5,12 +5,12 @@ Use these tools with authenticated scientific inputs. Capability does not establ
 | Tool | Implemented purpose |
 |---|---|
 | `classical-conditioning render-paper-panels` | Supported panel orchestration with explicit completed/failed/blocked outcomes |
-| `scripts/assemble_svg_figure.py --plan` | Read-only source/hash/geometry preflight; use `--strict` when every panel source is required |
-| `scripts/assemble_svg_figure.py --replace-panel-source ID=PATH` | A separate candidate panel replacement with baseline/provenance safeguards |
-| `scripts/update_latest_figure_assemblies.py` | Existing Figure 1–2 scoped-selection assembly route |
+| `scripts/paper/shared/assemble_svg.py --plan` | Read-only source/hash/geometry preflight; use `--strict` when every panel source is required |
+| `scripts/paper/shared/assemble_svg.py --replace-panel-source ID=PATH` | A separate candidate panel replacement with baseline/provenance safeguards |
+| `scripts/paper/shared/collection.py` | Authenticated current collection; historical 10 October assembly source is archived |
 | `scripts/figure_working_copy.py verify` | Authenticate the recorded frozen display, active draft and bound evidence |
 | `scripts/figure_working_copy.py begin --ticket <temporary-ticket.json>` | Capture a pre-edit state/input ticket for guarded publication |
-| `scripts/build_figure_legend_review.py --baseline <ticket> --output <external-review.html>` | Guarded consolidated review and editable draft publication; retain unchanged other-figure material |
+| `scripts/paper/shared/build_legend_review.py --baseline <ticket> --output <external-review.html>` | Guarded consolidated review and editable draft publication; retain unchanged other-figure material |
 | `scripts/freeze_figure.py` | Explicit author-requested freeze gate; run `--check-only` first |
 
 Consult each command's `--help` for its actual interface. The generic assembler composes supplied sources; it does not select scientifically current panels. Figure-specific source routing is described with [Figure 1](../paper/figures/figure-01/assembly.md), [Figure 2](../paper/figures/figure-02/assembly.md) and [Figure 4](figure4.md).

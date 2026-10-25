@@ -6,7 +6,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-_spec = importlib.util.spec_from_file_location('delay_review', Path(__file__).resolve().parents[1] / 'scripts/render_figure2_delay_legacy_metric_lme.py')
+_spec = importlib.util.spec_from_file_location('delay_review', Path(__file__).resolve().parents[1] / 'scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py')
 review = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(review)
 

@@ -1,0 +1,33 @@
+{
+  "removed_paths": [
+    ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
+    ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
+    ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
+    ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
+    ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
+    ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures"
+  ],
+  "removed_bytes": 1723725714,
+  "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+  "published_counterparts_verified": [
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/camera.parquet",
+      "sha256": "744be6e40d1fbde22d8be520f0f8c54ac7a1032e525224299625be51b5962d46",
+      "bytes": 74712375
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/stimulus_events.parquet",
+      "sha256": "a3a83220e0363c5e58b968ac3a573819ef946c8d293da0c4ae002a542d98b745",
+      "bytes": 3251
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/tracking.parquet",
+      "sha256": "f110c6b4d672aaffdd1040a818567ea38bb043d5a0983461e6b75d7d488d68c9",
+      "bytes": 1839686870
+    }
+  ],
+  "no_matching_open_handles": true,
+  "raw_files_modified": false,
+  "bytes_discarded": 0,
+  "purpose": "Remove interrupted staging from the processed-project workspace; quarantine remains on same SSD so capacity is not reclaimed."
+}

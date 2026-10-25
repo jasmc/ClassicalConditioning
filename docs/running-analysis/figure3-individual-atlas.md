@@ -89,7 +89,7 @@ imply Trace fish were excluded or that their inventory has been reconciled.
 
 ## Supported implementation and verification
 
-`scripts/build_figure3_individual_atlas.py` separates `prepare`, `classify`,
+`scripts/paper/figure_03/supplement/build_atlas.py` separates `prepare`, `classify`,
 `render`, `verify` and `publish`. Use `.venv/bin/python` from the repository
 root and an existing directory on mounted JOAQUIM. `prepare` and `classify`
 are scientific rebuilds; do not run them to change presentation. `classify`
@@ -98,7 +98,7 @@ uses the existing isolated legacy worker and leaves the four originals intact.
 For the current review, authenticate without rebuilding:
 
 ```sh
-.venv/bin/python scripts/build_figure3_individual_atlas.py verify --output-dir '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015'
+.venv/bin/python scripts/paper/figure_03/supplement/build_atlas.py verify --output-dir '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-learner-exploration-g-style-20261015'
 ```
 
 For an authorized presentation change, `render` checks the prior working-output
@@ -107,7 +107,7 @@ rechecks dependencies and preserves the previous SVG/HTML pair in external
 history. Manual output edits cause failure for reconciliation. New exact-render
 browser evidence is required after changing SVG bytes.
 
-`scripts/check_figure3_atlas.cjs` uses the shared layout collector to measure
+`scripts/paper/figure_03/supplement/verify_atlas.cjs` uses the shared layout collector to measure
 the overview and all 57 exact card SVGs at 600 dpi. It also checks search,
 unclassified filtering, full-inventory reset and page errors. Python
 `layout_frames.assess` converts these measurements to `layout-evidence.json`.

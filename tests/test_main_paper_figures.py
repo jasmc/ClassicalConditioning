@@ -9,8 +9,8 @@ import tempfile
 from unittest.mock import patch
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
-import main_paper_figures as paper
-import layout_main_paper_figures as layout
+from scripts.paper.shared import collection as paper
+from scripts.paper.shared import layout as layout
 from classical_conditioning.figure_workspace import Snapshot,StaleFigureState,publish_state,sha
 
 SVG=b'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 183 90"><defs><clipPath id="clip"><rect width="10" height="10"/></clipPath><path id="mark" d="M 0 0 L 1 1"/></defs><style>#plot{clip-path:url(#clip)}</style><g id="plot"><use xlink:href="#mark"/><text>Pending</text></g></svg>'''

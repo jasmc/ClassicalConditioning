@@ -2,12 +2,12 @@
 import sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from nature_main_figures import protection,axis_style
+from scripts.paper.shared.stage_nature import protection, axis_style
 from classical_conditioning.figures.layout_frames import embed_spec
 from classical_conditioning.figures.presentation_profiles import load_presentation_profile
 from classical_conditioning.figure_workspace import sha,measured_presentation
-from publish_axis_geometry import verify_metrics
-from register_figure_axes import build_inventory
+from scripts.paper.shared.publish_axis_geometry import verify_metrics
+from scripts.paper.shared.register_axes import build_inventory
 
 class NatureMigrationTests(unittest.TestCase):
     def source(self):

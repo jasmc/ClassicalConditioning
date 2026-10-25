@@ -17,7 +17,7 @@ The assembler now provides no-write source/geometry preflight, external-artifact
 
 Use the [preflight and replacement guide](../docs/paper/figures/shared/assembly-preflight.md). The [implementation audit](../records/scientific-evidence/audits/figure-build-integrity-2026-10-12.json) records 424 passing tests and 70 unchanged frozen records for that implementation. Those checks used synthetic assembly inputs; they do not establish complete paper routing, scientific identity or final visual quality for Figures 1–4.
 
-Reuse [paper-panel orchestration](../src/classical_conditioning/figures/paper_panels.py), [selected-assembly wiring](../scripts/update_latest_figure_assemblies.py), semantic/theme validators and the existing guarded review/current-state workflow. Do not add a second selection registry, review generator or state writer.
+Reuse [paper-panel orchestration](../src/classical_conditioning/figures/paper_panels.py), [authenticated current collection](../scripts/paper/shared/collection.py), semantic/theme validators and the existing guarded review/current-state workflow. Do not add a second selection registry, review generator or state writer.
 
 ## Remaining work
 

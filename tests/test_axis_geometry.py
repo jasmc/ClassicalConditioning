@@ -2,7 +2,7 @@
 import sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from publish_axis_geometry import verify_protection,verify_metrics
+from scripts.paper.shared.publish_axis_geometry import verify_protection, verify_metrics
 from classical_conditioning.figures.layout_frames import embed_spec
 from classical_conditioning.figure_workspace import sha,measured_presentation
 

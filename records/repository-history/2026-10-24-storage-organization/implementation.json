@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-24",
+  "authorization": "Author requested implementation of needed audit findings",
+  "root_navigation": [
+    {
+      "path": "/Volumes/JOAQUIM/README.md",
+      "sha256": "846146f72304cc8a348fd9867d29eca181cf15489936c2f178101b6ba2b820bc"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/START-HERE.html",
+      "sha256": "e0b6b61db1161d092bcf35a88e1865edf4b7dab71b90517340fb64ca29a13917"
+    }
+  ],
+  "staging_quarantine": {
+    "destination": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+    "files": 8,
+    "bytes_preserved": 1723733906,
+    "bytes_discarded": 0,
+    "explicit_prune_receipt_files": 6,
+    "explicit_prune_receipt_bytes": 1723725714,
+    "note": "Eight files were copied and verified. The native prune receipt records six explicit removals; removing the paired data files also removed their two AppleDouble sidecars. All eight archived identities remain verified."
+  },
+  "retained_by_design": [
+    "Full Delay baseline remains a required figure dependency",
+    "Raw acquisition names/provenance variants remain immutable; duplicate removal would save little space",
+    "Dated PC/Mac packets remain recoverable; root index clarifies their role without breaking Figure 2 G path aliases",
+    "Required archive payloads remain exact; no wholesale archive or dataset disposal"
+  ],
+  "scope": "Storage navigation and interrupted-stage quarantine; no scientific reprocessing or figure changes"
+}

@@ -6,7 +6,7 @@ import unittest
 from classical_conditioning.external_artifacts import sha256
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('g_study_builder', ROOT / 'scripts/build_figure2_g_analysis_guide.py')
+spec = importlib.util.spec_from_file_location('g_study_builder', ROOT / 'scripts/paper/figure_02/panel_g/build_study_guide.py')
 builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 

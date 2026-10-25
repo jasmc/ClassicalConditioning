@@ -25,7 +25,7 @@ def run_technical_followup(parent,out):
     with run_lock(out):
         source_root=Path(__file__).resolve().parents[4]
         source_files=[*sorted(Path(__file__).parent.glob('panel_g_*.py')),
-                      source_root/'scripts/review_figure2_g_technical.py']
+                      source_root/'scripts/paper/figure_02/panel_g/run_technical_sensitivity.py']
         snapshots=out/'source-snapshots';snapshots.mkdir()
         starting=[]
         for i,source in enumerate(source_files):

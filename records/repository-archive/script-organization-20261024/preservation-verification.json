@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-25",
+  "authority_files_unchanged": 120,
+  "transactions": [
+    {
+      "manifest": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "verified_files": 111,
+      "bytes": 1524287
+    },
+    {
+      "manifest": "records/repository-archive/script-organization-20261024/transfer-inventory.json",
+      "verified_files": 26,
+      "bytes": 332094
+    },
+    {
+      "manifest": "records/repository-archive/script-extracted-drivers-20261024/transfer-inventory.json",
+      "verified_files": 4,
+      "bytes": 30335
+    },
+    {
+      "manifest": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "verified_files": 8,
+      "bytes": 1723733906
+    }
+  ],
+  "original_source_aliases_verified": 111,
+  "existing_reading_files_checked": 567,
+  "existing_reading_changes": [],
+  "root_navigation_verified": 2
+}

@@ -156,13 +156,13 @@ Before editing, capture a starting ticket:
 .venv/bin/python scripts/figure_working_copy.py begin --ticket /tmp/figure-01-edit-start.json
 ```
 
-The [legend/layout generator](../../../../scripts/build_figure_legend_review.py)
+The [legend/layout generator](../../../../scripts/paper/shared/build_legend_review.py)
 now checks state/working-copy/source hashes, makes a new external HTML plus
 editable draft SVG, measures the final SVG and updates state under an exclusive
 lock. It also updates the version-bound text mapping within that transaction.
 
 ```sh
-.venv/bin/python scripts/build_figure_legend_review.py --baseline /tmp/figure-01-edit-start.json --output '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/<new-review-name>.html'
+.venv/bin/python scripts/paper/shared/build_legend_review.py --baseline /tmp/figure-01-edit-start.json --output '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/<new-review-name>.html'
 ```
 
 Capture starting hashes before editing code or candidate inputs, not only when
@@ -448,7 +448,7 @@ converted as part of introducing these tools.
 
 ### Browser evidence and publication
 
-Run `.venv/bin/python scripts/check_layout_frames.py <exact.svg> --review
+Run `.venv/bin/python scripts/paper/shared/verify_layout_frames.py <exact.svg> --review
 <new-external.html>` to prepare a separate comparison/check page. Open it in the
 built-in browser and use **Measure saved SVGs in this browser**. Save its JSON
 output, then run the checker again with `--browser-report <report.json>
@@ -476,7 +476,7 @@ freeze does not certify its surrounding figure. No legacy freeze is rewritten.
 Publish future draft artifacts and evidence under the existing guards before
 updating the atomic scoped presentation pointer.
 
-Calibration uses `scripts/calibrate_layout_frames.py --output <new-external.html>`
+Calibration uses `scripts/paper/shared/calibrate_layout_frames.py --output <new-external.html>`
 with 1.0, 1.5 and 2.0 mm presets at 89 and 183 mm widths. It includes authenticated
 selected excerpts as reference, with no compliance claim. It never changes current
 SVG/HTML pairs or presentation pointers. Store permanent reviews on JOAQUIM;
@@ -521,7 +521,7 @@ individual figure state or recomputes science.
 ### Current assemblies: explicitly authorized layout migration
 
 The same author request explicitly authorizes applying the active 1.0 mm policy
-to both current assemblies. `scripts/layout_main_paper_figures.py` provides
+to both current assemblies. `scripts/paper/shared/layout.py` provides
 `initialize`, `arrange`, `refine` and `publish`. Capture the source ticket before
 implementation/edits, binding both scoped states, selected SVG/HTML/legend files,
 scientific selections and the layout policy. Supply it to `initialize --ticket
@@ -529,11 +529,11 @@ scientific selections and the layout policy. Supply it to `initialize --ticket
 panel/shared ownership; it never classifies scientific roles from appearance.
 
 For browser geometry bootstrap, serve only the external reviews directory on
-localhost port 8766 and use `scripts/measure_main_paper_layout.cjs` with its
+localhost port 8766 and use `scripts/paper/shared/measure_layout.cjs` with its
 measurement input, bounds output and installed Chromium-family executable.
 The browser helpers require Playwright available through Node's module lookup.
 Run `arrange --directory <directory>`, then
-`scripts/check_main_paper_layout.cjs <directory> <browser-executable>
+`scripts/paper/shared/collect_layout_evidence.cjs <directory> <browser-executable>
 <temporary-screenshot-directory>` to collect exact browser reports. `refine`
 can use those measured painted/unclipped bounds to repack, followed by another
 `arrange` and fresh browser collection. The generic `check_layout_frames.py`
@@ -560,7 +560,7 @@ selections and freezes remain unchanged. Old measurement reports remain
 historical evidence; collector fixes require fresh reports for current artifacts.
 
 Collection rendering QA is repeatable with
-`scripts/verify_main_paper_collection.cjs <repository-root> <browser-executable>
+`scripts/paper/shared/verify_collection.cjs <repository-root> <browser-executable>
 <temporary-output-directory>` against that external-only local server. It checks
 publication width, figure/legend placement, responsive overflow and page errors,
 and writes temporary screenshots, standalone comparison renders, a browser JSON
@@ -636,8 +636,8 @@ space as needed, preserving data shapes, scientific clipping and related-panel
 alignments/spacing. Record requirements in the existing draft's
 `presentation_styles.axis_geometry`, example-label group and consistency request,
 with exact saved-SVG measurements and explicit partial scientific coverage.
-`style_axis_geometry.cjs` stages registered leaf changes and `--verify` measures
-the saved candidate without editing it; `publish_axis_geometry.py` protects all
+`apply_axis_geometry.cjs` stages registered leaf changes and `verify_axis_geometry.cjs` measures
+the saved candidate without editing it; `scripts/paper/shared/publish_axis_geometry.py` protects all
 other scientific payloads and uses the guarded state publisher after passing
 physical geometry, invisible-frame and visual checks. Refresh the collection
 after publication. Recheck these groups after subsequent affected edits.
@@ -662,8 +662,8 @@ its numerical labels and quantity title may remain shared with D, as heatmap
 panels retain local ticks while sharing trial labels. Register the restored
 artists and their authenticated common-scale mapping explicitly.
 
-The supported annotation stage is `refine_paper_annotations.py`, followed by
-`align_paper_annotations.cjs`; its `--verify` mode measures the saved candidate.
+The supported annotation stage is `scripts/paper/shared/stage_annotations.py`, followed by
+`apply_annotation_alignment.cjs`; `verify_annotations.cjs` measures the saved candidate.
 This stage may reposition the categorical statistical rows and the complete G
 trajectory plot to keep full-size labels separate, preserving data paths,
 values, text and markers. It does not recompute hypotheses or statistics.
@@ -671,7 +671,7 @@ values, text and markers. It does not recompute hypotheses or statistics.
 
 ### Nature presentation migration of selected main drafts
 
-For an explicit migration request, `scripts/nature_main_figures.py` stages the
+For an explicit migration request, `scripts/paper/shared/stage_nature.py` stages the
 selected Figure 1/2 SVGs and uses the existing physical-axis, annotation and frame
 checks, then `publish_state` for scoped guarded publication. It does not execute
 historical plotting code or select cached panels. `prepare --directory <existing
@@ -680,8 +680,8 @@ profile inputs and implementation hashes before artwork edits. A changed manual
 source fails publication; implementation revisions are recorded explicitly.
 Never reuse a source ticket to authorize changes in scientific inputs.
 
-The supported sequence is: prepare; `style_axis_geometry.cjs`; then
-`align_paper_annotations.cjs`. The scoped `refine_nature_layout.cjs` is a one-time
+The supported sequence is: prepare; `apply_axis_geometry.cjs`; then
+`apply_annotation_alignment.cjs`. The scoped `scripts/paper/shared/refine_composition.cjs` is a one-time
 composition refinement of those candidates: Figure 1 fish/condition headings are
 separated, and Figure 2 G is enlarged uniformly. Reapply the axis/annotation
 helpers after refinement. `--center-labels` on the axis helper centers actual
@@ -709,8 +709,8 @@ Repacking prepares both candidates before writing either and fails at the Nature
 height limit. The per-owner resizes are uniform; all selected raster bytes,
 data paths, timing, values and scientific texts remain protected.
 
-`check_nature_presentation.cjs` applies profile-resolved physical stroke roles
-and checks every mapped visible text and stroke; `--verify` is read-only. Named
+`style_nature_presentation.cjs` applies profile-resolved physical stroke roles
+and checks every mapped visible text and stroke; `verify_nature_presentation.cjs` is read-only for SVGs. Named
 renderer roles identify spines, traces, median/IQR, stimulus and boundary marks;
 unclassified strokes retain their inherited hierarchy within the journal range
 and remain explicitly unclassified scientifically. Physical stroke compensation
@@ -748,3 +748,8 @@ The 2026-10-16/17 migration was interrupted by disconnected storage before
 publication; [resume evidence](../../../../records/figure-reviews/nature-main-migration-20261017.md)
 records the exact status. Read selected state before treating any candidate as
 current.
+
+Browser presentation tools verify saved candidates by default. Use `--apply`
+explicitly for styling/alignment; `--center-labels` explicitly edits centering.
+`--verify` cannot be combined with either modifying flag. Verification writes
+its evidence report but does not modify SVG artwork.

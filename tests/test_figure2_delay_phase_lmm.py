@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 from patsy import dmatrix
 
-spec=importlib.util.spec_from_file_location('phase_review',Path(__file__).resolve().parents[1]/'scripts/render_figure2_delay_phase_lmm.py')
+spec=importlib.util.spec_from_file_location('phase_review',Path(__file__).resolve().parents[1]/'scripts/paper/figure_02/panel_g/reproduction/render_phase_lmm.py')
 review=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(review)
 

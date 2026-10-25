@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers",
+  "authorization": "Author: implement the audits if needed. Retire redundant drivers after verified helper extraction and fresh caller checks.",
+  "files": [
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py",
+      "historical_paths": [
+        "scripts/publish_figure1_fgh_one_second.py"
+      ],
+      "sha256": "cf730b9140e7defef0907b5a041d63ff3ed7c44027dab022205107c08d324ff5",
+      "bytes": 10662,
+      "action": "archive_to_ssd",
+      "reason": "Helpers extracted into reusable modules; no maintained importers remain. Completed driver/reexport is redundant."
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/complete_guide_supplement.py",
+      "historical_paths": [
+        "scripts/complete_figure2_g_analysis_guide.py"
+      ],
+      "sha256": "b747e41a8b7dc4ba8ded26c8a2834280596349d0b4fef9da483819465f692678",
+      "bytes": 8789,
+      "action": "archive_to_ssd",
+      "reason": "Helpers extracted into reusable modules; no maintained importers remain. Completed driver/reexport is redundant."
+    },
+    {
+      "path": "scripts/paper/shared/reproduction/build_20261010_assemblies.py",
+      "historical_paths": [
+        "scripts/update_latest_figure_assemblies.py"
+      ],
+      "sha256": "916256cc4eb32bff84dec69ba054babeef17f94a7b15ebb40da78c8dfa2efb42",
+      "bytes": 10162,
+      "action": "archive_to_ssd",
+      "reason": "Helpers extracted into reusable modules; no maintained importers remain. Completed driver/reexport is redundant."
+    },
+    {
+      "path": "scripts/paper/figure_01/legacy_layout.py",
+      "historical_paths": [
+        "scripts/figure1_layout_spacing.py"
+      ],
+      "sha256": "f690a3b4b0f743cfa3b99354d67a22401a021e5aec6e29a8c39dbcfb74879a6a",
+      "bytes": 722,
+      "action": "archive_to_ssd",
+      "reason": "Helpers extracted into reusable modules; no maintained importers remain. Completed driver/reexport is redundant."
+    }
+  ]
+}

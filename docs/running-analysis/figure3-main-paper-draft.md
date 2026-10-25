@@ -8,7 +8,7 @@ figure: G outcomes → acquisition contrast → individual illustrations. The se
 
 ## Data and estimands
 
-`scripts/build_figure3_main_paper.py` consumes the authenticated selected atlas:
+`scripts/paper/figure_03/build_main_draft.py` consumes the authenticated selected atlas:
 trial-data.parquet, g-logmedian-outcomes.csv, fish-inventory.csv,
 heatmaps.npz and reference-style.json. It verifies
 source hashes and the exported G values. No raw-data preprocessing or classifier fitting is performed. All 57 fish and 5,130 scheduled
@@ -61,11 +61,11 @@ assembly and its state in external history; it does not overwrite that artwork. 
 published artwork must be preserved rather than overwritten.
 
 ```sh
-.venv/bin/python scripts/build_figure3_main_paper.py build --output-dir '<external-directory>'
+.venv/bin/python scripts/paper/figure_03/build_main_draft.py build --output-dir '<external-directory>'
 .venv/bin/python -m unittest tests.test_figure3_main_paper tests.test_individual_atlas tests.test_legacy_learner_adapter
 ```
 
-`scripts/check_figure3_main_paper.cjs` uses bundled Playwright and a local review
+`scripts/paper/figure_03/verify_main_draft.cjs` uses bundled Playwright and a local review
 server at the supplied base URL to inspect the exact saved SVG and collect standard 600 dpi
 frame measurements. Assess its layout-browser.json with layout_frames.assess;
 write layout-evidence.json and an honest hash-bound visual-review.json after
@@ -73,7 +73,7 @@ inspection. The publisher checks bound inputs/outputs and previous working-copy 
 and visual review before atomically updating only the Figure 3 state:
 
 ```sh
-.venv/bin/python scripts/build_figure3_main_paper.py publish --output-dir '<external-directory>'
+.venv/bin/python scripts/paper/figure_03/build_main_draft.py publish --output-dir '<external-directory>'
 ```
 
 The native composition is 183 × 158 mm with 1 mm invisible frame insets. It

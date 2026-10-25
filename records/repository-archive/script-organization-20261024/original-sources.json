@@ -1,0 +1,785 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+  "authorization": "Author: the audits are for you to implement if needed; preserve scientific data and exact originals",
+  "files": [
+    {
+      "path": "scripts/README.md",
+      "bytes": 22397,
+      "sha256": "7b90d3cb8270305aa1c4b1f6339e97deb1baa0062e0471b0640dacab140d1ce7",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/align_figure1_fgh_fonts.py",
+      "bytes": 5714,
+      "sha256": "085c330001e9f06342c6c048a4b956c0d7374e87822cf196cf9671333d09c286",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/align_paper_annotations.cjs",
+      "bytes": 9803,
+      "sha256": "cd2b5a78ec06f2594734790a4085af568c5b93c1fcfa3b3e5d45920f1653da61",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/archive_figure1_singlefish_versions.py",
+      "bytes": 10254,
+      "sha256": "79efa2cad658be23baa716599a6cabdfa2cc7a15285e475c948ef44d867b56ae",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/assemble_svg_figure.py",
+      "bytes": 37603,
+      "sha256": "0f6502cbbb2b37956930630365fdf97ad8b238936eea4b3d18de1411015f4761",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/audit-inc-trace-stim.py",
+      "bytes": 4593,
+      "sha256": "6149eaf36a4176f567d5ef7c5ca8872d5c5802dbd055148aefa9e2ccb99faec5",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/audit_figure1_camera_gaps.py",
+      "bytes": 7094,
+      "sha256": "cdcccd546b85b5329501dfa66daed7d7849e4e90cbe4644a84aa26d258c48a39",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/audit_figure1_legacy_cadence.py",
+      "bytes": 9135,
+      "sha256": "b356ac684a5ec8b7cae0d3c2061f670998c32a5d822453b17a8287d98b5d0102",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/audit_figure1_vigor_alignment.py",
+      "bytes": 9477,
+      "sha256": "3ea755e6f899d06fdfcb3318d71899c78115dc7ec439fa1061bfdef4bbcf2ccc",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/audit_figure2_bout_only_statistics.py",
+      "bytes": 5371,
+      "sha256": "f18fa4eb0b398f40db50294723d1afead5f4bd797e720c9a7e0da9d96d5db4f6",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/audit_figure2_delay_lmm.py",
+      "bytes": 10834,
+      "sha256": "cdd604811f78a36c532bdb5b7095852fee0bbdccfd067f3d9599996cfab9f8e6",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/audit_preprocessing_contract.py",
+      "bytes": 5406,
+      "sha256": "602b635d1708ffd4bbbf461d9ee238f28492647368a154b30ffc3cf8341ca494",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure1_fgh_version_comparison.py",
+      "bytes": 22248,
+      "sha256": "b7ed1c1e5577e064a5cc753c306c01481be17439d8fe22f65512082d233c2473",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure1_legacy_vigor_heatmaps.py",
+      "bytes": 14551,
+      "sha256": "3c83408846cb3b1bebf2e6cc4c927a0cb476d4f7213b2323e820870a3c3241e4",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure1_panel_a.py",
+      "bytes": 1491,
+      "sha256": "e1dcc5f0969b3dae8d56033bd778b41dd0ec626760cedb2d8ac6782c37491d68",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure1_panel_b.py",
+      "bytes": 19965,
+      "sha256": "9b56c6066a07d80f17efcc8aead2db8c0f81dadd28441fdca90d9ee172054060",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure1_panel_c.py",
+      "bytes": 11779,
+      "sha256": "7d2adecc89314ca5f41c81f364a2709582a8aa42dd48d0d90b507f183e5f2435",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure1_panel_f_bin_variants.py",
+      "bytes": 12961,
+      "sha256": "c69ed4adfb58dcfa527c80206c3e3d943d349cb5268ae9b2b8b9240f7cd61971",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure2_assembly.py",
+      "bytes": 9674,
+      "sha256": "94b426cc14bb72a43066317098ab1ee79f782bb140d1a9231e176219f4755fb3",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure2_g_analysis_guide.py",
+      "bytes": 59937,
+      "sha256": "bdd1e7e3b9eb6d8096dd88b390b3606eda766b402c7f2d669ad4ab2a41e6cbac",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure2_g_exploratory.py",
+      "bytes": 24647,
+      "sha256": "d96105feafff5fd09071266fe4636759d5f0bd786feaba0411a049146b777840",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure2_heatmap_row.py",
+      "bytes": 18626,
+      "sha256": "4a9b29e29f99d2937b83af2b3cd5f33ebd62fd11bd9a4d5f8ad1ae01f9dc16fe",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure2_pooled_heatmaps.py",
+      "bytes": 24873,
+      "sha256": "0482ca1b3f9c047dfc1881a0de69a9ca1cd25cf5d7c617804fa26ee18a2d63c6",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure3_explanation.py",
+      "bytes": 78148,
+      "sha256": "526e8576a1ab2df1ad1dcf8b3604ac8a478aa8f33436483fed1abebf34e5d1b1",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure3_individual_atlas.py",
+      "bytes": 13925,
+      "sha256": "f79c2155cd89ffa2cf53252fee95d3a1e0eff2854fa1438ead687246f6d04e61",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure3_main_paper.py",
+      "bytes": 22898,
+      "sha256": "37c485ec039d99174e093ee06872de2b990e444629b22ef929cabcfd40ca128f",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure_legend_review.py",
+      "bytes": 85209,
+      "sha256": "e5ef7da203516956dd50cec00569c49ea728fba0dfc2f31ad766a6f9a14b195d",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+      "bytes": 11616,
+      "sha256": "ea1df05e91c06829234ee3fd68d2b1305e1dc12bf3def15856ee4c2aef539e49",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/calibrate_layout_frames.py",
+      "bytes": 10093,
+      "sha256": "4652680c112a9d6ae693b380bafcb60410d405961d946538901752d126fbb70b",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/check_figure3_atlas.cjs",
+      "bytes": 4716,
+      "sha256": "4a3919557cb26789f56bf07f1d09dc929ef3b8beb9002eb8b4f51c34e41f1595",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/check_figure3_main_paper.cjs",
+      "bytes": 2108,
+      "sha256": "ceca6cc9d4ead9efd37921a8a13a0af2c9c1e9f59698ad53629d118dddbd7c55",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/check_layout_frames.py",
+      "bytes": 7505,
+      "sha256": "05a14a8800e4d643a003cfa1c0e5ceba5c3641eb6690b0fe6c4885dddd3e9dba",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/check_main_paper_layout.cjs",
+      "bytes": 1355,
+      "sha256": "b34b3d9060dd05c738784deae71b55ca82498c2b080da56223aa401b563ae0cb",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/check_nature_presentation.cjs",
+      "bytes": 5308,
+      "sha256": "b69c06d9695c5a49be40b0aa7b7d4e5e36d6e7eef9b2042563ac27ed0bd7e9d7",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/check_repository_structure.py",
+      "bytes": 17172,
+      "sha256": "b9b9ae2f691fc66eab5f370b4541338057f61faccdc54b8b39c0400312280e83",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/complete-allDelay-to-lme-windows.ps1",
+      "bytes": 4100,
+      "sha256": "3197a08860ec11bfe57cb29d3a1325953fdd8c876252995a17af49bcc25ceaac",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/complete_figure2_g_analysis_guide.py",
+      "bytes": 9435,
+      "sha256": "b1da0f3c9cc619e4c733591e35e579850b52493018db71edde22c3ccfe6079ca",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/correct_panel_relationships.py",
+      "bytes": 14240,
+      "sha256": "d3b90bbc2523352d5e6fa6193285825b5ae59054294d79b56a35c3a50d213d0f",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/figure1_layout_spacing.py",
+      "bytes": 6996,
+      "sha256": "eb2bfd1a1988cd397b3f61628443cd78770cc018576f395e02b3e87a6e42bfe8",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/figure2_g_guide_notebook.js",
+      "bytes": 10767,
+      "sha256": "4f997a4832192f802c7ea93d9815dcca98a6bfd20f32ba67f33fa33cb84158e6",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/figure_working_copy.py",
+      "bytes": 11831,
+      "sha256": "0eab452dd5ddf450a53a6180544136e4f18552497c36f7f818558954398c6427",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/finalize_3strace_exploratory.py",
+      "bytes": 10735,
+      "sha256": "a863258a08389ed8e7222f71c225c469b5a005b13e69f9a95994fd33d5b07f37",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/freeze_figure.py",
+      "bytes": 284,
+      "sha256": "e18568c20be5ca19da07776a183a9298e3a1c7f1287d1a1c32d62268b8ae35fe",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/freeze_figure1_panels.py",
+      "bytes": 1209,
+      "sha256": "5ddb79d68cce8b251a9f707498c0faef36c1665bc2b79ce128f4709b6bf84b80",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/layout_figure2_compact_rows.py",
+      "bytes": 10790,
+      "sha256": "04f42ec3155cf0fe444768519a7f2829f3354d9388232b4889a30ba6a24ace6e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/layout_main_paper_figures.py",
+      "bytes": 21346,
+      "sha256": "23d440977f55c750b4932e855200b0cf2f609a2020eecfc69a1a2150fdb28af8",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/mac_ssd_run.py",
+      "bytes": 2814,
+      "sha256": "c6a637d578208700f477b1b580b512b4af19cd0d214eaf06e8d41a6de8aff974",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/main_paper_figures.py",
+      "bytes": 12102,
+      "sha256": "8cf06168bd16f3ef860e8193efac386695c2dc6d48fa9151bc2a67f32679dc46",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/measure_main_paper_layout.cjs",
+      "bytes": 2824,
+      "sha256": "d1996b2f8b35687646b8b39dc8c52a157873d689f25f2d2681869392d75e8e4b",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/measure_nature_packing.cjs",
+      "bytes": 2109,
+      "sha256": "c6f3d73a02f3bbfe439d9b33700d36f349c4cc44f61aa021e7e3c6944c26a294",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/move_figure2_block_notes.py",
+      "bytes": 6382,
+      "sha256": "7a91048c0569317cf4164e8b1fca2d17c67f853603e8c943a878f00a80b2c3fb",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/nature_main_figures.py",
+      "bytes": 36736,
+      "sha256": "c223c760285fc6c9175ea0dc1675576ee40f55748f356315d7abe9b67348df5e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/plot_metric_response_magnitude.py",
+      "bytes": 4287,
+      "sha256": "59924b70a97bbe550563711aabb0f4f6c9dd51a9baedef310191fc7e0a9bee22",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/plot_train_test_transition_metrics.py",
+      "bytes": 4996,
+      "sha256": "e8f4e70d48553a82be4fddd770bccf82fc7f2d5f941c608117c7f74ac6891b39",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/populate_figure2_available.py",
+      "bytes": 23190,
+      "sha256": "4157c266a6c715db724de668fcdc2418a1f5a9343999feed9fca605842875d83",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare-trace-runs.py",
+      "bytes": 8593,
+      "sha256": "b4f0b649fe7ed7ea929d0987174ac4a4f44e223317bce81196534acd4f4f7556",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure1_fgh_v12_freeze.py",
+      "bytes": 36024,
+      "sha256": "9dc2ae5750ee580559cdb5d9e4472b98e5d1f79cb80b93e374c2b927a5660651",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure1_historical_fgh_freeze.py",
+      "bytes": 21093,
+      "sha256": "18655e0410fe05de5f5eedde46d0cf9feab1b7dcb1f87a69c2fa98f90745eba0",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure1_panel_e_current_freeze.py",
+      "bytes": 13941,
+      "sha256": "080707e8d8b5a51a384b28aae53b0d5eb9705ee23452da89079f7faa772e11a6",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure2_B_freeze.py",
+      "bytes": 20218,
+      "sha256": "1f4e78fcd8a71b26e462a92be913e9e6bff20c73903f5a8f9ef7186dfdc918a9",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+      "bytes": 26318,
+      "sha256": "879ef23d3ca0cbd24cf7d43af81e9036dde167bc7925e411545692f4eded9b1a",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/preserve_figure3_guide_conversation.py",
+      "bytes": 13807,
+      "sha256": "c8ea018b44025d38bf07c4504e273873dad8daab569129071f44943411cdad8e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/process-ingested-trace-fish.ps1",
+      "bytes": 2407,
+      "sha256": "6541a3ec90b312b5239d642f297f5da7bb7b0ce9fdf8814e1a2e657d2343ae9d",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_axis_geometry.py",
+      "bytes": 20923,
+      "sha256": "aaffbe2e5af74cefdfd3a28704e0d600e8f3e289de6c6f9fb6bf8eef7679122d",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_figure1_fgh_one_second.py",
+      "bytes": 20256,
+      "sha256": "db02fc9e06e2c966ac9b206e448ca4cd00caf39fbc4ec4c4b0d03cc2b4705f47",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_figure1_historical_fgh_freeze.py",
+      "bytes": 9066,
+      "sha256": "e52e283211e8af5f77c447cf13ca8162cd1c071c084b1f4509e952f529f83e58",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_figure1_panel_e_current_freeze.py",
+      "bytes": 10493,
+      "sha256": "5230bcb50dcb201b50ae942db79ab3aa1d4d13f26cb6b394854ee185e35b99cd",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_figure2_heatmap_row.py",
+      "bytes": 16591,
+      "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/readjust_figure2_g.py",
+      "bytes": 11596,
+      "sha256": "2ba03b3be09e976d42523efaec54fb323ba0f9e172aa6b783ea4b2976ee54c51",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/recolor_trace10_comparison.py",
+      "bytes": 10090,
+      "sha256": "9b443880f9857fa5dd13e1cda03ed254417ffa327137c5f1ee07a9ce94b6cd1f",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/refine_nature_layout.cjs",
+      "bytes": 4046,
+      "sha256": "508a8de0e2b74738e6e2c8fad20a5226b94a824ee10c4f8c6ba3fd4dcb1abe41",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/refine_paper_annotations.py",
+      "bytes": 7595,
+      "sha256": "ef4f32c2c39c41ad305da63a0ded30548a8df516871ec7e6e388ca0ddd625c58",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/register_figure_axes.py",
+      "bytes": 18992,
+      "sha256": "9ac47dc0d709dfaa92effe837eca2365262be5c2992bdb9a198d68d1286d857a",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure1_3strace_example.py",
+      "bytes": 6084,
+      "sha256": "34e42a2af84983f806c26bff8a5a60e68dc0b9d3ee1a5c6eafb8547de6229906",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure1_best_learners_version08.py",
+      "bytes": 15534,
+      "sha256": "eac158420d3c25a434ddcabc8674614a77edee69e606869ceb48cf37dedd9560",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure1_cd_scaled_log_review.py",
+      "bytes": 14834,
+      "sha256": "523eaad7ccaf0600b4c130f2f091a8d1cfe9228cd0adb7f38bdc0560ae2a38a7",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure1_historical_fish_one_second.py",
+      "bytes": 7651,
+      "sha256": "cf3af7987eebf0b3fa5f24d2bdf61907421f9f777328d02d1affd660aec63dbf",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure2_3strace_legacy_layout.py",
+      "bytes": 6693,
+      "sha256": "6f26c391e850ee8e8ec9732579b4240f0394e992f1be7855ffeaa4f8abe86eb2",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure2_3strace_signed_review.py",
+      "bytes": 8265,
+      "sha256": "0da2b11d6200e4ef912cc4eec9e518fc0a3e6bf481f5aa1f4565b75f5bf831ee",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure2_delay_legacy_metric_lme.py",
+      "bytes": 25744,
+      "sha256": "c2f316f3bb04fc1b52be7d35158153559df6cbc65bb44bd9b688bce8fa45e34f",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure2_delay_logmedian.py",
+      "bytes": 22786,
+      "sha256": "486d763ad6d9af71b7f2bad9277d9ccf20b4d98805e512ca2a6d9701e48f26f9",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure2_delay_phase_lmm.py",
+      "bytes": 15212,
+      "sha256": "7ec5bbfa7499ec19f90fb61e10c188e13db573da027ff0fe0d792cd01caf9b94",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure2_legacy_stats_lme_review.py",
+      "bytes": 17955,
+      "sha256": "7cb4910d4fe0f6a454c968d69fef889af1e4952c859c662cd5c1b8ea6817b87e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure3_3strace_review.py",
+      "bytes": 12511,
+      "sha256": "396e531fe56bcf09f56645fdde7b85838c0c25725c3f6b1ac01f3d756fec3edc",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_legacy_ssd_example_heatmaps.py",
+      "bytes": 11961,
+      "sha256": "43ebd0cf8a1def0234cc4f1aa2fa1ba58a07d8e4424d6539fca55b4d81433e40",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_legacy_ssd_example_traces.py",
+      "bytes": 8352,
+      "sha256": "7629fe3ee8e4caa485671b570b9be8ee2023b2132dc937f5a4d62d2e0c840f4b",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_legacy_ssd_figure2_delay.py",
+      "bytes": 18667,
+      "sha256": "1b7d13575878aa504d789de6fed5da93c133fdd6ee62f719b71f379d7f51af17",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/reorder_control_first.py",
+      "bytes": 14918,
+      "sha256": "4dfa7ec2db02c24b5d34e13a821f1791dcc648884250abbb31bfdc7a0b79f464",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/repair_figure3_guide_downloads.py",
+      "bytes": 4290,
+      "sha256": "bd80e1d1a2b4663b1110e643f165922008aaa625f716e42fa820c1c53d76e098",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/repository_archive.py",
+      "bytes": 22012,
+      "sha256": "a3c6816cafcb914a4667527d0e46797422fa518c24c12052dd40159bc6914815",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/resume-allDelay-full-windows.ps1",
+      "bytes": 972,
+      "sha256": "cffc35afe04827657bd67542d2a5ff2e8aeaf41876fe5477deab184cca0221e2",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/review_figure2_block_log_median.py",
+      "bytes": 30361,
+      "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/review_figure2_bout_only.py",
+      "bytes": 15598,
+      "sha256": "05e691d3418ad04ca3d10710102c4c6f520db31c7caa8cf858fc7df4e09352fa",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/review_figure2_g_independent.py",
+      "bytes": 22116,
+      "sha256": "8aba6fdb48ea1ef8c784a0d0362f01d502888374de0004d83cebb4f4829fcf37",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/review_figure2_g_technical.py",
+      "bytes": 947,
+      "sha256": "ea5374b5b2f3d00db4e47247b1172c74826692bdd0799d1a6310c223b6f02dc1",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/review_library.py",
+      "bytes": 14439,
+      "sha256": "3466855a5bc88a75cdd01d576568433d88b9267297e134131ecb4d6ef6fd0a8f",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/run-all3sTrace-full-windows.ps1",
+      "bytes": 3008,
+      "sha256": "504751dafd48692b6464be623f2edaa3ee913aa18b0d04ccf9b9a66cbf93a87d",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/run-allDelay-full-windows.ps1",
+      "bytes": 7324,
+      "sha256": "d51e38e8aaeab3d4dc62aae639256f76cc1bbf4a13af3653f99562c52bbc27d2",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/run_3strace_legacy_full59.py",
+      "bytes": 5385,
+      "sha256": "c8077b4fb3f4a66d3da42573e42c380640c7ff0e53e4bf3c5ea9991f9c0abcc3",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/style_axis_geometry.cjs",
+      "bytes": 13008,
+      "sha256": "ea68600a212bc0f66b79531f21bd99072eccabbba04ab64c154d9baead341fba",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/style_figure2_placeholders.py",
+      "bytes": 7161,
+      "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure1_colourbar_row_alignment.py",
+      "bytes": 4888,
+      "sha256": "c650bb3a5fbf82d2544f542ce26e585087674c51eb4ab1276b89e6d92cd480b8",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure1_f_arrow_position.py",
+      "bytes": 5351,
+      "sha256": "683fc76ffd7d8c13a6cc68486e2b32f192e9ca160813864289e98a98849a7738",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure1_layout_spacing.py",
+      "bytes": 5738,
+      "sha256": "c1177784fd9e17d0b54183f4f40729cf9a0fce39e4ae461b648acf74d7bc9e4c",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure1_panel_e_display.py",
+      "bytes": 16078,
+      "sha256": "66f43ca6075483059bd1aa5b6da5d1d1467af9dd7ad7bb8dd9a05973b407ce7f",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure2_panel_a_freeze.py",
+      "bytes": 11073,
+      "sha256": "6ddf907b72e50f6919f7abaf0f68a9f384ce32f58a71ba4b2de590fffadbcc7e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_latest_figure_assemblies.py",
+      "bytes": 9843,
+      "sha256": "7c33110eaf346bee8a7e4f438f3c39fbb05d6ac22d15a2023f6878d9c9d6f214",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/verify_figure2_bout_only_review.py",
+      "bytes": 4257,
+      "sha256": "36ae9dc43e7b104b40a44d016c172c3338917e471f9ecdc231727e724dfa411e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/verify_figure2_g_analysis_guide.cjs",
+      "bytes": 12504,
+      "sha256": "60c563e65643218471cec4435424124acc52ffe010cef18f3369143a7b56c7bf",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/verify_figure3_reference_style.py",
+      "bytes": 9820,
+      "sha256": "4b9fc7b5b148caead51ee08908309d4ccfa783b8e57c2ac2afc8e571ec506d23",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/verify_main_paper_collection.cjs",
+      "bytes": 3239,
+      "sha256": "81a760a502ab7503c2eae2f85d44e9bf82d329736f470815362a931dc01b8f76",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    }
+  ]
+}

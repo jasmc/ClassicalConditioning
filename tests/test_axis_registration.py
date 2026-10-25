@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from register_figure_axes import axis_definitions, build_inventory
+from scripts.paper.shared.register_axes import axis_definitions, build_inventory
 
 
 class AxisRegistrationTests(unittest.TestCase):

@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/retired-recipes",
+  "authorization": "Author 24 October: the audits are for you to implement if needed. Completed recipes archived after fresh importer and exact recovery checks.",
+  "files": [
+    {
+      "path": "scripts/align_figure1_fgh_fonts.py",
+      "bytes": 5714,
+      "sha256": "085c330001e9f06342c6c048a4b956c0d7374e87822cf196cf9671333d09c286",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/archive_figure1_singlefish_versions.py",
+      "bytes": 10254,
+      "sha256": "79efa2cad658be23baa716599a6cabdfa2cc7a15285e475c948ef44d867b56ae",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure1_panel_f_bin_variants.py",
+      "bytes": 12961,
+      "sha256": "c69ed4adfb58dcfa527c80206c3e3d943d349cb5268ae9b2b8b9240f7cd61971",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_figure2_heatmap_row.py",
+      "bytes": 18626,
+      "sha256": "4a9b29e29f99d2937b83af2b3cd5f33ebd62fd11bd9a4d5f8ad1ae01f9dc16fe",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+      "bytes": 11616,
+      "sha256": "ea1df05e91c06829234ee3fd68d2b1305e1dc12bf3def15856ee4c2aef539e49",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/layout_figure2_compact_rows.py",
+      "bytes": 10790,
+      "sha256": "04f42ec3155cf0fe444768519a7f2829f3354d9388232b4889a30ba6a24ace6e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/move_figure2_block_notes.py",
+      "bytes": 6382,
+      "sha256": "7a91048c0569317cf4164e8b1fca2d17c67f853603e8c943a878f00a80b2c3fb",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure1_fgh_v12_freeze.py",
+      "bytes": 36024,
+      "sha256": "9dc2ae5750ee580559cdb5d9e4472b98e5d1f79cb80b93e374c2b927a5660651",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure1_historical_fgh_freeze.py",
+      "bytes": 21093,
+      "sha256": "18655e0410fe05de5f5eedde46d0cf9feab1b7dcb1f87a69c2fa98f90745eba0",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure1_panel_e_current_freeze.py",
+      "bytes": 13941,
+      "sha256": "080707e8d8b5a51a384b28aae53b0d5eb9705ee23452da89079f7faa772e11a6",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_figure2_B_freeze.py",
+      "bytes": 20218,
+      "sha256": "1f4e78fcd8a71b26e462a92be913e9e6bff20c73903f5a8f9ef7186dfdc918a9",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+      "bytes": 26318,
+      "sha256": "879ef23d3ca0cbd24cf7d43af81e9036dde167bc7925e411545692f4eded9b1a",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/preserve_figure3_guide_conversation.py",
+      "bytes": 13807,
+      "sha256": "c8ea018b44025d38bf07c4504e273873dad8daab569129071f44943411cdad8e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_figure1_historical_fgh_freeze.py",
+      "bytes": 9066,
+      "sha256": "e52e283211e8af5f77c447cf13ca8162cd1c071c084b1f4509e952f529f83e58",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_figure1_panel_e_current_freeze.py",
+      "bytes": 10493,
+      "sha256": "5230bcb50dcb201b50ae942db79ab3aa1d4d13f26cb6b394854ee185e35b99cd",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/publish_figure2_heatmap_row.py",
+      "bytes": 16591,
+      "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/readjust_figure2_g.py",
+      "bytes": 11596,
+      "sha256": "2ba03b3be09e976d42523efaec54fb323ba0f9e172aa6b783ea4b2976ee54c51",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure1_best_learners_version08.py",
+      "bytes": 15534,
+      "sha256": "eac158420d3c25a434ddcabc8674614a77edee69e606869ceb48cf37dedd9560",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/render_figure1_historical_fish_one_second.py",
+      "bytes": 7651,
+      "sha256": "cf3af7987eebf0b3fa5f24d2bdf61907421f9f777328d02d1affd660aec63dbf",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/reorder_control_first.py",
+      "bytes": 14918,
+      "sha256": "4dfa7ec2db02c24b5d34e13a821f1791dcc648884250abbb31bfdc7a0b79f464",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/repair_figure3_guide_downloads.py",
+      "bytes": 4290,
+      "sha256": "bd80e1d1a2b4663b1110e643f165922008aaa625f716e42fa820c1c53d76e098",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/style_figure2_placeholders.py",
+      "bytes": 7161,
+      "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure1_colourbar_row_alignment.py",
+      "bytes": 4888,
+      "sha256": "c650bb3a5fbf82d2544f542ce26e585087674c51eb4ab1276b89e6d92cd480b8",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure1_f_arrow_position.py",
+      "bytes": 5351,
+      "sha256": "683fc76ffd7d8c13a6cc68486e2b32f192e9ca160813864289e98a98849a7738",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure1_layout_spacing.py",
+      "bytes": 5738,
+      "sha256": "c1177784fd9e17d0b54183f4f40729cf9a0fce39e4ae461b648acf74d7bc9e4c",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    },
+    {
+      "path": "scripts/update_figure2_panel_a_freeze.py",
+      "bytes": 11073,
+      "sha256": "6ddf907b72e50f6919f7abaf0f68a9f384ce32f58a71ba4b2de590fffadbcc7e",
+      "action": "archive_to_ssd",
+      "reason": "Exact pre-refactor source recovery; retained live implementations may change"
+    }
+  ]
+}

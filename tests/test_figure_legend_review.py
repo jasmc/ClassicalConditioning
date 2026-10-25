@@ -4,7 +4,7 @@ from pathlib import Path
 import unittest
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
-spec=importlib.util.spec_from_file_location('legend_review',ROOT/'scripts/build_figure_legend_review.py')
+spec=importlib.util.spec_from_file_location('legend_review',ROOT/'scripts/paper/shared/build_legend_review.py')
 review=importlib.util.module_from_spec(spec);spec.loader.exec_module(review)
 class LegendReviewTests(unittest.TestCase):
     def test_scoped_editing_page_preserves_native_svg_and_only_associated_legend(self):

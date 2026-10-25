@@ -26,7 +26,7 @@ into the compact G/H/I row. The active 1 mm invisible-frame policy and exact
 browser evidence cover its own allocations and aligned trial axes. Full
 physical glyph-edge spacing and all paper-freeze requirements are not certified.
 
-Supported rendering/publication: `scripts/build_figure2_g_exploratory.py`.
+Supported rendering/publication: `scripts/paper/figure_02/panel_g/build_exploratory_presentation.py`.
 Rendering requires a new explicit JOAQUIM destination and a pre-edit
 `start-ticket.json` binding the existing Figure 2 state/legend/artifacts,
 scientific selection, parent analysis and plotted inputs. The renderer refuses

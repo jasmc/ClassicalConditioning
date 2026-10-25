@@ -23,10 +23,12 @@ evidence, not progress boards. The initial status names below describe the
 
 `align_figure1_fgh_fonts.py`, `layout_figure2_compact_rows.py`,
 `move_figure2_block_notes.py`, `readjust_figure2_g.py` and
-`style_figure2_placeholders.py` remain historical presentation recipes. The
+`style_figure2_placeholders.py` were classified as historical presentation recipes. The
 [disposition recommendations](../../records/repository-history/2026-10-23-script-lifecycle/disposition-proposals.json)
-recommend keeping their exact local source because it explains retained
-version-bound evidence and compatibility behavior. They are not entry points
+initially recommended keeping exact local sources because they explain retained
+version-bound evidence and compatibility behavior. The later authorized
+implementation preserved those exact bytes on verified external storage and
+retired these completed drivers from the active tree. They are not entry points
 for new Nature styling. Other
 versioned names can still supply live helpers; do not classify by name or age.
 
@@ -53,8 +55,8 @@ One completed transaction driver, `archive_figure1_singlefish_versions.py`, has
 a concrete [archival proposal](../../records/repository-history/2026-10-23-script-lifecycle/proposed-archive.json).
 It is specific to the completed 13 October transfer, has no discovered Python
 importers or non-inventory record references, and reusable transfer operations
-remain in `repository_archive.py`. The proposal is not authorization: keep the
-local source until the author chooses that disposition and recovery is verified.
+remain in `repository_archive.py`. That proposal alone supplied no authorization. The subsequent author instruction
+and verified implementation completed this archival disposition.
 
 ## Whole-folder reassessment
 
@@ -66,7 +68,23 @@ and misleading command-name issues. The earlier retention assessments preserve
 source/provenance needs; they do not establish that every completed recipe must
 remain a permanent top-level command.
 
-[Plan 13](../../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md) owns the proposed repairs,
-extractions and per-figure/panel command organization. Those changes remain
-unimplemented. Preserve exact scientific definitions and historical bindings;
+[Plan 13](../../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md) records the implemented
+repairs, extractions and per-figure/panel command organization. Preserve exact
+scientific definitions and historical bindings;
 extract shared code and verify consumers before renaming or retiring a recipe.
+
+## Implemented audit dispositions
+
+Author direction to implement needed audit findings supersedes the earlier
+proposal-only retention status for audited completed recipes. The
+[implementation record](../../records/repository-archive/script-organization-20261024/README.md)
+records exact source recovery, verified retirements, helper extraction and the
+current scoped command paths. Earlier inventories/assessments remain immutable
+historical evidence. They do not override the current catalogue or silently
+approve replaying an archived freeze/publication driver.
+
+Commands are now grouped by role and figure/panel scope, using importable Python
+namespace names with underscores. Seven standing compatibility facades preserve
+normal entry points and the immutable element-specification link. The catalogue
+checker walks the full command tree. Guarded command snapshots include their
+local implementation dependency closure so extracted helpers remain hash-bound.

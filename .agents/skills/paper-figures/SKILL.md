@@ -106,7 +106,7 @@ workflow's concurrency/publication section for destinations and command options.
   `prepare --output-dir <existing-external-directory> --revision <revision>`
   bootstraps/reuses authenticated copies only when needed. Never refresh over
   unreviewed manual edits.
-- `scripts/build_figure_legend_review.py --baseline <ticket.json> --output
+- `scripts/paper/shared/build_legend_review.py --baseline <ticket.json> --output
   <new-external-review.html>` publishes the Figure 1 draft/review with guarded
   hashes, measurements and atomic state update, preserving Figure 2. Author direction
   on 2026-10-13: update the same active HTML/SVG pair with `--update-current`;

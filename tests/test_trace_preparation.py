@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 PREPARE = runpy.run_path(
-    str(Path(__file__).resolve().parents[1] / "scripts" / "prepare-trace-runs.py")
+    str(Path(__file__).resolve().parents[1] / 'scripts' / 'workflows/trace/prepare_runs.py')
 )["prepare"]
 
 

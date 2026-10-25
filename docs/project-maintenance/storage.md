@@ -49,4 +49,13 @@ themselves identify disposable data: the Delay baseline still supplies figure
 inputs, and the old Mac handoff's pc-outputs subtree resolves selected Figure 2 G.
 Treat dated source packets as handoff/recovery snapshots, not parallel active
 repositories; preserve their dirty-copy history and bound exports before any
-future consolidation. No folders were moved or pruned by the audit.
+future consolidation. No folders were moved or pruned by that read-only audit.
+
+The subsequent [implementation record](../../records/repository-history/2026-10-24-storage-organization/implementation.json)
+records the drive-root `README.md` and `START-HERE.html` map and the verified
+quarantine of the interrupted intake staging. Eight original files, including
+AppleDouble metadata, remain recoverable under the archive quarantine; the
+complete published recording was authenticated before staging removal. No
+scientific bytes were discarded or capacity reclaimed by this same-drive move.
+The root map distinguishes live data, reading artifacts, recovery archives and
+dated handoffs without moving path-bound Figure 2 G dependencies.

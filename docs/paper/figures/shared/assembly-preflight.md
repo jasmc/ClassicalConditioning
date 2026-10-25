@@ -13,7 +13,7 @@ The existing declarative SVG assembler remains the renderer. Frozen source files
 From the repository:
 
 ```sh
-.venv/bin/python scripts/assemble_svg_figure.py configs/paper-figures/figure1-assembly.json --plan --strict
+.venv/bin/python scripts/paper/shared/assemble_svg.py configs/paper-figures/figure1-assembly.json --plan --strict
 ```
 
 This inspects sources, hashes, supported source types and layout geometry without rendering or writing. Historical Windows/repository references use the external-artifact resolver. It reports exact source paths/hashes, ready/placeholder/blocked panels, missing storage, invalid source/hash/geometry and original-versus-candidate provenance. A blocked plan exits nonzero. Non-strict previews may retain explicit placeholders; required frozen sources and explicitly requested replacement sources cannot silently become placeholders.
@@ -25,7 +25,7 @@ This inspects sources, hashes, supported source types and layout geometry withou
 Use a new external candidate filename and a sidecar from a previous build by this assembler:
 
 ```sh
-.venv/bin/python scripts/assemble_svg_figure.py /path/to/reviewed-layout.json \
+.venv/bin/python scripts/paper/shared/assemble_svg.py /path/to/reviewed-layout.json \
   --output '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/candidates/figure-01-candidate-02.svg' \
   --baseline-manifest '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/candidates/figure-01-candidate-01.svg.json' \
   --replace-panel-source 'E=/path/to/candidate-panel-e.svg' --strict

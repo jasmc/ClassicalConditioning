@@ -108,9 +108,9 @@ no payload has been removed and no current pointer has changed.
 
 Update supported consumers before source relocation:
 
-- `scripts/build_figure2_g_analysis_guide.py` has repository-bound `CONTENT` and reads comparison prose directly.
-- `scripts/complete_figure2_g_analysis_guide.py` names the manuscript and methods in `SOURCES`.
-- `scripts/build_figure3_explanation.py` reads and embeds repository discussion references directly.
+- `scripts/paper/figure_02/panel_g/build_study_guide.py` has repository-bound `CONTENT` and reads comparison prose directly.
+- `src/classical_conditioning/reviews/figure2_g_sources.py` now owns the manuscript/method `SOURCES` binding, extracted from the completed supplement driver.
+- `scripts/paper/figure_03/build_study_guide.py` reads and embeds repository discussion references directly.
 - `scripts/preserve_figure3_guide_conversation.py` reads both conversation files from fixed local paths.
 - `scripts/review_library.py` currently treats `storage=repo` reading sources as canonical and makes convenience copies.
 - Catalogue entries, Markdown links, archive aliases and preservation checks must retain exact-version recovery.

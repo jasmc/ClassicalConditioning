@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "source_root": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+  "authorization": "Author: the audits are for you to implement if needed. Quarantine only, retain exact bytes; published data and raw acquisition files preserved.",
+  "files": [
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    },
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    },
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    },
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
+      "sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
+      "bytes": 1648996921,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    },
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    },
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
+      "sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
+      "bytes": 74712409,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    },
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    },
+    {
+      "path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "action": "archive_to_ssd",
+      "reason": "Interrupted 18 September intake staging; complete published counterpart authenticated; preserve as quarantine, never selected input"
+    }
+  ]
+}

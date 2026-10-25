@@ -879,6 +879,1426 @@
       "recovery_method": "Verified source-only migration original",
       "source": "records/repository-archive/study-sources-20261023/transfer-inventory.json",
       "source_sha256": "262b2b45a5e4d41e7e9002dab460ec9a70fbd5747401487a53574a6e7d8b518f"
+    },
+    {
+      "references": [
+        "scripts/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/README.md"
+      ],
+      "sha256": "7b90d3cb8270305aa1c4b1f6339e97deb1baa0062e0471b0640dacab140d1ce7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/README.md",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/align_figure1_fgh_fonts.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/align_figure1_fgh_fonts.py"
+      ],
+      "sha256": "085c330001e9f06342c6c048a4b956c0d7374e87822cf196cf9671333d09c286",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/align_figure1_fgh_fonts.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/align_paper_annotations.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/align_paper_annotations.cjs"
+      ],
+      "sha256": "cd2b5a78ec06f2594734790a4085af568c5b93c1fcfa3b3e5d45920f1653da61",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/align_paper_annotations.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/archive_figure1_singlefish_versions.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/archive_figure1_singlefish_versions.py"
+      ],
+      "sha256": "79efa2cad658be23baa716599a6cabdfa2cc7a15285e475c948ef44d867b56ae",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/archive_figure1_singlefish_versions.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/assemble_svg_figure.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/assemble_svg_figure.py"
+      ],
+      "sha256": "0f6502cbbb2b37956930630365fdf97ad8b238936eea4b3d18de1411015f4761",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/assemble_svg_figure.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/audit-inc-trace-stim.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit-inc-trace-stim.py"
+      ],
+      "sha256": "6149eaf36a4176f567d5ef7c5ca8872d5c5802dbd055148aefa9e2ccb99faec5",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/audit-inc-trace-stim.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/audit_figure1_camera_gaps.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_figure1_camera_gaps.py"
+      ],
+      "sha256": "cdcccd546b85b5329501dfa66daed7d7849e4e90cbe4644a84aa26d258c48a39",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/audit_figure1_camera_gaps.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/audit_figure1_legacy_cadence.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_figure1_legacy_cadence.py"
+      ],
+      "sha256": "b356ac684a5ec8b7cae0d3c2061f670998c32a5d822453b17a8287d98b5d0102",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/audit_figure1_legacy_cadence.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/audit_figure1_vigor_alignment.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_figure1_vigor_alignment.py"
+      ],
+      "sha256": "3ea755e6f899d06fdfcb3318d71899c78115dc7ec439fa1061bfdef4bbcf2ccc",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/audit_figure1_vigor_alignment.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/audit_figure2_bout_only_statistics.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_figure2_bout_only_statistics.py"
+      ],
+      "sha256": "f18fa4eb0b398f40db50294723d1afead5f4bd797e720c9a7e0da9d96d5db4f6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/audit_figure2_bout_only_statistics.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/audit_figure2_delay_lmm.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_figure2_delay_lmm.py"
+      ],
+      "sha256": "cdd604811f78a36c532bdb5b7095852fee0bbdccfd067f3d9599996cfab9f8e6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/audit_figure2_delay_lmm.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/audit_preprocessing_contract.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_preprocessing_contract.py"
+      ],
+      "sha256": "602b635d1708ffd4bbbf461d9ee238f28492647368a154b30ffc3cf8341ca494",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/audit_preprocessing_contract.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure1_fgh_version_comparison.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_fgh_version_comparison.py"
+      ],
+      "sha256": "b7ed1c1e5577e064a5cc753c306c01481be17439d8fe22f65512082d233c2473",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure1_fgh_version_comparison.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure1_legacy_vigor_heatmaps.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_legacy_vigor_heatmaps.py"
+      ],
+      "sha256": "3c83408846cb3b1bebf2e6cc4c927a0cb476d4f7213b2323e820870a3c3241e4",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure1_legacy_vigor_heatmaps.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure1_panel_a.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_panel_a.py"
+      ],
+      "sha256": "e1dcc5f0969b3dae8d56033bd778b41dd0ec626760cedb2d8ac6782c37491d68",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure1_panel_a.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure1_panel_b.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_panel_b.py"
+      ],
+      "sha256": "9b56c6066a07d80f17efcc8aead2db8c0f81dadd28441fdca90d9ee172054060",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure1_panel_b.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure1_panel_c.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_panel_c.py"
+      ],
+      "sha256": "7d2adecc89314ca5f41c81f364a2709582a8aa42dd48d0d90b507f183e5f2435",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure1_panel_c.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure1_panel_f_bin_variants.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure1_panel_f_bin_variants.py"
+      ],
+      "sha256": "c69ed4adfb58dcfa527c80206c3e3d943d349cb5268ae9b2b8b9240f7cd61971",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure1_panel_f_bin_variants.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure2_assembly.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure2_assembly.py"
+      ],
+      "sha256": "94b426cc14bb72a43066317098ab1ee79f782bb140d1a9231e176219f4755fb3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure2_assembly.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure2_g_analysis_guide.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure2_g_analysis_guide.py"
+      ],
+      "sha256": "bdd1e7e3b9eb6d8096dd88b390b3606eda766b402c7f2d669ad4ab2a41e6cbac",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure2_g_analysis_guide.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure2_g_exploratory.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure2_g_exploratory.py"
+      ],
+      "sha256": "d96105feafff5fd09071266fe4636759d5f0bd786feaba0411a049146b777840",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure2_g_exploratory.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure2_heatmap_row.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure2_heatmap_row.py"
+      ],
+      "sha256": "4a9b29e29f99d2937b83af2b3cd5f33ebd62fd11bd9a4d5f8ad1ae01f9dc16fe",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure2_heatmap_row.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure2_pooled_heatmaps.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure2_pooled_heatmaps.py"
+      ],
+      "sha256": "0482ca1b3f9c047dfc1881a0de69a9ca1cd25cf5d7c617804fa26ee18a2d63c6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure2_pooled_heatmaps.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure3_explanation.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure3_explanation.py"
+      ],
+      "sha256": "526e8576a1ab2df1ad1dcf8b3604ac8a478aa8f33436483fed1abebf34e5d1b1",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure3_explanation.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure3_individual_atlas.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure3_individual_atlas.py"
+      ],
+      "sha256": "f79c2155cd89ffa2cf53252fee95d3a1e0eff2854fa1438ead687246f6d04e61",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure3_individual_atlas.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure3_main_paper.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure3_main_paper.py"
+      ],
+      "sha256": "37c485ec039d99174e093ee06872de2b990e444629b22ef929cabcfd40ca128f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure3_main_paper.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_figure_legend_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure_legend_review.py"
+      ],
+      "sha256": "e5ef7da203516956dd50cec00569c49ea728fba0dfc2f31ad766a6f9a14b195d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_figure_legend_review.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_panel_e_frozen_v12_heatmap_rows_review.py"
+      ],
+      "sha256": "ea1df05e91c06829234ee3fd68d2b1305e1dc12bf3def15856ee4c2aef539e49",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/calibrate_layout_frames.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/calibrate_layout_frames.py"
+      ],
+      "sha256": "4652680c112a9d6ae693b380bafcb60410d405961d946538901752d126fbb70b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/calibrate_layout_frames.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/check_figure3_atlas.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figure3_atlas.cjs"
+      ],
+      "sha256": "4a3919557cb26789f56bf07f1d09dc929ef3b8beb9002eb8b4f51c34e41f1595",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/check_figure3_atlas.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/check_figure3_main_paper.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figure3_main_paper.cjs"
+      ],
+      "sha256": "ceca6cc9d4ead9efd37921a8a13a0af2c9c1e9f59698ad53629d118dddbd7c55",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/check_figure3_main_paper.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/check_layout_frames.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_layout_frames.py"
+      ],
+      "sha256": "05a14a8800e4d643a003cfa1c0e5ceba5c3641eb6690b0fe6c4885dddd3e9dba",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/check_layout_frames.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/check_main_paper_layout.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_main_paper_layout.cjs"
+      ],
+      "sha256": "b34b3d9060dd05c738784deae71b55ca82498c2b080da56223aa401b563ae0cb",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/check_main_paper_layout.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/check_nature_presentation.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_nature_presentation.cjs"
+      ],
+      "sha256": "b69c06d9695c5a49be40b0aa7b7d4e5e36d6e7eef9b2042563ac27ed0bd7e9d7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/check_nature_presentation.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/check_repository_structure.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_repository_structure.py"
+      ],
+      "sha256": "b9b9ae2f691fc66eab5f370b4541338057f61faccdc54b8b39c0400312280e83",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/check_repository_structure.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/complete-allDelay-to-lme-windows.ps1",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/complete-allDelay-to-lme-windows.ps1"
+      ],
+      "sha256": "3197a08860ec11bfe57cb29d3a1325953fdd8c876252995a17af49bcc25ceaac",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/complete-allDelay-to-lme-windows.ps1",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/complete_figure2_g_analysis_guide.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/complete_figure2_g_analysis_guide.py"
+      ],
+      "sha256": "b1da0f3c9cc619e4c733591e35e579850b52493018db71edde22c3ccfe6079ca",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/complete_figure2_g_analysis_guide.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/correct_panel_relationships.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/correct_panel_relationships.py"
+      ],
+      "sha256": "d3b90bbc2523352d5e6fa6193285825b5ae59054294d79b56a35c3a50d213d0f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/correct_panel_relationships.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/figure1_layout_spacing.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure1_layout_spacing.py"
+      ],
+      "sha256": "eb2bfd1a1988cd397b3f61628443cd78770cc018576f395e02b3e87a6e42bfe8",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/figure1_layout_spacing.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/figure2_g_guide_notebook.js",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure2_g_guide_notebook.js"
+      ],
+      "sha256": "4f997a4832192f802c7ea93d9815dcca98a6bfd20f32ba67f33fa33cb84158e6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/figure2_g_guide_notebook.js",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/figure_working_copy.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure_working_copy.py"
+      ],
+      "sha256": "0eab452dd5ddf450a53a6180544136e4f18552497c36f7f818558954398c6427",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/figure_working_copy.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/finalize_3strace_exploratory.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/finalize_3strace_exploratory.py"
+      ],
+      "sha256": "a863258a08389ed8e7222f71c225c469b5a005b13e69f9a95994fd33d5b07f37",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/finalize_3strace_exploratory.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/freeze_figure.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/freeze_figure.py"
+      ],
+      "sha256": "e18568c20be5ca19da07776a183a9298e3a1c7f1287d1a1c32d62268b8ae35fe",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/freeze_figure.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/freeze_figure1_panels.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/freeze_figure1_panels.py"
+      ],
+      "sha256": "5ddb79d68cce8b251a9f707498c0faef36c1665bc2b79ce128f4709b6bf84b80",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/freeze_figure1_panels.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/layout_figure2_compact_rows.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/layout_figure2_compact_rows.py"
+      ],
+      "sha256": "04f42ec3155cf0fe444768519a7f2829f3354d9388232b4889a30ba6a24ace6e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/layout_figure2_compact_rows.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/layout_main_paper_figures.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/layout_main_paper_figures.py"
+      ],
+      "sha256": "23d440977f55c750b4932e855200b0cf2f609a2020eecfc69a1a2150fdb28af8",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/layout_main_paper_figures.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/mac_ssd_run.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/mac_ssd_run.py"
+      ],
+      "sha256": "c6a637d578208700f477b1b580b512b4af19cd0d214eaf06e8d41a6de8aff974",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/mac_ssd_run.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/main_paper_figures.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/main_paper_figures.py"
+      ],
+      "sha256": "8cf06168bd16f3ef860e8193efac386695c2dc6d48fa9151bc2a67f32679dc46",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/main_paper_figures.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/measure_main_paper_layout.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/measure_main_paper_layout.cjs"
+      ],
+      "sha256": "d1996b2f8b35687646b8b39dc8c52a157873d689f25f2d2681869392d75e8e4b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/measure_main_paper_layout.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/measure_nature_packing.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/measure_nature_packing.cjs"
+      ],
+      "sha256": "c6f3d73a02f3bbfe439d9b33700d36f349c4cc44f61aa021e7e3c6944c26a294",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/measure_nature_packing.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/move_figure2_block_notes.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/move_figure2_block_notes.py"
+      ],
+      "sha256": "7a91048c0569317cf4164e8b1fca2d17c67f853603e8c943a878f00a80b2c3fb",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/move_figure2_block_notes.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/nature_main_figures.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/nature_main_figures.py"
+      ],
+      "sha256": "c223c760285fc6c9175ea0dc1675576ee40f55748f356315d7abe9b67348df5e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/nature_main_figures.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/plot_metric_response_magnitude.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/plot_metric_response_magnitude.py"
+      ],
+      "sha256": "59924b70a97bbe550563711aabb0f4f6c9dd51a9baedef310191fc7e0a9bee22",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/plot_metric_response_magnitude.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/plot_train_test_transition_metrics.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/plot_train_test_transition_metrics.py"
+      ],
+      "sha256": "e8f4e70d48553a82be4fddd770bccf82fc7f2d5f941c608117c7f74ac6891b39",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/plot_train_test_transition_metrics.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/populate_figure2_available.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/populate_figure2_available.py"
+      ],
+      "sha256": "4157c266a6c715db724de668fcdc2418a1f5a9343999feed9fca605842875d83",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/populate_figure2_available.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/prepare-trace-runs.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare-trace-runs.py"
+      ],
+      "sha256": "b4f0b649fe7ed7ea929d0987174ac4a4f44e223317bce81196534acd4f4f7556",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/prepare-trace-runs.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/prepare_figure1_fgh_v12_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare_figure1_fgh_v12_freeze.py"
+      ],
+      "sha256": "9dc2ae5750ee580559cdb5d9e4472b98e5d1f79cb80b93e374c2b927a5660651",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/prepare_figure1_fgh_v12_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/prepare_figure1_historical_fgh_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare_figure1_historical_fgh_freeze.py"
+      ],
+      "sha256": "18655e0410fe05de5f5eedde46d0cf9feab1b7dcb1f87a69c2fa98f90745eba0",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/prepare_figure1_historical_fgh_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/prepare_figure1_panel_e_current_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare_figure1_panel_e_current_freeze.py"
+      ],
+      "sha256": "080707e8d8b5a51a384b28aae53b0d5eb9705ee23452da89079f7faa772e11a6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/prepare_figure1_panel_e_current_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/prepare_figure2_B_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare_figure2_B_freeze.py"
+      ],
+      "sha256": "1f4e78fcd8a71b26e462a92be913e9e6bff20c73903f5a8f9ef7186dfdc918a9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/prepare_figure2_B_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/prepare_panel_e_heatmap_rows_freeze.py"
+      ],
+      "sha256": "879ef23d3ca0cbd24cf7d43af81e9036dde167bc7925e411545692f4eded9b1a",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/prepare_panel_e_heatmap_rows_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/preserve_figure3_guide_conversation.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/preserve_figure3_guide_conversation.py"
+      ],
+      "sha256": "c8ea018b44025d38bf07c4504e273873dad8daab569129071f44943411cdad8e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/preserve_figure3_guide_conversation.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/process-ingested-trace-fish.ps1",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/process-ingested-trace-fish.ps1"
+      ],
+      "sha256": "6541a3ec90b312b5239d642f297f5da7bb7b0ce9fdf8814e1a2e657d2343ae9d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/process-ingested-trace-fish.ps1",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/publish_axis_geometry.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_axis_geometry.py"
+      ],
+      "sha256": "aaffbe2e5af74cefdfd3a28704e0d600e8f3e289de6c6f9fb6bf8eef7679122d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/publish_axis_geometry.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/publish_figure1_fgh_one_second.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure1_fgh_one_second.py"
+      ],
+      "sha256": "db02fc9e06e2c966ac9b206e448ca4cd00caf39fbc4ec4c4b0d03cc2b4705f47",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/publish_figure1_fgh_one_second.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/publish_figure1_historical_fgh_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure1_historical_fgh_freeze.py"
+      ],
+      "sha256": "e52e283211e8af5f77c447cf13ca8162cd1c071c084b1f4509e952f529f83e58",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/publish_figure1_historical_fgh_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/publish_figure1_panel_e_current_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure1_panel_e_current_freeze.py"
+      ],
+      "sha256": "5230bcb50dcb201b50ae942db79ab3aa1d4d13f26cb6b394854ee185e35b99cd",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/publish_figure1_panel_e_current_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/publish_figure2_heatmap_row.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure2_heatmap_row.py"
+      ],
+      "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/publish_figure2_heatmap_row.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/readjust_figure2_g.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/readjust_figure2_g.py"
+      ],
+      "sha256": "2ba03b3be09e976d42523efaec54fb323ba0f9e172aa6b783ea4b2976ee54c51",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/readjust_figure2_g.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/recolor_trace10_comparison.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/recolor_trace10_comparison.py"
+      ],
+      "sha256": "9b443880f9857fa5dd13e1cda03ed254417ffa327137c5f1ee07a9ce94b6cd1f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/recolor_trace10_comparison.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/refine_nature_layout.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/refine_nature_layout.cjs"
+      ],
+      "sha256": "508a8de0e2b74738e6e2c8fad20a5226b94a824ee10c4f8c6ba3fd4dcb1abe41",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/refine_nature_layout.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/refine_paper_annotations.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/refine_paper_annotations.py"
+      ],
+      "sha256": "ef4f32c2c39c41ad305da63a0ded30548a8df516871ec7e6e388ca0ddd625c58",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/refine_paper_annotations.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/register_figure_axes.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/register_figure_axes.py"
+      ],
+      "sha256": "9ac47dc0d709dfaa92effe837eca2365262be5c2992bdb9a198d68d1286d857a",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/register_figure_axes.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure1_3strace_example.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_3strace_example.py"
+      ],
+      "sha256": "34e42a2af84983f806c26bff8a5a60e68dc0b9d3ee1a5c6eafb8547de6229906",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure1_3strace_example.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure1_best_learners_version08.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_best_learners_version08.py"
+      ],
+      "sha256": "eac158420d3c25a434ddcabc8674614a77edee69e606869ceb48cf37dedd9560",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure1_best_learners_version08.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure1_cd_scaled_log_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_cd_scaled_log_review.py"
+      ],
+      "sha256": "523eaad7ccaf0600b4c130f2f091a8d1cfe9228cd0adb7f38bdc0560ae2a38a7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure1_cd_scaled_log_review.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure1_historical_fish_one_second.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure1_historical_fish_one_second.py"
+      ],
+      "sha256": "cf3af7987eebf0b3fa5f24d2bdf61907421f9f777328d02d1affd660aec63dbf",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure1_historical_fish_one_second.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure2_3strace_legacy_layout.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure2_3strace_legacy_layout.py"
+      ],
+      "sha256": "6f26c391e850ee8e8ec9732579b4240f0394e992f1be7855ffeaa4f8abe86eb2",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure2_3strace_legacy_layout.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure2_3strace_signed_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure2_3strace_signed_review.py"
+      ],
+      "sha256": "0da2b11d6200e4ef912cc4eec9e518fc0a3e6bf481f5aa1f4565b75f5bf831ee",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure2_3strace_signed_review.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure2_delay_legacy_metric_lme.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure2_delay_legacy_metric_lme.py"
+      ],
+      "sha256": "c2f316f3bb04fc1b52be7d35158153559df6cbc65bb44bd9b688bce8fa45e34f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure2_delay_legacy_metric_lme.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure2_delay_logmedian.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure2_delay_logmedian.py"
+      ],
+      "sha256": "486d763ad6d9af71b7f2bad9277d9ccf20b4d98805e512ca2a6d9701e48f26f9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure2_delay_logmedian.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure2_delay_phase_lmm.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure2_delay_phase_lmm.py"
+      ],
+      "sha256": "7ec5bbfa7499ec19f90fb61e10c188e13db573da027ff0fe0d792cd01caf9b94",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure2_delay_phase_lmm.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure2_legacy_stats_lme_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure2_legacy_stats_lme_review.py"
+      ],
+      "sha256": "7cb4910d4fe0f6a454c968d69fef889af1e4952c859c662cd5c1b8ea6817b87e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure2_legacy_stats_lme_review.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_figure3_3strace_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figure3_3strace_review.py"
+      ],
+      "sha256": "396e531fe56bcf09f56645fdde7b85838c0c25725c3f6b1ac01f3d756fec3edc",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_figure3_3strace_review.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_legacy_ssd_example_heatmaps.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_legacy_ssd_example_heatmaps.py"
+      ],
+      "sha256": "43ebd0cf8a1def0234cc4f1aa2fa1ba58a07d8e4424d6539fca55b4d81433e40",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_legacy_ssd_example_heatmaps.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_legacy_ssd_example_traces.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_legacy_ssd_example_traces.py"
+      ],
+      "sha256": "7629fe3ee8e4caa485671b570b9be8ee2023b2132dc937f5a4d62d2e0c840f4b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_legacy_ssd_example_traces.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/render_legacy_ssd_figure2_delay.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_legacy_ssd_figure2_delay.py"
+      ],
+      "sha256": "1b7d13575878aa504d789de6fed5da93c133fdd6ee62f719b71f379d7f51af17",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/render_legacy_ssd_figure2_delay.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/reorder_control_first.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/reorder_control_first.py"
+      ],
+      "sha256": "4dfa7ec2db02c24b5d34e13a821f1791dcc648884250abbb31bfdc7a0b79f464",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/reorder_control_first.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/repair_figure3_guide_downloads.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/repair_figure3_guide_downloads.py"
+      ],
+      "sha256": "bd80e1d1a2b4663b1110e643f165922008aaa625f716e42fa820c1c53d76e098",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/repair_figure3_guide_downloads.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/repository_archive.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/repository_archive.py"
+      ],
+      "sha256": "a3c6816cafcb914a4667527d0e46797422fa518c24c12052dd40159bc6914815",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/repository_archive.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/resume-allDelay-full-windows.ps1",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/resume-allDelay-full-windows.ps1"
+      ],
+      "sha256": "cffc35afe04827657bd67542d2a5ff2e8aeaf41876fe5477deab184cca0221e2",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/resume-allDelay-full-windows.ps1",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/review_figure2_block_log_median.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_figure2_block_log_median.py"
+      ],
+      "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/review_figure2_block_log_median.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/review_figure2_bout_only.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_figure2_bout_only.py"
+      ],
+      "sha256": "05e691d3418ad04ca3d10710102c4c6f520db31c7caa8cf858fc7df4e09352fa",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/review_figure2_bout_only.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/review_figure2_g_independent.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_figure2_g_independent.py"
+      ],
+      "sha256": "8aba6fdb48ea1ef8c784a0d0362f01d502888374de0004d83cebb4f4829fcf37",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/review_figure2_g_independent.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/review_figure2_g_technical.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_figure2_g_technical.py"
+      ],
+      "sha256": "ea5374b5b2f3d00db4e47247b1172c74826692bdd0799d1a6310c223b6f02dc1",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/review_figure2_g_technical.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/review_library.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_library.py"
+      ],
+      "sha256": "3466855a5bc88a75cdd01d576568433d88b9267297e134131ecb4d6ef6fd0a8f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/review_library.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/run-all3sTrace-full-windows.ps1",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/run-all3sTrace-full-windows.ps1"
+      ],
+      "sha256": "504751dafd48692b6464be623f2edaa3ee913aa18b0d04ccf9b9a66cbf93a87d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/run-all3sTrace-full-windows.ps1",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/run-allDelay-full-windows.ps1",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/run-allDelay-full-windows.ps1"
+      ],
+      "sha256": "d51e38e8aaeab3d4dc62aae639256f76cc1bbf4a13af3653f99562c52bbc27d2",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/run-allDelay-full-windows.ps1",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/run_3strace_legacy_full59.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/run_3strace_legacy_full59.py"
+      ],
+      "sha256": "c8077b4fb3f4a66d3da42573e42c380640c7ff0e53e4bf3c5ea9991f9c0abcc3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/run_3strace_legacy_full59.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/style_axis_geometry.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_axis_geometry.cjs"
+      ],
+      "sha256": "ea68600a212bc0f66b79531f21bd99072eccabbba04ab64c154d9baead341fba",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/style_axis_geometry.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/style_figure2_placeholders.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_figure2_placeholders.py"
+      ],
+      "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/style_figure2_placeholders.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/update_figure1_colourbar_row_alignment.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_colourbar_row_alignment.py"
+      ],
+      "sha256": "c650bb3a5fbf82d2544f542ce26e585087674c51eb4ab1276b89e6d92cd480b8",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/update_figure1_colourbar_row_alignment.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/update_figure1_f_arrow_position.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_f_arrow_position.py"
+      ],
+      "sha256": "683fc76ffd7d8c13a6cc68486e2b32f192e9ca160813864289e98a98849a7738",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/update_figure1_f_arrow_position.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/update_figure1_layout_spacing.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_layout_spacing.py"
+      ],
+      "sha256": "c1177784fd9e17d0b54183f4f40729cf9a0fce39e4ae461b648acf74d7bc9e4c",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/update_figure1_layout_spacing.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/update_figure1_panel_e_display.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure1_panel_e_display.py"
+      ],
+      "sha256": "66f43ca6075483059bd1aa5b6da5d1d1467af9dd7ad7bb8dd9a05973b407ce7f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/update_figure1_panel_e_display.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/update_figure2_panel_a_freeze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_figure2_panel_a_freeze.py"
+      ],
+      "sha256": "6ddf907b72e50f6919f7abaf0f68a9f384ce32f58a71ba4b2de590fffadbcc7e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/update_figure2_panel_a_freeze.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/update_latest_figure_assemblies.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/update_latest_figure_assemblies.py"
+      ],
+      "sha256": "7c33110eaf346bee8a7e4f438f3c39fbb05d6ac22d15a2023f6878d9c9d6f214",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/update_latest_figure_assemblies.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/verify_figure2_bout_only_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_figure2_bout_only_review.py"
+      ],
+      "sha256": "36ae9dc43e7b104b40a44d016c172c3338917e471f9ecdc231727e724dfa411e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/verify_figure2_bout_only_review.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/verify_figure2_g_analysis_guide.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_figure2_g_analysis_guide.cjs"
+      ],
+      "sha256": "60c563e65643218471cec4435424124acc52ffe010cef18f3369143a7b56c7bf",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/verify_figure2_g_analysis_guide.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/verify_figure3_reference_style.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_figure3_reference_style.py"
+      ],
+      "sha256": "4b9fc7b5b148caead51ee08908309d4ccfa783b8e57c2ac2afc8e571ec506d23",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/verify_figure3_reference_style.py",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "scripts/verify_main_paper_collection.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_main_paper_collection.cjs"
+      ],
+      "sha256": "81a760a502ab7503c2eae2f85d44e9bf82d329736f470815362a931dc01b8f76",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/original-sources",
+      "relative_path": "payload/scripts/verify_main_paper_collection.cjs",
+      "recovery_method": "Author-authorized exact pre-refactor script original",
+      "source": "records/repository-archive/script-organization-20261024/original-sources.json",
+      "source_sha256": "683c0f08e0f917d21f4d86273d171dcde4cc2de8626b421f3a385e216d6526dc"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete"
+      ],
+      "sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet"
+      ],
+      "sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
     }
   ]
 }

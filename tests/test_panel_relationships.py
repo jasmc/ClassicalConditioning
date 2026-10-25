@@ -4,7 +4,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from correct_panel_relationships import equal_gaps, style_titles, verify_correction
+from scripts.paper.shared.correct_relationships import equal_gaps, style_titles, verify_correction
 from classical_conditioning.figures.layout_frames import embed_spec
 from classical_conditioning.figure_workspace import measured_presentation
 

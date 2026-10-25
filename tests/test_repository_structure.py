@@ -29,6 +29,20 @@ class StructureChecks(unittest.TestCase):
     def write(self, path, value):
         (self.repo / path).write_text(json.dumps(value))
 
+    def test_nested_script_requires_its_full_catalogue_path(self):
+        policy_path = self.repo / 'docs/project-maintenance/structure-policy.json'
+        policy = json.loads(policy_path.read_text())
+        policy['script_catalogue'] = 'scripts/README.md'
+        policy_path.write_text(json.dumps(policy))
+        nested = self.repo / 'scripts/paper/figure_01/panel_a'
+        nested.mkdir(parents=True)
+        (nested / 'build.py').write_text('print("synthetic")')
+        catalogue = self.repo / 'scripts/README.md'
+        catalogue.write_text('[build](build.py)')
+        self.assertTrue(any('Uncatalogued script: paper/figure_01/panel_a/build.py' in issue for issue in structure.check(self.repo)['issues']))
+        catalogue.write_text('[build](paper/figure_01/panel_a/build.py)')
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+
     def test_minimal_layout_passes_without_external_access(self):
         report = structure.check(self.repo)
         self.assertEqual(report['issues'], [])

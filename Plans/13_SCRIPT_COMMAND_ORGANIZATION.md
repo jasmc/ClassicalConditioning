@@ -1,187 +1,114 @@
 # Script command organization
 
-Author request, 24 October 2026: audit every file in `scripts/`, assess stale
-or redundant code, and propose coherent naming by figure/panel scope.
+The author requested a whole-folder audit on 24 October, then clarified that
+needed audit recommendations were to be implemented. Implementation is complete
+for the maintenance findings. Scientific figure reconciliation and hosted CI
+account access remain separate scopes.
 
-The [audit record](../records/repository-history/2026-10-24-scripts-audit/audit.json)
-identifies the inspected Git revision, all-file inventory and report hashes.
-The full per-file recommendations, source/consumer evidence and proposed paths
-belong on JOAQUIM, alongside their Markdown/HTML reading report. Publication
-status and any temporary review location are explicit in that record.
-This plan proposes changes; it does not execute script moves or retire recipes.
+The [implementation record](../records/repository-archive/script-organization-20261024/README.md)
+owns source recovery, dispositions, current paths and verification. The original
+[audit](../records/repository-history/2026-10-24-scripts-audit/README.md) remains
+dated evidence; its full per-file Markdown/HTML lives on JOAQUIM. No new selection
+registry, figure-state authority, custom agent or repository skill was introduced.
 
-## Findings and intended outcome
+## Implemented repairs
 
-There are 111 tracked files: 93 Python, 11 CommonJS, five PowerShell, one browser
-JavaScript and the README, totaling 18,952 lines. Forty-seven ignored bytecode
-files are generated caches, not additional supported tools.
+The historical train/test metric producer and magnitude consumer share one
+external workspace. Producer CSV hashes are recorded in a receipt and verified
+by the consumer; an explicit SHA-256 supports older inputs. Both preserve saved
+outputs and show CLI help without storage access. Scientific windows, formulas,
+bootstrap settings and legacy reproduction styling were retained.
 
-The recommendations account for every tracked file:
+Browser SVG verification is the default. Separate `apply_axis_geometry.cjs`,
+`apply_annotation_alignment.cjs` and `style_nature_presentation.cjs` routes make
+candidate modification explicit. Verification rejects conflicting edit flags;
+`--center-labels` is an explicit geometry-edit mode. Three collectors now accept
+`--base-url`, preserving existing origins as defaults. No browser collector or
+artwork operation was run during maintenance.
 
-| Proposed treatment | Files |
-|---|---:|
-| Retain maintained command/verification capability | 32 |
-| Extract shared implementation into package modules | 15 |
-| Extract live helpers before retiring the dated recipe | 14 |
-| Retain explicit historical reproduction/audit capability | 18 |
-| Consolidate platform launchers into protocol stages | 5 |
-| Completed-recipe archival candidates, subject to verified disposition | 26 |
-| Retain compact navigation | 1 |
+## Shared implementation
 
-These are roles, not proof of runtime usage or authorization to delete files.
-A catalogue mention or historical evidence reference does not prove current
-operation; absence of an importer does not prove that a CLI is unnecessary.
-Keep scientific definitions and selected/frozen evidence separate from code
-organization. Exact frozen snapshots are never updated to a refactored version.
+Reusable helpers now live under `src/classical_conditioning/`:
 
-## Priority 0 — clarify and repair operational boundaries
+- `figures/review_html.py`: minimal scoped HTML and historical font compatibility.
+- `figures/svg_scope.py`: scoped extraction and comparison IDs.
+- `figures/figure_01/`: legacy display/layout and selected F/G/H integration.
+- `figures/layout_primitives.py`: deterministic serialization/addressing.
+- `analysis/review/bout_block_review.py`: unchanged D/E calculation/render helpers.
+- `analysis/review/metric_comparison_storage.py`: external storage/input receipt.
+- `reviews/figure2_g_sources.py`: source bindings and Markdown bundling.
+- `reviews/embedded_downloads.py`: reusable offline download behavior.
+- `figures/browser/command_options.cjs`: pure browser command/URL configuration.
 
-- Repair the producer/consumer path mismatch between
-  `plot_train_test_transition_metrics.py` and `plot_metric_response_magnitude.py`.
-  The former sets repository-local `outputs/` and creates media there; the latter
-  reads through `external_output`. Use one explicit authenticated external
-  input/output contract, preserve previous results, and reject unavailable storage.
-- Split modifying and verifying interfaces. `check_nature_presentation.cjs`
-  rewrites candidate SVGs by default; `align_paper_annotations.cjs` also edits by
-  default, and `style_axis_geometry.cjs --center-labels` changes artwork.
-  Reserve verify/check routes for validation and evidence collection, make
-  mutation explicit, and retain guarded publication outside those operations.
-- Correct misleading entry-point documentation without changing scientific
-  definitions. `freeze_figure1_panels.py` verifies an existing A–D freeze;
-  `prepare_figure2_B_freeze.py` prepares outcome version B for D/E, not panel B;
-  `build_figure2_heatmap_row.py` has an F/G/H docstring but handles the Figure 2
-  six-heatmap composition with A-only freeze scope.
-- Stop describing `update_latest_figure_assemblies.py` as the generic current
-  viewer: its Figure 2 path can resolve current state, but its Figure 1 assembly
-  uses older E/V12 selection logic and its default output is dated 10 October.
-  Keep imported helpers until extraction; current display follows scoped state
-  and the supported main-paper collection.
+Three script cycles were removed: legend/publisher, layout/relationships, and
+block-log-median/bout-only review. Explicit parameters replace the D/E callback's
+mutable `OUT` override. The G guide no longer imports a completed supplement
+driver. New Figure 3 guides include the compatible Blob download handler and
+disambiguated source names; existing HTML/notebook bytes were untouched.
 
-Acceptance: synthetic tests cover external output agreement and missing-storage
-failures; modifying operations cannot be invoked accidentally as read-only
-checks; active navigation names the actual scope. No scientific model reruns.
+`command_provenance.py` follows local source/import/resource dependencies without
+executing them. Guarded command snapshots bind this closure, so helpers extracted
+from a driver remain protected against concurrent changes. Existing scientific
+input/state guards remain in place.
 
-## Priority 1 — extract libraries and break circular imports
+## Physical command organization
 
-Use existing `figure_workspace`, `figure_freeze`, `external_artifacts`, `theme`
-and `layout_frames` implementation. Add focused modules where necessary;
-do not create another state authority, freeze workflow or plotting theme.
+The [recursive catalogue](../scripts/README.md) lists 92 command/support files
+under maintenance, workflows, reviews and paper figure/panel scopes. The top
+level holds seven small compatibility facades plus its README. Importable Python
+namespaces use underscores (`figure_01`, `panels_f_g_h`), while scientific source
+and display identities remain distinct and continue to use their recorded roles.
 
-Three direct/lazy import cycles need removal:
+Only real operations have directories. No empty Figure 4/H/I wrappers were added:
+existing package/CLI operations continue to own those capabilities. Supported
+historical computations remain explicitly under reproduction scopes; they are
+not merged into a different accepted scientific analysis or new Nature styling.
 
-1. `build_figure_legend_review` ↔ `publish_figure1_fgh_one_second`.
-2. `layout_main_paper_figures` ↔ `correct_panel_relationships`.
-3. `review_figure2_block_log_median` ↔ `review_figure2_bout_only`.
+Ordinary explicit imports, relocated-root bootstraps, JS resource discovery,
+PowerShell roots, tests and maintained navigation were updated. The catalogue
+checker scans recursively and distinguishes complete relative command paths.
+The immutable element specification retains its required compatibility link.
 
-The legend-review module has 954 lines and 21 distinct direct Python importers.
-Extract generic HTML/font/scoped-SVG helpers first. Move pure Figure 1 layout
-helpers out of `scripts/figure1_layout_spacing.py`. Extract `SOURCES` and
-`bundle_markdown` from the completed G supplement driver before retiring it:
-the supported G guide builder imports them today. Replace mutable `OUT` globals
-and cross-script callbacks with explicit parameters.
+The Windows interface has two protocol dispatchers, `delay.ps1` and `trace.ps1`,
+with explicit stages. Original stage parameter/cohort/manifest contracts remain
+separate. A common completion predicate removes duplicate platform plumbing.
+PowerShell runtime execution was unavailable on this Mac; no real PC processing
+was launched. The source contracts and paths were inspected and preserved.
 
-Share browser DOM/CTM/address/font-readiness utilities and launcher options.
-Keep geometric bootstrap, painted/unclipped layout evidence, scientific-role
-verification and mutation as distinct contracts. Preserve guide storage keys,
-source identities and downloaded payloads when sharing notebook/download helpers.
+## Verified retirements and storage organization
 
-The conservative AST comparison found no large identical function-body groups;
-sharing is architectural, not a basis to combine different scientific analyses.
-The D/E log-median script exactly matches a frozen snapshot but has live
-importers. Preserve its frozen original and each distinct outcome/formula/window.
+All 111 original tracked script-folder files were transferred and SHA-256
+verified before edits. Their exact identities remain recoverable. Twenty-six
+completed recipes were retired first; after helper extraction and fresh caller
+checks, three more completed drivers and one redundant helper facade were retired.
+Thus 29 completed drivers and one helper facade left the active command tree.
+Published inventories are immutable; exact frozen source copies were not changed.
 
-Acceptance: package modules import without script execution or mounted SSD;
-cycles disappear; synthetic regression tests preserve exact calculation inputs,
-source bindings, scoped selection and publication guards. No broad golden-byte
-rewrite of historical scientific records.
+The [storage implementation](../records/repository-history/2026-10-24-storage-organization/implementation.json)
+adds a drive-level README/HTML map. The unfinished 18 September intake's eight
+files were verified, quarantined and removed from the processed-project workspace
+after full hash authentication of the complete published recording and an open-
+handle check. No bytes were discarded; same-drive quarantine saves workspace
+confusion, not capacity.
 
-## Priority 2 — migrate thin entry points to coherent scoped names
+The full Delay baseline, raw/provenance variants, required archives and dated
+handoff exports were retained. Moving the PC/Mac packets merely for naming would
+break still-bound Figure 2 G recovery; their roles are now explicit in the drive
+map. The raw duplicates save little space and remain preserved acquisition names.
 
-Proposed structure; create folders only for real retained operations:
+## Verification and limits
 
-```text
-scripts/
-  README.md
-  maintenance/
-  reviews/
-  workflows/
-    windows/
-    macos/
-    trace/
-    metrics/
-  paper/
-    shared/
-    figure-01/
-      panel-a/
-      panel-b/
-      panel-c/
-      panel-e/
-      panels-d-e/
-      panels-f-g-h/
-    figure-02/
-      assembly/
-      panel-a/
-      panel-b/
-      panel-g/
-      panels-d-e/
-      panels-d-g/
-      panels-e-h/
-    figure-03/
-      supplement/
-```
+Maintenance/storage/relocation tests and targeted figure regressions were run
+from the working tree and an exported Git tree. Actual counts and results are
+in the implementation verification record. All 120 starting selected/frozen/state
+file hashes remain unchanged, and the structure checker still enforces its 365
+preserved requirements and seven scoped states. Existing review HTML and study
+sources remain byte-identical.
 
-Within a scope use actions such as `build.py`, `prepare_freeze.py`,
-`publish.py`, `verify_*.py`, `audit_*.py`, `render_*.py` and
-`build_study_guide.py`. Use `run_` for computations/orchestration. Keep method and
-historical version names where they distinguish scientific reproduction.
-Shared importable implementation belongs under `src/classical_conditioning/`,
-using Python module names with underscores; commands can mirror the existing
-figure/panel directory slugs. A single monolithic script per figure is unnecessary.
-
-Record source-panel identity and display-panel identity separately. Figure 1
-F/G/H changed display order; an old C/D script can represent today's D/E trace
-roles. Do not mechanically rename panel letters from filenames. Figure 4 has
-package/CLI analysis and rendering already; create no empty wrapper for symmetry.
-Likewise add H/I wrappers only when there is a concrete supported operation.
-
-Before nesting commands, make the catalogue checker recursive and update
-repository-root resolution, Python sibling imports, JS `__dirname`, PowerShell
-`$PSScriptRoot`, tests and path/hash consumers. Preserve old CLI paths through
-small aliases while callers migrate. Exact historical references resolve old
-bytes through verified recovery metadata, never an alias to changed code.
-
-Acceptance: the per-file path map has no collisions; every command is catalogued
-recursively; supported callers work from a relocated clean Git checkout; the old
-interface remains compatible or has an explicitly recorded retirement.
-
-## Priority 3 — consolidate workflows and archive completed recipes
-
-Consolidate three Delay launchers into one protocol launcher with explicit stages
-and the two Trace launchers into their own stages. Preserve manifest/hash checks,
-preflight recording-set equality, metric identity, distinct cohort policies and
-historical acceptance behavior; common platform plumbing does not merge analyses.
-
-The audit lists 26 completed recipes as archival candidates. The completed
-single-fish archive driver has the strongest prior concrete disposition proposal.
-A further 14 dated recipes contain helpers to extract before any retirement.
-These counts do not authorize a bulk move: preserve each original hash,
-version-bound evidence, dependency closure and selected/frozen references; prepare
-exact per-file disposition packets and use native verified archive procedures.
-Do not delete a source merely because another frozen file has identical bytes.
-
-Generated bytecode is unnecessary for source retention. It can be cleared during
-an authorized cleanup and rebuilt by Python; orphan cache files are not supported
-commands. This audit preserves them and records their role.
-
-Acceptance: reusable code remains local/tested; completed recipe packets and
-historical aliases verify before pruning; immutable requirements and current
-states remain unchanged; no pending disposition is silently treated as approved.
-
-## Current status
-
-Audit and per-file recommendations complete; implementation remains proposed.
-No script code, source filename, scientific output or selected state was changed
-by this audit. SSD publication is tracked in the linked audit record. The prior
-study-source migration is committed at `23c99b6`; its 62 relevant tests and the
-structure checker pass from an exported committed tree. The independent four
-external Figure 1/2 working-copy mismatches and hosted CI billing issue remain.
+Two legend-layout test failures were reproduced before refactoring against the
+unchanged starting code and remain unchanged in the broader regression run.
+They expect old Trace labels and protocol geometry. This maintenance did not
+restyle scientific artwork to satisfy those stale assertions or weaken the tests.
+The four earlier external Figure 1/2 working-copy mismatches and hosted GitHub
+billing blocker remain explicitly separate; neither was concealed with new hashes
+or policy exceptions.
