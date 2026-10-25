@@ -120,7 +120,7 @@ than another latest-version selector. Allow an explicit external source/manifest
 at build time; authenticate it before reading. Keep rendering code and tests
 local. A missing drive must report an unavailable source, not load an older copy.
 
-Local/CI checks can validate discovery metadata without the SSD. Exact external
+Local checks can validate discovery metadata without the SSD. Exact external
 byte authentication remains an explicit connected-drive check; offline checks
 must not claim to have verified unavailable bytes. Frozen local requirements
 remain strict. Historical narrative relocation requires verified recovery aliases
@@ -196,8 +196,9 @@ maintained reading and canonical-source routes.
 Current status belongs in [the implementation index](IMPLEMENTATION_STEP_INDEX.md).
 [The skill adaptation record](../records/repository-history/2026-10-23-study-artifact-policy.json)
 identifies the preceding personal-skill changes and backups. The four previously
-identified Figure 1/2 external working-copy mismatches and GitHub billing blocker
-remain separate issues; this migration does not reconcile or bypass them.
+identified Figure 1/2 external working-copy mismatches remain a separate
+reconciliation task. CI was removed by author direction on 25 October, so the
+former GitHub billing blocker is no longer a dependency.
 
 The mechanism follows OpenAI's distinction between [reusable skills](https://learn.chatgpt.com/docs/build-skills)
 and [project instructions](https://learn.chatgpt.com/docs/agent-configuration/agents-md).

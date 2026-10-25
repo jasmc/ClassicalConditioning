@@ -2,8 +2,8 @@
 
 The author requested a whole-folder audit on 24 October, then clarified that
 needed audit recommendations were to be implemented. Implementation is complete
-for the maintenance findings. Scientific figure reconciliation and hosted CI
-account access remain separate scopes.
+for the maintenance findings. Scientific figure reconciliation remains separate. Hosted CI was
+removed by author direction on 25 October; local validation remains supported.
 
 The [implementation record](../records/repository-archive/script-organization-20261024/README.md)
 owns source recovery, dispositions, current paths and verification. The original
@@ -106,9 +106,10 @@ preserved requirements and seven scoped states. Existing review HTML and study
 sources remain byte-identical.
 
 Two legend-layout test failures were reproduced before refactoring against the
-unchanged starting code and remain unchanged in the broader regression run.
-They expect old Trace labels and protocol geometry. This maintenance did not
-restyle scientific artwork to satisfy those stale assertions or weaken the tests.
-The four earlier external Figure 1/2 working-copy mismatches and hosted GitHub
-billing blocker remain explicitly separate; neither was concealed with new hashes
-or policy exceptions.
+unchanged starting code. The 25 October follow-up corrects their obsolete
+expectations for author-selected Trace names and the existing compact protocol
+layout, retaining event metadata, symbol/count and relative-geometry assertions.
+All 83 targeted figure tests now pass; no production artwork was changed.
+The four earlier external Figure 1/2 working-copy mismatches remain separate;
+none was concealed with new hashes or policy exceptions. Hosted CI was subsequently removed, so billing is no longer a
+completion dependency.

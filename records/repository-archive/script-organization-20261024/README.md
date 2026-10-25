@@ -59,3 +59,9 @@ expectations were changed to conceal them. The external check verifies archive
 transactions and reports only the same four earlier Figure 1/2 working-copy
 mismatches. Those manual-copy conflicts and the hosted CI billing issue remain
 separate from maintenance refactoring.
+
+Follow-up, 25 October 2026: [CI was removed and the two stale test fixtures were
+corrected](../../repository-history/2026-10-25-ci-removal/README.md). All 83 targeted
+figure tests now pass. The original verification above remains dated evidence;
+[the reconciliation diagnosis](../../figure-reviews/authority-reconciliation-20261025/diagnosis.json)
+identifies the later scientific drafts requiring state/caption reconciliation.

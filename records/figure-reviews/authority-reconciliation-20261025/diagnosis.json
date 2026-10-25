@@ -1,0 +1,356 @@
+{
+  "date": "2026-10-25",
+  "read_only": true,
+  "figures": [
+    {
+      "figure": 1,
+      "artifacts": {
+        "working_svg": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+          "sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
+          "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209",
+          "actual_sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
+        },
+        "review": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+          "sha256": "974beeacb849a1ac7ed239b619d8b9510454d4edb2542be66f11d337fc83e103",
+          "actual_sha256": "4792f24cec3032696856fff976f1025763927f78e78d6859c24763a1d2430761"
+        }
+      },
+      "working_root_attributes": {
+        "viewBox": "0 0 1337.7049180328 1610.1422222363",
+        "width": "136mm",
+        "height": "163.69779259402097mm",
+        "font-family": "DejaVu Sans, sans-serif",
+        "role": "img",
+        "aria-label": "Figure 1: current unfrozen presentation draft",
+        "id": "assembly-node-0"
+      },
+      "html_embedded_svg": [
+        {
+          "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8",
+          "canonical_matches_working": true
+        }
+      ],
+      "candidate_recovery": [
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout.svg",
+          "sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
+          "matches_state": true,
+          "matches_working": false,
+          "canonical_matches_working": false
+        }
+      ],
+      "state_html_recovery": [],
+      "evidence": [
+        {
+          "role": "layout_frames",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout-evidence.json",
+          "bound_file_intact": true,
+          "top_level_fields": [
+            "artifact_sha256",
+            "spec_sha256",
+            "policy_sha256",
+            "collector_sha256",
+            "helper_sha256",
+            "final_size_mm",
+            "scope",
+            "status",
+            "issues",
+            "calibration_only",
+            "browser",
+            "policy_activation",
+            "protection",
+            "visual_review"
+          ]
+        },
+        {
+          "role": "effective_presentation",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-effective-presentation.json",
+          "bound_file_intact": true,
+          "top_level_fields": [
+            "layout_frames",
+            "svg_sha256",
+            "final_width_mm",
+            "texts",
+            "strokes",
+            "ticks",
+            "tick_label_spacing",
+            "coordinate_maps",
+            "unresolved",
+            "freeze_compliance",
+            "nature_profile"
+          ]
+        }
+      ],
+      "xml_difference": {
+        "baseline_root_attributes": {
+          "viewBox": "0 0 1337.7049180328 1610.1422222363",
+          "width": "136mm",
+          "height": "163.69779259402097mm",
+          "font-family": "DejaVu Sans, sans-serif",
+          "role": "img",
+          "aria-label": "Figure 1: current unfrozen presentation draft",
+          "id": "assembly-node-0"
+        },
+        "before_elements": 1501,
+        "after_elements": 1502,
+        "id_additions": 1,
+        "id_removals": 0,
+        "changed_identified_elements": 2,
+        "changed_attribute_counts": {
+          "{http://www.w3.org/1999/xlink}href": 1
+        },
+        "embedded_image_payloads_equal": false,
+        "added_id_sample": [
+          "draft-trace3-example-selection"
+        ],
+        "changed_identified_ids": [
+          "edit-FGH-fig1__g__heatmap__vigor-cells",
+          "editable-copy-provenance"
+        ],
+        "provenance_changed_fields": [
+          "scientific_registry",
+          "draft_trace3_example_selection"
+        ]
+      },
+      "later_example_selection": {
+        "status": "unfrozen author-selected scientific draft example",
+        "figure_id": "fig1",
+        "display_panel": "H",
+        "source_identifier_panel": "g",
+        "fish_id": "20230419_10",
+        "previous_fish_id": "20230802_08",
+        "condition": "3sTrace",
+        "data": {
+          "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10-bins.parquet",
+          "sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
+        },
+        "fish_record": {
+          "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10.json",
+          "sha256": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7"
+        },
+        "candidate_review": {
+          "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-runner-up-review-20261020\\review.json",
+          "sha256": "f972122642f5e15ef5bc4ec8be05ce8334728b6322d06832b4a91b50e8dff0a9"
+        },
+        "predecessor_selection_evidence": {
+          "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-learner-selection-20261019\\figure-01-H-replacement-20261020.json",
+          "sha256": "5a986979208cacebbd942f95aba4e1aa5729ce1b3cccf43914bf00115f51772e"
+        },
+        "author_request_as_recorded": "Replace the current 3sTrace example with the suggested 20230419_10 fish"
+      },
+      "later_example_reference_checks": [
+        {
+          "role": "data",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10-bins.parquet",
+          "expected_sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b",
+          "exists": true,
+          "actual_sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b",
+          "matches": true
+        },
+        {
+          "role": "fish_record",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10.json",
+          "expected_sha256": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7",
+          "exists": true,
+          "actual_sha256": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7",
+          "matches": true
+        },
+        {
+          "role": "candidate_review",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-runner-up-review-20261020/review.json",
+          "expected_sha256": "f972122642f5e15ef5bc4ec8be05ce8334728b6322d06832b4a91b50e8dff0a9",
+          "exists": true,
+          "actual_sha256": "f972122642f5e15ef5bc4ec8be05ce8334728b6322d06832b4a91b50e8dff0a9",
+          "matches": true
+        },
+        {
+          "role": "predecessor_selection_evidence",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-learner-selection-20261019/figure-01-H-replacement-20261020.json",
+          "expected_sha256": "5a986979208cacebbd942f95aba4e1aa5729ce1b3cccf43914bf00115f51772e",
+          "exists": true,
+          "actual_sha256": "5a986979208cacebbd942f95aba4e1aa5729ce1b3cccf43914bf00115f51772e",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "figure": 2,
+      "artifacts": {
+        "working_svg": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+          "sha256": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc",
+          "actual_sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064"
+        },
+        "review": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
+          "sha256": "feeaf95263ba229c7f48eceaedb3b9840ff7efeace7b81e4ce2f92e3ec6e6383",
+          "actual_sha256": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8"
+        }
+      },
+      "working_root_attributes": {
+        "viewBox": "0.0 0.0 1534.4262295082117 1539.0339232369",
+        "width": "156.0mm",
+        "height": "156.46844886241252mm",
+        "font-family": "DejaVu Sans, sans-serif",
+        "role": "img",
+        "aria-label": "Figure 2 with authenticated fixed10sTrace panels C F I",
+        "id": "assembly-node-0"
+      },
+      "html_embedded_svg": [
+        {
+          "sha256": "7162810fd057dbb6c4b496bab3e0914156431f6492498eb8450b0f89eaede86b",
+          "canonical_matches_working": false
+        }
+      ],
+      "candidate_recovery": [
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-layout.svg",
+          "sha256": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc",
+          "matches_state": true,
+          "matches_working": false,
+          "canonical_matches_working": false
+        }
+      ],
+      "state_html_recovery": [],
+      "evidence": [
+        {
+          "role": "layout_frames",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-layout-evidence.json",
+          "bound_file_intact": true,
+          "top_level_fields": [
+            "artifact_sha256",
+            "spec_sha256",
+            "policy_sha256",
+            "collector_sha256",
+            "helper_sha256",
+            "final_size_mm",
+            "scope",
+            "status",
+            "issues",
+            "calibration_only",
+            "browser",
+            "policy_activation",
+            "protection",
+            "visual_review"
+          ]
+        },
+        {
+          "role": "effective_presentation",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-effective-presentation.json",
+          "bound_file_intact": true,
+          "top_level_fields": [
+            "layout_frames",
+            "svg_sha256",
+            "final_width_mm",
+            "texts",
+            "strokes",
+            "ticks",
+            "tick_label_spacing",
+            "coordinate_maps",
+            "unresolved",
+            "freeze_compliance",
+            "nature_profile"
+          ]
+        }
+      ],
+      "xml_difference": {
+        "baseline_root_attributes": {
+          "viewBox": "0 0 1337.7049180328 1539.0339232369",
+          "width": "136mm",
+          "height": "156.46844886241252mm",
+          "font-family": "DejaVu Sans, sans-serif",
+          "role": "img",
+          "aria-label": "Figure 2 with compact A/B/C row",
+          "id": "assembly-node-0"
+        },
+        "before_elements": 2563,
+        "after_elements": 4111,
+        "id_additions": 967,
+        "id_removals": 1369,
+        "changed_identified_elements": 12,
+        "changed_attribute_counts": {
+          "transform": 8,
+          "{http://www.w3.org/1999/xlink}href": 2,
+          "data-scientific-role": 5,
+          "data-condition": 2,
+          "data-pooled-values-sha256": 2,
+          "data-axis-members": 3,
+          "viewBox": 1,
+          "aria-label": 1,
+          "width": 1
+        },
+        "embedded_image_payloads_equal": false,
+        "added_id_sample": [
+          "fig2__c0__heatmap__vigor-cells",
+          "fig2__c0__heatmap__vigor-cells-CS-offset",
+          "fig2__c0__heatmap__vigor-cells-CS-onset",
+          "fig2__c0__heatmap__vigor-cells-phase-10",
+          "fig2__c0__heatmap__vigor-cells-phase-60",
+          "fig2__c1__heatmap__vigor-cells",
+          "fig2__c1__heatmap__vigor-cells-CS-offset",
+          "fig2__c1__heatmap__vigor-cells-CS-onset",
+          "fig2__c1__heatmap__vigor-cells-expected-training-US20",
+          "fig2__c1__heatmap__vigor-cells-phase-10",
+          "fig2__c1__heatmap__vigor-cells-phase-60",
+          "matched-D__D-between-1",
+          "matched-D__D-between-label-1",
+          "matched-D__D-control-data-rectangle",
+          "matched-D__D-control-fish-20221115_09"
+        ]
+      },
+      "html_vs_working_svg": {
+        "html_root_attributes": {
+          "viewBox": "0.0 0.0 1534.4262295082117 1539.0339232369",
+          "width": "156.0mm",
+          "height": "156.46844886241252mm",
+          "font-family": "fig2--DejaVu Sans, sans-serif",
+          "role": "img",
+          "aria-label": "Figure 2 with authenticated fixed10sTrace panels C F I",
+          "id": "fig2--assembly-node-0"
+        },
+        "svg_elements": 4111,
+        "html_svg_elements": 4111,
+        "added_identified_ids": 1685,
+        "removed_identified_ids": 1675,
+        "identified_changes": [],
+        "embedded_images_equal": true,
+        "xml_canonical_equal": false,
+        "matches_supported_namespace_embedding": true,
+        "prefix": "fig2--"
+      }
+    }
+  ],
+  "later_pc_publication": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/publication.json",
+    "sha256": "1383e0cc26d0eeec1e61a70bf3de86a15e7504b1f88364269a4adb3f7b98de11",
+    "status": "published-scientific-draft",
+    "state": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\current-state.json",
+      "sha256": "9a25ccb3e9a0b4f62f55cb1ca26347f2359104c30f64f656b3c93881c774334d"
+    },
+    "legend": {
+      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\legend.md",
+      "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31"
+    },
+    "svg": {
+      "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.svg",
+      "sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064"
+    },
+    "html": {
+      "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.html",
+      "sha256": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8"
+    },
+    "no_freeze": true,
+    "matches_current_artifact_hashes": true
+  },
+  "next_required_inputs": [
+    "Exact PC Figure 2 state matching publication state SHA256; this Mac has older state",
+    "PC caption matching publication legend SHA256; current local caption differs",
+    "Source/result/registry bindings for PC C/F/I and earlier B/E/H changes",
+    "Reconcile Figure1 displayed H replacement 20230419_10 and its authenticated source references with the local caption, registry and scoped state; no re-fit needed to diagnose this conflict",
+    "Fresh exact-SVG/HTML and final-scale checks after choosing reconciled candidate"
+  ],
+  "no_state_or_artwork_modified": true
+}

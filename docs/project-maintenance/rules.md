@@ -55,11 +55,11 @@ exact recovered versions. Tests include the actual local repository policy,
 synthetic failures and strict transfer/prune protections. Passing these checks
 does not approve scientific results or certify rendered figures.
 
-The [repository-organization CI workflow](../../.github/workflows/repository-organization.yml)
-runs the local checks and repository/archive tests on pushes to `develop`, pull
-requests and manual dispatch. It uses the frozen environment and does not
-require external scientific storage. `recorded_repository_roots` in the
-structure policy maps only the known historical checkout prefixes for local
-verification in another checkout; it never substitutes external payloads or
-rewrites frozen paths. External authentication still requires `--external` on
-the connected author machine.
+Author direction, 25 October 2026: this repository has no CI. Run checks locally
+when relevant to a change; do not recreate automated hosted workflows. The
+commands above remain supported without a GitHub Actions dependency.
+
+`recorded_repository_roots` in the structure policy maps only known historical
+checkout prefixes for local verification in another checkout; it never substitutes
+external payloads or rewrites frozen paths. External authentication still
+requires `--external` on the connected author machine.

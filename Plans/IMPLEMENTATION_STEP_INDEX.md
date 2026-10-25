@@ -16,7 +16,7 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 10 | [Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
 | 12 | [Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | Implemented: 18 study sources externalized with exact recovery; four readers updated, 57-entry library published. Existing HTML paths/bytes and notes retained; protected historical originals remain exact compatibility records. |
-| 13 | [Script command organization](13_SCRIPT_COMMAND_ORGANIZATION.md) | Implemented needed audit repairs: scoped command tree, shared helpers/guards, 29 completed-driver retirements plus one helper facade, verified intake quarantine and drive navigation. Scientific authority unchanged; known baseline/figure/hosted-CI limits recorded. |
+| 13 | [Script command organization](13_SCRIPT_COMMAND_ORGANIZATION.md) | Implemented needed audit repairs: scoped command tree, shared helpers/guards, 29 completed-driver retirements plus one helper facade, verified intake quarantine and drive navigation. Scientific authority unchanged; figure reconciliation open; stale test expectations addressed in the subsequent follow-up; CI removed by author direction on 25 October. |
 
 Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 
@@ -28,7 +28,7 @@ Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering
 
 Completed maintenance on 2026-10-17: [organization reconciliation](../records/repository-history/2026-10-17-organization-reconciliation/README.md) implements the authority/preservation fixes, navigation, documentation ownership, script classification and routine local checks. All scripts remain retained; any archive/delete dispositions remain separate author choices. This maintenance does not close scientific gates.
 
-Maintenance follow-up on 2026-10-23: [script lifecycle and CI](../records/repository-history/2026-10-23-script-lifecycle/README.md) resolves the 14 pending classifications and five historical-candidate recommendations, catalogues the guide repair and implements organization CI. One completed archive helper has a proposal pending author disposition; its source remains local.
+Maintenance follow-up on 2026-10-23: [script lifecycle and CI](../records/repository-history/2026-10-23-script-lifecycle/README.md) resolves the 14 pending classifications and five historical-candidate recommendations, catalogues the guide repair and initially implemented organization CI. The 25 October author direction removes CI; local checks remain supported. The later authorized script reorganization completed the proposed archive-helper disposition with verified external recovery.
 
 Maintenance on 2026-10-23: [repository and SSD review organization](../records/repository-history/2026-10-23-repository-output-review/README.md) inventories project/output ownership, repairs maintained navigation and publishes a reading library for Figure 2 G/H/I and Figures 3/4. Scientific selections and gates are unchanged.
 
@@ -70,6 +70,8 @@ Maintenance on 2026-10-23: [repository and SSD review organization](../records/r
 Gate answers live in [DECISIONS.md](../docs/paper/decisions.md). They are revisited only
 when new evidence changes a decision.
 
+
+Maintenance on 2026-10-25: [CI removal and regression follow-up](../records/repository-history/2026-10-25-ci-removal/README.md) removes the hosted workflow, disables repository Actions and fixes obsolete legend test expectations. All 47 repository tests and 83 targeted figure tests pass. [Read-only reconciliation](../records/figure-reviews/authority-reconciliation-20261025/diagnosis.json) identifies later Figure 1 H and Figure 2 C/F/I scientific drafts behind the four hash mismatches; local state/caption reconciliation remains open. Follow [the completion order](07_FIGURE_BUILD_TOOLS.md#immediate-completion-order-25-october-2026) before further styling or release claims.
 
 ## Dependencies and first release
 

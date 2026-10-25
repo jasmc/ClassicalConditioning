@@ -60,9 +60,12 @@ each gate's artifact/evidence references and unresolved dependencies explicitly.
 
 ### Known decisions that must remain explicit
 
-- Figure 2 C/F/I are Pending in the current draft. Final release needs actual
-  authenticated results or an explicit approved composition change; no silent
-  omission, invented data or placeholder-as-result approval.
+- Figure 2 C/F/I are Pending in the older repository-selected draft. The later
+  PC scientific draft exists on JOAQUIM and matches the current working files;
+  [reconciliation](07_FIGURE_BUILD_TOOLS.md#immediate-completion-order-25-october-2026)
+  must recover its state/caption/source bindings before adopting it. Final
+  release still needs authenticated, scientifically accepted results or an
+  explicit approved composition change; a later draft is not a freeze.
 - Figure 2 A/B scientific estimators differ, and H ratios differ from D/E/G log
   differences. Preserve those distinctions until their owning scientific work
   explicitly resolves them. A styling/shared-colorbar check cannot do so.

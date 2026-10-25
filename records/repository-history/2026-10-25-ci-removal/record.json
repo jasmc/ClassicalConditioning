@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-25",
+  "author_direction": "remove completely CI; think how to finish all that remains",
+  "removed_workflows": [
+    ".github/workflows/repository-organization.yml"
+  ],
+  "repository_actions": {
+    "repository": "jasmc/ClassicalConditioning",
+    "enabled_before": true,
+    "update_http_status": 204,
+    "enabled_after_recheck": false,
+    "note": "Immediate GET returned the prior cached setting; cache-bypassing recheck confirmed Actions disabled."
+  },
+  "validation": {
+    "repository_tests": 47,
+    "targeted_figure_tests": 83,
+    "all_passed": true,
+    "local_structure_check": {
+      "issues": 0,
+      "protected_files_checked": 365,
+      "current_states_checked": 7
+    }
+  },
+  "test_repairs": {
+    "file": "tests/test_figure_legend_review.py",
+    "changes": [
+      "Expect author-selected 3sTrace/10sTrace display names, preserving exact event metadata and order",
+      "Expect existing compact protocol geometry; retain symbol/count checks and add relative-position and no-duplication assertions"
+    ],
+    "production_implementation_changed": false
+  },
+  "preserved": [
+    "to_implement.md author edits",
+    "Scientific selections, frozen sources, current-state pointers and external SVG/HTML bytes",
+    "Historical CI/audit evidence remains dated evidence; no history rewrite"
+  ],
+  "remaining_owner": "Plans/07_FIGURE_BUILD_TOOLS.md#immediate-completion-order-25-october-2026",
+  "remote_ci_gate_inspection": {
+    "branches/develop/protection": {
+      "http_status": 404,
+      "meaning": "No branch protection configured"
+    },
+    "rulesets": {
+      "ruleset_count": 0,
+      "names": []
+    }
+  }
+}

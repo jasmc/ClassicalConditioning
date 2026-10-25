@@ -2,7 +2,7 @@
 
 Commands are grouped by figure/panel scope and role. Shared reusable implementation lives in `src/classical_conditioning/`; historical recipes retain their scientific definitions and are labelled reproduction. Folder membership does not approve an analysis.
 
-Seven root compatibility paths remain for standing instructions, CI and the immutable element specification. Other old source identities resolve through archive/relocation records; use the scoped paths below for execution.
+Seven root compatibility paths remain for standing instructions, local checks and the immutable element specification. Other old source identities resolve through archive/relocation records; use the scoped paths below for execution.
 
 - [Current implementation record](../records/repository-archive/script-organization-20261024/README.md).
 - [Script lifecycle policy](../docs/project-maintenance/script-lifecycle.md).

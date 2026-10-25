@@ -24,7 +24,7 @@ G manuscript were reconciled to authenticated external saved sources, with
 recipe link mapping retained. The published guide and its bound manuscript
 snapshot remain unchanged; see the [link reconciliation](guide-link-reconciliation.json).
 
-The [CI workflow](../../../.github/workflows/repository-organization.yml) runs
+The [CI workflow](https://github.com/jasmc/ClassicalConditioning/blob/c89c15d00f637d279627be56afad37a387b58b2c/.github/workflows/repository-organization.yml) runs
 the local structure check and repository/archive tests on pushes to `develop`,
 pull requests and manual dispatch. It installs Python 3.12 and the frozen lock
 environment. Actions are pinned to commits; uv is pinned to an explicit version.
@@ -43,3 +43,7 @@ identities. Verification is recorded separately after the checks complete.
 The external audit detected [four current working-copy hash mismatches](external-working-copy-mismatches.json) in the Figure 1/2 HTML/SVG pairs. All recorded states and observed files were preserved. This finding remains open for scoped figure reconciliation; it is not an archive-transaction failure or an organization-rule exception.
 
 The [first GitHub Actions run](https://github.com/jasmc/ClassicalConditioning/actions/runs/39988200887) was created after push, but no job steps started: GitHub reports the account locked due to a billing issue. The isolated local locked-environment checks passed. The repository owner must resolve that account issue before hosted execution can be verified.
+
+Historical navigation note, 25 October 2026: CI was removed by author direction.
+The workflow link above identifies its exact former Git revision; current local
+check instructions live in [the rules map](../../../docs/project-maintenance/rules.md).
