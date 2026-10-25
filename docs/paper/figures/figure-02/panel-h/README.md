@@ -4,8 +4,9 @@ Use the [review library](../../review-library.md#figure-2-h) for direct HTML,
 Markdown and diagnostic links. H remains unfrozen. This page organizes existing
 work; it does not change the [Figure 2 presentation state](../current-state.json).
 
-The repository-selected older assembly describes a response-to-baseline
-total-activity ratio. The SSD also contains these later scientific drafts:
+The current working assembly uses the expanded-cohort, G-matched H log-vigor
+difference draft, reconciled on 25 October. The older total-activity ratio
+remains historical. Available approaches include:
 
 | Approach | What to review |
 |---|---|
@@ -13,11 +14,10 @@ total-activity ratio. The SSD also contains these later scientific drafts:
 | H matched to G's model families | Phase-aware trial and block/local annotations, with saved adequacy diagnostics |
 | Subsequent all-assay assembly experiments | Later 10sTrace and display/pooling changes also contain H; their legends describe their own scope |
 
-These outcomes and rosters are not interchangeable. The later artifacts were
-found on JOAQUIM during the 23 October organization review; they do not silently
-supersede the repository's accepted selections or presentation pointer. Their
-source projects and some implementation paths are PC-specific. Resolve a scoped
-selection and provenance reconciliation before resuming them as current work.
+These outcomes and rosters are not interchangeable. The [reconciliation](../../../../../records/figure-reviews/authority-reconciliation-20261025/README.md)
+authenticates the selected working draft and preserves PC provenance. Other
+range/pooling alternatives remain separate. Accepted scientific freezes remain
+unchanged; current H is still an unfrozen draft.
 
 The [G/H/I decision chronology](../../../../../records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md)
 preserves earlier discussions. [Plan 03](../../../../../Plans/03_FIGURE_2_LEARNING_ONSET.md)

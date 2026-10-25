@@ -39,25 +39,24 @@
     "display_policy": "Explicit frozen-selection requests only; no standalone frozen working copy is active"
   },
   "draft": {
-    "status": "Presentation draft with verified 1 mm invisible frames; inherited unfinished scientific scopes retained",
+    "status": "Current presentation draft; H uses authenticated 20230419_10 example; inherited production/scientific gaps remain explicit",
     "review": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
-      "sha256": "974beeacb849a1ac7ed239b619d8b9510454d4edb2542be66f11d337fc83e103"
+      "sha256": "4792f24cec3032696856fff976f1025763927f78e78d6859c24763a1d2430761"
     },
     "working_svg": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-      "sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
-      "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+      "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
     },
     "source_assembly_sha256": "e452920b07388fc90af70301948edc4a17b7b42c3d23969b500027e30419296c",
     "author_directions_record": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/legend-review-verification.json",
     "preserved_other_figure": "Figure 2 original/candidate unchanged",
     "effective_presentation": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-effective-presentation.json",
-      "sha256": "50b83c3aa69d422478168c4e921d15dc5b79e2b2ab1937da80d0f6255030ab16"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-effective-presentation.json",
+      "sha256": "bd9d5821ac1554ec70fe0e83439fd9c0dc32c0397c2f8384d46f8640446166e8"
     },
     "semantic_registry": {
-      "scope": "D/E explicit artists, exact new frozen F bands and complete 161-element scoped F/G/H freeze registry",
+      "scope": "Preserved D/E and frozen provenance; current H=20230419_10 is an explicitly mapped unfrozen example override",
       "scientific_records": 529,
       "whole_figure_complete": false,
       "relationships": {
@@ -7825,7 +7824,7 @@
         "freeze_readiness": "partial; do not claim all elements or scientific links registered"
       },
       "condition_order_mapping": {
-        "artifact_sha256": "4cbdd8ff867a28ee3e210f13a57505f86e824aa346b453184d96b77e9970c523",
+        "artifact_sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8",
         "mapping": [
           {
             "display_panel": "F",
@@ -7836,8 +7835,7 @@
             "axis_element": "edit-FGH-fig1__h__heatmap__background",
             "source_svg": {
               "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-              "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
-              "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
             }
           },
           {
@@ -7849,27 +7847,26 @@
             "axis_element": "edit-FGH-fig1__f__heatmap__background",
             "source_svg": {
               "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-              "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
-              "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
             }
           },
           {
             "display_panel": "H",
             "source_panel": "G",
-            "condition": "3 s Trace",
-            "fish_id": "20230307_12",
+            "condition": "3sTrace",
+            "fish_id": "20230419_10",
             "owner_group": "layout-G",
             "axis_element": "edit-FGH-fig1__g__heatmap__background",
             "source_svg": {
               "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-              "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
-              "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
-            }
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
+            },
+            "scientific_status": "unfrozen author-selected example"
           }
         ],
         "evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
-          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-20230419_10-replacement-20261020/figure-01-H-replacement-20261020.json",
+          "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
         },
         "source_ids": "Preserved original scientific source identifiers; displayed letters resolved by this mapping",
         "inherited_evidence": {
@@ -10515,6 +10512,142 @@
           "allocation_factors": {},
           "reason": "Minimize inter-panel whitespace; preserve native data ratios and physical typography. G statistical inset remains enlarged; I is an empty Pending placeholder."
         }
+      },
+      "scientific_example_overrides": {
+        "H": {
+          "selection": {
+            "schema_version": 1,
+            "status": "unfrozen author-selected scientific draft example",
+            "author_request": "Replace the current 3sTrace example with the suggested 20230419_10 fish",
+            "figure_id": "fig1",
+            "display_panel": "H",
+            "source_identifier_panel": "g",
+            "owner_group": "layout-G",
+            "fish_id": "20230419_10",
+            "previous_fish_id": "20230802_08",
+            "condition": "3sTrace",
+            "data": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10-bins.parquet",
+              "sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
+            },
+            "fish_record": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10.json",
+              "sha256": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7"
+            },
+            "candidate_review": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-runner-up-review-20261020/review.json",
+              "sha256": "f972122642f5e15ef5bc4ec8be05ce8334728b6322d06832b4a91b50e8dff0a9"
+            },
+            "predecessor_selection_evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-learner-selection-20261019/figure-01-H-replacement-20261020.json",
+              "sha256": "5a986979208cacebbd942f95aba4e1aa5729ce1b3cccf43914bf00115f51772e"
+            },
+            "source_provenance": {
+              "fish": "20230419_10",
+              "experiment": "all3sTrace",
+              "cadence": {
+                "interval_ms": 1.423380929094855,
+                "reference_position": 4873,
+                "end_position": 8323959,
+                "reference_frame_id": 691584,
+                "missing_frame_ids": 0,
+                "buffer_capacity_exceeded": false,
+                "maximum_delay_ms": 162.94348464976065
+              },
+              "detector": {
+                "smoothing_window_ms": 10.0,
+                "envelope_max_window_ms": 28.57142857142857,
+                "envelope_min_window_ms": 571.4285714285714,
+                "envelope_threshold_deg_per_ms": 4.0,
+                "bout_amplitude_threshold_deg_per_ms": 1.0,
+                "minimum_valid_tail_fraction": 0.8,
+                "minimum_bout_duration_ms": 57.14285714285714,
+                "maximum_interbout_gap_ms": 14.285714285714285,
+                "positive_control_window_ms": 500.0,
+                "control_baseline_start_ms": -5000.0,
+                "control_baseline_end_ms": -1000.0
+              },
+              "context_ms": 5000,
+              "minimum_selected_bout_context_margin_ms": 4238.828369140625,
+              "expected_us_s": 13.019,
+              "paired_training_trials": 46,
+              "sources": {
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\camera.parquet": "de1ff643e3dc77a557d416a5c5a1d3a53c29929443be679cfdc21be0aa730b2a",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\stimulus_events.parquet": "4f5f2816f624f83f0aa07e113701c0c4081db72865879c0d50e554a459702a6a",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_preprocessed_corrected.parquet": "97c2b28d4c0704e7582913de230feb2252d2d0caf82fdb720ae567bd5c9ac1fd",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_activity_candidates-corrected.parquet": "fd78d8ce1c44a569c4e89ec50445bace2e3e3ef383ec977883165ae9f5cb7058",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_source_manifest.json": "137b2617bc733d04dd27b4b70ab47600bf7ef3652d5ec328dbdc3c4c355c873c",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_corrected-preprocess_complete.json": "e667c0203218fc709b05933302762ecb48418e245ecab501ba196fb14611aebd",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_candidate-corrected_complete.json": "0019fe3120e88625c717ed33560f4a65c72cac1acfe3de7f853c9fb92aaf8597"
+              },
+              "finite_cells": 3307,
+              "defined_trials": 90,
+              "saturated_cells": 321,
+              "baseline_zero_verified": true,
+              "bin_estimator": "median",
+              "independent_frame_bins_verified": true,
+              "mean_log_values_sha256": "a229edf18a8ced2c234e11477ea6f3a60c1532bd5d6321010c7b3a562293ec89"
+            },
+            "scientific_recipe": {
+              "bin_width_s": 1,
+              "frame_transform": "natural log",
+              "bin_estimator": "median of eligible original log frames",
+              "baseline_s": [
+                -15,
+                0
+              ],
+              "baseline_estimator": "median of finite baseline-bin medians",
+              "centre": "bin log vigor minus trial baseline",
+              "scale": "none",
+              "colour_limits": [
+                -0.25,
+                0.25
+              ],
+              "cmap": "managua_r",
+              "missing": "black",
+              "trial_rows": "acquisition trials 5-94; display rows 1-90",
+              "nominal_expected_us_s": 13,
+              "actual_us_s": 13.019
+            },
+            "raster": {
+              "shape": [
+                691,
+                476,
+                4
+              ],
+              "vertical_order": "reversed; existing SVG vertical transform retained",
+              "source_pixel_ownership_verified_exact": true,
+              "rgba_sha256": "588127029ca3910f6a3254003d481113c5669d51ad92b0df6e308fc62427dc85"
+            },
+            "generator": {
+              "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\replace_figure1_trace3_example.py",
+              "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045"
+            },
+            "presentation_profile_inputs": {
+              "configs/paper-figures/nature-main.json": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56",
+              "configs/paper-figures/figure-elements.json": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb",
+              "configs/paper-figures/layout-frames.json": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+            },
+            "prior_working_svg": {
+              "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg",
+              "sha256": "d53836757d076cec4833e2e0d1cbe088cab43107aeda72b1753351b9ee02e955"
+            },
+            "whole_figure_frozen": false
+          },
+          "evidence": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-20230419_10-replacement-20261020/figure-01-H-replacement-20261020.json",
+            "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
+          },
+          "embedded_registry": {
+            "svg": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
+            },
+            "metadata_element_id": "editable-copy-provenance",
+            "json_field": "scientific_registry"
+          },
+          "precedence": "Current H scientific draft; historical F/G/H accepted freeze remains unchanged"
+        }
       }
     },
     "scientific_changes": {
@@ -10558,7 +10691,17 @@
     "review_display": "requested SVG and associated legend only",
     "legend": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
-      "sha256": "3eab3ade1efc725b9c2a5eba043f7652f540a1dfe9bd56892f72f781627c8ef2"
+      "sha256": "3333cca676ef937fd59c311556238eb003e72b99fb9a5c1ec9906e37dcf2e8f7",
+      "panel_ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+      ]
     },
     "consistency_requests": [
       {
@@ -11912,8 +12055,8 @@
       "sha256": "69457d4b4c5a8563c32ce99ec7dc5745c1385fdc6397ece728015b4bbb2edf6a"
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-layout-evidence.json",
-      "sha256": "4c49ef4167061ecd22a9c57ebfbb8ed753d1b26f1f86db8c47bbb881b5dc01b8"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json",
+      "sha256": "58f68571a88eed028bc3609b65d3fd20a98c5a708e7905d1f506deb115d5e1cf"
     },
     "assembly_scale": {
       "final_width_mm": 136,
@@ -11985,10 +12128,170 @@
         "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
       },
       "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-effective-presentation.json",
+        "sha256": "bd9d5821ac1554ec70fe0e83439fd9c0dc32c0397c2f8384d46f8640446166e8"
+      },
+      "status": "Inherited profile; exact current geometry revalidated; full Nature/production coverage remains partial",
+      "prior_evidence": {
         "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
         "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+      }
+    },
+    "scientific_example_selection": {
+      "schema_version": 1,
+      "status": "unfrozen author-selected scientific draft example",
+      "author_request": "Replace the current 3sTrace example with the suggested 20230419_10 fish",
+      "figure_id": "fig1",
+      "display_panel": "H",
+      "source_identifier_panel": "g",
+      "owner_group": "layout-G",
+      "fish_id": "20230419_10",
+      "previous_fish_id": "20230802_08",
+      "condition": "3sTrace",
+      "data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10-bins.parquet",
+        "sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
       },
-      "status": "verified measured presentation properties; remaining coverage explicit in evidence"
+      "fish_record": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10.json",
+        "sha256": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7"
+      },
+      "candidate_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-runner-up-review-20261020/review.json",
+        "sha256": "f972122642f5e15ef5bc4ec8be05ce8334728b6322d06832b4a91b50e8dff0a9"
+      },
+      "predecessor_selection_evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-learner-selection-20261019/figure-01-H-replacement-20261020.json",
+        "sha256": "5a986979208cacebbd942f95aba4e1aa5729ce1b3cccf43914bf00115f51772e"
+      },
+      "source_provenance": {
+        "fish": "20230419_10",
+        "experiment": "all3sTrace",
+        "cadence": {
+          "interval_ms": 1.423380929094855,
+          "reference_position": 4873,
+          "end_position": 8323959,
+          "reference_frame_id": 691584,
+          "missing_frame_ids": 0,
+          "buffer_capacity_exceeded": false,
+          "maximum_delay_ms": 162.94348464976065
+        },
+        "detector": {
+          "smoothing_window_ms": 10.0,
+          "envelope_max_window_ms": 28.57142857142857,
+          "envelope_min_window_ms": 571.4285714285714,
+          "envelope_threshold_deg_per_ms": 4.0,
+          "bout_amplitude_threshold_deg_per_ms": 1.0,
+          "minimum_valid_tail_fraction": 0.8,
+          "minimum_bout_duration_ms": 57.14285714285714,
+          "maximum_interbout_gap_ms": 14.285714285714285,
+          "positive_control_window_ms": 500.0,
+          "control_baseline_start_ms": -5000.0,
+          "control_baseline_end_ms": -1000.0
+        },
+        "context_ms": 5000,
+        "minimum_selected_bout_context_margin_ms": 4238.828369140625,
+        "expected_us_s": 13.019,
+        "paired_training_trials": 46,
+        "sources": {
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\camera.parquet": "de1ff643e3dc77a557d416a5c5a1d3a53c29929443be679cfdc21be0aa730b2a",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\stimulus_events.parquet": "4f5f2816f624f83f0aa07e113701c0c4081db72865879c0d50e554a459702a6a",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_preprocessed_corrected.parquet": "97c2b28d4c0704e7582913de230feb2252d2d0caf82fdb720ae567bd5c9ac1fd",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_activity_candidates-corrected.parquet": "fd78d8ce1c44a569c4e89ec50445bace2e3e3ef383ec977883165ae9f5cb7058",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_source_manifest.json": "137b2617bc733d04dd27b4b70ab47600bf7ef3652d5ec328dbdc3c4c355c873c",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_corrected-preprocess_complete.json": "e667c0203218fc709b05933302762ecb48418e245ecab501ba196fb14611aebd",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_candidate-corrected_complete.json": "0019fe3120e88625c717ed33560f4a65c72cac1acfe3de7f853c9fb92aaf8597"
+        },
+        "finite_cells": 3307,
+        "defined_trials": 90,
+        "saturated_cells": 321,
+        "baseline_zero_verified": true,
+        "bin_estimator": "median",
+        "independent_frame_bins_verified": true,
+        "mean_log_values_sha256": "a229edf18a8ced2c234e11477ea6f3a60c1532bd5d6321010c7b3a562293ec89"
+      },
+      "scientific_recipe": {
+        "bin_width_s": 1,
+        "frame_transform": "natural log",
+        "bin_estimator": "median of eligible original log frames",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_estimator": "median of finite baseline-bin medians",
+        "centre": "bin log vigor minus trial baseline",
+        "scale": "none",
+        "colour_limits": [
+          -0.25,
+          0.25
+        ],
+        "cmap": "managua_r",
+        "missing": "black",
+        "trial_rows": "acquisition trials 5-94; display rows 1-90",
+        "nominal_expected_us_s": 13,
+        "actual_us_s": 13.019
+      },
+      "raster": {
+        "shape": [
+          691,
+          476,
+          4
+        ],
+        "vertical_order": "reversed; existing SVG vertical transform retained",
+        "source_pixel_ownership_verified_exact": true,
+        "rgba_sha256": "588127029ca3910f6a3254003d481113c5669d51ad92b0df6e308fc62427dc85"
+      },
+      "generator": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\replace_figure1_trace3_example.py",
+        "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045"
+      },
+      "presentation_profile_inputs": {
+        "configs/paper-figures/nature-main.json": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56",
+        "configs/paper-figures/figure-elements.json": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb",
+        "configs/paper-figures/layout-frames.json": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+      },
+      "prior_working_svg": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg",
+        "sha256": "d53836757d076cec4833e2e0d1cbe088cab43107aeda72b1753351b9ee02e955"
+      },
+      "whole_figure_frozen": false
+    },
+    "verification": {
+      "H_replacement": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-20230419_10-replacement-20261020/figure-01-H-replacement-20261020.json",
+        "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
+      }
+    },
+    "reconciliation": {
+      "date": "2026-10-25",
+      "starting_ticket": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/starting-ticket.json",
+        "sha256": "0d72e9854184c9dc824cba4689078eeed35d3cabb161ceccb3fd9f8dca084093"
+      },
+      "source_state": null,
+      "unresolved_historical_reproduction_references": [
+        {
+          "field": "selection/generator",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\replace_figure1_trace3_example.py",
+            "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "selection/prior_working_svg",
+          "source_reference": {
+            "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg",
+            "sha256": "d53836757d076cec4833e2e0d1cbe088cab43107aeda72b1753351b9ee02e955"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        }
+      ],
+      "status": "Artwork and caption/source bindings reconciled; no new scientific freeze",
+      "limitations": [
+        "Paper scientific gates and complete production/accessibility checks remain open",
+        "Historical source-machine generator references are retained, not claimed executable on this Mac"
+      ]
     }
   },
   "outstanding_questions": [],

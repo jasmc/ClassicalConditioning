@@ -26,8 +26,10 @@ E’s scoped 2026-10-13 freeze uses unbinned raw-baseline-scaled black traces (0
 
 These roles describe the current displayed composition. Frozen F/G/H source
 identifiers retain their original order; state records the mapping H→F, F→G,
-G→H. Scientific data and normalizations are unchanged. Exact accepted definitions
-remain in the linked scope index.
+G→H. Accepted frozen data remain unchanged. The current unfrozen H example
+uses 3sTrace fish 20230419_10, reconciled with its saved selection/data evidence
+on 25 October; it does not replace the accepted F/G/H freeze. Exact accepted
+definitions remain in the linked scope index.
 
 | Panel | Purpose |
 |---|---|
@@ -41,3 +43,8 @@ remain in the linked scope index.
 | H | 3sTrace single-fish 1 s baseline-centered direct log-frame median heatmap |
 
 Current F/G/H selection: [1 s direct log-frame medians, managua_r](../../../../configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). The 2026-10-09 V12 source is superseded within F/G/H and remains preserved; no whole-figure freeze is inferred.
+
+The [25 October reconciliation](../../../../records/figure-reviews/authority-reconciliation-20261025/README.md)
+records the recovered H selection, matching caption, source bindings and exact
+render-evidence transport. Its current image/legend is an unfrozen example, not
+a new scientific freeze.

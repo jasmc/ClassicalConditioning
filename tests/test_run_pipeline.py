@@ -260,7 +260,9 @@ class PipelineRunConfigTests(unittest.TestCase):
             *(f"fig-4{letter}" for letter in "ABC"),
         })
         self.assertIn("protocol", panels["fig-1B"]["role"])
-        self.assertIn("3sTrace", panels["fig-1G"]["role"])
+        self.assertIn("Control", panels["fig-1F"]["role"])
+        self.assertIn("Delay", panels["fig-1G"]["role"])
+        self.assertIn("3 s Trace", panels["fig-1H"]["role"])
         self.assertIn("inconclusive", panels["fig-2C"]["role"])
         self.assertIn("signed", panels["fig-4A"]["role"])
         self.assertIn("selected-block ratio", registry["artifact_templates"])

@@ -271,54 +271,41 @@ contains interruption-era wording; reconcile its latest disposition against
 current state before following any old resume instruction. Do not run `prepare`,
 `compact` or `pair-spacing` over the existing directory as a generic resume step.
 
-#### Immediate completion order, 25 October 2026
+<a id="immediate-completion-order-25-october-2026"></a>
 
-CI is removed, including the hosted workflow and repository-level Actions.
-Local structure/archive checks remain supported. The stale legend fixtures were
-corrected without artwork edits: 47 repository tests and 83 targeted figure
-tests pass. See the [maintenance follow-up](../records/repository-history/2026-10-25-ci-removal/README.md).
+#### Completion follow-up, 25 October 2026
 
-1. **Reconcile the two scientific drafts before any further styling.** The
-   [read-only diagnosis](../records/figure-reviews/authority-reconciliation-20261025/diagnosis.json)
-   identifies the exact four working-copy mismatches and recovers both older
-   state-bound SVGs from `nature-main-20261016/figure-0N-layout.svg`. These are
-   recovery sources, not instructions to roll back later work. Figure 1's
-   changed raster is the displayed H 3sTrace example, now 20230419_10; its bins,
-   fish record, review and predecessor references all authenticate on JOAQUIM.
-   Its local caption and scoped state still describe older selections. Figure
-   2's current SVG/HTML exactly match the PC `final-spacing/publication.json`
-   hashes for the later C/F/I scientific draft. Its HTML matches the supported
-   namespaced embedding of that SVG, including identical image payloads.
-   Retrieve the exact PC state (SHA-256 recorded in the diagnosis), matching
-   caption, registry and source/result bindings. Reconcile the earlier B/E/H
-   updates as well as C/F/I. Preserve source-machine paths as provenance and
-   explicitly resolve operational locations on this Mac. Compare scoped
-   approvals; never adopt a file solely because it is newer or named final.
-2. **Publish a coherent candidate under H01 guards.** Preserve both revisions
-   and record starting state, artwork and input hashes. Authenticate all bound
-   inputs and compare scientific content before choosing the reconciled draft.
-   Update the matching caption and existing semantic registry, retaining scoped
-   freezes and source/display aliases. Recheck exact saved SVG/HTML, final-scale
-   frame/relationship evidence and visual scope; publish artifacts and evidence
-   before the atomic pointer. Refresh the ordered collection last. Updating
-   only hashes would leave captions, scientific bindings and evidence stale.
-3. **Close production gaps without expanding visual scope.** Apply H02–H06
-   registration, role, caption and accessibility checks to the authenticated
-   candidate, then H08–H10 renderer/export/publication checks. Existing geometry
-   and the author's box-only/no-further-resize instruction remain in force;
-   H07 repacking waits for a scoped layout request. Run the relevant checks
-   locally; no hosted execution or billing repair is needed.
-4. **Complete paper science in dependency order.** Plans 01/02 authenticate
-   inputs and cohort; Plans 03/06 resolve outcomes, timing and population claims.
-   Plan 04 then finishes individual uncertainty/BLUP validation and Gate L
-   before learner-dependent Plan 05 Figure 4 claims. Existing later Trace drafts
-   are evidence to reconcile, not missing computations to rerun blindly. Finish
-   Plan 08's release gates after these scientific and production prerequisites;
-   exploratory studies or a passing style check do not supply scientific approval.
+The [reconciliation record](../records/figure-reviews/authority-reconciliation-20261025/README.md)
+closes the four current Figure 1/2 SVG/HTML binding conflicts. The exact PC
+Figure 2 state, matching captions, current semantic mappings and saved frame
+measurements were recovered/authenticated. Figure 1 H now binds its recorded
+20230419_10 unfrozen example; Figure 2 binds the previously published fixed10sTrace
+C/F/I and earlier expanded B/E/H draft. Caption/HTML/SVG agreement passes;
+SVG/HTML artwork bytes and accepted freezes remain unchanged. The ordered
+collection was refreshed last through the supported guard. External structure,
+current-artifact and archive authentication passes without exceptions beyond
+the already recorded exact author-approved archive absences.
 
-This sequence does not overwrite current artwork, select an unreviewed method,
-freeze a panel or approve a release. The implementation index remains the sole
-status board; this section defines dependencies and completion criteria.
+Policy/helper/collector source hashes differ only by Git LF/CRLF transport.
+The supported adapter proves those byte variants, preserves original reports
+and measurement arrays, and revalidates the exact saved Edge evidence. It does
+not claim a new browser run. Temporary native rendering and embedded-font/image/
+reference checks supplement the saved evidence; production-ready claims remain
+out of scope of that transport check.
+
+Remaining production work is concrete: complete scientific/role registration,
+accessibility and production-PDF checks under H02–H10, and resolve the recorded
+librsvg/Edge difference affecting inherited D/E clipping. No further automatic
+repacking or artwork resizing follows. Keep the author’s box-only constraint.
+Any changed artwork needs fresh exact-render measurements; transport equivalence
+cannot authenticate different SVG bytes or modified source logic.
+
+The [corrected BLUP comparison](../docs/running-analysis/figure3-blup-comparison.md)
+now completes its Delay/control calibration and independent stress runs. It
+supplies decision evidence, not Gate L or a new Figure 3 selection. Plans 01–06
+still own cohort, scientific method/claim decisions and applicable full-assay
+validation; Plan 08 consumes those approvals for release. CI is removed and
+repository Actions disabled; all relevant checks are local.
 
 #### Work packages and acceptance evidence
 

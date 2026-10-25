@@ -14,3 +14,6 @@ This area explains using the supported code; it does not choose scientific metho
 - [Figure 4 analysis and rendering](figure4.md)
 
 Figure-specific assembly instructions live with their [paper figures](../paper/figures/README.md). Scientific definitions live in [shared methods](../paper/methods/README.md).
+
+- [Corrected BLUP comparison](figure3-blup-comparison.md): completed Delay/control
+  calibration/validation, immutable numerical outputs and editable SSD study.

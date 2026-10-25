@@ -2,8 +2,9 @@
 
 The author requested a whole-folder audit on 24 October, then clarified that
 needed audit recommendations were to be implemented. Implementation is complete
-for the maintenance findings. Scientific figure reconciliation remains separate. Hosted CI was
-removed by author direction on 25 October; local validation remains supported.
+for the maintenance findings. The subsequent figure reconciliation is
+[recorded separately](../records/figure-reviews/authority-reconciliation-20261025/README.md).
+Hosted CI was removed by author direction on 25 October; local validation remains supported.
 
 The [implementation record](../records/repository-archive/script-organization-20261024/README.md)
 owns source recovery, dispositions, current paths and verification. The original
@@ -53,8 +54,10 @@ input/state guards remain in place.
 
 ## Physical command organization
 
-The [recursive catalogue](../scripts/README.md) lists 92 command/support files
-under maintenance, workflows, reviews and paper figure/panel scopes. The top
+The [recursive catalogue](../scripts/README.md) lists 95 command/support files
+under maintenance, workflows, reviews and paper figure/panel scopes. The later
+follow-up adds the generic saved-draft reconciler and the requested BLUP run/study
+commands; these remain supported, scoped operations. The top
 level holds seven small compatibility facades plus its README. Importable Python
 namespaces use underscores (`figure_01`, `panels_f_g_h`), while scientific source
 and display identities remain distinct and continue to use their recorded roles.
@@ -110,6 +113,7 @@ unchanged starting code. The 25 October follow-up corrects their obsolete
 expectations for author-selected Trace names and the existing compact protocol
 layout, retaining event metadata, symbol/count and relative-geometry assertions.
 All 83 targeted figure tests now pass; no production artwork was changed.
-The four earlier external Figure 1/2 working-copy mismatches remain separate;
-none was concealed with new hashes or policy exceptions. Hosted CI was subsequently removed, so billing is no longer a
+The four earlier external Figure 1/2 working-copy mismatches were subsequently
+resolved through exact saved-state/caption/source reconciliation and the guarded
+publisher. Artwork/frozen bytes and original evidence remain preserved. Hosted CI was subsequently removed, so billing is no longer a
 completion dependency.

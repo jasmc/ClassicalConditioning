@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "reviewed": "2026-10-23",
+  "reviewed": "2026-10-25",
   "purpose": "Find discussions, readable Markdown, saved HTML and different approaches for Figure 2 G/H/I, Figure 3 and Figure 4. Start with the first item in each scope, then compare alternatives.",
   "authority": "Reading navigation only. Scientific selections and scoped presentation state remain authoritative; filenames and inclusion do not select current work.",
   "groups": [
     {
       "id": "figure-2-g",
-      "title": "Figure 2 G · Delay",
+      "title": "Figure 2 G \u00b7 Delay",
       "context": "Read the teaching guide, then compare the accepted result, independent analyses and proposed GAMM work. Existing scientific selection is unchanged.",
       "entries": [
         {
@@ -14,7 +14,7 @@
           "title": "Read first: analysis and discussion guide",
           "storage": "outputs",
           "path": "current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
-          "status": "Discussion guide · updated 23 October",
+          "status": "Discussion guide \u00b7 updated 23 October",
           "description": "Existing models, alternatives, exclusions and chapter 14 clarifications; includes the original review notebook.",
           "sha256": "c25b2fc2f91bee06720ff59b8d60f4cc6fe181b786449988db8ad8decbe1ae95"
         },
@@ -85,7 +85,7 @@
           "storage": "outputs",
           "path": "studies/figure-02/review-agenda.md",
           "sha256": "19d0bbbc6327292ecf4e40c244bb5caddad330fb4a5e07a8546e1c9a29f2b7f6",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/figures/figure-02/review.md. Existing HTML guides retain their original paths."
         },
         {
@@ -94,7 +94,7 @@
           "storage": "outputs",
           "path": "studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md",
           "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md. Existing HTML guides retain their original paths."
         },
         {
@@ -103,14 +103,14 @@
           "storage": "outputs",
           "path": "studies/figure-02/panel-g/comparisons/review-2026-10-14.md",
           "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md. Existing HTML guides retain their original paths."
         }
       ]
     },
     {
       "id": "figure-2-h",
-      "title": "Figure 2 H · 3sTrace",
+      "title": "Figure 2 H \u00b7 3sTrace",
       "context": "The older repository-selected assembly retains a different H outcome. Expanded-cohort log-difference and model drafts also exist on the SSD. These are review alternatives, not new selections.",
       "entries": [
         {
@@ -169,7 +169,7 @@
     },
     {
       "id": "figure-2-i",
-      "title": "Figure 2 I · fixed 10sTrace",
+      "title": "Figure 2 I \u00b7 fixed 10sTrace",
       "context": "20 October SSD drafts exist despite the older repository overview describing I as pending. They remain scientific drafts. Fixed 10sTrace is distinct from increasing trace.",
       "entries": [
         {
@@ -238,17 +238,35 @@
     },
     {
       "id": "figure-3",
-      "title": "Figure 3 · individual learning",
-      "context": "Read the guide and checkpoints first. The single-path Delay draft, legacy atlas and later assay drafts answer different questions. The inspected BLUP-comparison folder has a start ticket, not a completed report.",
+      "title": "Figure 3 \u00b7 individual learning",
+      "context": "Read the general guide and the completed corrected-BLUP comparison before deciding on a method. The selected Delay draft, historical classifiers and later assay drafts remain distinct; none is approved as a final learner method.",
       "entries": [
         {
           "id": "f3-guide",
           "title": "Read first: independent review and decision guide",
           "storage": "outputs",
           "path": "current/reviews/figure3-independent-review-guide-20261017/figure3-review-guide.html",
-          "status": "Discussion guide · updated 23 October",
+          "status": "Discussion guide \u00b7 updated 23 October",
           "description": "Methods, all fish, exclusions, alternatives, preserved conversation and decision worksheet.",
           "sha256": "64e56e86a3872a4f0123558ce6836c4a59928fe1cda0eecc992bc8b24e4cd447"
+        },
+        {
+          "id": "f3-blup-completed",
+          "title": "Completed corrected BLUP comparison and validation",
+          "storage": "outputs",
+          "path": "studies/figure-03/blup-comparison/study.html",
+          "status": "Exploratory comparison \u00b7 25 October",
+          "description": "999 calibration refits, four independent 499-dataset stress checks, all 57 fish and all four saved legacy rules; no method selected.",
+          "sha256": "a4c91ed0c1e7ed21187a8991a95b0a8b1ba9dd8693e20a37339a441d8cb3c119"
+        },
+        {
+          "id": "f3-blup-source",
+          "title": "Corrected BLUP comparison \u2014 editable manuscript",
+          "storage": "outputs",
+          "path": "studies/figure-03/blup-comparison/study.md",
+          "status": "Canonical Markdown study source",
+          "description": "Editable explanation and joint-decision worksheet beside its HTML; numerical run stays immutable.",
+          "sha256": "7ecab301f417cb48de9dd01d14634a844f46c2b43441c6c8ea495f86569483db"
         },
         {
           "id": "f3-checkpoint",
@@ -273,7 +291,7 @@
           "title": "Repository-selected Delay single-path draft",
           "storage": "outputs",
           "path": "current/reviews/figure3-main-paper-single-path-20261016/review.html",
-          "status": "Selected presentation draft · unfrozen science",
+          "status": "Selected presentation draft \u00b7 unfrozen science",
           "description": "Continuous acquisition scores and illustrative fish; selected by repository Figure 3 state.",
           "sha256": "cbcae84651686311cd9032678f8b5d4b30196ecf19bd14ae7162eb6bdd913be6"
         },
@@ -288,7 +306,7 @@
         },
         {
           "id": "f3-trace3",
-          "title": "3sTrace A–E acquisition-score draft",
+          "title": "3sTrace A\u2013E acquisition-score draft",
           "storage": "outputs",
           "path": "current/reviews/figures-03-04-3strace-20261020/figure3-a-e/review.html",
           "status": "Assay-specific scientific draft",
@@ -346,7 +364,7 @@
           "storage": "outputs",
           "path": "studies/figure-03/explanation-guide-design-2026-10-17.md",
           "sha256": "45f7e8daaaad5817539fc5ac6d06c3545b4382d82807a6c9ccb05a10d36610d2",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md. Existing HTML guides retain their original paths."
         },
         {
@@ -355,7 +373,7 @@
           "storage": "outputs",
           "path": "studies/figure-03/individual-fish-display-review.md",
           "sha256": "c04681a5f33fe5c27b93fb8c3c94b8d8a1e9c2fa2f4fa5ca1002c8eb343c3496",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/figures/figure-03/individual-fish-display.md. Existing HTML guides retain their original paths."
         },
         {
@@ -364,14 +382,14 @@
           "storage": "outputs",
           "path": "studies/figure-03/review-agenda.md",
           "sha256": "5651b99ab202c8831025b46c1fe5a612dc7963282cb3a5500e439b853defc4d3",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/figures/figure-03/review.md. Existing HTML guides retain their original paths."
         }
       ]
     },
     {
       "id": "figure-4",
-      "title": "Figure 4 · conditioned-response profiles",
+      "title": "Figure 4 \u00b7 conditioned-response profiles",
       "context": "Read the discussion, then compare condition-only, score-group and retrospective legacy-label profiles. The 22 October model pilots are later alternatives, not approved learner validation or freezes.",
       "entries": [
         {
@@ -496,7 +514,7 @@
           "storage": "outputs",
           "path": "studies/figure-04/review-agenda.md",
           "sha256": "1a3eac9f5bb78f93f94dc138c56cc70c80f0d40365ad499e849be54a8f29c2fa",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/figures/figure-04/review.md. Existing HTML guides retain their original paths."
         }
       ]
@@ -512,7 +530,7 @@
           "storage": "outputs",
           "path": "studies/shared/paper-review-agenda.md",
           "sha256": "4c9602f5a6e13c689caf90042fff70b1af1fd1379870489f711c56d853b9fdb1",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/review.md. Existing HTML guides retain their original paths."
         },
         {
@@ -521,7 +539,7 @@
           "storage": "outputs",
           "path": "studies/shared/figure-review-agenda.md",
           "sha256": "cdb5412dc776e3b257fb272c5651a75fbc334d8d7bee8a5cd91260cd50a7e793",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/figures/shared/review.md. Existing HTML guides retain their original paths."
         },
         {
@@ -530,7 +548,7 @@
           "storage": "outputs",
           "path": "studies/shared/nature-guidance-20261016.md",
           "sha256": "ccb5df3cbd0aa1b73d62c75afa981d57d13058e7f23eb059a2509fc06daa5864",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from records/figure-reviews/nature-guidance-20261016.md. Existing HTML guides retain their original paths."
         },
         {
@@ -539,7 +557,7 @@
           "storage": "outputs",
           "path": "studies/shared/nature-main-migration-20261017.md",
           "sha256": "094142a0d13d1e6453a2726636560f6f257da6996738266709ebf007b6cabdc9",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from records/figure-reviews/nature-main-migration-20261017.md. Existing HTML guides retain their original paths."
         },
         {
@@ -548,7 +566,7 @@
           "storage": "outputs",
           "path": "studies/figure-01/review-agenda.md",
           "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
-          "status": "Study source · discussion, not approval",
+          "status": "Study source \u00b7 discussion, not approval",
           "description": "Canonical Markdown moved from docs/paper/figures/figure-01/review.md. Existing HTML guides retain their original paths."
         }
       ]

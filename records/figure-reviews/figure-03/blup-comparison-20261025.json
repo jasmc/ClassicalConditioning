@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-25",
+  "scope": "Completed, unselected corrected BLUP comparison; Delay/control pilot",
+  "analysis_manifest": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-03/blup-comparison-20261025/artifact-manifest.json",
+    "sha256": "b6e43aad7ed6fe5c4cc57ac1d41ea3f19ea7dacaa950e4539345873970e75e68"
+  },
+  "result": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-03/blup-comparison-20261025/result.json",
+    "sha256": "0bb50a07bb35f2b9e7f0b740201fc798780776305ccab4deffa935d42921b71e"
+  },
+  "guide": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-03/blup-comparison/study.html",
+    "sha256": "a4c91ed0c1e7ed21187a8991a95b0a8b1ba9dd8693e20a37339a441d8cb3c119"
+  },
+  "manuscript": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-03/blup-comparison/study.md",
+    "sha256": "7ecab301f417cb48de9dd01d14634a844f46c2b43441c6c8ea495f86569483db"
+  },
+  "counts": {
+    "fish": 57,
+    "calibration_successful": 999,
+    "calibration_attempted": 999,
+    "independent_validation_datasets": 1996,
+    "independent_refits_successful": 1996
+  },
+  "validation_scope": [
+    "matched Gaussian/AR1",
+    "t5 innovations",
+    "within-epoch trend",
+    "zero-acquisition null"
+  ],
+  "source_outcome": "Figure 2 G trial log-median difference on selected legacy metric",
+  "selected_figures_changed": false,
+  "paper_cohort_approved": false,
+  "learner_method_selected": false,
+  "limitations": [
+    "Conditional on observed missingness and fitted/prescribed simulation scenarios",
+    "No biological class probability or independent causal learning label",
+    "Null covariance boundary behavior retained",
+    "Full Trace extension and final method/eligibility/meaningful-effect choice remain open",
+    "Guide static/offline/source checks passed; notebook browser behavior and print layout not exercised"
+  ],
+  "commands": [
+    "scripts/paper/figure_03/run_blup_comparison.py",
+    "scripts/paper/figure_03/build_blup_study.py"
+  ],
+  "verification": {
+    "unit_tests_full_repository": 589,
+    "unit_test_status": "passed",
+    "static_guide": "passed; 84 authenticated source/protection records",
+    "guide_javascript_syntax": "passed",
+    "selected_state_preservation": "all 7 local scoped states unchanged during numerical run"
+  }
+}

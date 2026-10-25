@@ -282,6 +282,17 @@
         "docs/paper/figures/review-library.json",
         "docs/paper/figures/review-library.md"
       ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-03/blup-comparison.md",
+      "path": "studies/figure-03/blup-comparison/study.md",
+      "sha256": "7ecab301f417cb48de9dd01d14634a844f46c2b43441c6c8ea495f86569483db",
+      "role": "editable study source; exploratory comparison, no method approval",
+      "consumers": [
+        "docs/paper/figures/figure-03/README.md",
+        "docs/paper/figures/review-library.json",
+        "docs/running-analysis/figure3-blup-comparison.md"
+      ]
     }
   ]
 }

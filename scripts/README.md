@@ -76,9 +76,11 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/figure_02/panels_d_g/reproduction/render_legacy_statistics.py](paper/figure_02/panels_d_g/reproduction/render_legacy_statistics.py) | Figure 2D legacy-style stars and Figure 2G authenticated LME review. |
 | [paper/figure_02/panels_e_h/reproduction/render_trace_legacy.py](paper/figure_02/panels_e_h/reproduction/render_trace_legacy.py) | Render exploratory Figure 2E/H using the archived normalized-vigor layout. |
 | [paper/figure_02/reproduction/recover_saved_panels.py](paper/figure_02/reproduction/recover_saved_panels.py) | Recover Figure 2 review panels from authenticated, existing processed data. |
+| [paper/figure_03/build_blup_study.py](paper/figure_03/build_blup_study.py) | Build an SSD-owned Markdown/HTML study from completed authenticated BLUP results; no model execution or scientific selection. |
 | [paper/figure_03/build_main_draft.py](paper/figure_03/build_main_draft.py) | Build and guard the Figure 3 main-paper draft; no classifier fit or freeze. |
 | [paper/figure_03/build_study_guide.py](paper/figure_03/build_study_guide.py) | Build a source-bound, offline educational guide; never select analysis/figure state. |
 | [paper/figure_03/reproduction/render_trace_legacy_classifier.py](paper/figure_03/reproduction/render_trace_legacy_classifier.py) | Render an exploratory 3sTrace learner review from the archived WIP rule. |
+| [paper/figure_03/run_blup_comparison.py](paper/figure_03/run_blup_comparison.py) | Authenticated, isolated Delay/control BLUP calibration and independent stress checks; no method selection or figure-state update. |
 | [paper/figure_03/supplement/build_atlas.py](paper/figure_03/supplement/build_atlas.py) | Build/verify/publish a guarded exploratory Figure 3 atlas on external storage. |
 | [paper/figure_03/supplement/verify_atlas.cjs](paper/figure_03/supplement/verify_atlas.cjs) | Retained technical workflow helper |
 | [paper/figure_03/verify_main_draft.cjs](paper/figure_03/verify_main_draft.cjs) | Retained technical workflow helper |
@@ -97,6 +99,7 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/shared/measure_packing.cjs](paper/shared/measure_packing.cjs) | Retained technical workflow helper |
 | [paper/shared/publish_axis_geometry.py](paper/shared/publish_axis_geometry.py) | Guarded publication of measured axis presentation corrections; no science edits. |
 | [paper/shared/refine_composition.cjs](paper/shared/refine_composition.cjs) | Retained technical workflow helper |
+| [paper/shared/reconcile_saved_draft.py](paper/shared/reconcile_saved_draft.py) | Reconcile authenticated saved artwork, caption and scoped state through existing guards; preserve SVG/HTML and frozen selections. |
 | [paper/shared/register_axes.py](paper/shared/register_axes.py) | Extend existing draft registries with explicit axis identities; never edit SVGs. |
 | [paper/shared/stage_annotations.py](paper/shared/stage_annotations.py) | Stage author-requested legend/heading semantics on measured axis candidates. |
 | [paper/shared/stage_nature.py](paper/shared/stage_nature.py) | Stage and guard the selected main-paper SVG presentation migration. |

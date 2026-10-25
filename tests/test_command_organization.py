@@ -92,6 +92,19 @@ class ScopedCommands(unittest.TestCase):
                 snapshot.check()
         command_provenance.command_sources.cache_clear()
 
+    def test_local_script_imports_resolve_after_command_moves(self):
+        for home in ['src', 'scripts', 'tests']:
+            for path in (ROOT / home).rglob('*.py'):
+                for node in ast.walk(ast.parse(path.read_text())):
+                    names = (['scripts.' + a.name for a in node.names] if isinstance(node, ast.ImportFrom) and node.module == 'scripts'
+                             else [node.module] if isinstance(node, ast.ImportFrom) and node.module
+                             else [a.name for a in node.names] if isinstance(node, ast.Import) else [])
+                    for name in names:
+                        if name.startswith('scripts.'):
+                            target = ROOT / name.replace('.', '/')
+                            self.assertTrue(target.with_suffix('.py').is_file() or target.is_dir(),
+                                            str(path.relative_to(ROOT)) + ': missing ' + name)
+
     def test_three_script_import_cycles_are_gone(self):
         paths = list((ROOT / 'scripts').rglob('*.py'))
         modules = {p.relative_to(ROOT).as_posix()[:-3].replace('/', '.'): p for p in paths}
@@ -124,7 +137,9 @@ class ScopedCommands(unittest.TestCase):
         commands = ['scripts/check_repository_structure.py', 'scripts/repository_archive.py',
                     'scripts/freeze_figure.py', 'scripts/main_paper_figures.py',
                     'scripts/workflows/metrics/compare_train_test_windows.py',
-                    'scripts/workflows/metrics/compare_response_magnitude.py']
+                    'scripts/workflows/metrics/compare_response_magnitude.py',
+                    'scripts/paper/figure_03/run_blup_comparison.py',
+                    'scripts/paper/figure_03/build_blup_study.py']
         env = dict(os.environ, CLASSICAL_CONDITIONING_ARTIFACT_ROOT='/unavailable-not-a-real-root')
         for command in commands:
             result = subprocess.run([sys.executable, str(ROOT / command), '--help'], cwd=ROOT.parent,

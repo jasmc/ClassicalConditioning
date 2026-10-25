@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-25",
+  "status": "Completed guarded figure-state reconciliation and exploratory BLUP follow-up; 589 tests and external authentication pass",
+  "artwork_rewritten": false,
+  "scientific_freeze_created": false,
+  "current_figures": [
+    {
+      "figure": 1,
+      "state": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+        "sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+        "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
+      },
+      "html": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+        "sha256": "4792f24cec3032696856fff976f1025763927f78e78d6859c24763a1d2430761"
+      },
+      "caption": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+        "sha256": "3333cca676ef937fd59c311556238eb003e72b99fb9a5c1ec9906e37dcf2e8f7",
+        "panel_ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H"
+        ]
+      },
+      "layout": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json",
+        "sha256": "58f68571a88eed028bc3609b65d3fd20a98c5a708e7905d1f506deb115d5e1cf"
+      },
+      "manifest": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-publication-manifest-v04.json"
+    },
+    {
+      "figure": 2,
+      "state": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+        "sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+        "sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064"
+      },
+      "html": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
+        "sha256": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8"
+      },
+      "caption": {
+        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+        "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
+        "panel_ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I"
+        ]
+      },
+      "layout": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json",
+        "sha256": "f17b067aef34eeec8e4902fdb31d6ae5b586c9cea2c8e0d19f7000cc90741701"
+      },
+      "manifest": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-02-publication-manifest-v04.json"
+    }
+  ],
+  "external_check": {
+    "issues": [],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 365,
+    "current_states_checked": 7,
+    "verified_transactions": [
+      {
+        "manifest": "records/repository-archive/transfer-inventory.json",
+        "files": 2048,
+        "authorized_absences": [
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png"
+        ]
+      },
+      {
+        "manifest": "records/repository-archive/2026-10-17-retired-styling/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/configuration-cleanup-20261011/transfer-inventory.json",
+        "files": 2,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/documentation-cleanup-20261011/transfer-inventory.json",
+        "files": 1,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+        "files": 8,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/script-extracted-drivers-20261024/transfer-inventory.json",
+        "files": 4,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/script-organization-20261024/transfer-inventory.json",
+        "files": 26,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-cleanup-20261010/transfer-inventory.json",
+        "files": 41,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-reassessment-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmap-code-20261013/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmaps-20261013/transfer-inventory.json",
+        "files": 46,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/study-sources-20261023/transfer-inventory.json",
+        "files": 18,
+        "authorized_absences": []
+      }
+    ],
+    "external_verification": "passed"
+  },
+  "history": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/history",
+  "authority_files_unchanged": 117,
+  "authorized_pointer_changes": [
+    "docs/paper/figures/figure-01/current-state.json",
+    "docs/paper/figures/figure-02/current-state.json",
+    "docs/paper/figures/main-paper-current-state.json"
+  ],
+  "collection": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html",
+    "sha256": "4bd2d140419d5e1fd89dd33a433e22fe131a32e386a8490441eb40f09bf1a834"
+  },
+  "production_audit": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/production-audit.json",
+    "sha256": "3acc96508dffc3a3f3b45e2474b83eba00d72187b6fe5399d55e2875409be2c2"
+  },
+  "verification": "records/figure-reviews/authority-reconciliation-20261025/verification.json"
+}

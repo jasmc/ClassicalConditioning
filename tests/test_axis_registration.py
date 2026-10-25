@@ -24,7 +24,7 @@ class AxisRegistrationTests(unittest.TestCase):
         svg=b'''<svg xmlns="http://www.w3.org/2000/svg"><g id="axis"><g id="xtick_1"><text>0</text><path d="M0 0L0 1"/></g><g id="xtick_1"><text>1</text><path d="M1 0L1 1"/></g><defs><path id="resource"/></defs></g></svg>'''
         definition={'id':'test-x','group_ids':['axis'],'title_ids':[]}
         registry={'presentation_styles':{'axis_titles':{'roles':[]}}}
-        with patch('register_figure_axes.axis_definitions',return_value=[definition]):
+        with patch('scripts.paper.shared.register_axes.axis_definitions',return_value=[definition]):
             result=build_inventory(svg,1,{},[],registry)
         axis=result['axes'][0]
         self.assertEqual(len(axis['tick_labels']),2)
@@ -37,7 +37,7 @@ class AxisRegistrationTests(unittest.TestCase):
     def test_missing_renderer_artist_blocks_registration(self):
         registry={'presentation_styles':{'axis_titles':{'roles':[]}}}
         definition={'id':'test-y','group_ids':['missing-axis'],'title_ids':[]}
-        with patch('register_figure_axes.axis_definitions',return_value=[definition]):
+        with patch('scripts.paper.shared.register_axes.axis_definitions',return_value=[definition]):
             result=build_inventory(b'<svg/>',2,{},[],registry)
         self.assertEqual(result['axes'][0]['status'],'unresolved')
         self.assertEqual(result['unresolved'][0]['elements'],['missing-axis'])

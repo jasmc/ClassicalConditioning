@@ -1,9 +1,9 @@
 # Figure 2 I: review approaches
 
 Use the [review library](../../review-library.md#figure-2-i) for direct HTML,
-Markdown and diagnostic links. I remains unfrozen. The repository-selected older
-assembly calls it pending; later fixed-10sTrace drafts were found on JOAQUIM
-during the 23 October organization review.
+Markdown and diagnostic links. I remains unfrozen. The current working
+assembly contains the fixed-10sTrace scientific draft, reconciled with its exact
+PC state/caption/evidence on 25 October; the earlier assembly called it pending.
 
 | Approach | What to review |
 |---|---|
@@ -14,8 +14,9 @@ during the 23 October organization review.
 The folder name `final-spacing` identifies a saved layout iteration, not a
 scientific freeze. Fixed 10sTrace is distinct from increasing trace. The later
 records include PC-specific provenance and their own scoped draft history;
-indexing them does not update [Figure 2 state](../current-state.json), resolve
-cohort approval or select an inferential method.
+the [25 October reconciliation](../../../../../records/figure-reviews/authority-reconciliation-20261025/README.md)
+updates [Figure 2 state](../current-state.json) for the saved scientific draft.
+This does not resolve paper-wide cohort approval or freeze an inferential method.
 
 The [G/H/I decision chronology](../../../../../records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md)
 and [Plan 03](../../../../../Plans/03_FIGURE_2_LEARNING_ONSET.md) explain earlier

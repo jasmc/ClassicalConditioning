@@ -24,22 +24,33 @@
     "status": "scoped A, D/E and G freezes; no whole-figure freeze"
   },
   "draft": {
-    "status": "Presentation draft with verified 1 mm invisible frames; inherited unfinished scientific scopes retained",
+    "status": "C/F/I common61 approved10sTrace fish; D/E/F separate Holm18 with min3; unfrozen scientific drafts",
     "working_svg": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
-      "sha256": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc"
+      "sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064"
     },
     "review": {
       "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
-      "sha256": "feeaf95263ba229c7f48eceaedb3b9840ff7efeace7b81e4ce2f92e3ec6e6383"
+      "sha256": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8"
     },
     "legend": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
-      "sha256": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd"
+      "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
+      "panel_ids": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+      ]
     },
     "semantic_registry": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-semantic-registry.json",
-      "sha256": "57a5b6f90e7ebae9ca8d29cf6184b2bca87dc78891c0ffae7b5b534f93d74373"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/semantic-registry.json",
+      "sha256": "166c0e5df9a46738b9392f0a07a3c04b39625eda30f14de8e6327517f278b7e1"
     },
     "consistency_requests": [
       {
@@ -642,36 +653,134 @@
           "svg": "2ffb12a96afc8515dc7117909e35d55b21186f1b6f53eea3181c2eefce0118fc",
           "legend": "8ae9dfa2d4c11e260d47fd2fc70e94a087c3905f8c588ecd02cfb64dd8a039bd"
         }
+      },
+      {
+        "id": "fig2-trace3-matched-delay-20261019",
+        "scope": [
+          "A/B",
+          "D/E",
+          "G/H"
+        ],
+        "author_direction": "Match current Delay panels; same statistical tests; omit four timing-flagged fish from all Trace panels and retain their flags",
+        "status": "verified numerical methods, selected rectangular geometry and frame containment; scientific drafts, production checks remain open",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/assembly-evidence.json",
+          "sha256": "99cdf27d4cdeae0db331f71481a8e69e43e59fb16c03353da126af180fefefa3"
+        },
+        "layout_frames": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/layout-evidence.json",
+          "sha256": "a0c8b284ae338769833bec260fbdc14c51bf2968f0aca7c6bc42fc3438e4e064"
+        }
+      },
+      {
+        "id": "fig2-pair-x-titles-and-row2-range-20261019",
+        "scope": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "author_direction": "One shared x-axis title centered on each heatmap pair; second-row range -0.25 to 0.25",
+        "properties": {
+          "title_count_per_pair": 1,
+          "title_centre_tolerance_mm": 0.02,
+          "row_two_y_limits": [
+            -0.25,
+            0.25
+          ],
+          "F": "pending; range applies when populated"
+        },
+        "status": "verified for populated panels; F pending",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/axis-refinement/edit-evidence.json",
+          "sha256": "a063a364a70771f77a92e056b967f7dfc5e7ff1b2bb98a39b23fd0639f005bdf"
+        },
+        "render_evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/axis-refinement/layout-evidence.json",
+          "sha256": "c4c94c1d3b02e72606be4e76081dae672ff3525c829159a11301f700df2e30f8"
+        }
+      },
+      {
+        "id": "fig2-E-B-F-C-column-centres-20261019",
+        "type": "layout",
+        "panels": [
+          "B",
+          "C",
+          "E",
+          "F"
+        ],
+        "properties": [
+          "E data-pair centre equals B heatmap-pair centre",
+          "F placeholder centre equals C heatmap-pair centre",
+          "E/F panel-letter left edges match B/C"
+        ],
+        "tolerance_mm": 0.02,
+        "author_direction": "Align E with B and F with C",
+        "status": "verified",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/column-alignment/alignment-evidence.json",
+          "sha256": "ec62f734b230a1d3c0d94f3cd55734aaad004c5ae3bdaf33b2f57740fc8a9672"
+        }
+      },
+      {
+        "id": "fig2-trace10-CFI-DE-min3-Holm18-20261020",
+        "scope": [
+          "A/B/C method",
+          "D/E/F method",
+          "G/H/I method",
+          "C/F/I common roster"
+        ],
+        "author_direction": "Generate10sTrace panels matching columns1/2; separate panel stats; common min3; explicitly approved61-fish roster",
+        "status": "verified scoped numerical and exact-render evidence; no freeze",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/scientific-evidence.json",
+          "sha256": "b5d0a06d03af5b562659565b00a8fdcffc30020cb3f6de6eae3dcca12e367153"
+        },
+        "presentation": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/layout-evidence.json",
+          "sha256": "b0100a0666f688b049118643351cd4a4cf35d8260232a2291e19e24b43b4877f"
+        }
       }
     ],
     "reproduction": {
       "generator": {
-        "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/nature_main_figures.py",
-        "sha256": "c223c760285fc6c9175ea0dc1675576ee40f55748f356315d7abe9b67348df5e"
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\assemble_figure2_trace3_matched.py",
+        "sha256": "048e4d4aec36f34c70ce60806a511f751f29106e7f68c7129b9a502aabee5b40"
       },
-      "directory": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016",
-      "profile_inputs": {
-        "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
-        "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
-        "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+      "statistical_analysis": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\analyze_figure2_trace3_matched.py",
+        "sha256": "525294374d5f566e271df92f239b8d9d41b2450ff82e3935ed432ca526eed9ad"
       },
-      "evidence": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-nature-evidence.json",
-        "sha256": "b29a573416c15077eab41e4854ce4aa603c26a0825855309dba36e6fa2168b31"
+      "sealed_data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/plan.json",
+        "sha256": "73b36f357084e3f65f5bae81a9963312ce9ea8659f43d64b80e07243aee75934"
+      },
+      "calculation_cache": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics",
+      "publication_command": ".venv-trace/Scripts/python.exe scripts/assemble_figure2_trace3_matched.py --publish --visual-review-note <actual review>",
+      "policy": "Preserve selected bytes and prior candidates; authenticate existing caches and capture a fresh state ticket before subsequent edits.",
+      "last_scoped_edit": {
+        "generator": {
+          "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\align_figure2_columns.py",
+          "sha256": "3a79e3eeb50d16b1a8a716724b4e8ea725a6c9dbce7c6bcb092a11ccf520f0be"
+        },
+        "command": ".venv-trace/Scripts/python.exe scripts/align_figure2_columns.py",
+        "source_snapshot": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\matched-delay-statistics\\column-alignment\\before-working_svg.svg"
       }
     },
     "assembly_scale": {
-      "final_width_mm": 136,
+      "final_width_mm": 156.0,
       "final_height_mm": 156.46844886241252,
       "A_native_scale": 1
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-layout-evidence.json",
-      "sha256": "eaf10d31c297648abeea59b1cb298a072be518b5209e7fc38f5669b8e23fbd72"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json",
+      "sha256": "f17b067aef34eeec8e4902fdb31d6ae5b586c9cea2c8e0d19f7000cc90741701"
     },
     "effective_presentation": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-effective-presentation.json",
-      "sha256": "6b72eb728082e34440a1e182308f2b6d0d24665f53b8d561ac37c390113ccc07"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-02-effective-presentation.json",
+      "sha256": "197b863763d06c03995516d12d9d4c0bae773e095fae336d1fecb1b5d7847dc8"
     },
     "condition_order": [
       {
@@ -724,10 +833,336 @@
         "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
       },
       "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-02-effective-presentation.json",
+        "sha256": "197b863763d06c03995516d12d9d4c0bae773e095fae336d1fecb1b5d7847dc8"
+      },
+      "status": "Inherited profile; exact current geometry revalidated; full Nature/production coverage remains partial",
+      "prior_evidence": {
         "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-02-nature-evidence.json",
         "sha256": "b29a573416c15077eab41e4854ce4aa603c26a0825855309dba36e6fa2168b31"
+      }
+    },
+    "matched_trace3_scientific_draft": {
+      "data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/plan.json",
+        "sha256": "73b36f357084e3f65f5bae81a9963312ce9ea8659f43d64b80e07243aee75934"
       },
-      "status": "verified measured presentation properties; remaining coverage explicit in evidence"
+      "statistics": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/completion.json",
+        "sha256": "65659165dd1e8b47be03f6dc13d7e94b110809122969473418cf91163e298f14"
+      },
+      "scope": [
+        "B",
+        "E",
+        "H",
+        "D joint correction only"
+      ],
+      "frozen": false,
+      "superseded_settings": "E minimum1 and joint D/E Holm36 superseded by trace10_scientific_draft; B/H and common179 roster retained"
+    },
+    "verification": {
+      "layout_frames": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/layout-evidence.json",
+        "sha256": "b0100a0666f688b049118643351cd4a4cf35d8260232a2291e19e24b43b4877f"
+      },
+      "scientific_data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/scientific-evidence.json",
+        "sha256": "b5d0a06d03af5b562659565b00a8fdcffc30020cb3f6de6eae3dcca12e367153"
+      },
+      "model_diagnostics": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/I-models/completion.json",
+        "sha256": "8d809ad8ccf0254eb519a76603dc2fbac16d47739a26768d8e5f7f97e4ab7062"
+      },
+      "visual_review": {
+        "status": "performed",
+        "note": "Inspected the exact saved full Figure 2 render: C control/10sTrace heatmaps replace placeholders with correct trial orientation and shared scale; F paired fish and median/IQR use separate Holm18 and min3; I trajectories, phase headers and statistical rows match G/H dimensions. Corrected D/E annotations and matching readable legend are visible. A/B/G/H subtree bytes are unchanged. The canvas expands to156 mm without scaling existing panels; I content spacing matches G/H. Independent C pooling/counts, D preservation, E eligibility, separate D/E/F tests, I family sizes and excluded-fish sensitivity passed. Exact600dpi painted/unclipped frame checks passed. This is a scientific draft, not a freeze; production and influence audits remain separate."
+      },
+      "coverage": "Numerical identity, common roster, separate families, preserved A/B/G/H, exact600dpi paint/unclipped frame checks. Production font/PDF/accessibility and influence audits remain separate."
+    },
+    "axis_refinement": {
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/axis-refinement/edit-evidence.json",
+        "sha256": "a063a364a70771f77a92e056b967f7dfc5e7ff1b2bb98a39b23fd0639f005bdf"
+      },
+      "layout_frames": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/axis-refinement/layout-evidence.json",
+        "sha256": "c4c94c1d3b02e72606be4e76081dae672ff3525c829159a11301f700df2e30f8"
+      },
+      "pair_title_measurements": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/axis-refinement/title-centres.json",
+        "sha256": "ee5e86ddeafcff043ce2e6351438bfab9423806b81cb572d826a21dcb1c71248"
+      },
+      "visual_review": "Verified one centered shared x-axis title for each A/B/C heatmap pair and D/E display limits -0.25 to 0.25. Browser glyph centers agree with pair centers within 0.00001 mm. Exact rendered frame margins and spacing passed. Heatmap data, F/G/H/I, source observations and statistical results are preserved. No freeze."
+    },
+    "column_alignment": {
+      "source": {
+        "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.svg",
+        "sha256": "3daba1407e6a70b3942af77acceae3d4bfd1f686e3cb5bca3d0a7ac63bbcb4ed"
+      },
+      "svg": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/column-alignment/figure2-columns.svg",
+        "sha256": "31e7ad0979ce797548bc708290be5d40f620ec3fb5ec5f45e1d1ed2a7bcb6365"
+      },
+      "html": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/column-alignment/figure2-columns.html",
+        "sha256": "d2b3c22b8a1d2d967aaf290dac33903a264c0ffc9d7b8cde2c2cc0d05233c1b3"
+      },
+      "generator": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\align_figure2_columns.py",
+        "sha256": "440ecb6d4d26f419e2c70f00e46c75c85c0ce13237e514d7b57b1562c38cea81"
+      },
+      "initial_browser_geometry_mm": {
+        "B_pair": [
+          50.60625486800983,
+          79.59199163987431
+        ],
+        "C_pair": [
+          90.7268606127332,
+          119.7125907475116
+        ],
+        "E_pair": [
+          59.83828674684527,
+          88.28312755112997
+        ],
+        "F_placeholder": [
+          95.33899828151526,
+          134.8668901152315
+        ],
+        "B_letter_left": 47.04874421119577,
+        "C_letter_left": 87.16934996437332,
+        "E_letter_left": 47.49120431711656,
+        "F_letter_left": 95.3390248298596
+      },
+      "translations_mm": {
+        "E": -8.96158389504555,
+        "F": -9.883218518250999
+      },
+      "protected_subtrees": {
+        "layout-A": "2635db1b56db5b49598fb34edcf89d5c6d6de7739c73c31f7a3db9ab318c7cd0",
+        "layout-B": "6a94a4567b49d9822d3db0831860978b7584ca6fd3884a2400863b8b9625262e",
+        "layout-C": "4af5f0f389911bceb2e087a380421a2842a0bb835eeb3b9c81bedb4a8b7403a7",
+        "panel-D": "249ce1f51f7fcc89b5b37344673af491a4b8f756d89164d7aad0023a3fd83e8b",
+        "panel-G": "089fe77d447f0c027a5fa1e01f5c7774755f8277591946210c2ce8ab8390abab",
+        "panel-H": "e9009fa06847c7f0fd4fa3e1fc125115f528a552a1f1c144a399694a9d61e981",
+        "panel-I": "f313cd199403c2825028147d73edb1d9bc0102aabbff818dab3e416f0f262549",
+        "fig2__shared__colorbar__axes": "2187ad17d4d6006d3933309ed392b2308adc094433a04ccecdce0433b0c5e4b3"
+      },
+      "superseded_spacing": {
+        "axis": "x",
+        "id": "fig2-DEF-equal-spacing",
+        "ids": [
+          "D",
+          "E",
+          "F"
+        ],
+        "minimum_gap_mm": 2.0,
+        "target": "content"
+      },
+      "relationship": {
+        "id": "fig2-E-B-F-C-column-centres-20261019",
+        "type": "layout",
+        "panels": [
+          "B",
+          "C",
+          "E",
+          "F"
+        ],
+        "properties": [
+          "E data-pair centre equals B heatmap-pair centre",
+          "F placeholder centre equals C heatmap-pair centre",
+          "E/F panel-letter left edges match B/C"
+        ],
+        "tolerance_mm": 0.02,
+        "author_direction": "Align E with B and F with C",
+        "status": "requires exact saved browser verification"
+      },
+      "data_statistics_and_panel_sizes_unchanged": true,
+      "legend_unchanged": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\legend.md",
+        "sha256": "40cea3716fe3de5ec6f1e7a31885e54618ed16b9634cf356ac264b5f2d8ee84d",
+        "panel_ids": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I"
+        ]
+      },
+      "layout_frames": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/column-alignment/layout-evidence.json",
+        "sha256": "ee330cfebeb9f25205eb583478acd90678e9185b73b700841818cba197cad3be"
+      },
+      "measurements": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/matched-delay-statistics/column-alignment/alignment-evidence.json",
+        "sha256": "ec62f734b230a1d3c0d94f3cd55734aaad004c5ae3bdaf33b2f57740fc8a9672"
+      },
+      "visual_review": "Inspected the saved Figure 2: E paired plots centered below B heatmaps; F placeholder centered below C heatmaps; E/F panel-letter left edges aligned with B/C. Column-center differences below 0.00004 mm in actual minimal HTML. Exact 600 dpi frame containment and retained spacing relationships passed. Translation-only edit; panel sizes, data, statistics, legend and other panels unchanged. New column alignment supersedes the second-row outer-content equal-gap arrangement. No freeze.",
+      "precedence": "E/B and F/C centres supersede D/E/F equal outer-content gaps; all other prior relationships retained."
+    },
+    "trace10_scientific_draft": {
+      "plan": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/plan.json",
+        "sha256": "d80b6152441c40d8f0dd39aecacd040f5c8b3e3ab998028eb0899f0781c92882"
+      },
+      "roster": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/common-roster.json",
+        "sha256": "8a8795f48bba112d5d39d61d07b5b3d84e486b3f9aa045262ae5246e1133daf3"
+      },
+      "data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/calculation.json",
+        "sha256": "97e5443ac2f9f1000c35507e862cc63a8cc4afcf6d11d52866e3f172b69c2b2e"
+      },
+      "models": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/I-models/completion.json",
+        "sha256": "8d809ad8ccf0254eb519a76603dc2fbac16d47739a26768d8e5f7f97e4ab7062"
+      },
+      "scope": [
+        "C",
+        "F",
+        "I",
+        "D/E authorized corrections"
+      ],
+      "frozen": false,
+      "scientific_evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/final-spacing/scientific-evidence.json",
+        "sha256": "b5d0a06d03af5b562659565b00a8fdcffc30020cb3f6de6eae3dcca12e367153"
+      }
+    },
+    "reconciliation_source_state": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-exploratory-range-20261020/previous-selected/state.json",
+      "sha256": "9a25ccb3e9a0b4f62f55cb1ca26347f2359104c30f64f656b3c93881c774334d"
+    },
+    "reconciliation": {
+      "date": "2026-10-25",
+      "starting_ticket": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/starting-ticket.json",
+        "sha256": "0d72e9854184c9dc824cba4689078eeed35d3cabb161ceccb3fd9f8dca084093"
+      },
+      "source_state": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-exploratory-range-20261020/previous-selected/state.json",
+        "sha256": "9a25ccb3e9a0b4f62f55cb1ca26347f2359104c30f64f656b3c93881c774334d"
+      },
+      "unresolved_historical_reproduction_references": [
+        {
+          "field": "/draft/legend",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\legend.md",
+            "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
+            "panel_ids": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "G",
+              "H",
+              "I"
+            ]
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/consistency_requests/8/presentation_mapping/0/source_svg",
+          "source_reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+            "sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/consistency_requests/8/presentation_mapping/1/source_svg",
+          "source_reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+            "sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/reproduction/generator",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\assemble_figure2_trace3_matched.py",
+            "sha256": "048e4d4aec36f34c70ce60806a511f751f29106e7f68c7129b9a502aabee5b40"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/reproduction/statistical_analysis",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\analyze_figure2_trace3_matched.py",
+            "sha256": "525294374d5f566e271df92f239b8d9d41b2450ff82e3935ed432ca526eed9ad"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/reproduction/last_scoped_edit/generator",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\align_figure2_columns.py",
+            "sha256": "3a79e3eeb50d16b1a8a716724b4e8ea725a6c9dbce7c6bcb092a11ccf520f0be"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/condition_order/0/source_svg",
+          "source_reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+            "sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/condition_order/1/source_svg",
+          "source_reference": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+            "sha256": "50d2847f5904c72d1dcf0710e27c00f05793de6ab646b429e05e1873177d4de6"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/column_alignment/source",
+          "source_reference": {
+            "path": "J:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\reviews\\figure2-current-minimal.svg",
+            "sha256": "3daba1407e6a70b3942af77acceae3d4bfd1f686e3cb5bca3d0a7ac63bbcb4ed"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/column_alignment/generator",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\align_figure2_columns.py",
+            "sha256": "440ecb6d4d26f419e2c70f00e46c75c85c0ce13237e514d7b57b1562c38cea81"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "/draft/column_alignment/legend_unchanged",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-02\\legend.md",
+            "sha256": "40cea3716fe3de5ec6f1e7a31885e54618ed16b9634cf356ac264b5f2d8ee84d",
+            "panel_ids": [
+              "A",
+              "B",
+              "C",
+              "D",
+              "E",
+              "F",
+              "G",
+              "H",
+              "I"
+            ]
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        }
+      ],
+      "status": "Artwork and caption/source bindings reconciled; no new scientific freeze",
+      "limitations": [
+        "Paper scientific gates and complete production/accessibility checks remain open",
+        "Historical source-machine generator references are retained, not claimed executable on this Mac"
+      ]
     }
   }
 }
