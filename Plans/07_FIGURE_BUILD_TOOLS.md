@@ -293,10 +293,20 @@ not claim a new browser run. Temporary native rendering and embedded-font/image/
 reference checks supplement the saved evidence; production-ready claims remain
 out of scope of that transport check.
 
-Remaining production work is concrete: complete scientific/role registration,
-accessibility and production-PDF checks under H02–H10, and resolve the recorded
-librsvg/Edge difference affecting inherited D/E clipping. No further automatic
-repacking or artwork resizing follows. Keep the author’s box-only constraint.
+The D/E clipping investigation now identifies opaque full-canvas backgrounds
+in the overlapping E/F viewports as a concrete cause. The
+[supported repair](../docs/running-analysis/figure2-canvas-repair.md) prepares
+an unselected candidate changing only those two fills; all other SVG bytes
+remain identical. Native before/after rendering restores the hidden LT points,
+labels and statistical marks, with no changed pixels outside the target canvas
+regions. Ten focused safety/publication tests pass. The exact candidate,
+matching HTML, original snapshots and evidence live on JOAQUIM.
+
+Fresh exact browser frame measurements are still required before selecting that
+candidate. The old Edge report is not evidence for the changed SVG. Scientific/
+role registration, accessibility, collection equivalence and actual production-
+PDF checks under H02–H10 also remain open. No further automatic repacking or
+artwork resizing follows. Keep the author’s box-only constraint.
 Any changed artwork needs fresh exact-render measurements; transport equivalence
 cannot authenticate different SVG bytes or modified source logic.
 

@@ -57,6 +57,7 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/figure_01/panels_f_g_h/reproduction/render_trace_example.py](paper/figure_01/panels_f_g_h/reproduction/render_trace_example.py) | Render the historical 3sTrace example fish as a signed Figure 1G review heatmap. |
 | [paper/figure_01/reproduction/verify_abcd_freeze.py](paper/figure_01/reproduction/verify_abcd_freeze.py) | Verify the historical Figure 1 A-D freeze without changing its artifacts. |
 | [paper/figure_02/assembly/build.py](paper/figure_02/assembly/build.py) | Build the Figure 2 review layout, preserving SSD versions and source provenance. |
+| [paper/figure_02/assembly/repair_canvas.py](paper/figure_02/assembly/repair_canvas.py) | Prepare a guarded, unselected canvas-overdraw repair; preserve all geometry/data and require fresh browser evidence before selection. |
 | [paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py](paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py) | Build scoped Figure 2 A with the selected Figure 1 F–H pipeline and styles. |
 | [paper/figure_02/panel_b/reproduction/render_trace_signed.py](paper/figure_02/panel_b/reproduction/render_trace_signed.py) | Render the 3sTrace/control Figure 2B signed heatmap and fish coverage review. |
 | [paper/figure_02/panel_g/build_exploratory_presentation.py](paper/figure_02/panel_g/build_exploratory_presentation.py) | Separate, authenticated Figure 2 G presentation of saved exploratory results. |
