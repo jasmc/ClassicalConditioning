@@ -20,6 +20,6 @@ if __name__=='__main__':
     parser.add_argument('--parent',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
     args=parser.parse_args()
-    namespace=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review')
+    namespace=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure2-G-independent-review')
     if not args.output_dir.resolve().is_relative_to(namespace):raise ValueError('Use the dedicated external G namespace')
     with threadpool_limits(1):run_technical_followup(args.parent,args.output_dir)

@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-26",
+  "status": "complete",
+  "action": "preservation copy only; no source files pruned",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery",
+  "verified_files": 8,
+  "verified_bytes": 350292601,
+  "source_Git_objects": 5172,
+  "unshared_Git_objects": 1860,
+  "unshared_commits": 16,
+  "native_fsck_passed": true,
+  "all_object_ids_types_sizes_match": true,
+  "original_packets_retained": true,
+  "completed_utc": "2026-10-26T19:50:15.992356+00:00"
+}

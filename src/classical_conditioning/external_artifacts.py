@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import re
+from functools import lru_cache
 from pathlib import Path
 
 REPOSITORY = Path(__file__).resolve().parents[2]
@@ -27,6 +28,78 @@ def normalized_reference(value: str | Path, repo: Path = REPOSITORY) -> str:
     return text
 
 
+@lru_cache(maxsize=8)
+def _external_moves(index: str, mtime_ns: int, size: int):
+    return json.loads(Path(index).read_text()).get('external_moves', {})
+
+
+@lru_cache(maxsize=8)
+def _external_directories(index: str, mtime_ns: int, size: int):
+    return json.loads(Path(index).read_text()).get('external_directory_moves', {})
+
+
+def relocated_external_directory(value: str | Path, *, repo: Path = REPOSITORY) -> Path:
+    """Translate a recorded directory for supported readers/output defaults.
+
+    File authentication still belongs to resolve_artifact and its caller. This
+    does not create a missing destination or select scientific versions.
+    """
+    text = str(value).replace('\\', '/')
+    if text.startswith('J:/'):
+        text = '/Volumes/JOAQUIM/' + text[3:]
+    elif text.startswith('F:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/'):
+        text = '/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/' + text.split('/outputs/', 1)[1]
+    path = Path(text)
+    if '..' in path.parts:
+        raise ValueError('External directory cannot contain parent traversal')
+    index = repo / 'records/repository-archive/relocations.json'
+    if not index.is_file():
+        return path
+    info = index.stat()
+    moves = _external_directories(str(index), info.st_mtime_ns, info.st_size)
+    for old in sorted(moves, key=len, reverse=True):
+        if text == old or text.startswith(old + '/'):
+            target = Path(moves[old])
+            if not target.is_absolute() or '..' in target.parts:
+                raise ValueError('Invalid external directory relocation')
+            return target / text[len(old):].lstrip('/')
+    return path
+
+
+def relocated_external_path(value: str | Path, *, repo: Path = REPOSITORY,
+                            expected_sha256: str | None = None) -> Path:
+    """Resolve an exact storage move, authenticating each retained identity.
+
+    This is storage compatibility only: no fallback, version choice or missing
+    payload exemption. Published historical inventories keep their original bytes.
+    """
+    path = Path(value)
+    index = repo / 'records/repository-archive/relocations.json'
+    if not index.is_file():
+        return path
+    info = index.stat()
+    moves = _external_moves(str(index), info.st_mtime_ns, info.st_size)
+    seen = set()
+    while str(path) in moves:
+        if str(path) in seen:
+            raise ValueError('External relocation cycle: ' + str(path))
+        seen.add(str(path))
+        move = moves[str(path)]
+        target = Path(move['path'])
+        if (not target.is_absolute() or '..' in target.parts
+                or target.is_symlink()):
+            raise ValueError('Invalid external relocation: ' + str(target))
+        expected = expected_sha256 or move['sha256']
+        if expected != move['sha256']:
+            raise ValueError('External relocation version mismatch: ' + str(path))
+        if not target.is_file():
+            raise FileNotFoundError('Relocated artifact unavailable: ' + str(target))
+        if target.stat().st_size != move['bytes'] or sha256(target) != expected:
+            raise ValueError('Relocated artifact SHA-256/size mismatch: ' + str(target))
+        path = target
+    return path
+
+
 def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
                      repo: Path = REPOSITORY, archive_root: Path | None = None) -> Path:
     """Prefer relocated definitions; allow pending local payloads, then external bytes.
@@ -47,7 +120,8 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
             relative = Path(entry['relative_path'])
             if relative.is_absolute() or '..' in relative.parts:
                 raise ValueError('Invalid verified artifact location')
-            exact = Path(entry['archive_root']) / relative
+            exact = relocated_external_path(Path(entry['archive_root']) / relative,
+                                            repo=repo, expected_sha256=expected_sha256)
             if not exact.is_file():
                 raise FileNotFoundError(f'Artifact unavailable: {value}, SHA-256 {expected_sha256}. Connect JOAQUIM; the verified version is at {exact}.')
             if sha256(exact) != expected_sha256:
@@ -63,7 +137,8 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
                 continue
             root = Path(studies['root'])
             relative = Path(entry['path'])
-            candidate = root / relative
+            candidate = relocated_external_path(root / relative, repo=repo,
+                                                  expected_sha256=expected_sha256 or entry['sha256'])
             if (relative.is_absolute() or '..' in relative.parts
                     or not candidate.resolve().is_relative_to(root.resolve())):
                 raise ValueError('Invalid study source location')
@@ -82,6 +157,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
         visited.add(moved)
         moved = moves[moved]
     candidate = Path(moved) if Path(moved).is_absolute() else repo / moved
+    candidate = relocated_external_path(candidate, repo=repo, expected_sha256=expected_sha256)
     audit = repo / 'records/repository-archive'
     inventory_paths = [*sorted(audit.glob('*/transfer-inventory.json'), reverse=True),
                        audit / 'transfer-inventory.json']
@@ -102,11 +178,13 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
         }
         for prefix, root in external_prefixes.items():
             if key.startswith(prefix + '/'):
-                candidate = root / key[len(prefix) + 1:]
+                candidate = relocated_external_path(root / key[len(prefix) + 1:], repo=repo,
+                                                      expected_sha256=expected_sha256)
                 break
     if not candidate.is_file() and row:
         root = archive_root or Path(os.environ.get('CLASSICAL_CONDITIONING_ARCHIVE_ROOT', inventory['archive_root']))
-        candidate = root / 'payload' / row['path']
+        candidate = relocated_external_path(root / 'payload' / row['path'], repo=repo,
+                                              expected_sha256=expected_sha256 or row['sha256'])
     if not candidate.is_file():
         raise FileNotFoundError(f'Artifact unavailable: {value}. Connect JOAQUIM or supply its verified archive root; no substitute input was selected.')
     # Retained mutable guidance can change after an inventory checkpoint.
@@ -153,6 +231,17 @@ def external_output(relative: str | Path) -> Path:
     # An explicitly configured root must already exist: an unavailable volume is not fabricated.
     if configured and not root.is_dir():
         raise FileNotFoundError(f'Configured external artifact root is unavailable: {root}')
+    if configured:
+        return root / part
+    migrated = relocated_external_directory(root / part)
+    if migrated != root / part:
+        return migrated
+    if part.parts[0] in {'figures', 'shared'}:
+        return root.parent / part
+    if _external_directories(str(REPOSITORY / 'records/repository-archive/relocations.json'),
+            (REPOSITORY / 'records/repository-archive/relocations.json').stat().st_mtime_ns,
+            (REPOSITORY / 'records/repository-archive/relocations.json').stat().st_size):
+        raise ValueError('Use an explicit figure/panel or shared output destination after storage consolidation')
     return root / part
 
 

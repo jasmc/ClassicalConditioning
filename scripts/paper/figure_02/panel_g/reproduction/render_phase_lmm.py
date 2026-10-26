@@ -29,7 +29,7 @@ from statsmodels.stats.multitest import multipletests
 from threadpoolctl import threadpool_limits
 from classical_conditioning.analysis.inference.learning_onset import LearningOnsetConfig, _fit_mixed_model, _fixed_covariance, model_coefficients
 
-ROOT = Path('J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review')
+ROOT = Path('J:/ClassicalConditioning Outputs/figures/figure-02/panels-g-h-i/versions/row3-trial-ratio-review')
 SOURCE = ROOT / '20261009T141045627289Z-delay-boutonly-lme'
 GLOBAL = "log_response ~ log_baseline + C(condition_id, Treatment(reference='control')) * bs(trial_scaled, df=5, degree=3, include_intercept=False)"
 PHASE = "log_response ~ log_baseline + C(condition_id, Treatment(reference='control')) * (C(fit_phase, Treatment(reference='Pre')) + pre_trial + train_b0 + train_b1 + train_b2 + train_b3 + test_b0 + test_b1 + test_b2 + test_b3)"

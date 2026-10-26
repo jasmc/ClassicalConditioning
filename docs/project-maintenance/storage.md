@@ -53,9 +53,19 @@ future consolidation. No folders were moved or pruned by that read-only audit.
 
 The subsequent [implementation record](../../records/repository-history/2026-10-24-storage-organization/implementation.json)
 records the drive-root `README.md` and `START-HERE.html` map and the verified
-quarantine of the interrupted intake staging. Eight original files, including
-AppleDouble metadata, remain recoverable under the archive quarantine; the
+quarantine of the interrupted intake staging. That transfer preserved eight
+original files, including AppleDouble metadata, under the archive quarantine; the
 complete published recording was authenticated before staging removal. No
 scientific bytes were discarded or capacity reclaimed by this same-drive move.
 The root map distinguishes live data, reading artifacts, recovery archives and
 dated handoffs without moving path-bound Figure 2 G dependencies.
+
+On 26 October the author explicitly authorized disposal of those eight redundant
+staging files after another raw/complete-input hash check, exact partial-tracking
+prefix comparison and camera-table equality check. The
+[completed disposition](../../records/repository-archive/intake-quarantine-20261024/disposition.json)
+records 1,723,733,906 logical bytes removed. Complete intake files and original raw
+inputs remain; original transfer inventories and receipts retain their bytes.
+The live recovery index no longer advertises the deleted staging, and the existing
+external-audit policy recognizes only the disposition's exact path/hash/size
+absences. Strict transfer/verify/prune behavior is unchanged.

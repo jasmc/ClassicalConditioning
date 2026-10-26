@@ -1,0 +1,224 @@
+{
+  "date": "2026-10-26",
+  "status": "review complete; no deletion executed",
+  "scope": "Interrupted intake quarantine for recording 20221115_04 only",
+  "quarantined_files": 8,
+  "quarantined_bytes": 1723733906,
+  "authenticated_files": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
+      "bytes": 4096,
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "expected_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
+      "bytes": 4096,
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "expected_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
+      "bytes": 4096,
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "expected_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
+      "bytes": 1648996921,
+      "sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
+      "expected_sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete",
+      "bytes": 4096,
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "expected_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
+      "bytes": 74712409,
+      "sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
+      "expected_sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet",
+      "bytes": 4096,
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "expected_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures",
+      "bytes": 4096,
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "expected_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "matches": true,
+      "role": "quarantined staging"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/camera.parquet",
+      "bytes": 74712375,
+      "sha256": "744be6e40d1fbde22d8be520f0f8c54ac7a1032e525224299625be51b5962d46",
+      "expected_sha256": "744be6e40d1fbde22d8be520f0f8c54ac7a1032e525224299625be51b5962d46",
+      "matches": true,
+      "role": "complete published intake"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/stimulus_events.parquet",
+      "bytes": 3251,
+      "sha256": "a3a83220e0363c5e58b968ac3a573819ef946c8d293da0c4ae002a542d98b745",
+      "expected_sha256": "a3a83220e0363c5e58b968ac3a573819ef946c8d293da0c4ae002a542d98b745",
+      "matches": true,
+      "role": "complete published intake"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/tracking.parquet",
+      "bytes": 1839686870,
+      "sha256": "f110c6b4d672aaffdd1040a818567ea38bb043d5a0983461e6b75d7d488d68c9",
+      "expected_sha256": "f110c6b4d672aaffdd1040a818567ea38bb043d5a0983461e6b75d7d488d68c9",
+      "matches": true,
+      "role": "complete published intake"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/allDelay/20221115_04_delay_black-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam.txt",
+      "bytes": 368362711,
+      "sha256": "1e2fd62a020223a60b47921f3666e92481f99fc2acef17c7dfe9cff09f2e3ac4",
+      "expected_sha256": "1e2fd62a020223a60b47921f3666e92481f99fc2acef17c7dfe9cff09f2e3ac4",
+      "matches": true,
+      "role": "retained raw camera"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/allDelay/20221115_04_delay_black-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+      "bytes": 6464,
+      "sha256": "2a24ffa397fc089196784de42c869983aaf30d4df8405c8938257f006df8d21f",
+      "expected_sha256": "2a24ffa397fc089196784de42c869983aaf30d4df8405c8938257f006df8d21f",
+      "matches": true,
+      "role": "retained raw protocol"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/allDelay/20221115_04_delay_black-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_mp tail tracking.txt",
+      "bytes": 3801488037,
+      "sha256": "de1d3591f0bc828d35fbac5044d25171be35323ec034e1efd2fe968673538bef",
+      "expected_sha256": "de1d3591f0bc828d35fbac5044d25171be35323ec034e1efd2fe968673538bef",
+      "matches": true,
+      "role": "retained raw tracking"
+    }
+  ],
+  "camera_comparison": {
+    "staging_bytes": 74712409,
+    "published_bytes": 74712375,
+    "staging_rows": 8361388,
+    "published_rows": 8361388,
+    "schema_equal_ignoring_metadata": true,
+    "complete_table_equal_ignoring_metadata": true,
+    "matching_rows_compared": 8361388,
+    "matching_batches": 64,
+    "staging_created_by": "parquet-cpp-arrow version 21.0.0",
+    "published_created_by": "parquet-cpp-arrow version 21.0.0",
+    "columns": [
+      "FrameID",
+      "ElapsedTime",
+      "AbsoluteTime"
+    ],
+    "different_schema_metadata_keys": [
+      "source_path"
+    ]
+  },
+  "tracking_comparison": {
+    "staging_bytes": 1648996921,
+    "published_bytes": 1839686870,
+    "staging_footer_hex": "43240400",
+    "staging_has_parquet_footer": false,
+    "staging_parquet_read_error": "ArrowInvalid: Parquet magic bytes not found in footer. Either the file is corrupted or this is not a parquet file.",
+    "entire_staging_is_exact_prefix_of_published": true,
+    "bytes_compared": 1648996921,
+    "first_different_byte_offset": null,
+    "published_rows": 8361388,
+    "published_row_groups": 34
+  },
+  "completion_markers": [
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221115_04_candidate-corrected-v1_complete.json",
+      "sha256": "370166418d69024ca49fb75535ba7ece1d1d8ab41c0d88f54cf0bd3855839749",
+      "status": "complete",
+      "recipe": "tail-candidate-corrected-v1"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221115_04_candidate-temporal-outcomes-corrected-v3_complete.json",
+      "sha256": "f0f6ad450e9b9084f1e2abff351cb54f27fcf0b8a84efa46d91de00e82881dd8",
+      "status": "complete",
+      "recipe": "candidate-temporal-outcomes-corrected-v3"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221115_04_candidate-trial-outcomes-corrected-v1_complete.json",
+      "sha256": "217b3a11278cb6ff2a013433d83495454170e4fcc9b3b38b696a292dae65f98d",
+      "status": "complete",
+      "recipe": "candidate-trial-outcomes-corrected-v1"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221115_04_corrected-preprocess-v1_complete.json",
+      "sha256": "3a52ebf11a5cf3eb9b0dc2f52fd305276cf448098bce1576dbea74689a5e27f4",
+      "status": "complete",
+      "recipe": "corrected-preprocess-v1"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221115_04_movement-candidate-corrected-v2_complete.json",
+      "sha256": "a2eb872dac81ded7cf0191f5d869475aebea8d8844638d9a4b6a7eca31aac5a0",
+      "status": "complete",
+      "recipe": "movement-candidate-corrected-v2"
+    }
+  ],
+  "local_open_handles": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "",
+    "limits": "Only local Mac open handles checked"
+  },
+  "transfer_manifest": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+    "sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761",
+    "preserved": true
+  },
+  "prior_transfer_receipt": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/intake-quarantine-20261024/completed-transfer.json",
+    "sha256": "4de4e3c7d7120b7fcefa92f9e7a248a25f02e3e80f947a9c767d6341cacfa998",
+    "preserved": true
+  },
+  "published_source_manifest": {
+    "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Metadata/20221115_04_source_manifest.json",
+    "sha256": "f159b7467988c2ab1abddae6fa54cf14dc05f43d38124725f93039c1b2c26c80"
+  },
+  "all_checked_files_unchanged": true,
+  "limits": [
+    "No scientific processing or new model fit executed.",
+    "Camera semantic equality does not mean its two Parquet files are byte-identical.",
+    "Earlier quarantine-only retention authorization is distinct from a final disposal decision.",
+    "Published transfer inventories must stay byte-identical; any later authorized disposal needs a separate exact disposition receipt and compatible external-audit recognition."
+  ],
+  "completed_utc": "2026-10-26T18:30:10.957173+00:00",
+  "recommendation": "Dispose of the eight quarantined staging files only after an explicit final disposition; preserve all complete published data, original raw inputs and immutable transfer records.",
+  "intake_lifecycle_evidence": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/intake.py",
+      "sha256": "3f49b4857c9eb10d56c2daddf53e268873a21d8aacc86791e25837d2e9d623d8"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/artifacts.py",
+      "sha256": "4199c10b882367b8947e5c47a1c40f095927aed80e25e90e778a0185372fe3b2"
+    }
+  ]
+}

@@ -1,0 +1,952 @@
+{
+  "date": "2026-10-26",
+  "scope": "Author-authorized dependency check and removal recommendation; no existing caches deleted",
+  "checked_cache_files": 69,
+  "logical_bytes": 42431092,
+  "retain_manifest_bound": [
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791488476000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791488476000000000,
+      "sha256": "e571becb5b3868ccc52646a27dbcc4987fcb618def6ed23d20e544ff793ed39d",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791488480000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791488480000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791488556000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791488556000000000,
+      "sha256": "e571becb5b3868ccc52646a27dbcc4987fcb618def6ed23d20e544ff793ed39d",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791488556000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791488556000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/previous-main/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791490612000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791490612000000000,
+      "sha256": "e571becb5b3868ccc52646a27dbcc4987fcb618def6ed23d20e544ff793ed39d",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791490614000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/build.json"
+      ]
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791490614000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache",
+      "binding_manifests": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/build.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/build.json"
+      ]
+    }
+  ],
+  "recommended_removal_unbound": [
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1790357434000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1790357434000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/a6a56004d44f93e965d47452e61a7f55-le64.cache-9",
+      "bytes": 6608,
+      "mtime_ns": 1790357432000000000,
+      "sha256": "6b3b1ff8626afd5a3d84f3d899ee4d2371363254b7ded8703193f6d7a3d47851",
+      "current_bytes": 6608,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d019000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1790357432000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1790357692000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/4bfc8c27afe1930c4efa48541de2ca92-le64.cache-9",
+      "bytes": 79408,
+      "mtime_ns": 1790357254000000000,
+      "sha256": "fe8c5b9d26d31ff1258b331a45a5f2039807c2150883a18ce8188189cc01065a",
+      "current_bytes": 79408,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000003036010000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1790357254000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1790357254000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1790357254000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1790357698000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1790357698000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1790357698000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1790357698000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791229658000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791229658000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791229662000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791229662000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791328242000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791328242000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791328248000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791328248000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791401844000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791401844000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791401846000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791401846000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791401874000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791401874000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791401874000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791401874000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791402170000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791402170000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791402172000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791402172000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791402358000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791402358000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791402360000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791402360000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791402962000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791402962000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791402962000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791402962000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791403246000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791403246000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791403248000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791403248000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791403470000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791403470000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791403470000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791403470000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791403912000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791403912000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791403912000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791403912000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "bytes": 204,
+      "mtime_ns": 1791404994000000000,
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "current_bytes": 204,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "5369676e61747572653a203861343737",
+      "kind": "cache-directory tag"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "bytes": 6616,
+      "mtime_ns": 1791404994000000000,
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "current_bytes": 6616,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc09000000d819000000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "bytes": 2484328,
+      "mtime_ns": 1791404994000000000,
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "current_bytes": 2484328,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc0900000068e8250000000000",
+      "kind": "fontconfig binary cache"
+    },
+    {
+      "path": "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "bytes": 128,
+      "mtime_ns": 1791404994000000000,
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "current_bytes": 128,
+      "unchanged_size_time": true,
+      "first_16_bytes_hex": "04fc02fc090000008000000000000000",
+      "kind": "fontconfig binary cache"
+    }
+  ],
+  "retained_count": 12,
+  "retained_bytes": 7473828,
+  "recommended_removal_count": 57,
+  "recommended_removal_bytes": 34957264,
+  "binding_manifests": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/build.json",
+      "sha256": "1f9ccc2dc06402d2c64b7f4c19497db8aeba6a424692d931b1a3ca5a13a2eef0",
+      "recorded_version_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z",
+      "bound_candidate_paths": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/CACHEDIR.TAG",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9"
+      ]
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/build.json",
+      "sha256": "e15391f7c529f015e22e94023eefaae7f3ec4844d23083be057e62966e146f0a",
+      "recorded_version_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z",
+      "bound_candidate_paths": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/CACHEDIR.TAG",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9"
+      ]
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/build.json",
+      "sha256": "79d12b9ad684ee876536bfa012f7e079dfb2ec695ce91749baf10bba5d4101e8",
+      "recorded_version_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z",
+      "bound_candidate_paths": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/CACHEDIR.TAG",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9"
+      ]
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/previous-main/build.json",
+      "sha256": "e15391f7c529f015e22e94023eefaae7f3ec4844d23083be057e62966e146f0a",
+      "recorded_version_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z",
+      "bound_candidate_paths": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/CACHEDIR.TAG",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9"
+      ]
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/build.json",
+      "sha256": "1f9ccc2dc06402d2c64b7f4c19497db8aeba6a424692d931b1a3ca5a13a2eef0",
+      "recorded_version_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z",
+      "bound_candidate_paths": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/CACHEDIR.TAG",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9"
+      ]
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/previous-main/build.json",
+      "sha256": "79d12b9ad684ee876536bfa012f7e079dfb2ec695ce91749baf10bba5d4101e8",
+      "recorded_version_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z",
+      "bound_candidate_paths": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/CACHEDIR.TAG",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9"
+      ]
+    }
+  ],
+  "scan_summary": {
+    "files": 11420,
+    "bytes": 2988878410,
+    "roots": [
+      "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs",
+      "/Volumes/JOAQUIM/ClassicalConditioning-Archive",
+      "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009",
+      "/Volumes/JOAQUIM/ClassicalConditioning-PC-20261018"
+    ],
+    "errors": [],
+    "skipped_large_text_files": []
+  },
+  "regeneration_check": {
+    "command": "fc-cache -f -v <temporary copied font directory>",
+    "returncode": 0,
+    "stdout": "Font directories:\n\t/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/font-cache-regeneration-62mnwfwb/fonts\n/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/font-cache-regeneration-62mnwfwb/fonts: caching, new cache contents: 2 fonts, 0 dirs\n/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/font-cache-regeneration-62mnwfwb/cache: cleaning cache directory\n/usr/local/bin/fc-cache: succeeded\n",
+    "stderr": "",
+    "generated_cache_files": [
+      {
+        "name": "CACHEDIR.TAG",
+        "bytes": 200
+      },
+      {
+        "name": "de82c6a452a66db4df74dd6b833ecbb6-le64.cache-8",
+        "bytes": 6432
+      }
+    ],
+    "actual_figure_artwork_unchanged": true,
+    "limits": "Demonstrates regeneration on the installed Mac Fontconfig; does not reproduce old Windows cache bytes or render a paper figure."
+  },
+  "open_handle_check": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "",
+    "limits": "Local Mac only; does not observe a PC or future jobs"
+  },
+  "font_files_preserved": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/fonts/DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/fonts/DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/fonts/DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/fonts/DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-freeze-2026-10-14/DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-freeze-2026-10-14/DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016/source-snapshots/05-DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/source-snapshots/05-DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks/source-snapshots/05-DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/source-snapshots/05-DejaVuSans.ttf",
+      "bytes": 756072,
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "bytes": 704128,
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167"
+    }
+  ],
+  "all_original_cache_files_unchanged": true,
+  "all_checked_fonts_unchanged": true,
+  "reproduction_code": {
+    "path": "scripts/paper/shared/assemble_svg.py",
+    "function": "export_with_inkscape",
+    "behavior": "Creates .fontconfig, configures separate source-font and generated-cache directories; requires actual DejaVuSans font files."
+  },
+  "limits": [
+    "No disconnected PC process visibility.",
+    "Git object history and compressed ZIP contents were not scanned; external text, manifest and live source files were scanned.",
+    "Removal recommendation applies only to the 57 exact listed paths; do not remove font files, fonts.conf, or the twelve version-bound caches.",
+    "Historical build manifests and their hash-bound files remain protected."
+  ]
+}

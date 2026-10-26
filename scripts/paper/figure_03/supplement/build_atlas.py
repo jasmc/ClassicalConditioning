@@ -31,7 +31,7 @@ from classical_conditioning.figure_workspace import Snapshot,publish_state,state
 from classical_conditioning.figures.individual_atlas import render,results_for,decision,feature_value,score_value,COLOURS,HEATMAP_LIMIT
 
 STATE=ROOT/'docs/paper/figures/figure-03/exploratory-state.json'
-G_ROOT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02')
+G_ROOT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure2-G-independent-review/20261014-analysis-02')
 
 
 def source_paths():

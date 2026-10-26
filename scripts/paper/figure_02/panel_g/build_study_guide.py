@@ -45,10 +45,10 @@ from classical_conditioning.external_artifacts import resolve_artifact
 CONTENT = REPO / "docs/paper/figures/figure-02/panel-g/analysis-guide.md"
 NOTEBOOK = REPO / "src/classical_conditioning/reviews/assets/figure2_g_notebook.js"
 OUTPUTS = Path("/Volumes/JOAQUIM/ClassicalConditioning Outputs")
-RUN = OUTPUTS / "ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02"
-ARCHIVE = Path("/Volumes/JOAQUIM/ClassicalConditioning-Archive/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/6ebf338595492b7930145eac9de74232992be59824c4b4a92c1444e2f307d9a3/figure2_delay_all_versions_20261009.html")
-HISTORICAL = Path("/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/legacy-learner-comparison/allDelay-full-v1-distal/comparison.json")
-FROZEN = Path("/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian")
+RUN = OUTPUTS / 'figures/figure-02/panel-g/versions/figure2-G-independent-review/20261014-analysis-02'
+ARCHIVE = Path('/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/retired-source/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/6ebf338595492b7930145eac9de74232992be59824c4b4a92c1444e2f307d9a3/figure2_delay_all_versions_20261009.html')
+HISTORICAL = Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/studies/legacy-learner-comparison/allDelay-full-v1-distal/comparison.json')
+FROZEN = Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/20261009-G-historical-logmedian')
 FROZEN_LOCAL = REPO / "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median"
 
 
@@ -172,7 +172,7 @@ class Guide:
         for key, relative in completion_sources.items():
             self.source(key, "23 October discussion: " + Path(relative).name, REPO / relative)
         self.source("completion-other-chat-summary", "Pasted other-chat GAMM proposal (not an executed analysis)",
-                    OUTPUTS / "current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/completion-other-chat-summary.txt")
+                    OUTPUTS / 'figures/figure-02/panel-g/studies/analysis-guide/sources/completion-other-chat-summary.txt')
         self.source("frozen-definition", "Frozen G scientific definitions and annotations", FROZEN_LOCAL / "manifests/scientific-selection.json",selection["scientific_selection"]["sha256"])
         self.source("freeze-record", "October 9 scoped G freeze record", FROZEN_LOCAL / "manifests/freeze.json",selection["freeze_record"]["sha256"])
         inv = json.loads(self.source("frozen-inventory", "Selected freeze source inventory", FROZEN_LOCAL / "sources/selected-source-inventory.json"))
@@ -263,7 +263,7 @@ class Guide:
         for key,title,s in variants:
             self.saved_figure(key,title,Path(s["working_svg"]["path"]),s["working_svg"]["sha256"],"Separate unfrozen presentation of the saved adjusted-response results; calibration remains unresolved.",s["legend"])
         self.source("asterisk-decisions", "Exact meaning and qualifying trials of the new asterisk bracket", Path(ex["draft"]["asterisk_decisions"]["path"]), ex["draft"]["asterisk_decisions"]["sha256"])
-        dense = OUTPUTS / "current/reviews/figure-02-g-exploratory-20261016-asterisks"
+        dense = OUTPUTS / 'figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-asterisks'
         dense_sources = {x['path']:x['sha256'] for x in read_json(dense/"render-outputs.json")}
         # This is an unpublished historical preview. Do not give it selected authority.
         self.source("dense-output-record", "Dense-star preview output record", dense/"render-outputs.json")

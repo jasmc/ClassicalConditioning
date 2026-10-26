@@ -1,0 +1,418 @@
+{
+  "date": "2026-10-26",
+  "status": "comparison and independent preservation complete; original handoff packets retained",
+  "author_request": "Compare dated PC/Mac packets with Git history, identify unpreserved work before retiring redundant copies; preserve required Figure 2 G exports.",
+  "maintained_HEAD": "110fe14371a3f9c0a893e66805205491b6413f6e",
+  "source_HEADs": {
+    "pc": "b6ce3af1a3996ee8215b4773cec772d410aa027a",
+    "mac": "e702bb8a2204c1ba563e9d4f6cc629a618f7137e"
+  },
+  "source_HEADs_are_ancestors": {
+    "pc": true,
+    "mac": true
+  },
+  "source_comparison": {
+    "pc": {
+      "working_files": 848,
+      "working_bytes": 76288770,
+      "categories": {
+        "exact_bytes_in_reachable_Git_history": 848
+      },
+      "captured_HEAD_states": {
+        "matches_captured_HEAD": 839,
+        "differs_from_captured_HEAD": 5,
+        "untracked_at_captured_HEAD": 4
+      },
+      "current_exact": 648,
+      "exact_other_packet": 66,
+      "git_metadata_files": 5938,
+      "git_metadata_bytes": 624899550
+    },
+    "mac": {
+      "working_files": 1351,
+      "working_bytes": 555327589,
+      "categories": {
+        "text_in_reachable_Git_after_CRLF_to_LF_only": 737,
+        "exact_bytes_in_reachable_Git_history": 600,
+        "exact_registered_external_recovery": 8,
+        "no_independent_exact_recovery_yet_identified": 3,
+        "exact_current_working_file": 3
+      },
+      "captured_HEAD_states": {
+        "differs_from_captured_HEAD": 451,
+        "untracked_at_captured_HEAD": 512,
+        "matches_captured_HEAD": 388
+      },
+      "current_exact": 20,
+      "exact_other_packet": 71,
+      "git_metadata_files": 4164,
+      "git_metadata_bytes": 652314158
+    }
+  },
+  "PC_prior_48_flagged_files": {
+    "files_checked": 48,
+    "all_exact_bytes_in_reachable_history": true
+  },
+  "PC_captured_dirty_files": [
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+      "state": "differs_from_captured_HEAD",
+      "Git_blob": "22651d5d70f6b22bc29b1e03f9c54e7a15862cf8",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "docs/running-analysis/README.md",
+      "state": "differs_from_captured_HEAD",
+      "Git_blob": "cf9657a664845594bb39888572805c870120143f",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "docs/running-analysis/pc-handoff-2026-10-18.md",
+      "state": "untracked_at_captured_HEAD",
+      "Git_blob": "3c616ab0ccf1ff201ba83b2c979931eac7adea5f",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "records/figure-reviews/figure-02/g-analysis-guide-20261017.json",
+      "state": "differs_from_captured_HEAD",
+      "Git_blob": "d207e94ae7b9fabd0b6d46dc27a55aa9f319c777",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "records/figure-reviews/figure-02/g-analysis-guide-links-20261018.json",
+      "state": "untracked_at_captured_HEAD",
+      "Git_blob": "541f0ab69532f90d50a1a83012769e7ffa677bae",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json",
+      "state": "differs_from_captured_HEAD",
+      "Git_blob": "1e86c863086c695c4f5a00bc6ea98797cb278c60",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "records/repository-history/2026-10-18-pc-handoff/readiness-audit.json",
+      "state": "untracked_at_captured_HEAD",
+      "Git_blob": "21460a0d81aa6818d12260a0dae5f3ef4ece3465",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "scripts/repair_figure3_guide_downloads.py",
+      "state": "untracked_at_captured_HEAD",
+      "Git_blob": "6018a5818bbee2ab43e52c8009837570b414243c",
+      "preserved_in_reachable_history": true
+    },
+    {
+      "path": "to_implement.md",
+      "state": "differs_from_captured_HEAD",
+      "Git_blob": "3380e1097ff8c4fd0ded200395f6b67deaf0aa0a",
+      "preserved_in_reachable_history": true
+    }
+  ],
+  "PC_Git_integrity": {
+    "objects": 8506,
+    "objects_absent_from_maintained_Git": 0,
+    "fsck_passed": true
+  },
+  "Mac_Git_preservation": {
+    "source_objects": 5172,
+    "objects_absent_from_maintained_Git": 1860,
+    "unshared_commits": [
+      {
+        "oid": "00a4cb19bc59c0febccab78ee7bb7c88d6c6f0e5",
+        "parents": [
+          "4d8a5b463b7301b1623aa358883287265a9f5180"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-08T21:12:55+01:00",
+        "subject": "index on refactor/local-analysis-pipeline: 4d8a5b4 Refactor code structure for improved readability and maintainability",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "1ccd9876c023984e34dde1c0f92a314a51af0fe2",
+        "parents": [
+          "b0dfcb345fc185343802f6072ff7b3740498345b"
+        ],
+        "author": "Joaquim Ant\u00f3nio SM Contradan\u00e7as",
+        "author_date": "2026-09-08T08:57:20+01:00",
+        "subject": "Squashed snapshot of refactor/local-analysis-pipeline",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "20e82df5c8f34fc1b4b9f077c55eb788f178f76d",
+        "parents": [
+          "b0dfcb345fc185343802f6072ff7b3740498345b"
+        ],
+        "author": "Joaquim Ant\u00f3nio SM Contradan\u00e7as",
+        "author_date": "2026-09-03T11:13:59+01:00",
+        "subject": "Squashed snapshot of refactor/local-analysis-pipeline",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "268de93d7388df7f82bbe158c267097edbeae1cc",
+        "parents": [
+          "fc4a101a0ae102cc275b428e691a4dc0e971e014"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-14T23:21:34+01:00",
+        "subject": "feat: simplify candidate vigor metrics",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "3a8cff8ee4ca98ec6830396d5270542d6e2a0ed3",
+        "parents": [
+          "4d8a5b463b7301b1623aa358883287265a9f5180",
+          "00a4cb19bc59c0febccab78ee7bb7c88d6c6f0e5",
+          "54f6abb687be123d6cf16656098e1e6024332a69"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-08T21:12:55+01:00",
+        "subject": "On refactor/local-analysis-pipeline: temporary stash before checkout home_tmp",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "443e04af2b0da44fcfbf56da8bf4f83a13ae204a",
+        "parents": [
+          "aff48b99c77aab1f119a071f0334c3bcd9114b09",
+          "902c2f634c87c06284c6ddbf2b2caf778f027145",
+          "e78921dc94dd120f761286cf0a4e79d7182a40c2"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-08T21:09:05+01:00",
+        "subject": "On home_tmp: before merging 8b51164",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "54f6abb687be123d6cf16656098e1e6024332a69",
+        "parents": [],
+        "author": "Joaquim",
+        "author_date": "2026-09-08T21:12:55+01:00",
+        "subject": "untracked files on refactor/local-analysis-pipeline: 4d8a5b4 Refactor code structure for improved readability and maintainability",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "60aa3b204d888c308880f8eb6765db4211086aff",
+        "parents": [
+          "daec7d24521080fbc3f0846e559fc451570943d0"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-10-06T22:11:48+01:00",
+        "subject": "Freeze tail bend angular speed as the paper activity metric",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "615d0484bc466b4bef9d56b26c14600154e583b9",
+        "parents": [
+          "f3836755044ee84c7c7aca90041a87cd09fa7808"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-14T22:13:22+01:00",
+        "subject": "feat: add six-metric cohort exploration",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "746a1952e2689a40c0c47dc768ea74e0f23fa848",
+        "parents": [
+          "4d8a5b463b7301b1623aa358883287265a9f5180",
+          "8b51164bf9a34c087d6b21612985402144f7811c"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-08T21:14:28+01:00",
+        "subject": "Merge 8b51164 into refactor/local-analysis-pipeline",
+        "reachable_from_mac_refs": true
+      },
+      {
+        "oid": "902c2f634c87c06284c6ddbf2b2caf778f027145",
+        "parents": [
+          "aff48b99c77aab1f119a071f0334c3bcd9114b09"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-08T21:09:05+01:00",
+        "subject": "index on home_tmp: aff48b9 Refactor candidate and legacy runner pipelines to improve cohort handling; normalize camera column headers in intake process; add tests for legacy camera header normalization",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "a4e17e30ac47b3fc481cf2bab6f113beac75c49d",
+        "parents": [
+          "e26b0450cb7741696847b966f442b0c01b8c66b6"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-24T19:39:42+01:00",
+        "subject": "index on develop: e26b045 feat(workflow): add resumable allDelay technical runner",
+        "reachable_from_mac_refs": true
+      },
+      {
+        "oid": "bafb8fc1ad08b0c0aa6ed38281e17d392e517fd3",
+        "parents": [
+          "e26b0450cb7741696847b966f442b0c01b8c66b6",
+          "a4e17e30ac47b3fc481cf2bab6f113beac75c49d",
+          "f5e798963c7c6edd0c2d6cc3093684b87eeb72b1"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-09-24T19:39:42+01:00",
+        "subject": "On develop: pre-figure4-merge local work 2026-09-24",
+        "reachable_from_mac_refs": true
+      },
+      {
+        "oid": "dae6049da859d4be89d4567999a8431fd41a803d",
+        "parents": [
+          "daec7d24521080fbc3f0846e559fc451570943d0"
+        ],
+        "author": "Joaquim",
+        "author_date": "2026-10-06T22:11:48+01:00",
+        "subject": "Freeze tail bend angular speed as the paper activity metric",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "e78921dc94dd120f761286cf0a4e79d7182a40c2",
+        "parents": [],
+        "author": "Joaquim",
+        "author_date": "2026-09-08T21:09:05+01:00",
+        "subject": "untracked files on home_tmp: aff48b9 Refactor candidate and legacy runner pipelines to improve cohort handling; normalize camera column headers in intake process; add tests for legacy camera header normalization",
+        "reachable_from_mac_refs": false
+      },
+      {
+        "oid": "f5e798963c7c6edd0c2d6cc3093684b87eeb72b1",
+        "parents": [],
+        "author": "Joaquim",
+        "author_date": "2026-09-24T19:39:42+01:00",
+        "subject": "untracked files on develop: e26b045 feat(workflow): add resumable allDelay technical runner",
+        "reachable_from_mac_refs": true
+      }
+    ],
+    "independent_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery",
+    "transfer_manifest": "records/repository-archive/handoff-git-history-20261026/transfer-inventory.json",
+    "transfer_manifest_sha256": "05246f32eaa2749be59c8b00fbe1bba1d0df4a9a8d70c04d0a4bae5534899a7b",
+    "all_native_object_IDs_types_sizes_verified": true,
+    "native_fsck_passed": true,
+    "operational_control_backup": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/mac-git-controls.zip",
+    "operational_control_entries": 82
+  },
+  "Mac_original_transfer_exceptions": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/.git/index",
+      "expected_sha256": "7430c032c3d5a464e3791e2945555d9c84f8358cf81aad5804fceb00bc67a5ed",
+      "actual_sha256": "58b5e3619e2c69cab3f952b41e451e4710ed5c7555825c452a336a6a5044d2bd",
+      "exists": true,
+      "group": "repository",
+      "classification": "pre-existing Git index change, unchanged throughout this audit and preserved byte-for-byte in controls ZIP; cause not inferred"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+      "expected_sha256": "5e2c9bfa0cbc7087978ab19181007854f4151f37271f6a024be7f9612868f7af",
+      "actual_sha256": null,
+      "exists": false,
+      "group": "repository",
+      "classification": "exact previously authorized 15 October deletion"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png",
+      "expected_sha256": "64795fe38aaa317311dcc3fa2ac0cdc888515de68d48807af1ca189a1860c693",
+      "actual_sha256": null,
+      "exists": false,
+      "group": "repository",
+      "classification": "exact previously authorized 15 October deletion"
+    }
+  ],
+  "new_exact_packaging_recovery_aliases": [
+    "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/src/classical_conditioning.egg-info/PKG-INFO",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/src/classical_conditioning.egg-info/SOURCES.txt",
+    "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/src/classical_conditioning.egg-info/requires.txt"
+  ],
+  "required_G_exports_unchanged": [
+    {
+      "scope": "Figure 2 G selected freeze_record",
+      "original": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.freeze.json",
+      "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.freeze.json",
+      "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+      "result": "passed"
+    },
+    {
+      "scope": "Figure 2 G selected svg",
+      "original": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\Fig2_G_Historical_LogMedian.svg",
+      "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.svg",
+      "sha256": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979",
+      "result": "passed"
+    },
+    {
+      "scope": "Figure 2 G selected scientific_selection",
+      "original": "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\scientific-selection.json",
+      "resolved": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/scientific-selection.json",
+      "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+      "result": "passed"
+    }
+  ],
+  "full_evidence": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/comparison.json",
+      "sha256": "63ec8e7ced63fa1dbb9b51ee2ab2edf37ec3a33854a90c67d1dff3d17a775f38",
+      "bytes": 3754712
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/current-git-objects.txt",
+      "sha256": "24f77a67ef38599b9702614b5dd8562f036747656e401f0338fdd3dd38b5a8c9",
+      "bytes": 482362
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/mac-git-controls.json",
+      "sha256": "bbd6ac9e88286087d74a2caedecf41e42b91b43e064f1d528e36c4a9c3313eb0",
+      "bytes": 16147
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/mac-git-controls.zip",
+      "sha256": "8869bb00b4292fd8ef53fe8294ec01a1722fd32b3d2abb71efad057a12292c95",
+      "bytes": 124106
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/mac-git-objects.txt",
+      "sha256": "39fd68aee65c464c5cf05f4cc8463d713153376982d16d4290415fb7002fcd94",
+      "bytes": 264732
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/mac-only-object-candidates.json",
+      "sha256": "cb417092af5d8c44cb2d88880f3e695926796a8e5ceed0edcc5c879b5ced1c70",
+      "bytes": 148682
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/mac-status-with-filemode-disabled.txt",
+      "sha256": "98404e10a3924e2fdedd5b95679ff2ea82d633c8c0f5286b53b939735bff3793",
+      "bytes": 77411
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/mac-unshared-commits.json",
+      "sha256": "86513a0953426abbc12367b4519bfc0d19cf8ef0eacce98560eaa64aa2e032ef",
+      "bytes": 5858
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/pc-git-integrity.json",
+      "sha256": "2e590a3c401c700f6d2afa2e391302b8ad77d5d7e4dd6ed5df51646a0bd3d7da",
+      "bytes": 2011
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/pc-git-objects.txt",
+      "sha256": "b3be5c9bd33f2a7efb9b5b82db7ed979aa4ef1b32d01a586e17c8846f2d74762",
+      "bytes": 434175
+    }
+  ],
+  "source_packets_unchanged": true,
+  "source_files_deleted": 0,
+  "code_merged": false,
+  "scientific_selections_changed": false,
+  "retirement_disposition": "Retain both original transport packets. Mac snapshot is not a redundant history copy; unique historical commits/stashes and raw CRLF source identities are preserved. PC code content is a retirement candidate, but the original ZIP is its checksum-bound portable recovery packet; a smaller replacement should be prepared and verified before any future retirement.",
+  "limits": [
+    "Being in Git history proves content recoverability, not that every old idea was semantically incorporated into current science.",
+    "Mac Git index differs from its original transfer checksum; this predates the audit and its cause remains unresolved. Exact current index bytes were preserved.",
+    "No PC runtime or scientific model was executed. New preservation pack retains all readable Git objects; original .git serialization and working files remain in the untouched handoff."
+  ],
+  "completed_utc": "2026-10-26T19:54:03.859353+00:00",
+  "final_validation": {
+    "preservation_archive_verified_files": 8,
+    "new_packaging_aliases_verified": 3,
+    "global_structure_issues": [
+      "Uncatalogued script: maintenance/storage_migration.py"
+    ],
+    "unavailable_external_evidence": [],
+    "verified_archive_transactions": 14,
+    "global_check_note": "The only reported issue is a newly appeared maintenance/storage_migration.py script outside this task, left untouched. All scanned external transactions verified."
+  }
+}

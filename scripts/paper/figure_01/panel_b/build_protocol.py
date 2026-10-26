@@ -38,8 +38,7 @@ SVG = "http://www.w3.org/2000/svg"
 ET.register_namespace("", SVG)
 
 OUTPUT_DIRECTORY = Path(
-    "J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/"
-    "schemes"
+    'J:/ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c/versions/source-schemes'
 )
 CS_COLOR = "#0d7f3c"
 US_COLOR = "#78358c"

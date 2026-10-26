@@ -1,0 +1,227 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User: do it. you dont need my approval, in response to removing the five checked redundant SSD-root SVGs while retaining their descriptively named source copies and the PNGs.",
+  "scope": "Only Asset 5.svg, Asset 6.svg, Asset 7.svg, Asset 10.svg and Asset 11.svg at the JOAQUIM root; retain named exact-byte Figure 1 source artwork.",
+  "status": "complete",
+  "targets": [
+    {
+      "path": "/Volumes/JOAQUIM/Asset 10.svg",
+      "retained_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelB_ConditionTiming_source.svg",
+      "sha256": "210a42385a4094bdece3eecfb8ddc4a26c4c837d6f75db9abf30f656b0eace79",
+      "bytes": 5893,
+      "direct_byte_comparison": "identical",
+      "original_references": [
+        "/Volumes/JOAQUIM/Asset 10.svg",
+        "J:/Asset 10.svg"
+      ],
+      "identity_before": [
+        16777228,
+        480946,
+        5893,
+        1790353274000000000,
+        1790353274000000000
+      ],
+      "retained_identity_before": [
+        16777228,
+        481200,
+        5893,
+        1790353274000000000,
+        1790353274000000000
+      ],
+      "deleted": true,
+      "retained_sha256_after": "210a42385a4094bdece3eecfb8ddc4a26c4c837d6f75db9abf30f656b0eace79"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 6.svg",
+      "retained_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelA_Setup_source.svg",
+      "sha256": "1df818d00c9d7788081b8a2325d3da6b6c5fd162ebc6374dcef43db72a95edd3",
+      "bytes": 18077,
+      "direct_byte_comparison": "identical",
+      "original_references": [
+        "/Volumes/JOAQUIM/Asset 6.svg",
+        "J:/Asset 6.svg"
+      ],
+      "identity_before": [
+        16777228,
+        480940,
+        18077,
+        1790352860000000000,
+        1790352860000000000
+      ],
+      "retained_identity_before": [
+        16777228,
+        481203,
+        18077,
+        1790352860000000000,
+        1790352860000000000
+      ],
+      "deleted": true,
+      "retained_sha256_after": "1df818d00c9d7788081b8a2325d3da6b6c5fd162ebc6374dcef43db72a95edd3"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 7.svg",
+      "retained_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_ProtocolAlternative_source.svg",
+      "sha256": "5a08b20f20b3a41da7e9bf3be1fe3ce3eedbeadf58358d120b807732d89ac27f",
+      "bytes": 35705,
+      "direct_byte_comparison": "identical",
+      "original_references": [
+        "/Volumes/JOAQUIM/Asset 7.svg",
+        "J:/Asset 7.svg"
+      ],
+      "identity_before": [
+        16777228,
+        480941,
+        35705,
+        1790352920000000000,
+        1790352920000000000
+      ],
+      "retained_identity_before": [
+        16777228,
+        481204,
+        35705,
+        1790352920000000000,
+        1790352920000000000
+      ],
+      "deleted": true,
+      "retained_sha256_after": "5a08b20f20b3a41da7e9bf3be1fe3ce3eedbeadf58358d120b807732d89ac27f"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 11.svg",
+      "retained_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimeline_source.svg",
+      "sha256": "4e2abc61c4d28d43f8407606e99d7a9f5b364b4c943f6468b8efbdc915174e85",
+      "bytes": 47143,
+      "direct_byte_comparison": "identical",
+      "original_references": [
+        "/Volumes/JOAQUIM/Asset 11.svg",
+        "J:/Asset 11.svg"
+      ],
+      "identity_before": [
+        16777228,
+        480947,
+        47143,
+        1790353420000000000,
+        1790353420000000000
+      ],
+      "retained_identity_before": [
+        16777228,
+        481201,
+        47143,
+        1790353420000000000,
+        1790353420000000000
+      ],
+      "deleted": true,
+      "retained_sha256_after": "4e2abc61c4d28d43f8407606e99d7a9f5b364b4c943f6468b8efbdc915174e85"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 5.svg",
+      "retained_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimelineAlternative_source.svg",
+      "sha256": "0221de415b2f0e302ee94f8e8f84076ad3ebb38addd5db1950da74b71b979976",
+      "bytes": 49173,
+      "direct_byte_comparison": "identical",
+      "original_references": [
+        "/Volumes/JOAQUIM/Asset 5.svg",
+        "J:/Asset 5.svg"
+      ],
+      "identity_before": [
+        16777228,
+        480948,
+        49173,
+        1790353506000000000,
+        1790353506000000000
+      ],
+      "retained_identity_before": [
+        16777228,
+        481202,
+        49173,
+        1790353506000000000,
+        1790353506000000000
+      ],
+      "deleted": true,
+      "retained_sha256_after": "0221de415b2f0e302ee94f8e8f84076ad3ebb38addd5db1950da74b71b979976"
+    }
+  ],
+  "protected": [
+    {
+      "path": "/Volumes/JOAQUIM/Asset 10.png",
+      "sha256": "57c9bdd1c82a9a1d01d4fc3008348aca8abb052abc1cb5465296006c2bed4c7b",
+      "role": "root PNG preview",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 6.png",
+      "sha256": "4e0db117a1d520fb23b15a53b7cfdb2cc11d499211ef0baa45515172d04a36bd",
+      "role": "root PNG preview",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 7.png",
+      "sha256": "5676b02e0e61fcb43dc8a53c048b9af7e080cda03fe186fe8566abb2600a7363",
+      "role": "root PNG preview",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 11.png",
+      "sha256": "c8328de16b23d33e0dbc9dffab8ef29c3d9b49a5c76e56d0969dcabdc626ac36",
+      "role": "root PNG preview",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Asset 5.png",
+      "sha256": "91bfa160ecc5b1f1c58fbf7fb9dd22aa17bb61f09814b4ac98a7e18a7a3ddace",
+      "role": "root PNG preview",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+      "sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c",
+      "role": "current presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json",
+      "sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6",
+      "role": "current presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+      "sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c",
+      "role": "current presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-a/current-state.json",
+      "sha256": "936c94742718f29b064f84440e62f7010d180f5483e5267f7ea698cd9940e82d",
+      "role": "current presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "sha256": "9833850b3d35ece4a8819c9e54c94efb1776629bd9caa59e305101b1a88d4da8",
+      "role": "current presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/main-paper-current-state.json",
+      "sha256": "c41ce89fc56e05ed5c5d4ec9ad264a7c5f95550d32ff3935bafe76d84f375605",
+      "role": "current presentation authority",
+      "unchanged_after": true
+    }
+  ],
+  "previous_indexes": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition-originals/verified-artifact-locations.json",
+      "sha256": "35cc6e274950d911f9bdfddc05833fc07098c83f579ad7506d4b8008c0680e76"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition-originals/relocations.json",
+      "sha256": "a1900bc24371ed3eca927b83e8c0568740aaf05450b8807269144fb474cf2c11"
+    }
+  ],
+  "reference_check": "Repository and external text/SVG searches found historical provenance and inventories. Root/J: aliases are migrated to exact-byte named Figure 1 sources. C:/Users/joaquim/Desktop/Asset 7.svg is a different Figure 2 reference and is not redirected.",
+  "open_local_handles": 0,
+  "completed_utc": "2026-10-26T18:50:19.953046+00:00",
+  "deleted_file_count": 5,
+  "deleted_bytes": 155991,
+  "all_named_sources_and_pngs_retained": true
+}

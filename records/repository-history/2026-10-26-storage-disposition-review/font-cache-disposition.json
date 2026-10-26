@@ -1,0 +1,699 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User: do it, following the explicit proposal to delete only the 57 checked cache files, keeping the twelve manifest-bound caches and actual fonts.",
+  "assessment_path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/font-cache-assessment.json",
+  "assessment_sha256": "106c09014924fc4f98f88b723a5eb3c1c2b752e498979f676ba2b6c1ab148c56",
+  "status": "complete",
+  "scope": "Only the 57 exact named cache files; directories, font files, fonts.conf, twelve manifest-bound caches and manifests retained.",
+  "files": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/a6a56004d44f93e965d47452e61a7f55-le64.cache-9",
+      "sha256": "6b3b1ff8626afd5a3d84f3d899ee4d2371363254b7ded8703193f6d7a3d47851",
+      "bytes": 6608,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/4bfc8c27afe1930c4efa48541de2ca92-le64.cache-9",
+      "sha256": "fe8c5b9d26d31ff1258b331a45a5f2039807c2150883a18ce8188189cc01065a",
+      "bytes": 79408,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/font-cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "bytes": 204,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/d20655a5d4f85ce1f3b1303b5a73da47-le64.cache-9",
+      "sha256": "82648b01a85548b40dcde9deaa7e06643ad29657c97f46598625ab04ae81f248",
+      "bytes": 6616,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "bytes": 2484328,
+      "status": "removed"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "bytes": 128,
+      "status": "removed"
+    }
+  ],
+  "protected": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+      "sha256": "e571becb5b3868ccc52646a27dbcc4987fcb618def6ed23d20e544ff793ed39d",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+      "sha256": "e571becb5b3868ccc52646a27dbcc4987fcb618def6ed23d20e544ff793ed39d",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/CACHEDIR.TAG",
+      "sha256": "f6fbc1b264fe758459132824860391ac0da3ad4261064328369be95592cae57b",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/064e48e1f98504c8e408f2311f83410e-le64.cache-9",
+      "sha256": "e571becb5b3868ccc52646a27dbcc4987fcb618def6ed23d20e544ff793ed39d",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/698e8de9c79e614b8d6a96b5ce9682e6-le64.cache-9",
+      "sha256": "46941260233f66f6a312d03250d1666f043706932f6ea2a729af20aad1d76de7",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/cache/6f737b9c0224a84240bce2a258aec8c6-le64.cache-9",
+      "sha256": "186936b37a3837cc6b43012eb2395bf8ad260f88d040c0d973a1db39d7a2fa08",
+      "role": "manifest-bound cache",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/fonts/DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/fonts/DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/fonts/DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/fonts/DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-freeze-2026-10-14/DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-freeze-2026-10-14/DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016/source-snapshots/05-DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/source-snapshots/05-DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks/source-snapshots/05-DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/source-snapshots/05-DejaVuSans.ttf",
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/source-snapshots/06-DejaVuSans-Bold.ttf",
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "role": "actual font",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/build.json",
+      "sha256": "1f9ccc2dc06402d2c64b7f4c19497db8aeba6a424692d931b1a3ca5a13a2eef0",
+      "role": "historical manifest",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/build.json",
+      "sha256": "e15391f7c529f015e22e94023eefaae7f3ec4844d23083be057e62966e146f0a",
+      "role": "historical manifest",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/build.json",
+      "sha256": "79d12b9ad684ee876536bfa012f7e079dfb2ec695ce91749baf10bba5d4101e8",
+      "role": "historical manifest",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/previous-main/build.json",
+      "sha256": "e15391f7c529f015e22e94023eefaae7f3ec4844d23083be057e62966e146f0a",
+      "role": "historical manifest",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/build.json",
+      "sha256": "1f9ccc2dc06402d2c64b7f4c19497db8aeba6a424692d931b1a3ca5a13a2eef0",
+      "role": "historical manifest",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/previous-main/build.json",
+      "sha256": "79d12b9ad684ee876536bfa012f7e079dfb2ec695ce91749baf10bba5d4101e8",
+      "role": "historical manifest",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/.fontconfig/fonts.conf",
+      "sha256": "5917f5606c317903589683d0445650e4161857c281a37feb6dd705434fc1f89d",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panels/.fontconfig/fonts.conf",
+      "sha256": "f522b19577992308a1ebe635d0e9dd379240bfc558e65f88aa8952f28c09a1ce",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/traces/.fontconfig/fonts.conf",
+      "sha256": "2ef9cf471fc73b4c13eebece9a90b1ac433ad56563052b5ca58a52a0f6340813",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/cadence-review-v5-20261007/.fontconfig/fonts.conf",
+      "sha256": "8bb42c0cceb71b29af8fb01513568ee7771be5794b8d81b4b3166765e4313330",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-20261007/.fontconfig/fonts.conf",
+      "sha256": "0e0aba688c308fafde6fdc55b04a26a2227fbb0e7b8481781677496e9f8b812e",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/trial-centred-managua-review-20261007/.fontconfig/fonts.conf",
+      "sha256": "0c075fca34987ad89c780c2eb30f94621c8eab1bad0733b10f0da0e5f86305d1",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis025-20261007/.fontconfig/fonts.conf",
+      "sha256": "85ac2a07bd0650319640b88c4937f339c2bd80645c11ef83c42031b7438cad74",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-axis050-20261007/.fontconfig/fonts.conf",
+      "sha256": "13deb5801dbfcdb04588c435f8641316e938321b2da3fab87c16683edcf3b70d",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-zeroaligned-20261007/.fontconfig/fonts.conf",
+      "sha256": "be8d95b8b810cb3fd993f3a6a614abbe8d36c306df7974f08d56c893bfa0e24b",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-polished-20261007/.fontconfig/fonts.conf",
+      "sha256": "c0214bdff3323810b4ab52731d57d19270969456d58ca5d49c3cd0b91d08e0a2",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-f-binned-bars-rawzoom-20261007/.fontconfig/fonts.conf",
+      "sha256": "55c7368f2fbc44a5993e2d8ff7b0c4ae5beaa4c5070d7a983a1698ec35a9ebd4",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-individual-bout-means-20261007/.fontconfig/fonts.conf",
+      "sha256": "eec3ecdaf70f48d4b26da44e2c7d305c2de06768791c8e193a8ec9dbc1b51286",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/panel-e-scaled-bout-means-full-duration-20261007/.fontconfig/fonts.conf",
+      "sha256": "2e7e036f2727b39a220b3da158fe4c3e45d1f4ce51bd8aee9e2a286e23535bde",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194054627608Z/.fontconfig/fonts.conf",
+      "sha256": "230715911953872455896186c0927fd3ce5013c2a6490d5d2049a513173cdca6",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T194233909309Z/.fontconfig/fonts.conf",
+      "sha256": "654a8634716b2e9b6f6cac0498673cd6fdf9648a56e75af87775f8e91ecaa8b5",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/versions/20261008T201649027520Z/.fontconfig/fonts.conf",
+      "sha256": "8c6b6b1e2f12a32ed4d6f3e881f04d46f87cae51f6e496f16f8e1f086ad8b998",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+      "sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json",
+      "sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+      "sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-a/current-state.json",
+      "sha256": "936c94742718f29b064f84440e62f7010d180f5483e5267f7ea698cd9940e82d",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "sha256": "9833850b3d35ece4a8819c9e54c94efb1776629bd9caa59e305101b1a88d4da8",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/main-paper-current-state.json",
+      "sha256": "c41ce89fc56e05ed5c5d4ec9ad264a7c5f95550d32ff3935bafe76d84f375605",
+      "role": "configuration or presentation authority",
+      "unchanged_after": true
+    }
+  ],
+  "open_handles": {
+    "local_matching_handles": 0,
+    "returncode": 1,
+    "limits": "Local Mac only"
+  },
+  "removed_files": 57,
+  "logical_bytes_removed": 34957264,
+  "all_protected_unchanged": true,
+  "completed_utc": "2026-10-26T18:23:18.792707+00:00"
+}

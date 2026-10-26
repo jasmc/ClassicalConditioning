@@ -26,7 +26,7 @@ LAYOUT = REPO / "configs/paper-figures/figure2-assembly.json"
 DEFAULT_ROOTS = [
     REPO,
     REPO.parent / "ClassicalConditioningPaper",
-    Path("J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs"),
+    Path('J:/ClassicalConditioning Outputs/figures/figure-02'),
     Path("J:/Digested Data"),
     Path("J:/Raw Data"),
     Path("F:/Digested Data"),

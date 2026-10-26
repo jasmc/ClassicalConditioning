@@ -31,7 +31,7 @@ from classical_conditioning.analysis.inference.learning_onset import LearningOns
 from scripts.paper.figure_02.panel_g.reproduction.render_legacy_metric_lme import bootstrap_trajectories, adjust_family, BLOCK_FORMULA, LOCAL_FORMULA, BLOCK_ORDER, stars
 from scripts.paper.figure_02.panel_g.reproduction.render_phase_lmm import phase_features, contrasts, adequacy, PHASE, GLOBAL
 
-ROOT=Path('J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review')
+ROOT=Path('J:/ClassicalConditioning Outputs/figures/figure-02/panels-g-h-i/versions/row3-trial-ratio-review')
 SOURCE=ROOT/'20261009T141045627289Z-delay-boutonly-lme'
 PHASE_SOURCE=ROOT/'20261009T144413666038Z-delay-phase-lmm'
 PANEL_SOURCE=ROOT.parent/'sources/20261008T200908002798Z/Fig2_PanelG_allDelay_pre15.figure.json'

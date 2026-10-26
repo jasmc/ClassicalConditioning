@@ -15,7 +15,7 @@ from pathlib import Path
 
 from scripts.paper.shared.assemble_svg import isolate_svg, remove_exact_text, repair_source_typography
 
-ROOT = Path("J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes")
+ROOT = Path('J:/ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c/versions/source-schemes')
 SOURCE = ROOT / "Fig1_PanelA_Setup_source.svg"
 OUTPUT = ROOT / "Fig1_PanelA_Setup_DejaVuSans_v1.svg"
 

@@ -23,7 +23,7 @@ from classical_conditioning.command_provenance import command_sources
 from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, state_lock, publish_state, StaleFigureState
 from classical_conditioning.figures.layout_frames import assess, POLICY, COLLECTOR
 STATE=ROOT/'docs/paper/figures/main-paper-current-state.json'
-OUTPUT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html')
+OUTPUT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures.html/main-paper-figures.html')
 DEFAULT_FIGURES=[{'figure_id':f'fig{n}','state':f'docs/paper/figures/figure-{n:02}/current-state.json'} for n in (1,2)]
 
 

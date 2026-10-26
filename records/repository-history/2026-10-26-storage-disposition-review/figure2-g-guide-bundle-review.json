@@ -1,0 +1,813 @@
+{
+  "date": "2026-10-26",
+  "author_direction": "Both older explanatory-guide revisions and scientific/model versions of Figure 2 G await manual review. Preserve both scopes.",
+  "status": "dependency/content inventory complete; no G payload moved, merged, edited or deleted",
+  "historical_bundle_count": 4,
+  "historical_logical_bytes": 287356648,
+  "adjacent_revision_comparison": [
+    {
+      "before": "figure-02-g-analysis-guide-20261017-preview01",
+      "after": "figure-02-g-analysis-guide-20261017-preview02",
+      "added_source_ids": [],
+      "changed_source_ids": [
+        "guide-builder",
+        "guide-content",
+        "guide-notebook"
+      ],
+      "same_chapters": 11,
+      "changed_chapters": [
+        "04-exactly-what-selected-figure-2-g-shows",
+        "06-the-independent-analysis-and-its-numerical-results"
+      ],
+      "added_chapters": []
+    },
+    {
+      "before": "figure-02-g-analysis-guide-20261017-preview02",
+      "after": "figure-02-g-analysis-guide-20261017-preview03",
+      "added_source_ids": [
+        "freeze-record"
+      ],
+      "changed_source_ids": [
+        "guide-builder",
+        "guide-notebook"
+      ],
+      "same_chapters": 3,
+      "changed_chapters": [
+        "01-how-to-use-this-guide",
+        "02-the-questions-and-the-experiment",
+        "04-exactly-what-selected-figure-2-g-shows",
+        "05-outcome-and-model-alternatives-before-the-independent-review",
+        "06-the-independent-analysis-and-its-numerical-results",
+        "09-missing-outcomes-discarding-fish-and-technical-qc",
+        "10-legacy-learner-algorithms-and-their-counts",
+        "11-presentation-alternatives-asterisks-and-neuroscience-examples",
+        "12-conclusions-and-your-eventual-decisions",
+        "13-glossary-and-manual-source-checks"
+      ],
+      "added_chapters": []
+    },
+    {
+      "before": "figure-02-g-analysis-guide-20261017-preview03",
+      "after": "figure-02-g-analysis-guide-20261023-before-completion",
+      "added_source_ids": [],
+      "changed_source_ids": [
+        "guide-builder",
+        "guide-content"
+      ],
+      "same_chapters": 9,
+      "changed_chapters": [
+        "05-outcome-and-model-alternatives-before-the-independent-review",
+        "09-missing-outcomes-discarding-fish-and-technical-qc",
+        "11-presentation-alternatives-asterisks-and-neuroscience-examples",
+        "12-conclusions-and-your-eventual-decisions"
+      ],
+      "added_chapters": []
+    },
+    {
+      "before": "figure-02-g-analysis-guide-20261023-before-completion",
+      "after": "figure-02-g-analysis-guide-20261017-v01",
+      "added_source_ids": [
+        "completion-fast-backend",
+        "completion-figure3-methods",
+        "completion-figure3-state",
+        "completion-guide-manuscript",
+        "completion-individual-methods",
+        "completion-model-reference",
+        "completion-other-chat-summary",
+        "completion-plan03",
+        "completion-plan06",
+        "completion-population-code"
+      ],
+      "changed_source_ids": [],
+      "same_chapters": 13,
+      "changed_chapters": [],
+      "added_chapters": [
+        "14-chat-completion-clarifications-model-teaching-and-next-steps"
+      ]
+    }
+  ],
+  "scientific_and_presentation_alternatives": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016/review.html",
+      "sha256": "ed24c3e0e4ed18b2cccf888b535b2e916172afebdeaffcd8031a4685266d626b",
+      "category": "exploratory G presentation",
+      "disposition": "retain pending manual review"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks/review.html",
+      "sha256": "ed4a543f9063084831d168e31987e9c5817012b54bee23c423d87566c5482d7f",
+      "category": "exploratory G presentation",
+      "disposition": "retain pending manual review"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/review.html",
+      "sha256": "b4d4b7466c0119563f8be73ee14209f699c7ba037957bcab633b4c2630bd417a",
+      "category": "exploratory G presentation",
+      "disposition": "retain pending manual review"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/review.html",
+      "sha256": "190b13b248b76d9648b57272349aac64c6f9df69efa2dc0a31d8c8d50a5113f7",
+      "category": "exploratory G presentation",
+      "disposition": "retain pending manual review"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01",
+      "category": "independent scientific analysis",
+      "review_pages": [
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/review-render-history/eligibility-roles/review.html",
+          "sha256": "fa514a70475b62496b7d500de04b965797045360dce767b96e2114e5f5a557df"
+        },
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/review-render-history/final-review/review.html",
+          "sha256": "ef866b7fd0ff83ee6350e59706102eac71b54c8392c26caaf540662bd84df6bc"
+        },
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/review-render-history/xlink-render-fix/review.html",
+          "sha256": "dd40ed91da56bc422217d0414a0c742cc7f625de44334961df7f01dceb3736a8"
+        },
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-01/review.html",
+          "sha256": "72446d020053b80f22cce648889ca97f2797158757a3e15c69e2ecc6495dccca"
+        }
+      ],
+      "disposition": "retain pending manual review"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02",
+      "category": "independent scientific analysis",
+      "review_pages": [
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-51905c5b2257/review.html",
+          "sha256": "48c4e60ada9c3c5f89d88c4db329fbef45fa8e4dcea136e5914bf7c320079ca2"
+        },
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060/review.html",
+          "sha256": "f7e8a7f2e79f8a12f6f0cdd10b9dcbc996c0c2f27335259ef2422ab16e25fba5"
+        },
+        {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/validation-review-7c10c409ada4/review.html",
+          "sha256": "48c4e60ada9c3c5f89d88c4db329fbef45fa8e4dcea136e5914bf7c320079ca2"
+        }
+      ],
+      "disposition": "retain pending manual review"
+    }
+  ],
+  "issues": [],
+  "notebook": {
+    "distinct_keys": 4,
+    "known_current_origin": "http://127.0.0.1:50717",
+    "source_record": "records/figure-reviews/figure-02/g-analysis-guide-20261017.json",
+    "actual_user_notes_inspected": false,
+    "limits": "Static source/config inspection only. Older browser origins and existence of user notes remain unverified. Preserve all access paths and keys."
+  },
+  "retention_decision": "Keep all four guide histories intact at current paths; preserve current guide and every scientific/presentation alternative. Repetition alone does not authorize deleting bound files. Navigation may distinguish the scopes.",
+  "safe_capacity_reclaimed": 0,
+  "protected": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+      "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+      "sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json",
+      "sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+      "sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-a/current-state.json",
+      "sha256": "936c94742718f29b064f84440e62f7010d180f5483e5267f7ea698cd9940e82d"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "sha256": "9833850b3d35ece4a8819c9e54c94efb1776629bd9caa59e305101b1a88d4da8"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/main-paper-current-state.json",
+      "sha256": "c41ce89fc56e05ed5c5d4ec9ad264a7c5f95550d32ff3935bafe76d84f375605"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/figure-02/g-analysis-guide-20261017.json",
+      "sha256": "59e8d0c1144373ba81b9a09e98dd51b4a71393c462b84c25f328b17346f207a9"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/review-library.json",
+      "sha256": "41f800fdd0efa303de32c04290bbbae783750032fac4d7a83d522f0b6688fdab"
+    }
+  ],
+  "captured_utc": "2026-10-26T19:06:21.893195+00:00",
+  "bundles": {
+    "figure-02-g-analysis-guide-20261017-preview01": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview01",
+      "file_count": 144,
+      "logical_bytes": 71338979,
+      "manifest_sha256": "d158c46373d62929acb6c76fb0d876fd3e004f416d34fb2987c173326b42515a",
+      "html_sha256": "2d78081ef020897660062fe0bf5807cf5ba1d14cab4f091700391d33b56515ea",
+      "guide_id": "figure2-g-analysis-guide-20261017-v01",
+      "html_source_fingerprint": "5334545e01eefd63829487f85ed7d34b54a03cbb9a080422e9faacb1420b12c3",
+      "manifest_source_fingerprint": "5334545e01eefd63829487f85ed7d34b54a03cbb9a080422e9faacb1420b12c3",
+      "notebook_key_formula": "const key = `${schema}:${config.guide_id}:${config.source_fingerprint}`;",
+      "notebook_storage_key": "figure2-g-review-notebook/1:figure2-g-analysis-guide-20261017-v01:5334545e01eefd63829487f85ed7d34b54a03cbb9a080422e9faacb1420b12c3",
+      "chapters": {
+        "01-how-to-use-this-guide": "c94e7a74fbe7ebcb840764f21541c78d8ac398ac9256a9e4e39a3676293648fa",
+        "02-the-questions-and-the-experiment": "a1e36f961f3ff9a9cabde652470b02838e500a459e6bbaf54ac76f1334cfac38",
+        "03-statistical-basics-with-worked-examples": "590816e2bde3ce42497e6253e5e212966668975914c1a75ac9b3125d67db5c18",
+        "04-exactly-what-selected-figure-2-g-shows": "38bbba4db4402ede95a26a8a0ec6e1f532806d6072552b54b9e1d16e9e1300b2",
+        "05-outcome-and-model-alternatives-before-the-independent-review": "6a3a4592b942e037fa54f2a3416dddb87bd5081096d73380eb40453369dc20f7",
+        "06-the-independent-analysis-and-its-numerical-results": "22367af285778b78e651b9de0b8624c717eafee703be21a8e4f482f4b6404bb4",
+        "07-acquisition-timing-and-individual-trajectories": "bb1e25c4d5b00b5175d78ab8c05f2bcfdb14be8dbd088574197c2f44436e3e7e",
+        "08-calibration-what-the-procedures-actually-recovered": "d63cc5828acfb7e1eebd22cc3268f4237944a70a6ef4ef08b3a18d09d10a871f",
+        "09-missing-outcomes-discarding-fish-and-technical-qc": "1422dbbf6f5f79278310e0847bfbe4b76bbdd91bf4ac66c61211f3d51f9cf176",
+        "10-legacy-learner-algorithms-and-their-counts": "a7ef74c830971ee1b079642719781b675f9d1166ec9a431016b19035f5a9c08e",
+        "11-presentation-alternatives-asterisks-and-neuroscience-examples": "05bec82380ccf279932cdb897392cd56c5ffe6a45fb09cb44b14dae12e75adc2",
+        "12-conclusions-and-your-eventual-decisions": "d70263862a782ef3f0a9323454d2d85a5fc51bc96fc94bdfb1017f84bb6fbfb1",
+        "13-glossary-and-manual-source-checks": "797676e5ff6f9005899755b3c25ed3d4bdea3ce082ed98505132aa837c480ae3"
+      },
+      "chapter_count": 13,
+      "source_inventory_section_sha256": "e2b2ebdc325d1e5bf3f6bb4e612f6d33dbf3d73dca235ec8c3db1aef3dce5fbd",
+      "artifact_checks": 143,
+      "artifact_checks_passed": true,
+      "source_copy_checks": 121,
+      "source_copy_checks_passed": true,
+      "scientific_status": "Teaching and review only; no new inference or freeze",
+      "disposition": "retain at existing path; awaiting author review",
+      "comparison_to_current": {
+        "bytes_with_exact_copy_in_current": 70699427,
+        "files_with_exact_copy_in_current": 138,
+        "files_not_byte_duplicated_in_current": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "d158c46373d62929acb6c76fb0d876fd3e004f416d34fb2987c173326b42515a",
+            "bytes": 120242,
+            "mtime_ns": 1792250994680000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "2d78081ef020897660062fe0bf5807cf5ba1d14cab4f091700391d33b56515ea",
+            "bytes": 369793,
+            "mtime_ns": 1792250994260000000
+          },
+          {
+            "path": "sources/guide-builder.py",
+            "sha256": "e03e2369cc5e9f3bbef95dcb67d6db2aef5f10c6ab92ea83d498a65362b10a06",
+            "bytes": 53125,
+            "mtime_ns": 1792250993340000000
+          },
+          {
+            "path": "sources/guide-content.md",
+            "sha256": "e37f5e97ac09ab7781e778cb7918a3769b93c8735f173241c09721cc2e9b467b",
+            "bytes": 79870,
+            "mtime_ns": 1792250993340000000
+          },
+          {
+            "path": "sources/guide-notebook.js",
+            "sha256": "877d8d6c965c1263ea302b223e798affb006adb88d1747f57e35898a7127bcf7",
+            "bytes": 9823,
+            "mtime_ns": 1792250993340000000
+          },
+          {
+            "path": "topic-inventory.json",
+            "sha256": "7b0349df548d46035fa44f8b7095481d91dac16ca6de30d1f895f479440c0b42",
+            "bytes": 6699,
+            "mtime_ns": 1792250994260000000
+          }
+        ],
+        "files_unique_among_five_bundles": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "d158c46373d62929acb6c76fb0d876fd3e004f416d34fb2987c173326b42515a",
+            "bytes": 120242,
+            "mtime_ns": 1792250994680000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "2d78081ef020897660062fe0bf5807cf5ba1d14cab4f091700391d33b56515ea",
+            "bytes": 369793,
+            "mtime_ns": 1792250994260000000
+          },
+          {
+            "path": "sources/guide-builder.py",
+            "sha256": "e03e2369cc5e9f3bbef95dcb67d6db2aef5f10c6ab92ea83d498a65362b10a06",
+            "bytes": 53125,
+            "mtime_ns": 1792250993340000000
+          },
+          {
+            "path": "sources/guide-content.md",
+            "sha256": "e37f5e97ac09ab7781e778cb7918a3769b93c8735f173241c09721cc2e9b467b",
+            "bytes": 79870,
+            "mtime_ns": 1792250993340000000
+          },
+          {
+            "path": "sources/guide-notebook.js",
+            "sha256": "877d8d6c965c1263ea302b223e798affb006adb88d1747f57e35898a7127bcf7",
+            "bytes": 9823,
+            "mtime_ns": 1792250993340000000
+          },
+          {
+            "path": "topic-inventory.json",
+            "sha256": "7b0349df548d46035fa44f8b7095481d91dac16ca6de30d1f895f479440c0b42",
+            "bytes": 6699,
+            "mtime_ns": 1792250994260000000
+          }
+        ],
+        "same_chapters": [
+          "03-statistical-basics-with-worked-examples",
+          "07-acquisition-timing-and-individual-trajectories",
+          "08-calibration-what-the-procedures-actually-recovered"
+        ],
+        "changed_chapters": [
+          "01-how-to-use-this-guide",
+          "02-the-questions-and-the-experiment",
+          "04-exactly-what-selected-figure-2-g-shows",
+          "05-outcome-and-model-alternatives-before-the-independent-review",
+          "06-the-independent-analysis-and-its-numerical-results",
+          "09-missing-outcomes-discarding-fish-and-technical-qc",
+          "10-legacy-learner-algorithms-and-their-counts",
+          "11-presentation-alternatives-asterisks-and-neuroscience-examples",
+          "12-conclusions-and-your-eventual-decisions",
+          "13-glossary-and-manual-source-checks"
+        ],
+        "current_added_chapters": [
+          "14-chat-completion-clarifications-model-teaching-and-next-steps"
+        ],
+        "current_added_source_ids": [
+          "completion-fast-backend",
+          "completion-figure3-methods",
+          "completion-figure3-state",
+          "completion-guide-manuscript",
+          "completion-individual-methods",
+          "completion-model-reference",
+          "completion-other-chat-summary",
+          "completion-plan03",
+          "completion-plan06",
+          "completion-population-code",
+          "freeze-record"
+        ],
+        "changed_source_ids": [
+          "guide-builder",
+          "guide-content",
+          "guide-notebook"
+        ],
+        "matching_figure_assets": 20,
+        "total_figure_assets": 20
+      },
+      "bound_source_count": 122,
+      "bound_figure_asset_count": 20,
+      "relative_runtime_resource_count": 18
+    },
+    "figure-02-g-analysis-guide-20261017-preview02": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview02",
+      "file_count": 144,
+      "logical_bytes": 71345038,
+      "manifest_sha256": "98e833206c344daa63f4b9452c12d8c6e6cc7387e17b648ded91e6dfcca90248",
+      "html_sha256": "d19e7d8180463b54f98ca0f1e18784278f56f6c2d4da72961ab634e3b03f6aa5",
+      "guide_id": "figure2-g-analysis-guide-20261017-v01",
+      "html_source_fingerprint": "e310726ef3aa65ae5ab6b6a12ccea6a9a0181abc3eaf131cc06151f505fa2192",
+      "manifest_source_fingerprint": "e310726ef3aa65ae5ab6b6a12ccea6a9a0181abc3eaf131cc06151f505fa2192",
+      "notebook_key_formula": "const key = `${schema}:${config.guide_id}:${config.source_fingerprint}`;",
+      "notebook_storage_key": "figure2-g-review-notebook/1:figure2-g-analysis-guide-20261017-v01:e310726ef3aa65ae5ab6b6a12ccea6a9a0181abc3eaf131cc06151f505fa2192",
+      "chapters": {
+        "01-how-to-use-this-guide": "c94e7a74fbe7ebcb840764f21541c78d8ac398ac9256a9e4e39a3676293648fa",
+        "02-the-questions-and-the-experiment": "a1e36f961f3ff9a9cabde652470b02838e500a459e6bbaf54ac76f1334cfac38",
+        "03-statistical-basics-with-worked-examples": "590816e2bde3ce42497e6253e5e212966668975914c1a75ac9b3125d67db5c18",
+        "04-exactly-what-selected-figure-2-g-shows": "dc8b55650fceead50fedea70cc47af4e3755e639296b67d48df0a2024b5a780e",
+        "05-outcome-and-model-alternatives-before-the-independent-review": "6a3a4592b942e037fa54f2a3416dddb87bd5081096d73380eb40453369dc20f7",
+        "06-the-independent-analysis-and-its-numerical-results": "5975f16f1c25bfef7a23de8c7d6e7ac93db3c67274e090f8f9924b7e795f2958",
+        "07-acquisition-timing-and-individual-trajectories": "bb1e25c4d5b00b5175d78ab8c05f2bcfdb14be8dbd088574197c2f44436e3e7e",
+        "08-calibration-what-the-procedures-actually-recovered": "d63cc5828acfb7e1eebd22cc3268f4237944a70a6ef4ef08b3a18d09d10a871f",
+        "09-missing-outcomes-discarding-fish-and-technical-qc": "1422dbbf6f5f79278310e0847bfbe4b76bbdd91bf4ac66c61211f3d51f9cf176",
+        "10-legacy-learner-algorithms-and-their-counts": "a7ef74c830971ee1b079642719781b675f9d1166ec9a431016b19035f5a9c08e",
+        "11-presentation-alternatives-asterisks-and-neuroscience-examples": "05bec82380ccf279932cdb897392cd56c5ffe6a45fb09cb44b14dae12e75adc2",
+        "12-conclusions-and-your-eventual-decisions": "d70263862a782ef3f0a9323454d2d85a5fc51bc96fc94bdfb1017f84bb6fbfb1",
+        "13-glossary-and-manual-source-checks": "797676e5ff6f9005899755b3c25ed3d4bdea3ce082ed98505132aa837c480ae3"
+      },
+      "chapter_count": 13,
+      "source_inventory_section_sha256": "838319de87f9ac27f00c398f70f1dbe48b9d5e53b7a73882eccb49e45c79b83b",
+      "artifact_checks": 143,
+      "artifact_checks_passed": true,
+      "source_copy_checks": 121,
+      "source_copy_checks_passed": true,
+      "scientific_status": "Teaching and review only; no new inference or freeze",
+      "disposition": "retain at existing path; awaiting author review",
+      "comparison_to_current": {
+        "bytes_with_exact_copy_in_current": 70699427,
+        "files_with_exact_copy_in_current": 138,
+        "files_not_byte_duplicated_in_current": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "98e833206c344daa63f4b9452c12d8c6e6cc7387e17b648ded91e6dfcca90248",
+            "bytes": 117922,
+            "mtime_ns": 1792251179490000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "d19e7d8180463b54f98ca0f1e18784278f56f6c2d4da72961ab634e3b03f6aa5",
+            "bytes": 368229,
+            "mtime_ns": 1792251179040000000
+          },
+          {
+            "path": "sources/guide-builder.py",
+            "sha256": "f655393189c9684ee47b99d5c6b8d58fe77647b091a3b73bb8be4a2c6b1dfa24",
+            "bytes": 55918,
+            "mtime_ns": 1792251177890000000
+          },
+          {
+            "path": "sources/guide-content.md",
+            "sha256": "4b648611ce4fa262ab558ba7765b2e056a5cf530d633bba766b2bc4371e70d06",
+            "bytes": 81432,
+            "mtime_ns": 1792251177890000000
+          },
+          {
+            "path": "sources/guide-notebook.js",
+            "sha256": "1bd5956448bb6f962c465c95448cbe5e6fcd36eba05c36ce491382402bd70b4b",
+            "bytes": 9935,
+            "mtime_ns": 1792251177890000000
+          },
+          {
+            "path": "topic-inventory.json",
+            "sha256": "82eb624cfd1016b0b89b41d60dae677acedf9c584c7c7c89f844b38668ebb3e3",
+            "bytes": 12175,
+            "mtime_ns": 1792251179040000000
+          }
+        ],
+        "files_unique_among_five_bundles": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "98e833206c344daa63f4b9452c12d8c6e6cc7387e17b648ded91e6dfcca90248",
+            "bytes": 117922,
+            "mtime_ns": 1792251179490000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "d19e7d8180463b54f98ca0f1e18784278f56f6c2d4da72961ab634e3b03f6aa5",
+            "bytes": 368229,
+            "mtime_ns": 1792251179040000000
+          },
+          {
+            "path": "sources/guide-builder.py",
+            "sha256": "f655393189c9684ee47b99d5c6b8d58fe77647b091a3b73bb8be4a2c6b1dfa24",
+            "bytes": 55918,
+            "mtime_ns": 1792251177890000000
+          },
+          {
+            "path": "sources/guide-notebook.js",
+            "sha256": "1bd5956448bb6f962c465c95448cbe5e6fcd36eba05c36ce491382402bd70b4b",
+            "bytes": 9935,
+            "mtime_ns": 1792251177890000000
+          },
+          {
+            "path": "topic-inventory.json",
+            "sha256": "82eb624cfd1016b0b89b41d60dae677acedf9c584c7c7c89f844b38668ebb3e3",
+            "bytes": 12175,
+            "mtime_ns": 1792251179040000000
+          }
+        ],
+        "same_chapters": [
+          "03-statistical-basics-with-worked-examples",
+          "07-acquisition-timing-and-individual-trajectories",
+          "08-calibration-what-the-procedures-actually-recovered"
+        ],
+        "changed_chapters": [
+          "01-how-to-use-this-guide",
+          "02-the-questions-and-the-experiment",
+          "04-exactly-what-selected-figure-2-g-shows",
+          "05-outcome-and-model-alternatives-before-the-independent-review",
+          "06-the-independent-analysis-and-its-numerical-results",
+          "09-missing-outcomes-discarding-fish-and-technical-qc",
+          "10-legacy-learner-algorithms-and-their-counts",
+          "11-presentation-alternatives-asterisks-and-neuroscience-examples",
+          "12-conclusions-and-your-eventual-decisions",
+          "13-glossary-and-manual-source-checks"
+        ],
+        "current_added_chapters": [
+          "14-chat-completion-clarifications-model-teaching-and-next-steps"
+        ],
+        "current_added_source_ids": [
+          "completion-fast-backend",
+          "completion-figure3-methods",
+          "completion-figure3-state",
+          "completion-guide-manuscript",
+          "completion-individual-methods",
+          "completion-model-reference",
+          "completion-other-chat-summary",
+          "completion-plan03",
+          "completion-plan06",
+          "completion-population-code",
+          "freeze-record"
+        ],
+        "changed_source_ids": [
+          "guide-builder",
+          "guide-content",
+          "guide-notebook"
+        ],
+        "matching_figure_assets": 20,
+        "total_figure_assets": 20
+      },
+      "bound_source_count": 122,
+      "bound_figure_asset_count": 20,
+      "relative_runtime_resource_count": 18
+    },
+    "figure-02-g-analysis-guide-20261017-preview03": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview03",
+      "file_count": 145,
+      "logical_bytes": 72333752,
+      "manifest_sha256": "df30cde76f4e65311b4cda52c91937a4109b59b75f9b1a80b995dd489a78e6c8",
+      "html_sha256": "8bea0aa66dd9f67dc0292612e2328ddbaca40ed5c8dc5b881e8da733c1fb4350",
+      "guide_id": "figure2-g-analysis-guide-20261017-v01",
+      "html_source_fingerprint": "854443fbb8e9cdc9e097e2a9d6ef2574ed2f2e091b3e29826378eba3eb07a249",
+      "manifest_source_fingerprint": "854443fbb8e9cdc9e097e2a9d6ef2574ed2f2e091b3e29826378eba3eb07a249",
+      "notebook_key_formula": "const key = `${schema}:${config.guide_id}:${config.source_fingerprint}`;",
+      "notebook_storage_key": "figure2-g-review-notebook/1:figure2-g-analysis-guide-20261017-v01:854443fbb8e9cdc9e097e2a9d6ef2574ed2f2e091b3e29826378eba3eb07a249",
+      "chapters": {
+        "01-how-to-use-this-guide": "7abb9ea29202b8570426067dc71b51d5fa25f1bac5d90595fdd933b9188bc2d3",
+        "02-the-questions-and-the-experiment": "56121e58caf5c0009e17a7791f4e563e79a2c65ef5e2c95591b54b3c011e5e87",
+        "03-statistical-basics-with-worked-examples": "590816e2bde3ce42497e6253e5e212966668975914c1a75ac9b3125d67db5c18",
+        "04-exactly-what-selected-figure-2-g-shows": "db870c24bad47c2af3e693e035610a867f3810f1debf1a20faf55c8198a4aa16",
+        "05-outcome-and-model-alternatives-before-the-independent-review": "83f296ecc2d8f62939a8297d8e48bf7da394cb620e0f040fd1413626e90d414f",
+        "06-the-independent-analysis-and-its-numerical-results": "717d257aefc7f1aef610112c4aba0b565164cf50745841f22e9f0983376deebf",
+        "07-acquisition-timing-and-individual-trajectories": "bb1e25c4d5b00b5175d78ab8c05f2bcfdb14be8dbd088574197c2f44436e3e7e",
+        "08-calibration-what-the-procedures-actually-recovered": "d63cc5828acfb7e1eebd22cc3268f4237944a70a6ef4ef08b3a18d09d10a871f",
+        "09-missing-outcomes-discarding-fish-and-technical-qc": "7e72598b216e8b7ae6263d6cc300805eede0db44dd1b54dddd011a2059c8f352",
+        "10-legacy-learner-algorithms-and-their-counts": "56de765a012cbb0ed6955a820043ac55ba086f42561843d858cbddbdfaa5ce04",
+        "11-presentation-alternatives-asterisks-and-neuroscience-examples": "fa082373d4226aaf275ca208174962f58795fc0758dcf889045c7f32a5c490f5",
+        "12-conclusions-and-your-eventual-decisions": "fef41f11cb285382422236758fe7069e9d324c8979635263064e6dfe8175abe9",
+        "13-glossary-and-manual-source-checks": "86ce65efd6c051f1dd2409713a4920f96d0bf62f84abd28c3eceb74cf63510ba"
+      },
+      "chapter_count": 13,
+      "source_inventory_section_sha256": "59a55627b52272e8c66791fb368258abe83e37834d2bfb5870babf643c18e8f2",
+      "artifact_checks": 144,
+      "artifact_checks_passed": true,
+      "source_copy_checks": 122,
+      "source_copy_checks_passed": true,
+      "scientific_status": "Teaching and review only; no new inference or freeze",
+      "disposition": "retain at existing path; awaiting author review",
+      "comparison_to_current": {
+        "bytes_with_exact_copy_in_current": 71694769,
+        "files_with_exact_copy_in_current": 140,
+        "files_not_byte_duplicated_in_current": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "df30cde76f4e65311b4cda52c91937a4109b59b75f9b1a80b995dd489a78e6c8",
+            "bytes": 118739,
+            "mtime_ns": 1792251420820000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "8bea0aa66dd9f67dc0292612e2328ddbaca40ed5c8dc5b881e8da733c1fb4350",
+            "bytes": 370122,
+            "mtime_ns": 1792251420360000000
+          },
+          {
+            "path": "sources/guide-builder.py",
+            "sha256": "5f8c3348bda9bb6ec9e0f06a7cb0ad22c6f927bc121a7ab9c99798a78e29b03b",
+            "bytes": 56494,
+            "mtime_ns": 1792251419810000000
+          },
+          {
+            "path": "sources/guide-content.md",
+            "sha256": "4b648611ce4fa262ab558ba7765b2e056a5cf530d633bba766b2bc4371e70d06",
+            "bytes": 81432,
+            "mtime_ns": 1792251419810000000
+          },
+          {
+            "path": "topic-inventory.json",
+            "sha256": "ec9021dd7ca887db57fd90dac0adc4eb2caab9870396e203ed4fbdb6a9471df0",
+            "bytes": 12196,
+            "mtime_ns": 1792251420370000000
+          }
+        ],
+        "files_unique_among_five_bundles": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "df30cde76f4e65311b4cda52c91937a4109b59b75f9b1a80b995dd489a78e6c8",
+            "bytes": 118739,
+            "mtime_ns": 1792251420820000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "8bea0aa66dd9f67dc0292612e2328ddbaca40ed5c8dc5b881e8da733c1fb4350",
+            "bytes": 370122,
+            "mtime_ns": 1792251420360000000
+          },
+          {
+            "path": "sources/guide-builder.py",
+            "sha256": "5f8c3348bda9bb6ec9e0f06a7cb0ad22c6f927bc121a7ab9c99798a78e29b03b",
+            "bytes": 56494,
+            "mtime_ns": 1792251419810000000
+          }
+        ],
+        "same_chapters": [
+          "01-how-to-use-this-guide",
+          "02-the-questions-and-the-experiment",
+          "03-statistical-basics-with-worked-examples",
+          "04-exactly-what-selected-figure-2-g-shows",
+          "06-the-independent-analysis-and-its-numerical-results",
+          "07-acquisition-timing-and-individual-trajectories",
+          "08-calibration-what-the-procedures-actually-recovered",
+          "10-legacy-learner-algorithms-and-their-counts",
+          "13-glossary-and-manual-source-checks"
+        ],
+        "changed_chapters": [
+          "05-outcome-and-model-alternatives-before-the-independent-review",
+          "09-missing-outcomes-discarding-fish-and-technical-qc",
+          "11-presentation-alternatives-asterisks-and-neuroscience-examples",
+          "12-conclusions-and-your-eventual-decisions"
+        ],
+        "current_added_chapters": [
+          "14-chat-completion-clarifications-model-teaching-and-next-steps"
+        ],
+        "current_added_source_ids": [
+          "completion-fast-backend",
+          "completion-figure3-methods",
+          "completion-figure3-state",
+          "completion-guide-manuscript",
+          "completion-individual-methods",
+          "completion-model-reference",
+          "completion-other-chat-summary",
+          "completion-plan03",
+          "completion-plan06",
+          "completion-population-code"
+        ],
+        "changed_source_ids": [
+          "guide-builder",
+          "guide-content"
+        ],
+        "matching_figure_assets": 20,
+        "total_figure_assets": 20
+      },
+      "bound_source_count": 123,
+      "bound_figure_asset_count": 20,
+      "relative_runtime_resource_count": 18
+    },
+    "figure-02-g-analysis-guide-20261023-before-completion": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-before-completion",
+      "file_count": 145,
+      "logical_bytes": 72338879,
+      "manifest_sha256": "54f80355885c95485e7ba9952c168cb31e645df6e637b76e37a6b900232c6828",
+      "html_sha256": "4dac30f24140af5bf88fa917871d6fdc252787364e7bce19bcc49c8df771e8b4",
+      "guide_id": "figure2-g-analysis-guide-20261017-v01",
+      "html_source_fingerprint": "c0fa07823a490f3b5313917526b363f50d565ca22c9ffe1a66125867d60a1058",
+      "manifest_source_fingerprint": "c0fa07823a490f3b5313917526b363f50d565ca22c9ffe1a66125867d60a1058",
+      "notebook_key_formula": "const key = `${schema}:${config.guide_id}:${config.source_fingerprint}`;",
+      "notebook_storage_key": "figure2-g-review-notebook/1:figure2-g-analysis-guide-20261017-v01:c0fa07823a490f3b5313917526b363f50d565ca22c9ffe1a66125867d60a1058",
+      "chapters": {
+        "01-how-to-use-this-guide": "7abb9ea29202b8570426067dc71b51d5fa25f1bac5d90595fdd933b9188bc2d3",
+        "02-the-questions-and-the-experiment": "56121e58caf5c0009e17a7791f4e563e79a2c65ef5e2c95591b54b3c011e5e87",
+        "03-statistical-basics-with-worked-examples": "590816e2bde3ce42497e6253e5e212966668975914c1a75ac9b3125d67db5c18",
+        "04-exactly-what-selected-figure-2-g-shows": "db870c24bad47c2af3e693e035610a867f3810f1debf1a20faf55c8198a4aa16",
+        "05-outcome-and-model-alternatives-before-the-independent-review": "99921e16f9c91b796ef35b007fd1e0c2381620dd25cb9b185f19e4d0b357dc43",
+        "06-the-independent-analysis-and-its-numerical-results": "717d257aefc7f1aef610112c4aba0b565164cf50745841f22e9f0983376deebf",
+        "07-acquisition-timing-and-individual-trajectories": "bb1e25c4d5b00b5175d78ab8c05f2bcfdb14be8dbd088574197c2f44436e3e7e",
+        "08-calibration-what-the-procedures-actually-recovered": "d63cc5828acfb7e1eebd22cc3268f4237944a70a6ef4ef08b3a18d09d10a871f",
+        "09-missing-outcomes-discarding-fish-and-technical-qc": "b43499ee314228ca77c48f3047c9704e3d94a75d7c850cb5580cdb911790eda1",
+        "10-legacy-learner-algorithms-and-their-counts": "56de765a012cbb0ed6955a820043ac55ba086f42561843d858cbddbdfaa5ce04",
+        "11-presentation-alternatives-asterisks-and-neuroscience-examples": "4f86f941587b8ef74990480397a9e0a3f2256622848938ace12db11439921a24",
+        "12-conclusions-and-your-eventual-decisions": "91839bd4829147774925bb8903fa8b495e1844b51d6cdd71b20a14a45400cc8f",
+        "13-glossary-and-manual-source-checks": "86ce65efd6c051f1dd2409713a4920f96d0bf62f84abd28c3eceb74cf63510ba"
+      },
+      "chapter_count": 13,
+      "source_inventory_section_sha256": "7fb09a1f62e36d4727e66487dc0186bd962ef87a231876d8042166eba4128ce9",
+      "artifact_checks": 144,
+      "artifact_checks_passed": true,
+      "source_copy_checks": 122,
+      "source_copy_checks_passed": true,
+      "scientific_status": "Teaching and review only; no new inference or freeze",
+      "disposition": "retain at existing path; awaiting author review",
+      "comparison_to_current": {
+        "bytes_with_exact_copy_in_current": 71834593,
+        "files_with_exact_copy_in_current": 142,
+        "files_not_byte_duplicated_in_current": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "54f80355885c95485e7ba9952c168cb31e645df6e637b76e37a6b900232c6828",
+            "bytes": 120506,
+            "mtime_ns": 1792307268280000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "4dac30f24140af5bf88fa917871d6fdc252787364e7bce19bcc49c8df771e8b4",
+            "bytes": 371584,
+            "mtime_ns": 1792307268270000000
+          },
+          {
+            "path": "topic-inventory.json",
+            "sha256": "ec9021dd7ca887db57fd90dac0adc4eb2caab9870396e203ed4fbdb6a9471df0",
+            "bytes": 12196,
+            "mtime_ns": 1792251646290000000
+          }
+        ],
+        "files_unique_among_five_bundles": [
+          {
+            "path": "evidence-manifest.json",
+            "sha256": "54f80355885c95485e7ba9952c168cb31e645df6e637b76e37a6b900232c6828",
+            "bytes": 120506,
+            "mtime_ns": 1792307268280000000
+          },
+          {
+            "path": "review.html",
+            "sha256": "4dac30f24140af5bf88fa917871d6fdc252787364e7bce19bcc49c8df771e8b4",
+            "bytes": 371584,
+            "mtime_ns": 1792307268270000000
+          }
+        ],
+        "same_chapters": [
+          "01-how-to-use-this-guide",
+          "02-the-questions-and-the-experiment",
+          "03-statistical-basics-with-worked-examples",
+          "04-exactly-what-selected-figure-2-g-shows",
+          "05-outcome-and-model-alternatives-before-the-independent-review",
+          "06-the-independent-analysis-and-its-numerical-results",
+          "07-acquisition-timing-and-individual-trajectories",
+          "08-calibration-what-the-procedures-actually-recovered",
+          "09-missing-outcomes-discarding-fish-and-technical-qc",
+          "10-legacy-learner-algorithms-and-their-counts",
+          "11-presentation-alternatives-asterisks-and-neuroscience-examples",
+          "12-conclusions-and-your-eventual-decisions",
+          "13-glossary-and-manual-source-checks"
+        ],
+        "changed_chapters": [],
+        "current_added_chapters": [
+          "14-chat-completion-clarifications-model-teaching-and-next-steps"
+        ],
+        "current_added_source_ids": [
+          "completion-fast-backend",
+          "completion-figure3-methods",
+          "completion-figure3-state",
+          "completion-guide-manuscript",
+          "completion-individual-methods",
+          "completion-model-reference",
+          "completion-other-chat-summary",
+          "completion-plan03",
+          "completion-plan06",
+          "completion-population-code"
+        ],
+        "changed_source_ids": [],
+        "matching_figure_assets": 20,
+        "total_figure_assets": 20
+      },
+      "bound_source_count": 123,
+      "bound_figure_asset_count": 20,
+      "relative_runtime_resource_count": 20
+    },
+    "figure-02-g-analysis-guide-20261017-v01": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01",
+      "file_count": 155,
+      "logical_bytes": 72580980,
+      "manifest_sha256": "1739ded2d73f1c96c9789294bb28405dda8bc89cb4529b3e24972085a60cb335",
+      "html_sha256": "c25b2fc2f91bee06720ff59b8d60f4cc6fe181b786449988db8ad8decbe1ae95",
+      "guide_id": "figure2-g-analysis-guide-20261017-v01",
+      "html_source_fingerprint": "c0fa07823a490f3b5313917526b363f50d565ca22c9ffe1a66125867d60a1058",
+      "manifest_source_fingerprint": "c0fa07823a490f3b5313917526b363f50d565ca22c9ffe1a66125867d60a1058",
+      "notebook_key_formula": "const key = `${schema}:${config.guide_id}:${config.source_fingerprint}`;",
+      "notebook_storage_key": "figure2-g-review-notebook/1:figure2-g-analysis-guide-20261017-v01:c0fa07823a490f3b5313917526b363f50d565ca22c9ffe1a66125867d60a1058",
+      "chapters": {
+        "01-how-to-use-this-guide": "7abb9ea29202b8570426067dc71b51d5fa25f1bac5d90595fdd933b9188bc2d3",
+        "02-the-questions-and-the-experiment": "56121e58caf5c0009e17a7791f4e563e79a2c65ef5e2c95591b54b3c011e5e87",
+        "03-statistical-basics-with-worked-examples": "590816e2bde3ce42497e6253e5e212966668975914c1a75ac9b3125d67db5c18",
+        "04-exactly-what-selected-figure-2-g-shows": "db870c24bad47c2af3e693e035610a867f3810f1debf1a20faf55c8198a4aa16",
+        "05-outcome-and-model-alternatives-before-the-independent-review": "99921e16f9c91b796ef35b007fd1e0c2381620dd25cb9b185f19e4d0b357dc43",
+        "06-the-independent-analysis-and-its-numerical-results": "717d257aefc7f1aef610112c4aba0b565164cf50745841f22e9f0983376deebf",
+        "07-acquisition-timing-and-individual-trajectories": "bb1e25c4d5b00b5175d78ab8c05f2bcfdb14be8dbd088574197c2f44436e3e7e",
+        "08-calibration-what-the-procedures-actually-recovered": "d63cc5828acfb7e1eebd22cc3268f4237944a70a6ef4ef08b3a18d09d10a871f",
+        "09-missing-outcomes-discarding-fish-and-technical-qc": "b43499ee314228ca77c48f3047c9704e3d94a75d7c850cb5580cdb911790eda1",
+        "10-legacy-learner-algorithms-and-their-counts": "56de765a012cbb0ed6955a820043ac55ba086f42561843d858cbddbdfaa5ce04",
+        "11-presentation-alternatives-asterisks-and-neuroscience-examples": "4f86f941587b8ef74990480397a9e0a3f2256622848938ace12db11439921a24",
+        "12-conclusions-and-your-eventual-decisions": "91839bd4829147774925bb8903fa8b495e1844b51d6cdd71b20a14a45400cc8f",
+        "13-glossary-and-manual-source-checks": "86ce65efd6c051f1dd2409713a4920f96d0bf62f84abd28c3eceb74cf63510ba",
+        "14-chat-completion-clarifications-model-teaching-and-next-steps": "ddd32018bd9d08525ceba67e0e9b21ef88de5d5a693557e23a1168b6ac77febf"
+      },
+      "chapter_count": 14,
+      "source_inventory_section_sha256": "0958ae89454adeffffe77798ecab17067100e31e83b4ba586fdada99bc9b87dd",
+      "artifact_checks": 154,
+      "artifact_checks_passed": true,
+      "source_copy_checks": 132,
+      "source_copy_checks_passed": true,
+      "scientific_status": "Teaching and review only; no new inference or freeze",
+      "disposition": "retain at existing path; awaiting author review",
+      "bound_source_count": 133,
+      "bound_figure_asset_count": 20,
+      "relative_runtime_resource_count": 20
+    }
+  },
+  "interpretation": [
+    "Four guide-history bundles are explanatory/notebook revisions, distinct from scientific/model alternatives for G.",
+    "Preview 01 to preview 02 adds explanations separating planned contrasts from original D/M/R families and discussed methods from executed analyses.",
+    "Preview 02 and preview 03 have identical guide-content Markdown; builder/notebook changes and an added freeze-record source still make them distinct review artifacts.",
+    "By the pre-completion backup, source wording corrects last-US viability to annotated US-end time plus a separate bout-presence rule; the older preview wording is not a competing approved definition.",
+    "The current guide preserves the pre-completion guide's original 13 chapter HTML sections byte-for-byte and adds chapter 14; the two share their notebook storage key.",
+    "All 20 bound figure assets in each earlier guide match the current guide by ID and hash. This does not make unique explanation, reader code or notebook state disposable.",
+    "Both scopes are explicitly retained pending author manual review; no G bundle/content consolidation or physical archiving was executed."
+  ],
+  "checks": {
+    "bound_artifacts_passed": 728,
+    "source_copies_passed": 618,
+    "issues": []
+  }
+}

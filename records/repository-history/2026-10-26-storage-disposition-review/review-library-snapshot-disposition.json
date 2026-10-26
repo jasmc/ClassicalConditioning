@@ -1,0 +1,987 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User: do it, following the scoped proposal to check five older generated review-library snapshots and remove only unused reproducible navigation copies.",
+  "status": "complete",
+  "removed_snapshot": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b",
+  "current_snapshot_retained": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b",
+  "old_manifest_sha256": "25f0e1cea430aa4359d8079803f7777e45b2e6fb04a6b9df68b1513af3216526",
+  "file_count": 68,
+  "logical_bytes": 1002651,
+  "files_byte_duplicated_in_current": 65,
+  "unique_controls_retained_in_recipe": [
+    "README.md",
+    "catalogue.json",
+    "manifest.json"
+  ],
+  "reconstruction": {
+    "verified_before_removal": true,
+    "method": "Copy each source_path or decode gzip+base64 encoded_original_control into relative_path; verify recorded SHA-256 and length. Restore only to a new directory, never over an edited snapshot.",
+    "files": [
+      {
+        "relative_path": "ALL-REVIEWS.html",
+        "sha256": "7183fec7cb03a7b2947c0998265943d95d6dedd5ed0db065e9a74b9aeb73d07d",
+        "bytes": 179475,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/ALL-REVIEWS.html"
+      },
+      {
+        "relative_path": "README.md",
+        "sha256": "8e35d37be3bcfce502d297c3a57cd58e7f264f56e10c5c79c02029d1e3c763d4",
+        "bytes": 17250,
+        "encoding": "gzip+base64",
+        "encoded_original_control": "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"
+      },
+      {
+        "relative_path": "catalogue.json",
+        "sha256": "2b1738883b51cdecd7e9f6cc077ee796337130175f64dd15240648b9398f363d",
+        "bytes": 32792,
+        "encoding": "gzip+base64",
+        "encoded_original_control": "H4sIAAAAAAACE+1d23IbSXJ936/omGdCrPtl9STPaCg6pJmxZtd+cDgUdSV7p3ExGtAM7XCE/8H+F7/7U/wlzqrqbjRINAhoSa42YmNiKBJodFfVycvJrMzCv/+uqr5p3W2Ym0+fw7qtl4tvfl/hi/TyOnyuw6/BwwvfEETEDKMZ4d/k91bb9WrZhvTW9/XCV75u3bZNH28vqnUw3tgmVB/M+he//HVxUbXmc/DVuz98eF+ZfHmMYR0Wm8qsVuulgQG0VVyuq+/rm+06VKS6unx3eX3R/03zp7o/2Kvq541Zb6pf681ttbkNVazX7aaqN2Fe1YsqwO2q1i1X4SK9u6jccr4y8EHTbMJ6YTb159C+KvMw283tcl1v7tJMPsK468VNtTCf6xu4bLmolovmDh7nahhrHWtXtaEJLr3V5iHlx/hqtQ4tXFE+08K/ARZhbmAw/QPyU1/DSJuwMPNQPl0vXLNNi1b5ZbVYbrq7V267zovz63L9SzfQm/Vyu2phlP8Mf1XVv+ef8Hqd4Yl5ZWZkdpOvzu9s6k3TAdSvafW//1N9Fxpzt7vKLReb8Numn35ezk1awbQQN9va31/EdIFxLqw2MG+Y9rbZXMBEfFgF+JEQXZjmru1mCOAmOfHV1ZsPH8p8qre/1e0m3b49sKxV3Vbbhbs1i5vgX+3GCReu67BbgPEijBbiZpbHPHxufyXyDLOw/L4bZt128tiLb3Xg8+1muTY3+Q7L7Wa13bT776/M5ja92cF2WRSnvexQQQDLrH9cGd8s6RNGWM4+I9xd/+p2M2/uP9hstmnO33x3b4AJye3KmwQCodWPbrO0Yb3/aR9at65Xm6LT3wzLPl/60ICajtXhogq/dbJYVgQQAITXFWaVa8w6gZSlu31dpBZunkUBZPumhrlVZRJJioNdLn95dW8mt4ZwkReJcEuiI1FjGwISkqAYubbKCxSZcyIGrLCVSjCmtVLeKuOVD84GbILm3wy3/Y+L45IwN4ttWYEJcbjKK7m77P7Ed1LxZfLQbrYeZHYnB5crswjN7OYyvXP3au6n4O4N5+QQ7mPrwcIkixt+WzUgajDAu6pdbtcObM5qa5u6vQVJaRdm1d4uN21vndoAOg1C1NxVt6a9ndnlduEnoZOUMGdl1AbzGCTmJIYoqQFYqMcEIHRa2EAElVJGKjFBUliiOUMmCmNPh24wBxPIvekN0FXlQ6wXdTYdCb6mntfFDreToK3DankYMb90LYC0CusOtEPgfXz75rsPb4+gN4yu8w7FSh4F8Ptl0yx/zRoVfjNuMzKITb34BbRusayaYNYL0OAZTC6Av1tkH+pCspnZj35OJvPkRfZrE6dU4+dOMLJAwcJlgbra83NPbyNHz+oNpJiZFrSxbn9pwVSSU0zlz3nlYNnHQz8w13sIDB9LLj/RiKu9G2Sn/hr8NNi95KlBhhrjRq7walJtLPPMSiaEQxhrLmhUNkgaAmYE6Si0dtIaRKXm0jpjBaWWOdAiZD3D0pyO6MgNT+B6/cBR18kYrJbrzZfh+ePHq7cfZ3//45t/+OP1h8vu0g5VMrsaD2lWwLvsoGU7n3iaDxyPfUQdToA2k09fm5vFElygSxR1abftZhHaztuZprbrLNZZ01brem4A9XkA9uY7ZQxHLCNhTHhEEOLUKhQJAbEQTCmlndEyEqnBXCrJpaEBcyd0IAF8HdPcO+fOgLjQsLo9xTQmQr9t98hZMUXtU/uz3ajay07DAfvdq7M+fsD8iN38zhSjOUA7NdkHzAZ0sQbisgsrYB7w4cxrAHFw8R5+BV4Z1hu4cnN331dMIosdRSxQarj23rIQmNSERYqw0koTqRAmAKxF3GMbCcAqLGfCYCV81O4MunJj5vMpopLI85iu5eH35ik5ieT1v8Df/QQfay8R/fT99dUfP779RD69f/vm4w/XP1x9+vGHn9/+4QhYP/XMPpH6o/D8BNQizMyvED1cVCneqBdbiLhmybHB59NUtot2vlxuEkcZT/N1ZfLMkoNLRhd+C78Ft01ispONM1zebZ2W5W5imd/ld4HoNiVKqrqIOKkQuIWQ49fJVTZrCJo+h8MLnSBo6+zZHLjxxXZ1OagEAjW6a5bG33OK5JNPo/hkmqaPzdtPxXgifdRSjiZyogp9C/deNnUJKJaNBwKcw4TLTpEOSN/cBu+TvmaaWXXTnzaRkkXlnJRCcwRG0mgqKJHYR+eidTg6wY3TiEjOCAc9wt5ExyLzxjGu9akgZ2o9K4OaYTIZCeZoBaBbePNU1rDANys3fag6O5uiPbLWujR/osERRBYYcuBDrOXOeG88pShaZnhA0iiwJwE7bYiOBOi3mGQ+aeo9HhAg7oKHi6I+mSOa5rgkmMVykUVnCELmiVhWcb2cV0cJcufD534U4+eUTw5ZE89IxjeR3Hq9CxzTeravvgxePkVz5qsmzIeMTJLXLj5N+lNhVN3/6NP6wHrv+UB0fEd+jjrCQUAMj44yUAoIqqgHDkEFcSbaqDBlgWCmkOBCK4GVISRScDVYIUoZxNRUKPoXFJB1cMu1by93XnwGE/cpTLnsM0N7pH/ETk5dthcTL3HcegyyxJ5Tlu6vADsiONFjkJIQCDfaQlyOuMXeI+lJZJoRGmSI2GHgLVgxKjj8MMBmolU46ODMX6vgHFqjZ5SSPry5meW89iwtVHoUzG1mANOp6Gs/u13933/+d5cYH92gOnCDLxeom9v64eguS8DXZaEOEImdIZISC4M81SyCN7YoQmgaQXJcIAhriGWkkClwjYxb6yXGFhljJfUmiBDQZIZkXW9uIbgCjp9sc8qI++rnf7yCv0CcCiVP7AvEIPjXo5DgMmc5FiZlPTJ9b6slCMFRufsRmBtMaZ0zMWnieachpVr6uK7Do8h3+/tqswZaDBfNy0guCheCyzdJnNrCYtem3eRfIdwpmZpo5nVTp6CjoGqB0rZw3apkC+4G1l67epMFHqZ4V92YVfuq+mHZPWUdIrwLIzyUHh+LaPfbv/xuJLBT+wK3x/YF3iWVpu0f1saFgzsDf0iJ3kwKRzx2WDzTtkAGm7tOtYAejgKxd30oltQRzBswRogLbxMKzfJm1l+YCCQsTlmBHNHDbZp2CcsFogvkO+P188/fvapgMG2im6F36ft57GSOFvDqbqPm/F2E29kgQp+n9hLuz+bt5btq9KlDaYk/P0dGkziBQewN0NvZu6OBwB8XYFv/LSweG9k9jXl3Hxt46p9gNVMiLMEU65wr7qUbAuqwBusPq5+25GBuHZAbCL6nQ2uCOYtIEUw1RV6mBJiyPAgnjQVr4iiV3hgDr8mIrUWWxghveYUgWjDenWqtb2d5NFNBXwVa7lLkuVlWV93Ae01+Lvy6R85ygLcz0LvEWXfBaeCOtOaxPMmeyK52gXmG1TZL98sl/EheaGeIp0O6GGKEaCUgAIViG2lw3hHNBcYUuYhSEswS4UM0mjgN0R0EdNKJICIzipwOYBNSTDWNYFqAks8uwrhKpug5ktTnAtiN/JStnkNzfABg2hroDGpKYqbc+MU9mS0JzcErtZ23q9siIZNoKkXBdwOBZFhHITxEHhTAFFSrSByAi6yhXiCEuCMcYhLqnIII3YsgkRPodDRHmdhJSItslpkZH/51a9zdi4PZKUj3+Fd/ah8K1MCQs8cv4+1561EsuxhitBbj3biOEoO2JtrS1jeLvAObbPEcBGZaJ6mimmug9QJbyQFKYiID1XPGaEeioh50VONAMY/wEU8YCowSqYgP2OPT85VALOFWdftwp22XtsysCmjeuuN5ux2r0Ya7u10vF0twOHdfkMA8FjUMwxtBvl7+OqO7gQ8RA1JHVHSUTjtxP/bHQpaSCbpMrhTobW0WD5No7da2IFxlRyPvFV6NVffV6TqV9t2ntWlUZVNyIWn3N0VGaf0WDuzGcWv5Z+2Y3j6+Y9opw67w5pGtuqInXQVCXuuBjQJCmWtnDWpM2soH2thxyrMjvNu/RXh/i/D+KiK8+liEd50ivFj/BkPG6EigR1BfSjRSmi4GgzVf1Zsw0rldMFileRZ/lpGxybZcQ2RYpQwN/JHDtruh7OTe7i0szvd7g0sbPj4nb4DvZE2G39bBtOm+2WmfH9TVs+JPJzR3ePS3l99fXu+C2meJ4+BheRZdmQNB8N4ClLddGQdT7FnkafT/rL3w67546zrLagYTfqyrbKvbVKE4GkiuLAErepdiuqTDJb4ePbHUPyRtnaQkKESUdsCjFVxzEoBGCuWpiM4B6UDSaqmAlKgQJCbRUOUwmB14CTGglUadarPr42HCAPAA7fOGCo9h/KSRwcfMg9LeXR8c9JZvJvAQKIyjglM3wJ1lac+OOgTgaCJYVBKIJA08CsK4N0QrLQLBRgB9FJIjrSAEVJxLSgzFp6N3mDY/xG8kff1HCpkKC7BG9Wf4/+kj98fQPEBAT4gXDkzlKMx/l+rzUrWK2zZmVIU8zByEOiXE8xJMFyRxjwwSHlETueWCJL0U3CJQtuhdjI4imKGzNELsLoIJ1EMAgUmgQmJOT4f08Ujv+kUivYfoXZcnPm+Ml/KmeStnkclD7zVLlhQ4QFLPbuKJlcOP5RzI3HrrNslvj1ZvEktPiLRCEB0QcoEJHTEm0iHPpTKphExGFrxTGP5jljuLGZhs7sEcS0UFOR3LdSrJnio6aiBCzYmlZjtf9CXViRGVj40jn6fGdlw1mB82VtHC4k8oLns7qvXbq+afHPk9rP/pdtmEWXli8cOlP2Fh1hB0Au59YJLH+HpU4FkGkf652+UAprOmRMdgpaUeUJUEIY+dixgp4OOcYA3XhSBAe40MlFqe9pJjEAhRxAwR8XTAV8tlA6ZtAvIPOaTtL0qkF8j8/EHl4Z+P73zvQQ/APR3VbqSnAvpmx0BLDRnc5bIHcTfd10PvBsTysDpboMjA7tvU6LFJmRzg+VfVrrWFTpeaMY28ZFiDH+dRcY2J9Yw7J1mqNnPpjwhoS/DIJChlPA4euJXTOjoe/OnIHksWXP9lkwX1UycL3g8pgK72see9dTLFnRe9rVcp/T80noxDm4OR2UnJg/pvyYO/JQ/+CpIHdDp1QFPioIYQHujOFqSvb0E43kAG4UpYw9WlVamPMxMTakKp3cyLAqrxd+//+NOoRrGyAdYV/GdwdW7FSw64q8LOKYQdJqVCMzvai+p2VPDYQHyXBGPdxThZ/+G1/uqh+aU376nie7HXRJESF6ZEwmXGqRyyDOLstEOkJ7ek7Rdql73txKS6bPXTt6bRA+X59xrUhivH7z53q9qHvNa5Ra3Jm83j9rT7jWuZra0/Z7FapDrZXc3fsHKpRrm9DWF690uwwEVQwlAgVYZFiHYp58oFASzZMcO1JioG7LxBITjwucQ6ZQkLzHnG5Mm+gc5ss13NBmWYkItvHypLdV9Z0hQ/m1y1+2Q9avRyGF55yrQbOMiyRsMD3Ak/CW+t9bgFo9g4gDaCxd3TCqb1DGZrUvsTmM7UvgE8xf3SiQqXWVrywmTRSZ8vxrYJNxDeVettE0oz1amtHYY5DTwLORxk8ARjJY3SGhsNAbNRFlujvVcCvB1BhkpKtWEMewXhs8NYnysYxctMSsWULCSyEPouwKnOx6cWimmOdqDWrx3VEJ7XzNir85+WNZiph0oNXqNNhia5+1TqB/hu56G4g/V20UVW9Xy+zfedrmcIzliK0g64dJYpHwBZhD1mgjKjGFAb4YhlFPB1wqlgGFAblUpxmaLengF1ltpVms8k0iNbtru665YAyV82n/e6INqngnpsRUfjHLZKCX3CxtU3uT1+MNSgx0vbWfNdC89Yd7sFSD2fuaX1nh5MYsu5Y1qa6AV2RgTEgIIa6Zzi1ErBBGPGOiQhsOIMLDyHq7B1nKngBYRg9Axs2+08NY9N1Y2ZNZDA9b6zOviRJ4Kwu/euOFY82oJ1LoqF+C1vQt5JGI5lKNRrJ0LTRQsYrCWEsiyYVPFOnMeIOy7AmmrLbNQRUx0ktTYoboUWjqqomQxSUUXiOeD4veMP7nOxh8WNhWamfacmzNKKP/2GEJ0lOjrLcfFs9KShB/asrte95FXJQyUCtrdZ9IgB/rb0aC23oG3uX7d1W9qrW2Ai/cEVDZCxzTpTsOxyX++Iub0bR89DHJEbaI/sMjgTFBMcCyUoBpqlESVCqqgs9yxZZS2Ci1hbMMcmQNxJghXWe42pDeIMCSjWZEIECtzlklkyOHtddqWyqhCzymwg0nhaOehijdnomanGfHPXDIScf3ELdPncI13owJdGsVThSP1ZJUMQ6IB/pSi27xHPG7RJ4XNYVSYz7WSBP3ELxjUKHWJqIbPREUOYRsQRsAEaWDg4Xi7hV3hTUkypsUHrwCki5gykc8qfTiDd1TtXb/7vP//r7VjOZ1nOn17NW7DMM8T6qrP7iUw6M7NwCrhvUig7a1fgMnPsf87u71ABWnYEx5FUMds5Y/JrarPMbzR9WVIxJMd1WDEO3pN6TwAz7xzSShDqrMXBMQirrNUEWRGx5MRriJ6QEARzhIR2iDJ6NrKzAyr4AN9BX7umnn7mT629k/DuFKeM9xxwx/p7YMT3yRSEPPuzLKY5d+iM0y+A4k2n4rv4cdo7O6pRoJQAiERjDKZXRUY459gQH1MJqNcKQSCMhArKMSeMlZZr8NvaEHcurhg9uoP/ctp6aN83q+uz6ejI+448bvjNJPggdt0u8pEnI4bcbSmGZKTL+UwpjTuJZwxEKeucV0yBpw2GYIUQiVEDduBzMWUSHA24VyBkXOPIBdhhBgxNY26tOB/Po4q6Q7VpZjUQ18WUuD8XounBuaXhmfXzeje5HMR0OHYi3HnVvoNi4FN9AjInNo/s6msO/pMg7oO0FCyqZwgB0ozTEEw6QIkiz2P0UVHpkLWRCqMM8K2IHIUY5wtgPXRwyENcewp4yfa2YJ6v+mYa6TLgU+LXUT1H8X2H5jqVtuy2E/I2wLLJuwAQj5mbcL/qJm812CU43m7k0+gaQyn3TkgnIHQlmBIIk6Q3oJOBehwjCR4ip1TGIaTURAkgxiZYDZyaqnNoU8f6pk4GKnMbebV+T6BPqR0imufGsmUFLw88ZTZ0mU/mnrrT88o9ZkdGNdmg2nW6JnQA971ygL2cKwS3y9olq1wOujPNsLuQ9p2m0QR7ipgI8AM7EqV1QjHjADqOhAmCBYh4ECh0AG128JuS4FmJ5BAGY1DgL2pnZtOdbEOarWTsYV3qm8Wuv1k+VWJilNHr9hnKo3bJCXmku5nxKINKPWHGc4XTakTHDSgEEo5yxm1iKF4RhaQRqenBIm4w8lSA+nvyFXQ3d0txv8rh1JV5qc53MX18VB8E5kT7UNPyBCq/W4uR1me3PJQSTWj+LosAOqWw4ZHSGLgj0moarXLUaWaVB28XUhOMIZFFwx2IBsScCnSNAcdl+is9WGNyQV7yKAT6cgep0JMPUuHg26zWxpKEo6Lg48EGCIcBfSMw8U5qQYkizlLDIdIMjGqrIEYNKWqhXyveT3SQyukVAGy6AoClBQAm43O4lVIHoV2lAwiTy0vH2bbHawHGa7d3kOxwz1k6ce+iBDuzfM5tV3cE5Ckx7Zyd6FJyjbGhGZ5cSgIIGZoWSonEqm7SGZfpId3u/4MO8WGnv2fXI58OTj+uQ/i38AWd45HNpnLmB7f8h0VO1j+TqD/30NGpQjo2c7dmM+uf03Pi43HsT8Pe+qhh7+EpWPck/wezLqnhi9JVcG/9XW63TFs9ww6P35Zs50WPxy7EGlrP+9bWnbyDHq2O9JdzJ2WgERkmqGAsWhQiURQJBAFv0CwGIFUpdSEYygfzWSadjXARsRT70ykzm807DZ9APBeumHk4hHKqNflw8ONfaj/Z8f2fc/fvhlNjj5c6g96nrCHEW5vexuUaquHg79fl72JUszUrTPngec/3UxZSEmsh0LFRc5TOB+bBBcSA9DmkYgQcbaBAAL1j1nikDMfpwGCIfHU6VfgMKAez9GhecWy+HhrD588Yj8Y6GyziMW3+dn/I552hmQu8q8/1zTJ3nH/O5zR1Z6CbJtVMua4DwTiw2205TaC9HLS9T2z0Fjeb8mntjYAfVQjmrYHQeakpNp5oqpgzmqWuZc+CDMhzrDkLhFFhBTMGYUeNFudob/Y8j8DdL3CVHVTZ5trtbT28wTMj3+8ZFKeZ4evfO74zNHKyZ+H/3egAkZE5f53tWq7JKatQ1qfti6JHxTsgcZ2TDUMZ4fQukQetFsogr53yjDijQJEJ6DPFECMHCvyOG04kCp5RFr2A6FkqBPovRaDyDPRLnDWV7RiTkq4u+vd9fHzqedMvJQBlWCdZ9zKBEpUe1/sM6jyd9rhOZdIX+TCCfNZLZ8rnsC65rj6ZgkEYSvXtJL4sYh+lYUgh5AhE6UTbIEjA8DJRmEQrQa2dkxwz6SkTghDOMTdII6rsWQa9GKATAN7b4jzwob8ApKPIrxvScfXervoT9PpDr09JfI3CenApZRy+X4NdOfQBXZjOcEE0JrHHGNiXjwYCcsak9VJSETimVMD/ngAVs3AN18wrqVFAmnFNGePnKPDRDf3efh+MJv7p+qdyBMPmZd12X6LswW+HpCkLgOuUvd/34yhob/PhxKaW4Vz33S5/d7eyDq9T7WBub9nbJ87Jnsa4X6ptm0vzCq17dEtCc+Bi4Ki5jVaRvP3rLMY4+OSzBQgHUYGD2xYc7Lgj4M+Jc0kEokLcniEEJ+4cviBrm9o5ZF8BR9uxMTPqckhy8X5UQD9tvbnnKYXiNOdBAnwYs8ipiExgZpFzThBtAkmHQyEhODWp0xveDMQDlRNneeeU+Tt2gFdXobVq6kWYvf/wYZwEeEpc98ZSzHMPLdm/5CjAo2zFWIEnB/2g1G5sxwrZ2ms4STEYxFXDOW2jnePFcq+Y+mHq41h1vAb95GCqKbPeRJW69o2yFiIuzLnVXCDOKE3xNgcBIEDc4SItKHYgCGcDfrSTvyBeVmx/F/E5KdlR/E9v5i/DPqGl/6ckC6lxZTtfdX1G20XPoP0ezqOC4Pcf3l7m4+JPqIkFHLUiNvBopEXGa5S6hxWYYZdLzZiDl7HzTEcOBDx9q4sDukYD42lHRZxrnulRPe499Utocu+aj+pyd9FzavO9coJ9ktJ1hu88+9Drkuj2drGjEVnRp+t3rHEUODb8qZSwWBHhsAlBugDOlkJIDRyMe88wQ5p6HZTzOlIw3cxi4fH5MB/V3h7nl9ffo6g/gwZfFar82dRAseqmHn/txOhYviwm0/3ekYKtRTIVQBMlqSFOCnC52ktmI4LXmOcMIUVRUIamFmKhELjbSIPU7hz0Hn6JxADa8G0PQ8I6dV+URptuM6S6MZvQfvmXUPD+SyjYp28/fvrp44/fX79/+/OTfAPF99t8nkL98FT4ofHg9d7GTrWMiRllktvB80W7Zuzlds3Y6V8/YGgwDmy6tVJFTSNEXw5T5biAgBs5hWIqHqKCGzD9YA4YxOacGRVJ3j39OnfN2AvumnWVJR0EB/bOuiKZrvSkfBHiuCx/922ZBzfPUhi/XG/2Nwpe775ravedZ6nx7V4LTcf3D31jZVeaUi/GFfpdacL5e117oi6nDEcCa+hmfQJ57yqDSrfEqSLPnBaIRG5EwNSJ9K1MUSPESIxRIotNxNHjdACxREzpKDEGbfCpOUhHb/HXIfIv/v0a6vhBBU+P6l55zOOwOm85y9v8KelrCZfREklcqgswksd0hjTzyksbwDfydPApEch5jowE5/iV7f93a/DiKOsJlH8w2Wumx+YDFfp2pCdBepFvPutvPvQ6HUPbWe4jddYjY3A6RUIAF+ImGq2w5xIUGHEVZCQ0WMTTSTgQ0DgkvDFcCfb1lX8dWYQXK+xBx9HPDmNe33QdUP2xAE8pA7n7bXjEcPLAEUlAGmIVYhAg7nEQEI4aUHshgLIIFEUEQ+CN0FpICsGOkEgHoMpIWuGM9U5/tZIwvRQvJg/45SgrPpmyKiyD9loa5401mCgdolNg9qPQNiqNmCSpV8x5Yj0xqdIdeCxcbqgjRvCvk7LiF7H1w5fV3NblfJ/Hvxj5wEFEw9kC+RZPfsLASUcRTctHkg1iMYQ1KRh2QNsEBcuPwPV7sBKGUY6UI0EjCH5c0JZ4BQEORowFgYJ5/BiDYf7jYwxej8tk+u8oPEVkdm0GRfS6AwzyLlsJHbojh+4f/JSlYyQsVxfVu0z4r3uRyQcmdV/C3YnMQPxHhTZT8c7v0m//8bv/By8iQR0YgAAA"
+      },
+      {
+        "relative_path": "manifest.json",
+        "sha256": "25f0e1cea430aa4359d8079803f7777e45b2e6fb04a6b9df68b1513af3216526",
+        "bytes": 28107,
+        "encoding": "gzip+base64",
+        "encoded_original_control": "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"
+      },
+      {
+        "relative_path": "reading/Plans/03_FIGURE_2_LEARNING_ONSET.md",
+        "sha256": "5942732a5e5cf2b46340fbd6ec7b2d93c2856021558a78fa94126d07c8a76ff0",
+        "bytes": 12322,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/Plans/03_FIGURE_2_LEARNING_ONSET.md"
+      },
+      {
+        "relative_path": "reading/Plans/03_FIGURE_2_LEARNING_ONSET.md.html",
+        "sha256": "7a242aeb05233cbc5abe43ce61b9758d56ce9374a5b77ba67a989399cdd4541c",
+        "bytes": 13793,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/Plans/03_FIGURE_2_LEARNING_ONSET.md.html"
+      },
+      {
+        "relative_path": "reading/Plans/05_FIGURE_4_CR_PROFILES.md",
+        "sha256": "fd0f9fe2d290e637a9ebac4c49d5eda395706100f40d56ee462166d93c7ce833",
+        "bytes": 9276,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/Plans/05_FIGURE_4_CR_PROFILES.md"
+      },
+      {
+        "relative_path": "reading/Plans/05_FIGURE_4_CR_PROFILES.md.html",
+        "sha256": "b09d778e4436b0aba3b670ef743f030c4aea404c545127a4cc0ac74127efc46a",
+        "bytes": 10759,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/Plans/05_FIGURE_4_CR_PROFILES.md.html"
+      },
+      {
+        "relative_path": "reading/docs/paper/figures/figure-02/panel-g/README.md",
+        "sha256": "cef8deab8f61ec517e5613f71ff2a18901e7534daf13a438b98fbc6707b58b96",
+        "bytes": 2062,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/docs/paper/figures/figure-02/panel-g/README.md"
+      },
+      {
+        "relative_path": "reading/docs/paper/figures/figure-02/panel-g/README.md.html",
+        "sha256": "cd1055f0ac2cf4229f69ff35b8b37cdd4880eeb5d3294acb54536052c6a58c80",
+        "bytes": 3526,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/docs/paper/figures/figure-02/panel-g/README.md.html"
+      },
+      {
+        "relative_path": "reading/docs/paper/figures/figure-02/panel-h/README.md",
+        "sha256": "2572ba52a5957f90f152673122f2f4a17c81d0838048e4d8818f260a1512fdcd",
+        "bytes": 1791,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/docs/paper/figures/figure-02/panel-h/README.md"
+      },
+      {
+        "relative_path": "reading/docs/paper/figures/figure-02/panel-h/README.md.html",
+        "sha256": "bce6d18ff46f4e27fbcd674bff1071e3ce93bff5df6df655429956f310921284",
+        "bytes": 3268,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/docs/paper/figures/figure-02/panel-h/README.md.html"
+      },
+      {
+        "relative_path": "reading/docs/paper/figures/figure-02/panel-i/README.md",
+        "sha256": "44005cc3613c25ca9c83e3659a6babfa3f71c61f1e34a6df6b5ef958280e25fd",
+        "bytes": 1679,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/docs/paper/figures/figure-02/panel-i/README.md"
+      },
+      {
+        "relative_path": "reading/docs/paper/figures/figure-02/panel-i/README.md.html",
+        "sha256": "a7e8ad0c2a37b76d797ec1953d35ab2e6c9192b60101b3794e7a965f0336679d",
+        "bytes": 3156,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/docs/paper/figures/figure-02/panel-i/README.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure-02-10strace-20261020/final-spacing/legend.md",
+        "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
+        "bytes": 1943,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure-02-10strace-20261020/final-spacing/legend.md"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure-02-10strace-20261020/final-spacing/legend.md.html",
+        "sha256": "a8aa292f938345ba6cc8fd1e7b4f495a9c94d752c9f657e491a570c92525133d",
+        "bytes": 3345,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure-02-10strace-20261020/final-spacing/legend.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched-legend.md",
+        "sha256": "8830aad1f419f66db3d3c296398f2cbf30ba3d60005c259c33cc8fc4d6e70c60",
+        "bytes": 1761,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched-legend.md"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched-legend.md.html",
+        "sha256": "75bd14ad6f1642158b79732ec3785ea1b2ff48772765e1c2006d86170dcbab07",
+        "bytes": 3188,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched-legend.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md",
+        "sha256": "2f37b90739e72873a2c7664a9d74bf07284d5400830e8a390d76802def3e79c1",
+        "bytes": 1726,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md.html",
+        "sha256": "bed37e990cb8411dc10d4bb35e993aff3cdcbaadc805169e6eaee0e0c7f808fa",
+        "bytes": 3143,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md",
+        "sha256": "daf982be5fa7b0ad909f118c27c610154c7b01cd49f5ca83777c00c3e4536616",
+        "bytes": 1539,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md.html",
+        "sha256": "59bd2e5e9e82d074ec9cb000a98b8215c4c5005cd0acb2c3b490640a77c454f5",
+        "bytes": 2950,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figures-03-04-10strace-20261020/report.md",
+        "sha256": "9aa335dc67c6dae21322cd7da915e3d1ff2ed32c65b0677928613baeb965138a",
+        "bytes": 4168,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figures-03-04-10strace-20261020/report.md"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figures-03-04-10strace-20261020/report.md.html",
+        "sha256": "37cb2097cba20284bf491d44789c5e26c535e7c7d7f6a93036d34a0b6a3dcef7",
+        "bytes": 6032,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figures-03-04-10strace-20261020/report.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/design.md",
+        "sha256": "4f1df7a40800c205a29be62e11df2812fb7195cc75147d3466225515a09038bc",
+        "bytes": 6389,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/design.md"
+      },
+      {
+        "relative_path": "reading/outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/design.md.html",
+        "sha256": "077fb82993b8516caf19d4c362649af8fc57c464c8dbb07c86be1ed5cb9f54b5",
+        "bytes": 7832,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/design.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-01/review-agenda.md",
+        "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
+        "bytes": 1058,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-01/review-agenda.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-01/review-agenda.md.html",
+        "sha256": "ab8a3b643d51d2bfda56d1187fc9e928132b091faf5b268cc80924b6ee058054",
+        "bytes": 2381,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-01/review-agenda.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/ghi-statistical-audit/report/study.md",
+        "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
+        "bytes": 10348,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/ghi-statistical-audit/report/study.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/ghi-statistical-audit/report/study.md.html",
+        "sha256": "8889c387a1abf61e905b06e37d1c2f001aaba428925c1a8a33c9387db265f971",
+        "bytes": 11938,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/ghi-statistical-audit/report/study.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md",
+        "sha256": "1c304e33a59ddb4ee47924f3018989278012587b05d1bf2e2e6b546a186df9c5",
+        "bytes": 8243,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md.html",
+        "sha256": "c71deccfd0beef2cc4ca25b17b58a8c4d0b634bbd496a218acd32609a649a252",
+        "bytes": 9687,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md",
+        "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683",
+        "bytes": 11400,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md.html",
+        "sha256": "49034fd8407aad66a5e0489d16237b75cb8366d2ec944cf45b98e0c2cf11d8f8",
+        "bytes": 12867,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/comparisons/review-2026-10-14.md",
+        "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
+        "bytes": 10541,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/comparisons/review-2026-10-14.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/comparisons/review-2026-10-14.md.html",
+        "sha256": "95fa55a5ee888e37f74c9bf4edab887820c567a586ed9b7d0fd53b6e58f74b6c",
+        "bytes": 11942,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/comparisons/review-2026-10-14.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/study.md",
+        "sha256": "7324cb7f9a15fe7152fef73aae93d12b8dc96be263777f3712076b29540af6ab",
+        "bytes": 102167,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/study.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/panel-g/study.md.html",
+        "sha256": "164fcdaac5e8d02004f0454c16d668b71d27de37e42079d7a30c0f296cfc90a9",
+        "bytes": 104395,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/panel-g/study.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/review-agenda.md",
+        "sha256": "19d0bbbc6327292ecf4e40c244bb5caddad330fb4a5e07a8546e1c9a29f2b7f6",
+        "bytes": 1230,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/review-agenda.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-02/review-agenda.md.html",
+        "sha256": "8264a05c227e3b299ad304fdfbbc440de59a6f09b7db74b072b08c01baace76b",
+        "bytes": 2553,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-02/review-agenda.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/blup-comparison/study.md",
+        "sha256": "7ecab301f417cb48de9dd01d14634a844f46c2b43441c6c8ea495f86569483db",
+        "bytes": 27828,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/blup-comparison/study.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/blup-comparison/study.md.html",
+        "sha256": "73d93030e6d9012e10093dcaab89defdbf696ba2965f84099e684f40b58492c2",
+        "bytes": 29786,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/blup-comparison/study.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/conversation-checkpoint-2026-10-23.md",
+        "sha256": "55c497afd61ca6e04daea7cc853b764644abc0772e54a0e51ca1bc548ed65cc3",
+        "bytes": 14515,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/conversation-checkpoint-2026-10-23.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/conversation-checkpoint-2026-10-23.md.html",
+        "sha256": "935e859f1013a195e7a34bc305348fb67c673f24e120dba466e37be091f5ff88",
+        "bytes": 15979,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/conversation-checkpoint-2026-10-23.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/conversation-summary-2026-10-16.md",
+        "sha256": "318cbdef4ea12b32cd105c563739b4bf9f139e73bbe85b696c38f947e78382f3",
+        "bytes": 16065,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/conversation-summary-2026-10-16.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/conversation-summary-2026-10-16.md.html",
+        "sha256": "b9bb6045515a23577435b5b0392febdc64e71b5da3a35584c18c4de16521f8bf",
+        "bytes": 17479,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/conversation-summary-2026-10-16.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/explanation-guide-design-2026-10-17.md",
+        "sha256": "45f7e8daaaad5817539fc5ac6d06c3545b4382d82807a6c9ccb05a10d36610d2",
+        "bytes": 2064,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/explanation-guide-design-2026-10-17.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/explanation-guide-design-2026-10-17.md.html",
+        "sha256": "31ceee8b6466e9f05276c531800a2f58c1bffde8148c9b9bd7da19ad3d418b21",
+        "bytes": 3480,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/explanation-guide-design-2026-10-17.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/individual-fish-display-review.md",
+        "sha256": "c04681a5f33fe5c27b93fb8c3c94b8d8a1e9c2fa2f4fa5ca1002c8eb343c3496",
+        "bytes": 17707,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/individual-fish-display-review.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/individual-fish-display-review.md.html",
+        "sha256": "895dfe33adde727a5a725a3aaa57cc4075ef1a804c7c2483b72a4f808f00f6ab",
+        "bytes": 19142,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/individual-fish-display-review.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/review-agenda.md",
+        "sha256": "5651b99ab202c8831025b46c1fe5a612dc7963282cb3a5500e439b853defc4d3",
+        "bytes": 885,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/review-agenda.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-03/review-agenda.md.html",
+        "sha256": "7f9d949674328cf2a65c6f4305512dcc4e2649c780003c41ed487adbe0438377",
+        "bytes": 2208,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-03/review-agenda.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-04/conversation-summary-2026-10-23.md",
+        "sha256": "f772bb5e3bf950181b5ece04354c08ff8edbe345bdc4bad08a51cbe1eea90f4c",
+        "bytes": 26472,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-04/conversation-summary-2026-10-23.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-04/conversation-summary-2026-10-23.md.html",
+        "sha256": "8fbdc2c6ff3dbb0bb2dc0b3cd5e63da2eb98a90a24de062e5a9c37e4b736e632",
+        "bytes": 27891,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-04/conversation-summary-2026-10-23.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-04/review-agenda.md",
+        "sha256": "1a3eac9f5bb78f93f94dc138c56cc70c80f0d40365ad499e849be54a8f29c2fa",
+        "bytes": 885,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-04/review-agenda.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/figure-04/review-agenda.md.html",
+        "sha256": "ba264e1e0eb62e87a74bdc51596cfee90fb5f900981a468480ad7490c87e8fc0",
+        "bytes": 2208,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/figure-04/review-agenda.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/figure-review-agenda.md",
+        "sha256": "cdb5412dc776e3b257fb272c5651a75fbc334d8d7bee8a5cd91260cd50a7e793",
+        "bytes": 1782,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/figure-review-agenda.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/figure-review-agenda.md.html",
+        "sha256": "50013e37d1764590f3641d040718e3a28eb5add45470b66669d0355addd4d76d",
+        "bytes": 3145,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/figure-review-agenda.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/individual-learning-review.md",
+        "sha256": "9eb4046e4041c2f7bc684acb06506ae64eb30052cede7c005878e827539e1f83",
+        "bytes": 13704,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/individual-learning-review.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/individual-learning-review.md.html",
+        "sha256": "c836b9df4d23ede25ec7d12465867589a551833c9aac5d4a3e500faae3cc20c3",
+        "bytes": 15122,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/individual-learning-review.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/nature-guidance-20261016.md",
+        "sha256": "ccb5df3cbd0aa1b73d62c75afa981d57d13058e7f23eb059a2509fc06daa5864",
+        "bytes": 13657,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/nature-guidance-20261016.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/nature-guidance-20261016.md.html",
+        "sha256": "8d95e597829d48dfd517e76ad63e4cbfbc211e37dcf857ca555971bc8fb164fd",
+        "bytes": 15041,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/nature-guidance-20261016.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/nature-main-migration-20261017.md",
+        "sha256": "094142a0d13d1e6453a2726636560f6f257da6996738266709ebf007b6cabdc9",
+        "bytes": 7423,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/nature-main-migration-20261017.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/nature-main-migration-20261017.md.html",
+        "sha256": "68756f8b96b51d5bf6d602608c8256c2e9b9447e6ba13e4e73c72f1be77c566c",
+        "bytes": 8816,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/nature-main-migration-20261017.md.html"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/paper-review-agenda.md",
+        "sha256": "4c9602f5a6e13c689caf90042fff70b1af1fd1379870489f711c56d853b9fdb1",
+        "bytes": 6543,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/paper-review-agenda.md"
+      },
+      {
+        "relative_path": "reading/outputs/studies/shared/paper-review-agenda.md.html",
+        "sha256": "6ff291a58b515e5bf85e0b79b1791de7396eadb4eb4236c453bd71bf6c20b5ff",
+        "bytes": 7897,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/outputs/studies/shared/paper-review-agenda.md.html"
+      },
+      {
+        "relative_path": "reading/records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md",
+        "sha256": "cb5515a7d62bc663b507f733eb1c06a264dafbd9251291d2a3308cd5116c4c00",
+        "bytes": 9666,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md"
+      },
+      {
+        "relative_path": "reading/records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md.html",
+        "sha256": "ddf76644c352696fe337e807d8bc9aeda78402385216a2cbe83b90f1f9900173",
+        "bytes": 11239,
+        "source_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e3bf3afb2fad2b0b/reading/records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md.html"
+      }
+    ]
+  },
+  "targets": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/ALL-REVIEWS.html",
+      "sha256": "7183fec7cb03a7b2947c0998265943d95d6dedd5ed0db065e9a74b9aeb73d07d",
+      "bytes": 179475,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/README.md",
+      "sha256": "8e35d37be3bcfce502d297c3a57cd58e7f264f56e10c5c79c02029d1e3c763d4",
+      "bytes": 17250,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/catalogue.json",
+      "sha256": "2b1738883b51cdecd7e9f6cc077ee796337130175f64dd15240648b9398f363d",
+      "bytes": 32792,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/manifest.json",
+      "sha256": "25f0e1cea430aa4359d8079803f7777e45b2e6fb04a6b9df68b1513af3216526",
+      "bytes": 28107,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/Plans/03_FIGURE_2_LEARNING_ONSET.md",
+      "sha256": "5942732a5e5cf2b46340fbd6ec7b2d93c2856021558a78fa94126d07c8a76ff0",
+      "bytes": 12322,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/Plans/03_FIGURE_2_LEARNING_ONSET.md.html",
+      "sha256": "7a242aeb05233cbc5abe43ce61b9758d56ce9374a5b77ba67a989399cdd4541c",
+      "bytes": 13793,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/Plans/05_FIGURE_4_CR_PROFILES.md",
+      "sha256": "fd0f9fe2d290e637a9ebac4c49d5eda395706100f40d56ee462166d93c7ce833",
+      "bytes": 9276,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/Plans/05_FIGURE_4_CR_PROFILES.md.html",
+      "sha256": "b09d778e4436b0aba3b670ef743f030c4aea404c545127a4cc0ac74127efc46a",
+      "bytes": 10759,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/docs/paper/figures/figure-02/panel-g/README.md",
+      "sha256": "cef8deab8f61ec517e5613f71ff2a18901e7534daf13a438b98fbc6707b58b96",
+      "bytes": 2062,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/docs/paper/figures/figure-02/panel-g/README.md.html",
+      "sha256": "cd1055f0ac2cf4229f69ff35b8b37cdd4880eeb5d3294acb54536052c6a58c80",
+      "bytes": 3526,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/docs/paper/figures/figure-02/panel-h/README.md",
+      "sha256": "2572ba52a5957f90f152673122f2f4a17c81d0838048e4d8818f260a1512fdcd",
+      "bytes": 1791,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/docs/paper/figures/figure-02/panel-h/README.md.html",
+      "sha256": "bce6d18ff46f4e27fbcd674bff1071e3ce93bff5df6df655429956f310921284",
+      "bytes": 3268,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/docs/paper/figures/figure-02/panel-i/README.md",
+      "sha256": "44005cc3613c25ca9c83e3659a6babfa3f71c61f1e34a6df6b5ef958280e25fd",
+      "bytes": 1679,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/docs/paper/figures/figure-02/panel-i/README.md.html",
+      "sha256": "a7e8ad0c2a37b76d797ec1953d35ab2e6c9192b60101b3794e7a965f0336679d",
+      "bytes": 3156,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure-02-10strace-20261020/final-spacing/legend.md",
+      "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
+      "bytes": 1943,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure-02-10strace-20261020/final-spacing/legend.md.html",
+      "sha256": "a8aa292f938345ba6cc8fd1e7b4f495a9c94d752c9f657e491a570c92525133d",
+      "bytes": 3345,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched-legend.md",
+      "sha256": "8830aad1f419f66db3d3c296398f2cbf30ba3d60005c259c33cc8fc4d6e70c60",
+      "bytes": 1761,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure-02-3strace/matched-delay-statistics/figure2-matched-legend.md.html",
+      "sha256": "75bd14ad6f1642158b79732ec3785ea1b2ff48772765e1c2006d86170dcbab07",
+      "bytes": 3188,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md",
+      "sha256": "2f37b90739e72873a2c7664a9d74bf07284d5400830e8a390d76802def3e79c1",
+      "bytes": 1726,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure4-3strace-model-draft-20261022/legend.md.html",
+      "sha256": "bed37e990cb8411dc10d4bb35e993aff3cdcbaadc805169e6eaee0e0c7f808fa",
+      "bytes": 3143,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md",
+      "sha256": "daf982be5fa7b0ad909f118c27c610154c7b01cd49f5ca83777c00c3e4536616",
+      "bytes": 1539,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figure4-delay-model-draft-20261022/legend.md.html",
+      "sha256": "59bd2e5e9e82d074ec9cb000a98b8215c4c5005cd0acb2c3b490640a77c454f5",
+      "bytes": 2950,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figures-03-04-10strace-20261020/report.md",
+      "sha256": "9aa335dc67c6dae21322cd7da915e3d1ff2ed32c65b0677928613baeb965138a",
+      "bytes": 4168,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figures-03-04-10strace-20261020/report.md.html",
+      "sha256": "37cb2097cba20284bf491d44789c5e26c535e7c7d7f6a93036d34a0b6a3dcef7",
+      "bytes": 6032,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/design.md",
+      "sha256": "4f1df7a40800c205a29be62e11df2812fb7195cc75147d3466225515a09038bc",
+      "bytes": 6389,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/current/reviews/figures-03-04-3strace-20261020/figure4-figure3-score-draft/design.md.html",
+      "sha256": "077fb82993b8516caf19d4c362649af8fc57c464c8dbb07c86be1ed5cb9f54b5",
+      "bytes": 7832,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-01/review-agenda.md",
+      "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
+      "bytes": 1058,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-01/review-agenda.md.html",
+      "sha256": "ab8a3b643d51d2bfda56d1187fc9e928132b091faf5b268cc80924b6ee058054",
+      "bytes": 2381,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/ghi-statistical-audit/report/study.md",
+      "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
+      "bytes": 10348,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/ghi-statistical-audit/report/study.md.html",
+      "sha256": "8889c387a1abf61e905b06e37d1c2f001aaba428925c1a8a33c9387db265f971",
+      "bytes": 11938,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md",
+      "sha256": "1c304e33a59ddb4ee47924f3018989278012587b05d1bf2e2e6b546a186df9c5",
+      "bytes": 8243,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md.html",
+      "sha256": "c71deccfd0beef2cc4ca25b17b58a8c4d0b634bbd496a218acd32609a649a252",
+      "bytes": 9687,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md",
+      "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683",
+      "bytes": 11400,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md.html",
+      "sha256": "49034fd8407aad66a5e0489d16237b75cb8366d2ec944cf45b98e0c2cf11d8f8",
+      "bytes": 12867,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/comparisons/review-2026-10-14.md",
+      "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
+      "bytes": 10541,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/comparisons/review-2026-10-14.md.html",
+      "sha256": "95fa55a5ee888e37f74c9bf4edab887820c567a586ed9b7d0fd53b6e58f74b6c",
+      "bytes": 11942,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/study.md",
+      "sha256": "7324cb7f9a15fe7152fef73aae93d12b8dc96be263777f3712076b29540af6ab",
+      "bytes": 102167,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/panel-g/study.md.html",
+      "sha256": "164fcdaac5e8d02004f0454c16d668b71d27de37e42079d7a30c0f296cfc90a9",
+      "bytes": 104395,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/review-agenda.md",
+      "sha256": "19d0bbbc6327292ecf4e40c244bb5caddad330fb4a5e07a8546e1c9a29f2b7f6",
+      "bytes": 1230,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-02/review-agenda.md.html",
+      "sha256": "8264a05c227e3b299ad304fdfbbc440de59a6f09b7db74b072b08c01baace76b",
+      "bytes": 2553,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/blup-comparison/study.md",
+      "sha256": "7ecab301f417cb48de9dd01d14634a844f46c2b43441c6c8ea495f86569483db",
+      "bytes": 27828,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/blup-comparison/study.md.html",
+      "sha256": "73d93030e6d9012e10093dcaab89defdbf696ba2965f84099e684f40b58492c2",
+      "bytes": 29786,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/conversation-checkpoint-2026-10-23.md",
+      "sha256": "55c497afd61ca6e04daea7cc853b764644abc0772e54a0e51ca1bc548ed65cc3",
+      "bytes": 14515,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/conversation-checkpoint-2026-10-23.md.html",
+      "sha256": "935e859f1013a195e7a34bc305348fb67c673f24e120dba466e37be091f5ff88",
+      "bytes": 15979,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/conversation-summary-2026-10-16.md",
+      "sha256": "318cbdef4ea12b32cd105c563739b4bf9f139e73bbe85b696c38f947e78382f3",
+      "bytes": 16065,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/conversation-summary-2026-10-16.md.html",
+      "sha256": "b9bb6045515a23577435b5b0392febdc64e71b5da3a35584c18c4de16521f8bf",
+      "bytes": 17479,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/explanation-guide-design-2026-10-17.md",
+      "sha256": "45f7e8daaaad5817539fc5ac6d06c3545b4382d82807a6c9ccb05a10d36610d2",
+      "bytes": 2064,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/explanation-guide-design-2026-10-17.md.html",
+      "sha256": "31ceee8b6466e9f05276c531800a2f58c1bffde8148c9b9bd7da19ad3d418b21",
+      "bytes": 3480,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/individual-fish-display-review.md",
+      "sha256": "c04681a5f33fe5c27b93fb8c3c94b8d8a1e9c2fa2f4fa5ca1002c8eb343c3496",
+      "bytes": 17707,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/individual-fish-display-review.md.html",
+      "sha256": "895dfe33adde727a5a725a3aaa57cc4075ef1a804c7c2483b72a4f808f00f6ab",
+      "bytes": 19142,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/review-agenda.md",
+      "sha256": "5651b99ab202c8831025b46c1fe5a612dc7963282cb3a5500e439b853defc4d3",
+      "bytes": 885,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-03/review-agenda.md.html",
+      "sha256": "7f9d949674328cf2a65c6f4305512dcc4e2649c780003c41ed487adbe0438377",
+      "bytes": 2208,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-04/conversation-summary-2026-10-23.md",
+      "sha256": "f772bb5e3bf950181b5ece04354c08ff8edbe345bdc4bad08a51cbe1eea90f4c",
+      "bytes": 26472,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-04/conversation-summary-2026-10-23.md.html",
+      "sha256": "8fbdc2c6ff3dbb0bb2dc0b3cd5e63da2eb98a90a24de062e5a9c37e4b736e632",
+      "bytes": 27891,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-04/review-agenda.md",
+      "sha256": "1a3eac9f5bb78f93f94dc138c56cc70c80f0d40365ad499e849be54a8f29c2fa",
+      "bytes": 885,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/figure-04/review-agenda.md.html",
+      "sha256": "ba264e1e0eb62e87a74bdc51596cfee90fb5f900981a468480ad7490c87e8fc0",
+      "bytes": 2208,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/figure-review-agenda.md",
+      "sha256": "cdb5412dc776e3b257fb272c5651a75fbc334d8d7bee8a5cd91260cd50a7e793",
+      "bytes": 1782,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/figure-review-agenda.md.html",
+      "sha256": "50013e37d1764590f3641d040718e3a28eb5add45470b66669d0355addd4d76d",
+      "bytes": 3145,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/individual-learning-review.md",
+      "sha256": "9eb4046e4041c2f7bc684acb06506ae64eb30052cede7c005878e827539e1f83",
+      "bytes": 13704,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/individual-learning-review.md.html",
+      "sha256": "c836b9df4d23ede25ec7d12465867589a551833c9aac5d4a3e500faae3cc20c3",
+      "bytes": 15122,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/nature-guidance-20261016.md",
+      "sha256": "ccb5df3cbd0aa1b73d62c75afa981d57d13058e7f23eb059a2509fc06daa5864",
+      "bytes": 13657,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/nature-guidance-20261016.md.html",
+      "sha256": "8d95e597829d48dfd517e76ad63e4cbfbc211e37dcf857ca555971bc8fb164fd",
+      "bytes": 15041,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/nature-main-migration-20261017.md",
+      "sha256": "094142a0d13d1e6453a2726636560f6f257da6996738266709ebf007b6cabdc9",
+      "bytes": 7423,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/nature-main-migration-20261017.md.html",
+      "sha256": "68756f8b96b51d5bf6d602608c8256c2e9b9447e6ba13e4e73c72f1be77c566c",
+      "bytes": 8816,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/paper-review-agenda.md",
+      "sha256": "4c9602f5a6e13c689caf90042fff70b1af1fd1379870489f711c56d853b9fdb1",
+      "bytes": 6543,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/outputs/studies/shared/paper-review-agenda.md.html",
+      "sha256": "6ff291a58b515e5bf85e0b79b1791de7396eadb4eb4236c453bd71bf6c20b5ff",
+      "bytes": 7897,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md",
+      "sha256": "cb5515a7d62bc663b507f733eb1c06a264dafbd9251291d2a3308cd5116c4c00",
+      "bytes": 9666,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/e60a23f244cd959b/reading/records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md.html",
+      "sha256": "ddf76644c352696fe337e807d8bc9aeda78402385216a2cbe83b90f1f9900173",
+      "bytes": 11239,
+      "deleted": true
+    }
+  ],
+  "retained_older_snapshots": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/41f93a0882fe7f38",
+      "manifest_sha256": "9056e6cef3a58985315a34dfb6363d80027ea2cad01610df115acd974e7eb65e",
+      "reason": "Retain older source text and/or fixed historical/reading-library references; no retirement authorized by duplicate-only finding."
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/72e807204380c830",
+      "manifest_sha256": "d5c4c31c8ea23468bbaf9c9cd68a3db5d6f01eb065b884b031fdffd35d77a45b",
+      "reason": "Retain older source text and/or fixed historical/reading-library references; no retirement authorized by duplicate-only finding."
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/8241dabc690c1d9f",
+      "manifest_sha256": "04347d59186284db4ca685fb939d86a24cc0ad5bdc3c483ac6520f5627e3c1a0",
+      "reason": "Retain older source text and/or fixed historical/reading-library references; no retirement authorized by duplicate-only finding."
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/ec59f6af7a70c7bd",
+      "manifest_sha256": "3ee0746105b7a988a2dc1218bd08dee49f86c4cd3bf62b3ef750bf1ea3b4a0c5",
+      "reason": "Retain older source text and/or fixed historical/reading-library references; no retirement authorized by duplicate-only finding."
+    }
+  ],
+  "reference_findings": {
+    "removed_snapshot_mentions": "Only dated metadata inventories/disposition assessment; no active inbound reading link or hash-bound publication dependency found in the inspected repository and SSD text sources.",
+    "fixed_links_retained": [
+      "records/repository-history/2026-10-23-repository-output-review/ssd-publication.json -> 41f93a0882fe7f38",
+      "records/repository-archive/study-sources-20261023/verification.json -> ec59f6af7a70c7bd",
+      "SSD studies/figure-02/panel-g, panel-h, panel-i and figure-04 README links -> ec59f6af7a70c7bd"
+    ],
+    "limits": "Git object history, compressed source ZIPs and external browser bookmarks were not inspected. All canonical guides and historical scientific alternatives remain intact."
+  },
+  "protected": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/catalogue-publication.json",
+      "sha256": "1b85a11c9fa683e845a29dc607f01b87ad5d85038167dc57e208bcce00c1e2c2"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html",
+      "sha256": "bd5976e2625c12bd6475617f456cca70c6806b23a64a5f4d55a472893dd5de22"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md",
+      "sha256": "a5468b70be5bb6eda04735c15437ee0d613e4a3215e1e06e70946daef0f17b32"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/review-library.json",
+      "sha256": "41f800fdd0efa303de32c04290bbbae783750032fac4d7a83d522f0b6688fdab"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/study-sources.json",
+      "sha256": "8449cc93b588640e0b36f22afea719406831fcfc42541f91e5c9ffbf77346e54"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+      "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+      "sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json",
+      "sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+      "sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-a/current-state.json",
+      "sha256": "936c94742718f29b064f84440e62f7010d180f5483e5267f7ea698cd9940e82d"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "sha256": "9833850b3d35ece4a8819c9e54c94efb1776629bd9caa59e305101b1a88d4da8"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/main-paper-current-state.json",
+      "sha256": "c41ce89fc56e05ed5c5d4ec9ad264a7c5f95550d32ff3935bafe76d84f375605"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview01/review.html",
+      "sha256": "2d78081ef020897660062fe0bf5807cf5ba1d14cab4f091700391d33b56515ea"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview01/evidence-manifest.json",
+      "sha256": "d158c46373d62929acb6c76fb0d876fd3e004f416d34fb2987c173326b42515a"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview02/review.html",
+      "sha256": "d19e7d8180463b54f98ca0f1e18784278f56f6c2d4da72961ab634e3b03f6aa5"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview02/evidence-manifest.json",
+      "sha256": "98e833206c344daa63f4b9452c12d8c6e6cc7387e17b648ded91e6dfcca90248"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview03/review.html",
+      "sha256": "8bea0aa66dd9f67dc0292612e2328ddbaca40ed5c8dc5b881e8da733c1fb4350"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-preview03/evidence-manifest.json",
+      "sha256": "df30cde76f4e65311b4cda52c91937a4109b59b75f9b1a80b995dd489a78e6c8"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-before-completion/review.html",
+      "sha256": "4dac30f24140af5bf88fa917871d6fdc252787364e7bce19bcc49c8df771e8b4"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-before-completion/evidence-manifest.json",
+      "sha256": "54f80355885c95485e7ba9952c168cb31e645df6e637b76e37a6b900232c6828"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
+      "sha256": "c25b2fc2f91bee06720ff59b8d60f4cc6fe181b786449988db8ad8decbe1ae95"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/evidence-manifest.json",
+      "sha256": "1739ded2d73f1c96c9789294bb28405dda8bc89cb4529b3e24972085a60cb335"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016/review.html",
+      "sha256": "ed24c3e0e4ed18b2cccf888b535b2e916172afebdeaffcd8031a4685266d626b"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/review.html",
+      "sha256": "190b13b248b76d9648b57272349aac64c6f9df69efa2dc0a31d8c8d50a5113f7"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks/review.html",
+      "sha256": "ed4a543f9063084831d168e31987e9c5817012b54bee23c423d87566c5482d7f"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/review.html",
+      "sha256": "b4d4b7466c0119563f8be73ee14209f699c7ba037957bcab633b4c2630bd417a"
+    }
+  ],
+  "personal_notebook_storage_accessed": false,
+  "local_open_handles": 0,
+  "completed_utc": "2026-10-26T19:20:41.620469+00:00",
+  "deleted_file_count": 68,
+  "logical_bytes_removed": 1002651,
+  "all_protected_unchanged": true,
+  "post_removal_reconstruction_sources_verified": true
+}

@@ -61,6 +61,19 @@ The supplied files are named:
 | Asset 11 | `Fig1_PanelsB-C_SessionTimeline_source.svg` |
 | Asset 5 | `Fig1_PanelsB-C_SessionTimelineAlternative_source.svg` |
 
+On 26 October 2026, the five redundant SSD-root SVG copies were removed after
+direct byte comparison with these retained named sources. Old root/J: references
+resolve through the recovery index and relocation map; the PNG previews remain.
+The [disposition](../../../../records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json)
+records exact paths and hashes. No selected artwork was changed.
+
+The author clarified that these five pairs are distinct historical alternatives
+for Figure 1's opening panels. Their PNGs now live beside the retained SVGs in
+`schemes/`, with the same figure/panel/descriptive base names and `.png` instead
+of `.svg`. The [naming record](../../../../records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json)
+preserves original identities and old root/J: aliases. Every variant's artwork
+bytes remain unchanged; current selected artwork still resolves from scoped state.
+
 For an exploratory replacement without changing the selected panel in the
 layout, use `--replace-panel-source B=schemes/Fig1_PanelB_ConditionTiming_exploratory.svg`
 with `--output` set to a separate SSD SVG path. This works with `--panel B` for

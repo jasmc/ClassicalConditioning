@@ -30,7 +30,7 @@ import sys
 
 REPO = _COMMAND_REPOSITORY
 sys.path.insert(0, str(REPO / 'src'))
-from classical_conditioning.external_artifacts import DEFAULT_ARCHIVE, sha256
+from classical_conditioning.external_artifacts import DEFAULT_ARCHIVE, sha256, relocated_external_path
 
 AUDIT = REPO / 'records/repository-archive'
 MANIFEST = AUDIT / 'transfer-inventory.json'
@@ -211,7 +211,7 @@ def payload_path(root, row):
     p = root / 'payload' / safe_relative(row['path'])
     if p.is_symlink() or root.resolve() not in p.resolve().parents:
         raise ValueError(f'Unsafe destination: {p}')
-    return p
+    return relocated_external_path(p, expected_sha256=row['sha256'])
 
 
 def verify_payload(manifest, root):
@@ -286,6 +286,9 @@ def bundle_links(manifest, repo, root):
 
 def transfer(manifest, repo, destination, *, check_mount=True):
     if check_mount: validate_volume(destination)
+    published_control = destination / 'transfer-inventory.json'
+    if relocated_external_path(published_control) != published_control:
+        raise FileExistsError('Published archive was relocated; verify its recorded payloads rather than recreate the old root')
     validate_sources(manifest, repo)
     if destination.exists():
         raise FileExistsError(f'Published archive already exists; verify it rather than overwrite: {destination}')
@@ -340,7 +343,7 @@ def transfer(manifest, repo, destination, *, check_mount=True):
 
 def prune(manifest, repo, destination, *, check_mount=True):
     if check_mount: validate_volume(destination)
-    archived = json.loads((destination / 'transfer-inventory.json').read_text())
+    archived = json.loads(relocated_external_path(destination / 'transfer-inventory.json').read_text())
     if archived != manifest: raise ValueError('Published archive inventory differs; refusing source removal')
     verify_payload(manifest, destination)
     # Check ALL remaining sources before deleting ANY; supports an interrupted prune.

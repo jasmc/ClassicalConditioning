@@ -41,7 +41,7 @@ from classical_conditioning.inventory import build_recording_inventory
 FREEZE = ROOT / "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median"
 MOUNT = Path("/Volumes/JOAQUIM")
 FROZEN_EXTERNAL = MOUNT / "ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian"
-ANALYSIS_ROOT = MOUNT / "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review"
+ANALYSIS_ROOT = MOUNT / 'ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure2-G-independent-review'
 
 
 def sha(path):
@@ -88,7 +88,7 @@ def prepare(out):
         grouped.setdefault(original.parent.name, {})[original.name] = item
     frozen_record = next(r for r in records if r["path"].endswith("\\fish-logmedian-differences.parquet"))
     # A byte-identical replica is selected by hash, not by directory date.
-    replica = MOUNT / "ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/fish-logmedian-differences.parquet"
+    replica = MOUNT / 'ClassicalConditioning Outputs/figures/figure-02/panels-g-h-i/versions/row3-trial-ratio-review/20261009T145647405899Z-delay-logmedian/fish-logmedian-differences.parquet'
     authenticate(replica, frozen_record["sha256"])
     frozen_values = pd.read_parquet(replica)
     inventory = build_recording_inventory(MOUNT / "Raw Data/allDelay", hash_files=False,

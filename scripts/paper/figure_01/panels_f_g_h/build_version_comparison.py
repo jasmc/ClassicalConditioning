@@ -26,7 +26,7 @@ from classical_conditioning.command_provenance import command_sources
 from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, state_lock, tag
 
 ARCHIVE = Path('/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload')
-REVIEWS = Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews')
+REVIEWS = Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/panels-f-g-h/versions')
 
 
 def plain(markup):

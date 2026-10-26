@@ -2214,94 +2214,6 @@
     },
     {
       "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data"
-      ],
-      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks"
-      ],
-      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata"
-      ],
-      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete"
-      ],
-      "sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete"
-      ],
-      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet"
-      ],
-      "sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet"
-      ],
-      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
-        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures"
-      ],
-      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
-      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
-      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures",
-      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
-      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
-      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
-    },
-    {
-      "references": [
         "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\frozen\\20261009-G-historical-logmedian\\data\\all-fit-diagnostics.csv",
         "F:\\ClassicalConditioning Outputs\\ORGER-JOAQUIM\\outputs\\figure2-assembly\\row3-trial-ratio-review\\20261009T153803735311Z-delay-logmedian\\all-fit-diagnostics.csv"
       ],
@@ -3260,6 +3172,159 @@
       "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009",
       "relative_path": "ClassicalConditioning/src/classical_conditioning/analysis/inference/learning_onset.py",
       "recovery_method": "Exact H/I fitter source authenticated against saved H plan"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 10.svg",
+        "J:/Asset 10.svg"
+      ],
+      "sha256": "210a42385a4094bdece3eecfb8ddc4a26c4c837d6f75db9abf30f656b0eace79",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelB_ConditionTiming_source.svg",
+      "recovery_method": "Exact named source retained after author-authorized removal of a redundant root SVG",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json",
+      "source_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 6.svg",
+        "J:/Asset 6.svg"
+      ],
+      "sha256": "1df818d00c9d7788081b8a2325d3da6b6c5fd162ebc6374dcef43db72a95edd3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelA_Setup_source.svg",
+      "recovery_method": "Exact named source retained after author-authorized removal of a redundant root SVG",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json",
+      "source_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 7.svg",
+        "J:/Asset 7.svg"
+      ],
+      "sha256": "5a08b20f20b3a41da7e9bf3be1fe3ce3eedbeadf58358d120b807732d89ac27f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelsB-C_ProtocolAlternative_source.svg",
+      "recovery_method": "Exact named source retained after author-authorized removal of a redundant root SVG",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json",
+      "source_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 11.svg",
+        "J:/Asset 11.svg"
+      ],
+      "sha256": "4e2abc61c4d28d43f8407606e99d7a9f5b364b4c943f6468b8efbdc915174e85",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelsB-C_SessionTimeline_source.svg",
+      "recovery_method": "Exact named source retained after author-authorized removal of a redundant root SVG",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json",
+      "source_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 5.svg",
+        "J:/Asset 5.svg"
+      ],
+      "sha256": "0221de415b2f0e302ee94f8e8f84076ad3ebb38addd5db1950da74b71b979976",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelsB-C_SessionTimelineAlternative_source.svg",
+      "recovery_method": "Exact named source retained after author-authorized removal of a redundant root SVG",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json",
+      "source_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 10.png",
+        "J:/Asset 10.png"
+      ],
+      "sha256": "57c9bdd1c82a9a1d01d4fc3008348aca8abb052abc1cb5465296006c2bed4c7b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelB_ConditionTiming_source.png",
+      "recovery_method": "Historical Figure 1 PNG renamed and colocated with its unchanged SVG variant",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json",
+      "source_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 6.png",
+        "J:/Asset 6.png"
+      ],
+      "sha256": "4e0db117a1d520fb23b15a53b7cfdb2cc11d499211ef0baa45515172d04a36bd",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelA_Setup_source.png",
+      "recovery_method": "Historical Figure 1 PNG renamed and colocated with its unchanged SVG variant",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json",
+      "source_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 7.png",
+        "J:/Asset 7.png"
+      ],
+      "sha256": "5676b02e0e61fcb43dc8a53c048b9af7e080cda03fe186fe8566abb2600a7363",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelsB-C_ProtocolAlternative_source.png",
+      "recovery_method": "Historical Figure 1 PNG renamed and colocated with its unchanged SVG variant",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json",
+      "source_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 11.png",
+        "J:/Asset 11.png"
+      ],
+      "sha256": "c8328de16b23d33e0dbc9dffab8ef29c3d9b49a5c76e56d0969dcabdc626ac36",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelsB-C_SessionTimeline_source.png",
+      "recovery_method": "Historical Figure 1 PNG renamed and colocated with its unchanged SVG variant",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json",
+      "source_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Asset 5.png",
+        "J:/Asset 5.png"
+      ],
+      "sha256": "91bfa160ecc5b1f1c58fbf7fb9dd22aa17bb61f09814b4ac98a7e18a7a3ddace",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes",
+      "relative_path": "Fig1_PanelsB-C_SessionTimelineAlternative_source.png",
+      "recovery_method": "Historical Figure 1 PNG renamed and colocated with its unchanged SVG variant",
+      "source": "records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json",
+      "source_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/src/classical_conditioning.egg-info/PKG-INFO"
+      ],
+      "sha256": "db802e2bedc777aacbf9d97f771f304af5d98913e55bf0e4e3f84cc2b4864da4",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery",
+      "relative_path": "payload/generated-packaging/PKG-INFO",
+      "recovery_method": "Exact historical generated packaging metadata preserved during source/history audit",
+      "source": "records/repository-archive/handoff-git-history-20261026/transfer-inventory.json",
+      "source_sha256": "05246f32eaa2749be59c8b00fbe1bba1d0df4a9a8d70c04d0a4bae5534899a7b"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/src/classical_conditioning.egg-info/SOURCES.txt"
+      ],
+      "sha256": "e872fe843c1345ccc3c8e2586a8da5a8562a560b7109a2cbd7f6eb1201b1ad65",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery",
+      "relative_path": "payload/generated-packaging/SOURCES.txt",
+      "recovery_method": "Exact historical generated packaging metadata preserved during source/history audit",
+      "source": "records/repository-archive/handoff-git-history-20261026/transfer-inventory.json",
+      "source_sha256": "05246f32eaa2749be59c8b00fbe1bba1d0df4a9a8d70c04d0a4bae5534899a7b"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning/src/classical_conditioning.egg-info/requires.txt"
+      ],
+      "sha256": "5e56a5f9353698129aaccd76e6dbcf3e5bb77993d840d657cec5356e2dca2d3c",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery",
+      "relative_path": "payload/generated-packaging/requires.txt",
+      "recovery_method": "Exact historical generated packaging metadata preserved during source/history audit",
+      "source": "records/repository-archive/handoff-git-history-20261026/transfer-inventory.json",
+      "source_sha256": "05246f32eaa2749be59c8b00fbe1bba1d0df4a9a8d70c04d0a4bae5534899a7b"
     }
   ]
 }

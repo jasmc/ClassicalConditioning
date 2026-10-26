@@ -30,7 +30,7 @@ from statsmodels.stats.multitest import multipletests
 
 
 
-SELECT = Path("J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row2-block-ratio-review/analysis-selection.json")
+SELECT = Path('J:/ClassicalConditioning Outputs/figures/figure-02/panels-d-e-f/versions/row2-block-ratio-review/analysis-selection.json')
 COL = "legacy_distal_angular_speed_rad_per_ms"
 VALUE = "Fish median response / baseline"
 BLOCKS = [(10, 14), (65, 69), (90, 94)]

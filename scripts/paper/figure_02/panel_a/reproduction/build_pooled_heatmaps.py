@@ -30,7 +30,7 @@ from classical_conditioning.figures.review_html import svg_editing_page, figure_
 
 STATE=ROOT/'docs/paper/figures/figure-02/panel-a/current-state.json'
 SELECTION=ROOT/'configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json'
-OUT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-pooled')
+OUT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-a/versions/figure-02-a-pooled')
 EVIDENCE=ROOT/'records/figure-reviews/figure-02/pooled-heatmap-evidence.json'
 LEGEND=ROOT/'docs/paper/figures/figure-02/legend.md'
 README=ROOT/'docs/paper/figures/figure-02/README.md'

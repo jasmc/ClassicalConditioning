@@ -23,8 +23,7 @@ from pathlib import Path
 REPO_ROOT = _COMMAND_REPOSITORY
 DEFAULT_SPEC = REPO_ROOT / "configs" / "paper-figures" / "figure1-session-protocol.json"
 OUTPUT_DIRECTORY = Path(
-    "J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/"
-    "schemes"
+    'J:/ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c/versions/source-schemes'
 )
 
 # Import only declarative config; the package root loads optional analysis

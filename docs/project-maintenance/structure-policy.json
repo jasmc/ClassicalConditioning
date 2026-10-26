@@ -50,6 +50,10 @@
     {
       "path": "records/repository-archive/figure3-legacy-only-20261015/disposition.json",
       "sha256": "246fe720922cde38a2679be81a00192ebb5329d8a2c723e7b1776858cd9c1587"
+    },
+    {
+      "path": "records/repository-archive/intake-quarantine-20261024/disposition.json",
+      "sha256": "98469fc04e857555f8d4a0f3b0b39fe058931c82c7e5e3e1650f048716cde611"
     }
   ],
   "additional_figure_states": [

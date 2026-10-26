@@ -25,7 +25,7 @@ import statsmodels.formula.api as smf
 from statsmodels.stats.multitest import multipletests
 from threadpoolctl import threadpool_limits
 
-ROOT = Path('J:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-assembly/row3-trial-ratio-review')
+ROOT = Path('J:/ClassicalConditioning Outputs/figures/figure-02/panels-g-h-i/versions/row3-trial-ratio-review')
 SOURCE = ROOT / '20261009T141045627289Z-delay-boutonly-lme'
 
 
