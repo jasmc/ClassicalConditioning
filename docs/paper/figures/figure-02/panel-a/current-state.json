@@ -21,11 +21,11 @@
   "frozen_display": {
     "status": "frozen A compact display",
     "working_svg": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-pooled.svg",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-a/versions/figure-02-a-pooled/figure-02-a-pooled.svg",
       "sha256": "6d149a5d87a9bffb1ce79c3fad809b8f7bc73768ee89b63dad9b3eb424584d53"
     },
     "review": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-pooled.html",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-a/versions/figure-02-a-pooled/figure-02-a-pooled.html",
       "sha256": "7eab5144550fc5c5b1c1602ea8515f3dc2af99798337a27cce8ecb729ae499f4"
     },
     "legend": {
@@ -78,7 +78,7 @@
   "draft": {
     "status": "no active scientific draft; current working copy derives from accepted A freeze",
     "previous_draft": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-a-six-map-freeze-2026-10-14/prior-working-copies/current-state.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-a/versions/figure-02-a-six-map-freeze-2026-10-14/prior-working-copies/current-state.json",
       "sha256": "fad383d5ed5fd9d86be2ca2503c506dd7c7d5abf89c5bdeea252944d85f7b63d"
     }
   },

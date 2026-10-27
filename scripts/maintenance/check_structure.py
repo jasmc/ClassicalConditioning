@@ -111,6 +111,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     protected = [(entry, False) for entry in index['files']]
     for manifest in manifests:
         protected.extend((entry, True) for entry in json.loads(manifest.read_text()).get('protected_files', []))
+    protected_documents = {entry['path'] for entry, _ in protected}
     originals = {(entry['path'], entry['sha256']): entry['preserved_original']
                  for entry in policy.get('mutable_index_originals', [])}
     checked = set()
@@ -175,7 +176,16 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
             target, _, fragment = target.partition('#')
             target = unquote(target)
             if target.startswith('/Volumes/'):
-                if external and not Path(target).exists():
+                if external and key in protected_documents:
+                    # Immutable originals retain historical paths. Authenticate
+                    # their exact relocated evidence instead of rewriting them.
+                    try:
+                        resolve_artifact(target, repo=repo)
+                    except FileNotFoundError:
+                        unavailable.append(key + ': ' + target)
+                    except ValueError as error:
+                        issues.append('Historical external link changed: ' + key + ' -> ' + target + ': ' + str(error))
+                elif external and not Path(target).exists():
                     unavailable.append(key + ': ' + target)
                 continue
             destination = recorded_path(target, repo, aliases, base=path.parent) if target else path

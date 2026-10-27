@@ -3325,6 +3325,39 @@
       "recovery_method": "Exact historical generated packaging metadata preserved during source/history audit",
       "source": "records/repository-archive/handoff-git-history-20261026/transfer-inventory.json",
       "source_sha256": "05246f32eaa2749be59c8b00fbe1bba1d0df4a9a8d70c04d0a4bae5534899a7b"
+    },
+    {
+      "references": [
+        "docs/running-analysis/pc-handoff-2026-10-18.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/running-analysis/pc-handoff-2026-10-18.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/pc-handoff-2026-10-18.md"
+      ],
+      "sha256": "a31a71241090db252a2db631ca821cf846e07ec7c0c37b04f2c08886d45507cc",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/retired-guidance/2026-10-27",
+      "relative_path": "payload/docs/running-analysis/pc-handoff-2026-10-18.md",
+      "recovery_method": "Retired dated operational prose; historical evidence, not current instructions"
+    },
+    {
+      "references": [
+        "docs/running-analysis/pc-handoff-2026-10-18.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/running-analysis/pc-handoff-2026-10-18.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/pc-handoff-2026-10-18.md"
+      ],
+      "sha256": "76503d574538133078f57a176ecd5a4c3515cb9cb9c53d134ca03d8a9c49f9cb",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/source-snapshots/2026-10-18/docs/running-analysis",
+      "relative_path": "pc-handoff-2026-10-18.md",
+      "recovery_method": "Exact earlier handoff member; distinct from the later retained handoff document"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures.html/main-paper-figures.html",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html",
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html"
+      ],
+      "sha256": "4bd2d140419d5e1fd89dd33a433e22fe131a32e386a8490441eb40f09bf1a834",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/shared/collection-history/2026-10-27-storage",
+      "relative_path": "main-paper-figures.html",
+      "recovery_method": "Exact cached collection before storage-only wrapper refresh; source SVGs and legends unchanged"
     }
   ]
 }

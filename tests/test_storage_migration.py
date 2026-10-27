@@ -63,6 +63,12 @@ class StorageMigrationTests(unittest.TestCase):
         with self.assertRaises(ValueError): migration.prune(self.plan, self.manifest, self.receipt)
         self.assertTrue(self.source.exists())
 
+    def test_direct_byte_comparison_is_required_before_removal(self):
+        migration.copy(self.plan); self.publish()
+        with patch.object(migration, 'equal_bytes', return_value=False):
+            with self.assertRaises(ValueError): migration.prune(self.plan, self.manifest, self.receipt)
+        self.assertTrue(self.source.exists())
+
     def test_publication_required(self):
         migration.copy(self.plan)
         with self.assertRaises(FileNotFoundError): migration.prune(self.plan, self.manifest, self.receipt)
@@ -178,6 +184,11 @@ class StorageMigrationTests(unittest.TestCase):
         with self.assertRaises(ValueError): migration.publish_controls(plan)
         self.assertEqual(self.state.read_text(), '{"manual":true}')
 
+    def test_duplicate_control_updates_are_rejected_before_writing(self):
+        plan=self.control_plan();plan['controls'].append(dict(plan['controls'][0]))
+        with self.assertRaises(ValueError):migration.publish_controls(plan)
+        self.assertEqual(self.state.read_text(),'{}')
+
     def test_control_publication_uses_existing_state_lock(self):
         plan = self.control_plan(); lock = Path(str(self.state)+'.lock'); lock.write_text('other publisher')
         with self.assertRaises(RuntimeError): migration.publish_controls(plan)
@@ -187,6 +198,16 @@ class StorageMigrationTests(unittest.TestCase):
         plan = self.control_plan(); migration.publish_controls(plan)
         self.assertEqual(self.state.read_text(), '{"relocated":true}')
         self.assertFalse(Path(str(self.state)+'.lock').exists())
+
+    def test_legacy_windows_paths_follow_scoped_storage_directories(self):
+        from scripts.workflows.macos.run_legacy_with_paths import relocate
+        old = '/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/frozen'
+        target = '/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/frozen'
+        value = 'F:/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/frozen/panel.svg'
+        self.assertEqual(relocate(value, '/Volumes/JOAQUIM', self.root,
+                                  [(old, target)]), target + '/panel.svg')
+        self.assertEqual(relocate('J:/Raw Data/allDelay', '/Volumes/JOAQUIM', self.root),
+                         '/Volumes/JOAQUIM/Raw Data/allDelay')
 
 
 if __name__ == '__main__':

@@ -22,12 +22,13 @@ keep a short pointer to the full external discussion.
 For new work, use a scope-based workspace under:
 
 ```text
-/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/
-  figure-02/panel-g/
-  figure-02/panel-h/
-  figure-02/panel-i/
-  figure-03/
-  figure-04/
+/Volumes/JOAQUIM/ClassicalConditioning Outputs/
+  figures/figure-02/panel-g/studies/
+  figures/figure-02/panel-h/studies/
+  figures/figure-02/panel-i/studies/
+  figures/figure-03/assembly/studies/
+  figures/figure-04/assembly/studies/
+  shared/studies/
 ```
 
 Within a topic, keep an editable explanatory source (normally `study.md`), its

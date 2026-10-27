@@ -11,11 +11,11 @@
     }
   ],
   "html": {
-    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html",
-    "sha256": "4bd2d140419d5e1fd89dd33a433e22fe131a32e386a8490441eb40f09bf1a834"
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html",
+    "sha256": "099740a392a20f0a9b22c5059d709de9989c2a530bae9a86cba4e594ae5ea724"
   },
   "inputs": {
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/shared/collection.py": "e9de5885389365018ab1ba72e9ac49c5a392bf61fef0a76b87ed97691dd25e1d",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/shared/collection.py": "07acfb7d1be9b99363c0b78c5630f932881e158deb2a775ebe879b236247d0ec",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/__init__.py": "26ef8c8a3e0c2ad0e6fb8933fd29e8fff05a410d1fbf44cfc955ac23f5796238",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/__init__.py": "ac3d9c4481a54ef1cc7d978ae22385191edfe49d07937822eb36f6ae95f53810",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/benchmarks/__init__.py": "712fca356096329bc7359288d95f26da7bc110428a82199e224958931b315d61",
@@ -42,7 +42,7 @@
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/config/identity.py": "dadf4f96e388ef32335d19c83d10a11ab43515286b5689c37e566b17a05fe285",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/config/trial_map.py": "ba4e9b3662a5c8d71041eee54c9b2982fb44ca9f5d2530aac45fe83c1a337d76",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/exceptions.py": "198de592c33d9a9d62f01efb8096eb250d499b23d198813c34ca7c907939723b",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/external_artifacts.py": "2c108fc20a29560a4a037bb654e7021b95d14c6c452387e6b768c8a2c192ede2",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/external_artifacts.py": "4ba280c5b4c325406a5e8f23c8b2b99a708e4cd5d32375b93ef0347b8ebeafef",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figure_freeze.py": "0c5b87a85501e3284d702f31fb29be28cfb85e9bf8b603f076a4b7b6943a8723",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figure_workspace.py": "f3a23ca320b116517d7b50a66a390d3debd7c0d5f9f176b8c4036687e5048d4c",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/__init__.py": "db9d4d4a85f9292074b2bc0002823bbe541058fc9db36c8092c27a7b290490cc",
@@ -74,22 +74,22 @@
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/progress.py": "d018c3814014cb0698eb308d9217d64978744ea19cbadd76656ec39d0742d600",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/layout_frames_browser.js": "ad2d9fb1ba817f6de6002162cac0c2b927962182f95cdee3f39f9d4b761ecbb9",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/assembly/current/figure-01-v16-editing.svg": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md": "3333cca676ef937fd59c311556238eb003e72b99fb9a5c1ec9906e37dcf2e8f7",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html": "4792f24cec3032696856fff976f1025763927f78e78d6859c24763a1d2430761",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/assembly/current/figure-01-v16-editing.html": "4792f24cec3032696856fff976f1025763927f78e78d6859c24763a1d2430761",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json": "58f68571a88eed028bc3609b65d3fd20a98c5a708e7905d1f506deb115d5e1cf",
-    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json": "58f68571a88eed028bc3609b65d3fd20a98c5a708e7905d1f506deb115d5e1cf",
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/current/figure2-current-minimal.svg": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/current/figure2-current-minimal.html": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
-    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json": "f17b067aef34eeec8e4902fdb31d6ae5b586c9cea2c8e0d19f7000cc90741701"
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json": "f17b067aef34eeec8e4902fdb31d6ae5b586c9cea2c8e0d19f7000cc90741701"
   },
   "provenance": {
     "figures": [
@@ -97,10 +97,10 @@
         "id": "fig1",
         "state": {
           "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
-          "sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c"
+          "sha256": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f"
         },
         "svg": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/assembly/current/figure-01-v16-editing.svg",
           "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
         },
         "legend": {
@@ -118,7 +118,7 @@
           ]
         },
         "layout_frames": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json",
           "sha256": "58f68571a88eed028bc3609b65d3fd20a98c5a708e7905d1f506deb115d5e1cf"
         },
         "whole_figure_frozen": false,
@@ -132,10 +132,10 @@
         "id": "fig2",
         "state": {
           "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
-          "sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c"
+          "sha256": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030"
         },
         "svg": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/current/figure2-current-minimal.svg",
           "sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064"
         },
         "legend": {
@@ -154,7 +154,7 @@
           ]
         },
         "layout_frames": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json",
           "sha256": "f17b067aef34eeec8e4902fdb31d6ae5b586c9cea2c8e0d19f7000cc90741701"
         },
         "whole_figure_frozen": false,
@@ -167,7 +167,7 @@
     ],
     "builder": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/shared/collection.py",
-      "sha256": "e9de5885389365018ab1ba72e9ac49c5a392bf61fef0a76b87ed97691dd25e1d"
+      "sha256": "07acfb7d1be9b99363c0b78c5630f932881e158deb2a775ebe879b236247d0ec"
     },
     "layout_policy": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/layout-frames.json",

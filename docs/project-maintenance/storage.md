@@ -10,9 +10,20 @@ notebook migrations follow [Plan 12](../../Plans/12_STUDY_ARTIFACT_STORAGE.md).
 
 Use an explicit external destination or `CLASSICAL_CONDITIONING_ARTIFACT_ROOT`; the configured directory must exist outside the repository. Never fabricate a missing mount. `CLASSICAL_CONDITIONING_ARCHIVE_ROOT` can identify a verified archive.
 
-`ClassicalConditioning Outputs/current/` contains current working outputs; historical artifacts are retained or placed in separately indexed history/archive locations. A dated snapshot or published archive may supply a current accepted panel. Do not infer supersession from its location.
+The figure-led destination is `ClassicalConditioning Outputs/figures/figure-NN/`.
+Each populated assembly, individual panel or inseparable joint-panel scope owns
+`current/`, `versions/` and `studies/` as needed. Shared studies and cross-figure
+reviews live under `Outputs/shared/`. Scoped repository state still selects
+current work; directory names and dates do not select science. A dated snapshot
+or archived source can supply an accepted panel.
 
 Published archives under `ClassicalConditioning-Archive/` preserve `payload/<original-path>` and immutable transfer inventories. Control records are local under [repository archive](../../records/repository-archive/README.md). Resolve old references with `resolve_artifact(reference, expected_sha256=...)`; explicit hashes select exact recovered bytes and mismatches fail.
+
+Storage consolidation can relocate those payloads without editing historical
+inventories. Exact `external_moves` and uniform `external_directory_moves` in
+the existing relocation index authenticate the new destinations. Strict archive
+verification follows exact aliases and still rejects missing or corrupt bytes;
+it does not treat a relocation as permission to omit a payload.
 
 For an existing transaction:
 
@@ -37,19 +48,33 @@ audit exceptions cannot weaken those mutation safeguards.
 
 ## Find reviews on JOAQUIM
 
-Open `ClassicalConditioning Outputs/START-HERE.html`. The maintained [review library](../paper/figures/review-library.md) owns curated reading links; its JSON catalogue supplies verified external identities. `current/reviews/` also retains historical/QA iterations and does not itself select current science. `ORGER-JOAQUIM/outputs/` is a source-machine mirror; archive and dated handoff packets keep separate recovery roles. Reorganize navigation before moving payloads with path-bound dependencies.
+Open `ClassicalConditioning Outputs/START-HERE.html`. Figure folders collect
+artwork, legends, all distinct saved versions and studies across former computer
+sources. The maintained [review library](../paper/figures/review-library.md) owns
+curated reading links; its JSON catalogue supplies verified external identities.
+The author confirmed on 27 October that no notes or selections had been added.
+The former notebook routes were retired after verifying their retained copies
+and preserving notebook identities; no browser import/reload is claimed.
+
+The [consolidation record](../../records/repository-history/2026-10-27-storage-consolidation/README.md)
+binds the inventory, recovery snapshot, manifest and publication/pruning receipts.
+`scripts/maintenance/storage_migration.py` separates inventory, ZIP-member
+recovery, exclusive copying, consumer publication and pruning. Unexpected files,
+changed bytes, collisions and state-lock conflicts stop the affected operation.
+Full inventories and maintenance evidence stay on JOAQUIM. Supported code, tests
+and compact recovery pointers remain in the repository.
 
 ## Drive-wide audit
 
 The [24 October storage audit](../../records/repository-history/2026-10-24-joaquim-storage-audit/README.md)
 records current folder sizes, processed-data status, archive integrity and the
-roles of the dated PC/Mac handoff packets. Its full Markdown/HTML explanation
+original roles of the dated PC/Mac handoff packets. Its full Markdown/HTML explanation
 and file inventory live on JOAQUIM. Machine names and old dates do not by
 themselves identify disposable data: the Delay baseline still supplies figure
-inputs, and the old Mac handoff's pc-outputs subtree resolves selected Figure 2 G.
-Treat dated source packets as handoff/recovery snapshots, not parallel active
-repositories; preserve their dirty-copy history and bound exports before any
-future consolidation. No folders were moved or pruned by that read-only audit.
+inputs. At that audit's capture, selected Figure 2 G resolved through the old
+Mac packet. The later consolidation migrates those exact exports and reconciles
+source history before retiring packaging. The audit itself moved or pruned no
+folders and is historical evidence rather than current folder authority.
 
 The subsequent [implementation record](../../records/repository-history/2026-10-24-storage-organization/implementation.json)
 records the drive-root `README.md` and `START-HERE.html` map and the verified

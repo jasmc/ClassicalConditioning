@@ -8,40 +8,40 @@
   "scientific_status": "unfrozen exploratory; main Figure 2 and accepted G unchanged",
   "draft": {
     "working_svg": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/figure2-G-exploratory.svg",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/current/exploratory/figure2-G-exploratory.svg",
       "sha256": "1b069158e0e579064e8d2db79d459edcd5ce55642988d9d7c08486ce13ef19e8"
     },
     "review": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/review.html",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/current/exploratory/review.html",
       "sha256": "b4d4b7466c0119563f8be73ee14209f699c7ba037957bcab633b4c2630bd417a"
     },
     "legend": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/legend.md",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/current/exploratory/legend.md",
       "sha256": "e80320954185b34d80ca425e588892bb9fd47bb21717a6478b0cdeb1a2bf339d",
       "panel_ids": [
         "G"
       ]
     },
     "semantic_registry": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/draft-registry.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-asterisks-v02/draft-registry.json",
       "sha256": "7421ae5b5ab3da6409824011b82658b86e93e5705d42705b48c9bd32323d9597"
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/layout-evidence.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-asterisks-v02/layout-evidence.json",
       "sha256": "9bb3440f4dfa6e2919177500bf33857ccf322524635986fa41f27d4ff93f1f30"
     },
     "visual_review": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/visual-review.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-asterisks-v02/visual-review.json",
       "sha256": "0663800f9f15ca405e109010d6fa4121394e1ec4f4631b67db560612bf8e8e1e"
     },
     "asterisk_decisions": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/asterisk-decisions.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-asterisks-v02/asterisk-decisions.json",
       "sha256": "19f7c617e189b2a79a9b5ff9331c3e559b310c51b192499b342aa2cff27fdeba"
     }
   },
   "parent_analysis": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/20261014-analysis-02/stages/report-7bb6bd520060",
   "starting_ticket": {
-    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/start-ticket.json",
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-asterisks-v02/start-ticket.json",
     "sha256": "b8c9d32b4a8a6b1ec6c39330a8329337d59b03b166605baf852bad76a11c9e0e"
   },
   "scientific_coverage": "Explicit plotted source/estimand mappings; model calibration remains unresolved; no freeze",
@@ -51,35 +51,35 @@
       "variant": "without asterisks",
       "draft": {
         "working_svg": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/figure2-G-exploratory.svg",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-v02/figure2-G-exploratory.svg",
           "sha256": "f7d449af606d43cced30108173cd8a756a6e232d911f1249de30ac70d8e7b2e6"
         },
         "review": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/review.html",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-v02/review.html",
           "sha256": "190b13b248b76d9648b57272349aac64c6f9df69efa2dc0a31d8c8d50a5113f7"
         },
         "legend": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/legend.md",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-v02/legend.md",
           "sha256": "1a8c0badc677b2d3ec1d3f99a8e10b73b810767da4f03893552786bf8bbdac94",
           "panel_ids": [
             "G"
           ]
         },
         "semantic_registry": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/draft-registry.json",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-v02/draft-registry.json",
           "sha256": "cf8c2bafe471d49fa06bb0fb4dddb08701e742daf928f724b08bd80675a1d9c3"
         },
         "layout_frames": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/layout-evidence.json",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-v02/layout-evidence.json",
           "sha256": "ebc8b516b86cd74c7a4dc5e03650e1fb0f4b0bf432638a80d6fea9c4e997dba9"
         },
         "visual_review": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-v02/visual-review.json",
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-v02/visual-review.json",
           "sha256": "ea4e9da0aa2d4df110e14ccbfbb44b1d49252f3ae9ab72555d3e402b601baa9e"
         }
       },
       "state_snapshot": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-exploratory-20261016-asterisks-v02/previous-exploratory-state.json",
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/figure-02-g-exploratory-20261016-asterisks-v02/previous-exploratory-state.json",
         "sha256": "d1bd5df419b571888e812810f34e323c4feed5936ce484698d74b830d157a58b"
       }
     }

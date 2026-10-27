@@ -34,6 +34,7 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | Command | Scope |
 |---|---|
 | [maintenance/archive.py](maintenance/archive.py) | Audit repository content and transfer payloads only after JOAQUIM verification. |
+| [maintenance/storage_migration.py](maintenance/storage_migration.py) | Inventory, copy, authenticate, publish and prune explicit SSD migrations; preserve notes and concurrent edits. |
 | [maintenance/audit_preprocessing.py](maintenance/audit_preprocessing.py) | Read-only preprocessing evidence; writes only a new audit directory. |
 | [maintenance/check_structure.py](maintenance/check_structure.py) | Read-only ownership, active-link, relocation and evidence checks. |
 

@@ -1,6 +1,6 @@
 # Paper review agenda
 
-The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/shared/paper-review-agenda.md>).
+The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/studies/paper-review-agenda.md>).
 Use the [review library](figures/review-library.md) to find its HTML and related approaches.
 
 This pointer does not select scientific results, approve proposals or freeze artwork.

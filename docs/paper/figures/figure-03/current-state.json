@@ -11,28 +11,28 @@
   "draft": {
     "status": "Main-paper draft A-E; one G acquisition path; descriptive, validation unresolved",
     "working_svg": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/figure3.svg",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/figure3.svg",
       "sha256": "b59762ec789801abf7ad6d925c3e938f268253122bebed8d4bc7a1ff9ebf6b25"
     },
     "review": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/review.html",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/review.html",
       "sha256": "cbcae84651686311cd9032678f8b5d4b30196ecf19bd14ae7162eb6bdd913be6"
     },
     "legend": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/legend.md",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/legend.md",
       "sha256": "35856bf3e5618422f47e3a93c046677faf6f4068e3d53ccdfde5693b9f7251b6"
     },
     "semantic_registry": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/draft-registry.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/draft-registry.json",
       "sha256": "7d5175dbbb49b27f3d98cd12a6a342f3716066b756dad29d869c8ae966250ff2"
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/layout-evidence.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/layout-evidence.json",
       "sha256": "bf3a45219c921a076861a86f584ee5c14547153672412255760db4de0960ce19"
     },
     "data": {
       "acquisition_scores": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/acquisition-scores.csv",
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/acquisition-scores.csv",
         "sha256": "14542cd87d8de999ea033d3142808f9f6c0e92ad40a8b79e18f249de9ca4c3ae"
       }
     },
@@ -42,23 +42,23 @@
     },
     "source_atlas": {
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/exploratory-state.json",
-      "sha256": "7eb65d7f09a936f664323c684d67bda59dea42c2fc3073f6c0cc11969730527e"
+      "sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe"
     },
     "previous_draft_state": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/previous-current-state.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/previous-current-state.json",
       "sha256": "96d9198604d44c4a199297d958675d4c8a27cf751f5fd4f20658d0abe5ffd9fa"
     },
     "analysis_spec": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/analysis-spec.json",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/analysis-spec.json",
       "sha256": "3c91a4c80e42e73b078af96e22b7c65c2a19e09a3c6864b38dad2fabdcf9d2e3"
     },
     "verification": {
       "visual_review": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/visual-review.json",
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/visual-review.json",
         "sha256": "25c0c4d3e59af9b29c469cc20cbbce1a8857c04db1e5b33f45f376903a38e462"
       },
       "artifact_manifest": {
-        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-main-paper-single-path-20261016/artifact-manifest.json",
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/current/figure3-main-paper-single-path-20261016/artifact-manifest.json",
         "sha256": "62e05710f087865d6056c6dc3acf617efbec1a7b14c5c085884bf5e7838d4d63"
       }
     },

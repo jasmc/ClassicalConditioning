@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-10-27T09:04:58.793435+00:00",
+  "rules_added": false,
+  "annotation_resolution": {
+    "author_statement": "I haven\u2019t added notes or selections",
+    "note_transfer_required": false,
+    "native_import_reload_claimed": false,
+    "notebook_pages": 22,
+    "duplicate_copies_retired": 866,
+    "logical_source_bytes_removed": 705564492,
+    "allocated_source_bytes_removed": 795082752,
+    "retained_copies_reverified_by_authenticated_old_reference": 866,
+    "distinct_versions_preserved": true,
+    "scientific_manual_review_holds_unchanged": true
+  },
+  "retired_roots": [
+    "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009",
+    "/Volumes/JOAQUIM/ClassicalConditioning-PC-20261018"
+  ],
+  "final_verification": {
+    "unit_tests_passed": 75,
+    "protected_files": 365,
+    "current_states": 7,
+    "archive_transactions": 14,
+    "review_library_entries": 67,
+    "issues": [],
+    "unavailable_external_evidence": []
+  },
+  "mac_index": {
+    "integrity": "valid; 995 staged paths, blob IDs and modes equal recorded HEAD; no staged code changes",
+    "current_sha256": "58b5e3619e2c69cab3f952b41e451e4710ed5c7555825c452a336a6a5044d2bd",
+    "historical_checksum_cause": "Unknown: the earlier 137935-byte index was not found; its recorded checksum remains unchanged.",
+    "current_bytes_preserved": true,
+    "content_repair_needed": false
+  },
+  "full_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/followup-integrity-20261027/completion.json",
+    "sha256": "27b60a6d2667fb7837597b6bd456560d134db236a3e9421b691f18c9eb8498d5",
+    "bytes": 4634
+  }
+}

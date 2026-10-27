@@ -3,7 +3,7 @@
 The source/history audit found 1,860 Git objects, including 16 commits, in the
 9 October Mac handoff that are absent from the maintained repository. They
 include old stashes, untracked-file snapshots and historical development states.
-The [native-object backup](</Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/>)
+The [native-object backup](</Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/git-preservation-20261026/>)
 preserves all 5,172 readable objects from that repository independently.
 
 The [transfer inventory](transfer-inventory.json) authenticates eight payload

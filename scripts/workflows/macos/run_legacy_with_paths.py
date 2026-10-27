@@ -16,11 +16,12 @@ import posixpath
 import pathlib
 import runpy
 import sys
+import json
 
-REPO = pathlib._COMMAND_REPOSITORY
+REPO = _COMMAND_REPOSITORY
 
 
-def relocate(value, volume, repo):
+def relocate(value, volume, repo, storage_moves=()):
     text = os.fspath(value)
     normalized = text.replace("\\", "/")
     # Avoid constructing Path objects here: this function runs inside Path.init.
@@ -34,8 +35,12 @@ def relocate(value, volume, repo):
     ]
     for old, new in mappings:
         if normalized.lower() == old.lower() or normalized.lower().startswith(old.lower() + "/"):
+            normalized = new + normalized[len(old):]
+            break
+    for old, new in storage_moves:
+        if normalized == old or normalized.startswith(old + '/'):
             return new + normalized[len(old):]
-    return text
+    return normalized if normalized != text.replace('\\', '/') else text
 
 
 def main():
@@ -57,8 +62,13 @@ def main():
         parser.error("Provide a Python script or :cli for the project CLI")
     # Python 3.12/3.13 parse path arguments in __init__, after choosing PosixPath.
     original_init = pathlib.Path.__init__
+    relocation_file = REPO / 'records/repository-archive/relocations.json'
+    storage = json.loads(relocation_file.read_text())
+    storage_moves = dict(storage.get('external_directory_moves', {}))
+    storage_moves.update({old: entry['path'] for old, entry in storage.get('external_moves', {}).items()})
+    storage_moves = sorted(storage_moves.items(), key=lambda pair: len(pair[0]), reverse=True)
     def mapped_init(self, *parts):
-        original_init(self, *(relocate(p, volume, REPO) for p in parts))
+        original_init(self, *(relocate(p, volume, REPO, storage_moves) for p in parts))
     pathlib.Path.__init__ = mapped_init
     sys.path[:0] = [str(REPO / "src"), str(REPO / "scripts")]
     os.chdir(REPO)

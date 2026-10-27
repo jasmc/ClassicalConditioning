@@ -127,6 +127,9 @@ def build(catalogue, output_root, archive_root=ARCHIVE, repo=ROOT):
     for storage, root in (("outputs", output_root), ("archive", archive_root)):
         for path in sorted(root.rglob("*")):
             rel = path.relative_to(root)
+            if catalogue.get('storage_layout') == 'figure-panel-v1':
+                if rel.parts[0] not in {'figures', 'shared'} or 'reading-originals' in rel.parts:
+                    continue  # Recovery/transport originals are not everyday reading guides.
             if (path.is_file() and path.suffix.lower() in {".html", ".md"}
                     and "review-library" not in rel.parts and not path.name.startswith("._")
                     and path.name not in {"START-HERE.html", "REVIEW-LIBRARY.md"}):
@@ -179,12 +182,14 @@ def build(catalogue, output_root, archive_root=ARCHIVE, repo=ROOT):
         source = contained(roots[item["storage"]], item["path"])
         link = quote(os.path.relpath(source, destination), safe="/.")
         role = "Archive" if item["storage"] == "archive" else "Saved output"
+        if any(part in Path(item['path']).parts for part in ('sources', 'code-snapshot')):
+            role += ' · source snapshot'
         if any(token in item["path"].lower() for token in ("/history/", "previous-selected", "preview", "-qa", "render-history")):
             role += " · history/QA"
         all_links.append(f"<article data-search><span class='status'>{role}</span>"
                          f"<a href='{link}'>{html.escape(item['path'])}</a></article>")
     files["ALL-REVIEWS.html"] = page("All saved reviews", f"<h1>All saved HTML and Markdown reviews</h1><p><a href='../../START-HERE.html'>Back to curated review library</a></p>"
-        "<p>This file inventory includes older reviews, source copies and QA. Its order does not select a current result.</p>"
+        "<p>This inventory includes retained figure versions, source snapshots and QA. Transport and repository-recovery records remain separately in Archive. Its order does not select a current result.</p>"
         "<label>Filter paths <input id='search' type='search'></label>" + "".join(all_links)
         + "<script>document.querySelector('#search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('[data-search]').forEach(x=>x.hidden=!x.textContent.toLowerCase().includes(q))})</script>")
     manifest = {"catalogue_sha256": digest(packed(catalogue)), "source_identities": report["checked"],

@@ -19,9 +19,9 @@ preserved. It neither recalculates science nor repacks the artwork.
 
 ## Saved candidate and evidence
 
-The [candidate review](</Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-production-20261025/candidate-v02/review.html>)
+The [candidate review](</Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-production-20261025/candidate-v02/review.html>)
 and matching editable SVG live on JOAQUIM under
-`ClassicalConditioning Outputs/current/reviews/figure-02-production-20261025/`.
+`ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-production-20261025/`.
 That directory holds the pre-edit ticket, exact original history, implementation
 snapshot, candidate manifest and native-render review. The
 [compact record](../../records/figure-reviews/figure-02/canvas-overdraw-20261025.json)

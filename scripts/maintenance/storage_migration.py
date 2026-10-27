@@ -208,6 +208,16 @@ def matches(path, row):
     return path.is_file() and path.stat().st_size == row['bytes'] and digest(path) == row['sha256']
 
 
+def equal_bytes(left, right):
+    with Path(left).open('rb') as a, Path(right).open('rb') as b:
+        while True:
+            first, second = a.read(4 * 1024 * 1024), b.read(4 * 1024 * 1024)
+            if first != second:
+                return False
+            if not first:
+                return True
+
+
 def check_sources(plan, *, allow_pruned=False):
     for index, row in enumerate(plan['files']):
         if row['action'] == 'retain' and row.get('mutable_navigation'):
@@ -359,6 +369,8 @@ def publish_controls(plan):
     """Publish storage indexes first and scoped pointers last under figure locks."""
     from classical_conditioning.figure_workspace import state_lock
     rows = sorted(plan['controls'], key=lambda r: r.get('role') == 'state')
+    if len({r['path'] for r in rows}) != len(rows):
+        raise ValueError('Each control/state destination must appear exactly once')
     previous, written = {}, []
 
     def check_guards():
@@ -428,7 +440,7 @@ def prune(plan, manifest, receipt, *, limit=None):
     for row in plan['files']:
         if row['action'] in {'move', 'delete'} and row.get('note_transfer_required') and not row.get('note_transfer_verified'):
             raise ValueError('Browser notes not verified: ' + row['source'])
-    removed, logical, allocated = [], 0, 0
+    removed, logical, allocated, comparisons = [], 0, 0, 0
     for row in plan['files']:
         source = Path(row['source'])
         if row['action'] in {'retain', 'copy'} or not source.exists():
@@ -439,6 +451,10 @@ def prune(plan, manifest, receipt, *, limit=None):
             raise ValueError('Source changed during prune: ' + str(source))
         if row['action'] == 'move' and not matches(row['destination'], row):
             raise ValueError('Destination changed during prune: ' + row['destination'])
+        if row['action'] == 'move':
+            if not equal_bytes(source, row['destination']):
+                raise ValueError('Direct byte comparison failed before removal: ' + str(source))
+            comparisons += 1
         if row['action'] == 'delete':
             check_recovery(row)
         st = source.stat()
@@ -447,7 +463,7 @@ def prune(plan, manifest, receipt, *, limit=None):
         if limit and len(removed) >= limit:
             break
     return dict(removed=removed, logical_source_bytes_removed=logical,
-                source_allocated_bytes_removed=allocated)
+                source_allocated_bytes_removed=allocated, direct_byte_comparisons=comparisons)
 
 
 def main():

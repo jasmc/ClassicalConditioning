@@ -307,7 +307,7 @@ def main():
             for style,fig in [('bootstrap',trial_plot(trials,bootstrap=True)),('split-bootstrap',trial_plot(trials,bootstrap=True,split=True))]:
                 save_panel(fig,output/f'Fig2_PanelH_{style}.svg',trials,{**trial_id,'summary':'median [95% bootstrap CI], 100 resamples, seed 10'},inputs)
             # Verify historical E/H reconstruction against the saved 59-fish dataset.
-            old_root=Path('J:/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/trace-legacy-full-59/figures/figure2-3strace-window13-legacy-59fish')
+            old_root=Path('J:/ClassicalConditioning Outputs/shared/cross-figure-reviews/trace-legacy-full-59/figures/figure2-3strace-window13-legacy-59fish')
             for data,name,keys in [(old,'figure-2E_fish-block-data.csv',['fish_id','condition_id','Selected block order']),(trials,'figure-2H_fish-trial-data.csv',['fish_id','condition_id','trial_number'])]:
                 prior=pd.read_csv(old_root/name);value='Fish median response / baseline'
                 joined=data[keys+[value]].merge(prior[keys+[value]],on=keys,validate='one_to_one',suffixes=('_new','_old'))

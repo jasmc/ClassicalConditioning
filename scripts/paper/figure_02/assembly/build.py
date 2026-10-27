@@ -27,6 +27,7 @@ DEFAULT_ROOTS = [
     REPO,
     REPO.parent / "ClassicalConditioningPaper",
     Path('J:/ClassicalConditioning Outputs/figures/figure-02'),
+    Path('J:/ClassicalConditioning Outputs/shared/cross-figure-reviews'),
     Path("J:/Digested Data"),
     Path("J:/Raw Data"),
     Path("F:/Digested Data"),
