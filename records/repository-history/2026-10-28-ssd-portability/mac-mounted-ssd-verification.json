@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-28T20:53:09.234693+00:00",
+  "scope": "Native Mac verification of the connected reorganized JOAQUIM SSD and classification of the existing local offline artwork cache.",
+  "tested_commit": "91ade45e80b0b1b2b87ea66332a433e78bc2c11a",
+  "checkout": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+  "environment": {
+    "macos": "13.7.8",
+    "python": "3.13.18",
+    "git": "git version 2.39.2 (Apple Git-143)"
+  },
+  "mount": {
+    "path": "/Volumes/JOAQUIM",
+    "filesystem": "ExFAT",
+    "connection": "USB",
+    "mounted": true,
+    "writable": true
+  },
+  "external_audit": {
+    "status": "passed",
+    "issues": [],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 366,
+    "current_states_checked": 10,
+    "archive_transactions": 14,
+    "transaction_payload_files": 2214,
+    "exact_authorized_absences": 10
+  },
+  "selected_artwork": {
+    "figure1_working_copy_command": "passed; byte/source authentication only, no new rendered or scientific review",
+    "collection": {
+      "html": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html",
+        "sha256": "099740a392a20f0a9b22c5059d709de9989c2a530bae9a86cba4e594ae5ea724"
+      },
+      "figures": [
+        "fig1",
+        "fig2"
+      ],
+      "open_target": "built-in-browser",
+      "whole_figure_freeze_created": false
+    },
+    "review_library": {
+      "status": "passed",
+      "groups": 10,
+      "entries": 67,
+      "issues": []
+    }
+  },
+  "ssd_roles": {
+    "Raw Data": "Acquisition originals",
+    "Digested Data": "Processed pipeline projects and reusable scientific inputs",
+    "ClassicalConditioning Outputs": "Figure-led current artwork, retained versions, studies and shared reviews",
+    "ClassicalConditioning-Archive": "Preserved historical bytes, source/Git recovery and maintenance evidence"
+  },
+  "local_artwork_cache": {
+    "path": "/Users/joaquim/Documents/ClassicalConditioning Figures",
+    "created": "2026-10-15",
+    "purpose": "Author-requested offline Figure 1/2 layout and aesthetic source cache",
+    "total_files": 47,
+    "logical_bytes": 76367532,
+    "inventory_bindings_checked": 2,
+    "listed_files_checked": 44,
+    "local_hash_failures": 0,
+    "unlisted_files": [],
+    "draft_files": [],
+    "frozen_svg_sources_authenticated": 10,
+    "bundled_fonts_and_licence_match_python313_environment": 10,
+    "both_assembly_snapshots_differ_from_active_svg_html_and_state": true,
+    "source_resolution_limits": "Four dated assembly SVG/HTML snapshots are not selected by the current relocation versions; dated Figure 1 legends and both state snapshots differ from maintained files. Original Python 3.12 font paths are retired; all bundled bytes match both saved inventories and the current Python 3.13 font resources. These differences do not indicate corrupt local files. No claim that every old assembly snapshot has an independently resolved SSD copy.",
+    "disposition": "Retain the approximately 73 MiB local cache under the explicit offline-artwork exception. Do not move, delete, overwrite, refresh or make it active automatically."
+  },
+  "git": {
+    "pulled": "origin/develop already up to date at tested_commit",
+    "local_branches": [
+      "develop"
+    ],
+    "removed_local_branches": "Six fully merged branch names; original commit objects remain reachable through develop.",
+    "remote_default_branch": "main",
+    "historical_remote_branches": "Retained; four branches have unique commits outside develop. This is one local working branch, not one branch on GitHub.",
+    "unique_remote_branches": [
+      "origin/LogMedian",
+      "origin/agents/bf46-learner-stratified",
+      "origin/codex/explore-six-metric-cohort",
+      "origin/home_tmp"
+    ]
+  },
+  "cross_machine_locking": {
+    "status": "pending",
+    "reason": "The actual SSD is now connected directly to this Mac. Simultaneous Mac/Windows access to the same filesystem has not been established or tested; serial single-host work is verified."
+  },
+  "changes": {
+    "scientific_selections_or_freezes": false,
+    "scoped_figure_state_bytes": false,
+    "ssd_artwork_or_existing_payloads": false,
+    "local_cache": false,
+    "new_maintenance_evidence_only": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/mac-mounted-ssd-verification-20261028"
+  },
+  "recovered_context": {
+    "archived_chat_title": "Complete handoff checks",
+    "thread_id": "01a18280-c4cd-77f3-8651-0fe6e9b6a755",
+    "handoff": "docs/project-maintenance/mac-ssd-verification-handoff.md"
+  },
+  "evidence": {
+    "external_audit": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/mac-mounted-ssd-verification-20261028/external_audit.json",
+      "sha256": "13d431d09bd776f5d0232631ab2a0a89d6d9f2ca3bafeef295a9de4079cc29bc",
+      "bytes": 4603
+    },
+    "figure1": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/mac-mounted-ssd-verification-20261028/figure1.json",
+      "sha256": "75153805979de161b3b761cf395f2178eebcde207247901bcdbea1954c69bfd0",
+      "bytes": 437063
+    },
+    "collection": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/mac-mounted-ssd-verification-20261028/collection.json",
+      "sha256": "77add733454a6cfb2393791f7ee252432d8634ad8e056f1a700bd25a9cbb3d19",
+      "bytes": 354
+    },
+    "review_library": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/mac-mounted-ssd-verification-20261028/review_library.json",
+      "sha256": "d2c5c6712b5ce1aa67ddc9de6ea826f6da417ada630012122f8a7fa5b5d7d236",
+      "bytes": 17668
+    },
+    "offline_cache": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/mac-mounted-ssd-verification-20261028/offline_cache.json",
+      "sha256": "cbf2e92cdeee9fcba33fe529e3888fd348f894719a66eb9eb2db4d990abacf3e",
+      "bytes": 36826
+    },
+    "branches": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/mac-mounted-ssd-verification-20261028/branches.json",
+      "sha256": "875375899814b35e227d384d53b3b2b13a9410cd112bdbd249dd1fd973bfeac1",
+      "bytes": 2644
+    }
+  }
+}

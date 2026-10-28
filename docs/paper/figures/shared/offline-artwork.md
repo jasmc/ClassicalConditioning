@@ -1,57 +1,33 @@
-# Offline figure artwork on the Mac
+# Former Mac offline artwork: SSD recovery
 
-Author direction, 2026-10-15: retain local copies of artwork for all panels,
-including unfrozen panels, for layout and aesthetic work without JOAQUIM.
-This is a scoped exception to SSD-only media storage, outside the repository.
+Author direction, 28 October 2026: consolidate the former
+`/Users/joaquim/Documents/ClassicalConditioning Figures/` folder into the SSD and
+remove its local copy after verification. This supersedes the 15 October request
+to keep that particular offline package on the Mac.
 
-Local folder: `/Users/joaquim/Documents/ClassicalConditioning Figures/`.
-Start with `ALL-PANELS.md` and `workspace.json`. The latter links the original
-frozen-source `inventory.json` and `snapshots/inventory.json`, each bound by
-SHA-256. The [initial frozen copy record](../../../../records/figure-reviews/offline-frozen-artwork-2026-10-15.json)
-and [all-panel copy record](../../../../records/figure-reviews/offline-all-panel-artwork-2026-10-15.json)
-record the starting selections/state and copied bytes. The package uses about
-73 MiB, including fonts, records and both complete SVG/HTML snapshots.
+The package contained 47 files and no draft work. All 44 inventoried files and
+both inventory bindings matched their saved hashes. It is a dated source cache,
+not an active presentation or scientific selection.
 
-| Local source folder | Selected frozen scopes |
-|---|---|
-| `frozen/figure-01/` | A, B, C, D, E and the F/G/H row |
-| `frozen/figure-02/` | A, D, E and G |
+- [Figure 1 snapshot](</Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/figure-01.html>)
+  and its matching editable SVG, legend, state snapshot and manifest share that folder.
+- [Figure 2 snapshot](</Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/figure-02.html>)
+  retains the same five source roles. Its historical C/F/I placeholders are preserved.
+- Exact duplicate frozen SVGs reuse their existing SSD source homes. Dated selection
+  and freeze-record copies remain in each figure's archive sources.
+- Shared fonts and licence live once under `Outputs/shared/assets/fonts/dejavu-offline-20261015/`.
+  Original package guidance and inventories remain under
+  `ClassicalConditioning-Archive/shared/sources/offline-artwork-20261015/`.
 
-The complete selected presentation snapshots are in `snapshots/figure-01/`
-(A–H) and `snapshots/figure-02/` (A–I), each with its exact matching HTML,
-legend and source-state snapshot. Figure 2 B/H contain unfrozen artwork; C/F/I
-retain the current Pending placeholders. Combined A/B/C and F/G/H SVG groups
-are preserved without creating extra standalone panel versions.
+The [retirement record](../../../../records/repository-history/2026-10-28-offline-cache-retirement/README.md)
+binds the per-file map, verified copies, publication and source removal. Original
+absolute references resolve through the supported artifact resolver with their
+expected SHA-256; the original inventories and frozen references are unchanged.
+The retained versions are reachable through the SSD figure browser.
 
-Neither whole figure is frozen. Sources were resolved from scoped selections
-and presentation state on 2026-10-15; older assemblies do not replace a newer
-panel selection. Check saved hashes against current repository state before
-reuse; the cache does not update automatically.
-
-## Working from the artwork
-
-The local SVG/HTML files are exact, read-only source mirrors. Their rendering
-resources are embedded or internal; DejaVu Sans font files and licence are included under
-`fonts/`. Layout/style edits can use the SVGs directly without loading analysis
-data. Save requested derivatives under the local `drafts/` folder and preserve
-the originals. A derivative is an unfrozen draft. Numerical recalculation and
-new scientific freezes may still require original dependencies on JOAQUIM.
-
-This source cache is not an active working version and does not change either
-figure's `current-state.json`. When an author requests an offline draft edit,
-resolve the intended scope, capture starting source/state hashes, preserve
-manual edits and use supported guarded publication. Publish one matching
-SVG/HTML pair and its evidence before making it active in scoped state. Do not
-regenerate numerical panels merely to change layout. Apply the workflow's
-invisible-frame policy only within an authorized edit scope.
-
-`records/selections/`, `records/freezes/`, source-state and legend files are exact dated
-snapshots for reference. Paths inside frozen records remain unchanged; they
-do not promise that scientific data dependencies have been mirrored locally.
-On reconnection, reconcile any active local draft explicitly before updating
-an SSD copy. A cached source or old browser page never selects current work.
-
-To check the copies offline, authenticate both inventory hashes in
-`workspace.json`, then hash each file listed in those inventories and compare
-with its `sha256`. This needs only the local folder. A changed or
-missing source must be preserved/reconciled, never silently refreshed.
+Both assemblies differ from today's scoped working drafts and neither whole
+figure is frozen. Resolve current work through scoped `current-state.json`,
+not these snapshots. A future offline copy must record exact artwork, matching
+legend and state hashes. Preserve manual edits and publish a new derivative
+through the scoped artifact/evidence/state guards; do not recompute science or
+overwrite an active SSD draft as part of copying artwork.

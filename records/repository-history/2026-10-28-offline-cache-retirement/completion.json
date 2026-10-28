@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "completed_at": "2026-10-28T21:17:57.831891+00:00",
+  "authorization": "Author, 28 October 2026: understand the local ClassicalConditioning Figures folder, merge it safely into the SSD and move it there; delete remaining handoffs no longer needed; push Git.",
+  "source_checkout_commit": "91ade45e80b0b1b2b87ea66332a433e78bc2c11a",
+  "source_package": {
+    "original_path": "/Users/joaquim/Documents/ClassicalConditioning Figures",
+    "files": 47,
+    "logical_bytes": 76367532,
+    "inventory_hash_failures": 0,
+    "draft_files": 0,
+    "notebook_storage_found": false,
+    "removed_after_verified_publication": true
+  },
+  "migration": {
+    "source_files": 49,
+    "new_physical_copies": 37,
+    "existing_frozen_svg_copies_reused": 10,
+    "duplicate_legends_share_one_copy": true,
+    "direct_byte_comparisons_before_removal": 49,
+    "logical_source_bytes_removed": 76391937,
+    "source_allocated_bytes_removed": 76484608
+  },
+  "retired_handoffs": [
+    {
+      "source": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/mac-ssd-verification-handoff.md",
+      "destination": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/retired-guidance/offline-cache-handoffs-20261028/docs/project-maintenance/mac-ssd-verification-handoff.md",
+      "sha256": "dca0bd0ab7419074a169436dd259b368389b4f350114d340e8211766f3fc13e0"
+    },
+    {
+      "source": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/running-analysis/pc-handoff-2026-10-18.md",
+      "destination": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/retired-guidance/offline-cache-handoffs-20261028/docs/running-analysis/pc-handoff-2026-10-18.md",
+      "sha256": "08a378f2227a526b2b176da969c5332d54e27e9374a65c8eb83864d379a4f328"
+    }
+  ],
+  "retained_snapshot_folders": [
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015",
+    "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015"
+  ],
+  "browser": {
+    "snapshot": "review-library/077a73147ede3dbb",
+    "versions_sha256": "cc36f6bb9a93b0ac9966b852044fd171241e44707275a5766795e5f0cae33278",
+    "new_views": 4,
+    "previous_coverage_issues": 1940,
+    "current_coverage_issues": 1939,
+    "new_offline_snapshot_issues": [],
+    "new_snapshot_views": 4
+  },
+  "scientific_changes": false,
+  "artwork_bytes_changed": false,
+  "main_figure_assembly_states_changed": false,
+  "candidate_storage_path_repair": "Three path strings in figure-01/trace10-learner-selection/current-state.json now directly identify the same retained SVG/HTML/legend hashes. All other fields unchanged.",
+  "tests": {
+    "tests_run": 75,
+    "passed": 75,
+    "skipped": 0,
+    "result": "OK"
+  },
+  "final_external_audit": {
+    "status": "passed",
+    "method": "Combined archive and working-state audit, followed by correction of its only four generated-navigation metadata issues and focused external library plus local structure rechecks.",
+    "protected_files_checked": 366,
+    "current_states_checked": 10,
+    "archive_transactions_verified": 14,
+    "archive_payload_files_verified": 2214,
+    "reading_entries_verified": 67,
+    "remaining_issues": [],
+    "unavailable_external_evidence": [],
+    "initial_combined_issues": [
+      "Review library: figure-01-folders: Reading target changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/INDEX.html",
+      "Review library: figure-02-folders: Reading target changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/INDEX.html",
+      "Review library: figure-03-folders: Reading target changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/INDEX.html",
+      "Review library: figure-04-folders: Reading target changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/INDEX.html"
+    ]
+  },
+  "transaction_workspace": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028",
+  "evidence": {
+    "migration-manifest.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/migration-manifest.json",
+      "sha256": "315410adb53bf35020aa248de7a967dd1c3e04b96e60af14955052ab991bcec6"
+    },
+    "copy-receipt.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/copy-receipt.json",
+      "sha256": "12d2434cc6ed1b19f1052e01b980eb4dd1cacd3c8e172fa718df579eb526a470"
+    },
+    "consumer-evidence.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/consumer-evidence.json",
+      "sha256": "4c030d782529f859256614b7e935a823d2ad401c18913f75644f7e1975749c60"
+    },
+    "publication-receipt.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/publication-receipt.json",
+      "sha256": "5aaadb363767768f54042f5b1e4a251eb4c4dfbb5b9b57d8ee5cb870369fb7e8"
+    },
+    "pruning-receipt.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/pruning-receipt.json",
+      "sha256": "4ac4a625aca1736afb414990ac157e6dfb39d50321b90753d41f28e30a537b7c"
+    },
+    "post-prune-verification.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/post-prune-verification.json",
+      "sha256": "9f18bdd166a74dd3f0b9f0aef0cc459cbeae513df56a18fb49d2f375636a35aa"
+    },
+    "candidate-state-path-repair.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/candidate-state-path-repair.json",
+      "sha256": "aa9e03137599abd2b5bf9098512534ba9147d7cab2e52e45e04125fd432fda5a"
+    },
+    "browser-build.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/browser-build.json",
+      "sha256": "1b61d2535691b091cf7cfc7b4fb580731916bfb34fdb6eaa2f962b6e52bd2a29"
+    },
+    "tests.log": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/tests.log",
+      "sha256": "08dc4d59439b7d09ff27ffae2975e61deaae7dfdd4693ef801d61ae294dd1a17"
+    },
+    "combined-audit-before-navigation-repair.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/combined-audit-before-navigation-repair.json",
+      "sha256": "9188c334b7cb453513f26f66d3643f9a283454ee555c2aceee4867c68ca6b310"
+    },
+    "review-library-after-navigation-repair.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/review-library-after-navigation-repair.json",
+      "sha256": "c5b0829b0c243bbb06564981244e76e18523c5a9fcd0e95b25c01ad763c7f08e"
+    },
+    "local-structure-after-navigation-repair.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/local-structure-after-navigation-repair.json",
+      "sha256": "f9fe2b80bfcdb499ca93a84414ad859db76749f0edfeb0b8e54d5b38631e045d"
+    },
+    "navigation-kind-repair.json": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-offline-cache-20261028/navigation-kind-repair.json",
+      "sha256": "13fbb2c9c44e305ba2357547613a00845ba78815330e984f9eed86b76fb59b1e"
+    }
+  },
+  "verified_at": "2026-10-28T21:26:24.936660+00:00",
+  "navigation_metadata_repair": "Four generated figure INDEX pages are now marked generated_navigation in the maintained reading catalogue, using their publisher-authenticated hashes. No HTML or artwork changed during this repair."
+}

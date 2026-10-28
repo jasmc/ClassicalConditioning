@@ -159,12 +159,12 @@ minimal scoped display, select a version, restyle artwork or create a freeze.
 
 ## Operational commands and concurrency
 
-Author direction on 2026-10-15 permits an internal Mac source cache of all
-panels, including unfrozen artwork, for offline layout/aesthetic work. See
-[Offline figure artwork](offline-artwork.md) for the local folder, exact scope,
-copy evidence and draft-publication procedure. It is a source mirror; it does
-not replace either figure's active presentation pointer or mirror raw analysis
-dependencies.
+The author requested consolidation of the former Mac source cache into the SSD
+on 2026-10-28. See [Artwork recovery guidance](offline-artwork.md) for its retained
+versions and exact recovery mapping. Dated source snapshots do not replace either
+figure's active presentation pointer or mirror raw analysis dependencies. A future
+offline copy must bind its source/state hashes; publishing a derivative still
+requires the scoped guards.
 
 The supported [working-copy tool](../../../../scripts/figure_working_copy.py)
 creates vector-native frozen/draft copies from the authenticated existing review,

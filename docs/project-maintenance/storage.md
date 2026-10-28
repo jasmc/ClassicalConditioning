@@ -162,6 +162,15 @@ exact artifact identities.
 Allocated-space metrics are `null` where `st_blocks` is unavailable; logical size
 is not a physical-space measurement.
 
+The SSD was directly verified on the Mac on 28 October: 366 protected files,
+10 registered states, 14 archive transactions and 67 reading entries passed.
+The [offline-cache retirement](../../records/repository-history/2026-10-28-offline-cache-retirement/README.md)
+then consolidated the dated Mac artwork package into retained SSD figure versions
+and retired the completed Mac/PC operational handoffs. No local artwork cache
+is required for normal work with the SSD attached. Exact original bytes and
+source mappings remain recoverable; scoped scientific/presentation selections
+are unchanged.
+
 ## Drive-wide audit
 
 The [24 October storage audit](../../records/repository-history/2026-10-24-joaquim-storage-audit/README.md)

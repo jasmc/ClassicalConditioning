@@ -97,10 +97,10 @@ of manual-review holds follows from these rules.
 - Check external storage before loading/regenerating artifacts. If unavailable,
   retain originals, record pending work and continue independent code/doc work.
   Never fabricate a mount, substitute older artifacts or claim inaccessible-file
-  inspection. For offline Figure 1/2 layout work, the author permits snapshots at
-  `/Users/joaquim/Documents/ClassicalConditioning Figures/`: read [offline guidance](docs/paper/figures/shared/offline-artwork.md)
-  and that folder's `ALL-PANELS.md`/`workspace.json`. Compare recorded authority
-  hashes; snapshots are not synchronized active drafts. Preserve originals and
-  publish derivatives through scoped guards.
+  inspection. The former Mac `ClassicalConditioning Figures` cache was consolidated
+  into SSD figure versions at the author's request on 28 October 2026; see
+  [artwork recovery guidance](docs/paper/figures/shared/offline-artwork.md).
+  Dated snapshots are not synchronized active drafts. Compare recorded authority
+  hashes, preserve originals and publish derivatives through scoped guards.
 - Keep root `to_implement.md` as author request notes. It replaces neither
   numbered plans nor scientific authority.

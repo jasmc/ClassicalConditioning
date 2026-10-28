@@ -3658,6 +3658,699 @@
       "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
       "relative_path": "fae02b602c0f2e6e527f28119436d656553c6cc8f22ba56f7b08aff04726a8c4.html",
       "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/ALL-PANELS.md"
+      ],
+      "sha256": "c8cc76cc01b7190572844fd9788af585325b8737f0aa324c450e137f8c810b24",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/shared/sources/offline-artwork-20261015/ALL-PANELS.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/README.md"
+      ],
+      "sha256": "b80df0b3410be74a2274ee0a9ebefa427c3debd354c22fae0e7042c83fe9215d",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/shared/sources/offline-artwork-20261015/README.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/inventory.json"
+      ],
+      "sha256": "bf89f01cabed4cdbe99f3f81110b40adb05e4acc9cf75e6bca048966dd2cb4ef",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/shared/sources/offline-artwork-20261015/inventory.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/workspace.json"
+      ],
+      "sha256": "66c4276e82f8196e8f4b834f9f1a8a63dbcfc89c3ed0c084a90aa659092fda09",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/shared/sources/offline-artwork-20261015/workspace.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSans-Bold.ttf"
+      ],
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans-Bold.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf"
+      ],
+      "sha256": "b184b89e3c1075f22f6b71575b6fc20d4972b3cfd3b23322ca6fd596dcaef167",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans-Bold.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSans-BoldOblique.ttf"
+      ],
+      "sha256": "6edf0283160186af451cbee71e7b845f2e4cabf264bb992ce668c83c25465e6f",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans-BoldOblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf"
+      ],
+      "sha256": "6edf0283160186af451cbee71e7b845f2e4cabf264bb992ce668c83c25465e6f",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans-BoldOblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSans-Oblique.ttf"
+      ],
+      "sha256": "ccdf74b350f11fd3dd5774de50e5e6346a1a5da1f5b7d5fb83590665e97a5213",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans-Oblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf"
+      ],
+      "sha256": "ccdf74b350f11fd3dd5774de50e5e6346a1a5da1f5b7d5fb83590665e97a5213",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans-Oblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSans.ttf"
+      ],
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf"
+      ],
+      "sha256": "3fdf69cabf06049ea70a00b5919340e2ce1e6d02b0cc3c4b44fb6801bd1e0d22",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSans.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSansDisplay.ttf"
+      ],
+      "sha256": "82099dcfba5aa868cdfc27451989525fe3292f737fb3c9e0328ce9cef59652f6",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansDisplay.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf"
+      ],
+      "sha256": "82099dcfba5aa868cdfc27451989525fe3292f737fb3c9e0328ce9cef59652f6",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansDisplay.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSansMono-Bold.ttf"
+      ],
+      "sha256": "baada9a5172fe20886251aff0433fc38461912d5daf07287e7bee56620a8da96",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono-Bold.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf"
+      ],
+      "sha256": "baada9a5172fe20886251aff0433fc38461912d5daf07287e7bee56620a8da96",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono-Bold.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSansMono-BoldOblique.ttf"
+      ],
+      "sha256": "a69081c15c76c827e0a27a5a7f5c74b6135c843499955495ffa8c20d3a98288b",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono-BoldOblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf"
+      ],
+      "sha256": "a69081c15c76c827e0a27a5a7f5c74b6135c843499955495ffa8c20d3a98288b",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono-BoldOblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSansMono-Oblique.ttf"
+      ],
+      "sha256": "28052813f7a709fc89f52d192dc995ef4f0fdc5c3d7b73a49d6849b1916d0cd0",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono-Oblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf"
+      ],
+      "sha256": "28052813f7a709fc89f52d192dc995ef4f0fdc5c3d7b73a49d6849b1916d0cd0",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono-Oblique.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/DejaVuSansMono.ttf"
+      ],
+      "sha256": "602ec86b8948cfcd956482fe64f94c36c867770149ef2f791d4613f443bcecb3",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf"
+      ],
+      "sha256": "602ec86b8948cfcd956482fe64f94c36c867770149ef2f791d4613f443bcecb3",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/DejaVuSansMono.ttf",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/fonts/LICENSE_DEJAVU"
+      ],
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/LICENSE_DEJAVU",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.venv/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU"
+      ],
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/shared/assets/fonts/dejavu-offline-20261015/LICENSE_DEJAVU",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-01/Panel-A-3512cf4798f8.svg"
+      ],
+      "sha256": "3512cf4798f8cb9d56424de455bddba5dfb89a7ab8aef1d11f8c08ae247ccf43",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c-d/versions/frozen/2026-10-05-ABCD/Fig1_PanelA_frozen.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-01/Panel-B-57a6d07f2acc.svg"
+      ],
+      "sha256": "57a6d07f2acca94c1371747502c33175b94f69f56abbc32dabaefaca4c7864d3",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c-d/versions/frozen/2026-10-05-ABCD/Fig1_PanelB_frozen.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-01/Panel-C-9a15d64b7981.svg"
+      ],
+      "sha256": "9a15d64b798102696ee30d8f5e3f9447d3cd24960b50623ace46e5fe0be2e3e9",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c-d/versions/frozen/2026-10-05-ABCD/Fig1_PanelC_frozen.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-01/Panel-D-0c450976f593.svg"
+      ],
+      "sha256": "0c450976f593160219892864129ae69f2c1098abea25c3e0fd781c27152186b8",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c-d/versions/frozen/2026-10-05-ABCD/Fig1_PanelD_frozen.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-01/Panel-E-fbd4dcbad4d2.svg"
+      ],
+      "sha256": "fbd4dcbad4d26cc0e4d69e20a9e8ed799ca878a51d7ff770f14f827e06d5e94b",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/panel-e/versions/figure-01-panel-e-raw-frame-freeze-2026-10-13/frozen-candidate.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-01/Panel-FGH-cb01a274089e.svg"
+      ],
+      "sha256": "cb01a274089e765180b28d0c54fe7d68a7936dc89c7ea00daf3873b4c35487a0",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/panels-f-g-h/versions/figure-01-fgh-historical-one-second-managua-freeze-2026-10-13/frozen-candidate.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-02/Panel-A-6d149a5d87a9.svg"
+      ],
+      "sha256": "6d149a5d87a9bffb1ce79c3fad809b8f7bc73768ee89b63dad9b3eb424584d53",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/panel-a/versions/figure-02-a-six-map-freeze-2026-10-14/frozen-panel-a.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-02/Panel-D-b234a359056f.svg"
+      ],
+      "sha256": "b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/repository-history/retired-source/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/b234a359056f3eb8d57be7632f82769bb194e23c841c84f7fabde64b049c7f29/Fig2_D_B.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-02/Panel-E-e489f82beb84.svg"
+      ],
+      "sha256": "e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/repository-history/retired-source/configuration-cleanup/2026-10-11/hash-recovery/payload/objects/e489f82beb84dcfb538ba41ed3e28bf87cd5a7a97a77ff4bccbc983cd3d05696/Fig2_E_B.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/frozen/figure-02/Panel-G-0896fb8e0bff.svg"
+      ],
+      "sha256": "0896fb8e0bff5c7040b1ecafb3e1513a858de25fcb9863f052ebae6c38ea3979",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/panel-g/versions/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/figure-01-legend.md"
+      ],
+      "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/legend.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/figure-02-legend.md"
+      ],
+      "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/legend.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/freezes/1-51d38b93f552.json"
+      ],
+      "sha256": "51d38b93f552bc95522b690982caf0aa69ba7c30fb31b96e8dee546962e090c9",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-01/assembly/sources/offline-artwork-20261015/records/freezes/1-51d38b93f552.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/freezes/2-19174577d78f.json"
+      ],
+      "sha256": "19174577d78f6d76965df6d58e2b6ca8b9108c47544320a1cf4bc964625f2c76",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-01/assembly/sources/offline-artwork-20261015/records/freezes/2-19174577d78f.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/freezes/3-9e6a4b84408e.json"
+      ],
+      "sha256": "9e6a4b84408ed28c8ec030a8b09df022a16c37a51bf8b3359c1d17b6ca3f88a0",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-02/assembly/sources/offline-artwork-20261015/records/freezes/3-9e6a4b84408e.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/freezes/4-dd0750bc7f91.json"
+      ],
+      "sha256": "dd0750bc7f917779b51c4ab4e619d93d6508305a95835abffec85061dfa5e04a",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-02/assembly/sources/offline-artwork-20261015/records/freezes/4-dd0750bc7f91.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/freezes/5-a39f1f849119.json"
+      ],
+      "sha256": "a39f1f849119d319610ba50d98ff6cb5474caf65e5d1166f58443b489db2368e",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-02/assembly/sources/offline-artwork-20261015/records/freezes/5-a39f1f849119.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/freezes/6-d671069f1229.json"
+      ],
+      "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-02/assembly/sources/offline-artwork-20261015/records/freezes/6-d671069f1229.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json"
+      ],
+      "sha256": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-01/assembly/sources/offline-artwork-20261015/records/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/selections/figure1-freeze.json"
+      ],
+      "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-01/assembly/sources/offline-artwork-20261015/records/selections/figure1-freeze.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/selections/figure1-panel-e-raw-frame-freeze-20261013.json"
+      ],
+      "sha256": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-01/assembly/sources/offline-artwork-20261015/records/selections/figure1-panel-e-raw-frame-freeze-20261013.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/selections/figure2-A-pooled-freeze-20261014.json"
+      ],
+      "sha256": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-02/assembly/sources/offline-artwork-20261015/records/selections/figure2-A-pooled-freeze-20261014.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/selections/figure2-DE-B-freeze-20261009.json"
+      ],
+      "sha256": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-02/assembly/sources/offline-artwork-20261015/records/selections/figure2-DE-B-freeze-20261009.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/records/selections/figure2-G-logmedian-freeze-20261009.json"
+      ],
+      "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/figures/figure-02/assembly/sources/offline-artwork-20261015/records/selections/figure2-G-logmedian-freeze-20261009.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/inventory.json"
+      ],
+      "sha256": "132261ad16b765d2242389077b0660d246052df4ca4befe49e3a76729e8557aa",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/shared/sources/offline-artwork-20261015/snapshots/inventory.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-01/figure-01.html"
+      ],
+      "sha256": "3abb0ae3f7ba30d5924c96e07b4e190bfe56640523e5d6256e605858ec665951",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/figure-01.html",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html"
+      ],
+      "sha256": "3abb0ae3f7ba30d5924c96e07b4e190bfe56640523e5d6256e605858ec665951",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/figure-01.html",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-01/figure-01.svg"
+      ],
+      "sha256": "1cf60066d3af6901c80c688692df726274d3e98dcb8fa1e26217e60726015a34",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/figure-01.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg"
+      ],
+      "sha256": "1cf60066d3af6901c80c688692df726274d3e98dcb8fa1e26217e60726015a34",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/figure-01.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-01/legend.md"
+      ],
+      "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/legend.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md"
+      ],
+      "sha256": "2c120b348218cde0081cae20d1344989edc79768b23197c7faf25caf1a8a3a27",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/legend.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-01/source-state.json"
+      ],
+      "sha256": "defd9762b12a60677f2dcb457b251ee3346abc88d6e1c9a6f4b4fac1d3114560",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/source-state.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json"
+      ],
+      "sha256": "defd9762b12a60677f2dcb457b251ee3346abc88d6e1c9a6f4b4fac1d3114560",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-01/assembly/versions/offline-layout-20261015/source-state.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-02/figure-02.html"
+      ],
+      "sha256": "2e7a6ed54367b548fe0e0fd4aee0f0d5032adf83d8e1dd253548f27683f8b8b3",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/figure-02.html",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html"
+      ],
+      "sha256": "2e7a6ed54367b548fe0e0fd4aee0f0d5032adf83d8e1dd253548f27683f8b8b3",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/figure-02.html",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-02/figure-02.svg"
+      ],
+      "sha256": "1724b85f4acb591a1efd2ebebfa868773019a6ce146902223936fa942c8cf4f8",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/figure-02.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg"
+      ],
+      "sha256": "1724b85f4acb591a1efd2ebebfa868773019a6ce146902223936fa942c8cf4f8",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/figure-02.svg",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-02/legend.md"
+      ],
+      "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/legend.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md"
+      ],
+      "sha256": "c5c38c0483e9cc0b2845932af15d1fcc84f19d2e53f705a5aac3c367de76c616",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/legend.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/ClassicalConditioning Figures/snapshots/figure-02/source-state.json"
+      ],
+      "sha256": "20628a31cd499d806bad503277f1b770febf27e878270560783f74c4a96b54f2",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/source-state.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json"
+      ],
+      "sha256": "20628a31cd499d806bad503277f1b770febf27e878270560783f74c4a96b54f2",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning Outputs/figures/figure-02/assembly/versions/offline-layout-20261015/source-state.json",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/mac-ssd-verification-handoff.md"
+      ],
+      "sha256": "dca0bd0ab7419074a169436dd259b368389b4f350114d340e8211766f3fc13e0",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/repository-history/retired-guidance/offline-cache-handoffs-20261028/docs/project-maintenance/mac-ssd-verification-handoff.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "docs/project-maintenance/mac-ssd-verification-handoff.md"
+      ],
+      "sha256": "dca0bd0ab7419074a169436dd259b368389b4f350114d340e8211766f3fc13e0",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/repository-history/retired-guidance/offline-cache-handoffs-20261028/docs/project-maintenance/mac-ssd-verification-handoff.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/running-analysis/pc-handoff-2026-10-18.md"
+      ],
+      "sha256": "08a378f2227a526b2b176da969c5332d54e27e9374a65c8eb83864d379a4f328",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/repository-history/retired-guidance/offline-cache-handoffs-20261028/docs/running-analysis/pc-handoff-2026-10-18.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "docs/running-analysis/pc-handoff-2026-10-18.md"
+      ],
+      "sha256": "08a378f2227a526b2b176da969c5332d54e27e9374a65c8eb83864d379a4f328",
+      "archive_root": "/Volumes/JOAQUIM",
+      "relative_path": "ClassicalConditioning-Archive/repository-history/retired-guidance/offline-cache-handoffs-20261028/docs/running-analysis/pc-handoff-2026-10-18.md",
+      "recovery_method": "Author-authorized 28 October offline cache/handoff retirement; exact original bytes, no presentation or scientific selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/INDEX.html"
+      ],
+      "sha256": "5411de31a75f42682b4b16e2459d9b64292c67c96d19a0b8982d06883ba827be",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "5411de31a75f42682b4b16e2459d9b64292c67c96d19a0b8982d06883ba827be.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/INDEX.html"
+      ],
+      "sha256": "3ed18ae7f68f1584970f109f1141ac3581ebc75db923fae1f0208ce1f2021e8b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "3ed18ae7f68f1584970f109f1141ac3581ebc75db923fae1f0208ce1f2021e8b.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/INDEX.html"
+      ],
+      "sha256": "538761ef236d63e75f67a5733a1b5be519450a6eeae6ab148c8cbca375b63838",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "538761ef236d63e75f67a5733a1b5be519450a6eeae6ab148c8cbca375b63838.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/INDEX.html"
+      ],
+      "sha256": "14cc2649359362afd3d735b942d8937f336a1d150c0370a304292301a83cbc38",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "14cc2649359362afd3d735b942d8937f336a1d150c0370a304292301a83cbc38.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/INDEX.html"
+      ],
+      "sha256": "84b322e37d376bb5af6e0af690f36545b2d952d5dbe62a13418e7a509ad20443",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "84b322e37d376bb5af6e0af690f36545b2d952d5dbe62a13418e7a509ad20443.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/versions.json"
+      ],
+      "sha256": "e80ad02819a9b224230a51468917055ba8a001e8c85029f057fd77400770317e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "e80ad02819a9b224230a51468917055ba8a001e8c85029f057fd77400770317e.json",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md"
+      ],
+      "sha256": "bce6e335646bb129acd0df83de7ed64621f13c02dba8e0d1bed647109dffb1cc",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "bce6e335646bb129acd0df83de7ed64621f13c02dba8e0d1bed647109dffb1cc.md",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html"
+      ],
+      "sha256": "6b0c4e264aa43ff7b26a761b4dc9100fca12a473fcecae1444fe492d3e1b80b0",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "6b0c4e264aa43ff7b26a761b4dc9100fca12a473fcecae1444fe492d3e1b80b0.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
     }
   ]
 }

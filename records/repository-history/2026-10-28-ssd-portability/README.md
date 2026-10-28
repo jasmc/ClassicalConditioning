@@ -1,5 +1,15 @@
 # SSD portability reconciliation, 28 October 2026
 
+The [direct Mac SSD verification](mac-mounted-ssd-verification.json) closes the
+mounted-storage continuation: 366 protected files, 10 registered states, 14 archive
+transactions (2,214 payload files) and 67 review-library entries passed. The
+approximately 73 MiB artwork folder was an intact 15 October offline cache with
+no draft files. The author subsequently requested its
+[consolidation into SSD versions](../2026-10-28-offline-cache-retirement/README.md),
+superseding the initial recommendation to retain it locally. The Mac now
+has one local branch, `develop`; historical remote branches remain. Only concurrent
+cross-machine filesystem locking remains pending.
+
 The merged checkout now incorporates the supported 26–27 October storage and
 ordered-browser implementation while retaining the PC extensions. The
 [source reconciliation](source-reconciliation.json) authenticates the captured
@@ -34,8 +44,8 @@ LF counterpart; existing figure states and scientific bytes remain unchanged.
 Windows symlink cases are reported separately when creation privilege is unavailable.
 After Windows verification, the author authorized
 committing and pushing this implementation, with Mac acceptance to follow in a
-separate chat. Use the [Mac verification handoff](../../../docs/project-maintenance/mac-ssd-verification-handoff.md)
-to continue there.
+separate chat. That verification is complete; the obsolete Mac/PC handoffs are
+retired with exact archived recovery in the linked consolidation record.
 
 Use the maintained [storage guide](../../../docs/project-maintenance/storage.md#host-configuration-and-verification)
 for host configuration and commands.

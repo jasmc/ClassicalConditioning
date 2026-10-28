@@ -14,9 +14,10 @@
           "title": "Open Figure 1 folders",
           "storage": "outputs",
           "path": "figures/figure-01/INDEX.html",
-          "sha256": "5411de31a75f42682b4b16e2459d9b64292c67c96d19a0b8982d06883ba827be",
+          "sha256": "a29014522e9897536bfb1acd377d101ab61a7ee7c02d1f262a7f258bc5dfadbb",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "Current artwork, distinct versions, studies and associated sources.",
+          "kind": "generated_navigation"
         }
       ]
     },
@@ -30,9 +31,10 @@
           "title": "Open Figure 2 folders",
           "storage": "outputs",
           "path": "figures/figure-02/INDEX.html",
-          "sha256": "3ed18ae7f68f1584970f109f1141ac3581ebc75db923fae1f0208ce1f2021e8b",
+          "sha256": "99e4701b8c5b977ff843ad0c5d493d111fa3b0d9b1e89d480eea8754657c562b",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "Current artwork, distinct versions, studies and associated sources.",
+          "kind": "generated_navigation"
         }
       ]
     },
@@ -46,9 +48,10 @@
           "title": "Open Figure 3 folders",
           "storage": "outputs",
           "path": "figures/figure-03/INDEX.html",
-          "sha256": "538761ef236d63e75f67a5733a1b5be519450a6eeae6ab148c8cbca375b63838",
+          "sha256": "474d2e82ba98cbcffca00d5f9094415c190b5d1c51981817c02cb48fc00cfb75",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "Current artwork, distinct versions, studies and associated sources.",
+          "kind": "generated_navigation"
         }
       ]
     },
@@ -62,9 +65,10 @@
           "title": "Open Figure 4 folders",
           "storage": "outputs",
           "path": "figures/figure-04/INDEX.html",
-          "sha256": "14cc2649359362afd3d735b942d8937f336a1d150c0370a304292301a83cbc38",
+          "sha256": "5adce5232cbe32ef09da1232cbe903070f16b5c00ebb6814b6da72771f40b348",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "Current artwork, distinct versions, studies and associated sources.",
+          "kind": "generated_navigation"
         }
       ]
     },

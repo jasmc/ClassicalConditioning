@@ -286,7 +286,7 @@
       "verified_transactions": [],
       "external_verification": "not-requested"
     },
-    "actual_mac_mount": null,
+    "actual_mac_mount": "/Volumes/JOAQUIM",
     "remote_ssd_verification": {
       "thread_id": "01a1816b-9cce-7202-a301-ff858dc1bf63",
       "host": "ORGER-JOAQUIM",
@@ -309,13 +309,13 @@
     },
     "cross_machine_locking": {
       "status": "pending",
-      "reason": "Mac has no mounted SSD/shared path. ORGER confirms J$ exists, but Mac access is not established and Windows denied the SMB session query. Concurrent contention on one actual shared filesystem cannot yet be tested."
+      "reason": "The actual SSD is now connected directly to this Mac. Simultaneous Mac/Windows access to the same filesystem has not been established or tested; serial single-host work is verified."
     },
     "scientific_selection_or_freeze_changed": false,
     "figure_state_bytes_changed": false,
     "ssd_artwork_or_payloads_changed": false,
     "pending_acceptance": [
-      "Simultaneous shared-filesystem locking only: requires real shared access, currently unavailable on this Mac. Serial single-host acceptance is complete."
+      "Simultaneous shared-filesystem locking only: the SSD is directly mounted on Mac; real concurrent Mac/Windows shared access remains unestablished. Serial single-host acceptance is complete."
     ],
     "native_fix_source_hashes": [
       {
@@ -490,6 +490,21 @@
         "cross_machine_lock_test": "unavailable without actual simultaneous shared filesystem access"
       },
       "analysis_readiness": "Mac and PC code/runtime acceptance complete for serial single-host analysis with the actual SSD available to the executing host; no simultaneous cross-machine locking claim"
+    },
+    "mounted_ssd_verification": {
+      "path": "records/repository-history/2026-10-28-ssd-portability/mac-mounted-ssd-verification.json",
+      "sha256": "00af6c8778541e7f9cbe2ef59c5b238894773857af5e073b04e42f26ad9909f8",
+      "status": "passed",
+      "tested_commit": "91ade45e80b0b1b2b87ea66332a433e78bc2c11a"
+    },
+    "offline_cache_retirement": {
+      "path": "records/repository-history/2026-10-28-offline-cache-retirement/completion.json",
+      "sha256": "7b822dada308f68fb4fa866d5d0c8d8fb145e585b7547b718690e44cbc14b1d3",
+      "status": "complete",
+      "former_local_folder_removed": true,
+      "obsolete_operational_handoffs_removed": 2,
+      "scientific_or_artwork_changes": false,
+      "candidate_state_path_strings_rebound": 3
     }
   },
   "pc_acceptance": {
