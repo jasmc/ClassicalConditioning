@@ -292,7 +292,7 @@
       "host": "ORGER-JOAQUIM",
       "host_id": "remote-control:env_e_6aa85fab9300833383b44cadf8767420",
       "authorization": "User explicitly approved use of the existing ORGER PC chat.",
-      "status": "ORGER reports native-fix SSD audit and figure guards passed, fixture correction focused checks passed, and final Windows suite/audit on reconciled code running separately. No final result received here; author chose to leave Windows verification pending.",
+      "status": "Passed on reconciled source with the PC fixture correction; see pc_acceptance.",
       "observed_remote_head": "a369c5a1c225df499256627e8434cd426d4233d7",
       "observed_python_launcher_failure": "The file cannot be accessed by the system.",
       "observed_remote_checkout": "clean at fetched a369c5a",
@@ -314,7 +314,6 @@
     "figure_state_bytes_changed": false,
     "ssd_artwork_or_payloads_changed": false,
     "pending_acceptance": [
-      "Windows final suite and reconciled-source SSD audit: explicitly left pending by author in this Mac chat.",
       "Simultaneous shared filesystem locking: not established; use serial single-host writes."
     ],
     "native_fix_source_hashes": [
@@ -448,9 +447,66 @@
       "result": "pushed; original Mac develop checkout is clean at the same commit"
     },
     "windows_verification_disposition": {
-      "status": "pending by explicit author choice",
-      "author_reply": "Leave Windows verification pending",
-      "mac_coordination": "closed; no additional PC approvals or polling requested"
+      "status": "completed subsequently in PC chat at author request",
+      "evidence": "pc_acceptance",
+      "prior_mac_chat_disposition": {
+        "status": "pending by explicit author choice",
+        "author_reply": "Leave Windows verification pending",
+        "mac_coordination": "closed; no additional PC approvals or polling requested"
+      }
     }
+  },
+  "pc_acceptance": {
+    "date": "2026-10-28",
+    "status": "passed",
+    "scope": "PC storage portability and guarded workflows; Mac and simultaneous shared-filesystem follow-up remain separate",
+    "tested_commit": "ec88e18d0a9e2edc8d74dff076b737bae4acad70",
+    "code_after_remote_record_merge": "Production code and tests unchanged from tested commit; merged later Mac handoff records",
+    "environment": {
+      "host": "ORGER-JOAQUIM",
+      "python": "3.13.14",
+      "executable": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\.venv\\Scripts\\python.exe",
+      "launcher_sha256": "b70275ad94210fce7548761143be5e177769721045e287bb6c80aac3f928c65b",
+      "runtime_repaired": false,
+      "joaquim_root": "J:/",
+      "cli_help_exit": 0
+    },
+    "tests": {
+      "run": 226,
+      "passed": 223,
+      "skipped": 3,
+      "skip_reason": "Windows symlink creation privilege unavailable",
+      "elapsed_seconds": 147.859,
+      "result": "OK",
+      "protected_checkout_paths": 454
+    },
+    "ssd_audit": {
+      "result": "passed",
+      "issues": [],
+      "unavailable_external_evidence": [],
+      "protected_files": 366,
+      "current_states": 10,
+      "archive_transactions": 14,
+      "archive_payload_files": 2214,
+      "previously_authorized_absences": 10
+    },
+    "guards": {
+      "figure1": "passed",
+      "ordered_collection": [
+        "fig1",
+        "fig2"
+      ],
+      "collection_html_sha256": "099740a392a20f0a9b22c5059d709de9989c2a530bae9a86cba4e594ae5ea724",
+      "historical_figure4_ticket_sha256": "bcf6a460604bc36e2d86343f8d577b15684f10dbd031aa4025d545bfd50b43f8",
+      "historical_ticket_recovery": "passed"
+    },
+    "fixture_correction": {
+      "path": "tests/test_repository_structure.py",
+      "indexed_sha256": "ca6c611c9d6682a7fc353503dc15ffad7071714b6080263438188558220b6dad",
+      "reason": "Synthetic external-link tests must not discover and audit the real host SSD; patch the maintained checker defining globals"
+    },
+    "ssd_bytes_written": false,
+    "scientific_state_or_frozen_records_changed": false,
+    "cross_machine_locking": "unverified; not required for serial single-host PC work"
   }
 }

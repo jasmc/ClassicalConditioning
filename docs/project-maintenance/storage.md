@@ -153,8 +153,10 @@ contention and error release are tested. The [Mac acceptance record](../../recor
 records 223 passes and one Windows-only drive-discovery skip; all three symlink
 cases ran on macOS. The verification record owns current SSD audit and final
 Windows continuation outcomes; actual shared-filesystem cross-machine locking
-remains pending. Serial single-host work does not require a cross-machine lock. Windows symlink
-tests are reported separately when creation privilege is unavailable.
+remains pending. Serial single-host work does not require a cross-machine lock. Final PC acceptance passed: 223 tests, three Windows symlink privilege skips,
+366 protected files and 14 archive transactions verified on the actual SSD.
+See the verification record's `pc_acceptance` section for the tested commit and
+exact artifact identities.
 Allocated-space metrics are `null` where `st_blocks` is unavailable; logical size
 is not a physical-space measurement.
 
