@@ -43,7 +43,7 @@
       "published_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe"
     }
   ],
-  "limitation": "Native Mac verification, original-checkout reconciliation and primary Python 3.13 setup are complete. Source is on origin/develop at27c18da. ORGER reported native-fix SSD audit and figure guards passed; final Windows verification of reconciliation awaits its separate command approval. Simultaneous cross-machine shared-filesystem locking remains unverified and is not required for serial single-host work.",
+  "limitation": "Mac handoff is complete: tested fixes and independent edits reconciled, published to develop, primary checkout clean, Python3.13.18 locked environment and CLI/structure checks passed. Final Windows verification is explicitly pending by author choice. Actual simultaneous shared-filesystem cross-machine locking remains unverified; serial single-host work does not require it.",
   "recovery_catalogue": {
     "path": "records/repository-archive/verified-artifact-locations.json",
     "sha256": "9c2eaa043e3475acfc80301bdd1972efd72d3eba3b245636457c026d43d2410c",
@@ -292,7 +292,7 @@
       "host": "ORGER-JOAQUIM",
       "host_id": "remote-control:env_e_6aa85fab9300833383b44cadf8767420",
       "authorization": "User explicitly approved use of the existing ORGER PC chat.",
-      "status": "ORGER reported native-fix SSD audit and Figure1/Figure1-2 wrapper authentication passed. A host-dependent temporary test fixture needs isolation; final Windows verification of27c18da is blocked by the next remote shell approval.",
+      "status": "ORGER reports native-fix SSD audit and figure guards passed, fixture correction focused checks passed, and final Windows suite/audit on reconciled code running separately. No final result received here; author chose to leave Windows verification pending.",
       "observed_remote_head": "a369c5a1c225df499256627e8434cd426d4233d7",
       "observed_python_launcher_failure": "The file cannot be accessed by the system.",
       "observed_remote_checkout": "clean at fetched a369c5a",
@@ -314,8 +314,8 @@
     "figure_state_bytes_changed": false,
     "ssd_artwork_or_payloads_changed": false,
     "pending_acceptance": [
-      "Receive final Windows suite and drive-wide SSD audit outcome from ORGER.",
-      "Simultaneous shared filesystem locking requires actual concurrent Mac/PC SSD access; no such access is established."
+      "Windows final suite and reconciled-source SSD audit: explicitly left pending by author in this Mac chat.",
+      "Simultaneous shared filesystem locking: not established; use serial single-host writes."
     ],
     "native_fix_source_hashes": [
       {
@@ -425,7 +425,7 @@
       "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
       "branch": "develop",
       "head": "27c18da60d1874b169b155d16ecb7625c3a15d9f",
-      "status": "clean; preserved original work committed exactly, then ordinary fast-forward to reconciled source",
+      "status": "clean primary develop checkout advanced to the published reconciliation and Mac completion record; original work retained in preservation commit",
       "preserved_original_commit": "a64a05d51db0d0639d3ebcb83318e36b253ec88f",
       "preserved_environment": "/Users/joaquim/.codex/backups/cc-mac-before-reconciliation-20261028/venv",
       "runtime_preparation": "uv sync --locked --python 3.13 --all-extras; existing environment retained in backup",
@@ -446,6 +446,11 @@
       "commit": "27c18da60d1874b169b155d16ecb7625c3a15d9f",
       "remote": "origin",
       "result": "pushed; original Mac develop checkout is clean at the same commit"
+    },
+    "windows_verification_disposition": {
+      "status": "pending by explicit author choice",
+      "author_reply": "Leave Windows verification pending",
+      "mac_coordination": "closed; no additional PC approvals or polling requested"
     }
   }
 }
