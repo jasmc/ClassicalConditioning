@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('structure_check', ROOT / 'scripts/check_repository_structure.py')
@@ -131,6 +132,31 @@ class StructureChecks(unittest.TestCase):
     def test_broken_active_link_is_reported(self):
         (self.repo / 'docs/paper/README.md').write_text('[Figure](figures/missing.md)')
         self.assertTrue(any('Broken active link' in issue for issue in structure.check(self.repo)['issues']))
+
+    def test_protected_external_links_resolve_exact_bytes_while_active_links_stay_direct(self):
+        old = '/Volumes/JOAQUIM/retired-test-location/exact-source.py'
+        retained = self.repo / 'records/retained.py'
+        retained.write_bytes(b'exact historical source')
+        historical = self.repo / 'docs/paper/historical.md'
+        historical.write_text('[Source](' + old + ')')
+        (self.repo / 'docs/paper/README.md').write_text('[Current source](' + old + ')')
+        self.write('records/frozen-analyses/index.json', {'files': [
+            {'path': 'docs/paper/historical.md', 'sha256': structure.sha256(historical)}]})
+        self.write('records/repository-archive/relocations.json', {
+            'repository_moves': {}, 'external_moves': {old: {
+                'path': str(retained), 'bytes': retained.stat().st_size,
+                'sha256': structure.sha256(retained)}}})
+        # This fixture tests links without mounting or auditing real archives.
+        with mock.patch.object(Path, 'is_mount', return_value=False):
+            report = structure.check(self.repo, external=True)
+        self.assertEqual(report['issues'], [])
+        self.assertNotIn('docs/paper/historical.md: ' + old, report['unavailable_external_evidence'])
+        self.assertIn('docs/paper/README.md: ' + old, report['unavailable_external_evidence'])
+        retained.write_bytes(b'corrupt historical source')
+        with mock.patch.object(Path, 'is_mount', return_value=False):
+            report = structure.check(self.repo, external=True)
+        self.assertTrue(any(issue.startswith('Historical external link changed: docs/paper/historical.md')
+                            for issue in report['issues']))
 
     def test_existing_file_with_missing_heading_is_rejected(self):
         (self.repo / 'docs/paper/README.md').write_text('# Guide\n\n[Missing section](#removed-section)')

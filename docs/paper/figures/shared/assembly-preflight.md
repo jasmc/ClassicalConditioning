@@ -24,10 +24,14 @@ This inspects sources, hashes, supported source types and layout geometry withou
 
 Use a new external candidate filename and a sidecar from a previous build by this assembler:
 
+Choose an existing figure-led assembly/version directory under the
+[storage policy](../../../project-maintenance/storage.md#figure-led-storage-and-lifecycle);
+do not recreate the retired top-level `current/candidates` workspace.
+
 ```sh
 .venv/bin/python scripts/paper/shared/assemble_svg.py /path/to/reviewed-layout.json \
-  --output '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/candidates/figure-01-candidate-02.svg' \
-  --baseline-manifest '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/candidates/figure-01-candidate-01.svg.json' \
+  --output '<existing-external-candidate-directory>/figure-01-candidate-02.svg' \
+  --baseline-manifest '<existing-external-candidate-directory>/figure-01-candidate-01.svg.json' \
   --replace-panel-source 'E=/path/to/candidate-panel-e.svg' --strict
 ```
 

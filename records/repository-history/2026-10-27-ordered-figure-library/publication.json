@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "published_utc": "2026-10-27T15:35:25.952850+00:00",
+  "status": "published_with_historical_context_gaps",
+  "fully_complete": false,
+  "rules_registered": true,
+  "figure_order": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "one_version_visible_at_a_time": true,
+  "publication": {
+    "snapshot": "review-library/f26b6997fa04b0f4",
+    "html_sha256": "6b0c4e264aa43ff7b26a761b4dc9100fca12a473fcecae1444fe492d3e1b80b0",
+    "versions": {
+      "path": "review-library/versions.json",
+      "sha256": "e80ad02819a9b224230a51468917055ba8a001e8c85029f057fd77400770317e"
+    }
+  },
+  "verification": {
+    "unit_tests_passed": 114,
+    "local_targets": 27607,
+    "missing_targets": 0,
+    "external_svg_references": 0,
+    "protected_files": 365,
+    "current_states": 7,
+    "archive_transactions": 14,
+    "reading_entries": 67,
+    "authority_and_selection_files_unchanged": 16,
+    "historical_navigation_hashes_verified": 4,
+    "selected_g_hash_bindings_verified": 3,
+    "browser_controls": {
+      "version_switch": true,
+      "legend_switch": true,
+      "history_back": true,
+      "keyboard_arrow": true,
+      "joint_scope_link": true
+    }
+  },
+  "unresolved": {
+    "historical_views_without_saved_legend_association": 1940,
+    "reason": "No explicit saved legend association; original artwork/source remains discoverable. No meaning or legend invented."
+  },
+  "scientific_selection_changed": false,
+  "original_artwork_changed": false,
+  "scientific_analysis_rerun": false,
+  "new_freeze": false,
+  "manual_review_holds_released": false,
+  "generated_preview_bytes": 668193255,
+  "generated_preview_objects": 1531,
+  "evidence_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027",
+  "full_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/publication.json",
+    "sha256": "2eea39a43f0a26ca2165ee38afe0984af68b650d0d34ced25e0d83c07730360f",
+    "bytes": 2417
+  },
+  "temporary_files_retired": 1664,
+  "temporary_logical_bytes_retired": 705286274,
+  "post_cleanup_generated_integrity": "passed"
+}

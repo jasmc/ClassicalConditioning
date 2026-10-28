@@ -266,7 +266,7 @@
     },
     "original_checkout_unchanged": true,
     "original_index_unchanged": true,
-    "independent_edits_disposition": "One local commit and 24 uncommitted files (58 distinct changed paths including the local commit) remain unchanged in the original checkout. Source/test functions compared; unsupported automatic state/rule integration deferred. Verification uses the fetched implementation plus the recorded native fixes.",
+    "independent_edits_disposition": "Reconciled through a preserved Mac Git snapshot a64a05d51db0d0639d3ebcb83318e36b253ec88f and a reviewed merge with the tested native fixes. Kept all scientific/state bytes from a369c5a; retained Mac instruction/navigation improvements and two omitted regression safeguards; preserved current PC portability implementations. Exact recovery catalogue is a union, retaining current entries first.",
     "fixes": [
       "Canonicalize Windows SSD and historical checkout paths before local-versus-external structure checks; keep offline checks independent of SSD availability.",
       "Resolve the aligned example eligibility input when dependencies/build are requested, preserving its exact expected SHA-256 and physical snapshot binding; importing synthetic helpers requires no SSD.",
@@ -311,8 +311,7 @@
     "ssd_artwork_or_payloads_changed": false,
     "pending_acceptance": [
       "Complete current read-only ORGER SSD audit and saved Figure 1 / ordered fig1-fig2 wrapper authentication after remote command approval.",
-      "Establish actual simultaneous shared filesystem access, then test bidirectional non-blocking contention and release after error.",
-      "Integrate independent Mac rule/navigation/state changes separately by scope; all original work is retained."
+      "Establish actual simultaneous shared filesystem access, then test bidirectional non-blocking contention and release after error."
     ],
     "native_fix_source_hashes": [
       {
@@ -401,6 +400,20 @@
       ]
     },
     "final_diff_check": "passed with cr-at-eol; existing source newline conventions preserved",
-    "verification_worktree_index_unchanged": true
+    "verification_worktree_index_unchanged": true,
+    "reconciliation_verification": {
+      "tests_run": 97,
+      "passed": 97,
+      "skipped": 0,
+      "elapsed_seconds": 29.537,
+      "result": "OK",
+      "local_structure": "366 protected files, 10 registered states, no issues",
+      "scientific_state_and_frozen_records_changed": false,
+      "preserved_mac_snapshot": "a64a05d51db0d0639d3ebcb83318e36b253ec88f",
+      "shared_native_fix_commit": "a7498fd",
+      "shared_branch": "codex/mac-ssd-verification",
+      "recovery_catalogue_entries": 329,
+      "additional_preserved_recovery_identities": 28
+    }
   }
 }

@@ -18,7 +18,7 @@ SOURCES = {
 def bundle_markdown(markdown):
     """Keep saved-source links usable in both repository and HTML contexts."""
     return re.sub(
-        r"\]\(<(/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/sources/[^>]+)>\)",
+        r"\]\(<(/Volumes/JOAQUIM/ClassicalConditioning Outputs/(?:current/reviews/figure-02-g-analysis-guide-20261017-v01|figures/figure-02/panel-g/studies/analysis-guide)/sources/[^>]+)>\)",
         lambda match: "](sources/" + Path(match[1]).name + ")",
         markdown,
     )

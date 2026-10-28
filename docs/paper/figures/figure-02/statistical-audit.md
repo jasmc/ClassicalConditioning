@@ -1,7 +1,7 @@
 # Figure 2 G/H/I statistical audit
 
-The editable [audit manuscript](</Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/report/study.md>)
-and [HTML review](</Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/report/study.html>)
+The editable [audit manuscript](</Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panels-g-h-i/studies/statistical-audit/report/study.md>)
+and [HTML review](</Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panels-g-h-i/studies/statistical-audit/report/study.html>)
 live together on JOAQUIM. The source registry authenticates the manuscript;
 the [compact audit record](../../../../records/scientific-evidence/analyses/figure-02-ghi-statistical-audit.json)
 binds inputs, outputs and remaining coverage gaps.

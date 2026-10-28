@@ -22,12 +22,13 @@ keep a short pointer to the full external discussion.
 For new work, use a scope-based workspace under:
 
 ```text
-/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/
-  figure-02/panel-g/studies/
-  figure-02/panel-h/studies/
-  figure-02/panel-i/studies/
-  figure-03/assembly/studies/
-  figure-04/assembly/studies/
+/Volumes/JOAQUIM/ClassicalConditioning Outputs/
+  figures/figure-02/panel-g/studies/
+  figures/figure-02/panel-h/studies/
+  figures/figure-02/panel-i/studies/
+  figures/figure-03/assembly/studies/
+  figures/figure-04/assembly/studies/
+  shared/studies/
 ```
 
 Within a topic, keep an editable explanatory source (normally `study.md`), its
@@ -61,11 +62,6 @@ redundant working source; do not weaken preservation checks or substitute an
 older artifact. If the SSD is unavailable, record pending work and continue
 independent code or planning work without creating a new canonical study copy
 in Git.
-
-The 26–27 October consolidation moved the former top-level `studies/` workspaces
-into these figure-led homes. Shared discussions live under `Outputs/shared/studies/`.
-Use the source registry and resolver for historical paths; the
-[storage guide](storage.md#host-configuration-and-verification) owns host-root configuration.
 
 ## Current source resolution
 

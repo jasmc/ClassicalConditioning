@@ -21,7 +21,7 @@ from urllib.parse import unquote
 
 ROOT = _COMMAND_REPOSITORY
 sys.path.insert(0, str(ROOT / 'src'))
-from classical_conditioning.external_artifacts import resolve_artifact, sha256, check_study_sources, relocated_external_directory, normalized_reference
+from classical_conditioning.external_artifacts import resolve_artifact, sha256, check_study_sources, relocated_external_directory, normalized_reference, joaquim_root
 
 LINK = re.compile(r'(?<!!)\[[^\]]+\]\((<[^>]+>|[^)]+)\)')
 
@@ -113,6 +113,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     protected = [(entry, False) for entry in index['files']]
     for manifest in manifests:
         protected.extend((entry, True) for entry in json.loads(manifest.read_text(encoding='utf-8')).get('protected_files', []))
+    protected_documents = {entry['path'] for entry, _ in protected}
     originals = {(entry['path'], entry['sha256']): entry['preserved_original']
                  for entry in policy.get('mutable_index_originals', [])}
     checked = set()
@@ -179,15 +180,28 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
             if target.startswith('/Volumes/'):
                 if external:
                     try:
-                        if target.endswith('/'):
+                        if key not in protected_documents:
+                            # Current navigation must name its existing home.
+                            # Map the host volume, but do not recover an old link.
+                            candidate = Path(target)
+                            if target == '/Volumes/JOAQUIM' or target.startswith('/Volumes/JOAQUIM/'):
+                                root = joaquim_root()
+                                relative = PurePosixPath(target).relative_to('/Volumes/JOAQUIM')
+                                candidate = root.joinpath(*relative.parts)
+                                if '..' in relative.parts or not candidate.resolve().is_relative_to(root.resolve()):
+                                    raise ValueError('Active external link escapes JOAQUIM')
+                            if not candidate.exists():
+                                raise FileNotFoundError(target)
+                        elif target.endswith('/'):
                             if not relocated_external_directory(target.rstrip('/'), repo=repo).is_dir():
                                 raise FileNotFoundError(target)
                         else:
                             resolve_artifact(target, repo=repo)
-                    except FileNotFoundError as error:
-                        unavailable.append(key + ': ' + str(error))
+                    except FileNotFoundError:
+                        unavailable.append(key + ': ' + target)
                     except ValueError as error:
-                        issues.append(key + ': ' + str(error))
+                        prefix = 'Historical external link changed: ' if key in protected_documents else ''
+                        issues.append(prefix + key + ': ' + str(error))
                 continue
             destination = recorded_path(target, repo, aliases, base=path.parent) if target else path
             if not destination.exists():

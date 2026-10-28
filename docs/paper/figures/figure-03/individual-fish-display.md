@@ -1,6 +1,6 @@
 # Individual fish display review
 
-The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-03/individual-fish-display-review.md>).
+The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/assembly/studies/individual-fish-display-review.md>).
 Use the [review library](../review-library.md) to find its HTML and related approaches.
 
 This pointer does not select scientific results, approve proposals or freeze artwork.

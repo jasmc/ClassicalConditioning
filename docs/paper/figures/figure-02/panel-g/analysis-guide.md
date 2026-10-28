@@ -1,6 +1,6 @@
 # Study
 
-The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/panel-g/study.md>).
+The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panel-g/studies/analysis-guide/study.md>).
 Use the [review library](../../review-library.md) to find its HTML and related approaches.
 
 This pointer does not select scientific results, approve proposals or freeze artwork.

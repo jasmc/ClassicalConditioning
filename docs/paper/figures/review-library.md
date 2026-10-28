@@ -2,21 +2,35 @@
 
 Open [the SSD review library](</Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html>)
 or its [Markdown index](</Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md>).
-It presents Figures 1–4 in numerical order, with one browsing page per figure
-and ordered panel, family and version controls. Shared discussions and source
-accounting follow the four figures. Viewing a version does not select science.
+It presents Figures 1–4 in numerical order. Each figure has one browsing page
+with ordered panel, family and version buttons; one version is visible at a time.
+Shared discussions and complete file accounting follow the four figures.
 
 The [catalogue](review-library.json) binds reading identities. The
 [study-source registry](../study-sources.json) identifies canonical editable Markdown.
 Generated reading snapshots and working-artwork previews are read-only; use
-their canonical-source link to edit. Saved previews retain their observed legend
-and source bindings when current artwork advances. Original HTML and notebook
-identities remain protected; unresolved historical context is recorded explicitly.
+the canonical-source link to edit. Preview hashes keep pixels paired with the
+legend observed at publication, even when active working artwork later advances.
+Historical originals and notebook identities remain protected. Browsing does not
+select science or artwork. The version inventory records hashes, source bindings,
+reading derivatives, documented gaps and unresolved coverage.
 
-Run `python scripts/review_library.py check --external` with JOAQUIM connected;
-The supported ordered-browser implementation discovers retained and embedded
-versions and publishes navigation under guards. Use `build` only for an authorized
-navigation refresh; portability verification reads the existing SSD package.
+Run `.venv/bin/python scripts/review_library.py check --external` with JOAQUIM connected;
+`build` discovers retained artwork and embedded HTML/archive views, authenticates
+scoped state, and publishes the figure pages, inventory and reading snapshot under
+publication guards. It preserves existing source guides and artwork. Generated
+navigation is authenticated through publication records rather than treated as
+its own input. Unexpected source changes, manual navigation edits and corrupt
+generated payloads stop publication.
+After retaining or publishing a version, refresh this generated library so it
+remains reachable from `START-HERE.html` through the appropriate figure page.
+The builder writes links and HTML directly; models need not reproduce them.
+Redirect verbose build/check output to a file and inspect only counts, failures
+and affected entries. Avoid dumping complete generated pages or catalogues into
+model context or replies.
+Portability verification checks the existing SSD package; it does not request a
+navigation refresh or artwork regeneration.
+
 Storage and revision ownership follow [the artifact policy](../../project-maintenance/review-artifacts.md).
 
 <a id="figure-2-g"></a>

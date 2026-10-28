@@ -1,6 +1,6 @@
 # Individual learning review
 
-The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/shared/individual-learning-review.md>).
+The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/studies/individual-learning-review.md>).
 Use the [review library](../figures/review-library.md) to find its HTML and related approaches.
 
 This pointer does not select scientific results, approve proposals or freeze artwork.

@@ -1,124 +1,106 @@
 # Repository instructions
 
-Author directions recorded on 2026-10-09 through 2026-10-13 remain standing
-instructions. For paper figure/panel display, creation, editing, comparison,
-verification or freezing, read and use the repository
-[paper-figures skill](.agents/skills/paper-figures/SKILL.md). Its procedures live
-in the authoritative [figure workflow](docs/paper/figures/shared/iteration-workflow.md).
-If skill discovery is unavailable, read that skill file directly.
+Standing author directions remain in force. Use the [rules and authority map](docs/project-maintenance/rules.md)
+to find their maintained owners. Read task-relevant procedures; do not load full
+plans, historical audits or generated catalogues for routine work.
 
-For new paper-figure presentation work, Nature is the selected target; read the
-[maintained Nature guidance](docs/paper/figures/shared/nature-style.md).
-Use the [shared plotting module](src/classical_conditioning/figures/theme.py)
-with one resolved profile per build; pass the same theme to its plotting helpers
-and keep Matplotlib rc changes scoped. Explicit selected-draft migration uses the
-workflow’s scoped Nature route; remaining renderer/production checks stay open:
-retain compatible author rules, validate actual output, and do not infer
-compliance from profile selection or restyle artwork just to display it.
+## Scientific purpose and authority
 
-Author direction 2026-10-17: retire pre-Nature styling as a choice for new paper
-work. Legacy theme defaults and historical contracts are compatibility and
-reproduction dependencies only; do not copy their font/size values into new
-work or use an unprofiled call as the paper styling entry point. Resolve current
-role values through `nature-main`. Preserve compatible author geometry and
-scientific mappings. See the [retirement record](records/repository-archive/2026-10-17-retired-styling/README.md)
-for verified archived guidance and dependencies retained in place.
+The first paper release covers Figures 1–4 and the evidence needed for their
+claims. [Paper figures](docs/paper/figures/README.md) owns their purposes;
+[governance](docs/project-maintenance/governance.md), [decisions](docs/paper/decisions.md)
+and [shared methods](docs/paper/methods/README.md) govern scientific work.
+Resolve relevant definitions and open decisions before changing analyses.
+Do not expand the paper scope or treat an implemented method as approved.
 
-## Essential protections
+- Scientific authority is the accepted freeze for the requested scope, resolved
+  through the figure index and exact selection records. A newer panel selection
+  supersedes an older assembly only within that scope. Frozen originals, hashes,
+  source data and reproduction dependencies are immutable.
+- Presentation authority is scoped `current-state.json`. Read it before resuming;
+  filenames, timestamps, previews and historical audits do not select work.
+  Scientific selection, presentation selection and storage location are separate.
+- Preserve units, timing, missingness, eligibility, aggregation and estimands.
+  Changing data, masks, transformations or learner definitions is scientific
+  work, even inside a plotting command. Do not recompute science as presentation.
 
-- Preserve other work and uncommitted changes. Stay within requested panels;
-  do not restart cleanup or recompute scientific definitions as presentation.
-- Scientific authority is the current scoped accepted freeze, resolved through
-  [Current figures](docs/paper/figures/README.md) and selection records. A newer
-  panel selection supersedes an older assembly only within its scope. Frozen
-  originals, hashes, source data and reproducibility dependencies are immutable.
-- Presentation authority is the scoped `current-state.json` linked by the
-  workflow. Keep frozen display and active draft separate. Read saved authority
-  before resuming; filename age, previews and historical audits do not select
-  current work. Check external storage before loading or regenerating artifacts.
-- Opening a specific figure/panel defaults to self-contained HTML containing
-  only that scope’s selected working SVG and associated legend, in the built-in
-  browser for visual review and annotation. Notes, provenance displays, other
-  figures/panels, comparisons and versions require an explicit request. Follow scoped
-  state for the selected version; keep its matching editable SVG as the figure
-  artifact and open it on explicit request. Resolve the recorded HTML path;
-  stale localhost copies and browser tabs are not current authority. Verify
-  the rendered scope before reporting a successful open. Resolve Figure 1's sole
-  working version from scoped state, rather than a hard-coded version name.
-  Frozen selections/comparisons require an explicit request;
-  identify unfrozen scopes and never infer a whole-figure freeze.
-- Plural requests to show the main-paper figures use the authenticated ordered
-  collection (`scripts/main_paper_figures.py build`, then `display-target`).
-  A particular figure/panel request still shows only its own SVG and legend.
-  Collection inclusion does not create a scientific freeze.
-- Preserve manual working-copy edits. Snapshot state, working-copy and bound
-  input hashes before edits; recheck under the publication lock. Preserve and
-  reconcile conflicts. Publish verified artifacts/evidence before the atomic
-  state pointer, using supported guarded tools.
-- “Ensure consistency” requests also update the scoped draft registry and
-  version-bound evidence for the named relationships/properties; follow the
-  workflow. Preserve scientific meaning and record unresolved coverage.
-- Scientific roles require explicit source/data mappings. Changes to data,
-  masks, timing or transformations are scientific draft changes. Nominal styles
-  and structural XML IDs do not prove scientific or final-scale consistency.
-- Only an explicit freeze request activates the
-  [element specification](docs/paper/figures/shared/figure-element-specification.md)
-  and [role/style contract](configs/paper-figures/figure-elements.json).
-  Prepare a separate candidate, preserve scoped approvals, and pass
-  `scripts/freeze_figure.py --check-only` before publishing with `--output`.
-  A freeze request supplies authorization; unresolved decisions must fail,
-  never acquire invented approval. Ordinary exports do not freeze anything.
-- After a successful new freeze, inventory previous versions and dependencies
-  for author disposition. Freezing does not authorize archiving or deleting
-  them. Preserve all pending versions; execute only approved dispositions and
-  verify external copies before pruning. Rule edits/check-only runs do not
-  trigger historical cleanup.
+## Figure work
+
+For figure/panel display, creation, editing, comparison, legends, verification
+or freezing, use the [paper-figures skill](.agents/skills/paper-figures/SKILL.md),
+reading it directly if discovery is unavailable. The [iteration workflow](docs/paper/figures/shared/iteration-workflow.md)
+is the procedural authority; its task routes identify the sections to read.
+
+- New presentation work uses [Nature guidance](docs/paper/figures/shared/nature-style.md)
+  and resolved `nature-main` values. Use the [shared theme](src/classical_conditioning/figures/theme.py)
+  with one profile snapshot per build, passed to helpers inside scoped Matplotlib
+  rc changes. Pre-Nature defaults/contracts are reproduction dependencies only.
+  Preserve compatible author geometry and scientific mappings. Profile selection
+  does not certify output; showing artwork does not request restyling.
+- A particular figure/panel opens its state-selected working SVG and matching
+  scoped legend only, in minimal self-contained HTML in the built-in browser.
+  Other scopes, notes, provenance displays, versions, comparisons and frozen
+  views require an explicit request. Keep provenance nonvisual and the matching
+  editable SVG available on request. Resolve the recorded path and verify the
+  rendered scope before claiming a successful open; stale tabs are not authority.
+- Plural main-paper display uses `scripts/main_paper_figures.py build`, then
+  `display-target`. The ordered collection follows its recorded membership;
+  inclusion does not freeze a figure. Identify unfrozen scopes.
+- Preserve other work, uncommitted changes and manual SVG edits. Stay within
+  requested scopes. Snapshot state, working-copy and bound input hashes before
+  edits; recheck under the publication lock. Preserve/reconcile conflicts and
+  publish verified artifacts/evidence before the atomic state pointer, using
+  supported guarded tools.
+- “Ensure consistency” also updates the scoped draft registry and version-bound
+  evidence for the named relationships/properties. Scientific roles need explicit
+  source/data mappings; XML IDs and matching appearance do not prove scientific
+  identity or final-scale consistency. Record unresolved coverage.
+- Only an explicit freeze request activates the [element specification](docs/paper/figures/shared/figure-element-specification.md)
+  and [role contract](configs/paper-figures/figure-elements.json). Prepare a separate
+  candidate and pass `scripts/freeze_figure.py --check-only` before `--output`.
+  That request supplies authorization; preserve scoped approvals and never invent
+  unresolved decisions. Exports do not freeze. After a successful new freeze,
+  inventory earlier versions/dependencies for author disposition; keep pending
+  originals. Freezing, rule edits and check-only runs do not authorize cleanup.
+- Future figure layout uses invisible frames, the active shared physical inset,
+  shared outside margins and two panel insets between adjacent contents. Follow
+  the workflow's frame/ownership/render checks. Do not retrofit existing drafts
+  without a scoped edit request.
 
 ## Storage and ownership
 
-Author direction, 2026-10-23: study, discussion and comparison artifacts,
-including editable Markdown manuscripts and conversation checkpoints, live with
-their HTML on JOAQUIM. Follow the [study-artifact policy](docs/project-maintenance/review-artifacts.md).
-Keep numbered plans, durable instructions, operational documentation, approved
-definitions, scoped authority, supported code/tests and compact discovery/recovery
-metadata in their existing homes. Existing hash-bound originals and notebook
-origins remain protected. Resolve migrated manuscripts through
-[the source registry](docs/paper/study-sources.json) and the supported artifact
-resolver; local navigation pointers are not full study sources. See
-[the migration plan](Plans/12_STUDY_ARTIFACT_STORAGE.md). Use the personal `analysis-review-guide` workflow for
-substantial study artifacts when available; do not vendor it into this repository.
+Follow [folder policy](docs/project-maintenance/structure.md), [storage/lifecycle rules](docs/project-maintenance/storage.md#figure-led-storage-and-lifecycle)
+and the [frozen-record layout](records/frozen-analyses/README.md). Work is figure-led;
+shared methods/material have one home. Computer origin is provenance. Keep one
+working home per scoped state and every retained version reachable from SSD
+`START-HERE.html` through the generated figure browser. Generate links with
+supported tools and inspect bounded reports. No automatic deletion or release
+of manual-review holds follows from these rules.
 
-Follow [folder policy](docs/project-maintenance/structure.md) and the
-[frozen-record layout](records/frozen-analyses/README.md). `Plans/` holds numbered
-future work; current guidance belongs under `docs/paper/`,
-`docs/running-analysis/` and `docs/project-maintenance/`; evidence belongs under
-`records/`. Paper work is figure-led, with shared methods stored once. Supported
-code/tests/tools stay local; repository agent skills live under `.agents/skills/`.
-
-Permanent media, HTML reviews, numerical payloads and superseded candidate code
-belong on JOAQUIM at explicit destinations. Use `scripts/repository_archive.py`,
-archive indexes and relocation resolution; preserve frozen bytes/path aliases.
-Superseded freezes retain their figure/panel scope, dated role folders and
-`history/`. If storage is unavailable, preserve originals, record pending work
-and continue independent code/doc work. Never fabricate a mount, substitute
-older artifacts or claim inspection of inaccessible files.
-
-Author exception, 2026-10-15: all Figure 1/2 panel artwork, including unfrozen
-panels and existing placeholders, is also available on this Mac at
-`/Users/joaquim/Documents/ClassicalConditioning Figures/`. For offline layout
-or aesthetic work, read [the local artwork guide](docs/paper/figures/shared/offline-artwork.md)
-and the folder's `ALL-PANELS.md`/`workspace.json` before requiring JOAQUIM.
-These are verified source snapshots, not automatically synchronized active
-drafts. Compare their recorded state/selection hashes with repository authority,
-preserve originals and publish requested derivatives through scoped guards.
-
-Author request on 2026-10-13: keep `to_implement.md` at the repository root as
-working request notes. Its historical copy remains in archive records; it does
-not replace numbered plans, the implementation index or scientific authority.
-
-Author direction 2026-10-15: future paper, supplementary and analysis figures
-use invisible figure/panel layout frames with one shared physical inset,
-shared outside margins and two panel insets between adjacent contents. Follow
-the invisible-frame section of the figure workflow for calibration, ownership,
-exact-render evidence and new-freeze checks. The author selected the shared inset on 2026-10-15; use the active policy
-value and do not retrofit current drafts without a scoped edit request.
+- `Plans/` holds numbered future work; its implementation index alone tracks
+  progress. Current guidance belongs in `docs/paper/`, `docs/running-analysis/`
+  and `docs/project-maintenance/`; evidence in `records/`; supported code/tests
+  stay local. Repository skills belong in `.agents/skills/`.
+- Study/discussion/comparison manuscripts and conversation checkpoints live with
+  their HTML on JOAQUIM: follow [study-artifact policy](docs/project-maintenance/review-artifacts.md).
+  Keep plans, durable instructions, operational docs, approved definitions,
+  scoped authority and compact recovery metadata in their owning homes. Resolve
+  migrated sources through [study-sources.json](docs/paper/study-sources.json) and
+  the supported artifact resolver; a navigation pointer is not the manuscript.
+  Use personal `analysis-review-guide` for substantial study artifacts when
+  available; do not vendor it into this repository.
+- Permanent media, reviews, numerical payloads and superseded candidate code
+  belong at explicit JOAQUIM destinations. Use supported archive/migration tools
+  and exact relocation resolution; preserve frozen bytes, aliases, saved notes
+  and dependencies. Superseded freezes retain scope, dated role folders and
+  history. Verify external copies before any authorized pruning.
+- Check external storage before loading/regenerating artifacts. If unavailable,
+  retain originals, record pending work and continue independent code/doc work.
+  Never fabricate a mount, substitute older artifacts or claim inaccessible-file
+  inspection. For offline Figure 1/2 layout work, the author permits snapshots at
+  `/Users/joaquim/Documents/ClassicalConditioning Figures/`: read [offline guidance](docs/paper/figures/shared/offline-artwork.md)
+  and that folder's `ALL-PANELS.md`/`workspace.json`. Compare recorded authority
+  hashes; snapshots are not synchronized active drafts. Preserve originals and
+  publish derivatives through scoped guards.
+- Keep root `to_implement.md` as author request notes. It replaces neither
+  numbered plans nor scientific authority.

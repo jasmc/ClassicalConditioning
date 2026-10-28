@@ -38,6 +38,17 @@ class ReadingLibrary(unittest.TestCase):
         self.assertEqual(library.check(self.catalogue, self.repo, self.outputs, self.archive)["issues"], [])
         self.assertTrue(library.check(self.catalogue, self.repo, self.outputs, self.archive, external=True)["issues"])
 
+    def test_figure_layout_does_not_promote_retired_transport_guidance(self):
+        self.catalogue['storage_layout']='figure-panel-v1'
+        target=self.outputs/'figures/figure-03/assembly/versions/review.html'
+        target.parent.mkdir(parents=True);target.write_bytes((self.outputs/'review.html').read_bytes())
+        self.catalogue['groups'][0]['entries'][1]['path']=target.relative_to(self.outputs).as_posix()
+        stale=self.archive/'repository-history/retired/obsolete-handoff.md'
+        stale.parent.mkdir(parents=True);stale.write_text('Obsolete instructions retained as history')
+        report=self.build();page=(self.outputs/report['snapshot']/'ALL-REVIEWS.html').read_text()
+        self.assertIn('figures/figure-03/assembly/versions/review.html',page)
+        self.assertNotIn('obsolete-handoff.md',page)
+
     def test_changed_external_review_cannot_be_published(self):
         (self.outputs / "review.html").write_text("manual edit")
         with self.assertRaisesRegex(ValueError, "changed"):

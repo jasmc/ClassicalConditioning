@@ -1,6 +1,6 @@
 # Figure review agenda
 
-The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/shared/figure-review-agenda.md>).
+The full study/discussion source is now [on JOAQUIM](</Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/studies/figure-review-agenda.md>).
 Use the [review library](../review-library.md) to find its HTML and related approaches.
 
 This pointer does not select scientific results, approve proposals or freeze artwork.
