@@ -43,7 +43,7 @@
       "published_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe"
     }
   ],
-  "limitation": "Native Mac verification passed (223 passed, one Windows-only skip); original live Mac edits inspected and preserved. This continuation SSD audit awaits ORGER command approval. Native Mac access to actual SSD and simultaneous cross-machine shared-filesystem locking remain pending.",
+  "limitation": "Mac handoff is complete: tested fixes and independent edits reconciled, published to develop, primary checkout clean, Python3.13.18 locked environment and CLI/structure checks passed. Final Windows verification is explicitly pending by author choice. Actual simultaneous shared-filesystem cross-machine locking remains unverified; serial single-host work does not require it.",
   "recovery_catalogue": {
     "path": "records/repository-archive/verified-artifact-locations.json",
     "sha256": "9c2eaa043e3475acfc80301bdd1972efd72d3eba3b245636457c026d43d2410c",
@@ -264,8 +264,6 @@
       "path": "records/repository-history/2026-10-28-ssd-portability/mac-live-checkout.json",
       "sha256": "a7c46b9dc9ae11955613cce0b4e34b9c7bb5815cb34d4b5320538bc91abcef84"
     },
-    "original_checkout_unchanged": true,
-    "original_index_unchanged": true,
     "independent_edits_disposition": "Reconciled through a preserved Mac Git snapshot a64a05d51db0d0639d3ebcb83318e36b253ec88f and a reviewed merge with the tested native fixes. Kept all scientific/state bytes from a369c5a; retained Mac instruction/navigation improvements and two omitted regression safeguards; preserved current PC portability implementations. Exact recovery catalogue is a union, retaining current entries first.",
     "fixes": [
       "Canonicalize Windows SSD and historical checkout paths before local-versus-external structure checks; keep offline checks independent of SSD availability.",
@@ -294,13 +292,19 @@
       "host": "ORGER-JOAQUIM",
       "host_id": "remote-control:env_e_6aa85fab9300833383b44cadf8767420",
       "authorization": "User explicitly approved use of the existing ORGER PC chat.",
-      "status": "Remote read-only audit started; waiting on its next command approval. No new external audit result received.",
+      "status": "ORGER reports native-fix SSD audit and figure guards passed, fixture correction focused checks passed, and final Windows suite/audit on reconciled code running separately. No final result received here; author chose to leave Windows verification pending.",
       "observed_remote_head": "a369c5a1c225df499256627e8434cd426d4233d7",
       "observed_python_launcher_failure": "The file cannot be accessed by the system.",
       "observed_remote_checkout": "clean at fetched a369c5a",
       "observed_windows_ssd_root": "J:\\",
       "existing_share": "J$ (administrative share); Mac access not established",
-      "share_session_query": "denied on Windows; simultaneous Mac/PC SSD access has not been demonstrated"
+      "share_session_query": "denied on Windows; simultaneous Mac/PC SSD access has not been demonstrated",
+      "guard_verification": {
+        "figure4_start_ticket": "exact bound bytes recovered",
+        "figure1": "authenticated",
+        "ordered_collection": "fig1/fig2 authenticated; saved HTML hash unchanged"
+      },
+      "reported_native_fix_audit_result": "passed; detailed final reconciliation outcome not yet received"
     },
     "cross_machine_locking": {
       "status": "pending",
@@ -310,8 +314,8 @@
     "figure_state_bytes_changed": false,
     "ssd_artwork_or_payloads_changed": false,
     "pending_acceptance": [
-      "Complete current read-only ORGER SSD audit and saved Figure 1 / ordered fig1-fig2 wrapper authentication after remote command approval.",
-      "Establish actual simultaneous shared filesystem access, then test bidirectional non-blocking contention and release after error."
+      "Windows final suite and reconciled-source SSD audit: explicitly left pending by author in this Mac chat.",
+      "Simultaneous shared filesystem locking: not established; use serial single-host writes."
     ],
     "native_fix_source_hashes": [
       {
@@ -414,6 +418,39 @@
       "shared_branch": "codex/mac-ssd-verification",
       "recovery_catalogue_entries": 329,
       "additional_preserved_recovery_identities": 28
+    },
+    "original_checkout_unchanged_during_native_verification": true,
+    "original_index_unchanged_during_native_verification": true,
+    "primary_mac_checkout": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+      "branch": "develop",
+      "head": "27c18da60d1874b169b155d16ecb7625c3a15d9f",
+      "status": "clean primary develop checkout advanced to the published reconciliation and Mac completion record; original work retained in preservation commit",
+      "preserved_original_commit": "a64a05d51db0d0639d3ebcb83318e36b253ec88f",
+      "preserved_environment": "/Users/joaquim/.codex/backups/cc-mac-before-reconciliation-20261028/venv",
+      "runtime_preparation": "uv sync --locked --python 3.13 --all-extras; existing environment retained in backup",
+      "runtime_check": "passed: installed from locked dependencies with all declared extras; classical-conditioning --help exits successfully",
+      "python": "3.13.18",
+      "structure_audit": {
+        "issues": [],
+        "unavailable_external_evidence": [],
+        "protected_files_checked": 366,
+        "current_states_checked": 10,
+        "verified_transactions": [],
+        "external_verification": "not-requested"
+      },
+      "working_tree_clean": true
+    },
+    "source_publication": {
+      "branch": "develop",
+      "commit": "27c18da60d1874b169b155d16ecb7625c3a15d9f",
+      "remote": "origin",
+      "result": "pushed; original Mac develop checkout is clean at the same commit"
+    },
+    "windows_verification_disposition": {
+      "status": "pending by explicit author choice",
+      "author_reply": "Leave Windows verification pending",
+      "mac_coordination": "closed; no additional PC approvals or polling requested"
     }
   }
 }
