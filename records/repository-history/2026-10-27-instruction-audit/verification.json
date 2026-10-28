@@ -1,0 +1,94 @@
+{
+  "instruction_files": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/AGENTS.md",
+      "before_bytes": 8956,
+      "after_bytes": 7406,
+      "before_sha256": "5a54ba225a8be75ed198f92b0cf7223153289e0c8bc14fa1e778bd67638046cf",
+      "after_sha256": "5860f300f05042213a8393efb54d5e981dd795b37c1495f1a607793a15a52be2"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.agents/skills/paper-figures/SKILL.md",
+      "before_bytes": 9806,
+      "after_bytes": 6716,
+      "before_sha256": "6d1dd81ed58305b255e36ac6eb7208623d31a95cb59086024df7ba6401c7781f",
+      "after_sha256": "7ac69756e7b13ac0e333ba762cc2ae419d76997cb96a3d64261937d25858fa29"
+    },
+    {
+      "path": "/Users/joaquim/.codex/skills/analysis-review-guide/SKILL.md",
+      "before_bytes": 9303,
+      "after_bytes": 7252,
+      "before_sha256": "4b88fefee51f571ea747926def205ebef46bc2ec48c78ad97ed82a8dbb0eed3c",
+      "after_sha256": "fb2b3bb82fe17c3797fde2fea27d13739e447290ccae14461077eafec6fcf53d"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/shared/iteration-workflow.md",
+      "before_bytes": 51381,
+      "after_bytes": 52866,
+      "before_sha256": "38dda91035528d68f39760fb8ea6992ab66b91f1cfcda455942d016a9e3ff825",
+      "after_sha256": "e406529b91f5cbc59f139e454a69b9f40ef707c1f2aa2de80b9bf9d5fa0c4996"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/governance.md",
+      "before_bytes": 6198,
+      "after_bytes": 7238,
+      "before_sha256": "6f62f964350d39a816df906c18988e3c54bf70513157d2064d042edf6a8fbd73",
+      "after_sha256": "d68a090b4352091dc2013c9b6475b721e6aa58d54353403511277c6a92eca620"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/rules.md",
+      "before_bytes": 4470,
+      "after_bytes": 6308,
+      "before_sha256": "b0527b751dfa314c9dd41de017a10bdad453c2ede26a85ecbeeae2b38fab196d",
+      "after_sha256": "6a3616af9dd01e38930f8fd9e5ed334ab64c6da88b8166b9785139c67d87d7c8"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/decisions.md",
+      "before_bytes": 16390,
+      "after_bytes": 16762,
+      "before_sha256": "1e06ac02c41c0e7031f226e8bc04288351b0bc36762ac11794c05b1039273888",
+      "after_sha256": "b9c302976c2009614a7ce495e8a9748db66bc008a75b52e4658870907138b614"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/review-library.md",
+      "before_bytes": 2802,
+      "after_bytes": 2812,
+      "before_sha256": "4936f1b6e764efa6df05a38c8e0dfbe3033c2f28067044a05a2bb8c8c5245c15",
+      "after_sha256": "017364511a5d1b70053413dc549f9018d1f265771731bc36fb2cbbd011721caf"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/shared/assembly-preflight.md",
+      "before_bytes": 6423,
+      "after_bytes": 6601,
+      "before_sha256": "43875675d01f7ccdbb88fb08179b50aec781193fc24ef078460d4be8a1bbf84f",
+      "after_sha256": "8fc6f9b2327de40e402e17fe75f1ee22d6f219d46d02a37d58a20bb53c2a0c37"
+    }
+  ],
+  "entrypoints": {
+    "before_bytes": 28065,
+    "after_bytes": 21374,
+    "byte_reduction_percent": 23.8,
+    "exact_token_count_measured": false
+  },
+  "validation": {
+    "local_links_checked": 127,
+    "missing_local": [],
+    "missing_fragments": [],
+    "unavailable_external_links": 7,
+    "protected_files_rechecked": 128,
+    "changed_protected_files": [],
+    "storage_connected": false,
+    "custom_skill_validation": "both_passed",
+    "local_structure": {
+      "issues": [],
+      "protected_files_checked": 365,
+      "current_states_checked": 7,
+      "external_verification": "not-requested"
+    },
+    "whitespace_check": "passed",
+    "external_checks": "not_run_storage_disconnected"
+  },
+  "schema_version": 1,
+  "audit_date": "2026-10-27",
+  "scope": "Local custom skills and project instructions; no scientific or external-artifact publication"
+}

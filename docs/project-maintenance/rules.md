@@ -25,6 +25,27 @@ Scientific selection, presentation selection and storage location are separate.
 A style edit does not choose a method; a panel freeze does not freeze its whole
 assembly; an old filename or cached source does not select current work.
 
+## Apply instructions efficiently
+
+Use `AGENTS.md` for essential protections, the applicable skill for routing and
+the owning document above for procedure. Read the requested figure/panel state
+and exact bindings; expand into plans, history or dependency payloads only when
+needed to resolve a question or perform a required check. Do not reload unchanged
+instructions within a task unless edits or conflicting evidence require it.
+
+For scientific work, establish the claim/estimand and affected input chain before
+execution. Use shared definitions once, scoped approvals as recorded, and the
+existing supported tools. A storage, HTML or styling task does not reopen method
+selection or run an analysis merely to fill a missing explanation.
+
+Keep durable rules with one maintained owner; route from skills/agent instructions
+instead of duplicating procedures or copying current status into handoffs. Preserve
+dated evidence. Put large inventories and verbose verification output in their
+designated stores and inspect summaries/affected entries. Catalogue generation
+maintains version links without printing the catalogue into model responses.
+This reduces instruction/context overhead; output-token use depends on the
+response and tool reporting, not the number of generated links alone.
+
 ## Repository and personal customization
 
 Repository skills belong in `.agents/skills/`; this repository's `paper-figures`
@@ -54,6 +75,14 @@ external check additionally needs JOAQUIM and authenticates archive payloads and
 exact recovered versions. Tests include the actual local repository policy,
 synthetic failures and strict transfer/prune protections. Passing these checks
 does not approve scientific results or certify rendered figures.
+
+Choose checks by the changed behavior: documentation/skill routing needs local
+structure, link and skill validation; executable changes need focused consumer
+and failure-path tests; storage/resolver/publication changes also need their
+archive, external, working-state and review-library checks. Scientific changes
+need the relevant scientific validation as well. These commands are a catalogue,
+not a requirement to repeat the entire suite after every prose edit. Preserve
+required guards and report unavailable external/render checks explicitly.
 
 Author direction, 25 October 2026: this repository has no CI. Run checks locally
 when relevant to a change; do not recreate automated hosted workflows. The

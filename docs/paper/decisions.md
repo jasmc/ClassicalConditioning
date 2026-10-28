@@ -5,9 +5,12 @@
 Author instruction: the current versions are the frozen versions. The latest explicitly accepted freeze governs its own scope; an earlier accepted panel remains current until replaced. Other recipes are legacy or proposed. Scientific definitions and accepted limitations stay exactly as frozen; a panel freeze does not automatically approve the full assembly or first release.
 
 
-The accepted frozen versions are current. Start with [Current figures](figures/README.md): retained 1A–D, selected 1E and 1F/G/H V12, 2D/E B, and 2G LogMedian/LMM. Other panel methods remain proposed or legacy until specifically accepted. The chronology below preserves earlier author instructions; later scoped freezes supersede them only within that scope. No new approval is created here.
-
-**Current scoped authority:** Figure 1 E and F/G/H V12, Figure 2 D/E B and G LogMedian are indexed in the [freeze records](../../records/frozen-analyses/selections.md). The older rank-test and ratio instructions below are retained as decision chronology and do not override later accepted definitions. Detector/cohort/learner gates and release approval remain separate.
+Resolve current accepted scopes through [Current figures](figures/README.md)
+and the exact [selection records](../../records/frozen-analyses/selections.md).
+The chronology below preserves earlier instructions, including superseded
+Figure 1 E/F/G/H V12 and Figure 2 rank-test/ratio choices. It does not override
+later scoped selections or the separate working-presentation state. Detector,
+cohort, learner and release gates remain separate. No new approval is created here.
 
 **2026-10-09 standing author update:** [all analytical vigor is bout-only](../../records/scientific-evidence/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md). No-bout periods are NaN and ignored before every vigor calculation. This supersedes earlier all-frame vigor definitions; historical/frozen artifacts remain preserved. The D/E mean-ratio and log-median comparison has been rebuilt under this shared rule; D/E version B was subsequently selected and frozen; that selection does not cover other panels.
 
@@ -34,6 +37,14 @@ into the individual step plans beyond a short pointer.
 | S (statistics) | **Open in the [analysis and statistics design](../../Plans/06_ANALYSIS_AND_STATISTICS.md).** The existing fish-grouped LME, fish permutation, and fish bootstrap are exploratory engineering scaffolds, not the approved strategy. The primary estimand, outcome family, condition contrast, random-effects structure, diagnostics, uncertainty, multiplicity, and validation status must be decided together. The LME may be improved, demoted to sensitivity, or replaced. The legacy statistical route remains frozen as `legacy-paper` reproduction only—not extended or “fixed.” |
 | L (learner analysis) | **Required paper workstream; method open.** Complete the [learner classification and stratified analysis plan](../../Plans/04_FIGURE_3_LEARNER_ANALYSIS.md). Begin with continuous fish-level effects and heterogeneity and compare continuous, longitudinal, probabilistic, and categorical representations. A binary or multiclass classifier is used only if it adds defensible meaning and avoids circular confirmation. If a hard classifier is rejected, the paper still reports the approved continuous or model-based learner result and the reason classes were not imposed. |
 | F (figures) | Only two figure modes are actively maintained going forward: static PNG and publication SVG/PDF. Interactive local HTML figures are frozen as-is (already implemented, not broken, not deleted) but receive no further investment. |
+
+**Gate F scope clarification:** this historical limit concerns interactive
+analysis renderers. Later author requests explicitly maintain HTML reading,
+annotation, selected-figure display and version-comparison/navigation pages.
+Those derivatives wrap authenticated saved artwork; they do not authorize new
+analytical dashboards, scientific recomputation or replacement of editable
+publication masters. See the [figure workflow](figures/shared/iteration-workflow.md#display-and-working-formats)
+and [ordered review library](figures/review-library.md).
 
 ### Addendum (2026-08-31) — historical pickle timebase
 
@@ -101,7 +112,9 @@ reactivation of the deferred general artifact-schema registry below.
 ## What is deferred or minimized in the current priority lane
 
 - **Schema registry / logical-content hashing / typed artifact metadata**: the optional design remains in Git history, with no active implementation step. Current SHA-256 byte hashing and atomic transactional publication are sufficient for the first scoped analysis release. Reopen only a specific part if a concrete need appears.
-- **Interactive HTML figures**: frozen, no further polish (see Gate F above).
+- **Historical interactive analysis renderers**: frozen, no further polish;
+  later-authorized HTML reading/display/version navigation has the separate
+  scope explained after Gate F above.
 - **The 10-gate formalism as a recurring per-step ritual**: replaced by this single document. Gates are not re-asked per step; they are only revisited if new information changes a decision (for example, real cohort numbers when deciding Gate C0).
 - **Categorical learner implementation**: final implementation waits for stable
   preprocessing, cohort, and outcomes, but the learner-method review and design

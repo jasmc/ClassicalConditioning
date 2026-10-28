@@ -2,20 +2,32 @@
 
 ## Purpose
 
-This is the short active engineering constitution for the analysis migration.
+This is the active scientific and engineering constitution for the paper analysis.
 It retains the durable rules from earlier migration and repository plans;
 their obsolete roadmaps remain in Git history.
 
 ## Authority
 
-When documents conflict, use this order:
+Resolve authority for the concern being changed:
 
-1. an approved immutable release manifest and current scoped accepted freezes;
-2. [Scientific decisions](../paper/decisions.md);
-3. the active domain plan responsible for the work;
-4. [IMPLEMENTATION_STEP_INDEX.md](../../Plans/IMPLEMENTATION_STEP_INDEX.md) for status;
-5. current figure-led documentation under `docs/paper/` and supported execution guidance under `docs/running-analysis/`;
-6. original code under `legacy/` and historical plans in Git history.
+- **Accepted science:** an approved immutable release manifest and the accepted
+  freeze for each scope, then [scientific decisions](../paper/decisions.md) for
+  standing choices and open decisions. A later accepted panel replaces an older
+  assembly only within that panel's scope. Chronological summaries do not
+  override exact selection records.
+- **Working presentation:** scoped `current-state.json`, bound evidence and
+  author instructions, resolved through [Current figures](../paper/figures/README.md).
+  A selected scientific draft may remain unfrozen; never relabel it as a freeze
+  or silently replace it with older artwork.
+- **Procedures and definitions:** maintained figure-led documentation under
+  `docs/paper/`, operational guidance under `docs/running-analysis/`, and the
+  [rules map](rules.md) for storage, style and publication owners.
+- **Future work and status:** the responsible numbered plan owns remaining
+  work; [IMPLEMENTATION_STEP_INDEX.md](../../Plans/IMPLEMENTATION_STEP_INDEX.md)
+  alone owns progress. Plans/status do not override accepted science, current
+  presentation or implemented procedure merely by appearing later in time.
+- **Historical behavior:** exact frozen dependencies, original `legacy/` code
+  and preserved records characterize reproduction. They do not select new work.
 
 No plan authorizes a scientific correction by itself. Scientific decisions are
 recorded in `docs/paper/decisions.md`, implemented under a stable recipe identity, and validated by
@@ -94,6 +106,8 @@ Required failure behavior:
 ## Scientific invariants
 
 - Fish are the biological population unit for paper-level inference.
+  Preserve any experiment/day/tank dependence and limits of condition assignment;
+  repeated frames, bouts and trials do not create independent fish replicates.
 - Bout segmentation is shared across all activity metrics.
 - Condition identity is retained in population comparisons.
 - Frame, trial, fish, condition, and experiment aggregation order is explicit.

@@ -10,6 +10,17 @@ notebook migrations follow [Plan 12](../../Plans/12_STUDY_ARTIFACT_STORAGE.md).
 
 Use an explicit external destination or `CLASSICAL_CONDITIONING_ARTIFACT_ROOT`; the configured directory must exist outside the repository. Never fabricate a missing mount. `CLASSICAL_CONDITIONING_ARCHIVE_ROOT` can identify a verified archive.
 
+`Raw Data` holds acquisition originals. `Digested Data` holds processed pipeline
+projects, including reusable recording/cohort/analysis tables, processing
+metadata, quality checks and run-generated figures. `ClassicalConditioning
+Outputs` holds figure and paper workspaces: artwork, legends, figure-specific
+results, studies and retained versions. Figure work references required
+processed datasets through recorded paths and hashes; it does not duplicate
+complete data projects. `ClassicalConditioning-Archive` holds preserved
+historical material and recovery evidence. Existing frozen and path-bound
+dependencies remain protected. The [pipeline directory contract](../running-analysis/outputs-and-provenance.md#directory-contract)
+defines the contents of each processed project.
+
 The figure-led destination is `ClassicalConditioning Outputs/figures/figure-NN/`.
 Each populated assembly, individual panel or inseparable joint-panel scope owns
 `current/`, `versions/` and `studies/` as needed. Shared studies and cross-figure
@@ -45,6 +56,42 @@ and recognizes only their exact deleted path/hash/size triples. Other missing
 or corrupt payloads fail. The transfer inventories stay immutable, and
 `repository_archive.py verify`, transfer and prune still require every payload;
 audit exceptions cannot weaken those mutation safeguards.
+
+## Figure-led storage and lifecycle
+
+Author approved these conventions on 27 October 2026:
+
+- Organize permanent work under Outputs by figure, assembly, individual panel
+  or inseparable panel group, with populated `current/`, `versions/` and
+  `studies/` roles. Computer origin is provenance, not a parallel workspace.
+- Maintain one working home per scoped state. Preserve distinct historical
+  versions and their labels, legends and scientific/source bindings. Dates,
+  matching pictures and folder placement never select current work.
+- Store shared material once and link it from every relevant scope. Preserve
+  physical copies required by protected bundles.
+- Treat handoffs as temporary packaging. Reconcile unique edits and Git history,
+  integrate useful instructions into their single maintained home, and verify
+  recovery and consumers before retiring obsolete packaging.
+- Establish redundancy through bytes, scientific bindings and dependencies.
+  Verify saved notes before retiring reading routes, preserve notebook and
+  revision identities, and respect explicit manual-review holds.
+- Name movable artwork by figure, panel and version; matching representations
+  share a base name. Keep immutable historical filenames and authenticated aliases.
+- Always keep every retained figure/panel version reachable from the main
+  `ClassicalConditioning Outputs/START-HERE.html`, through its ordered figure,
+  panel and version controls. Refresh the supported browser after retaining or
+  publishing a version, including versions embedded in HTML or archives.
+  Account explicitly for supporting illustrations, aliases, known gaps and
+  unresolved ownership. Show one version at a time with its saved context and sources.
+- Keep this upkeep token-efficient: use the supported builder and checker to
+  generate links from recorded metadata. Do not manually enumerate every version
+  in model instructions, replies or the home page. Keep the home page as the
+  compact gateway to figure pages; do not embed the complete catalogue in agent
+  instructions or routinely read/emit generated HTML. Save verbose tool reports
+  to files and inspect bounded summaries and affected entries.
+
+Maintain these procedures here rather than copying them into handoff documents.
+They authorize no automatic deletion, scientific approval, restyling or freeze.
 
 ## Find reviews on JOAQUIM
 

@@ -1,0 +1,33 @@
+{
+  "completed_utc": "2026-10-27T13:15:49.555732+00:00",
+  "status": "storage_consolidation_complete",
+  "retired_roots": [
+    "ClassicalConditioning-Mac-20261009",
+    "ClassicalConditioning-PC-20261018"
+  ],
+  "verification": {
+    "unit_tests_passed": 93,
+    "protected_files": 365,
+    "current_states": 7,
+    "archive_transactions": 14,
+    "extra_retired_guidance_transaction_files": 1,
+    "library_entries": 67,
+    "reading": {
+      "pages": 420,
+      "links_verified": 14067,
+      "exact_historical_originals_preserved": 17,
+      "originals_have_link_only_reading_derivatives": true
+    },
+    "independent_git_reconstructions": 2
+  },
+  "new_rules_applied": false,
+  "blockers": [],
+  "provenance_exception": "Preserved Mac Git index is valid and matches its recorded HEAD entries; earlier checksum cause remains unknown and historical checksum unchanged",
+  "full_record": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/completion.json",
+    "sha256": "7d2d9e4f6bfb673e54bea7b7c3f218d3baac705168d799e7af67b440d56e8809",
+    "bytes": 3565
+  },
+  "net_logical_bytes_saved": -629715806,
+  "net_file_allocated_bytes_saved": -1479409664
+}

@@ -46,7 +46,7 @@ def contained(root, relative):
     return result
 
 
-def check(catalogue, repo=ROOT, outputs=OUTPUTS, archive=ARCHIVE, *, external=False):
+def check(catalogue, repo=ROOT, outputs=OUTPUTS, archive=ARCHIVE, *, external=False, check_browser_sources=True):
     roots = {"repo": repo, "outputs": outputs, "archive": archive}
     issues, checked, ids = [], [], set()
     groups = set()
@@ -67,11 +67,33 @@ def check(catalogue, repo=ROOT, outputs=OUTPUTS, archive=ARCHIVE, *, external=Fa
                     if not path.is_file():
                         raise ValueError("Missing reading target: " + str(path))
                     raw = path.read_bytes()
-                    if entry.get("sha256") and digest(raw) != entry["sha256"]:
+                    if entry.get('kind') == 'generated_navigation':
+                        publication = outputs / 'review-library/catalogue-publication.json'
+                        saved = json.loads(publication.read_bytes()) if publication.is_file() else {}
+                        expected = next((r['sha256'] for r in saved.get('generated_pages', [])
+                                         if r['path'] == entry['path']), entry.get('sha256'))
+                        if digest(raw) != expected:
+                            raise ValueError('Generated reading target has unrecorded edits: ' + str(path))
+                    elif entry.get("sha256") and digest(raw) != entry["sha256"]:
                         raise ValueError("Reading target changed: " + str(path))
                     checked.append({"id": entry["id"], "path": str(path), "sha256": digest(raw)})
             except (KeyError, ValueError, OSError) as error:
                 issues.append(entry["id"] + ": " + str(error))
+    if external and catalogue.get('version_browser') == 1:
+        from scripts.reviews.ordered_library import verify_package
+        issues.extend(verify_package(outputs, sources=check_browser_sources))
+        model_path = outputs / 'review-library/versions.json'
+        if check_browser_sources and model_path.is_file():
+            from scripts.reviews.versions import source_files, GENERATED
+            model = json.loads(model_path.read_bytes())
+            recorded = {(r['storage'], r['path']) for r in model['inventory']
+                        if r.get('storage') and r.get('path') and Path(r['path']).name not in GENERATED}
+            observed = {(storage, str(path)) for storage, path in source_files(outputs.resolve(), archive.resolve())
+                        if path.name not in GENERATED}
+            for _, path in sorted(observed - recorded):
+                issues.append('Uninventoried browser source; rebuild required: ' + path)
+            for _, path in sorted(recorded - observed):
+                issues.append('Inventoried browser source missing: ' + path)
     return {"issues": issues, "groups": len(groups), "entries": len(ids),
             "checked": checked, "external": external}
 
@@ -103,6 +125,9 @@ def atomic(path, raw):
 
 
 def build(catalogue, output_root, archive_root=ARCHIVE, repo=ROOT):
+    if catalogue.get('version_browser') == 1:
+        from scripts.reviews.ordered_library import build as ordered_build
+        return ordered_build(catalogue, output_root, archive_root, repo)
     output_root = output_root.resolve()
     if not output_root.is_dir() or output_root.is_relative_to(repo.resolve()):
         raise ValueError("Use an existing output root outside the repository")

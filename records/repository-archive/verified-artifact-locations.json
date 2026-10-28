@@ -3358,6 +3358,258 @@
       "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/shared/collection-history/2026-10-27-storage",
       "relative_path": "main-paper-figures.html",
       "recovery_method": "Exact cached collection before storage-only wrapper refresh; source SVGs and legends unchanged"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/INDEX.html"
+      ],
+      "sha256": "80fff2351233748bf0c4c8fabbaca59e7afba6061cae90e3035551df53e5fca0",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "80fff2351233748bf0c4c8fabbaca59e7afba6061cae90e3035551df53e5fca0.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/INDEX.html"
+      ],
+      "sha256": "98cdd5aed50cda1cea844eb1b0769fbd1dde97c6284f0bef13da1fb328b9b9f0",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "98cdd5aed50cda1cea844eb1b0769fbd1dde97c6284f0bef13da1fb328b9b9f0.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/INDEX.html"
+      ],
+      "sha256": "a65ffaf727a90c5437b07ef571b829b62101638831c699cab238c67c8e4887c3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "a65ffaf727a90c5437b07ef571b829b62101638831c699cab238c67c8e4887c3.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/INDEX.html"
+      ],
+      "sha256": "66885ca3c43a89dcbf528d1d8caffb70b080fe4df46c3fe7b5be931dfabc35a6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "66885ca3c43a89dcbf528d1d8caffb70b080fe4df46c3fe7b5be931dfabc35a6.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md"
+      ],
+      "sha256": "5c0898b244e38c79cd962a72c4678a20c4ae9f570afc86c9c7b8039c8852c9f9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "5c0898b244e38c79cd962a72c4678a20c4ae9f570afc86c9c7b8039c8852c9f9.md",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html"
+      ],
+      "sha256": "3c4284caa24b5ded0de07daa629c343c2bf402078de561a28271f3c5a5926e1d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "3c4284caa24b5ded0de07daa629c343c2bf402078de561a28271f3c5a5926e1d.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/INDEX.html"
+      ],
+      "sha256": "cb8ab381065e594e113b4e9c2e09633f38cacff29973c8cddab76a996edaee76",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "cb8ab381065e594e113b4e9c2e09633f38cacff29973c8cddab76a996edaee76.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/INDEX.html"
+      ],
+      "sha256": "be49bdca7bebcbed5152ae3a6f1a7a2c7073b3bb1cb5fc31e72dd313de130f27",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "be49bdca7bebcbed5152ae3a6f1a7a2c7073b3bb1cb5fc31e72dd313de130f27.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/INDEX.html"
+      ],
+      "sha256": "8fb84b37938e2fd24248341da2d7e1b48b8c3d90324447189a016cebb69671c2",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "8fb84b37938e2fd24248341da2d7e1b48b8c3d90324447189a016cebb69671c2.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/INDEX.html"
+      ],
+      "sha256": "9805c141ca3c3a675a48c3cc0f727a14c5c85eb7b496cfb1269b349e56f49dd2",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "9805c141ca3c3a675a48c3cc0f727a14c5c85eb7b496cfb1269b349e56f49dd2.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/INDEX.html"
+      ],
+      "sha256": "07bb43515d9f5aac87e13f17a9489504a45fed7c5d7b2c92ae3e1d1877d9ccbf",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "07bb43515d9f5aac87e13f17a9489504a45fed7c5d7b2c92ae3e1d1877d9ccbf.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/versions.json"
+      ],
+      "sha256": "9c2a68b6cedb2cc9696192162c064d2844ffa819dd3f3b230c65988aaff91e04",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "9c2a68b6cedb2cc9696192162c064d2844ffa819dd3f3b230c65988aaff91e04.json",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md"
+      ],
+      "sha256": "cac982f9741b8ef30713b3d512cadfdd9b0a8543b0bbb731c7d57d1c274ae085",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "cac982f9741b8ef30713b3d512cadfdd9b0a8543b0bbb731c7d57d1c274ae085.md",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html"
+      ],
+      "sha256": "dbcc7ab99a681e667cffc5bf3e4850f25ff1679504a76d334a2a913361322948",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "dbcc7ab99a681e667cffc5bf3e4850f25ff1679504a76d334a2a913361322948.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/INDEX.html"
+      ],
+      "sha256": "038b87fb539e1976ece16b69ee291cf27bffa61535853ecc41356f8e5b012e7f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "038b87fb539e1976ece16b69ee291cf27bffa61535853ecc41356f8e5b012e7f.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/INDEX.html"
+      ],
+      "sha256": "e8a1e9914ddbc423206ab7498dde57b02c087f46dad764e8b4e09ed4d9ace59c",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "e8a1e9914ddbc423206ab7498dde57b02c087f46dad764e8b4e09ed4d9ace59c.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/INDEX.html"
+      ],
+      "sha256": "d89ff8307f04ba725e3d6ae9f7ea91b516e691cd17d7b087a26510cdcb2b082d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "d89ff8307f04ba725e3d6ae9f7ea91b516e691cd17d7b087a26510cdcb2b082d.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/INDEX.html"
+      ],
+      "sha256": "3e4cc4d337e5e7a25051e0eaa5c0200bf322b54820c8edbbf0bdb55c57c10203",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "3e4cc4d337e5e7a25051e0eaa5c0200bf322b54820c8edbbf0bdb55c57c10203.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/versions.json"
+      ],
+      "sha256": "bb2bd81f93e6bed12bc9038774dd19a1e40b7d9afe56255ca78f9926e0542070",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "bb2bd81f93e6bed12bc9038774dd19a1e40b7d9afe56255ca78f9926e0542070.json",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md"
+      ],
+      "sha256": "6cac9497e0833fe669d8514ea7c907caf9fd91108b500b7ca0a04593c2984611",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "6cac9497e0833fe669d8514ea7c907caf9fd91108b500b7ca0a04593c2984611.md",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html"
+      ],
+      "sha256": "064e9fad6121d9e574fd6534ff4807b46d844525b5f3193d3b17019f40ee8253",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "064e9fad6121d9e574fd6534ff4807b46d844525b5f3193d3b17019f40ee8253.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/INDEX.html"
+      ],
+      "sha256": "f4fe020faceb6197d898b6707cdbb1d39f926b6b599e3706a2b617eefc0c6a07",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "f4fe020faceb6197d898b6707cdbb1d39f926b6b599e3706a2b617eefc0c6a07.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/INDEX.html"
+      ],
+      "sha256": "542cfaf1af0bb29575de7dd2bc9748449af63749c0f06b1161763a95dba9e5c9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "542cfaf1af0bb29575de7dd2bc9748449af63749c0f06b1161763a95dba9e5c9.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/INDEX.html"
+      ],
+      "sha256": "0b6a42426976fb305b91d9623a0519c21df99e35b29b3fd9a9a55b497ada8008",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "0b6a42426976fb305b91d9623a0519c21df99e35b29b3fd9a9a55b497ada8008.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/INDEX.html"
+      ],
+      "sha256": "23fd5e41cc12d95fe18a91f847c0fe74c2826313411c056b6cbca04d17225556",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "23fd5e41cc12d95fe18a91f847c0fe74c2826313411c056b6cbca04d17225556.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/versions.json"
+      ],
+      "sha256": "602e9484f8b02efe309d0ba41114bf418d262255e8de4f2e5100bcd9cbd51ba4",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "602e9484f8b02efe309d0ba41114bf418d262255e8de4f2e5100bcd9cbd51ba4.json",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md"
+      ],
+      "sha256": "78618b372895cb19f3e8652c31bc124003c408eaa5eeffb6a043bf6af46447ba",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "78618b372895cb19f3e8652c31bc124003c408eaa5eeffb6a043bf6af46447ba.md",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html"
+      ],
+      "sha256": "fae02b602c0f2e6e527f28119436d656553c6cc8f22ba56f7b08aff04726a8c4",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "fae02b602c0f2e6e527f28119436d656553c6cc8f22ba56f7b08aff04726a8c4.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
     }
   ]
 }

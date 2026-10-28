@@ -199,6 +199,27 @@ class StorageMigrationTests(unittest.TestCase):
         self.assertEqual(self.state.read_text(), '{"relocated":true}')
         self.assertFalse(Path(str(self.state)+'.lock').exists())
 
+    def test_publication_phases_recheck_before_pointer_and_roll_back(self):
+        from unittest.mock import patch
+        plan=self.control_plan();plan['guard_checkpoints']='publication-phases'
+        source=self.root/'observed.svg';source.write_text('art')
+        plan['guards'].append(dict(path=str(source),bytes=3,sha256=migration.digest(source)))
+        target=self.root/'navigation.html';target.write_text('old')
+        prepared=self.root/'prepared.html';prepared.write_text('new')
+        plan['controls'].insert(0,dict(path=str(target),source=str(prepared),role='control',expected_sha256=migration.digest(target),sha256=migration.digest(prepared),bytes=3))
+        original=migration.os.replace
+        def change_after_control(a,b):
+            result=original(a,b)
+            if str(b)==str(target) and target.read_text()=='new':source.write_text('manual')
+            return result
+        with patch.object(migration.os,'replace',side_effect=change_after_control):
+            with self.assertRaisesRegex(ValueError,'advanced'):migration.publish_controls(plan)
+        self.assertEqual(target.read_text(),'old');self.assertEqual(self.state.read_text(),'{}');self.assertEqual(source.read_text(),'manual')
+
+    def test_publication_phase_mode_requires_a_pointer(self):
+        plan=self.control_plan();plan['guard_checkpoints']='publication-phases';plan['controls'][0]['role']='control'
+        with self.assertRaisesRegex(ValueError,'pointers'):migration.publish_controls(plan)
+
     def test_legacy_windows_paths_follow_scoped_storage_directories(self):
         from scripts.workflows.macos.run_legacy_with_paths import relocate
         old = '/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/frozen'

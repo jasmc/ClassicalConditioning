@@ -11,12 +11,13 @@
       "entries": [
         {
           "id": "figure-01-folders",
-          "title": "Open Figure 1 folders",
+          "title": "Open Figure 1 versions and panels",
           "storage": "outputs",
           "path": "figures/figure-01/INDEX.html",
           "sha256": "80fff2351233748bf0c4c8fabbaca59e7afba6061cae90e3035551df53e5fca0",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "One saved version at a time, with ordered panel and version buttons, matching context and sources.",
+          "kind": "generated_navigation"
         }
       ]
     },
@@ -27,12 +28,13 @@
       "entries": [
         {
           "id": "figure-02-folders",
-          "title": "Open Figure 2 folders",
+          "title": "Open Figure 2 versions and panels",
           "storage": "outputs",
           "path": "figures/figure-02/INDEX.html",
           "sha256": "98cdd5aed50cda1cea844eb1b0769fbd1dde97c6284f0bef13da1fb328b9b9f0",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "One saved version at a time, with ordered panel and version buttons, matching context and sources.",
+          "kind": "generated_navigation"
         }
       ]
     },
@@ -43,12 +45,13 @@
       "entries": [
         {
           "id": "figure-03-folders",
-          "title": "Open Figure 3 folders",
+          "title": "Open Figure 3 versions and panels",
           "storage": "outputs",
           "path": "figures/figure-03/INDEX.html",
           "sha256": "a65ffaf727a90c5437b07ef571b829b62101638831c699cab238c67c8e4887c3",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "One saved version at a time, with ordered panel and version buttons, matching context and sources.",
+          "kind": "generated_navigation"
         }
       ]
     },
@@ -59,12 +62,13 @@
       "entries": [
         {
           "id": "figure-04-folders",
-          "title": "Open Figure 4 folders",
+          "title": "Open Figure 4 versions and panels",
           "storage": "outputs",
           "path": "figures/figure-04/INDEX.html",
           "sha256": "66885ca3c43a89dcbf528d1d8caffb70b080fe4df46c3fe7b5be931dfabc35a6",
           "status": "Figure/panel navigation",
-          "description": "Current artwork, distinct versions, studies and associated sources."
+          "description": "One saved version at a time, with ordered panel and version buttons, matching context and sources.",
+          "kind": "generated_navigation"
         }
       ]
     },
@@ -150,7 +154,7 @@
           "path": "figures/figure-02/assembly/studies/review-agenda.md",
           "sha256": "19d0bbbc6327292ecf4e40c244bb5caddad330fb4a5e07a8546e1c9a29f2b7f6",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from docs/paper/figures/figure-02/review.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-02/review.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-15",
@@ -159,7 +163,7 @@
           "path": "figures/figure-02/panel-g/studies/comparisons/implementation-and-review-2026-10-15.md",
           "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-16",
@@ -168,7 +172,7 @@
           "path": "figures/figure-02/panel-g/studies/comparisons/review-2026-10-14.md",
           "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "figure2-g-saved-statistical-audit",
@@ -456,7 +460,7 @@
           "path": "figures/figure-03/assembly/studies/explanation-guide-design-2026-10-17.md",
           "sha256": "45f7e8daaaad5817539fc5ac6d06c3545b4382d82807a6c9ccb05a10d36610d2",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-6",
@@ -465,7 +469,7 @@
           "path": "figures/figure-03/assembly/studies/individual-fish-display-review.md",
           "sha256": "c04681a5f33fe5c27b93fb8c3c94b8d8a1e9c2fa2f4fa5ca1002c8eb343c3496",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from docs/paper/figures/figure-03/individual-fish-display.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-03/individual-fish-display.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-13",
@@ -474,7 +478,7 @@
           "path": "figures/figure-03/assembly/studies/review-agenda.md",
           "sha256": "5651b99ab202c8831025b46c1fe5a612dc7963282cb3a5500e439b853defc4d3",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from docs/paper/figures/figure-03/review.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-03/review.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         }
       ]
     },
@@ -606,7 +610,7 @@
           "path": "figures/figure-04/assembly/studies/review-agenda.md",
           "sha256": "1a3eac9f5bb78f93f94dc138c56cc70c80f0d40365ad499e849be54a8f29c2fa",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from docs/paper/figures/figure-04/review.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-04/review.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         }
       ]
     },
@@ -622,7 +626,7 @@
           "path": "shared/studies/paper-review-agenda.md",
           "sha256": "4c9602f5a6e13c689caf90042fff70b1af1fd1379870489f711c56d853b9fdb1",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from docs/paper/review.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from docs/paper/review.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-8",
@@ -631,7 +635,7 @@
           "path": "shared/studies/figure-review-agenda.md",
           "sha256": "cdb5412dc776e3b257fb272c5651a75fbc334d8d7bee8a5cd91260cd50a7e793",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from docs/paper/figures/shared/review.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from docs/paper/figures/shared/review.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-9",
@@ -640,7 +644,7 @@
           "path": "shared/studies/nature-guidance-20261016.md",
           "sha256": "ccb5df3cbd0aa1b73d62c75afa981d57d13058e7f23eb059a2509fc06daa5864",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from records/figure-reviews/nature-guidance-20261016.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from records/figure-reviews/nature-guidance-20261016.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-10",
@@ -649,7 +653,7 @@
           "path": "shared/studies/nature-main-migration-20261017.md",
           "sha256": "094142a0d13d1e6453a2726636560f6f257da6996738266709ebf007b6cabdc9",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from records/figure-reviews/nature-main-migration-20261017.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from records/figure-reviews/nature-main-migration-20261017.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "study-source-11",
@@ -658,7 +662,7 @@
           "path": "figures/figure-01/assembly/studies/review-agenda.md",
           "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
           "status": "Study source · discussion, not approval",
-          "description": "Canonical Markdown moved from docs/paper/figures/figure-01/review.md. Existing HTML guides retain their original paths."
+          "description": "Canonical Markdown moved from docs/paper/figures/figure-01/review.md. Related guides now live in their figure/panel workspaces; historical identities remain recoverable."
         },
         {
           "id": "figure2-ghi-audit-manuscript",
@@ -667,10 +671,11 @@
           "path": "figures/figure-02/panels-g-h-i/studies/statistical-audit/report/study.md",
           "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
           "status": "Canonical editable study source; discussion is not approval",
-          "description": "Markdown source beside the shared G/H/I statistical audit HTML. Existing G, H and I guides and notebook origins remain unchanged."
+          "description": "Markdown source beside the shared G/H/I statistical audit HTML. Existing G, H and I guides and notebook identities remain distinct."
         }
       ]
     }
   ],
-  "storage_layout": "figure-panel-v1"
+  "storage_layout": "figure-panel-v1",
+  "version_browser": 1
 }

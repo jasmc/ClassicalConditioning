@@ -369,6 +369,11 @@ def publish_controls(plan):
     """Publish storage indexes first and scoped pointers last under figure locks."""
     from classical_conditioning.figure_workspace import state_lock
     rows = sorted(plan['controls'], key=lambda r: r.get('role') == 'state')
+    checkpoints = plan.get('guard_checkpoints', 'every-control')
+    if checkpoints not in {'every-control', 'publication-phases'}:
+        raise ValueError('Unknown publication guard checkpoints')
+    if checkpoints == 'publication-phases' and not any(r.get('role') == 'state' for r in rows):
+        raise ValueError('Publication phases require explicit entry-point pointers')
     if len({r['path'] for r in rows}) != len(rows):
         raise ValueError('Each control/state destination must appear exactly once')
     previous, written = {}, []
@@ -403,8 +408,11 @@ def publish_controls(plan):
                 raise ValueError('Prepared control changed: ' + row['source'])
             previous[str(target)] = target.read_bytes() if target.exists() else None
         try:
+            pointer_phase = False
             for row in rows:
-                check_guards()
+                if checkpoints == 'every-control' or (row.get('role') == 'state' and not pointer_phase):
+                    check_guards()
+                pointer_phase = pointer_phase or row.get('role') == 'state'
                 replace(Path(row['path']), Path(row['source']).read_bytes())
                 written.append(row)
                 if not matches(row['path'], row):

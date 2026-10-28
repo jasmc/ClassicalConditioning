@@ -5,144 +5,89 @@ description: Show, create, edit, compare, verify or freeze paper figures and pan
 
 # Paper figures
 
-Use this skill only in the ClassicalConditioning repository. Resolve all paths
-below from its root; do not depend on a machine-specific checkout path. Read
-[repository protections](../../../AGENTS.md) and the authoritative
-[iteration workflow](../../../docs/paper/figures/shared/iteration-workflow.md)
-before figure work. Maintain procedures there, rather than copying them here.
+Resolve paths from the ClassicalConditioning repository root. Apply
+[AGENTS.md](../../../AGENTS.md); the [iteration workflow](../../../docs/paper/figures/shared/iteration-workflow.md#task-routes)
+owns procedures. Read its common authority rules and the sections for the actual
+task, rather than loading the entire workflow and all linked references.
 
-For creation, style edits, verification or journal-rule work, read the maintained
-[Nature target](../../../docs/paper/figures/shared/nature-style.md). It separates
-journal requirements from exact author/project choices, including axis geometry.
-Use its profile lookup and explicit shared-theme adapter for new paper candidates;
-use the workflow’s scoped migration route for an explicit artwork update.
-Remaining production/scientific checks stay open. Existing selected
-artwork is not automatically compliant; showing it does not request migration.
-Pre-Nature styling is retired for new paper work. Unprofiled theme calls and
-historical style contracts remain only for compatibility/reproduction; do not
-reuse their numerical typography as an alternative target. The
-[retirement record](../../../records/repository-archive/2026-10-17-retired-styling/README.md)
-indexes archived guidance and retained dependencies.
-Preserve historical contracts and use the existing scoped registry/publication
-pipeline; presentation checks do not execute an unrequested freeze.
+## Resolve scope and state
 
-For routine styling, query only the needed profile section and named registry
-roles/groups. Load one profile snapshot per build and pass the same theme to
-axes/stimulus helpers inside `matplotlib.rc_context()`. Consult plans/history
-when a rule is unresolved, scientific scope
-changes or supported checks expose a gap. Reuse the implemented helper and
-source-bound evidence rather than copying per-panel values or adding another tool.
+Start with [Current figures](../../../docs/paper/figures/README.md), then the
+requested scope's selection records, `current-state.json`, associated legend
+and bound evidence. Authenticate consumed sources using supported resolution;
+check external storage first. A newer filename, cache or open tab is not state.
+Scientific selection and presentation selection remain separate. Identify
+unfrozen scope; a panel freeze never approves the whole assembly.
 
-## Resolve the requested state
+Choose the relevant workflow route:
 
-Plural main-paper requests (for example, “show me the figures of the paper”)
-use the ordered collection: run `scripts/main_paper_figures.py build` with
-`.venv/bin/python`, then `display-target`, and open/inspect its authenticated
-HTML in the built-in browser. This refreshes from selected scoped figure states
-and requires current passing layout evidence. A request for a particular figure
-or panel still shows only that scope and its legend. See the workflow's
-**Main-paper collection** section; collection inclusion does not create a freeze.
+| Request | Read in the workflow | Action |
+|---|---|---|
+| Show one figure/panel | Display and working formats | Open the exact state-selected minimal SVG-and-legend HTML; inspect the rendered scope. |
+| Show the main-paper figures | Main-paper collection | Run `.venv/bin/python scripts/main_paper_figures.py build`, then `display-target`; inspect the authenticated collection. |
+| Compare retained versions | Ordered version browsing; maintained review library | Use the supported ordered browser; preserve each version's legend and source bindings. Browsing does not change selection. |
+| Create/edit a draft or legend | Operational commands and concurrency; Verification before accepting a candidate; Linked panels and legends | Capture pre-edit hashes and use the scope's supported guarded builder. |
+| Verify selected artwork | Verification before accepting a candidate; relevant scoped mappings/evidence | Authenticate inputs, inspect the exact rendering and report partial coverage. Verification does not select or freeze science. |
+| Style or consistency work | Semantic registry and linked-panel checks; applicable geometry/frame sections | Resolve named roles and recorded relationships; update scoped registry/evidence and measure actual final-scale output. |
+| Freeze | What happens when the author freezes; element specification | Prepare a separate candidate and complete the explicit gate. |
 
-Read [Current figures](../../../docs/paper/figures/README.md), the requested
-figure's selection records, legend and scoped `current-state.json` when present.
-Check storage and authenticate bound sources before loading or regenerating.
-Resolve relocated artifacts through archive indexes; do not choose by age.
+For new presentation/style work or verification against journal rules, also read
+[Nature guidance](../../../docs/paper/figures/shared/nature-style.md). Query the
+needed `nature-main` profile roles once per build and reuse the shared theme.
+Historical defaults remain reproduction-only. Do not restyle just to display.
+For future layout, read **Invisible layout frames** and the active policy;
+existing drafts need a scoped edit request before retrofit. Read plans/history
+only for unresolved rules, changed scientific scope or gaps exposed by checks.
 
-- **Show:** open only the requested figure/panel’s selected SVG and associated
-  legend in minimal self-contained HTML in the built-in browser. No page header,
-  navigation, notes, provenance display, other figures/panels, version switches
-  or comparisons unless explicitly requested. Keep provenance nonvisual. Follow scoped
-  state (`default_display` and `default_display_format`); Use the single current pair resolved from state.
-  Keep the matching editable SVG as the figure artifact; open it when requested.
-  Identify unfrozen scopes. Show frozen selections/comparisons only on request.
-  A panel request needs a view of that panel alone, preserving authenticated
-  source coordinates/resources; scrolling to a panel in a full figure is not
-  isolation. Do not create extra standalone working SVGs for panel previews.
-- **Create/edit/compare:** capture starting hashes before changing code or
-  inputs. Implement repeatable edits in supported code. Preserve addressable
-  SVG groups/text/paths, source mappings and authentic embedded raster data.
-  Maintain one active working SVG and its matching self-contained HTML review
-  with requested versions, legends and provenance. Preserve historical records
-  according to author dispositions; do not create competing working versions.
-  Use temporary/in-memory previews and remove task-created render files after
-  verification. An XML editor does not imply graphical drag-and-drop support.
-- **Style edits:** resolve named roles and existing consistency groups before
-  editing. Apply local requests locally; preserve and recheck recorded group
-  requirements. Propagate a shared change only across the author-named scope,
-  using supported code, registry updates and final-scale evidence. Semantic
-  lookup alone does not automatically restyle other panels.
-- **Ensure consistency:** implement the named scoped relationship/property in
-  supported draft code, and update the existing draft registry and version-bound
-  evidence as described in the workflow’s consistency-request procedure. A
-  request does not by itself revise shared freeze rules or scientific definitions.
-  Register related-panel groups by type: layout (equal measured gaps, shared
-  axis layout), scientific (authenticated data/cohort/control/experiment links)
-  and presentation style (named role groups, including cross-figure axis titles).
-  Check each declared relationship at final scale; containment alone does not
-  verify spacing. Preserve distinctions between visual grouping and shared data.
-- **Verify:** read the selected semantic registry, distinguish structural IDs
-  from scientific roles, check linked-panel relationships and measure the
-  exact saved SVG at final assembly scale. Perform real renderer/visual review;
-  record unresolved measurements and partial coverage honestly. Create a
-  companion legend for each new panel/figure, with an explicit source path/hash
-  and panel association in state. A figure legend’s panel-specific paragraph may
-  serve as the panel legend; do not duplicate files unnecessarily. Show the
-  associated legend with the SVG by default. Edit existing legends only when
-  definitions or necessary explanations change. Keep essential units, axes,
-  ticks and scientific marks visible; move explanatory clutter to the legend.
+## Task-specific safeguards
 
-## Use supported tools within their implemented scope
+- **Display:** show only the requested SVG and matching scoped legend by default;
+  follow state `default_display` and `default_display_format`.
+  other scopes, visible notes/provenance, comparisons, versions and frozen views
+  require an explicit request. Keep provenance nonvisual. Panel isolation must
+  preserve authenticated coordinates/resources; scrolling a full figure is not
+  isolation. Keep the editable SVG available without creating a competing
+  standalone working SVG for a panel preview. Verify the actual saved page before
+  reporting a successful open; report unavailable browser capabilities honestly.
+- **Edit:** preserve manual/uncommitted work, authentic raster data, addressable
+  SVG groups/text/paths and scientific mappings. Repeatable edits belong in
+  supported code. Maintain the scope's one active SVG/HTML pair; preserve
+  historical versions according to recorded dispositions. Use temporary previews
+  and remove task-created render files after verification.
+- **Consistency:** a local request changes its named scope/property. Preserve
+  recorded group requirements; propagate a shared change only through the named
+  scope. Record layout, scientific and presentation relationships distinctly.
+  IDs, similar styling and frame containment do not prove data identity, spacing
+  or full consistency. Preserve unresolved coverage and scientific definitions.
+- **Legend:** each new scope needs a matching source-bound legend; a figure's
+  panel paragraph plus necessary shared definitions can serve without duplication.
+  Update existing legends only where definitions/explanations change. Keep units,
+  essential ticks and scientific marks in the artwork.
+- **Publication:** snapshot state, working artifacts and bound inputs before
+  edits, then recheck under locks. Publish verified artifacts/evidence before the
+  atomic state pointer. A conflict or missing storage stops publication.
 
-Run commands from the repository root with `.venv/bin/python`. Read the
-workflow's concurrency/publication section for destinations and command options.
-
-- `scripts/figure_working_copy.py display-target` resolves the authenticated
-  current Figure 1 HTML, SVG and legend paths from state. Open that exact HTML;
-  do not copy a historical review to a generic `figure1.html` or reuse an old
-  browser URL without checking its backing file and hash. Inspect the actual
-  page before reporting a successful open.
-- `scripts/figure_working_copy.py verify` authenticates Figure 1 working state.
-  Use `begin --ticket <temporary-ticket.json>` before Figure 1 edits.
-  `prepare --output-dir <existing-external-directory> --revision <revision>`
-  bootstraps/reuses authenticated copies only when needed. Never refresh over
-  unreviewed manual edits.
-- `scripts/paper/shared/build_legend_review.py --baseline <ticket.json> --output
-  <new-external-review.html>` publishes the Figure 1 draft/review with guarded
-  hashes, measurements and atomic state update, preserving Figure 2. Author direction
-  on 2026-10-13: update the same active HTML/SVG pair with `--update-current`;
-  do not create a new working version for each edit. Preserve approved freeze candidates.
-- For other figures, use their supported builder and
-  [assembly safeguards](../../../docs/paper/figures/shared/assembly-preflight.md).
-  The two tools above currently target Figure 1; do not direct another figure
-  through them or invent unsupported flags. If needed, implement equivalent
-  scoped state/locking support before publishing that figure.
+Run supported commands from the root with `.venv/bin/python`; consult the
+[tool catalogue](../../../scripts/README.md) for implemented scope/options.
+`figure_working_copy.py` and `paper/shared/build_legend_review.py` target Figure 1;
+use its `begin` ticket and `--update-current` route. Do not send other figures
+through those tools or invent flags. Use their scoped builders and
+[assembly safeguards](../../../docs/paper/figures/shared/assembly-preflight.md),
+implementing equivalent guards if necessary before publication.
 
 ## Explicit freeze only
 
-Read the workflow's freeze section and the
-[element specification](../../../docs/paper/figures/shared/figure-element-specification.md).
-Use [figure-elements.json](../../../configs/paper-figures/figure-elements.json)
-for role identifiers, numerical defaults and plot-family rules. Prepare a
-separate styled candidate with exact source/data mappings, final-scale evidence,
-protection and approved scoped exceptions. The gate validates; it does not
-classify elements, apply styles or perform scientific/visual review.
+Use the [element specification](../../../docs/paper/figures/shared/figure-element-specification.md)
+for identities/mapping requirements and the resolved Nature profile for current
+presentation values; do not reuse historical compatibility typography. Complete
+independent candidate work before asking about unresolved scientific choices or
+exceptions. Prior scoped approvals persist; appearance is not approval.
 
 Run `.venv/bin/python scripts/freeze_figure.py --candidate <candidate.json>
---check-only`; resolve every issue, then run with `--output <new-freeze.json>`.
-Complete independent candidate work before asking about unresolved scientific
-choices or exceptions. Record exception ID, role, property/value, reason, scope
-and approval evidence. Prior scoped approval persists; appearance is not approval.
-After success update scoped selection/navigation and presentation state, then
-inventory earlier versions for author disposition. Preserve all pending versions.
-
-For approved transfer/pruning, follow the
-[archive procedure](../../../records/repository-archive/README.md) and use
-`scripts/repository_archive.py`; never treat this skill as cleanup authorization.
-
-## Invisible layout frames
-
-Future paper/supplementary/analysis figure edits follow the workflow's
-**Invisible layout frames** section: shared outside blank strip, explicitly
-owned content, final-scale browser evidence and scoped freeze checks. The
-shared inset is author-selected and active in the layout policy. Do not retrofit
-current drafts without a scoped edit request; future evidence must bind the active policy.
+--check-only`, resolve every issue, then publish with `--output <new-freeze.json>`.
+The gate validates prepared mappings/evidence; it does not classify elements,
+style artwork, perform visual review or choose scientific methods. Update
+accepted scoped selection/navigation and presentation state after success;
+inventory previous versions/dependencies for author disposition. Preserve pending
+versions. The [archive procedure](../../../records/repository-archive/README.md)
+governs separately authorized transfer/pruning; this skill authorizes no cleanup.

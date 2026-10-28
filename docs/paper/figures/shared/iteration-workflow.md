@@ -11,6 +11,26 @@ instructions require reading it for figure work even if discovery is unavailable
 Keep the workflow here as the single procedural authority; the skill is an
 entrypoint, not another scientific selection or style specification.
 
+## Task routes
+
+For every figure task, read **Two separate current states** and resolve the
+requested scope's state, selection and legend. Then read the applicable sections:
+
+- Display: **Display and working formats**; plural paper display also needs
+  **Main-paper collection**. Version comparison uses **Ordered version browsing**
+  and the maintained [review library](../review-library.md).
+- Draft/legend edits: **Operational commands and concurrency**, **Verification
+  before accepting a candidate** and **Linked panels and legends**.
+- Style/consistency/layout: the edit route plus the relevant **Semantic registry**,
+  **Invisible layout frames**, axis/annotation or Nature migration sections.
+- Explicit freeze: **What happens when the author freezes** and its linked
+  specification. Do not load or execute this route for ordinary edits/exports.
+
+Use section headings to make bounded reads; follow a cross-reference when the
+task depends on it. Detailed procedures remain here. Source authentication,
+manual-edit protection and required scientific/render checks are not optional
+because a smaller route was chosen. Plans own future work, not current state.
+
 ## Nature target and migration status
 
 Author direction, 2026-10-16: use Nature's figure guidance for the next
@@ -64,7 +84,7 @@ scientific definitions or create several competing “latest” manifests.
 
 ## Display and working formats
 
-Author direction on 2026-10-13: maintain one active Figure 1 working SVG and its matching review, resolved from current state. The initial v10 selection has been superseded by the author-requested edits. Update the same active pair with `build_figure_legend_review.py --update-current`; do not accumulate working versions. The approved v15 freeze candidate remains preserved separately.
+Author direction on 2026-10-13: maintain one active Figure 1 working SVG and its matching review, resolved from current state. The initial v10 selection has been superseded by the author-requested edits. Update the same active pair with `scripts/paper/shared/build_legend_review.py --update-current`; do not accumulate working versions. The approved v15 freeze candidate remains preserved separately.
 “Show Figure 1” follows `default_display` in state, now `draft`, and opens its
 authenticated HTML review (`default_display_format: html-svg-and-legend`). The author
 authorized removal of the other standalone working SVGs; historical HTML
@@ -124,6 +144,19 @@ publish a new matching pair and make it current under the guard; prior-version
 dispositions follow author authorization. Avoid redundant media formats. Display previews are temporary/in-memory and removed
 after verification. Permanent media belong on an explicit external destination.
 
+### Ordered version browsing
+
+Author direction, 2026-10-27: the SSD review library presents Figures 1–4 in
+numerical order, with one browsing page per figure. Panel letters and version
+labels are ordered naturally within their recorded families. Buttons display one
+saved version at a time with its associated legend/context and original sources.
+Keep joint work intact; isolate panels only through explicit source-bound
+ownership mappings. The supported review-library builder/checker owns discovery,
+coverage and guarded publication. Include embedded HTML/archive versions and
+record aliases, supporting illustrations, historical gaps and unresolved items.
+This expanded browser is requested discovery/comparison; it does not replace
+minimal scoped display, select a version, restyle artwork or create a freeze.
+
 ## Operational commands and concurrency
 
 Author direction on 2026-10-15 permits an internal Mac source cache of all
@@ -139,7 +172,7 @@ checks selected scientific records, imports available frozen registries and
 measures the resulting SVGs. Bootstrap, with an existing external directory:
 
 ```sh
-.venv/bin/python scripts/figure_working_copy.py prepare --output-dir '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews' --revision 2026-10-12-v2
+.venv/bin/python scripts/figure_working_copy.py prepare --output-dir '<existing-external-figure-01-assembly-current-directory>' --revision <revision>
 .venv/bin/python scripts/figure_working_copy.py verify
 ```
 
@@ -162,7 +195,7 @@ editable draft SVG, measures the final SVG and updates state under an exclusive
 lock. It also updates the version-bound text mapping within that transaction.
 
 ```sh
-.venv/bin/python scripts/paper/shared/build_legend_review.py --baseline /tmp/figure-01-edit-start.json --output '/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/<new-review-name>.html'
+.venv/bin/python scripts/paper/shared/build_legend_review.py --baseline /tmp/figure-01-edit-start.json --output '<exact-draft.review.path-from-current-state>' --update-current
 ```
 
 Capture starting hashes before editing code or candidate inputs, not only when
@@ -212,7 +245,8 @@ unresolved for any new freeze.
    coordinate system, tick values and composite/mappable relationships. Record
    explicit/high classification evidence and a protection class. Never infer a
    role from colour, position or artist order without renderer/source evidence.
-3. Style a separate candidate using common defaults at the intended final width.
+3. Style a separate candidate using the resolved current Nature profile at the
+   intended final width; historical compatibility typography is not the target.
    Preserve scientific inputs/results. Record each approved exception's ID,
    element role, property/value, reason, scope and actual approval evidence.
    The freeze request authorizes freezing; ask only about unresolved decisions
@@ -278,8 +312,10 @@ new author comments or storage limitation; read the saved records before work.
   Matching appearance does not establish matching science.
 - **Shared presentation contract:**
   [figure-elements.json](../../../../configs/paper-figures/figure-elements.json)
-  is authoritative for reusable role IDs, numerical style defaults and
-  plot-family rules; the
+  owns reusable role IDs, compatible representations and historical defaults.
+  New presentation values come from the resolved [Nature profile](nature-style.md#coding-entry-point-and-exact-values),
+  preserving scientific definitions rather than inheriting historical estimator
+  choices from plot-family fields. The
   [element specification](figure-element-specification.md)
   explains them. These apply to separate future freeze candidates on explicit
   freeze requests, with author-approved exceptions limited to recorded scopes.
@@ -525,7 +561,8 @@ font faces declared only inside a shadow root. Provenance remains nonvisual.
 Printing preserves artwork dimensions; long legends can continue on later pages.
 No journal-template compliance is claimed.
 
-Permanent HTML is `/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html`.
+Resolve the permanent HTML from the collection's `html.path` through
+`display-target`; do not reconstruct it from an older directory convention.
 The builder snapshots selected states/artifacts, scientific-selection records,
 legends, frame evidence, policy and implementation; rechecks under scoped locks;
 and updates the collection pointer last with rollback on failure. It refuses

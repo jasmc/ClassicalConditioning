@@ -149,3 +149,8 @@ Twenty-six completed recipes were retired after native transfer/hash verificatio
 - [Source identity and relocation record](../records/repository-archive/script-organization-20261024/README.md).
 
 The dated audit is assessment evidence; this catalogue describes the current physical command tree.
+
+- [Ordered figure browser](reviews/ordered_library.py): guarded figure-page,
+  catalogue, reading-snapshot and recovery publication through review_library.py.
+- [Version discovery](reviews/versions.py): source-bound saved-artwork inventory,
+  embedded payload adapters, declared panel views and single-version controls.

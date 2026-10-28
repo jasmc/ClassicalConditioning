@@ -36,3 +36,23 @@ transactions and all 67 review-library entries, with no missing external
 evidence. The relevant 75 unit tests passed. Raw Data, Digested Data and local
 artwork snapshots remained outside deletion scope. No scientific analysis,
 restyling, freeze or new rule was part of this follow-up.
+
+The primary chat subsequently completed the broader reading audit: 420 navigable
+pages and 14,067 local links pass. Seventeen immutable historical HTML originals
+have explicitly labelled, link-only reading derivatives; the exact originals and
+saved notebook configurations remain unchanged. 13 generated contents pages
+were repaired after retirement of the former reading routes. All 93 focused
+migration/resolver/archive/structure/library/collection tests pass.
+
+The [final completion record](completion.json) binds the retained-version listing,
+final storage measurement and verification on the SSD. Both dated handoff roots
+and the machine output mirror are gone. The final measurement includes recovered
+ZIP members, independent source/Git preservation and migration evidence: logical
+use increased by approximately 601 MiB and allocated file space by 1.38 GiB from
+the original inventory. Source-path deletions are not reported as net savings.
+New organizational rule proposals remain pending author review; the new policy
+paragraphs were removed from AGENTS.md and the maintenance guide. The implemented
+layout and recovery documentation remain current.
+
+The author subsequently approved the organizational rules and ordered
+single-version browser. See the [later implementation and coverage record](../2026-10-27-ordered-figure-library/README.md); it supersedes the earlier pending-rule status.
