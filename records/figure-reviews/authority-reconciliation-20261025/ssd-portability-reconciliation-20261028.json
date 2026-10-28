@@ -43,7 +43,7 @@
       "published_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe"
     }
   ],
-  "limitation": "Native Mac verification passed (223 passed, one Windows-only skip); original live Mac edits inspected and preserved. This continuation SSD audit awaits ORGER command approval. Native Mac access to actual SSD and simultaneous cross-machine shared-filesystem locking remain pending.",
+  "limitation": "Native Mac verification, original-checkout reconciliation and primary Python 3.13 setup are complete. Source is on origin/develop at27c18da. ORGER reported native-fix SSD audit and figure guards passed; final Windows verification of reconciliation awaits its separate command approval. Simultaneous cross-machine shared-filesystem locking remains unverified and is not required for serial single-host work.",
   "recovery_catalogue": {
     "path": "records/repository-archive/verified-artifact-locations.json",
     "sha256": "9c2eaa043e3475acfc80301bdd1972efd72d3eba3b245636457c026d43d2410c",
@@ -264,8 +264,6 @@
       "path": "records/repository-history/2026-10-28-ssd-portability/mac-live-checkout.json",
       "sha256": "a7c46b9dc9ae11955613cce0b4e34b9c7bb5815cb34d4b5320538bc91abcef84"
     },
-    "original_checkout_unchanged": true,
-    "original_index_unchanged": true,
     "independent_edits_disposition": "Reconciled through a preserved Mac Git snapshot a64a05d51db0d0639d3ebcb83318e36b253ec88f and a reviewed merge with the tested native fixes. Kept all scientific/state bytes from a369c5a; retained Mac instruction/navigation improvements and two omitted regression safeguards; preserved current PC portability implementations. Exact recovery catalogue is a union, retaining current entries first.",
     "fixes": [
       "Canonicalize Windows SSD and historical checkout paths before local-versus-external structure checks; keep offline checks independent of SSD availability.",
@@ -294,13 +292,19 @@
       "host": "ORGER-JOAQUIM",
       "host_id": "remote-control:env_e_6aa85fab9300833383b44cadf8767420",
       "authorization": "User explicitly approved use of the existing ORGER PC chat.",
-      "status": "Remote read-only audit started; waiting on its next command approval. No new external audit result received.",
+      "status": "ORGER reported native-fix SSD audit and Figure1/Figure1-2 wrapper authentication passed. A host-dependent temporary test fixture needs isolation; final Windows verification of27c18da is blocked by the next remote shell approval.",
       "observed_remote_head": "a369c5a1c225df499256627e8434cd426d4233d7",
       "observed_python_launcher_failure": "The file cannot be accessed by the system.",
       "observed_remote_checkout": "clean at fetched a369c5a",
       "observed_windows_ssd_root": "J:\\",
       "existing_share": "J$ (administrative share); Mac access not established",
-      "share_session_query": "denied on Windows; simultaneous Mac/PC SSD access has not been demonstrated"
+      "share_session_query": "denied on Windows; simultaneous Mac/PC SSD access has not been demonstrated",
+      "guard_verification": {
+        "figure4_start_ticket": "exact bound bytes recovered",
+        "figure1": "authenticated",
+        "ordered_collection": "fig1/fig2 authenticated; saved HTML hash unchanged"
+      },
+      "reported_native_fix_audit_result": "passed; detailed final reconciliation outcome not yet received"
     },
     "cross_machine_locking": {
       "status": "pending",
@@ -310,8 +314,8 @@
     "figure_state_bytes_changed": false,
     "ssd_artwork_or_payloads_changed": false,
     "pending_acceptance": [
-      "Complete current read-only ORGER SSD audit and saved Figure 1 / ordered fig1-fig2 wrapper authentication after remote command approval.",
-      "Establish actual simultaneous shared filesystem access, then test bidirectional non-blocking contention and release after error."
+      "Receive final Windows suite and drive-wide SSD audit outcome from ORGER.",
+      "Simultaneous shared filesystem locking requires actual concurrent Mac/PC SSD access; no such access is established."
     ],
     "native_fix_source_hashes": [
       {
@@ -414,6 +418,34 @@
       "shared_branch": "codex/mac-ssd-verification",
       "recovery_catalogue_entries": 329,
       "additional_preserved_recovery_identities": 28
+    },
+    "original_checkout_unchanged_during_native_verification": true,
+    "original_index_unchanged_during_native_verification": true,
+    "primary_mac_checkout": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+      "branch": "develop",
+      "head": "27c18da60d1874b169b155d16ecb7625c3a15d9f",
+      "status": "clean; preserved original work committed exactly, then ordinary fast-forward to reconciled source",
+      "preserved_original_commit": "a64a05d51db0d0639d3ebcb83318e36b253ec88f",
+      "preserved_environment": "/Users/joaquim/.codex/backups/cc-mac-before-reconciliation-20261028/venv",
+      "runtime_preparation": "uv sync --locked --python 3.13 --all-extras; existing environment retained in backup",
+      "runtime_check": "passed: installed from locked dependencies with all declared extras; classical-conditioning --help exits successfully",
+      "python": "3.13.18",
+      "structure_audit": {
+        "issues": [],
+        "unavailable_external_evidence": [],
+        "protected_files_checked": 366,
+        "current_states_checked": 10,
+        "verified_transactions": [],
+        "external_verification": "not-requested"
+      },
+      "working_tree_clean": true
+    },
+    "source_publication": {
+      "branch": "develop",
+      "commit": "27c18da60d1874b169b155d16ecb7625c3a15d9f",
+      "remote": "origin",
+      "result": "pushed; original Mac develop checkout is clean at the same commit"
     }
   }
 }
