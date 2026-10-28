@@ -43,7 +43,7 @@
       "published_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe"
     }
   ],
-  "limitation": "Mac handoff is complete: tested fixes and independent edits reconciled, published to develop, primary checkout clean, Python3.13.18 locked environment and CLI/structure checks passed. Final Windows verification is explicitly pending by author choice. Actual simultaneous shared-filesystem cross-machine locking remains unverified; serial single-host work does not require it.",
+  "limitation": "Mac and PC portability acceptance and branch reconciliation are complete. PC actual SSD audit and selected figure/collection guards passed; the PC fixture correction also passes on Mac. Simultaneous shared-filesystem cross-machine locking remains unverified because this Mac has no SSD/SMB mount and ORGER hostnames do not resolve. Serial single-host analysis is supported when the SSD is accessible to that host.",
   "recovery_catalogue": {
     "path": "records/repository-archive/verified-artifact-locations.json",
     "sha256": "9c2eaa043e3475acfc80301bdd1972efd72d3eba3b245636457c026d43d2410c",
@@ -304,7 +304,8 @@
         "figure1": "authenticated",
         "ordered_collection": "fig1/fig2 authenticated; saved HTML hash unchanged"
       },
-      "reported_native_fix_audit_result": "passed; detailed final reconciliation outcome not yet received"
+      "reported_native_fix_audit_result": "passed; final PC acceptance received and recorded in pc_acceptance",
+      "accepted_pc_commit": "ec88e18d0a9e2edc8d74dff076b737bae4acad70"
     },
     "cross_machine_locking": {
       "status": "pending",
@@ -314,7 +315,7 @@
     "figure_state_bytes_changed": false,
     "ssd_artwork_or_payloads_changed": false,
     "pending_acceptance": [
-      "Simultaneous shared filesystem locking: not established; use serial single-host writes."
+      "Simultaneous shared-filesystem locking only: requires real shared access, currently unavailable on this Mac. Serial single-host acceptance is complete."
     ],
     "native_fix_source_hashes": [
       {
@@ -454,6 +455,41 @@
         "author_reply": "Leave Windows verification pending",
         "mac_coordination": "closed; no additional PC approvals or polling requested"
       }
+    },
+    "merge_continuation": {
+      "date": "2026-10-28",
+      "fetched_merge_commit": "6d43144",
+      "pc_fixture_commit": "ec88e18d0a9e2edc8d74dff076b737bae4acad70",
+      "mac_completion_commit": "fea2b47d9a52022080aca2e75510c718b55d21fa",
+      "integration": "PC fix and Mac completion already merged by ff83aa8; fast-forwarded primary develop and attached Mac verification branch to origin/develop",
+      "native_python": "3.13.18",
+      "changed_structure_tests": {
+        "run": 24,
+        "passed": 24,
+        "skipped": 0,
+        "elapsed_seconds": 0.263,
+        "result": "OK"
+      },
+      "local_structure_audit": {
+        "issues": [],
+        "unavailable_external_evidence": [],
+        "protected_files_checked": 366,
+        "current_states_checked": 10,
+        "verified_transactions": [],
+        "external_verification": "not-requested"
+      },
+      "protected_scientific_and_state_records_checked": 125,
+      "scientific_state_or_frozen_records_changed": false,
+      "mac_shared_access_check": {
+        "mounted_joaquim": false,
+        "mounted_smb_shares": [],
+        "host_resolution": {
+          "ORGER-JOAQUIM": "unresolved",
+          "ORGER-JOAQUIM.local": "unresolved"
+        },
+        "cross_machine_lock_test": "unavailable without actual simultaneous shared filesystem access"
+      },
+      "analysis_readiness": "Mac and PC code/runtime acceptance complete for serial single-host analysis with the actual SSD available to the executing host; no simultaneous cross-machine locking claim"
     }
   },
   "pc_acceptance": {
