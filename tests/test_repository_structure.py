@@ -96,7 +96,16 @@ class StructureChecks(unittest.TestCase):
                 self.assertEqual(structure.recorded_path(path, self.repo),
                                  Path('/Volumes/JOAQUIM/outputs/selected.svg'))
                 self.assertEqual(structure.check(self.repo)['issues'], [])
-                report = structure.check(self.repo, external=True)
+                # This synthetic repository has no archive implementation;
+                # never discover and audit a real host drive from the fixture.
+                # The compatibility facade exports a function whose defining
+                # globals belong to the maintained implementation module.
+                with mock.patch.dict(structure.check.__globals__,
+                        relocated_external_directory=mock.Mock(
+                            side_effect=FileNotFoundError('Synthetic volume unavailable')),
+                        resolve_artifact=mock.Mock(
+                            side_effect=FileNotFoundError('Synthetic artifact unavailable'))):
+                    report = structure.check(self.repo, external=True)
                 self.assertTrue(report['unavailable_external_evidence'] or report['issues'])
 
     def test_doubled_windows_checkout_separators_use_local_alias(self):
@@ -147,13 +156,19 @@ class StructureChecks(unittest.TestCase):
                 'path': str(retained), 'bytes': retained.stat().st_size,
                 'sha256': structure.sha256(retained)}}})
         # This fixture tests links without mounting or auditing real archives.
-        with mock.patch.object(Path, 'is_mount', return_value=False):
+        with mock.patch.dict(structure.check.__globals__,
+                joaquim_root=mock.Mock(return_value=self.repo/'unavailable-volume'),
+                relocated_external_directory=mock.Mock(
+                    side_effect=FileNotFoundError('Synthetic volume unavailable'))):
             report = structure.check(self.repo, external=True)
         self.assertEqual(report['issues'], [])
         self.assertNotIn('docs/paper/historical.md: ' + old, report['unavailable_external_evidence'])
         self.assertIn('docs/paper/README.md: ' + old, report['unavailable_external_evidence'])
         retained.write_bytes(b'corrupt historical source')
-        with mock.patch.object(Path, 'is_mount', return_value=False):
+        with mock.patch.dict(structure.check.__globals__,
+                joaquim_root=mock.Mock(return_value=self.repo/'unavailable-volume'),
+                relocated_external_directory=mock.Mock(
+                    side_effect=FileNotFoundError('Synthetic volume unavailable'))):
             report = structure.check(self.repo, external=True)
         self.assertTrue(any(issue.startswith('Historical external link changed: docs/paper/historical.md')
                             for issue in report['issues']))
