@@ -3,14 +3,15 @@ from pathlib import Path
 import hashlib
 import json
 import os
-from classical_conditioning.external_artifacts import external_output, REPOSITORY
+from classical_conditioning.external_artifacts import external_output, relocated_external_directory, REPOSITORY
 
 REVIEW = 'outputs/pre-vs-late-train-early-test-review'
 RECEIPT = 'metric-comparison-inputs.json'
 
 
 def workspace(value=None):
-    path = Path(value).expanduser().resolve() if value is not None else external_output(REVIEW).resolve()
+    path = (relocated_external_directory(Path(value).expanduser()).resolve()
+            if value is not None else external_output(REVIEW).resolve())
     if path == REPOSITORY or path.is_relative_to(REPOSITORY):
         raise ValueError('Metric review outputs must be outside the repository')
     if str(path).startswith('/Volumes/'):
@@ -45,7 +46,7 @@ def verified_input(root, expected_sha256=None):
     path = root / 'fish_paired_change.csv'
     expected = expected_sha256
     if expected is None:
-        receipt = json.loads((root / RECEIPT).read_text())
+        receipt = json.loads((root / RECEIPT).read_text(encoding='utf-8'))
         for name, value in receipt['files'].items():
             if Path(name).name != name or file_sha(root / name) != value:
                 raise ValueError('Metric input receipt mismatch: ' + name)

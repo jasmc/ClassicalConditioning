@@ -1,0 +1,218 @@
+{
+  "operation": "restore-authenticated-indexed-bytes",
+  "restored_files": [
+    {
+      "path": "docs/paper/figures/figure-01/10strace-example/current-state.json",
+      "indexed_git_blob": "19fc38a40aad5eb85b7bef11c38c8785e069c5bb",
+      "indexed_sha256": "0e7345eae5ced959efaa80cd193a4fb824b8c42efa50c8851c351771404615e1",
+      "working_before_sha256": "086cff93e6b544b1e3f695f4aa6a09a562d2b70ae9461e7c998aa1a2b91ee602",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "docs/paper/figures/figure-01/assembly.md",
+      "indexed_git_blob": "bc065b2f9a2b07b7ed08057d9cb4310418fc5b4a",
+      "indexed_sha256": "c040eddcb4eb8549de729adc85345f1d3c05ae1c15aa6731dbacec739aa9dea4",
+      "working_before_sha256": "3be8fe8a7c53962cee1a2380ab2190cf2173e15401bb0549311d4d152593b4b1",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "docs/paper/figures/figure-01/trace10-learner-selection/current-state.json",
+      "indexed_git_blob": "a7d662b12447f51cb1aa87f23a2b66a6b3437790",
+      "indexed_sha256": "15e80a5d05a192bfdf3d009626e6710b49505cb70c9c9167dfb3c0aaf91edb99",
+      "working_before_sha256": "4dfcc10513e412641eeb9d374031e0fec2e214a16540863c1d83d786f6e4da64",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/README.md",
+      "indexed_git_blob": "9de95649fac038416047545a16e59d6824d59b29",
+      "indexed_sha256": "102c4319b0f8887dc9a84f9bb395391e0f4702c714248361e7abc513cec8f09a",
+      "working_before_sha256": "675bda9e00dc23bb243222f9bbe854f208cb01ea1570109caa0bec7fc4130a6b",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "docs/paper/figures/figure-04/3strace-model-draft-state.json",
+      "indexed_git_blob": "f7729fea02bc1e646abcd08b2660881eabb3ca7c",
+      "indexed_sha256": "b6ad57113a05f101f23efb24fe2c905340820c495e68615599eda913abc2e4f6",
+      "working_before_sha256": "e50006424b2eb6fdb872538629841fa68b66c3e4bd3056b7e2843e2925eb21f4",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "docs/paper/figures/figure-04/delay-model-draft-state.json",
+      "indexed_git_blob": "17686362132af053fdf0a24cb53558fc6df1dcaa",
+      "indexed_sha256": "596b26371c738fbe9835fc1b7f2a7793ff7c1dd218c7e16c5e0080844c6b8656",
+      "working_before_sha256": "0b7339c5809f16d0187a83bceff626c922506cf563cce379f37e873a1300ef80",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "docs/project-maintenance/structure-policy.json",
+      "indexed_git_blob": "66b495d214804bd2e5325221cc3433004c064918",
+      "indexed_sha256": "c64c02f78b2060eba4f8defab1941cb073591dc615f4adb63743fa8dfebd344f",
+      "working_before_sha256": "8634b18ef6a826ff2329f85c797489c077bfd73cfba5b922dab6a05a2d5dfba2",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/figure-reviews/figure-04/3strace-model-draft-start-20261022.json",
+      "indexed_git_blob": "48025b74680a443a4f0518fcb15a3135196614bd",
+      "indexed_sha256": "dd23800c1edf3344d8128e1343db19a9767ac7aa61ac2c3a269e4ba794b54c0b",
+      "working_before_sha256": "bcf6a460604bc36e2d86343f8d577b15684f10dbd031aa4025d545bfd50b43f8",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/figure-reviews/figure-04/delay-model-draft-start-20261022.json",
+      "indexed_git_blob": "5f405efe3b7008e85fcde6d367789cf101bb6a1c",
+      "indexed_sha256": "8ccb880c1ea92020118e1a4f3f04b81b9a5bd1bcf0c5dd4863b5bb18e6e03b36",
+      "working_before_sha256": "7ef8f99183e811172d015cc8454a56c9084c99a3fcb6a38f911909c441ce4567",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-archive/README.md",
+      "indexed_git_blob": "05c35a11b593542b13b961e32b66fedfc7357bb2",
+      "indexed_sha256": "f3daad8d006a33f25bf4a47152bf399a188ba8294994692b2028ab52c30a9049",
+      "working_before_sha256": "d2893a106d1a85a8b8517c21ec0883aad866db78c289cac4c691853996616256",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/README.md",
+      "indexed_git_blob": "312452b2abd4bb258238af1ac8fa96e3e06c04f0",
+      "indexed_sha256": "220b6d0d2151571b831bc7e7eddf5c00cc609245633798e9f797efae05696342",
+      "working_before_sha256": "720763a27406811ddb9853ec777e07e418b8e3a01675d4de956dfafccf947507",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/figure2-g-guide-bundle-review.json",
+      "indexed_git_blob": "27ff2075f2a1fc46aab2840d03029c92361e9612",
+      "indexed_sha256": "0a1b1e0fc5eea9f0c3ec2835a7cb4af38175164c13abba15c1e629f02745f491",
+      "working_before_sha256": "b20a445c41f723fdeaaff5bae11ad01cac5d46a90da77e9fc5c5d9dd4364b536",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/font-cache-assessment.json",
+      "indexed_git_blob": "e89f8dea297148493a5c77a2f9a02fe89ac86890",
+      "indexed_sha256": "106c09014924fc4f98f88b723a5eb3c1c2b752e498979f676ba2b6c1ab148c56",
+      "working_before_sha256": "aa8f9e924ac506701e7b791bb4d1a81201e926560ee1c3400abff866c45b53ae",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/font-cache-disposition.json",
+      "indexed_git_blob": "79ad13a6fd82fb4e4177bef8021107d02a4b836b",
+      "indexed_sha256": "ec92b196c52561627bde23973c1e7bb1c5bfee1b80d47f3c96a7bfbf0c2de10b",
+      "working_before_sha256": "1fbd585ba7a348b67dbcc562c316219ba43579cd0e6d18f940c6b613a24b2d73",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json",
+      "indexed_git_blob": "040d0f91a4e17dd831d5effa60635d0cea5cae61",
+      "indexed_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300",
+      "working_before_sha256": "c576bca605a6743c5582f450fd2fcad2439a2354898baede27f0848e97ab6494",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/raw-duplicate-disposition.json",
+      "indexed_git_blob": "23e0abfde7f356e762d5c80f9edd3f6e5cb40d8d",
+      "indexed_sha256": "4dde8555aad9fb87f7cc2ab2c0574d2e862ae10876b82cdb4732b242b25c9d15",
+      "working_before_sha256": "8146ff67626cafb624a07245014a94ef167647f8c166e0d49cac22af73447ced",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/review-library-snapshot-disposition.json",
+      "indexed_git_blob": "8f3c4793051243c09499834c5515f2519d49f27b",
+      "indexed_sha256": "1dc65701c8b6bc2ca7f225e0121f31eca59a50b8aabbe32e3c3764f39493c1a4",
+      "working_before_sha256": "916ac7d9d77c6ca5305d199e0fbe6dd1b29f3d4ad792d64604db0be61b419cc6",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json",
+      "indexed_git_blob": "9ed5499208c72d821864bbeaac9b1d5476cf1f74",
+      "indexed_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0",
+      "working_before_sha256": "78b8fd2c1b92827e0b8c498899949bff50c0477c080e1309a809f7728ca36086",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/build_version_comparison.py",
+      "indexed_git_blob": "6ccc8b54855724dcef5591d97f86181c0ffc3e5e",
+      "indexed_sha256": "f8da927dbb88f36fc7f9efca51ac80dfcd8a1af8321541d2944684fb07341149",
+      "working_before_sha256": "bce64f87de5454dd66315420ee017586a269dec43a472458c082e5a6865f5435",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/assembly/build.py",
+      "indexed_git_blob": "92ab319f45fce12ea3874d0df8abd85321b5dbd7",
+      "indexed_sha256": "b41a3958c3cde5ec2f5eabe4da1d70e530151e3e6b351879747d00eed8c274d5",
+      "working_before_sha256": "edd8b1998aad8de0411fe335a274002d9ca3cf882135ac85c4c804909033f0c8",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py",
+      "indexed_git_blob": "c8a0fc3b281599fafd7912d1c92da448a63f362b",
+      "indexed_sha256": "c67249635c1a22ed62329051f30a4941e7a285793cdc819ce955488f1b8994c2",
+      "working_before_sha256": "79518be35d91c482c70daf265b9fb8a44f58bda28d467b11dfd30d0d5d231c32",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/build_study_guide.py",
+      "indexed_git_blob": "d1288018efe728ffcc99024592ccc6666f17ddf9",
+      "indexed_sha256": "4969f96127ed2a00e5bdc64f5b76215d05731210225065c7354506ec7e2958e1",
+      "working_before_sha256": "437a4499f404bbab736b3d09e84222888682c19131725bbdc512c5d6d2ec04d8",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/audit_delay_lmm.py",
+      "indexed_git_blob": "aac19a6deb01654c9fed02bb02a1564959d7ef41",
+      "indexed_sha256": "0d4e310c93477c5c56c9bc5ccce9f57b69c41bbb2f85ff8333efbaa2c27ede4c",
+      "working_before_sha256": "3670a28637f4cb0b35d9cf032fa4d4bf0cdd476441e091a22e89a91965a6b3c4",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/render_historical_logmedian.py",
+      "indexed_git_blob": "89537427338d8657d96444a0af9c4841e9b18bc2",
+      "indexed_sha256": "b22db6edae4941522b95ce0df976cee79384b6f40826bb09bb439c5df1e7167f",
+      "working_before_sha256": "1c0bcff6bd379cc5c105ae1c6a62bcfd28c91abfe806db51bf714f50607f343e",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/render_phase_lmm.py",
+      "indexed_git_blob": "9d0783720b0c1247fd1980b062cdd2603ab6229c",
+      "indexed_sha256": "8768e7629457928e316c5fb1d4510ccef3f4e13c378ebdbb53f830beaf50286c",
+      "working_before_sha256": "0e82b4b90d9404e5d3642c2a573c876f6b9d199108c18c6f1b197fcc19a3d088",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/run_technical_sensitivity.py",
+      "indexed_git_blob": "f79ee5aa32481efaf6c58418efaa3708a10405b6",
+      "indexed_sha256": "fd42d53374ef75c134ad942cc3e627d0714df38a972ca7893c7ad9429d31f71e",
+      "working_before_sha256": "105825d9a46a45c3f232499a6c11c8b139e3c335b50c9ed8478648081adbc64d",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "scripts/paper/figure_02/reproduction/recover_saved_panels.py",
+      "indexed_git_blob": "24acb835decf98a7898e104a4efde8693a779ac6",
+      "indexed_sha256": "3cd6fe34b4115fe89499e988d077e0b46adf7269b975ddead1b4ddffcf651385",
+      "working_before_sha256": "6b4831401cea50e88f8e0712741cbf4611ae3b7c89de169057278bbfb9da0b15",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/bout_block_review.py",
+      "indexed_git_blob": "c17ab87fc7f9fca02bd351bfd05cd9a317b1e263",
+      "indexed_sha256": "81d967f50120b2ab89316d1b5d00712e7bb16e8e7feb623a8126ce508a376286",
+      "working_before_sha256": "1509619001f556eb7ce7b366c2181f17c6de73eef9fa81cb7790e4095b88d12c",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/trial_outcomes.py",
+      "indexed_git_blob": "fa2726ee18f6f97b2bf49cfb321afc9c06750464",
+      "indexed_sha256": "1184c9f377a73673c802bdcdece3953e5472082dff69a958db3ea1a25337c5fb",
+      "working_before_sha256": "3a3624c3349be26e3813d8adcd1ef36fb0b9da2fede07f5d3cda31750fb9879c",
+      "difference": "line-ending conversion only"
+    },
+    {
+      "path": "src/classical_conditioning/intake.py",
+      "indexed_git_blob": "b8706642b7348779c34c12410a5adf17c27ba2d5",
+      "indexed_sha256": "5420828516af0132a487fdaddb7a28149864ba20c2682c32e441beeedab269c6",
+      "working_before_sha256": "8f780360f38aa1c7c4a42394e9feaf46271aa383dfa465d73676a141cecc0f80",
+      "difference": "line-ending conversion only"
+    }
+  ],
+  "independent_content_edits_rewritten": false,
+  "index_changed": false,
+  "ssd_bytes_written": false
+}

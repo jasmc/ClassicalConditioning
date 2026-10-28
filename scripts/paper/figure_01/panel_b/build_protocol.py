@@ -398,6 +398,8 @@ def main() -> None:
         "Fig1_PanelB_ConditionTiming_exploratory.svg" if args.variant == "v1"
         else f"Fig1_PanelB_ConditionTiming_exploratory_{args.variant}.svg"
     )
+    from classical_conditioning.external_artifacts import relocated_external_directory
+    output=relocated_external_directory(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     root = (draw_v5(protocol_rows()) if args.variant == "v5" else
             draw_v1(protocol_rows()) if args.variant == "v1" else

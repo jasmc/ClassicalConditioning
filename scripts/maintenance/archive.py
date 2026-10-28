@@ -22,7 +22,7 @@ import json
 import os
 import posixpath
 from urllib.parse import unquote
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import re
 import shutil
 import subprocess
@@ -30,7 +30,7 @@ import sys
 
 REPO = _COMMAND_REPOSITORY
 sys.path.insert(0, str(REPO / 'src'))
-from classical_conditioning.external_artifacts import DEFAULT_ARCHIVE, sha256, relocated_external_path
+from classical_conditioning.external_artifacts import DEFAULT_ARCHIVE, sha256, relocated_external_path, relocated_external_directory, joaquim_root
 
 AUDIT = REPO / 'records/repository-archive'
 MANIFEST = AUDIT / 'transfer-inventory.json'
@@ -69,7 +69,7 @@ def embedded_checks(path):
     if path.suffix != '.html':
         return []
     checks = []
-    for script_id, body in re.findall(r'<script\b[^>]*id=[\"\x27]([^\"\x27]+)[\"\x27][^>]*>(.*?)</script>', path.read_text(errors='strict'), re.S):
+    for script_id, body in re.findall(r'<script\b[^>]*id=[\"\x27]([^\"\x27]+)[\"\x27][^>]*>(.*?)</script>', path.read_text(encoding='utf-8', errors='strict'), re.S):
         try:
             obj = json.loads(body)
         except json.JSONDecodeError:
@@ -101,14 +101,14 @@ def embedded_checks(path):
 
 def inventory(repo=REPO):
     tracked = set(subprocess.check_output(['git', 'ls-files', '-z'], cwd=repo).decode().split('\0'))
-    starting = json.loads((repo / 'records/repository-archive/starting-inventory.json').read_text())
+    starting = json.loads((repo / 'records/repository-archive/starting-inventory.json').read_text(encoding='utf-8'))
     start_hash = {r['path']: r.get('sha256') for r in starting['files']}
     text_sources = {}
     for folder in ('src', 'tests', 'scripts', 'docs', 'Plans', 'configs'):
         for p in (repo / folder).rglob('*'):
             if p.is_file() and p.suffix in {'.md', '.py', '.json', '.ps1'} and '__pycache__' not in p.parts:
-                text_sources[str(p.relative_to(repo))] = p.read_text(errors='replace')
-    reloc = json.loads((repo / 'records/repository-archive/relocations.json').read_text())
+                text_sources[str(p.relative_to(repo))] = p.read_text(encoding='utf-8', errors='replace')
+    reloc = json.loads((repo / 'records/repository-archive/relocations.json').read_text(encoding='utf-8'))
     frozen_hashes = {e['sha256'] for e in reloc['extracted_frozen_records']}
     frozen_refs = defaultdict(set)
     historical_refs = defaultdict(set)
@@ -121,9 +121,9 @@ def inventory(repo=REPO):
         elif isinstance(obj, list):
             for v in obj: refs(v, owner)
     for p in (repo / 'records/frozen-analyses').rglob('*.json'):
-        refs(json.loads(p.read_text()), str(p.relative_to(repo)))
+        refs(json.loads(p.read_text(encoding='utf-8')), str(p.relative_to(repo)))
     for p in (repo / 'configs/paper-figures/selections').glob('*.json'):
-        refs(json.loads(p.read_text()), str(p.relative_to(repo)))
+        refs(json.loads(p.read_text(encoding='utf-8')), str(p.relative_to(repo)))
     # Review files are scientific evidence. Preserve them until verified external transfer.
     rows = []
     for p in sorted(repo.rglob('*')):
@@ -193,9 +193,7 @@ def validate_sources(manifest, repo):
 
 
 def validate_volume(destination):
-    volume = Path('/Volumes/JOAQUIM')
-    if not os.path.ismount(volume):
-        raise FileNotFoundError('JOAQUIM is disconnected; no destination was created and no source was removed')
+    volume = joaquim_root()
     resolved = destination.resolve()
     if volume.resolve() not in resolved.parents:
         raise ValueError('Archive destination must be on mounted JOAQUIM')
@@ -237,15 +235,17 @@ def audit_payload(manifest, root, *, dispositions=()):
             raise ValueError('Archive disposition lacks completed author authorization')
         for target in disposition.get('targets', []):
             if target.get('deleted') is True:
-                path = Path(target['path'])
-                if not path.is_absolute() or '..' in path.parts:
+                text = target['path'].replace('\\', '/')
+                path = PurePosixPath(text)
+                if not (path.is_absolute() or PureWindowsPath(text).is_absolute()) or '..' in path.parts:
                     raise ValueError('Invalid archive disposition path')
-                deleted.add((path, target['sha256'], target['bytes']))
+                deleted.add((text, target['sha256'], target['bytes']))
     verified = 0
     absent = []
     for row in pending(manifest):
         path = payload_path(root, row)
-        if not path.exists() and (path, row['sha256'], row['bytes']) in deleted:
+        identity = str(root / 'payload' / safe_relative(row['path'])).replace('\\', '/')
+        if not path.exists() and (identity, row['sha256'], row['bytes']) in deleted:
             absent.append(str(path))
             continue
         if not path.is_file() or path.stat().st_size != row['bytes'] or sha256(path) != row['sha256']:
@@ -262,11 +262,11 @@ def bundle_links(manifest, repo, root):
     the accompanying map; missing historical/external inputs remain explicit.
     """
     reloc_path = repo/'records/repository-archive/relocations.json'
-    moves = json.loads(reloc_path.read_text()).get('repository_moves', {}) if reloc_path.exists() else {}
+    moves = json.loads(reloc_path.read_text(encoding='utf-8')).get('repository_moves', {}) if reloc_path.exists() else {}
     report = []
     for row in pending(manifest):
         if Path(row['path']).suffix != '.html': continue
-        text = payload_path(root, row).read_text(errors='replace')
+        text = payload_path(root, row).read_text(encoding='utf-8', errors='replace')
         for raw in sorted(set(re.findall(r'(?:href|src)=["\']([^"\']+)["\']', text))):
             if raw.startswith(('data:', '#', 'javascript:')): continue
             ref = unquote(raw.split('#')[0])
@@ -298,7 +298,7 @@ def transfer(manifest, repo, destination, *, check_mount=True):
     if stage.is_symlink():
         raise ValueError('Staging destination cannot be a symlink')
     if stage.exists():
-        if not marker.is_file() or json.loads(marker.read_text())['sha256'] != control_hash:
+        if not marker.is_file() or json.loads(marker.read_text(encoding='utf-8'))['sha256'] != control_hash:
             raise ValueError('Staging destination collision: inventory differs; do not overwrite')
     else:
         required = sum(r['bytes'] for r in pending(manifest))
@@ -343,7 +343,7 @@ def transfer(manifest, repo, destination, *, check_mount=True):
 
 def prune(manifest, repo, destination, *, check_mount=True):
     if check_mount: validate_volume(destination)
-    archived = json.loads(relocated_external_path(destination / 'transfer-inventory.json').read_text())
+    archived = json.loads(relocated_external_path(destination / 'transfer-inventory.json').read_text(encoding='utf-8'))
     if archived != manifest: raise ValueError('Published archive inventory differs; refusing source removal')
     verify_payload(manifest, destination)
     # Check ALL remaining sources before deleting ANY; supports an interrupted prune.
@@ -368,14 +368,14 @@ def check_repository(manifest, repo):
     issues = []
     relocations = repo/'records/repository-archive/relocations.json'
     if relocations.is_file():
-        for entry in json.loads(relocations.read_text()).get('extracted_frozen_records', []):
+        for entry in json.loads(relocations.read_text(encoding='utf-8')).get('extracted_frozen_records', []):
             record = repo / safe_relative(entry['record'])
             if not record.is_file() or sha256(record) != entry['sha256']:
                 issues.append(entry['record'] + ' (frozen record changed)')
     for p in repo.rglob('*'):
         if not p.is_file() or any(x in p.relative_to(repo).parts for x in ('.git', '.venv', '__pycache__')): continue
         key = str(p.relative_to(repo))
-        generated = p.suffix.lower() in MEDIA | DATA or (p.suffix=='.html' and re.search(r'<(?:img|svg)\b|data:image/',p.read_text(errors='replace')))
+        generated = p.suffix.lower() in MEDIA | DATA or (p.suffix=='.html' and re.search(r'<(?:img|svg)\b|data:image/',p.read_text(encoding='utf-8', errors='replace')))
         if generated and (key not in approved or sha256(p) != approved[key]): issues.append(key)
     return issues
 
@@ -393,12 +393,13 @@ def main():
         write_json(AUDIT/'retained-code.json',dict(paths=retained,policy='Supported/tested consumers and exact frozen code retained'))
         print(json.dumps(dict(files=len(obj['files']),pending_files=len(pending(obj)),pending_bytes=sum(r['bytes'] for r in pending(obj)))))
         return
-    obj = json.loads(args.manifest.read_text()); dest = args.archive_root or Path(obj['archive_root'])
+    obj = json.loads(args.manifest.read_text(encoding='utf-8')); dest = relocated_external_directory(args.archive_root or obj['archive_root'])
     if args.command == 'check':
         issues = check_repository(obj,REPO);print(json.dumps(dict(unaccounted_generated_files=issues)));sys.exit(bool(issues))
     elif args.command == 'dry-run':
         validate_sources(obj,REPO)
-        print(json.dumps(dict(destination=str(dest),mounted=os.path.ismount('/Volumes/JOAQUIM'),pending_files=len(pending(obj)),pending_bytes=sum(r['bytes'] for r in pending(obj)),action='No writes or removals performed')))
+        validate_volume(dest)
+        print(json.dumps(dict(destination=str(dest),mounted=True,pending_files=len(pending(obj)),pending_bytes=sum(r['bytes'] for r in pending(obj)),action='No writes or removals performed')))
     elif args.command == 'transfer': print(json.dumps(dict(verified_files=transfer(obj,REPO,dest))))
     elif args.command == 'verify':
         validate_volume(dest);print(json.dumps(dict(verified_files=verify_payload(obj,dest))))
@@ -409,7 +410,7 @@ def main():
         write_json(args.manifest.parent/'completed-transfer.json',result)
         if result['all_sources_pruned'] and args.manifest.resolve() == MANIFEST.resolve():
             index = REPO/'Plans/IMPLEMENTATION_STEP_INDEX.md'
-            index.write_text(index.read_text().replace('Preparation implemented; SSD transfer pending', 'Complete; external payloads verified and pruned'))
+            index.write_text(index.read_text(encoding='utf-8').replace('Preparation implemented; SSD transfer pending', 'Complete; external payloads verified and pruned'))
         print(json.dumps(result))
 
 

@@ -128,7 +128,7 @@ def inventory(roots, excluded=()):
         before = path.stat()
         h = digest(path)
         row = dict(source=str(path), bytes=before.st_size, sha256=h,
-                   allocated_bytes=before.st_blocks * 512)
+                   allocated_bytes=before.st_blocks * 512 if hasattr(before, 'st_blocks') else None)
         if path.suffix.lower() == '.zip':
             embedded.extend(zip_members(path, str(path)))
         elif path.suffix.lower() == '.html' and not path.name.startswith('._'):
@@ -206,6 +206,16 @@ def validate_plan(plan):
 def matches(path, row):
     path = Path(path)
     return path.is_file() and path.stat().st_size == row['bytes'] and digest(path) == row['sha256']
+
+
+def equal_bytes(left, right):
+    with Path(left).open('rb') as a, Path(right).open('rb') as b:
+        while True:
+            first, second = a.read(4 * 1024 * 1024), b.read(4 * 1024 * 1024)
+            if first != second:
+                return False
+            if not first:
+                return True
 
 
 def check_sources(plan, *, allow_pruned=False):
@@ -340,7 +350,7 @@ def verify(plan, *, allow_pruned=False):
 
 def publish(plan, manifest, receipt, consumer_evidence):
     verify(plan)
-    evidence = json.loads(Path(consumer_evidence).read_text())
+    evidence = json.loads(Path(consumer_evidence).read_text(encoding='utf-8'))
     identity = digest(manifest)
     if evidence.get('manifest_sha256') != identity or evidence.get('issues') != []:
         raise ValueError('Consumer evidence is missing, stale, or has unresolved issues')
@@ -359,6 +369,15 @@ def publish_controls(plan):
     """Publish storage indexes first and scoped pointers last under figure locks."""
     from classical_conditioning.figure_workspace import state_lock
     rows = sorted(plan['controls'], key=lambda r: r.get('role') == 'state')
+    checkpoints = plan.get('guard_checkpoints', 'every-control')
+    if checkpoints not in {'every-control', 'publication-phases'}:
+        raise ValueError('Unknown publication guard checkpoints')
+    if checkpoints == 'publication-phases' and not any(r.get('role') == 'state' for r in rows):
+        raise ValueError('Publication phases require explicit entry-point pointers')
+    destinations=[str(Path(r['path']).resolve()) for r in rows]
+    if os.name=='nt':destinations=[p.casefold() for p in destinations]
+    if len(set(destinations)) != len(rows):
+        raise ValueError('Each control/state destination must appear exactly once')
     previous, written = {}, []
 
     def check_guards():
@@ -391,8 +410,11 @@ def publish_controls(plan):
                 raise ValueError('Prepared control changed: ' + row['source'])
             previous[str(target)] = target.read_bytes() if target.exists() else None
         try:
+            pointer_phase = False
             for row in rows:
-                check_guards()
+                if checkpoints == 'every-control' or (row.get('role') == 'state' and not pointer_phase):
+                    check_guards()
+                pointer_phase = pointer_phase or row.get('role') == 'state'
                 replace(Path(row['path']), Path(row['source']).read_bytes())
                 written.append(row)
                 if not matches(row['path'], row):
@@ -414,13 +436,13 @@ def publish_controls(plan):
 
 
 def prune(plan, manifest, receipt, *, limit=None):
-    checkpoint = json.loads(Path(receipt).read_text())
+    checkpoint = json.loads(Path(receipt).read_text(encoding='utf-8'))
     if checkpoint['manifest_sha256'] != digest(manifest) or checkpoint['status'] != 'published':
         raise ValueError('Migration is not authenticated and published')
     evidence = Path(checkpoint['consumer_evidence'])
     if digest(evidence) != checkpoint['consumer_evidence_sha256']:
         raise ValueError('Consumer evidence changed')
-    for binding in json.loads(evidence.read_text())['bindings']:
+    for binding in json.loads(evidence.read_text(encoding='utf-8'))['bindings']:
         if not matches(binding['path'], binding):
             raise ValueError('Consumer changed after publication: ' + binding['path'])
     verify(plan, allow_pruned=True)
@@ -428,7 +450,7 @@ def prune(plan, manifest, receipt, *, limit=None):
     for row in plan['files']:
         if row['action'] in {'move', 'delete'} and row.get('note_transfer_required') and not row.get('note_transfer_verified'):
             raise ValueError('Browser notes not verified: ' + row['source'])
-    removed, logical, allocated = [], 0, 0
+    removed, logical, allocated, comparisons = [], 0, 0, 0
     for row in plan['files']:
         source = Path(row['source'])
         if row['action'] in {'retain', 'copy'} or not source.exists():
@@ -439,15 +461,20 @@ def prune(plan, manifest, receipt, *, limit=None):
             raise ValueError('Source changed during prune: ' + str(source))
         if row['action'] == 'move' and not matches(row['destination'], row):
             raise ValueError('Destination changed during prune: ' + row['destination'])
+        if row['action'] == 'move':
+            if not equal_bytes(source, row['destination']):
+                raise ValueError('Direct byte comparison failed before removal: ' + str(source))
+            comparisons += 1
         if row['action'] == 'delete':
             check_recovery(row)
         st = source.stat()
         source.unlink()
-        removed.append(str(source)); logical += st.st_size; allocated += st.st_blocks * 512
+        removed.append(str(source)); logical += st.st_size
+        allocated = allocated + st.st_blocks * 512 if allocated is not None and hasattr(st, 'st_blocks') else None
         if limit and len(removed) >= limit:
             break
     return dict(removed=removed, logical_source_bytes_removed=logical,
-                source_allocated_bytes_removed=allocated)
+                source_allocated_bytes_removed=allocated, direct_byte_comparisons=comparisons)
 
 
 def main():
@@ -463,7 +490,7 @@ def main():
     if args.command == 'inventory':
         result = inventory(args.root, args.exclude)
     else:
-        plan = json.loads(args.manifest.read_text())
+        plan = json.loads(args.manifest.read_text(encoding='utf-8'))
         if args.command == 'recover-zips': result = recover_zips(plan)
         elif args.command == 'copy-generated': result = copy_generated(plan)
         elif args.command == 'copy': result = copy(plan)

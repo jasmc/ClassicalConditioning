@@ -149,6 +149,11 @@ Twenty-six completed recipes were retired after native transfer/hash verificatio
 
 The dated audit is assessment evidence; this catalogue describes the current physical command tree.
 
+- [Ordered figure browser](reviews/ordered_library.py): guarded figure-page,
+  catalogue, reading-snapshot and recovery publication through review_library.py.
+- [Version discovery](reviews/versions.py): source-bound saved-artwork inventory,
+  embedded payload adapters, declared panel views and single-version controls.
+
 ## Figure 4 local exploratory model pilots
 
 - [build_figure4_delay_model_draft.py](build_figure4_delay_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.

@@ -14,6 +14,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from scripts.paper.shared.assemble_svg import isolate_svg, remove_exact_text, repair_source_typography
+from classical_conditioning.external_artifacts import resolve_artifact, relocated_external_directory
 
 ROOT = Path('J:/ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c/versions/source-schemes')
 SOURCE = ROOT / "Fig1_PanelA_Setup_source.svg"
@@ -25,6 +26,8 @@ def main() -> None:
     parser.add_argument("--source", type=Path, default=SOURCE)
     parser.add_argument("--output", type=Path, default=OUTPUT)
     args = parser.parse_args()
+    args.source=resolve_artifact(args.source)
+    args.output=relocated_external_directory(args.output)
     root = ET.parse(args.source).getroot()
     remove_exact_text(root, ["A"])
     repair_source_typography(root, {

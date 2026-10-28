@@ -1,13 +1,17 @@
 """Immutable stage directories and an atomic, locked independent-run pointer."""
 from __future__ import annotations
 import argparse
+import errno
 from contextlib import contextmanager
 from datetime import datetime, timezone
-import fcntl
+import os
+if os.name == 'nt':
+    import msvcrt
+else:
+    import fcntl
 import hashlib
 import json
 import importlib.metadata
-import os
 from pathlib import Path
 import shutil
 import sys
@@ -34,11 +38,28 @@ def atomic_json(path,value):
 
 @contextmanager
 def run_lock(root):
-    with (root/'.run.lock').open('a+') as f:
-        try:fcntl.flock(f,fcntl.LOCK_EX|fcntl.LOCK_NB)
-        except BlockingIOError:raise ValueError('Another process owns this independent run')
-        yield
-        fcntl.flock(f,fcntl.LOCK_UN)
+    with (root/'.run.lock').open('a+b') as f:
+        if os.name == 'nt':
+            f.seek(0)
+            try:
+                msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+            except OSError as error:
+                if error.errno not in (errno.EACCES, errno.EAGAIN, errno.EDEADLK):
+                    raise
+                raise ValueError('Another process owns this independent run') from error
+        else:
+            try:
+                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError as error:
+                raise ValueError('Another process owns this independent run') from error
+        try:
+            yield
+        finally:
+            if os.name == 'nt':
+                f.seek(0)
+                msvcrt.locking(f.fileno(), msvcrt.LK_UNLCK, 1)
+            else:
+                fcntl.flock(f, fcntl.LOCK_UN)
 
 
 def make_manifest(directory):
@@ -150,6 +171,7 @@ def import_inputs(parent,out,runner):
 
 
 def main(runner):
+    from classical_conditioning.external_artifacts import relocated_external_directory, joaquim_root
     parser=argparse.ArgumentParser(description='Guarded independent G analysis; preserves every published stage')
     parser.add_argument('--output-dir',type=Path,required=True)
     parser.add_argument('--prepare-from',type=Path)
@@ -164,7 +186,11 @@ def main(runner):
     parser.add_argument('--cohort-bootstrap',type=int,default=199)
     parser.add_argument('--attempt',default='initial')
     parser.add_argument('--rebuild-review',action='store_true')
-    args=parser.parse_args();out=args.output_dir.resolve()
+    args=parser.parse_args()
+    runner.MOUNT=joaquim_root()
+    runner.ANALYSIS_ROOT=relocated_external_directory(runner.ANALYSIS_ROOT).resolve()
+    runner.FROZEN_EXTERNAL=relocated_external_directory(runner.FROZEN_EXTERNAL).resolve()
+    out=relocated_external_directory(args.output_dir).resolve()
     if (args.workers<1 or args.calibration_repetitions<1 or args.calibration_bootstrap<19
             or args.robust_calibration_repetitions<1 or args.cohort_bootstrap<19):
         raise ValueError('Invalid worker/resampling/simulation settings')

@@ -5,8 +5,8 @@
   "entries": [
     {
       "reference": "docs/paper/figures/figure-02/panel-g/analysis-guide.md",
-      "path": "studies/figure-02/panel-g/study.md",
-      "sha256": "7324cb7f9a15fe7152fef73aae93d12b8dc96be263777f3712076b29540af6ab",
+      "path": "figures/figure-02/panel-g/studies/analysis-guide/study.md",
+      "sha256": "49097862d9f1c6f187c48b0c9b8099ff043975403e8689d1289df1449dd5d0c8",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-02/panel-g/analysis-guide.md",
       "consumers": [
@@ -24,8 +24,8 @@
     },
     {
       "reference": "records/figure-reviews/figure-04/conversation-summary-2026-10-23.md",
-      "path": "studies/figure-04/conversation-summary-2026-10-23.md",
-      "sha256": "f772bb5e3bf950181b5ece04354c08ff8edbe345bdc4bad08a51cbe1eea90f4c",
+      "path": "figures/figure-04/assembly/studies/planning/study.md",
+      "sha256": "16c917d311cf69baa060a723af5bfcdd2554d5a97d78fe2831c178a57e9711b2",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-04/conversation-summary-2026-10-23.md",
       "consumers": [
@@ -37,7 +37,7 @@
     },
     {
       "reference": "records/figure-reviews/figure-03/conversation-summary-2026-10-16.md",
-      "path": "studies/figure-03/conversation-summary-2026-10-16.md",
+      "path": "figures/figure-03/assembly/studies/conversation-summary-2026-10-16.md",
       "sha256": "318cbdef4ea12b32cd105c563739b4bf9f139e73bbe85b696c38f947e78382f3",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-03/conversation-summary-2026-10-16.md",
@@ -59,7 +59,7 @@
     },
     {
       "reference": "records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md",
-      "path": "studies/figure-03/conversation-checkpoint-2026-10-23.md",
+      "path": "figures/figure-03/assembly/studies/conversation-checkpoint-2026-10-23.md",
       "sha256": "55c497afd61ca6e04daea7cc853b764644abc0772e54a0e51ca1bc548ed65cc3",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md",
@@ -73,7 +73,7 @@
     },
     {
       "reference": "records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md",
-      "path": "studies/figure-03/explanation-guide-design-2026-10-17.md",
+      "path": "figures/figure-03/assembly/studies/explanation-guide-design-2026-10-17.md",
       "sha256": "45f7e8daaaad5817539fc5ac6d06c3545b4382d82807a6c9ccb05a10d36610d2",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md",
@@ -86,7 +86,7 @@
     },
     {
       "reference": "docs/paper/methods/individual-learning.md",
-      "path": "studies/shared/individual-learning-review.md",
+      "path": "shared/studies/individual-learning-review.md",
       "sha256": "9eb4046e4041c2f7bc684acb06506ae64eb30052cede7c005878e827539e1f83",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/methods/individual-learning.md",
@@ -108,7 +108,7 @@
     },
     {
       "reference": "docs/paper/figures/figure-03/individual-fish-display.md",
-      "path": "studies/figure-03/individual-fish-display-review.md",
+      "path": "figures/figure-03/assembly/studies/individual-fish-display-review.md",
       "sha256": "c04681a5f33fe5c27b93fb8c3c94b8d8a1e9c2fa2f4fa5ca1002c8eb343c3496",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-03/individual-fish-display.md",
@@ -123,7 +123,7 @@
     },
     {
       "reference": "docs/paper/review.md",
-      "path": "studies/shared/paper-review-agenda.md",
+      "path": "shared/studies/paper-review-agenda.md",
       "sha256": "4c9602f5a6e13c689caf90042fff70b1af1fd1379870489f711c56d853b9fdb1",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/review.md",
@@ -139,7 +139,7 @@
     },
     {
       "reference": "docs/paper/figures/shared/review.md",
-      "path": "studies/shared/figure-review-agenda.md",
+      "path": "shared/studies/figure-review-agenda.md",
       "sha256": "cdb5412dc776e3b257fb272c5651a75fbc334d8d7bee8a5cd91260cd50a7e793",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/shared/review.md",
@@ -155,7 +155,7 @@
     },
     {
       "reference": "records/figure-reviews/nature-guidance-20261016.md",
-      "path": "studies/shared/nature-guidance-20261016.md",
+      "path": "shared/studies/nature-guidance-20261016.md",
       "sha256": "ccb5df3cbd0aa1b73d62c75afa981d57d13058e7f23eb059a2509fc06daa5864",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/nature-guidance-20261016.md",
@@ -172,7 +172,7 @@
     },
     {
       "reference": "records/figure-reviews/nature-main-migration-20261017.md",
-      "path": "studies/shared/nature-main-migration-20261017.md",
+      "path": "shared/studies/nature-main-migration-20261017.md",
       "sha256": "094142a0d13d1e6453a2726636560f6f257da6996738266709ebf007b6cabdc9",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/nature-main-migration-20261017.md",
@@ -188,7 +188,7 @@
     },
     {
       "reference": "docs/paper/figures/figure-01/review.md",
-      "path": "studies/figure-01/review-agenda.md",
+      "path": "figures/figure-01/assembly/studies/review-agenda.md",
       "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-01/review.md",
@@ -199,7 +199,7 @@
     },
     {
       "reference": "docs/paper/figures/figure-02/review.md",
-      "path": "studies/figure-02/review-agenda.md",
+      "path": "figures/figure-02/assembly/studies/review-agenda.md",
       "sha256": "19d0bbbc6327292ecf4e40c244bb5caddad330fb4a5e07a8546e1c9a29f2b7f6",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-02/review.md",
@@ -210,7 +210,7 @@
     },
     {
       "reference": "docs/paper/figures/figure-03/review.md",
-      "path": "studies/figure-03/review-agenda.md",
+      "path": "figures/figure-03/assembly/studies/review-agenda.md",
       "sha256": "5651b99ab202c8831025b46c1fe5a612dc7963282cb3a5500e439b853defc4d3",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-03/review.md",
@@ -221,7 +221,7 @@
     },
     {
       "reference": "docs/paper/figures/figure-04/review.md",
-      "path": "studies/figure-04/review-agenda.md",
+      "path": "figures/figure-04/assembly/studies/review-agenda.md",
       "sha256": "1a3eac9f5bb78f93f94dc138c56cc70c80f0d40365ad499e849be54a8f29c2fa",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-04/review.md",
@@ -232,7 +232,7 @@
     },
     {
       "reference": "records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md",
-      "path": "studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md",
+      "path": "figures/figure-02/panel-g/studies/comparisons/implementation-and-review-2026-10-15.md",
       "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md",
@@ -254,7 +254,7 @@
     },
     {
       "reference": "records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md",
-      "path": "studies/figure-02/panel-g/comparisons/review-2026-10-14.md",
+      "path": "figures/figure-02/panel-g/studies/comparisons/review-2026-10-14.md",
       "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md",
@@ -268,7 +268,7 @@
     },
     {
       "reference": "records/scientific-evidence/analyses/figure-02-g-independent/current-G-comparison-2026-10-15.md",
-      "path": "studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md",
+      "path": "figures/figure-02/panel-g/studies/comparisons/current-G-comparison-2026-10-15.md",
       "sha256": "1c304e33a59ddb4ee47924f3018989278012587b05d1bf2e2e6b546a186df9c5",
       "role": "editable study source",
       "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/scientific-evidence/analyses/figure-02-g-independent/current-G-comparison-2026-10-15.md",
@@ -285,7 +285,7 @@
     },
     {
       "reference": "docs/paper/figures/figure-03/blup-comparison.md",
-      "path": "studies/figure-03/blup-comparison/study.md",
+      "path": "figures/figure-03/assembly/studies/blup-comparison/study.md",
       "sha256": "7ecab301f417cb48de9dd01d14634a844f46c2b43441c6c8ea495f86569483db",
       "role": "editable study source; exploratory comparison, no method approval",
       "consumers": [
@@ -296,7 +296,7 @@
     },
     {
       "reference": "docs/paper/figures/figure-02/statistical-audit.md",
-      "path": "studies/figure-02/ghi-statistical-audit/report/study.md",
+      "path": "figures/figure-02/panels-g-h-i/studies/statistical-audit/report/study.md",
       "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
       "role": "editable saved-statistics audit and review; no scientific selection",
       "consumers": [

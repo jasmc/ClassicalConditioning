@@ -21,6 +21,7 @@ from pathlib import Path
 import re
 import tempfile
 from urllib.parse import quote
+from classical_conditioning.external_artifacts import relocated_external_directory
 
 ROOT = _COMMAND_REPOSITORY
 CATALOGUE = ROOT / "docs/paper/figures/review-library.json"
@@ -46,7 +47,15 @@ def contained(root, relative):
     return result
 
 
-def check(catalogue, repo=ROOT, outputs=OUTPUTS, archive=ARCHIVE, *, external=False):
+def check(catalogue, repo=ROOT, outputs=OUTPUTS, archive=ARCHIVE, *, external=False, check_browser_sources=True):
+    if external:
+        try:
+            if outputs == OUTPUTS:
+                outputs = relocated_external_directory(OUTPUTS, repo=repo)
+            if archive == ARCHIVE:
+                archive = relocated_external_directory(ARCHIVE, repo=repo)
+        except (FileNotFoundError, ValueError) as error:
+            return {'issues': [str(error)], 'groups': 0, 'entries': 0, 'checked': [], 'external': True}
     roots = {"repo": repo, "outputs": outputs, "archive": archive}
     issues, checked, ids = [], [], set()
     groups = set()
@@ -67,11 +76,39 @@ def check(catalogue, repo=ROOT, outputs=OUTPUTS, archive=ARCHIVE, *, external=Fa
                     if not path.is_file():
                         raise ValueError("Missing reading target: " + str(path))
                     raw = path.read_bytes()
-                    if entry.get("sha256") and digest(raw) != entry["sha256"]:
+                    if entry.get('kind') == 'generated_navigation':
+                        publication = outputs / 'review-library/catalogue-publication.json'
+                        saved = json.loads(publication.read_bytes()) if publication.is_file() else {}
+                        expected = next((r['sha256'] for r in saved.get('generated_pages', [])
+                                         if r['path'] == entry['path']), entry.get('sha256'))
+                        if digest(raw) != expected:
+                            raise ValueError('Generated reading target has unrecorded edits: ' + str(path))
+                    elif entry.get("sha256") and digest(raw) != entry["sha256"]:
                         raise ValueError("Reading target changed: " + str(path))
                     checked.append({"id": entry["id"], "path": str(path), "sha256": digest(raw)})
             except (KeyError, ValueError, OSError) as error:
                 issues.append(entry["id"] + ": " + str(error))
+    if external and catalogue.get('version_browser') == 1:
+        from scripts.reviews.ordered_library import verify_package
+        issues.extend(verify_package(outputs, sources=check_browser_sources))
+        model_path = outputs / 'review-library/versions.json'
+        if check_browser_sources and model_path.is_file():
+            from scripts.reviews.versions import source_files, GENERATED
+            from classical_conditioning.external_artifacts import normalized_reference
+            model = json.loads(model_path.read_bytes())
+            def identity(storage, path):
+                value = normalized_reference(path, repo)
+                if value.startswith('/Volumes/JOAQUIM'):
+                    value = str(relocated_external_directory(value, repo=repo))
+                return storage, value.replace('\\', '/')
+            recorded = {identity(r['storage'], r['path']) for r in model['inventory']
+                        if r.get('storage') and r.get('path') and Path(r['path']).name not in GENERATED}
+            observed = {identity(storage, str(path)) for storage, path in source_files(outputs.resolve(), archive.resolve())
+                        if path.name not in GENERATED}
+            for _, path in sorted(observed - recorded):
+                issues.append('Uninventoried browser source; rebuild required: ' + path)
+            for _, path in sorted(recorded - observed):
+                issues.append('Inventoried browser source missing: ' + path)
     return {"issues": issues, "groups": len(groups), "entries": len(ids),
             "checked": checked, "external": external}
 
@@ -103,6 +140,9 @@ def atomic(path, raw):
 
 
 def build(catalogue, output_root, archive_root=ARCHIVE, repo=ROOT):
+    if catalogue.get('version_browser') == 1:
+        from scripts.reviews.ordered_library import build as ordered_build
+        return ordered_build(catalogue, output_root, archive_root, repo, check=check, page=page)
     output_root = output_root.resolve()
     if not output_root.is_dir() or output_root.is_relative_to(repo.resolve()):
         raise ValueError("Use an existing output root outside the repository")
@@ -117,10 +157,10 @@ def build(catalogue, output_root, archive_root=ARCHIVE, repo=ROOT):
     before = index.read_bytes() if index.exists() else None
     markdown_before = markdown_index.read_bytes() if markdown_index.exists() else None
     if before is not None:
-        if not control.is_file() or digest(before) != json.loads(control.read_text())["html_sha256"]:
+        if not control.is_file() or digest(before) != json.loads(control.read_text(encoding='utf-8'))["html_sha256"]:
             raise ValueError("START-HERE.html has unrecorded edits; preserve and reconcile them")
     if markdown_before is not None:
-        if not control.is_file() or digest(markdown_before) != json.loads(control.read_text()).get("markdown_sha256"):
+        if not control.is_file() or digest(markdown_before) != json.loads(control.read_text(encoding='utf-8')).get("markdown_sha256"):
             raise ValueError("REVIEW-LIBRARY.md has unrecorded edits; preserve and reconcile them")
     identities = {row["id"]: row["sha256"] for row in report["checked"]}
     inventory = []
@@ -232,7 +272,7 @@ def main():
     parser.add_argument("--archive-root", type=Path, default=ARCHIVE)
     parser.add_argument("--external", action="store_true")
     args = parser.parse_args()
-    catalogue = json.loads(args.catalogue.read_text())
+    catalogue = json.loads(args.catalogue.read_text(encoding='utf-8'))
     if args.command == "build":
         result = build(catalogue, args.output_root, args.archive_root)
     else:

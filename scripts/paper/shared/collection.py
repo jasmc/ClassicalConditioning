@@ -8,6 +8,7 @@ _COMMAND_REPOSITORY = next(p for p in _CommandPath(__file__).resolve().parents
 _command_sys.path[:0] = [str(_COMMAND_REPOSITORY), str(_COMMAND_REPOSITORY / "src")]
 
 import argparse
+import ast
 from collections import Counter
 from contextlib import ExitStack
 import html
@@ -20,33 +21,43 @@ from xml.etree import ElementTree as ET
 ROOT=_COMMAND_REPOSITORY
 sys.path.insert(0,str(ROOT/'src'))
 from classical_conditioning.command_provenance import command_sources
+from classical_conditioning.external_artifacts import resolve_artifact, relocated_external_directory, normalized_reference
 from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, state_lock, publish_state, StaleFigureState
 from classical_conditioning.figures.layout_frames import assess, POLICY, COLLECTOR
 STATE=ROOT/'docs/paper/figures/main-paper-current-state.json'
-OUTPUT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures.html/main-paper-figures.html')
+OUTPUT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html')
 DEFAULT_FIGURES=[{'figure_id':f'fig{n}','state':f'docs/paper/figures/figure-{n:02}/current-state.json'} for n in (1,2)]
 
 
 def encode(value):return (json.dumps(value,indent=2,allow_nan=False)+'\n').encode()
 def reference(path,payload=None):return {'path':str(path),'sha256':sha(path.read_bytes() if payload is None else payload)}
 
-def authenticate(ref,snapshot):
-    p=Path(ref['path']);raw=p.read_bytes()
+def authenticate(ref,snapshot,*,allow_historical=True):
+    try:
+        p=resolve_artifact(ref['path'],expected_sha256=ref['sha256'],repo=ROOT,allow_historical=allow_historical)
+        raw=p.read_bytes()
+    except (ValueError,FileNotFoundError) as error:
+        raise StaleFigureState('Changed bound artifact: '+str(ref['path'])) from error
     if sha(raw)!=ref['sha256']:raise StaleFigureState('Changed bound artifact: '+str(p))
     snapshot.hashes[str(p.resolve())]=sha(raw)
     return raw
 
 
-def resolve(state_path=STATE):
+def resolve(state_path=STATE,*,include_recovery=True):
     snapshot=Snapshot([*command_sources(__file__), *([state_path,Path(__file__),POLICY,COLLECTOR,COLLECTOR.with_name('layout_frames.py')])])
-    state=json.loads(state_path.read_text()) if state_path.exists() else {'schema_version':1,'figures':DEFAULT_FIGURES}
+    state=json.loads(state_path.read_text(encoding='utf-8')) if state_path.exists() else {'schema_version':1,'figures':DEFAULT_FIGURES}
+    if include_recovery and state.get('recovery'):
+        recovery=json.loads(authenticate(state['recovery'],snapshot))
+        for ref in recovery['sources']:
+            authenticate(ref,snapshot)
     figures=[]
     for selected in state['figures']:
         p=ROOT/selected['state'];raw=p.read_bytes();snapshot.hashes[str(p.resolve())]=sha(raw);s=json.loads(raw)
         if s['figure_id']!=selected['figure_id']:raise ValueError('Figure identity mismatch')
         d=s[s.get('default_display','draft')]
-        svg=authenticate(d['working_svg'],snapshot);legend=authenticate(d['legend'],snapshot).decode()
-        authenticate(d['review'],snapshot)
+        historical=s.get('default_display','draft')!='draft'
+        svg=authenticate(d['working_svg'],snapshot,allow_historical=historical);legend=authenticate(d['legend'],snapshot,allow_historical=historical).decode()
+        authenticate(d['review'],snapshot,allow_historical=historical)
         for ref in s.get('scientific_selection',{}).get('records',[]):authenticate(ref,snapshot)
         frame=d.get('layout_frames')
         if not frame:raise ValueError(s['figure_id']+': verified layout-frame evidence required')
@@ -140,29 +151,128 @@ def render(figures):
 
 def display_target(state_path=STATE):
     state,snapshot,figures=resolve(state_path)
-    if state.get('inputs')!=snapshot_inputs(snapshot,state_path):raise StaleFigureState('Collection is stale; run build')
+    if state.get('inputs')!=snapshot_inputs(snapshot,state_path,state['html']['path']):raise StaleFigureState('Collection is stale; run build or recover its authenticated saved wrapper')
     authenticate(state['html'],snapshot)
     if state.get('verification'):
         verification=json.loads(authenticate(state['verification'],snapshot))
         if verification.get('html_sha256')!=state['html']['sha256']:raise StaleFigureState('Stale collection verification')
     snapshot.check()
-    return {'html':state['html'],'figures':[f['id'] for f in figures],'open_target':'built-in-browser','whole_figure_freeze_created':False}
+    return {'html':{**state['html'],'path':str(resolve_artifact(state['html']['path'],expected_sha256=state['html']['sha256'],repo=ROOT))},'figures':[f['id'] for f in figures],'open_target':'built-in-browser','whole_figure_freeze_created':False}
 
 
-def snapshot_inputs(snapshot,state_path):
-    return {p:h for p,h in snapshot.hashes.items() if p not in (str(state_path.resolve()),str(OUTPUT.resolve()))}
+def snapshot_inputs(snapshot,state_path,output_path=OUTPUT):
+    excluded={normalized_reference(p,ROOT) for p in (state_path,output_path)}
+    result={}
+    for path,digest in snapshot.hashes.items():
+        key=normalized_reference(path,ROOT)
+        if key in excluded:continue
+        if key in result and result[key]!=digest:raise ValueError('Ambiguous collection input alias: '+key)
+        result[key]=digest
+    return result
 
 
-def build(state_path=STATE,output=OUTPUT):
+def validate_saved_wrapper(raw,figures,receipt,authored_builder,current_builder):
+    """Authenticate an existing wrapper against its saved and current sources.
+
+    This compares existing SVG/legend bytes and renderer code; it never exports
+    HTML or recomputes a figure. A historical builder is parsed, never executed.
+    """
+    if sha(raw)!=receipt['collection']['html']['sha256']:
+        raise ValueError('Saved collection differs from completion receipt')
+    if receipt.get('scientific_change') is not False or receipt.get('artwork_regenerated') is not False:
+        raise ValueError('A storage-only collection completion receipt is required')
+    text=raw.decode('utf-8')
+    matches=re.findall(r'<script type="application/json" id="paper-figure-provenance">(.*?)</script>',text,re.S)
+    if len(matches)!=1:raise ValueError('Saved collection provenance is missing or ambiguous')
+    metadata=json.loads(matches[0])
+    if metadata['builder']['sha256']!=sha(authored_builder):raise ValueError('Authored collection builder changed')
+    names=('encode','reference','embedded_svg','legend_html','publication_size','render')
+    def functions(source):
+        return {n.name:ast.dump(n,include_attributes=False) for n in ast.parse(source).body if isinstance(n,ast.FunctionDef)}
+    old,new=functions(authored_builder),functions(current_builder)
+    if any(old.get(n)!=new.get(n) or n not in old for n in names):
+        raise ValueError('Collection rendering logic changed; saved wrapper cannot be rebound')
+    svgs=re.findall(r'<div class="sheet">(.*?)</div></template>',text,re.S)
+    captions=re.findall(r'<figcaption>(.*?)</figcaption>',text,re.S)
+    if not len(figures)==len(metadata['figures'])==len(svgs)==len(captions):
+        raise ValueError('Saved collection scope differs from selected figures')
+    for index,(saved,current) in enumerate(zip(metadata['figures'],figures)):
+        if saved['id']!=current['id']:raise ValueError('Saved collection figure order changed')
+        for key in ('state','svg','legend','layout_frames'):
+            if saved[key]['sha256']!=current[key]['sha256']:
+                raise ValueError('Saved collection source changed: '+current['id']+' '+key)
+        if saved['whole_figure_frozen']!=current['whole_figure_frozen']:
+            raise ValueError('Saved collection freeze status changed')
+        source=receipt['source_identities'][current['id']]
+        if source!={'svg':current['svg']['sha256'],'legend':current['legend']['sha256']}:
+            raise ValueError('Collection completion source identities changed')
+        if (sha(svgs[index].encode())!=saved['embedded_svg_sha256'] or
+                sha(embedded_svg(current['svg_bytes'],current['id']+'--').encode())!=saved['embedded_svg_sha256']):
+            raise ValueError('Saved embedded artwork differs from selected SVG')
+        if captions[index]!=legend_html(current['legend_text']):
+            raise ValueError('Saved collection legend differs from selected legend')
+    return metadata,list(names)
+
+
+def recover(*,receipt_path,receipt_sha256,builder_source,evidence_path,state_path=STATE):
+    """Publish only recovered repository evidence/state; preserve all SSD bytes."""
+    state_path=Path(state_path);evidence_path=Path(evidence_path)
+    if not evidence_path.resolve().is_relative_to(ROOT/'records') or not evidence_path.parent.is_dir():
+        raise ValueError('Use an existing repository evidence directory')
+    if evidence_path.exists():raise FileExistsError('Preserve existing recovery evidence: '+str(evidence_path))
+    state,snapshot,figures=resolve(state_path)
+    before=state_path.read_bytes()
+    receipt_file=resolve_artifact(receipt_path,expected_sha256=receipt_sha256,repo=ROOT)
+    receipt_ref=reference(receipt_file);receipt=json.loads(authenticate(receipt_ref,snapshot))
+    output_ref=receipt['collection']['html'];raw=authenticate(output_ref,snapshot,allow_historical=False)
+    matches=re.findall(r'<script type="application/json" id="paper-figure-provenance">(.*?)</script>',raw.decode('utf-8'),re.S)
+    if len(matches)!=1:raise ValueError('Saved collection provenance is missing or ambiguous')
+    metadata=json.loads(matches[0])
+    builder_file=resolve_artifact(builder_source,expected_sha256=metadata['builder']['sha256'],repo=ROOT)
+    builder_ref=reference(builder_file);authored=authenticate(builder_ref,snapshot)
+    metadata,functions=validate_saved_wrapper(raw,figures,receipt,authored,Path(__file__).read_bytes())
+    sources=[receipt_ref,builder_ref,output_ref]
+    if state.get('recovery'):
+        previous=json.loads(authenticate(state['recovery'],snapshot))
+        sources.extend([*previous['sources'],state['recovery']])
+    sources=list({(normalized_reference(ref['path'],ROOT),ref['sha256']):
+                  {**ref,'path':normalized_reference(ref['path'],ROOT)} for ref in sources}.values())
+    evidence={'schema_version':1,'operation':'recover-authenticated-saved-collection',
+              'prior_state_sha256':sha(before),'html':output_ref,
+              'sources':sources,
+              'authored_provenance':metadata,'unchanged_renderer_functions':functions,
+              'current_builder':{**reference(Path(__file__)),'path':normalized_reference(__file__,ROOT)},
+              'embedded_svg_and_legend_bytes_match':True,'ssd_bytes_written':False,
+              'scientific_selection_changed':False,'freeze_created':False}
+    data=encode(evidence)
+    state.update({'html':output_ref,'provenance':metadata,
+                  'recovery':{'path':normalized_reference(evidence_path,ROOT),'sha256':sha(data)}})
+    inputs=snapshot_inputs(snapshot,state_path,output_ref['path'])
+    inputs[normalized_reference(evidence_path,ROOT)]=sha(data)
+    state['inputs']=inputs
+    with ExitStack() as locks:
+        for figure in sorted(figures,key=lambda f:f['state']['path']):locks.enter_context(state_lock(Path(figure['state']['path'])))
+        publish_state(state_path,state,snapshot,artifacts=[(evidence_path,data)])
+    return display_target(state_path)
+
+
+def build(state_path=STATE,output=None):
+    output=relocated_external_directory(OUTPUT) if output is None else Path(output)
     state,snapshot,figures=resolve(state_path)
     if output.is_relative_to('/Volumes') and not Path('/Volumes/JOAQUIM').is_mount():raise ValueError('JOAQUIM is not mounted')
     if not output.parent.is_dir():raise FileNotFoundError(output.parent)
-    inputs=snapshot_inputs(snapshot,state_path)
+    inputs=snapshot_inputs(snapshot,state_path,output)
     if state.get('html'):
-        if Path(state['html']['path'])!=output:raise ValueError('Recorded output differs')
+        if resolve_artifact(state['html']['path'],expected_sha256=state['html']['sha256'],repo=ROOT)!=output:raise ValueError('Recorded output differs')
         authenticate(state['html'],snapshot)
         if state.get('inputs')==inputs:return display_target(state_path)
     elif output.exists():raise FileExistsError('Unrecorded output must be preserved: '+str(output))
+    if state.get('recovery'):
+        # A new build is bound to current selected sources. The prior recovery
+        # record remains immutable, but cannot keep binding overwritten HTML.
+        state,snapshot,figures=resolve(state_path,include_recovery=False)
+        state.pop('recovery')
+        inputs=snapshot_inputs(snapshot,state_path,output)
     snapshot.hashes[str(output.resolve())]=file_hash(output)
     data,metadata=render(figures)
     state.pop('verification',None)  # A changed collection needs a new rendering review.
@@ -176,6 +286,13 @@ def build(state_path=STATE,output=OUTPUT):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('command',choices=['build','display-target']);args=parser.parse_args()
-    print(json.dumps(build() if args.command=='build' else display_target(),indent=2))
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('command',choices=['build','display-target','recover'])
+    parser.add_argument('--receipt',type=Path);parser.add_argument('--receipt-sha256')
+    parser.add_argument('--builder-source',type=Path);parser.add_argument('--evidence',type=Path)
+    args=parser.parse_args()
+    if args.command=='recover':
+        if not all((args.receipt,args.receipt_sha256,args.builder_source,args.evidence)):parser.error('recover requires --receipt, --receipt-sha256, --builder-source and --evidence')
+        result=recover(receipt_path=args.receipt,receipt_sha256=args.receipt_sha256,builder_source=args.builder_source,evidence_path=args.evidence)
+    else:result=build() if args.command=='build' else display_target()
+    print(json.dumps(result,indent=2))
 if __name__=='__main__':main()

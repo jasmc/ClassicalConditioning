@@ -12,6 +12,7 @@ dependencies = [
     { name = "pandas" },
     { name = "pyarrow" },
     { name = "scipy" },
+    { name = "threadpoolctl" },
     { name = "tqdm" },
 ]
 
@@ -40,6 +41,7 @@ requires-dist = [
     { name = "seaborn", marker = "extra == 'legacy-learners'", specifier = ">=0.13,<0.14" },
     { name = "statsmodels", marker = "extra == 'analysis'", specifier = ">=0.14,<0.15" },
     { name = "statsmodels", marker = "extra == 'legacy-learners'", specifier = ">=0.14,<0.15" },
+    { name = "threadpoolctl", specifier = ">=3.5,<4" },
     { name = "tqdm", specifier = ">=4.67,<5" },
 ]
 provides-extras = ["analysis", "legacy-learners", "interactive"]

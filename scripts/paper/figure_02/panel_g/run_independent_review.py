@@ -37,6 +37,7 @@ from classical_conditioning.analysis.inference.panel_g_review import (
     residual_diagnostics, save_json, simultaneous_band, timing_bounds,
 )
 from classical_conditioning.inventory import build_recording_inventory
+from classical_conditioning.external_artifacts import resolve_artifact
 
 FREEZE = ROOT / "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median"
 MOUNT = Path("/Volumes/JOAQUIM")
@@ -52,9 +53,7 @@ def sha(path):
 
 
 def mapped(path):
-    value = Path(path)
-    if value.exists(): return value
-    return MOUNT.joinpath(*PureWindowsPath(path).parts[1:])
+    return resolve_artifact(path)
 
 
 def authenticate(path, expected):
@@ -68,7 +67,7 @@ def protected_files():
              FREEZE / "manifests/freeze.json", FREEZE / "manifests/scientific-selection.json",
              FREEZE / "sources/selected-source-inventory.json",
              FROZEN_EXTERNAL / "Fig2_G_Historical_LogMedian.svg"]
-    return [{"path": str(p), "sha256": sha(p)} for p in paths]
+    return [{"path": str(resolve_artifact(p)), "sha256": sha(resolve_artifact(p))} for p in paths]
 
 
 def verify_protected(out):
@@ -79,7 +78,7 @@ def verify_protected(out):
 def prepare(out):
     records = json.loads((FREEZE / "sources/selected-source-inventory.json").read_text())
     manifest_record = next(r for r in records if r["path"].endswith("\\frame-source-manifest.json"))
-    original_manifest = FROZEN_EXTERNAL / "data/frame-source-manifest.json"
+    original_manifest = resolve_artifact(FROZEN_EXTERNAL / "data/frame-source-manifest.json", expected_sha256=manifest_record['sha256'])
     authenticate(original_manifest, manifest_record["sha256"])
     sources = json.loads(original_manifest.read_text())
     grouped = {}

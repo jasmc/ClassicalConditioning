@@ -46,12 +46,18 @@ class Snapshot:
 
 def bind_loaded_state(snapshot,state,state_bytes,path):
     """Bind the bytes actually parsed, avoiding a read-then-snapshot race."""
+    from classical_conditioning.external_artifacts import resolve_artifact
     snapshot.hashes[str(Path(path).resolve())]=sha(state_bytes) if state_bytes is not None else None
     if state:
-        records=state.get('scientific_selection',{}).get('records',[])+list(state.get('preserved_figures',{}).values())
+        records=[(item,True) for item in state.get('scientific_selection',{}).get('records',[])+list(state.get('preserved_figures',{}).values())]
         for scope in ('frozen_display','draft'):
-            records=records+[state[scope][key] for key in ('working_svg','effective_presentation','review','legend') if state[scope].get(key)]
-        for item in records:snapshot.hashes[str(Path(item['path']).resolve())]=item['sha256']
+            records.extend((state[scope][key],scope!='draft') for key in ('working_svg','effective_presentation','review','legend') if state.get(scope,{}).get(key))
+        for item,allow_historical in records:
+            try:
+                resolved = resolve_artifact(item['path'], expected_sha256=item['sha256'],allow_historical=allow_historical)
+            except (FileNotFoundError, ValueError) as error:
+                raise StaleFigureState('Figure input changed or unavailable: ' + item['path']) from error
+            snapshot.hashes[str(resolved.resolve())]=item['sha256']
     snapshot.check()
 
 @contextmanager

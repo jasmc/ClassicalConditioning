@@ -258,6 +258,8 @@ def main() -> None:
     args = parser.parse_args()
     specification = json.loads(args.spec.read_text(encoding="utf-8"))
     output = args.output or OUTPUT_DIRECTORY / f"Fig1_PanelC_SessionProtocol_exploratory_{args.variant}.svg"
+    from classical_conditioning.external_artifacts import relocated_external_directory
+    output=relocated_external_directory(output)
     root = draw(specification, show_viability_check=args.variant == "v1")
     output.parent.mkdir(parents=True, exist_ok=True)
     ET.ElementTree(root).write(output, encoding="utf-8", xml_declaration=True)

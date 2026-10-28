@@ -93,5 +93,85 @@ def test_native_intermediate_width_is_not_scaled_to_double_column():
     assert b'width:183mm' not in page
 
 
+def saved_wrapper_fixture(root):
+    source=root/'figure-state.json';source.write_bytes(b'{}')
+    figure={'id':'fig1','state':paper.reference(source),'svg':{'path':'selected.svg','sha256':sha(SVG)},
+            'legend':{'path':'legend.md','sha256':sha(b'Figure 1 | Test')},
+            'layout_frames':{'path':'frames.json','sha256':'f'*64},'whole_figure_frozen':False,
+            'svg_bytes':SVG,'legend_text':'Figure 1 | Test'}
+    raw,_=paper.render([figure])
+    receipt={'collection':{'html':{'path':str(root/'saved.html'),'sha256':sha(raw)}},
+             'source_identities':{'fig1':{'svg':figure['svg']['sha256'],'legend':figure['legend']['sha256']}},
+             'scientific_change':False,'artwork_regenerated':False}
+    return figure,raw,receipt
+
+
+def test_saved_wrapper_recovery_rejects_changed_sources_rendering_and_content():
+    with tempfile.TemporaryDirectory() as folder:
+        root=Path(folder);figure,raw,receipt=saved_wrapper_fixture(root);builder=Path(paper.__file__).read_bytes()
+        metadata,names=paper.validate_saved_wrapper(raw,[figure],receipt,builder,builder)
+        assert metadata['figures'][0]['id']=='fig1' and 'render' in names
+        changed=dict(figure,state={'path':'state','sha256':'0'*64})
+        with unittest.TestCase().assertRaisesRegex(ValueError,'source changed'):
+            paper.validate_saved_wrapper(raw,[changed],receipt,builder,builder)
+        modified=raw.replace(b'<figcaption>',b'<figcaption>foreign edit')
+        amended={**receipt,'collection':{'html':{**receipt['collection']['html'],'sha256':sha(modified)}}}
+        with unittest.TestCase().assertRaisesRegex(ValueError,'legend differs'):
+            paper.validate_saved_wrapper(modified,[figure],amended,builder,builder)
+        modified_builder=builder.replace(b'def render(figures):',b'def render(figures):\n    unrelated = True')
+        with unittest.TestCase().assertRaisesRegex(ValueError,'rendering logic changed'):
+            paper.validate_saved_wrapper(raw,[figure],receipt,builder,modified_builder)
+
+
+def test_pointer_recovery_preserves_saved_html_and_publishes_evidence_first():
+    with tempfile.TemporaryDirectory() as folder:
+        root=Path(folder);(root/'records').mkdir();figure,raw,receipt=saved_wrapper_fixture(root)
+        output=root/'saved.html';output.write_bytes(raw)
+        state_path=root/'collection.json';state_path.write_text('{"figures":[]}',encoding='utf-8')
+        receipt_path=root/'completed.json';receipt_path.write_bytes(paper.encode(receipt))
+        builder=root/'authored-builder.py';builder.write_bytes(Path(paper.__file__).read_bytes())
+        evidence=root/'records/recovery.json';snapshot=Snapshot([state_path,Path(paper.__file__)])
+        with patch.object(paper,'ROOT',root),patch.object(paper,'resolve',return_value=({'figures':[]},snapshot,[figure])),patch.object(paper,'display_target',return_value={'recovered':True}):
+            result=paper.recover(receipt_path=receipt_path,receipt_sha256=sha(receipt_path.read_bytes()),
+                                 builder_source=builder,evidence_path=evidence,state_path=state_path)
+        assert result=={'recovered':True} and output.read_bytes()==raw
+        state=json.loads(state_path.read_bytes())
+        assert state['recovery']['sha256']==sha(evidence.read_bytes())
+        assert json.loads(evidence.read_bytes())['ssd_bytes_written'] is False
+
+
+def test_collection_snapshot_keys_are_checkout_and_volume_neutral():
+    snapshot=Snapshot([])
+    snapshot.hashes={str(paper.ROOT/'src/classical_conditioning/figure_workspace.py'):'a'*64,
+                     '/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figure_workspace.py':'a'*64,
+                     r'J:\ClassicalConditioning Outputs\selected.svg':'b'*64}
+    result=paper.snapshot_inputs(snapshot,paper.STATE)
+    assert result=={'src/classical_conditioning/figure_workspace.py':'a'*64,
+                    '/Volumes/JOAQUIM/ClassicalConditioning Outputs/selected.svg':'b'*64}
+
+
+def test_later_build_retires_recovery_binding_and_preserves_its_evidence():
+    with tempfile.TemporaryDirectory() as folder:
+        root=Path(folder);figure,raw,receipt=saved_wrapper_fixture(root)
+        output=root/'saved.html';output.write_bytes(raw)
+        recovery=root/'recovery.json';recovery.write_bytes(b'{"saved":true}')
+        code=root/'builder.py';code.write_bytes(b'current source')
+        state_path=root/'collection.json'
+        state_path.write_bytes(paper.encode({'figures':[],'html':paper.reference(output),
+            'recovery':paper.reference(recovery),'inputs':{'outdated-code':'0'*64}}))
+        def resolved(path,*,include_recovery=True):
+            state=json.loads(path.read_bytes());snapshot=Snapshot([path,code])
+            if include_recovery and state.get('recovery'):
+                paper.authenticate(state['recovery'],snapshot)
+            return state,snapshot,[figure]
+        with patch.object(paper,'ROOT',root),patch.object(paper,'resolve',side_effect=resolved):
+            target=paper.build(state_path=state_path,output=output)
+            assert paper.display_target(state_path)==target
+        state=json.loads(state_path.read_bytes())
+        assert 'recovery' not in state and 'recovery.json' not in state['inputs']
+        assert state['inputs']=={'builder.py':sha(code.read_bytes())}
+        assert recovery.read_bytes()==b'{"saved":true}'
+
+
 def load_tests(loader, tests, pattern):
     return unittest.TestSuite(unittest.FunctionTestCase(fn) for name,fn in globals().items() if name.startswith("test_"))

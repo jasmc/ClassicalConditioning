@@ -52,17 +52,29 @@ class StudySources(unittest.TestCase):
         self.assertEqual(resolve_artifact(self.entry['reference'], repo=self.repo), self.source)
         self.assertEqual(resolve_artifact(self.entry['reference'], expected_sha256=sha256(original), repo=self.repo), original)
 
-    def test_traversal_and_symlink_escape_rejected(self):
+    def test_traversal_rejected(self):
         outside = self.root.parent / 'outside.md'
         outside.write_text('outside')
-        for name in ('../outside.md', 'escape.md'):
-            if name == 'escape.md':
-                (self.root / name).symlink_to(outside)
-            self.entry['path'] = name
-            self.save()
-            self.assertTrue(check_study_sources(self.repo))
-            with self.assertRaises(ValueError):
-                resolve_artifact(self.entry['reference'], repo=self.repo)
+        self.entry['path'] = '../outside.md'
+        self.save()
+        self.assertTrue(check_study_sources(self.repo))
+        with self.assertRaises(ValueError):
+            resolve_artifact(self.entry['reference'], repo=self.repo)
+
+    def test_symlink_escape_rejected(self):
+        outside = self.root.parent / 'outside.md'
+        outside.write_text('outside')
+        try:
+            (self.root / 'escape.md').symlink_to(outside)
+        except OSError as error:
+            if getattr(error, 'winerror', None) == 1314:
+                self.skipTest('Windows account lacks symlink creation privilege')
+            raise
+        self.entry['path'] = 'escape.md'
+        self.save()
+        self.assertTrue(check_study_sources(self.repo))
+        with self.assertRaises(ValueError):
+            resolve_artifact(self.entry['reference'], repo=self.repo)
 
 
 if __name__ == '__main__':

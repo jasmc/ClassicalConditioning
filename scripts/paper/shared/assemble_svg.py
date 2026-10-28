@@ -31,7 +31,7 @@ from xml.sax.saxutils import escape
 REPO = _COMMAND_REPOSITORY
 sys.path.insert(0, str(REPO / "src"))
 from classical_conditioning.artifacts import artifact_staging, publish_transaction
-from classical_conditioning.external_artifacts import resolve_artifact
+from classical_conditioning.external_artifacts import resolve_artifact, relocated_external_directory, joaquim_root
 from classical_conditioning.command_provenance import command_sources
 from classical_conditioning.figure_workspace import Snapshot, StaleFigureState, state_lock
 from classical_conditioning.figures.assembly_sources import preflight, prepare_layout, object_hash
@@ -54,7 +54,7 @@ def digest(path: Path) -> str:
 def storage_root(layout: dict, layout_path: Path) -> Path:
     configured = layout.get("storage_root")
     if configured:
-        return Path(configured).expanduser().resolve()
+        return relocated_external_directory(Path(configured).expanduser()).resolve()
     return layout_path.resolve().parent
 
 
@@ -364,10 +364,33 @@ def _compose(layout_path, layout, inspection):
 
 
 def _destination(output_path, inputs, *, suffix=".svg", protect_existing=True):
-    output = Path(output_path).expanduser().resolve()
+    logical = str(Path(output_path).expanduser()).replace('\\', '/')
+    if logical.startswith('/Volumes/') and not logical.startswith('/Volumes/JOAQUIM/'):
+        mount = Path('/Volumes') / logical.split('/')[2]
+        if not os.path.ismount(mount):
+            raise FileNotFoundError(f'External destination unavailable: {mount}; no mount will be fabricated')
+    output = relocated_external_directory(Path(output_path).expanduser()).resolve()
+    volume = None
+    def external_scope_applies(value):
+        nonlocal volume
+        text = str(value).replace('\\', '/')
+        if text.startswith('/Volumes/JOAQUIM/') or text.upper().startswith('J:/'):
+            if volume is None:
+                try:
+                    volume = joaquim_root().resolve()
+                except FileNotFoundError:
+                    return False
+            return output.is_relative_to(volume)
+        return True
     for manifest in (REPO/'records/repository-archive').glob('**/transfer-inventory.json'):
-        archive = json.loads(manifest.read_text()).get('archive_root')
-        if archive and Path(archive).resolve() in (output, *output.parents):
+        archive = json.loads(manifest.read_text(encoding='utf-8')).get('archive_root')
+        if archive and not external_scope_applies(archive):
+            continue
+        try:
+            archive_path = relocated_external_directory(archive).resolve() if archive else None
+        except FileNotFoundError:
+            archive_path = None
+        if archive_path in (output, *output.parents):
             raise ValueError('Published archives are immutable; choose a candidate destination')
     if output.suffix.lower() != suffix:
         raise ValueError("Assembly output must be an editable .svg file")
@@ -384,7 +407,7 @@ def _destination(output_path, inputs, *, suffix=".svg", protect_existing=True):
                     yield from hashes(item)
             elif isinstance(value,list):
                 for item in value: yield from hashes(item)
-        if any(current_hash in set(hashes(json.loads(p.read_text()))) for p in definitions):
+        if any(current_hash in set(hashes(json.loads(p.read_text(encoding='utf-8')))) for p in definitions):
             raise ValueError('Existing output matches accepted frozen bytes; create a separate candidate')
     if output in {Path(p).resolve() for p in inputs} or output.with_suffix(output.suffix+'.json') in {Path(p).resolve() for p in inputs}:
         raise ValueError("Assembly output would overwrite a bound input")
@@ -397,18 +420,23 @@ def _destination(output_path, inputs, *, suffix=".svg", protect_existing=True):
         def paths(value):
             if isinstance(value, dict):
                 if isinstance(value.get('path'), str):
-                    yield Path(value['path']).expanduser().resolve()
+                    if not external_scope_applies(value['path']):
+                        return
+                    try:
+                        yield relocated_external_directory(Path(value['path']).expanduser()).resolve()
+                    except FileNotFoundError:
+                        yield Path(value['path']).expanduser().resolve()
                 for v in value.values(): yield from paths(v)
             elif isinstance(value, list):
                 for v in value: yield from paths(v)
-        if output in set(paths(json.loads(state.read_text()))):
+        if output in set(paths(json.loads(state.read_text(encoding='utf-8')))):
             raise ValueError("Output is managed by a current figure state; use the guarded review/working-copy workflow or a new candidate destination")
     return output
 
 
 def _baseline(path):
     metadata = resolve_artifact(path)
-    result = json.loads(metadata.read_text())
+    result = json.loads(metadata.read_text(encoding='utf-8'))
     if not isinstance(result.get('panels'), list) or not result.get('output_sha256') or not result.get('output'):
         raise ValueError("Baseline needs a recorded assembly and panel provenance")
     image = resolve_artifact(result['output'], expected_sha256=result['output_sha256'])
@@ -467,7 +495,7 @@ def render(layout_path: Path, output_path: Path, *, strict: bool = False,
             raise FileNotFoundError(message)
         raise ValueError(message)
     layout_path = Path(layout_path).resolve()
-    _, layout = prepare_layout(json.loads(layout_path.read_text()), source_overrides, only_panel)
+    _, layout = prepare_layout(json.loads(layout_path.read_text(encoding='utf-8')), source_overrides, only_panel)
     inputs = [layout_path, Path(__file__), *[REPO/'src/classical_conditioning'/name for name in ('figures/assembly_sources.py','external_artifacts.py','artifacts.py','figure_workspace.py')]]
     for panel in inspection['panels']:
         inputs.extend(Path(s['path']) for s in (panel['source'], panel['original_source']) if s.get('path'))
@@ -621,7 +649,7 @@ def main() -> None:
                 report['output'] = str(_destination(args.output,sources))
             if args.baseline_manifest and report['can_render']:
                 baseline, metadata, _ = _baseline(args.baseline_manifest)
-                _, prepared = prepare_layout(json.loads(args.layout.read_text()),source_overrides,args.panel)
+                _, prepared = prepare_layout(json.loads(args.layout.read_text(encoding='utf-8')),source_overrides,args.panel)
                 candidate = {'panels':[{'id':safe_name(p['id']),'sha256':p['source']['sha256'],'box':p['box'],
                                        'content_box':next(x for x in prepared['panels'] if x['id']==p['id']).get('content_box',p['box'])}
                                       for p in report['panels']],

@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-28",
+  "scope": "SSD portability reconciliation of previously published study and figure controls",
+  "authority": "Recorded SSD publication and later scoped rebind; no new scientific selection or freeze",
+  "source_publication": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/controls-publication-receipt.json",
+  "g_followup": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/g-scope-consolidation/controls-publication.json",
+  "figure3_followup": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/source-atlas-storage-rebind.json",
+  "guards": "99 recorded non-control inputs and recovered relocation index authenticated and rechecked under publication locks",
+  "controls": [
+    {
+      "path": "docs/paper/study-sources.json",
+      "starting_sha256": "8449cc93b588640e0b36f22afea719406831fcfc42541f91e5c9ffbf77346e54",
+      "published_sha256": "d444d6b94a66ce4fa2e62eeade2ce29bdee616a46e99573b3f51ff13b320a91e"
+    },
+    {
+      "path": "docs/paper/figures/figure-01/current-state.json",
+      "starting_sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c",
+      "published_sha256": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/current-state.json",
+      "starting_sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c",
+      "published_sha256": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-a/current-state.json",
+      "starting_sha256": "936c94742718f29b064f84440e62f7010d180f5483e5267f7ea698cd9940e82d",
+      "published_sha256": "1c9215f737202d1182c22d03ea809a333b21126c39862bbbaf78a4a1e1b0e2f4"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "starting_sha256": "9833850b3d35ece4a8819c9e54c94efb1776629bd9caa59e305101b1a88d4da8",
+      "published_sha256": "bcc0818c666091f2ac60d4ce0d4615e65324e6bfc3f63d660d5e3dcb42d0cc8d"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/current-state.json",
+      "starting_sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6",
+      "published_sha256": "e6d449cbc74efb310f0bc4a8c833edddb00a821fe9a49e857726328341a767c9"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/exploratory-state.json",
+      "starting_sha256": "7eb65d7f09a936f664323c684d67bda59dea42c2fc3073f6c0cc11969730527e",
+      "published_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe"
+    }
+  ],
+  "limitation": "Native Mac verification and inspection of later live Mac edits await reachable SSH. Simultaneous cross-machine shared-filesystem locking remains unverified. Captured Mac/PC sources and final saved collection have been authenticated.",
+  "recovery_catalogue": {
+    "path": "records/repository-archive/verified-artifact-locations.json",
+    "sha256": "9c2eaa043e3475acfc80301bdd1972efd72d3eba3b245636457c026d43d2410c",
+    "authenticated_entries": 297,
+    "prior_entries_preserved": 294,
+    "publication": "existing guarded control publisher with recovered relocation index and artifact hashes rechecked under lock"
+  },
+  "verification": {
+    "figure1_edit_snapshot_bindings": 76,
+    "windows_autocrlf_checkout": "exact selected freeze bytes preserved",
+    "python313_affected_suite": "81 tests passed; 1 skipped (Windows symlink privilege)",
+    "windows_command_organization": "12 tests passed",
+    "latest_python313_combined_suite": "208 tests run: 205 passed, 3 skipped for Windows symlink privilege",
+    "protected_checkout_paths": 452
+  },
+  "review_continuation": {
+    "date": "2026-10-28",
+    "scope": "Review and continue the organized-SSD portability implementation; no SSD artifact regeneration or new scientific selection",
+    "fixes": [
+      "Discover a uniquely labelled mounted JOAQUIM volume on Windows; explicit existing root configuration takes precedence; ambiguous mounts fail.",
+      "Resolve directory-only and chained exact-file moves, historical Windows/Mac references, and hash-specific versions through the same resolver.",
+      "Reject traversal, missing volumes, corrupt bytes and ambiguous archived versions; preserve active manual edits rather than replacing them with historical recovery.",
+      "Use UTF-8 explicitly in affected maintenance readers; report unavailable Windows allocated-space metrics as null.",
+      "Route assembly destinations, scoped figure guards and affected source adapters through the resolver; test missing Mac mount syntax before Windows path expansion.",
+      "Recover ordered figure-browser modules and tests from preserved SSD implementation snapshots; integrate their command catalogue, Windows URL paths and publication guard checkpoints.",
+      "Reconcile storage, study workspace, review-library and PC handoff guidance with the consolidated figure-led layout.",
+      "Restore saved Mac direct-byte removal safeguards, duplicate publication-target rejection and five missing regression tests while retaining PC extensions.",
+      "Repair the legacy Mac wrapper repository binding and apply the same scoped directory relocations.",
+      "Recognize a detected alternate Windows drive letter when canonicalizing resolver results without explicit configuration.",
+      "Recover the final saved main-paper wrapper using its authenticated completion receipt, original rendering functions and exact embedded SVG/legend identities; preserve all SSD bytes.",
+      "Retire an obsolete recovery binding when a later requested collection build publishes current sources, preserving prior evidence.",
+      "Route explicit metric-review destinations through directory relocation for both historical Windows and canonical Mac references; regression and metric command suites passed."
+    ],
+    "recovered_sources": [
+      {
+        "source": "ordered-figure-library-20261027/implementation-evidence/scripts/reviews/versions.py",
+        "observed_source_sha256": "3838f2bfa9026a5f86f264c6d407204573888a8bb072c1f993afa68ba43c0bc7"
+      },
+      {
+        "source": "ordered-figure-library-20261027/implementation-evidence/scripts/reviews/ordered_library.py",
+        "observed_source_sha256": "e7e166490c009d15b48f06c4ec7c5348af127c314aec1c385e5066a7715d0efc"
+      },
+      {
+        "source": "ordered-figure-library-20261027/implementation-evidence/tests/test_figure_version_browser.py",
+        "observed_source_sha256": "afc4c9f63e658158c1f3ed591c8fee39fe1e78db5dad7044089ec029a9d42b81"
+      }
+    ],
+    "source_recovery_method": "Read preserved source snapshots, record SHA-256, require identical SHA-256 immediately before copying, then reconcile portability edits locally. Original SSD snapshots preserved.",
+    "ordered_browser": {
+      "published_versions_sha256": "e80ad02819a9b224230a51468917055ba8a001e8c85029f057fd77400770317e",
+      "existing_generated_package_check": "passed",
+      "existing_source_ledger_check": "passed; zero issues",
+      "catalogue_mode": "version_browser=1 reconciled from saved patch under existing control publisher with 70 bound inputs rechecked"
+    },
+    "external_audit": {
+      "command": ".venv/Scripts/python.exe scripts/check_repository_structure.py --external",
+      "result": "passed",
+      "protected_files_checked": 365,
+      "current_states_checked": 10,
+      "archive_transactions_verified": 14,
+      "issues": [],
+      "unavailable_external_evidence": [],
+      "archive_payload_files_verified": 2214,
+      "exact_previously_authorized_absences": 10,
+      "existing_ordered_browser_and_source_ledger": "passed as part of external audit",
+      "ssd_bytes_written": false
+    },
+    "byte_protection": {
+      "gitattributes_sha256": "2a9201e7818410358e59d17d50b4028535616520044ce69b04220aa74e9a4f4c",
+      "paths": 452,
+      "method": "All protected indexed blobs and new authenticated inputs exercised in disposable Git workspaces with autocrlf=true/eol=crlf and autocrlf=false/eol=lf. Tracked sources always use indexed blobs; independent working edits are preserved. Source index entries checked before and after. Native macOS execution remains pending."
+    },
+    "lock_test": "Independent child process denied immediately while parent holds lock; acquires after parent exits via exception; Windows Python 3.13.",
+    "guard_verification": {
+      "current_figure1": "passed; selected scoped state authenticated",
+      "main_paper_collection": "passed; exact final saved wrapper authenticated; ordered fig1/fig2; no whole-figure freeze created"
+    },
+    "pending_acceptance": [
+      "Execute corresponding tests on an actual Mac, including native Git checkout behavior, symlink cases and inspection/preservation of any later live Mac edits.",
+      "Test simultaneous cross-machine locking on the actual shared filesystem/access arrangement before claiming support.",
+      "Run the three skipped symlink cases on a Windows account with creation privilege or on macOS."
+    ],
+    "ssd_artwork_or_scientific_payloads_changed": false,
+    "scientific_selection_or_freeze_changed": false,
+    "final_recovery_catalogue": {
+      "path": "records/repository-archive/verified-artifact-locations.json",
+      "sha256": "107d28c1f50af23b1d9b8fca68260905d5ad797a75ffca31317eb2be40c5be99",
+      "entries": 301
+    },
+    "verification_runs": [
+      {
+        "environment": "Windows Python 3.13.14",
+        "suite": "Portability, archive, structure, study-source, storage publication, figure workspace, independent run lock, collection, command organization, ordered browser, review library, SVG assembly and integrity",
+        "tests_run": 182,
+        "skipped": 3,
+        "result": "OK"
+      },
+      {
+        "suite": "Browser plus panel B/C, aligned example and individual atlas source adapters",
+        "tests_run": 35,
+        "skipped": 1,
+        "result": "OK"
+      },
+      {
+        "suite": "Final command adapters, locking and archive checks",
+        "tests_run": 44,
+        "skipped": 0,
+        "result": "OK"
+      }
+    ],
+    "diff_check": "Passed with cr-at-eol enabled for protected CRLF bytes; no staged/index content changes. No protected blobs renormalized.",
+    "test_artifact_cleanup": "Failed missing-volume fixture created preview.svg and preview.svg.json under C:/Volumes/UNAVAILABLE-ASSEMBLY-TEST. Exact directory and two filenames verified, only those two files removed, then empty fixture directory removed; mount guard corrected and test passes.",
+    "scientific_authority_comparison": {
+      "states_checked": 11,
+      "selection_record_hashes_and_freeze_status": "unchanged versus merged HEAD",
+      "states": [
+        "docs/paper/figures/figure-01/10strace-example/current-state.json",
+        "docs/paper/figures/figure-01/current-state.json",
+        "docs/paper/figures/figure-01/trace10-learner-selection/current-state.json",
+        "docs/paper/figures/figure-02/current-state.json",
+        "docs/paper/figures/figure-02/panel-a/current-state.json",
+        "docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+        "docs/paper/figures/figure-03/current-state.json",
+        "docs/paper/figures/figure-03/exploratory-state.json",
+        "docs/paper/figures/figure-04/3strace-model-draft-state.json",
+        "docs/paper/figures/figure-04/delay-model-draft-state.json",
+        "docs/paper/figures/main-paper-current-state.json"
+      ]
+    },
+    "final_combined_verification": {
+      "environment": "Windows Python 3.13.14",
+      "tests_run": 208,
+      "passed": 205,
+      "skipped": 3,
+      "skip_reason": "Windows account lacks symlink creation privilege",
+      "result": "OK",
+      "elapsed_seconds": 150.774,
+      "coverage": "Resolver and alternate-letter detection, all 452 protected checkout paths under both Git settings, archive/structure/study sources, saved Mac migration safeguards, publication guards, child-process locks, collection recovery and subsequent build, recovered version browser, review library, SVG assembly, panel B/C, aligned example and individual atlas source adapters",
+      "indexed_checkout_verification": "Repeated against the staged commit candidate; all 452 paths survive both checkout settings and the test preserves the source index."
+    },
+    "source_reconciliation": {
+      "path": "records/repository-history/2026-10-28-ssd-portability/source-reconciliation.json",
+      "sha256": "e8870666718ea4a8f990366618f7e0dec2aae8a966bbc45aede5fcb4eae7f7d9",
+      "historical_files_authenticated": 2199,
+      "pc": 848,
+      "mac": 1351,
+      "baseline_snapshot_files": 33,
+      "consolidation_consumers": 17,
+      "recorded_storage_edits": 23,
+      "implementation_snapshots": 6,
+      "unresolved_supported_source_differences": [],
+      "live_mac_edits": "not inspected; SSH unreachable"
+    },
+    "collection_recovery": {
+      "path": "records/figure-reviews/authority-reconciliation-20261025/collection-checkout-recovery-20261028.json",
+      "sha256": "ebd9ba0bd9c6912f6fa61464de7ddea98b5f7450bac875fb251a2b0f715a1bd9",
+      "html_sha256": "099740a392a20f0a9b22c5059d709de9989c2a530bae9a86cba4e594ae5ea724",
+      "receipt_sha256": "ee94785eb03b27dec77748f6201396e9a3e25dcd89e1e1817f210171d3716558",
+      "ssd_bytes_written": false,
+      "selected_figures": [
+        "fig1",
+        "fig2"
+      ],
+      "freeze_created": false
+    },
+    "ssh_verification": {
+      "target": "joaquim@172.27.1.111",
+      "result": "connection to port 22 timed out on repeated attempts",
+      "pc_wifi_address": "172.20.10.4",
+      "mac_checkout_changed": false,
+      "native_tests_executed": false
+    },
+    "mac_check_sequence": "User requested Mac verification last, after local implementation and Windows/SSD checks.",
+    "implementation_status": "Supported source reconciliation, resolver/consumer portability, guarded locks, byte protection, final collection recovery and maintained guidance complete; Windows and SSD verification passed. Native Mac/live-edit acceptance and actual cross-machine lock semantics remain pending.",
+    "committed_or_pushed_at_verification_time": false,
+    "publication_authorized_after_verification": true,
+    "mac_handoff": "docs/project-maintenance/mac-ssd-verification-handoff.md",
+    "mac_acceptance_location": "Separate Mac chat requested by author after this commit and push; no further SSH retry in the Windows chat.",
+    "checkout_byte_restoration": {
+      "path": "records/repository-history/2026-10-28-ssd-portability/checkout-byte-restoration.json",
+      "sha256": "99acc31550e24bd5dacf266f3f20914665d6b8163d073bee77ebea4c5146f2f3",
+      "files_restored": 30,
+      "independent_content_edits_rewritten": false,
+      "index_changed": false
+    },
+    "additional_metric_verification": {
+      "environment": "Windows Python 3.13.14",
+      "tests_run": 11,
+      "passed": 11,
+      "skipped": 0,
+      "result": "OK",
+      "elapsed_seconds": 1.739,
+      "coverage": "New Windows/Mac metric workspace relocation regression plus existing metric comparison and figure commands"
+    },
+    "final_verification_totals": {
+      "tests_run_across_disjoint_suites": 219,
+      "passed": 216,
+      "skipped": 3,
+      "skip_reason": "Windows symlink creation privilege",
+      "native_mac": "pending in separate Mac chat",
+      "cross_machine_locking": "pending actual shared-filesystem test"
+    }
+  }
+}

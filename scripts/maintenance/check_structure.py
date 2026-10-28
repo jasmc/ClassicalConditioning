@@ -21,7 +21,7 @@ from urllib.parse import unquote
 
 ROOT = _COMMAND_REPOSITORY
 sys.path.insert(0, str(ROOT / 'src'))
-from classical_conditioning.external_artifacts import resolve_artifact, sha256, check_study_sources
+from classical_conditioning.external_artifacts import resolve_artifact, sha256, check_study_sources, relocated_external_directory
 
 LINK = re.compile(r'(?<!!)\[[^\]]+\]\((<[^>]+>|[^)]+)\)')
 
@@ -41,11 +41,13 @@ def recorded_path(value: str, repo: Path, aliases=(), *, base: Path | None = Non
                 raise ValueError('Recorded repository path escapes its checkout alias')
             return (repo / relative).resolve()
     path = Path(value)
+    if PurePosixPath(text).is_absolute() and not path.is_absolute():
+        return path
     return (path if path.is_absolute() else (base or repo) / path).resolve()
 
 
 def markdown_anchors(path: Path) -> set[str]:
-    body = re.sub(r'```.*?```', '', path.read_text(), flags=re.S)
+    body = re.sub(r'```.*?```', '', path.read_text(encoding='utf-8'), flags=re.S)
     anchors = set(re.findall(r'<a\b[^>]*\bid=["\']([^"\']+)', body))
     counts: dict[str, int] = {}
     for heading in re.findall(r'^#{1,6}\s+(.+?)\s*#*$', body, flags=re.M):
@@ -62,14 +64,14 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     issues: list[str] = []
     unavailable: list[str] = []
     issues.extend(check_study_sources(repo, external=external))
-    policy = json.loads((repo / 'docs/project-maintenance/structure-policy.json').read_text())
+    policy = json.loads((repo / 'docs/project-maintenance/structure-policy.json').read_text(encoding='utf-8'))
     aliases = policy.get('recorded_repository_roots', [])
     reading_catalogue = repo / 'docs/paper/figures/review-library.json'
     if reading_catalogue.is_file():
         spec = importlib.util.spec_from_file_location('review_library', repo / 'scripts/reviews/library.py')
         library = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(library)
-        reading_report = library.check(json.loads(reading_catalogue.read_text()), repo, external=external)
+        reading_report = library.check(json.loads(reading_catalogue.read_text(encoding='utf-8')), repo, external=external)
         issues.extend('Review library: ' + issue for issue in reading_report['issues'])
     exceptions = set(policy['compatibility_files'])
     for path in (repo / 'docs').rglob('*'):
@@ -79,7 +81,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         if key not in exceptions and not any(key.startswith(prefix) for prefix in policy['active_doc_prefixes']):
             issues.append('Misplaced documentation: ' + key)
         if key.startswith('docs/running-analysis/') and path.suffix == '.md':
-            body = re.sub(r'```.*?```', '', path.read_text(), flags=re.S)
+            body = re.sub(r'```.*?```', '', path.read_text(encoding='utf-8'), flags=re.S)
             headings = re.findall(r'^#{1,6}\s+(.+)$', body, flags=re.M)
             for heading in headings:
                 if any(heading.casefold().startswith(prefix.casefold()) for prefix in policy.get('future_work_headings', [])):
@@ -91,7 +93,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         if (repo / key).exists():
             issues.append('Superseded layout remains: ' + key)
     archive = repo / 'records/repository-archive'
-    moves = json.loads((archive / 'relocations.json').read_text())['repository_moves']
+    moves = json.loads((archive / 'relocations.json').read_text(encoding='utf-8'))['repository_moves']
     for original in moves:
         key = original
         seen = set()
@@ -104,13 +106,13 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         else:
             if not (PurePosixPath(key).is_absolute() or PureWindowsPath(key).is_absolute()) and not (repo / key).is_file():
                 issues.append('Missing relocation destination: ' + original + ' -> ' + key)
-    index = json.loads((repo / 'records/frozen-analyses/index.json').read_text())
+    index = json.loads((repo / 'records/frozen-analyses/index.json').read_text(encoding='utf-8'))
     main_manifest = repo / policy['migration_manifest']
     manifests = [main_manifest, *[p for p in sorted((repo / 'records/repository-history').glob('*/migration.json')) if p != main_manifest]]
     # Frozen-index requirements cannot be relaxed by mutable-index policy.
     protected = [(entry, False) for entry in index['files']]
     for manifest in manifests:
-        protected.extend((entry, True) for entry in json.loads(manifest.read_text()).get('protected_files', []))
+        protected.extend((entry, True) for entry in json.loads(manifest.read_text(encoding='utf-8')).get('protected_files', []))
     originals = {(entry['path'], entry['sha256']): entry['preserved_original']
                  for entry in policy.get('mutable_index_originals', [])}
     checked = set()
@@ -153,7 +155,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         if not catalogue_path.is_file():
             issues.append('Missing script catalogue: ' + catalogue)
         else:
-            body = catalogue_path.read_text()
+            body = catalogue_path.read_text(encoding='utf-8')
             for path in (repo / 'scripts').rglob('*'):
                 if path.is_file() and path.suffix in {'.py', '.js', '.cjs', '.ps1'}:
                     relative = path.relative_to(repo / 'scripts').as_posix()
@@ -167,7 +169,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         key = path.relative_to(repo).as_posix()
         if not path.is_file():
             continue
-        body = re.sub(r'```.*?```', '', path.read_text(), flags=re.S)
+        body = re.sub(r'```.*?```', '', path.read_text(encoding='utf-8'), flags=re.S)
         for match in LINK.finditer(body):
             target = match[1].strip('<>')
             if target.startswith(('http:', 'https:', 'app:', 'codex:', 'mailto:')):
@@ -175,8 +177,17 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
             target, _, fragment = target.partition('#')
             target = unquote(target)
             if target.startswith('/Volumes/'):
-                if external and not Path(target).exists():
-                    unavailable.append(key + ': ' + target)
+                if external:
+                    try:
+                        if target.endswith('/'):
+                            if not relocated_external_directory(target.rstrip('/'), repo=repo).is_dir():
+                                raise FileNotFoundError(target)
+                        else:
+                            resolve_artifact(target, repo=repo)
+                    except FileNotFoundError as error:
+                        unavailable.append(key + ': ' + str(error))
+                    except ValueError as error:
+                        issues.append(key + ': ' + str(error))
                 continue
             destination = recorded_path(target, repo, aliases, base=path.parent) if target else path
             if not destination.exists():
@@ -193,7 +204,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
     if collection.is_file():
         state_paths.append(collection)
     registry_path = repo / 'configs/paper-figures/behavior-paper.json'
-    registry = json.loads(registry_path.read_text()).get('panels', {}) if registry_path.is_file() else {}
+    registry = json.loads(registry_path.read_text(encoding='utf-8')).get('panels', {}) if registry_path.is_file() else {}
     for panel_id, panel in registry.items():
         selection = panel.get('scoped_selection_record')
         if selection and ('/history/' in selection or not (repo / selection).is_file()):
@@ -202,7 +213,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         if not state_path.is_file():
             issues.append('Missing figure state: ' + str(state_path.relative_to(repo)))
             continue
-        state = json.loads(state_path.read_text())
+        state = json.loads(state_path.read_text(encoding='utf-8'))
         def resolved(value):
             return recorded_path(value, repo, aliases)
         entries = list(state.get('scientific_selection', {}).get('records', []))
@@ -220,7 +231,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
                     elif panel.get('scientific_definition'):
                         source = repo / selection
                         if source.is_file():
-                            definition = json.loads(source.read_text()).get('scientific_definition')
+                            definition = json.loads(source.read_text(encoding='utf-8')).get('scientific_definition')
                             if definition is not None and definition != panel['scientific_definition']:
                                 issues.append('Scientific definition/selection disagreement: ' + panel_id)
             for mapping in state.get('draft', {}).get('condition_order', []):
@@ -256,10 +267,12 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
                     except (ValueError, FileNotFoundError):
                         issues.append('Bound figure record changed: ' + str(path))
             elif external:
-                if not path.is_file():
-                    unavailable.append(str(path))
-                elif sha256(path) != item['sha256']:
-                    issues.append('Bound external artifact changed: ' + str(path))
+                try:
+                    resolve_artifact(item['path'], expected_sha256=item['sha256'], repo=repo)
+                except FileNotFoundError as error:
+                    unavailable.append(str(error))
+                except ValueError as error:
+                    issues.append(str(error))
     verified_transactions = []
     dispositions = []
     for binding in policy.get('archive_dispositions', []):
@@ -268,16 +281,20 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
                 or sha256(path) != binding['sha256']):
             issues.append('Archive disposition changed: ' + binding['path'])
         else:
-            dispositions.append(json.loads(path.read_text()))
+            dispositions.append(json.loads(path.read_text(encoding='utf-8')))
     if external:
-        if not Path('/Volumes/JOAQUIM').is_mount():
+        try:
+            volume = relocated_external_directory('/Volumes/JOAQUIM', repo=repo)
+        except (FileNotFoundError, ValueError):
+            volume = None
+        if volume is None:
             unavailable.append('JOAQUIM is not mounted; external verification incomplete')
         else:
             spec = importlib.util.spec_from_file_location('repository_archive_check', repo / 'scripts/maintenance/archive.py')
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
             for manifest_path in [archive / 'transfer-inventory.json', *sorted(archive.glob('*/transfer-inventory.json'))]:
-                manifest = json.loads(manifest_path.read_text())
+                manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
                 try:
                     audit = module.audit_payload(manifest, Path(manifest['archive_root']), dispositions=dispositions)
                     verified_transactions.append({'manifest': str(manifest_path.relative_to(repo)), **audit})
@@ -285,7 +302,7 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
                     unavailable.append(str(error))
                 except (ValueError, OSError) as error:
                     issues.append(str(error))
-            locations = json.loads((archive / 'verified-artifact-locations.json').read_text())['entries']
+            locations = json.loads((archive / 'verified-artifact-locations.json').read_text(encoding='utf-8'))['entries']
             for entry in locations:
                 try:
                     resolve_artifact(entry['references'][0], expected_sha256=entry['sha256'], repo=repo)

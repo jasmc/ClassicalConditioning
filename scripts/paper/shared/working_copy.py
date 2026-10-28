@@ -25,6 +25,7 @@ import sys
 ROOT=_COMMAND_REPOSITORY
 sys.path.insert(0,str(ROOT/'src'))
 from classical_conditioning.command_provenance import command_sources
+from classical_conditioning.external_artifacts import resolve_artifact
 from classical_conditioning.figure_workspace import (Snapshot,editable_svg,file_hash,measured_presentation,publish_state,sha,StaleFigureState,draft_axis_findings,bind_loaded_state)
 
 REVIEW_ROOT=ROOT/'records/figure-reviews'
@@ -41,15 +42,22 @@ def verify_state(path=STATE,expected_bytes=None):
         if state[key].get('working_svg'):records.append(state[key]['working_svg'])
         if state[key].get('effective_presentation'):records.append(state[key]['effective_presentation'])
     for item in records:
-        if file_hash(item['path'])!=item['sha256']:raise StaleFigureState('Bound current artifact changed/unavailable: '+item['path'])
+        try:
+            active=any(item is ref for ref in state['draft'].values() if isinstance(ref,dict))
+            resolved = resolve_artifact(item['path'], expected_sha256=item['sha256'], repo=ROOT,allow_historical=not active)
+        except (ValueError, FileNotFoundError) as error:
+            raise StaleFigureState('Bound current artifact changed/unavailable: '+item['path']) from error
+        if file_hash(resolved)!=item['sha256']:raise StaleFigureState('Bound current artifact changed/unavailable: '+item['path'])
     if file_hash(path)!=sha(raw):raise StaleFigureState('Current state advanced while being read')
     return state
 
 def begin(ticket):
     """Record candidate/source hashes before an editing turn, not after it."""
     raw=STATE.read_bytes();state=verify_state(expected_bytes=raw)
-    paths=[STATE,*[Path(i['path']) for i in state['scientific_selection']['records']],
-           Path(state['draft']['review']['path']),*[Path(state[k]['working_svg']['path']) for k in ('frozen_display','draft') if state[k].get('working_svg')]]
+    def bound(ref):
+        return resolve_artifact(ref['path'], expected_sha256=ref['sha256'], repo=ROOT)
+    paths=[STATE,*[bound(i) for i in state['scientific_selection']['records']],
+           bound(state['draft']['review']),*[bound(state[k]['working_svg']) for k in ('frozen_display','draft') if state[k].get('working_svg')]]
     snapshot=Snapshot([*command_sources(__file__), *(paths)])
     bind_loaded_state(snapshot,state,raw,STATE)
     value=dict(schema_version=1,figure_id='fig1',state_path=str(STATE),starting_hashes=snapshot.hashes,
@@ -61,12 +69,12 @@ def registry_sources():
     # Exact current selections, not whichever manifest filename sorts last.
     paths={'E':ROOT/'records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/candidate.json',
            'FGH':ROOT/'records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/candidate.json'}
-    index=json.loads((ROOT/'records/frozen-analyses/index.json').read_text())
+    index=json.loads((ROOT/'records/frozen-analyses/index.json').read_text(encoding='utf-8'))
     known={str(ROOT/i['path']):i['sha256'] for i in index['files']}
     registries={}
     for pid,path in paths.items():
         if file_hash(path)!=known[str(path)]:raise ValueError('Frozen registry hash mismatch: '+str(path))
-        registries[pid]=json.loads(path.read_text())['element_registry']
+        registries[pid]=json.loads(path.read_text(encoding='utf-8'))['element_registry']
     return registries,list(paths.values())+[ROOT/'records/frozen-analyses/index.json']
 
 def prepare(output_dir,revision,refresh=False):
@@ -100,7 +108,7 @@ def prepare(output_dir,revision,refresh=False):
     snapshot.check()
     if file_hash(review_path)!=verification['review_sha256']:raise ValueError('Current review hash mismatch')
     sources,_=module.load_sources();source=sources[0]
-    text=review_path.read_text();blobs=re.findall(r'<img class="figure"[^>]*src="data:image/svg\+xml;base64,([^"]+)"',text)
+    text=review_path.read_text(encoding='utf-8');blobs=re.findall(r'<img class="figure"[^>]*src="data:image/svg\+xml;base64,([^"]+)"',text)
     if len(blobs)!=4:raise ValueError('Expected original/candidate Figures 1 and 2')
     original=base64.b64decode(blobs[1],validate=True);draft=base64.b64decode(blobs[0],validate=True)
     if original!=source['bytes']:raise ValueError('Review original does not match current scoped frozen sources')
@@ -152,8 +160,10 @@ def main():
     if args.command=='begin':print(json.dumps(begin(args.ticket),indent=2));return
     if args.command=='display-target':
         state=verify_state();scope=state[state['default_display']]
+        def local(ref):
+            return {**ref, 'path': str(resolve_artifact(ref['path'], expected_sha256=ref['sha256'], repo=ROOT))} if ref else ref
         print(json.dumps(dict(figure_id=state['figure_id'],format=state.get('default_display_format'),
-                              html=scope.get('review'),svg=scope.get('working_svg'),legend=scope.get('legend'),
+                              html=local(scope.get('review')),svg=local(scope.get('working_svg')),legend=local(scope.get('legend')),
                               policy=state.get('display_policy')),indent=2));return
     result=prepare(args.output_dir.resolve(),args.revision,args.refresh) if args.command=='prepare' else verify_state()
     print(json.dumps({key:result[key] for key in ('frozen_display','draft')},indent=2))

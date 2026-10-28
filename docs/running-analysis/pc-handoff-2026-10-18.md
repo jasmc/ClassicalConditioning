@@ -223,10 +223,18 @@ ratio outcome until an explicit scientific change is made.
 
 Set `CLASSICAL_CONDITIONING_ARTIFACT_ROOT` to an existing external output
 directory for tools that use that setting. It chooses **new output paths**;
-it does not remap old input paths. Current states, evidence, archive indexes
-and some scripts contain `/Volumes/JOAQUIM` and `/Users/joaquim/...` paths.
-Windows source/archive resolution and guarded figure publication still need
-verification or a supported adapter. Never rewrite frozen manifests/hashes,
+set `CLASSICAL_CONDITIONING_JOAQUIM_ROOT` to the SSD's actual existing volume
+root when overriding discovery. Windows detects a unique mounted `JOAQUIM`
+volume; `J:` is the currently observed letter. Recorded Mac/Windows references
+resolve through the shared resolver and authenticated consolidation indexes.
+Current figure/study bindings have been reconciled under publication guards.
+Use the Python 3.13 environment and verification commands in the maintained
+[storage guide](../project-maintenance/storage.md#host-configuration-and-verification).
+The former machine mirror and dated handoff directories have been consolidated;
+their historical names remain recovery aliases, not active output destinations.
+The main-paper collection's final saved wrapper has been recovered through its
+authenticated completion receipt without rebuilding SSD artwork or HTML.
+Mac-side execution and cross-machine locking remain explicitly pending. Never rewrite frozen manifests/hashes,
 invent a mount or substitute an older artifact to bypass a missing path.
 `mac_ssd_run.py` is the Windows-to-Mac adapter, not a reverse PC adapter.
 

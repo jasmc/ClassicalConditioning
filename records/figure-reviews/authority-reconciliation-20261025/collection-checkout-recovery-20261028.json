@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "operation": "recover-authenticated-saved-collection",
+  "prior_state_sha256": "d055b244836c360cbebc57f1129f133f30be060051cc11fa70675db36b1da4cb",
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html",
+    "sha256": "099740a392a20f0a9b22c5059d709de9989c2a530bae9a86cba4e594ae5ea724"
+  },
+  "sources": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/collection-refresh/completed.json",
+      "sha256": "ee94785eb03b27dec77748f6201396e9a3e25dcd89e1e1817f210171d3716558"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/collection-refresh/prepared-07acfb7d1be9b99363c0b78c5630f932881e158deb2a775ebe879b236247d0ec",
+      "sha256": "07acfb7d1be9b99363c0b78c5630f932881e158deb2a775ebe879b236247d0ec"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html",
+      "sha256": "099740a392a20f0a9b22c5059d709de9989c2a530bae9a86cba4e594ae5ea724"
+    },
+    {
+      "path": "records/figure-reviews/authority-reconciliation-20261025/collection-storage-recovery-20261028.json",
+      "sha256": "830efe02c4f3417da61dd419b665550fc91bf1681d73dd8d4236f8c50cb4d47a"
+    },
+    {
+      "path": "records/figure-reviews/authority-reconciliation-20261025/collection-storage-recovery-final-20261028.json",
+      "sha256": "7b98128b91407ce953c0a0061912ba675046d0e6b80a38a67f3d3b7bc5e6474d"
+    }
+  ],
+  "authored_provenance": {
+    "figures": [
+      {
+        "id": "fig1",
+        "state": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+          "sha256": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f"
+        },
+        "svg": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/assembly/current/figure-01-v16-editing.svg",
+          "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
+        },
+        "legend": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
+          "sha256": "3333cca676ef937fd59c311556238eb003e72b99fb9a5c1ec9906e37dcf2e8f7",
+          "panel_ids": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        "layout_frames": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json",
+          "sha256": "58f68571a88eed028bc3609b65d3fd20a98c5a708e7905d1f506deb115d5e1cf"
+        },
+        "whole_figure_frozen": false,
+        "embedded_svg_sha256": "6bc71fd435f7c0a8796c6d545ce1534ef352d1b8c0b8ba196d7bf7d5875234ee",
+        "publication_size_mm": [
+          136.0,
+          163.69779259402225
+        ]
+      },
+      {
+        "id": "fig2",
+        "state": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+          "sha256": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030"
+        },
+        "svg": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/current/figure2-current-minimal.svg",
+          "sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064"
+        },
+        "legend": {
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
+          "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
+          "panel_ids": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ]
+        },
+        "layout_frames": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json",
+          "sha256": "f17b067aef34eeec8e4902fdb31d6ae5b586c9cea2c8e0d19f7000cc90741701"
+        },
+        "whole_figure_frozen": false,
+        "embedded_svg_sha256": "7162810fd057dbb6c4b496bab3e0914156431f6492498eb8450b0f89eaede86b",
+        "publication_size_mm": [
+          156.0,
+          156.46844886241664
+        ]
+      }
+    ],
+    "builder": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/shared/collection.py",
+      "sha256": "07acfb7d1be9b99363c0b78c5630f932881e158deb2a775ebe879b236247d0ec"
+    },
+    "layout_policy": {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/configs/paper-figures/layout-frames.json",
+      "sha256": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+    },
+    "scientific_status": "Presentation collection; scope-specific freezes remain authoritative"
+  },
+  "unchanged_renderer_functions": [
+    "encode",
+    "reference",
+    "embedded_svg",
+    "legend_html",
+    "publication_size",
+    "render"
+  ],
+  "current_builder": {
+    "path": "scripts/paper/shared/collection.py",
+    "sha256": "16a7cf9e9a71ddb84d290ad5f9dd62ac7a42c0eeab0cc7984a077d08b0aca485"
+  },
+  "embedded_svg_and_legend_bytes_match": true,
+  "ssd_bytes_written": false,
+  "scientific_selection_changed": false,
+  "freeze_created": false
+}

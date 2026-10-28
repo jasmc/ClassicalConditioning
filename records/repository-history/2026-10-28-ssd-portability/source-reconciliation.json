@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "scope": "26–27 October consolidation and captured PC/Mac source preservation",
+  "merged_head": "6c12dac9a2f295dd0b79955909ecbb4d8192c051",
+  "historical_comparison": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery/evidence/comparison.json",
+    "sha256": "63ec8e7ced63fa1dbb9b51ee2ab2edf37ec3a33854a90c67d1dff3d17a775f38",
+    "bytes": 3754712
+  },
+  "historical_files": {
+    "authenticated_total": 2199,
+    "by_host": {
+      "pc": 848,
+      "mac": 1351
+    },
+    "by_verification": {
+      "exact Git blob authenticated": 1448,
+      "exact SSD original plus normalized Git blob authenticated": 737,
+      "exact retained SSD original authenticated": 14
+    },
+    "authenticated_inventory_sha256": "c40705e68206c621d2643a9c4719959320020f9ef27a1422d510b62d90eab142",
+    "full_inventory": "historical_comparison.working_files"
+  },
+  "historical_git_heads_preserved": {
+    "pc": "b6ce3af1a3996ee8215b4773cec772d410aa027a",
+    "mac": "e702bb8a2204c1ba563e9d4f6cc629a618f7137e"
+  },
+  "baseline_snapshot": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/baseline/snapshot.json",
+    "sha256": "8e1ecbd878ee9965a650b3b2ef3da6166cb3adfb3c11a09bbe34318d478b7d1a",
+    "bytes": 7031
+  },
+  "baseline_files": [
+    {
+      "path": "docs/paper/figures/figure-01/assembly.md",
+      "source_sha256": "c040eddcb4eb8549de729adc85345f1d3c05ae1c15aa6731dbacec739aa9dea4",
+      "current_sha256": "c040eddcb4eb8549de729adc85345f1d3c05ae1c15aa6731dbacec739aa9dea4",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "docs/paper/figures/figure-01/current-state.json",
+      "source_sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c",
+      "current_sha256": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f",
+      "disposition": "superseded by authenticated scoped storage rebind; scientific selection preserved"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/current-state.json",
+      "source_sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c",
+      "current_sha256": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030",
+      "disposition": "superseded by authenticated scoped storage rebind; scientific selection preserved"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-a/current-state.json",
+      "source_sha256": "936c94742718f29b064f84440e62f7010d180f5483e5267f7ea698cd9940e82d",
+      "current_sha256": "1c9215f737202d1182c22d03ea809a333b21126c39862bbbaf78a4a1e1b0e2f4",
+      "disposition": "superseded by authenticated scoped storage rebind; scientific selection preserved"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/README.md",
+      "source_sha256": "102c4319b0f8887dc9a84f9bb395391e0f4702c714248361e7abc513cec8f09a",
+      "current_sha256": "102c4319b0f8887dc9a84f9bb395391e0f4702c714248361e7abc513cec8f09a",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "source_sha256": "9833850b3d35ece4a8819c9e54c94efb1776629bd9caa59e305101b1a88d4da8",
+      "current_sha256": "bcc0818c666091f2ac60d4ce0d4615e65324e6bfc3f63d660d5e3dcb42d0cc8d",
+      "disposition": "superseded by authenticated scoped storage rebind; scientific selection preserved"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/current-state.json",
+      "source_sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6",
+      "current_sha256": "e6d449cbc74efb310f0bc4a8c833edddb00a821fe9a49e857726328341a767c9",
+      "disposition": "superseded by authenticated scoped storage rebind; scientific selection preserved"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/exploratory-state.json",
+      "source_sha256": "7eb65d7f09a936f664323c684d67bda59dea42c2fc3073f6c0cc11969730527e",
+      "current_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe",
+      "disposition": "superseded by authenticated scoped storage rebind; scientific selection preserved"
+    },
+    {
+      "path": "docs/paper/figures/main-paper-current-state.json",
+      "source_sha256": "c41ce89fc56e05ed5c5d4ec9ad264a7c5f95550d32ff3935bafe76d84f375605",
+      "current_sha256": "74d2d48112eebb9ef339296b1d2ec8ae6e79b01d1cfc83cd4a6d9f875ce2da3c",
+      "disposition": "superseded by authenticated scoped storage rebind; scientific selection preserved"
+    },
+    {
+      "path": "docs/paper/figures/review-library.json",
+      "source_sha256": "41f800fdd0efa303de32c04290bbbae783750032fac4d7a83d522f0b6688fdab",
+      "current_sha256": "7aac05ac18e19cd6bcc05f70020f2c9c15bd452ba21142e5408cf908ea51a320",
+      "disposition": "reconciled mutable index; published consolidation plus PC recovery identities retained"
+    },
+    {
+      "path": "docs/paper/study-sources.json",
+      "source_sha256": "8449cc93b588640e0b36f22afea719406831fcfc42541f91e5c9ffbf77346e54",
+      "current_sha256": "d444d6b94a66ce4fa2e62eeade2ce29bdee616a46e99573b3f51ff13b320a91e",
+      "disposition": "reconciled mutable index; published consolidation plus PC recovery identities retained"
+    },
+    {
+      "path": "docs/project-maintenance/storage.md",
+      "source_sha256": "0392f7eb078766af41671b82af748d78f5933ca83b3fae1334cac6c548f1462d",
+      "current_sha256": "54f1ef329d22253351b594645245fa311c463030621ae40bdba87a08f579deca",
+      "disposition": "baseline storage guidance reconciled with consolidated layout and both-platform operation"
+    },
+    {
+      "path": "docs/project-maintenance/structure-policy.json",
+      "source_sha256": "a06b13778092e91f931d58077bce842cb2f23f238ff0b6ac406ebfae0113d3a7",
+      "current_sha256": "c64c02f78b2060eba4f8defab1941cb073591dc615f4adb63743fa8dfebd344f",
+      "disposition": "baseline policy preserved with PC additional Figure 4 state"
+    },
+    {
+      "path": "records/repository-archive/README.md",
+      "source_sha256": "3367f11c444e26da3e7ac05c88cdd329b9454083de290b62298c06fa9673cc0b",
+      "current_sha256": "f3daad8d006a33f25bf4a47152bf399a188ba8294994692b2028ab52c30a9049",
+      "disposition": "baseline retained with PC historical-preservation additions"
+    },
+    {
+      "path": "records/repository-archive/intake-quarantine-20261024/disposition.json",
+      "source_sha256": "98469fc04e857555f8d4a0f3b0b39fe058931c82c7e5e3e1650f048716cde611",
+      "current_sha256": "98469fc04e857555f8d4a0f3b0b39fe058931c82c7e5e3e1650f048716cde611",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-archive/relocations.json",
+      "source_sha256": "3dd170f52b995c35e9936d3847905a5d70f2ce9852cae5f497ffcf1a75ec4564",
+      "current_sha256": "991c6b0be1d9d962d052fadaf9924292ce73a852ed33c61b144b97ef21c604bb",
+      "disposition": "reconciled mutable index; published consolidation plus PC recovery identities retained"
+    },
+    {
+      "path": "records/repository-archive/verified-artifact-locations.json",
+      "source_sha256": "f68743ca8b20b7ad4d90a5c29a8128671eaa7e262af34178050db3e752218e0d",
+      "current_sha256": "107d28c1f50af23b1d9b8fca68260905d5ad797a75ffca31317eb2be40c5be99",
+      "disposition": "reconciled mutable index; published consolidation plus PC recovery identities retained"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/font-cache-disposition.json",
+      "source_sha256": "ec92b196c52561627bde23973c1e7bb1c5bfee1b80d47f3c96a7bfbf0c2de10b",
+      "current_sha256": "ec92b196c52561627bde23973c1e7bb1c5bfee1b80d47f3c96a7bfbf0c2de10b",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/raw-duplicate-disposition.json",
+      "source_sha256": "4dde8555aad9fb87f7cc2ab2c0574d2e862ae10876b82cdb4732b242b25c9d15",
+      "current_sha256": "4dde8555aad9fb87f7cc2ab2c0574d2e862ae10876b82cdb4732b242b25c9d15",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json",
+      "source_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0",
+      "current_sha256": "942c6bedd010adf090cbeddaf22c910e86211723d5b8fea78320f28074c213e0",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/intake-quarantine-assessment.json",
+      "source_sha256": "331d9b937ceb005c4b11ea92b127bf495bbcc75d7655ed53dc9ba4316da9ee01",
+      "current_sha256": "331d9b937ceb005c4b11ea92b127bf495bbcc75d7655ed53dc9ba4316da9ee01",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json",
+      "source_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300",
+      "current_sha256": "24c1996190d77ba4b28e9e69caed996b0b5dd5155da821f3d37d4d61e6c1f300",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/README.md",
+      "source_sha256": "c20730c511785395e14a00759b20fa2361c1d1754ae8e25b2e740658e78efa62",
+      "current_sha256": "220b6d0d2151571b831bc7e7eddf5c00cc609245633798e9f797efae05696342",
+      "disposition": "baseline retained with PC historical-preservation additions"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/figure2-g-guide-bundle-review.json",
+      "source_sha256": "0a1b1e0fc5eea9f0c3ec2835a7cb4af38175164c13abba15c1e629f02745f491",
+      "current_sha256": "0a1b1e0fc5eea9f0c3ec2835a7cb4af38175164c13abba15c1e629f02745f491",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/font-cache-assessment.json",
+      "source_sha256": "106c09014924fc4f98f88b723a5eb3c1c2b752e498979f676ba2b6c1ab148c56",
+      "current_sha256": "106c09014924fc4f98f88b723a5eb3c1c2b752e498979f676ba2b6c1ab148c56",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/review-library-snapshot-disposition.json",
+      "source_sha256": "1dc65701c8b6bc2ca7f225e0121f31eca59a50b8aabbe32e3c3764f39493c1a4",
+      "current_sha256": "1dc65701c8b6bc2ca7f225e0121f31eca59a50b8aabbe32e3c3764f39493c1a4",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition-originals/relocations.json",
+      "source_sha256": "a1900bc24371ed3eca927b83e8c0568740aaf05450b8807269144fb474cf2c11",
+      "current_sha256": "a1900bc24371ed3eca927b83e8c0568740aaf05450b8807269144fb474cf2c11",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition-originals/verified-artifact-locations.json",
+      "source_sha256": "35cc6e274950d911f9bdfddc05833fc07098c83f579ad7506d4b8008c0680e76",
+      "current_sha256": "35cc6e274950d911f9bdfddc05833fc07098c83f579ad7506d4b8008c0680e76",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/quarantine-disposition-originals/structure-policy.json",
+      "source_sha256": "b538216bf532f8a16d87e49c41345fbfb6394f88f794b89cedf9a4a0a0dda89c",
+      "current_sha256": "b538216bf532f8a16d87e49c41345fbfb6394f88f794b89cedf9a4a0a0dda89c",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/quarantine-disposition-originals/verified-artifact-locations.json",
+      "source_sha256": "19cccf36acee024008441d3003803ce9d23e8cf68291464bddb199e6a9ebc19d",
+      "current_sha256": "19cccf36acee024008441d3003803ce9d23e8cf68291464bddb199e6a9ebc19d",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/historical-png-renaming-originals/relocations.json",
+      "source_sha256": "97e62e79afa7d7fa1678dfe9e7a6d240aedd30f6ecad6ed6422bedd4b9cc1ca1",
+      "current_sha256": "97e62e79afa7d7fa1678dfe9e7a6d240aedd30f6ecad6ed6422bedd4b9cc1ca1",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/2026-10-26-storage-disposition-review/historical-png-renaming-originals/verified-artifact-locations.json",
+      "source_sha256": "0c68c76b305cd600d607fc70b8caba9e999a08ef461e693d5829ba187281d366",
+      "current_sha256": "0c68c76b305cd600d607fc70b8caba9e999a08ef461e693d5829ba187281d366",
+      "disposition": "retained exact baseline bytes"
+    },
+    {
+      "path": "records/repository-history/README.md",
+      "source_sha256": "63fd471c76684e5cf7d59d8507931d10278e6118759dfaa47adbb1067e135260",
+      "current_sha256": "90962b1205ca5912f0fd7242b79131cf7098ce5ce750e441a682b8214321a7f0",
+      "disposition": "baseline retained with PC historical-preservation additions"
+    }
+  ],
+  "consumer_change_record": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/storage-consolidation-2026-10-26/consumer-code-updates.json",
+    "sha256": "53fb5aa50922290521256c1efea101ba146e0811c44787041fad8b922c1e6c32",
+    "bytes": 7470
+  },
+  "consumers": [
+    {
+      "path": "scripts/paper/figure_01/panel_a/build.py",
+      "baseline_sha256": "5eef6a26277215d327c45533719a6c2ebf20cd4aa8a90b5fc5b2e546524eba0d",
+      "current_sha256": "de550621ff14450c93b258e17ddd02fb2a5ff93b033689d8823e63643bf0457f",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [
+        "main"
+      ],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "scripts/paper/figure_01/panel_b/build_protocol.py",
+      "baseline_sha256": "9c77c2f133ac103817104f6929b9467a0ae0071cbe946e07389a291d9c8fd488",
+      "current_sha256": "63e75815a25d0503a05a3fe176d0939e297682f26717e2301b95bfa1d4b26919",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [
+        "main"
+      ],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "scripts/paper/figure_01/panel_c/build_session.py",
+      "baseline_sha256": "63163b40191747662950dd984f37cbdf8a831b53f3aa82e9d9ac7e05dd100f8a",
+      "current_sha256": "342cbe62123072c775d2ab6ad568610a15f813bc944da0b1b363bed83b67e176",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [
+        "main"
+      ],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/build_version_comparison.py",
+      "baseline_sha256": "4dda86acd7133f72f5cf87f70f654c1e4c683e27e08692f74638a8fd149f41bc",
+      "current_sha256": "f8da927dbb88f36fc7f9efca51ac80dfcd8a1af8321541d2944684fb07341149",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Exact post-consolidation source retained"
+    },
+    {
+      "path": "scripts/paper/figure_02/assembly/build.py",
+      "baseline_sha256": "e2a4557e90d4cb767005974407c53f93058b23eb53bcdf59cc41ab2d1502c734",
+      "current_sha256": "b41a3958c3cde5ec2f5eabe4da1d70e530151e3e6b351879747d00eed8c274d5",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py",
+      "baseline_sha256": "9e5366aa8ff496f41b63857ac4645bbdcb255f43e79beb9148f1252c65895a99",
+      "current_sha256": "c67249635c1a22ed62329051f30a4941e7a285793cdc819ce955488f1b8994c2",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Exact post-consolidation source retained"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/build_study_guide.py",
+      "baseline_sha256": "970f34bca0772f3a1cb965aaeea20ea76168924255f043564648ef1305f43803",
+      "current_sha256": "4969f96127ed2a00e5bdc64f5b76215d05731210225065c7354506ec7e2958e1",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 6,
+      "changed_functions": [],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/audit_delay_lmm.py",
+      "baseline_sha256": "5699b8398f22ffaa426e6f1785bbae265e5c87fd8690b43b0b5e0007c4ffcd77",
+      "current_sha256": "0d4e310c93477c5c56c9bc5ccce9f57b69c41bbb2f85ff8333efbaa2c27ede4c",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Exact post-consolidation source retained"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/render_historical_logmedian.py",
+      "baseline_sha256": "ab1a11c8b49af2c845353a8dcfa51e91190db90c6f1e8330f2ea8f73c719ef66",
+      "current_sha256": "b22db6edae4941522b95ce0df976cee79384b6f40826bb09bb439c5df1e7167f",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Exact post-consolidation source retained"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/render_phase_lmm.py",
+      "baseline_sha256": "a97c918894b7fdd192cd7838447a89509edc4a05cc07946ae7543be65c9ba337",
+      "current_sha256": "8768e7629457928e316c5fb1d4510ccef3f4e13c378ebdbb53f830beaf50286c",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [
+        "contrasts"
+      ],
+      "disposition": "Consolidation path retained; PC test_condition parameter extension preserved"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/run_independent_review.py",
+      "baseline_sha256": "e92dee0acd9b97a584117bd4a71c5f35ba8c4aca372b60017e3cba71148c788c",
+      "current_sha256": "67732d0ab94f0bc754e5bca4f8689f0db2361febab68a973675424b6bae47487",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 2,
+      "changed_functions": [
+        "mapped",
+        "protected_files",
+        "prepare"
+      ],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/run_technical_sensitivity.py",
+      "baseline_sha256": "719a0882172aa63f4a234e75b867a3a8347e398de156575a0ad1eb94e0dd6524",
+      "current_sha256": "fd42d53374ef75c134ad942cc3e627d0714df38a972ca7893c7ad9429d31f71e",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Exact post-consolidation source retained"
+    },
+    {
+      "path": "scripts/paper/figure_02/reproduction/recover_saved_panels.py",
+      "baseline_sha256": "946b5f55f31aec0c8b3c8e11b607a912613cb42233e7a782a1e27adfcb260633",
+      "current_sha256": "3cd6fe34b4115fe89499e988d077e0b46adf7269b975ddead1b4ddffcf651385",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Exact post-consolidation source retained"
+    },
+    {
+      "path": "scripts/paper/figure_03/supplement/build_atlas.py",
+      "baseline_sha256": "662bf766e3c1d67ec7fe93c51ea9f4376fa48ca4eaa09e6ccc922bc04d893797",
+      "current_sha256": "46d49437efd93a60efe54657981688615fce8c3bfd9da6aa5af131129b965550",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [
+        "main"
+      ],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "scripts/paper/shared/collection.py",
+      "baseline_sha256": "e9de5885389365018ab1ba72e9ac49c5a392bf61fef0a76b87ed97691dd25e1d",
+      "current_sha256": "16a7cf9e9a71ddb84d290ad5f9dd62ac7a42c0eeab0cc7984a077d08b0aca485",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [
+        "authenticate",
+        "resolve",
+        "display_target",
+        "snapshot_inputs",
+        "build",
+        "main"
+      ],
+      "disposition": "Intermediate doubled-path change superseded by authenticated collection-refresh recipe; recovered wrapper without SSD regeneration"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/bout_block_review.py",
+      "baseline_sha256": "2a0a18178d4c08b69ddb8cbd561cffffcf6428673450b46825872cef881a3977",
+      "current_sha256": "81d967f50120b2ab89316d1b5d00712e7bb16e8e7feb623a8126ce508a376286",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    },
+    {
+      "path": "src/classical_conditioning/figures/aligned_example_pair.py",
+      "baseline_sha256": "143c9ca6544777baf4b17373290524fd384d59e7e5e600f3566305d587ca8475",
+      "current_sha256": "9766179005cc17187adcbe5989582313d41a2d46b5fc3b0d591095b6e6cac6db",
+      "baseline_git_commit": "110fe14371a3f9c0a893e66805205491b6413f6e",
+      "recorded_storage_edits": 1,
+      "changed_functions": [
+        "build_pair"
+      ],
+      "disposition": "Storage changes retained with reviewed host adapters and/or PC extensions"
+    }
+  ],
+  "implementation_patch": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/implementation-evidence/working.patch",
+    "sha256": "e7a2e01a63cfbf6be8cde60543a97cbb4e44bfc700581ac86606f2a3aa44c2b3",
+    "bytes": 44916
+  },
+  "implementation_sources": [
+    {
+      "path": "scripts/maintenance/storage_migration.py",
+      "source_sha256": "2e188c084d61fc2fd6e2c3e6e5b57fac50de39670cb6e98b97e9ef7d47320e47",
+      "current_sha256": "75b8f3e159d0340b45bc7896871536362a2ef70ba74828bba3451d3e953e14fd",
+      "missing_functions": [],
+      "changed_functions": [
+        "inventory",
+        "publish",
+        "publish_controls",
+        "prune",
+        "main"
+      ],
+      "disposition": "All saved functions/tests retained; reviewed portability and guarded-recovery changes applied"
+    },
+    {
+      "path": "scripts/reviews/library.py",
+      "source_sha256": "f882c99d1342022a644592426d04c5a468b400c261aec8fc9edf3cec7e9b1e8f",
+      "current_sha256": "c308f884629e9634a8a8559250f90391e411c5ab25b76b1b8e4ade40108fdc2f",
+      "missing_functions": [],
+      "changed_functions": [
+        "check",
+        "build",
+        "main"
+      ],
+      "disposition": "All saved functions/tests retained; reviewed portability and guarded-recovery changes applied"
+    },
+    {
+      "path": "scripts/reviews/ordered_library.py",
+      "source_sha256": "e7e166490c009d15b48f06c4ec7c5348af127c314aec1c385e5066a7715d0efc",
+      "current_sha256": "69ac1750e0d04c3c5037abf75f2387a2112c890999035290ed55632f6f46902b",
+      "missing_functions": [],
+      "changed_functions": [
+        "verify_package",
+        "verify_previous_sources",
+        "build"
+      ],
+      "disposition": "All saved functions/tests retained; reviewed portability and guarded-recovery changes applied"
+    },
+    {
+      "path": "scripts/reviews/versions.py",
+      "source_sha256": "3838f2bfa9026a5f86f264c6d407204573888a8bb072c1f993afa68ba43c0bc7",
+      "current_sha256": "8f7892ade22c642cc18cb4d538ced6defb352a8ddcdcdac5332c5941a99d7c2f",
+      "missing_functions": [],
+      "changed_functions": [
+        "source_files",
+        "figure_page",
+        "__init__",
+        "read",
+        "discover_states",
+        "url"
+      ],
+      "disposition": "All saved functions/tests retained; reviewed portability and guarded-recovery changes applied"
+    },
+    {
+      "path": "tests/test_figure_version_browser.py",
+      "source_sha256": "afc4c9f63e658158c1f3ed591c8fee39fe1e78db5dad7044089ec029a9d42b81",
+      "current_sha256": "00af6f02b5c52b2017f1a03a590a9f730adef94be5e13f1e7e6356181586f162",
+      "missing_functions": [],
+      "changed_functions": [
+        "catalogue",
+        "test_new_retained_version_requires_and_survives_catalogue_refresh",
+        "test_guarded_build_preserves_art_and_uses_one_browser_per_figure",
+        "test_unavailable_storage_and_source_symlink_fail"
+      ],
+      "disposition": "All saved functions/tests retained; reviewed portability and guarded-recovery changes applied"
+    },
+    {
+      "path": "tests/test_storage_migration.py",
+      "source_sha256": "f311d7fead7cb78cfd6369dc6759ca51e131054c1fa77ae05612f29300c3083c",
+      "current_sha256": "f54dc70781da7ae0f69b6c1a97da014fdd73ef44fd2c676d05657a6d588d97ef",
+      "missing_functions": [],
+      "changed_functions": [],
+      "disposition": "All saved functions/tests retained; reviewed portability and guarded-recovery changes applied"
+    }
+  ],
+  "restored_mac_safeguards": [
+    "equal_bytes before source removal",
+    "duplicate control/state target rejection",
+    "five missing regression tests",
+    "legacy Mac path adapter repository binding and scoped directory moves"
+  ],
+  "preserved_pc_extensions": [
+    "Figure 4 additional state in structure policy",
+    "phase-LMM test_condition parameter",
+    "PC handoff/scientific extensions and existing merged Git history"
+  ],
+  "unresolved_source_differences": [],
+  "limits": [
+    "Historical source preservation does not adopt every old scientific idea or supersede scoped selected science.",
+    "Live native Mac checkout inspection remains dependent on SSH reachability."
+  ],
+  "source_artifacts_moved_or_pruned": false,
+  "final_collection_recovery": {
+    "path": "records/figure-reviews/authority-reconciliation-20261025/collection-checkout-recovery-20261028.json",
+    "sha256": "ebd9ba0bd9c6912f6fa61464de7ddea98b5f7450bac875fb251a2b0f715a1bd9",
+    "ssd_bytes_written": false
+  },
+  "checkout_byte_restoration": {
+    "path": "records/repository-history/2026-10-28-ssd-portability/checkout-byte-restoration.json",
+    "sha256": "99acc31550e24bd5dacf266f3f20914665d6b8163d073bee77ebea4c5146f2f3"
+  }
+}

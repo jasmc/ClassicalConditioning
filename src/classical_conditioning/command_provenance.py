@@ -37,7 +37,7 @@ def command_sources(command):
         if path in found or not path.is_relative_to(root) or not path.is_file():
             continue
         found.add(path)
-        text = path.read_text()
+        text = path.read_text(encoding='utf-8')
         literals = []
         if path.suffix == '.py':
             tree = ast.parse(text)

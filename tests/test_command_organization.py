@@ -49,7 +49,7 @@ class MetricStorage(unittest.TestCase):
             storage.verified_input(self.root)
         with self.assertRaises(FileExistsError):
             storage.require_new_outputs(self.root, ['fish_paired_change.csv'])
-        self.assertEqual((self.root / 'fish_paired_change.csv').read_text(), 'manual revision')
+        self.assertEqual((self.root / 'fish_paired_change.csv').read_text(encoding='utf-8'), 'manual revision')
 
     def test_older_input_needs_explicit_identity(self):
         p = self.root / 'fish_paired_change.csv'
@@ -95,7 +95,7 @@ class ScopedCommands(unittest.TestCase):
     def test_local_script_imports_resolve_after_command_moves(self):
         for home in ['src', 'scripts', 'tests']:
             for path in (ROOT / home).rglob('*.py'):
-                for node in ast.walk(ast.parse(path.read_text())):
+                for node in ast.walk(ast.parse(path.read_text(encoding='utf-8'))):
                     names = (['scripts.' + a.name for a in node.names] if isinstance(node, ast.ImportFrom) and node.module == 'scripts'
                              else [node.module] if isinstance(node, ast.ImportFrom) and node.module
                              else [a.name for a in node.names] if isinstance(node, ast.Import) else [])
@@ -110,7 +110,7 @@ class ScopedCommands(unittest.TestCase):
         modules = {p.relative_to(ROOT).as_posix()[:-3].replace('/', '.'): p for p in paths}
         graph = {m: set() for m in modules}
         for m, p in modules.items():
-            for n in ast.walk(ast.parse(p.read_text())):
+            for n in ast.walk(ast.parse(p.read_text(encoding='utf-8'))):
                 if isinstance(n, ast.ImportFrom) and n.module:
                     if n.module in modules:
                         graph[m].add(n.module)

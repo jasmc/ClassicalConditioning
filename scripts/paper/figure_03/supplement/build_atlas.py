@@ -223,9 +223,11 @@ def main():
     parser.add_argument('stage',choices=['prepare','classify','render','verify','publish'])
     parser.add_argument('--output-dir',type=Path,required=True)
     parser.add_argument('--g-root',type=Path,default=G_ROOT)
-    args=parser.parse_args();out=args.output_dir.resolve()
-    volume=Path('/Volumes/JOAQUIM')
-    if not os.path.ismount(volume) or not out.is_relative_to(volume) or not out.is_dir():
+    from classical_conditioning.external_artifacts import relocated_external_directory, joaquim_root
+    args=parser.parse_args();out=relocated_external_directory(args.output_dir).resolve()
+    volume=joaquim_root().resolve()
+    args.g_root=relocated_external_directory(args.g_root)
+    if not out.is_relative_to(volume) or not out.is_dir():
         raise ValueError('Use an existing explicit directory on mounted JOAQUIM')
     if args.stage=='prepare':prepare(args.g_root,out)
     elif args.stage=='classify':classify(out)

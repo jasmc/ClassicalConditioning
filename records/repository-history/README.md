@@ -20,3 +20,5 @@ Use [project documentation](../../docs/README.md) for current guidance. Historic
 - [23 October study-artifact policy and personal skill adaptation](2026-10-23-study-artifact-policy.json): SSD-owned study Markdown/HTML, exact personal-skill backups and the planned dependency-aware migration.
 
 - [26 October JOAQUIM disposition review](2026-10-26-storage-disposition-review/README.md): drive-map structure, fresh targeted checks and proposed deletion/consolidation/archive scopes; no existing payload changed.
+
+- [28 October SSD portability reconciliation](2026-10-28-ssd-portability/README.md): authenticated Mac/PC source preservation, restored consolidation safeguards, portable storage and byte protection, verification and remaining native-platform coverage.

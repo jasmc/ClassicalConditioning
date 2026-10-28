@@ -128,22 +128,24 @@ def validate_pair(registries,contract):
                 row_labels_and_centres_match=True)
 
 def build_pair():
+    from classical_conditioning.external_artifacts import resolve_artifact
     index=json.loads((ROOT/'records/frozen-analyses/index.json').read_text())
     known={str(ROOT/i['path']):i['sha256'] for i in index['files']}
     sources=[]
     for p in dependencies():
-        data=p.read_bytes();digest=sha(data)
+        resolved=resolve_artifact(p,expected_sha256=EXPECTED.get(p))
+        data=resolved.read_bytes();digest=sha(data)
         if p in (SELECTION_PATH,PALETTE_PATH,PALETTE_SELECTION_PATH) and digest!=known[str(p)]:raise ValueError('Frozen definition changed: '+str(p))
         if p in EXPECTED and digest!=EXPECTED[p]:raise ValueError('D/E scientific input changed: '+str(p))
-        sources.append(dict(path=str(p),sha256=digest))
+        sources.append(dict(path=str(resolved),sha256=digest))
     selection=json.loads(SELECTION_PATH.read_text());assert selection['fish']==FISH and tuple(selection['trials'])==TRIALS
     f_selection=json.loads(PALETTE_SELECTION_PATH.read_text())
     edges=np.asarray(selection['bin_edges_s'],float)
     np.testing.assert_array_equal(edges,np.linspace(-20,20,81))
-    d=pd.read_parquet(FRAME_PATH);old=pd.read_parquet(ELIGIBILITY_PATH)
+    d=pd.read_parquet(resolve_artifact(FRAME_PATH,expected_sha256=EXPECTED[FRAME_PATH]));old=pd.read_parquet(resolve_artifact(ELIGIBILITY_PATH,expected_sha256=EXPECTED[ELIGIBILITY_PATH]))
     old=old[old.trial.isin(TRIALS)]
     joined=d.merge(old[['trial','FrameID','eligible','raw_vigor','time_s']],left_on=['Trial number','FrameID'],right_on=['trial','FrameID'],how='left',validate='one_to_one',indicator=True)
-    events=pd.read_parquet(EVENT_PATH)
+    events=pd.read_parquet(resolve_artifact(EVENT_PATH,expected_sha256=EXPECTED[EVENT_PATH]))
     tree=ast.parse(PALETTE_PATH.read_text());ns={'np':np}
     exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n,ast.FunctionDef)],type_ignores=[]),'authenticated_palette_functions','exec'),ns)
     lab=ns['rgb_lab']([to_rgb(c) for c in json.loads(PALETTE_SELECTION_PATH.read_text())['palette']]);u=np.linspace(0,1,513)

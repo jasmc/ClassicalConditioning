@@ -126,6 +126,12 @@ after verification. Permanent media belong on an explicit external destination.
 
 ## Operational commands and concurrency
 
+The SSD review library's ordered version browser is the expanded discovery view
+for Figures 1–4, selected by the author on 27 October. Its supported discovery
+and publication modules preserve source bindings and historical context gaps;
+one version is visible at a time. It does not replace minimal scoped display,
+select current artwork, restyle panels or create a freeze.
+
 Author direction on 2026-10-15 permits an internal Mac source cache of all
 panels, including unfrozen artwork, for offline layout/aesthetic work. See
 [Offline figure artwork](offline-artwork.md) for the local folder, exact scope,
@@ -525,7 +531,11 @@ font faces declared only inside a shadow root. Provenance remains nonvisual.
 Printing preserves artwork dimensions; long legends can continue on later pages.
 No journal-template compliance is claimed.
 
-Permanent HTML is `/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/main-paper-figures.html`.
+Permanent HTML is `/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html`.
+The historical path remains a resolver alias. The Windows portability review
+found that the saved intermediate collection pointer binds an earlier wrapper;
+recover the final state before treating that collection as current. Do not rebuild
+SSD content merely to make a storage-compatibility check pass.
 The builder snapshots selected states/artifacts, scientific-selection records,
 legends, frame evidence, policy and implementation; rechecks under scoped locks;
 and updates the collection pointer last with rollback on failure. It refuses
