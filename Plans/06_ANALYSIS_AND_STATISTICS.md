@@ -237,6 +237,37 @@ row-order invariance, fish weighting, multiplicity, and failure propagation.
 6. Complete the learner workstream using the approved continuous, categorical,
    or combined representation and its specified validation mode.
 
+## Saved GHI statistics: scientific follow-up
+
+The [source-bound G/H/I audit](../records/scientific-evidence/analyses/figure-02-ghi-statistical-audit.json)
+already reconciles saved arithmetic, coefficients, bootstrap payloads and named
+SVG statistical annotations. Its residual excess kurtosis is approximately
+8.0/9.3/14.0 for G/H/I. These findings prioritize adequacy and calibration review;
+they neither invalidate a model by themselves nor approve its inferential claims.
+
+Use the existing outcome/model decision process above to:
+
+1. State the claim and estimand supported by each panel, separating conditional
+   movement intensity from movement occurrence, descriptive medians from model
+   means, and baseline subtraction from adjustment. Resolve which comparisons
+   are primary and which remain exploratory.
+2. Assess heavy tails, residual serial dependence, unequal condition/phase
+   variation, sparse or behavior-dependent availability and influential fish
+   against the intended uncertainty/claim. Use a bounded, justified robustness
+   comparison rather than selecting a model by favorable stars or learner counts.
+3. Establish coverage/error-control evidence at the applicable cohort sizes and
+   missingness patterns. Reuse existing simulations where their estimand and
+   conditions match; document remaining assay-specific gaps. Numerical agreement
+   of saved p-values cannot establish that calibration.
+4. Record the approved model/uncertainty/contrast/multiplicity choices and
+   permitted language before a new paper run. Coordinate acquisition or any
+   extinction claim with Plan 03, individual representation with Plan 04 and
+   dependent Figure 4 comparisons with Plan 05. Retain scoped frozen originals.
+
+Completion requires claim-specific adequacy, robustness and calibration evidence,
+with explicit limits for unsupported claims. Source/runtime recovery remains
+owned by Plan 01; figure production verification remains owned by Plan 07.
+
 ## Deliverables
 
 - analysis discussion and decision log;

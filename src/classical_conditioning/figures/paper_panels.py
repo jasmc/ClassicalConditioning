@@ -76,7 +76,7 @@ def build_render_plan(
         for fish in (delay_fish, control_fish):
             steps.append(RenderStep(
                 f"figure1-cd-scaled-log-review-{fish}", ("fig-1D", "fig-1E"),
-                ("scripts/render_figure1_cd_scaled_log_review.py", *common,
+                ("scripts/paper/figure_01/panels_d_e/reproduction/render_scaled_log_traces.py", *common,
                  "--output-dir", str(output_dir / "figure1/traces"),
                  "--recording-id", fish, "--metric", metric_id,
                  *(item for trial in trials for item in ("--trial", str(trial))),
@@ -90,7 +90,7 @@ def build_render_plan(
             )
         steps.append(RenderStep(
             "figure1-signed-heatmap", ("fig-1F", "fig-1H"),
-            ("scripts/render_legacy_ssd_example_heatmaps.py", *common,
+            ("scripts/paper/figure_01/panels_f_g_h/reproduction/render_saved_heatmaps.py", *common,
              "--output-dir", str(output_dir / "figure1/heatmaps"),
              "--baseline-start-s", "-20",
              "--baseline-end-s", "0", "--metric", metric_id, *force),
@@ -99,14 +99,14 @@ def build_render_plan(
         figure2_dir = output_dir / "figure2/delay"
         steps.append(RenderStep(
             "figure2-delay-descriptive", ("fig-2A", "fig-2D", "fig-2G", "sup-5"),
-            ("scripts/render_legacy_ssd_figure2_delay.py", *common,
+            ("scripts/paper/figure_02/panels_a_d_g/reproduction/render_saved_delay.py", *common,
              "--output-dir", str(figure2_dir), "--metric", metric_id,
              "--baseline-start-s", "-20", *force),
         ))
         if inference_review:
             steps.append(RenderStep(
                 "figure2-delay-inference-review", ("fig-2D", "fig-2G"),
-                ("scripts/render_figure2_legacy_stats_lme_review.py",
+                ("scripts/paper/figure_02/panels_d_g/reproduction/render_legacy_statistics.py",
                  "--project-dir", str(project_dir), "--input-dir", str(figure2_dir),
                  "--output-dir", str(figure2_dir / "inference-review"),
                  "--metric", metric_id, *force),

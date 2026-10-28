@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-spec=importlib.util.spec_from_file_location('figure3_main_builder',Path(__file__).parents[1]/'scripts/build_figure3_main_paper.py')
+spec=importlib.util.spec_from_file_location('figure3_main_builder',Path(__file__).parents[1]/'scripts/paper/figure_03/build_main_draft.py')
 builder=importlib.util.module_from_spec(spec);spec.loader.exec_module(builder)
 
 

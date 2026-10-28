@@ -15,3 +15,6 @@ This area explains using the supported code; it does not choose scientific metho
 - [3sTrace exploratory response-profile model draft](figure4-3strace-model-draft.md)
 
 Figure-specific assembly instructions live with their [paper figures](../paper/figures/README.md). Scientific definitions live in [shared methods](../paper/methods/README.md).
+
+- [Corrected BLUP comparison](figure3-blup-comparison.md): completed Delay/control
+  calibration/validation, immutable numerical outputs and editable SSD study.

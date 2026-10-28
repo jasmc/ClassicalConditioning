@@ -67,3 +67,21 @@ This is the sole active learner plan, including the former method-review and out
 ## Preserved detailed requirements
 
 The [implementation design](../records/scientific-evidence/designs/individual-learning-implementation.md) and [outputs/validation design](../records/scientific-evidence/designs/individual-learning-outputs-and-validation.md) preserve unique conditional schemas, joins, output families and validation requirements. Use them with the approved representation; categorical examples are conditional on Gate L. Current scientific principles live in [shared methods](../docs/paper/methods/individual-learning.md), with [interface guidance](../docs/running-analysis/individual-learning-interfaces.md).
+
+## Completed corrected-BLUP comparison, 25 October 2026
+
+The [completed run and study](../docs/running-analysis/figure3-blup-comparison.md)
+close the previously unfinished Delay/control comparison: all 57 input fish,
+999 refitted calibration datasets and four independent 499-dataset stress
+scenarios. The guide compares matched raw means, raw medians, corrected total
+and control-relative BLUP effects, no-AR1 sensitivity, separate recovery and all
+four saved legacy decisions for every fish. Original data, legacy outputs,
+selected Figure 3 and Figure 4 alternatives remain unchanged.
+
+Matched-model pointwise coverage is approximately 95%; null family-bound rejection
+is approximately 5%, with the degenerate-null boundary behavior reported. This
+completes the exploratory numerical comparison, not Gate L or full-assay
+validation. The final estimand/representation, adequate information, meaningful
+margin if used, primary cohort and permitted claims still require explicit
+scientific choices using this evidence. The existing single-path draft is not
+automatically replaced.

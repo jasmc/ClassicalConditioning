@@ -12,4 +12,9 @@ This folder holds archive control records, not archived media. Current procedure
 The [original archive procedure](../repository-history/2026-10-13-paper-structure/original-navigation/repository-archive/README.md) is preserved as historical evidence. Current folder ownership and procedures are documentation; historical paths in preserved records resolve through the map rather than being rewritten.
 
 - [Pre-Nature styling retirement, 2026-10-17](2026-10-17-retired-styling/README.md): verified original guidance snapshots; compatibility dependencies retained.
-- [PC output cleanup, 2026-10-18](../repository-history/2026-10-18-pc-output-cleanup/README.md): author-requested removal of two old F: output roots; exact Figure 2 originals and old Delay run records preserved on JOAQUIM, with source verification and deletion evidence.
+
+- [Interrupted-intake staging disposition, 2026-10-26](intake-quarantine-20261024/disposition.json): eight redundant quarantine files removed under explicit author authorization; complete intake/raw sources and original transfer records retained.
+
+- [Handoff Git-history preservation, 2026-10-26](handoff-git-history-20261026/README.md): independently verified native backup of all Mac-handoff Git objects, including 16 commits absent from maintained Git; original packets retained.
+
+- [PC output cleanup, 2026-10-18](../repository-history/2026-10-18-pc-output-cleanup/README.md): preserved originals and deletion evidence.

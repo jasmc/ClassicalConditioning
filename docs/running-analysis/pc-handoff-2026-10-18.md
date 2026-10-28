@@ -153,7 +153,7 @@ $traceRun = Join-Path $derived 'trace3-run-20261018'
 if (Test-Path $traceRun) { throw 'Choose a new run directory or review the saved run before resuming' }
 New-Item -ItemType Directory -Path $traceRun | Out-Null
 $traceRaw = Join-Path $ssd 'Raw Data\all3sTtrace'
-uv run python scripts/prepare-trace-runs.py `
+uv run python scripts/workflows/trace/prepare_runs.py `
     --raw-dir $traceRaw --digested-dir $traceRun `
     --config-dir (Join-Path $traceRun 'configs') `
     --audit-dir (Join-Path $traceRun 'audit') --allow-incomplete

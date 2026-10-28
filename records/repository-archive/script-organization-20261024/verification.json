@@ -1,0 +1,177 @@
+{
+  "date": "2026-10-25",
+  "exported_git_tree_verification": {
+    "git_tree": "97e8aecfc8ff13daf681d0999e8355460a8ee888",
+    "exported_snapshot": true,
+    "results": [
+      {
+        "command": [
+          "scripts/check_repository_structure.py"
+        ],
+        "exit_code": 0,
+        "output": "{\n  \"issues\": [],\n  \"unavailable_external_evidence\": [],\n  \"protected_files_checked\": 365,\n  \"current_states_checked\": 7,\n  \"verified_transactions\": [],\n  \"external_verification\": \"not-requested\"\n}\n"
+      },
+      {
+        "command": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_repository_*.py",
+          "-q"
+        ],
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 47 tests in 1.750s\n\nOK\n"
+      },
+      {
+        "command": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_command_organization.py",
+          "-q"
+        ],
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 11 tests in 14.186s\n\nOK\n"
+      },
+      {
+        "command": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_study*.py",
+          "-q"
+        ],
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 8 tests in 0.137s\n\nOK\n"
+      },
+      {
+        "command": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-p",
+          "test_review_library.py",
+          "-q"
+        ],
+        "exit_code": 0,
+        "output": "----------------------------------------------------------------------\nRan 8 tests in 0.065s\n\nOK\n"
+      }
+    ]
+  },
+  "passing_contract_tests": 74,
+  "python_compilation": "passed",
+  "node_syntax_files": 15,
+  "drive_navigation_destinations_checked": 10,
+  "external_check": {
+    "issues": [
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg"
+    ],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 365,
+    "current_states_checked": 7,
+    "verified_transactions": [
+      {
+        "manifest": "records/repository-archive/transfer-inventory.json",
+        "files": 2048,
+        "authorized_absences": [
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png"
+        ]
+      },
+      {
+        "manifest": "records/repository-archive/2026-10-17-retired-styling/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/configuration-cleanup-20261011/transfer-inventory.json",
+        "files": 2,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/documentation-cleanup-20261011/transfer-inventory.json",
+        "files": 1,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+        "files": 8,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/script-extracted-drivers-20261024/transfer-inventory.json",
+        "files": 4,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/script-organization-20261024/transfer-inventory.json",
+        "files": 26,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-cleanup-20261010/transfer-inventory.json",
+        "files": 41,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-reassessment-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmap-code-20261013/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmaps-20261013/transfer-inventory.json",
+        "files": 46,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/study-sources-20261023/transfer-inventory.json",
+        "files": 18,
+        "authorized_absences": []
+      }
+    ],
+    "external_verification": "failed"
+  },
+  "figure_regression": {
+    "tests": 83,
+    "passed": 81,
+    "preexisting_failures": [
+      "test_grid_preserves_exact_event_metadata_and_order",
+      "test_protocol_row_moves_preserve_symbol_and_count"
+    ],
+    "baseline": "Reproduced against unchanged 3617ce5 legend source before refactoring; same failure/error after refactoring",
+    "issues": [
+      "Fixture expects Trace (3 s)/(10 s), starting code emits 3sTrace/10sTrace",
+      "Fixture expects protocol translate(0 34), starting code emits translate(0 -26)"
+    ]
+  },
+  "not_executed": [
+    "Scientific processing/fits",
+    "Browser collectors or figure edits/exports",
+    "PowerShell runtime processing"
+  ],
+  "other_existing_limit": "Hosted GitHub Actions account billing prevents workflow steps from starting"
+}

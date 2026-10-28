@@ -29,10 +29,61 @@ class StructureChecks(unittest.TestCase):
     def write(self, path, value):
         (self.repo / path).write_text(json.dumps(value))
 
+    def test_nested_script_requires_its_full_catalogue_path(self):
+        policy_path = self.repo / 'docs/project-maintenance/structure-policy.json'
+        policy = json.loads(policy_path.read_text())
+        policy['script_catalogue'] = 'scripts/README.md'
+        policy_path.write_text(json.dumps(policy))
+        nested = self.repo / 'scripts/paper/figure_01/panel_a'
+        nested.mkdir(parents=True)
+        (nested / 'build.py').write_text('print("synthetic")')
+        catalogue = self.repo / 'scripts/README.md'
+        catalogue.write_text('[build](build.py)')
+        self.assertTrue(any('Uncatalogued script: paper/figure_01/panel_a/build.py' in issue for issue in structure.check(self.repo)['issues']))
+        catalogue.write_text('[build](paper/figure_01/panel_a/build.py)')
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+
     def test_minimal_layout_passes_without_external_access(self):
         report = structure.check(self.repo)
         self.assertEqual(report['issues'], [])
         self.assertEqual(report['external_verification'], 'not-requested')
+
+    def test_relocated_checkout_checks_local_science_and_draft_bytes(self):
+        old = '/old/work/ClassicalConditioning'
+        policy_path = self.repo/'docs/project-maintenance/structure-policy.json'
+        policy = json.loads(policy_path.read_text())
+        policy['recorded_repository_roots'] = [old]
+        policy_path.write_text(json.dumps(policy))
+        figure = self.repo/'docs/paper/figures/figure-01'
+        figure.mkdir()
+        selection = self.repo/'records/selection.json'
+        selection.write_text('{}')
+        legend = figure/'legend.md'
+        legend.write_text('selected legend')
+        configs = self.repo/'configs/paper-figures'
+        configs.mkdir(parents=True)
+        self.write('configs/paper-figures/behavior-paper.json', {'panels': {'fig-1F': {
+            'scoped_selection_record': 'records/selection.json'}}})
+        self.write('docs/paper/figures/figure-01/current-state.json', {
+            'scientific_selection': {'records': [{'path': old+'/records/selection.json',
+                                                'sha256': structure.sha256(selection)}]},
+            'draft': {'legend': {'path': old+'/docs/paper/figures/figure-01/legend.md',
+                                 'sha256': structure.sha256(legend)}}})
+        (self.repo/'docs/paper/README.md').write_text('[Legend]('+old+'/docs/paper/figures/figure-01/legend.md)')
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+        legend.write_text('unrecorded edit')
+        self.assertIn('Bound figure record changed: '+str(legend.resolve()), structure.check(self.repo)['issues'])
+        selection.write_text('changed scientific source')
+        self.assertIn('Bound figure record changed: '+str(selection.resolve()), structure.check(self.repo)['issues'])
+
+    def test_checkout_alias_is_exact_and_does_not_capture_external_storage(self):
+        root = self.repo.resolve()
+        aliases = ['/old/paper']
+        self.assertEqual(structure.recorded_path('/old/paper/docs/guide.md', root, aliases), root/'docs/guide.md')
+        self.assertEqual(structure.recorded_path('/old/paper-other/data.json', root, aliases), Path('/old/paper-other/data.json'))
+        self.assertEqual(structure.recorded_path('/Volumes/JOAQUIM/data.json', root, aliases), Path('/Volumes/JOAQUIM/data.json'))
+        with self.assertRaises(ValueError):
+            structure.recorded_path('/old/paper/../other/data.json', root, aliases)
 
     def test_historical_topic_folder_is_rejected(self):
         old = self.repo / 'docs/analysis/learners'

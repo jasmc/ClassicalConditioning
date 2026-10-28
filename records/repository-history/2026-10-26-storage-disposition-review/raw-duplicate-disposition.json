@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User: double check if they are exactly the same and delete one of them; remove one extra copy from each of the two reviewed duplicate pairs, retaining unsuffixed originals.",
+  "status": "complete",
+  "method": "Direct chunk-by-chunk byte comparison and independent SHA-256 per file; stable file/path identities checked before removal; retained originals rehashed after removal.",
+  "files": [
+    {
+      "removed_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230227_01_trace_orange-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam (2).txt",
+      "retained_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230227_01_trace_orange-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam.txt",
+      "bytes": 372473141,
+      "removed_sha256": "cdd1d0c48316a95c5d53b9530e76146dc835c0902ee9bc06a4914bfafbd09e19",
+      "retained_sha256_before": "cdd1d0c48316a95c5d53b9530e76146dc835c0902ee9bc06a4914bfafbd09e19",
+      "direct_byte_comparison": "identical",
+      "status": "removed_original_reverified",
+      "retained_sha256_after": "cdd1d0c48316a95c5d53b9530e76146dc835c0902ee9bc06a4914bfafbd09e19"
+    },
+    {
+      "removed_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230316_12_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control (2).txt",
+      "retained_path": "/Volumes/JOAQUIM/Raw Data/all3sTtrace/20230316_12_trace_black-5_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+      "bytes": 6464,
+      "removed_sha256": "8d5c41cc7a52072239767649f8bfffed068b4aa0efb049f2e90e90b39cc6cd63",
+      "retained_sha256_before": "8d5c41cc7a52072239767649f8bfffed068b4aa0efb049f2e90e90b39cc6cd63",
+      "direct_byte_comparison": "identical",
+      "status": "removed_original_reverified",
+      "retained_sha256_after": "8d5c41cc7a52072239767649f8bfffed068b4aa0efb049f2e90e90b39cc6cd63"
+    }
+  ],
+  "completed_utc": "2026-10-26T15:20:16.064056+00:00",
+  "logical_bytes_removed": 372479605,
+  "retained_originals_unchanged": true,
+  "scope": "Only the two named (2) copies were unlinked; unsuffixed original bytes retained. No other raw data, sidecars, studies or selections modified."
+}

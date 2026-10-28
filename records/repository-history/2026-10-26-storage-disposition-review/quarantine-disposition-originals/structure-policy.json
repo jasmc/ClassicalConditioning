@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "active_doc_prefixes": [
+    "docs/paper/",
+    "docs/running-analysis/",
+    "docs/project-maintenance/"
+  ],
+  "compatibility_files": [
+    "docs/README.md",
+    "docs/current-figures.md",
+    "docs/panel-review.md",
+    "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+    "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+    "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+    "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+    "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+    "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+    "docs/maintenance/archive/ARTIFACT_INDEX.md"
+  ],
+  "byte_sensitive_documents": [
+    "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+    "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+    "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md"
+  ],
+  "forbidden_paths": [
+    "docs/analysis/learners",
+    "docs/analysis/audits",
+    "docs/analysis/reference"
+  ],
+  "migration_manifest": "records/repository-history/2026-10-13-paper-structure/migration.json",
+  "future_work_headings": [
+    "Future command surface",
+    "Implementation sequence",
+    "Pilot progress"
+  ],
+  "root_request_file": "to_implement.md",
+  "mutable_index_originals": [
+    {
+      "path": "records/repository-archive/ARTIFACT_INDEX.md",
+      "sha256": "0ac50985a1200fa898a17d8cbc1aef298e395d58ee5191958066e64edf6d5ffd",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/migration-originals/records/repository-archive/ARTIFACT_INDEX.md"
+    },
+    {
+      "path": "records/repository-archive/verified-artifact-locations.json",
+      "sha256": "19d4994bdccde60a4fe98dd5d2ccdd47ed6d118eb167a32122ec75fd26a0c655",
+      "preserved_original": "records/repository-history/2026-10-17-organization-reconciliation/migration-originals/records/repository-archive/verified-artifact-locations.json"
+    }
+  ],
+  "archive_dispositions": [
+    {
+      "path": "records/repository-archive/figure3-legacy-only-20261015/disposition.json",
+      "sha256": "246fe720922cde38a2679be81a00192ebb5329d8a2c723e7b1776858cd9c1587"
+    }
+  ],
+  "additional_figure_states": [
+    "docs/paper/figures/figure-03/exploratory-state.json"
+  ],
+  "active_navigation": [
+    "docs/project-maintenance/rules.md",
+    "docs/project-maintenance/script-lifecycle.md",
+    "records/repository-history/2026-10-17-organization-reconciliation/README.md",
+    "records/repository-history/2026-10-23-script-lifecycle/README.md",
+    "records/figure-history/figure-01/INDEX.md",
+    "records/figure-history/figure-02/INDEX.md",
+    "records/figure-history/figure-04/INDEX.md",
+    "records/figure-history/shared/INDEX.md",
+    "records/scientific-evidence/audits/INDEX.md",
+    "records/scientific-evidence/decisions/INDEX.md",
+    "records/repository-history/transfers/INDEX.md",
+    "records/figure-reviews/README.md",
+    "records/repository-history/2026-10-23-repository-output-review/README.md",
+    "records/figure-history/README.md",
+    "records/scientific-evidence/README.md"
+  ],
+  "script_catalogue": "scripts/README.md",
+  "recorded_repository_roots": [
+    "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+    "C:/Users/joaquim/Documents/ClassicalConditioning"
+  ]
+}

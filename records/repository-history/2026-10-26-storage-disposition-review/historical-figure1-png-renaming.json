@@ -1,0 +1,156 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User requested coherent SVG/PNG names by figure and panel, clarifying these are different historical versions of the first Figure 1 panels; prior instruction permits routine housekeeping without another approval.",
+  "scope": "The five historical Asset PNGs, matched to their already descriptively named retained SVG sources. Preserve all variants and current selections.",
+  "status": "complete",
+  "files": [
+    {
+      "original_path": "/Volumes/JOAQUIM/Asset 10.png",
+      "canonical_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelB_ConditionTiming_source.png",
+      "sha256": "57c9bdd1c82a9a1d01d4fc3008348aca8abb052abc1cb5465296006c2bed4c7b",
+      "bytes": 59963,
+      "original_identity": [
+        16777228,
+        480949,
+        59963,
+        1790353638000000000,
+        1790353638000000000
+      ],
+      "matching_svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelB_ConditionTiming_source.svg",
+      "svg_sha256": "210a42385a4094bdece3eecfb8ddc4a26c4c837d6f75db9abf30f656b0eace79",
+      "historical_variant": "Fig1_PanelB_ConditionTiming_source",
+      "old_references": [
+        "/Volumes/JOAQUIM/Asset 10.png",
+        "J:/Asset 10.png"
+      ],
+      "status": "renamed_and_original_bytes_preserved"
+    },
+    {
+      "original_path": "/Volumes/JOAQUIM/Asset 6.png",
+      "canonical_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelA_Setup_source.png",
+      "sha256": "4e0db117a1d520fb23b15a53b7cfdb2cc11d499211ef0baa45515172d04a36bd",
+      "bytes": 104223,
+      "original_identity": [
+        16777228,
+        480951,
+        104223,
+        1790353676000000000,
+        1790353676000000000
+      ],
+      "matching_svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelA_Setup_source.svg",
+      "svg_sha256": "1df818d00c9d7788081b8a2325d3da6b6c5fd162ebc6374dcef43db72a95edd3",
+      "historical_variant": "Fig1_PanelA_Setup_source",
+      "old_references": [
+        "/Volumes/JOAQUIM/Asset 6.png",
+        "J:/Asset 6.png"
+      ],
+      "status": "renamed_and_original_bytes_preserved"
+    },
+    {
+      "original_path": "/Volumes/JOAQUIM/Asset 7.png",
+      "canonical_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_ProtocolAlternative_source.png",
+      "sha256": "5676b02e0e61fcb43dc8a53c048b9af7e080cda03fe186fe8566abb2600a7363",
+      "bytes": 122607,
+      "original_identity": [
+        16777228,
+        480950,
+        122607,
+        1790353682000000000,
+        1790353682000000000
+      ],
+      "matching_svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_ProtocolAlternative_source.svg",
+      "svg_sha256": "5a08b20f20b3a41da7e9bf3be1fe3ce3eedbeadf58358d120b807732d89ac27f",
+      "historical_variant": "Fig1_PanelsB-C_ProtocolAlternative_source",
+      "old_references": [
+        "/Volumes/JOAQUIM/Asset 7.png",
+        "J:/Asset 7.png"
+      ],
+      "status": "renamed_and_original_bytes_preserved"
+    },
+    {
+      "original_path": "/Volumes/JOAQUIM/Asset 11.png",
+      "canonical_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimeline_source.png",
+      "sha256": "c8328de16b23d33e0dbc9dffab8ef29c3d9b49a5c76e56d0969dcabdc626ac36",
+      "bytes": 91792,
+      "original_identity": [
+        16777228,
+        480953,
+        91792,
+        1790353696000000000,
+        1790353696000000000
+      ],
+      "matching_svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimeline_source.svg",
+      "svg_sha256": "4e2abc61c4d28d43f8407606e99d7a9f5b364b4c943f6468b8efbdc915174e85",
+      "historical_variant": "Fig1_PanelsB-C_SessionTimeline_source",
+      "old_references": [
+        "/Volumes/JOAQUIM/Asset 11.png",
+        "J:/Asset 11.png"
+      ],
+      "status": "renamed_and_original_bytes_preserved"
+    },
+    {
+      "original_path": "/Volumes/JOAQUIM/Asset 5.png",
+      "canonical_path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimelineAlternative_source.png",
+      "sha256": "91bfa160ecc5b1f1c58fbf7fb9dd22aa17bb61f09814b4ac98a7e18a7a3ddace",
+      "bytes": 76992,
+      "original_identity": [
+        16777228,
+        480952,
+        76992,
+        1790353690000000000,
+        1790353690000000000
+      ],
+      "matching_svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimelineAlternative_source.svg",
+      "svg_sha256": "0221de415b2f0e302ee94f8e8f84076ad3ebb38addd5db1950da74b71b979976",
+      "historical_variant": "Fig1_PanelsB-C_SessionTimelineAlternative_source",
+      "old_references": [
+        "/Volumes/JOAQUIM/Asset 5.png",
+        "J:/Asset 5.png"
+      ],
+      "status": "renamed_and_original_bytes_preserved"
+    }
+  ],
+  "protected_current_states": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json",
+      "sha256": "37a73519dfc042df5ed05b386753d37832a6bad4e42558e5251536c2b718378c"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json",
+      "sha256": "aaf75e987fa339ae413ca5cf4779451c751bc8b1c005f8cf0bb6a8f59cfcebe6"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json",
+      "sha256": "f29f425daf8876e976d2a3ea95b967c9b691b74062ed78db31f4fb7f032e2c9c"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-a/current-state.json",
+      "sha256": "936c94742718f29b064f84440e62f7010d180f5483e5267f7ea698cd9940e82d"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "sha256": "9833850b3d35ece4a8819c9e54c94efb1776629bd9caa59e305101b1a88d4da8"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/main-paper-current-state.json",
+      "sha256": "c41ce89fc56e05ed5c5d4ec9ad264a7c5f95550d32ff3935bafe76d84f375605"
+    }
+  ],
+  "previous_indexes": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/historical-png-renaming-originals/verified-artifact-locations.json",
+      "sha256": "0c68c76b305cd600d607fc70b8caba9e999a08ef461e693d5829ba187281d366"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/historical-png-renaming-originals/relocations.json",
+      "sha256": "97e62e79afa7d7fa1678dfe9e7a6d240aedd30f6ecad6ed6422bedd4b9cc1ca1"
+    }
+  ],
+  "interpretation": "Existing figure/panel/descriptive variant stems preserved; same stem across PNG/SVG formats. These are historical source variants, not a new current-artwork selection.",
+  "local_open_handles": 0,
+  "completed_utc": "2026-10-26T18:57:05.797942+00:00",
+  "renamed_pngs": 5,
+  "svg_sources_unchanged": 5,
+  "artwork_bytes_changed": false,
+  "current_states_unchanged": true
+}

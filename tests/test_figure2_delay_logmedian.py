@@ -6,7 +6,7 @@ import sys
 import numpy as np
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-spec=importlib.util.spec_from_file_location('logmedian_review',Path(__file__).resolve().parents[1]/'scripts/render_figure2_delay_logmedian.py')
+spec=importlib.util.spec_from_file_location('logmedian_review',Path(__file__).resolve().parents[1]/'scripts/paper/figure_02/panel_g/reproduction/render_historical_logmedian.py')
 review=importlib.util.module_from_spec(spec)
 spec.loader.exec_module(review)
 

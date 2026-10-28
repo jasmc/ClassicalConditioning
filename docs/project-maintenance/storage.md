@@ -2,6 +2,12 @@
 
 Permanent media, HTML reviews, numerical payloads and superseded candidate code belong on JOAQUIM. One self-contained review embeds requested versions, legends and provenance; one recorded working SVG per frozen/draft state is permitted by the figure workflow. Temporary previews are removed after verification.
 
+Editable study/discussion/comparison Markdown also belongs beside its HTML on
+JOAQUIM under the [study-artifact policy](review-artifacts.md). Plans remain in
+Git; instructions, approved definitions, operating documentation and compact
+authority/recovery records retain their repository roles. Existing source and
+notebook migrations follow [Plan 12](../../Plans/12_STUDY_ARTIFACT_STORAGE.md).
+
 Use an explicit external destination or `CLASSICAL_CONDITIONING_ARTIFACT_ROOT`; the configured directory must exist outside the repository. Never fabricate a missing mount. `CLASSICAL_CONDITIONING_ARCHIVE_ROOT` can identify a verified archive.
 
 `ClassicalConditioning Outputs/current/` contains current working outputs; historical artifacts are retained or placed in separately indexed history/archive locations. A dated snapshot or published archive may supply a current accepted panel. Do not infer supersession from its location.
@@ -28,3 +34,38 @@ and recognizes only their exact deleted path/hash/size triples. Other missing
 or corrupt payloads fail. The transfer inventories stay immutable, and
 `repository_archive.py verify`, transfer and prune still require every payload;
 audit exceptions cannot weaken those mutation safeguards.
+
+## Find reviews on JOAQUIM
+
+Open `ClassicalConditioning Outputs/START-HERE.html`. The maintained [review library](../paper/figures/review-library.md) owns curated reading links; its JSON catalogue supplies verified external identities. `current/reviews/` also retains historical/QA iterations and does not itself select current science. `ORGER-JOAQUIM/outputs/` is a source-machine mirror; archive and dated handoff packets keep separate recovery roles. Reorganize navigation before moving payloads with path-bound dependencies.
+
+## Drive-wide audit
+
+The [24 October storage audit](../../records/repository-history/2026-10-24-joaquim-storage-audit/README.md)
+records current folder sizes, processed-data status, archive integrity and the
+roles of the dated PC/Mac handoff packets. Its full Markdown/HTML explanation
+and file inventory live on JOAQUIM. Machine names and old dates do not by
+themselves identify disposable data: the Delay baseline still supplies figure
+inputs, and the old Mac handoff's pc-outputs subtree resolves selected Figure 2 G.
+Treat dated source packets as handoff/recovery snapshots, not parallel active
+repositories; preserve their dirty-copy history and bound exports before any
+future consolidation. No folders were moved or pruned by that read-only audit.
+
+The subsequent [implementation record](../../records/repository-history/2026-10-24-storage-organization/implementation.json)
+records the drive-root `README.md` and `START-HERE.html` map and the verified
+quarantine of the interrupted intake staging. That transfer preserved eight
+original files, including AppleDouble metadata, under the archive quarantine; the
+complete published recording was authenticated before staging removal. No
+scientific bytes were discarded or capacity reclaimed by this same-drive move.
+The root map distinguishes live data, reading artifacts, recovery archives and
+dated handoffs without moving path-bound Figure 2 G dependencies.
+
+On 26 October the author explicitly authorized disposal of those eight redundant
+staging files after another raw/complete-input hash check, exact partial-tracking
+prefix comparison and camera-table equality check. The
+[completed disposition](../../records/repository-archive/intake-quarantine-20261024/disposition.json)
+records 1,723,733,906 logical bytes removed. Complete intake files and original raw
+inputs remain; original transfer inventories and receipts retain their bytes.
+The live recovery index no longer advertises the deleted staging, and the existing
+external-audit policy recognizes only the disposition's exact path/hash/size
+absences. Strict transfer/verify/prune behavior is unchanged.

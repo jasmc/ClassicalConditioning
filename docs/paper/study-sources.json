@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs",
+  "policy": "Canonical current study sources; change hashes only after reviewing actual source revisions. Exact originals resolve separately.",
+  "entries": [
+    {
+      "reference": "docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+      "path": "studies/figure-02/panel-g/study.md",
+      "sha256": "7324cb7f9a15fe7152fef73aae93d12b8dc96be263777f3712076b29540af6ab",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+      "consumers": [
+        "plans/12_STUDY_ARTIFACT_STORAGE.md",
+        "scripts/complete_figure2_g_analysis_guide.py",
+        "scripts/build_figure2_g_analysis_guide.py",
+        "records/repository-history/2026-10-23-script-lifecycle/guide-link-reconciliation.json",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-23-repository-output-review/reading-target-verification.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/script-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/figure-reviews/figure-02/g-analysis-guide-20261017.json",
+        "docs/paper/figures/review-library.json"
+      ]
+    },
+    {
+      "reference": "records/figure-reviews/figure-04/conversation-summary-2026-10-23.md",
+      "path": "studies/figure-04/conversation-summary-2026-10-23.md",
+      "sha256": "f772bb5e3bf950181b5ece04354c08ff8edbe345bdc4bad08a51cbe1eea90f4c",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-04/conversation-summary-2026-10-23.md",
+      "consumers": [
+        "plans/12_STUDY_ARTIFACT_STORAGE.md",
+        "records/repository-history/2026-10-23-repository-output-review/reading-target-verification.json",
+        "docs/paper/figures/review-library.json",
+        "docs/paper/figures/review-library.md"
+      ]
+    },
+    {
+      "reference": "records/figure-reviews/figure-03/conversation-summary-2026-10-16.md",
+      "path": "studies/figure-03/conversation-summary-2026-10-16.md",
+      "sha256": "318cbdef4ea12b32cd105c563739b4bf9f139e73bbe85b696c38f947e78382f3",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-03/conversation-summary-2026-10-16.md",
+      "consumers": [
+        "to_implement.md",
+        "plans/IMPLEMENTATION_STEP_INDEX.md",
+        "plans/12_STUDY_ARTIFACT_STORAGE.md",
+        "scripts/build_figure3_explanation.py",
+        "scripts/preserve_figure3_guide_conversation.py",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-23-repository-output-review/reading-target-verification.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/IMPLEMENTATION_STEP_INDEX.md",
+        "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json",
+        "docs/paper/figures/review-library.json",
+        "docs/paper/figures/review-library.md",
+        "docs/paper/figures/figure-03/README.md"
+      ]
+    },
+    {
+      "reference": "records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md",
+      "path": "studies/figure-03/conversation-checkpoint-2026-10-23.md",
+      "sha256": "55c497afd61ca6e04daea7cc853b764644abc0772e54a0e51ca1bc548ed65cc3",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md",
+      "consumers": [
+        "scripts/preserve_figure3_guide_conversation.py",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-23-repository-output-review/reading-target-verification.json",
+        "docs/paper/figures/review-library.json",
+        "docs/paper/figures/review-library.md"
+      ]
+    },
+    {
+      "reference": "records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md",
+      "path": "studies/figure-03/explanation-guide-design-2026-10-17.md",
+      "sha256": "45f7e8daaaad5817539fc5ac6d06c3545b4382d82807a6c9ccb05a10d36610d2",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md",
+      "consumers": [
+        "scripts/build_figure3_explanation.py",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json"
+      ]
+    },
+    {
+      "reference": "docs/paper/methods/individual-learning.md",
+      "path": "studies/shared/individual-learning-review.md",
+      "sha256": "9eb4046e4041c2f7bc684acb06506ae64eb30052cede7c005878e827539e1f83",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/methods/individual-learning.md",
+      "consumers": [
+        "plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+        "plans/05_FIGURE_4_CR_PROFILES.md",
+        "plans/12_STUDY_ARTIFACT_STORAGE.md",
+        "scripts/build_figure3_explanation.py",
+        "scripts/complete_figure2_g_analysis_guide.py",
+        "records/repository-archive/relocations.json",
+        "records/repository-history/2026-10-13-paper-structure/migration.json",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-23-repository-output-review/reading-target-verification.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-archive/relocations.json",
+        "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json",
+        "docs/paper/figures/review-library.json"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-03/individual-fish-display.md",
+      "path": "studies/figure-03/individual-fish-display-review.md",
+      "sha256": "c04681a5f33fe5c27b93fb8c3c94b8d8a1e9c2fa2f4fa5ca1002c8eb343c3496",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-03/individual-fish-display.md",
+      "consumers": [
+        "to_implement.md",
+        "plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+        "scripts/build_figure3_explanation.py",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json"
+      ]
+    },
+    {
+      "reference": "docs/paper/review.md",
+      "path": "studies/shared/paper-review-agenda.md",
+      "sha256": "4c9602f5a6e13c689caf90042fff70b1af1fd1379870489f711c56d853b9fdb1",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/review.md",
+      "consumers": [
+        "README.md",
+        "plans/README.md",
+        "records/repository-archive/relocations.json",
+        "records/repository-history/2026-10-13-paper-structure/migration.json",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-archive/relocations.json"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/shared/review.md",
+      "path": "studies/shared/figure-review-agenda.md",
+      "sha256": "cdb5412dc776e3b257fb272c5651a75fbc334d8d7bee8a5cd91260cd50a7e793",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/shared/review.md",
+      "consumers": [
+        "scripts/build_figure_legend_review.py",
+        "records/repository-archive/relocations.json",
+        "records/figure-reviews/legend-text-relocation.json",
+        "records/repository-history/2026-10-13-paper-structure/migration.json",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-archive/relocations.json"
+      ]
+    },
+    {
+      "reference": "records/figure-reviews/nature-guidance-20261016.md",
+      "path": "studies/shared/nature-guidance-20261016.md",
+      "sha256": "ccb5df3cbd0aa1b73d62c75afa981d57d13058e7f23eb059a2509fc06daa5864",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/nature-guidance-20261016.md",
+      "consumers": [
+        "to_implement.md",
+        "plans/07_FIGURE_BUILD_TOOLS.md",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/script-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/shared/iteration-workflow.md",
+        "docs/paper/figures/shared/iteration-workflow.md",
+        "docs/paper/figures/shared/nature-style.md"
+      ]
+    },
+    {
+      "reference": "records/figure-reviews/nature-main-migration-20261017.md",
+      "path": "studies/shared/nature-main-migration-20261017.md",
+      "sha256": "094142a0d13d1e6453a2726636560f6f257da6996738266709ebf007b6cabdc9",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/figure-reviews/nature-main-migration-20261017.md",
+      "consumers": [
+        "to_implement.md",
+        "plans/07_FIGURE_BUILD_TOOLS.md",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/script-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/paper/figures/shared/iteration-workflow.md",
+        "docs/paper/figures/shared/iteration-workflow.md"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-01/review.md",
+      "path": "studies/figure-01/review-agenda.md",
+      "sha256": "817e9d97acdaba1289efc8c77f69bf890472deb7cd2bd2a30d50c87aca3c2a65",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-01/review.md",
+      "consumers": [
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-02/review.md",
+      "path": "studies/figure-02/review-agenda.md",
+      "sha256": "19d0bbbc6327292ecf4e40c244bb5caddad330fb4a5e07a8546e1c9a29f2b7f6",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-02/review.md",
+      "consumers": [
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-03/review.md",
+      "path": "studies/figure-03/review-agenda.md",
+      "sha256": "5651b99ab202c8831025b46c1fe5a612dc7963282cb3a5500e439b853defc4d3",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-03/review.md",
+      "consumers": [
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-04/review.md",
+      "path": "studies/figure-04/review-agenda.md",
+      "sha256": "1a3eac9f5bb78f93f94dc138c56cc70c80f0d40365ad499e849be54a8f29c2fa",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/docs/paper/figures/figure-04/review.md",
+      "consumers": [
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json"
+      ]
+    },
+    {
+      "reference": "records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md",
+      "path": "studies/figure-02/panel-g/comparisons/implementation-and-review-2026-10-15.md",
+      "sha256": "a5fc34bc112b3d89c362cafbf8134e2148065698618a22f36df18033491b3683",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md",
+      "consumers": [
+        "plans/03_FIGURE_2_LEARNING_ONSET.md",
+        "plans/IMPLEMENTATION_STEP_INDEX.md",
+        "scripts/build_figure3_explanation.py",
+        "scripts/build_figure2_g_analysis_guide.py",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/Plans/IMPLEMENTATION_STEP_INDEX.md",
+        "records/repository-history/2026-10-17-organization-reconciliation/original-documents/docs/running-analysis/figure2-g-independent-review.md",
+        "records/scientific-evidence/audits/figure3-individual-display-legacy-review-2026-10-15.json",
+        "records/scientific-evidence/analyses/figure-02-g-independent/implementation-evidence-2026-10-15.json",
+        "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json",
+        "docs/running-analysis/figure2-g-independent-review.md",
+        "docs/paper/figures/figure-03/individual-fish-display.md"
+      ]
+    },
+    {
+      "reference": "records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md",
+      "path": "studies/figure-02/panel-g/comparisons/review-2026-10-14.md",
+      "sha256": "fd1fbfee25a9baae05b1dd07d2f49423e7ef1c1927184365843a24ffb81e9eca",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md",
+      "consumers": [
+        "scripts/build_figure2_g_analysis_guide.py",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/script-inventory.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "records/scientific-evidence/analyses/figure-02-g-independent/review-evidence-2026-10-14.json"
+      ]
+    },
+    {
+      "reference": "records/scientific-evidence/analyses/figure-02-g-independent/current-G-comparison-2026-10-15.md",
+      "path": "studies/figure-02/panel-g/comparisons/current-G-comparison-2026-10-15.md",
+      "sha256": "1c304e33a59ddb4ee47924f3018989278012587b05d1bf2e2e6b546a186df9c5",
+      "role": "editable study source",
+      "original": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23/payload/records/scientific-evidence/analyses/figure-02-g-independent/current-G-comparison-2026-10-15.md",
+      "consumers": [
+        "plans/03_FIGURE_2_LEARNING_ONSET.md",
+        "plans/12_STUDY_ARTIFACT_STORAGE.md",
+        "scripts/build_figure2_g_analysis_guide.py",
+        "records/repository-history/2026-10-23-repository-output-review/repository-inventory.json",
+        "records/repository-history/2026-10-23-repository-output-review/reading-target-verification.json",
+        "records/repository-history/2026-10-17-organization-reconciliation/starting-state.json",
+        "docs/paper/figures/review-library.json",
+        "docs/paper/figures/review-library.md"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-03/blup-comparison.md",
+      "path": "studies/figure-03/blup-comparison/study.md",
+      "sha256": "7ecab301f417cb48de9dd01d14634a844f46c2b43441c6c8ea495f86569483db",
+      "role": "editable study source; exploratory comparison, no method approval",
+      "consumers": [
+        "docs/paper/figures/figure-03/README.md",
+        "docs/paper/figures/review-library.json",
+        "docs/running-analysis/figure3-blup-comparison.md"
+      ]
+    },
+    {
+      "reference": "docs/paper/figures/figure-02/statistical-audit.md",
+      "path": "studies/figure-02/ghi-statistical-audit/report/study.md",
+      "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
+      "role": "editable saved-statistics audit and review; no scientific selection",
+      "consumers": [
+        "docs/paper/figures/figure-02/current-methods.md",
+        "docs/paper/figures/review-library.json",
+        "scripts/paper/figure_02/panels_g_h_i/audit_saved_statistics.py"
+      ]
+    }
+  ]
+}

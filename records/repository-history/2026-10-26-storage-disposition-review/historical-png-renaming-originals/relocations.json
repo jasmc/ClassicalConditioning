@@ -1,0 +1,1105 @@
+{
+  "schema_version": 1,
+  "repository_moves": {
+    "configs/paper-figures/figure1-freeze.json": "configs/paper-figures/selections/figure1-freeze.json",
+    "configs/paper-figures/figure1-fgh-version1-freeze-20261009.json": "configs/paper-figures/selections/figure1-fgh-version1-freeze-20261009.json",
+    "configs/paper-figures/figure1-fgh-version12-freeze-20261009.json": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+    "configs/paper-figures/figure1-fgh-full-bout-correction-20261009.json": "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json",
+    "configs/paper-figures/figure1-panel-e-heatmap-rows-freeze-20261009.json": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+    "configs/paper-figures/figure2-DE-B-freeze-20261009.json": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+    "configs/paper-figures/figure2-G-logmedian-freeze-20261009.json": "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+    "Plans/GOVERNANCE.md": "docs/maintenance/ANALYSIS_GOVERNANCE.md",
+    "Plans/DECISIONS.md": "docs/analysis/decisions/DECISIONS.md",
+    "Plans/EXCLUSION_AND_SELECTION_INVENTORY.csv": "docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv",
+    "Plans/PANEL_REVIEW_COMMENTS.md": "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+    "Plans/PAPER_REVIEW_CONSIDERATIONS.md": "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md",
+    "Handovers, etc/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md": "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+    "Plans/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md": "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+    "Handovers, etc/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md": "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md",
+    "Plans/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md": "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md",
+    "Handovers, etc/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md": "docs/analysis/figures/reviews/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md",
+    "Plans/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md": "docs/analysis/figures/reviews/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md",
+    "Handovers, etc/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md": "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+    "Plans/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md": "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md",
+    "Handovers, etc/MAC_SSD_20261009.md": "docs/maintenance/transfers/MAC_SSD_20261009.md",
+    "Plans/MAC_SSD_20261009.md": "docs/maintenance/transfers/MAC_SSD_20261009.md",
+    "Handovers, etc/HANDOVER_ALLDELAY_MAC_TO_PC.md": "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+    "Plans/HANDOVER_ALLDELAY_MAC_TO_PC.md": "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+    "Handovers, etc/FGH_COLOUR_AND_BINNING_CLEAN_CHAT_HANDOFF_2026-10-09.md": "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+    "Plans/FGH_COLOUR_AND_BINNING_CLEAN_CHAT_HANDOFF_2026-10-09.md": "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md",
+    "Handovers, etc/HANDOFF_BOUT_LOG_VIGOR_PANELS_2026-10-09.md": "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+    "Plans/HANDOFF_BOUT_LOG_VIGOR_PANELS_2026-10-09.md": "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md",
+    "Handovers, etc/HANDOFF_FIGURE2_ROW1_FROM_FROZEN_V12_2026-10-09.md": "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+    "Plans/HANDOFF_FIGURE2_ROW1_FROM_FROZEN_V12_2026-10-09.md": "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md",
+    "HANDOVER_ALLDELAY_MAC_TO_PC.md": "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+    "handover/MAC_SSD_20261009.md": "docs/maintenance/transfers/MAC_SSD_20261009.md",
+    "docs/analysis/figures/07_FIGURE4_HANDOVER.md": "docs/maintenance/transfers/FIGURE4_TRANSFER.md",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/freeze_and_style.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/freeze_and_style.py",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/freeze.json",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/selected_processing_code.py",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/layout-validation.json",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/settings/pooled-style-freeze.json",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/register_freeze.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/register_freeze.py",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/render_references.cjs": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/render_references.cjs",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/replace_trace_fish.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/replace_trace_fish.py",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json",
+    "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared_colourbar.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/shared_colourbar.py",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/build_new_versions.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/build_new_versions.py",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/freeze.json",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/manifest.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/replacement_verification.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json",
+    "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/verify_replacement.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/verify_replacement.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/freeze.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/candidate.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/D_renderer_review.json": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/reviews/renderer-review.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/freeze.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/candidate.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/E_renderer_review.json": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/reviews/renderer-review.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_D_B.figure.json": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/sources/source-figure.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_E_B.figure.json": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/sources/source-figure.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/README.md": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/original-readme.md",
+    "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-inputs.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-manifest.json": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-manifest.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-element-specification.md",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_block_statistics.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_block_statistics.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_vigor.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_vigor.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/candidate_metric_kernel.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/candidate_metric_kernel.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/experiments.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/experiments.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/export.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/export.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure-elements.json": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-elements.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure_freeze.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/figure_freeze.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/prepare_figure2_B_freeze.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_block_log_median.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_bout_only.py",
+    "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/handoff.md",
+    "records/frozen-analyses/figure2_B_freeze_20261009/method.json": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/method.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/scientific-selection.json": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/scientific-selection.json",
+    "records/frozen-analyses/figure2_B_freeze_20261009/visual-review.json": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/reviews/visual-review.json",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/candidate.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/candidate.json",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/freeze.json",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/renderer-properties.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/reviews/renderer-properties.json",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/selection.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/selection.json",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/prepare_figure1_fgh_v12_freeze.py",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/specification-snapshot.json": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/settings/specification-snapshot.json",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/experiments-snapshot.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/experiments_snapshot.py",
+    "records/frozen-analyses/figure1-fgh-v12-20261009/palette-functions-snapshot.py": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py",
+    "records/frozen-analyses/figure1-panel-e-20261009/candidate.json": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/candidate.json",
+    "records/frozen-analyses/figure1-panel-e-20261009/check-report.json": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/check-report.json",
+    "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/freeze-command-report.json",
+    "records/frozen-analyses/figure1-panel-e-20261009/freeze.json": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/freeze.json",
+    "records/frozen-analyses/figure1-panel-e-20261009/renderer-properties.json": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/renderer-properties.json",
+    "records/frozen-analyses/figure1-panel-e-20261009/selection.json": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/selection.json",
+    "records/frozen-analyses/figure1-panel-e-20261009/specification-snapshot.json": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/settings/specification-snapshot.json",
+    "records/frozen-analyses/figure1-panel-e-20261009/freeze-preparer-snapshot.py": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/freeze_preparer_snapshot.py",
+    "records/frozen-analyses/figure1-panel-e-20261009/renderer-snapshot.py": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/renderer_snapshot.py",
+    "records/frozen-analyses/figure1-panel-e-20261009/version-history-source.md": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/notes/version-history-source.md",
+    "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/freeze.json",
+    "records/frozen-analyses/figure2-G-logmedian-20261009/scientific-selection.json": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/scientific-selection.json",
+    "records/frozen-analyses/figure2-G-logmedian-20261009/sources/renderer-source.py": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py",
+    "records/frozen-analyses/figure2-G-logmedian-20261009/sources/Fig2_G_Historical_LogMedian.figure.json": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/source-figure.json",
+    "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/selected-source-inventory.json",
+    "scripts/prepare_figure2_G_logmedian_freeze.py": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py",
+    "configs/trace-preflight.json": "docs/analysis/audits/trace-preflight.json",
+    "configs/incTrace-stim-audit.json": "docs/analysis/audits/inc-trace-stim-audit.json",
+    "configs/increasing-trace-move-manifest.json": "docs/maintenance/transfers/increasing-trace-move-manifest.json",
+    "configs/paper-figures/review-variants.json": "docs/analysis/figures/reviews/review-variants.json",
+    "docs/analysis/METRIC_SELECTION_2026-10-06.md": "docs/analysis/decisions/metric-selection-2026-10-06.md",
+    "docs/analysis/SSD_OUTPUT_LOCATION.md": "docs/maintenance/transfers/history/repository-output-mirror-2026-10-06.md",
+    "docs/analysis/PREPROCESSING_CONTRACT_AUDIT_2026-10-07.md": "docs/analysis/audits/preprocessing-contract-audit-2026-10-07.md",
+    "docs/analysis/LEGACY_ACQUISITION_TIMING_REPAIR_2026-10-06.md": "docs/analysis/audits/legacy-acquisition-timing-repair-2026-10-06.md",
+    "docs/analysis/FIGURE1_CAMERA_GAPS_AND_BIN_MAPPING_2026-10-06.md": "docs/analysis/audits/figure-01-camera-gaps-and-bin-mapping-2026-10-06.md",
+    "docs/analysis/FIGURE1_VIGOR_ALIGNMENT_AUDIT_2026-10-06.md": "docs/analysis/audits/figure-01-vigor-alignment-audit-2026-10-06.md",
+    "docs/analysis/PANEL_E_PRESENTATION_REVIEW_2026-10-07.md": "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md",
+    "docs/analysis/FIGURE1_CADENCE_REVIEW_V5_2026-10-07.md": "docs/analysis/figures/history/figure-01/cadence-review-v5-2026-10-07.md",
+    "docs/analysis/figures/FIGURE1_CD_TRACE_VARIANTS.md": "docs/analysis/figures/history/figure-01/trace-variants.md",
+    "docs/analysis/figures/FIGURE1_HEATMAPS.md": "docs/analysis/figures/history/figure-01/heatmap-review-history.md",
+    "docs/analysis/figures/FIGURE1_PANEL_B_REDESIGN.md": "docs/analysis/figures/history/figure-01/panel-b-redesign-history.md",
+    "docs/analysis/figures/FIGURE1_PANEL_C_REDESIGN.md": "docs/analysis/figures/history/figure-01/panel-c-redesign-history.md",
+    "docs/analysis/figures/BASELINE_WINDOW_REVIEW.md": "docs/analysis/figures/history/shared/baseline-window-review.md",
+    "docs/analysis/figures/DELAY_FIGURE4_READINESS_2026-09-24.md": "docs/analysis/figures/history/figure-04/delay-readiness-2026-09-24.md",
+    "docs/analysis/figures/TRACE3_EXPLORATORY_RUN_2026-09-24.md": "docs/analysis/figures/history/shared/trace3-exploratory-run-2026-09-24.md",
+    "docs/analysis/figures/TRACE3_PLOT_VERSIONS_2026-10-06.md": "docs/analysis/figures/history/shared/trace3-plot-versions-2026-10-06.md",
+    "docs/analysis/figures/FIGURE2_DELAY_ALL_VERSIONS_2026-10-09.md": "docs/analysis/figures/history/figure-02/delay-all-versions-2026-10-09.md",
+    "docs/analysis/figures/FIGURE2_DELAY_BOUT_ONLY_COMPARISON_2026-10-09.md": "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+    "docs/analysis/figures/FIGURE2_DELAY_LMM_AUDIT_2026-10-09.md": "docs/analysis/figures/history/figure-02/delay-lmm-audit-2026-10-09.md",
+    "docs/analysis/figures/FIGURE2_DELAY_PHASE_LMM_2026-10-09.md": "docs/analysis/figures/history/figure-02/delay-phase-lmm-2026-10-09.md",
+    "docs/analysis/figures/FIGURE2_ROW3_DECISIONS_2026-10-08.md": "docs/analysis/decisions/figure-02-row-3-decisions-2026-10-08.md",
+    "docs/analysis/figures/reviews/FGH_ANALYSIS_STEP_ASSESSMENT_2026-10-08.md": "docs/analysis/figures/history/figure-01/fgh-analysis-assessment-2026-10-08.md",
+    "docs/analysis/figures/reviews/FGH_COLOUR_AND_BINNING_HISTORY_2026-10-09.md": "docs/analysis/figures/history/figure-01/fgh-colour-and-binning-history-2026-10-09.md",
+    "docs/analysis/figures/reviews/FGH_REQUESTED_METHOD_CORRECTION_2026-10-09.md": "docs/analysis/figures/history/figure-01/fgh-requested-corrections-2026-10-09.md",
+    "docs/analysis/figures/reviews/figure-01-legend-draft.md": "docs/analysis/figures/reviews/figure-01/legend-draft.md",
+    "docs/analysis/figures/reviews/figure-02-legend-draft.md": "docs/analysis/figures/reviews/figure-02/legend-draft.md",
+    "docs/analysis/decisions/DECISIONS.md": "docs/scientific-decisions.md",
+    "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md": "docs/paper/figures/README.md",
+    "docs/analysis/figures/reviews/PAPER_REVIEW_CONSIDERATIONS.md": "docs/paper-review.md",
+    "docs/analysis/01_USER_WORKFLOW.md": "docs/analysis/reference/01-user-workflow.md",
+    "docs/analysis/11_GLOSSARY.md": "docs/analysis/reference/11-glossary.md",
+    "docs/analysis/10_TROUBLESHOOTING.md": "docs/analysis/reference/10-troubleshooting.md",
+    "docs/analysis/07_LEARNING_ONSET_LME.md": "docs/analysis/reference/07-learning-onset-lme.md",
+    "docs/analysis/04_DISCARDING_AND_SELECTION.md": "docs/analysis/reference/04-discarding-and-selection.md",
+    "docs/analysis/12_PROPOSED_MULTIMODAL_ARCHITECTURE.md": "docs/analysis/reference/12-proposed-multimodal-architecture.md",
+    "docs/analysis/08_CANDIDATE_FIGURES.md": "docs/analysis/reference/08-candidate-figures.md",
+    "docs/analysis/02_CURRENT_PIPELINE.md": "docs/analysis/reference/02-current-pipeline.md",
+    "docs/analysis/09_OUTPUT_AND_PROVENANCE.md": "docs/analysis/reference/09-output-and-provenance.md",
+    "docs/analysis/03_ANALYSIS_PARAMETER_INDEX.md": "docs/analysis/reference/03-analysis-parameter-index.md",
+    "docs/analysis/05_METRICS_AND_BOUTS.md": "docs/analysis/reference/05-metrics-and-bouts.md",
+    "docs/analysis/06_COHORT_AGGREGATION.md": "docs/analysis/reference/06-cohort-aggregation.md",
+    "docs/analysis/figures/03_FIGURE_PIPELINES.md": "docs/analysis/figures/history/shared/renderer-pipeline-comparison.md",
+    "docs/analysis/figures/04_REVIEW_VARIANTS.md": "docs/analysis/figures/history/shared/review-versions-2026-09-24.md",
+    "docs/analysis/figures/05_DRAFT_COMPARISON.md": "docs/analysis/figures/history/shared/draft-comparison.md",
+    "docs/analysis/figures/06_FIGURE4_LEARNER_PROFILES.md": "docs/analysis/reference/figure-04-analysis-and-rendering.md",
+    "docs/analysis/figures/07_FIGURE2_ASSEMBLY.md": "docs/analysis/reference/figure-02-assembly.md",
+    "docs/analysis/figures/FIGURE1_ASSEMBLY.md": "docs/analysis/reference/figure-01-assembly.md",
+    "docs/analysis/figures/01_PAPER_PANEL_PROVENANCE.md": "docs/current-figures.md",
+    "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md": "docs/current-figures.md",
+    "Plans/14_REPOSITORY_CLEANUP_AND_EXTERNAL_ARCHIVE.md": "docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md",
+    "docs/analysis/figures/freezes/FIGURE1_FGH_VERSION1_FREEZE_2026-10-09.md": "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
+    "docs/analysis/figures/freezes/BOUT_LOG_VIGOR_PROCESSING_2026-10-09.md": "docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md",
+    "docs/analysis/figures/freezes/FIGURE1_V12_AND_POPULATION_ADAPTATION_2026-10-09.md": "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+    "docs/maintenance/archive/deletions.json": "records/repository-archive/deletions.json",
+    "docs/maintenance/archive/completed-transfer.json": "records/repository-archive/completed-transfer.json",
+    "docs/maintenance/archive/starting-inventory.json": "records/repository-archive/starting-inventory.json",
+    "docs/maintenance/archive/REVIEW_CATALOGUE.md": "records/repository-archive/REVIEW_CATALOGUE.md",
+    "docs/maintenance/archive/REQUEST_CONTEXT_20261010.md": "records/repository-archive/REQUEST_CONTEXT_20261010.md",
+    "docs/maintenance/archive/post-transfer-repository-inventory.json": "records/repository-archive/post-transfer-repository-inventory.json",
+    "docs/maintenance/archive/records-reorganization-verification.json": "records/repository-archive/records-reorganization-verification.json",
+    "docs/maintenance/archive/review-lineages.json": "records/repository-archive/review-lineages.json",
+    "docs/maintenance/archive/ARTIFACT_INDEX.md": "records/repository-archive/ARTIFACT_INDEX.md",
+    "docs/maintenance/archive/records-reorganization.json": "records/repository-archive/records-reorganization.json",
+    "docs/maintenance/archive/retained-code.json": "records/repository-archive/retained-code.json",
+    "docs/maintenance/archive/transfer-inventory.json": "records/repository-archive/transfer-inventory.json",
+    "docs/maintenance/archive/README.md": "records/repository-archive/README.md",
+    "docs/maintenance/archive/records-reorganization-before.json": "records/repository-archive/records-reorganization-before.json",
+    "docs/maintenance/archive/ssd-readonly-inspection.json": "records/repository-archive/ssd-readonly-inspection.json",
+    "docs/maintenance/archive/verification.json": "records/repository-archive/verification.json",
+    "docs/maintenance/archive/post-transfer-link-audit.json": "records/repository-archive/post-transfer-link-audit.json",
+    "docs/maintenance/archive/historical-link-recovery.json": "records/repository-archive/historical-link-recovery.json",
+    "docs/maintenance/archive/configuration-pointer-discrepancies-20261011.json": "records/repository-archive/configuration-pointer-discrepancies-20261011.json",
+    "docs/maintenance/archive/relocations.json": "records/repository-archive/relocations.json",
+    "docs/maintenance/archive/verified-artifact-locations.json": "records/repository-archive/verified-artifact-locations.json",
+    "docs/maintenance/archive/CLEANUP_RECORD.md": "records/repository-archive/CLEANUP_RECORD.md",
+    "docs/maintenance/archive/learner-plan-consolidation-20261011/completed-transfer.json": "records/repository-archive/learner-plan-consolidation-20261011/completed-transfer.json",
+    "docs/maintenance/archive/learner-plan-consolidation-20261011/transfer-inventory.json": "records/repository-archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+    "docs/maintenance/archive/learner-plan-consolidation-20261011/README.md": "records/repository-archive/learner-plan-consolidation-20261011/README.md",
+    "docs/maintenance/archive/learner-plan-consolidation-20261011/verification.json": "records/repository-archive/learner-plan-consolidation-20261011/verification.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/dispositions.json": "records/repository-archive/documentation-cleanup-20261011/dispositions.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/final-inventory.json": "records/repository-archive/documentation-cleanup-20261011/final-inventory.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/completed-transfer.json": "records/repository-archive/documentation-cleanup-20261011/completed-transfer.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/starting-inventory.json": "records/repository-archive/documentation-cleanup-20261011/starting-inventory.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/documentation-links.json": "records/repository-archive/documentation-cleanup-20261011/documentation-links.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/repository-moves.json": "records/repository-archive/documentation-cleanup-20261011/repository-moves.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/transfer-inventory.json": "records/repository-archive/documentation-cleanup-20261011/transfer-inventory.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/README.md": "records/repository-archive/documentation-cleanup-20261011/README.md",
+    "docs/maintenance/archive/documentation-cleanup-20261011/protected-hashes.json": "records/repository-archive/documentation-cleanup-20261011/protected-hashes.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/verification.json": "records/repository-archive/documentation-cleanup-20261011/verification.json",
+    "docs/maintenance/archive/documentation-cleanup-20261011/consolidation.json": "records/repository-archive/documentation-cleanup-20261011/consolidation.json",
+    "docs/maintenance/archive/scripts-reassessment-20261011/completed-transfer.json": "records/repository-archive/scripts-reassessment-20261011/completed-transfer.json",
+    "docs/maintenance/archive/scripts-reassessment-20261011/transfer-inventory.json": "records/repository-archive/scripts-reassessment-20261011/transfer-inventory.json",
+    "docs/maintenance/archive/scripts-reassessment-20261011/README.md": "records/repository-archive/scripts-reassessment-20261011/README.md",
+    "docs/maintenance/archive/scripts-reassessment-20261011/verification.json": "records/repository-archive/scripts-reassessment-20261011/verification.json",
+    "docs/maintenance/archive/plan-policy-review-20261011/record.json": "records/repository-archive/plan-policy-review-20261011/record.json",
+    "docs/maintenance/archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md": "records/repository-archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md",
+    "docs/maintenance/archive/plan-policy-review-20261011/README.md": "records/repository-archive/plan-policy-review-20261011/README.md",
+    "docs/maintenance/archive/plan-policy-review-20261011/verification.json": "records/repository-archive/plan-policy-review-20261011/verification.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/completed-transfer.json": "records/repository-archive/configuration-cleanup-20261011/completed-transfer.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/documentation-link-audit.json": "records/repository-archive/configuration-cleanup-20261011/documentation-link-audit.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/repository-moves.json": "records/repository-archive/configuration-cleanup-20261011/repository-moves.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/retained-configurations.json": "records/repository-archive/configuration-cleanup-20261011/retained-configurations.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-verification.json": "records/repository-archive/configuration-cleanup-20261011/hash-recovery-verification.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/transfer-inventory.json": "records/repository-archive/configuration-cleanup-20261011/transfer-inventory.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/README.md": "records/repository-archive/configuration-cleanup-20261011/README.md",
+    "docs/maintenance/archive/configuration-cleanup-20261011/hash-recovery-inventory.json": "records/repository-archive/configuration-cleanup-20261011/hash-recovery-inventory.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/protected-hashes.json": "records/repository-archive/configuration-cleanup-20261011/protected-hashes.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/verification.json": "records/repository-archive/configuration-cleanup-20261011/verification.json",
+    "docs/maintenance/archive/configuration-cleanup-20261011/selection-reference-verification.json": "records/repository-archive/configuration-cleanup-20261011/selection-reference-verification.json",
+    "docs/maintenance/archive/scripts-cleanup-20261010/completed-transfer.json": "records/repository-archive/scripts-cleanup-20261010/completed-transfer.json",
+    "docs/maintenance/archive/scripts-cleanup-20261010/current-retained-scripts.json": "records/repository-archive/scripts-cleanup-20261010/current-retained-scripts.json",
+    "docs/maintenance/archive/scripts-cleanup-20261010/transfer-inventory.json": "records/repository-archive/scripts-cleanup-20261010/transfer-inventory.json",
+    "docs/maintenance/archive/scripts-cleanup-20261010/README.md": "records/repository-archive/scripts-cleanup-20261010/README.md",
+    "docs/maintenance/archive/scripts-cleanup-20261010/verification.json": "records/repository-archive/scripts-cleanup-20261010/verification.json",
+    "docs/maintenance/archive/plan-renumbering-20261012/record.json": "records/repository-archive/plan-renumbering-20261012/record.json",
+    "docs/maintenance/archive/plan-renumbering-20261012/README.md": "records/repository-archive/plan-renumbering-20261012/README.md",
+    "docs/maintenance/archive/plan-renumbering-20261012/verification.json": "records/repository-archive/plan-renumbering-20261012/verification.json",
+    "docs/analysis/audits/03_IMAGING_PIPELINE_CRITIQUE.md": "records/scientific-evidence/audits/03_IMAGING_PIPELINE_CRITIQUE.md",
+    "docs/analysis/audits/figure-01-camera-gaps-and-bin-mapping-2026-10-06.md": "records/scientific-evidence/audits/figure-01-camera-gaps-and-bin-mapping-2026-10-06.md",
+    "docs/analysis/audits/figure-build-integrity-2026-10-12.json": "records/scientific-evidence/audits/figure-build-integrity-2026-10-12.json",
+    "docs/analysis/audits/inc-trace-stim-audit.json": "records/scientific-evidence/audits/inc-trace-stim-audit.json",
+    "docs/analysis/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md": "records/scientific-evidence/audits/INTEGRATED_IMPLEMENTATION_AT_CLEANUP_20261010.md",
+    "docs/analysis/audits/CONFIGURATION_INVENTORY_2026-10-11.md": "records/scientific-evidence/audits/CONFIGURATION_INVENTORY_2026-10-11.md",
+    "docs/analysis/audits/fish-selection-policy-review-2026-10-11.md": "records/scientific-evidence/audits/fish-selection-policy-review-2026-10-11.md",
+    "docs/analysis/audits/01_ANALYSIS_FINDINGS.md": "records/scientific-evidence/audits/01_ANALYSIS_FINDINGS.md",
+    "docs/analysis/audits/legacy-selection-source-index-2026-10-11.json": "records/scientific-evidence/audits/legacy-selection-source-index-2026-10-11.json",
+    "docs/analysis/audits/02_ISSUE_REGISTER.md": "records/scientific-evidence/audits/02_ISSUE_REGISTER.md",
+    "docs/analysis/audits/README.md": "records/scientific-evidence/audits/README.md",
+    "docs/analysis/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv": "records/scientific-evidence/audits/EXCLUSION_AND_SELECTION_INVENTORY.csv",
+    "docs/analysis/audits/trace-preflight.json": "records/scientific-evidence/audits/trace-preflight.json",
+    "docs/analysis/audits/legacy-acquisition-timing-repair-2026-10-06.md": "records/scientific-evidence/audits/legacy-acquisition-timing-repair-2026-10-06.md",
+    "docs/analysis/audits/preprocessing-contract-audit-2026-10-07.md": "records/scientific-evidence/audits/preprocessing-contract-audit-2026-10-07.md",
+    "docs/analysis/audits/technical-cohort-column-schema.md": "records/scientific-evidence/audits/technical-cohort-column-schema.md",
+    "docs/analysis/audits/figure-01-vigor-alignment-audit-2026-10-06.md": "records/scientific-evidence/audits/figure-01-vigor-alignment-audit-2026-10-06.md",
+    "docs/analysis/audits/configuration-inventory-2026-10-11.json": "records/scientific-evidence/audits/configuration-inventory-2026-10-11.json",
+    "docs/analysis/decisions/metric-selection-2026-10-06.md": "records/scientific-evidence/decisions/metric-selection-2026-10-06.md",
+    "docs/analysis/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md": "records/scientific-evidence/decisions/BOUT_ONLY_VIGOR_POLICY_2026-10-09.md",
+    "docs/analysis/decisions/README.md": "records/scientific-evidence/decisions/README.md",
+    "docs/analysis/decisions/figure-02-row-3-decisions-2026-10-08.md": "records/scientific-evidence/decisions/figure-02-row-3-decisions-2026-10-08.md",
+    "docs/analysis/legacy/02_CODEBASE_BEHAVIOR_MAP.md": "records/scientific-evidence/legacy/02_CODEBASE_BEHAVIOR_MAP.md",
+    "docs/analysis/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md": "records/scientific-evidence/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md",
+    "docs/analysis/legacy/README.md": "records/scientific-evidence/legacy/README.md",
+    "docs/analysis/legacy/05_LEGACY_LEARNER_COMPARISON.md": "records/scientific-evidence/legacy/05_LEGACY_LEARNER_COMPARISON.md",
+    "docs/analysis/legacy/01_ANALYSIS_FILES_INDEX.md": "records/scientific-evidence/legacy/01_ANALYSIS_FILES_INDEX.md",
+    "docs/analysis/legacy/03_LEGACY_VS_CORRECTED_WORKFLOW.md": "records/scientific-evidence/legacy/03_LEGACY_VS_CORRECTED_WORKFLOW.md",
+    "docs/analysis/figures/history/README.md": "records/figure-history/README.md",
+    "docs/analysis/figures/history/figure-02/delay-all-versions-2026-10-09.md": "records/figure-history/figure-02/delay-all-versions-2026-10-09.md",
+    "docs/analysis/figures/history/figure-02/delay-lmm-audit-2026-10-09.md": "records/figure-history/figure-02/delay-lmm-audit-2026-10-09.md",
+    "docs/analysis/figures/history/figure-02/README.md": "records/figure-history/figure-02/README.md",
+    "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md": "records/figure-history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+    "docs/analysis/figures/history/figure-02/delay-phase-lmm-2026-10-09.md": "records/figure-history/figure-02/delay-phase-lmm-2026-10-09.md",
+    "docs/analysis/figures/history/figure-04/delay-readiness-2026-09-24.md": "records/figure-history/figure-04/delay-readiness-2026-09-24.md",
+    "docs/analysis/figures/history/figure-04/README.md": "records/figure-history/figure-04/README.md",
+    "docs/analysis/figures/history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md": "records/figure-history/shared/bout-log-processing-and-adaptation-history-2026-10-09.md",
+    "docs/analysis/figures/history/shared/trace3-exploratory-run-2026-09-24.md": "records/figure-history/shared/trace3-exploratory-run-2026-09-24.md",
+    "docs/analysis/figures/history/shared/trace3-plot-versions-2026-10-06.md": "records/figure-history/shared/trace3-plot-versions-2026-10-06.md",
+    "docs/analysis/figures/history/shared/panel-review-history-through-2026-10-10.md": "records/figure-history/shared/panel-review-history-through-2026-10-10.md",
+    "docs/analysis/figures/history/shared/renderer-pipeline-comparison.md": "records/figure-history/shared/renderer-pipeline-comparison.md",
+    "docs/analysis/figures/history/shared/README.md": "records/figure-history/shared/README.md",
+    "docs/analysis/figures/history/shared/baseline-window-review.md": "records/figure-history/shared/baseline-window-review.md",
+    "docs/analysis/figures/history/shared/review-versions-2026-09-24.md": "records/figure-history/shared/review-versions-2026-09-24.md",
+    "docs/analysis/figures/history/shared/former-panel-provenance.md": "records/figure-history/shared/former-panel-provenance.md",
+    "docs/analysis/figures/history/shared/draft-comparison.md": "records/figure-history/shared/draft-comparison.md",
+    "docs/analysis/figures/history/shared/former-figure-specification.md": "records/figure-history/shared/former-figure-specification.md",
+    "docs/analysis/figures/history/figure-01/fgh-version-1-freeze-history-2026-10-09.md": "records/figure-history/figure-01/fgh-version-1-freeze-history-2026-10-09.md",
+    "docs/analysis/figures/history/figure-01/fgh-colour-and-binning-history-2026-10-09.md": "records/figure-history/figure-01/fgh-colour-and-binning-history-2026-10-09.md",
+    "docs/analysis/figures/history/figure-01/panel-e-presentation-review-2026-10-07.md": "records/figure-history/figure-01/panel-e-presentation-review-2026-10-07.md",
+    "docs/analysis/figures/history/figure-01/trace-variants.md": "records/figure-history/figure-01/trace-variants.md",
+    "docs/analysis/figures/history/figure-01/fgh-analysis-assessment-2026-10-08.md": "records/figure-history/figure-01/fgh-analysis-assessment-2026-10-08.md",
+    "docs/analysis/figures/history/figure-01/README.md": "records/figure-history/figure-01/README.md",
+    "docs/analysis/figures/history/figure-01/cadence-review-v5-2026-10-07.md": "records/figure-history/figure-01/cadence-review-v5-2026-10-07.md",
+    "docs/analysis/figures/history/figure-01/panel-c-redesign-history.md": "records/figure-history/figure-01/panel-c-redesign-history.md",
+    "docs/analysis/figures/history/figure-01/panel-b-redesign-history.md": "records/figure-history/figure-01/panel-b-redesign-history.md",
+    "docs/analysis/figures/history/figure-01/fgh-requested-corrections-2026-10-09.md": "records/figure-history/figure-01/fgh-requested-corrections-2026-10-09.md",
+    "docs/analysis/figures/history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md": "records/figure-history/figure-01/v12-freeze-and-population-adaptation-evidence-2026-10-09.md",
+    "docs/analysis/figures/history/figure-01/heatmap-review-history.md": "records/figure-history/figure-01/heatmap-review-history.md",
+    "docs/maintenance/transfers/increasing-trace-move-manifest.json": "records/repository-history/transfers/increasing-trace-move-manifest.json",
+    "docs/maintenance/transfers/FIGURE4_TRANSFER.md": "docs/project-maintenance/figure-04-transfer.md",
+    "docs/maintenance/transfers/MAC_SSD_20261009.md": "records/repository-history/transfers/MAC_SSD_20261009.md",
+    "docs/maintenance/transfers/README.md": "records/repository-history/transfers/README.md",
+    "docs/maintenance/transfers/history/repository-output-mirror-2026-10-06.md": "records/repository-history/transfers/history/repository-output-mirror-2026-10-06.md",
+    "docs/maintenance/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md": "records/repository-history/transfers/history/HANDOVER_ALLDELAY_MAC_TO_PC.md",
+    "docs/scientific-decisions.md": "docs/paper/decisions.md",
+    "docs/paper-review.md": "docs/paper/review.md",
+    "docs/maintenance/ANALYSIS_GOVERNANCE.md": "docs/project-maintenance/governance.md",
+    "docs/analysis/reference/02-current-pipeline.md": "docs/running-analysis/pipeline.md",
+    "docs/analysis/reference/03-analysis-parameter-index.md": "docs/running-analysis/parameters.md",
+    "docs/analysis/reference/04-discarding-and-selection.md": "docs/paper/methods/recording-quality-and-cohorts.md",
+    "docs/analysis/reference/05-metrics-and-bouts.md": "docs/paper/methods/activity-and-bouts.md",
+    "docs/analysis/reference/06-cohort-aggregation.md": "docs/paper/methods/population-aggregation.md",
+    "docs/analysis/reference/07-learning-onset-lme.md": "docs/running-analysis/learning-models.md",
+    "docs/analysis/reference/08-candidate-figures.md": "docs/running-analysis/rendering.md",
+    "docs/analysis/reference/09-output-and-provenance.md": "docs/running-analysis/outputs-and-provenance.md",
+    "docs/analysis/reference/11-glossary.md": "docs/paper/methods/glossary.md",
+    "docs/analysis/learners/METHOD_REVIEW.md": "docs/paper/methods/individual-learning.md",
+    "docs/analysis/reference/12-proposed-multimodal-architecture.md": "records/scientific-evidence/designs/proposed-multimodal-architecture.md",
+    "docs/analysis/learners/IMPLEMENTATION_CONTRACT.md": "records/scientific-evidence/designs/individual-learning-implementation.md",
+    "docs/analysis/learners/OUTPUTS_AND_VALIDATION.md": "records/scientific-evidence/designs/individual-learning-outputs-and-validation.md",
+    "docs/analysis/figures/assembly-preflight-and-replacement.md": "docs/paper/figures/shared/assembly-preflight.md",
+    "docs/analysis/figures/figure-build-tooling-design.md": "docs/running-analysis/figure-build-tools.md",
+    "docs/analysis/reference/figure-01-assembly.md": "docs/paper/figures/figure-01/assembly.md",
+    "docs/analysis/reference/figure-02-assembly.md": "docs/paper/figures/figure-02/assembly.md",
+    "docs/analysis/reference/figure-04-analysis-and-rendering.md": "docs/paper/figures/figure-04/analysis-and-rendering.md",
+    "docs/analysis/figures/reviews/figure-iteration-workflow.md": "docs/paper/figures/shared/iteration-workflow.md",
+    "docs/analysis/figures/reviews/legend-text-relocation.json": "records/figure-reviews/legend-text-relocation.json",
+    "docs/analysis/figures/reviews/legend-review-verification.json": "records/figure-reviews/legend-review-verification.json",
+    "docs/analysis/figures/reviews/README.md": "docs/paper/figures/shared/iteration-workflow.md",
+    "docs/analysis/figures/reviews/legend-decluttering-review.md": "docs/paper/figures/shared/review.md",
+    "docs/analysis/figures/reviews/review-variants.json": "records/figure-history/shared/review-variants.json",
+    "docs/analysis/figures/reviews/panel-style-consistency-audit.json": "records/figure-reviews/panel-style-consistency-audit.json",
+    "docs/analysis/figures/reviews/figure-02/legend-draft.md": "docs/paper/figures/figure-02/legend.md",
+    "docs/analysis/figures/reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v4-effective-presentation.json": "records/figure-reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v4-effective-presentation.json",
+    "docs/analysis/figures/reviews/figure-01/semantic-registry-audit-2026-10-12.md": "records/figure-reviews/figure-01/semantic-registry-audit-2026-10-12.md",
+    "docs/analysis/figures/reviews/figure-01/effective-presentation-audit-2026-10-12-v2.json": "records/figure-reviews/figure-01/effective-presentation-audit-2026-10-12-v2.json",
+    "docs/analysis/figures/reviews/figure-01/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10-effective-presentation.json": "records/figure-reviews/figure-01/figures-01-02-review-2026-10-13-coloured-B-delay-arrows-v10-effective-presentation.json",
+    "docs/analysis/figures/reviews/figure-01/legend-draft.md": "docs/paper/figures/figure-01/legend.md",
+    "docs/analysis/figures/reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5-effective-presentation.json": "records/figure-reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v5-effective-presentation.json",
+    "docs/analysis/figures/reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v3-effective-presentation.json": "records/figure-reviews/figure-01/figures-01-02-legend-layout-review-2026-10-12-effective-axis-v3-effective-presentation.json",
+    "docs/analysis/figures/reviews/figure-01/workflow-implementation-2026-10-12.json": "records/figure-reviews/figure-01/workflow-implementation-2026-10-12.json",
+    "docs/analysis/figures/reviews/figure-01/current-state.json": "docs/paper/figures/figure-01/current-state.json",
+    "docs/analysis/figures/reviews/figure-01/figures-01-02-review-2026-10-12-aligned-de-v8-effective-presentation.json": "records/figure-reviews/figure-01/figures-01-02-review-2026-10-12-aligned-de-v8-effective-presentation.json",
+    "docs/analysis/figures/reviews/figure-01/effective-presentation-audit.json": "records/figure-reviews/figure-01/effective-presentation-audit.json",
+    "docs/analysis/figures/reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json": "records/figure-reviews/figure-01/frozen-effective-presentation-2026-10-12-v3.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/README.md": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/README.md",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/settings/pooled-style-freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/settings/pooled-style-freeze.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/shared_colourbar.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/shared_colourbar.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/freeze_and_style.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/freeze_and_style.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/register_freeze.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/register_freeze.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/render_references.cjs": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/render_references.cjs",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/selected_processing_code.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/selected_processing_code.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/code/replace_trace_fish.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/replace_trace_fish.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/manifests/freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/manifests/freeze.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-layout/reviews/layout-validation.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/reviews/layout-validation.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/README.md": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/README.md",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/verify_replacement.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/verify_replacement.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/code/build_new_versions.py": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/build_new_versions.py",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/manifests/freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/freeze.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json",
+    "configs/paper-figures/selections/figure1-fgh-version1-freeze-20261009.json": "configs/paper-figures/selections/history/figure1-fgh-version1-freeze-20261009.json",
+    "docs/current-figures.md": "docs/paper/figures/README.md",
+    "docs/panel-review.md": "docs/paper/figures/README.md",
+    "docs/analysis/reference/01-user-workflow.md": "docs/running-analysis/run-pipeline.md",
+    "docs/analysis/reference/10-troubleshooting.md": "docs/running-analysis/run-pipeline.md",
+    "docs/analysis/reference/README.md": "docs/running-analysis/README.md",
+    "docs/analysis/learners/README.md": "docs/paper/methods/README.md",
+    "docs/analysis/README.md": "docs/README.md",
+    "docs/analysis/figures/README.md": "docs/paper/figures/README.md",
+    "docs/analysis/figures/freezes/README.md": "records/frozen-analyses/selections.md",
+    "docs/maintenance/README.md": "docs/project-maintenance/README.md",
+    "docs/maintenance/01_REPOSITORY_GUIDE.md": "docs/project-maintenance/structure.md",
+    "configs/paper-figures/selections/lineage/figure1-fgh-full-bout-correction-20261009.json": "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/README.md": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-13-one-second-managua/README.md",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/manifests/previous-version-disposition.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-13-one-second-managua/manifests/previous-version-disposition.json",
+    "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-13-one-second-managua/manifests/freeze.json": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-13-one-second-managua/manifests/freeze.json",
+    "configs/paper-figures/selections/figure1-fgh-one-second-managua-freeze-20261013.json": "configs/paper-figures/selections/history/figure1-fgh-one-second-managua-freeze-20261013.json",
+    "docs/paper/figures/figure-04/analysis-and-rendering.md": "docs/running-analysis/figure4.md",
+    "scripts/align_paper_annotations.cjs": "scripts/paper/shared/verify_annotations.cjs",
+    "scripts/assemble_svg_figure.py": "scripts/paper/shared/assemble_svg.py",
+    "scripts/audit-inc-trace-stim.py": "scripts/workflows/trace/audit_increasing_trace_protocol.py",
+    "scripts/audit_figure1_camera_gaps.py": "scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_camera_gaps.py",
+    "scripts/audit_figure1_legacy_cadence.py": "scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_legacy_cadence.py",
+    "scripts/audit_figure1_vigor_alignment.py": "scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_vigor_alignment.py",
+    "scripts/audit_figure2_bout_only_statistics.py": "scripts/paper/figure_02/panels_d_e/reproduction/audit_bout_statistics.py",
+    "scripts/audit_figure2_delay_lmm.py": "scripts/paper/figure_02/panel_g/reproduction/audit_delay_lmm.py",
+    "scripts/audit_preprocessing_contract.py": "scripts/maintenance/audit_preprocessing.py",
+    "scripts/build_figure1_fgh_version_comparison.py": "scripts/paper/figure_01/panels_f_g_h/build_version_comparison.py",
+    "scripts/build_figure1_legacy_vigor_heatmaps.py": "scripts/paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py",
+    "scripts/build_figure1_panel_a.py": "scripts/paper/figure_01/panel_a/build.py",
+    "scripts/build_figure1_panel_b.py": "scripts/paper/figure_01/panel_b/build_protocol.py",
+    "scripts/build_figure1_panel_c.py": "scripts/paper/figure_01/panel_c/build_session.py",
+    "scripts/build_figure2_assembly.py": "scripts/paper/figure_02/assembly/build.py",
+    "scripts/build_figure2_g_analysis_guide.py": "scripts/paper/figure_02/panel_g/build_study_guide.py",
+    "scripts/build_figure2_g_exploratory.py": "scripts/paper/figure_02/panel_g/build_exploratory_presentation.py",
+    "scripts/build_figure2_pooled_heatmaps.py": "scripts/paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py",
+    "scripts/build_figure3_explanation.py": "scripts/paper/figure_03/build_study_guide.py",
+    "scripts/build_figure3_individual_atlas.py": "scripts/paper/figure_03/supplement/build_atlas.py",
+    "scripts/build_figure3_main_paper.py": "scripts/paper/figure_03/build_main_draft.py",
+    "scripts/build_figure_legend_review.py": "scripts/paper/shared/build_legend_review.py",
+    "scripts/calibrate_layout_frames.py": "scripts/paper/shared/calibrate_layout_frames.py",
+    "scripts/check_figure3_atlas.cjs": "scripts/paper/figure_03/supplement/verify_atlas.cjs",
+    "scripts/check_figure3_main_paper.cjs": "scripts/paper/figure_03/verify_main_draft.cjs",
+    "scripts/check_layout_frames.py": "scripts/paper/shared/verify_layout_frames.py",
+    "scripts/check_main_paper_layout.cjs": "scripts/paper/shared/collect_layout_evidence.cjs",
+    "scripts/check_nature_presentation.cjs": "scripts/paper/shared/verify_nature_presentation.cjs",
+    "scripts/complete-allDelay-to-lme-windows.ps1": "scripts/workflows/windows/stages/delay_complete_analysis.ps1",
+    "scripts/complete_figure2_g_analysis_guide.py": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers/payload/scripts/paper/figure_02/panel_g/reproduction/complete_guide_supplement.py",
+    "scripts/correct_panel_relationships.py": "scripts/paper/shared/correct_relationships.py",
+    "scripts/figure1_layout_spacing.py": "src/classical_conditioning/figures/figure_01/legacy_layout.py",
+    "scripts/figure2_g_guide_notebook.js": "src/classical_conditioning/reviews/assets/figure2_g_notebook.js",
+    "scripts/finalize_3strace_exploratory.py": "scripts/workflows/trace/reproduction/cohort_and_legacy_labels.py",
+    "scripts/freeze_figure1_panels.py": "scripts/paper/figure_01/reproduction/verify_abcd_freeze.py",
+    "scripts/layout_main_paper_figures.py": "scripts/paper/shared/layout.py",
+    "scripts/mac_ssd_run.py": "scripts/workflows/macos/run_legacy_with_paths.py",
+    "scripts/measure_main_paper_layout.cjs": "scripts/paper/shared/measure_layout.cjs",
+    "scripts/measure_nature_packing.cjs": "scripts/paper/shared/measure_packing.cjs",
+    "scripts/nature_main_figures.py": "scripts/paper/shared/stage_nature.py",
+    "scripts/plot_metric_response_magnitude.py": "scripts/workflows/metrics/compare_response_magnitude.py",
+    "scripts/plot_train_test_transition_metrics.py": "scripts/workflows/metrics/compare_train_test_windows.py",
+    "scripts/populate_figure2_available.py": "scripts/paper/figure_02/reproduction/recover_saved_panels.py",
+    "scripts/prepare-trace-runs.py": "scripts/workflows/trace/prepare_runs.py",
+    "scripts/process-ingested-trace-fish.ps1": "scripts/workflows/windows/stages/trace_process_ingested.ps1",
+    "scripts/publish_axis_geometry.py": "scripts/paper/shared/publish_axis_geometry.py",
+    "scripts/publish_figure1_fgh_one_second.py": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers/payload/scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py",
+    "scripts/recolor_trace10_comparison.py": "scripts/paper/figure_01/panels_f_g_h/recolor_trace10_comparison.py",
+    "scripts/refine_nature_layout.cjs": "scripts/paper/shared/refine_composition.cjs",
+    "scripts/refine_paper_annotations.py": "scripts/paper/shared/stage_annotations.py",
+    "scripts/register_figure_axes.py": "scripts/paper/shared/register_axes.py",
+    "scripts/render_figure1_3strace_example.py": "scripts/paper/figure_01/panels_f_g_h/reproduction/render_trace_example.py",
+    "scripts/render_figure1_cd_scaled_log_review.py": "scripts/paper/figure_01/panels_d_e/reproduction/render_scaled_log_traces.py",
+    "scripts/render_figure2_3strace_legacy_layout.py": "scripts/paper/figure_02/panels_e_h/reproduction/render_trace_legacy.py",
+    "scripts/render_figure2_3strace_signed_review.py": "scripts/paper/figure_02/panel_b/reproduction/render_trace_signed.py",
+    "scripts/render_figure2_delay_legacy_metric_lme.py": "scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py",
+    "scripts/render_figure2_delay_logmedian.py": "scripts/paper/figure_02/panel_g/reproduction/render_historical_logmedian.py",
+    "scripts/render_figure2_delay_phase_lmm.py": "scripts/paper/figure_02/panel_g/reproduction/render_phase_lmm.py",
+    "scripts/render_figure2_legacy_stats_lme_review.py": "scripts/paper/figure_02/panels_d_g/reproduction/render_legacy_statistics.py",
+    "scripts/render_figure3_3strace_review.py": "scripts/paper/figure_03/reproduction/render_trace_legacy_classifier.py",
+    "scripts/render_legacy_ssd_example_heatmaps.py": "scripts/paper/figure_01/panels_f_g_h/reproduction/render_saved_heatmaps.py",
+    "scripts/render_legacy_ssd_example_traces.py": "scripts/paper/figure_01/panels_d_e/reproduction/render_saved_traces.py",
+    "scripts/render_legacy_ssd_figure2_delay.py": "scripts/paper/figure_02/panels_a_d_g/reproduction/render_saved_delay.py",
+    "scripts/resume-allDelay-full-windows.ps1": "scripts/workflows/windows/stages/delay_resume.ps1",
+    "scripts/review_figure2_block_log_median.py": "scripts/paper/figure_02/panels_d_e/reproduction/review_block_log_median.py",
+    "scripts/review_figure2_bout_only.py": "scripts/paper/figure_02/panels_d_e/reproduction/review_bout_only.py",
+    "scripts/review_figure2_g_independent.py": "scripts/paper/figure_02/panel_g/run_independent_review.py",
+    "scripts/review_figure2_g_technical.py": "scripts/paper/figure_02/panel_g/run_technical_sensitivity.py",
+    "scripts/run-all3sTrace-full-windows.ps1": "scripts/workflows/windows/stages/trace_pipeline.ps1",
+    "scripts/run-allDelay-full-windows.ps1": "scripts/workflows/windows/stages/delay_pipeline_analysis.ps1",
+    "scripts/run_3strace_legacy_full59.py": "scripts/workflows/trace/reproduction/run_legacy_full59.py",
+    "scripts/style_axis_geometry.cjs": "scripts/paper/shared/verify_axis_geometry.cjs",
+    "scripts/update_figure1_panel_e_display.py": "scripts/paper/figure_01/panel_e/edit_display.py",
+    "scripts/update_latest_figure_assemblies.py": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers/payload/scripts/paper/shared/reproduction/build_20261010_assemblies.py",
+    "scripts/verify_figure2_bout_only_review.py": "scripts/paper/figure_02/panels_d_e/reproduction/verify_bout_review.py",
+    "scripts/verify_figure2_g_analysis_guide.cjs": "scripts/paper/figure_02/panel_g/verify_study_guide.cjs",
+    "scripts/verify_figure3_reference_style.py": "scripts/paper/figure_03/verify_reference_roles.py",
+    "scripts/verify_main_paper_collection.cjs": "scripts/paper/shared/verify_collection.cjs",
+    "scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers/payload/scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py",
+    "scripts/paper/figure_02/panel_g/reproduction/complete_guide_supplement.py": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers/payload/scripts/paper/figure_02/panel_g/reproduction/complete_guide_supplement.py",
+    "scripts/paper/shared/reproduction/build_20261010_assemblies.py": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers/payload/scripts/paper/shared/reproduction/build_20261010_assemblies.py",
+    "scripts/paper/figure_01/legacy_layout.py": "src/classical_conditioning/figures/figure_01/legacy_layout.py",
+    "/Volumes/JOAQUIM/Asset 10.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelB_ConditionTiming_source.svg",
+    "J:/Asset 10.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelB_ConditionTiming_source.svg",
+    "/Volumes/JOAQUIM/Asset 6.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelA_Setup_source.svg",
+    "J:/Asset 6.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelA_Setup_source.svg",
+    "/Volumes/JOAQUIM/Asset 7.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_ProtocolAlternative_source.svg",
+    "J:/Asset 7.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_ProtocolAlternative_source.svg",
+    "/Volumes/JOAQUIM/Asset 11.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimeline_source.svg",
+    "J:/Asset 11.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimeline_source.svg",
+    "/Volumes/JOAQUIM/Asset 5.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimelineAlternative_source.svg",
+    "J:/Asset 5.svg": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/schemes/Fig1_PanelsB-C_SessionTimelineAlternative_source.svg"
+  },
+  "extracted_frozen_records": [
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/freeze_and_style.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/freeze_and_style.py",
+      "sha256": "d5f9a2ad9e7b3394c788b24e3c211107f6a41102689fc825e00dbc321e9f0fed",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/freeze_and_style.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/manifests/freeze.json",
+      "sha256": "956b9cf55451591d5456fd5b5cfe09e3c20743cd2f7bbd12f7f60c76613822f0",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/freeze.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/selected_processing_code.py",
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/selected_processing_code.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/manifests/source-comparison-manifest.json",
+      "sha256": "e73239ebb1a7a86b033b4fe1074b7b1e22b5c076464167c98430ba1c2aeeba34",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/frozen-version1/source_comparison_manifest.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/reviews/layout-validation.json",
+      "sha256": "4d2bf1890c0b87b80bd8a7166d094abb0164f075a58fbb9ddb3d4bc551ff52ec",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/polished-layout/layout_validation.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/settings/pooled-style-freeze.json",
+      "sha256": "6414d3cbba94924b6b0b6f6cc79483d85bbf022e8857b457dc6c26ae47e608ea",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/references/pooled_style_freeze.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/register_freeze.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/register_freeze.py",
+      "sha256": "bab4ac1605c0f70b88fa31d55f7caef993a927bf5e13fdeab129e93f678dc300",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/register_freeze.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/render_references.cjs",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/render_references.cjs",
+      "sha256": "b72b424ec18fff1ab5b1297d4a6e91d70afbf46abda834c9b12e688297c625f5",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/render_references.cjs"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/replace_trace_fish.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/replace_trace_fish.py",
+      "sha256": "e8a81ce00ddd377c0d12bd453e8e6e8b491d6dfd0a3758330cad46edfd56eb2a",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/replace_trace_fish.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/reviews/shared-colourbar-validation.json",
+      "sha256": "cc2ed4a81817e477b9978ad65e1ee450721ee2f45b80bc7ff245fc2e65b3bef8",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared-colourbar/validation.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_layout_freeze_20261009/shared_colourbar.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-layout/code/shared_colourbar.py",
+      "sha256": "cd36ec99dd29ff164475e4acf4fa8d4440ae7388ab87eb72e339a7ec0ad981c1",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_layout_freeze_20261009/shared_colourbar.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/build_new_versions.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/build_new_versions.py",
+      "sha256": "fe6b17884007ddf88916e64b4602ee53c1d8d3bebb1ed99b22c232db0e4a31d9",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/build_new_versions.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-candidate-corrected-complete.json",
+      "sha256": "ed69d6c65456b4c5d6d19b7d2dfe3869d31fa4f011e00c7a428444ecfce0eedf",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_candidate-corrected_complete.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-corrected-preprocess-complete.json",
+      "sha256": "2a6e684b1f9493e7978e4a76ffd827d92248a199695d8cc599ef7a9b4af6de54",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_corrected-preprocess_complete.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/20230310-08-source-manifest.json",
+      "sha256": "5c02856578813a336c348bd227c6ffd1e1f3bbc42bcb8a3227d2281d60f1ee44",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/20230310_08_source_manifest.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/freeze.json",
+      "sha256": "e7560d122653cc782b97b757ecc4e249a13232f6c37357f9f4b91439f33904e8",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/freeze.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/selected_processing_code.py",
+      "sha256": "520dc2fc15a30fb6ef75721be1735dfb528e7b9d0128a954519ae484b1b231a4",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/frozen-version1/selected_processing_code.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/manifest.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/manifests/replacement-manifest.json",
+      "sha256": "fd8e68bf9641da380bcdfe88b08c3bbe422f3839f7646b2795271e0c86ad3e13",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/manifest.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/replacement_verification.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/reviews/replacement-verification.json",
+      "sha256": "86c94548da863415c2a71e0207dc5b07acfc3a2c4d9e97f846d4431c62d2cb9b",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/replacement_verification.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/reviews/shared-colourbar-validation.json",
+      "sha256": "7843fbe473de6ba745002312beeed1068246f5ea3b42479a556354e15022ae5b",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/shared-colourbar/validation.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_v1_trace20230310_08_20261009/verify_replacement.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/history/2026-10-09-version-01-trace-replacement/code/verify_replacement.py",
+      "sha256": "675968ec306628a6c7e13a26d964dcb8418faacacf38cb070aecaf83ee6521a7",
+      "previous_record_paths": [
+        "records/frozen-analyses/fgh_v1_trace20230310_08_20261009/verify_replacement.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/D.freeze.json",
+      "record": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/freeze.json",
+      "sha256": "e845a1a5a5a37eb73251defce3279f816f721a88e76dd781cfe72e79c034a782",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/D.freeze.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/D_candidate.json",
+      "record": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/manifests/candidate.json",
+      "sha256": "8dcb436bdad6ca30b2375fb1cb5ff0d0270769145f8fc0a147896f06e24dff2d",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_candidate.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/D_renderer_review.json",
+      "record": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/reviews/renderer-review.json",
+      "sha256": "f1ade2b55d2314dc7b092b93e37f8784aaa995a56c7b62a507e8627dbe47d4fe",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/D_renderer_review.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/E.freeze.json",
+      "record": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/freeze.json",
+      "sha256": "ad10ef49a77357e353a97ce0b39c64521da655d818716cf5e61badd85aa0b6d2",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/E.freeze.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/E_candidate.json",
+      "record": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/manifests/candidate.json",
+      "sha256": "3ff47c12d04df4da9414c60632829cc736689ced5ae9d2c7428e7f38d35b87f1",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_candidate.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/E_renderer_review.json",
+      "record": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/reviews/renderer-review.json",
+      "sha256": "478140ad8222e69cfc6f39f4d61c9bbf836699f0990f139fbe6af67038f5549e",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/E_renderer_review.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/Fig2_D_B.figure.json",
+      "record": "records/frozen-analyses/figure-02/panel-d/2026-10-09-version-b/sources/source-figure.json",
+      "sha256": "b8f12166e2c9b20a1ec67ea0e68a68b522c95c660424ec481c481d9a9d44888c",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_D_B.figure.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/Fig2_E_B.figure.json",
+      "record": "records/frozen-analyses/figure-02/panel-e/2026-10-09-version-b/sources/source-figure.json",
+      "sha256": "c22918989a6cac6874cdaf211511eddc53107fd45c68c704b757897e733fd914",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/Fig2_E_B.figure.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/README.md",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/original-readme.md",
+      "sha256": "3fdd566e10a2ab833dc604e2d3d819a0aae37b23a374e6ce27ebe5373f8613d7",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/README.md"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/authenticated-source-inputs.json",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-inputs.json",
+      "sha256": "d3b62894d9c75f57fddb3e7510223183c3097330b0d56d23b1bbfdef6343a4f8",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-inputs.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/authenticated-source-manifest.json",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/authenticated-source-manifest.json",
+      "sha256": "d4af69c14a42024a86ad3b87d6d862423efd492d8127613df6a36a1c607af48f",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/authenticated-source-manifest.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-element-specification.md",
+      "sha256": "359b0ac59e08c8c0f4427a2ae402b1fe8398f9326a4a4742d0c56d8cc27144cc",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/FIGURE_ELEMENT_SPECIFICATION.md"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/bout_block_statistics.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_block_statistics.py",
+      "sha256": "e36e240173c0b37f5fd02047bfe41ad3c4523b0f5a82647a82cf25cf22b7bd93",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_block_statistics.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/bout_vigor.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/bout_vigor.py",
+      "sha256": "5ff31912367946a90a5375009023be8ca2bad9242d62125e926363255a70eaf2",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/bout_vigor.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/candidate_metric_kernel.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/candidate_metric_kernel.py",
+      "sha256": "fee5305da90d1a09655af217ce3a1955ecf95c2cab1884a436e40626bae19a8b",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/candidate_metric_kernel.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/experiments.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/experiments.py",
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/experiments.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/export.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/export.py",
+      "sha256": "15423c3d6937ece60f4241cc8e1848e953f99e7e23b1e0a11622091d68c77c6e",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/export.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/figure-elements.json",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/settings/figure-elements.json",
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure-elements.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/figure_freeze.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/figure_freeze.py",
+      "sha256": "1a7960588622fb1748725f060f98c5111fac3607afe40badd8045fd86aa77304",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/figure_freeze.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/prepare_figure2_B_freeze.py",
+      "sha256": "7b03bb24d3a19237055e33d1b6f7a06d4e73016cffa0c80be0627df23d9e9d3c",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/prepare_figure2_B_freeze.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_block_log_median.py",
+      "sha256": "1199da14d9c49f211837cb3b74b60da3aa982e570f3690344ba7c51fabe70fa7",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_block_log_median.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/code/review_figure2_bout_only.py",
+      "sha256": "fa7961cacdac071b872856c2e0e12a97949fb157d424a586fad386c06dbbd864",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/code-snapshot/review_figure2_bout_only.py"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/handoff.md",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/notes/handoff.md",
+      "sha256": "9a61756b7148fbe9a70dc6c579f429ece42984253ff6b8232bc1894742d4d049",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/handoff.md"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/method.json",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/method.json",
+      "sha256": "fece6cda05452613bf5aa0c927ee511f554c0a83dc172576524d5591e7e8324a",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/method.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/scientific-selection.json",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/manifests/scientific-selection.json",
+      "sha256": "b7b17c0d2ab32c6c9f1aad6fc7f7ffc14b030ed50ef6742c1f4cb9164d6ccc5d",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/scientific-selection.json"
+      ]
+    },
+    {
+      "source": "reviews/figure2_B_freeze_20261009/visual-review.json",
+      "record": "records/frozen-analyses/figure-02/panels-d-e/2026-10-09-version-b/reviews/visual-review.json",
+      "sha256": "32b2798cbf8c5be9bfd2b585cec0c571720e8042c33b53088d8df5e43466bd96",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2_B_freeze_20261009/visual-review.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "candidate.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/candidate.json",
+      "sha256": "0943b4069a64d783c267f82240cb6e61f544a7c45832a2a02dabf23b3944e54c",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/candidate.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "freeze.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/freeze.json",
+      "sha256": "ca8965d74926b48ba3152b4a5c4159efafa9246fa7b1d0f251c62ba03abdf8d9",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/freeze.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "renderer-properties.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/reviews/renderer-properties.json",
+      "sha256": "b685594f6f4c248788f75afd6d66edb019e6fc872b9f4ae24cad7dcb89ed442f",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/renderer-properties.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "selection.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/selection.json",
+      "sha256": "2256cc5a96a1d7f2859217726f3549c2e6d7654b4868ecb9ca245be44775def0",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/selection.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "prepare_figure1_fgh_v12_freeze.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/prepare_figure1_fgh_v12_freeze.py",
+      "sha256": "a13a036ea4d05fb76bc2017b421a1f144431e7f36681edd018bb3d64df90afa5",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/prepare_figure1_fgh_v12_freeze.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "specification-snapshot.json",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/settings/specification-snapshot.json",
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/specification-snapshot.json"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "experiments-snapshot.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/experiments_snapshot.py",
+      "sha256": "4a94b39717bd96c716cbf07347c4a457c960076950d9970e0f43ba42d1afd861",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/experiments-snapshot.py"
+      ]
+    },
+    {
+      "source": "reviews/fgh_candidate_palette_versions_20261009/index.html",
+      "script_id": "version12-frozen-archive",
+      "entry": "palette-functions-snapshot.py",
+      "record": "records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py",
+      "sha256": "6b42599141f1dedb4b260d8f8bfed059665fa8d0bcf34d874fa1616c75bfe0a3",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-fgh-v12-20261009/palette-functions-snapshot.py"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/candidate.json",
+      "sha256": "ec685e275e7cea3ddffd7d923b3d7b1f3753064650cfe0eff9d294d0afd08589",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "candidate.json",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/candidate.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/check-report.json",
+      "sha256": "38f9ed1eed07e683dbd2e5213b4c9b66ac1efa1cc69f1f1b3c87b125e4a874a6",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "check-report.json",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/check-report.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/freeze-command-report.json",
+      "sha256": "8281daf014fbae2c95280c235218391cc4c08f11ad404539ad8c9cb22e306b54",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "freeze-command-report.json",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-command-report.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/freeze.json",
+      "sha256": "c5e86c8a5724ba671deaf41627b661324bca47d411909718eab88d7e1c4c8299",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "freeze.json",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/reviews/renderer-properties.json",
+      "sha256": "d07246352b7999e089a76c1a11160cf4ad3aa7e3992e7d5d6b9bb4be5f84f05d",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "renderer-properties.json",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/renderer-properties.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/selection.json",
+      "sha256": "f180cd22e52a32d66c152b5928c9a93c95063f2be359d329f645d1bae87eb1fa",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "selection.json",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/selection.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/settings/specification-snapshot.json",
+      "sha256": "20ce8ff910651525a781cdba5e44c4699a5d1273cf3f9325753b22df66f3095b",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "specification-snapshot.json",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/specification-snapshot.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/freeze_preparer_snapshot.py",
+      "sha256": "cb2d708f9ea2874132ec7054c9f5b7931032f9ad64b6ccab5a5dc7f78947d47e",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "freeze-preparer-snapshot.py",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/freeze-preparer-snapshot.py"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/code/renderer_snapshot.py",
+      "sha256": "12e5660da722fc8a9934ce40d07f774412a1c9502f310f67882681155adb4f42",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "renderer-snapshot.py",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/renderer-snapshot.py"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure1-assembly/frozen-panel-e-heatmap-rows-20261009/PanelE_frozen_and_version_history.html",
+      "record": "records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/notes/version-history-source.md",
+      "sha256": "5181d81ccad93445af4855a6f786a9db3430a720ccd8c471760904e0a621d90b",
+      "script_id": "panel-e-frozen-archive",
+      "entry": "version-history-source.md",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure1-panel-e-20261009/version-history-source.md"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.freeze.json",
+      "record": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/freeze.json",
+      "sha256": "d671069f122933a8a14f029e3063d6ddaab50504efdd58326331ebd79ce35dcb",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/manifest.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/scientific-selection.json",
+      "record": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/manifests/scientific-selection.json",
+      "sha256": "cf712a0f500e43ad4b8d737df046e4a0049c05690483c993f7fb58c6a2484ca5",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/scientific-selection.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/renderer-source.py",
+      "record": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/code/renderer_source.py",
+      "sha256": "c6438942104fc0e72fb8c25a9c3614104dd3bc58ef6f54f33bd9f654489aa1cb",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/renderer-source.py"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/Fig2_G_Historical_LogMedian.figure.json",
+      "record": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/source-figure.json",
+      "sha256": "ea90c79d4dc9c3f3fe0c5c3786d16dbc39780c74891bcb128c0e3e9402fb65b2",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/Fig2_G_Historical_LogMedian.figure.json"
+      ]
+    },
+    {
+      "source": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/pc-outputs/figure2-assembly/frozen/20261009-G-historical-logmedian/selected-source-inventory.json",
+      "record": "records/frozen-analyses/figure-02/panel-g/2026-10-09-historical-log-median/sources/selected-source-inventory.json",
+      "sha256": "899f900a20c5e2b070887a82aceea715aa422f7eaa42aa2d1513c8eeeafc92b8",
+      "previous_record_paths": [
+        "records/frozen-analyses/figure2-G-logmedian-20261009/sources/selected-source-inventory.json"
+      ]
+    }
+  ],
+  "removed_patch": {
+    "path": "Handovers, etc/figure4-working-tree.patch",
+    "git_path": "handover/figure4-working-tree.patch",
+    "git_blob": "1348dae7141f369b18d810b3fc186c013db98b0d",
+    "integration_evidence": [
+      "src/classical_conditioning/analysis/figure4.py",
+      "tests/test_figure4.py",
+      "docs/maintenance/transfers/FIGURE4_TRANSFER.md"
+    ]
+  },
+  "consolidated_documents": {
+    "Plans/04_LEARNER_METHOD_REVIEW.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/05_LEARNER_ANALYSIS.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/06_LEARNER_OUTPUTS_AND_VALIDATION.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/05_LEARNER_METHOD_REVIEW.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/06_LEARNER_ANALYSIS.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/07_LEARNER_OUTPUTS_AND_VALIDATION.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/01_PAPER_BASELINE_AND_INPUT_VALIDATION.md": "Plans/01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md",
+    "Plans/02_COHORT_IMPLEMENTATION.md": "Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md",
+    "Plans/01_COHORT_IMPLEMENTATION.md": "Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md",
+    "Plans/02_ANALYSIS_AND_STATISTICS.md": "Plans/06_ANALYSIS_AND_STATISTICS.md",
+    "Plans/03_LEARNING_ONSET_IMPLEMENTATION.md": "Plans/03_FIGURE_2_LEARNING_ONSET.md",
+    "Plans/07_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md": "Plans/05_FIGURE_4_CR_PROFILES.md",
+    "Plans/08_FIGURES_AND_REPRODUCIBLE_REPORTING.md": "Plans/07_FIGURE_BUILD_TOOLS.md",
+    "Plans/09_TAIL_MECHANISTIC_ANALYSES.md": "Plans/10_TAIL_MECHANISTIC_ANALYSES.md",
+    "Plans/10_SUPPLEMENTARY_FIGURES.md": "Plans/09_SUPPLEMENTARY_FIGURES.md",
+    "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md": "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md",
+    "Plans/12_FINAL_ANALYSIS_RELEASE.md": "Plans/08_FIRST_RELEASE_FIGURES_1_TO_4.md",
+    "Plans/04_LEARNING_ONSET_IMPLEMENTATION.md": "Plans/03_FIGURE_2_LEARNING_ONSET.md",
+    "Plans/05_LEARNER_ANALYSIS_AND_VALIDATION.md": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+    "Plans/08_INTEGRATED_ANALYSIS_AND_CR_PROFILES.md": "Plans/05_FIGURE_4_CR_PROFILES.md",
+    "Plans/03_ANALYSIS_AND_STATISTICS.md": "Plans/06_ANALYSIS_AND_STATISTICS.md",
+    "Plans/09_FIGURES_AND_REPRODUCIBLE_REPORTING.md": "Plans/07_FIGURE_BUILD_TOOLS.md",
+    "Plans/10_FIRST_RELEASE_FIGURES_1_TO_4.md": "Plans/08_FIRST_RELEASE_FIGURES_1_TO_4.md",
+    "Plans/11_SUPPLEMENTARY_FIGURES.md": "Plans/09_SUPPLEMENTARY_FIGURES.md",
+    "Plans/12_TAIL_MECHANISTIC_ANALYSES.md": "Plans/10_TAIL_MECHANISTIC_ANALYSES.md",
+    "Plans/13_BEHAVIOR_IMAGING_INTEGRATION.md": "Plans/11_BEHAVIOR_IMAGING_INTEGRATION.md"
+  }
+}

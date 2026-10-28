@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "scope": "Figure 2 D/E canvas overdraw; E/F background fill only",
+  "status": "correction implemented and native-reviewed; candidate not selected",
+  "candidate_manifest": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-production-20261025/candidate-v02/manifest.json",
+    "sha256": "b56ec7af91008597f8e5b415278b4dc80d04ddd09aa701ced44fb6dd76cb5adc"
+  },
+  "native_render_review": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-production-20261025/native-render-review.json",
+    "sha256": "658bb441a1b6791a9ca37443f079422374d23a2d630c0f00dc91cc0a31b5d39b"
+  },
+  "starting_ticket": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-production-20261025/starting-ticket.json",
+    "sha256": "bcb0914983feaf7863caefdc9e609772d7d3c451f876d0ed57ddf8350c07d2fb"
+  },
+  "implementation_start": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-production-20261025/implementation-start.json",
+    "sha256": "eadc0791efbddc161c996571276e539fa4601559fc822f1d4f73b310bdcfa7df"
+  },
+  "input_svg_sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064",
+  "candidate_svg_sha256": "b480a26eead5d7a55380dcc668ae02f072e37be16e056662f4c4003c8baa7ad9",
+  "changes": [
+    {
+      "group_id": "matched-E__canvas-E",
+      "viewport": [
+        0.0,
+        0.0,
+        132.334196,
+        122.645136
+      ],
+      "path_sha256": "d2d512700c58cc30a12aa1296f703a8c2ba404408d9065d838f324fc86918829",
+      "old_fill": "#ffffff",
+      "new_fill": "none"
+    },
+    {
+      "group_id": "trace10-F__canvas-F",
+      "viewport": [
+        0.0,
+        0.0,
+        132.334196,
+        122.645136
+      ],
+      "path_sha256": "d2d512700c58cc30a12aa1296f703a8c2ba404408d9065d838f324fc86918829",
+      "old_fill": "#ffffff",
+      "new_fill": "none"
+    }
+  ],
+  "all_other_svg_bytes_preserved": true,
+  "active_svg_html_state_and_collection_unchanged": true,
+  "scientific_selection_and_freezes_unchanged": true,
+  "verification": {
+    "focused_tests": 10,
+    "focused_tests_status": "passed",
+    "native_changed_pixels": 21149,
+    "native_changed_pixels_outside_target_canvases": 0,
+    "exact_browser_frame_measurement": "unresolved; no new browser run",
+    "production_pdf": "not certified",
+    "related_tests_passed": 46,
+    "external_structure_check": "passed; 365 protected files, seven scoped states, 13 archive transactions"
+  },
+  "next_required_action": "Collect fresh exact candidate browser frame evidence, resolve any newly exposed frame conflicts without automatic reflow, then publish through guarded state/pair updates and refresh collection last. Old browser evidence must not be assigned to changed artwork.",
+  "verification_receipt": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-production-20261025/verification.json",
+    "sha256": "3af70c40753b0f8b0f4a97f92390b8356a5b148dfddc7466834a84adfc004ba3"
+  }
+}

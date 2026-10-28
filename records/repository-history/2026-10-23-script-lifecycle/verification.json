@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-23",
+  "base_head": "ac43b762440189ae3d5832f490f46715fa8570e4",
+  "local_structure": {
+    "issues": [],
+    "protected_requirements_checked": 365,
+    "states_checked": 7
+  },
+  "repository_archive_tests": {
+    "command": ".venv/bin/python -m unittest discover -s tests -p test_repository_*.py -q",
+    "tests": 46,
+    "result": "passed"
+  },
+  "portable_locked_environment": {
+    "checkout": "Isolated git-archive of base HEAD with maintenance-only overlay; concurrent guide/comparison sources excluded",
+    "python": "3.12.14",
+    "uv": "0.9.5",
+    "sync": "uv sync --frozen passed; isolated .venv created outside working repository",
+    "structure_check": "passed with no issues",
+    "repository_archive_tests": 46,
+    "tests_result": "passed",
+    "actual_linux_github_actions_run": "Created, but job never started: account locked due to billing issue."
+  },
+  "protection": {
+    "starting_hashes_checked": 124,
+    "changed": [],
+    "scientific_selections_states_profiles_frozen_records_modified": false
+  },
+  "external_audit": {
+    "result": "failed on four current working-copy hash mismatches",
+    "archive_transactions": 9,
+    "inventoried_files": 2158,
+    "authenticated_authorized_absences": 2,
+    "archive_errors": [],
+    "unavailable_external_evidence": [],
+    "working_copy_findings": "external-working-copy-mismatches.json",
+    "changed_current_artifacts": [
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+      "/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html"
+    ]
+  },
+  "guide_link_reconciliation": {
+    "links": 7,
+    "saved_sources_authenticated": true,
+    "remapped_manuscript_byte_equal_to_published_snapshot": true,
+    "external_html_manifest_and_source_snapshots_modified": false,
+    "documentation": "guide-link-reconciliation.json"
+  },
+  "archival_or_deletion_executed": false,
+  "concurrent_work": "Author confirmed owning chats finished. Their scientific/guide sources and records remain outside the maintenance commit; live catalogue additions and manuscript-link compatibility edits remain with that work.",
+  "maintenance_only_staged_snapshot": {
+    "checked_tree_before_this_evidence_append": "03ee4ad8ee836ebdab61e31b3ee28fcdebf17008",
+    "structure_check": "passed",
+    "tests": 46,
+    "tests_result": "passed",
+    "concurrent_guide_comparison_sources_and_records_excluded": true
+  },
+  "github_actions": {
+    "commit": "6cfd49e1a5f691891ad0d92ba3e142d17d56a7b3",
+    "run_id": 39988200887,
+    "job_id": 120532796116,
+    "url": "https://github.com/jasmc/ClassicalConditioning/actions/runs/39988200887",
+    "conclusion": "failure before any job steps; runner_id 0",
+    "annotation": "The job was not started because your account is locked due to a billing issue.",
+    "next_action": "Repository owner resolves GitHub account billing; rerun workflow afterwards. No account settings or billing changes attempted."
+  }
+}

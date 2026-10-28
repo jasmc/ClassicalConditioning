@@ -12,7 +12,7 @@ from pathlib import Path
 
 SVG = {"s": "http://www.w3.org/2000/svg"}
 REPO_ROOT = Path(__file__).resolve().parents[1]
-BUILDER = REPO_ROOT / "scripts" / "build_figure1_panel_c.py"
+BUILDER = REPO_ROOT / 'scripts' / 'paper/figure_01/panel_c/build_session.py'
 
 
 class Figure1PanelCTests(unittest.TestCase):

@@ -1,0 +1,49 @@
+[
+  {
+    "path": "records/figure-history/figure-01/INDEX.md",
+    "source_readme_preserved": "records/figure-history/figure-01/README.md",
+    "source_snapshot": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/figure-history/figure-01/README.md",
+    "kind": "new maintained navigation; original source path and bytes restored"
+  },
+  {
+    "path": "records/figure-history/figure-02/INDEX.md",
+    "source_readme_preserved": "records/figure-history/figure-02/README.md",
+    "source_snapshot": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/figure-history/figure-02/README.md",
+    "kind": "new maintained navigation; original source path and bytes restored"
+  },
+  {
+    "path": "records/figure-history/figure-04/INDEX.md",
+    "source_readme_preserved": "records/figure-history/figure-04/README.md",
+    "source_snapshot": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/figure-history/figure-04/README.md",
+    "kind": "new maintained navigation; original source path and bytes restored"
+  },
+  {
+    "path": "records/figure-history/shared/INDEX.md",
+    "source_readme_preserved": "records/figure-history/shared/README.md",
+    "source_snapshot": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/figure-history/shared/README.md",
+    "kind": "new maintained navigation; original source path and bytes restored"
+  },
+  {
+    "path": "records/scientific-evidence/audits/INDEX.md",
+    "source_readme_preserved": "records/scientific-evidence/audits/README.md",
+    "source_snapshot": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/scientific-evidence/audits/README.md",
+    "kind": "new maintained navigation; original source path and bytes restored"
+  },
+  {
+    "path": "records/scientific-evidence/decisions/INDEX.md",
+    "source_readme_preserved": "records/scientific-evidence/decisions/README.md",
+    "source_snapshot": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/scientific-evidence/decisions/README.md",
+    "kind": "new maintained navigation; original source path and bytes restored"
+  },
+  {
+    "path": "records/repository-history/transfers/INDEX.md",
+    "source_readme_preserved": "records/repository-history/transfers/README.md",
+    "source_snapshot": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/repository-history/transfers/README.md",
+    "kind": "new maintained navigation; original source path and bytes restored"
+  },
+  {
+    "path": "records/figure-reviews/README.md",
+    "preserved_original": "records/repository-history/2026-10-23-repository-output-review/original-navigation/records/figure-reviews/README.md",
+    "kind": "correct multi-figure navigation and authority description"
+  }
+]

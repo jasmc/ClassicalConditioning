@@ -1,0 +1,32 @@
+{
+  "removed_paths": [
+    "scripts/align_figure1_fgh_fonts.py",
+    "scripts/archive_figure1_singlefish_versions.py",
+    "scripts/build_figure1_panel_f_bin_variants.py",
+    "scripts/build_figure2_heatmap_row.py",
+    "scripts/build_panel_e_frozen_v12_heatmap_rows_review.py",
+    "scripts/layout_figure2_compact_rows.py",
+    "scripts/move_figure2_block_notes.py",
+    "scripts/prepare_figure1_fgh_v12_freeze.py",
+    "scripts/prepare_figure1_historical_fgh_freeze.py",
+    "scripts/prepare_figure1_panel_e_current_freeze.py",
+    "scripts/prepare_figure2_B_freeze.py",
+    "scripts/prepare_panel_e_heatmap_rows_freeze.py",
+    "scripts/preserve_figure3_guide_conversation.py",
+    "scripts/publish_figure1_historical_fgh_freeze.py",
+    "scripts/publish_figure1_panel_e_current_freeze.py",
+    "scripts/publish_figure2_heatmap_row.py",
+    "scripts/readjust_figure2_g.py",
+    "scripts/render_figure1_best_learners_version08.py",
+    "scripts/render_figure1_historical_fish_one_second.py",
+    "scripts/reorder_control_first.py",
+    "scripts/repair_figure3_guide_downloads.py",
+    "scripts/style_figure2_placeholders.py",
+    "scripts/update_figure1_colourbar_row_alignment.py",
+    "scripts/update_figure1_f_arrow_position.py",
+    "scripts/update_figure1_layout_spacing.py",
+    "scripts/update_figure2_panel_a_freeze.py"
+  ],
+  "removed_bytes": 332094,
+  "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/retired-recipes"
+}

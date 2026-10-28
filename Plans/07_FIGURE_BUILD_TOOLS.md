@@ -17,7 +17,7 @@ The assembler now provides no-write source/geometry preflight, external-artifact
 
 Use the [preflight and replacement guide](../docs/paper/figures/shared/assembly-preflight.md). The [implementation audit](../records/scientific-evidence/audits/figure-build-integrity-2026-10-12.json) records 424 passing tests and 70 unchanged frozen records for that implementation. Those checks used synthetic assembly inputs; they do not establish complete paper routing, scientific identity or final visual quality for Figures 1–4.
 
-Reuse [paper-panel orchestration](../src/classical_conditioning/figures/paper_panels.py), [selected-assembly wiring](../scripts/update_latest_figure_assemblies.py), semantic/theme validators and the existing guarded review/current-state workflow. Do not add a second selection registry, review generator or state writer.
+Reuse [paper-panel orchestration](../src/classical_conditioning/figures/paper_panels.py), [authenticated current collection](../scripts/paper/shared/collection.py), semantic/theme validators and the existing guarded review/current-state workflow. Do not add a second selection registry, review generator or state writer.
 
 ## Remaining work
 
@@ -271,6 +271,81 @@ contains interruption-era wording; reconcile its latest disposition against
 current state before following any old resume instruction. Do not run `prepare`,
 `compact` or `pair-spacing` over the existing directory as a generic resume step.
 
+<a id="immediate-completion-order-25-october-2026"></a>
+
+#### Completion follow-up, 25 October 2026
+
+The [reconciliation record](../records/figure-reviews/authority-reconciliation-20261025/README.md)
+closes the four current Figure 1/2 SVG/HTML binding conflicts. The exact PC
+Figure 2 state, matching captions, current semantic mappings and saved frame
+measurements were recovered/authenticated. Figure 1 H now binds its recorded
+20230419_10 unfrozen example; Figure 2 binds the previously published fixed10sTrace
+C/F/I and earlier expanded B/E/H draft. Caption/HTML/SVG agreement passes;
+SVG/HTML artwork bytes and accepted freezes remain unchanged. The ordered
+collection was refreshed last through the supported guard. External structure,
+current-artifact and archive authentication passes without exceptions beyond
+the already recorded exact author-approved archive absences.
+
+Policy/helper/collector source hashes differ only by Git LF/CRLF transport.
+The supported adapter proves those byte variants, preserves original reports
+and measurement arrays, and revalidates the exact saved Edge evidence. It does
+not claim a new browser run. Temporary native rendering and embedded-font/image/
+reference checks supplement the saved evidence; production-ready claims remain
+out of scope of that transport check.
+
+The D/E clipping investigation now identifies opaque full-canvas backgrounds
+in the overlapping E/F viewports as a concrete cause. The
+[supported repair](../docs/running-analysis/figure2-canvas-repair.md) prepares
+an unselected candidate changing only those two fills; all other SVG bytes
+remain identical. Native before/after rendering restores the hidden LT points,
+labels and statistical marks, with no changed pixels outside the target canvas
+regions. Ten focused safety/publication tests pass. The exact candidate,
+matching HTML, original snapshots and evidence live on JOAQUIM.
+
+Fresh exact browser frame measurements are still required before selecting that
+candidate. The old Edge report is not evidence for the changed SVG. Scientific/
+role registration, accessibility, collection equivalence and actual production-
+PDF checks under H02–H10 also remain open. No further automatic repacking or
+artwork resizing follows. Keep the author’s box-only constraint.
+Any changed artwork needs fresh exact-render measurements; transport equivalence
+cannot authenticate different SVG bytes or modified source logic.
+
+The [corrected BLUP comparison](../docs/running-analysis/figure3-blup-comparison.md)
+now completes its Delay/control calibration and independent stress runs. It
+supplies decision evidence, not Gate L or a new Figure 3 selection. Plans 01–06
+still own cohort, scientific method/claim decisions and applicable full-assay
+validation; Plan 08 consumes those approvals for release. CI is removed and
+repository Actions disabled; all relevant checks are local.
+
+#### Immediate verification and delivery follow-up
+
+1. Resolve the [canvas-overdraw candidate](../records/figure-reviews/figure-02/canvas-overdraw-20261025.json)
+   through its manifest and [supported preparation/measurement route](../docs/running-analysis/figure2-canvas-repair.md).
+   Authenticate current state, candidate and source hashes. Collect fresh exact
+   browser measurements and review the restored D/E content at native size.
+   Check ownership, painted/unclipped bounds and retained spacing/alignments;
+   preserve the no-resize/no-reflow constraint. Prior Edge evidence belongs to
+   the old SVG and cannot certify the changed bytes.
+2. After passing checks, reuse the supported scoped publisher or extend its
+   Figure 2 adapter where necessary; the candidate preparer has no selection
+   flag. Recheck starting/manual-edit hashes under the existing lock, preserve
+   originals, publish the same active SVG/HTML pair and fresh registry/evidence
+   before atomic state replacement, then refresh the collection last. A failed
+   check leaves the candidate unselected and current work intact.
+3. Complete H02–H06 evidence and H08's actual export/collection checks. Compare
+   visible standalone/embedded geometry, styles and resources using meaningful
+   tolerances; exclude hidden zero-box/resource nodes. Inspect actual vector PDF
+   fonts/editability/resources and every print page. Keep accessibility and
+   final-scale scientific/role coverage explicit; an HTML or native preview is
+   not production certification.
+
+The [G/H/I saved-statistics audit](../records/scientific-evidence/analyses/figure-02-ghi-statistical-audit.json)
+supplies source/numerical and named-annotation evidence for H01/H02/H06. It does
+not certify curve geometry, exact trial-marker positions, painted visibility,
+model adequacy or complete historical source closure. Plan 01 owns recovery;
+Plan 06 owns scientific inference; [Plan 12](12_STUDY_ARTIFACT_STORAGE.md#reader-verification-follow-up)
+owns the newly delivered study readers' untested notebook/browser/print behavior.
+
 #### Work packages and acceptance evidence
 
 Execute H01 first. H02–H06 can progress without changing artwork geometry.
@@ -390,7 +465,7 @@ print preview or font configuration flag does not certify production export.
 Keep main, Extended Data and other delivery profiles separate; implement only
 the output scope needed for the release, with conditional content marked N/A.
 
-Extend `verify_main_paper_collection.cjs` rather than adding a competing checker.
+Extend `scripts/paper/shared/verify_collection.cjs` rather than adding a competing checker.
 Compare standalone and embedded saved SVGs using corresponding visible geometry,
 computed styles/fonts, raster payloads and screenshots. Exclude hidden zero-box
 nodes/resource-only definitions from geometric comparison; explain subpixel

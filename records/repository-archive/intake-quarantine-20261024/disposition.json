@@ -1,0 +1,394 @@
+{
+  "date": "2026-10-26",
+  "authorization": "User: do it, after the specific recommendation to delete the eight quarantined staging files (1.605 GiB), keeping the complete recording, raw originals and transfer records.",
+  "scope": "Only the eight exact files from the interrupted 20221115_04 intake quarantine; previous quarantine-only retention superseded for these files.",
+  "status": "complete",
+  "assessment": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/intake-quarantine-assessment.json",
+    "sha256": "331d9b937ceb005c4b11ea92b127bf495bbcc75d7655ed53dc9ba4316da9ee01"
+  },
+  "transfer_manifest": {
+    "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+    "sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+  },
+  "targets": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "canonical_archive_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "canonical_archive_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "canonical_archive_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
+      "sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
+      "canonical_archive_sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
+      "bytes": 1648996921,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "canonical_archive_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
+      "sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
+      "canonical_archive_sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
+      "bytes": 74712409,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "canonical_archive_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "deleted": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures",
+      "logical_path": ".20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures",
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "canonical_archive_sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "bytes": 4096,
+      "deleted": true
+    }
+  ],
+  "protected_data": [
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/camera.parquet",
+      "bytes": 74712375,
+      "sha256": "744be6e40d1fbde22d8be520f0f8c54ac7a1032e525224299625be51b5962d46",
+      "expected_sha256": "744be6e40d1fbde22d8be520f0f8c54ac7a1032e525224299625be51b5962d46",
+      "matches": true,
+      "role": "complete published intake",
+      "identity_before": [
+        16777228,
+        6097462,
+        74712375,
+        1789720506000000000,
+        1789720506000000000
+      ],
+      "identity_unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/stimulus_events.parquet",
+      "bytes": 3251,
+      "sha256": "a3a83220e0363c5e58b968ac3a573819ef946c8d293da0c4ae002a542d98b745",
+      "expected_sha256": "a3a83220e0363c5e58b968ac3a573819ef946c8d293da0c4ae002a542d98b745",
+      "matches": true,
+      "role": "complete published intake",
+      "identity_before": [
+        16777228,
+        6116390,
+        3251,
+        1789720654000000000,
+        1789720654000000000
+      ],
+      "identity_unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/Processed data/20221115_04/tracking.parquet",
+      "bytes": 1839686870,
+      "sha256": "f110c6b4d672aaffdd1040a818567ea38bb043d5a0983461e6b75d7d488d68c9",
+      "expected_sha256": "f110c6b4d672aaffdd1040a818567ea38bb043d5a0983461e6b75d7d488d68c9",
+      "matches": true,
+      "role": "complete published intake",
+      "identity_before": [
+        16777228,
+        6116391,
+        1839686870,
+        1789720646000000000,
+        1789720646000000000
+      ],
+      "identity_unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/allDelay/20221115_04_delay_black-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_cam.txt",
+      "bytes": 368362711,
+      "sha256": "1e2fd62a020223a60b47921f3666e92481f99fc2acef17c7dfe9cff09f2e3ac4",
+      "expected_sha256": "1e2fd62a020223a60b47921f3666e92481f99fc2acef17c7dfe9cff09f2e3ac4",
+      "matches": true,
+      "role": "retained raw camera",
+      "identity_before": [
+        16777228,
+        4306897,
+        368362711,
+        1668520986000000000,
+        1668520986000000000
+      ],
+      "identity_unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/allDelay/20221115_04_delay_black-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_stim control.txt",
+      "bytes": 6464,
+      "sha256": "2a24ffa397fc089196784de42c869983aaf30d4df8405c8938257f006df8d21f",
+      "expected_sha256": "2a24ffa397fc089196784de42c869983aaf30d4df8405c8938257f006df8d21f",
+      "matches": true,
+      "role": "retained raw protocol",
+      "identity_before": [
+        16777228,
+        4411306,
+        6464,
+        1668520986000000000,
+        1668520986000000000
+      ],
+      "identity_unchanged_after": true
+    },
+    {
+      "path": "/Volumes/JOAQUIM/Raw Data/allDelay/20221115_04_delay_black-1_mitfaMinusMinus,elavl3GFF,10UASGCaMP6fEF05_6dpf_mp tail tracking.txt",
+      "bytes": 3801488037,
+      "sha256": "de1d3591f0bc828d35fbac5044d25171be35323ec034e1efd2fe968673538bef",
+      "expected_sha256": "de1d3591f0bc828d35fbac5044d25171be35323ec034e1efd2fe968673538bef",
+      "matches": true,
+      "role": "retained raw tracking",
+      "identity_before": [
+        16777228,
+        4312953,
+        3801488037,
+        1668520986000000000,
+        1668520986000000000
+      ],
+      "identity_unchanged_after": true
+    }
+  ],
+  "protected_controls": [
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761",
+      "identity_before": [
+        16777224,
+        15785328,
+        3616,
+        1792846157743239840,
+        1792846157743239840
+      ],
+      "role": "unchanged control or assessment"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/intake-quarantine-20261024/completed-transfer.json",
+      "sha256": "4de4e3c7d7120b7fcefa92f9e7a248a25f02e3e80f947a9c767d6341cacfa998",
+      "identity_before": [
+        16777224,
+        15785350,
+        1644,
+        1792846211434524052,
+        1792846211434524052
+      ],
+      "role": "unchanged control or assessment"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/intake-quarantine-assessment.json",
+      "sha256": "331d9b937ceb005c4b11ea92b127bf495bbcc75d7655ed53dc9ba4316da9ee01",
+      "identity_before": [
+        16777224,
+        15963139,
+        11242,
+        1793039459526968695,
+        1793039459526968695
+      ],
+      "role": "unchanged control or assessment"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/manifest-identity.json",
+      "sha256": "12a96df8b02ddc47b46b10e1b5f1b5e781988e46a4a9be86ef1076fd84029ec9",
+      "identity_before": [
+        16777228,
+        290168,
+        83,
+        1792846168480000000,
+        1792846168480000000
+      ],
+      "role": "unchanged control or assessment"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/existing-copy-inspection.json",
+      "sha256": "b39d3fa2ae7a8cc90e10f855486cd1c825c546a4a4fb562ed9e7377af0ad05a5",
+      "identity_before": [
+        16777228,
+        332975,
+        2547,
+        1792846191800000000,
+        1792846191800000000
+      ],
+      "role": "unchanged control or assessment"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/link-report.json",
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "identity_before": [
+        16777228,
+        332974,
+        3,
+        1792846191800000000,
+        1792846191800000000
+      ],
+      "role": "unchanged control or assessment"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/transfer-inventory.json",
+      "sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761",
+      "identity_before": [
+        16777228,
+        332976,
+        3616,
+        1792846191800000000,
+        1792846191800000000
+      ],
+      "role": "unchanged control or assessment"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/verification.json",
+      "sha256": "94e6f94eb6c77b343261cdcd83ff4f4d546af6d0139930deee1fdbf4af970d2b",
+      "identity_before": [
+        16777228,
+        332977,
+        150,
+        1792846191800000000,
+        1792846191800000000
+      ],
+      "role": "unchanged control or assessment"
+    }
+  ],
+  "retired_recovery_entries": [
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Processed data",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Quality checks",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/._Metadata",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete"
+      ],
+      "sha256": "8fe5d8ce9cb4727dba344f47961275343237b290d3f9de356d1c68c51d5d85ba",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/tracking.parquet.incomplete",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._tracking.parquet.incomplete",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet"
+      ],
+      "sha256": "34424f112f05d62c7d04e37f43bef6adfbca39736f7676cb9887ef5cd1749c4d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/camera.parquet",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Processed data/._camera.parquet",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/Digested Data/allDelay-full-v1/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures"
+      ],
+      "sha256": "0aa876dca21286802bf38a247ce5ec5e24af7008f98ec2c891a040a959b2ba75",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04",
+      "relative_path": "payload/.20221115_04-intake-7a9cf264af954f3e81f508ede20bdc51/Quality checks/._figures",
+      "recovery_method": "Verified author-authorized interrupted-intake quarantine",
+      "source": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+      "source_sha256": "73365c913e89fbc72bfbfd7c909e911b44e3f0bfd0d1975d4271ce5999351761"
+    }
+  ],
+  "previous_discovery_metadata": [
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/disposition-2026-10-26/original-navigation/README.md",
+      "sha256": "846146f72304cc8a348fd9867d29eca181cf15489936c2f178101b6ba2b820bc"
+    },
+    {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/intake-quarantine/2026-10-24/20221115_04/disposition-2026-10-26/original-navigation/START-HERE.html",
+      "sha256": "e0b6b61db1161d092bcf35a88e1865edf4b7dab71b90517340fb64ca29a13917"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/quarantine-disposition-originals/verified-artifact-locations.json",
+      "sha256": "19cccf36acee024008441d3003803ce9d23e8cf68291464bddb199e6a9ebc19d"
+    },
+    {
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-26-storage-disposition-review/quarantine-disposition-originals/structure-policy.json",
+      "sha256": "b538216bf532f8a16d87e49c41345fbfb6394f88f794b89cedf9a4a0a0dda89c"
+    }
+  ],
+  "open_handle_check": {
+    "matching_local_handles": 0,
+    "limits": "Local Mac only"
+  },
+  "purpose": "Retire confirmed redundant incomplete staging; preserve complete scientific inputs and immutable historical inventories.",
+  "completed_utc": "2026-10-26T18:35:51.909654+00:00",
+  "deleted_file_count": 8,
+  "deleted_bytes": 1723733906,
+  "retained_data_unchanged": true,
+  "original_transfer_records_unchanged": true
+}

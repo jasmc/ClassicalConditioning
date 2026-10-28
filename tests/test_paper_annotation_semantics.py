@@ -2,7 +2,7 @@
 import sys,unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'scripts'))
-from refine_paper_annotations import wording
+from scripts.paper.shared.stage_annotations import wording
 
 class AnnotationSemanticsTests(unittest.TestCase):
     def test_trace_condition_spelling_only(self):

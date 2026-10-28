@@ -1,0 +1,10 @@
+{
+  "removed_paths": [
+    "scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py",
+    "scripts/paper/figure_02/panel_g/reproduction/complete_guide_supplement.py",
+    "scripts/paper/shared/reproduction/build_20261010_assemblies.py",
+    "scripts/paper/figure_01/legacy_layout.py"
+  ],
+  "removed_bytes": 30335,
+  "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/script-organization/2026-10-24/extracted-drivers"
+}

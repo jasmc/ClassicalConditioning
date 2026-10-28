@@ -9,7 +9,7 @@ import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from scripts.assemble_svg_figure import panel_layout, render
+from scripts.paper.shared.assemble_svg import panel_layout, render
 
 
 class SvgFigureAssemblyTests(unittest.TestCase):

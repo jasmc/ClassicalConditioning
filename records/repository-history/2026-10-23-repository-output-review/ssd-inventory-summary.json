@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-23",
+  "roots": [
+    {
+      "root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs",
+      "total_files": 10218,
+      "total_bytes": 3954200581,
+      "counts_by_folder": {
+        "README.md": 1,
+        "ORGER-JOAQUIM/sync-status.json": 1,
+        "ORGER-JOAQUIM/sync-watch-status.json": 1,
+        "ORGER-JOAQUIM/outputs": 5824,
+        "current/reviews": 4391
+      },
+      "bytes_by_folder": {
+        "README.md": 1208,
+        "ORGER-JOAQUIM/sync-status.json": 359,
+        "ORGER-JOAQUIM/sync-watch-status.json": 168,
+        "ORGER-JOAQUIM/outputs": 1144848789,
+        "current/reviews": 2809350057
+      },
+      "errors": []
+    },
+    {
+      "root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive",
+      "total_files": 4115,
+      "total_bytes": 5697028599,
+      "counts_by_folder": {
+        "2026-10-17-retired-styling/existing-copy-inspection.json": 1,
+        "2026-10-17-retired-styling/link-report.json": 1,
+        "2026-10-17-retired-styling/manifest-identity.json": 1,
+        "2026-10-17-retired-styling/relocations.json": 1,
+        "2026-10-17-retired-styling/transfer-inventory.json": 1,
+        "2026-10-17-retired-styling/verification.json": 1,
+        "2026-10-17-retired-styling/payload": 7,
+        "configuration-cleanup/2026-10-11": 21,
+        "documentation-cleanup/2026-10-11": 16,
+        "figure-01/singlefish-heatmaps": 65,
+        "learner-plan-consolidation/2026-10-11": 9,
+        "pc-output-cleanup/2026-10-18": 1881,
+        "repository-cleanup/2026-10-10": 2054,
+        "scripts-cleanup/2026-10-10": 47,
+        "scripts-cleanup/2026-10-11": 9
+      },
+      "bytes_by_folder": {
+        "2026-10-17-retired-styling/existing-copy-inspection.json": 1622,
+        "2026-10-17-retired-styling/link-report.json": 3,
+        "2026-10-17-retired-styling/manifest-identity.json": 83,
+        "2026-10-17-retired-styling/relocations.json": 92136,
+        "2026-10-17-retired-styling/transfer-inventory.json": 3090,
+        "2026-10-17-retired-styling/verification.json": 150,
+        "2026-10-17-retired-styling/payload": 138876,
+        "configuration-cleanup/2026-10-11": 26329253,
+        "documentation-cleanup/2026-10-11": 136725,
+        "figure-01/singlefish-heatmaps": 4268362098,
+        "learner-plan-consolidation/2026-10-11": 120933,
+        "pc-output-cleanup/2026-10-18": 145853813,
+        "repository-cleanup/2026-10-10": 1255476363,
+        "scripts-cleanup/2026-10-10": 407033,
+        "scripts-cleanup/2026-10-11": 106421
+      },
+      "errors": []
+    }
+  ],
+  "reading_artifacts_hashed": 568,
+  "inventory": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/audit-2026-10-23/inventory-before.json",
+    "sha256": "8b2b58132dd06731f6111420ceb5a97a9dd90d114d191328b90310f89dd77b3e"
+  },
+  "before_hashes": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/audit-2026-10-23/reading-artifacts-before.json",
+    "sha256": "f7daeb1f23cfe29d6ff95ba4bd55fc58ab0e20aa5ddf8fcaca5f4fc147e8f83e"
+  },
+  "scope_limits": [
+    "Output and archive roots recursively inventoried; raw and processed scientific datasets not recursively content-audited.",
+    "9 October Mac and 18 October PC packets identified as historical handoff containers; their source ZIP/project copies were not promoted or unpacked.",
+    "Personal root assets and operating-system metadata are outside repository-output ownership."
+  ]
+}

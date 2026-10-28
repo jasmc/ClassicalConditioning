@@ -9,7 +9,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from scripts import assemble_svg_figure as assembly
+from scripts.paper.shared import assemble_svg as assembly
 from classical_conditioning import artifacts
 from classical_conditioning.external_artifacts import resolve_artifact
 from classical_conditioning.figures import assembly_sources

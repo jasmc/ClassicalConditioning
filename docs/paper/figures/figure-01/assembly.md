@@ -13,12 +13,12 @@ The panel map can be changed in the JSON without changing the composer.
 From the repository root, the default output goes directly to the SSD:
 
 ```powershell
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_panel_a.py
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_panel_b.py --variant v4
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_panel_c.py --variant v2
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panel_a/build.py
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panel_b/build_protocol.py --variant v4
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panel_c/build_session.py --variant v2
 & '.venv-trace\Scripts\python.exe' scripts/build_figure1_trace_panels.py
-& '.venv-trace\Scripts\python.exe' scripts/build_figure1_legacy_vigor_heatmaps.py
-& '.venv-trace\Scripts\python.exe' scripts/assemble_svg_figure.py configs/paper-figures/figure1-assembly.json --export png
+& '.venv-trace\Scripts\python.exe' scripts/paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py
+& '.venv-trace\Scripts\python.exe' scripts/paper/shared/assemble_svg.py configs/paper-figures/figure1-assembly.json --export png
 ```
 
 Use `--watch` to rebuild when a source SVG or the layout JSON changes. Use
@@ -60,6 +60,19 @@ The supplied files are named:
 | Asset 7 | `Fig1_PanelsB-C_ProtocolAlternative_source.svg` |
 | Asset 11 | `Fig1_PanelsB-C_SessionTimeline_source.svg` |
 | Asset 5 | `Fig1_PanelsB-C_SessionTimelineAlternative_source.svg` |
+
+On 26 October 2026, the five redundant SSD-root SVG copies were removed after
+direct byte comparison with these retained named sources. Old root/J: references
+resolve through the recovery index and relocation map; the PNG previews remain.
+The [disposition](../../../../records/repository-history/2026-10-26-storage-disposition-review/root-svg-disposition.json)
+records exact paths and hashes. No selected artwork was changed.
+
+The author clarified that these five pairs are distinct historical alternatives
+for Figure 1's opening panels. Their PNGs now live beside the retained SVGs in
+`schemes/`, with the same figure/panel/descriptive base names and `.png` instead
+of `.svg`. The [naming record](../../../../records/repository-history/2026-10-26-storage-disposition-review/historical-figure1-png-renaming.json)
+preserves original identities and old root/J: aliases. Every variant's artwork
+bytes remain unchanged; current selected artwork still resolves from scoped state.
 
 For an exploratory replacement without changing the selected panel in the
 layout, use `--replace-panel-source B=schemes/Fig1_PanelB_ConditionTiming_exploratory.svg`
@@ -116,10 +129,10 @@ All prior versioned sources and review assemblies remain on SSD.
 Rebuild the changed assets and composition:
 
 ```powershell
-.venv-trace\Scripts\python.exe scripts/build_figure1_panel_b.py --variant v5
-.venv-trace\Scripts\python.exe scripts/build_figure1_legacy_vigor_heatmaps.py
+.venv-trace\Scripts\python.exe scripts/paper/figure_01/panel_b/build_protocol.py --variant v5
+.venv-trace\Scripts\python.exe scripts/paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py
 .venv-trace\Scripts\python.exe scripts/build_figure1_vigor_zoom.py
-.venv-trace\Scripts\python.exe scripts/assemble_svg_figure.py configs/paper-figures/figure1-assembly.json --strict --export png
+.venv-trace\Scripts\python.exe scripts/paper/shared/assemble_svg.py configs/paper-figures/figure1-assembly.json --strict --export png
 ```
 
 The E zoom builder verifies its cached measured-trace data against existing

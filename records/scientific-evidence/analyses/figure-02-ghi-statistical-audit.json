@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "scope": "Selected Figure 2 G/H/I saved statistics and current/historical documentation",
+  "status": "Saved numerical reconciliation passed; scientific and source-closure limits remain",
+  "source_manifest": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/audit-inputs.json",
+    "sha256": "7b1c8da4caf3d9e533cdbf4925363ed5fc27d94d34212ef54d2080807e570fa9"
+  },
+  "starting_ticket": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/starting-ticket.json",
+    "sha256": "0d3316a52d2d5877dfc134456762b6480595d66ef3f57a6f5013e9b81cd24976"
+  },
+  "audit": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/report/audit.json",
+    "sha256": "c50368ef68e7f44c2de68f22f0ea7210e0cb38868ff2a4af278547d4c6e252dc"
+  },
+  "guide": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/report/study.html",
+    "sha256": "a7716a0d394fafcb0f3b4f436ce20193e17673795f45bbd711b0aab73dae6ee0"
+  },
+  "manuscript": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/report/study.md",
+    "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea"
+  },
+  "guide_provenance": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/report/guide-provenance.json",
+    "sha256": "7b64e99dbb316b61deb442f4b3c19807cd8fa2f004c5e6fbee23105575536551"
+  },
+  "recovery": {
+    "new_exact_alias_entries": 87,
+    "G_frozen_artifacts": 86,
+    "H_I_fitter_source": 1,
+    "previous_index": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/recovery-index-before.json",
+      "sha256": "329e2ad1bf0767211ce9737542b6d5cb6bd7fd5ee030ddb7a24e2a1ce90b022e"
+    },
+    "guard": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/recovery-starting-ticket.json",
+      "sha256": "c95fb8a9966a75e4bb86b1c72d62a92554722aff8377fba431ddd81cbd732228"
+    },
+    "original_bytes_changed": false
+  },
+  "verification": {
+    "saved_arithmetic_checks": 63,
+    "coefficient_rows_checked": 76,
+    "saved_bootstrap_resamples_replayed": 30000,
+    "protected_hashes_unchanged": 127,
+    "static_guide_check": "passed; 441 hash records, no external runtime resources",
+    "browser_notebook_and_print": "not exercised",
+    "targeted_unit_tests_passed": 83,
+    "external_structure": "passed; 365 protected requirements, seven states, 13 archive transactions"
+  },
+  "panel_results": {
+    "G": {
+      "fish": {
+        "control": 28,
+        "delay": 29
+      },
+      "fitted_observations": 4811,
+      "scheduled_observations": 5130,
+      "significant_counts": {
+        "D_Holm8": 6,
+        "M_BH9": 5,
+        "R_raw": 2,
+        "R_BH9": 2,
+        "trial_BH90": 53
+      },
+      "residual_excess_kurtosis": 8.02697313707403,
+      "unavailable_local_blocks": [
+        "Test 3"
+      ]
+    },
+    "H": {
+      "fish": {
+        "control": 90,
+        "trace": 89
+      },
+      "fitted_observations": 15869,
+      "scheduled_observations": 16110,
+      "significant_counts": {
+        "D_Holm8": 4,
+        "M_BH9": 5,
+        "R_raw": 2,
+        "R_BH9": 1,
+        "trial_BH90": 45
+      },
+      "residual_excess_kurtosis": 9.26885568462762,
+      "unavailable_local_blocks": []
+    },
+    "I": {
+      "fish": {
+        "control": 32,
+        "trace": 29
+      },
+      "fitted_observations": 4905,
+      "scheduled_observations": 5490,
+      "significant_counts": {
+        "D_Holm8": 0,
+        "M_BH9": 0,
+        "R_raw": 1,
+        "R_BH9": 0,
+        "trial_BH90": 0
+      },
+      "residual_excess_kurtosis": 14.033614360651594,
+      "unavailable_local_blocks": []
+    }
+  },
+  "limitations": [
+    "No refits, new bootstrap indices, figure/state edits, new cohort decisions or freezes.",
+    "Missing historical driver/runtime bindings remain explicit in the SSD audit.",
+    "I bootstrap draw bytes match replayed results but lack an original selected producer hash.",
+    "XML statistical labels and marker counts do not establish exact marker placement or painted visibility.",
+    "Heavy residual tails remain; numerical agreement does not establish scientific adequacy or onset/extinction."
+  ],
+  "verification_receipt": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/figure-02/ghi-statistical-audit/verification.json",
+    "sha256": "79bc3e2a53043bd41ae0fe018294ea7613e136520c6e4f211f0eb59fdfab8cba"
+  }
+}

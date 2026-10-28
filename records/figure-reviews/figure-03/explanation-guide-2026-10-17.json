@@ -3,7 +3,7 @@
   "date": "2026-10-17",
   "html": {
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/figure3-review-guide.html",
-    "sha256": "848000cde537ead9e56188b9df5df27c098c53dadcfdf4ea1d0cbf05eaa91b02"
+    "sha256": "64e56e86a3872a4f0123558ce6836c4a59928fe1cda0eecc992bc8b24e4cd447"
   },
   "source_inputs": {
     "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-03/exploratory-state.json": "7eb65d7f09a936f664323c684d67bda59dea42c2fc3073f6c0cc11969730527e",
@@ -90,8 +90,19 @@
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/guide-verification.json",
     "sha256": "268f191c03cab309c4b707509e06a70fdf3ede1dd0fde8af20648df4bc0c6b78"
   },
-  "verification": {
+  "conversation_preserved_through": "2026-10-23",
+  "conversation_checkpoint": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/conversation-checkpoint-2026-10-23.md",
+    "sha256": "55c497afd61ca6e04daea7cc853b764644abc0772e54a0e51ca1bc548ed65cc3",
+    "report": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/conversation-preservation-20261023.json",
+    "report_sha256": "543e36278f59d338c553dea070be9a48fde5540f50e3bab1112cb16723ff5e4d"
+  },
+  "verification_before_conversation_preservation": {
     "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/link-verification-20261018.json",
     "sha256": "d5a38c9be87cef2c57e504b6a06b6063708b4cacd03c4312412bc885d630843e"
+  },
+  "verification": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/conversation-verification-20261023.json",
+    "sha256": "1a0f8e90e9342f39fbbd32ec0ffd5c98fc3237239a663daf487c31a67527e963"
   }
 }

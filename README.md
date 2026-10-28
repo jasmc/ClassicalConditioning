@@ -7,6 +7,7 @@ Start with the [paper figures](docs/paper/figures/README.md) for selected panels
 | Need | Canonical home |
 |---|---|
 | Figures and panel work | [Paper figures](docs/paper/figures/README.md) |
+| Compare discussions and approaches for Figure 2 G/H/I and Figures 3/4 | [Review library and SSD entry point](docs/paper/figures/review-library.md) |
 | Shared scientific definitions | [Methods](docs/paper/methods/README.md) |
 | Accepted choices and open paper questions | [Decisions](docs/paper/decisions.md) and [paper review](docs/paper/review.md) |
 | Run, resume or troubleshoot the code | [Running the analysis](docs/running-analysis/README.md) |

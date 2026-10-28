@@ -1,0 +1,62 @@
+{
+  "issues": [
+    "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
+    "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+    "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+    "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg"
+  ],
+  "unavailable_external_evidence": [],
+  "protected_files_checked": 365,
+  "current_states_checked": 7,
+  "verified_transactions": [
+    {
+      "manifest": "records/repository-archive/transfer-inventory.json",
+      "files": 2048,
+      "authorized_absences": [
+        "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+        "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png"
+      ]
+    },
+    {
+      "manifest": "records/repository-archive/2026-10-17-retired-styling/transfer-inventory.json",
+      "files": 7,
+      "authorized_absences": []
+    },
+    {
+      "manifest": "records/repository-archive/configuration-cleanup-20261011/transfer-inventory.json",
+      "files": 2,
+      "authorized_absences": []
+    },
+    {
+      "manifest": "records/repository-archive/documentation-cleanup-20261011/transfer-inventory.json",
+      "files": 1,
+      "authorized_absences": []
+    },
+    {
+      "manifest": "records/repository-archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+      "files": 3,
+      "authorized_absences": []
+    },
+    {
+      "manifest": "records/repository-archive/scripts-cleanup-20261010/transfer-inventory.json",
+      "files": 41,
+      "authorized_absences": []
+    },
+    {
+      "manifest": "records/repository-archive/scripts-reassessment-20261011/transfer-inventory.json",
+      "files": 3,
+      "authorized_absences": []
+    },
+    {
+      "manifest": "records/repository-archive/singlefish-heatmap-code-20261013/transfer-inventory.json",
+      "files": 7,
+      "authorized_absences": []
+    },
+    {
+      "manifest": "records/repository-archive/singlefish-heatmaps-20261013/transfer-inventory.json",
+      "files": 46,
+      "authorized_absences": []
+    }
+  ],
+  "external_verification": "failed"
+}

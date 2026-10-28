@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 import pandas as pd
 
-spec = importlib.util.spec_from_file_location('g_presentation', Path(__file__).resolve().parents[1] / 'scripts/build_figure2_g_exploratory.py')
+spec = importlib.util.spec_from_file_location('g_presentation', Path(__file__).resolve().parents[1] / 'scripts/paper/figure_02/panel_g/build_exploratory_presentation.py')
 g = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(g)
 

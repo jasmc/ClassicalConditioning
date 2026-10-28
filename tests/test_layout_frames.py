@@ -138,7 +138,7 @@ class LayoutFrameTests(unittest.TestCase):
                 self.assertTrue(f.freeze_issues(data,record,89,['A','B']))
 
     def test_generic_assembly_repeat_and_panel_scale(self):
-        from scripts.assemble_svg_figure import render
+        from scripts.paper.shared.assemble_svg import render
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder)
             (root/'a.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><rect width="10" height="10"/></svg>')

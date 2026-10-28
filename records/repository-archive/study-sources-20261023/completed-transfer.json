@@ -1,0 +1,24 @@
+{
+  "removed_paths": [
+    "docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+    "records/figure-reviews/figure-04/conversation-summary-2026-10-23.md",
+    "records/figure-reviews/figure-03/conversation-summary-2026-10-16.md",
+    "records/figure-reviews/figure-03/conversation-checkpoint-2026-10-23.md",
+    "records/figure-reviews/figure-03/explanation-guide-design-2026-10-17.md",
+    "docs/paper/methods/individual-learning.md",
+    "docs/paper/figures/figure-03/individual-fish-display.md",
+    "docs/paper/review.md",
+    "docs/paper/figures/shared/review.md",
+    "records/figure-reviews/nature-guidance-20261016.md",
+    "records/figure-reviews/nature-main-migration-20261017.md",
+    "docs/paper/figures/figure-01/review.md",
+    "docs/paper/figures/figure-02/review.md",
+    "docs/paper/figures/figure-03/review.md",
+    "docs/paper/figures/figure-04/review.md",
+    "records/scientific-evidence/analyses/figure-02-g-independent/implementation-and-review-2026-10-15.md",
+    "records/scientific-evidence/analyses/figure-02-g-independent/review-2026-10-14.md",
+    "records/scientific-evidence/analyses/figure-02-g-independent/current-G-comparison-2026-10-15.md"
+  ],
+  "removed_bytes": 256341,
+  "verified_archive": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/history/source-migration-2026-10-23"
+}

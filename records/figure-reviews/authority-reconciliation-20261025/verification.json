@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-25",
+  "exported_git_snapshot": {
+    "git_tree": "c6dc7912723a3a47b388398deb27e71c8f2696cf",
+    "exported_snapshot": true,
+    "results": [
+      {
+        "command": [
+          "scripts/check_repository_structure.py"
+        ],
+        "exit_code": 0,
+        "output_tail": "{\n  \"issues\": [],\n  \"unavailable_external_evidence\": [],\n  \"protected_files_checked\": 365,\n  \"current_states_checked\": 7,\n  \"verified_transactions\": [],\n  \"external_verification\": \"not-requested\"\n}\n"
+      },
+      {
+        "command": [
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-q"
+        ],
+        "exit_code": 0,
+        "output_tail": "Estimated framerate: 714.2857142857134 FPS\nMissing FrameIDs: 0; buffer capacity exceeded: False\nRecipe: candidate-corrected-runner\nExperiment: allDelay\nConfig hash: f33397bf3aa91d2c88dd0265c353bb89d036dd4c758ef4fab260253615150477\nResolved config: /private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/tmptcg07f4l/Metadata/resolved_config_candidate-corrected-runner_allDelay.json\nTrial map: /private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/tmptcg07f4l/Metadata/trial_map_allDelay.json\nSource report: /private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/tmptcg07f4l/Metadata/config_source_report_candidate-corrected-runner_allDelay.json\nTracking audit: /private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/tmppdj617av/tracking_audit.json\nRecording: 20260101_01\nStatus: PASS\nRaw validation: /private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/tmpbq46n08i/raw_validation.json\n/private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-finished-snapshot-462hcla6/scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py:77: RuntimeWarning: All-NaN slice encountered\n  boot[start:start+100] = np.nanmedian(values[indices[start:start+100]], axis=1)\n/private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-finished-snapshot-462hcla6/scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py:77: RuntimeWarning: All-NaN slice encountered\n  boot[start:start+100] = np.nanmedian(values[indices[start:start+100]], axis=1)\n/private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-finished-snapshot-462hcla6/scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py:77: RuntimeWarning: All-NaN slice encountered\n  boot[start:start+100] = np.nanmedian(values[indices[start:start+100]], axis=1)\n/private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-finished-snapshot-462hcla6/scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py:77: RuntimeWarning: All-NaN slice encountered\n  boot[start:start+100] = np.nanmedian(values[indices[start:start+100]], axis=1)\n/private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-finished-snapshot-462hcla6/scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py:77: RuntimeWarning: All-NaN slice encountered\n  boot[start:start+100] = np.nanmedian(values[indices[start:start+100]], axis=1)\n/private/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/cc-finished-snapshot-462hcla6/scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py:77: RuntimeWarning: All-NaN slice encountered\n  boot[start:start+100] = np.nanmedian(values[indices[start:start+100]], axis=1)\n<detailed-legacy-oracle>:931: FutureWarning: The 'axis' keyword in DataFrame.rolling is deprecated and will be removed in a future version. Call the method without the axis keyword instead.\n----------------------------------------------------------------------\nRan 589 tests in 239.082s\n\nOK\n"
+      }
+    ]
+  },
+  "unit_tests": {
+    "count": 589,
+    "status": "passed"
+  },
+  "external_authentication": {
+    "issues": [],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 365,
+    "current_states_checked": 7,
+    "verified_transactions": [
+      {
+        "manifest": "records/repository-archive/transfer-inventory.json",
+        "files": 2048,
+        "authorized_absences": [
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.figure.json",
+          "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10/payload/outputs/trace-partial-preview/20260925-window13/figures/figure3-3strace-window13-partial-36fish/figure-3-3strace-review_tail_length_weighted_angular_l1.png"
+        ]
+      },
+      {
+        "manifest": "records/repository-archive/2026-10-17-retired-styling/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/configuration-cleanup-20261011/transfer-inventory.json",
+        "files": 2,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/documentation-cleanup-20261011/transfer-inventory.json",
+        "files": 1,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/intake-quarantine-20261024/transfer-inventory.json",
+        "files": 8,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/learner-plan-consolidation-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/script-extracted-drivers-20261024/transfer-inventory.json",
+        "files": 4,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/script-organization-20261024/transfer-inventory.json",
+        "files": 26,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-cleanup-20261010/transfer-inventory.json",
+        "files": 41,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/scripts-reassessment-20261011/transfer-inventory.json",
+        "files": 3,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmap-code-20261013/transfer-inventory.json",
+        "files": 7,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/singlefish-heatmaps-20261013/transfer-inventory.json",
+        "files": 46,
+        "authorized_absences": []
+      },
+      {
+        "manifest": "records/repository-archive/study-sources-20261023/transfer-inventory.json",
+        "files": 18,
+        "authorized_absences": []
+      }
+    ],
+    "external_verification": "passed"
+  },
+  "guide_static_checks": {
+    "status": "passed",
+    "hash_records": 84,
+    "runtime_resources_external": 0,
+    "sections": 9,
+    "fish_rows": 57,
+    "all_four_saved_legacy_decisions_per_fish": true
+  },
+  "scientific_execution": {
+    "status": "completed exploratory BLUP comparison",
+    "calibration_refits": 999,
+    "independent_validation_refits": 1996,
+    "failed_refits": 0,
+    "selected_figures_changed_by_analysis": false
+  },
+  "limits": [
+    "No new scientific freeze, primary cohort or final learner-method approval",
+    "Current artwork SVG/HTML bytes unchanged; captions/state/evidence reconciled",
+    "Saved Edge measurements transported with LF/CRLF byte proof, not rerendered as new browser evidence",
+    "Production PDF/accessibility and reported D/E cross-renderer clipping remain open",
+    "New guide notebook interactions and actual print layout not exercised"
+  ],
+  "user_work_preserved": "to_implement.md remains unstaged"
+}

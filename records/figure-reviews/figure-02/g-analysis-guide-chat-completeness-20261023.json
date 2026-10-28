@@ -1,0 +1,61 @@
+{
+  "scope": "Relevant content of this source chat preserved before deletion; substantive reconstruction, not a verbatim transcript",
+  "date": "2026-10-23",
+  "html": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/review.html",
+    "sha256": "c25b2fc2f91bee06720ff59b8d60f4cc6fe181b786449988db8ad8decbe1ae95"
+  },
+  "manifest": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/evidence-manifest.json",
+    "sha256": "1739ded2d73f1c96c9789294bb28405dda8bc89cb4529b3e24972085a60cb335"
+  },
+  "coverage_inventory": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261017-v01/topic-inventory.json",
+    "sha256": "718284b625b1822419fa08a5fd056834fc72a4f7198862ce07b393dea31a9ddc",
+    "topic_groups": 45
+  },
+  "supplement_chapter": "14-chat-completion-clarifications-model-teaching-and-next-steps",
+  "backup": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-before-completion",
+  "verification": {
+    "original_chapters_byte_identical": 13,
+    "original_artwork_and_numerical_payloads_unchanged": 32,
+    "browser_tests_passed": 16,
+    "images_decoded": 20,
+    "local_http_targets_passed": 154,
+    "internal_anchors_passed": 90,
+    "manifest_artifacts_match": true,
+    "prior_notes_survive_with_new_chapter_notes": true,
+    "browser_contexts": "Fresh test contexts only; user notebook fields not edited",
+    "scientific_artifacts_selections_and_freezes_modified": false,
+    "models_refitted": false,
+    "visual_review": "Actual chapter 14 inspected in existing in-app browser; desktop and narrow views inspected; supplement print page 50 rendered and inspected, readable without clipping."
+  },
+  "browser_report": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-completion-qa02/browser-verification.json",
+    "sha256": "3c8c85e4473cf1d70f5327029ff352edc7d28a60b39db31e5ca251438360ca63"
+  },
+  "integrity_report": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-completion-qa/link-and-integrity-check.json",
+    "sha256": "264e0d7a7251891d29ad578db9372ae983563ebde67ed69598b7672075383876"
+  },
+  "preserved_later_topics": [
+    "Author conditional bout intensity clarification; pooled frame weighting",
+    "Configured versus fitted parameters; LME structures and trial stars",
+    "Subtraction/adjustment; residual tails; IQR/CI; Holm/BH; numerical versus scientific validation",
+    "Unexecuted GAMM proposal; sign/estimand mismatch; Train/Test continuity; saved plan",
+    "Current Figure 3 acquisition score versus legacy recovery; extinction limits",
+    "Clean-chat handover identity and open decisions; proposal attachment copied into guide sources"
+  ],
+  "remaining_evidence_gaps": [
+    "Original executed February/March discarded-fish rosters not established",
+    "Original segmented frame/Bout/700 FPS data unavailable for exact last-US viability reconstruction",
+    "Complete selected MR-local-block-tests.csv unrecovered; displayed entries available in authenticated selected sidecar",
+    "Intended values of corrupted protocol timestamps unknown"
+  ],
+  "personal_notes": "Not embedded automatically; export JSON separately. Original guide ID, source note key, chapter IDs and server origin preserved.",
+  "print_review": {
+    "page": 50,
+    "pdf": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-completion-qa02/guide-print-check.pdf",
+    "render": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-g-analysis-guide-20261023-completion-qa02/completion-print-first-page.png"
+  }
+}

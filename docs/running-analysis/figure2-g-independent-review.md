@@ -10,7 +10,7 @@ Scientific decisions remain open; this is a way to inspect candidate outcomes.
 Run from the repository root with `.venv/bin/python`:
 
 ```sh
-.venv/bin/python scripts/review_figure2_g_independent.py \
+.venv/bin/python scripts/paper/figure_02/panel_g/run_independent_review.py \
   --output-dir '/Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/figure2-G-independent-review/NEW-ANALYSIS-ID' \
   --stage all --bootstrap 999 --workers 3
 ```
@@ -185,7 +185,7 @@ owns the completed-run counts, coverage results, exclusions and interpretations.
 ## Technical sensitivity command
 
 ```sh
-.venv/bin/python scripts/review_figure2_g_technical.py \
+.venv/bin/python scripts/paper/figure_02/panel_g/run_technical_sensitivity.py \
   --parent /absolute/selected/stage \
   --output-dir /absolute/new/external/destination
 ```

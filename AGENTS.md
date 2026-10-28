@@ -76,6 +76,18 @@ for verified archived guidance and dependencies retained in place.
 
 ## Storage and ownership
 
+Author direction, 2026-10-23: study, discussion and comparison artifacts,
+including editable Markdown manuscripts and conversation checkpoints, live with
+their HTML on JOAQUIM. Follow the [study-artifact policy](docs/project-maintenance/review-artifacts.md).
+Keep numbered plans, durable instructions, operational documentation, approved
+definitions, scoped authority, supported code/tests and compact discovery/recovery
+metadata in their existing homes. Existing hash-bound originals and notebook
+origins remain protected. Resolve migrated manuscripts through
+[the source registry](docs/paper/study-sources.json) and the supported artifact
+resolver; local navigation pointers are not full study sources. See
+[the migration plan](Plans/12_STUDY_ARTIFACT_STORAGE.md). Use the personal `analysis-review-guide` workflow for
+substantial study artifacts when available; do not vendor it into this repository.
+
 Follow [folder policy](docs/project-maintenance/structure.md) and the
 [frozen-record layout](records/frozen-analyses/README.md). `Plans/` holds numbered
 future work; current guidance belongs under `docs/paper/`,

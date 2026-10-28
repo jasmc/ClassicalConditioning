@@ -1,0 +1,173 @@
+{
+  "date": "2026-10-24",
+  "starting_head": "496d96039816f281e2ab7ad7d324a4a2cf463dfb",
+  "metadata_snapshot": "2026-10-24T11:46:16.245160+00:00",
+  "volume": "/Volumes/JOAQUIM",
+  "external_root": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/studies/repository/ssd-audit-2026-10-24",
+  "inventory_files": 23660,
+  "inventory_errors": 0,
+  "system_directories_excluded": [
+    "$RECYCLE.BIN",
+    ".Spotlight-V100",
+    ".fseventsd",
+    "System Volume Information"
+  ],
+  "top_level_folders": [
+    {
+      "folder": "Raw Data",
+      "files": 397,
+      "bytes": 563827434393,
+      "gib": 525.1052178377286,
+      "treatment": "Keep",
+      "reason": "Acquisition originals for Delay, fixed 3 s Trace and increasing Trace; not replaceable by figure exports."
+    },
+    {
+      "folder": "Digested Data",
+      "files": 1958,
+      "bytes": 267974488788,
+      "gib": 249.57069082930684,
+      "treatment": "Keep baseline; classify individual outputs",
+      "reason": "One 57-fish Delay processed project, plus unfinished intake staging. It is still a scientific source dependency."
+    },
+    {
+      "folder": "ClassicalConditioning-Archive",
+      "files": 4115,
+      "bytes": 5697028599,
+      "gib": 5.3057713424786925,
+      "treatment": "Keep required recovery payloads",
+      "reason": "Thirteen verified transfer packets, exact historical/frozen inputs, prior reviews, code and recovery records."
+    },
+    {
+      "folder": "ClassicalConditioning Outputs",
+      "files": 10405,
+      "bytes": 3960228395,
+      "gib": 3.6882501048967242,
+      "treatment": "Keep; improve role navigation",
+      "reason": "Selected working output, machine-output mirror, reviews and SSD-owned study sources. current/ also includes historical iterations."
+    },
+    {
+      "folder": "ClassicalConditioning-Mac-20261009",
+      "files": 6767,
+      "bytes": 1407360259,
+      "gib": 1.3107063798233867,
+      "treatment": "Historical handoff; preserve linked exports",
+      "reason": "9 October PC-to-Mac code/figure snapshot, pc-outputs and Trace exports. Not the current development checkout."
+    },
+    {
+      "folder": "ClassicalConditioning-PC-20261018",
+      "files": 5,
+      "bytes": 633590451,
+      "gib": 0.5900770900771022,
+      "treatment": "Historical transport/recovery snapshot",
+      "reason": "18 October Mac-to-PC source ZIP with Git metadata and uncommitted files. Not another scientific dataset."
+    }
+  ],
+  "digested": {
+    "recordings": 57,
+    "raw_parsed_size_checks": 342,
+    "protocol_hashes_verified": 57,
+    "runner_marker_hashes_verified": 276,
+    "issues": [],
+    "interrupted_staging_gib": 1.6054,
+    "nested_archive_empty": true,
+    "retention": "Required baseline, historical candidate outputs assessed separately"
+  },
+  "archive": {
+    "transfer_packets_verified": 13,
+    "present_payloads_verified": 4041,
+    "authorized_absences": 2,
+    "retention": "Preserve exact recovery and unique inputs; no wholesale deletion"
+  },
+  "handoffs": {
+    "mac_role": "9 October PC-to-Mac dated code/figure handoff, with still-bound Figure 2 G pc-outputs",
+    "pc_role": "18 October Mac-to-PC source snapshot, not a derived dataset",
+    "pc_zip_and_manifest_hashes": {
+      "ClassicalConditioning-source.zip": true,
+      "source-files.json": true,
+      "HANDOFF.md": true,
+      "readiness-audit.json": true
+    }
+  },
+  "no_existing_payload_changed": true,
+  "scientific_execution": false,
+  "verification_limits": "Full metadata scan outside named OS folders; targeted manifests/hash authentication; large raw/derived data not rehashed; browser rendering not checked.",
+  "files": [
+    {
+      "path": "SSD-AUDIT.html",
+      "sha256": "6af4085b82818c3ac9f73468524b9afba9855446a224bb1a78307ddfdd6f51c6",
+      "bytes": 18717
+    },
+    {
+      "path": "SSD-AUDIT.md",
+      "sha256": "8825821046d9c8c7a5d61ed0996084c754cdb917130a2424f3a27ec862c0d932",
+      "bytes": 16248
+    },
+    {
+      "path": "archive-verification.json",
+      "sha256": "e6bf0dcfdff432e4f0dfa753c17ae5a45d7c1d9877d7756dcadecb4a90c9a5f0",
+      "bytes": 7059
+    },
+    {
+      "path": "audit-code/inventory_joaquim.py",
+      "sha256": "86ae05693ea36f53765fade840f4360715511a21ff91df7f8d8e2333792867fc",
+      "bytes": 2407
+    },
+    {
+      "path": "audit-code/joaquim_refs.py",
+      "sha256": "a4066a7c30c6e55ee71fe73d5502e8973e10b5ba57022fd6c923da64475d8579",
+      "bytes": 2281
+    },
+    {
+      "path": "audit-code/publish_joaquim_audit.py",
+      "sha256": "47ca7757f6baebc4f676395eeaed6dadaa7c1c7d0dbd043c1ba8ba9501dfa5ca",
+      "bytes": 21488
+    },
+    {
+      "path": "audit-code/verify_joaquim_archives.py",
+      "sha256": "01786a9027dd3af68ec57c1fc445e7b2a02203f87ac80011f26bb5ef983e748d",
+      "bytes": 2586
+    },
+    {
+      "path": "audit-code/verify_joaquim_projects.py",
+      "sha256": "5dc68ff269ea46518377689810b107d3bd096fa2823a046fe5300327ff530930",
+      "bytes": 6945
+    },
+    {
+      "path": "current-dependency-verification.json",
+      "sha256": "a8ee268e4711046432363798a1af29f2b563247b4e16cedb26290247057f0c6f",
+      "bytes": 2453
+    },
+    {
+      "path": "digested-verification.json",
+      "sha256": "74be8e8618053533f0fb8ffe76ac1ed49e9e82d037ac0883ccd33033567ce8e7",
+      "bytes": 138736
+    },
+    {
+      "path": "file-inventory.jsonl",
+      "sha256": "02e65ea43f9e3c6505354227247042b2f3c7b6f5a2fff91cb12264c6c95c0c7b",
+      "bytes": 4590896
+    },
+    {
+      "path": "handoff-verification.json",
+      "sha256": "8cdcee7ccaa5a7e05a4a94c32bc296e35a44703126fb02115f948d3b963fb62b",
+      "bytes": 4070
+    },
+    {
+      "path": "raw-copy-checks.json",
+      "sha256": "31ef3d92e1ea87bed36b3dbdb3cdb6866e998de8d7f8bf9433ee92d8bf16e35e",
+      "bytes": 1740
+    },
+    {
+      "path": "repository-references.json",
+      "sha256": "2b8401ce1e213e8e504205a45e8663edf90fe6509b3b5c8f62fa0e0216744c50",
+      "bytes": 3420553
+    },
+    {
+      "path": "summary.json",
+      "sha256": "6c1d31c2861e8eecb30a00fd90a257e5ad52bb1db240ebfadcd8a56724266a2b",
+      "bytes": 57811
+    }
+  ],
+  "publication_status": "published-and-verified",
+  "publication_receipt_sha256": "c31d2f7bc758386446725548c38bc3a407b0d263076982fd5edc880ef9cbc37d"
+}

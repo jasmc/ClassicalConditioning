@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "figure_id": "fig1",
-  "updated_at": "2026-10-20T08:23:55.709084+00:00",
+  "updated_at": "2026-10-13T09:55:58.646908+02:00",
   "default_display": "draft",
   "active_edit_scope": [
     "Figure 1"
@@ -39,25 +39,24 @@
     "display_policy": "Explicit frozen-selection requests only; no standalone frozen working copy is active"
   },
   "draft": {
-    "status": "Unfrozen Figure 1 draft; H uses author-selected 20230419_10; inherited unresolved scopes retained",
+    "status": "Current presentation draft; H uses authenticated 20230419_10 example; inherited production/scientific gaps remain explicit",
     "review": {
-      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.html",
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
       "sha256": "4792f24cec3032696856fff976f1025763927f78e78d6859c24763a1d2430761"
     },
     "working_svg": {
-      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg",
-      "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8",
-      "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+      "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
     },
-    "source_assembly_sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8",
+    "source_assembly_sha256": "e452920b07388fc90af70301948edc4a17b7b42c3d23969b500027e30419296c",
     "author_directions_record": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/legend-review-verification.json",
     "preserved_other_figure": "Figure 2 original/candidate unchanged",
     "effective_presentation": {
-      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-effective-presentation-20261020.json",
-      "sha256": "8cd8bbc742499b80be489af879e94ae06fa48635571f6c0b60fe0784b2a50d5b"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-effective-presentation.json",
+      "sha256": "bd9d5821ac1554ec70fe0e83439fd9c0dc32c0397c2f8384d46f8640446166e8"
     },
     "semantic_registry": {
-      "scope": "D/E explicit artists, exact new frozen F bands and complete 161-element scoped F/G/H freeze registry; active H replaced with source-bound unfrozen 20230419_10 example",
+      "scope": "Preserved D/E and frozen provenance; current H=20230419_10 is an explicitly mapped unfrozen example override",
       "scientific_records": 529,
       "whole_figure_complete": false,
       "relationships": {
@@ -6277,7 +6276,7 @@
               "edit-FGH-fig1__g__heatmap__label-x"
             ],
             "condition": "3sTrace",
-            "fish": "20230419_10",
+            "fish": "20230307_12",
             "coordinate_origin": "CS onset",
             "shared_axis_group": null,
             "spine_ids": [
@@ -6499,11 +6498,7 @@
               ]
             },
             "status": "identified-in-current-draft",
-            "missing_artists": [],
-            "example_replacement_evidence": {
-              "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-              "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
-            }
+            "missing_artists": []
           },
           {
             "id": "G-y",
@@ -6516,7 +6511,7 @@
             ],
             "title_ids": [],
             "condition": "3sTrace",
-            "fish": "20230419_10",
+            "fish": "20230307_12",
             "coordinate_origin": "acquisition trial minus 4",
             "shared_axis_group": "fig1-FGH-trial-y",
             "spine_ids": [
@@ -6800,11 +6795,7 @@
               ]
             },
             "status": "identified-in-current-draft",
-            "missing_artists": [],
-            "example_replacement_evidence": {
-              "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-              "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
-            }
+            "missing_artists": []
           },
           {
             "id": "H-x",
@@ -7844,8 +7835,7 @@
             "axis_element": "edit-FGH-fig1__h__heatmap__background",
             "source_svg": {
               "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-              "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
-              "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
             }
           },
           {
@@ -7857,41 +7847,31 @@
             "axis_element": "edit-FGH-fig1__f__heatmap__background",
             "source_svg": {
               "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-              "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
-              "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
             }
           },
           {
             "display_panel": "H",
             "source_panel": "G",
-            "condition": "3 s Trace",
+            "condition": "3sTrace",
             "fish_id": "20230419_10",
             "owner_group": "layout-G",
             "axis_element": "edit-FGH-fig1__g__heatmap__background",
             "source_svg": {
               "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
-              "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
-              "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
             },
-            "source_bins": {
-              "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10-bins.parquet",
-              "sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
-            },
-            "selection_status": "unfrozen author-selected replacement"
+            "scientific_status": "unfrozen author-selected example"
           }
         ],
         "evidence": {
-          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
-          "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-20230419_10-replacement-20261020/figure-01-H-replacement-20261020.json",
+          "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
         },
         "source_ids": "Preserved original scientific source identifiers; displayed letters resolved by this mapping",
         "inherited_evidence": {
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/control-first-20261015/figure-01-layout-evidence.json",
           "sha256": "06684241cc21baca1f71d71bfba78bb010213f12d37bbc462b9e23a00dfec267"
-        },
-        "example_replacement_evidence": {
-          "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-          "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
         }
       },
       "plot_legends": {
@@ -10004,8 +9984,8 @@
             "element_id": null,
             "role": "annotation",
             "size_pt": 6,
-            "source_text": "20230419_10",
-            "display_text": "20230419_10",
+            "source_text": "20230307_12",
+            "display_text": "20230307_12",
             "scientific_identity": "presentation classification only"
           },
           {
@@ -10505,7 +10485,7 @@
           },
           {
             "element_id": "",
-            "text": "20230419_10",
+            "text": "20230307_12",
             "dy_mm": -0.3507453462669332
           },
           {
@@ -10533,22 +10513,150 @@
           "reason": "Minimize inter-panel whitespace; preserve native data ratios and physical typography. G statistical inset remains enlarged; I is an empty Pending placeholder."
         }
       },
-      "trace3_example_selection": {
-        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-        "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
+      "scientific_example_overrides": {
+        "H": {
+          "selection": {
+            "schema_version": 1,
+            "status": "unfrozen author-selected scientific draft example",
+            "author_request": "Replace the current 3sTrace example with the suggested 20230419_10 fish",
+            "figure_id": "fig1",
+            "display_panel": "H",
+            "source_identifier_panel": "g",
+            "owner_group": "layout-G",
+            "fish_id": "20230419_10",
+            "previous_fish_id": "20230802_08",
+            "condition": "3sTrace",
+            "data": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10-bins.parquet",
+              "sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
+            },
+            "fish_record": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10.json",
+              "sha256": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7"
+            },
+            "candidate_review": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-runner-up-review-20261020/review.json",
+              "sha256": "f972122642f5e15ef5bc4ec8be05ce8334728b6322d06832b4a91b50e8dff0a9"
+            },
+            "predecessor_selection_evidence": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-learner-selection-20261019/figure-01-H-replacement-20261020.json",
+              "sha256": "5a986979208cacebbd942f95aba4e1aa5729ce1b3cccf43914bf00115f51772e"
+            },
+            "source_provenance": {
+              "fish": "20230419_10",
+              "experiment": "all3sTrace",
+              "cadence": {
+                "interval_ms": 1.423380929094855,
+                "reference_position": 4873,
+                "end_position": 8323959,
+                "reference_frame_id": 691584,
+                "missing_frame_ids": 0,
+                "buffer_capacity_exceeded": false,
+                "maximum_delay_ms": 162.94348464976065
+              },
+              "detector": {
+                "smoothing_window_ms": 10.0,
+                "envelope_max_window_ms": 28.57142857142857,
+                "envelope_min_window_ms": 571.4285714285714,
+                "envelope_threshold_deg_per_ms": 4.0,
+                "bout_amplitude_threshold_deg_per_ms": 1.0,
+                "minimum_valid_tail_fraction": 0.8,
+                "minimum_bout_duration_ms": 57.14285714285714,
+                "maximum_interbout_gap_ms": 14.285714285714285,
+                "positive_control_window_ms": 500.0,
+                "control_baseline_start_ms": -5000.0,
+                "control_baseline_end_ms": -1000.0
+              },
+              "context_ms": 5000,
+              "minimum_selected_bout_context_margin_ms": 4238.828369140625,
+              "expected_us_s": 13.019,
+              "paired_training_trials": 46,
+              "sources": {
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\camera.parquet": "de1ff643e3dc77a557d416a5c5a1d3a53c29929443be679cfdc21be0aa730b2a",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\stimulus_events.parquet": "4f5f2816f624f83f0aa07e113701c0c4081db72865879c0d50e554a459702a6a",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_preprocessed_corrected.parquet": "97c2b28d4c0704e7582913de230feb2252d2d0caf82fdb720ae567bd5c9ac1fd",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_activity_candidates-corrected.parquet": "fd78d8ce1c44a569c4e89ec50445bace2e3e3ef383ec977883165ae9f5cb7058",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_source_manifest.json": "137b2617bc733d04dd27b4b70ab47600bf7ef3652d5ec328dbdc3c4c355c873c",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_corrected-preprocess_complete.json": "e667c0203218fc709b05933302762ecb48418e245ecab501ba196fb14611aebd",
+                "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_candidate-corrected_complete.json": "0019fe3120e88625c717ed33560f4a65c72cac1acfe3de7f853c9fb92aaf8597"
+              },
+              "finite_cells": 3307,
+              "defined_trials": 90,
+              "saturated_cells": 321,
+              "baseline_zero_verified": true,
+              "bin_estimator": "median",
+              "independent_frame_bins_verified": true,
+              "mean_log_values_sha256": "a229edf18a8ced2c234e11477ea6f3a60c1532bd5d6321010c7b3a562293ec89"
+            },
+            "scientific_recipe": {
+              "bin_width_s": 1,
+              "frame_transform": "natural log",
+              "bin_estimator": "median of eligible original log frames",
+              "baseline_s": [
+                -15,
+                0
+              ],
+              "baseline_estimator": "median of finite baseline-bin medians",
+              "centre": "bin log vigor minus trial baseline",
+              "scale": "none",
+              "colour_limits": [
+                -0.25,
+                0.25
+              ],
+              "cmap": "managua_r",
+              "missing": "black",
+              "trial_rows": "acquisition trials 5-94; display rows 1-90",
+              "nominal_expected_us_s": 13,
+              "actual_us_s": 13.019
+            },
+            "raster": {
+              "shape": [
+                691,
+                476,
+                4
+              ],
+              "vertical_order": "reversed; existing SVG vertical transform retained",
+              "source_pixel_ownership_verified_exact": true,
+              "rgba_sha256": "588127029ca3910f6a3254003d481113c5669d51ad92b0df6e308fc62427dc85"
+            },
+            "generator": {
+              "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\replace_figure1_trace3_example.py",
+              "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045"
+            },
+            "presentation_profile_inputs": {
+              "configs/paper-figures/nature-main.json": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56",
+              "configs/paper-figures/figure-elements.json": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb",
+              "configs/paper-figures/layout-frames.json": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+            },
+            "prior_working_svg": {
+              "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg",
+              "sha256": "d53836757d076cec4833e2e0d1cbe088cab43107aeda72b1753351b9ee02e955"
+            },
+            "whole_figure_frozen": false
+          },
+          "evidence": {
+            "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-20230419_10-replacement-20261020/figure-01-H-replacement-20261020.json",
+            "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
+          },
+          "embedded_registry": {
+            "svg": {
+              "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
+              "sha256": "19a27dc0c0804c2976eecd9d91027babea897af0c1d8440953312272c7257ac8"
+            },
+            "metadata_element_id": "editable-copy-provenance",
+            "json_field": "scientific_registry"
+          },
+          "precedence": "Current H scientific draft; historical F/G/H accepted freeze remains unchanged"
+        }
       }
     },
     "scientific_changes": {
       "E": "Black trace scientific draft change: B is median eligible raw baseline frames in [-15,0); raw frame V-B is scaled using P10/P90 of unbinned baseline-frame raw deviations; no logarithm. No trace, baseline or scaling binning/smoothing. Shared display y limits [0,5]; baseline zero at bottom; 230 upper and 28789 lower frame values visually clipped, numerical values unchanged. Colour bands copy the corresponding exact selected F rows (values and rendered RGB), with F cadence timing and baseline-bin normalization preserved. Black trace timing remains measured D time.",
       "D": "Selected angle values and centring preserved; layout only",
-      "FGH": "Active display F Control 20221115_09, G Delay 20221115_07, H 3sTrace 20230419_10. H is an unfrozen author-selected example replacement, using authenticated direct original log-frame medians in 1 s bins, trial baseline [-15,0) bin median, no amplitude scaling, managua_r +/-0.25 and black missing cells. Historical accepted F/G/H freeze remains separately preserved.",
+      "FGH": "Current author-frozen historical examples: Delay 20221115_07, Trace 20230307_12, Control 20221115_09; direct original log-frame medians in 1 s bins, baseline [-15,0) bin median, no scaling, native managua_r +/-0.25. All 270 trial baselines defined.",
       "E_bands": "Five E bands now copy exact new frozen F rows (40 cells, physical log differences); black traces preserved.",
       "E_display": "Black trace display range 0 to 5, baseline zero at bottom; upper 230/lower 28789 frames visually clipped; saved frame values and normalization unchanged. Bands verified against current frozen F.",
-      "E_status": "Accepted scoped E freeze 2026-10-13; D and whole-figure draft approval separate.",
-      "H_example": {
-        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-        "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
-      }
+      "E_status": "Accepted scoped E freeze 2026-10-13; D and whole-figure draft approval separate."
     },
     "example_arrows": {
       "panel": "F",
@@ -10582,7 +10690,7 @@
     },
     "review_display": "requested SVG and associated legend only",
     "legend": {
-      "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\docs\\paper\\figures\\figure-01\\legend.md",
+      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-01/legend.md",
       "sha256": "3333cca676ef937fd59c311556238eb003e72b99fb9a5c1ec9906e37dcf2e8f7",
       "panel_ids": [
         "A",
@@ -11947,8 +12055,8 @@
       "sha256": "69457d4b4c5a8563c32ce99ec7dc5745c1385fdc6397ece728015b4bbb2edf6a"
     },
     "layout_frames": {
-      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-layout-20261020.json",
-      "sha256": "f3d8bb869a7f4b5e1bdd02715c94ed3c160d48df050da4fae1c6dcf87610d35d"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-layout-evidence.json",
+      "sha256": "58f68571a88eed028bc3609b65d3fd20a98c5a708e7905d1f506deb115d5e1cf"
     },
     "assembly_scale": {
       "final_width_mm": 136,
@@ -12001,19 +12109,14 @@
         "display_panel": "H",
         "source_panel": "G",
         "condition": "3 s Trace",
-        "fish_id": "20230419_10",
+        "fish_id": "20230307_12",
         "owner_group": "layout-G",
         "axis_element": "edit-FGH-fig1__g__heatmap__background",
         "source_svg": {
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg",
           "sha256": "bcfd1f5fe36821d266d2a990862a8319ef3b4be9398006adc0270910a6e12850",
           "source_svg_sha256": "88be1086d6237569d4846cd2909d8af500c63680b55928eb50c7117741004209"
-        },
-        "source_bins": {
-          "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-02-3strace\\fish\\20230419_10-bins.parquet",
-          "sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
-        },
-        "selection_status": "unfrozen author-selected replacement"
+        }
       }
     ],
     "presentation_profile": {
@@ -12025,22 +12128,170 @@
         "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
       },
       "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/figure-01-effective-presentation.json",
+        "sha256": "bd9d5821ac1554ec70fe0e83439fd9c0dc32c0397c2f8384d46f8640446166e8"
+      },
+      "status": "Inherited profile; exact current geometry revalidated; full Nature/production coverage remains partial",
+      "prior_evidence": {
         "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/nature-main-20261016/figure-01-nature-evidence.json",
         "sha256": "2a3a73ce0c54f49d4158ea0dfbafb7884714f8a57dda7012f1b866138c8fd269"
+      }
+    },
+    "scientific_example_selection": {
+      "schema_version": 1,
+      "status": "unfrozen author-selected scientific draft example",
+      "author_request": "Replace the current 3sTrace example with the suggested 20230419_10 fish",
+      "figure_id": "fig1",
+      "display_panel": "H",
+      "source_identifier_panel": "g",
+      "owner_group": "layout-G",
+      "fish_id": "20230419_10",
+      "previous_fish_id": "20230802_08",
+      "condition": "3sTrace",
+      "data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10-bins.parquet",
+        "sha256": "ea1eff7579baddbef17371bc375cb300d9bd2b84af34197caeccb64187b7191b"
       },
-      "status": "verified measured presentation properties; remaining coverage explicit in evidence"
+      "fish_record": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-02-3strace/fish/20230419_10.json",
+        "sha256": "f32039fb44bd4734a2cc437c4800dbde3ec01e2f75b042c7da1cc7f5d87878b7"
+      },
+      "candidate_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-runner-up-review-20261020/review.json",
+        "sha256": "f972122642f5e15ef5bc4ec8be05ce8334728b6322d06832b4a91b50e8dff0a9"
+      },
+      "predecessor_selection_evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-learner-selection-20261019/figure-01-H-replacement-20261020.json",
+        "sha256": "5a986979208cacebbd942f95aba4e1aa5729ce1b3cccf43914bf00115f51772e"
+      },
+      "source_provenance": {
+        "fish": "20230419_10",
+        "experiment": "all3sTrace",
+        "cadence": {
+          "interval_ms": 1.423380929094855,
+          "reference_position": 4873,
+          "end_position": 8323959,
+          "reference_frame_id": 691584,
+          "missing_frame_ids": 0,
+          "buffer_capacity_exceeded": false,
+          "maximum_delay_ms": 162.94348464976065
+        },
+        "detector": {
+          "smoothing_window_ms": 10.0,
+          "envelope_max_window_ms": 28.57142857142857,
+          "envelope_min_window_ms": 571.4285714285714,
+          "envelope_threshold_deg_per_ms": 4.0,
+          "bout_amplitude_threshold_deg_per_ms": 1.0,
+          "minimum_valid_tail_fraction": 0.8,
+          "minimum_bout_duration_ms": 57.14285714285714,
+          "maximum_interbout_gap_ms": 14.285714285714285,
+          "positive_control_window_ms": 500.0,
+          "control_baseline_start_ms": -5000.0,
+          "control_baseline_end_ms": -1000.0
+        },
+        "context_ms": 5000,
+        "minimum_selected_bout_context_margin_ms": 4238.828369140625,
+        "expected_us_s": 13.019,
+        "paired_training_trials": 46,
+        "sources": {
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\camera.parquet": "de1ff643e3dc77a557d416a5c5a1d3a53c29929443be679cfdc21be0aa730b2a",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\stimulus_events.parquet": "4f5f2816f624f83f0aa07e113701c0c4081db72865879c0d50e554a459702a6a",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_preprocessed_corrected.parquet": "97c2b28d4c0704e7582913de230feb2252d2d0caf82fdb720ae567bd5c9ac1fd",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Processed data\\20230419_10\\frame_activity_candidates-corrected.parquet": "fd78d8ce1c44a569c4e89ec50445bace2e3e3ef383ec977883165ae9f5cb7058",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_source_manifest.json": "137b2617bc733d04dd27b4b70ab47600bf7ef3652d5ec328dbdc3c4c355c873c",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_corrected-preprocess_complete.json": "e667c0203218fc709b05933302762ecb48418e245ecab501ba196fb14611aebd",
+          "F:\\Digested Data\\all3sTrace-full-v1\\Metadata\\20230419_10_candidate-corrected_complete.json": "0019fe3120e88625c717ed33560f4a65c72cac1acfe3de7f853c9fb92aaf8597"
+        },
+        "finite_cells": 3307,
+        "defined_trials": 90,
+        "saturated_cells": 321,
+        "baseline_zero_verified": true,
+        "bin_estimator": "median",
+        "independent_frame_bins_verified": true,
+        "mean_log_values_sha256": "a229edf18a8ced2c234e11477ea6f3a60c1532bd5d6321010c7b3a562293ec89"
+      },
+      "scientific_recipe": {
+        "bin_width_s": 1,
+        "frame_transform": "natural log",
+        "bin_estimator": "median of eligible original log frames",
+        "baseline_s": [
+          -15,
+          0
+        ],
+        "baseline_estimator": "median of finite baseline-bin medians",
+        "centre": "bin log vigor minus trial baseline",
+        "scale": "none",
+        "colour_limits": [
+          -0.25,
+          0.25
+        ],
+        "cmap": "managua_r",
+        "missing": "black",
+        "trial_rows": "acquisition trials 5-94; display rows 1-90",
+        "nominal_expected_us_s": 13,
+        "actual_us_s": 13.019
+      },
+      "raster": {
+        "shape": [
+          691,
+          476,
+          4
+        ],
+        "vertical_order": "reversed; existing SVG vertical transform retained",
+        "source_pixel_ownership_verified_exact": true,
+        "rgba_sha256": "588127029ca3910f6a3254003d481113c5669d51ad92b0df6e308fc62427dc85"
+      },
+      "generator": {
+        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\replace_figure1_trace3_example.py",
+        "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045"
+      },
+      "presentation_profile_inputs": {
+        "configs/paper-figures/nature-main.json": "db3ff2b100eeae255a4d04928f677f2359bee54f42865dc8969064842d92bd56",
+        "configs/paper-figures/figure-elements.json": "d02bdeda86188364573a14c77b11387e16c42997b51ae2f05aa53f3e9e45cacb",
+        "configs/paper-figures/layout-frames.json": "f13b9be4547948d166e86d022b859f9e435894ea947bb3e768d40be29fbef17a"
+      },
+      "prior_working_svg": {
+        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg",
+        "sha256": "d53836757d076cec4833e2e0d1cbe088cab43107aeda72b1753351b9ee02e955"
+      },
+      "whole_figure_frozen": false
     },
-    "previous_effective_presentation": {
-      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-learner-selection-20261019\\figure-01-H-effective-presentation-20261020.json",
-      "sha256": "7dab3cf915b93d121f59ac1af4383716a863d9ae7ed13ebdff1b5743672d9242"
+    "verification": {
+      "H_replacement": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-trace3-20230419_10-replacement-20261020/figure-01-H-replacement-20261020.json",
+        "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
+      }
     },
-    "previous_layout_frames": {
-      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-learner-selection-20261019\\figure-01-H-layout-20261020.json",
-      "sha256": "9d3a10e529769ef8d4dc7a99467ae313a735e1db2499caf9abe179598b725d67"
-    },
-    "trace3_example_selection": {
-      "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-      "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
+    "reconciliation": {
+      "date": "2026-10-25",
+      "starting_ticket": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/authority-reconciliation-20261025/starting-ticket.json",
+        "sha256": "0d72e9854184c9dc824cba4689078eeed35d3cabb161ceccb3fd9f8dca084093"
+      },
+      "source_state": null,
+      "unresolved_historical_reproduction_references": [
+        {
+          "field": "selection/generator",
+          "source_reference": {
+            "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\replace_figure1_trace3_example.py",
+            "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        },
+        {
+          "field": "selection/prior_working_svg",
+          "source_reference": {
+            "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-v16-editing.svg",
+            "sha256": "d53836757d076cec4833e2e0d1cbe088cab43107aeda72b1753351b9ee02e955"
+          },
+          "role": "historical reproduction/source reference; not authenticated current input"
+        }
+      ],
+      "status": "Artwork and caption/source bindings reconciled; no new scientific freeze",
+      "limitations": [
+        "Paper scientific gates and complete production/accessibility checks remain open",
+        "Historical source-machine generator references are retained, not claimed executable on this Mac"
+      ]
     }
   },
   "outstanding_questions": [],
@@ -12057,14 +12308,7 @@
       ],
       "observations": "Inspected full figure rendering: E and H bars, ticks and titles share their x positions; F-G, G-H and H-colourbar gaps are equal; headings move with their panels; no clipping or overlap. Heatmap sizes, all data and F arrows preserved."
     },
-    "concurrency": "Starting ticket and source hashes checked under publication lock",
-    "latest_scoped_example_edit": {
-      "evidence": {
-        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-        "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
-      },
-      "status": "source, structure and rendered review passed; unfrozen"
-    }
+    "concurrency": "Starting ticket and source hashes checked under publication lock"
   },
   "reproduction": {
     "command": ".venv/bin/python scripts/figure_working_copy.py prepare --output-dir \"/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews\" --revision 2026-10-12-v2",
@@ -12089,21 +12333,7 @@
       "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/analysis/figures/reviews/figure-01/effective-presentation-audit-2026-10-12-v2.json": null
     },
     "bootstrap_snapshot_interpretation": "Historical starting identities, not current required input paths. Discarded in-progress exports are logged in implementation record; reconstruction uses authenticated frozen sources and review.",
-    "working_copy_policy": "prepare reuses the sole author-selected draft; refresh cannot recreate frozen/draft duplicates",
-    "latest_scoped_example_edit": {
-      "generator": {
-        "path": "C:\\Users\\joaquim\\Documents\\ClassicalConditioning\\scripts\\replace_figure1_trace3_example.py",
-        "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045"
-      },
-      "starting_ticket": {
-        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\replacement-start-ticket.json",
-        "sha256": "7702babf6f98df9556c1e8a4b2e90ecbebcf4e0dd46c8276e7d382d35c674636"
-      },
-      "evidence": {
-        "path": "J:\\ClassicalConditioning Outputs\\current\\reviews\\figure-01-trace3-20230419_10-replacement-20261020\\figure-01-H-replacement-20261020.json",
-        "sha256": "c8d93a227aa0e6d3ad3bf45b49086b6bd84cf36565122b43986f9f1dae8a2142"
-      }
-    }
+    "working_copy_policy": "prepare reuses the sole author-selected draft; refresh cannot recreate frozen/draft duplicates"
   },
   "measurement_policy": "Separate version-bound measurements linked from frozen_display/draft; unresolved values block any consistency claim until reviewed",
   "effective_measurement_limitations": [

@@ -30,3 +30,5 @@ Supplementary content is grouped by parent figure and owned by [Plan 09](../../.
 Current F/G/H selection: [1 s direct log-frame medians, managua_r](../../../configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json). The 2026-10-09 V12 source is superseded within F/G/H and remains preserved; no whole-figure freeze is inferred.
 
 Current E selection: [unbinned raw-baseline-scaled traces, 0–5, current F bands](../../../configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json); E only is frozen.
+
+[Review library](review-library.md): direct discussion, Markdown, HTML and alternative-approach links for Figure 2 G/H/I and Figures 3/4, including later SSD-only scientific drafts.

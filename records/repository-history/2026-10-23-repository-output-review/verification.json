@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-23",
+  "local_structure": {
+    "issues": [],
+    "unavailable_external_evidence": [],
+    "protected_files_checked": 365,
+    "current_states_checked": 7,
+    "verified_transactions": [],
+    "external_verification": "not-requested"
+  },
+  "tests": {
+    "repository_and_archive": 46,
+    "reading_library": 7,
+    "result": "passed locally; maintenance publication, corruption, path traversal and manual-edit preservation exercised"
+  },
+  "source_and_approval_protection": {
+    "starting_protected_hashes": 124,
+    "changed": [],
+    "preserved_requirements_checked": 365,
+    "scientific_state_selections_profiles_changed": false
+  },
+  "reading_library": {
+    "targets": 45,
+    "scopes": 5,
+    "html_pages_checked": 14,
+    "html_links_checked": 654,
+    "markdown_links_checked": 46,
+    "exact_source_snapshots_verified": true
+  },
+  "ssd_preservation": {
+    "existing_html_and_markdown_files": 568,
+    "unchanged_reviews_and_sources": 567,
+    "only_existing_navigation_change": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/README.md",
+    "original_preserved": "records/repository-history/2026-10-23-repository-output-review/original-navigation/ssd-output-README.md",
+    "payload_moves_or_deletions": 0
+  },
+  "external_structure_audit": {
+    "result": "four previously known Figure 1/2 working-copy hash mismatches remain",
+    "issues": [
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.html",
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/ORGER-JOAQUIM/outputs/reviews/figure2-current-minimal.svg",
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.html",
+      "Bound external artifact changed: /Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure-01-v16-editing.svg"
+    ],
+    "unavailable_evidence": [],
+    "archive_transactions_verified": 9,
+    "archive_inventory_files": 2158
+  },
+  "scope_limits": [
+    "No raw/processed dataset recomputation or scientific approval.",
+    "No browser rendering verification; local-file preview blocked by browser policy.",
+    "GitHub hosted CI previously blocked before job start by account billing lock."
+  ],
+  "commit_scope": "Includes author-confirmed finished guide/checkpoint/comparison sources and records from the starting checkout, plus this organization/navigation work.",
+  "isolated_staged_snapshot": {
+    "tree_before_this_evidence_append": "221c4d3e4a7b419969a8c0d9366ee322e20417b4",
+    "structure_check": "passed",
+    "repository_archive_tests": 46,
+    "reading_library_tests": 7,
+    "all_passed": true,
+    "external_storage_required": false
+  }
+}

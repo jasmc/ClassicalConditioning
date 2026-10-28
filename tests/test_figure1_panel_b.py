@@ -18,7 +18,7 @@ class Figure1PanelBTests(unittest.TestCase):
     def test_stimulus_geometry_matches_active_protocol_and_control_is_unpaired(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "B.svg"
-            subprocess.run([sys.executable, str(REPO_ROOT / "scripts" / "build_figure1_panel_b.py"),
+            subprocess.run([sys.executable, str(REPO_ROOT / 'scripts' / 'paper/figure_01/panel_b/build_protocol.py'),
                             "--variant", "v1", "--output", str(target)],
                            check=True, capture_output=True)
             root = ET.parse(target).getroot()
@@ -44,7 +44,7 @@ class Figure1PanelBTests(unittest.TestCase):
     def test_v2_control_shows_alternative_onsets_across_trials(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "B-v2.svg"
-            subprocess.run([sys.executable, str(REPO_ROOT / "scripts" / "build_figure1_panel_b.py"),
+            subprocess.run([sys.executable, str(REPO_ROOT / 'scripts' / 'paper/figure_01/panel_b/build_protocol.py'),
                             "--variant", "v2", "--output", str(target)],
                            check=True, capture_output=True)
             root = ET.parse(target).getroot()
@@ -66,7 +66,7 @@ class Figure1PanelBTests(unittest.TestCase):
     def test_v3_control_uses_one_full_size_cs_bar_and_alternative_us_onsets(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "B-v3.svg"
-            subprocess.run([sys.executable, str(REPO_ROOT / "scripts" / "build_figure1_panel_b.py"),
+            subprocess.run([sys.executable, str(REPO_ROOT / 'scripts' / 'paper/figure_01/panel_b/build_protocol.py'),
                             "--variant", "v3", "--output", str(target)],
                            check=True, capture_output=True)
             root = ET.parse(target).getroot()
@@ -86,7 +86,7 @@ class Figure1PanelBTests(unittest.TestCase):
     def test_v4_control_has_one_us_per_separate_full_size_trial(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "B-v4.svg"
-            subprocess.run([sys.executable, str(REPO_ROOT / "scripts" / "build_figure1_panel_b.py"),
+            subprocess.run([sys.executable, str(REPO_ROOT / 'scripts' / 'paper/figure_01/panel_b/build_protocol.py'),
                             "--variant", "v4", "--output", str(target)],
                            check=True, capture_output=True)
             root = ET.parse(target).getroot()

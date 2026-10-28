@@ -32,7 +32,7 @@ Reconstruct the currently available provisional sources:
 
 ```powershell
 .venv-trace/Scripts/python.exe scripts/populate_figure2_available.py --heatmaps
-.venv-trace/Scripts/python.exe scripts/build_figure2_assembly.py
+.venv-trace/Scripts/python.exe scripts/paper/figure_02/assembly/build.py
 .venv-trace/Scripts/python.exe scripts/catalog_figure2_versions.py
 ```
 
@@ -78,11 +78,11 @@ under `versions/`.
 From the repository root in PowerShell:
 
 ```powershell
-.venv-trace/Scripts/python.exe scripts/build_figure2_assembly.py --inventory
+.venv-trace/Scripts/python.exe scripts/paper/figure_02/assembly/build.py --inventory
 ```
 
 Omit `--inventory` to reuse the saved inventory. The builder uses the existing
-`scripts/assemble_svg_figure.py` composition engine and Inkscape for the PNG
+`scripts/paper/shared/assemble_svg.py` composition engine and Inkscape for the PNG
 inspection preview. SVG is the editable primary figure. The builder rejects
 raster artwork in the assembly. DejaVu Sans regular and bold are copied from
 the plotting runtime into the SSD font directory.

@@ -60,12 +60,17 @@ each gate's artifact/evidence references and unresolved dependencies explicitly.
 
 ### Known decisions that must remain explicit
 
-- Figure 2 C/F/I are Pending in the current draft. Final release needs actual
-  authenticated results or an explicit approved composition change; no silent
-  omission, invented data or placeholder-as-result approval.
-- Figure 2 A/B scientific estimators differ, and H ratios differ from D/E/G log
-  differences. Preserve those distinctions until their owning scientific work
-  explicitly resolves them. A styling/shared-colorbar check cannot do so.
+- Figure 2 C/F/I are populated in the reconciled working draft. The
+  [reconciliation](07_FIGURE_BUILD_TOOLS.md#completion-follow-up-25-october-2026)
+  authenticates the exact PC state/caption/source bindings without changing
+  artwork or accepted freezes. Final release still requires scientific
+  acceptance and the applicable production checks; a coherent draft is not a freeze.
+- Figure 2 A/B scientific estimators differ. The selected working H/I now use
+  log differences; the older H total-activity ratio remains historical. Use
+  [current methods](../docs/paper/figures/figure-02/current-methods.md) and exact
+  scoped selections to distinguish the draft from retained freezes and earlier
+  alternatives. A styling/shared-colorbar check cannot harmonize estimands or
+  approve scientific changes.
 - Retain Figure 1's current displayed/source aliases and D/E/Delay-heatmap data
   links. A manuscript/caption reference update must not reconnect examples to
   the wrong source panel or experiment.

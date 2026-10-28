@@ -1,0 +1,580 @@
+{
+  "date": "2026-10-23",
+  "scope": "The 14 previously unclassified scripts, five historical candidates and the 18 October download repair. Concurrent task scripts completed by their owning chats are catalogued separately.",
+  "method": "Inspect source entry points, direct AST importers, source dependencies and historical/current record references. Catalogue mentions alone are not evidence of active consumers; no scientific recipe was run.",
+  "scripts": [
+    {
+      "path": "scripts/align_figure1_fgh_fonts.py",
+      "sha256": "085c330001e9f06342c6c048a4b956c0d7374e87822cf196cf9671333d09c286",
+      "previous_status": "historical-candidate-retained",
+      "classification": "historical-presentation-recipe",
+      "reason": "Dated font-alignment publisher with a fixed temporary ticket. Its version-bound font evidence and retained pre-Nature reproduction role require exact source preservation.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import json, sys",
+        "import xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, publish_state, measured_presentation",
+        "from publish_figure1_fgh_one_second import apply_selected_fgh",
+        "from build_figure_legend_review import svg_editing_page",
+        "from build_figure1_fgh_version_comparison import scoped_working_svg"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-01/fgh-axis-font-alignment-2026-10-13.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/archive_figure1_singlefish_versions.py",
+      "sha256": "79efa2cad658be23baa716599a6cabdfa2cc7a15285e475c948ef44d867b56ae",
+      "previous_status": "retained-pending-classification",
+      "classification": "completed-archive-recipe",
+      "reason": "Hard-coded 13 October transaction driver; completed-transfer records already exist. No Python importers or non-inventory record references were found. Reusable transfer support remains in repository_archive.py.",
+      "recommendation": "propose-archive-after-approval",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import argparse, json, os, sys",
+        "import repository_archive as archive",
+        "from classical_conditioning.external_artifacts import sha256",
+        "from classical_conditioning.figure_workspace import Snapshot, state_lock, publish_state"
+      ],
+      "record_reference_candidates": [],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/build_figure1_panel_f_bin_variants.py",
+      "sha256": "c69ed4adfb58dcfa527c80206c3e3d943d349cb5268ae9b2b8b9240f7cd61971",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-comparison-recipe",
+      "reason": "Four F-only binning alternatives with fixed 14 October ticket/output paths; comparison evidence is recorded and may remain linked from draft panel comparisons. No general new-styling contract.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import argparse, base64, copy, html, io, json, sys",
+        "import xml.etree.ElementTree as ET",
+        "import numpy as np",
+        "import pandas as pd",
+        "from PIL import Image",
+        "import matplotlib",
+        "from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, tag, publish_state",
+        "from build_figure_legend_review import figure_font_paths",
+        "from build_figure1_fgh_version_comparison import prefix_svg"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-01/panel-f-bin-variants-2026-10-14.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/build_figure3_explanation.py",
+      "sha256": "ab6e313cc06137a21782fa159357db835f0425da00b751ede402bc562a2cd6e5",
+      "previous_status": "retained-pending-classification",
+      "classification": "supported-guide-builder",
+      "reason": "Explicit --output-dir/--update-current source-bound guide builder. The selected Figure 3 guide source_inputs records its exact current source hash.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from __future__ import annotations",
+        "import argparse, ast, base64, hashlib, html, json, os, sys",
+        "from pathlib import Path",
+        "import pandas as pd",
+        "from classical_conditioning.figure_workspace import Snapshot, publish_state"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false,
+      "verified_source_input": {
+        "record": "records/figure-reviews/figure-03/explanation-guide-2026-10-17.json",
+        "sha256": "ab6e313cc06137a21782fa159357db835f0425da00b751ede402bc562a2cd6e5"
+      }
+    },
+    {
+      "path": "scripts/layout_figure2_compact_rows.py",
+      "sha256": "04f42ec3155cf0fe444768519a7f2829f3354d9388232b4889a30ba6a24ace6e",
+      "previous_status": "historical-candidate-retained",
+      "classification": "historical-presentation-recipe",
+      "reason": "Fixed 15 October tickets and compact-row evidence. Later figure evidence retains its generator hash; preserve the dated recipe instead of reusing its old typography as a new target.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import sys, json, copy, xml.etree.ElementTree as ET",
+        "import numpy as np",
+        "from classical_conditioning.figure_workspace import Snapshot, tag, sha, file_hash, publish_state, measured_presentation",
+        "from build_figure_legend_review import svg_editing_page"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/layout-frame-implementation.json",
+        "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+        "records/figure-reviews/figure-02/compact-rows-20261015.json",
+        "records/figure-reviews/figure-02/g-native-style-20261015.json"
+      ],
+      "direct_record_bindings": [
+        {
+          "record": "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/layout_figure2_compact_rows.py",
+          "sha256": "04f42ec3155cf0fe444768519a7f2829f3354d9388232b4889a30ba6a24ace6e",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/compact-rows-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/layout_figure2_compact_rows.py",
+          "sha256": "04f42ec3155cf0fe444768519a7f2829f3354d9388232b4889a30ba6a24ace6e",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/g-native-style-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/layout_figure2_compact_rows.py",
+          "sha256": "04f42ec3155cf0fe444768519a7f2829f3354d9388232b4889a30ba6a24ace6e",
+          "matches_local": true
+        }
+      ],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/move_figure2_block_notes.py",
+      "sha256": "7a91048c0569317cf4164e8b1fca2d17c67f853603e8c943a878f00a80b2c3fb",
+      "previous_status": "historical-candidate-retained",
+      "classification": "historical-presentation-recipe",
+      "reason": "Dated D/E/F note-to-legend publisher; evidence records its source hash and writes both scoped A and whole-figure state under guards.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import sys, json, xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, tag, sha, file_hash, publish_state, state_lock",
+        "from build_figure_legend_review import svg_editing_page"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json"
+      ],
+      "direct_record_bindings": [
+        {
+          "record": "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/move_figure2_block_notes.py",
+          "sha256": "7a91048c0569317cf4164e8b1fca2d17c67f853603e8c943a878f00a80b2c3fb",
+          "matches_local": true
+        }
+      ],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/prepare_figure1_panel_e_current_freeze.py",
+      "sha256": "080707e8d8b5a51a384b28aae53b0d5eb9705ee23452da89079f7faa772e11a6",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-freeze-preparation",
+      "reason": "Specific 13 October E-only stage and original contract; refuses an existing completed freeze. The accepted E manifest preserves reproduction dependencies. It is not a generic new Nature freeze route.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "import copy, json, re, sys, hashlib",
+        "from pathlib import Path",
+        "import xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, tag, sha",
+        "from classical_conditioning.figure_freeze import SvgEvidence"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/layout-frame-implementation.json",
+        "records/frozen-analyses/figure-01/panel-e/2026-10-13-raw-frame/manifests/freeze.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/publish_figure1_historical_fgh_freeze.py",
+      "sha256": "e52e283211e8af5f77c447cf13ca8162cd1c071c084b1f4509e952f529f83e58",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-freeze-publication",
+      "reason": "Specific 13 October historical-fish selection integrator, with fixed ticket, stage and document edits. Preserve for accepted-selection reconstruction; do not rerun to choose new science.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import json, sys",
+        "import xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, publish_state, measured_presentation",
+        "from build_figure_legend_review import svg_editing_page",
+        "from publish_figure1_fgh_one_second import apply_selected_fgh, artifact"
+      ],
+      "record_reference_candidates": [],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/publish_figure1_panel_e_current_freeze.py",
+      "sha256": "5230bcb50dcb201b50ae942db79ab3aa1d4d13f26cb6b394854ee185e35b99cd",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-freeze-publication",
+      "reason": "Specific accepted E freeze installation and source-document updates. Its historical input/hash assumptions differ from the current reordered presentation.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "import sys, json, copy, argparse",
+        "from pathlib import Path",
+        "import xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, bind_loaded_state, publish_state, sha, tag, measured_presentation",
+        "from build_figure_legend_review import svg_editing_page"
+      ],
+      "record_reference_candidates": [],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/publish_figure2_heatmap_row.py",
+      "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-freeze-publication",
+      "reason": "Specific compact A/retained B integration; later evidence binds its source hash. Preserve historical dependency closure and both scope locks.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import sys, json, copy, xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, tag, sha, file_hash, editable_svg, measured_presentation, publish_state, state_lock",
+        "from classical_conditioning.artifacts import sha256_file",
+        "from build_figure_legend_review import svg_editing_page",
+        "from build_figure2_heatmap_row import STAGE, artifact, write, AUTH",
+        "from update_latest_figure_assemblies import build",
+        "import numpy as np"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/layout-frame-implementation.json",
+        "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+        "records/figure-reviews/figure-02/placeholder-consistency-20261015.json",
+        "records/figure-reviews/figure-02/compact-rows-20261015.json",
+        "records/figure-reviews/figure-02/six-heatmap-row-evidence.json",
+        "records/figure-reviews/figure-02/g-native-style-20261015.json"
+      ],
+      "direct_record_bindings": [
+        {
+          "record": "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure2_heatmap_row.py",
+          "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/placeholder-consistency-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure2_heatmap_row.py",
+          "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/compact-rows-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure2_heatmap_row.py",
+          "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/six-heatmap-row-evidence.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure2_heatmap_row.py",
+          "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/g-native-style-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure2_heatmap_row.py",
+          "sha256": "3869453e3a203d979329bf428579a7b3915d24a03a5a225412b795eeb5b10f75",
+          "matches_local": true
+        }
+      ],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/readjust_figure2_g.py",
+      "sha256": "2ba03b3be09e976d42523efaec54fb323ba0f9e172aa6b783ea4b2976ee54c51",
+      "previous_status": "historical-candidate-retained",
+      "classification": "historical-presentation-recipe",
+      "reason": "Fixed 15 October G style ticket and legacy typography; later bound G/block-note evidence retains its generator hash.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import sys, json, copy, re, io, xml.etree.ElementTree as ET",
+        "import numpy as np",
+        "import matplotlib",
+        "import matplotlib.pyplot as plt",
+        "from matplotlib.path import Path as MPath",
+        "from matplotlib.patches import PathPatch",
+        "from classical_conditioning.figure_workspace import Snapshot, tag, sha, file_hash, publish_state, measured_presentation",
+        "from build_figure_legend_review import svg_editing_page"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+        "records/figure-reviews/figure-02/g-native-style-20261015.json"
+      ],
+      "direct_record_bindings": [
+        {
+          "record": "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/readjust_figure2_g.py",
+          "sha256": "2ba03b3be09e976d42523efaec54fb323ba0f9e172aa6b783ea4b2976ee54c51",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/g-native-style-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/readjust_figure2_g.py",
+          "sha256": "2ba03b3be09e976d42523efaec54fb323ba0f9e172aa6b783ea4b2976ee54c51",
+          "matches_local": true
+        }
+      ],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/render_figure1_historical_fish_one_second.py",
+      "sha256": "cf3af7987eebf0b3fa5f24d2bdf61907421f9f777328d02d1affd660aec63dbf",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-scientific-reproduction",
+      "reason": "Reconstructs the selected historical fish with direct one-second log-frame medians from authenticated inputs. Scientific reproduction code must not be retired solely because no Python caller imports this entry point.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import base64, io, json, sys",
+        "import xml.etree.ElementTree as ET",
+        "import numpy as np",
+        "import pandas as pd",
+        "from PIL import Image",
+        "import matplotlib",
+        "from matplotlib.colors import Normalize",
+        "from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, state_lock, tag",
+        "from build_figure_legend_review import svg_editing_page, embed_consistent_svg_fonts",
+        "from build_figure_legend_review import figure_font_paths"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/layout-frame-implementation.json",
+        "records/figure-reviews/figure-01/historical-fish-one-second-managua-2026-10-13.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/reorder_control_first.py",
+      "sha256": "4dfa7ec2db02c24b5d34e13a821f1791dcc648884250abbb31bfdc7a0b79f464",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-presentation-recipe",
+      "reason": "Dated control-first prepare/refine/publish route with explicit directory and visual-review gates; explains the current displayed-to-source mappings. Keep original code for provenance.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from __future__ import annotations",
+        "import argparse, copy, json, sys",
+        "from collections import Counter",
+        "from pathlib import Path",
+        "from xml.etree import ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, sha, file_hash, tag, publish_state, measured_presentation",
+        "from classical_conditioning.figures.layout_frames import read_spec, embed_spec, assess",
+        "from correct_panel_relationships import matrices, move, retile, union, write_candidate",
+        "from layout_main_paper_figures import find, encode",
+        "from build_figure_legend_review import svg_editing_page"
+      ],
+      "record_reference_candidates": [],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/style_figure2_placeholders.py",
+      "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+      "previous_status": "historical-candidate-retained",
+      "classification": "historical-presentation-recipe",
+      "reason": "Fixed 15 October placeholder ticket and retired typography; later placeholder/compact-row evidence retains exact generator references.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import sys, json, copy, xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, tag, sha, file_hash, publish_state, measured_presentation",
+        "from build_figure_legend_review import svg_editing_page"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/layout-frame-implementation.json",
+        "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+        "records/figure-reviews/figure-02/placeholder-consistency-20261015.json",
+        "records/figure-reviews/figure-02/compact-rows-20261015.json",
+        "records/figure-reviews/figure-02/g-native-style-20261015.json"
+      ],
+      "direct_record_bindings": [
+        {
+          "record": "records/figure-reviews/figure-02/block-notes-to-legend-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_figure2_placeholders.py",
+          "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/placeholder-consistency-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_figure2_placeholders.py",
+          "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/compact-rows-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_figure2_placeholders.py",
+          "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+          "matches_local": true
+        },
+        {
+          "record": "records/figure-reviews/figure-02/g-native-style-20261015.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/style_figure2_placeholders.py",
+          "sha256": "108260c8fa97f726317f669849c1e9b894cad84328ca868e678de9a4edfe05e3",
+          "matches_local": true
+        }
+      ],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/update_figure1_colourbar_row_alignment.py",
+      "sha256": "c650bb3a5fbf82d2544f542ce26e585087674c51eb4ab1276b89e6d92cd480b8",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-presentation-recipe",
+      "reason": "Dated E/H/FGH layout correction, dependent on a historical code-start ticket; selected Figure 1 evidence still records this correction. Shared layout helpers remain in the supported builders.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import argparse, copy, json, sys",
+        "import xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, sha, tag, publish_state, measured_presentation",
+        "from build_figure_legend_review import svg_editing_page",
+        "from build_figure1_fgh_version_comparison import scoped_working_svg",
+        "from figure1_layout_spacing import align_colourbars_and_space_fgh"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-01/EH-colourbar-FGH-spacing-2026-10-15.json",
+        "records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/update_figure1_f_arrow_position.py",
+      "sha256": "683fc76ffd7d8c13a6cc68486e2b32f192e9ca160813864289e98a98849a7738",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-presentation-recipe",
+      "reason": "Dated arrow publisher with an explicit baseline, historical panel assumptions and exact evidence. Its helper is reused by the supported FGH integrator; the wrapper preserves the original operation.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import argparse, json, sys",
+        "import xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, publish_state, measured_presentation, tag",
+        "from publish_figure1_fgh_one_second import left_align_f_example_arrows",
+        "from build_figure_legend_review import svg_editing_page",
+        "from build_figure1_fgh_version_comparison import scoped_working_svg"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-01/panel-f-left-arrows-2026-10-15.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/update_figure1_layout_spacing.py",
+      "sha256": "c1177784fd9e17d0b54183f4f40729cf9a0fce39e4ae461b648acf74d7bc9e4c",
+      "previous_status": "retained-pending-classification",
+      "classification": "historical-presentation-recipe",
+      "reason": "Dated C/E layout operation requiring a historical code-start ticket and visual evidence; selected Figure 1 evidence retains its results.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import argparse, copy, json, sys",
+        "import xml.etree.ElementTree as ET",
+        "from classical_conditioning.figure_workspace import Snapshot, file_hash, sha, tag, publish_state, measured_presentation",
+        "from build_figure_legend_review import svg_editing_page",
+        "from figure1_layout_spacing import apply_layout_spacing"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-01/CE-layout-spacing-2026-10-15.json",
+        "records/figure-reviews/figure-01/figure-01-v16-editing-effective-presentation.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/verify_figure2_g_analysis_guide.cjs",
+      "sha256": "60c563e65643218471cec4435424124acc52ffe010cef18f3369143a7b56c7bf",
+      "previous_status": "retained-pending-classification",
+      "classification": "supported-guide-verifier",
+      "reason": "Parameterized guide URL, browser executable and output directory. Current guide implementation records this checker; it tests note persistence/import/export, scope and saved numerical presentation without fitting models.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "require('playwright')",
+        "require('assert/strict')",
+        "Node.js fs/path/crypto"
+      ],
+      "record_reference_candidates": [
+        "records/figure-reviews/figure-02/g-analysis-guide-20261017.json"
+      ],
+      "direct_record_bindings": [
+        {
+          "record": "records/figure-reviews/figure-02/g-analysis-guide-20261017.json",
+          "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_figure2_g_analysis_guide.cjs",
+          "sha256": "b197433e3b78ba156f04e5536208d09603ee52fa005c23fcf9a63f0edbb9b962",
+          "matches_local": true
+        }
+      ],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/verify_figure3_reference_style.py",
+      "sha256": "4b9fc7b5b148caead51ee08908309d4ccfa783b8e57c2ac2afc8e571ec506d23",
+      "previous_status": "retained-pending-classification",
+      "classification": "supported-scoped-verifier",
+      "reason": "Explicit --output-dir verifier for saved atlas reference-style metadata, source hashes, G outcomes, colours and layout. This is a scoped saved-reference check, not an alternative styling policy.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from __future__ import annotations",
+        "import argparse",
+        "import base64",
+        "import io",
+        "import json",
+        "from pathlib import Path",
+        "import sys",
+        "import xml.etree.ElementTree as ET",
+        "import matplotlib",
+        "import numpy as np",
+        "import pandas as pd",
+        "from PIL import Image",
+        "from classical_conditioning.analysis.review.individual_atlas import sha, save_json",
+        "from classical_conditioning.figures.layout_frames import assess"
+      ],
+      "record_reference_candidates": [],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false
+    },
+    {
+      "path": "scripts/repair_figure3_guide_downloads.py",
+      "sha256": "bd80e1d1a2b4663b1110e643f165922008aaa625f716e42fa820c1c53d76e098",
+      "previous_status": "new since 17 October",
+      "classification": "completed-guide-repair",
+      "reason": "Specific 18 October ticket and link repair; rejects repeated application. The selected guide link-repair record and external exact source copy authenticate the same implementation hash.",
+      "recommendation": "retain-local",
+      "python_importers": [],
+      "source_dependencies": [
+        "from pathlib import Path",
+        "import argparse, base64, hashlib, json, re, sys",
+        "from classical_conditioning.figure_workspace import Snapshot, publish_state"
+      ],
+      "record_reference_candidates": [
+        "records/repository-history/2026-10-18-pc-handoff/readiness-audit.json"
+      ],
+      "direct_record_bindings": [],
+      "executed_during_assessment": false,
+      "verified_external_copy": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/source-link-repair.py",
+        "sha256": "bd80e1d1a2b4663b1110e643f165922008aaa625f716e42fa820c1c53d76e098",
+        "record": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/current/reviews/figure3-independent-review-guide-20261017/link-repair-20261018.json",
+        "record_sha256": "2b61889056da93024ea56383e07cf10fea5ecbfbb54818fd53b046f0f65e3392"
+      }
+    }
+  ]
+}

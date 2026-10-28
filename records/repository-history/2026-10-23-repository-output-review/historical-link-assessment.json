@@ -1,0 +1,11 @@
+{
+  "initial_historical_relative_file_link_failures": 835,
+  "by_record_area": {
+    "records/figure-history": 145,
+    "records/frozen-analyses": 32,
+    "records/repository-archive": 106,
+    "records/repository-history": 524,
+    "records/scientific-evidence": 28
+  },
+  "interpretation": "All failures were under historical records. Seven hash-bound README indexes were preserved, with separate maintained INDEX.md pages and corrected parent navigation. Immutable historical bodies and snapshots are not mass-rewritten. Current maintained navigation passes the structure checker."
+}

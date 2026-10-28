@@ -4,7 +4,7 @@ from pathlib import Path
 import unittest
 import xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parents[1]
-spec=importlib.util.spec_from_file_location('legend_review',ROOT/'scripts/build_figure_legend_review.py')
+spec=importlib.util.spec_from_file_location('legend_review',ROOT/'scripts/paper/shared/build_legend_review.py')
 review=importlib.util.module_from_spec(spec);spec.loader.exec_module(review)
 class LegendReviewTests(unittest.TestCase):
     def test_scoped_editing_page_preserves_native_svg_and_only_associated_legend(self):
@@ -57,7 +57,9 @@ class LegendReviewTests(unittest.TestCase):
         self.assertEqual([ET.tostring(next(g.iter(review.tag('circle')))) for g in cells],events)
         self.assertEqual(cells[0].get('transform'),'translate(-180 18)')
         self.assertEqual(cells[1].get('transform'),'translate(530 -51)')
-        for cell,(_,_,title,colour) in zip(cells,conditions):
+        # Author-selected display names (13 October); source/acquisition labels stay historical.
+        display_titles=['Control','Delay','3sTrace','10sTrace']
+        for cell,(_,_,_,colour),title in zip(cells,conditions,display_titles):
             label=next(node for node in cell.iter(review.tag('text')) if node.text==title)
             self.assertEqual(label.get('fill'),colour)
             self.assertFalse(any(node.get('x')=='24' for node in cell.iter(review.tag('rect'))))
@@ -71,10 +73,14 @@ class LegendReviewTests(unittest.TestCase):
         review.align_stimulus_rows(root)
         for phase in root:
             wrapper=phase.find(review.tag('g'))
-            self.assertEqual(wrapper.get('transform'),'translate(0 34)')
+            # The compact protocol layout predates this test fixture's old +34/250 values.
+            self.assertEqual(wrapper.get('transform'),'translate(0 -26)')
             self.assertEqual(wrapper[0].get('cy'),'260')
             self.assertEqual(wrapper[1].text,'3 separate short US')
-            self.assertEqual(phase[0].get('height'),'250')
+            self.assertEqual(phase[0].get('height'),'190')
+            self.assertEqual(float(wrapper[1].get('y'))-float(wrapper[0].get('cy')),6)
+            self.assertEqual(len(list(phase.iter(review.tag('circle')))),1)
+            self.assertEqual(len(list(phase.iter(review.tag('text')))),1)
     def test_typography_compensates_nested_display_scale(self):
         import base64
         inner=b'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g id="xtick_1"><text style="font-weight:700;font-size:8px" x="10" y="20">0</text></g><text x="50" y="60">Axis</text></svg>'

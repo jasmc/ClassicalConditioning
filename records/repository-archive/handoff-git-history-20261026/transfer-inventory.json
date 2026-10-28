@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "authorization": "Author requested comparing dated handoff packets with Git history, preserving unpreserved work before retirement; independent backup is within that preservation scope.",
+  "source_root": "/var/folders/kj/cyygjy9935ncr97h7n99k2bm0000gn/T/handoff-git-preservation-nogcm9ip/source",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/handoff-history/2026-10-26-mac-git-recovery",
+  "source_repository": "/Volumes/JOAQUIM/ClassicalConditioning-Mac-20261009/ClassicalConditioning",
+  "scope": "Additional verified preservation only; original handoff packets retained; no code merged or scientific outputs selected",
+  "files": [
+    {
+      "path": "generated-packaging/PKG-INFO",
+      "sha256": "db802e2bedc777aacbf9d97f771f304af5d98913e55bf0e4e3f84cc2b4864da4",
+      "bytes": 774,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    },
+    {
+      "path": "generated-packaging/SOURCES.txt",
+      "sha256": "e872fe843c1345ccc3c8e2586a8da5a8562a560b7109a2cbd7f6eb1201b1ad65",
+      "bytes": 5237,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    },
+    {
+      "path": "generated-packaging/requires.txt",
+      "sha256": "5e56a5f9353698129aaccd76e6dbcf3e5bb77993d840d657cec5356e2dca2d3c",
+      "bytes": 244,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    },
+    {
+      "path": "history-provenance.json",
+      "sha256": "8cd0386890ad304e23056232374cbabe806454e0cc0917f7ddaf4e5c35c63dcc",
+      "bytes": 643644,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    },
+    {
+      "path": "original-HEAD.txt",
+      "sha256": "8dd7e69cf77bff3e6717335270c85d60f7aee7f9e917566d94e0afd8c9d31317",
+      "bytes": 24,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    },
+    {
+      "path": "original-refs.txt",
+      "sha256": "cecfc9a42d62fb453e12f156646f2dd589fe8e2ea94d1e3d632d439a57c73f47",
+      "bytes": 4418,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    },
+    {
+      "path": "pack-0df576fa0f93f1e6d7c5833938b2ef55d627f74e.idx",
+      "sha256": "0a6f58b77d5e7ce544488fc01a00ba1be827dc29f4793812c504f32342bba10a",
+      "bytes": 145888,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    },
+    {
+      "path": "pack-0df576fa0f93f1e6d7c5833938b2ef55d627f74e.pack",
+      "sha256": "8902b53c70cc19b0417ad3a023649ff0373ffc976b1e4b6ffd6fa84a43f42d4c",
+      "bytes": 349492372,
+      "action": "archive_to_ssd",
+      "reason": "Verified preservation of historical Git objects and generated metadata before any source-packet retirement"
+    }
+  ]
+}

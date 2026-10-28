@@ -10,9 +10,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
-from render_figure1_cd_scaled_log_review import (  # noqa: E402
-    half_second_bin_mean, scale_trial_log_vigor,
-)
+from scripts.paper.figure_01.panels_d_e.reproduction.render_scaled_log_traces import half_second_bin_mean, scale_trial_log_vigor
 from classical_conditioning.figures.paper_panels import build_render_plan  # noqa: E402
 
 
@@ -24,7 +22,7 @@ class ScaledLogVigorReviewTests(unittest.TestCase):
         self.assertEqual(len(traces), 2)
         for step in traces:
             self.assertEqual(step.panels, ("fig-1D", "fig-1E"))
-            self.assertIn("scripts/render_figure1_cd_scaled_log_review.py", step.argv)
+            self.assertIn("scripts/paper/figure_01/panels_d_e/reproduction/render_scaled_log_traces.py", step.argv)
             self.assertNotIn("--window-start", step.argv)
             self.assertNotIn("--window-end", step.argv)
 

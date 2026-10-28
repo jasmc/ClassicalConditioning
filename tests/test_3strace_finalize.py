@@ -10,7 +10,7 @@ import pandas as pd
 from classical_conditioning.analysis.figure4 import load_classification_manifest
 from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.cohort import load_cohort_manifest, logical_cohort_hash
-from scripts.finalize_3strace_exploratory import METRIC, classify, freeze
+from scripts.workflows.trace.reproduction.cohort_and_legacy_labels import METRIC, classify, freeze
 
 
 class TraceExploratoryFinalizeTests(unittest.TestCase):

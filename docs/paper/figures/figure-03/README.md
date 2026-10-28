@@ -66,3 +66,10 @@ atlas accounts for excluded/unclassified fish and unavailable recordings as
 well as classified fish. Aggregate Control/Learner/Nonlearner behavioral
 comparisons within/across experiments belong in Figure 4 only. Controls here
 serve calibration/reference and individual audit purposes.
+
+Use the [review library](../review-library.md#figure-3) for the discussion guide, both Markdown conversation summaries, the selected Delay draft and later assay-specific SSD alternatives.
+
+The [corrected BLUP comparison](blup-comparison.md) is now fully run for the
+57-fish Delay/control pilot, with refitted calibration and independent stress
+checks. It remains an unselected scientific candidate; the single-path main
+draft and later assay studies are preserved.
