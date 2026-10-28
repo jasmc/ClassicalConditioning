@@ -43,7 +43,7 @@
       "published_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe"
     }
   ],
-  "limitation": "Native Mac verification and inspection of later live Mac edits await reachable SSH. Simultaneous cross-machine shared-filesystem locking remains unverified. Captured Mac/PC sources and final saved collection have been authenticated.",
+  "limitation": "Native Mac verification passed (223 passed, one Windows-only skip); original live Mac edits inspected and preserved. This continuation SSD audit awaits ORGER command approval. Native Mac access to actual SSD and simultaneous cross-machine shared-filesystem locking remain pending.",
   "recovery_catalogue": {
     "path": "records/repository-archive/verified-artifact-locations.json",
     "sha256": "9c2eaa043e3475acfc80301bdd1972efd72d3eba3b245636457c026d43d2410c",
@@ -246,5 +246,161 @@
       "native_mac": "pending in separate Mac chat",
       "cross_machine_locking": "pending actual shared-filesystem test"
     }
+  },
+  "mac_acceptance": {
+    "date": "2026-10-28",
+    "fetched_commit": "a369c5a1c225df499256627e8434cd426d4233d7",
+    "remote": "https://github.com/jasmc/ClassicalConditioning.git",
+    "checkout": "/Users/joaquim/.codex/worktrees/mac-ssd-verification/ClassicalConditioning",
+    "native_environment": {
+      "macos": "13.7.8",
+      "build": "22H730",
+      "python": "3.13.18",
+      "architecture": "x86_64",
+      "git": "git version 2.39.2 (Apple Git-143)",
+      "environment_preparation": "uv sync --locked --python 3.13 --extra analysis in separate verification worktree; original Python 3.12 environment preserved"
+    },
+    "live_mac_checkout": {
+      "path": "records/repository-history/2026-10-28-ssd-portability/mac-live-checkout.json",
+      "sha256": "a7c46b9dc9ae11955613cce0b4e34b9c7bb5815cb34d4b5320538bc91abcef84"
+    },
+    "original_checkout_unchanged": true,
+    "original_index_unchanged": true,
+    "independent_edits_disposition": "One local commit and 24 uncommitted files (58 distinct changed paths including the local commit) remain unchanged in the original checkout. Source/test functions compared; unsupported automatic state/rule integration deferred. Verification uses the fetched implementation plus the recorded native fixes.",
+    "fixes": [
+      "Canonicalize Windows SSD and historical checkout paths before local-versus-external structure checks; keep offline checks independent of SSD availability.",
+      "Resolve the aligned example eligibility input when dependencies/build are requested, preserving its exact expected SHA-256 and physical snapshot binding; importing synthetic helpers requires no SSD.",
+      "Preserve the exact state-bound Figure 4 start ticket in a separate CRLF snapshot authenticated by both the saved restoration receipt and current state. Existing ticket, scoped state and science bytes unchanged; only historical ticket recovery is permitted.",
+      "Canonicalize mocked collection repository roots to match production resolved roots through macOS /var to /private/var aliases; rendering and saved wrapper unchanged.",
+      "Exercise current byte-protection rules through disposable Git info/attributes while checking original indexed .gitattributes and new input bytes without changing the source index."
+    ],
+    "ticket_preservation": {
+      "path": "records/repository-history/2026-10-28-ssd-portability/migration.json",
+      "sha256": "59ece360e971ebf929d95a3296237aff5ffff785f34349c017acf1e0a01f5341"
+    },
+    "test_command": ".venv/bin/python -m unittest tests.test_external_volume_portability tests.test_repository_archive tests.test_repository_structure tests.test_study_sources tests.test_storage_migration tests.test_figure_workspace tests.test_panel_g_review_repairs tests.test_main_paper_figures tests.test_command_organization tests.test_figure_version_browser tests.test_review_library tests.test_svg_figure_assembly tests.test_assembly_integrity tests.test_figure1_panel_b tests.test_figure1_panel_c tests.test_aligned_example_pair tests.test_individual_atlas tests.test_metric_comparison tests.test_metric_comparison_figure -v",
+    "final_test_status": "passed",
+    "local_structure_audit": {
+      "issues": [],
+      "unavailable_external_evidence": [],
+      "protected_files_checked": 366,
+      "current_states_checked": 10,
+      "verified_transactions": [],
+      "external_verification": "not-requested"
+    },
+    "actual_mac_mount": null,
+    "remote_ssd_verification": {
+      "thread_id": "01a1816b-9cce-7202-a301-ff858dc1bf63",
+      "host": "ORGER-JOAQUIM",
+      "host_id": "remote-control:env_e_6aa85fab9300833383b44cadf8767420",
+      "authorization": "User explicitly approved use of the existing ORGER PC chat.",
+      "status": "Remote read-only audit started; waiting on its next command approval. No new external audit result received.",
+      "observed_remote_head": "a369c5a1c225df499256627e8434cd426d4233d7",
+      "observed_python_launcher_failure": "The file cannot be accessed by the system.",
+      "observed_remote_checkout": "clean at fetched a369c5a",
+      "observed_windows_ssd_root": "J:\\",
+      "existing_share": "J$ (administrative share); Mac access not established",
+      "share_session_query": "denied on Windows; simultaneous Mac/PC SSD access has not been demonstrated"
+    },
+    "cross_machine_locking": {
+      "status": "pending",
+      "reason": "Mac has no mounted SSD/shared path. ORGER confirms J$ exists, but Mac access is not established and Windows denied the SMB session query. Concurrent contention on one actual shared filesystem cannot yet be tested."
+    },
+    "scientific_selection_or_freeze_changed": false,
+    "figure_state_bytes_changed": false,
+    "ssd_artwork_or_payloads_changed": false,
+    "pending_acceptance": [
+      "Complete current read-only ORGER SSD audit and saved Figure 1 / ordered fig1-fig2 wrapper authentication after remote command approval.",
+      "Establish actual simultaneous shared filesystem access, then test bidirectional non-blocking contention and release after error.",
+      "Integrate independent Mac rule/navigation/state changes separately by scope; all original work is retained."
+    ],
+    "native_fix_source_hashes": [
+      {
+        "path": ".gitattributes",
+        "sha256": "add03a62714df9b7ba0dd420329bbd718579850c96163cbcdb6c8e51752e5e4f"
+      },
+      {
+        "path": "scripts/maintenance/check_structure.py",
+        "sha256": "5f8fd7b93249f2e979910506faf4f4268855045f326dc421bd671bf18e0860f9"
+      },
+      {
+        "path": "src/classical_conditioning/figures/aligned_example_pair.py",
+        "sha256": "a6164f6194ad6c14c7fb7804a899b0b80c83b746b172ad0e905f4e219857876f"
+      },
+      {
+        "path": "tests/test_repository_structure.py",
+        "sha256": "1a1da53424bea71c0247c9017ac7fe08b82e5fcbab95b593bdc76ad56e80669d"
+      },
+      {
+        "path": "tests/test_aligned_example_pair.py",
+        "sha256": "89a76aed89ce505006ba9021da739d57947b446df879cfdc08069029e8b8c039"
+      },
+      {
+        "path": "tests/test_external_volume_portability.py",
+        "sha256": "fc2fcff97422e94db4e157d87c459503d3ea315998534d1c7a98cfa17e730609"
+      },
+      {
+        "path": "tests/test_main_paper_figures.py",
+        "sha256": "77dd2582b094816ec2784a2a68014af8d33512644143e298190fecca651abc16"
+      }
+    ],
+    "protected_checkout_paths": 454,
+    "final_combined_verification": {
+      "tests_run": 224,
+      "passed": 223,
+      "skipped": 1,
+      "elapsed_seconds": 142.817,
+      "result": "OK",
+      "skip_details": [
+        {
+          "test": "tests.test_external_volume_portability.ExternalVolumePortabilityTests.test_detected_alternate_letter_round_trips_without_configuration",
+          "reason": "Windows drive-letter discovery; Windows-only test"
+        }
+      ],
+      "all_three_previously_skipped_symlink_cases": "executed and passed",
+      "protected_paths_under_both_git_checkout_settings": 454,
+      "local_process_lock_contention_and_error_release": "passed",
+      "source_index_preserved_by_checkout_test": true
+    },
+    "focused_verification": [
+      {
+        "suite": "Native structure, offline aligned import and collection recovery fixtures",
+        "tests_run": 41,
+        "result": "OK",
+        "elapsed_seconds": 2.327
+      },
+      {
+        "suite": "Aligned source dependency authentication and offline import",
+        "tests_run": 6,
+        "result": "OK",
+        "elapsed_seconds": 1.835
+      },
+      {
+        "suite": "All protected bytes under both Git settings plus process lock contention/error release",
+        "tests_run": 2,
+        "result": "OK",
+        "elapsed_seconds": 15.38
+      }
+    ],
+    "scientific_and_presentation_byte_comparison": {
+      "records_checked": 125,
+      "against": "fetched a369c5a indexed blobs",
+      "result": "all unchanged",
+      "figure_state_paths": [
+        "docs/paper/figures/figure-01/10strace-example/current-state.json",
+        "docs/paper/figures/figure-01/current-state.json",
+        "docs/paper/figures/figure-01/trace10-learner-selection/current-state.json",
+        "docs/paper/figures/figure-02/current-state.json",
+        "docs/paper/figures/figure-02/panel-a/current-state.json",
+        "docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+        "docs/paper/figures/figure-03/current-state.json",
+        "docs/paper/figures/figure-03/exploratory-state.json",
+        "docs/paper/figures/figure-04/3strace-model-draft-state.json",
+        "docs/paper/figures/figure-04/delay-model-draft-state.json",
+        "docs/paper/figures/main-paper-current-state.json"
+      ]
+    },
+    "final_diff_check": "passed with cr-at-eol; existing source newline conventions preserved",
+    "verification_worktree_index_unchanged": true
   }
 }

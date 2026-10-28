@@ -451,3 +451,5 @@
 "/tests/test_figure_version_browser.py" -text
 "/tests/test_main_paper_figures.py" -text
 "/tests/test_storage_migration.py" -text
+"/records/repository-history/2026-10-28-ssd-portability/protected-originals/3strace-model-draft-start-20261022.json" -text
+"/records/repository-history/2026-10-28-ssd-portability/migration.json" -text

@@ -1,0 +1,637 @@
+{
+  "date": "2026-10-28",
+  "original_checkout": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning",
+  "original_head": "af1d827c725d1034b5a4cbd1678f618f491070fa",
+  "fetched_commit": "a369c5a1c225df499256627e8434cd426d4233d7",
+  "remote": "https://github.com/jasmc/ClassicalConditioning.git",
+  "original_branch": "develop",
+  "original_index_sha256": "299e65675f54101c64337e9a55cd908fcb09d00272383f3c8cbf71b15d4c9d50",
+  "original_status_porcelain": " M .agents/skills/paper-figures/SKILL.md\n M AGENTS.md\n M docs/paper/decisions.md\n M docs/paper/figures/review-library.json\n M docs/paper/figures/review-library.md\n M docs/paper/figures/shared/assembly-preflight.md\n M docs/paper/figures/shared/iteration-workflow.md\n M docs/project-maintenance/governance.md\n M docs/project-maintenance/rules.md\n M docs/project-maintenance/storage.md\n M records/repository-archive/verified-artifact-locations.json\n M records/repository-history/2026-10-27-storage-consolidation/README.md\n M scripts/README.md\n M scripts/maintenance/storage_migration.py\n M scripts/reviews/library.py\n M tests/test_storage_migration.py\n?? records/repository-history/2026-10-27-instruction-audit/README.md\n?? records/repository-history/2026-10-27-instruction-audit/verification.json\n?? records/repository-history/2026-10-27-ordered-figure-library/README.md\n?? records/repository-history/2026-10-27-ordered-figure-library/publication.json\n?? records/repository-history/2026-10-27-storage-consolidation/completion.json\n?? scripts/reviews/ordered_library.py\n?? scripts/reviews/versions.py\n?? tests/test_figure_version_browser.py\n",
+  "uncommitted_files": 24,
+  "local_only_commits": [
+    "af1d827c725d1034b5a4cbd1678f618f491070fa Enhance repository structure and documentation"
+  ],
+  "files": [
+    {
+      "path": ".agents/skills/paper-figures/SKILL.md",
+      "live_mac_sha256": "7ac69756e7b13ac0e333ba762cc2ae419d76997cb96a3d64261937d25858fa29",
+      "fetched_sha256": "6d1dd81ed58305b255e36ac6eb7208623d31a95cb59086024df7ba6401c7781f",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "AGENTS.md",
+      "live_mac_sha256": "5860f300f05042213a8393efb54d5e981dd795b37c1495f1a607793a15a52be2",
+      "fetched_sha256": "db2c36bb5f2cd6b7e328b00a0befd40ab8ac58276c321559e4aadeecd90dddff",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/decisions.md",
+      "live_mac_sha256": "b9c302976c2009614a7ce495e8a9748db66bc008a75b52e4658870907138b614",
+      "fetched_sha256": "1e06ac02c41c0e7031f226e8bc04288351b0bc36762ac11794c05b1039273888",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-01/current-state.json",
+      "live_mac_sha256": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f",
+      "fetched_sha256": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "docs/paper/figures/figure-01/review.md",
+      "live_mac_sha256": "25e5a8de81f06bd4f8691ab6307159213af1794d845d56dedbe2cce97524b40a",
+      "fetched_sha256": "c43c9c9077aec3ec096a9c322563da314df96319aa8f18860f75d4728fee3c84",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/current-state.json",
+      "live_mac_sha256": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030",
+      "fetched_sha256": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-a/current-state.json",
+      "live_mac_sha256": "1c9215f737202d1182c22d03ea809a333b21126c39862bbbaf78a4a1e1b0e2f4",
+      "fetched_sha256": "1c9215f737202d1182c22d03ea809a333b21126c39862bbbaf78a4a1e1b0e2f4",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/README.md",
+      "live_mac_sha256": "a0d3f445c7dbb1c2843be54b11d0085474a935fb8f952b3bb47a6bc805f6acef",
+      "fetched_sha256": "102c4319b0f8887dc9a84f9bb395391e0f4702c714248361e7abc513cec8f09a",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+      "live_mac_sha256": "1800f9661e333781bc44c2c72677aa9675f600302522372378e945b52aeda84a",
+      "fetched_sha256": "e86d39c058d7a80fcb66ff537edcd7cb51db9fe44eaa2f9e3ec2697356c34907",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "live_mac_sha256": "bcc0818c666091f2ac60d4ce0d4615e65324e6bfc3f63d660d5e3dcb42d0cc8d",
+      "fetched_sha256": "bcc0818c666091f2ac60d4ce0d4615e65324e6bfc3f63d660d5e3dcb42d0cc8d",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/review.md",
+      "live_mac_sha256": "590c264dda526739d6734acef3139a0a806d9df63805d6cd43918b673e28a9ba",
+      "fetched_sha256": "1a12149a3151d5ac98e010deac276aea6d65fd3e6d0fa6eaca0211107c9dfc78",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/statistical-audit.md",
+      "live_mac_sha256": "36623f8aa0490916254f1e0ddad25cd465c80b5136de409583b59b603745445d",
+      "fetched_sha256": "790ed459f94402cfc5c35acb94711e9b1fa11d6739f750b98ef1ef7af951ebd5",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/blup-comparison.md",
+      "live_mac_sha256": "ba436bb32668cd278c0c93154bc1cb2f5e9c546ec200f6e12f411b2bf2c9f0bf",
+      "fetched_sha256": "542be1889c5297c7a0a3b2e0f19e1cdc47d944c87cd3a59c3f9642236d0b00e4",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/current-state.json",
+      "live_mac_sha256": "e6d449cbc74efb310f0bc4a8c833edddb00a821fe9a49e857726328341a767c9",
+      "fetched_sha256": "e6d449cbc74efb310f0bc4a8c833edddb00a821fe9a49e857726328341a767c9",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/exploratory-state.json",
+      "live_mac_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe",
+      "fetched_sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/individual-fish-display.md",
+      "live_mac_sha256": "7d3726d55b41ee51024f1a37db86b112efcbc2aabb037525dc42aff128a292d9",
+      "fetched_sha256": "f9856849b94cb6e4be8fe18982659f73e91c891873fb0f7a064c21c06c9acb86",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-03/review.md",
+      "live_mac_sha256": "75057c891ac2a889f3512358e4dbb0087cc3cabb5bfb8aac119b9a5f0ca3c187",
+      "fetched_sha256": "667064f95905186ea3e83e760679c1a0f51874bd0a662bdb300d00b12ca47ff8",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/figure-04/review.md",
+      "live_mac_sha256": "9ca93516ec09a2f0e1da5c180e36e0be6069d7c6db155632f3b2d9a2c64bccd6",
+      "fetched_sha256": "ccd431f4c66134cff2e4a373a009880f10e139023fc883fe1ab241115d973a86",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/main-paper-current-state.json",
+      "live_mac_sha256": "a152c95ad9ee2f333399bb3e8d10f807a7586165d36fc1100ab57180e5058e20",
+      "fetched_sha256": "74d2d48112eebb9ef339296b1d2ec8ae6e79b01d1cfc83cd4a6d9f875ce2da3c",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/review-library.json",
+      "live_mac_sha256": "d64bceb855ffcf09852804f86ed66992db36d9f102b77ea3664dc802060c6bf2",
+      "fetched_sha256": "7aac05ac18e19cd6bcc05f70020f2c9c15bd452ba21142e5408cf908ea51a320",
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/review-library.md",
+      "live_mac_sha256": "017364511a5d1b70053413dc549f9018d1f265771731bc36fb2cbbd011721caf",
+      "fetched_sha256": "6840309549c506e14c956ea0295c0e85fc828e74fdd9e528f177e5297e880ffd",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/shared/assembly-preflight.md",
+      "live_mac_sha256": "8fc6f9b2327de40e402e17fe75f1ee22d6f219d46d02a37d58a20bb53c2a0c37",
+      "fetched_sha256": "43875675d01f7ccdbb88fb08179b50aec781193fc24ef078460d4be8a1bbf84f",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/shared/iteration-workflow.md",
+      "live_mac_sha256": "e406529b91f5cbc59f139e454a69b9f40ef707c1f2aa2de80b9bf9d5fa0c4996",
+      "fetched_sha256": "784cc853bb0844762103734b27a00fbfdefea09ed12c9485da4a223b668ae4f2",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/figures/shared/review.md",
+      "live_mac_sha256": "e13c655468bf068b85fe68c6be46f6cc8fbd001299954e34700cadff450913f3",
+      "fetched_sha256": "69feb3c73156608c59eb2af13fa2c36c09ac657d75f09227f58157124eac5ef7",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/methods/individual-learning.md",
+      "live_mac_sha256": "20673dca859a8f60b21c4c8f4d0eadd86b15e1c734963b153918b783baeef951",
+      "fetched_sha256": "fb9f31b7a7b48c19953c9e83627122767c45dcec2c7734e529eda3622988eb9c",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/review.md",
+      "live_mac_sha256": "366197fab02bd80da70631189e93f001647fa04d2e23c8d0eee26b24aaabcb85",
+      "fetched_sha256": "b1bdf1dcab88000765915759ed77390ed87aa3624ea12d5b8b8f6f41e98b654d",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/paper/study-sources.json",
+      "live_mac_sha256": "d444d6b94a66ce4fa2e62eeade2ce29bdee616a46e99573b3f51ff13b320a91e",
+      "fetched_sha256": "d444d6b94a66ce4fa2e62eeade2ce29bdee616a46e99573b3f51ff13b320a91e",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "docs/project-maintenance/governance.md",
+      "live_mac_sha256": "d68a090b4352091dc2013c9b6475b721e6aa58d54353403511277c6a92eca620",
+      "fetched_sha256": "6f62f964350d39a816df906c18988e3c54bf70513157d2064d042edf6a8fbd73",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/project-maintenance/review-artifacts.md",
+      "live_mac_sha256": "07271a0ce4d65bb795ed5993a5f3cd2dc620501683b95adc68e60a1bf50b056e",
+      "fetched_sha256": "0fdde615511d4ff67d28b1ada5be8436dc55ddeb6020c6c907decd418854e843",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/project-maintenance/rules.md",
+      "live_mac_sha256": "6a3616af9dd01e38930f8fd9e5ed334ab64c6da88b8166b9785139c67d87d7c8",
+      "fetched_sha256": "b0527b751dfa314c9dd41de017a10bdad453c2ede26a85ecbeeae2b38fab196d",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/project-maintenance/storage.md",
+      "live_mac_sha256": "94188b3f5ecaf7b20775580e1efb7c2295bd45353bab61b9e13c239c99b51bb7",
+      "fetched_sha256": "54f1ef329d22253351b594645245fa311c463030621ae40bdba87a08f579deca",
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/running-analysis/README.md",
+      "live_mac_sha256": "a54d7fbd36999a357d6adad8b0f706a573edbd2e164132c3fb4efc5449115b53",
+      "fetched_sha256": "21567c72b6bd5f1347abe9e3ba1a6c0b7157c0ae470818093c776bc541d0124d",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "docs/running-analysis/figure2-canvas-repair.md",
+      "live_mac_sha256": "b72a7a1a1ca34688d0dc68aa93c0343770f598d60bfd42d1d738268ca9ab665b",
+      "fetched_sha256": "199003b8e0e4ad4d3284facb6620c48038844f07b8b4c8fa950f8c75f40b6246",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "records/repository-archive/handoff-git-history-20261026/README.md",
+      "live_mac_sha256": "df9ef661b0e206aae298c3ecb273c23ad85af8f382ddfe9ef7757cc173a16d94",
+      "fetched_sha256": "fa26bcc11267d2bbb787222a091d68f0efbacbaa938c86ebbc7f3c85bbbf2445",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "records/repository-archive/relocations.json",
+      "live_mac_sha256": "991c6b0be1d9d962d052fadaf9924292ce73a852ed33c61b144b97ef21c604bb",
+      "fetched_sha256": "991c6b0be1d9d962d052fadaf9924292ce73a852ed33c61b144b97ef21c604bb",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "identical"
+    },
+    {
+      "path": "records/repository-archive/verified-artifact-locations.json",
+      "live_mac_sha256": "36c1c713c3ad8c6aebbc7d629cc9d11e0586c51f77da3828e298f7306879b7c6",
+      "fetched_sha256": "107d28c1f50af23b1d9b8fca68260905d5ad797a75ffca31317eb2be40c5be99",
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "records/repository-history/2026-10-27-instruction-audit/README.md",
+      "live_mac_sha256": "4cb0c405d701631a4bf3b6b0bd5576a96c5f32838e09489a4f09abe2286a4ad5",
+      "fetched_sha256": null,
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "Mac-only file; retained in original checkout"
+    },
+    {
+      "path": "records/repository-history/2026-10-27-instruction-audit/verification.json",
+      "live_mac_sha256": "ea1f73e52ded9f1121e4faf8ebe84b9f45d6f55cb0c8abe2afa7c67c53231617",
+      "fetched_sha256": null,
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "Mac-only file; retained in original checkout"
+    },
+    {
+      "path": "records/repository-history/2026-10-27-ordered-figure-library/README.md",
+      "live_mac_sha256": "60bc7c44aa3a91d295f08e701fd3b32b81d782f7f3dd1a372c8cea1dd197e455",
+      "fetched_sha256": null,
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "Mac-only file; retained in original checkout"
+    },
+    {
+      "path": "records/repository-history/2026-10-27-ordered-figure-library/publication.json",
+      "live_mac_sha256": "8a225078becb71be4ac637098e071813133f2c90c411e8295e34ee7c01ec8aa8",
+      "fetched_sha256": null,
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "Mac-only file; retained in original checkout"
+    },
+    {
+      "path": "records/repository-history/2026-10-27-storage-consolidation/README.md",
+      "live_mac_sha256": "522609364e74df6ce881e52123e28a2683e841c48bcbf7e7c1920d5d31b26544",
+      "fetched_sha256": null,
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "Mac-only file; retained in original checkout"
+    },
+    {
+      "path": "records/repository-history/2026-10-27-storage-consolidation/completion.json",
+      "live_mac_sha256": "a8901854bbb40127581fd17eb4045c1d63d3664e4a4808ab887b6a3278265415",
+      "fetched_sha256": null,
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "Mac-only file; retained in original checkout"
+    },
+    {
+      "path": "records/repository-history/2026-10-27-storage-consolidation/followup-completion.json",
+      "live_mac_sha256": "bb21ae9aed32a54a9abbef1c3b8cb7af9cf96ad82ea25b9cba00c01396675cff",
+      "fetched_sha256": null,
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "Mac-only file; retained in original checkout"
+    },
+    {
+      "path": "scripts/README.md",
+      "live_mac_sha256": "734a07ea1c4f2ac6b36913f29e78a2b9b9b2d177528197c5eb2099726e685d2a",
+      "fetched_sha256": "179dec3d94f97ab0a1bab03217de5f06eb49bb431f9575d699f7f82af2cfc392",
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "different bytes; preserved without automatic replacement"
+    },
+    {
+      "path": "scripts/maintenance/check_structure.py",
+      "live_mac_sha256": "c7aa9104313416154c757ee001d190fecf39c21a690f0f9967295cf095e61201",
+      "fetched_sha256": "3beae6b3a0f9a8da2842097cb9472ef0e38240dbca5b0fc2fb857e36ba285bbc",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "check",
+        "markdown_anchors",
+        "recorded_path"
+      ]
+    },
+    {
+      "path": "scripts/maintenance/storage_migration.py",
+      "live_mac_sha256": "2e188c084d61fc2fd6e2c3e6e5b57fac50de39670cb6e98b97e9ef7d47320e47",
+      "fetched_sha256": "75b8f3e159d0340b45bc7896871536362a2ef70ba74828bba3451d3e953e14fd",
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "inventory",
+        "main",
+        "prune",
+        "publish",
+        "publish_controls"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/assembly/build.py",
+      "live_mac_sha256": "45c40b709dc7d863a92bc0207b3c834aed60ff3da33a9f7c5b293d08b449e1d4",
+      "fetched_sha256": "b41a3958c3cde5ec2f5eabe4da1d70e530151e3e6b351879747d00eed8c274d5",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": []
+    },
+    {
+      "path": "scripts/paper/figure_02/reproduction/recover_saved_panels.py",
+      "live_mac_sha256": "91a698fb8221350f4199fa5c4c76ac8bbe2b176c5add403f5d22936cd326d8e1",
+      "fetched_sha256": "3cd6fe34b4115fe89499e988d077e0b46adf7269b975ddead1b4ddffcf651385",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "main"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/collection.py",
+      "live_mac_sha256": "07acfb7d1be9b99363c0b78c5630f932881e158deb2a775ebe879b236247d0ec",
+      "fetched_sha256": "16a7cf9e9a71ddb84d290ad5f9dd62ac7a42c0eeab0cc7984a077d08b0aca485",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [
+        "functions",
+        "recover",
+        "validate_saved_wrapper"
+      ],
+      "changed_function_names": [
+        "authenticate",
+        "build",
+        "display_target",
+        "main",
+        "resolve",
+        "snapshot_inputs"
+      ]
+    },
+    {
+      "path": "scripts/reviews/library.py",
+      "live_mac_sha256": "f882c99d1342022a644592426d04c5a468b400c261aec8fc9edf3cec7e9b1e8f",
+      "fetched_sha256": "c308f884629e9634a8a8559250f90391e411c5ab25b76b1b8e4ade40108fdc2f",
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [
+        "identity"
+      ],
+      "changed_function_names": [
+        "build",
+        "check",
+        "main"
+      ]
+    },
+    {
+      "path": "scripts/reviews/ordered_library.py",
+      "live_mac_sha256": "e7e166490c009d15b48f06c4ec7c5348af127c314aec1c385e5066a7715d0efc",
+      "fetched_sha256": "69ac1750e0d04c3c5037abf75f2387a2112c890999035290ed55632f6f46902b",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "build",
+        "verify_package",
+        "verify_previous_sources"
+      ]
+    },
+    {
+      "path": "scripts/reviews/versions.py",
+      "live_mac_sha256": "3838f2bfa9026a5f86f264c6d407204573888a8bb072c1f993afa68ba43c0bc7",
+      "fetched_sha256": "8f7892ade22c642cc18cb4d538ced6defb352a8ddcdcdac5332c5941a99d7c2f",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "__init__",
+        "discover_states",
+        "figure_page",
+        "read",
+        "source_files",
+        "url"
+      ]
+    },
+    {
+      "path": "scripts/workflows/macos/run_legacy_with_paths.py",
+      "live_mac_sha256": "2915e8e54e68856eecbda85e5fafb713d9953efd7d803b6ebd9c2cb5185b87f1",
+      "fetched_sha256": "8549a9ecc4ca46db0308d5d5a520d2b62b2bd125fa1151742c019958552814c2",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "main",
+        "mapped_init",
+        "relocate"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/reviews/figure2_g_sources.py",
+      "live_mac_sha256": "14987f074550e9589d53a4ea682e8c9f9db4fee88e6b23b1b2fea8292c643217",
+      "fetched_sha256": "e7e01c037b92be37ed42966ffa2e16a1a83d2534640719be863317884d678b48",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "bundle_markdown"
+      ]
+    },
+    {
+      "path": "tests/test_figure_version_browser.py",
+      "live_mac_sha256": "afc4c9f63e658158c1f3ed591c8fee39fe1e78db5dad7044089ec029a9d42b81",
+      "fetched_sha256": "00af6f02b5c52b2017f1a03a590a9f730adef94be5e13f1e7e6356181586f162",
+      "uncommitted": true,
+      "local_commit_changes": false,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": [
+        "catalogue",
+        "test_guarded_build_preserves_art_and_uses_one_browser_per_figure",
+        "test_new_retained_version_requires_and_survives_catalogue_refresh",
+        "test_unavailable_storage_and_source_symlink_fail"
+      ]
+    },
+    {
+      "path": "tests/test_repository_structure.py",
+      "live_mac_sha256": "9543c3ec2265f65c2ce764ccf2c608509f8c182d1b45c63e892eefbaaf028719",
+      "fetched_sha256": "a07c5865fff39e978f329671b3b9a13339e1614bd996bbfe0f98a452bcbc3306",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [
+        "test_protected_external_links_resolve_exact_bytes_while_active_links_stay_direct"
+      ],
+      "fetched_only_function_names": [],
+      "changed_function_names": []
+    },
+    {
+      "path": "tests/test_review_library.py",
+      "live_mac_sha256": "9e696da530971b275da7a21bf3518393f0061e01e1acdbf8c87ad665bc16d55f",
+      "fetched_sha256": "b1cd83a122486f769751c9b271d8ef13864c4280e790c79699a68ddf10abae74",
+      "uncommitted": false,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [
+        "test_figure_layout_does_not_promote_retired_transport_guidance"
+      ],
+      "fetched_only_function_names": [],
+      "changed_function_names": []
+    },
+    {
+      "path": "tests/test_storage_migration.py",
+      "live_mac_sha256": "f311d7fead7cb78cfd6369dc6759ca51e131054c1fa77ae05612f29300c3083c",
+      "fetched_sha256": "f54dc70781da7ae0f69b6c1a97da014fdd73ef44fd2c676d05657a6d588d97ef",
+      "uncommitted": true,
+      "local_commit_changes": true,
+      "disposition": "preserved in original Mac checkout; verification uses fetched implementation",
+      "comparison": "compared Python definitions",
+      "mac_only_function_names": [],
+      "fetched_only_function_names": [],
+      "changed_function_names": []
+    }
+  ],
+  "preservation": "No stash, reset, checkout overwrite, merge or original-file mutation. All independent changes remain in the original checkout. The new verification worktree is attached to this chat.",
+  "reviewed_implementation": "Live Mac supported storage migration, browser and tests compared to fetched implementation; storage safeguards and test functions are present, portability additions retained. Rules, state/selection controls and dated evidence remain preserved for separate scoped integration; verification does not choose between presentation states."
+}

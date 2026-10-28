@@ -108,11 +108,14 @@ files. Independent edits require reconciliation; only indexed, authenticated
 line-ending-only differences may be restored.
 
 Analysis run locks use exclusive non-blocking OS locks; figure publication keeps
-its existing lock and atomic pointer workflow. Windows process contention is
-tested. Real macOS execution and simultaneous cross-machine shared-filesystem
-locking remain pending. Windows symlink tests are reported separately when
-creation privilege is unavailable. Allocated-space metrics are `null` where
-`st_blocks` is unavailable; logical size is not a physical-space measurement.
+its existing lock and atomic pointer workflow. Native Windows and macOS process
+contention and error release are tested. The [Mac acceptance record](../../records/figure-reviews/authority-reconciliation-20261025/ssd-portability-reconciliation-20261028.json)
+records 223 passes and one Windows-only drive-discovery skip; all three symlink
+cases ran on macOS. This continuation SSD audit awaits ORGER command approval;
+actual shared-filesystem cross-machine locking remains pending. Windows symlink
+tests are reported separately when creation privilege is unavailable.
+Allocated-space metrics are `null` where `st_blocks` is unavailable; logical size
+is not a physical-space measurement.
 
 ## Drive-wide audit
 

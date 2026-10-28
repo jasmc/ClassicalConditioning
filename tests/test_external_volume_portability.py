@@ -235,6 +235,10 @@ class CheckoutAndLockPortabilityTests(unittest.TestCase):
                 git('init', '--quiet', cwd=checkout)
                 git('config', 'core.autocrlf', autocrlf, cwd=checkout)
                 git('config', 'core.eol', 'crlf' if autocrlf == 'true' else 'lf', cwd=checkout)
+                # Exercise the current protection rules even when the indexed
+                # .gitattributes blob predates newly protected, uncommitted
+                # inputs. Keep that blob in the byte comparisons unchanged.
+                (checkout / '.git/info/attributes').write_bytes(attrs)
                 (checkout / '.gitattributes').write_bytes(attrs)
                 for path, raw in blobs.items():
                     target = checkout / path

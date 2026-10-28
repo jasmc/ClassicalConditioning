@@ -1,10 +1,32 @@
 """Shared identity/layout guards and the analytical boundary used by draft E."""
 import copy
+import subprocess
+import sys
+from pathlib import Path
+from unittest.mock import patch
 import unittest
 import numpy as np
 from classical_conditioning.figures.aligned_example_pair import scale_bins, validate_pair, TRIALS
 
 class AlignedPairTests(unittest.TestCase):
+    def test_dependencies_bind_resolved_eligibility_with_its_exact_hash(self):
+        from classical_conditioning.figures import aligned_example_pair as pair
+        actual = Path('/existing-archive/eligibility.parquet')
+        with patch.object(pair, 'resolve_artifact', return_value=actual) as resolve:
+            self.assertIn(actual, pair.dependencies())
+        resolve.assert_any_call(pair.ELIGIBILITY_PATH,
+                                expected_sha256=pair.EXPECTED[pair.ELIGIBILITY_PATH])
+
+    def test_import_does_not_require_external_scientific_inputs(self):
+        code = '''from unittest.mock import patch
+with patch('classical_conditioning.external_artifacts.resolve_artifact',
+           side_effect=AssertionError('import must not read SSD inputs')):
+    from classical_conditioning.figures.aligned_example_pair import scale_bins, EXPECTED, ELIGIBILITY_PATH
+assert ELIGIBILITY_PATH in EXPECTED
+'''
+        result = subprocess.run([sys.executable, '-c', code], capture_output=True, timeout=60)
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+
     def pair(self):
         r={p:{} for p in ('D','E')}
         for t in TRIALS:

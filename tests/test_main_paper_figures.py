@@ -108,7 +108,7 @@ def saved_wrapper_fixture(root):
 
 def test_saved_wrapper_recovery_rejects_changed_sources_rendering_and_content():
     with tempfile.TemporaryDirectory() as folder:
-        root=Path(folder);figure,raw,receipt=saved_wrapper_fixture(root);builder=Path(paper.__file__).read_bytes()
+        root=Path(folder).resolve();figure,raw,receipt=saved_wrapper_fixture(root);builder=Path(paper.__file__).read_bytes()
         metadata,names=paper.validate_saved_wrapper(raw,[figure],receipt,builder,builder)
         assert metadata['figures'][0]['id']=='fig1' and 'render' in names
         changed=dict(figure,state={'path':'state','sha256':'0'*64})
@@ -125,7 +125,7 @@ def test_saved_wrapper_recovery_rejects_changed_sources_rendering_and_content():
 
 def test_pointer_recovery_preserves_saved_html_and_publishes_evidence_first():
     with tempfile.TemporaryDirectory() as folder:
-        root=Path(folder);(root/'records').mkdir();figure,raw,receipt=saved_wrapper_fixture(root)
+        root=Path(folder).resolve();(root/'records').mkdir();figure,raw,receipt=saved_wrapper_fixture(root)
         output=root/'saved.html';output.write_bytes(raw)
         state_path=root/'collection.json';state_path.write_text('{"figures":[]}',encoding='utf-8')
         receipt_path=root/'completed.json';receipt_path.write_bytes(paper.encode(receipt))
@@ -152,7 +152,7 @@ def test_collection_snapshot_keys_are_checkout_and_volume_neutral():
 
 def test_later_build_retires_recovery_binding_and_preserves_its_evidence():
     with tempfile.TemporaryDirectory() as folder:
-        root=Path(folder);figure,raw,receipt=saved_wrapper_fixture(root)
+        root=Path(folder).resolve();figure,raw,receipt=saved_wrapper_fixture(root)
         output=root/'saved.html';output.write_bytes(raw)
         recovery=root/'recovery.json';recovery.write_bytes(b'{"saved":true}')
         code=root/'builder.py';code.write_bytes(b'current source')

@@ -21,7 +21,7 @@ from urllib.parse import unquote
 
 ROOT = _COMMAND_REPOSITORY
 sys.path.insert(0, str(ROOT / 'src'))
-from classical_conditioning.external_artifacts import resolve_artifact, sha256, check_study_sources, relocated_external_directory
+from classical_conditioning.external_artifacts import resolve_artifact, sha256, check_study_sources, relocated_external_directory, normalized_reference
 
 LINK = re.compile(r'(?<!!)\[[^\]]+\]\((<[^>]+>|[^)]+)\)')
 
@@ -32,16 +32,16 @@ def recorded_path(value: str, repo: Path, aliases=(), *, base: Path | None = Non
     This is a local verification alias, not an external-payload substitution.
     Unknown absolute paths retain their external identity.
     """
-    text = str(value).replace('\\', '/')
-    for alias in aliases:
+    text = re.sub('/+', '/', str(value).replace('\\', '/'))
+    for alias in (str(repo), *aliases):
         root = alias.replace('\\', '/').rstrip('/')
         if text == root or text.startswith(root + '/'):
             relative = text[len(root):].lstrip('/')
             if '..' in Path(relative).parts:
                 raise ValueError('Recorded repository path escapes its checkout alias')
             return (repo / relative).resolve()
-    path = Path(value)
-    if PurePosixPath(text).is_absolute() and not path.is_absolute():
+    path = Path(normalized_reference(text, repo))
+    if (PurePosixPath(text).is_absolute() or PureWindowsPath(text).is_absolute()) and not path.is_absolute():
         return path
     return (path if path.is_absolute() else (base or repo) / path).resolve()
 
@@ -248,6 +248,11 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
         frozen_entries = [value for value in state.get('frozen_display', {}).values()
                           if isinstance(value, dict) and 'path' in value and 'sha256' in value]
         entries += frozen_entries
+        # A start ticket describes the bytes before an edit, not today's live
+        # checkout. Like a frozen legend, it may need exact historical recovery.
+        historical_entries = list(frozen_entries)
+        if isinstance(state.get('start_ticket'), dict):
+            historical_entries.append(state['start_ticket'])
         entries += [value for value in state.get('draft', {}).values()
                     if isinstance(value, dict) and 'path' in value and 'sha256' in value]
         for figure in state.get('figures', []):
@@ -257,11 +262,11 @@ def check(repo: Path = ROOT, *, external: bool = False) -> dict:
             path = resolved(item['path'])
             if path.is_relative_to(repo):
                 if not path.is_file() or sha256(path) != item['sha256']:
-                    # A frozen display may retain an old legend at a mutable
-                    # logical path. Only exact recorded recovery is permitted;
+                    # Historical evidence may retain a mutable logical path.
+                    # Only exact recorded recovery is permitted;
                     # active draft edits must still fail on the direct bytes.
                     try:
-                        if not any(item is entry for entry in frozen_entries):
+                        if not any(item is entry for entry in historical_entries):
                             raise ValueError('Active draft requires direct bytes')
                         resolve_artifact(path, expected_sha256=item['sha256'], repo=repo)
                     except (ValueError, FileNotFoundError):

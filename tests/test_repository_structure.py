@@ -85,6 +85,28 @@ class StructureChecks(unittest.TestCase):
         with self.assertRaises(ValueError):
             structure.recorded_path('/old/paper/../other/data.json', root, aliases)
 
+    def test_windows_external_bindings_are_not_local_mac_paths(self):
+        panel = self.repo / 'docs/paper/figures/figure-01'
+        panel.mkdir()
+        for path in (r'J:\outputs\selected.svg', r'J:\\outputs\\selected.svg'):
+            with self.subTest(path=path):
+                self.write('docs/paper/figures/figure-01/current-state.json', {
+                    'draft': {'working_svg': {'path': path, 'sha256': 'external'}}})
+                self.assertEqual(structure.recorded_path(path, self.repo),
+                                 Path('/Volumes/JOAQUIM/outputs/selected.svg'))
+                self.assertEqual(structure.check(self.repo)['issues'], [])
+                report = structure.check(self.repo, external=True)
+                self.assertTrue(report['unavailable_external_evidence'] or report['issues'])
+
+    def test_doubled_windows_checkout_separators_use_local_alias(self):
+        guide = self.repo / 'docs/paper/guide.md'
+        guide.write_text('local source')
+        alias = 'C:/Users/author/paper'
+        recorded = r'C:\\Users\\author\\paper\\docs\\paper\\guide.md'
+        self.assertEqual(structure.recorded_path(recorded, self.repo, [alias]), guide.resolve())
+        with self.assertRaises(ValueError):
+            structure.recorded_path(alias + '/../../escape', self.repo, [alias])
+
     def test_historical_topic_folder_is_rejected(self):
         old = self.repo / 'docs/analysis/learners'
         old.mkdir(parents=True)
@@ -250,6 +272,30 @@ class StructureChecks(unittest.TestCase):
         # Even equal-valued records in the two scopes must be checked separately.
         state_path.write_text(json.dumps({'frozen_display': {'legend': record}, 'draft': {'legend': record}}))
         self.assertIn('Bound figure record changed: '+str(legend.resolve()), structure.check(self.repo)['issues'])
+
+    def test_start_ticket_recovers_exact_history_without_hiding_draft_changes(self):
+        panel = self.repo / 'docs/paper/figures/figure-01'
+        panel.mkdir()
+        ticket = self.repo / 'records/history/start.json'
+        ticket.write_bytes(b'{"original": true}\r\n')
+        expected = structure.sha256(ticket)
+        original = self.repo / 'records/history/original-start.json'
+        original.write_bytes(ticket.read_bytes())
+        migration = self.repo / 'records/repository-history/ticket'
+        migration.mkdir(parents=True)
+        key = ticket.relative_to(self.repo).as_posix()
+        (migration / 'migration.json').write_text(json.dumps({'dispositions': [{
+            'original_path': key, 'canonical_path': key, 'sha256': expected,
+            'preserved_original': original.relative_to(self.repo).as_posix()}]}))
+        ticket.write_bytes(b'{"original": true}\n')
+        record = {'path': key, 'sha256': expected}
+        self.write('docs/paper/figures/figure-01/current-state.json', {'start_ticket': record})
+        self.assertEqual(structure.check(self.repo)['issues'], [])
+        self.write('docs/paper/figures/figure-01/current-state.json', {
+            'start_ticket': record, 'draft': {'legend': record}})
+        self.assertIn('Bound figure record changed: ' + str(ticket.resolve()), structure.check(self.repo)['issues'])
+        original.write_bytes(b'changed history')
+        self.assertTrue(structure.check(self.repo)['issues'])
 
     def test_script_catalogue_must_link_every_retained_tool(self):
         scripts = self.repo/'scripts'

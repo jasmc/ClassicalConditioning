@@ -25,7 +25,7 @@ STYLE_SPEC=json.loads(STYLE_PATH.read_text())
 FRAME_ROOT=Path('/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/panels-a-b-c-d/versions/frozen/2026-10-05-ABCD')
 FRAME_PATH=FRAME_ROOT/'Fig1_PanelD_TailAngle_pre15_frames.parquet'
 EVENT_PATH=FRAME_ROOT/'Fig1_PanelD_events.parquet'
-ELIGIBILITY_PATH=resolve_artifact('reviews/fgh_full_bouts_baseline_samples_20261009/PanelF_complete_bout_sample_data.parquet')
+ELIGIBILITY_PATH=Path('reviews/fgh_full_bouts_baseline_samples_20261009/PanelF_complete_bout_sample_data.parquet')
 SELECTION_PATH=ROOT/'records/frozen-analyses/figure-01/panel-e/2026-10-09-heatmap-rows/manifests/selection.json'
 PALETTE_SELECTION_PATH=ROOT/'records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/manifests/selection.json'
 PALETTE_PATH=ROOT/'records/frozen-analyses/figure-01/panels-f-g-h/2026-10-09-version-12/code/palette_functions_snapshot.py'
@@ -33,7 +33,7 @@ F_POINTER_PATH=ROOT/'configs/paper-figures/selections/figure1-fgh-version12-free
 def f_archive_path():return resolve_artifact('reviews/fgh_candidate_palette_versions_20261009/index.html')
 EXPECTED={FRAME_PATH:'004861483e76a116544930769f5eaff85db1231e1d00d26c4e9d919d789efe32',EVENT_PATH:'c33e5e11889a5f8982ecee277585549363afa0cc870aab0ceb93eb8b92199007',ELIGIBILITY_PATH:'0ea6642119308fec55a6cb00c370b003bc6b3cc6c9f1a043dca1d3cc90bee030'}
 
-def dependencies():return [Path(__file__),STYLE_PATH,FRAME_PATH,EVENT_PATH,ELIGIBILITY_PATH,SELECTION_PATH,PALETTE_PATH,PALETTE_SELECTION_PATH,F_POINTER_PATH,f_archive_path(),ROOT/'records/frozen-analyses/index.json']
+def dependencies():return [Path(__file__),STYLE_PATH,FRAME_PATH,EVENT_PATH,resolve_artifact(ELIGIBILITY_PATH,expected_sha256=EXPECTED[ELIGIBILITY_PATH]),SELECTION_PATH,PALETTE_PATH,PALETTE_SELECTION_PATH,F_POINTER_PATH,f_archive_path(),ROOT/'records/frozen-analyses/index.json']
 def sha(data):return hashlib.sha256(data).hexdigest()
 def finite_json(x):
     if isinstance(x,np.ndarray):return [finite_json(v) for v in x.tolist()]

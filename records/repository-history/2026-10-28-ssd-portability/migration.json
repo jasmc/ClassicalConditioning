@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "operation": "preserve-exact-bound-ticket-before-indexed-line-ending-restoration",
+  "source_evidence": {
+    "path": "records/repository-history/2026-10-28-ssd-portability/checkout-byte-restoration.json",
+    "sha256": "99acc31550e24bd5dacf266f3f20914665d6b8163d073bee77ebea4c5146f2f3"
+  },
+  "method": "Reconstitute CRLF bytes from indexed LF counterpart; require both recorded pre-restoration and state-bound SHA-256 before writing a separate immutable snapshot. Existing ticket and scoped state stay byte-identical.",
+  "protected_files": [
+    {
+      "path": "records/repository-history/2026-10-28-ssd-portability/protected-originals/3strace-model-draft-start-20261022.json",
+      "sha256": "bcf6a460604bc36e2d86343f8d577b15684f10dbd031aa4025d545bfd50b43f8"
+    }
+  ],
+  "dispositions": [
+    {
+      "original_path": "records/figure-reviews/figure-04/3strace-model-draft-start-20261022.json",
+      "canonical_path": "records/figure-reviews/figure-04/3strace-model-draft-start-20261022.json",
+      "sha256": "bcf6a460604bc36e2d86343f8d577b15684f10dbd031aa4025d545bfd50b43f8",
+      "preserved_original": "records/repository-history/2026-10-28-ssd-portability/protected-originals/3strace-model-draft-start-20261022.json",
+      "disposition": "retain exact state-bound historical ticket alongside unchanged indexed counterpart"
+    }
+  ],
+  "scientific_selection_or_freeze_changed": false,
+  "ssd_bytes_written": false
+}
