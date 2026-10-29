@@ -220,10 +220,6 @@ independent backup; this organization makes no new backup claim.
 
 ## Maintenance retention
 
-Completed maintenance prose does not remain in the working tree by default.
-Preserve its exact committed version, account for outstanding requirements and
-verify recovery and consumers before retirement. Keep current authority and
-operational dependencies accessible; Git-only history is not a runtime fallback.
-Use one canonical owner and retain old-path pointers only for demonstrated
-current readers. Scope figure-specific material by assembly, panel or joint scope;
-shared material has one home. Routine communication belongs in chat.
+Follow the [single maintenance-retention policy](structure.md#maintenance-retention)
+for Git-only retirement, accessible controls and minimal compatibility pointers.
+This storage guide owns verified external transfer and exact recovery.
