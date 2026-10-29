@@ -16,3 +16,15 @@ reference source and have no supported execution entry point.
 
 Intermediate package source, old plan files, and dated status snapshots remain
 only in Git history.
+
+## Placement and lifecycle
+
+Preserve original filenames and algorithm identities. Supported legacy use is
+limited to the isolated comparison adapter and explicitly identified
+characterization tests. Other originals are reference source, not new command
+entry points. Keep required helpers and test oracles with their dependency
+closure. Do not deduplicate historical variants or edit their science as a
+maintenance refactor; put new implementation in src and document its relation
+to the retained original.
+
+See the [folder policy](../docs/project-maintenance/structure.md) for shared preservation and ownership rules.

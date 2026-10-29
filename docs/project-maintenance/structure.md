@@ -25,9 +25,11 @@ One topic has one canonical home. Create a panel or joint-panel folder only when
 Author direction, 23 October 2026: full study/discussion/comparison manuscripts
 belong with their HTML on JOAQUIM, including Markdown. The [study-artifact policy](review-artifacts.md)
 distinguishes them from plans, approved definitions, instructions and operational
-documentation. Existing local narratives remain pending the dependency-aware
-[migration plan](../../Plans/12_STUDY_ARTIFACT_STORAGE.md); preserved byte-sensitive
-records are not moved or weakened automatically.
+documentation. Ordinary study manuscripts now resolve through the external source registry.
+Protected historical originals remain local compatibility evidence; reader,
+notebook and print verification remains in the
+[migration follow-up](../../Plans/12_STUDY_ARTIFACT_STORAGE.md). Preserved
+byte-sensitive records are not moved or weakened automatically.
 
 Scientific status (accepted/proposed/superseded), presentation status (frozen display/active draft) and storage role (local record/external archive) are independent. Age and filenames do not establish authority. `current-state.json` is the sole scoped presentation pointer. Other JSON evidence is version-bound. Existing indexes may be mutable; frozen records and published transfer checkpoints are not.
 
@@ -51,3 +53,39 @@ exact originals; it never relaxes a frozen-record requirement. Published
 transfer inventories remain unchanged. Read-only external audits recognize only
 exact path/hash/size absences from authenticated completed author dispositions;
 transfer verification and pruning remain strict. See the [reconciliation](../../records/repository-history/2026-10-17-organization-reconciliation/README.md).
+
+## Safe maintenance and folder guidance
+
+Classify each item by purpose, authority and lifecycle before choosing its home.
+Current guidance, future work, dated evidence, supported code, inherited source
+and generated artifacts have different owners. Age, filename similarity and
+absence of text references do not prove that material is obsolete.
+
+Before replacing, shortening, merging or retiring anything, account for every
+relevant requirement, behavior, dependency and historical identity. Record where
+each survives, verify recovery and affected behavior, and retain unresolved
+originals. A preserved file that cannot be found or used is not sufficient
+completion evidence. Keep exact historical bytes and required compatibility
+aliases separate from the maintained successor. Do not normalize protected
+line endings or treat a byte-preserving relocation as scientific approval.
+
+Classify documentation by purpose: maintained definitions and explicit decisions
+belong in paper guidance, executable usage in running-analysis, and repository
+procedures in project-maintenance. Keep future work in Plans and completed
+evidence in records; full study manuscripts follow the external study policy.
+Link to the canonical owner instead of repeating its rules or current status.
+When updating a command example, verify its current path, dispatch stage and
+defaults against source. Preserve registered historical/byte-sensitive pages.
+
+Folder guides specialize this policy rather than copy shared procedures:
+[configs](../../configs/README.md), [legacy](../../legacy/README.md),
+[plans](../../Plans/README.md), [records](../../records/README.md),
+[source](../../src/README.md) and [tests](../../tests/README.md).
+Use the [script lifecycle](script-lifecycle.md) for commands. Preserve the tracked
+`Plans/` spelling across hosts; a case-insensitive checkout can conceal its
+lowercase filesystem spelling.
+
+The two declared retired-plan pointers in the [plan guide](../../Plans/README.md#retired-plan-navigation-exceptions)
+are navigation exceptions needed by preserved audit links. They contain only a
+canonical completed-account link and route to the sole status index; no completed
+implementation narrative or duplicate progress remains in future-work plans.

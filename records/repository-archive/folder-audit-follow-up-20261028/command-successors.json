@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "moves": {
+    "scripts/analyze_trace10_learners.py": "scripts/paper/figure_01/trace10_learner_selection/analyze.py",
+    "scripts/audit_trace10_learner_shortlist.py": "scripts/paper/figure_01/trace10_learner_selection/audit_shortlist.py",
+    "scripts/finish_trace10_learner_selection.py": "scripts/paper/figure_01/trace10_learner_selection/publish_comparison.py",
+    "scripts/process_trace10_additions.py": "scripts/workflows/trace/ingest_fixed10_additions.py",
+    "scripts/resume_trace10_additions.py": "scripts/workflows/trace/resume_fixed10_additions.py",
+    "scripts/finish_trace10_example.py": "scripts/paper/figure_01/trace10_example/publish.py",
+    "scripts/finish_figure2_trace10.py": "scripts/paper/figure_02/trace10/finalize.py",
+    "scripts/publish_figure2_trace10.py": "scripts/paper/figure_02/trace10/publish_spacing.py"
+  },
+  "retained_exact_original": [
+    "scripts/finish_trace10_example.py"
+  ],
+  "retained_compatibility_facades": [
+    "scripts/analyze_trace10_learners.py",
+    "scripts/audit_trace10_learner_shortlist.py",
+    "scripts/finish_trace10_learner_selection.py",
+    "scripts/process_trace10_additions.py",
+    "scripts/resume_trace10_additions.py",
+    "scripts/finish_figure2_trace10.py",
+    "scripts/publish_figure2_trace10.py"
+  ],
+  "policy": "Exact originals are verified snapshots; explicit historical hashes recover them. No selected state or artifact was changed."
+}

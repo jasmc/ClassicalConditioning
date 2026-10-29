@@ -15,11 +15,19 @@ def command_sources(command):
     """
     root = REPOSITORY.resolve()
     pending, found = [Path(command).resolve(), Path(__file__).resolve()], set()
-    def module_path(name):
+    def module_path(name, importer):
         if name.startswith('classical_conditioning'):
             base = root / 'src' / name.replace('.', '/')
         elif name.startswith('scripts.'):
             base = root / name.replace('.', '/')
+        elif importer.is_relative_to(root / 'scripts'):
+            # Match retained command-local imports without importing/executing them.
+            relative = Path(*name.split('.'))
+            bases = [importer.parent / relative, root / 'scripts' / relative]
+            base = next((p for p in bases if p.with_suffix('.py').is_file()
+                         or (p / '__init__.py').is_file()), None)
+            if base is None:
+                return
         else:
             return
         for parent in base.parents:
@@ -46,13 +54,13 @@ def command_sources(command):
             for node in ast.walk(tree):
                 if isinstance(node, ast.Import):
                     for alias in node.names:
-                        module_path(alias.name)
+                        module_path(alias.name, path)
                 elif isinstance(node, ast.ImportFrom):
                     prefix = package.split('.')[:len(package.split('.')) - node.level + 1] if node.level else []
                     module = '.'.join([*prefix, *([node.module] if node.module else [])])
-                    module_path(module)
+                    module_path(module, path)
                     for alias in node.names:
-                        module_path(module + '.' + alias.name)
+                        module_path(module + '.' + alias.name, path)
                 elif isinstance(node, ast.Constant) and isinstance(node.value, str):
                     literals.append(node.value)
         else:

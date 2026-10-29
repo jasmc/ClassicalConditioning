@@ -6,7 +6,7 @@ from classical_conditioning.analysis.trial_outcomes import parse_recording_ident
 from classical_conditioning.exceptions import SchemaValidationError
 from classical_conditioning.intake import RecordingSources, intake_recording
 from tests import test_intake as intake_tests
-from scripts.process_trace10_additions import protocol
+from classical_conditioning.ingestion.protocol_audit import audit_fixed10_protocol as protocol
 
 RECORDING = intake_tests.RECORDING
 

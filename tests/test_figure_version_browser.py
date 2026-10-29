@@ -10,7 +10,7 @@ import zipfile
 
 from scripts.reviews import library
 from scripts.reviews.versions import Catalogue, SavedHTML, natural, scope_key, panel_views, sha, packed, figure_page
-from scripts.reviews.ordered_library import ordered_groups, verify_package
+from scripts.reviews.ordered_library import ordered_groups, verify_package, verify_previous_sources
 
 SVG=b'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 10"><path d="M0 0L20 10"/></svg>'
 PNG=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=')
@@ -129,6 +129,22 @@ class FigureVersions(unittest.TestCase):
         payload=self.outputs/report['payloads'][0]['path'];payload.write_bytes(b'edited')
         with self.assertRaisesRegex(ValueError,'payload changed'):library.build(cat,self.outputs,self.archive,self.repo)
         self.assertEqual(payload.read_bytes(),b'edited')
+    def test_authenticated_current_collection_can_advance_but_other_bytes_cannot(self):
+        wrapper=self.outputs/'shared/main-paper-figures.html';wrapper.parent.mkdir()
+        wrapper.write_bytes(SVG+b'<figcaption>Old collection</figcaption>')
+        cat=self.catalogue();library.build(cat,self.outputs,self.archive,self.repo)
+        state=self.repo/'docs/paper/figures/main-paper-current-state.json'
+        state.parent.mkdir(parents=True,exist_ok=True);state.write_text('{}')
+        wrapper.write_bytes(SVG+b'<figcaption>New collection</figcaption>')
+        selected={'html':{'path':str(wrapper),'sha256':sha(wrapper.read_bytes())}}
+        with patch('scripts.paper.shared.collection.display_target',return_value=selected) as authenticate:
+            verify_previous_sources(self.outputs,cat,self.repo)
+            authenticate.assert_called_once_with(state)
+            wrapper.write_bytes(b'manual change after selected publication')
+            with self.assertRaises(ValueError):verify_previous_sources(self.outputs,cat,self.repo)
+        with patch('scripts.paper.shared.collection.display_target',side_effect=ValueError('Stale collection evidence')):
+            with self.assertRaisesRegex(ValueError,'Stale collection evidence'):
+                verify_previous_sources(self.outputs,cat,self.repo)
     def test_direct_file_urls_and_joint_scope_links(self):
         p=self.outputs/'figures/figure-02/panels-b-e-h/versions/v2.svg';p.parent.mkdir(parents=True);p.write_bytes(SVG)
         data=self.discover();page=figure_page(2,data,self.outputs).decode();d=json.loads(page.split('id="version-catalogue">',1)[1].split('</script>',1)[0])

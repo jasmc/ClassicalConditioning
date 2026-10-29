@@ -687,7 +687,7 @@
             },
             "role": "axis.title",
             "renderer_artist": "edit-D-value-label",
-            "text": "Tail angle (°)",
+            "text": "Tail angle (\u00b0)",
             "expected": {
               "family": "Arial",
               "size_pt": 7,
@@ -1235,7 +1235,7 @@
               },
               "role": "axis.title",
               "renderer_artist": "edit-D-value-label",
-              "text": "Tail angle (°)",
+              "text": "Tail angle (\u00b0)",
               "expected": {
                 "family": "Arial",
                 "size_pt": 7,
@@ -2547,7 +2547,7 @@
                 "svg_type": "text",
                 "source_element_id": "time__xtick_0-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−20"
+                "display_text": "\u221220"
               },
               {
                 "element_id": "edit-D-time__xtick_1-label",
@@ -2560,7 +2560,7 @@
                 "svg_type": "text",
                 "source_element_id": "time__xtick_1-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−10"
+                "display_text": "\u221210"
               },
               {
                 "element_id": "edit-D-time__xtick_2-label",
@@ -2822,7 +2822,7 @@
                 "svg_type": "text",
                 "source_element_id": "value-label",
                 "scientific_role": "axis.label",
-                "display_text": "Tail angle (°)",
+                "display_text": "Tail angle (\u00b0)",
                 "style_group": "main-paper-axis-titles"
               }
             ],
@@ -2838,7 +2838,7 @@
                 "svg_type": "text",
                 "source_element_id": "trial-9__ytick_0-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−200"
+                "display_text": "\u2212200"
               },
               {
                 "element_id": "edit-D-trial-9__ytick_1-label",
@@ -3061,7 +3061,7 @@
                 "svg_type": "text",
                 "source_element_id": "value-label",
                 "scientific_role": "axis.label",
-                "display_text": "Tail angle (°)",
+                "display_text": "Tail angle (\u00b0)",
                 "style_group": "main-paper-axis-titles"
               }
             ],
@@ -3077,7 +3077,7 @@
                 "svg_type": "text",
                 "source_element_id": "trial-17__ytick_0-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−200"
+                "display_text": "\u2212200"
               },
               {
                 "element_id": "edit-D-trial-17__ytick_1-label",
@@ -3300,7 +3300,7 @@
                 "svg_type": "text",
                 "source_element_id": "value-label",
                 "scientific_role": "axis.label",
-                "display_text": "Tail angle (°)",
+                "display_text": "Tail angle (\u00b0)",
                 "style_group": "main-paper-axis-titles"
               }
             ],
@@ -3316,7 +3316,7 @@
                 "svg_type": "text",
                 "source_element_id": "trial-63__ytick_0-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−200"
+                "display_text": "\u2212200"
               },
               {
                 "element_id": "edit-D-trial-63__ytick_1-label",
@@ -3539,7 +3539,7 @@
                 "svg_type": "text",
                 "source_element_id": "value-label",
                 "scientific_role": "axis.label",
-                "display_text": "Tail angle (°)",
+                "display_text": "Tail angle (\u00b0)",
                 "style_group": "main-paper-axis-titles"
               }
             ],
@@ -3555,7 +3555,7 @@
                 "svg_type": "text",
                 "source_element_id": "trial-66__ytick_0-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−200"
+                "display_text": "\u2212200"
               },
               {
                 "element_id": "edit-D-trial-66__ytick_1-label",
@@ -3778,7 +3778,7 @@
                 "svg_type": "text",
                 "source_element_id": "value-label",
                 "scientific_role": "axis.label",
-                "display_text": "Tail angle (°)",
+                "display_text": "Tail angle (\u00b0)",
                 "style_group": "main-paper-axis-titles"
               }
             ],
@@ -3794,7 +3794,7 @@
                 "svg_type": "text",
                 "source_element_id": "trial-93__ytick_0-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−200"
+                "display_text": "\u2212200"
               },
               {
                 "element_id": "edit-D-trial-93__ytick_1-label",
@@ -4098,7 +4098,7 @@
                 "svg_type": "text",
                 "source_element_id": "time__xtick_0-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−20"
+                "display_text": "\u221220"
               },
               {
                 "element_id": "edit-E-time__xtick_1-label",
@@ -4112,7 +4112,7 @@
                 "svg_type": "text",
                 "source_element_id": "time__xtick_1-label",
                 "scientific_role": "axis.tick_label",
-                "display_text": "−10"
+                "display_text": "\u221210"
               },
               {
                 "element_id": "edit-E-time__xtick_2-label",
@@ -8817,8 +8817,8 @@
             "element_id": "edit-D-trial-9__ytick_0-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−200",
-            "display_text": "−200",
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -8882,8 +8882,8 @@
             "element_id": "edit-D-trial-17__ytick_0-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−200",
-            "display_text": "−200",
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -8947,8 +8947,8 @@
             "element_id": "edit-D-trial-63__ytick_0-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−200",
-            "display_text": "−200",
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -9012,8 +9012,8 @@
             "element_id": "edit-D-trial-66__ytick_0-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−200",
-            "display_text": "−200",
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -9077,8 +9077,8 @@
             "element_id": "edit-D-trial-93__ytick_0-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−200",
-            "display_text": "−200",
+            "source_text": "\u2212200",
+            "display_text": "\u2212200",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -9116,8 +9116,8 @@
             "element_id": "edit-D-time__xtick_0-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−20",
-            "display_text": "−20",
+            "source_text": "\u221220",
+            "display_text": "\u221220",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -9129,8 +9129,8 @@
             "element_id": "edit-D-time__xtick_1-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−10",
-            "display_text": "−10",
+            "source_text": "\u221210",
+            "display_text": "\u221210",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -9194,8 +9194,8 @@
             "element_id": "edit-D-value-label",
             "role": "axis.label",
             "size_pt": 7,
-            "source_text": "Tail angle (°)",
-            "display_text": "Tail angle (°)",
+            "source_text": "Tail angle (\u00b0)",
+            "display_text": "Tail angle (\u00b0)",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -9570,8 +9570,8 @@
             "element_id": "edit-E-time__xtick_0-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−20",
-            "display_text": "−20",
+            "source_text": "\u221220",
+            "display_text": "\u221220",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -9584,8 +9584,8 @@
             "element_id": "edit-E-time__xtick_1-label",
             "role": "axis.tick_label",
             "size_pt": 6,
-            "source_text": "−10",
-            "display_text": "−10",
+            "source_text": "\u221210",
+            "display_text": "\u221210",
             "scientific_identity": "inherited explicit axis/legend mapping"
           },
           {
@@ -10904,7 +10904,7 @@
           "H"
         ],
         "property": "shared displayed trial index",
-        "expected": "display = acquisition minus4 across D–H; examples5,13,59,62,89",
+        "expected": "display = acquisition minus4 across D\u2013H; examples5,13,59,62,89",
         "implementation": "explicit source/display mapping after assembly",
         "status": "partial",
         "affected_artifact_hashes": {
@@ -10983,7 +10983,7 @@
         "verification": {
           "svg_sha256": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7",
           "renderer": "bundled sharp/libvips",
-          "visual_review": "Inspected exact saved SVG at 900 px assembly width and enlarged E crop. Only E black trace transformation changes: raw V-B deviations use unbinned baseline-frame percentile scaling, without logarithm, binning or smoothing. Independent formula check passed. Baseline zero remains at midpoint of symmetric ±30 axes; all 55,558 eligible frames fit without clipping. All 400 F band cell colors are unchanged, and A–D plus F–H panel-group bytes match the starting SVG. Legend and semantic mapping explicitly record no-log black trace with separate unchanged F log/bin color bands.",
+          "visual_review": "Inspected exact saved SVG at 900 px assembly width and enlarged E crop. Only E black trace transformation changes: raw V-B deviations use unbinned baseline-frame percentile scaling, without logarithm, binning or smoothing. Independent formula check passed. Baseline zero remains at midpoint of symmetric \u00b130 axes; all 55,558 eligible frames fit without clipping. All 400 F band cell colors are unchanged, and A\u2013D plus F\u2013H panel-group bytes match the starting SVG. Legend and semantic mapping explicitly record no-log black trace with separate unchanged F log/bin color bands.",
           "numeric_layout_and_scale_checks": {
             "D_E_equal_axis_rectangles": true,
             "E_colourbar_outside_body": true,
@@ -11128,7 +11128,7 @@
         "verification": {
           "svg_sha256": "5255b3fa4204018af6b571aeb06e97c0ade5607a202729806ad79aa1d858bcf7",
           "renderer": "bundled sharp/libvips",
-          "visual_review": "Inspected exact saved SVG at 900 px assembly width and enlarged E crop. Only E black trace transformation changes: raw V-B deviations use unbinned baseline-frame percentile scaling, without logarithm, binning or smoothing. Independent formula check passed. Baseline zero remains at midpoint of symmetric ±30 axes; all 55,558 eligible frames fit without clipping. All 400 F band cell colors are unchanged, and A–D plus F–H panel-group bytes match the starting SVG. Legend and semantic mapping explicitly record no-log black trace with separate unchanged F log/bin color bands.",
+          "visual_review": "Inspected exact saved SVG at 900 px assembly width and enlarged E crop. Only E black trace transformation changes: raw V-B deviations use unbinned baseline-frame percentile scaling, without logarithm, binning or smoothing. Independent formula check passed. Baseline zero remains at midpoint of symmetric \u00b130 axes; all 55,558 eligible frames fit without clipping. All 400 F band cell colors are unchanged, and A\u2013D plus F\u2013H panel-group bytes match the starting SVG. Legend and semantic mapping explicitly record no-log black trace with separate unchanged F log/bin color bands.",
           "numeric_layout_and_scale_checks": {
             "D_E_equal_axis_rectangles": true,
             "E_colourbar_outside_body": true,
@@ -11197,7 +11197,7 @@
       },
       {
         "id": "fig1-e-zero-positive-axis-20261013",
-        "author_direction": "Use 0–5, omit baseline reference, copy H color legend, draw single continuous CS boundaries, and freeze E.",
+        "author_direction": "Use 0\u20135, omit baseline reference, copy H color legend, draw single continuous CS boundaries, and freeze E.",
         "scope": [
           "E",
           "F"
@@ -11644,7 +11644,7 @@
             },
             "role": "axis.title",
             "renderer_artist": "edit-D-value-label",
-            "text": "Tail angle (°)",
+            "text": "Tail angle (\u00b0)",
             "expected": {
               "family": "DejaVu Sans",
               "size_pt": 8.0,
@@ -12385,7 +12385,7 @@
     "version": "v15",
     "authorization": {
       "request": "freeze 15",
-      "scope": "Figure 1 whole assembly A–H",
+      "scope": "Figure 1 whole assembly A\u2013H",
       "source": "User message in this chat on 2026-10-13",
       "authorized": true
     },
@@ -12939,5 +12939,16 @@
     "record": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/singlefish-heatmaps-20261013/README.md",
     "date": "2026-10-13",
     "status": "verified and archived; original historical paths registered for exact-byte recovery"
+  },
+  "presentation_lock": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/assembly/versions/locked-current-20261029/version-lock.json",
+    "sha256": "4d4a67f4316aaf472188cbfdb2ce6fd82dbc21abedd047bad9112ddf0b35008f",
+    "status": "locked",
+    "kind": "provisional-presentation-lock",
+    "date": "2026-10-29",
+    "scope": "Current full presentation and matching PNG-based PDF",
+    "retain_other_versions": true,
+    "future_edits_require_new_version": true,
+    "publication_freeze_completed": false
   }
 }

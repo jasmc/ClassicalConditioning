@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "figure_id": "fig4",
+  "scope": "Delay and 3sTrace panel-a views only; shared signed-bout-vigor range -0.30 to +0.15; matching PNG-based PDF",
+  "default_display": "draft",
+  "default_display_format": "html-svg-and-legend",
+  "whole_figure_frozen": false,
+  "scientific_selection": {
+    "status": "Unchanged exploratory Delay/3sTrace model pilots; no new scientific approval",
+    "records": []
+  },
+  "draft": {
+    "status": "Author-locked provisional presentation",
+    "review": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/figure-04.html",
+      "sha256": "3e68d511a967c35a32cbce4ad241bac0ed9d77f73343dab5e1998bd69d43ed0d"
+    },
+    "legend": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/figure-04.html",
+      "sha256": "3e68d511a967c35a32cbce4ad241bac0ed9d77f73343dab5e1998bd69d43ed0d",
+      "format": "matching legends embedded in self-contained HTML"
+    },
+    "panel_svgs": [
+      {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/figure-04-delay-panel-a.svg",
+        "sha256": "87083bfcdd02323a9228fd95c685be729ab7f4b6d3376d51e15a52ee864cc492"
+      },
+      {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/figure-04-3strace-panel-a.svg",
+        "sha256": "ad152c778c83ab6b852db982b8e370bf3713e1c1ae88e32a63e79e1a57937922"
+      }
+    ],
+    "exports": {
+      "pdf": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/figure-04.pdf",
+        "sha256": "6ec85fc8d8fa16a8a1756080ad13229ca94fb5467c7a90f5b5c10ce0ec813b90"
+      },
+      "png": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/figure-04-600dpi.png",
+        "sha256": "eafe66f73bdcebd5a1bf82611b076cc2a42fe7606e64b0893f3396ef651a3f2c"
+      }
+    }
+  },
+  "presentation_lock": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/version-lock.json",
+    "sha256": "da221a2a2af7364b8b9f068d6296e1d4796ca3bdb30f3660bb563e8da2424a95",
+    "status": "locked",
+    "kind": "provisional-presentation-lock",
+    "date": "2026-10-29",
+    "scope": "Delay and 3sTrace panel-a views only; shared signed-bout-vigor range -0.30 to +0.15; matching PNG-based PDF",
+    "retain_other_versions": true,
+    "future_edits_require_new_version": true,
+    "publication_freeze_completed": false
+  }
+}

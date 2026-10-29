@@ -1,5 +1,7 @@
 # Repository history
 
+- [28 October independent folder audits](2026-10-28-eight-folder-audit/README.md): eight focused reports, exact instruction drafts, reconciled recommendations and verification; cleanup remains unexecuted.
+
 Completed structural assessments, historical handoffs and migration evidence. Current rules live under docs/project-maintenance.
 
 Use [project documentation](../../docs/README.md) for current guidance. Historical relative paths resolve through the repository relocation map.
@@ -22,3 +24,7 @@ Use [project documentation](../../docs/README.md) for current guidance. Historic
 - [26 October JOAQUIM disposition review](2026-10-26-storage-disposition-review/README.md): drive-map structure, fresh targeted checks and proposed deletion/consolidation/archive scopes; no existing payload changed.
 
 - [28 October SSD portability reconciliation](2026-10-28-ssd-portability/README.md): authenticated Mac/PC source preservation, restored consolidation safeguards, portable storage and byte protection, verification and remaining native-platform coverage.
+
+- [27 October storage consolidation](2026-10-27-storage-consolidation/README.md): completed storage/recovery evidence.
+- [28 October offline-cache retirement](2026-10-28-offline-cache-retirement/README.md): retained SSD versions and exact recovery.
+- [28 October folder-audit implementation](2026-10-28-folder-audit-implementation/README.md): requirements preservation, rule adoption, scoped successors and validation.

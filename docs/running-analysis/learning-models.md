@@ -165,10 +165,12 @@ generated image; rerendering that failed analysis with the current source
 would be rejected because its leave-one-fish-out gate failed. Figure mode
 controls export format, not the scientific acceptance rule.
 
-The one-command `run-allDelay-full-windows.ps1` launcher accepts `-MetricId`
-and passes it to `learning-onset`. Its default preserves the original
-`tail_length_weighted_angular_l1` technical run. Supply a different
-`-LearningAnalysisId` for a different metric. If the existing analysis ID has
+The [Windows Delay dispatcher](../../scripts/workflows/windows/delay.ps1),
+called with `-Stage pipeline-analysis`, forwards `-MetricId` to `learning-onset`.
+Its [pipeline stage](../../scripts/workflows/windows/stages/delay_pipeline_analysis.ps1)
+defaults to `legacy_distal_angular_speed`. These are technical run settings,
+not approval of another scientific method. A separately justified metric
+sensitivity requires a different `-LearningAnalysisId`. If the existing analysis ID has
 a saved metric that differs from `-MetricId`, the launcher stops rather than
 reusing it. Use the direct `learning-onset` command to change the other model
 parameters in the tables below.

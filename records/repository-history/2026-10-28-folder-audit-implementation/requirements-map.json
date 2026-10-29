@@ -1,0 +1,850 @@
+{
+  "schema_version": 1,
+  "source_identities": {
+    "Plans/12_STUDY_ARTIFACT_STORAGE.md": "890d2ee570b521a4367e11259a31c34c41a1844e5f4b48a14f21431ed35f302a",
+    "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md": "333dba6b18bfb7c3b3cb50298e979f66fec9d81d30d4ceafc03fd72c9cb12142"
+  },
+  "coverage": "All nonempty original Markdown blocks retained, with section-level maintained owners. No paragraph was discarded.",
+  "blocks": [
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 1,
+      "heading": "Introduction",
+      "block_sha256": "12f4ca6412d7650884e34618195604264648a7cc025cd0bdaf6708baf44a64d6",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 2,
+      "heading": "Introduction",
+      "block_sha256": "6e0328385d293e54177320b1e3f9b350e7eafd24d1e241312522467a9e93ac21",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 3,
+      "heading": "Introduction",
+      "block_sha256": "530077ba1060c58bb770fd6d4ab36b67c3ef71310c908c508726bfefb9cf88ec",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 4,
+      "heading": "Ownership and mechanism",
+      "block_sha256": "4fd403a26aaa8b40d4465cf6da0fc9eeb59627e1f4d615a9f9a2f3bcfe398945",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 5,
+      "heading": "Ownership and mechanism",
+      "block_sha256": "eb63f4744596a92897c0df06883c81c0f6d3998fd677d94fb310db5d17990edb",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 6,
+      "heading": "Ownership and mechanism",
+      "block_sha256": "397cb229024aa85ab5e81b7140a79a710d175c3faa4d607f138fa96948c96aa3",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 7,
+      "heading": "Ownership and mechanism",
+      "block_sha256": "d071be1e8963decd5527a42b71e810a8ab4eac2f660e1c1705eec5c6283fc511",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 8,
+      "heading": "Skill assessment and adaptation",
+      "block_sha256": "cd5cd38759778cc683a3c0586e6b7dc3fb7deafa5872d73b3e86ae6daaa1e817",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 9,
+      "heading": "Skill assessment and adaptation",
+      "block_sha256": "28eb60f6ca9b7ffaff233b7b52671df81b6f4dcd2e8f6e13825982f5f23bdc95",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 10,
+      "heading": "Skill assessment and adaptation",
+      "block_sha256": "cb40aa0ca8d3fa1629e65fdd41f1726b6dec89274e55e4573cbf3110a7572b07",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 11,
+      "heading": "Skill assessment and adaptation",
+      "block_sha256": "620b3542dd6b89a31fef1c176dbaccfadc17c7aeaa03ed4298f7f819be8e6206",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 12,
+      "heading": "Skill assessment and adaptation",
+      "block_sha256": "e547cada24e283612c068cc85a2015d0bf07b31cfdb84cbeeb2f2306f6e020d1",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/rules.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 13,
+      "heading": "Target organization",
+      "block_sha256": "806514b2b9ee058a5dcd1845535ae6cdc9eb568c34f15eb315dfb7e60b1cd2dd",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md",
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 14,
+      "heading": "Target organization",
+      "block_sha256": "b90fbba246eb1f58a1b642ee00f84a919ec9ce5cb9d11fdde1e11f594fccd226",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md",
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 15,
+      "heading": "Target organization",
+      "block_sha256": "831a873773463a3f8d16a863d771cf811e75554e46dfb97f799367993e048a13",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md",
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 16,
+      "heading": "Target organization",
+      "block_sha256": "fec5cba617e82517d76bcb84102af10cc78d9a35b4b41d4a2d216762daf55667",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md",
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 17,
+      "heading": "Target organization",
+      "block_sha256": "0d6dc777dea220ef871bbf921539c35de865b039887a2a96a8ccc31b29917755",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md",
+        "docs/project-maintenance/review-artifacts.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 18,
+      "heading": "Priority 1 \u2014 classify sources and preserve dependencies",
+      "block_sha256": "9d9efd540bdd6f6109e3320f91187c8fe36680e3fbb46f70aed295c7cf1314ad",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/structure.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 19,
+      "heading": "Priority 1 \u2014 classify sources and preserve dependencies",
+      "block_sha256": "0a9430b785295a2b084ca5679265f9c37e23d90873c08a517f71cc93bfb5541b",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/structure.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 20,
+      "heading": "Priority 1 \u2014 classify sources and preserve dependencies",
+      "block_sha256": "8ba14627419fef349d40b7fd913065b21c64bec85c3976b97d96524070d60adb",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/structure.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 21,
+      "heading": "Priority 1 \u2014 classify sources and preserve dependencies",
+      "block_sha256": "2b0812e0d7a56062b8e15ae185cc77078576ab914110589382a4989a65b60974",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/structure.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 22,
+      "heading": "Priority 1 \u2014 classify sources and preserve dependencies",
+      "block_sha256": "3c1b94d828bc45ba9c3beeca6d545cb87389b4d1e9f24570a8d989f1d7b9373b",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/structure.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 23,
+      "heading": "Priority 2 \u2014 teach readers to resolve external manuscripts",
+      "block_sha256": "18a1395a1c75fb1b831a5d1718af5167da7a70fed5483d6d1c4d94dbb9edb7d0",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/paper/study-sources.json"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 24,
+      "heading": "Priority 2 \u2014 teach readers to resolve external manuscripts",
+      "block_sha256": "29dfb249afe399038bc7850b9a31bd00adc93145ebcfebd410ec65733a92a7b7",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/paper/study-sources.json"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 25,
+      "heading": "Priority 2 \u2014 teach readers to resolve external manuscripts",
+      "block_sha256": "8de06664c61ab73762f3ec14998b2329e4cbdeb2a5174223a25ec32c7e788f08",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/paper/study-sources.json"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 26,
+      "heading": "Priority 2 \u2014 teach readers to resolve external manuscripts",
+      "block_sha256": "88ad369538d1ae6421bc92f6f724c71747a0da5646652b6917560284ca90fd34",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/paper/study-sources.json"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 27,
+      "heading": "Priority 2 \u2014 teach readers to resolve external manuscripts",
+      "block_sha256": "fc84c30c39c915b40a56e333b11cdfe571e153a1873df9c46b9c843e702895a9",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/paper/study-sources.json"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 28,
+      "heading": "Priority 2 \u2014 teach readers to resolve external manuscripts",
+      "block_sha256": "fe3958bb2e32e2b5e763471757ae2fa43c2e83cf700e937e58e98602b6c24d3c",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/paper/study-sources.json"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 29,
+      "heading": "Priority 3 \u2014 migrate the study Markdown in batches",
+      "block_sha256": "f23bb2aa8000af4c8a5318605f814d1e944ca53fa7574e9dd52b0dad9c1a42a8",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 30,
+      "heading": "Priority 3 \u2014 migrate the study Markdown in batches",
+      "block_sha256": "1b0f75d36ae74fd370a8fddf88b86cbe52c97ea8ab1a19b993a96326acf3afba",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 31,
+      "heading": "Priority 3 \u2014 migrate the study Markdown in batches",
+      "block_sha256": "61d8a8a587e375dfe0c9e875cb4547185bf49da81f0058a6a339137d80836de8",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 32,
+      "heading": "Priority 3 \u2014 migrate the study Markdown in batches",
+      "block_sha256": "1f38d677e306144fd3b2fd4fa80cdfaa4d790ffcd1df9b49bd075e5d23175b44",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 33,
+      "heading": "Priority 3 \u2014 migrate the study Markdown in batches",
+      "block_sha256": "8fb4880f07fd386c65070df99fd9fa187b3aa81019c442cf64372d9c0f201bf8",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 34,
+      "heading": "Priority 4 \u2014 revisions, notes and decisions",
+      "block_sha256": "5e97bbf0bd05e5ace3414bf6bbf976cb7574c7e84f35bbb6954831c403277b2d",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 35,
+      "heading": "Priority 4 \u2014 revisions, notes and decisions",
+      "block_sha256": "2ffbcc1012838763ea4b915b15ae396643b873005c670dd1d51b78df84758a92",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 36,
+      "heading": "Priority 4 \u2014 revisions, notes and decisions",
+      "block_sha256": "69385477a85a3c5c505a033189ff4cf1ccdc647b465ddc856e4425ef5d1dac58",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 37,
+      "heading": "Priority 4 \u2014 revisions, notes and decisions",
+      "block_sha256": "3f892cf686bda931be500bb7f5b1afb17fecd58edbabc45851eb93c2ed98b69b",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 38,
+      "heading": "Verification and current status",
+      "block_sha256": "4faee6dfd885901bf95c59547cb1d79b281695d5b227e0fa290a7f3112fb9bb7",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 39,
+      "heading": "Verification and current status",
+      "block_sha256": "1d934c17e4e7b53d5d3b6a950ac7feb348c68f14518136de3b775b6c3bbc3195",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 40,
+      "heading": "Verification and current status",
+      "block_sha256": "f65b4453368b84bceaa5d74fde1200684579a91f0359a4be35ea92f0943ca2c5",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 41,
+      "heading": "Verification and current status",
+      "block_sha256": "651eaaec27a1015b1f74b5d4de33677ffae09c020f1d039a1096564176169f23",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 42,
+      "heading": "Verification and current status",
+      "block_sha256": "a0b294a267ff86c9330d51d8bf0afb59f2f9509d1efd5166eba0f81b36430766",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/review-artifacts.md",
+        "Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 43,
+      "heading": "Reader verification follow-up",
+      "block_sha256": "ee7f80b878711a0bf469856b2b8aa169c11c77a7314ba692dc5fd53906ac7e9c",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 44,
+      "heading": "Reader verification follow-up",
+      "block_sha256": "64de22eea1fe515d7289bd00e6d67213ae684fbea8757f58da05b777da175bb1",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 45,
+      "heading": "Reader verification follow-up",
+      "block_sha256": "b8870329a64699e35d23ed23d69ad2f21e267b92f9e9dd98c6d62acabd803e46",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 46,
+      "heading": "Reader verification follow-up",
+      "block_sha256": "60cf73966811f3205a6e34bfdf6aac746f2b74d38921b5fbd9085083b10cb764",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "block": 47,
+      "heading": "Reader verification follow-up",
+      "block_sha256": "87677b3989f9daf1849c9aa938740ef546c18b4ae8abca0d2d74a6524382c74c",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "maintained_owners": [
+        "Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 1,
+      "heading": "Introduction",
+      "block_sha256": "5ad3881e8c0e713551a77f8900051a52e0f0801ddb11e5798d402a483557f7af",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 2,
+      "heading": "Introduction",
+      "block_sha256": "82e5bfd5423b8ff2e940dd2d691027d5e918f4960c8ee7977f548c0f9d73a752",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 3,
+      "heading": "Introduction",
+      "block_sha256": "beae2af094f0789b6db9ca470ba688016559303e290b22b30a91486c9dd593e8",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 4,
+      "heading": "Implemented repairs",
+      "block_sha256": "6439050688255be0d1e0ff0778452a3eea4c2c0af9d20cae993e7b5efe18d268",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 5,
+      "heading": "Implemented repairs",
+      "block_sha256": "b7f1575a5c7fbc3d9c1911f830add56efa16ffe34306fef9017a159325836d26",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 6,
+      "heading": "Implemented repairs",
+      "block_sha256": "897331aae7ddf688a564eb3499b11beea799fa686a6f693e932d24d5fe7199ab",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 7,
+      "heading": "Shared implementation",
+      "block_sha256": "cfa420fb95bcf16cbc7fc3e1a678484eb87ae32983ddd639be762baa2679b42d",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "src/README.md",
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 8,
+      "heading": "Shared implementation",
+      "block_sha256": "5960ef471badd92cfa1efe8b2c0d7d9df184d9072e2ac90de0e735973941972c",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "src/README.md",
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 9,
+      "heading": "Shared implementation",
+      "block_sha256": "c84f487893bfeb9287127e80c7b724a5097a73fa586785cb94c8e07f466058ba",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "src/README.md",
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 10,
+      "heading": "Shared implementation",
+      "block_sha256": "bc4500a962044544da606704ce6117cb6220f8e6f8c5666f25e942e89bea762a",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "src/README.md",
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 11,
+      "heading": "Shared implementation",
+      "block_sha256": "fb48bc61c186d51b84ef6b907ff9c164a20d58254820252be12564c6ddc5fd00",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "src/README.md",
+        "docs/project-maintenance/script-lifecycle.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 12,
+      "heading": "Physical command organization",
+      "block_sha256": "43e107c69e6337e0d46d683d582a4e5526d7387b3f8a53acf7fa7344fe70a121",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 13,
+      "heading": "Physical command organization",
+      "block_sha256": "8ae271a3909c76c718aac3c238d8fe4fe5784b30a0fa1ae9d678a6c69685ec30",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 14,
+      "heading": "Physical command organization",
+      "block_sha256": "a1af585ff9b7185a29bb52850955606073b469a6a446d925cf22a3056548338e",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 15,
+      "heading": "Physical command organization",
+      "block_sha256": "c1102a2b3bfa6c07e7c7cdabc7601de0bb60647f7744bfb6ace0dbefce9ff33d",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 16,
+      "heading": "Physical command organization",
+      "block_sha256": "e3903d3a5c7a4cbb2abfa1c0fa7d0a80386c8147fe39e8869c6ea6c0ea2efe87",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "scripts/README.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 17,
+      "heading": "Verified retirements and storage organization",
+      "block_sha256": "018e366bde01551b3183b7ec9dd949866dfd3043bb16941981e265f8a8ca8e8a",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 18,
+      "heading": "Verified retirements and storage organization",
+      "block_sha256": "9f2cac3b14c35d632ad0322093de62dbebe48502aae5cb67d35dd88d27124731",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 19,
+      "heading": "Verified retirements and storage organization",
+      "block_sha256": "b133abde3cc1ca911a6226bbeecafda1563622ec2cd3caf119f604e4a35a8698",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 20,
+      "heading": "Verified retirements and storage organization",
+      "block_sha256": "fbec503738be6b2c2509db815e8b3760faaa401984fef5ee65021a365119395d",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/storage.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 21,
+      "heading": "Verification and limits",
+      "block_sha256": "a38ef60b97df66eaf675172e6e9468ac8f0a22bd34b107b67d6677f32110b1f6",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/rules.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 22,
+      "heading": "Verification and limits",
+      "block_sha256": "6626e2877ce2b9c739be6a453d5072805574ef57ed1c6f853972ddf2c3c27106",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/rules.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    },
+    {
+      "source": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "block": 23,
+      "heading": "Verification and limits",
+      "block_sha256": "6a5bd3667545577c3bfee6e09d2fadab07c62304d5ca1100547916bda600976c",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "maintained_owners": [
+        "docs/project-maintenance/rules.md",
+        "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ],
+      "treatment": "Exact historical text retained; current policy/remaining work routed to named owners. Historical physical layouts/counts/status remain historical, not current requirements."
+    }
+  ],
+  "explicit_surviving_requirements": [
+    "original source/HTML identities and dependency-aware migration",
+    "manual edits, exact aliases, immutable snapshots and missing-source failure",
+    "existing browser origins, notebook/guide/section/storage IDs and note recovery",
+    "read-only generated reading copies and one editable manuscript",
+    "explicit scientific decisions versus provisional preferences",
+    "remaining notebook/responsive/print and native/export/scientific gates",
+    "command input/output, publication guards, source closure and original Windows contracts",
+    "no hosted CI or automatic deletion"
+  ]
+}

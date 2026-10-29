@@ -25,8 +25,8 @@ from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.figure_workspace import Snapshot, publish_state
 from classical_conditioning.figures.pooled_log_heatmap import analyze_recording, pool_equal_fish
 from classical_conditioning.analysis.trial_outcomes import verify_candidate_trial_outcomes
-from review_figure2_block_log_median import calculate_trials, read_windows, COL
-from render_figure2_delay_legacy_metric_lme import bootstrap_trajectories
+from classical_conditioning.analysis.review.bout_block_review import calculate_trials, read_windows, COL
+from scripts.paper.figure_02.panel_g.reproduction.render_legacy_metric_lme import bootstrap_trajectories
 
 PROJECT = Path(r'F:\Digested Data\all3sTrace-full-v1')
 OUT = Path('J:/ClassicalConditioning Outputs/current/reviews/figure-02-3strace')
@@ -34,8 +34,8 @@ BASELINE = REPO / 'records/figure-reviews/figure-02/trace3-panels-start-20261019
 STATE = REPO / 'docs/paper/figures/figure-02/panels-b-e-h/current-state.json'
 PARENT = STATE.parent.parent / 'current-state.json'
 SCIENCE = [REPO / 'src/classical_conditioning/figures/pooled_log_heatmap.py',
-           REPO / 'scripts/review_figure2_block_log_median.py',
-           REPO / 'scripts/render_figure2_delay_legacy_metric_lme.py',
+           REPO / 'scripts/paper/figure_02/panels_d_e/reproduction/review_block_log_median.py',
+           REPO / 'scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py',
            REPO / 'src/classical_conditioning/preprocessing/acquisition_timing.py',
            REPO / 'src/classical_conditioning/analysis/movement_state.py']
 

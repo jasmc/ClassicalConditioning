@@ -13,9 +13,9 @@ from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.analysis.bout_block_statistics import corrected_b_statistics
 from classical_conditioning.analysis.inference.learning_onset import LearningOnsetConfig, BLOCK_ORDER, block_global_interaction_test
 from classical_conditioning.figures.pooled_log_heatmap import pool_equal_fish
-from render_figure2_delay_logmedian import fit
-from render_figure2_delay_phase_lmm import phase_features, contrasts, adequacy, PHASE, GLOBAL
-from render_figure2_delay_legacy_metric_lme import BLOCK_FORMULA, LOCAL_FORMULA, bootstrap_trajectories, adjust_family
+from scripts.paper.figure_02.panel_g.reproduction.render_historical_logmedian import fit
+from scripts.paper.figure_02.panel_g.reproduction.render_phase_lmm import phase_features, contrasts, adequacy, PHASE, GLOBAL
+from scripts.paper.figure_02.panel_g.reproduction.render_legacy_metric_lme import BLOCK_FORMULA, LOCAL_FORMULA, bootstrap_trajectories, adjust_family
 
 SOURCE=Path('J:/ClassicalConditioning Outputs/current/reviews/figure-02-3strace')
 OUT=SOURCE/'matched-delay-statistics'

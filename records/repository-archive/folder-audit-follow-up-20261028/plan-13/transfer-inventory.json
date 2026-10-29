@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "authorization": "Author explicitly requested safe implementation of the audited plan retirements on 28 October 2026; complete original retained locally and externally; no scientific material removed.",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-28-folder-audit-implementation/retired-plan-13",
+  "files": [
+    {
+      "path": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "bytes": 7238,
+      "sha256": "333dba6b18bfb7c3b3cb50298e979f66fec9d81d30d4ceafc03fd72c9cb12142",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/13_SCRIPT_COMMAND_ORGANIZATION.md"
+      ]
+    }
+  ]
+}

@@ -84,5 +84,8 @@ producer-binding gap for I's bootstrap draw file.
 All three phase fits retain heavy residual tails. Numerical agreement is not
 model calibration, biological validation, paper-wide cohort approval or production
 verification. XML annotation checks establish label content and marker counts;
-they do not establish painted visibility or exact marker placement. The unselected
-canvas-overdraw correction and remaining renderer checks are separate work.
+they do not establish painted visibility or exact marker placement. The
+[canvas-overdraw correction](../../../../records/figure-reviews/figure-02/canvas-visibility-publication-20261028.json)
+was selected on 28 October after fresh browser frame measurements and visual
+review. It changes only the two E/F white background fills; remaining production
+renderer checks are separate work.

@@ -16,7 +16,7 @@ from classical_conditioning.figure_workspace import Snapshot
 from classical_conditioning.preprocessing.acquisition_timing import estimate_camera_cadence
 from classical_conditioning.figures.pooled_log_heatmap import analyze_recording,pool_equal_fish
 from classical_conditioning.analysis.trial_outcomes import verify_candidate_trial_outcomes
-from review_figure2_block_log_median import calculate_trials,read_windows,COL
+from classical_conditioning.analysis.review.bout_block_review import calculate_trials,read_windows,COL
 import build_figure2_trace3_panels as reference
 
 PROJECT=Path(r'F:\Digested Data\all10sTrace-full-v1')

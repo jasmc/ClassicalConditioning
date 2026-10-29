@@ -248,18 +248,9 @@ def fit_candidate_mixed_effects(
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
-    # Persist losslessly and expose integrity details for the summary manifest.
-    table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
-    pq.write_table(table, path, compression="zstd", write_statistics=True)
-    return {
-        "path": str(path),
-        "sha256": sha256_file(path),
-        "rows": len(frame),
-        "columns": len(table.column_names),
-        "size_bytes": path.stat().st_size,
-        "compression": "zstd",
-        "compression_lossless": True,
-    }
+    # Compatibility callable; the shared writer preserves its exact table/receipt contract.
+    from classical_conditioning.artifacts import write_parquet_table
+    return write_parquet_table(path, frame)
 
 
 def build_candidate_mixed_effects(

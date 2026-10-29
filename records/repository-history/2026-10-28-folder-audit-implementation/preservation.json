@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "starting_commit": "702193b9591b62bf12820bc2b01ca5e8928f9528",
+  "starting_repository_files": 1128,
+  "missing_starting_paths": [],
+  "reconstruction": {
+    "verified_files": 1128,
+    "mismatches": 0,
+    "receipt": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-28-folder-audit-implementation/reconstruction-proof.json",
+    "receipt_identity": {
+      "sha256": "969f60f6386363a4a11c61d044c5ae870c4c7d9a4b05193c09147dbc1df16314",
+      "bytes": 3446
+    }
+  },
+  "source_snapshot": {
+    "verified_files": 523,
+    "strict_verification": {
+      "verified_files": 523
+    }
+  },
+  "original_source_and_plan_recoveries": 28,
+  "immutable_plan_accounts": [
+    {
+      "path": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "sha256": "890d2ee570b521a4367e11259a31c34c41a1844e5f4b48a14f21431ed35f302a"
+    },
+    {
+      "path": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "sha256": "333dba6b18bfb7c3b3cb50298e979f66fec9d81d30d4ceafc03fd72c9cb12142"
+    },
+    {
+      "path": "records/repository-history/2026-10-28-folder-audit-implementation/completed-plan-15.md",
+      "sha256": "37b29a6a2b41be497ebb58ad3f784f67bf8f6bc5c238740bb990e4cb116c3345"
+    }
+  ],
+  "requirements_coverage": {
+    "original_plans_12_13_markdown_blocks": 70,
+    "complete_originals_retained": true,
+    "plan_15_complete_original_retained": true,
+    "old_reading_paths": "two compact compatibility pointers, exact originals through relocation and explicit historical hashes"
+  },
+  "exact_retained_bound_source": "scripts/finish_trace10_example.py",
+  "task_modified_starting_paths": [
+    {
+      "path": ".gitattributes",
+      "starting_sha256": "add03a62714df9b7ba0dd420329bbd718579850c96163cbcdb6c8e51752e5e4f",
+      "observed_sha256": "6358a663332190e75593212d4739f25566562b549e4bc2fac574bd141eb98c6c"
+    },
+    {
+      "path": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "starting_sha256": "890d2ee570b521a4367e11259a31c34c41a1844e5f4b48a14f21431ed35f302a",
+      "observed_sha256": "9af4402718552c2f367e870f37226b8e54914019c7e4095f5b378881085a06e8"
+    },
+    {
+      "path": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "starting_sha256": "333dba6b18bfb7c3b3cb50298e979f66fec9d81d30d4ceafc03fd72c9cb12142",
+      "observed_sha256": "06729e615352553c6557119b37424b4d545ecb1cdbbbaecceda7d390096ea0aa"
+    },
+    {
+      "path": "Plans/IMPLEMENTATION_STEP_INDEX.md",
+      "starting_sha256": "210a059a5f66f22b80553119da8045031ed8389523a7a43ee60989f1489f90ae",
+      "observed_sha256": "d3724cd0121d075088eaf9f7703e606b6de320ef07378b8c270d659658405abb"
+    },
+    {
+      "path": "Plans/README.md",
+      "starting_sha256": "3b7525cf8676f99a8c61189f4cf926e47f38b1f6a6547ce7d5e2bbbf06f981e5",
+      "observed_sha256": "86f6bf8e5f404f3e08d7a2836e4e51e11f368f0473d44a811065065bd6da850f"
+    },
+    {
+      "path": "configs/README.md",
+      "starting_sha256": "4c1781f4db5ef60b564b3a33ef3f124d09392e93d0fa3b3f65f5f926ea941539",
+      "observed_sha256": "582d79cef6bf6c9b397d24eb2d44cadc4dcd2ab4362e483b21c5acba745ec0e6"
+    },
+    {
+      "path": "docs/project-maintenance/review-artifacts.md",
+      "starting_sha256": "07271a0ce4d65bb795ed5993a5f3cd2dc620501683b95adc68e60a1bf50b056e",
+      "observed_sha256": "b04b695ffd6bc53e2e92c2cc798ba83b9c6a9a675788d42cffa9597acf170753"
+    },
+    {
+      "path": "docs/project-maintenance/rules.md",
+      "starting_sha256": "6a3616af9dd01e38930f8fd9e5ed334ab64c6da88b8166b9785139c67d87d7c8",
+      "observed_sha256": "9ea51415124d9af6f879909f9f5389c039e4c00b7c11c9aa4e17e6d938cbe93a"
+    },
+    {
+      "path": "docs/project-maintenance/script-lifecycle.md",
+      "starting_sha256": "c76629725688805979d57476b555007274cee61aaf356cdc65b7a9a2bee9a780",
+      "observed_sha256": "11803b5d05387892ab220fe2c79923e7cd73480a43e557b0cdfe3508484b3c33"
+    },
+    {
+      "path": "docs/project-maintenance/storage.md",
+      "starting_sha256": "07c72cc092d934ec920f606e5a09b81210bd6aabce7c9616641e2dc4d85b6950",
+      "observed_sha256": "61146c56b61726407ef635589b348479b1bbf080f19807619df2acbc45fe27bf"
+    },
+    {
+      "path": "docs/project-maintenance/structure.md",
+      "starting_sha256": "1795938ff1175e0322af77be3efba09b03262c696b93d21cb58e5a945634f640",
+      "observed_sha256": "678e5f0931d720b949a44ddad95fa4f0dca0f31cc5ac1da1bacf219e26d870fa"
+    },
+    {
+      "path": "docs/running-analysis/learning-models.md",
+      "starting_sha256": "0e3695cece15797cb9efdc40957bf0e9f985bc0f934e64685b5064cea6f8a89d",
+      "observed_sha256": "32d7e7674a63dc87b716a5def4ba88f176f1254a2759b511f3fad1372add0091"
+    },
+    {
+      "path": "legacy/README.md",
+      "starting_sha256": "f43b2b2644f1f5ba58e9ed9b05e54e247b8590c2c351fa3a1a3b4f55a140bb67",
+      "observed_sha256": "98bd9279820f728ea7656557584ec6c4986a02c99d79489b6f68f88b6465f139"
+    },
+    {
+      "path": "plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md",
+      "starting_sha256": "37b29a6a2b41be497ebb58ad3f784f67bf8f6bc5c238740bb990e4cb116c3345",
+      "observed_sha256": "8068507c73a17fd005f37d978bb045212862c0eb731800caff471876e937c6c9"
+    },
+    {
+      "path": "records/README.md",
+      "starting_sha256": "61e37b9042ed4f1b0d91aea87b796133d88800ced896e4f0e4cd4e59d248ed40",
+      "observed_sha256": "5fdaec9c9d34f9c211099f050671c9fe002bdb088ac4c4ab498f221a74ab7603"
+    },
+    {
+      "path": "records/repository-archive/relocations.json",
+      "starting_sha256": "3c7b689fcea8a47c8a70735a634a4f814436586f3542b602880a90092ad2a0b3",
+      "observed_sha256": "838c6c7148b195920a52c9f86c5408dd2ece9aa3e7a62538497d76b18c6ffefd"
+    },
+    {
+      "path": "records/repository-archive/verified-artifact-locations.json",
+      "starting_sha256": "a32df364ee48f9012708e0444a0b681a50c0092a37084d4dcb847294fb67284c",
+      "observed_sha256": "d46fa3dc26f8f699e9ba7f118e04687bd3b0bc88ba41e6dfa65504745926b142"
+    },
+    {
+      "path": "records/repository-history/README.md",
+      "starting_sha256": "bd573db3242dfdf432c8f3c4374a5d76be6b1e35f25e2053dd2b743818b63dec",
+      "observed_sha256": "de202641d4faf5f62bcff1be238b53439345bc79e6fdee1e24206c84027cc546"
+    },
+    {
+      "path": "scripts/README.md",
+      "starting_sha256": "0bddcbaae76a02e6cc9f497f1733c4444d4f7dc1160882838c8174a28f8b5a33",
+      "observed_sha256": "1165a998411be40bff4da65166f38c2a9f126def78c974b9504e3afba7ba7e8c"
+    },
+    {
+      "path": "scripts/analyze_figure2_trace10.py",
+      "starting_sha256": "ba62b8f9cfae4e8278206856c0457357835f430e951d2dad977bef23d3ac3113",
+      "observed_sha256": "f614bc22b6d22d7786df4337fba09eeaa854bc76168d7cf202fd97336ea02f17"
+    },
+    {
+      "path": "scripts/analyze_figure2_trace3_matched.py",
+      "starting_sha256": "525294374d5f566e271df92f239b8d9d41b2450ff82e3935ed432ca526eed9ad",
+      "observed_sha256": "006aa2d0231c93faa31b7664d5781003e226b86f9789e28bac8661635af25464"
+    },
+    {
+      "path": "scripts/analyze_trace10_learners.py",
+      "starting_sha256": "72524cdf423d5fb6a76c34739dd730a7f4be9eb648735d77fd0dca39b82ea4a0",
+      "observed_sha256": "b74331a2680577347f354d4e9f7dcddee99b9ef1300f787fe55a5b8ffadec8ce"
+    },
+    {
+      "path": "scripts/audit_trace10_learner_shortlist.py",
+      "starting_sha256": "2aff31811155d73a3f9cf4a45de13cb22ac7fe6a74dc553243fc63c235bc306c",
+      "observed_sha256": "fc3a58e5150291331dc84531cf4647b48505b6bff59cdc0421ab271a7c93794f"
+    },
+    {
+      "path": "scripts/build_figure2_trace3_panels.py",
+      "starting_sha256": "4f91a2439d3c9feb23569cd82f8a62d926b1c4a47d7f49b22af890be3fb59563",
+      "observed_sha256": "88cc92dc9af0fd8913c0e8649a9c0ddf32ba5d801508c004c5b287929a501709"
+    },
+    {
+      "path": "scripts/finalize_trace3_additions.py",
+      "starting_sha256": "a4bdc9b0a989a801fba3fafbcd8b98132ef4348db776dd7361c4d73ef4921cd3",
+      "observed_sha256": "5f5644fb231cd9341d3aebd4239e4683a988d2a11dae87f128d3d9dd76867f8d"
+    },
+    {
+      "path": "scripts/finish_figure2_trace10.py",
+      "starting_sha256": "f3e8d3c7f26253af44bef907a5f71ef514e879a4d55d7516f08fd00057c9cf35",
+      "observed_sha256": "4a3eb276e35aa141ddf41f9d8a9c5efd480823215fa122f6f6f941549c571243"
+    },
+    {
+      "path": "scripts/finish_trace10_learner_selection.py",
+      "starting_sha256": "567e242556ee64576c9ff10459d4decc6c335ba76c95a192b4f6cce1664e1c13",
+      "observed_sha256": "fb2aeeef0350540fa17a075f47beeec8a4ff721ddc406db73c83e09223c23dd8"
+    },
+    {
+      "path": "scripts/paper/figure_03/supplement/build_atlas.py",
+      "starting_sha256": "46d49437efd93a60efe54657981688615fce8c3bfd9da6aa5af131129b965550",
+      "observed_sha256": "b7842605992277970ad3c076b56983b13ffbb0ed62e4b4d014588e23d4b9fc28"
+    },
+    {
+      "path": "scripts/process_trace10_additions.py",
+      "starting_sha256": "4bbddd7e0654ce82c8fd6ecb8cf1149726f01a29fab01a942306227b60d43034",
+      "observed_sha256": "dac4ee771089199b9f5a83983f577042cdee08fe7fce744f33b58b0de0a67c67"
+    },
+    {
+      "path": "scripts/publish_figure2_trace10.py",
+      "starting_sha256": "efcd807358852fa59441cd40139da25b9e87bfb7e3b5541f2374b15b14c10dbf",
+      "observed_sha256": "64a190a04e9739a0ec9b4883a0bd6cb4c2aa1036c219c809f9ca21a3ef67200d"
+    },
+    {
+      "path": "scripts/resume_trace10_additions.py",
+      "starting_sha256": "5dac0c8597dfc900845a3e0f912dbb51eb4f4f03718478e11e5d00e2c1804a42",
+      "observed_sha256": "9e588db6969c5403d4a35f5c8149f12cbecd4bf27391e51007161165af71cb89"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/cohort_outcomes.py",
+      "starting_sha256": "52ad14f1142b1c8dc6c1cc38512b58f988ce44d63dd07ce053c867567b708fd3",
+      "observed_sha256": "2b3ef5104d86946d65f109ffda1fb5a21ec679e9ac5cbacfdebb0cf7e3eea6fe"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/fish_bootstrap.py",
+      "starting_sha256": "758afab9909e6cde0e504b1001e7ee0754a20024a0484e126d06e5788a775024",
+      "observed_sha256": "66431166cef6b31df171d4d2f07f7c91127fd8048fb1505a756b3f52b1df411f"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/fish_permutation.py",
+      "starting_sha256": "880060265ee5f7d924c2052ee7dee654838f575531126e18acc0a5d21dd26e6a",
+      "observed_sha256": "c4a9e733b16c1d4520162cc82773e52fbeca5262a91b7d282b8542e1b3c4a042"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/mixed_effects.py",
+      "starting_sha256": "b332317f8c4436b23c019b7b1a5b0e2a5d13f99ccbd6ae0e098a257213fd6656",
+      "observed_sha256": "e454029232aae746d959b368956017d37893e60b9a0e99e3ed222a94bdaddfa0"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/model_input.py",
+      "starting_sha256": "bcf01ec5df87a0689949ddffef5bb84a627672e6cf6155c480db928fdb43babd",
+      "observed_sha256": "c73380eb06ba46d6fdb8570a0a675a20e534f89e84954f6214acdc44afb17dc4"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/individual_atlas.py",
+      "starting_sha256": "28665462405176078b1a394a42dc02e0b1e931b28f7f3fd4347488048e3c10eb",
+      "observed_sha256": "bf7069ebf0ff74e0db92ab8b036c9d932c3ac7096233144eadd77dbced836f04"
+    },
+    {
+      "path": "src/classical_conditioning/artifacts.py",
+      "starting_sha256": "4199c10b882367b8947e5c47a1c40f095927aed80e25e90e778a0185372fe3b2",
+      "observed_sha256": "e61d768c13ce7529d1c70e8b769ddbfe868a5d664af9bc16c5475d4c541f692f"
+    },
+    {
+      "path": "src/classical_conditioning/command_provenance.py",
+      "starting_sha256": "887c1b6543623761d86928e01353b7d882f8ca1b8adeec4facd86830bca57007",
+      "observed_sha256": "94540fb5add1a30451265404942b45bf1461b901981beff05e95e1398486bf1c"
+    },
+    {
+      "path": "src/classical_conditioning/figure_workspace.py",
+      "starting_sha256": "6dc6f68a3fab81bfa9eda86149aa69df46fdb3e81c33dd52886478b09ddd4864",
+      "observed_sha256": "024a6bceb99d9f74b44315d9c90435492a320629b908238bcbbc037f89644605"
+    },
+    {
+      "path": "src/classical_conditioning/figures/individual_atlas.py",
+      "starting_sha256": "688c87b75415a9cdef0c0177505010c0b6737974fd4f2288685c37e1c42c71c3",
+      "observed_sha256": "868c25ea9c34e3cb6937f727812c6e9aa8ed3486ed68bcf905968c68af24527c"
+    },
+    {
+      "path": "tests/test_trace10_recovery.py",
+      "starting_sha256": "316c018552d1748b52d8c07965072c832eaab167030c13074e8c20d5d3be2ea0",
+      "observed_sha256": "c9ed88da77fd241c873a20fb6159113579f02b0d3c1812e3438f8eb7c3cb00ba"
+    },
+    {
+      "path": "tests/test_trace10_source_aliases.py",
+      "starting_sha256": "e7eef819edc4e5e05915195e30f55196201b761705562574a092ba49d08a136d",
+      "observed_sha256": "b236976df41929c708365ea6e1c3a0d83fd72cd4debf5308488089e60464e97a"
+    },
+    {
+      "path": "tests/test_trace3_run_completion.py",
+      "starting_sha256": "a5379d8fc7843d1386d7be9c6906d34528c0da24c8d19b65cabbeb2bb5381490",
+      "observed_sha256": "0498c9fa411c092bdf7eefefe6f10975631494f4a5fee26ef2dc34559eb92caa"
+    }
+  ],
+  "observed_concurrent_changes_not_authored_here": [
+    {
+      "path": "docs/paper/figures/figure-02/current-state.json",
+      "starting_sha256": "8e3e008264a14169eab1d3423dfa9b04d62cfa80dd2ebea36f1982719ced733d",
+      "observed_sha256": "8adb26b69073cf00e5746eeed3bddc49a891704a32771e96e64c89ccaebdbbc6"
+    },
+    {
+      "path": "docs/paper/figures/main-paper-current-state.json",
+      "starting_sha256": "0cb42bf7fc0fb99c179eb7a95838ac5634edd1907bfdd98279ec7cff1afd5bb8",
+      "observed_sha256": "feb0322f3fb7b2d473ed9929951ab2dae3e262dd390ce1d7b0c49f83e0832622"
+    },
+    {
+      "path": "records/figure-reviews/figure-02/canvas-visibility-publication-20261028.json",
+      "starting_sha256": "9be0b5b9a98fc3979a4083b35b7eb8efcdd8af34cd63398983ae3149b9ff3eb2",
+      "observed_sha256": "188428ebc3e6d7df76fc4d372874196189fb60a5643af9a100f1736b89163cab"
+    },
+    {
+      "path": "scripts/reviews/ordered_library.py",
+      "starting_sha256": "69ac1750e0d04c3c5037abf75f2387a2112c890999035290ed55632f6f46902b",
+      "observed_sha256": "8ce41ec4e9ab564adc67a7f4966960de850add23bef6639a663cb74e349a280c"
+    },
+    {
+      "path": "tests/test_figure_version_browser.py",
+      "starting_sha256": "00af6f02b5c52b2017f1a03a590a9f730adef94be5e13f1e7e6356181586f162",
+      "observed_sha256": "b67e27af36984a2b13704da6d5472c49e1751f8956177a1b1d5020b997b47e85"
+    }
+  ],
+  "shared_navigation": "Catalogue and recovery-index additions from the other task were preserved; no selected artwork/state or foreign source/test edits were overwritten.",
+  "preservation_limits": [
+    "Byte/source context reconstruction is not execution of every historical analysis or publication driver.",
+    "Same-drive archives are not claimed as an independent backup.",
+    "Native Windows execution and real browser/print QA were not performed."
+  ]
+}

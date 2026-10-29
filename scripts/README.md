@@ -2,11 +2,11 @@
 
 Commands are grouped by figure/panel scope and role. Shared reusable implementation lives in `src/classical_conditioning/`; historical recipes retain their scientific definitions and are labelled reproduction. Folder membership does not approve an analysis.
 
-Seven root compatibility paths remain for standing instructions, local checks and the immutable element specification. Other old source identities resolve through archive/relocation records; use the scoped paths below for execution.
+Seven standing root compatibility paths remain for standing instructions, local checks and the immutable element specification. Other old source identities resolve through archive/relocation records; use the scoped paths below for execution.
 
 - [Current implementation record](../records/repository-archive/script-organization-20261024/README.md).
 - [Script lifecycle policy](../docs/project-maintenance/script-lifecycle.md).
-- [Plan 13](../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md).
+- [Completed Plan 13 account](../records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md).
 
 ## Normal routes
 
@@ -58,6 +58,11 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/figure_01/reproduction/verify_abcd_freeze.py](paper/figure_01/reproduction/verify_abcd_freeze.py) | Verify the historical Figure 1 A-D freeze without changing its artifacts. |
 | [paper/figure_02/assembly/build.py](paper/figure_02/assembly/build.py) | Build the Figure 2 review layout, preserving SSD versions and source provenance. |
 | [paper/figure_02/assembly/repair_canvas.py](paper/figure_02/assembly/repair_canvas.py) | Prepare a guarded, unselected canvas-overdraw repair; preserve all geometry/data and require fresh browser evidence before selection. |
+| [paper/figure_02/assembly/publish_canvas_repair.py](paper/figure_02/assembly/publish_canvas_repair.py) | Publish only the exact two-canvas repair after fresh browser measurements and visual review, preserving originals and scientific selections under scoped guards. |
+| [paper/figure_02/assembly/three_columns.py](paper/figure_02/assembly/three_columns.py) | Retained baseline three-column recipe; publication rejects statistical trial misregistration. Use `align_statistics.py` for the selected compact-label correction. |
+| [paper/figure_02/assembly/align_statistics.py](paper/figure_02/assembly/align_statistics.py) | Restore statistical marks to the trajectory trial coordinates; abbreviate only row labels and bind their full explanations to the matching legend, preserving all results. |
+| [paper/figure_02/assembly/stats_phase_guides.py](paper/figure_02/assembly/stats_phase_guides.py) | Authenticate every G/H/I statistical mark against saved trial/block positions and restore phase separators, preserving all other artwork through guarded publication. |
+| [paper/figure_04/exports/shared_y.py](paper/figure_04/exports/shared_y.py) | Export-only shared signed-vigor y scale for the requested Delay/3sTrace catch panels; remap saved artwork without refitting or changing scientific draft selection. |
 | [paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py](paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py) | Build scoped Figure 2 A with the selected Figure 1 F–H pipeline and styles. |
 | [paper/figure_02/panel_b/reproduction/render_trace_signed.py](paper/figure_02/panel_b/reproduction/render_trace_signed.py) | Render the 3sTrace/control Figure 2B signed heatmap and fish coverage review. |
 | [paper/figure_02/panel_g/build_exploratory_presentation.py](paper/figure_02/panel_g/build_exploratory_presentation.py) | Separate, authenticated Figure 2 G presentation of saved exploratory results. |
@@ -96,6 +101,7 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/shared/collection.py](paper/shared/collection.py) | Apply explicit main-paper layout ownership to authenticated selected drafts. |
 | [paper/shared/correct_relationships.py](paper/shared/correct_relationships.py) | Correct typed panel relationships and named axis-title formatting in drafts. |
 | [paper/shared/freeze.py](paper/shared/freeze.py) | Standalone freeze gate, usable without importing the scientific libraries. |
+| [paper/shared/lock_versions.py](paper/shared/lock_versions.py) | Guarded byte-for-byte provisional presentation locks for explicitly selected artwork/PDFs; preserves all exploratory versions and scientific status. |
 | [paper/shared/layout.py](paper/shared/layout.py) | Apply explicit main-paper layout ownership to authenticated selected drafts. |
 | [paper/shared/measure_layout.cjs](paper/shared/measure_layout.cjs) | Retained technical workflow helper |
 | [paper/shared/measure_packing.cjs](paper/shared/measure_packing.cjs) | Retained technical workflow helper |
@@ -222,3 +228,41 @@ These existing PC-side workflows are preserved for compatibility and further lif
 - [show_figure1_panel_h_five_options.py](show_figure1_panel_h_five_options.py)
 - [trace10_panel_statistics.py](trace10_panel_statistics.py)
 - [verify_figures34_3strace.py](verify_figures34_3strace.py)
+
+
+## Scoped trace successors and retained entry points
+
+These successors organize the existing trace operations. They preserve scientific
+formulas and input contracts; their availability does not authorize executing an
+analysis or publishing a figure. Browser evidence and candidate locations are
+explicit; existing selected/frozen artifacts are not regenerated by maintenance.
+
+| Maintained command | Contract |
+|---|---|
+| [paper/figure_01/trace10_learner_selection/analyze.py](paper/figure_01/trace10_learner_selection/analyze.py) | Existing fixed-trace ranking calculation; refuses an existing populated run. |
+| [paper/figure_01/trace10_learner_selection/audit_shortlist.py](paper/figure_01/trace10_learner_selection/audit_shortlist.py) | Existing strict-pre-US/actual-US audit; no ranking-rule replacement. |
+| [paper/figure_01/trace10_learner_selection/publish_comparison.py](paper/figure_01/trace10_learner_selection/publish_comparison.py) | `prepare` or guarded `publish`; publication needs an actual visual note and `--browser-evidence-dir` with comparison/preferred reports. |
+| [paper/figure_01/trace10_example/publish.py](paper/figure_01/trace10_example/publish.py) | Separate successor: `--prepare` or `--publish-note`, explicit `--staging-dir`, optional exact `--browser-evidence` file. |
+| [paper/figure_02/trace10/finalize.py](paper/figure_02/trace10/finalize.py) | `prepare`, `verify` or guarded `publish`; `--candidate-dir`, explicit `--browser-evidence` for verification, actual visual note for publication. |
+| [paper/figure_02/trace10/publish_spacing.py](paper/figure_02/trace10/publish_spacing.py) | Spacing candidate with `--candidate-dir`; explicit previous/new browser evidence for prepare/verify; guarded publish delegates with parameters. |
+| [workflows/trace/ingest_fixed10_additions.py](workflows/trace/ingest_fixed10_additions.py) | Existing fixed-trace intake/audit interface and protected source rules. |
+| [workflows/trace/resume_fixed10_additions.py](workflows/trace/resume_fixed10_additions.py) | Exact sealed-plan recovery contract; changed code or partial stages fail closed. |
+
+Seven corresponding old root paths remain compatibility facades. The exact
+[finish_trace10_example.py](finish_trace10_example.py) original remains a
+source-bound reproduction dependency; use the scoped successor for new work.
+All other root commands remain individually retained pending assessment.
+New entry points follow the [script lifecycle](../docs/project-maintenance/script-lifecycle.md).
+
+Historical sealed runs bind their original source tree. Do not reseal an old plan
+or weaken hash checks to run it through changed code. Exact pre-maintenance source,
+configuration, test and environment declarations are recoverable through the
+[implementation record](../records/repository-history/2026-10-28-folder-audit-implementation/README.md).
+Compatibility entry points preserve command names, not permission to replay an
+old publication/intake transaction against current selected state.
+
+The trace comparison `prepare` operation performs its recorded coverage audit
+and illustrative rendering; Figure 2 `verify` also recomputes the recorded saved
+test statistics. These are scientific/audit operations with their original input
+contracts, not generic display or harmless browser-only checks. This maintenance
+used `--help`, synthetic tests and source checks; it did not execute those modes.

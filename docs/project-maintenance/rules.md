@@ -92,3 +92,12 @@ commands above remain supported without a GitHub Actions dependency.
 checkout prefixes for local verification in another checkout; it never substitutes
 external payloads or rewrites frozen paths. External authentication still
 requires `--external` on the connected author machine.
+
+## Maintenance acceptance
+
+The [folder policy](structure.md#safe-maintenance-and-folder-guidance) requires a
+requirements/behavior/dependency disposition before shortening or retiring work.
+Keep uncertain originals. Passing structure or unit checks alone does not prove
+historical reproducibility or authorize changing selected figures. The
+[source guide](../../src/README.md) and [test guide](../../tests/README.md)
+record package boundaries and checks outside ordinary unittest discovery.

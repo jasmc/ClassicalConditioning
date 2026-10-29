@@ -38,6 +38,16 @@ class Snapshot:
     def __init__(self, paths):
         self.hashes = {str(Path(p).resolve()): file_hash(p) for p in paths}
 
+    def bind_hashes(self, hashes):
+        """Append expected identities atomically; never recapture over an earlier input."""
+        changed=[p for p,h in hashes.items() if p in self.hashes and self.hashes[p]!=h]
+        if changed:
+            raise StaleFigureState('Conflicting input bindings: '+', '.join(changed))
+        self.hashes.update(hashes)
+
+    def include(self, paths):
+        self.bind_hashes(Snapshot(paths).hashes)
+
     def check(self,ignore=()):
         ignored={str(Path(p).resolve()) for p in ignore}
         changed = [p for p,h in self.hashes.items() if p not in ignored and file_hash(p) != h]

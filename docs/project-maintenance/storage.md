@@ -201,3 +201,26 @@ inputs remain; original transfer inventories and receipts retain their bytes.
 The live recovery index no longer advertises the deleted staging, and the existing
 external-audit policy recognizes only the disposition's exact path/hash/size
 absences. Strict transfer/verify/prune behavior is unchanged.
+
+## Maintenance evidence and preservation receipts
+
+`ClassicalConditioning Maintenance/repository-history/<dated-task>/` on JOAQUIM
+owns verbose repository-maintenance inventories, logs and exact pre-change
+source/dependency snapshots. Keep compact discovery, requirements mapping and
+hash-bound completion receipts in repository history. This explicit control home
+is outside the artwork browser's `ClassicalConditioning Outputs` and
+`ClassicalConditioning-Archive` source trees; it does not select science or artwork.
+
+Keep every audit and published transfer checkpoint at its recorded identity.
+Do not move older audit evidence merely to normalize this layout. A source
+snapshot preserves its full original dependency tree and environment declarations;
+verify exact recovery, not just the existence of a copy, before replacing a
+source-bound driver. Originals with unresolved consumers remain retained.
+
+Do not introduce generic maintenance-directory exclusions into artwork discovery.
+Supporting artwork and source snapshots inside an inventoried root must remain
+visible to its existing completeness checks. New control files use the separate
+maintenance home; adding an exclusion would require an exact reviewed inventory
+and evidence that no relevant content becomes hidden. Historical narrowly scoped
+exclusions retain their existing contracts. A same-drive archive is not an
+independent backup; this organization makes no new backup claim.

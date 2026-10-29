@@ -23,6 +23,9 @@ sys.path.insert(0,str(ROOT/'src'))
 os.environ.setdefault('OPENBLAS_NUM_THREADS','1')
 os.environ.setdefault('OMP_NUM_THREADS','1')
 
+import matplotlib
+matplotlib.use("Agg")
+
 import numpy as np
 import pandas as pd
 from classical_conditioning.analysis.review.individual_atlas import prepare,classify,sha,save_json,VARIANTS

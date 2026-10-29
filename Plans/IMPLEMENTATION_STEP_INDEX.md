@@ -19,8 +19,7 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 09 | [Supplementary figures](09_SUPPLEMENTARY_FIGURES.md) | Design / validation open |
 | 10 | [Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
-| 12 | [Study/discussion artifact storage](12_STUDY_ARTIFACT_STORAGE.md) | Storage migration implemented: 18 study sources externalized with exact recovery; four readers updated; initial 57-entry library now expanded to 63 entries. Existing HTML paths/bytes and notes retained; protected historical originals remain exact compatibility records. Browser notebook/responsive/print QA for the new G/H/I audit and BLUP study remains open under Plan 12. |
-| 13 | [Script command organization](13_SCRIPT_COMMAND_ORGANIZATION.md) | Implemented needed audit repairs: scoped command tree, shared helpers/guards, 29 completed-driver retirements plus one helper facade, verified intake quarantine and drive navigation. Scientific authority unchanged; later guarded figure reconciliation complete; stale test/import expectations repaired; CI removed by author direction on 25 October. |
+| 12 | [Study/discussion reader verification](12_STUDY_ARTIFACT_STORAGE.md) | Source migration implemented; [current catalogue](../docs/paper/figures/review-library.md) owns discovery. Browser/notebook/responsive/print QA for the G/H/I audit and BLUP study remains open. Full original requirements and source identities are preserved. |
 
 Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 
@@ -28,6 +27,8 @@ Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering
 
 | Identifier | Record | Completion |
 |---|---|---|
+| 13 | [Script command organization](../records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md) | Completed account preserved; later folder-audit recommendations belong to Plan 15. |
+| 15 | [Repository folder audit follow-up](../records/repository-history/2026-10-28-folder-audit-implementation/completed-plan-15.md) | Implemented on 29 October 2026: maintained rules/folder guides, eight scoped successors with retained compatibility/source originals, tested helper/style/writer repairs, complete plan preservation and source reconstruction. [Verification](../records/repository-history/2026-10-28-folder-audit-implementation/README.md) records limits; scientific/Plan 12 gates remain open. |
 | 14 | [Repository cleanup and deferred external archive](../records/repository-archive/plan-policy-review-20261011/completed-repository-cleanup-work-package.md) | Complete; external payloads, historical scripts, configurations and [documentation organization](../records/repository-archive/documentation-cleanup-20261011/README.md) verified; [configuration record](../records/repository-archive/configuration-cleanup-20261011/README.md) |
 
 Completed maintenance on 2026-10-17: [organization reconciliation](../records/repository-history/2026-10-17-organization-reconciliation/README.md) implements the authority/preservation fixes, navigation, documentation ownership, script classification and routine local checks. All scripts remain retained; any archive/delete dispositions remain separate author choices. This maintenance does not close scientific gates.
