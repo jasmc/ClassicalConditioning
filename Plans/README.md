@@ -64,3 +64,7 @@ See the [folder policy](../docs/project-maintenance/structure.md) for shared pre
 Retired Plan 13/15 paths are recovered through their preserved commit context or
 the existing artifact resolver. Completed accounts and verification controls remain
 local where current requirements tests need them.
+
+Completed work package 16 is recorded in the implementation index and its compact
+repository-organization receipt. Its full requested plan remains at Git commit
+`9f20a93fcb1690e49ecc468bc4136caecab30002`, path `Plans/16_REPOSITORY_RETENTION_AND_SCOPED_ORGANIZATION.md`.

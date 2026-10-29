@@ -138,5 +138,6 @@
     "analyses_or_artwork_regenerated": false
   },
   "inventory_sha256": "0d61454f464b6f3c2c928596a4e83a88e5b9e3afdeffb5dfa1d902046f80e4af",
-  "bundle_sha256": "2462fad3fb8d6aacf33514d54aa8b614412b7ad198fb9ef3702b71a2e0d268b9"
+  "bundle_sha256": "2462fad3fb8d6aacf33514d54aa8b614412b7ad198fb9ef3702b71a2e0d268b9",
+  "implementation_plan_commit": "9f20a93fcb1690e49ecc468bc4136caecab30002"
 }
