@@ -71,9 +71,9 @@ painted/unclipped frame containment and recorded equal-spacing checks passed.
   precedes final SVG provenance embedding; explicit final saved-byte hashes
   and embedded-sidecar linkage were checked for the staged panel inputs.
 
-Reproduction: `scripts/analyze_figure2_trace3_matched.py` and
-`scripts/assemble_figure2_trace3_matched.py`, followed by the scoped
-`scripts/refine_figure2_axes.py` edit; preserve sealed prior outputs
+Reproduction: `scripts/paper/figure_02/trace3/analyze_figure2_trace3_matched.py` and
+`scripts/paper/figure_02/trace3/assemble_figure2_trace3_matched.py`, followed by the scoped
+`scripts/paper/figure_02/assembly/refine_figure2_axes.py` edit; preserve sealed prior outputs
 and capture fresh state/source hashes before any further edit.
 
 ## Earlier 183-fish preparation (superseded within B/E/H)
@@ -133,7 +133,7 @@ The resulting expanded-cohort panels are scientific drafts, not new freezes.
 
 ## Build and completion
 
-Use `.venv-trace/Scripts/python.exe scripts/build_figure2_trace3_panels.py`.
+Use `.venv-trace/Scripts/python.exe scripts/paper/figure_02/trace3/build_figure2_trace3_panels.py`.
 `--plan` seals inputs; `--calculate` creates authenticated per-fish caches and
 numerical summaries; `--render` creates the editable SVG and matching minimal
 SVG-and-legend HTML. A calculation lock excludes concurrent workers. Raw D: and

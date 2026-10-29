@@ -102,7 +102,7 @@ availability and temporal residual-dependence calibration remain unresolved.
 
 ## Build and review
 
-The [builder](../../scripts/build_figure4_3strace_model_draft.py) runs sequential
+The [builder](../../scripts/paper/figure_04/trace3_model_draft/build_figure4_3strace_model_draft.py) runs sequential
 `extract`, `model`, `render` and `publish` stages. The ticket belongs to this run;
 it is not authority to overwrite a manually edited or subsequently selected
 draft. The Delay builder, adapter, state and external artifacts are protected.
@@ -111,7 +111,7 @@ opts into explicit bounds while reusing Delay's contrast, prediction-design,
 peak, resampling and Gaussian likelihood helpers. The original Delay adapter
 remains unchanged so its bound implementation hashes remain valid.
 
-The [browser checker](../../scripts/check_figure4_3strace_model_draft.cjs) accepts
+The [browser checker](../../scripts/paper/figure_04/trace3_model_draft/check_figure4_3strace_model_draft.cjs) accepts
 the external directory and a temporary PNG path. It collects the exact SVG's
 600-dpi layout-frame measurements and checks the minimal HTML scope. The build
 uses one resolved `nature-main` snapshot, scoped rc settings, a native

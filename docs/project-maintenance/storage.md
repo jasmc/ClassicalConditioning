@@ -103,7 +103,7 @@ The author confirmed on 27 October that no notes or selections had been added.
 The former notebook routes were retired after verifying their retained copies
 and preserving notebook identities; no browser import/reload is claimed.
 
-The [consolidation record](../../records/repository-history/2026-10-27-storage-consolidation/README.md)
+The [consolidation record](../../records/repository-history/README.md#retired-maintenance-prose)
 binds the inventory, recovery snapshot, manifest and publication/pruning receipts.
 `scripts/maintenance/storage_migration.py` separates inventory, ZIP-member
 recovery, exclusive copying, consumer publication and pruning. Unexpected files,
@@ -149,16 +149,9 @@ line-ending-only differences may be restored.
 
 Analysis run locks use exclusive non-blocking OS locks; figure publication keeps
 its existing lock and atomic pointer workflow. Native Windows and macOS process
-contention and error release are tested. The [Mac acceptance record](../../records/figure-reviews/authority-reconciliation-20261025/ssd-portability-reconciliation-20261028.json)
-records 223 passes and one Windows-only drive-discovery skip; all three symlink
-cases ran on macOS. The verification record owns current SSD audit and final
-Windows continuation outcomes; actual shared-filesystem cross-machine locking
-remains pending. Serial single-host work does not require a cross-machine lock.
-Final PC acceptance passed: 223 of 226 tests passed, with three skips for
-Windows symlink privilege. The actual SSD audit verified 366 protected files
-and 14 archive transactions.
-See the verification record's `pc_acceptance` section for the tested commit and
-exact artifact identities.
+contention and error release are tested. Historical native acceptance results and their exact source identities remain in
+the [portability acceptance record](../../records/figure-reviews/authority-reconciliation-20261025/ssd-portability-reconciliation-20261028.json).
+Use its scoped results rather than treating dated counts as current acceptance.
 Allocated-space metrics are `null` where `st_blocks` is unavailable; logical size
 is not a physical-space measurement.
 
@@ -173,7 +166,7 @@ are unchanged.
 
 ## Drive-wide audit
 
-The [24 October storage audit](../../records/repository-history/2026-10-24-joaquim-storage-audit/README.md)
+The [24 October storage audit](../../records/repository-history/README.md#retired-maintenance-prose)
 records current folder sizes, processed-data status, archive integrity and the
 original roles of the dated PC/Mac handoff packets. Its full Markdown/HTML explanation
 and file inventory live on JOAQUIM. Machine names and old dates do not by
@@ -224,3 +217,13 @@ maintenance home; adding an exclusion would require an exact reviewed inventory
 and evidence that no relevant content becomes hidden. Historical narrowly scoped
 exclusions retain their existing contracts. A same-drive archive is not an
 independent backup; this organization makes no new backup claim.
+
+## Maintenance retention
+
+Completed maintenance prose does not remain in the working tree by default.
+Preserve its exact committed version, account for outstanding requirements and
+verify recovery and consumers before retirement. Keep current authority and
+operational dependencies accessible; Git-only history is not a runtime fallback.
+Use one canonical owner and retain old-path pointers only for demonstrated
+current readers. Scope figure-specific material by assembly, panel or joint scope;
+shared material has one home. Routine communication belongs in chat.

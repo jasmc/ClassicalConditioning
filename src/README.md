@@ -25,3 +25,7 @@ The public package currently initializes the historical intake batch backend.
 The atlas regression measures its own import after that existing initialization;
 whole-package backend isolation is not claimed. Its render-only style context
 retains the exact historical atlas settings instead of applying a new profile.
+
+Primary-cohort selection and signed bout-log-vigor calculation have analysis
+owners (`analysis.cohort_selection` and `analysis.signed_bout_heatmap`). Rendering
+imports those helpers; old figure-module imports remain compatibility aliases.

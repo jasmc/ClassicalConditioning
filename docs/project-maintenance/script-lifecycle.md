@@ -60,7 +60,7 @@ and verified implementation completed this archival disposition.
 
 ## Whole-folder reassessment
 
-The [24 October audit](../../records/repository-history/2026-10-24-scripts-audit/README.md)
+The [24 October audit](../../records/repository-history/README.md#retired-maintenance-prose)
 extends the earlier 20-file follow-up to every current tracked script and ignored
 cache. It distinguishes maintained actions, shared implementation, historical
 reproduction and completed recipes with live helpers. It also identifies storage

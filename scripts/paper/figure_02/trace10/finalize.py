@@ -16,8 +16,8 @@ import numpy as np
 import pandas as pd
 from classical_conditioning.figure_workspace import Snapshot,publish_state,tag,sha
 from classical_conditioning.figures.layout_frames import assess
-from scripts.analyze_figure2_trace10 import OUT,STATE,load,ref,save,check
-from scripts.assemble_figure2_trace10 import BUILD,MODELS,DE,write,enc,numerical_inputs
+from scripts.paper.figure_02.trace10.analyze_figure2_trace10 import OUT,STATE,load,ref,save,check
+from scripts.paper.figure_02.trace10.assemble_figure2_trace10 import BUILD,MODELS,DE,write,enc,numerical_inputs
 from scripts.main_paper_figures import render as render_page
 
 DEFAULT_FINAL=OUT/'final'
@@ -56,7 +56,7 @@ def verify(final_dir=DEFAULT_FINAL, *, browser_evidence):
     final_dir=candidate_directory(final_dir,existing=True)
     browser_evidence=evidence_file(browser_evidence)
     browser_snapshot=Snapshot([browser_evidence,final_dir/"figure2.svg"])
-    from scripts.trace10_panel_statistics import blocks,separate_tests
+    from scripts.paper.figure_02.trace10.trace10_panel_statistics import blocks,separate_tests
     roster,completion=numerical_inputs();e=load(BUILD/'assembly-evidence.json')
     root=ET.fromstring((final_dir/'figure2.svg').read_bytes());lookup={n.get('id'):n for n in root.iter() if n.get('id')}
     for key,h in e['protected_subtrees'].items():assert sha(ET.tostring(lookup[key]))==h
@@ -89,7 +89,7 @@ def verify(final_dir=DEFAULT_FINAL, *, browser_evidence):
         tests,_=separate_tests(panel,actual);saved=pd.read_csv((OUT if panel=='F' else DE)/(panel+'-statistics-Holm18.csv'))
         np.testing.assert_allclose(tests.p_holm18,saved.p_holm18,atol=1e-12)
         coverage.extend({'panel':panel,'condition':str(c),'block':str(b),'n':int(n)} for (c,b),n in actual.groupby(['condition_id','Selected block']).Eligible.sum().items())
-    d=pd.read_parquet(DE/'D-fish-blocks.parquet');from analyze_figure2_trace3_matched import D_SOURCE
+    d=pd.read_parquet(DE/'D-fish-blocks.parquet');from scripts.paper.figure_02.trace3.analyze_figure2_trace3_matched import D_SOURCE
     pd.testing.assert_frame_equal(d,pd.read_parquet(D_SOURCE))
     dt,_=separate_tests('D',d);np.testing.assert_allclose(dt.p_holm18,pd.read_csv(DE/'D-statistics-Holm18.csv').p_holm18,atol=1e-12)
     coverage.extend({'panel':'D','condition':str(c),'block':str(b),'n':int(n)} for (c,b),n in d.groupby(['condition_id','Selected block']).Eligible.sum().items())

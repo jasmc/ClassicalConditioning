@@ -42,7 +42,7 @@ from classical_conditioning.figures.theme import (
     style_axes,
 )
 
-METRIC_COLUMNS = {metric_id: column for column, metric_id in METRIC_IDS.items()}
+from classical_conditioning.analysis.movement_state import METRIC_COLUMNS
 METRIC_DISPLAY_NAMES = {
     "tail_length_weighted_angular_l1": "tail length weighted angular L1",
     "whole_tail_xy_mean_speed_normalized": "whole tail XY speed",

@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from unittest.mock import patch
 
-REVIEW = runpy.run_path(str(Path(__file__).resolve().parents[1]/"scripts"/"process_trace3_additions.py"))
+REVIEW = runpy.run_path(str(Path(__file__).resolve().parents[1] / 'scripts/workflows/trace/process_trace3_additions.py'))
 PARSE = REVIEW["parse_protocol"]
 CATCHES = REVIEW["CATCHES"]
 

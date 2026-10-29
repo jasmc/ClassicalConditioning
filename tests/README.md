@@ -46,3 +46,9 @@ evidence destination and stop the fixture server afterward.
 for a separate collector review; importing them is not a browser test.
 Python/unit, actual browser, native platform and exact-source recovery results
 must be recorded separately. Do not claim browser/print QA from this guide.
+
+Figure 2 command/presentation regressions live under
+`tests/commands/paper/figure_02/`; package markers preserve recursive discovery.
+For example, run `python -m unittest tests.commands.paper.figure_02.test_figure2_phase_guides`.
+The repository-retention regression checks literal executable dependencies and
+the compatibility contracts of extracted analysis helpers.

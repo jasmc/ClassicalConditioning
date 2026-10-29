@@ -57,7 +57,7 @@ author's current installation, `analysis-review-guide` is discovered from
 `~/.codex/skills/`. Do not copy personal or bundled/plugin skills into the paper
 repository merely because they are available during a task. Custom agents, when
 needed, have separate project or personal configuration; this maintenance does
-not introduce any. The [dated reconciliation](../../records/repository-history/2026-10-17-organization-reconciliation/README.md)
+not introduce any. The [dated reconciliation](../../records/repository-history/README.md#retired-maintenance-prose)
 records the inventory and implementation boundary.
 
 ## Routine checks
@@ -101,3 +101,7 @@ Keep uncertain originals. Passing structure or unit checks alone does not prove
 historical reproducibility or authorize changing selected figures. The
 [source guide](../../src/README.md) and [test guide](../../tests/README.md)
 record package boundaries and checks outside ordinary unittest discovery.
+
+Completed prose follows the maintenance-retention rule in structure.md. Preserve
+verification controls and dependency-bearing originals; prefer one compact event
+receipt and external inventories over another family of audit reports.

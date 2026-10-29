@@ -43,7 +43,7 @@ def main():
     measurement_path=Path(state['draft']['effective_presentation']['path']);panel_path=svg_path.parent/'figure-01-panel-e.html'
     evidence_path=ROOT/'records/figure-reviews/figure-01/panel-e-current-display.json'
     pointer=state['scoped_fgh_freeze']
-    paths=[state_path,svg_path,html_path,legend_path,measurement_path,panel_path,evidence_path,Path(__file__),ROOT/'scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py',ROOT/'scripts/paper/shared/build_legend_review.py',ROOT/'src/classical_conditioning/figure_workspace.py']
+    paths=[state_path,svg_path,html_path,legend_path,measurement_path,panel_path,evidence_path,Path(__file__),ROOT/'src/classical_conditioning/figures/figure_01/selected_fgh.py',ROOT/'scripts/paper/shared/build_legend_review.py',ROOT/'src/classical_conditioning/figure_workspace.py']
     paths.extend(Path(pointer[k]['path']) for k in ('svg','data','freeze_manifest'))
     if state['draft'].get('layout_spacing_override'):paths.append(ROOT/'src/classical_conditioning/figures/figure_01/legacy_layout.py')
     snapshot=Snapshot([*command_sources(__file__), *(paths)]);bind_loaded_state(snapshot,state,state_bytes,state_path)

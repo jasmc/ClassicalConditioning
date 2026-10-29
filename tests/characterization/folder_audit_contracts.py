@@ -26,7 +26,7 @@ sha256_file = sha
 def verify_fish(*_):
     raise RuntimeError('Characterization oracle requires an explicit synthetic verifier')
 
-SOURCE_IDENTITIES = {'scripts/process_trace10_additions.py': '4bbddd7e0654ce82c8fd6ecb8cf1149726f01a29fab01a942306227b60d43034', 'scripts/resume_trace10_additions.py': '5dac0c8597dfc900845a3e0f912dbb51eb4f4f03718478e11e5d00e2c1804a42', 'scripts/finalize_trace3_additions.py': 'a4bdc9b0a989a801fba3fafbcd8b98132ef4348db776dd7361c4d73ef4921cd3', 'src/classical_conditioning/analysis/cohort_outcomes.py': '52ad14f1142b1c8dc6c1cc38512b58f988ce44d63dd07ce053c867567b708fd3', 'src/classical_conditioning/figures/individual_atlas.py': '688c87b75415a9cdef0c0177505010c0b6737974fd4f2288685c37e1c42c71c3'}
+SOURCE_IDENTITIES = {'scripts/process_trace10_additions.py': '4bbddd7e0654ce82c8fd6ecb8cf1149726f01a29fab01a942306227b60d43034', 'scripts/resume_trace10_additions.py': '5dac0c8597dfc900845a3e0f912dbb51eb4f4f03718478e11e5d00e2c1804a42', 'scripts/workflows/trace/finalize_trace3_additions.py': 'a4bdc9b0a989a801fba3fafbcd8b98132ef4348db776dd7361c4d73ef4921cd3', 'src/classical_conditioning/analysis/cohort_outcomes.py': '52ad14f1142b1c8dc6c1cc38512b58f988ce44d63dd07ce053c867567b708fd3', 'src/classical_conditioning/figures/individual_atlas.py': '688c87b75415a9cdef0c0177505010c0b6737974fd4f2288685c37e1c42c71c3'}
 LEGACY_RC = {'font.family': 'Arial', 'font.size': 8, 'svg.fonttype': 'none', 'axes.spines.top': False, 'axes.spines.right': False, 'axes.linewidth': 0.6, 'xtick.major.width': 0.6, 'ytick.major.width': 0.6, 'svg.hashsalt': 'figure3-atlas'}
 
 def protocol(path):

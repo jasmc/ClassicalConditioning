@@ -310,7 +310,6 @@
 "/records/repository-history/2026-10-17-organization-reconciliation/original-documents/records/repository-history/README.md" -text
 "/records/repository-history/2026-10-17-organization-reconciliation/original-documents/scripts/README.md" -text
 "/records/repository-history/2026-10-17-organization-reconciliation/recovered-originals/figure-02-legend-at-A-freeze.md" -text
-"/records/repository-history/2026-10-26-storage-disposition-review/README.md" -text
 "/records/repository-history/2026-10-26-storage-disposition-review/figure2-g-guide-bundle-review.json" -text
 "/records/repository-history/2026-10-26-storage-disposition-review/font-cache-assessment.json" -text
 "/records/repository-history/2026-10-26-storage-disposition-review/font-cache-disposition.json" -text
@@ -365,8 +364,8 @@
 "/records/scientific-evidence/legacy/04_LEARNER_VARIANT_BEHAVIOR_MATRIX.md" -text
 "/records/scientific-evidence/legacy/05_LEGACY_LEARNER_COMPARISON.md" -text
 "/records/scientific-evidence/legacy/README.md" -text
-"/scripts/align_figure2_columns.py" -text
-"/scripts/analyze_figure2_trace3_matched.py" -text
+"/scripts/paper/figure_02/assembly/align_figure2_columns.py" -text
+"/scripts/paper/figure_02/trace3/analyze_figure2_trace3_matched.py" -text
 "/scripts/finish_trace10_example.py" -text
 "/scripts/maintenance/storage_migration.py" -text
 "/scripts/paper/figure_01/panel_a/build.py" -text
@@ -384,8 +383,8 @@
 "/scripts/paper/figure_02/reproduction/recover_saved_panels.py" -text
 "/scripts/paper/figure_03/supplement/build_atlas.py" -text
 "/scripts/paper/shared/collection.py" -text
-"/scripts/polish_trace10_report.py" -text
-"/scripts/replace_figure1_trace3_example.py" -text
+"/scripts/paper/figure_01/trace10_learner_selection/polish_trace10_report.py" -text
+"/scripts/paper/figure_01/panels_f_g_h/replace_figure1_trace3_example.py" -text
 "/scripts/reviews/library.py" -text
 "/scripts/reviews/ordered_library.py" -text
 "/scripts/reviews/versions.py" -text
@@ -457,11 +456,11 @@
 # Authenticated successors and preserved folder-audit records (28–29 October 2026).
 "/records/repository-history/2026-10-23-study-source-migration-plan.md" -text
 "/records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md" -text
-"/scripts/analyze_figure2_trace10.py" -text
+"/scripts/paper/figure_02/trace10/analyze_figure2_trace10.py" -text
 "/scripts/analyze_trace10_learners.py" -text
-"/scripts/assemble_figure2_trace10.py" -text
-"/scripts/assemble_figure2_trace3_matched.py" -text
-"/scripts/build_figure2_trace3_panels.py" -text
+"/scripts/paper/figure_02/trace10/assemble_figure2_trace10.py" -text
+"/scripts/paper/figure_02/trace3/assemble_figure2_trace3_matched.py" -text
+"/scripts/paper/figure_02/trace3/build_figure2_trace3_panels.py" -text
 "/scripts/main_paper_figures.py" -text
 "/scripts/paper/figure_01/panels_d_e/reproduction/render_saved_traces.py" -text
 "/scripts/paper/figure_01/panels_f_g_h/reproduction/render_saved_heatmaps.py" -text
@@ -478,7 +477,7 @@
 "/scripts/paper/shared/assemble_svg.py" -text
 "/scripts/process_trace10_additions.py" -text
 "/scripts/render_trace10_example.py" -text
-"/scripts/trace10_panel_statistics.py" -text
+"/scripts/paper/figure_02/trace10/trace10_panel_statistics.py" -text
 "/scripts/workflows/trace/ingest_fixed10_additions.py" -text
 "/scripts/workflows/trace/resume_fixed10_additions.py" -text
 "/src/classical_conditioning/analysis/bout_block_statistics.py" -text
@@ -500,18 +499,7 @@
 "/records/repository-archive/folder-audit-follow-up-20261028/plan-15/completed-transfer.json" -text
 "/records/repository-archive/folder-audit-follow-up-20261028/plan-15/transfer-inventory.json" -text
 "/records/repository-archive/folder-audit-follow-up-20261028/source-snapshot-inventory.json" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/README.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/configs.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/docs.md" -text
 "/records/repository-history/2026-10-28-eight-folder-audit/evidence.json" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/instruction-drafts.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/legacy.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/plans.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/reconciliation.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/records.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/scripts.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/src.md" -text
-"/records/repository-history/2026-10-28-eight-folder-audit/tests.md" -text
 "/records/repository-history/2026-10-28-folder-audit-implementation/README.md" -text
 "/records/repository-history/2026-10-28-folder-audit-implementation/completed-plan-15.md" -text
 "/records/repository-history/2026-10-28-folder-audit-implementation/migration.json" -text
@@ -519,3 +507,7 @@
 "/src/classical_conditioning/operations/run_completion.py" -text
 "/records/repository-history/2026-10-28-folder-audit-implementation/verification.json" -text
 "/records/repository-history/2026-10-28-folder-audit-implementation/preservation.json" -text
+"/src/classical_conditioning/analysis/cohort_selection.py" -text
+"/src/classical_conditioning/analysis/signed_bout_heatmap.py" -text
+"/tests/test_repository_retention.py" -text
+"/records/repository-archive/repository-organization-20261029/receipt.json" -text

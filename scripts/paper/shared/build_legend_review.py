@@ -675,7 +675,7 @@ def main():
             dependencies.append(ROOT/'src/classical_conditioning/figures/figure_01/legacy_layout.py')
         if state.get('scoped_fgh_freeze'):
             dependencies.extend(Path(state['scoped_fgh_freeze'][key]['path']) for key in ('svg','data','freeze_manifest'))
-            dependencies.append(ROOT/'scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py')
+            dependencies.append(ROOT/'src/classical_conditioning/figures/figure_01/selected_fgh.py')
         for key in ('frozen_display','draft'):
             item=state[key].get('working_svg')
             if item:

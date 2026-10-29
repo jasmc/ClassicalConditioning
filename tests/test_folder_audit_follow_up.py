@@ -246,12 +246,12 @@ assert before==after
         fields=result.stdout.split(b'\0')[:-1]
         self.assertTrue(all(fields[i+2]==b'unset' for i in range(0,len(fields),3)))
 
-    def test_retired_plan_links_keep_a_small_navigation_route(self):
+    def test_retired_plan_links_resolve_to_complete_preserved_accounts(self):
+        from classical_conditioning.external_artifacts import resolve_artifact
         for name in ['13_SCRIPT_COMMAND_ORGANIZATION.md','15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md']:
-            text=(ROOT/'Plans'/name).read_text()
-            self.assertIn('navigation pointer',text)
-            self.assertLess(len(text.splitlines()),10)
-            self.assertIn('IMPLEMENTATION_STEP_INDEX.md',text)
+            original = resolve_artifact('Plans/' + name, repo=ROOT)
+            self.assertTrue(original.is_file())
+            self.assertGreater(len(original.read_text()), 1000)
 
     def test_every_original_plan_block_survives_with_a_maintained_owner(self):
         import hashlib,re

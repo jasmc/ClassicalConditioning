@@ -5089,6 +5089,1178 @@
       "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
       "relative_path": "dd938702bff73910d778298331d7ea4ac12c58fece90b9a3e67b7c4845bb15d0.html",
       "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "sha256": "006aa2d0231c93faa31b7664d5781003e226b86f9789e28bac8661635af25464",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/analyze_figure2_trace3_matched.py",
+      "references": [
+        "scripts/analyze_figure2_trace3_matched.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/analyze_figure2_trace3_matched.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figure2_trace3_matched.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "65bb41b7fcd76058e656dee294c14818d68c6dd659e84b04017c4a12e1599686",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/show_figure1_panel_h_five_options.py",
+      "references": [
+        "scripts/show_figure1_panel_h_five_options.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/show_figure1_panel_h_five_options.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/show_figure1_panel_h_five_options.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/replace_figure1_trace3_example.py",
+      "references": [
+        "scripts/replace_figure1_trace3_example.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/replace_figure1_trace3_example.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/replace_figure1_trace3_example.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f614bc22b6d22d7786df4337fba09eeaa854bc76168d7cf202fd97336ea02f17",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/analyze_figure2_trace10.py",
+      "references": [
+        "scripts/analyze_figure2_trace10.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/analyze_figure2_trace10.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figure2_trace10.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "3d4f4c0c0861bbd468bf86bd9649e3ef53e389b1e58b97d98a6ffa781a6f09e6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/src/classical_conditioning/figures/cohort_response.py",
+      "references": [
+        "src/classical_conditioning/figures/cohort_response.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/cohort_response.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/cohort_response.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "8843968168a920a23e796cc914d03c0f6cbc8e2d3bed37e3f0781fefe15e04b7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/src/classical_conditioning/analysis/movement_state.py",
+      "references": [
+        "src/classical_conditioning/analysis/movement_state.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/movement_state.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/movement_state.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "2715bab30441b69f23fd97769dfd2f1324b543c6eebba4fff3341ac5e0ab19b7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/src/classical_conditioning/figures/example_traces.py",
+      "references": [
+        "src/classical_conditioning/figures/example_traces.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/example_traces.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/example_traces.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f8b195336aa3fdf9f7b3193be2fd34fb48d434c60cd8e4410ec866bc94c02562",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/src/classical_conditioning/figures/signed_bout_heatmap.py",
+      "references": [
+        "src/classical_conditioning/figures/signed_bout_heatmap.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/figures/signed_bout_heatmap.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/signed_bout_heatmap.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "671eb05f67fc7670ed891e2431c676260bb04f5470ea403565571fc14119e1a6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/src/classical_conditioning/analysis/figure4.py",
+      "references": [
+        "src/classical_conditioning/analysis/figure4.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/classical_conditioning/analysis/figure4.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/figure4.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "3a79e3eeb50d16b1a8a716724b4e8ea725a6c9dbce7c6bcb092a11ccf520f0be",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/align_figure2_columns.py",
+      "references": [
+        "scripts/align_figure2_columns.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/align_figure2_columns.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/align_figure2_columns.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "003c737415b6618c42513b7b4391950976a4f66cd518a0875c4de46de3cf8035",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/analyze_figure1_trace3_learner_candidates.py",
+      "references": [
+        "scripts/analyze_figure1_trace3_learner_candidates.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/analyze_figure1_trace3_learner_candidates.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figure1_trace3_learner_candidates.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "33106e9b338ceeea301a5631118c1d11308bffd8d0c1a14d843b85c93b506c90",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/analyze_figures34_3strace.py",
+      "references": [
+        "scripts/analyze_figures34_3strace.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/analyze_figures34_3strace.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figures34_3strace.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f088545c5e2d3dd51c8e9471cd552506ad77068271b135049a9e4eab528d5db6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/analyze_figures34_trace10.py",
+      "references": [
+        "scripts/analyze_figures34_trace10.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/analyze_figures34_trace10.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figures34_trace10.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "b12a791e1e8dd11a1a6af22b7ea287803d51f0c1ae5aff64fb85dbd018ce955a",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/assemble_figure2_trace10.py",
+      "references": [
+        "scripts/assemble_figure2_trace10.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/assemble_figure2_trace10.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/assemble_figure2_trace10.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "c5b49ef68278e245fa95899ccad8db4efc25320b92955c9a9d251f8395159e2b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/assemble_figure2_trace3_matched.py",
+      "references": [
+        "scripts/assemble_figure2_trace3_matched.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/assemble_figure2_trace3_matched.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/assemble_figure2_trace3_matched.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "dc8a8e8da4d053693f5813796ff39cd4a8390f275baa1399ee8c69b983127e3f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/audit_figure2_heatmap_ab.py",
+      "references": [
+        "scripts/audit_figure2_heatmap_ab.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_figure2_heatmap_ab.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure2_heatmap_ab.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "796a4ec22a420f4066dda3d30525aa7fdf21fc4028800ee559904c31f31cb9f6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/audit_figure2_heatmap_ab_followup.py",
+      "references": [
+        "scripts/audit_figure2_heatmap_ab_followup.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/audit_figure2_heatmap_ab_followup.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure2_heatmap_ab_followup.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "88cc92dc9af0fd8913c0e8649a9c0ddf32ba5d801508c004c5b287929a501709",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/build_figure2_trace3_panels.py",
+      "references": [
+        "scripts/build_figure2_trace3_panels.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure2_trace3_panels.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure2_trace3_panels.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "9d213e68f553bd87b074fd204e524865cb0555b0d52830e7479242e77b1db637",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/build_figure3_3strace_ae.py",
+      "references": [
+        "scripts/build_figure3_3strace_ae.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure3_3strace_ae.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure3_3strace_ae.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "be1cd88a6582541333102d38cf56f6be3520b7d17f3b588f44e5c007b7682136",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/build_figure4_3strace_model_draft.py",
+      "references": [
+        "scripts/build_figure4_3strace_model_draft.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure4_3strace_model_draft.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_3strace_model_draft.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "20726f97a23f366866041f408fea2cf3bb23b9cbfe5636548f1033368f5ef595",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/build_figure4_3strace_preliminary.py",
+      "references": [
+        "scripts/build_figure4_3strace_preliminary.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure4_3strace_preliminary.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_3strace_preliminary.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "25fd0fa4004df3cf328c31cdd72e5a26707a3be67a82f1450367048eef7bc76c",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/build_figure4_3strace_score_draft.py",
+      "references": [
+        "scripts/build_figure4_3strace_score_draft.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure4_3strace_score_draft.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_3strace_score_draft.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "78ed10452f50eadaefd621dba242a54dfc7b44125946461607f787bdde0f3471",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/build_figure4_delay_model_draft.py",
+      "references": [
+        "scripts/build_figure4_delay_model_draft.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/build_figure4_delay_model_draft.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_delay_model_draft.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "5e0db49c8088a54ecb42ed00152a62afc64db2a0900c48b6c032df1b4bd1d037",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/check_figure3_3strace_ae.cjs",
+      "references": [
+        "scripts/check_figure3_3strace_ae.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figure3_3strace_ae.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure3_3strace_ae.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "96f0edce6fe37111d51da68a4d09526efa168c25cdf5aa6c817f85fb6711b0d0",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/check_figure4_3strace_model_draft.cjs",
+      "references": [
+        "scripts/check_figure4_3strace_model_draft.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figure4_3strace_model_draft.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_3strace_model_draft.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "b3dbb527d8eff94464d106ac19a4759841c8555bee49cb4867a2c27c46e6039b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/check_figure4_3strace_preliminary.cjs",
+      "references": [
+        "scripts/check_figure4_3strace_preliminary.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figure4_3strace_preliminary.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_3strace_preliminary.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "9087d14ed5084f8053fb6f30905eb1f114234cb58eb125af18508475ef431cac",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/check_figure4_3strace_score_draft.cjs",
+      "references": [
+        "scripts/check_figure4_3strace_score_draft.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figure4_3strace_score_draft.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_3strace_score_draft.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "2ee8d52df62cb85ef6b4e3825eff73b02845f7b0388597197ab5206a86be14f5",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/check_figure4_delay_model_draft.cjs",
+      "references": [
+        "scripts/check_figure4_delay_model_draft.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figure4_delay_model_draft.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_delay_model_draft.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "2fa57ace2b47230b2fbf9092c04d6e11ac7abbae41794768b155ca4ab6bb9e49",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/check_figures34_3strace.cjs",
+      "references": [
+        "scripts/check_figures34_3strace.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figures34_3strace.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figures34_3strace.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "d334614e229c9e37d2e4f61a1b411936f4add3c24e66a5c5b3d7d59be11964f9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/check_figures34_trace10.cjs",
+      "references": [
+        "scripts/check_figures34_trace10.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/check_figures34_trace10.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figures34_trace10.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "4259ba83996449c9095296bfc515498f7c9e02a841a536331515573586c4a1e3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/complete_figures34_trace10.py",
+      "references": [
+        "scripts/complete_figures34_trace10.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/complete_figures34_trace10.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/complete_figures34_trace10.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "070ee61f823bdfbe1a8fdccf11bfed24d72982a3eaecdb759685adf68d91c7ee",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/explore_figure2_columns.py",
+      "references": [
+        "scripts/explore_figure2_columns.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/explore_figure2_columns.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/explore_figure2_columns.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "1b3c86b1a8155336eeb54873b89aba6a75c901044db7c3bd967c60f2f3d9da9d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/figure2_median_pooling.py",
+      "references": [
+        "scripts/figure2_median_pooling.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/figure2_median_pooling.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/figure2_median_pooling.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "a677337a2e9cba790b89c3c603160fe3cec1c8114c4673ad1203248203257699",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/finalize_figures34_3strace.py",
+      "references": [
+        "scripts/finalize_figures34_3strace.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/finalize_figures34_3strace.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finalize_figures34_3strace.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "5f5644fb231cd9341d3aebd4239e4683a988d2a11dae87f128d3d9dd76867f8d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/finalize_trace3_additions.py",
+      "references": [
+        "scripts/finalize_trace3_additions.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/finalize_trace3_additions.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finalize_trace3_additions.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "564dd429b2a7e01347bd72e118a77bad1e3ca5f23dd42748acc3eb024d2ef22c",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/measure_figure1_trace3_replacement.cjs",
+      "references": [
+        "scripts/measure_figure1_trace3_replacement.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/measure_figure1_trace3_replacement.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_figure1_trace3_replacement.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "bcadfc058c225cdba830ef70cae837b5f70b4f0f931a1ec6647f5b9c1116178f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/measure_figure2_exploration.cjs",
+      "references": [
+        "scripts/measure_figure2_exploration.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/measure_figure2_exploration.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_figure2_exploration.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "e32b21088d3bb139f09a84443c73f5bf0ce01ef4e62af3d1319814c41c89ac7d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/measure_saved_figure.cjs",
+      "references": [
+        "scripts/measure_saved_figure.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/measure_saved_figure.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_saved_figure.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "fec67491ba8ec8df3cb7f154b4e8abf1bc55962d211a2998d7421886868747d5",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/measure_trace10_example.cjs",
+      "references": [
+        "scripts/measure_trace10_example.cjs",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/measure_trace10_example.cjs",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_trace10_example.cjs"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "5539b05b9568c4372deb558ab91185bb420e90e99e4aa3d15414911089b9badf",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/polish_trace10_report.py",
+      "references": [
+        "scripts/polish_trace10_report.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/polish_trace10_report.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/polish_trace10_report.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "88470bf594efb748b40730d93104e378181c83019481017c53ea5227d0e34f81",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/process_delay_additions.py",
+      "references": [
+        "scripts/process_delay_additions.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/process_delay_additions.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/process_delay_additions.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "03119502a377b9e7f04dc6a8379aef030da8602a348202656ddbed54b2a54bfc",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/process_trace3_additions.py",
+      "references": [
+        "scripts/process_trace3_additions.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/process_trace3_additions.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/process_trace3_additions.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "d9683f19b0be45668cf1af11c06a4b10d8769b2d32ea73dccb582118fe7c5f80",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/publish_figure3_3strace_ae.py",
+      "references": [
+        "scripts/publish_figure3_3strace_ae.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure3_3strace_ae.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/publish_figure3_3strace_ae.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "c25341e2de6c0620eae12d735e3cdc9043a06386d43649e4c52fa7c5eb3a4183",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/publish_figure4_3strace_preliminary.py",
+      "references": [
+        "scripts/publish_figure4_3strace_preliminary.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure4_3strace_preliminary.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/publish_figure4_3strace_preliminary.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "310a26a12260b330e9408244b764b1255b97684c67b6c59ba561120074b237ce",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/publish_figure4_3strace_score_draft.py",
+      "references": [
+        "scripts/publish_figure4_3strace_score_draft.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/publish_figure4_3strace_score_draft.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/publish_figure4_3strace_score_draft.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "3d9d163975b6c1664ed006ac6dac0f895543ceadd9f858855df1e046aceeea4b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/refine_figure2_axes.py",
+      "references": [
+        "scripts/refine_figure2_axes.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/refine_figure2_axes.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/refine_figure2_axes.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "0fa69afa29d0109dfddf8b4a2b39cb46edeb4522e0cb5fbbf8b06db50b5650c5",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/render_figures34_3strace.py",
+      "references": [
+        "scripts/render_figures34_3strace.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figures34_3strace.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figures34_3strace.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "a0dffa8f6290110a0ed689db68253d8846d7e5c6c92b2c381a52ad54fb594c65",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/render_figures34_trace10.py",
+      "references": [
+        "scripts/render_figures34_trace10.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_figures34_trace10.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figures34_trace10.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f2cb8163bb9cf6a12fab80fd60f47172c75d4c4b995c88a86d7ec8098c1eb550",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/render_trace10_de_correction.py",
+      "references": [
+        "scripts/render_trace10_de_correction.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_trace10_de_correction.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_trace10_de_correction.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "0da744088c898ca887d5dd493cb235d8ca68faaabada20dc7b7ed7522ef6912e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/render_trace10_learner_comparison.py",
+      "references": [
+        "scripts/render_trace10_learner_comparison.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/render_trace10_learner_comparison.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_trace10_learner_comparison.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f82cc197a8128c98aa6ec65fdac3ffc904254f88ca4b3e1ea650eb15e23bc577",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/repair_figures34_3strace_layout.py",
+      "references": [
+        "scripts/repair_figures34_3strace_layout.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/repair_figures34_3strace_layout.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/repair_figures34_3strace_layout.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f1b6c7404da369271b8f7ee6b8aacff528180c43b28d14d31e7692af98d07642",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/review_figure1_trace3_runner_up.py",
+      "references": [
+        "scripts/review_figure1_trace3_runner_up.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_figure1_trace3_runner_up.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_figure1_trace3_runner_up.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "70739d2c78441a2827491ae667acc6090a6fd94b33491a125a6d2fc1d59599f3",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/review_figure2_exploration.py",
+      "references": [
+        "scripts/review_figure2_exploration.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/review_figure2_exploration.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_figure2_exploration.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "e6e74ff5b7a6af1390bc4b9e03016499fe892fe1b4419491591883f3306bfe94",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/run_trace3_additions.py",
+      "references": [
+        "scripts/run_trace3_additions.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/run_trace3_additions.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/run_trace3_additions.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "3435eb27ad697269b25bc30665c76dd7a20a46a272431d2630ef33bd95735f27",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/trace10_panel_statistics.py",
+      "references": [
+        "scripts/trace10_panel_statistics.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/trace10_panel_statistics.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/trace10_panel_statistics.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "ce3094588eefacd8d1da3cd33bc6ea433a89b01c68bdf102813fed2c27ce6ff9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/verify_figures34_3strace.py",
+      "references": [
+        "scripts/verify_figures34_3strace.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/verify_figures34_3strace.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/verify_figures34_3strace.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "b236d06bd07205d437c4f1585e1d1c6d7f601af2e33e66b5c7f5f7e71903696c",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/paper/figure_02/trace10/finalize.py",
+      "references": [
+        "scripts/paper/figure_02/trace10/finalize.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/figure_02/trace10/finalize.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/trace10/finalize.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "87f6303836ea246eb7131d02807e3e6090d05bca94f4d1af3a04d8b456c02c53",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/test_figure4_model_publication.py",
+      "references": [
+        "tests/test_figure4_model_publication.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/test_figure4_model_publication.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure4_model_publication.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "4556e8c3889da7c4672d6faf2757c3342d494b10855ac371587b2ad93ee0dc40",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/characterization/folder_audit_contracts.py",
+      "references": [
+        "tests/characterization/folder_audit_contracts.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/characterization/folder_audit_contracts.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/characterization/folder_audit_contracts.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f681ea4e94616cbe936c66ab2e3a66f499ffa2c18c6fca6f9b556f68b414f0e9",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/running-analysis/figure4-3strace-model-draft.md",
+      "references": [
+        "docs/running-analysis/figure4-3strace-model-draft.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/running-analysis/figure4-3strace-model-draft.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure4-3strace-model-draft.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "9251cf62fb5fb02e3a5e4a10dec211e27cb0e82a0a8eecade55abdd9cd48db84",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/running-analysis/figure4-delay-model-draft.md",
+      "references": [
+        "docs/running-analysis/figure4-delay-model-draft.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/running-analysis/figure4-delay-model-draft.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure4-delay-model-draft.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "345d4f8917f8e47b44d9d190337728d110116a28d2505c69ac9a789a69f79383",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/paper/figures/figure-02/panels-b-e-h/README.md",
+      "references": [
+        "docs/paper/figures/figure-02/panels-b-e-h/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panels-b-e-h/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panels-b-e-h/README.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "5223b6a181b961a62c6d174cb53e20ff288da5683731b47113b8317c823cb91b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/paper/figures/figure-02/panels-c-f-i/README.md",
+      "references": [
+        "docs/paper/figures/figure-02/panels-c-f-i/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/panels-c-f-i/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panels-c-f-i/README.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "5cc2f759bc24c1f3d90f2d68a3b973a7dbe1b2bf2cad51006eb4e9abebf57141",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/README.md",
+      "references": [
+        "scripts/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/README.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "6358a663332190e75593212d4739f25566562b549e4bc2fac574bd141eb98c6c",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/.gitattributes",
+      "references": [
+        ".gitattributes",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/.gitattributes",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/.gitattributes"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "8cd787b8951b00c04f7befb2b5b5095a1b952d6f3efc79064556703b435d4826",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/test_figure2_statistics_registration.py",
+      "references": [
+        "tests/test_figure2_statistics_registration.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/test_figure2_statistics_registration.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure2_statistics_registration.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "7dd7f56f163ba9a0509faebeb94962ce716fb2047cb2b5007a747b7c71f38b53",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/test_figure2_phase_guides.py",
+      "references": [
+        "tests/test_figure2_phase_guides.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/test_figure2_phase_guides.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure2_phase_guides.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "1ca4ef3cb35c642cb89fd07596aa5ed0bb040b86718414166613995b2bf22706",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/test_figure2_three_columns.py",
+      "references": [
+        "tests/test_figure2_three_columns.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/test_figure2_three_columns.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure2_three_columns.py"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "de202641d4faf5f62bcff1be238b53439345bc79e6fdee1e24206c84027cc546",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/repository-history/README.md",
+      "references": [
+        "records/repository-history/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/repository-history/README.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "87b985d8ae4ba04f9e9d41fb1b282b4c2ae68fba0ef724fdc8e312da37805175",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/repository-history/2026-10-28-folder-audit-implementation/README.md",
+      "references": [
+        "records/repository-history/2026-10-28-folder-audit-implementation/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-history/2026-10-28-folder-audit-implementation/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/repository-history/2026-10-28-folder-audit-implementation/README.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "f2f7b71819691e0718b6d6f8befcfe07a1f30bf91e695098a61c17221de896c7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/paper/figures/figure-02/assembly.md",
+      "references": [
+        "docs/paper/figures/figure-02/assembly.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/assembly.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/assembly.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "98bd9279820f728ea7656557584ec6c4986a02c99d79489b6f68f88b6465f139",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/legacy/README.md",
+      "references": [
+        "legacy/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/legacy/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/legacy/README.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "678e5f0931d720b949a44ddad95fa4f0dca0f31cc5ac1da1bacf219e26d870fa",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/project-maintenance/structure.md",
+      "references": [
+        "docs/project-maintenance/structure.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/structure.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/structure.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "61146c56b61726407ef635589b348479b1bbf080f19807619df2acbc45fe27bf",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/project-maintenance/storage.md",
+      "references": [
+        "docs/project-maintenance/storage.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/storage.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/storage.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "9ea51415124d9af6f879909f9f5389c039e4c00b7c11c9aa4e17e6d938cbe93a",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/project-maintenance/rules.md",
+      "references": [
+        "docs/project-maintenance/rules.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/rules.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/rules.md"
+      ],
+      "reason": "Exact source before repository organization; explicit historical identity only."
+    },
+    {
+      "sha256": "d3724cd0121d075088eaf9f7703e606b6de320ef07378b8c270d659658405abb",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/Plans/IMPLEMENTATION_STEP_INDEX.md",
+      "references": [
+        "Plans/IMPLEMENTATION_STEP_INDEX.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/IMPLEMENTATION_STEP_INDEX.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "86f6bf8e5f404f3e08d7a2836e4e51e11f368f0473d44a811065065bd6da850f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/Plans/README.md",
+      "references": [
+        "Plans/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/Plans/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/README.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "24f96939a7e05705b878cf3be71e618b81f04594331b67fd330e8ccdcce2c106",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/paper/figures/shared/iteration-workflow.md",
+      "references": [
+        "docs/paper/figures/shared/iteration-workflow.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/shared/iteration-workflow.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/iteration-workflow.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "11803b5d05387892ab220fe2c79923e7cd73480a43e557b0cdfe3508484b3c33",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/project-maintenance/script-lifecycle.md",
+      "references": [
+        "docs/project-maintenance/script-lifecycle.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/script-lifecycle.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/script-lifecycle.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "c64c02f78b2060eba4f8defab1941cb073591dc615f4adb63743fa8dfebd344f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/docs/project-maintenance/structure-policy.json",
+      "references": [
+        "docs/project-maintenance/structure-policy.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/project-maintenance/structure-policy.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/structure-policy.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "8458dcd689e13fcc6133e7166ea27c87bc48e49a6f6671cda33609842c162777",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/README.md",
+      "references": [
+        "records/figure-reviews/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/README.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "3c6170867c7df135b591de8ea85587cf6229c16ded70ad6dc6e7416031d99877",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/axis-geometry-legends-20261015.json",
+      "references": [
+        "records/figure-reviews/axis-geometry-legends-20261015.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/axis-geometry-legends-20261015.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/axis-geometry-legends-20261015.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "100b21b0876f1270fa547020bdad26296c1da32cc05300c9b5a9f329bebe2698",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/axis-identification-registration-20261015.json",
+      "references": [
+        "records/figure-reviews/axis-identification-registration-20261015.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/axis-identification-registration-20261015.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/axis-identification-registration-20261015.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "5193f86c1ccda02b3515ce8cebc913d5551f0f22d72a2b3e21dd20e0707fb394",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/control-first-ordering-20261015.json",
+      "references": [
+        "records/figure-reviews/control-first-ordering-20261015.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/control-first-ordering-20261015.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/control-first-ordering-20261015.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "a404c7b534858f7182a89c1d493ab85739232c68b1de50263c895a66b4faa592",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/layout-frame-implementation.json",
+      "references": [
+        "records/figure-reviews/layout-frame-implementation.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/layout-frame-implementation.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/layout-frame-implementation.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "4c38ffc3ce0e8d0d49df2a51f169f4e0767562d2b3be2eabbc1a0ae2012839b6",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/main-paper-collection-20261015.json",
+      "references": [
+        "records/figure-reviews/main-paper-collection-20261015.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/main-paper-collection-20261015.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/main-paper-collection-20261015.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "75a4176c1f3f193dcb41f69ad4a8927f00922e0d4e1d9c05e23fb0f69cd9d88e",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/offline-all-panel-artwork-2026-10-15.json",
+      "references": [
+        "records/figure-reviews/offline-all-panel-artwork-2026-10-15.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/offline-all-panel-artwork-2026-10-15.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/offline-all-panel-artwork-2026-10-15.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "7d6d7c97a12f321d4977359af01a9eb7fe03ac7676e92bdd8187ae14ad7cbc64",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/offline-frozen-artwork-2026-10-15.json",
+      "references": [
+        "records/figure-reviews/offline-frozen-artwork-2026-10-15.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/offline-frozen-artwork-2026-10-15.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/offline-frozen-artwork-2026-10-15.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "d4514b0cc9286125d8e1ebc5e02ef8e429457b28f646d7dfdd174de89bf41c69",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/panel-relationships-axis-titles-20261015.json",
+      "references": [
+        "records/figure-reviews/panel-relationships-axis-titles-20261015.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/panel-relationships-axis-titles-20261015.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/panel-relationships-axis-titles-20261015.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "e5cabc994f40f214c0bbe7df3aaef0c1ab206988d76c727d7054533954a9295f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/figure-reviews/plotting-theme-integration-20261016.md",
+      "references": [
+        "records/figure-reviews/plotting-theme-integration-20261016.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/figure-reviews/plotting-theme-integration-20261016.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/figure-reviews/plotting-theme-integration-20261016.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "f3daad8d006a33f25bf4a47152bf399a188ba8294994692b2028ab52c30a9049",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/repository-archive/README.md",
+      "references": [
+        "records/repository-archive/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/repository-archive/README.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "838c6c7148b195920a52c9f86c5408dd2ece9aa3e7a62538497d76b18c6ffefd",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/records/repository-archive/relocations.json",
+      "references": [
+        "records/repository-archive/relocations.json",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/records/repository-archive/relocations.json",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/records/repository-archive/relocations.json"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "2cffe6d0decfb661b2989209d71323ae3f8bcca6b6dc3cf69b92eb7cd99cc096",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/paper/figure_01/panel_e/edit_display.py",
+      "references": [
+        "scripts/paper/figure_01/panel_e/edit_display.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/figure_01/panel_e/edit_display.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panel_e/edit_display.py"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "282f7f3e21299d947f5012037490056f25234724cb4f613bc4b2926781f957bc",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/paper/figure_01/trace10_learner_selection/analyze.py",
+      "references": [
+        "scripts/paper/figure_01/trace10_learner_selection/analyze.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/figure_01/trace10_learner_selection/analyze.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/trace10_learner_selection/analyze.py"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "cfad69d32e02879ee764d849c2a5462632b509604b3adbb7f64c810a14153cef",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/paper/figure_02/trace10/publish_spacing.py",
+      "references": [
+        "scripts/paper/figure_02/trace10/publish_spacing.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/figure_02/trace10/publish_spacing.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/trace10/publish_spacing.py"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "2aff31c28fe6d7b5b8e9f56391647f17fea863d50ffa7dbe6e9fcaee855cccff",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/scripts/paper/shared/build_legend_review.py",
+      "references": [
+        "scripts/paper/shared/build_legend_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/scripts/paper/shared/build_legend_review.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/build_legend_review.py"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "ae8cde37637de77d281a5eb756f3b160c7214bc602cec95175473105007c2e9b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/src/README.md",
+      "references": [
+        "src/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/src/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/README.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "f9dc4fa32b480503dcf2caa9ee7332fa5407e58ef22c167d3847d5115501fe11",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/README.md",
+      "references": [
+        "tests/README.md",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/README.md",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/README.md"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "f41fb3cdf8f19550afa2a50cb80d49331964d3ee04bde76306dc7809c55593ac",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/test_folder_audit_follow_up.py",
+      "references": [
+        "tests/test_folder_audit_follow_up.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/test_folder_audit_follow_up.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_folder_audit_follow_up.py"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "sha256": "94a1e44f54462158e7e6f2a348947762437de0475a9424c2a1cfd5c8ee42a1e8",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-29-repository-organization/source-originals",
+      "relative_path": "payload/tests/test_trace3_intake_review.py",
+      "references": [
+        "tests/test_trace3_intake_review.py",
+        "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/tests/test_trace3_intake_review.py",
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trace3_intake_review.py"
+      ],
+      "reason": "Verified exact source before scoped organization; historical hash only."
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-01/INDEX.html"
+      ],
+      "sha256": "26069554815db70527b6df035dda33858db60f95ffeca685506432e0585ef5a2",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "26069554815db70527b6df035dda33858db60f95ffeca685506432e0585ef5a2.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/INDEX.html"
+      ],
+      "sha256": "8ea33c7adc714734594dba169b82ed5b203680817ba7a8fba117810cfd9a0b9f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "8ea33c7adc714734594dba169b82ed5b203680817ba7a8fba117810cfd9a0b9f.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-03/INDEX.html"
+      ],
+      "sha256": "a93762654135f65772c7f43302c64ba807f4b2f14e161b5393a2e53af396b7d7",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "a93762654135f65772c7f43302c64ba807f4b2f14e161b5393a2e53af396b7d7.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/INDEX.html"
+      ],
+      "sha256": "770e70cd68a3a5b817803658237ba73940e8404d85289a35e7f3cd15c15abf4d",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "770e70cd68a3a5b817803658237ba73940e8404d85289a35e7f3cd15c15abf4d.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/INDEX.html"
+      ],
+      "sha256": "aca3071cf8666d655a4e90323b0d5b8caa7281a0f7b390adc24e82f5df476141",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "aca3071cf8666d655a4e90323b0d5b8caa7281a0f7b390adc24e82f5df476141.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/review-library/versions.json"
+      ],
+      "sha256": "3e447511781676fa093d81d50163a5b16fd1c683d615129e8cd9c1cfcd336b3f",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "3e447511781676fa093d81d50163a5b16fd1c683d615129e8cd9c1cfcd336b3f.json",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/REVIEW-LIBRARY.md"
+      ],
+      "sha256": "dc5e9b328fa5b0b1ba0898b5645e2fb1b74be8d39780cf06699033413a41b448",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "dc5e9b328fa5b0b1ba0898b5645e2fb1b74be8d39780cf06699033413a41b448.md",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
+    },
+    {
+      "references": [
+        "/Volumes/JOAQUIM/ClassicalConditioning Outputs/START-HERE.html"
+      ],
+      "sha256": "480ce0ff440206577a9bc1ff5013c7ca544e6e4207be323f9c93594be752273b",
+      "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-history/ordered-figure-library-20261027/navigation-originals",
+      "relative_path": "480ce0ff440206577a9bc1ff5013c7ca544e6e4207be323f9c93594be752273b.html",
+      "recovery_method": "Exact prior generated navigation; no artwork selection"
     }
   ]
 }

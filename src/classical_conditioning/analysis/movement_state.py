@@ -46,6 +46,8 @@ METRIC_IDS = {
     "legacy_distal_angular_speed_rad_per_ms": "legacy_distal_angular_speed",
 }
 
+METRIC_COLUMNS = {metric_id: column for column, metric_id in METRIC_IDS.items()}
+
 # Bout detection is a property of the animal's behavior, not of the metric used
 # to describe it. One detector runs on the distal cumulative-angle speed, which
 # is the signal the historical pipeline used, and every metric shares its

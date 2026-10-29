@@ -13,7 +13,7 @@ sys.path.insert(0,str(REPO/'src'))
 from classical_conditioning.command_provenance import command_sources
 import numpy as np
 import pandas as pd
-from scripts.analyze_figure2_trace10 import OUT as DATA,PROJECT,load,ref,save,check
+from scripts.paper.figure_02.trace10.analyze_figure2_trace10 import OUT as DATA,PROJECT,load,ref,save,check
 from classical_conditioning.figure_workspace import Snapshot
 
 OUT=Path('J:/ClassicalConditioning Outputs/current/reviews/figure-01-trace10-learner-selection-20261020')

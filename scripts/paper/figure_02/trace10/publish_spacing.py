@@ -11,8 +11,8 @@ import argparse,json,sys,xml.etree.ElementTree as ET
 REPO=_COMMAND_REPOSITORY
 sys.path.insert(0,str(REPO/'src'))
 from scripts.paper.figure_02.trace10 import finalize as finish
-from scripts.analyze_figure2_trace10 import OUT,load,ref,save
-from scripts.assemble_figure2_trace10 import write,enc
+from scripts.paper.figure_02.trace10.analyze_figure2_trace10 import OUT,load,ref,save
+from scripts.paper.figure_02.trace10.assemble_figure2_trace10 import write,enc
 from classical_conditioning.operations.candidate_paths import candidate_directory, evidence_file
 from classical_conditioning.command_provenance import command_sources
 from classical_conditioning.figure_workspace import Snapshot,tag

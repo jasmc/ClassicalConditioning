@@ -492,7 +492,7 @@ unsupported and unmeasured content remains unresolved.
 
 Existing direct `savefig`/SVG-writing scripts, including specialised Figure 2–4
 and legacy analysis routes, are not automatically frame-aware. The route inventory
-in `records/figure-reviews/layout-frame-implementation.json` lists those entrypoints.
+in `records/figure-reviews/shared/layout-frame-implementation.json` lists those entrypoints.
 Future work must use the supported adapters or report incomplete coverage; a
 missing frame mapping/evidence cannot pass a new freeze. No current draft was
 converted as part of introducing these tools.

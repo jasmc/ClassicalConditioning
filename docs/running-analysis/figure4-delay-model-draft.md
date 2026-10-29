@@ -55,11 +55,11 @@ remain limitations; a penalized GAMM comparison has not been run.
 
 ## Build and review
 
-The [builder](../../scripts/build_figure4_delay_model_draft.py) has sequential
+The [builder](../../scripts/paper/figure_04/delay_model_draft/build_figure4_delay_model_draft.py) has sequential
 `extract`, `model`, `render` and `publish` stages, with source/output guards.
 The committed ticket describes this specific run; it is not a generic permission
 to overwrite a selected draft. Existing cache files authenticate before reuse.
-The [browser checker](../../scripts/check_figure4_delay_model_draft.cjs) accepts
+The [browser checker](../../scripts/paper/figure_04/delay_model_draft/check_figure4_delay_model_draft.cjs) accepts
 the external draft directory and a temporary PNG destination. It measures the
 saved SVG through the shared layout collector at 600 dpi. Temporary inspection
 images are removed after review.

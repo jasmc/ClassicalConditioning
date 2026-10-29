@@ -1,7 +1,7 @@
 # Folder-audit implementation and preservation
 
 Started 28 October 2026; completed verification is recorded on 29 October.
-The [eight independent audits](../2026-10-28-eight-folder-audit/README.md) remain
+The [eight independent audits](../README.md#retired-maintenance-prose) remain
 unchanged dated evidence. This record owns implementation evidence; workstream
 status belongs only in the [implementation index](../../../Plans/IMPLEMENTATION_STEP_INDEX.md).
 

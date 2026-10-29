@@ -63,6 +63,7 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/figure_02/assembly/align_statistics.py](paper/figure_02/assembly/align_statistics.py) | Restore statistical marks to the trajectory trial coordinates; abbreviate only row labels and bind their full explanations to the matching legend, preserving all results. |
 | [paper/figure_02/assembly/stats_phase_guides.py](paper/figure_02/assembly/stats_phase_guides.py) | Authenticate every G/H/I statistical mark against saved trial/block positions and restore phase separators, preserving all other artwork through guarded publication. |
 | [paper/figure_04/exports/shared_y.py](paper/figure_04/exports/shared_y.py) | Export-only shared signed-vigor y scale for the requested Delay/3sTrace catch panels; remap saved artwork without refitting or changing scientific draft selection. |
+| [paper/figure_04/exports/shared_x_window.py](paper/figure_04/exports/shared_x_window.py) | Extend the selected two-panel export to -20..20 s with unchanged values, shared y limits and saved model support; no extrapolation or refit. |
 | [paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py](paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py) | Build scoped Figure 2 A with the selected Figure 1 F–H pipeline and styles. |
 | [paper/figure_02/panel_b/reproduction/render_trace_signed.py](paper/figure_02/panel_b/reproduction/render_trace_signed.py) | Render the 3sTrace/control Figure 2B signed heatmap and fish coverage review. |
 | [paper/figure_02/panel_g/build_exploratory_presentation.py](paper/figure_02/panel_g/build_exploratory_presentation.py) | Separate, authenticated Figure 2 G presentation of saved exploratory results. |
@@ -162,72 +163,72 @@ The dated audit is assessment evidence; this catalogue describes the current phy
 
 ## Figure 4 local exploratory model pilots
 
-- [build_figure4_delay_model_draft.py](build_figure4_delay_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
-- [check_figure4_delay_model_draft.cjs](check_figure4_delay_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
-- [build_figure4_3strace_model_draft.py](build_figure4_3strace_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
-- [check_figure4_3strace_model_draft.cjs](check_figure4_3strace_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
+- [build_figure4_delay_model_draft.py](paper/figure_04/delay_model_draft/build_figure4_delay_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
+- [check_figure4_delay_model_draft.cjs](paper/figure_04/delay_model_draft/check_figure4_delay_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
+- [build_figure4_3strace_model_draft.py](paper/figure_04/trace3_model_draft/build_figure4_3strace_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
+- [check_figure4_3strace_model_draft.cjs](paper/figure_04/trace3_model_draft/check_figure4_3strace_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
 
-## Retained PC-side commands
+## Additional scoped assay and presentation commands
 
-These existing PC-side workflows are preserved for compatibility and further lifecycle review. Their presence does not establish scientific approval.
+These workflows are grouped by operation and scope. Their availability does not establish scientific approval.
 
-- [align_figure2_columns.py](align_figure2_columns.py)
-- [analyze_figure1_trace3_learner_candidates.py](analyze_figure1_trace3_learner_candidates.py)
-- [analyze_figure2_trace10.py](analyze_figure2_trace10.py)
-- [analyze_figure2_trace3_matched.py](analyze_figure2_trace3_matched.py)
-- [analyze_figures34_3strace.py](analyze_figures34_3strace.py)
-- [analyze_figures34_trace10.py](analyze_figures34_trace10.py)
+- [align_figure2_columns.py](paper/figure_02/assembly/align_figure2_columns.py)
+- [analyze_figure1_trace3_learner_candidates.py](paper/figure_01/panels_f_g_h/analyze_figure1_trace3_learner_candidates.py)
+- [analyze_figure2_trace10.py](paper/figure_02/trace10/analyze_figure2_trace10.py)
+- [analyze_figure2_trace3_matched.py](paper/figure_02/trace3/analyze_figure2_trace3_matched.py)
+- [analyze_figures34_3strace.py](paper/shared/trace3/analyze_figures34_3strace.py)
+- [analyze_figures34_trace10.py](paper/shared/trace10/analyze_figures34_trace10.py)
 - [analyze_trace10_learners.py](analyze_trace10_learners.py)
-- [assemble_figure2_trace10.py](assemble_figure2_trace10.py)
-- [assemble_figure2_trace3_matched.py](assemble_figure2_trace3_matched.py)
-- [audit_figure2_heatmap_ab.py](audit_figure2_heatmap_ab.py)
-- [audit_figure2_heatmap_ab_followup.py](audit_figure2_heatmap_ab_followup.py)
+- [assemble_figure2_trace10.py](paper/figure_02/trace10/assemble_figure2_trace10.py)
+- [assemble_figure2_trace3_matched.py](paper/figure_02/trace3/assemble_figure2_trace3_matched.py)
+- [audit_figure2_heatmap_ab.py](paper/figure_02/assembly/audit_figure2_heatmap_ab.py)
+- [audit_figure2_heatmap_ab_followup.py](paper/figure_02/assembly/audit_figure2_heatmap_ab_followup.py)
 - [audit_trace10_learner_shortlist.py](audit_trace10_learner_shortlist.py)
-- [build_figure2_trace3_panels.py](build_figure2_trace3_panels.py)
-- [build_figure3_3strace_ae.py](build_figure3_3strace_ae.py)
-- [build_figure4_3strace_preliminary.py](build_figure4_3strace_preliminary.py)
-- [build_figure4_3strace_score_draft.py](build_figure4_3strace_score_draft.py)
-- [check_figure3_3strace_ae.cjs](check_figure3_3strace_ae.cjs)
-- [check_figure4_3strace_preliminary.cjs](check_figure4_3strace_preliminary.cjs)
-- [check_figure4_3strace_score_draft.cjs](check_figure4_3strace_score_draft.cjs)
-- [check_figures34_3strace.cjs](check_figures34_3strace.cjs)
-- [check_figures34_trace10.cjs](check_figures34_trace10.cjs)
-- [complete_figures34_trace10.py](complete_figures34_trace10.py)
-- [explore_figure2_columns.py](explore_figure2_columns.py)
-- [figure2_median_pooling.py](figure2_median_pooling.py)
-- [finalize_figures34_3strace.py](finalize_figures34_3strace.py)
-- [finalize_trace3_additions.py](finalize_trace3_additions.py)
+- [build_figure2_trace3_panels.py](paper/figure_02/trace3/build_figure2_trace3_panels.py)
+- [build_figure3_3strace_ae.py](paper/figure_03/trace3/build_figure3_3strace_ae.py)
+- [build_figure4_3strace_preliminary.py](paper/figure_04/trace3_preliminary/build_figure4_3strace_preliminary.py)
+- [build_figure4_3strace_score_draft.py](paper/figure_04/trace3_score_draft/build_figure4_3strace_score_draft.py)
+- [check_figure3_3strace_ae.cjs](paper/figure_03/trace3/check_figure3_3strace_ae.cjs)
+- [check_figure4_3strace_preliminary.cjs](paper/figure_04/trace3_preliminary/check_figure4_3strace_preliminary.cjs)
+- [check_figure4_3strace_score_draft.cjs](paper/figure_04/trace3_score_draft/check_figure4_3strace_score_draft.cjs)
+- [check_figures34_3strace.cjs](paper/shared/trace3/check_figures34_3strace.cjs)
+- [check_figures34_trace10.cjs](paper/shared/trace10/check_figures34_trace10.cjs)
+- [complete_figures34_trace10.py](paper/shared/trace10/complete_figures34_trace10.py)
+- [explore_figure2_columns.py](paper/figure_02/assembly/explore_figure2_columns.py)
+- [figure2_median_pooling.py](paper/figure_02/assembly/figure2_median_pooling.py)
+- [finalize_figures34_3strace.py](paper/shared/trace3/finalize_figures34_3strace.py)
+- [finalize_trace3_additions.py](workflows/trace/finalize_trace3_additions.py)
 - [finish_figure2_trace10.py](finish_figure2_trace10.py)
 - [finish_trace10_example.py](finish_trace10_example.py)
 - [finish_trace10_learner_selection.py](finish_trace10_learner_selection.py)
 - [maintenance/storage_migration.py](maintenance/storage_migration.py)
-- [measure_figure1_trace3_replacement.cjs](measure_figure1_trace3_replacement.cjs)
-- [measure_figure2_exploration.cjs](measure_figure2_exploration.cjs)
-- [measure_saved_figure.cjs](measure_saved_figure.cjs)
-- [measure_trace10_example.cjs](measure_trace10_example.cjs)
-- [polish_trace10_report.py](polish_trace10_report.py)
-- [process_delay_additions.py](process_delay_additions.py)
+- [measure_figure1_trace3_replacement.cjs](paper/figure_01/panels_f_g_h/measure_figure1_trace3_replacement.cjs)
+- [measure_figure2_exploration.cjs](paper/figure_02/assembly/measure_figure2_exploration.cjs)
+- [measure_saved_figure.cjs](paper/shared/measure_saved_figure.cjs)
+- [measure_trace10_example.cjs](paper/figure_01/trace10_example/measure_trace10_example.cjs)
+- [polish_trace10_report.py](paper/figure_01/trace10_learner_selection/polish_trace10_report.py)
+- [process_delay_additions.py](workflows/delay/process_delay_additions.py)
 - [process_trace10_additions.py](process_trace10_additions.py)
-- [process_trace3_additions.py](process_trace3_additions.py)
+- [process_trace3_additions.py](workflows/trace/process_trace3_additions.py)
 - [publish_figure2_trace10.py](publish_figure2_trace10.py)
-- [publish_figure3_3strace_ae.py](publish_figure3_3strace_ae.py)
-- [publish_figure4_3strace_preliminary.py](publish_figure4_3strace_preliminary.py)
-- [publish_figure4_3strace_score_draft.py](publish_figure4_3strace_score_draft.py)
-- [refine_figure2_axes.py](refine_figure2_axes.py)
-- [render_figures34_3strace.py](render_figures34_3strace.py)
-- [render_figures34_trace10.py](render_figures34_trace10.py)
-- [render_trace10_de_correction.py](render_trace10_de_correction.py)
+- [publish_figure3_3strace_ae.py](paper/figure_03/trace3/publish_figure3_3strace_ae.py)
+- [publish_figure4_3strace_preliminary.py](paper/figure_04/trace3_preliminary/publish_figure4_3strace_preliminary.py)
+- [publish_figure4_3strace_score_draft.py](paper/figure_04/trace3_score_draft/publish_figure4_3strace_score_draft.py)
+- [refine_figure2_axes.py](paper/figure_02/assembly/refine_figure2_axes.py)
+- [render_figures34_3strace.py](paper/shared/trace3/render_figures34_3strace.py)
+- [render_figures34_trace10.py](paper/shared/trace10/render_figures34_trace10.py)
+- [render_trace10_de_correction.py](paper/figure_02/trace10/render_trace10_de_correction.py)
 - [render_trace10_example.py](render_trace10_example.py)
-- [render_trace10_learner_comparison.py](render_trace10_learner_comparison.py)
-- [repair_figures34_3strace_layout.py](repair_figures34_3strace_layout.py)
-- [replace_figure1_trace3_example.py](replace_figure1_trace3_example.py)
+- [render_trace10_learner_comparison.py](paper/figure_01/trace10_learner_selection/render_trace10_learner_comparison.py)
+- [repair_figures34_3strace_layout.py](paper/shared/trace3/repair_figures34_3strace_layout.py)
+- [replace_figure1_trace3_example.py](paper/figure_01/panels_f_g_h/replace_figure1_trace3_example.py)
 - [resume_trace10_additions.py](resume_trace10_additions.py)
-- [review_figure1_trace3_runner_up.py](review_figure1_trace3_runner_up.py)
-- [review_figure2_exploration.py](review_figure2_exploration.py)
-- [run_trace3_additions.py](run_trace3_additions.py)
-- [show_figure1_panel_h_five_options.py](show_figure1_panel_h_five_options.py)
-- [trace10_panel_statistics.py](trace10_panel_statistics.py)
-- [verify_figures34_3strace.py](verify_figures34_3strace.py)
+- [review_figure1_trace3_runner_up.py](paper/figure_01/panels_f_g_h/review_figure1_trace3_runner_up.py)
+- [review_figure2_exploration.py](paper/figure_02/assembly/review_figure2_exploration.py)
+- [run_trace3_additions.py](workflows/trace/run_trace3_additions.py)
+- [show_figure1_panel_h_five_options.py](paper/figure_01/panels_f_g_h/show_figure1_panel_h_five_options.py)
+- [trace10_panel_statistics.py](paper/figure_02/trace10/trace10_panel_statistics.py)
+- [verify_figures34_3strace.py](paper/shared/trace3/verify_figures34_3strace.py)
 
 
 ## Scoped trace successors and retained entry points

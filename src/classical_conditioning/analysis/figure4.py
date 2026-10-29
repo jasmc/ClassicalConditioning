@@ -20,9 +20,9 @@ from classical_conditioning.artifacts import artifact_staging, publish_transacti
 from classical_conditioning.config import Alignment, get_experiment_spec
 from classical_conditioning.config.domain import ConditionRole, Phase
 from classical_conditioning.exceptions import ConfigurationError, SchemaValidationError
-from classical_conditioning.figures.cohort_response import _load_primary_cohort
-from classical_conditioning.figures.example_traces import METRIC_COLUMNS
-from classical_conditioning.figures.signed_bout_heatmap import (
+from classical_conditioning.analysis.cohort_selection import load_primary_cohort as _load_primary_cohort
+from classical_conditioning.analysis.movement_state import METRIC_COLUMNS
+from classical_conditioning.analysis.signed_bout_heatmap import (
     BIN_WIDTH_S, SIGNAL, WINDOW_S, calculate_fish_heatmaps,
 )
 

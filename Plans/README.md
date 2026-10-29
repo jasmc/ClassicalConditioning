@@ -61,10 +61,6 @@ do not serve as current status or scientific approval.
 
 See the [folder policy](../docs/project-maintenance/structure.md) for shared preservation and ownership rules.
 
-## Retired-plan navigation exceptions
-
-`13_SCRIPT_COMMAND_ORGANIZATION.md` and
-`15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md` are compact compatibility pointers for
-links in preserved audit records. Their full bodies live only in repository
-history. They are neither active plans nor progress boards; retain these useful
-reading routes while the immutable audit links depend on them.
+Retired Plan 13/15 paths are recovered through their preserved commit context or
+the existing artifact resolver. Completed accounts and verification controls remain
+local where current requirements tests need them.
