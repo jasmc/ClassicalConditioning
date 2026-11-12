@@ -11,9 +11,7 @@ their owners; this page is navigation, not a second scientific decision register
 | Scientific precedence, identities and release gates | [Governance](governance.md) |
 | Accepted scoped scientific versions | [Freeze index](../../records/frozen-analyses/selections.md) and [selection records](../../configs/paper-figures/selections/) |
 | Selected working artwork | Scoped `current-state.json` files linked from [paper figures](../paper/figures/README.md) |
-| Figure procedures and guarded publication | [Iteration workflow](../paper/figures/shared/iteration-workflow.md) |
-| Current presentation target | [Nature guidance](../paper/figures/shared/nature-style.md), [profile](../../configs/paper-figures/nature-main.json), [frame policy](../../configs/paper-figures/layout-frames.json) |
-| Current element/role explanation | [Maintained specification](../paper/figures/shared/figure-element-specification.md); the [byte-sensitive original](../analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md) remains preserved |
+| Figure procedures, roles, Nature presentation and frame policy | [Single figure guide](../paper/figures/shared/iteration-workflow.md), [unified contract](../../configs/paper-figures/figure-elements.json) |
 | Shared definitions and scientific decisions | [Methods](../paper/methods/README.md), [decisions](../paper/decisions.md) |
 | Running code, parameters and outputs | [Running-analysis](../running-analysis/README.md) |
 | Future work and progress | [Plans](../../Plans/README.md), [sole status index](../../Plans/IMPLEMENTATION_STEP_INDEX.md) |
@@ -32,6 +30,10 @@ the owning document above for procedure. Read the requested figure/panel state
 and exact bindings; expand into plans, history or dependency payloads only when
 needed to resolve a question or perform a required check. Do not reload unchanged
 instructions within a task unless edits or conflicting evidence require it.
+For figure work, the workflow's task table owns route selection and the checks
+proportional to each operation. Local presentation edits check affected properties
+and relationships; full semantic/freeze coverage is reserved for explicit freezes.
+Managed SVG publication still requires fresh authenticated frame evidence.
 
 For scientific work, establish the claim/estimand and affected input chain before
 execution. Use shared definitions once, scoped approvals as recorded, and the
@@ -57,7 +59,7 @@ author's current installation, `analysis-review-guide` is discovered from
 `~/.codex/skills/`. Do not copy personal or bundled/plugin skills into the paper
 repository merely because they are available during a task. Custom agents, when
 needed, have separate project or personal configuration; this maintenance does
-not introduce any. The [dated reconciliation](../../records/repository-history/2026-10-17-organization-reconciliation/README.md)
+not introduce any. The [dated reconciliation](../../records/repository-history/README.md#retired-maintenance-prose)
 records the inventory and implementation boundary.
 
 ## Routine checks
@@ -92,3 +94,16 @@ commands above remain supported without a GitHub Actions dependency.
 checkout prefixes for local verification in another checkout; it never substitutes
 external payloads or rewrites frozen paths. External authentication still
 requires `--external` on the connected author machine.
+
+## Maintenance acceptance
+
+The [folder policy](structure.md#safe-maintenance-and-folder-guidance) requires a
+requirements/behavior/dependency disposition before shortening or retiring work.
+Keep uncertain originals. Passing structure or unit checks alone does not prove
+historical reproducibility or authorize changing selected figures. The
+[source guide](../../src/README.md) and [test guide](../../tests/README.md)
+record package boundaries and checks outside ordinary unittest discovery.
+
+Completed prose follows the maintenance-retention rule in structure.md. Preserve
+verification controls and dependency-bearing originals; prefer one compact event
+receipt and external inventories over another family of audit reports.

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/transactions/figure-guide-consolidation-2026-10-31",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 7505,
+      "sha256": "52629908ad1cfa1c784594ff55dc5155b8182d4f1f56c74ca66f63d0812ecfa8",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "AGENTS.md"
+    },
+    {
+      "path": ".agents/skills/paper-figures/SKILL.md",
+      "bytes": 4913,
+      "sha256": "15c6b6d87fd20532c8778b0a286fda6b92f0b18bb506c3d0f69691cd52ab9411",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": ".agents/skills/paper-figures/SKILL.md"
+    },
+    {
+      "path": "docs/paper/figures/shared/iteration-workflow.md",
+      "bytes": 68803,
+      "sha256": "e29194a8f7d969b5c3cae46a341915502ff1b19e662dda5c4cc360330274d3c0",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/figures/shared/iteration-workflow.md"
+    },
+    {
+      "path": "docs/paper/figures/shared/nature-style.md",
+      "bytes": 17654,
+      "sha256": "1d68d86e8da84dfc87ec08a79f9ea289aa5535c8abcbf62ecb823530b0fcc229",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/figures/shared/nature-style.md"
+    },
+    {
+      "path": "docs/paper/figures/shared/figure-element-specification.md",
+      "bytes": 2910,
+      "sha256": "3dbfc556d382f223ee3dd563b777af5d0050d9fea7379919cbfbc36439a7d0bb",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/figures/shared/figure-element-specification.md"
+    },
+    {
+      "path": "configs/paper-figures/figure-elements.json",
+      "bytes": 27314,
+      "sha256": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "configs/paper-figures/figure-elements.json"
+    },
+    {
+      "path": "configs/paper-figures/nature-main.json",
+      "bytes": 7700,
+      "sha256": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "configs/paper-figures/nature-main.json"
+    },
+    {
+      "path": "configs/paper-figures/layout-frames.json",
+      "bytes": 745,
+      "sha256": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "configs/paper-figures/layout-frames.json"
+    }
+  ]
+}

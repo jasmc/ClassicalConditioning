@@ -19,6 +19,7 @@ This plan integrates rather than supersedes:
 - [Fish Discarding, Eligibility and Paper Cohort](02_DISCARDING_AND_COHORT_IMPLEMENTATION.md);
 - [Learning-Onset Analysis Completion](03_FIGURE_2_LEARNING_ONSET.md);
 - [Learner Analysis and Validation](04_FIGURE_3_LEARNER_ANALYSIS.md);
+- [Response-model comparison and final Figure 4 implementation](05.1_FIGURE_4_BOUT_AVAILABILITY_AND_POOLING.md#full-window-spline-exploration-and-final-figure-4-implementation), including the spline/GAMM function research, remaining validation and renderer handoff;
 - [Learning-Onset Analysis Reference](../docs/running-analysis/learning-models.md); and
 - [Figures and Reproducible Reporting](07_FIGURE_BUILD_TOOLS.md).
 

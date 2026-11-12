@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning-Archive/transactions/figure-guide-consolidation-2026-10-31-sources",
+  "source": "Exact uncommitted baseline snapshot captured before consolidation",
+  "files": [
+    {
+      "path": "docs/paper/decisions.md",
+      "bytes": 16675,
+      "sha256": "d49018698ef65119587777d3f9a39fca8f7b50eaceb2131a0b6427143456f3b3",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/decisions.md"
+    },
+    {
+      "path": "docs/project-maintenance/structure.md",
+      "bytes": 9308,
+      "sha256": "41195ffa6358d465b6514174877732d7cf500cfed3c07011e8d933b7de9da368",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/project-maintenance/structure.md"
+    },
+    {
+      "path": "docs/project-maintenance/rules.md",
+      "bytes": 7341,
+      "sha256": "2e90a225df3502477d536ce184b364eb0c7e58b0161542aace024c1ddfeb46af",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/project-maintenance/rules.md"
+    },
+    {
+      "path": "docs/running-analysis/parameters.md",
+      "bytes": 15535,
+      "sha256": "34766baa06ea79233d95e6f2e50a071fe9e7eb4099b47863832aa30020ffcb18",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/running-analysis/parameters.md"
+    },
+    {
+      "path": "docs/running-analysis/rendering.md",
+      "bytes": 14048,
+      "sha256": "2a980f78833f6e4901f831a9792544fb49cb8bf6eb7755dee147921892442d99",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/running-analysis/rendering.md"
+    },
+    {
+      "path": "docs/running-analysis/run-pipeline.md",
+      "bytes": 7803,
+      "sha256": "d2802d913a072715bf6e38d3858cd8535451f9896f838646b6d5844a2d8b7c46",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/running-analysis/run-pipeline.md"
+    },
+    {
+      "path": "docs/paper/methods/README.md",
+      "bytes": 1209,
+      "sha256": "3b72f9b2cdc5f2599af1c42b7d9ea592f2e1b4e979b0a96e75a78750c9203950",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/methods/README.md"
+    },
+    {
+      "path": "docs/paper/figures/README.md",
+      "bytes": 2874,
+      "sha256": "3bc619cd7012fce7be134c38aab6d06644421314c28bcf23ca86b0c5e9ea9177",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/figures/README.md"
+    },
+    {
+      "path": "docs/paper/figures/figure-02/assembly.md",
+      "bytes": 977,
+      "sha256": "add7f38161ea3a770ba8296cee305826b082dbf2f01fcfd7878de93146d807e5",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/figures/figure-02/assembly.md"
+    },
+    {
+      "path": "docs/paper/figures/figure-01/assembly.md",
+      "bytes": 10199,
+      "sha256": "c040eddcb4eb8549de729adc85345f1d3c05ae1c15aa6731dbacec739aa9dea4",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "docs/paper/figures/figure-01/assembly.md"
+    },
+    {
+      "path": "configs/README.md",
+      "bytes": 3165,
+      "sha256": "582d79cef6bf6c9b397d24eb2d44cadc4dcd2ab4362e483b21c5acba745ec0e6",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "configs/README.md"
+    },
+    {
+      "path": "src/classical_conditioning/intake.py",
+      "bytes": 54167,
+      "sha256": "5420828516af0132a487fdaddb7a28149864ba20c2682c32e441beeedab269c6",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/intake.py"
+    },
+    {
+      "path": "src/classical_conditioning/figure_freeze.py",
+      "bytes": 42193,
+      "sha256": "0c5b87a85501e3284d702f31fb29be28cfb85e9bf8b603f076a4b7b6943a8723",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/figure_freeze.py"
+    },
+    {
+      "path": "src/classical_conditioning/cli.py",
+      "bytes": 84915,
+      "sha256": "1efa494bd61e6679f128580c871cd5277aee98ac5b88d91028e2c284bfa013df",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/cli.py"
+    },
+    {
+      "path": "src/classical_conditioning/pipeline.py",
+      "bytes": 28188,
+      "sha256": "374846e0b81d45c4fd3a0e5a5915b72859da5c9e1e503948b6870660e3a65906",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/pipeline.py"
+    },
+    {
+      "path": "src/classical_conditioning/run_config.py",
+      "bytes": 10061,
+      "sha256": "7964a32c1a9ee7e79ae558859bcab9d68e923b37afd58a677a4276f4d232592c",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/run_config.py"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/readers.py",
+      "bytes": 9335,
+      "sha256": "07b0882d46158580cc40e7aa4975b0c1e462841ae79fe4dd141dfdfde153c0cd",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/ingestion/readers.py"
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/validate_raw.py",
+      "bytes": 4912,
+      "sha256": "4407980b528e0176a3240f7788af890493b253312bc7cff06769453c790deb95",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/ingestion/validate_raw.py"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/discarding.py",
+      "bytes": 30619,
+      "sha256": "0d7ca94215331b02e078ea5fe05ffa7532ac911aeaa5c40cef52f84bbaa80e22",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/analysis/discarding.py"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/candidate_runner.py",
+      "bytes": 25195,
+      "sha256": "f77d87d132e52cc414a14ee90002dd8ad9e60d288efea2cfd969b05925809265",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/analysis/candidate_runner.py"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/temporal_profiles.py",
+      "bytes": 33106,
+      "sha256": "25dcc7bcf1d0b6e9c0ddd9e6a3e1c118edd83926ff4263c03269518377be205f",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/analysis/temporal_profiles.py"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/trial_outcomes.py",
+      "bytes": 27964,
+      "sha256": "1184c9f377a73673c802bdcdece3953e5472082dff69a958db3ea1a25337c5fb",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/analysis/trial_outcomes.py"
+    },
+    {
+      "path": "src/classical_conditioning/analysis/metric_comparison.py",
+      "bytes": 25160,
+      "sha256": "5b2895ac8fbc04fe7469d099f5897d37146fb286f2aa7be8ae57c1785e5ed521",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/analysis/metric_comparison.py"
+    },
+    {
+      "path": "src/classical_conditioning/config/export.py",
+      "bytes": 6024,
+      "sha256": "adcbb4fae092226c2fcd23665fc7e35a3a14f8f4a59d85bbb09d6aa240997005",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/config/export.py"
+    },
+    {
+      "path": "src/classical_conditioning/config/experiments.py",
+      "bytes": 5977,
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/config/experiments.py"
+    },
+    {
+      "path": "src/classical_conditioning/config/trial_map.py",
+      "bytes": 3815,
+      "sha256": "ba4e9b3662a5c8d71041eee54c9b2982fb44ca9f5d2530aac45fe83c1a337d76",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/config/trial_map.py"
+    },
+    {
+      "path": "src/classical_conditioning/figures/layout_frames.py",
+      "bytes": 16487,
+      "sha256": "6285e8190951d8c2cc9f44ecc0b5da8506a25ecf1553bd4ad57f2260167e8853",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/figures/layout_frames.py"
+    },
+    {
+      "path": "src/classical_conditioning/figures/presentation_profiles.py",
+      "bytes": 10240,
+      "sha256": "e440c45ae7482ad3fd50c38445616097edc7bebea14bf87de7f29e3009f79395",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/figures/presentation_profiles.py"
+    },
+    {
+      "path": "src/classical_conditioning/figures/aligned_example_pair.py",
+      "bytes": 26920,
+      "sha256": "a6164f6194ad6c14c7fb7804a899b0b80c83b746b172ad0e905f4e219857876f",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/figures/aligned_example_pair.py"
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/corrected_frame_preprocessing.py",
+      "bytes": 25474,
+      "sha256": "a5e4a7e0bcc632a3df06199b4100b5bee63188b58bb1d8a77ba14e1eee394d7a",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "src/classical_conditioning/preprocessing/corrected_frame_preprocessing.py"
+    },
+    {
+      "path": "scripts/paper/shared/build_legend_review.py",
+      "bytes": 81607,
+      "sha256": "e50a2d8b4f72c59fd5b16b551bc243246dba1e1fd7ac065472824f85927b5fa3",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/shared/build_legend_review.py"
+    },
+    {
+      "path": "scripts/paper/figure_03/build_main_draft.py",
+      "bytes": 23364,
+      "sha256": "0222a2c2f426ba8b9818238b41a31698943155696b5f55ad757c465f703db54d",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_03/build_main_draft.py"
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/build_study_guide.py",
+      "bytes": 60348,
+      "sha256": "4969f96127ed2a00e5bdc64f5b76215d05731210225065c7354506ec7e2958e1",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_02/panel_g/build_study_guide.py"
+    },
+    {
+      "path": "scripts/paper/figure_03/supplement/build_atlas.py",
+      "bytes": 17973,
+      "sha256": "df25d883e4787c2aac8d0a2bca9c9d6f7e5346a9ce430317c632e529bc854d3a",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_03/supplement/build_atlas.py"
+    },
+    {
+      "path": "scripts/paper/figure_04/exports/full_window.py",
+      "bytes": 16631,
+      "sha256": "6e2eb622127bc0c90c2bda935aeea567b362d9059f9a914b3e9c8a05c25420b9",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_04/exports/full_window.py"
+    },
+    {
+      "path": "scripts/paper/shared/trace3/analyze_figures34_3strace.py",
+      "bytes": 17032,
+      "sha256": "fcdbd8f57b784d94ad3991ae4971f528bc010c2d443372ad88b42c5415181ebd",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/shared/trace3/analyze_figures34_3strace.py"
+    },
+    {
+      "path": "scripts/paper/shared/trace10/analyze_figures34_trace10.py",
+      "bytes": 11560,
+      "sha256": "1d92f0ec897d684913dbf7d053de7e8ed0ed322e6f69a384e0bb7c5e22882fd9",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/shared/trace10/analyze_figures34_trace10.py"
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/review_figure1_trace3_runner_up.py",
+      "bytes": 10045,
+      "sha256": "00b836fd78845235004a41eec437095a8ec87b20392ae082714eb8f6fbef7e2c",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_01/panels_f_g_h/review_figure1_trace3_runner_up.py"
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/show_figure1_panel_h_five_options.py",
+      "bytes": 13605,
+      "sha256": "499d740f5621bca5faf3160304cfaac2e40506188698850a7a42ee247458bc33",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_01/panels_f_g_h/show_figure1_panel_h_five_options.py"
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/analyze_figure1_trace3_learner_candidates.py",
+      "bytes": 24644,
+      "sha256": "4842837d3df99f453923249e61756841f8738922fbc70e1cd9412bcb680ede8a",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_01/panels_f_g_h/analyze_figure1_trace3_learner_candidates.py"
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/replace_figure1_trace3_example.py",
+      "bytes": 24375,
+      "sha256": "2f3dcb6fed89e40c82fae35177970a22127e4d43ce80ac8a46033357ecdbdf78",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "scripts/paper/figure_01/panels_f_g_h/replace_figure1_trace3_example.py"
+    },
+    {
+      "path": "tests/test_presentation_profiles.py",
+      "bytes": 12829,
+      "sha256": "fb692d0843ff2443ff6f2de5902c687c2d291fd6fdc4a717ecebd8c1baabea37",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "tests/test_presentation_profiles.py"
+    },
+    {
+      "path": "tests/test_candidate_runner.py",
+      "bytes": 9700,
+      "sha256": "f2a14d57f2ecbee85fbb4d5596d05376dc766b137674a80407283cc625b609b2",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "tests/test_candidate_runner.py"
+    },
+    {
+      "path": "tests/test_metric_comparison.py",
+      "bytes": 8267,
+      "sha256": "3de3cbc8aaa0f8df8f4ac1450532af0094f1937295cb61eafb31014de1fa6bc8",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "tests/test_metric_comparison.py"
+    },
+    {
+      "path": "tests/test_figure_freeze.py",
+      "bytes": 21287,
+      "sha256": "ed1109cc9c7afc06adbaad12d6af02ef40ff68c886ed6289cd03dafb2c50229a",
+      "action": "archive_to_ssd",
+      "historical_paths": [],
+      "canonical_copy": "tests/test_figure_freeze.py"
+    }
+  ]
+}

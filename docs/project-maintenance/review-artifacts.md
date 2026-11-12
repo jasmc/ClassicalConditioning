@@ -87,3 +87,21 @@ its embedded snapshots and notebook identities remain valid historical bindings.
 Original relative Markdown links describe the source's repository context;
 use the library's reading/source routes and original-reference metadata when
 following those historical links. Source-only relocation does not rewrite prose.
+
+## Requirements retained when shortening a migration plan
+
+Keep the source manuscript, published HTML, required assets and prior revisions
+linked by reviewed identities. Preserve guide/section/storage IDs, existing
+browser origins and saved notes; read-only generated reading copies do not
+become editable manuscripts. Before retiring a reading route, export notes from
+the original context and verify compatible import in a fresh isolated context.
+Unrecovered notes keep retirement open. Never inspect or clear the author's
+actual notebook for a test. Record missing storage or incomplete rendered/print
+checks explicitly, without selecting an older source or rerunning science.
+
+Use existing resolver/catalogue/provenance formats, not another latest selector.
+Keep source copies, exact historical aliases and source-consumer tests intact
+through migration. Preserve manual edits and distinct dated discussion evidence;
+resolve mixed content by role without discarding approved definitions. Explicit
+author choices enter the decision/selection workflow; provisional study notes
+remain distinct from approval. These ongoing requirements survive plan retirement.

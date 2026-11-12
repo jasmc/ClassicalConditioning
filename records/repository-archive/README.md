@@ -17,4 +17,4 @@ The [original archive procedure](../repository-history/2026-10-13-paper-structur
 
 - [Handoff Git-history preservation, 2026-10-26](handoff-git-history-20261026/README.md): independently verified native backup of all Mac-handoff Git objects, including 16 commits absent from maintained Git; original packets retained.
 
-- [PC output cleanup, 2026-10-18](../repository-history/2026-10-18-pc-output-cleanup/README.md): preserved originals and deletion evidence.
+- [PC output cleanup, 2026-10-18](../repository-history/README.md#retired-maintenance-prose): preserved originals and deletion evidence.

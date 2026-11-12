@@ -60,7 +60,7 @@ and verified implementation completed this archival disposition.
 
 ## Whole-folder reassessment
 
-The [24 October audit](../../records/repository-history/2026-10-24-scripts-audit/README.md)
+The [24 October audit](../../records/repository-history/README.md#retired-maintenance-prose)
 extends the earlier 20-file follow-up to every current tracked script and ignored
 cache. It distinguishes maintained actions, shared implementation, historical
 reproduction and completed recipes with live helpers. It also identifies storage
@@ -68,7 +68,7 @@ and misleading command-name issues. The earlier retention assessments preserve
 source/provenance needs; they do not establish that every completed recipe must
 remain a permanent top-level command.
 
-[Plan 13](../../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md) records the implemented
+[The completed Plan 13 account](../../records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md) records the implemented
 repairs, extractions and per-figure/panel command organization. Preserve exact
 scientific definitions and historical bindings;
 extract shared code and verify consumers before renaming or retiring a recipe.
@@ -88,3 +88,31 @@ namespace names with underscores. Seven standing compatibility facades preserve
 normal entry points and the immutable element-specification link. The catalogue
 checker walks the full command tree. Guarded command snapshots include their
 local implementation dependency closure so extracted helpers remain hash-bound.
+
+## New commands and safe successors
+
+Place new commands under their maintained operation/figure/panel scope. Keep
+root facades only for explicit compatibility contracts. Document the command's
+lifecycle role, inputs, outputs and modifying/publication modes in its catalogue
+entry or operating guide. Reusable helpers belong in src; do not reuse a driver
+by overriding its globals. Accept explicit candidate/evidence locations rather
+than a personal temporary workspace. Trace callers, source bindings and recovery
+before a move or retirement; preserve scientific definitions and guards.
+
+A catalogue entry establishes discoverability, not scientific approval or safe
+replay. Distinguish maintained operations, reproduction/audit tools and dated
+transaction drivers. Keep historical source versions and their dependency
+closure recoverable even when the supported successor has a clearer location.
+Compatibility facades and exact source-bound originals are explicit exceptions
+to normal scoped placement, not new templates for root commands.
+
+The later trace commands are routed to scoped successors under Figure 1,
+Figure 2 and trace workflows. Retained old paths remain compatibility entry
+points or explicitly marked historical sources. Other root commands require
+individual assessment before relocation; no root-file count certifies cleanup.
+
+New candidate tools capture inputs before consuming them and retain those
+identities through publication. Extend a `Snapshot` with `bind_hashes` or
+`include`: conflicting earlier bindings must fail rather than be overwritten
+by a later hash capture. Bind the exact browser-evidence file as well as the
+candidate artifact; a fresh measurement cannot be inferred from a filename.

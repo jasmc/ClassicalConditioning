@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "protected_files": [
+    {
+      "path": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "sha256": "890d2ee570b521a4367e11259a31c34c41a1844e5f4b48a14f21431ed35f302a"
+    },
+    {
+      "path": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "sha256": "333dba6b18bfb7c3b3cb50298e979f66fec9d81d30d4ceafc03fd72c9cb12142"
+    },
+    {
+      "path": "records/repository-history/2026-10-28-folder-audit-implementation/completed-plan-15.md",
+      "sha256": "37b29a6a2b41be497ebb58ad3f784f67bf8f6bc5c238740bb990e4cb116c3345"
+    }
+  ],
+  "dispositions": [
+    {
+      "original_path": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "canonical_path": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "preserved_original": "records/repository-history/2026-10-23-study-source-migration-plan.md",
+      "sha256": "890d2ee570b521a4367e11259a31c34c41a1844e5f4b48a14f21431ed35f302a",
+      "action": "preserve complete account; retain all ongoing requirements in maintained owners"
+    },
+    {
+      "original_path": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "canonical_path": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "preserved_original": "records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md",
+      "sha256": "333dba6b18bfb7c3b3cb50298e979f66fec9d81d30d4ceafc03fd72c9cb12142",
+      "action": "preserve complete account; retain all ongoing requirements in maintained owners"
+    },
+    {
+      "original_path": "Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md",
+      "canonical_path": "records/repository-history/2026-10-28-folder-audit-implementation/completed-plan-15.md",
+      "preserved_original": "records/repository-history/2026-10-28-folder-audit-implementation/completed-plan-15.md",
+      "sha256": "37b29a6a2b41be497ebb58ad3f784f67bf8f6bc5c238740bb990e4cb116c3345",
+      "action": "Completed implementation plan retained in full; current completion evidence in this record and sole implementation index."
+    }
+  ],
+  "policy": "Original bytes immutable; current requirements survive with maintained owners; this register is evidence, not status."
+}

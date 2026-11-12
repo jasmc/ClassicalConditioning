@@ -79,8 +79,10 @@ Author approved these conventions on 27 October 2026:
   share a base name. Keep immutable historical filenames and authenticated aliases.
 - Always keep every retained figure/panel version reachable from the main
   `ClassicalConditioning Outputs/START-HERE.html`, through its ordered figure,
-  panel and version controls. Refresh the supported browser after retaining or
-  publishing a version, including versions embedded in HTML or archives.
+  panel and version controls. Refresh the supported browser once at task completion after retaining or
+  publishing versions, including versions embedded in HTML or archives. Scratch
+  previews are not retained versions. Use incremental registration for fresh
+  bundles; explicit full builds own archive-wide discovery and reconciliation.
   Account explicitly for supporting illustrations, aliases, known gaps and
   unresolved ownership. Show one version at a time with its saved context and sources.
 - Keep this upkeep token-efficient: use the supported builder and checker to
@@ -103,7 +105,7 @@ The author confirmed on 27 October that no notes or selections had been added.
 The former notebook routes were retired after verifying their retained copies
 and preserving notebook identities; no browser import/reload is claimed.
 
-The [consolidation record](../../records/repository-history/2026-10-27-storage-consolidation/README.md)
+The [consolidation record](../../records/repository-history/README.md#retired-maintenance-prose)
 binds the inventory, recovery snapshot, manifest and publication/pruning receipts.
 `scripts/maintenance/storage_migration.py` separates inventory, ZIP-member
 recovery, exclusive copying, consumer publication and pruning. Unexpected files,
@@ -149,16 +151,9 @@ line-ending-only differences may be restored.
 
 Analysis run locks use exclusive non-blocking OS locks; figure publication keeps
 its existing lock and atomic pointer workflow. Native Windows and macOS process
-contention and error release are tested. The [Mac acceptance record](../../records/figure-reviews/authority-reconciliation-20261025/ssd-portability-reconciliation-20261028.json)
-records 223 passes and one Windows-only drive-discovery skip; all three symlink
-cases ran on macOS. The verification record owns current SSD audit and final
-Windows continuation outcomes; actual shared-filesystem cross-machine locking
-remains pending. Serial single-host work does not require a cross-machine lock.
-Final PC acceptance passed: 223 of 226 tests passed, with three skips for
-Windows symlink privilege. The actual SSD audit verified 366 protected files
-and 14 archive transactions.
-See the verification record's `pc_acceptance` section for the tested commit and
-exact artifact identities.
+contention and error release are tested. Historical native acceptance results and their exact source identities remain in
+the [portability acceptance record](../../records/figure-reviews/authority-reconciliation-20261025/ssd-portability-reconciliation-20261028.json).
+Use its scoped results rather than treating dated counts as current acceptance.
 Allocated-space metrics are `null` where `st_blocks` is unavailable; logical size
 is not a physical-space measurement.
 
@@ -173,7 +168,7 @@ are unchanged.
 
 ## Drive-wide audit
 
-The [24 October storage audit](../../records/repository-history/2026-10-24-joaquim-storage-audit/README.md)
+The [24 October storage audit](../../records/repository-history/README.md#retired-maintenance-prose)
 records current folder sizes, processed-data status, archive integrity and the
 original roles of the dated PC/Mac handoff packets. Its full Markdown/HTML explanation
 and file inventory live on JOAQUIM. Machine names and old dates do not by
@@ -201,3 +196,32 @@ inputs remain; original transfer inventories and receipts retain their bytes.
 The live recovery index no longer advertises the deleted staging, and the existing
 external-audit policy recognizes only the disposition's exact path/hash/size
 absences. Strict transfer/verify/prune behavior is unchanged.
+
+## Maintenance evidence and preservation receipts
+
+`ClassicalConditioning Maintenance/repository-history/<dated-task>/` on JOAQUIM
+owns verbose repository-maintenance inventories, logs and exact pre-change
+source/dependency snapshots. Keep compact discovery, requirements mapping and
+hash-bound completion receipts in repository history. This explicit control home
+is outside the artwork browser's `ClassicalConditioning Outputs` and
+`ClassicalConditioning-Archive` source trees; it does not select science or artwork.
+
+Keep every audit and published transfer checkpoint at its recorded identity.
+Do not move older audit evidence merely to normalize this layout. A source
+snapshot preserves its full original dependency tree and environment declarations;
+verify exact recovery, not just the existence of a copy, before replacing a
+source-bound driver. Originals with unresolved consumers remain retained.
+
+Do not introduce generic maintenance-directory exclusions into artwork discovery.
+Supporting artwork and source snapshots inside an inventoried root must remain
+visible to its existing completeness checks. New control files use the separate
+maintenance home; adding an exclusion would require an exact reviewed inventory
+and evidence that no relevant content becomes hidden. Historical narrowly scoped
+exclusions retain their existing contracts. A same-drive archive is not an
+independent backup; this organization makes no new backup claim.
+
+## Maintenance retention
+
+Follow the [single maintenance-retention policy](structure.md#maintenance-retention)
+for Git-only retirement, accessible controls and minimal compatibility pointers.
+This storage guide owns verified external transfer and exact recovery.

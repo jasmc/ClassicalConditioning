@@ -64,7 +64,7 @@ The target is Nature itself; another journal needs its own checked profile.
 
 #### Rule ownership and implementation shape
 
-The [maintained Nature target](../docs/paper/figures/shared/nature-style.md)
+The [maintained Nature target](../docs/paper/figures/shared/iteration-workflow.md#requirements-choices-and-precedence)
 owns requirements, usage and detailed axis rules; the versioned machine profile
 owns exact overrides and rule origins. This plan owns implementation tasks and
 known fixes; the dated source review owns research/audit evidence. Do not copy
@@ -240,7 +240,7 @@ and unresolved scientific decisions. Update live progress only in the
 
 Read `AGENTS.md`, the repository paper-figures skill, the authoritative
 [iteration workflow](../docs/paper/figures/shared/iteration-workflow.md) and the
-[maintained Nature target](../docs/paper/figures/shared/nature-style.md). Resolve
+[maintained Nature target](../docs/paper/figures/shared/iteration-workflow.md#requirements-choices-and-precedence). Resolve
 `docs/paper/figures/figure-01/current-state.json`, Figure 2's corresponding state
 and `main-paper-current-state.json`; authenticate their SVG, caption, registry,
 scientific-selection and evidence references. Check storage before reading media.
@@ -540,3 +540,22 @@ This plan does not choose cohorts, learner methods, examples, trial matching, po
 Additional notebooks, inspection APIs and a general command framework are optional, not first-release prerequisites. Background ideas remain in the [preserved tooling design](../records/repository-history/tooling-designs/figure-build-tools.md).
 
 Complete this plan when the four integration requirements and applicable Nature-profile checks above are demonstrated for supported Figures 1–4 release builds, with unavailable scopes and their owning dependencies explicitly recorded. Generic assembler implementation alone is not completion. Track progress only in the [implementation index](IMPLEMENTATION_STEP_INDEX.md).
+
+## Figure-work efficiency implementation
+
+The 29 October audit prioritizes task routing, operation-local metadata reuse,
+scoped display, disposable previews, presentation-only publication and incremental
+retention. Preserve selected/frozen artwork; apply compact packaging only to new
+outputs. Routine comparisons stay in chat. Model reasoning is configured medium.
+
+Incremental updates accept changed registered sources only with exact authenticated
+historical recovery. Compact registries are resolved by the new preview, retention
+and presentation publisher routes; historical reconstruction consumers keep their
+inline representation. Preview adapters for Figure 2G and atlas fish subsets,
+authenticated panel-only CLI views and exact font-rule deduplication are implemented.
+Production visual QA remains scoped to future requested candidates; do not send
+existing selected artwork through the new preview path automatically.
+
+Validate new routes with synthetic integrity/failure tests, focused existing
+publication/browser tests, local structure checks and bounded read-only display
+benchmarks. Keep progress only in the implementation index.

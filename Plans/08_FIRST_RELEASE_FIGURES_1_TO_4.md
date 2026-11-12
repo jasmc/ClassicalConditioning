@@ -14,7 +14,7 @@ Nature styling, retained author rules, frames, accessibility, production export,
 renderer checks and guarded publication. Its N/F checklist and H01–H10 packages
 own that work; this plan consumes their evidence rather than duplicating style
 constants or creating another validator/state system. The
-[maintained Nature target](../docs/paper/figures/shared/nature-style.md) and
+[maintained Nature target](../docs/paper/figures/shared/iteration-workflow.md#requirements-choices-and-precedence) and
 [authoritative workflow](../docs/paper/figures/shared/iteration-workflow.md) remain
 the rule and procedure authorities. Progress stays in the
 [implementation index](IMPLEMENTATION_STEP_INDEX.md).

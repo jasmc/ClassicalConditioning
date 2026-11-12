@@ -26,46 +26,30 @@ Do not expand the paper scope or treat an implemented method as approved.
 
 ## Figure work
 
-For figure/panel display, creation, editing, comparison, legends, verification
-or freezing, use the [paper-figures skill](.agents/skills/paper-figures/SKILL.md),
-reading it directly if discovery is unavailable. The [iteration workflow](docs/paper/figures/shared/iteration-workflow.md)
-is the procedural authority; its task routes identify the sections to read.
+Use the [paper-figures skill](.agents/skills/paper-figures/SKILL.md), reading it
+directly if discovery is unavailable. The [single figure guide](docs/paper/figures/shared/iteration-workflow.md#task-routes)
+owns procedures. The [unified contract](configs/paper-figures/figure-elements.json)
+owns semantic roles, current Nature styles, rule origins and frame policy.
 
-- New presentation work uses [Nature guidance](docs/paper/figures/shared/nature-style.md)
-  and resolved `nature-main` values. Use the [shared theme](src/classical_conditioning/figures/theme.py)
-  with one profile snapshot per build, passed to helpers inside scoped Matplotlib
-  rc changes. Pre-Nature defaults/contracts are reproduction dependencies only.
-  Preserve compatible author geometry and scientific mappings. Profile selection
-  does not certify output; showing artwork does not request restyling.
-- A particular figure/panel opens its state-selected working SVG and matching
-  scoped legend only, in minimal self-contained HTML in the built-in browser.
-  Other scopes, notes, provenance displays, versions, comparisons and frozen
-  views require an explicit request. Keep provenance nonvisual and the matching
-  editable SVG available on request. Resolve the recorded path and verify the
-  rendered scope before claiming a successful open; stale tabs are not authority.
-- Plural main-paper display uses `scripts/main_paper_figures.py build`, then
-  `display-target`. The ordered collection follows its recorded membership;
-  inclusion does not freeze a figure. Identify unfrozen scopes.
-- Preserve other work, uncommitted changes and manual SVG edits. Stay within
-  requested scopes. Snapshot state, working-copy and bound input hashes before
-  edits; recheck under the publication lock. Preserve/reconcile conflicts and
-  publish verified artifacts/evidence before the atomic state pointer, using
-  supported guarded tools.
-- “Ensure consistency” also updates the scoped draft registry and version-bound
-  evidence for the named relationships/properties. Scientific roles need explicit
-  source/data mappings; XML IDs and matching appearance do not prove scientific
-  identity or final-scale consistency. Record unresolved coverage.
-- Only an explicit freeze request activates the [element specification](docs/paper/figures/shared/figure-element-specification.md)
-  and [role contract](configs/paper-figures/figure-elements.json). Prepare a separate
-  candidate and pass `scripts/freeze_figure.py --check-only` before `--output`.
-  That request supplies authorization; preserve scoped approvals and never invent
-  unresolved decisions. Exports do not freeze. After a successful new freeze,
-  inventory earlier versions/dependencies for author disposition; keep pending
-  originals. Freezing, rule edits and check-only runs do not authorize cleanup.
-- Future figure layout uses invisible frames, the active shared physical inset,
-  shared outside margins and two panel insets between adjacent contents. Follow
-  the workflow's frame/ownership/render checks. Do not retrofit existing drafts
-  without a scoped edit request.
+- Use the smallest task route. Display shows authenticated selected SVG/legend
+  only and verifies the actual rendering; it does not restyle. Expanded/frozen/
+  comparison views require an explicit request. Plural paper display follows
+  recorded collection membership and identifies unfrozen scopes.
+- Disposable previews use saved inputs, a matching legend and provisional status.
+  Retain requested versions only; no state bootstrap or journal/archive-wide audit.
+- New presentation uses one `nature-main` contract snapshot through the shared
+  theme inside scoped Matplotlib rc changes. Preserve scientific mappings and
+  author geometry; profile lookup alone certifies no output. Future layouts use
+  the selected invisible frames/insets; existing drafts need a scoped edit request.
+- Preserve manual/uncommitted work. Capture starting state/artifact/input hashes,
+  recheck under publication locks, and publish verified artifacts/evidence before
+  the atomic state pointer. Reconcile conflicts rather than overwrite them.
+- Named consistency work includes scoped registry/evidence updates and explicit
+  source/data mappings. Report partial coverage; appearance alone proves no identity.
+- Only an explicit freeze request activates the full panel/assembly/letter gate.
+  Preserve scoped approvals and pending originals; ask only about unresolved
+  choices. Exports do not freeze. Inventory prior versions after success for
+  author disposition; freezes, checks and rule edits authorize no other cleanup.
 
 ## Storage and ownership
 

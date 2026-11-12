@@ -63,8 +63,6 @@
   "active_navigation": [
     "docs/project-maintenance/rules.md",
     "docs/project-maintenance/script-lifecycle.md",
-    "records/repository-history/2026-10-17-organization-reconciliation/README.md",
-    "records/repository-history/2026-10-23-script-lifecycle/README.md",
     "records/figure-history/figure-01/INDEX.md",
     "records/figure-history/figure-02/INDEX.md",
     "records/figure-history/figure-04/INDEX.md",
@@ -73,9 +71,9 @@
     "records/scientific-evidence/decisions/INDEX.md",
     "records/repository-history/transfers/INDEX.md",
     "records/figure-reviews/README.md",
-    "records/repository-history/2026-10-23-repository-output-review/README.md",
     "records/figure-history/README.md",
-    "records/scientific-evidence/README.md"
+    "records/scientific-evidence/README.md",
+    "records/repository-history/README.md"
   ],
   "script_catalogue": "scripts/README.md",
   "recorded_repository_roots": [

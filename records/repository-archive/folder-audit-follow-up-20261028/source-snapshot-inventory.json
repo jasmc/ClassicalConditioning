@@ -1,0 +1,4715 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "purpose": "Exact pre-implementation source/dependency snapshots; retain all originals; no prune authorization inferred.",
+  "archive_root": "/Volumes/JOAQUIM/ClassicalConditioning Maintenance/repository-history/2026-10-28-folder-audit-implementation/source-originals",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 40477,
+      "sha256": "add03a62714df9b7ba0dd420329bbd718579850c96163cbcdb6c8e51752e5e4f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/.gitattributes"
+      ]
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 5293,
+      "sha256": "27e9a7a5bfd0d009d81c8f57f7f0a56ac40bb0483243799d86e1d5d4caf5039a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/.gitignore"
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 7381,
+      "sha256": "b32e4aaa90b5477758d56c04d281bf37f3af337de51bc6c2bcad9145079b0beb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/AGENTS.md"
+      ]
+    },
+    {
+      "path": "Plans/00_REMAINING_WORK_AND_EXECUTION_ORDER.md",
+      "bytes": 7032,
+      "sha256": "485398dc5a449c7907dd25411882eaa9c8873f79048a813e18fdfdd40f5f70d2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/00_REMAINING_WORK_AND_EXECUTION_ORDER.md"
+      ]
+    },
+    {
+      "path": "Plans/01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md",
+      "bytes": 3942,
+      "sha256": "8380d5cbaf230c7917ffddcbcc75c3a29b3dae4812cace205b6a04c301386a09",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/01_PAPER_INPUT_VALIDATION_AND_REPRODUCIBILITY.md"
+      ]
+    },
+    {
+      "path": "Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md",
+      "bytes": 16670,
+      "sha256": "eb82ff0af5a94bc50c65753608e2961657ae6cdd2e13f37022b8322585d03198",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md"
+      ]
+    },
+    {
+      "path": "Plans/03.1_FIGURE_2_ALTERNATIVE_ANALYSES.md",
+      "bytes": 12641,
+      "sha256": "7db239e48e716fc3fcacb158a921b5eb52e35748381d66d3093265d0b4ca1bc6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/03.1_FIGURE_2_ALTERNATIVE_ANALYSES.md"
+      ]
+    },
+    {
+      "path": "Plans/03_FIGURE_2_LEARNING_ONSET.md",
+      "bytes": 12322,
+      "sha256": "5942732a5e5cf2b46340fbd6ec7b2d93c2856021558a78fa94126d07c8a76ff0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/03_FIGURE_2_LEARNING_ONSET.md"
+      ]
+    },
+    {
+      "path": "Plans/04.1_FIGURE_3_ALTERNATIVE_ANALYSES.md",
+      "bytes": 4358,
+      "sha256": "ee76728426ede60e47acbf0d0670cf03507fc0514edd0ddcd7003760487d67cb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/04.1_FIGURE_3_ALTERNATIVE_ANALYSES.md"
+      ]
+    },
+    {
+      "path": "Plans/04_FIGURE_3_LEARNER_ANALYSIS.md",
+      "bytes": 10938,
+      "sha256": "9bd3039aa48b32dd97bf20e1218921e81db9b0a863cbf555e4b3f21c1db10fdc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/04_FIGURE_3_LEARNER_ANALYSIS.md"
+      ]
+    },
+    {
+      "path": "Plans/05.1_FIGURE_4_BOUT_AVAILABILITY_AND_POOLING.md",
+      "bytes": 27359,
+      "sha256": "8c9beadd1cf938b004cbdd7ac98dd4f2d1774670ab26af8a38b5b4c3bbf7a889",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/05.1_FIGURE_4_BOUT_AVAILABILITY_AND_POOLING.md"
+      ]
+    },
+    {
+      "path": "Plans/05_FIGURE_4_CR_PROFILES.md",
+      "bytes": 9276,
+      "sha256": "fd0f9fe2d290e637a9ebac4c49d5eda395706100f40d56ee462166d93c7ce833",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/05_FIGURE_4_CR_PROFILES.md"
+      ]
+    },
+    {
+      "path": "Plans/06_ANALYSIS_AND_STATISTICS.md",
+      "bytes": 15639,
+      "sha256": "981cf094690a8a6f638c82fd258046eec163f562dac313cadc9afcc387e11cbd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/06_ANALYSIS_AND_STATISTICS.md"
+      ]
+    },
+    {
+      "path": "Plans/07_FIGURE_BUILD_TOOLS.md",
+      "bytes": 53936,
+      "sha256": "2fd74221260a114a7637155a058f2de030f74f4d392393633add39b89132d149",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/07_FIGURE_BUILD_TOOLS.md"
+      ]
+    },
+    {
+      "path": "Plans/08_FIRST_RELEASE_FIGURES_1_TO_4.md",
+      "bytes": 11241,
+      "sha256": "fa9d4c6c031377835e82cf21802f0983fb82ad8a5aaf33545588682217dea81d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/08_FIRST_RELEASE_FIGURES_1_TO_4.md"
+      ]
+    },
+    {
+      "path": "Plans/09_SUPPLEMENTARY_FIGURES.md",
+      "bytes": 5708,
+      "sha256": "0b3796db0cc06705783ecb9b47a0be82baafee1a7a8283692e4b27a950543a0d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/09_SUPPLEMENTARY_FIGURES.md"
+      ]
+    },
+    {
+      "path": "Plans/12_STUDY_ARTIFACT_STORAGE.md",
+      "bytes": 14048,
+      "sha256": "890d2ee570b521a4367e11259a31c34c41a1844e5f4b48a14f21431ed35f302a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/12_STUDY_ARTIFACT_STORAGE.md"
+      ]
+    },
+    {
+      "path": "Plans/13_SCRIPT_COMMAND_ORGANIZATION.md",
+      "bytes": 7238,
+      "sha256": "333dba6b18bfb7c3b3cb50298e979f66fec9d81d30d4ceafc03fd72c9cb12142",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/13_SCRIPT_COMMAND_ORGANIZATION.md"
+      ]
+    },
+    {
+      "path": "Plans/IMPLEMENTATION_STEP_INDEX.md",
+      "bytes": 15259,
+      "sha256": "210a059a5f66f22b80553119da8045031ed8389523a7a43ee60989f1489f90ae",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/IMPLEMENTATION_STEP_INDEX.md"
+      ]
+    },
+    {
+      "path": "Plans/README.md",
+      "bytes": 4935,
+      "sha256": "3b7525cf8676f99a8c61189f4cf926e47f38b1f6a6547ce7d5e2bbbf06f981e5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/README.md"
+      ]
+    },
+    {
+      "path": "Plans/backlog/10_TAIL_MECHANISTIC_ANALYSES.md",
+      "bytes": 3610,
+      "sha256": "ce799b7e8b87d69d5fcc658fa488d9159716a329ec16f3f0f6e03a314cb03216",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/backlog/10_TAIL_MECHANISTIC_ANALYSES.md"
+      ]
+    },
+    {
+      "path": "Plans/backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md",
+      "bytes": 37099,
+      "sha256": "48005b9d7f055a82a561c4abe504138da7a901584bf707beecf2476b5b9ae3b4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/Plans/backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md"
+      ]
+    },
+    {
+      "path": "configs/README.md",
+      "bytes": 2361,
+      "sha256": "4c1781f4db5ef60b564b3a33ef3f124d09392e93d0fa3b3f65f5f926ea941539",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/README.md"
+      ]
+    },
+    {
+      "path": "configs/all3sTrace-full-windows.json",
+      "bytes": 1488,
+      "sha256": "9b1b7f9fa84b6a0ea0a65f766e81bd5e27ab36c509df425c1a6beb74f09b2836",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/all3sTrace-full-windows.json"
+      ]
+    },
+    {
+      "path": "configs/allDelay-full-windows.json",
+      "bytes": 357,
+      "sha256": "fe8cf40338678fdf60934dcc72d6107f09ed843ebbf2d57146726258397fd869",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/allDelay-full-windows.json"
+      ]
+    },
+    {
+      "path": "configs/example-run.json",
+      "bytes": 364,
+      "sha256": "f3ccab21daf1ae410c122efb52eee051b291a5c3f71425e148784e5b00e65171",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/example-run.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/behavior-paper.json",
+      "bytes": 20467,
+      "sha256": "9679d9d4cf97e87ab817ef18c5ce85413803809c284c3e012409ac9d55a9b409",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/behavior-paper.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure-elements.json",
+      "bytes": 27314,
+      "sha256": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/figure-elements.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure1-assembly.json",
+      "bytes": 4564,
+      "sha256": "badf9022f1316e57059cec0889bababec677bc20acd42a9fa1c02f70ec996c9b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/figure1-assembly.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure1-session-protocol.json",
+      "bytes": 999,
+      "sha256": "0f2ebe01a3c3f9a6b4596f2ad481c1cd3e6ef2da6d209a21386bb4f3173e005f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/figure1-session-protocol.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/figure2-assembly.json",
+      "bytes": 32356,
+      "sha256": "85499b59bb04666e068f93c82ed43576d6b1d9e96913577093ef2c417c84434e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/figure2-assembly.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/layout-frames.json",
+      "bytes": 745,
+      "sha256": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/layout-frames.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/nature-main.json",
+      "bytes": 7700,
+      "sha256": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/nature-main.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json",
+      "bytes": 5152,
+      "sha256": "411ab6ca8984dc0da222006493f3b28b6ae0bc266ad61dcafc6eba2f51a8ef0f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-full-bout-correction-20261009.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json",
+      "bytes": 14675,
+      "sha256": "6edfd74e8caff40decfab299f6409919cf933fe9d69a0f0a6c9c22be2aa6b3cf",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-historical-one-second-managua-freeze-20261013.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json",
+      "bytes": 7839,
+      "sha256": "19810ec32fbd3e79c8b1eba2531f6d7675760f4bcd37e52e9fd2316ee12db9fb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure1-fgh-version12-freeze-20261009.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-freeze.json",
+      "bytes": 3092,
+      "sha256": "201184d22419ef0bcd9de30837097eb3618bc9c6dde7a151aa02b4ac9865fea3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure1-freeze.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json",
+      "bytes": 6888,
+      "sha256": "e2edfb2a441fdcda0dd2d960363072ad75711d298d63304d71e5716c1cfa7314",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-heatmap-rows-freeze-20261009.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json",
+      "bytes": 4420,
+      "sha256": "ab3b3658040e0a3295a2411b31daf4fda7fb4b0126b1db9641a0f8f1fd9fb281",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure1-panel-e-raw-frame-freeze-20261013.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json",
+      "bytes": 3392,
+      "sha256": "1d21f5d2a4684e689424e5767e6da9bfed1c464c6aa489f3ab853c1c77c30385",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure2-A-pooled-freeze-20261014.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json",
+      "bytes": 3050,
+      "sha256": "78c58ed56811bcc46409578418a3c081d7b74a6e48ef14335ef63d3b1463d9cb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure2-DE-B-freeze-20261009.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json",
+      "bytes": 1768,
+      "sha256": "3fab5e0af9a43c811ef6c5388de7fa38f7de8c431e7696aacdb80ed66b472321",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/figure2-G-logmedian-freeze-20261009.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/history/figure1-fgh-one-second-managua-freeze-20261013.json",
+      "bytes": 7053,
+      "sha256": "8049f81f59483572dded7406e0972c763e568921d0605f2e3ea593d5b1398858",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/history/figure1-fgh-one-second-managua-freeze-20261013.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/history/figure1-fgh-version1-freeze-20261009.json",
+      "bytes": 2065,
+      "sha256": "73ec192917e899964c9939051a6f827b7ec095df079c1640057f60f0c7adf39c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/history/figure1-fgh-version1-freeze-20261009.json"
+      ]
+    },
+    {
+      "path": "configs/paper-figures/selections/lineage/README.md",
+      "bytes": 362,
+      "sha256": "11863216689b84b2f73d54c5c051217d11935e97cc116e15058b09f7fdcbc521",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/configs/paper-figures/selections/lineage/README.md"
+      ]
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 1171,
+      "sha256": "c3b508eef13cf747142e5fb69fcd27e55fb9857a2b1f04163f6e3897c6a5d949",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/README.md"
+      ]
+    },
+    {
+      "path": "docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md",
+      "bytes": 196,
+      "sha256": "4a1beb844fb7c06fb8ecb2893bc69647e4ac80d6ed30c4ee1d7132e582138c63",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/analysis/figures/02_PAPER_FIGURE_SPECIFICATION.md"
+      ]
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md",
+      "bytes": 8245,
+      "sha256": "7874d0815aee108b0f603e96afd1edbbbe028838946c3ec042eed6c7ab9c677c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/analysis/figures/FIGURE2_DELAY_LME_CRITIQUE_2026-10-09.md"
+      ]
+    },
+    {
+      "path": "docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md",
+      "bytes": 29078,
+      "sha256": "ae3382a5baafb70969b4db337169751653b2c8e2fe23fd341832d4abb0a270e4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md"
+      ]
+    },
+    {
+      "path": "docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md",
+      "bytes": 4834,
+      "sha256": "1a4c5c71d7a9392fd17831f2af99b516e5c8e7efec9f5995a869958af9c8bc19",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md"
+      ]
+    },
+    {
+      "path": "docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md",
+      "bytes": 353,
+      "sha256": "3e0d8417e6450c1341b0bb31eb0c1b4b0d89f7296127253218de0202fe31dc16",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/analysis/figures/history/figure-02/delay-bout-only-comparison-2026-10-09.md"
+      ]
+    },
+    {
+      "path": "docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md",
+      "bytes": 234,
+      "sha256": "004b7fad28a1b248f90d0ad59569f89b3bccfcd095876a193b2b7b305cf05058",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/analysis/figures/reviews/PANEL_REVIEW_COMMENTS.md"
+      ]
+    },
+    {
+      "path": "docs/current-figures.md",
+      "bytes": 180,
+      "sha256": "e537be03c88e60e70696b9e109d67b3dd06a7b53e2f51c448cca773810c8d32c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/current-figures.md"
+      ]
+    },
+    {
+      "path": "docs/maintenance/archive/ARTIFACT_INDEX.md",
+      "bytes": 930,
+      "sha256": "da6b0e948d63a52b183fd46d715b755a33f3622a294230931edf2ad4e1f7e3f6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/maintenance/archive/ARTIFACT_INDEX.md"
+      ]
+    },
+    {
+      "path": "docs/panel-review.md",
+      "bytes": 143,
+      "sha256": "63250daee390bd3791afb7734766300397028c580fa76af98a4131152c0752ae",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/panel-review.md"
+      ]
+    },
+    {
+      "path": "docs/paper/README.md",
+      "bytes": 755,
+      "sha256": "a1dbd50d0f58959e243c85abba0abdb5c23a97473ae218d3eb2f158aa8fcd374",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/decisions.md",
+      "bytes": 16762,
+      "sha256": "b9c302976c2009614a7ce495e8a9748db66bc008a75b52e4658870907138b614",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/decisions.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/README.md",
+      "bytes": 2874,
+      "sha256": "3bc619cd7012fce7be134c38aab6d06644421314c28bcf23ca86b0c5e9ea9177",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/10strace-example/current-state.json",
+      "bytes": 2108,
+      "sha256": "0e7345eae5ced959efaa80cd193a4fb824b8c42efa50c8851c351771404615e1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/10strace-example/current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/README.md",
+      "bytes": 3790,
+      "sha256": "8c87583314420372b6ef5d9f6e2eee943ad9bed3984941f80d7a4dd42e7c9d8b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/assembly.md",
+      "bytes": 10199,
+      "sha256": "c040eddcb4eb8549de729adc85345f1d3c05ae1c15aa6731dbacec739aa9dea4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/assembly.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/current-state.json",
+      "bytes": 466475,
+      "sha256": "0d75dc1c852aec7e63e5d77ae21c071c8516178c107f7e576565eff4e2f3e56f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/legend.md",
+      "bytes": 1817,
+      "sha256": "3333cca676ef937fd59c311556238eb003e72b99fb9a5c1ec9906e37dcf2e8f7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/legend.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/panels-d-e/README.md",
+      "bytes": 394,
+      "sha256": "e375734c906828be7ac375bf8bc68a5041da6afb10c9b154c51af7495992658a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/panels-d-e/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/panels-f-g-h/README.md",
+      "bytes": 1101,
+      "sha256": "7989b94baba86762fdb863560cc4c4d42734f9b3a4c123e41d24c1c1e723c166",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/panels-f-g-h/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/review.md",
+      "bytes": 469,
+      "sha256": "25e5a8de81f06bd4f8691ab6307159213af1794d845d56dedbe2cce97524b40a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/review.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-01/trace10-learner-selection/current-state.json",
+      "bytes": 6091,
+      "sha256": "4fd415c4d06b3e6cada2f0e46ab4c61c4c0c937654c1f472de742cb3ee4ec83f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-01/trace10-learner-selection/current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/README.md",
+      "bytes": 3366,
+      "sha256": "90cd1850ad4fb4bc2ca85952e58bc66f65aac175892aa35109214dc6b7bcaf67",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/assembly.md",
+      "bytes": 10752,
+      "sha256": "f2f7b71819691e0718b6d6f8befcfe07a1f30bf91e695098a61c17221de896c7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/assembly.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/current-methods.md",
+      "bytes": 6016,
+      "sha256": "32173d6525f214aa52514aa8af5f6dbd4af57c838ed9d7ffad529da23c77acac",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/current-methods.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/current-state.json",
+      "bytes": 53856,
+      "sha256": "8e3e008264a14169eab1d3423dfa9b04d62cfa80dd2ebea36f1982719ced733d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/legend.md",
+      "bytes": 1943,
+      "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/legend.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-a/README.md",
+      "bytes": 893,
+      "sha256": "b098a0aa2589d9f4d938759ad79af8ef695d6ae80ffda22f98fc171341295430",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-a/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-a/current-state.json",
+      "bytes": 3963,
+      "sha256": "1c9215f737202d1182c22d03ea809a333b21126c39862bbbaf78a4a1e1b0e2f4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-a/current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/README.md",
+      "bytes": 6301,
+      "sha256": "a0d3f445c7dbb1c2843be54b11d0085474a935fb8f952b3bb47a6bc805f6acef",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/analysis-guide.md",
+      "bytes": 473,
+      "sha256": "1800f9661e333781bc44c2c72677aa9675f600302522372378e945b52aeda84a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/analysis-guide.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/exploratory/README.md",
+      "bytes": 2878,
+      "sha256": "0e2dca2919e76ff459c11b145c130b634d9e8a3c48e9521da801a63be94f6578",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/exploratory/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-g/exploratory/current-state.json",
+      "bytes": 4946,
+      "sha256": "bcc0818c666091f2ac60d4ce0d4615e65324e6bfc3f63d660d5e3dcb42d0cc8d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-g/exploratory/current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-h/README.md",
+      "bytes": 1791,
+      "sha256": "2572ba52a5957f90f152673122f2f4a17c81d0838048e4d8818f260a1512fdcd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-h/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panel-i/README.md",
+      "bytes": 1679,
+      "sha256": "44005cc3613c25ca9c83e3659a6babfa3f71c61f1e34a6df6b5ef958280e25fd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panel-i/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panels-b-e-h/README.md",
+      "bytes": 10034,
+      "sha256": "345d4f8917f8e47b44d9d190337728d110116a28d2505c69ac9a789a69f79383",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panels-b-e-h/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panels-c-f-i/README.md",
+      "bytes": 13773,
+      "sha256": "5223b6a181b961a62c6d174cb53e20ff288da5683731b47113b8317c823cb91b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panels-c-f-i/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/panels-d-e/README.md",
+      "bytes": 1108,
+      "sha256": "2c27211ef332e80d48227eafbf5f7c67396e81c30ab8bfc754c86e115501afd6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/panels-d-e/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/review.md",
+      "bytes": 469,
+      "sha256": "590c264dda526739d6734acef3139a0a806d9df63805d6cd43918b673e28a9ba",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/review.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-02/statistical-audit.md",
+      "bytes": 1254,
+      "sha256": "36623f8aa0490916254f1e0ddad25cd465c80b5136de409583b59b603745445d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-02/statistical-audit.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-03/README.md",
+      "bytes": 5278,
+      "sha256": "828bca11424a1dee1fe800a236a768e91926f216c2fbd90f55f49687e39909a4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-03/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-03/blup-comparison.md",
+      "bytes": 468,
+      "sha256": "ba436bb32668cd278c0c93154bc1cb2f5e9c546ec200f6e12f411b2bf2c9f0bf",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-03/blup-comparison.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-03/current-state.json",
+      "bytes": 4817,
+      "sha256": "e6d449cbc74efb310f0bc4a8c833edddb00a821fe9a49e857726328341a767c9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-03/current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-03/exploratory-state.json",
+      "bytes": 5070,
+      "sha256": "785433f623cf2a556862117557f3f5ec7d3b4db944d9e9e155258fc43a5c19fe",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-03/exploratory-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-03/individual-fish-display.md",
+      "bytes": 925,
+      "sha256": "7d3726d55b41ee51024f1a37db86b112efcbc2aabb037525dc42aff128a292d9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-03/individual-fish-display.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-03/review.md",
+      "bytes": 469,
+      "sha256": "75057c891ac2a889f3512358e4dbb0087cc3cabb5bfb8aac119b9a5f0ca3c187",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-03/review.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-04/3strace-model-draft-state.json",
+      "bytes": 2955,
+      "sha256": "b6ad57113a05f101f23efb24fe2c905340820c495e68615599eda913abc2e4f6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-04/3strace-model-draft-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-04/README.md",
+      "bytes": 2219,
+      "sha256": "c843ff6b4e66f56820b8aaf19437f0c6bfca7b13b4228b96f18725b1922532fc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-04/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-04/delay-model-draft-state.json",
+      "bytes": 2933,
+      "sha256": "596b26371c738fbe9835fc1b7f2a7793ff7c1dd218c7e16c5e0080844c6b8656",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-04/delay-model-draft-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/figure-04/review.md",
+      "bytes": 469,
+      "sha256": "9ca93516ec09a2f0e1da5c180e36e0be6069d7c6db155632f3b2d9a2c64bccd6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/figure-04/review.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/main-paper-current-state.json",
+      "bytes": 14275,
+      "sha256": "0cb42bf7fc0fb99c179eb7a95838ac5634edd1907bfdd98279ec7cff1afd5bb8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/main-paper-current-state.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/review-library.json",
+      "bytes": 36622,
+      "sha256": "afaa087f773222bd24b51d63db45b033d31ad6e3befe1fb6cfbc5d14db3cb3dd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/review-library.json"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/review-library.md",
+      "bytes": 2937,
+      "sha256": "adfdc8238300a46895619f10ef9db15bc8f008db24e90118138cc8776f3c3630",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/review-library.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/shared/assembly-preflight.md",
+      "bytes": 6601,
+      "sha256": "8fc6f9b2327de40e402e17fe75f1ee22d6f219d46d02a37d58a20bb53c2a0c37",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/assembly-preflight.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/shared/figure-element-specification.md",
+      "bytes": 2910,
+      "sha256": "3dbfc556d382f223ee3dd563b777af5d0050d9fea7379919cbfbc36439a7d0bb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/figure-element-specification.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/shared/figure-specific-methods.md",
+      "bytes": 11348,
+      "sha256": "35bfba566906d36efd3f7975467f0d1d8fb4138c4459052a4f680cff600e19fc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/figure-specific-methods.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/shared/iteration-workflow.md",
+      "bytes": 53166,
+      "sha256": "24f96939a7e05705b878cf3be71e618b81f04594331b67fd330e8ccdcce2c106",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/iteration-workflow.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/shared/nature-style.md",
+      "bytes": 16908,
+      "sha256": "a6db26d11fcb19bdb35de29a71465ef918824839d9879f30da7ae1c00ac659d8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/nature-style.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/shared/offline-artwork.md",
+      "bytes": 2249,
+      "sha256": "5da3e987fe1376681a34760a91e51b3fac66f4f2dc3cdd7a7a4ec00bd1b63ace",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/offline-artwork.md"
+      ]
+    },
+    {
+      "path": "docs/paper/figures/shared/review.md",
+      "bytes": 463,
+      "sha256": "e13c655468bf068b85fe68c6be46f6cc8fbd001299954e34700cadff450913f3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/figures/shared/review.md"
+      ]
+    },
+    {
+      "path": "docs/paper/methods/README.md",
+      "bytes": 1209,
+      "sha256": "3b72f9b2cdc5f2599af1c42b7d9ea592f2e1b4e979b0a96e75a78750c9203950",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/methods/README.md"
+      ]
+    },
+    {
+      "path": "docs/paper/methods/activity-and-bouts.md",
+      "bytes": 7103,
+      "sha256": "f3d9b06f59b78e7464a1af32c21771f02e556499fadee909f66eba2e742092c8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/methods/activity-and-bouts.md"
+      ]
+    },
+    {
+      "path": "docs/paper/methods/glossary.md",
+      "bytes": 2222,
+      "sha256": "ea233cb9533abb12d2b47a424da6abd624abdcc7a102b964760807ae6bf9c594",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/methods/glossary.md"
+      ]
+    },
+    {
+      "path": "docs/paper/methods/individual-learning.md",
+      "bytes": 852,
+      "sha256": "20673dca859a8f60b21c4c8f4d0eadd86b15e1c734963b153918b783baeef951",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/methods/individual-learning.md"
+      ]
+    },
+    {
+      "path": "docs/paper/methods/learning-model-contract.md",
+      "bytes": 4844,
+      "sha256": "718e6bcf4282a43cb2b5c5c0cbee3ef09d12a030d9413fd2c892546c3d56b6e5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/methods/learning-model-contract.md"
+      ]
+    },
+    {
+      "path": "docs/paper/methods/population-aggregation.md",
+      "bytes": 11564,
+      "sha256": "10fc9b0cad6510646306a839f17f0d0775bfb77df60714c4776258c3ff927cce",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/methods/population-aggregation.md"
+      ]
+    },
+    {
+      "path": "docs/paper/methods/recording-quality-and-cohorts.md",
+      "bytes": 5985,
+      "sha256": "a2ad36d0a4ef29de7c2f44e5966248a2d12e32e9d54e5caf82a07e81b08355d1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/methods/recording-quality-and-cohorts.md"
+      ]
+    },
+    {
+      "path": "docs/paper/review.md",
+      "bytes": 460,
+      "sha256": "366197fab02bd80da70631189e93f001647fa04d2e23c8d0eee26b24aaabcb85",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/review.md"
+      ]
+    },
+    {
+      "path": "docs/paper/study-sources.json",
+      "bytes": 19380,
+      "sha256": "d444d6b94a66ce4fa2e62eeade2ce29bdee616a46e99573b3f51ff13b320a91e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/paper/study-sources.json"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/README.md",
+      "bytes": 886,
+      "sha256": "706ff5099331dcf4decf68bf4f23cde43f1be9008166a0e5770bdb724ecfe404",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/README.md"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/figure-04-transfer.md",
+      "bytes": 1947,
+      "sha256": "f11961a03f9f61f5236b16bb16d3a47531a3b4ce40d37e7f784e080256be69b1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/figure-04-transfer.md"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/governance.md",
+      "bytes": 7238,
+      "sha256": "d68a090b4352091dc2013c9b6475b721e6aa58d54353403511277c6a92eca620",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/governance.md"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/review-artifacts.md",
+      "bytes": 5273,
+      "sha256": "07271a0ce4d65bb795ed5993a5f3cd2dc620501683b95adc68e60a1bf50b056e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/review-artifacts.md"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/rules.md",
+      "bytes": 6308,
+      "sha256": "6a3616af9dd01e38930f8fd9e5ed334ab64c6da88b8166b9785139c67d87d7c8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/rules.md"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/script-lifecycle.md",
+      "bytes": 5777,
+      "sha256": "c76629725688805979d57476b555007274cee61aaf356cdc65b7a9a2bee9a780",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/script-lifecycle.md"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/storage.md",
+      "bytes": 14359,
+      "sha256": "07c72cc092d934ec920f606e5a09b81210bd6aabce7c9616641e2dc4d85b6950",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/storage.md"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/structure-policy.json",
+      "bytes": 3619,
+      "sha256": "c64c02f78b2060eba4f8defab1941cb073591dc615f4adb63743fa8dfebd344f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/structure-policy.json"
+      ]
+    },
+    {
+      "path": "docs/project-maintenance/structure.md",
+      "bytes": 6508,
+      "sha256": "1795938ff1175e0322af77be3efba09b03262c696b93d21cb58e5a945634f640",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/project-maintenance/structure.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/README.md",
+      "bytes": 1229,
+      "sha256": "6b2b8cb318604134082612fc95476f1671883271454f0dfebdae02b2dd6bb8f8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/README.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure-build-tools.md",
+      "bytes": 2698,
+      "sha256": "62b8bc457f6d673d0757a6fc42b5274ca63e3774ff150d89dfb85701460f3c06",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure-build-tools.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure2-canvas-repair.md",
+      "bytes": 3556,
+      "sha256": "b72a7a1a1ca34688d0dc68aa93c0343770f598d60bfd42d1d738268ca9ab665b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure2-canvas-repair.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure2-g-independent-review.md",
+      "bytes": 12016,
+      "sha256": "82380e6c80ea5cffd9f69f9927571c52f37b703619cce385682987d4b4270198",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure2-g-independent-review.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure3-blup-comparison.md",
+      "bytes": 2638,
+      "sha256": "8d0e076c47914442b05fc68626851624920572b47635f66670174af7a9046c69",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure3-blup-comparison.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure3-individual-atlas.md",
+      "bytes": 8512,
+      "sha256": "1f33ac994f27b647a39189f6a18263b36d58bffcdc1587ffc251fb54f9c2eb2f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure3-individual-atlas.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure3-main-paper-draft.md",
+      "bytes": 5377,
+      "sha256": "bebbdb00d3109b2cae097a653244bebde5acf658b87c9f762f68480417e424b3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure3-main-paper-draft.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure4-3strace-model-draft.md",
+      "bytes": 9701,
+      "sha256": "f681ea4e94616cbe936c66ab2e3a66f499ffa2c18c6fca6f9b556f68b414f0e9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure4-3strace-model-draft.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure4-delay-model-draft.md",
+      "bytes": 4534,
+      "sha256": "9251cf62fb5fb02e3a5e4a10dec211e27cb0e82a0a8eecade55abdd9cd48db84",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure4-delay-model-draft.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/figure4.md",
+      "bytes": 10439,
+      "sha256": "875ee455589c98ebf0a387d5662de5a73c61cbc77d09d79ee866143c9e88a5d4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/figure4.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/individual-learning-interfaces.md",
+      "bytes": 1942,
+      "sha256": "77907fb5bf99fe1fb30b2b219ee90b588fec1a3a4ac83f6146283624b1ad8570",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/individual-learning-interfaces.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/learning-models.md",
+      "bytes": 19887,
+      "sha256": "0e3695cece15797cb9efdc40957bf0e9f985bc0f934e64685b5064cea6f8a89d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/learning-models.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/outputs-and-provenance.md",
+      "bytes": 4298,
+      "sha256": "fe51799fc98c827e0e06a34c044045bfbf6fe1a02dcace7f3ade19d9ed092e64",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/outputs-and-provenance.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/parameters.md",
+      "bytes": 15137,
+      "sha256": "1971d3f7f77cd8e590cb743a734b1d398624d783764d8cb310ade82b0e44e9be",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/parameters.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/pipeline.md",
+      "bytes": 5608,
+      "sha256": "92438bc9ff817b2694dad7accea5b33013950083d96ff95acafd40bc6df69add",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/pipeline.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/rendering.md",
+      "bytes": 14048,
+      "sha256": "2a980f78833f6e4901f831a9792544fb49cb8bf6eb7755dee147921892442d99",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/rendering.md"
+      ]
+    },
+    {
+      "path": "docs/running-analysis/run-pipeline.md",
+      "bytes": 7803,
+      "sha256": "d2802d913a072715bf6e38d3858cd8535451f9896f838646b6d5844a2d8b7c46",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/docs/running-analysis/run-pipeline.md"
+      ]
+    },
+    {
+      "path": "plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md",
+      "bytes": 2821,
+      "sha256": "37b29a6a2b41be497ebb58ad3f784f67bf8f6bc5c238740bb990e4cb116c3345",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md"
+      ]
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1014,
+      "sha256": "efcf369aaca6170276b65d7c22ebe7754864444bd6271e95ee841e0c8366977f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/pyproject.toml"
+      ]
+    },
+    {
+      "path": "scripts/README.md",
+      "bytes": 24471,
+      "sha256": "0bddcbaae76a02e6cc9f497f1733c4444d4f7dc1160882838c8174a28f8b5a33",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/README.md"
+      ]
+    },
+    {
+      "path": "scripts/align_figure2_columns.py",
+      "bytes": 8635,
+      "sha256": "3a79e3eeb50d16b1a8a716724b4e8ea725a6c9dbce7c6bcb092a11ccf520f0be",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/align_figure2_columns.py"
+      ]
+    },
+    {
+      "path": "scripts/analyze_figure1_trace3_learner_candidates.py",
+      "bytes": 24264,
+      "sha256": "003c737415b6618c42513b7b4391950976a4f66cd518a0875c4de46de3cf8035",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figure1_trace3_learner_candidates.py"
+      ]
+    },
+    {
+      "path": "scripts/analyze_figure2_trace10.py",
+      "bytes": 10000,
+      "sha256": "ba62b8f9cfae4e8278206856c0457357835f430e951d2dad977bef23d3ac3113",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figure2_trace10.py"
+      ]
+    },
+    {
+      "path": "scripts/analyze_figure2_trace3_matched.py",
+      "bytes": 11529,
+      "sha256": "525294374d5f566e271df92f239b8d9d41b2450ff82e3935ed432ca526eed9ad",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figure2_trace3_matched.py"
+      ]
+    },
+    {
+      "path": "scripts/analyze_figures34_3strace.py",
+      "bytes": 16652,
+      "sha256": "33106e9b338ceeea301a5631118c1d11308bffd8d0c1a14d843b85c93b506c90",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figures34_3strace.py"
+      ]
+    },
+    {
+      "path": "scripts/analyze_figures34_trace10.py",
+      "bytes": 11180,
+      "sha256": "f088545c5e2d3dd51c8e9471cd552506ad77068271b135049a9e4eab528d5db6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_figures34_trace10.py"
+      ]
+    },
+    {
+      "path": "scripts/analyze_trace10_learners.py",
+      "bytes": 13948,
+      "sha256": "72524cdf423d5fb6a76c34739dd730a7f4be9eb648735d77fd0dca39b82ea4a0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/analyze_trace10_learners.py"
+      ]
+    },
+    {
+      "path": "scripts/assemble_figure2_trace10.py",
+      "bytes": 15168,
+      "sha256": "b12a791e1e8dd11a1a6af22b7ea287803d51f0c1ae5aff64fb85dbd018ce955a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/assemble_figure2_trace10.py"
+      ]
+    },
+    {
+      "path": "scripts/assemble_figure2_trace3_matched.py",
+      "bytes": 30611,
+      "sha256": "c5b49ef68278e245fa95899ccad8db4efc25320b92955c9a9d251f8395159e2b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/assemble_figure2_trace3_matched.py"
+      ]
+    },
+    {
+      "path": "scripts/audit_figure2_heatmap_ab.py",
+      "bytes": 10961,
+      "sha256": "dc8a8e8da4d053693f5813796ff39cd4a8390f275baa1399ee8c69b983127e3f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure2_heatmap_ab.py"
+      ]
+    },
+    {
+      "path": "scripts/audit_figure2_heatmap_ab_followup.py",
+      "bytes": 6638,
+      "sha256": "796a4ec22a420f4066dda3d30525aa7fdf21fc4028800ee559904c31f31cb9f6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_figure2_heatmap_ab_followup.py"
+      ]
+    },
+    {
+      "path": "scripts/audit_trace10_learner_shortlist.py",
+      "bytes": 3723,
+      "sha256": "2aff31811155d73a3f9cf4a45de13cb22ac7fe6a74dc553243fc63c235bc306c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/audit_trace10_learner_shortlist.py"
+      ]
+    },
+    {
+      "path": "scripts/build_figure2_trace3_panels.py",
+      "bytes": 22100,
+      "sha256": "4f91a2439d3c9feb23569cd82f8a62d926b1c4a47d7f49b22af890be3fb59563",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure2_trace3_panels.py"
+      ]
+    },
+    {
+      "path": "scripts/build_figure3_3strace_ae.py",
+      "bytes": 14483,
+      "sha256": "9d213e68f553bd87b074fd204e524865cb0555b0d52830e7479242e77b1db637",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure3_3strace_ae.py"
+      ]
+    },
+    {
+      "path": "scripts/build_figure4_3strace_model_draft.py",
+      "bytes": 41141,
+      "sha256": "be1cd88a6582541333102d38cf56f6be3520b7d17f3b588f44e5c007b7682136",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_3strace_model_draft.py"
+      ]
+    },
+    {
+      "path": "scripts/build_figure4_3strace_preliminary.py",
+      "bytes": 13357,
+      "sha256": "20726f97a23f366866041f408fea2cf3bb23b9cbfe5636548f1033368f5ef595",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_3strace_preliminary.py"
+      ]
+    },
+    {
+      "path": "scripts/build_figure4_3strace_score_draft.py",
+      "bytes": 21389,
+      "sha256": "25fd0fa4004df3cf328c31cdd72e5a26707a3be67a82f1450367048eef7bc76c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_3strace_score_draft.py"
+      ]
+    },
+    {
+      "path": "scripts/build_figure4_delay_model_draft.py",
+      "bytes": 31326,
+      "sha256": "78ed10452f50eadaefd621dba242a54dfc7b44125946461607f787bdde0f3471",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/build_figure4_delay_model_draft.py"
+      ]
+    },
+    {
+      "path": "scripts/check_figure3_3strace_ae.cjs",
+      "bytes": 1732,
+      "sha256": "5e0db49c8088a54ecb42ed00152a62afc64db2a0900c48b6c032df1b4bd1d037",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure3_3strace_ae.cjs"
+      ]
+    },
+    {
+      "path": "scripts/check_figure4_3strace_model_draft.cjs",
+      "bytes": 2166,
+      "sha256": "96f0edce6fe37111d51da68a4d09526efa168c25cdf5aa6c817f85fb6711b0d0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_3strace_model_draft.cjs"
+      ]
+    },
+    {
+      "path": "scripts/check_figure4_3strace_preliminary.cjs",
+      "bytes": 1548,
+      "sha256": "b3dbb527d8eff94464d106ac19a4759841c8555bee49cb4867a2c27c46e6039b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_3strace_preliminary.cjs"
+      ]
+    },
+    {
+      "path": "scripts/check_figure4_3strace_score_draft.cjs",
+      "bytes": 1842,
+      "sha256": "9087d14ed5084f8053fb6f30905eb1f114234cb58eb125af18508475ef431cac",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_3strace_score_draft.cjs"
+      ]
+    },
+    {
+      "path": "scripts/check_figure4_delay_model_draft.cjs",
+      "bytes": 2162,
+      "sha256": "2ee8d52df62cb85ef6b4e3825eff73b02845f7b0388597197ab5206a86be14f5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figure4_delay_model_draft.cjs"
+      ]
+    },
+    {
+      "path": "scripts/check_figures34_3strace.cjs",
+      "bytes": 2474,
+      "sha256": "2fa57ace2b47230b2fbf9092c04d6e11ac7abbae41794768b155ca4ab6bb9e49",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figures34_3strace.cjs"
+      ]
+    },
+    {
+      "path": "scripts/check_figures34_trace10.cjs",
+      "bytes": 2719,
+      "sha256": "d334614e229c9e37d2e4f61a1b411936f4add3c24e66a5c5b3d7d59be11964f9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_figures34_trace10.cjs"
+      ]
+    },
+    {
+      "path": "scripts/check_repository_structure.py",
+      "bytes": 414,
+      "sha256": "90967b9bd5b9d1253c0833a54886cc52ee54826405e60ec83ee00007fbba94d2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/check_repository_structure.py"
+      ]
+    },
+    {
+      "path": "scripts/complete_figures34_trace10.py",
+      "bytes": 16234,
+      "sha256": "4259ba83996449c9095296bfc515498f7c9e02a841a536331515573586c4a1e3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/complete_figures34_trace10.py"
+      ]
+    },
+    {
+      "path": "scripts/explore_figure2_columns.py",
+      "bytes": 37016,
+      "sha256": "070ee61f823bdfbe1a8fdccf11bfed24d72982a3eaecdb759685adf68d91c7ee",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/explore_figure2_columns.py"
+      ]
+    },
+    {
+      "path": "scripts/figure2_median_pooling.py",
+      "bytes": 15373,
+      "sha256": "1b3c86b1a8155336eeb54873b89aba6a75c901044db7c3bd967c60f2f3d9da9d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/figure2_median_pooling.py"
+      ]
+    },
+    {
+      "path": "scripts/figure_working_copy.py",
+      "bytes": 410,
+      "sha256": "ec2f6f49f9bff32f97d442fb5430773e5b8e85c6e1f26d7738ffd3b419319867",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/figure_working_copy.py"
+      ]
+    },
+    {
+      "path": "scripts/finalize_figures34_3strace.py",
+      "bytes": 11642,
+      "sha256": "a677337a2e9cba790b89c3c603160fe3cec1c8114c4673ad1203248203257699",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finalize_figures34_3strace.py"
+      ]
+    },
+    {
+      "path": "scripts/finalize_trace3_additions.py",
+      "bytes": 9315,
+      "sha256": "a4bdc9b0a989a801fba3fafbcd8b98132ef4348db776dd7361c4d73ef4921cd3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finalize_trace3_additions.py"
+      ]
+    },
+    {
+      "path": "scripts/finish_figure2_trace10.py",
+      "bytes": 18096,
+      "sha256": "f3e8d3c7f26253af44bef907a5f71ef514e879a4d55d7516f08fd00057c9cf35",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finish_figure2_trace10.py"
+      ]
+    },
+    {
+      "path": "scripts/finish_trace10_example.py",
+      "bytes": 6104,
+      "sha256": "52f91362e08adb688d073b7a7a3c24251be4892c04527b8420a0f2732e6faefd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finish_trace10_example.py"
+      ]
+    },
+    {
+      "path": "scripts/finish_trace10_learner_selection.py",
+      "bytes": 22942,
+      "sha256": "567e242556ee64576c9ff10459d4decc6c335ba76c95a192b4f6cce1664e1c13",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/finish_trace10_learner_selection.py"
+      ]
+    },
+    {
+      "path": "scripts/freeze_figure.py",
+      "bytes": 398,
+      "sha256": "4f45cd9cba4a9bc8363a767172dbcd1d8055cec0e74201fc28e2cd008a00a071",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/freeze_figure.py"
+      ]
+    },
+    {
+      "path": "scripts/main_paper_figures.py",
+      "bytes": 406,
+      "sha256": "849ba792105c9cd509297436260d9cad32e1e175f39cab7e4b3ec90ae2001bfc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/main_paper_figures.py"
+      ]
+    },
+    {
+      "path": "scripts/maintenance/archive.py",
+      "bytes": 23073,
+      "sha256": "0afb86545f054de6a664d2d3f8a546c6d0652092ebb1dee4be581240ab346988",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/maintenance/archive.py"
+      ]
+    },
+    {
+      "path": "scripts/maintenance/audit_preprocessing.py",
+      "bytes": 5736,
+      "sha256": "afe439db2616b211bb659eb8069ccf5140419ac7d5e6b751518862ebf65f3672",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/maintenance/audit_preprocessing.py"
+      ]
+    },
+    {
+      "path": "scripts/maintenance/check_structure.py",
+      "bytes": 20294,
+      "sha256": "a8a81131ed166cf5dc52165f8819fab0c0484bab7b81cc2f620037d5a59ba32c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/maintenance/check_structure.py"
+      ]
+    },
+    {
+      "path": "scripts/maintenance/storage_migration.py",
+      "bytes": 23496,
+      "sha256": "75b8f3e159d0340b45bc7896871536362a2ef70ba74828bba3451d3e953e14fd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/maintenance/storage_migration.py"
+      ]
+    },
+    {
+      "path": "scripts/measure_figure1_trace3_replacement.cjs",
+      "bytes": 2663,
+      "sha256": "564dd429b2a7e01347bd72e118a77bad1e3ca5f23dd42748acc3eb024d2ef22c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_figure1_trace3_replacement.cjs"
+      ]
+    },
+    {
+      "path": "scripts/measure_figure2_exploration.cjs",
+      "bytes": 4550,
+      "sha256": "bcadfc058c225cdba830ef70cae837b5f70b4f0f931a1ec6647f5b9c1116178f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_figure2_exploration.cjs"
+      ]
+    },
+    {
+      "path": "scripts/measure_saved_figure.cjs",
+      "bytes": 1294,
+      "sha256": "e32b21088d3bb139f09a84443c73f5bf0ce01ef4e62af3d1319814c41c89ac7d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_saved_figure.cjs"
+      ]
+    },
+    {
+      "path": "scripts/measure_trace10_example.cjs",
+      "bytes": 1292,
+      "sha256": "fec67491ba8ec8df3cb7f154b4e8abf1bc55962d211a2998d7421886868747d5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/measure_trace10_example.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panel_a/build.py",
+      "bytes": 2114,
+      "sha256": "de550621ff14450c93b258e17ddd02fb2a5ff93b033689d8823e63643bf0457f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panel_a/build.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panel_b/build_protocol.py",
+      "bytes": 20844,
+      "sha256": "63e75815a25d0503a05a3fe176d0939e297682f26717e2301b95bfa1d4b26919",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panel_b/build_protocol.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panel_c/build_session.py",
+      "bytes": 12515,
+      "sha256": "342cbe62123072c775d2ab6ad568610a15f813bc944da0b1b363bed83b67e176",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panel_c/build_session.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panel_e/edit_display.py",
+      "bytes": 16679,
+      "sha256": "2cffe6d0decfb661b2989209d71323ae3f8bcca6b6dc3cf69b92eb7cd99cc096",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panel_e/edit_display.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_d_e/reproduction/render_saved_traces.py",
+      "bytes": 8725,
+      "sha256": "9a10248aa6e535fb621b5e2b53b06039f6b0a17dbb35ff7d6ff5de24a6e3ff9a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_d_e/reproduction/render_saved_traces.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_d_e/reproduction/render_scaled_log_traces.py",
+      "bytes": 15244,
+      "sha256": "0105cfbcbef52b519f1e89ba84e4d7ec20178d3fee889bc0dd390dd74aa7c154",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_d_e/reproduction/render_scaled_log_traces.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_camera_gaps.py",
+      "bytes": 7484,
+      "sha256": "a3d4796b74cbd435e5a37b18d5df5a66729cfccd3b5ef595d71b87b1ef9872f6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_camera_gaps.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_legacy_cadence.py",
+      "bytes": 9561,
+      "sha256": "c76475e3c436c4f4601f4b16b5ec7cd31e8b85b63f4019b5c0ac25a66c94e783",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_legacy_cadence.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_vigor_alignment.py",
+      "bytes": 9827,
+      "sha256": "978c86eb7f50da6f026660ee0138a70248877638ba22f7b0b306265823c9351e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_e_f_g_h/reproduction/audit_vigor_alignment.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/build_version_comparison.py",
+      "bytes": 21493,
+      "sha256": "f8da927dbb88f36fc7f9efca51ac80dfcd8a1af8321541d2944684fb07341149",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_f_g_h/build_version_comparison.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/recolor_trace10_comparison.py",
+      "bytes": 10556,
+      "sha256": "3e9e109c35adcc566f084f966e9e1387954eb2b3d09a494dea62cf19ea631c44",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_f_g_h/recolor_trace10_comparison.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py",
+      "bytes": 14881,
+      "sha256": "2607f6926fd74fae51709820c5d5084598b6da06944387c928a6a817658a2218",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/reproduction/render_saved_heatmaps.py",
+      "bytes": 12404,
+      "sha256": "73ebb7c96c4957777143a2012dcc4d90acdfdcf54b84ded1e3b8094b22715e2b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_f_g_h/reproduction/render_saved_heatmaps.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/panels_f_g_h/reproduction/render_trace_example.py",
+      "bytes": 6462,
+      "sha256": "7df1f07c2a01d5cc2af5aebadd73b831a396c441fcef24430b5c3082b0f9480d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/panels_f_g_h/reproduction/render_trace_example.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_01/reproduction/verify_abcd_freeze.py",
+      "bytes": 1543,
+      "sha256": "a7e45e3f62ff08cfd66a9b4275abbfd5c134ba2de223aa95f8f65feae5753723",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_01/reproduction/verify_abcd_freeze.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/assembly/build.py",
+      "bytes": 10020,
+      "sha256": "b41a3958c3cde5ec2f5eabe4da1d70e530151e3e6b351879747d00eed8c274d5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/assembly/build.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/assembly/publish_canvas_repair.py",
+      "bytes": 8346,
+      "sha256": "8ba6d6708e81b063dba0a182ffc62d156180c124ceddcfd517114ef16e97fcb1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/assembly/publish_canvas_repair.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/assembly/repair_canvas.py",
+      "bytes": 7649,
+      "sha256": "fd0bdc12e18dc731d0e4c4d2a0fc565035a1793feddc90797496702a3f360337",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/assembly/repair_canvas.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py",
+      "bytes": 25413,
+      "sha256": "c67249635c1a22ed62329051f30a4941e7a285793cdc819ce955488f1b8994c2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_b/reproduction/render_trace_signed.py",
+      "bytes": 8631,
+      "sha256": "580088cb8a28ff1fa07093af78a056ded057c78dc9e29acd191e12a0c6ee35c0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_b/reproduction/render_trace_signed.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/build_exploratory_presentation.py",
+      "bytes": 25080,
+      "sha256": "139a60e0e8099ccf86a82a3217423dd0bb6197710baabb9d8c4602fbea63c78b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/build_exploratory_presentation.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/build_study_guide.py",
+      "bytes": 60348,
+      "sha256": "4969f96127ed2a00e5bdc64f5b76215d05731210225065c7354506ec7e2958e1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/build_study_guide.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/audit_delay_lmm.py",
+      "bytes": 11165,
+      "sha256": "0d4e310c93477c5c56c9bc5ccce9f57b69c41bbb2f85ff8333efbaa2c27ede4c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/reproduction/audit_delay_lmm.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/render_historical_logmedian.py",
+      "bytes": 23250,
+      "sha256": "b22db6edae4941522b95ce0df976cee79384b6f40826bb09bb439c5df1e7167f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/reproduction/render_historical_logmedian.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py",
+      "bytes": 26074,
+      "sha256": "bd1936f235237216b2f17e764f8e33f86931d9e8076d5b6e920fb6af8daa568a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/reproduction/render_legacy_metric_lme.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/reproduction/render_phase_lmm.py",
+      "bytes": 15577,
+      "sha256": "8768e7629457928e316c5fb1d4510ccef3f4e13c378ebdbb53f830beaf50286c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/reproduction/render_phase_lmm.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/run_independent_review.py",
+      "bytes": 22903,
+      "sha256": "67732d0ab94f0bc754e5bca4f8689f0db2361febab68a973675424b6bae47487",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/run_independent_review.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/run_technical_sensitivity.py",
+      "bytes": 1290,
+      "sha256": "fd42d53374ef75c134ad942cc3e627d0714df38a972ca7893c7ad9429d31f71e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/run_technical_sensitivity.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panel_g/verify_study_guide.cjs",
+      "bytes": 12744,
+      "sha256": "8ccfe0193453cc60680561bd380628a61bb26fb079b9af7a995ebc1e53f84d4b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panel_g/verify_study_guide.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_a_d_g/reproduction/render_saved_delay.py",
+      "bytes": 19147,
+      "sha256": "61c4b9503f2556b68d2f23cc529e57000899b2a22ce5e3d925ba07e765094da2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_a_d_g/reproduction/render_saved_delay.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_d_e/reproduction/audit_bout_statistics.py",
+      "bytes": 5722,
+      "sha256": "6d0e54f7f4f4bc5a5e9c5a9c59d01867f164dc41c0c2debf85fa5ecca0810585",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_d_e/reproduction/audit_bout_statistics.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_d_e/reproduction/review_block_log_median.py",
+      "bytes": 1043,
+      "sha256": "fa61a6ac3a51de7a09fd2f3b0446c7cb49ab70b55fa7bc0c8b5b596e371061bc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_d_e/reproduction/review_block_log_median.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_d_e/reproduction/review_bout_only.py",
+      "bytes": 16076,
+      "sha256": "9f3d1b2ac3cc90235a23996a7c02a434d91902d4a57d7eb6239df601b3d7d362",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_d_e/reproduction/review_bout_only.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_d_e/reproduction/verify_bout_review.py",
+      "bytes": 4563,
+      "sha256": "aee6037e1b502c524cfe531ea53aed56329a9509aa1a8a3445b23ecbb2a4e270",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_d_e/reproduction/verify_bout_review.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_d_g/reproduction/render_legacy_statistics.py",
+      "bytes": 18327,
+      "sha256": "ed13928825d2549a68a5420263d3b2cfaf43e1d63d91326c00c60203d5221d2c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_d_g/reproduction/render_legacy_statistics.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_e_h/reproduction/render_trace_legacy.py",
+      "bytes": 7039,
+      "sha256": "2fe49ad7cca82e758183f031779302a558430fa5643bb73554b47ee289e25834",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_e_h/reproduction/render_trace_legacy.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/panels_g_h_i/audit_saved_statistics.py",
+      "bytes": 20217,
+      "sha256": "52254c4da33aad0d18f67be64dee22ac87b1c17c37c17c8dc4506e5214f443a7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/panels_g_h_i/audit_saved_statistics.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_02/reproduction/recover_saved_panels.py",
+      "bytes": 23680,
+      "sha256": "3cd6fe34b4115fe89499e988d077e0b46adf7269b975ddead1b4ddffcf651385",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_02/reproduction/recover_saved_panels.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/build_blup_study.py",
+      "bytes": 22035,
+      "sha256": "a90d354d26d0b535b495afe466aa2e964681140f22b27392b1e59fb9ddd39417",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/build_blup_study.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/build_main_draft.py",
+      "bytes": 23364,
+      "sha256": "0222a2c2f426ba8b9818238b41a31698943155696b5f55ad757c465f703db54d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/build_main_draft.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/build_study_guide.py",
+      "bytes": 78881,
+      "sha256": "cdc6643062aff3123ffc11d898957fdf37c40b131c57ec70770e9e8f63b8b92c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/build_study_guide.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/reproduction/render_trace_legacy_classifier.py",
+      "bytes": 12887,
+      "sha256": "447fb75f371590f9e5f95ec44767ffa35c75e23c03a6b81f858663021b3f932c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/reproduction/render_trace_legacy_classifier.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/run_blup_comparison.py",
+      "bytes": 10085,
+      "sha256": "d362b76bb846f2e5943c2d65f7ba9f304bf840aad228d406c56e4f72d271db82",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/run_blup_comparison.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/supplement/build_atlas.py",
+      "bytes": 14768,
+      "sha256": "46d49437efd93a60efe54657981688615fce8c3bfd9da6aa5af131129b965550",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/supplement/build_atlas.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/supplement/verify_atlas.cjs",
+      "bytes": 4956,
+      "sha256": "7fb866f418de9b0272c7eccb54d7d36c5037b5d5fb1446510100e13d802b95c8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/supplement/verify_atlas.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/verify_main_draft.cjs",
+      "bytes": 2348,
+      "sha256": "d0cba7f3d7051607b1dc2a2731f766da7a70bd2403ac7da2df656d360d5e64cf",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/verify_main_draft.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/figure_03/verify_reference_roles.py",
+      "bytes": 10150,
+      "sha256": "d743b5fccd207751bed8f39336c74679e47ec12e42ce39224b3358f37b79d566",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/figure_03/verify_reference_roles.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/apply_annotation_alignment.cjs",
+      "bytes": 473,
+      "sha256": "c9294aea0f5575d172df87c7d885d4afce7f1a70d243e64078a928c4c5262ce2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/apply_annotation_alignment.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/apply_axis_geometry.cjs",
+      "bytes": 475,
+      "sha256": "6264ba10f14de887e2fdb67d4ee5fe25017e1c390bcd790eceda09e54cdfead0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/apply_axis_geometry.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/assemble_svg.py",
+      "bytes": 39567,
+      "sha256": "619617641abb153b984bbdc3a0857e8875091aef6a1284a2a723c1955e62afdb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/assemble_svg.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/build_legend_review.py",
+      "bytes": 80177,
+      "sha256": "2aff31c28fe6d7b5b8e9f56391647f17fea863d50ffa7dbe6e9fcaee855cccff",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/build_legend_review.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/calibrate_layout_frames.py",
+      "bytes": 10628,
+      "sha256": "a2ac3353d237532164dbbe2d6686b665f8b90ac472538b008d8fc0f5789d9fec",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/calibrate_layout_frames.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/collect_layout_evidence.cjs",
+      "bytes": 1796,
+      "sha256": "fffc60e76ddc39ad269c4c0f8fa31c37b4c715b37831f7c5c1d9b3aa3db4825c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/collect_layout_evidence.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/collection.py",
+      "bytes": 20935,
+      "sha256": "16a7cf9e9a71ddb84d290ad5f9dd62ac7a42c0eeab0cc7984a077d08b0aca485",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/collection.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/correct_relationships.py",
+      "bytes": 14759,
+      "sha256": "7a22892d2a4e7b7ed0354caa74ee9f67182c636558a8945534541267f6028772",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/correct_relationships.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/freeze.py",
+      "bytes": 614,
+      "sha256": "92ff8166c6bb8b8398cab298962afffd493b20ac0900aac59e9eb3d16a21d580",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/freeze.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/layout.py",
+      "bytes": 21805,
+      "sha256": "50791fc757059b1f254ca203820db26ad551f407d8d42c34ebeef1a33acd2080",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/layout.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/measure_layout.cjs",
+      "bytes": 3211,
+      "sha256": "dd470c9f40582bdbed194a5cb63455b1812d14fbc8563d067274e569968af8f9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/measure_layout.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/measure_packing.cjs",
+      "bytes": 2349,
+      "sha256": "16ecd2f5c40effb14f096b6c20b0877d71aaebcb087462617b6fea660576c5c7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/measure_packing.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/publish_axis_geometry.py",
+      "bytes": 21645,
+      "sha256": "79c7286be010246462e3a143894be70c235936c2150b3f73a99cce90f29da103",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/publish_axis_geometry.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/reconcile_saved_draft.py",
+      "bytes": 8019,
+      "sha256": "813abb58357a4b2d8da08e6ba0016931d2be80c12ab4b377aa3780fbf98923dc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/reconcile_saved_draft.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/refine_composition.cjs",
+      "bytes": 4286,
+      "sha256": "d8bc4266920f7cfb5f0e873fa682e0086d88ee2f96edff9829ffef49a2ae42b1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/refine_composition.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/register_axes.py",
+      "bytes": 19440,
+      "sha256": "214d5644a16267ba57a69f3497b21d82ed60785068a4d38b91e1a80448ba892c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/register_axes.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/stage_annotations.py",
+      "bytes": 7968,
+      "sha256": "1e6b75996ff3492127fc43e3a3b143ef15feb8d24ab046fa97a25423be306e55",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/stage_annotations.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/stage_nature.py",
+      "bytes": 37623,
+      "sha256": "9bcd9c9b065c743ef5c572d0324d1f8a699a7146e304157d6413c9186ad15c16",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/stage_nature.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/style_nature_presentation.cjs",
+      "bytes": 481,
+      "sha256": "2e600fd617de45b15cde365c3e9dfaaeae1acd2f168b9663aa3eb607b03026c1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/style_nature_presentation.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/verify_annotations.cjs",
+      "bytes": 10480,
+      "sha256": "c3bc55993bd6972f9b70f189e135efe8a52f9ea02490bf0bb2ad644d9462e9f8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/verify_annotations.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/verify_axis_geometry.cjs",
+      "bytes": 13675,
+      "sha256": "a517143c617a3bd96dfb1708cbd2bf085569e7e26d3315573a47ca312ea8c975",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/verify_axis_geometry.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/verify_collection.cjs",
+      "bytes": 3664,
+      "sha256": "0e1b4b9bf64278e04fb33c14786d0faf12a5a52c288399bbb8bde0ab99340054",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/verify_collection.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/verify_layout_frames.py",
+      "bytes": 7942,
+      "sha256": "8b87d85efa8a3c2814225bd88a6373074e354f4b719f91e10bf2d6f71584c1d1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/verify_layout_frames.py"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/verify_nature_presentation.cjs",
+      "bytes": 5985,
+      "sha256": "84857c0116b53e9f98933e08b70f7ea6b43b763d5d5e39062862e8e6d646379b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/verify_nature_presentation.cjs"
+      ]
+    },
+    {
+      "path": "scripts/paper/shared/working_copy.py",
+      "bytes": 13087,
+      "sha256": "e07dd005176ca6ef9fe5f9235b5ce32ce72eb1383e60fe6ae2760a3404c866d6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/paper/shared/working_copy.py"
+      ]
+    },
+    {
+      "path": "scripts/polish_trace10_report.py",
+      "bytes": 3297,
+      "sha256": "5539b05b9568c4372deb558ab91185bb420e90e99e4aa3d15414911089b9badf",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/polish_trace10_report.py"
+      ]
+    },
+    {
+      "path": "scripts/populate_figure2_available.py",
+      "bytes": 448,
+      "sha256": "dbd81c51af9518f77acacc69381c172f47e60b2d0cc4732cad97611442ed7779",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/populate_figure2_available.py"
+      ]
+    },
+    {
+      "path": "scripts/process_delay_additions.py",
+      "bytes": 11489,
+      "sha256": "88470bf594efb748b40730d93104e378181c83019481017c53ea5227d0e34f81",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/process_delay_additions.py"
+      ]
+    },
+    {
+      "path": "scripts/process_trace10_additions.py",
+      "bytes": 17333,
+      "sha256": "4bbddd7e0654ce82c8fd6ecb8cf1149726f01a29fab01a942306227b60d43034",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/process_trace10_additions.py"
+      ]
+    },
+    {
+      "path": "scripts/process_trace3_additions.py",
+      "bytes": 18506,
+      "sha256": "03119502a377b9e7f04dc6a8379aef030da8602a348202656ddbed54b2a54bfc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/process_trace3_additions.py"
+      ]
+    },
+    {
+      "path": "scripts/publish_figure2_trace10.py",
+      "bytes": 2652,
+      "sha256": "efcd807358852fa59441cd40139da25b9e87bfb7e3b5541f2374b15b14c10dbf",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/publish_figure2_trace10.py"
+      ]
+    },
+    {
+      "path": "scripts/publish_figure3_3strace_ae.py",
+      "bytes": 4810,
+      "sha256": "d9683f19b0be45668cf1af11c06a4b10d8769b2d32ea73dccb582118fe7c5f80",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/publish_figure3_3strace_ae.py"
+      ]
+    },
+    {
+      "path": "scripts/publish_figure4_3strace_preliminary.py",
+      "bytes": 5000,
+      "sha256": "c25341e2de6c0620eae12d735e3cdc9043a06386d43649e4c52fa7c5eb3a4183",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/publish_figure4_3strace_preliminary.py"
+      ]
+    },
+    {
+      "path": "scripts/publish_figure4_3strace_score_draft.py",
+      "bytes": 17215,
+      "sha256": "310a26a12260b330e9408244b764b1255b97684c67b6c59ba561120074b237ce",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/publish_figure4_3strace_score_draft.py"
+      ]
+    },
+    {
+      "path": "scripts/refine_figure2_axes.py",
+      "bytes": 13861,
+      "sha256": "3d9d163975b6c1664ed006ac6dac0f895543ceadd9f858855df1e046aceeea4b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/refine_figure2_axes.py"
+      ]
+    },
+    {
+      "path": "scripts/render_figures34_3strace.py",
+      "bytes": 15287,
+      "sha256": "0fa69afa29d0109dfddf8b4a2b39cb46edeb4522e0cb5fbbf8b06db50b5650c5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figures34_3strace.py"
+      ]
+    },
+    {
+      "path": "scripts/render_figures34_trace10.py",
+      "bytes": 14945,
+      "sha256": "a0dffa8f6290110a0ed689db68253d8846d7e5c6c92b2c381a52ad54fb594c65",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_figures34_trace10.py"
+      ]
+    },
+    {
+      "path": "scripts/render_trace10_de_correction.py",
+      "bytes": 7498,
+      "sha256": "f2cb8163bb9cf6a12fab80fd60f47172c75d4c4b995c88a86d7ec8098c1eb550",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_trace10_de_correction.py"
+      ]
+    },
+    {
+      "path": "scripts/render_trace10_example.py",
+      "bytes": 9036,
+      "sha256": "1a84c2f1a33631219993abc6066e3344423f02b68c6c1f30d1baaa83c3195c33",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_trace10_example.py"
+      ]
+    },
+    {
+      "path": "scripts/render_trace10_learner_comparison.py",
+      "bytes": 9570,
+      "sha256": "0da744088c898ca887d5dd493cb235d8ca68faaabada20dc7b7ed7522ef6912e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/render_trace10_learner_comparison.py"
+      ]
+    },
+    {
+      "path": "scripts/repair_figures34_3strace_layout.py",
+      "bytes": 4968,
+      "sha256": "f82cc197a8128c98aa6ec65fdac3ffc904254f88ca4b3e1ea650eb15e23bc577",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/repair_figures34_3strace_layout.py"
+      ]
+    },
+    {
+      "path": "scripts/replace_figure1_trace3_example.py",
+      "bytes": 23954,
+      "sha256": "d5af4531097264c25b2fc31e00a4787cc0e9ff063d2aa9a16023236588780045",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/replace_figure1_trace3_example.py"
+      ]
+    },
+    {
+      "path": "scripts/repository_archive.py",
+      "bytes": 398,
+      "sha256": "d860fef538a50447245985fe4dd600bf731b5579aa84dbe54525e1a29472c61b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/repository_archive.py"
+      ]
+    },
+    {
+      "path": "scripts/resume_trace10_additions.py",
+      "bytes": 17469,
+      "sha256": "5dac0c8597dfc900845a3e0f912dbb51eb4f4f03718478e11e5d00e2c1804a42",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/resume_trace10_additions.py"
+      ]
+    },
+    {
+      "path": "scripts/review_figure1_trace3_runner_up.py",
+      "bytes": 9665,
+      "sha256": "f1b6c7404da369271b8f7ee6b8aacff528180c43b28d14d31e7692af98d07642",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_figure1_trace3_runner_up.py"
+      ]
+    },
+    {
+      "path": "scripts/review_figure2_exploration.py",
+      "bytes": 20882,
+      "sha256": "70739d2c78441a2827491ae667acc6090a6fd94b33491a125a6d2fc1d59599f3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_figure2_exploration.py"
+      ]
+    },
+    {
+      "path": "scripts/review_library.py",
+      "bytes": 390,
+      "sha256": "4a8d537c1795dce1c55235e90e62d6cdddb0eae656e1cf0e6c0da0a5b408713e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/review_library.py"
+      ]
+    },
+    {
+      "path": "scripts/reviews/library.py",
+      "bytes": 17981,
+      "sha256": "f65661b5291154bb9683e62317a86c0752c3a13c22f393e182ac6258f9cd5c27",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/reviews/library.py"
+      ]
+    },
+    {
+      "path": "scripts/reviews/ordered_library.py",
+      "bytes": 20115,
+      "sha256": "69ac1750e0d04c3c5037abf75f2387a2112c890999035290ed55632f6f46902b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/reviews/ordered_library.py"
+      ]
+    },
+    {
+      "path": "scripts/reviews/versions.py",
+      "bytes": 46432,
+      "sha256": "8f7892ade22c642cc18cb4d538ced6defb352a8ddcdcdac5332c5941a99d7c2f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/reviews/versions.py"
+      ]
+    },
+    {
+      "path": "scripts/run_trace3_additions.py",
+      "bytes": 18332,
+      "sha256": "e6e74ff5b7a6af1390bc4b9e03016499fe892fe1b4419491591883f3306bfe94",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/run_trace3_additions.py"
+      ]
+    },
+    {
+      "path": "scripts/show_figure1_panel_h_five_options.py",
+      "bytes": 13065,
+      "sha256": "65bb41b7fcd76058e656dee294c14818d68c6dd659e84b04017c4a12e1599686",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/show_figure1_panel_h_five_options.py"
+      ]
+    },
+    {
+      "path": "scripts/trace10_panel_statistics.py",
+      "bytes": 8510,
+      "sha256": "3435eb27ad697269b25bc30665c76dd7a20a46a272431d2630ef33bd95735f27",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/trace10_panel_statistics.py"
+      ]
+    },
+    {
+      "path": "scripts/verify_figures34_3strace.py",
+      "bytes": 6107,
+      "sha256": "ce3094588eefacd8d1da3cd33bc6ea433a89b01c68bdf102813fed2c27ce6ff9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/verify_figures34_3strace.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/macos/run_legacy_with_paths.py",
+      "bytes": 4532,
+      "sha256": "8549a9ecc4ca46db0308d5d5a520d2b62b2bd125fa1151742c019958552814c2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/macos/run_legacy_with_paths.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/metrics/compare_response_magnitude.py",
+      "bytes": 5093,
+      "sha256": "b1107ff6c4ef42d5a00613aa36fa5b414a604f630948b672696f883e4f093d13",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/metrics/compare_response_magnitude.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/metrics/compare_train_test_windows.py",
+      "bytes": 5949,
+      "sha256": "a3b015f2212fbd6f05d7c9743175188f36473de4b6777f8adc69872f246b20ae",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/metrics/compare_train_test_windows.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/trace/audit_increasing_trace_protocol.py",
+      "bytes": 4923,
+      "sha256": "ab5c3f3a450b9773b2066771e4eec5214e17ba277162a3cf57e06369abb9b935",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/trace/audit_increasing_trace_protocol.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/trace/prepare_runs.py",
+      "bytes": 8923,
+      "sha256": "ef17483a75fe64ee39257e209486f5c135234975b42ea7e3001cefe4b55f5911",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/trace/prepare_runs.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/trace/reproduction/cohort_and_legacy_labels.py",
+      "bytes": 11081,
+      "sha256": "a247d0559797242374899499e029baf1c31dc08939ecc917166c7478e6c052fa",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/trace/reproduction/cohort_and_legacy_labels.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/trace/reproduction/run_legacy_full59.py",
+      "bytes": 5793,
+      "sha256": "edff00328b8f12f43f61d64cb9444a3a8f99d4ba0b9213a546b2d499b7846a94",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/trace/reproduction/run_legacy_full59.py"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/common.ps1",
+      "bytes": 455,
+      "sha256": "f8a6e86a8ed8641e08c4bb9fcf651ca1e823d591cf8a92b245309228fdc04616",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/common.ps1"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/delay.ps1",
+      "bytes": 503,
+      "sha256": "028c212e654ca1d7b3465192e51935315a3ab36697f2133c0382e810dd203d67",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/delay.ps1"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/stages/delay_complete_analysis.ps1",
+      "bytes": 4234,
+      "sha256": "e738892a67b13cd27be5b73437255b7f9b502fda8c731d9c74a583f8d7988777",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/stages/delay_complete_analysis.ps1"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/stages/delay_pipeline_analysis.ps1",
+      "bytes": 7466,
+      "sha256": "172947c576902aa11166a0dc69c98a5756880b8b91fd3b13eed50dee1f3376a9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/stages/delay_pipeline_analysis.ps1"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/stages/delay_resume.ps1",
+      "bytes": 1245,
+      "sha256": "5f447b983981bacf8fb702883820e7cbac7cba8dc72bed3c528ff22eab255cac",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/stages/delay_resume.ps1"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/stages/trace_pipeline.ps1",
+      "bytes": 3299,
+      "sha256": "ef9088c44019d65ba388a3c93258d6f3ce0b603bb53c6ae125e8c6eaf63e6b6d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/stages/trace_pipeline.ps1"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/stages/trace_process_ingested.ps1",
+      "bytes": 2664,
+      "sha256": "320fb084282322d649e3bf73a5ef27d4b719f4c3a284ff196b9784df68e1976f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/stages/trace_process_ingested.ps1"
+      ]
+    },
+    {
+      "path": "scripts/workflows/windows/trace.ps1",
+      "bytes": 420,
+      "sha256": "fc7fae6be9c5ba7510eb5fe69d5315dd93578182eced9ca4ad6d6cbc93fe4a9c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/scripts/workflows/windows/trace.ps1"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/__init__.py",
+      "bytes": 1432,
+      "sha256": "26ef8c8a3e0c2ad0e6fb8933fd29e8fff05a410d1fbf44cfc955ac23f5796238",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/__main__.py",
+      "bytes": 612,
+      "sha256": "e281ed454ba57afdded310dfad5c82497a91e87896b4350fceb74473ec0a47e4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/__main__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/__init__.py",
+      "bytes": 3249,
+      "sha256": "ac3d9c4481a54ef1cc7d978ae22385191edfe49d07937822eb36f6ae95f53810",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/benchmarks/__init__.py",
+      "bytes": 229,
+      "sha256": "712fca356096329bc7359288d95f26da7bc110428a82199e224958931b315d61",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/benchmarks/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/benchmarks/movement_sensitivity.py",
+      "bytes": 861,
+      "sha256": "18987f37651784fe9d5ef1c7c975002f80fd7a6bdbcb60b03e1dee5f39713e1a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/benchmarks/movement_sensitivity.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/bout_block_statistics.py",
+      "bytes": 4812,
+      "sha256": "e36e240173c0b37f5fd02047bfe41ad3c4523b0f5a82647a82cf25cf22b7bd93",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/bout_block_statistics.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/bout_vigor.py",
+      "bytes": 2698,
+      "sha256": "5ff31912367946a90a5375009023be8ca2bad9242d62125e926363255a70eaf2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/bout_vigor.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/candidate_runner.py",
+      "bytes": 25195,
+      "sha256": "f77d87d132e52cc414a14ee90002dd8ad9e60d288efea2cfd969b05925809265",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/candidate_runner.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/cohort_outcomes.py",
+      "bytes": 25526,
+      "sha256": "52ad14f1142b1c8dc6c1cc38512b58f988ce44d63dd07ce053c867567b708fd3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/cohort_outcomes.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/discarding.py",
+      "bytes": 28479,
+      "sha256": "93a5108845f6760690009fa896bc4cb5799807b74ce2b87b0702a010b8fefd1f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/discarding.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/figure4.py",
+      "bytes": 28120,
+      "sha256": "671eb05f67fc7670ed891e2431c676260bb04f5470ea403565571fc14119e1a6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/figure4.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/__init__.py",
+      "bytes": 783,
+      "sha256": "4b7e5b3a1d044093226bf84d300805f282bdfbc2efe180c70126b54c997f658f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/fish_bootstrap.py",
+      "bytes": 12366,
+      "sha256": "758afab9909e6cde0e504b1001e7ee0754a20024a0484e126d06e5788a775024",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/fish_bootstrap.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/fish_permutation.py",
+      "bytes": 13676,
+      "sha256": "880060265ee5f7d924c2052ee7dee654838f575531126e18acc0a5d21dd26e6a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/fish_permutation.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/learning_onset.py",
+      "bytes": 77856,
+      "sha256": "2b35c33483c3150f8ca06b43bbcd3b44e1aa5d646651b8a5dea707332832bb0c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/learning_onset.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/mixed_effects.py",
+      "bytes": 14977,
+      "sha256": "b332317f8c4436b23c019b7b1a5b0e2a5d13f99ccbd6ae0e098a257213fd6656",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/mixed_effects.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/model_input.py",
+      "bytes": 16955,
+      "sha256": "bcf01ec5df87a0689949ddffef5bb84a627672e6cf6155c480db928fdb43babd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/model_input.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_companions.py",
+      "bytes": 3537,
+      "sha256": "052d1554ff6cfaa1f7f917db2cb3c62a808d8d6a0ade867172761d103ca47f24",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_companions.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_fast_lmm.py",
+      "bytes": 8228,
+      "sha256": "0f872554cbb2ad983137fd91137ca0b9486e98d238877ee68a0263e494028fc5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_fast_lmm.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_followup_report.py",
+      "bytes": 9119,
+      "sha256": "09d1bbdc50a4e72f25d2860eaea82eea463548d8b881601001159713860717e4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_followup_report.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_hyperparameters.py",
+      "bytes": 2719,
+      "sha256": "32da13b2c0a0f53baec9be30dd29e77d4601fce2b5708231a8d5eb219b2604b7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_hyperparameters.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_individual.py",
+      "bytes": 6981,
+      "sha256": "dbe55dc35c9248eb6b2acd2bbe65677be57dcc99c2b1792243796c7e5cab90a7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_individual.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_legacy.py",
+      "bytes": 12576,
+      "sha256": "35bf6b4c19c1c3e1857f33598a3e6f598dca3a4a84c712e3a71f0312f93fe4da",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_legacy.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_marginal.py",
+      "bytes": 7729,
+      "sha256": "94367ca0c2e545cb51ad0ac9713e041d5a09abd549d55c9457f5d93d97eea60d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_marginal.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_missingness.py",
+      "bytes": 4416,
+      "sha256": "afc47c71f74934c2c139e0c2807b50ddb4fdbae52640431890fd7c3ca6ee7bf8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_missingness.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_review.py",
+      "bytes": 13415,
+      "sha256": "5edbf30f5376bc86662db7deca14d5ff38b36c58307af17450820d4505989e19",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_review.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_review_extensions.py",
+      "bytes": 38572,
+      "sha256": "0593a9540614016d8e02969bc01a92daafe47627c14f8fed4d0e15cde1288104",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_review_extensions.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_review_visuals.py",
+      "bytes": 5458,
+      "sha256": "064d105b1f03b89744c68ecc1f1ca4064456b5ae249f45bd0e2f59d7282dc1ff",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_review_visuals.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_run.py",
+      "bytes": 15803,
+      "sha256": "65f5a8f383926909bb6becc5c0c0c8d77b591b9cc6035a49e94c980ead0ac0d6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_run.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_sensitivities.py",
+      "bytes": 6100,
+      "sha256": "8127c9f99cf3f0cab95fe8de2b29e7086cb176e62ea0bc0bd2d7859bf77354b7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_sensitivities.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/inference/panel_g_technical.py",
+      "bytes": 6162,
+      "sha256": "10835059acd795598117fd4cc47d39fe37bc466fc8ce93935cd62db497845a32",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/inference/panel_g_technical.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learner_controls.py",
+      "bytes": 7438,
+      "sha256": "3bfebee6b00792b283f77003c55d81676df008fd06b929ca6e1b6c32cc3c08a6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/legacy_learner_controls.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learner_worker.py",
+      "bytes": 6059,
+      "sha256": "b964de25b3bf1d4e84b615d482f2af0aad0c34c0974d770475f5fa8fb5b2ace8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/legacy_learner_worker.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/legacy_learners.py",
+      "bytes": 15311,
+      "sha256": "eefdc293dc21f5c541df0946ad708b9f87196a4d0dcaf338bc26d853abcc0aa3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/legacy_learners.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/metric_comparison.py",
+      "bytes": 23905,
+      "sha256": "a7260b446e368748f2eb5168a85bf54c88714f83acc06a16ed4c8f073395e60e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/metric_comparison.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/movement_state.py",
+      "bytes": 44437,
+      "sha256": "8843968168a920a23e796cc914d03c0f6cbc8e2d3bed37e3f0781fefe15e04b7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/movement_state.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/__init__.py",
+      "bytes": 221,
+      "sha256": "ef79d17a8687094ea1c6f02d0f14566526ac690af81b7d31d42e7efa582f65cc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/blup_comparison.py",
+      "bytes": 11256,
+      "sha256": "1b3a26aac854b53fe5e813634dad9d140394cd5dde11a49fb4b1036e306e5bd3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/blup_comparison.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/bout_block_review.py",
+      "bytes": 16792,
+      "sha256": "81d967f50120b2ab89316d1b5d00712e7bb16e8e7feb623a8126ce508a376286",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/bout_block_review.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/figure4_assay_profiles.py",
+      "bytes": 6341,
+      "sha256": "b0d456874a876e1958fffc50576571820bab97df280850c860f7de9ddb58db6c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/figure4_assay_profiles.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/figure4_profiles.py",
+      "bytes": 6839,
+      "sha256": "c41a67c7ede41a56ba7d9df4829ee3b036be5c7131dd8f58576c9421966a7ccd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/figure4_profiles.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/individual_atlas.py",
+      "bytes": 12398,
+      "sha256": "28665462405176078b1a394a42dc02e0b1e931b28f7f3fd4347488048e3c10eb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/individual_atlas.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/metric_comparison_storage.py",
+      "bytes": 2282,
+      "sha256": "f973a9bbb130b5afab33e4e6c49b6bb07487b7ab4994c7a3181a0ab4f65f02bb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/metric_comparison_storage.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/saved_statistics_audit.py",
+      "bytes": 13798,
+      "sha256": "c63c74f7a2a397de57b326d146fbac476bcc912cb11c2dd4a23881840cb284a6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/saved_statistics_audit.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/review/trace_review.py",
+      "bytes": 26213,
+      "sha256": "7b6330c433b85c7b9a0b70707a278e4f97e13edad79462cd6e54d4c3f4be5c6d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/review/trace_review.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/temporal_profiles.py",
+      "bytes": 33106,
+      "sha256": "25dcc7bcf1d0b6e9c0ddd9e6a3e1c118edd83926ff4263c03269518377be205f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/temporal_profiles.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/analysis/trial_outcomes.py",
+      "bytes": 27964,
+      "sha256": "1184c9f377a73673c802bdcdece3953e5472082dff69a958db3ea1a25337c5fb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/analysis/trial_outcomes.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/artifacts.py",
+      "bytes": 19987,
+      "sha256": "4199c10b882367b8947e5c47a1c40f095927aed80e25e90e778a0185372fe3b2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/artifacts.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/cli.py",
+      "bytes": 83094,
+      "sha256": "c2dd78e421c356c454040990b6de70780f8412d940b565a2eb54df8e1ab62fb4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/cli.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/cohort.py",
+      "bytes": 20061,
+      "sha256": "c0899ae1af5bc2a2ac89f17d86e4285e7708b8f82ffb1526a582dc17f1651d9d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/cohort.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/command_provenance.py",
+      "bytes": 3029,
+      "sha256": "887c1b6543623761d86928e01353b7d882f8ca1b8adeec4facd86830bca57007",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/command_provenance.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/comparison.py",
+      "bytes": 8210,
+      "sha256": "ea1215f63ca3b954786921a06b892f1a9e0e55175f143641bbd03e4c0bbe27ca",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/comparison.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/config/__init__.py",
+      "bytes": 1930,
+      "sha256": "d69ea001b57d5e9530d729c90c22c843e04ab0f0458bf82576f745a66f6d38f8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/config/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/config/domain.py",
+      "bytes": 9202,
+      "sha256": "0b95d73fca9ac1af06ef1ad3bc8c5a6e645304965651efee5bb9ae4d4abea780",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/config/domain.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/config/experiments.py",
+      "bytes": 5977,
+      "sha256": "a83a9fb6400f079cb858f6facc847ddb627fcc002e32334d1d26ed3031291749",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/config/experiments.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/config/export.py",
+      "bytes": 6024,
+      "sha256": "adcbb4fae092226c2fcd23665fc7e35a3a14f8f4a59d85bbb09d6aa240997005",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/config/export.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/config/identity.py",
+      "bytes": 1953,
+      "sha256": "dadf4f96e388ef32335d19c83d10a11ab43515286b5689c37e566b17a05fe285",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/config/identity.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/config/trial_map.py",
+      "bytes": 3815,
+      "sha256": "ba4e9b3662a5c8d71041eee54c9b2982fb44ca9f5d2530aac45fe83c1a337d76",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/config/trial_map.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/environment.py",
+      "bytes": 5939,
+      "sha256": "0818a30295b07a94a28098f6a9a6cc893af04d674db66f152c9044ef2c0643d3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/environment.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/exceptions.py",
+      "bytes": 1953,
+      "sha256": "198de592c33d9a9d62f01efb8096eb250d499b23d198813c34ca7c907939723b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/exceptions.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/external_artifacts.py",
+      "bytes": 22373,
+      "sha256": "d2e43159dc24d67659e94bc5a164ae18e0a70b0a48bbb72030cfe98affc78103",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/external_artifacts.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figure_freeze.py",
+      "bytes": 42193,
+      "sha256": "0c5b87a85501e3284d702f31fb29be28cfb85e9bf8b603f076a4b7b6943a8723",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figure_freeze.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figure_workspace.py",
+      "bytes": 23227,
+      "sha256": "6dc6f68a3fab81bfa9eda86149aa69df46fdb3e81c33dd52886478b09ddd4864",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figure_workspace.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/__init__.py",
+      "bytes": 1875,
+      "sha256": "db9d4d4a85f9292074b2bc0002823bbe541058fc9db36c8092c27a7b290490cc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/aligned_example_pair.py",
+      "bytes": 26920,
+      "sha256": "a6164f6194ad6c14c7fb7804a899b0b80c83b746b172ad0e905f4e219857876f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/aligned_example_pair.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/assembly_sources.py",
+      "bytes": 9373,
+      "sha256": "89b750a5230ba4140294e306457046dd79c323e6ebbe3fe4e5a4f8c40b808cf4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/assembly_sources.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/browser/command_options.cjs",
+      "bytes": 1055,
+      "sha256": "1864244b9c2f28874f15346935e8ad356787bd0d2e3857829d283934c3ae199c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/browser/command_options.cjs"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/cohort_response.py",
+      "bytes": 54835,
+      "sha256": "3d4f4c0c0861bbd468bf86bd9649e3ef53e389b1e58b97d98a6ffa781a6f09e6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/cohort_response.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/evidence_portability.py",
+      "bytes": 2791,
+      "sha256": "ab61dd32faca9e4190b44821eeac194b91232b386c5b7fe7990fa9c0dba7007d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/evidence_portability.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/example_traces.py",
+      "bytes": 15558,
+      "sha256": "2715bab30441b69f23fd97769dfd2f1324b543c6eebba4fff3341ac5e0ab19b7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/example_traces.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/export.py",
+      "bytes": 18978,
+      "sha256": "c44900bf0cad96691f51309f1e723d63cbb0198ef69dd049b72d97d53268be4e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/export.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/figure4.py",
+      "bytes": 10330,
+      "sha256": "fb5aa53611b9862d4f0ca4610a122485cbce47eeddf9490e99078abbd0ebc972",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/figure4.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/figure_01/__init__.py",
+      "bytes": 73,
+      "sha256": "a9bc1061fdff53b29346862c3df7dad655c457941e4852faa0899dd7ef279d35",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/figure_01/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/figure_01/legacy_display.py",
+      "bytes": 3707,
+      "sha256": "08a8bb9dc22373e05c87edc9754438ff89ba92b875b55d7e28f1cf5706ce72bb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/figure_01/legacy_display.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/figure_01/legacy_layout.py",
+      "bytes": 6994,
+      "sha256": "ed77faaef7621be1fb1322508391e3c9f0d0773a85e037138d17c2330aaf7562",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/figure_01/legacy_layout.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/figure_01/selected_fgh.py",
+      "bytes": 10627,
+      "sha256": "b7c53d9188d358fbede70d35658e560fd7a123163a04773d053e89dc7823a0c6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/figure_01/selected_fgh.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/individual_atlas.py",
+      "bytes": 30827,
+      "sha256": "688c87b75415a9cdef0c0177505010c0b6737974fd4f2288685c37e1c42c71c3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/individual_atlas.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/layout_frames.py",
+      "bytes": 16487,
+      "sha256": "6285e8190951d8c2cc9f44ecc0b5da8506a25ecf1553bd4ad57f2260167e8853",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/layout_frames.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/layout_frames_browser.js",
+      "bytes": 11318,
+      "sha256": "ad2d9fb1ba817f6de6002162cac0c2b927962182f95cdee3f39f9d4b761ecbb9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/layout_frames_browser.js"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/layout_primitives.py",
+      "bytes": 368,
+      "sha256": "8254f814e169aca90038b68e93f0193f94abdc38ea6df6af5d39be71065eec76",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/layout_primitives.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/learning_diagnostics.py",
+      "bytes": 6983,
+      "sha256": "da29c697cdd2ee7131101f35428a03523f996cd010034019cc3ac72d448f0381",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/learning_diagnostics.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/learning_onset.py",
+      "bytes": 15280,
+      "sha256": "bed538c0f90753146d9f928cc54bea97767ef506fba53b9dd202afd71b61acd4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/learning_onset.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/metric_comparison.py",
+      "bytes": 11363,
+      "sha256": "7cc394abb4631543fb94d16a5b38c5ee043e7e0648f474b5ba8cc11bcae76332",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/metric_comparison.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/paper_panels.py",
+      "bytes": 10479,
+      "sha256": "c3f07eef4ca4f35366112dfa749b9881b3afd2d8ae0c951471a40feef720369c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/paper_panels.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/per_trial_scaled_vigor.py",
+      "bytes": 9247,
+      "sha256": "f30fd6a3651dea2fc17dc1e024731c27576adf91f9bf988a53d63d5b1fd16057",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/per_trial_scaled_vigor.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/pooled_log_heatmap.py",
+      "bytes": 11344,
+      "sha256": "e14cd7cf5731493448e395458aff92e519f20f2d7a506fa7bd8ae99a2895c669",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/pooled_log_heatmap.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/population_heatmap.py",
+      "bytes": 13539,
+      "sha256": "8279346862723e35071b54d7062a9584442a8541c329c8c7b30b4e4f6d3e3500",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/population_heatmap.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/presentation_profiles.py",
+      "bytes": 10240,
+      "sha256": "e440c45ae7482ad3fd50c38445616097edc7bebea14bf87de7f29e3009f79395",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/presentation_profiles.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/review_html.py",
+      "bytes": 2959,
+      "sha256": "0e430eb29d6a9a719b7af6a709ea203f63927495d5392853bb34f08be560241b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/review_html.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/signed_bout_heatmap.py",
+      "bytes": 5325,
+      "sha256": "f8b195336aa3fdf9f7b3193be2fd34fb48d434c60cd8e4410ec866bc94c02562",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/signed_bout_heatmap.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/svg_canvas.py",
+      "bytes": 4665,
+      "sha256": "edd73379b2cfed51cdc2fd2fe604e98d41891658731d898832f01a71bbf50015",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/svg_canvas.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/svg_scope.py",
+      "bytes": 1539,
+      "sha256": "2f43221cbcf24a116a7928e52bbd3f062daa9ec27b68aca77704c1abd01a2236",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/svg_scope.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/temporal_profiles.py",
+      "bytes": 26560,
+      "sha256": "aec438e6b32857270ba72b767dd1fbe68eb1140778c5d57c7ef24bb16956687a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/temporal_profiles.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/figures/theme.py",
+      "bytes": 16098,
+      "sha256": "12dcf95debf20f626e413ab326efb055b35c5f93ad87a938befc71a4433dbe2d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/figures/theme.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/__init__.py",
+      "bytes": 1726,
+      "sha256": "e54475ad8f9d6cbe3ee807b5793af76a6fff5f8fa2dbc605d31a44280778d3ed",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/ingestion/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/frame_sequence.py",
+      "bytes": 5589,
+      "sha256": "1d868793cbb289e64e29a34878f1330d29ffa83cb01ba7e47a0ffbf0a64a19c4",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/ingestion/frame_sequence.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/readers.py",
+      "bytes": 9335,
+      "sha256": "07b0882d46158580cc40e7aa4975b0c1e462841ae79fe4dd141dfdfde153c0cd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/ingestion/readers.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/schemas.py",
+      "bytes": 4315,
+      "sha256": "035ac418bad3ada734360f778d6f0c4649b046bd49bc2cb8f5f38fe4b0f77823",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/ingestion/schemas.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/tracking_audit.py",
+      "bytes": 11175,
+      "sha256": "6224ae895e8b08ae0de8e7c61e6b5f786fced5fee820b69cbc7633ebf51d0d07",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/ingestion/tracking_audit.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/ingestion/validate_raw.py",
+      "bytes": 4912,
+      "sha256": "4407980b528e0176a3240f7788af890493b253312bc7cff06769453c790deb95",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/ingestion/validate_raw.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/intake.py",
+      "bytes": 54167,
+      "sha256": "5420828516af0132a487fdaddb7a28149864ba20c2682c32e441beeedab269c6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/intake.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/inventory.py",
+      "bytes": 10546,
+      "sha256": "d727c89efb3889ed279a331afaa0e1d34557feb1c860cbe58d0e16124b4aeb06",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/inventory.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/metric_policy.py",
+      "bytes": 774,
+      "sha256": "985dee29947e103ee505f678252bf8447b25622a0c9f1284af3ccf7a2fb8165d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/metric_policy.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/operations/__init__.py",
+      "bytes": 218,
+      "sha256": "76cacd570a9c9ce0b5113af7744e6480e7069fad1dddf6256208368917e266cf",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/operations/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/operations/batch_work.py",
+      "bytes": 17110,
+      "sha256": "75492aa54cbf0c53bda04c3a6e72b478a5f78d92d2c27eda9325ada71fb01269",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/operations/batch_work.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/paths.py",
+      "bytes": 3639,
+      "sha256": "c8b9be7d29b71f74625b47f4f72361bf559b92f2bfa1c4f155cfd3b9fb4a77b1",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/paths.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/pipeline.py",
+      "bytes": 27146,
+      "sha256": "d74af8ed83495eff44dd52a85baed58e434994917b3d5d5a6a1698c2f91354ed",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/pipeline.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/__init__.py",
+      "bytes": 2132,
+      "sha256": "ea525e5c232e526bac0dc21aba49ac6b7bba3380d3cb732ba5a1b5684e1e1326",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/preprocessing/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/acquisition_timing.py",
+      "bytes": 3656,
+      "sha256": "7627e38c57a21d6408f8a15d4782ba19cb362b4e295a068ad76ffd5694862a29",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/preprocessing/acquisition_timing.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/benchmarks/__init__.py",
+      "bytes": 427,
+      "sha256": "a6d07f52a7a454ead3ebbfef573bdb4c37575fce53cd5d989bfabdff25a7d015",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/preprocessing/benchmarks/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py",
+      "bytes": 1642,
+      "sha256": "4690aa241cffe473b52ddaaa7354c2ed88cb6fa8ecf249d20a0c8e4d52c33963",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/preprocessing/benchmarks/candidate_metrics_from_intake.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/candidate_metric_kernel.py",
+      "bytes": 30058,
+      "sha256": "fee5305da90d1a09655af217ce3a1955ecf95c2cab1884a436e40626bae19a8b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/preprocessing/candidate_metric_kernel.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/candidate_metrics_from_corrected_frames.py",
+      "bytes": 18990,
+      "sha256": "6260bb70657ca94d07b59d7150e4b200159978d85926cee005056e75537a4379",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/preprocessing/candidate_metrics_from_corrected_frames.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/preprocessing/corrected_frame_preprocessing.py",
+      "bytes": 25474,
+      "sha256": "a5e4a7e0bcc632a3df06199b4100b5bee63188b58bb1d8a77ba14e1eee394d7a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/preprocessing/corrected_frame_preprocessing.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/progress.py",
+      "bytes": 5260,
+      "sha256": "d018c3814014cb0698eb308d9217d64978744ea19cbadd76656ec39d0742d600",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/progress.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/reviews/__init__.py",
+      "bytes": 73,
+      "sha256": "a9bc1061fdff53b29346862c3df7dad655c457941e4852faa0899dd7ef279d35",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/reviews/__init__.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/reviews/assets/figure2_g_notebook.js",
+      "bytes": 10767,
+      "sha256": "4f997a4832192f802c7ea93d9815dcca98a6bfd20f32ba67f33fa33cb84158e6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/reviews/assets/figure2_g_notebook.js"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/reviews/embedded_downloads.py",
+      "bytes": 1330,
+      "sha256": "f2d8e62bdaf6ef3402b36d9ba190e5164394af9df8f58bc2d2ec71bf8ec863f9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/reviews/embedded_downloads.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/reviews/figure2_g_sources.py",
+      "bytes": 1294,
+      "sha256": "14987f074550e9589d53a4ea682e8c9f9db4fee88e6b23b1b2fea8292c643217",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/reviews/figure2_g_sources.py"
+      ]
+    },
+    {
+      "path": "src/classical_conditioning/run_config.py",
+      "bytes": 9263,
+      "sha256": "380208efeb2f2e78f945e6be10c91bf8c3c11f5c8dd98ceeee3898e0a450f9fb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/src/classical_conditioning/run_config.py"
+      ]
+    },
+    {
+      "path": "tests/characterization/__init__.py",
+      "bytes": 66,
+      "sha256": "f7f9e4d9d7b9b2415b774811ddec033da64b410ebdcf78d6ac450fe7561e0dbb",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/characterization/__init__.py"
+      ]
+    },
+    {
+      "path": "tests/check_non_scaling_strokes.cjs",
+      "bytes": 3043,
+      "sha256": "fc0ed4b667ea10f5af289f26bbcb40a37384c4a97cbd22ecf0de4c6c986c9f7e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/check_non_scaling_strokes.cjs"
+      ]
+    },
+    {
+      "path": "tests/layout_frame_browser_cases.py",
+      "bytes": 2622,
+      "sha256": "bf9a5cc0f322aec4e9a5328de42c44a8bb62e60736aae1680e59355706e2beb3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/layout_frame_browser_cases.py"
+      ]
+    },
+    {
+      "path": "tests/test_3strace_finalize.py",
+      "bytes": 7177,
+      "sha256": "e32e1b33372953cf7c9bf82265bb389af284b083331767a9c9ea2d7644d14b17",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_3strace_finalize.py"
+      ]
+    },
+    {
+      "path": "tests/test_acquisition_timing.py",
+      "bytes": 4840,
+      "sha256": "beee7cd43853e5820e98bde5b88fafc19ed9c7c4246664d7672aafed2914d236",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_acquisition_timing.py"
+      ]
+    },
+    {
+      "path": "tests/test_aligned_example_pair.py",
+      "bytes": 3544,
+      "sha256": "89a76aed89ce505006ba9021da739d57947b446df879cfdc08069029e8b8c039",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_aligned_example_pair.py"
+      ]
+    },
+    {
+      "path": "tests/test_artifacts.py",
+      "bytes": 8314,
+      "sha256": "20f981dcc9ddd0993389ba4017f69e0993536e1ff974b45b63233a5015e009b0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_artifacts.py"
+      ]
+    },
+    {
+      "path": "tests/test_assembly_integrity.py",
+      "bytes": 15617,
+      "sha256": "5a5eb17928b61f08646e79d3ee8d7f2982626643ad1105c9ac3683afc1b64788",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_assembly_integrity.py"
+      ]
+    },
+    {
+      "path": "tests/test_axis_geometry.py",
+      "bytes": 2320,
+      "sha256": "f40658fd8a1f2f65cdc1dc90cf09637479183b21cdc0a3805e8e9ace88c52923",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_axis_geometry.py"
+      ]
+    },
+    {
+      "path": "tests/test_axis_registration.py",
+      "bytes": 2788,
+      "sha256": "1317d48796733056082629530b16f4248574aefacafecdad4e2e783e9d7cd9d6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_axis_registration.py"
+      ]
+    },
+    {
+      "path": "tests/test_batch_work.py",
+      "bytes": 4599,
+      "sha256": "bec786ce2483a8c443635e1fa7cba05f23f907039025011f168af3a21c0f52c7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_batch_work.py"
+      ]
+    },
+    {
+      "path": "tests/test_blup_comparison.py",
+      "bytes": 4027,
+      "sha256": "c987c9ba3bd90750ec8494d577bc1e3559280cd3d1a0292831de643c031e9359",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_blup_comparison.py"
+      ]
+    },
+    {
+      "path": "tests/test_bout_block_statistics.py",
+      "bytes": 2008,
+      "sha256": "6b9d50716cdf824aeef10d801ad1d2d160707f6d717369b39d01a58df4875499",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_bout_block_statistics.py"
+      ]
+    },
+    {
+      "path": "tests/test_bout_vigor_policy.py",
+      "bytes": 3805,
+      "sha256": "07b904600b949129a23e42fd2ee2446f7163399b5c45ae5a72f88dac0311aa19",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_bout_vigor_policy.py"
+      ]
+    },
+    {
+      "path": "tests/test_candidate_metrics.py",
+      "bytes": 9887,
+      "sha256": "ebe5d89279e6bec2239602b9562e51faff6a4e2d4e8e54c370d9959b83bd9f6f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_candidate_metrics.py"
+      ]
+    },
+    {
+      "path": "tests/test_candidate_runner.py",
+      "bytes": 9700,
+      "sha256": "f2a14d57f2ecbee85fbb4d5596d05376dc766b137674a80407283cc625b609b2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_candidate_runner.py"
+      ]
+    },
+    {
+      "path": "tests/test_candidates_corrected_adapter.py",
+      "bytes": 2818,
+      "sha256": "ba7535aa0b16e8480c4b4d8ac8cae0e4b19e22250cf6b178372f0fd1cbc4acd5",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_candidates_corrected_adapter.py"
+      ]
+    },
+    {
+      "path": "tests/test_canvas_repair.py",
+      "bytes": 9076,
+      "sha256": "ee4a2ed18d40d29848fc429803a1185285f110bb7ef90b19275e1699c18ac8a6",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_canvas_repair.py"
+      ]
+    },
+    {
+      "path": "tests/test_cohort.py",
+      "bytes": 7449,
+      "sha256": "e394d7c9d2a8bb63c374017176bb695dcabc3723a631692fda2bdb260d1c618b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_cohort.py"
+      ]
+    },
+    {
+      "path": "tests/test_cohort_outcomes.py",
+      "bytes": 9604,
+      "sha256": "f66e7105cbb0642542c023beec6f8a3818c399a3307f45758cc1c069781a3df2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_cohort_outcomes.py"
+      ]
+    },
+    {
+      "path": "tests/test_cohort_response_figures.py",
+      "bytes": 15746,
+      "sha256": "b2768edeecdd57363d1dc299bc35a589e871e046adfc1145ffd39e5bc90ae3bc",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_cohort_response_figures.py"
+      ]
+    },
+    {
+      "path": "tests/test_command_organization.py",
+      "bytes": 10021,
+      "sha256": "cb4d1125927422d63ae1b84902a78a889432779cf1f375300e0f7f9126f67e9c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_command_organization.py"
+      ]
+    },
+    {
+      "path": "tests/test_comparison.py",
+      "bytes": 8144,
+      "sha256": "9e1ebfaded23d3db6d3c0d08002f2ce8a9237d5aa7f3ad2fc770e4f92e4ba30f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_comparison.py"
+      ]
+    },
+    {
+      "path": "tests/test_config_export_and_tracking_audit.py",
+      "bytes": 7043,
+      "sha256": "ae13d84aedfbe68bdb2f4ff9a9d8100d7e1e4f0a060180bb342626970a833ab7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_config_export_and_tracking_audit.py"
+      ]
+    },
+    {
+      "path": "tests/test_configuration.py",
+      "bytes": 3435,
+      "sha256": "3e4a57e8778b7eeb82311c2e668de064775ff1e4d31f423c7968a55e2c39d8e8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_configuration.py"
+      ]
+    },
+    {
+      "path": "tests/test_corrected_preprocessing.py",
+      "bytes": 7648,
+      "sha256": "d96b12e249992e558b9f80da22522d52fd0ec3cf0efd14a83da3ddf13709a595",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_corrected_preprocessing.py"
+      ]
+    },
+    {
+      "path": "tests/test_discarding.py",
+      "bytes": 12370,
+      "sha256": "33957b6b74a33de09c202ca09bfee7dba70767d2c8a5f3a3c685669536be908d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_discarding.py"
+      ]
+    },
+    {
+      "path": "tests/test_environment.py",
+      "bytes": 4021,
+      "sha256": "9dabb3bd9057f7f946e19fb3d6d6c271b6b5a34e375045001f373056b13d2198",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_environment.py"
+      ]
+    },
+    {
+      "path": "tests/test_evidence_portability.py",
+      "bytes": 3918,
+      "sha256": "676d1492ab60f832f5fc6d8b80d29375627d5705640c3ced8df1e0c1462910d2",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_evidence_portability.py"
+      ]
+    },
+    {
+      "path": "tests/test_example_traces.py",
+      "bytes": 7552,
+      "sha256": "db953636491c2c4a33b7f39d83bb40d0c81d34045a7fbb243190179941f6d4dd",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_example_traces.py"
+      ]
+    },
+    {
+      "path": "tests/test_external_volume_portability.py",
+      "bytes": 16696,
+      "sha256": "fc2fcff97422e94db4e157d87c459503d3ea315998534d1c7a98cfa17e730609",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_external_volume_portability.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure1_cd_scaled_log_review.py",
+      "bytes": 2846,
+      "sha256": "da6df5a998534593413f31ad1c7246a428495b8fd1d8d6e3ac732cc9ae069b43",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure1_cd_scaled_log_review.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure1_panel_b.py",
+      "bytes": 6365,
+      "sha256": "815523f9a46b230f12ea9ffb0c6aa22f75e73440b7d07104aa5270de549dbc5e",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure1_panel_b.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure1_panel_c.py",
+      "bytes": 3172,
+      "sha256": "551888ddc683d2126095e319a0018c7c51c8654c12e7d7064484df9d71f99bd9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure1_panel_c.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure2_delay_logmedian.py",
+      "bytes": 2331,
+      "sha256": "c6513888e08e26c98a832b51d668cf0f3a9174725d7c6806daffc23f2493de1d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure2_delay_logmedian.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure2_delay_phase_lmm.py",
+      "bytes": 2741,
+      "sha256": "eb2f48de6e49465b929efa84f87764cd7b2c6a884d6d765fcf68103f8c050f7d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure2_delay_phase_lmm.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure2_delay_review.py",
+      "bytes": 2944,
+      "sha256": "bc51c97521525bc8613eed6e868dbaf9f74192ce381c822cb12267a5f2deb377",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure2_delay_review.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure2_g_asterisks.py",
+      "bytes": 1489,
+      "sha256": "aa855fa0aa0ef74a25f212641474e1636d061787e96676529323d3a2741f745b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure2_g_asterisks.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure3_main_paper.py",
+      "bytes": 2465,
+      "sha256": "c888cffb933f38ae9421383e9867e5db4a6e9366b4bede7de786e4735766e498",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure3_main_paper.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure4.py",
+      "bytes": 24368,
+      "sha256": "1089d85fff4d1135750a7b58f2b469e42e8f8bf2e74f0fdf292f9271bfcaa2a3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure4.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure4_assay_profile_models.py",
+      "bytes": 5358,
+      "sha256": "e165f8988865d2f4b094f7455550267cfc291dbd767e9e07870451bb1a9a2bef",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure4_assay_profile_models.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure4_model_publication.py",
+      "bytes": 2393,
+      "sha256": "87f6303836ea246eb7131d02807e3e6090d05bca94f4d1af3a04d8b456c02c53",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure4_model_publication.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure4_profile_models.py",
+      "bytes": 3946,
+      "sha256": "bd3b7c9b31e2ed73a56433140dbc1f52939a870a927706b4780e00fcf3b6a9b3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure4_profile_models.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure_export.py",
+      "bytes": 6960,
+      "sha256": "da1117578769026e27f05c9abd9086a5956815426ee622fe11a0a6434ac4fdbf",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure_export.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure_freeze.py",
+      "bytes": 21287,
+      "sha256": "ed1109cc9c7afc06adbaad12d6af02ef40ff68c886ed6289cd03dafb2c50229a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure_freeze.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure_legend_review.py",
+      "bytes": 8167,
+      "sha256": "dbcb186701e82fc4be23218f0eb370c4b2dce2b90fc600da008d7a40cab37f2b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure_legend_review.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure_version_browser.py",
+      "bytes": 12924,
+      "sha256": "00af6f02b5c52b2017f1a03a590a9f730adef94be5e13f1e7e6356181586f162",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure_version_browser.py"
+      ]
+    },
+    {
+      "path": "tests/test_figure_workspace.py",
+      "bytes": 8938,
+      "sha256": "3e0369612c023935607604fa059e5d96e4749cbcb0e5ea22d21da64e786d0e92",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_figure_workspace.py"
+      ]
+    },
+    {
+      "path": "tests/test_fish_bootstrap.py",
+      "bytes": 3017,
+      "sha256": "8304b4cada5a21e34cc053304c0c04e02cc52d1f7f80bd6ea3f5ff1686243b84",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_fish_bootstrap.py"
+      ]
+    },
+    {
+      "path": "tests/test_fish_permutation.py",
+      "bytes": 3603,
+      "sha256": "8d58e107ffbad4362a2e0cfffe8850a6495e7a62a608bb67f3671802da290332",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_fish_permutation.py"
+      ]
+    },
+    {
+      "path": "tests/test_freeze_embedded_fonts.py",
+      "bytes": 1085,
+      "sha256": "c018dfa22388f8e286a4485e7556692d23aaf110a420100b70457de36189bbee",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_freeze_embedded_fonts.py"
+      ]
+    },
+    {
+      "path": "tests/test_individual_atlas.py",
+      "bytes": 3187,
+      "sha256": "94d390b59d91e9f973021b35a5fc64fe52cc683f2ecc12550c807c6431d43a56",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_individual_atlas.py"
+      ]
+    },
+    {
+      "path": "tests/test_intake.py",
+      "bytes": 17176,
+      "sha256": "540da23a36cbc4756de8b95204d7a3a88a03facf55f5e2c2d1de024469350ce9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_intake.py"
+      ]
+    },
+    {
+      "path": "tests/test_inventory.py",
+      "bytes": 9282,
+      "sha256": "d61af9ec45262867884531c8f4b160c35bfdcd665900a54812ae74407ad0c345",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_inventory.py"
+      ]
+    },
+    {
+      "path": "tests/test_layout_frames.py",
+      "bytes": 11498,
+      "sha256": "33337fce0807cc7e25e99329af10ee2a10f12476fd4d4739d87c1f8e8ac32b03",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_layout_frames.py"
+      ]
+    },
+    {
+      "path": "tests/test_learning_onset.py",
+      "bytes": 18270,
+      "sha256": "90289cf7dd1874f232e619f50bf7df15ed09c8fabc6697d28f2c8e6b198de096",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_learning_onset.py"
+      ]
+    },
+    {
+      "path": "tests/test_legacy_learner_adapter.py",
+      "bytes": 2985,
+      "sha256": "928076509b8ee31b1bb823b45d45d8e099debeccb2d7467d3b15cf1f432534c8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_legacy_learner_adapter.py"
+      ]
+    },
+    {
+      "path": "tests/test_legacy_preprocessing_parity.py",
+      "bytes": 3556,
+      "sha256": "7bfe2087cf996dd40f6be2ce8efd70de90136b2910b8be45cabb129168d9e1e0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_legacy_preprocessing_parity.py"
+      ]
+    },
+    {
+      "path": "tests/test_main_paper_figures.py",
+      "bytes": 10855,
+      "sha256": "77dd2582b094816ec2784a2a68014af8d33512644143e298190fecca651abc16",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_main_paper_figures.py"
+      ]
+    },
+    {
+      "path": "tests/test_metric_comparison.py",
+      "bytes": 8267,
+      "sha256": "3de3cbc8aaa0f8df8f4ac1450532af0094f1937295cb61eafb31014de1fa6bc8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_metric_comparison.py"
+      ]
+    },
+    {
+      "path": "tests/test_metric_comparison_figure.py",
+      "bytes": 5276,
+      "sha256": "10e0bc9f04ed9ccae50de2c58794a1e28f14f7373d68cbf62db95f1c2986088c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_metric_comparison_figure.py"
+      ]
+    },
+    {
+      "path": "tests/test_metric_policy.py",
+      "bytes": 2865,
+      "sha256": "70ae7cfe0e335ca2512ec268b56d2ad832e2b85a8cedb4569876593ab25f561c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_metric_policy.py"
+      ]
+    },
+    {
+      "path": "tests/test_mixed_effects.py",
+      "bytes": 3377,
+      "sha256": "f84b02296e8dc413e0d83ee63b4cc77e4a018cf6c464cb9d5b6e6e2dcb2203e7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_mixed_effects.py"
+      ]
+    },
+    {
+      "path": "tests/test_model_input.py",
+      "bytes": 3670,
+      "sha256": "456e62ef87d60b8acdcc63987bd9dc6855381b8eef9b52da412f22dc0e0ee7f8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_model_input.py"
+      ]
+    },
+    {
+      "path": "tests/test_movement_state.py",
+      "bytes": 11020,
+      "sha256": "623086fe357d8922d0ad1d68193d0d7dfbe9678bd2fbae03ffdd02ee86f8044a",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_movement_state.py"
+      ]
+    },
+    {
+      "path": "tests/test_nature_main_figures.py",
+      "bytes": 5921,
+      "sha256": "69043214408975a40af558c17825bcdd10d56b49ee4b811ead6950e5b668c15f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_nature_main_figures.py"
+      ]
+    },
+    {
+      "path": "tests/test_panel_g_independent_review.py",
+      "bytes": 5274,
+      "sha256": "2470d74a3e1ecc0212517e7df9e4c9bfc796c49503f3b6893dccb105b54557af",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_panel_g_independent_review.py"
+      ]
+    },
+    {
+      "path": "tests/test_panel_g_review_repairs.py",
+      "bytes": 8357,
+      "sha256": "3b30c936f943dde56b784b67e2e090139b24897ba0a4276a25cad20718db3555",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_panel_g_review_repairs.py"
+      ]
+    },
+    {
+      "path": "tests/test_panel_g_technical_review.py",
+      "bytes": 847,
+      "sha256": "011bdc20bf5dc0da346c526e71647046e08fed2dce0dc0f162b58ebf07a22f36",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_panel_g_technical_review.py"
+      ]
+    },
+    {
+      "path": "tests/test_panel_relationships.py",
+      "bytes": 2523,
+      "sha256": "5a781fbea15a1cfbc813cbe6c2d3fc81109469234410f44ac62fab549891fc83",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_panel_relationships.py"
+      ]
+    },
+    {
+      "path": "tests/test_paper_annotation_semantics.py",
+      "bytes": 691,
+      "sha256": "06822a1e11dc247e744a21f01000ccb626530441189bb1cc190b88903e78207f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_paper_annotation_semantics.py"
+      ]
+    },
+    {
+      "path": "tests/test_per_trial_scaled_vigor.py",
+      "bytes": 4443,
+      "sha256": "cbb2686976bbf9a3f3e5eefd72b7e27d050cbadc2f38ab59e1ebc776444fc700",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_per_trial_scaled_vigor.py"
+      ]
+    },
+    {
+      "path": "tests/test_presentation_profiles.py",
+      "bytes": 12829,
+      "sha256": "fb692d0843ff2443ff6f2de5902c687c2d291fd6fdc4a717ecebd8c1baabea37",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_presentation_profiles.py"
+      ]
+    },
+    {
+      "path": "tests/test_profile_figures.py",
+      "bytes": 9865,
+      "sha256": "c4d906f7283677ad005b6dc7ec5550c3feca1c750b8560ee6ff4fe6b0cc05f20",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_profile_figures.py"
+      ]
+    },
+    {
+      "path": "tests/test_progress_and_runtime.py",
+      "bytes": 2289,
+      "sha256": "cf2c62dd415e7813994ddca5f615108da6428e537af9d096a072ec6abc3c923c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_progress_and_runtime.py"
+      ]
+    },
+    {
+      "path": "tests/test_raw_readers.py",
+      "bytes": 6899,
+      "sha256": "9f36874512ffe6abce6dca7e220049ae8ed114bdbd22402e6007d19d3eadebd7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_raw_readers.py"
+      ]
+    },
+    {
+      "path": "tests/test_repository_archive.py",
+      "bytes": 12929,
+      "sha256": "0d285c6987974eaff671df87f9318a821cbc01e77173e9d742aa24622285c4c0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_repository_archive.py"
+      ]
+    },
+    {
+      "path": "tests/test_repository_organization.py",
+      "bytes": 3880,
+      "sha256": "ccda6690a1c6aff2be13ec5356da50014a0a6533b7fc9cc15c87182716241f4b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_repository_organization.py"
+      ]
+    },
+    {
+      "path": "tests/test_repository_structure.py",
+      "bytes": 21942,
+      "sha256": "ca6c611c9d6682a7fc353503dc15ffad7071714b6080263438188558220b6dad",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_repository_structure.py"
+      ]
+    },
+    {
+      "path": "tests/test_review_library.py",
+      "bytes": 6640,
+      "sha256": "de50954d5eaadee32a22703f8197b4cc9deb35eb2b60c1087463e2d385ba8a9b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_review_library.py"
+      ]
+    },
+    {
+      "path": "tests/test_run_pipeline.py",
+      "bytes": 24228,
+      "sha256": "de868d30d06349038ff2e11bc4a39fc8c1553db571b82b46a4ddf0185704fc3d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_run_pipeline.py"
+      ]
+    },
+    {
+      "path": "tests/test_saved_draft_reconciliation.py",
+      "bytes": 4831,
+      "sha256": "9e8f5ec9df2a3d1901917fdee7258c76835b2039de3d1b567e82998feea0245d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_saved_draft_reconciliation.py"
+      ]
+    },
+    {
+      "path": "tests/test_saved_statistics_audit.py",
+      "bytes": 6639,
+      "sha256": "a1fbea57d9ba39b90a3c9a5b2600b4c0a3fe9e14c236d13356c53bef219ede55",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_saved_statistics_audit.py"
+      ]
+    },
+    {
+      "path": "tests/test_signed_bout_heatmap.py",
+      "bytes": 4574,
+      "sha256": "64c5830b9e9bf25a729bafa6377e30ce51f79cc978e179b4d24422a88b8594a9",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_signed_bout_heatmap.py"
+      ]
+    },
+    {
+      "path": "tests/test_storage_migration.py",
+      "bytes": 13181,
+      "sha256": "f54dc70781da7ae0f69b6c1a97da014fdd73ef44fd2c676d05657a6d588d97ef",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_storage_migration.py"
+      ]
+    },
+    {
+      "path": "tests/test_study_guide_readers.py",
+      "bytes": 1945,
+      "sha256": "7d7f3e75c5698e3dbe7800d7e42d774cd801e02d234f8f50c94123f13bb1799b",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_study_guide_readers.py"
+      ]
+    },
+    {
+      "path": "tests/test_study_sources.py",
+      "bytes": 3798,
+      "sha256": "f14121c917667042b2b469376786c080a0048681090a3fa30dffea8934571be3",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_study_sources.py"
+      ]
+    },
+    {
+      "path": "tests/test_svg_canvas.py",
+      "bytes": 3110,
+      "sha256": "92441ae0d81328f59eca6967e4211bd69f31db5dd3ba54d9b76e20fd33f61271",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_svg_canvas.py"
+      ]
+    },
+    {
+      "path": "tests/test_svg_figure_assembly.py",
+      "bytes": 7556,
+      "sha256": "ea2348eab7abe665f5963472cfca2b8b99ad7e4cc3b5476b74d9c818e1b3cc5f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_svg_figure_assembly.py"
+      ]
+    },
+    {
+      "path": "tests/test_temporal_profiles.py",
+      "bytes": 13963,
+      "sha256": "4f196b4b0a421811cad854c43f451da3e7d8061d0d98dabe64b7869d948b389f",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_temporal_profiles.py"
+      ]
+    },
+    {
+      "path": "tests/test_theme.py",
+      "bytes": 4602,
+      "sha256": "3954edb8b705dec3d1328eb1f5c90ffc0987196e5e8dfd2c73c5c711a971b43c",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_theme.py"
+      ]
+    },
+    {
+      "path": "tests/test_trace10_recovery.py",
+      "bytes": 1592,
+      "sha256": "316c018552d1748b52d8c07965072c832eaab167030c13074e8c20d5d3be2ea0",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trace10_recovery.py"
+      ]
+    },
+    {
+      "path": "tests/test_trace10_source_aliases.py",
+      "bytes": 4050,
+      "sha256": "e7eef819edc4e5e05915195e30f55196201b761705562574a092ba49d08a136d",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trace10_source_aliases.py"
+      ]
+    },
+    {
+      "path": "tests/test_trace3_intake_review.py",
+      "bytes": 6407,
+      "sha256": "94a1e44f54462158e7e6f2a348947762437de0475a9424c2a1cfd5c8ee42a1e8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trace3_intake_review.py"
+      ]
+    },
+    {
+      "path": "tests/test_trace3_run_completion.py",
+      "bytes": 2043,
+      "sha256": "a5379d8fc7843d1386d7be9c6906d34528c0da24c8d19b65cabbeb2bb5381490",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trace3_run_completion.py"
+      ]
+    },
+    {
+      "path": "tests/test_trace_preparation.py",
+      "bytes": 2937,
+      "sha256": "d57bd985e2096b6dacc13a96e501e02d97ccc9ed603f1862d0cdf628f4561fd8",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trace_preparation.py"
+      ]
+    },
+    {
+      "path": "tests/test_trace_review.py",
+      "bytes": 4197,
+      "sha256": "7644c547721c846d4c93a6774a2ec6d22f855edfa75887c516f7e5d0c1ee3684",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trace_review.py"
+      ]
+    },
+    {
+      "path": "tests/test_trial_outcomes.py",
+      "bytes": 8210,
+      "sha256": "b154e0aa5d69a60dbe6f4edab31d7ad51e53232a80513f49eb1ca68a735285a7",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/tests/test_trial_outcomes.py"
+      ]
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 97295,
+      "sha256": "e5527387fedc03f5a262b210ef828f3b8112f449d30e662f86b3dd12ddd7acce",
+      "action": "archive_to_ssd",
+      "historical_paths": [
+        "C:/Users/joaquim/Documents/ClassicalConditioning/uv.lock"
+      ]
+    }
+  ]
+}

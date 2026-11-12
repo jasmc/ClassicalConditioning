@@ -304,6 +304,16 @@
         "docs/paper/figures/review-library.json",
         "scripts/paper/figure_02/panels_g_h_i/audit_saved_statistics.py"
       ]
+    },
+    {
+      "reference": "shared/studies/fish-discarding-review/study.md",
+      "path": "shared/studies/fish-discarding-review/study.md",
+      "sha256": "dfc6f6e6bdc62c066993792fa0e07fb31256a4d8b5766c75c3f600682e00f2cb",
+      "role": "editable fish-discarding decision worksheet",
+      "consumers": [
+        "docs/paper/decisions.md",
+        "docs/paper/figures/review-library.json"
+      ]
     }
   ]
 }

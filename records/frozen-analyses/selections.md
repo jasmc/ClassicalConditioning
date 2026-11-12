@@ -1,6 +1,6 @@
 # Scoped figure freeze index
 
-The accepted frozen versions define current. Start with [Current figures](../../docs/paper/figures/README.md) for the readable summary; this index also retains superseded accepted freezes as history.
+This index owns accepted scientific scopes and their exact selection records, including superseded history. [Current figures](../../docs/paper/figures/README.md) supplies readable discovery; [the figure guide](../../docs/paper/figures/shared/iteration-workflow.md#two-separate-current-states) explains the separate presentation state.
 
 Selection JSON files under `configs/paper-figures/selections/` are unchanged byte records. Exact locally available manifests/settings/code have been preserved under `records/frozen-analyses/`; [extraction provenance](../repository-archive/relocations.json) lists source and SHA-256. Numerical data, figures and embedded HTML archives are stored on JOAQUIM after verified transfer; historical paths remain recorded and are resolved through the archive map, not edited inside freezes.
 
