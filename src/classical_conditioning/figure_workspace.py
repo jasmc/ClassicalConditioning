@@ -38,6 +38,16 @@ class Snapshot:
     def __init__(self, paths):
         self.hashes = {str(Path(p).resolve()): file_hash(p) for p in paths}
 
+    def bind_hashes(self, hashes):
+        """Append expected identities atomically; never recapture over an earlier input."""
+        changed=[p for p,h in hashes.items() if p in self.hashes and self.hashes[p]!=h]
+        if changed:
+            raise StaleFigureState('Conflicting input bindings: '+', '.join(changed))
+        self.hashes.update(hashes)
+
+    def include(self, paths):
+        self.bind_hashes(Snapshot(paths).hashes)
+
     def check(self,ignore=()):
         ignored={str(Path(p).resolve()) for p in ignore}
         changed = [p for p,h in self.hashes.items() if p not in ignored and file_hash(p) != h]
@@ -257,6 +267,36 @@ def _viewport(node):
     scale=min(sx,sy);mx=(w-box[2]*scale)/2 if fit.startswith('xMid') else 0
     my=(h-box[3]*scale)/2 if fit.startswith('xMid') else 0
     return (scale,0,0,scale,x+mx-box[0]*scale,y+my-box[1]*scale)
+
+def native_presentation_width(data):
+    """Resolve an explicit saved physical size for current presentation evidence.
+
+    Historical measurement callers retain their explicit/default width. Current
+    publication must not silently measure intermediate-width artwork at 183 mm.
+    """
+    from classical_conditioning.figures.layout_frames import read_spec
+    root = ET.fromstring(data)
+    size = []
+    for name in ('width', 'height'):
+        value = root.get(name, '')
+        if not re.fullmatch(NUMBER + r'mm', value):
+            raise ValueError('Native presentation dimensions must be explicit millimetres')
+        size.append(float(value[:-2]))
+    box = [float(v) for v in root.get('viewBox', '').split()]
+    if (len(box) != 4 or not all(math.isfinite(v) for v in [*size, *box])
+            or min(*size, *box[2:]) <= 0):
+        raise ValueError('Invalid native presentation dimensions/viewBox')
+    if not math.isclose(size[0] / size[1], box[2] / box[3], rel_tol=1e-7):
+        raise ValueError('Native presentation dimensions and viewBox aspect ratio disagree')
+    spec = read_spec(data)
+    if spec is not None:
+        declared = spec.get('final_size_mm', [])
+        if (len(declared) != 2 or any(not isinstance(v, (float, int)) or isinstance(v, bool)
+                or not math.isfinite(v) or abs(v - actual) > 1e-7
+                for v, actual in zip(declared, size))):
+            raise ValueError('Native presentation dimensions must match frame final_size_mm')
+    return size[0]
+
 
 def measured_presentation(data, *, width_mm=183.):
     """Measure final text, stroke/tick scales and coordinate maps from SVG.

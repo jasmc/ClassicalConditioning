@@ -107,7 +107,7 @@ class PresentationProfileTests(unittest.TestCase):
         self.assertEqual(result["value"]["style"]["length_pt"], 2)
         self.assertEqual(result["value"]["author_geometry"]["tick_end_to_label_edge_pt"], 3)
         self.assertTrue(result["render_verification_required"])
-        self.assertEqual(len(result["inputs"]), 3)
+        self.assertEqual(len(result["inputs"]), 1)
 
     def test_overlay_preserves_semantics_colors_and_original_bytes(self) -> None:
         path = ROOT / "configs/paper-figures/figure-elements.json"
@@ -117,13 +117,13 @@ class PresentationProfileTests(unittest.TestCase):
         for key in ("roles", "plot_families", "colors"):
             self.assertEqual(resolved.contract[key], original[key])
         self.assertEqual(resolved.contract["styles"]["summary_curve"]["linewidth_pt"], 1)
-        self.assertEqual(original["styles"]["summary_curve"]["linewidth_pt"], 1.2)
+        self.assertEqual(original["styles"]["summary_curve"]["linewidth_pt"], 1)
         self.assertEqual(resolved.contract["styles"]["uncertainty_band"]["alpha"], .2)
         self.assertNotIn("color_source", resolved.contract["styles"]["condition_title"])
         self.assertEqual(path.read_bytes(), raw)
         self.assertEqual(resolved.inputs["configs/paper-figures/figure-elements.json"], hashlib.sha256(raw).hexdigest())
         self.assertTrue(resolved.contract["presentation_profile"]["view_only"])
-        self.assertFalse(resolved.contract["presentation_profile"]["freeze_gate_integration"])
+        self.assertTrue(resolved.contract["presentation_profile"]["freeze_gate_integration"])
 
     def test_resolutions_do_not_share_mutable_data(self) -> None:
         first = load_presentation_profile()
@@ -168,51 +168,59 @@ class PresentationProfileTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             load_presentation_profile("../../figure-elements")
 
-    def test_invalid_overrides_and_origins_fail_policy_preflight(self) -> None:
-        policy = json.loads((ROOT / "configs/paper-figures/nature-main.json").read_text())
+    def test_invalid_contract_values_and_origins_fail_preflight(self):
+        contract = json.loads((ROOT / "configs/paper-figures/figure-elements.json").read_text())
         changes = [
-            ("stroke", lambda p: p["rules"]["project.style_overrides"]["value"]["trace"].update(linewidth_pt=2)),
-            ("text", lambda p: p["rules"]["project.style_overrides"]["value"]["label"].update(font_size_pt=8)),
-            ("style role", lambda p: p["rules"]["project.style_overrides"]["value"].update(unknown={"linewidth_pt": .5})),
-            ("style property", lambda p: p["rules"]["project.style_overrides"]["value"]["label"].update(font_sze_pt=7)),
-            ("rule origin", lambda p: p["rules"]["journal.text"].update(origin="invented")),
-            ("approval reference", lambda p: p["rules"]["journal.text"].update(origin="scoped-exception")),
-            ("Panel letter", lambda p: p["rules"]["project.style_overrides"]["value"]["panel_letter"].update(font_weight="normal")),
-            ("fallback", lambda p: p["rules"]["project.typography"]["value"].update(allowed_families=["Arial", "Helvetica"])),
-            ("opacity", lambda p: p["rules"]["project.style_overrides"]["value"]["trace"].update(alpha=2)),
-            ("approval reference", lambda p: p["rules"]["journal.text"].update(origin="scoped-exception", approval_reference="invented-approval.json")),
+            ("stroke", lambda c: c["styles"]["trace"].update(linewidth_pt=2)),
+            ("text", lambda c: c["styles"]["label"].update(font_size_pt=8)),
+            ("style role", lambda c: c["roles"]["axis.label"].update(style="unknown")),
+            ("style property", lambda c: c["styles"]["label"].update(font_sze_pt=7)),
+            ("rule origin", lambda c: c["presentation"]["rules"]["journal.text"].update(origin="invented")),
+            ("approval reference", lambda c: c["presentation"]["rules"]["journal.text"].update(origin="scoped-exception")),
+            ("Panel letter", lambda c: c["styles"]["panel_letter"].update(font_weight="normal")),
+            ("fallback", lambda c: c["typography"].update(allowed_families=["Arial", "Helvetica"])),
+            ("opacity", lambda c: c["styles"]["trace"].update(alpha=2)),
         ]
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             folder = root / "configs/paper-figures"
             folder.mkdir(parents=True)
-            for name in ("figure-elements.json", "layout-frames.json"):
-                (folder / name).write_bytes((ROOT / "configs/paper-figures" / name).read_bytes())
             for expected, change in changes:
                 with self.subTest(expected=expected):
-                    edited = copy.deepcopy(policy)
-                    # Keep a separate stroke override for the rejection case.
-                    edited["rules"]["project.style_overrides"]["value"]["trace"] = {"linewidth_pt": .6}
+                    edited = copy.deepcopy(contract)
                     change(edited)
-                    (folder / "nature-main.json").write_text(json.dumps(edited))
+                    (folder / "figure-elements.json").write_text(json.dumps(edited))
                     with self.assertRaisesRegex(ValueError, expected):
                         load_presentation_profile(root=root)
 
-    def test_bound_policy_changes_are_visible_in_provenance(self) -> None:
+    def test_bound_policy_changes_are_visible_in_provenance(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             folder = root / "configs/paper-figures"
             folder.mkdir(parents=True)
-            for name in ("figure-elements.json", "layout-frames.json", "nature-main.json"):
-                (folder / name).write_bytes((ROOT / "configs/paper-figures" / name).read_bytes())
+            path = folder / "figure-elements.json"
+            path.write_bytes((ROOT / "configs/paper-figures/figure-elements.json").read_bytes())
             first = load_presentation_profile(root=root)
-            path = folder / "layout-frames.json"
-            layout = json.loads(path.read_text())
-            layout["selected_inset_mm"] = 1.5
-            path.write_text(json.dumps(layout))
+            contract = json.loads(path.read_text())
+            contract["layout_frames"]["policy"]["selected_inset_mm"] = 1.5
+            path.write_text(json.dumps(contract))
             second = load_presentation_profile(root=root)
             self.assertNotEqual(first.inputs, second.inputs)
             self.assertEqual(second.layout["selected_inset_mm"], 1.5)
+
+    def test_explicit_legacy_root_preserves_original_resolved_values(self):
+        legacy = ROOT / "records/figure-history/shared/contracts/2026-10-31"
+        old = load_presentation_profile(root=legacy)
+        current = load_presentation_profile()
+        for key in ("roles", "styles", "typography", "colors", "plot_families"):
+            self.assertEqual(old.contract[key], current.contract[key])
+        self.assertEqual(old.layout, current.layout)
+        self.assertEqual(old.theme_parameters(), current.theme_parameters())
+        for key, rule in old.policy['rules'].items():
+            if key.startswith('journal.'):
+                self.assertEqual(current.policy['rules'][key], rule)
+        self.assertEqual(len(old.inputs), 3)
+        self.assertEqual(len(current.inputs), 1)
 
 
 if __name__ == "__main__":

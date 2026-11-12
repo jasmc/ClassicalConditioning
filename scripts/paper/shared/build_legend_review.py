@@ -1,4 +1,4 @@
-"""Build one text/layout-only Figure 1–2 review from authenticated selected SVGs."""
+"""Publish scoped presentation candidates; legacy Figure 1 reconstruction is separate."""
 from __future__ import annotations
 
 from pathlib import Path as _CommandPath
@@ -16,7 +16,6 @@ from zoneinfo import ZoneInfo
 ROOT = _COMMAND_REPOSITORY
 sys.path.insert(0, str(ROOT/'src'))
 from classical_conditioning.external_artifacts import resolve_artifact
-from classical_conditioning.figures.aligned_example_pair import build_pair, dependencies as pair_dependencies
 from classical_conditioning.command_provenance import command_sources
 from classical_conditioning.figure_workspace import Snapshot, editable_svg, measured_presentation, publish_state, file_hash, draft_axis_findings, bind_loaded_state
 NS = 'http://www.w3.org/2000/svg'
@@ -639,7 +638,28 @@ from classical_conditioning.figures.review_html import svg_editing_page
 from classical_conditioning.figures.review_html import working_review_page
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--baseline',type=Path,help='Starting ticket from figure_working_copy.py begin; required after state bootstrap');parser.add_argument('--preserve-figure2-from',type=Path,help='Authenticated version-bound review to preserve Figure 2 byte-for-byte');parser.add_argument('--update-current',action='store_true',help='Guarded replacement of the exact active HTML/SVG pair; no extra working version');parser.add_argument('--panel-e-legend',type=Path,help='Stage a replacement Figure 1 legend as a guarded input and publish it with the current draft');parser.add_argument('--visual-review-note',help='Record an actually completed visual review against the saved Figure 1 SVG');parser.add_argument('--layout-frames',type=Path,help='Explicit future layout frame metadata; current geometry is not rearranged');parser.add_argument('--comparison-review',action='store_true',help='Explicitly requested expanded review with original/candidate figures, notes and provenance');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output',type=Path);parser.add_argument('--baseline',type=Path,help='Starting ticket from figure_working_copy.py begin; required after state bootstrap');parser.add_argument('--preserve-figure2-from',type=Path,help='Authenticated version-bound review to preserve Figure 2 byte-for-byte');parser.add_argument('--update-current',action='store_true',help='Guarded replacement of the exact active HTML/SVG pair; no extra working version');parser.add_argument('--panel-e-legend',type=Path,help='Stage a replacement Figure 1 legend as a guarded input and publish it with the current draft');parser.add_argument('--visual-review-note',help='Record an actually completed visual review against the saved Figure 1 SVG');parser.add_argument('--layout-frames',type=Path,help='Explicit future layout frame metadata; current geometry is not rearranged');parser.add_argument('--comparison-review',action='store_true',help='Explicitly requested expanded review with original/candidate figures, notes and provenance')
+    parser.add_argument('--state',type=Path,default=ROOT/'docs/paper/figures/figure-01/current-state.json')
+    parser.add_argument('--candidate-svg',type=Path)
+    parser.add_argument('--candidate-legend',type=Path)
+    parser.add_argument('--presentation-changes',type=Path)
+    parser.add_argument('--candidate-layout-evidence',type=Path)
+    args=parser.parse_args()
+    if args.candidate_svg or args.candidate_legend:
+        if not args.baseline or not args.update_current:
+            parser.error('Presentation publication requires --baseline and --update-current')
+        if args.output:parser.error('Presentation publication uses the exact selected output; omit --output')
+        from classical_conditioning.figures.presentation_edit import publish_presentation
+        print(json.dumps(publish_presentation(args.state,args.baseline,candidate_svg=args.candidate_svg,
+            candidate_legend=args.candidate_legend,
+            changes=json.loads(args.presentation_changes.read_text()) if args.presentation_changes else [],
+            visual_review=args.visual_review_note,layout_evidence=args.candidate_layout_evidence),indent=2))
+        return
+    if not args.output:parser.error('Reconstruction requires --output')
+    if args.state.resolve() != (ROOT/'docs/paper/figures/figure-01/current-state.json').resolve():
+        parser.error('Reconstruction supports Figure 1 only; use --candidate-svg/--candidate-legend for scoped presentation publication')
+    from classical_conditioning.figures.aligned_example_pair import build_pair, dependencies as pair_dependencies
+
     target=args.output.resolve();assert ROOT not in target.parents, 'Permanent visual reviews must be external'
     review_day=datetime.now(ZoneInfo('Europe/Madrid'))
     assert target.parent.is_dir(),'Destination parent must already exist';assert args.update_current or not target.exists(),'Do not overwrite a review'
@@ -658,7 +678,7 @@ def main():
     dependencies=[state_path,mapping_path,Path(__file__),ROOT/'src/classical_conditioning/figure_workspace.py',
                   ROOT/'src/classical_conditioning/figures/layout_frames.py',
                   ROOT/'src/classical_conditioning/figures/layout_frames_browser.js',
-                  ROOT/'configs/paper-figures/layout-frames.json',
+                  ROOT/'configs/paper-figures/figure-elements.json',
                   ROOT/'docs/paper/figures/shared/review.md',
                   *(ROOT/f'docs/paper/figures/figure-{n:02d}/legend.md' for n in (1,2)),
                   *(ROOT/'configs/paper-figures/selections'/p for p in ('figure1-freeze.json','figure1-panel-e-heatmap-rows-freeze-20261009.json','figure1-fgh-version12-freeze-20261009.json','figure2-DE-B-freeze-20261009.json','figure2-G-logmedian-freeze-20261009.json')),
@@ -675,7 +695,7 @@ def main():
             dependencies.append(ROOT/'src/classical_conditioning/figures/figure_01/legacy_layout.py')
         if state.get('scoped_fgh_freeze'):
             dependencies.extend(Path(state['scoped_fgh_freeze'][key]['path']) for key in ('svg','data','freeze_manifest'))
-            dependencies.append(ROOT/'scripts/paper/figure_01/panels_f_g_h/reproduction/publish_one_second.py')
+            dependencies.append(ROOT/'src/classical_conditioning/figures/figure_01/selected_fgh.py')
         for key in ('frozen_display','draft'):
             item=state[key].get('working_svg')
             if item:

@@ -1,13 +1,6 @@
 """A launched worker or a partial result list must never imply completion."""
-import runpy
-import sys
 import unittest
-from pathlib import Path
-from unittest.mock import patch
-
-scripts=Path(__file__).resolve().parents[1]/"scripts"
-with patch.object(sys,"path",[str(scripts),*sys.path]):
-    CHECK=runpy.run_path(str(scripts/"finalize_trace3_additions.py"))["check_run"]
+from classical_conditioning.operations.run_completion import check_run as CHECK
 
 
 def result(rid):

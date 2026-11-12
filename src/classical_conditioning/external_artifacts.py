@@ -8,6 +8,43 @@ import re
 from functools import lru_cache
 from pathlib import Path, PurePosixPath, PureWindowsPath
 
+from contextvars import ContextVar
+
+_resolution_session = ContextVar('artifact_resolution_session', default=None)
+
+
+class ResolutionSession:
+    """Operation-local parsed metadata; final checks always read fresh bytes."""
+    def __init__(self):
+        self.metadata = {}
+
+    def __enter__(self):
+        self.token = _resolution_session.set(self)
+        return self
+
+    def __exit__(self, kind, value, traceback):
+        _resolution_session.reset(self.token)
+        if kind is None:
+            self.check()
+
+    def check(self):
+        for path, (digest, _) in self.metadata.items():
+            if sha256(path) != digest:
+                raise ValueError('Resolution metadata changed during operation: ' + str(path))
+
+
+def _read_json(path):
+    path = Path(path).resolve()
+    session = _resolution_session.get()
+    if session is not None and path in session.metadata:
+        return session.metadata[path][1]
+    raw = path.read_bytes()
+    value = json.loads(raw)
+    if session is not None:
+        session.metadata[path] = (hashlib.sha256(raw).hexdigest(), value)
+    return value
+
+
 REPOSITORY = Path(__file__).resolve().parents[2]
 DEFAULT_ARCHIVE = Path('/Volumes/JOAQUIM/ClassicalConditioning-Archive/repository-cleanup/2026-10-10')
 
@@ -100,7 +137,7 @@ def sha256(path: Path) -> str:
 def normalized_reference(value: str | Path, repo: Path = REPOSITORY) -> str:
     text = _canonical_external(re.sub('/+', '/', str(value).replace('\\', '/')))
     policy = repo / 'docs/project-maintenance/structure-policy.json'
-    aliases = json.loads(policy.read_text(encoding='utf-8')).get('recorded_repository_roots', []) if policy.is_file() else []
+    aliases = _read_json(policy).get('recorded_repository_roots', []) if policy.is_file() else []
     for prefix in (str(repo).replace('\\', '/'), 'C:/Users/joaquim/Documents/ClassicalConditioning', *aliases):
         prefix = prefix.replace('\\', '/').rstrip('/')
         if text.casefold().startswith(prefix.casefold() + '/'):
@@ -114,13 +151,13 @@ def normalized_reference(value: str | Path, repo: Path = REPOSITORY) -> str:
 @lru_cache(maxsize=8)
 def _external_moves(index: str, mtime_ns: int, size: int):
     return {str(k).replace('\\', '/'): v for k, v in
-            json.loads(Path(index).read_text(encoding='utf-8')).get('external_moves', {}).items()}
+            _read_json(Path(index)).get('external_moves', {}).items()}
 
 
 @lru_cache(maxsize=8)
 def _external_directories(index: str, mtime_ns: int, size: int):
     return {str(k).replace('\\', '/'): str(v).replace('\\', '/') for k, v in
-            json.loads(Path(index).read_text(encoding='utf-8')).get('external_directory_moves', {}).items()}
+            _read_json(Path(index)).get('external_directory_moves', {}).items()}
 
 
 def relocated_external_directory(value: str | Path, *, repo: Path = REPOSITORY) -> Path:
@@ -138,7 +175,7 @@ def relocated_external_directory(value: str | Path, *, repo: Path = REPOSITORY) 
     if not index.is_file():
         return _host_external(text)
     info = index.stat()
-    moves = _external_directories(str(index), info.st_mtime_ns, info.st_size)
+    moves = (_external_directories.__wrapped__(str(index), info.st_mtime_ns, info.st_size) if _resolution_session.get() is not None else _external_directories(str(index), info.st_mtime_ns, info.st_size))
     return _host_external(relocate_directory_reference(text, moves))
 
 
@@ -177,8 +214,8 @@ def relocated_external_path(value: str | Path, *, repo: Path = REPOSITORY,
     if not index.is_file():
         return _host_external(text)
     info = index.stat()
-    moves = _external_moves(str(index), info.st_mtime_ns, info.st_size)
-    directories = _external_directories(str(index), info.st_mtime_ns, info.st_size)
+    moves = (_external_moves.__wrapped__(str(index), info.st_mtime_ns, info.st_size) if _resolution_session.get() is not None else _external_moves(str(index), info.st_mtime_ns, info.st_size))
+    directories = (_external_directories.__wrapped__(str(index), info.st_mtime_ns, info.st_size) if _resolution_session.get() is not None else _external_directories(str(index), info.st_mtime_ns, info.st_size))
     seen = set()
     identity, size = expected_sha256, None
     while True:
@@ -222,7 +259,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
     # hashes select the verified version without modifying immutable pointers.
     locations_path = repo / 'records/repository-archive/verified-artifact-locations.json'
     if allow_historical and expected_sha256 and locations_path.is_file():
-        locations = json.loads(locations_path.read_text(encoding="utf-8"))
+        locations = _read_json(locations_path)
         for entry in locations.get('entries', []):
             if entry['sha256'] != expected_sha256 or key not in {
                 normalized_reference(ref, repo) for ref in entry['references']
@@ -242,7 +279,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
     # stub must never be read as their content, even when the drive is absent.
     studies_path = repo / 'docs/paper/study-sources.json'
     if studies_path.is_file():
-        studies = json.loads(studies_path.read_text(encoding="utf-8"))
+        studies = _read_json(studies_path)
         for entry in studies['entries']:
             if key != entry['reference']:
                 continue
@@ -268,7 +305,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
             raise ValueError('Artifact SHA-256 mismatch: ' + str(candidate))
         return candidate
     reloc_path = repo / 'records/repository-archive/relocations.json'
-    reloc = json.loads(reloc_path.read_text(encoding="utf-8")) if reloc_path.exists() else {}
+    reloc = _read_json(reloc_path) if reloc_path.exists() else {}
     moves = reloc.get('repository_moves', {})
     moved, visited = key, set()
     while moved in moves:
@@ -286,7 +323,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
     for inventory_path in inventory_paths:
         if not inventory_path.exists():
             continue
-        checkpoint = json.loads(inventory_path.read_text(encoding="utf-8"))
+        checkpoint = _read_json(inventory_path)
         match = next((r for r in checkpoint.get('files', [])
                       if key in [r['path'], *r.get('historical_paths', [])]), None)
         if match is not None:
@@ -331,7 +368,7 @@ def resolve_artifact(value: str | Path, *, expected_sha256: str | None = None,
         # ordinary navigation continues to use current guidance.
         migrations = sorted((repo / 'records/repository-history').glob('*/migration.json'))
         for migration in migrations if expected_sha256 else []:
-            for entry in json.loads(migration.read_text(encoding="utf-8")).get('dispositions', []):
+            for entry in _read_json(migration).get('dispositions', []):
                 if (entry.get('sha256') != expected_sha256
                         or (key != normalized_reference(entry['original_path'], repo)
                             and moved != normalized_reference(entry['canonical_path'], repo))
@@ -381,7 +418,7 @@ def check_study_sources(repo: Path = REPOSITORY, *, external: bool = False) -> l
     path = repo / 'docs/paper/study-sources.json'
     if not path.is_file():
         return []
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = _read_json(path)
     issues, seen = [], set()
     root = Path(data['root'])
     if not (PurePosixPath(data['root']).is_absolute() or PureWindowsPath(data['root']).is_absolute()) or (root.is_absolute() and root.resolve().is_relative_to(repo.resolve())):

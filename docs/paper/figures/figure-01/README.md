@@ -22,6 +22,17 @@ A shows preparation/illumination; B shows the four within-trial contingencies; C
 
 E’s scoped 2026-10-13 freeze uses unbinned raw-baseline-scaled black traces (0–5) and exact rows from frozen source panel F (Delay, displayed as G). The joint [F/G/H definition](panels-f-g-h/README.md#frozen-scientific-definition) owns their processing, eligibility, normalization and display units. E’s current scientific definition is accepted by its separate scoped freeze; D and whole-figure draft changes remain separately recorded in [state](current-state.json).
 
+## Current robust-normalized draft
+
+The 31 October working assembly applies the [standing robust normalization decision](../../decisions.md#2026-10-31--robust-baseline-normalization-for-all-heatmaps)
+to F/G/H and the exact linked E colour bands, with a shared dimensionless
+colour scale of ±2. E black traces retain their separate raw-frame scaling.
+Control displayed trial 12 is undefined because its single baseline bin has
+zero MAD. Current state binds the normalized data, numerical checks and browser
+review; earlier scoped freezes remain immutable and are not replaced. The
+composition descriptions below retain those historical sources; the current
+heatmap method is this robust-normalized draft.
+
 ## Panel composition
 
 These roles describe the current displayed composition. Frozen F/G/H source

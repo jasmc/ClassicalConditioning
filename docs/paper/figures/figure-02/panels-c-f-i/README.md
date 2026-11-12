@@ -54,7 +54,7 @@ verified; old files and protected handoffs unchanged. The completion JSON is
 `F:/Digested Data/all10sTrace-full-v1/Metadata/trace10-additions-20261019-recovery-completion.json`.
 No processing worker remains active. Do not resume or duplicate that batch.
 
-Scientific calculation is now running with `scripts/analyze_figure2_trace10.py
+Scientific calculation is now running with `scripts/paper/figure_02/trace10/analyze_figure2_trace10.py
 --calculate`, one fish per process. Its authenticated sealed plan, starting
 ticket, launch record, stdout/stderr, per-fish caches and preflight are in
 `J:/ClassicalConditioning Outputs/current/reviews/figure-02-10strace-20261020/`.
@@ -73,7 +73,7 @@ and audit/sensitivity records. This is recorded in `common-roster.json` in the
 analysis directory. No roster question remains pending. Keep the full63
 processing inventory mapped separately.
 
-`scripts/trace10_panel_statistics.py de` has completed numerical D/E
+`scripts/paper/figure_02/trace10/trace10_panel_statistics.py de` has completed numerical D/E
 corrections in `DE-corrections/`: E eligible fish/block contributions536→530,
 minimum3/5; D values/eligibility preserved; separate Holm18 per panel using
 the supported exact-sign and Brunner–Munzel t raw tests. A corrected render
@@ -124,9 +124,9 @@ Do not use an older available artifact if the selected one is inaccessible.
 The current reference methods are documented in
 [B/E/H](../panels-b-e-h/README.md), [D/E](../panels-d-e/README.md),
 [G](../panel-g/README.md) and the selected manifests linked there. Supported
-reference implementations include `scripts/build_figure2_trace3_panels.py`,
-`scripts/analyze_figure2_trace3_matched.py` and
-`scripts/assemble_figure2_trace3_matched.py`. Their hard-coded projects,
+reference implementations include `scripts/paper/figure_02/trace3/build_figure2_trace3_panels.py`,
+`scripts/paper/figure_02/trace3/analyze_figure2_trace3_matched.py` and
+`scripts/paper/figure_02/trace3/assemble_figure2_trace3_matched.py`. Their hard-coded projects,
 cohort sizes, output destinations and exclusions are not 10sTrace settings.
 Reuse the scientific implementations with explicit 10sTrace source mappings.
 

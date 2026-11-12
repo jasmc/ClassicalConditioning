@@ -280,6 +280,11 @@ def _check_candidate(candidate_path: Path, specification_path: Path) -> dict:
     try:
         candidate_bytes = candidate_path.read_bytes(); candidate = _read_json(candidate_bytes)
         specification = _read_json(specification_path.read_bytes())
+        if specification.get('schema_version') == 2:
+            from classical_conditioning.figures.presentation_profiles import load_presentation_profile
+            specification = load_presentation_profile(contract_path=specification_path).contract
+        elif specification.get('schema_version') != 1:
+            raise ValueError('Unsupported figure specification schema')
         if not isinstance(candidate, dict):
             raise ValueError("Candidate must be a JSON object")
     except (OSError, ValueError) as error:
@@ -352,9 +357,15 @@ def _check_candidate(candidate_path: Path, specification_path: Path) -> dict:
             frame_path = Path(frame_record["path"])
             if not frame_path.is_absolute():
                 frame_record["path"] = str(candidate_path.parent/frame_path)
+        from classical_conditioning.figures.layout_frames import POLICY
+        frame_policy = specification_path if specification.get('schema_version') == 2 else POLICY
+        if specification.get('schema_version') == 1:
+            legacy_policy = specification_path.with_name('layout-frames.json')
+            if legacy_policy.is_file():
+                frame_policy = legacy_policy
         frame_problems = freeze_issues(svg.read_bytes(), frame_record,
                                       candidate.get("assembly_scale", {}).get("final_width_mm", 0),
-                                      candidate.get("panel_ids", []))
+                                      candidate.get("panel_ids", []), policy_path=frame_policy)
         for message in frame_problems:
             issue("layout-frames", message)
         if not frame_problems:
@@ -366,7 +377,7 @@ def _check_candidate(candidate_path: Path, specification_path: Path) -> dict:
                 frame_report = _read_json(frame_bytes)
                 for frame_input, expected_hash in (
                     (Path(frame_record['path']), frame_record['sha256']),
-                    (POLICY, frame_report['policy_sha256']),
+                    (frame_policy, frame_report['policy_sha256']),
                     (COLLECTOR, frame_report['collector_sha256']),
                     (COLLECTOR.with_name('layout_frames.py'), frame_report['helper_sha256'])):
                     artifacts.append({'path': str(frame_input.resolve()), 'sha256': expected_hash})

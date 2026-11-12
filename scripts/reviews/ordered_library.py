@@ -95,6 +95,15 @@ def verify_previous_sources(outputs, catalogue, repo):
             for key in ('working_svg','review','legend'):
                 ref=active.get(key,{})
                 if isinstance(ref,dict) and ref.get('path') and ref.get('sha256'):allowed[ref['path']]=ref['sha256']
+    # The main-paper wrapper has its own guarded state, rather than a draft
+    # subsection. Authenticate its selected figures/evidence before allowing
+    # that exact HTML to advance like individual working reviews.
+    collection_state = repo/'docs/paper/figures/main-paper-current-state.json'
+    if collection_state.is_file():
+        from scripts.paper.shared.collection import display_target
+        selected = display_target(collection_state)['html']
+        target = resolve_artifact(selected['path'], expected_sha256=selected['sha256'])
+        allowed[str(target.resolve())] = selected['sha256']
     for group in catalogue['groups']:
         for entry in group['entries']:
             if entry.get('sha256') and entry.get('kind')!='generated_navigation' and entry['storage']=='outputs':allowed[str(outputs/entry['path'])]=entry['sha256']

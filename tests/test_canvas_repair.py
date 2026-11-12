@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from classical_conditioning.figure_workspace import sha, StaleFigureState
 from scripts.paper.figure_02.assembly import repair_canvas as repair
+from scripts.paper.figure_02.assembly import publish_canvas_repair as publisher
 
 
 class CandidateTests(unittest.TestCase):
@@ -90,6 +91,64 @@ class CandidateTests(unittest.TestCase):
         self.assertEqual(list(self.out.iterdir()), [])
         self.assertEqual(self.state.read_bytes(), self.before[self.state])
         self.assertEqual(Path(self.draft['working_svg']['path']).read_bytes(), b'manual edit')
+
+    def publisher_inputs(self):
+        repair.prepare(self.ticket, self.out)
+        browser = self.out / 'browser.json'
+        browser.write_text(json.dumps({'candidate.svg': {
+            'artifact_sha256': sha((self.out / 'candidate.svg').read_bytes())}}))
+        return browser
+
+    def test_publisher_requires_fresh_passing_browser_evidence(self):
+        browser = self.publisher_inputs()
+        with self.assertRaisesRegex(ValueError, 'browser frame checks failed'):
+            publisher.publish(self.out, browser, 'Reviewed exact saved candidate')
+        self.assertEqual(self.state.read_bytes(), self.before[self.state])
+
+    def test_publisher_rejects_other_changes_even_with_updated_candidate_hash(self):
+        browser = self.publisher_inputs()
+        path = self.out / 'candidate.svg'
+        path.write_bytes(path.read_bytes().replace(b'width="156mm"', b'width="183mm"'))
+        manifest_path = self.out / 'manifest.json'
+        manifest = json.loads(manifest_path.read_bytes())
+        manifest['outputs']['candidate.svg']['sha256'] = sha(path.read_bytes())
+        manifest_path.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(ValueError, 'exact two-canvas repair'):
+            publisher.publish(self.out, browser, 'Reviewed exact saved candidate')
+
+    def test_publisher_preserves_originals_and_commits_matching_pair(self):
+        browser = self.publisher_inputs()
+        # Frame measurement internals have their own real-browser tests. This
+        # fixture exercises the transaction after that gate has passed.
+        with patch.object(publisher, 'assess', return_value={'status': 'passed'}):
+            publisher.publish(self.out, browser, 'Reviewed exact saved candidate', check_only=True)
+            self.assertEqual(self.state.read_bytes(), self.before[self.state])
+            result = publisher.publish(self.out, browser, 'Reviewed exact saved candidate')
+        self.assertEqual(result['status'], 'published')
+        state = json.loads(self.state.read_bytes())
+        for key in ('working_svg', 'review', 'layout_frames', 'semantic_registry', 'effective_presentation'):
+            ref = state['draft'][key]
+            self.assertEqual(sha(Path(ref['path']).read_bytes()), ref['sha256'])
+        publisher.verify_review(Path(self.draft['working_svg']['path']).read_bytes(),
+                                Path(self.draft['review']['path']).read_bytes(),
+                                Path(self.draft['legend']['path']).read_bytes(), 'fig2')
+        self.assertEqual((self.out / 'before.svg').read_bytes(), self.before[Path(self.draft['working_svg']['path'])])
+        self.assertEqual((self.out / 'before-state.json').read_bytes(), self.before[self.state])
+        self.assertEqual(state['scientific_selection'], {'records': []})
+
+    def test_publication_rechecks_source_under_lock_and_preserves_manual_edit(self):
+        browser = self.publisher_inputs()
+        original = publisher.publish_state
+        def concurrent(*args, **kwargs):
+            Path(self.draft['working_svg']['path']).write_bytes(b'manual edit')
+            return original(*args, **kwargs)
+        with patch.object(publisher, 'assess', return_value={'status': 'passed'}), \
+                patch.object(publisher, 'publish_state', side_effect=concurrent):
+            with self.assertRaises(StaleFigureState):
+                publisher.publish(self.out, browser, 'Reviewed exact saved candidate')
+        self.assertEqual(Path(self.draft['working_svg']['path']).read_bytes(), b'manual edit')
+        self.assertEqual(self.state.read_bytes(), self.before[self.state])
+        self.assertFalse((self.out / 'publication-evidence.json').exists())
 
 
 if __name__ == '__main__':

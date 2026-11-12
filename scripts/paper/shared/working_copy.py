@@ -36,7 +36,13 @@ SELECTIONS=[ROOT/'configs/paper-figures/selections'/p for p in (
 def verify_state(path=STATE,expected_bytes=None):
     raw=path.read_bytes() if expected_bytes is None else expected_bytes
     state=json.loads(raw)
-    records=state['scientific_selection']['records']+[state['draft']['review']]+list(state.get('preserved_figures',{}).values())
+    if 'draft' not in state:
+        display_target(path)
+        for ref in state.values():
+            if isinstance(ref,dict) and ref.get('path') and ref.get('sha256'):
+                resolve_artifact(ref['path'],expected_sha256=ref['sha256'],repo=ROOT)
+        return state
+    records=state.get('scientific_selection',{}).get('records',[])+[state['draft']['review']]+list(state.get('preserved_figures',{}).values())
     if state['draft'].get('legend'):records.append(state['draft']['legend'])
     for key in ('frozen_display','draft'):
         if state[key].get('working_svg'):records.append(state[key]['working_svg'])
@@ -51,19 +57,90 @@ def verify_state(path=STATE,expected_bytes=None):
     if file_hash(path)!=sha(raw):raise StaleFigureState('Current state advanced while being read')
     return state
 
-def begin(ticket):
-    """Record candidate/source hashes before an editing turn, not after it."""
-    raw=STATE.read_bytes();state=verify_state(expected_bytes=raw)
-    def bound(ref):
-        return resolve_artifact(ref['path'], expected_sha256=ref['sha256'], repo=ROOT)
-    paths=[STATE,*[bound(i) for i in state['scientific_selection']['records']],
-           bound(state['draft']['review']),*[bound(state[k]['working_svg']) for k in ('frozen_display','draft') if state[k].get('working_svg')]]
-    snapshot=Snapshot([*command_sources(__file__), *(paths)])
-    bind_loaded_state(snapshot,state,raw,STATE)
-    value=dict(schema_version=1,figure_id='fig1',state_path=str(STATE),starting_hashes=snapshot.hashes,
-               created_at=datetime.now(ZoneInfo('Europe/Madrid')).isoformat())
-    with ticket.open('x') as stream:json.dump(value,stream,indent=2);stream.write('\n')
+def selected_scope(state):
+    if 'draft' in state:
+        scope = state.get(state.get('default_display', 'draft'))
+    else:
+        scope = state
+    if not isinstance(scope, dict) or not all(k in scope for k in ('review', 'working_svg', 'legend')):
+        raise ValueError('Unsupported figure state: review, working_svg and legend required')
+    return scope
+
+
+def display_target(path=STATE):
+    from classical_conditioning.external_artifacts import ResolutionSession
+    with ResolutionSession():
+        raw = Path(path).read_bytes()
+        state = json.loads(raw)
+        scope = selected_scope(state)
+        resolved = {}
+        records = state.get('scientific_selection', {}).get('records', [])
+        for ref in records:
+            resolve_artifact(ref['path'], expected_sha256=ref['sha256'], repo=ROOT)
+        for key, output in [('review', 'html'), ('working_svg', 'svg'), ('legend', 'legend')]:
+            ref = scope[key]
+            local = resolve_artifact(ref['path'], expected_sha256=ref['sha256'], repo=ROOT,
+                                     allow_historical=False)
+            resolved[output] = {**ref, 'path': str(local)}
+        if Path(path).read_bytes() != raw:
+            raise StaleFigureState('Current state advanced while being read')
+        return dict(figure_id=state.get('figure_id', state.get('scope')),
+                    format=state.get('default_display_format', 'html-svg-and-legend'),
+                    **resolved, state_sha256=sha(raw), policy=state.get('display_policy'))
+
+
+def panel_target(path, panel, legend_path=None, output_dir=None):
+    """Use a bound panel view or extract native artwork into a task HTML only."""
+    from classical_conditioning.figures.review_html import svg_editing_page
+    target=display_target(path);state=json.loads(Path(path).read_bytes())
+    if sha(Path(path).read_bytes())!=target['state_sha256']:
+        raise StaleFigureState('State advanced before panel extraction')
+    scope=selected_scope(state);view=scope.get('panel_views',{}).get(panel)
+    if view and view.get('source_svg_sha256')==target['svg']['sha256'] and view.get('legend_source_sha256')==target['legend']['sha256']:
+        saved=resolve_artifact(view['path'],expected_sha256=view['sha256'],repo=ROOT,allow_historical=False)
+        return {**target,'html':{**view,'path':str(saved)},'panel':panel}
+    if legend_path is None:
+        raise ValueError('No current authenticated panel view; supply --panel-legend for an isolated task view')
+    from scripts.reviews.versions import panel_views
+    data=Path(target['svg']['path']).read_bytes()
+    if sha(data)!=target['svg']['sha256']:raise StaleFigureState('SVG advanced before panel extraction')
+    views=[v for v in panel_views(data) if v['panel'].upper()==panel.upper()]
+    if len(views)!=1:raise ValueError('Unknown or ambiguous panel ownership')
+    import tempfile
+    from classical_conditioning.operations.candidate_paths import candidate_directory
+    directory=candidate_directory(output_dir,existing=True) if output_dir else Path(tempfile.mkdtemp(prefix='cc-panel-view-'))
+    page=svg_editing_page(views[0]['raw'],scope_label='Panel '+panel,legend=Path(legend_path).read_text()).encode()
+    saved=directory/('panel-'+panel.lower()+'.html')
+    with saved.open('xb') as stream:stream.write(page)
+    # The full selected SVG remains the editable authority; no competing working SVG.
+    return {**target,'html':{'path':str(saved),'sha256':sha(page)},'panel':panel,
+            'source_svg_sha256':target['svg']['sha256'],'panel_bounds':views[0].get('bounds')}
+
+
+def begin(ticket, path=STATE):
+    """Bind only the selected scope; publication independently rechecks hashes."""
+    target = display_target(path)
+    raw = Path(path).read_bytes()
+    state = json.loads(raw)
+    if sha(raw) != target['state_sha256']:
+        raise StaleFigureState('Current state advanced before ticket capture')
+    paths = [Path(path), *command_sources(__file__)]
+    paths.extend(Path(target[k]['path']) for k in ('html', 'svg', 'legend'))
+    for ref in state.get('scientific_selection', {}).get('records', []):
+        paths.append(resolve_artifact(ref['path'], expected_sha256=ref['sha256'], repo=ROOT))
+    snapshot = Snapshot(paths)
+    if snapshot.hashes[str(Path(path).resolve())] != sha(raw):
+        raise StaleFigureState('Current state advanced while capturing ticket')
+    for k in ('html', 'svg', 'legend'):
+        if snapshot.hashes[str(Path(target[k]['path']).resolve())] != target[k]['sha256']:
+            raise StaleFigureState('Selected artifact advanced while capturing ticket')
+    value = dict(schema_version=1, figure_id=state.get('figure_id', state.get('scope')),
+                 state_path=str(Path(path).resolve()), starting_hashes=snapshot.hashes,
+                 created_at=datetime.now(ZoneInfo('Europe/Lisbon')).isoformat())
+    with ticket.open('x') as stream:
+        json.dump(value, stream, indent=2); stream.write('\n')
     return value
+
 
 def registry_sources():
     # Exact current selections, not whichever manifest filename sorts last.
@@ -156,16 +233,19 @@ def prepare(output_dir,revision,refresh=False):
 def main():
     parser=argparse.ArgumentParser(description=__doc__);sub=parser.add_subparsers(dest='command',required=True)
     p=sub.add_parser('prepare');p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--revision',required=True);p.add_argument('--refresh',action='store_true',help='Create new versioned copies; preserve existing authenticated copies')
-    sub.add_parser('verify');sub.add_parser('display-target',help='Resolve the authenticated current HTML/SVG/legend from state; never infer a browser route');p=sub.add_parser('begin');p.add_argument('--ticket',type=Path,required=True);args=parser.parse_args()
-    if args.command=='begin':print(json.dumps(begin(args.ticket),indent=2));return
+    p=sub.add_parser('verify');p.add_argument('--state',type=Path,default=STATE)
+    p=sub.add_parser('display-target');p.add_argument('--state',type=Path,default=STATE);p.add_argument('--panel');p.add_argument('--panel-legend',type=Path);p.add_argument('--output-dir',type=Path)
+    p=sub.add_parser('begin');p.add_argument('--ticket',type=Path,required=True);p.add_argument('--state',type=Path,default=STATE)
+    p=sub.add_parser('retain-preview');p.add_argument('--manifest',type=Path,required=True);p.add_argument('--output-dir',type=Path,required=True);p.add_argument('--scope',required=True)
+    args=parser.parse_args()
+    if args.command=='retain-preview':
+        from classical_conditioning.figures.preview import retain_preview
+        print(json.dumps(retain_preview(args.manifest,args.output_dir,args.scope),indent=2));return
+    if args.command=='begin':print(json.dumps(begin(args.ticket,args.state),indent=2));return
     if args.command=='display-target':
-        state=verify_state();scope=state[state['default_display']]
-        def local(ref):
-            return {**ref, 'path': str(resolve_artifact(ref['path'], expected_sha256=ref['sha256'], repo=ROOT))} if ref else ref
-        print(json.dumps(dict(figure_id=state['figure_id'],format=state.get('default_display_format'),
-                              html=local(scope.get('review')),svg=local(scope.get('working_svg')),legend=local(scope.get('legend')),
-                              policy=state.get('display_policy')),indent=2));return
-    result=prepare(args.output_dir.resolve(),args.revision,args.refresh) if args.command=='prepare' else verify_state()
-    print(json.dumps({key:result[key] for key in ('frozen_display','draft')},indent=2))
+        result=panel_target(args.state,args.panel,args.panel_legend,args.output_dir) if args.panel else display_target(args.state)
+        print(json.dumps(result,indent=2));return
+    result=prepare(args.output_dir.resolve(),args.revision,args.refresh) if args.command=='prepare' else verify_state(args.state)
+    print(json.dumps({key:result[key] for key in ('frozen_display','draft')} if 'draft' in result else result,indent=2))
 
 if __name__=='__main__':main()

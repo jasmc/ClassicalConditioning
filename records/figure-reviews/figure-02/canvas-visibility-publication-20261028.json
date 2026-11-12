@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "scope": "Figure 2 D/E/F canvas visibility",
+  "status": "published after fresh Chromium frame measurements and visual review",
+  "previous_record": "records/figure-reviews/figure-02/canvas-overdraw-20261025.json",
+  "publication_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-row2-canvas-repair-20261028/publication-evidence.json",
+    "sha256": "740a290b3d4f1ef3b425c775389afb7f8600852ce46e61821c7eb082d68bbb62"
+  },
+  "preserved_state": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-row2-canvas-repair-20261028/before-state.json",
+    "sha256": "26902f24dba6256ef910d30cecf672965ab985f7c8cf81a356b6153eca8b8030"
+  },
+  "layout_evidence": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-row2-canvas-repair-20261028/verified-layout-evidence.json",
+    "sha256": "2056a48a7963716043cbb374a23d792e56320f751de7140dd59ee0427eb7f29c"
+  },
+  "publisher": "scripts/paper/figure_02/assembly/publish_canvas_repair.py",
+  "scientific_selection_changed": false,
+  "freeze_created": false,
+  "preserved_previous_collection": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/history/main-paper-figures-before-row2-repair-20261028.html",
+    "sha256": "099740a392a20f0a9b22c5059d709de9989c2a530bae9a86cba4e594ae5ea724"
+  },
+  "previous_collection_recovery": "Exact wrapper reconstructed from preserved authenticated source SVGs, unchanged renderer, and recorded original provenance; SHA-256 matches the prior selected wrapper.",
+  "current_collection": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/main-paper-figures/main-paper-figures.html",
+    "sha256": "a649757b89845e0b4bada17b2176db080a81e7768e4ddeeeed99cb693cc30373"
+  }
+}

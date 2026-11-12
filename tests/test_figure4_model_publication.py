@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-spec = importlib.util.spec_from_file_location('trace_profile_builder', Path(__file__).resolve().parents[1] / 'scripts/build_figure4_3strace_model_draft.py')
+spec = importlib.util.spec_from_file_location('trace_profile_builder', Path(__file__).resolve().parents[1] / 'scripts/paper/figure_04/trace3_model_draft/build_figure4_3strace_model_draft.py')
 builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 

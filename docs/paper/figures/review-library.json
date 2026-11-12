@@ -672,6 +672,24 @@
           "sha256": "9d972b1eac4d54c53b63fc008d7d0d1a43508c2e901a3ce9b2d80361044e60ea",
           "status": "Canonical editable study source; discussion is not approval",
           "description": "Markdown source beside the shared G/H/I statistical audit HTML. Existing G, H and I guides and notebook origins remain unchanged."
+        },
+        {
+          "id": "fish-discarding-worksheet",
+          "title": "Fish discarding — editable combined rule table",
+          "storage": "outputs",
+          "path": "shared/studies/fish-discarding-review/study.md",
+          "sha256": "dfc6f6e6bdc62c066993792fa0e07fb31256a4d8b5766c75c3f600682e00f2cb",
+          "status": "Author decision worksheet; rule review pending",
+          "description": "27 combined source-linked rows, AI recommendations and author input. Every-fish last-US checks and visual review are required; no numerical policy or exclusions approved."
+        },
+        {
+          "id": "fish-discarding-reading",
+          "title": "Fish discarding — reading companion",
+          "storage": "outputs",
+          "path": "shared/studies/fish-discarding-review/study.html",
+          "sha256": "6ed4ee37d5738c122f273508227064fc4093b59ab0771e2685590ac95e5d4791",
+          "status": "Author decision worksheet; rule review pending",
+          "description": "27 combined source-linked rows, AI recommendations and author input. Every-fish last-US checks and visual review are required; no numerical policy or exclusions approved."
         }
       ]
     }

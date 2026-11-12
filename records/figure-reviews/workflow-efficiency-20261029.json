@@ -1,0 +1,70 @@
+{
+  "scope": "figure workflow efficiency; code and instructions only",
+  "date": "2026-10-29",
+  "reasoning_default": "medium",
+  "requirements_disposition": {
+    "scientific_authority": "unchanged; no analysis or selection commands run",
+    "preservation": "existing publication transactions and baseline tickets retained; inline historical provenance stays supported",
+    "exploration": "saved-input provisional bundles; retain requested versions only",
+    "catalogue": "scoped incremental registration, with full inventory identity retained; changed source requires exact recovery",
+    "packaging": "new outputs only; registry sidecars with hashes; exact duplicate font rules only"
+  },
+  "measurements": {
+    "comparison": "same process, same current Figure 1 inputs, alternating baseline/new, 3 repetitions; browser excluded",
+    "baseline_seconds": [
+      2.105,
+      2.077,
+      1.684
+    ],
+    "new_seconds": [
+      0.567,
+      0.42,
+      0.471
+    ],
+    "baseline_median_seconds": 2.077,
+    "new_median_seconds": 0.471,
+    "physical_disk_traffic_measured": false
+  },
+  "validation": {
+    "focused_suite": "68 run, 1 skipped; subsequent final changed-path suites 63, 18 and 9 tests passed",
+    "structure": "passed: 369 protected files and 10 current states checked; no issues",
+    "visual_qa": {
+      "status": "passed on synthetic fixtures; no real scientific artwork regenerated",
+      "browser": "headless Chromium through installed desktop browser",
+      "desktop_viewport": [
+        1000,
+        800
+      ],
+      "mobile_viewport": [
+        390,
+        844
+      ],
+      "compact_original_pixel_identity": true,
+      "overflow": false,
+      "page_errors": 0,
+      "layout_collector": "actual 600 dpi browser paint measurement; passed",
+      "presentation_cli": "title/caption edit published with unchanged data path; previous state/artwork preserved",
+      "stale_ticket": "refused without state change",
+      "retention_and_browser": "three saved versions loaded; matching legends and working downloads; search and URL restoration checked",
+      "full_incremental_discovery": "same version IDs, artwork hashes and legends on synthetic retained bundle",
+      "panel_cli": "isolated HTML produced; full SVG remained editable authority",
+      "fixes": [
+        "Provisional label uses plain text rather than literal Markdown markers",
+        "Incremental navigation backups excluded from artwork discovery"
+      ],
+      "screenshot_sha256": {
+        "browser-mobile.png": "6257b600d9893f7868f3e884b3433feebe95d232ad0a2329746b4da203966971",
+        "browser-version-0.png": "30e772f9f1edb1e11d65831b1b478a9c865fc452e1097dd859023abe845e8d65",
+        "browser-version-1.png": "dd3c3d9834f157b30527a81157152eeeed4fa0f6b980d8349d05d560c06c7319",
+        "candidate.png": "87eb0604c69bf89e2257b43e8cd891babaffeb678c9c05bd8ba55985c53ddf13",
+        "compact.png": "7b1d010eb38c45b9b801a256152a5738e909cb447944f9bd47a93033b576e088",
+        "mobile.png": "623c8437a7b8a7321117f7eb0a038df43d7fad0105281b500101e966d6426cbc",
+        "original.png": "7b1d010eb38c45b9b801a256152a5738e909cb447944f9bd47a93033b576e088",
+        "published.png": "a101d1128758d82eeec80036ddea7db3b05837e1ba2f1423c50bf67fa48fe957"
+      },
+      "previous_next_controls": "passed"
+    },
+    "instruction_links": "78 checked, no missing local targets",
+    "final_regression_suite": "63 tests passed after visual-QA fixes"
+  }
+}

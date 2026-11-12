@@ -230,7 +230,7 @@ def build(out):
     paths=[Path(r['path']) for r in ticket['source_inputs']]
     paths += [Path(__file__),ROOT/'src/classical_conditioning/figures/individual_atlas.py',
         ROOT/'src/classical_conditioning/figures/layout_frames.py',ROOT/'src/classical_conditioning/figures/layout_frames_browser.js',
-        ROOT/'src/classical_conditioning/figure_workspace.py',ROOT/'configs/paper-figures/layout-frames.json']
+        ROOT/'src/classical_conditioning/figure_workspace.py',ROOT/'configs/paper-figures/figure-elements.json']
     snapshot=Snapshot([*command_sources(__file__), *(paths)])
     trials=pd.read_parquet(source/'trial-data.parquet');inventory=pd.read_csv(source/'fish-inventory.csv')
     if set(trials.metric_id)!={'legacy_distal_angular_speed'}:raise ValueError('Unexpected metric')

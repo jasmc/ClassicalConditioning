@@ -23,6 +23,9 @@ sys.path.insert(0,str(ROOT/'src'))
 os.environ.setdefault('OPENBLAS_NUM_THREADS','1')
 os.environ.setdefault('OMP_NUM_THREADS','1')
 
+import matplotlib
+matplotlib.use("Agg")
+
 import numpy as np
 import pandas as pd
 from classical_conditioning.analysis.review.individual_atlas import prepare,classify,sha,save_json,VARIANTS
@@ -40,7 +43,7 @@ def source_paths():
         ROOT/'src/classical_conditioning/analysis/legacy_learner_worker.py',
         ROOT/'src/classical_conditioning/figures/layout_frames.py',
         ROOT/'src/classical_conditioning/figures/layout_frames_browser.js',
-        ROOT/'configs/paper-figures/layout-frames.json',*sorted((ROOT/'legacy/scripts').glob('6_LearnersQuantification*.py'))]
+        ROOT/'configs/paper-figures/figure-elements.json',*sorted((ROOT/'legacy/scripts').glob('6_LearnersQuantification*.py'))]
 
 
 def snapshot_sources(out,stage):
@@ -218,13 +221,58 @@ def publish(out):
     print(STATE,flush=True)
 
 
+def preview_fish(saved, output, fish_ids):
+    """Render only explicitly requested fish from authenticated saved caches."""
+    from classical_conditioning.figures.individual_atlas import fish_card
+    from classical_conditioning.figures.preview import write_preview
+    from classical_conditioning.operations.candidate_paths import candidate_directory
+    saved=Path(saved);output=candidate_directory(output)
+    if output.exists():raise FileExistsError(output)
+    if not fish_ids or len(fish_ids)!=len(set(fish_ids)):raise ValueError('Provide distinct --fish IDs')
+    refs=json.loads((saved/'render-inputs.json').read_bytes())
+    paths=[saved/'trial-data.parquet',saved/'heatmaps.npz',saved/'fish-inventory.csv',*sorted((saved/'classifiers').glob('*/*.parquet'))]
+    if not paths[3:]:raise ValueError('Saved classifier outputs required; no classification is run')
+    inputs=[]
+    for path in paths:
+        digest=sha(path)
+        if not any(r['sha256']==digest and Path(r['path'].replace('\\','/')).name==path.name for r in refs):
+            raise ValueError('Cache is not bound by saved render inputs: '+str(path))
+        inputs.append({'path':str(path.resolve()),'sha256':digest})
+    snapshot=Snapshot(paths)
+    trials=pd.read_parquet(saved/'trial-data.parquet');inventory=pd.read_csv(saved/'fish-inventory.csv')
+    if set(fish_ids)-set(inventory.fish_id):raise ValueError('Unknown requested fish')
+    results=results_for(saved);sources=[{'path':str(p),'sha256':sha(p)} for p in command_sources(__file__)]
+    output.mkdir()
+    manifests=[]
+    with np.load(saved/'heatmaps.npz') as arrays:
+        for number,fish in enumerate(fish_ids,1):
+            row=next(inventory.loc[inventory.fish_id.eq(fish)].itertuples(index=False))
+            svg=fish_card(trials.loc[trials.fish_id.eq(fish)].sort_values('trial_number'),arrays,row,results)
+            legend=('Exploratory individual fish '+str(fish)+'. Saved trial outcomes, heatmaps and historical classifier outputs; '
+                    'no classifier or model was refitted. Conditional vigor is undefined in empty bout windows. '
+                    'Heatmaps use saved 1 s median log positive bout vigor, baseline centred, limits -0.25 to +0.25. '
+                    'The main outcome is response-minus-baseline median log bout vigor. Same-data historical learner rules '
+                    'remain unapproved and do not establish independent validation.')
+            manifests.append(str(write_preview(svg,legend,output/f'fish-{number}',inputs=inputs,sources=sources,
+                command='build_atlas.py render --preview',parameters={'fish':fish,'inputs_dir':str(saved.resolve())})))
+    snapshot.check()
+    return manifests
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('stage',choices=['prepare','classify','render','verify','publish'])
     parser.add_argument('--output-dir',type=Path,required=True)
     parser.add_argument('--g-root',type=Path,default=G_ROOT)
+    parser.add_argument('--preview',action='store_true')
+    parser.add_argument('--inputs-dir',type=Path)
+    parser.add_argument('--fish',action='append',default=[])
     from classical_conditioning.external_artifacts import relocated_external_directory, joaquim_root
-    args=parser.parse_args();out=relocated_external_directory(args.output_dir).resolve()
+    args=parser.parse_args()
+    if args.preview:
+        if args.stage!='render' or not args.inputs_dir:parser.error('--preview requires render, --inputs-dir and --fish')
+        print(json.dumps(preview_fish(args.inputs_dir,args.output_dir,args.fish)));return
+    out=relocated_external_directory(args.output_dir).resolve()
     volume=joaquim_root().resolve()
     args.g_root=relocated_external_directory(args.g_root)
     if not out.is_relative_to(volume) or not out.is_dir():

@@ -1,14 +1,9 @@
 """Recovery must reuse complete stages and reject partial publications."""
-import importlib.util
-from pathlib import Path
-import sys
+from types import SimpleNamespace
 import unittest
+from classical_conditioning.operations.recovery import STAGES, dispositions
 
-SCRIPTS=Path(__file__).resolve().parents[1]/'scripts'
-sys.path.insert(0,str(SCRIPTS))
-spec=importlib.util.spec_from_file_location('trace10_recovery_under_test',SCRIPTS/'resume_trace10_additions.py')
-recovery=importlib.util.module_from_spec(spec)
-spec.loader.exec_module(recovery)
+recovery = SimpleNamespace(STAGES=STAGES, dispositions=dispositions)
 
 
 class RecoveryDispositionTests(unittest.TestCase):

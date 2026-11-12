@@ -143,3 +143,20 @@ The heatmap builder independently validates its source artifacts. See
 ## 6 October 2026: E all-trial overlay review
 
 A–D use the hashed frozen SVG snapshots in `frozen/2026-10-05-ABCD`; the frozen baseline is [−15, 0) s. D was recentered to this interval before freezing (largest reference shift 0.49 degrees). E v4 now overlays untransformed raw vigor on the exact stored 0.5 s heatmap values for all five trials. All rows retain −20 to +20 s, with shared raw y limits 0–0.6 rad/ms and shared heatmap-value limits −1.25 to +0.75. The y display clips large raw peaks; earlier full-range SVGs remain available. Bars are behind the black trace and retain missing-bin gaps. There is no separate inset or x zoom. `scripts/build_figure1_vigor_overlay.py` regenerates E directly to the SSD and checks source hashes, baseline bounds, bin centers, and exact saved-value equality. F–H remain pending review. The review assembly uses this chat’s A–H lettering; older C/D review adapters retain historical names.
+
+## Standing layout and scientific relationships
+
+Author directions, 15 and 30 October 2026; source panel IDs remain distinct from
+displayed letters. Resolve actual current artwork and bindings from scoped state.
+F/G/H share displayed-trial Y coordinates and equal gaps between their heatmap
+data-axis rectangles. D/E/F’s example relationship requires authenticated common
+stored frame/trial inputs, measured times, E’s documented raw-frame normalization,
+and exact selected source-F rows in E’s color bands; it does not imply a common
+layout row or normalization. Preserve source-to-display mappings.
+D/E require equal physical widths of actual data areas, excluding titles/ticks/
+trial descriptions, and matching horizontal/vertical letter-to-plot offsets.
+Example block/trial labels have matching profile typography in a separate column
+outside the Y title, never inside the title-to-tick-label strip. Condition headings
+center over their own data rectangles with a shared baseline. Keep E’s local
+shared-scale Y spine/ticks even when numerical labels and quantity titles are
+shared. Register authenticated scale mappings and recheck after affected edits.

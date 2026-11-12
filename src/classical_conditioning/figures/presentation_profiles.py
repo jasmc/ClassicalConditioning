@@ -1,4 +1,4 @@
-"""Read-only presentation overlays on the existing semantic/style contract.
+"""Current unified figure contract with explicit legacy-root compatibility.
 
 No selection, freeze, publication or figure mutation occurs here. The theme
 adapter is opt-in; rendered geometry and font embedding require separate checks.
@@ -16,6 +16,12 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[3]
+STYLE_PROPERTIES = {
+    'alpha', 'behind_all_data', 'cmap', 'color', 'color_source', 'direction',
+    'edge_visible', 'end_caps', 'facecolor', 'font_size_pt', 'font_weight',
+    'frame_visible', 'grid', 'length_pt', 'linestyle', 'linewidth_pt',
+    'missing_color', 'outline_linewidth_pt', 'pad_pt', 'zorder',
+}
 
 
 @dataclass(frozen=True)
@@ -70,9 +76,9 @@ class PresentationProfile:
 
 
 def load_presentation_profile(
-    profile: str = "nature-main", *, root: Path = ROOT,
+    profile: str = "nature-main", *, root: Path = ROOT, contract_path: Path | None = None,
 ) -> PresentationProfile:
-    """Resolve a versioned overlay without modifying its legacy contract.
+    """Read the current contract, or a legacy set under an explicit saved root.
 
     Validate policy consistency only. A successful load is not rendered-figure
     evidence and cannot be substituted for the explicit freeze gate.
@@ -88,8 +94,27 @@ def load_presentation_profile(
         raw = path.read_bytes()
         inputs[path.relative_to(root).as_posix()] = hashlib.sha256(raw).hexdigest()
         return json.loads(raw)
-    policy = read(f"configs/paper-figures/{profile}.json")
-    if policy.get("schema_version") != 1 or policy.get("profile_id") != profile:
+    if contract_path is None:
+        contract = read('configs/paper-figures/figure-elements.json')
+    else:
+        path = Path(contract_path).resolve()
+        raw = path.read_bytes()
+        inputs[str(path.relative_to(root)) if path.is_relative_to(root) else str(path)] = hashlib.sha256(raw).hexdigest()
+        contract = json.loads(raw)
+    unified = contract.get('schema_version') == 2
+    if unified:
+        if contract.get('specification_version') != '2.0.0':
+            raise ValueError('Unsupported unified specification version')
+        policy = contract['presentation']
+        layout = contract['layout_frames']['policy']
+        policy['rules']['project.typography']['value'] = copy.deepcopy(contract['typography'])
+    elif contract.get('schema_version') == 1 and root != ROOT.resolve():
+        policy = read(f"configs/paper-figures/{profile}.json")
+        contract = read(policy['base_contract'])
+        layout = read(policy['layout_policy'])
+    else:
+        raise ValueError('Current figure contract must use schema version 2; legacy sets need an explicit saved root')
+    if policy.get("schema_version") != (2 if unified else 1) or policy.get("profile_id") != profile:
         raise ValueError("Unsupported or mismatched presentation profile")
     rules = policy["rules"]
     for name, rule in rules.items():
@@ -101,13 +126,13 @@ def load_presentation_profile(
             if source not in policy["sources"]:
                 raise ValueError(f"Unresolved policy source: {source}")
     # Each JSON read already owns fresh data; no second full-contract copy is needed.
-    contract = read(policy["base_contract"])
-    layout = read(policy["layout_policy"])
     if layout.get("activation") != "active" or layout["selected_inset_mm"] <= 0:
         raise ValueError("Profile requires an active selected layout policy")
+    from classical_conditioning.figures.layout_frames import validate_policy
+    validate_policy(layout)
     contract["typography"].update(rules["project.typography"]["value"])
     known_properties = {key for style in contract["styles"].values() for key in style}
-    for style, overrides in rules["project.style_overrides"]["value"].items():
+    for style, overrides in rules.get("project.style_overrides", {"value": {}})["value"].items():
         if style not in contract["styles"]:
             raise ValueError(f"Unknown existing style role: {style}")
         for key, value in overrides.items():
@@ -137,6 +162,8 @@ def load_presentation_profile(
     if letters["font_weight"] != text["panel_letter_weight"] or typography["font_style"] != text["panel_letter_style"]:
         raise ValueError("Panel letter typography disagrees with journal requirement")
     for name, style in contract["styles"].items():
+        if set(style) - STYLE_PROPERTIES:
+            raise ValueError(f'Unknown style property: {name}')
         if "alpha" in style and not 0 <= style["alpha"] <= 1:
             raise ValueError(f"Profile opacity outside valid range: {name}")
         if "font_size_pt" in style:
@@ -151,12 +178,15 @@ def load_presentation_profile(
             if key.endswith("linewidth_pt") and not stroke["min_pt"] <= value <= stroke["max_pt"]:
                 raise ValueError(f"Profile stroke outside journal bounds: {name}.{key}")
     geometry = rules["author.axis_geometry"]["value"]
+    for role, definition in contract['roles'].items():
+        if definition['style'] not in contract['styles']:
+            raise ValueError(f'Unknown style role: {role}')
     tick = contract["styles"]["tick"]
     if tick["length_pt"] != geometry["tick_length_pt"] or tick["linewidth_pt"] != geometry["tick_width_pt"]:
         raise ValueError("Profile tick style disagrees with author geometry")
     contract["presentation_profile"] = {
         "profile_id": profile, "version": policy["version"], "inputs": copy.deepcopy(inputs),
-        "view_only": True, "freeze_gate_integration": False,
+        "view_only": True, "freeze_gate_integration": unified,
     }
     return PresentationProfile(policy, contract, layout, inputs)
 
@@ -175,7 +205,7 @@ def main() -> None:
         value = {
             "role": args.role, "definition": definition,
             "style": profile.contract["styles"][definition["style"]],
-            "overrides_rule": "project.style_overrides",
+            "style_source": "contract.styles",
         }
         if args.role.startswith("axis."):
             value["author_geometry"] = profile.rule("author.axis_geometry")

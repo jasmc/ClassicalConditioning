@@ -22,12 +22,18 @@ publication guards. It preserves existing source guides and artwork. Generated
 navigation is authenticated through publication records rather than treated as
 its own input. Unexpected source changes, manual navigation edits and corrupt
 generated payloads stop publication.
-After retaining or publishing a version, refresh this generated library so it
+After a task retains or publishes versions, refresh this generated library once so each
 remains reachable from `START-HERE.html` through the appropriate figure page.
 The builder writes links and HTML directly; models need not reproduce them.
 Redirect verbose build/check output to a file and inspect only counts, failures
 and affected entries. Avoid dumping complete generated pages or catalogues into
 model context or replies.
+`build --changed <new-bundle-directory> --scope figure-02` registers explicitly
+retained new bundles without scanning unrelated trees. Repeat arguments for
+multiple bundles/scopes. Existing registered sources cannot be rebound silently;
+exact historical recovery is required before accepting changed sources. Incremental coverage retains the
+last full snapshot identity and does not claim a new global audit.
+
 Portability verification checks the existing SSD package; it does not request a
 navigation refresh or artwork regeneration.
 

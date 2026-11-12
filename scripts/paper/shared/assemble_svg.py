@@ -617,6 +617,29 @@ def export_with_inkscape(svg: Path, formats: list[str], *, font_directory: Path 
                        check=True, env=environment)
 
 
+def preview(layout_path, output_dir, legend, *, only_panel=None, source_overrides=None):
+    """Compose authenticated saved sources into a fresh provisional task bundle."""
+    from classical_conditioning.figures.preview import write_preview
+    report = preflight(layout_path, strict=True, only_panel=only_panel, source_overrides=source_overrides)
+    if not report['can_render']:
+        raise ValueError('; '.join(report['errors']))
+    _, layout = prepare_layout(json.loads(Path(layout_path).read_text()), source_overrides, only_panel)
+    records = [{'path': str(Path(layout_path).resolve()), 'sha256': report['layout_sha256']}]
+    for panel in report['panels']:
+        for ref in (panel['source'], panel['original_source']):
+            if ref.get('path'):
+                records.append({'path': ref['path'], 'sha256': ref['sha256']})
+    snapshot = Snapshot([r['path'] for r in records])
+    for ref in records:
+        if snapshot.hashes[str(Path(ref['path']).resolve())] != ref['sha256']:
+            raise StaleFigureState('Preview source changed after preflight')
+    payload, _ = _compose(Path(layout_path), layout, report)
+    snapshot.check()
+    sources = [{'path': str(p), 'sha256': digest(p)} for p in command_sources(__file__)]
+    return write_preview(payload, legend, output_dir, inputs=records, sources=sources,
+                         command='assemble_svg --preview', parameters={'panel': only_panel, 'overrides': source_overrides or {}})
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("layout", type=Path)
@@ -631,6 +654,8 @@ def main() -> None:
     parser.add_argument("--overwrite", action="store_true", help="Replace a verified existing candidate pair under snapshot/lock protection")
     parser.add_argument("--export", nargs="*", choices=["png", "pdf"], default=[])
     parser.add_argument("--watch", action="store_true", help="Rebuild when the layout or a source changes")
+    parser.add_argument("--preview", action="store_true", help="Write a provisional task bundle; --output is a fresh directory")
+    parser.add_argument("--legend", type=Path, help="Matching legend required for --preview")
     args = parser.parse_args()
     if args.plan and (args.watch or args.export): parser.error("--plan cannot export or watch")
     if not args.plan and not args.output: parser.error("Provide an explicit external --output destination")
@@ -641,6 +666,11 @@ def main() -> None:
             parser.error("--replace-panel-source requires ID=PATH")
         if panel_id in source_overrides: parser.error('Duplicate panel source override: '+panel_id)
         source_overrides[panel_id] = source
+    if args.preview:
+        if args.plan or args.watch or args.export or args.overwrite or not args.output or not args.legend:
+            parser.error('--preview requires --output and --legend; cannot plan, watch, export or overwrite')
+        print(preview(args.layout,args.output,args.legend.read_text(),only_panel=args.panel,source_overrides=source_overrides))
+        return
     if args.plan:
         report = preflight(args.layout, strict=args.strict, only_panel=args.panel, source_overrides=source_overrides)
         try:

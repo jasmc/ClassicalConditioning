@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-30",
+  "scope": "figure instructions and presentation-only tool corrections; author-approved plan",
+  "status": "implemented; focused validation passed; broader repository/browser limitations recorded",
+  "starting_sha256": {
+    "AGENTS.md": "82e0bfd62c5a8a317d994c7a0436dc120d161faffb2f1fefcc2a746c1725ee0e",
+    ".agents/skills/paper-figures/SKILL.md": "1672165b476a19705c24fca335ab036e9566d863fce0fc617e118ce00ae57b55",
+    "docs/paper/figures/shared/iteration-workflow.md": "d4c858e1b8624dcde4b9353dbbedb9ce12f62e38b4168e5794b7bd36ef20118e",
+    "docs/paper/figures/shared/nature-style.md": "a6db26d11fcb19bdb35de29a71465ef918824839d9879f30da7ae1c00ac659d8",
+    "docs/project-maintenance/rules.md": "755c6c4c9a6edcee0f5292b9e663ec267b6410c81f060229186d48e25fd4577b",
+    "src/classical_conditioning/figure_workspace.py": "024a6bceb99d9f74b44315d9c90435492a320629b908238bcbbc037f89644605",
+    "src/classical_conditioning/figures/presentation_edit.py": "0bbf779b5dfc91820ec58e022c02554a1ea851576cf2081ccaad185641384a89",
+    "scripts/paper/shared/build_legend_review.py": "c5f563f1a0f4b064027207ec6439c9c9ad761797c8d75276587edd760e359c46",
+    "scripts/README.md": "3943a27c582b3caa9f6f5925dbff7deee5745ca9f0bf8aad6aaeba14cdd8c9aa",
+    "tests/test_figure_efficiency.py": "bde0ecf9cc329f9992f207fa2e99e4c2baab08a1f392a4bcc79460513ba32420",
+    "records/figure-reviews/README.md": "9339db2739129eb05f811e5a60f182420aadacfc0f5755c14e54f8e839e82d09"
+  },
+  "requirements_disposition": {
+    "authority_and_frozen_sources": "Retain in AGENTS.md and workflow Two separate current states; scientific selections and frozen bytes unchanged.",
+    "display_and_storage": "Retain minimal authenticated SVG/legend views, real storage resolution, current collection membership and explicit retention/disposal boundaries.",
+    "draft_publication": "Workflow owns tickets, conflicts, evidence and state-last publication; skill routes there.",
+    "scientific_and_consistency": "Retain scientific invariants and scoped named relationships; no implicit propagation.",
+    "freeze": "Retain complete gate, readiness, approved panel/assembly/letter freeze set, source mappings and author dispositions.",
+    "layout_and_nature": "Retain author frame/inset preferences and Nature profile authority; add proportional composition review.",
+    "legacy_and_recovery": "Preserve existing historical records, reproduction commands, explicit measurement widths and recovery dependencies.",
+    "preview_and_browsing": "Preserve scoped preview/retention, complete resource bundles and incremental navigation.",
+    "figure_specific_handoff": "Replace procedural status summary with owning figure/state links; exact prior prose preserved below as historical context, not authority."
+  },
+  "preserved_context": {
+    "Current Figure 1 handoff": "A–D, E and F–H have scoped freezes; the current F–H selection is the author-frozen 2026-10-13 historical-fish 1 s direct log-frame median managua_r version (Trace 20230307_12). V12 remains preserved as superseded F–H evidence; no whole-figure freeze is recorded.\nThe active unfrozen draft is the pair selected by state; its bound profile and\nmeasurement evidence record current presentation coverage.\nFigure 2 is preserved. The current D/E working pair uses the same D measured frame table, named semantic\nartists, matching axis rectangles and the D block labels (trial 9: Pre-Train).\nE’s accepted 2026-10-13 scoped freeze uses D’s stored vigor with the inherited bout mask: unbinned raw baseline and scaling, no black-trace log, 0–5 display, no baseline reference, exact frozen source F bands/shared color legend (Delay displayed as G), and two continuous CS boundaries. Older E/V12 freezes remain preserved. D and whole-figure draft approval remain separate. The author resolved the arrow relationship on 2026-10-13: the five arrows\nare attached to the Delay source panel F, now displayed as G after the\nrecorded control-first reorder. They mark the five trials shown in D/E.\nSee state for exact copies/hashes and evidence, and the editable\n[Figure 1 legend](../figure-01/legend.md),\n[editorial notes](review.md) and\n[style audit](../../../../records/figure-reviews/panel-style-consistency-audit.json) for context.\n\nA new chat needs only the active figure/panels, this workflow/state link and any\nnew author comments or storage limitation; read the saved records before work.",
+    "Display and working formats (former opening)": "Author direction on 2026-10-13: maintain one active Figure 1 working SVG and its matching review, resolved from current state. The initial v10 selection has been superseded by the author-requested edits. Update the same active pair with `scripts/paper/shared/build_legend_review.py --update-current`; do not accumulate working versions. The approved v15 freeze candidate remains preserved separately.\n“Show Figure 1” follows `default_display` in state, now `draft`, and opens its\nauthenticated HTML review (`default_display_format: html-svg-and-legend`). The author\nauthorized removal of the other standalone working SVGs; historical HTML\nreviews and scientific freezes remain preserved. Requesting frozen selections\nexplicitly does not change the working version or imply a whole-figure freeze.",
+    "Former migration implementation summary": "The `nature-main` profile resolver, shared-theme adapter and scoped Figure 1/2\nmigration tooling are implemented; final migration publication and broader\nrenderer/production integration remain pending.\nUse the coding entry point in the maintained guidance for exact values and input\nhashes. Profile lookup does not publish state or execute the freeze gate.",
+    "Former semantic coverage summary": "Current coverage is partial: Figure 1 state records explicit D/E relationships\nand selected F annotations; legacy A–D lack a complete new-freeze registry.\nHistorical style audits do not certify current artifacts. Consult the exact\nstate and evidence before claiming any panel or whole-figure consistency."
+  },
+  "validation": {
+    "protected_selection_state_and_frozen_files": {
+      "checked": 123,
+      "unchanged": true
+    },
+    "python_tests": {
+      "distinct_passed": 164,
+      "final_changed_figure_consumers": 64,
+      "archive_browser_freeze_profile_consumers": 87,
+      "main_paper_collection_consumers": 13,
+      "fixtures": "synthetic; includes native font/stroke scale at 89/136/183 mm, nested transforms, legacy widths, coordinate protections, legend CLI isolation, stale evidence/resources/manual edits and commit rollback"
+    },
+    "skill_validation": "official quick_validate.py passed using temporary PyYAML dependency; project dependencies unchanged",
+    "local_structure": {
+      "protected_files_checked": 369,
+      "current_states_checked": 10,
+      "issues": [
+        "Missing relocation destination for records/scientific-evidence/audits/fish-selection-policy-review-2026-10-11.md",
+        "Preserved bytes changed/missing for the same pre-existing deleted audit"
+      ],
+      "classification": "pre-existing deletion present in starting git status; no new link/structure issues"
+    },
+    "browser": {
+      "status": "unavailable",
+      "reason": "Local browser use is disabled in Work settings; native computer service startup also failed",
+      "actual_browser_or_print_review_performed": false
+    },
+    "local_links_and_heading_fragments": {
+      "checked": 296,
+      "issues": []
+    },
+    "freeze_procedure_preserved_verbatim": true,
+    "external_structure": {
+      "status": "failed on unrelated missing audit and catalogue drift",
+      "unavailable_evidence": [],
+      "verified_archive_transactions": 14,
+      "verified_archive_files": 2214,
+      "catalogue_issues": {
+        "advanced_sources": 3,
+        "uninventoried_sources": 5
+      },
+      "action": "No catalogue rebuild, selection update, scientific artwork mutation or cleanup performed."
+    },
+    "diff_whitespace": "passed on changed tracked paths; new files checked separately"
+  },
+  "preserved_context_origin": "docs/paper/figures/shared/iteration-workflow.md; historical text links resolve relative to that original source, not this receipt",
+  "result_sha256": {
+    "AGENTS.md": "52629908ad1cfa1c784594ff55dc5155b8182d4f1f56c74ca66f63d0812ecfa8",
+    ".agents/skills/paper-figures/SKILL.md": "15c6b6d87fd20532c8778b0a286fda6b92f0b18bb506c3d0f69691cd52ab9411",
+    "docs/paper/figures/shared/iteration-workflow.md": "e29194a8f7d969b5c3cae46a341915502ff1b19e662dda5c4cc360330274d3c0",
+    "docs/paper/figures/shared/nature-style.md": "1d68d86e8da84dfc87ec08a79f9ea289aa5535c8abcbf62ecb823530b0fcc229",
+    "docs/project-maintenance/rules.md": "2e90a225df3502477d536ce184b364eb0c7e58b0161542aace024c1ddfeb46af",
+    "src/classical_conditioning/figure_workspace.py": "0439f627cd969ee127cad35cb529768737bcbc42c93541743faff229d3265e43",
+    "src/classical_conditioning/figures/presentation_edit.py": "9c49639534cf3a0603f283ab7728d154aaad56be2ef28b3243e3ea6b12a3a019",
+    "scripts/paper/shared/build_legend_review.py": "e50a2d8b4f72c59fd5b16b551bc243246dba1e1fd7ac065472824f85927b5fa3",
+    "scripts/README.md": "cda01cc3ee5f7cadb3546e5ece194456d79c5fe101bc4b6a8a3800ad096c61d3",
+    "records/figure-reviews/README.md": "3e3d7eb58c2c95e434aea8c212f722c3e35de32fc7494453643a3bede773ac69",
+    "tests/test_figure_presentation_edit.py": "32617743d28ba2c8285ca1821ae17c41e5c81219d04a799b75946629dc29e9da"
+  }
+}

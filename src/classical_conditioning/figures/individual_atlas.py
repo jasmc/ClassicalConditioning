@@ -10,7 +10,7 @@ import re
 import xml.etree.ElementTree as ET
 
 import matplotlib
-matplotlib.use("Agg")
+from functools import wraps
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
 from matplotlib.cm import ScalarMappable
@@ -25,9 +25,18 @@ NAMES = {"legacy-nominal": "Nominal", "legacy-new": "New",
          "legacy-improved": "Improved", "legacy-wip": "WIP"}
 COLOURS = {"delay": "#ec008c", "control": "#00aeef"}
 HEATMAP_LIMIT = .25
-plt.rcParams.update({"font.family": "Arial", "font.size": 8, "svg.fonttype": "none",
+_LEGACY_ATLAS_RC = {"font.family": "Arial", "font.size": 8, "svg.fonttype": "none",
     "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": .6,
-    "xtick.major.width": .6, "ytick.major.width": .6, "svg.hashsalt": "figure3-atlas"})
+    "xtick.major.width": .6, "ytick.major.width": .6, "svg.hashsalt": "figure3-atlas"}
+
+
+def _legacy_atlas_style(function):
+    """Keep this historical renderer's settings local; never restyle saved artwork."""
+    @wraps(function)
+    def scoped(*args, **kwargs):
+        with matplotlib.rc_context(rc=_LEGACY_ATLAS_RC):
+            return function(*args, **kwargs)
+    return scoped
 
 
 def results_for(output):
@@ -100,6 +109,7 @@ def select_examples(inventory, results):
     return selected
 
 
+@_legacy_atlas_style
 def svg_bytes(fig, identity, width, height):
     """Assign every artist to an invisible physical allocation, with explicit clips."""
     stream = io.BytesIO()
@@ -146,6 +156,7 @@ def trial_points(ax,data,values,colour,compact=False):
     light_axes(ax)
 
 
+@_legacy_atlas_style
 def fish_card(data, arrays, inventory_row, results, compact=False):
     fish, condition = inventory_row.fish_id, inventory_row.condition_id
     width, height = (91.5, 91.) if compact else (183., 190.)
@@ -235,6 +246,7 @@ def fish_card(data, arrays, inventory_row, results, compact=False):
     return svg_bytes(fig,"fish_"+condition+"_"+fish+("_compact" if compact else ""),width,height)
 
 
+@_legacy_atlas_style
 def overview_svg(trials, arrays, inventory, results, selected):
     """A four-example paper-layout trial; cards retain their own physical scale."""
     width,height=183.,220.
@@ -367,6 +379,7 @@ document.querySelectorAll('a[href^="#fish-"]').forEach(a=>a.addEventListener('cl
 </script></html>'''
 
 
+@_legacy_atlas_style
 def render(output):
     output=Path(output)
     trials=pd.read_parquet(output/"trial-data.parquet")

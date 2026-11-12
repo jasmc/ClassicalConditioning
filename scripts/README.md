@@ -2,11 +2,11 @@
 
 Commands are grouped by figure/panel scope and role. Shared reusable implementation lives in `src/classical_conditioning/`; historical recipes retain their scientific definitions and are labelled reproduction. Folder membership does not approve an analysis.
 
-Seven root compatibility paths remain for standing instructions, local checks and the immutable element specification. Other old source identities resolve through archive/relocation records; use the scoped paths below for execution.
+Seven standing root compatibility paths remain for standing instructions, local checks and the immutable element specification. Other old source identities resolve through archive/relocation records; use the scoped paths below for execution.
 
 - [Current implementation record](../records/repository-archive/script-organization-20261024/README.md).
 - [Script lifecycle policy](../docs/project-maintenance/script-lifecycle.md).
-- [Plan 13](../Plans/13_SCRIPT_COMMAND_ORGANIZATION.md).
+- [Completed Plan 13 account](../records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md).
 
 ## Normal routes
 
@@ -51,13 +51,26 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/figure_01/panels_e_f_g_h/reproduction/audit_legacy_cadence.py](paper/figure_01/panels_e_f_g_h/reproduction/audit_legacy_cadence.py) | Compare arrival-clock and legacy presumed-cadence processing for Figure 1. |
 | [paper/figure_01/panels_e_f_g_h/reproduction/audit_vigor_alignment.py](paper/figure_01/panels_e_f_g_h/reproduction/audit_vigor_alignment.py) | Reproduce Figure 1E/F frame, detector and bin alignment without changing panels. |
 | [paper/figure_01/panels_f_g_h/build_version_comparison.py](paper/figure_01/panels_f_g_h/build_version_comparison.py) | Assemble a self-contained, unselected F–H history comparison without re-analysis. |
+| [paper/figure_01/panels_f_g_h/apply_robust_normalization.py](paper/figure_01/panels_f_g_h/apply_robust_normalization.py) | Prepare and guard publication of robust-normalized Figure 1 heatmaps and linked E bands. Scientific draft work, not a presentation-only edit or freeze. |
 | [paper/figure_01/panels_f_g_h/recolor_trace10_comparison.py](paper/figure_01/panels_f_g_h/recolor_trace10_comparison.py) | Change the standalone 10sTrace shortlist comparison's shared heatmap scale from authenticated numerical caches; exact raster reconstruction, staged review and guarded publication. |
 | [paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py](paper/figure_01/panels_f_g_h/reproduction/build_legacy_heatmaps.py) | Build matching, fully vector Figure 1 single-fish legacy-vigor heatmaps. |
 | [paper/figure_01/panels_f_g_h/reproduction/render_saved_heatmaps.py](paper/figure_01/panels_f_g_h/reproduction/render_saved_heatmaps.py) | Render paired single-fish Figure 1 heatmaps from versioned SSD artifacts. |
 | [paper/figure_01/panels_f_g_h/reproduction/render_trace_example.py](paper/figure_01/panels_f_g_h/reproduction/render_trace_example.py) | Render the historical 3sTrace example fish as a signed Figure 1G review heatmap. |
 | [paper/figure_01/reproduction/verify_abcd_freeze.py](paper/figure_01/reproduction/verify_abcd_freeze.py) | Verify the historical Figure 1 A-D freeze without changing its artifacts. |
 | [paper/figure_02/assembly/build.py](paper/figure_02/assembly/build.py) | Build the Figure 2 review layout, preserving SSD versions and source provenance. |
+| [paper/figure_02/assembly/apply_robust_normalization.py](paper/figure_02/assembly/apply_robust_normalization.py) | Prepare and guard publication of the Figure 2 robust-normalization update. Scientific draft work; publication does not freeze a figure. |
 | [paper/figure_02/assembly/repair_canvas.py](paper/figure_02/assembly/repair_canvas.py) | Prepare a guarded, unselected canvas-overdraw repair; preserve all geometry/data and require fresh browser evidence before selection. |
+| [paper/figure_02/assembly/publish_canvas_repair.py](paper/figure_02/assembly/publish_canvas_repair.py) | Publish only the exact two-canvas repair after fresh browser measurements and visual review, preserving originals and scientific selections under scoped guards. |
+| [paper/figure_02/assembly/three_columns.py](paper/figure_02/assembly/three_columns.py) | Retained baseline three-column recipe; publication rejects statistical trial misregistration. Use `align_statistics.py` for the selected compact-label correction. |
+| [paper/figure_02/assembly/align_statistics.py](paper/figure_02/assembly/align_statistics.py) | Restore statistical marks to the trajectory trial coordinates; abbreviate only row labels and bind their full explanations to the matching legend, preserving all results. |
+| [paper/figure_02/assembly/stats_phase_guides.py](paper/figure_02/assembly/stats_phase_guides.py) | Authenticate every G/H/I statistical mark against saved trial/block positions and restore phase separators, preserving all other artwork through guarded publication. |
+| [paper/figure_04/exports/shared_y.py](paper/figure_04/exports/shared_y.py) | Export-only shared signed-vigor y scale for the requested Delay/3sTrace catch panels; remap saved artwork without refitting or changing scientific draft selection. |
+| [paper/figure_04/exports/shared_x_window.py](paper/figure_04/exports/shared_x_window.py) | Historical axis-only export with unchanged narrow-window values. It does not provide full-window analysis or supported curves outside the original fit. |
+| [paper/figure_04/exports/full_window.py](paper/figure_04/exports/full_window.py) | Authenticate saved full-window trial tables, recompute fish summaries and refit six-df spline models with whole-fish bootstrap over [-20,20); separate render and guarded provisional publication stages. |
+| [paper/figure_04/exports/finish_full_window.py](paper/figure_04/exports/finish_full_window.py) | Attach scoped invisible frames and create the lossless PNG-based PDF at 600 effective dpi using bundled PDF dependencies. |
+| [paper/figure_04/exports/verify_full_window.py](paper/figure_04/exports/verify_full_window.py) | Check all saved plotted point centers, curve vertices and band polygons against full-window numerical outputs and common axes. |
+| [paper/figure_04/exports/compare_splines.R](paper/figure_04/exports/compare_splines.R) and [runner](paper/figure_04/exports/run_spline_comparison.mjs) | Bounded full-window `nlme`/`mgcv` comparison of fixed splines, REML penalized GAMMs and AR(1); identical saved inputs and whole-fish folds. The runner uses a supplied local WebR extraction and writes exclusive numerical outputs; no paper-state publication. |
+| [paper/figure_04/exports/summarize_spline_comparison.py](paper/figure_04/exports/summarize_spline_comparison.py) and [preview](paper/figure_04/exports/render_spline_comparison.py) | Equal-fish CV errors, residual/basis diagnostics, independent reference reproduction, failed-fit accounting and source-bound SVG/PNG comparison. Incomplete candidates are not ranked; no model is automatically adopted. |
 | [paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py](paper/figure_02/panel_a/reproduction/build_pooled_heatmaps.py) | Build scoped Figure 2 A with the selected Figure 1 F–H pipeline and styles. |
 | [paper/figure_02/panel_b/reproduction/render_trace_signed.py](paper/figure_02/panel_b/reproduction/render_trace_signed.py) | Render the 3sTrace/control Figure 2B signed heatmap and fish coverage review. |
 | [paper/figure_02/panel_g/build_exploratory_presentation.py](paper/figure_02/panel_g/build_exploratory_presentation.py) | Separate, authenticated Figure 2 G presentation of saved exploratory results. |
@@ -90,12 +103,13 @@ The metric workflow uses an external shared workspace and a hash-bound producer 
 | [paper/shared/apply_annotation_alignment.cjs](paper/shared/apply_annotation_alignment.cjs) | Explicit candidate annotation alignment; counterpart verify_annotations.cjs verifies saved artwork |
 | [paper/shared/apply_axis_geometry.cjs](paper/shared/apply_axis_geometry.cjs) | Explicit candidate-axis edits; counterpart verify_axis_geometry.cjs verifies saved artwork |
 | [paper/shared/assemble_svg.py](paper/shared/assemble_svg.py) | Compose replaceable SVG panels from a declarative paper-figure layout. |
-| [paper/shared/build_legend_review.py](paper/shared/build_legend_review.py) | Authenticated Figure 1–2 text/layout candidates and draft legends in one self-contained external review; no recomputation or freeze. |
+| [paper/shared/build_legend_review.py](paper/shared/build_legend_review.py) | Scoped candidate SVG/legend publication without recomputation; the separate no-candidate branch reconstructs Figure 1 numerical artwork. No freeze. |
 | [paper/shared/calibrate_layout_frames.py](paper/shared/calibrate_layout_frames.py) | Separate preset comparison; never rewrites selected figure artifacts or state. |
 | [paper/shared/collect_layout_evidence.cjs](paper/shared/collect_layout_evidence.cjs) | Retained technical workflow helper |
 | [paper/shared/collection.py](paper/shared/collection.py) | Apply explicit main-paper layout ownership to authenticated selected drafts. |
 | [paper/shared/correct_relationships.py](paper/shared/correct_relationships.py) | Correct typed panel relationships and named axis-title formatting in drafts. |
 | [paper/shared/freeze.py](paper/shared/freeze.py) | Standalone freeze gate, usable without importing the scientific libraries. |
+| [paper/shared/lock_versions.py](paper/shared/lock_versions.py) | Guarded byte-for-byte provisional presentation locks for explicitly selected artwork/PDFs; preserves all exploratory versions and scientific status. |
 | [paper/shared/layout.py](paper/shared/layout.py) | Apply explicit main-paper layout ownership to authenticated selected drafts. |
 | [paper/shared/measure_layout.cjs](paper/shared/measure_layout.cjs) | Retained technical workflow helper |
 | [paper/shared/measure_packing.cjs](paper/shared/measure_packing.cjs) | Retained technical workflow helper |
@@ -156,69 +170,123 @@ The dated audit is assessment evidence; this catalogue describes the current phy
 
 ## Figure 4 local exploratory model pilots
 
-- [build_figure4_delay_model_draft.py](build_figure4_delay_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
-- [check_figure4_delay_model_draft.cjs](check_figure4_delay_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
-- [build_figure4_3strace_model_draft.py](build_figure4_3strace_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
-- [check_figure4_3strace_model_draft.cjs](check_figure4_3strace_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
+- [build_figure4_delay_model_draft.py](paper/figure_04/delay_model_draft/build_figure4_delay_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
+- [check_figure4_delay_model_draft.cjs](paper/figure_04/delay_model_draft/check_figure4_delay_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
+- [build_figure4_3strace_model_draft.py](paper/figure_04/trace3_model_draft/build_figure4_3strace_model_draft.py): exploratory pilot or exact-render check; no scientific freeze.
+- [check_figure4_3strace_model_draft.cjs](paper/figure_04/trace3_model_draft/check_figure4_3strace_model_draft.cjs): exploratory pilot or exact-render check; no scientific freeze.
 
-## Retained PC-side commands
+## Additional scoped assay and presentation commands
 
-These existing PC-side workflows are preserved for compatibility and further lifecycle review. Their presence does not establish scientific approval.
+These workflows are grouped by operation and scope. Their availability does not establish scientific approval.
 
-- [align_figure2_columns.py](align_figure2_columns.py)
-- [analyze_figure1_trace3_learner_candidates.py](analyze_figure1_trace3_learner_candidates.py)
-- [analyze_figure2_trace10.py](analyze_figure2_trace10.py)
-- [analyze_figure2_trace3_matched.py](analyze_figure2_trace3_matched.py)
-- [analyze_figures34_3strace.py](analyze_figures34_3strace.py)
-- [analyze_figures34_trace10.py](analyze_figures34_trace10.py)
+- [align_figure2_columns.py](paper/figure_02/assembly/align_figure2_columns.py)
+- [analyze_figure1_trace3_learner_candidates.py](paper/figure_01/panels_f_g_h/analyze_figure1_trace3_learner_candidates.py)
+- [analyze_figure2_trace10.py](paper/figure_02/trace10/analyze_figure2_trace10.py)
+- [analyze_figure2_trace3_matched.py](paper/figure_02/trace3/analyze_figure2_trace3_matched.py)
+- [analyze_figures34_3strace.py](paper/shared/trace3/analyze_figures34_3strace.py)
+- [analyze_figures34_trace10.py](paper/shared/trace10/analyze_figures34_trace10.py)
 - [analyze_trace10_learners.py](analyze_trace10_learners.py)
-- [assemble_figure2_trace10.py](assemble_figure2_trace10.py)
-- [assemble_figure2_trace3_matched.py](assemble_figure2_trace3_matched.py)
-- [audit_figure2_heatmap_ab.py](audit_figure2_heatmap_ab.py)
-- [audit_figure2_heatmap_ab_followup.py](audit_figure2_heatmap_ab_followup.py)
+- [assemble_figure2_trace10.py](paper/figure_02/trace10/assemble_figure2_trace10.py)
+- [assemble_figure2_trace3_matched.py](paper/figure_02/trace3/assemble_figure2_trace3_matched.py)
+- [audit_figure2_heatmap_ab.py](paper/figure_02/assembly/audit_figure2_heatmap_ab.py)
+- [audit_figure2_heatmap_ab_followup.py](paper/figure_02/assembly/audit_figure2_heatmap_ab_followup.py)
 - [audit_trace10_learner_shortlist.py](audit_trace10_learner_shortlist.py)
-- [build_figure2_trace3_panels.py](build_figure2_trace3_panels.py)
-- [build_figure3_3strace_ae.py](build_figure3_3strace_ae.py)
-- [build_figure4_3strace_preliminary.py](build_figure4_3strace_preliminary.py)
-- [build_figure4_3strace_score_draft.py](build_figure4_3strace_score_draft.py)
-- [check_figure3_3strace_ae.cjs](check_figure3_3strace_ae.cjs)
-- [check_figure4_3strace_preliminary.cjs](check_figure4_3strace_preliminary.cjs)
-- [check_figure4_3strace_score_draft.cjs](check_figure4_3strace_score_draft.cjs)
-- [check_figures34_3strace.cjs](check_figures34_3strace.cjs)
-- [check_figures34_trace10.cjs](check_figures34_trace10.cjs)
-- [complete_figures34_trace10.py](complete_figures34_trace10.py)
-- [explore_figure2_columns.py](explore_figure2_columns.py)
-- [figure2_median_pooling.py](figure2_median_pooling.py)
-- [finalize_figures34_3strace.py](finalize_figures34_3strace.py)
-- [finalize_trace3_additions.py](finalize_trace3_additions.py)
+- [build_figure2_trace3_panels.py](paper/figure_02/trace3/build_figure2_trace3_panels.py)
+- [build_figure3_3strace_ae.py](paper/figure_03/trace3/build_figure3_3strace_ae.py)
+- [build_figure4_3strace_preliminary.py](paper/figure_04/trace3_preliminary/build_figure4_3strace_preliminary.py)
+- [build_figure4_3strace_score_draft.py](paper/figure_04/trace3_score_draft/build_figure4_3strace_score_draft.py)
+- [check_figure3_3strace_ae.cjs](paper/figure_03/trace3/check_figure3_3strace_ae.cjs)
+- [check_figure4_3strace_preliminary.cjs](paper/figure_04/trace3_preliminary/check_figure4_3strace_preliminary.cjs)
+- [check_figure4_3strace_score_draft.cjs](paper/figure_04/trace3_score_draft/check_figure4_3strace_score_draft.cjs)
+- [check_figures34_3strace.cjs](paper/shared/trace3/check_figures34_3strace.cjs)
+- [check_figures34_trace10.cjs](paper/shared/trace10/check_figures34_trace10.cjs)
+- [complete_figures34_trace10.py](paper/shared/trace10/complete_figures34_trace10.py)
+- [explore_figure2_columns.py](paper/figure_02/assembly/explore_figure2_columns.py)
+- [figure2_median_pooling.py](paper/figure_02/assembly/figure2_median_pooling.py)
+- [finalize_figures34_3strace.py](paper/shared/trace3/finalize_figures34_3strace.py)
+- [finalize_trace3_additions.py](workflows/trace/finalize_trace3_additions.py)
 - [finish_figure2_trace10.py](finish_figure2_trace10.py)
 - [finish_trace10_example.py](finish_trace10_example.py)
 - [finish_trace10_learner_selection.py](finish_trace10_learner_selection.py)
 - [maintenance/storage_migration.py](maintenance/storage_migration.py)
-- [measure_figure1_trace3_replacement.cjs](measure_figure1_trace3_replacement.cjs)
-- [measure_figure2_exploration.cjs](measure_figure2_exploration.cjs)
-- [measure_saved_figure.cjs](measure_saved_figure.cjs)
-- [measure_trace10_example.cjs](measure_trace10_example.cjs)
-- [polish_trace10_report.py](polish_trace10_report.py)
-- [process_delay_additions.py](process_delay_additions.py)
+- [measure_figure1_trace3_replacement.cjs](paper/figure_01/panels_f_g_h/measure_figure1_trace3_replacement.cjs)
+- [measure_figure2_exploration.cjs](paper/figure_02/assembly/measure_figure2_exploration.cjs)
+- [measure_saved_figure.cjs](paper/shared/measure_saved_figure.cjs)
+- [measure_trace10_example.cjs](paper/figure_01/trace10_example/measure_trace10_example.cjs)
+- [polish_trace10_report.py](paper/figure_01/trace10_learner_selection/polish_trace10_report.py)
+- [process_delay_additions.py](workflows/delay/process_delay_additions.py)
 - [process_trace10_additions.py](process_trace10_additions.py)
-- [process_trace3_additions.py](process_trace3_additions.py)
+- [process_trace3_additions.py](workflows/trace/process_trace3_additions.py)
 - [publish_figure2_trace10.py](publish_figure2_trace10.py)
-- [publish_figure3_3strace_ae.py](publish_figure3_3strace_ae.py)
-- [publish_figure4_3strace_preliminary.py](publish_figure4_3strace_preliminary.py)
-- [publish_figure4_3strace_score_draft.py](publish_figure4_3strace_score_draft.py)
-- [refine_figure2_axes.py](refine_figure2_axes.py)
-- [render_figures34_3strace.py](render_figures34_3strace.py)
-- [render_figures34_trace10.py](render_figures34_trace10.py)
-- [render_trace10_de_correction.py](render_trace10_de_correction.py)
+- [publish_figure3_3strace_ae.py](paper/figure_03/trace3/publish_figure3_3strace_ae.py)
+- [publish_figure4_3strace_preliminary.py](paper/figure_04/trace3_preliminary/publish_figure4_3strace_preliminary.py)
+- [publish_figure4_3strace_score_draft.py](paper/figure_04/trace3_score_draft/publish_figure4_3strace_score_draft.py)
+- [refine_figure2_axes.py](paper/figure_02/assembly/refine_figure2_axes.py)
+- [render_figures34_3strace.py](paper/shared/trace3/render_figures34_3strace.py)
+- [render_figures34_trace10.py](paper/shared/trace10/render_figures34_trace10.py)
+- [render_trace10_de_correction.py](paper/figure_02/trace10/render_trace10_de_correction.py)
 - [render_trace10_example.py](render_trace10_example.py)
-- [render_trace10_learner_comparison.py](render_trace10_learner_comparison.py)
-- [repair_figures34_3strace_layout.py](repair_figures34_3strace_layout.py)
-- [replace_figure1_trace3_example.py](replace_figure1_trace3_example.py)
+- [render_trace10_learner_comparison.py](paper/figure_01/trace10_learner_selection/render_trace10_learner_comparison.py)
+- [repair_figures34_3strace_layout.py](paper/shared/trace3/repair_figures34_3strace_layout.py)
+- [replace_figure1_trace3_example.py](paper/figure_01/panels_f_g_h/replace_figure1_trace3_example.py)
 - [resume_trace10_additions.py](resume_trace10_additions.py)
-- [review_figure1_trace3_runner_up.py](review_figure1_trace3_runner_up.py)
-- [review_figure2_exploration.py](review_figure2_exploration.py)
-- [run_trace3_additions.py](run_trace3_additions.py)
-- [show_figure1_panel_h_five_options.py](show_figure1_panel_h_five_options.py)
-- [trace10_panel_statistics.py](trace10_panel_statistics.py)
-- [verify_figures34_3strace.py](verify_figures34_3strace.py)
+- [review_figure1_trace3_runner_up.py](paper/figure_01/panels_f_g_h/review_figure1_trace3_runner_up.py)
+- [review_figure2_exploration.py](paper/figure_02/assembly/review_figure2_exploration.py)
+- [run_trace3_additions.py](workflows/trace/run_trace3_additions.py)
+- [show_figure1_panel_h_five_options.py](paper/figure_01/panels_f_g_h/show_figure1_panel_h_five_options.py)
+- [trace10_panel_statistics.py](paper/figure_02/trace10/trace10_panel_statistics.py)
+- [verify_figures34_3strace.py](paper/shared/trace3/verify_figures34_3strace.py)
+
+
+## Scoped trace successors and retained entry points
+
+These successors organize the existing trace operations. They preserve scientific
+formulas and input contracts; their availability does not authorize executing an
+analysis or publishing a figure. Browser evidence and candidate locations are
+explicit; existing selected/frozen artifacts are not regenerated by maintenance.
+
+| Maintained command | Contract |
+|---|---|
+| [paper/figure_01/trace10_learner_selection/analyze.py](paper/figure_01/trace10_learner_selection/analyze.py) | Existing fixed-trace ranking calculation; refuses an existing populated run. |
+| [paper/figure_01/trace10_learner_selection/audit_shortlist.py](paper/figure_01/trace10_learner_selection/audit_shortlist.py) | Existing strict-pre-US/actual-US audit; no ranking-rule replacement. |
+| [paper/figure_01/trace10_learner_selection/publish_comparison.py](paper/figure_01/trace10_learner_selection/publish_comparison.py) | `prepare` or guarded `publish`; publication needs an actual visual note and `--browser-evidence-dir` with comparison/preferred reports. |
+| [paper/figure_01/trace10_example/publish.py](paper/figure_01/trace10_example/publish.py) | Separate successor: `--prepare` or `--publish-note`, explicit `--staging-dir`, optional exact `--browser-evidence` file. |
+| [paper/figure_02/trace10/finalize.py](paper/figure_02/trace10/finalize.py) | `prepare`, `verify` or guarded `publish`; `--candidate-dir`, explicit `--browser-evidence` for verification, actual visual note for publication. |
+| [paper/figure_02/trace10/publish_spacing.py](paper/figure_02/trace10/publish_spacing.py) | Spacing candidate with `--candidate-dir`; explicit previous/new browser evidence for prepare/verify; guarded publish delegates with parameters. |
+| [workflows/trace/ingest_fixed10_additions.py](workflows/trace/ingest_fixed10_additions.py) | Existing fixed-trace intake/audit interface and protected source rules. |
+| [workflows/trace/resume_fixed10_additions.py](workflows/trace/resume_fixed10_additions.py) | Exact sealed-plan recovery contract; changed code or partial stages fail closed. |
+
+Seven corresponding old root paths remain compatibility facades. The exact
+[finish_trace10_example.py](finish_trace10_example.py) original remains a
+source-bound reproduction dependency; use the scoped successor for new work.
+All other root commands remain individually retained pending assessment.
+New entry points follow the [script lifecycle](../docs/project-maintenance/script-lifecycle.md).
+
+Historical sealed runs bind their original source tree. Do not reseal an old plan
+or weaken hash checks to run it through changed code. Exact pre-maintenance source,
+configuration, test and environment declarations are recoverable through the
+[implementation record](../records/repository-history/2026-10-28-folder-audit-implementation/README.md).
+Compatibility entry points preserve command names, not permission to replay an
+old publication/intake transaction against current selected state.
+
+The trace comparison `prepare` operation performs its recorded coverage audit
+and illustrative rendering; Figure 2 `verify` also recomputes the recorded saved
+test statistics. These are scientific/audit operations with their original input
+contracts, not generic display or harmless browser-only checks. This maintenance
+used `--help`, synthetic tests and source checks; it did not execute those modes.
+
+### Lightweight figure operations
+
+Working-copy `display-target` and `begin` accept `--state`; full `verify` remains
+separate. The assembler supports `--preview --legend` into a fresh task directory.
+The review builder supports candidate SVG/legend publication without numerical
+reconstruction. See the figure workflow's Lightweight work section for guards.
+Pass `--state`, `--baseline`, `--candidate-svg` and/or `--candidate-legend`, and
+`--update-current` for presentation publication. SVG changes also need declared
+changes, fresh layout evidence and actual visual review. Coordinate edits to data
+graphics/ancestors require mapping-aware layout tools. Without candidate inputs,
+the builder enters Figure 1 reconstruction (`--output`); it rejects other scoped
+states before importing numerical dependencies. It is not an ordinary edit route.
+[Incremental browser registration](reviews/incremental.py) is reached through
+`review_library.py build --changed <new-bundle> --scope figure-02`; full builds
+remain explicit. It appends fresh bundles and requires authenticated recovery before registering changed historical sources.

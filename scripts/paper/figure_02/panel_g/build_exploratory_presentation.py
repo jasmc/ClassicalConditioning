@@ -69,9 +69,9 @@ def dependencies():
             fonts / 'DejaVuSans.ttf', fonts / 'DejaVuSans-Bold.ttf']
 
 
-def load_inputs(out):
+def load_inputs(out, preview=False):
     ticket = json.loads((out / 'start-ticket.json').read_text())
-    check_records(ticket['protected'] + ticket['inputs'])
+    check_records(ticket['inputs'] if preview else ticket['protected'] + ticket['inputs'])
     paths = [Path(e['path']) for e in ticket['inputs']]
     observed = pd.read_parquet(next(p for p in paths if p.name == 'bootstrap-summary.parquet'))
     curve = pd.read_csv(next(p for p in paths if p.name == 'population-trajectory.csv'))
@@ -111,8 +111,8 @@ def star_ranges(trials):
     return ranges
 
 
-def render(out, asterisks=False):
-    ticket, observed, curve, phase, result = load_inputs(out)
+def render(out, asterisks=False, preview=False, inputs_dir=None):
+    ticket, observed, curve, phase, result = load_inputs(inputs_dir or out, preview=preview)
     if asterisks != (ticket.get('presentation_variant') == 'asterisks'):
         raise ValueError('Render option must match the pre-edit ticket variant')
     marked_trials, marked_phases = star_decisions(curve, phase) if asterisks else ([], [])
@@ -293,6 +293,10 @@ This is an unfrozen exploratory version. Model bands remain provisional: shape s
             'An asterisk denotes a nominal 95% simultaneous interval excluding zero; trial marks also require adequate outcome coverage. Brackets group consecutive qualifying trial contrasts: each bracket’s asterisk applies to every included trial, not a pooled-range test or an onset interval. Qualifying results are ' + range_text + ' and ' + phase_text + '. The same binary criterion applies to the phase-effect asterisk. Asterisks are not BH-adjusted p-values or p<0.01/p<0.001 tiers. Unmarked estimates need not be zero. The bracket’s beginning is not an acquisition estimate, and no acquisition marker is drawn.')
     paragraphs = ''.join('<p>' + html.escape(p).replace('**', '') + '</p>' for p in legend.strip().split('\n\n'))
     page = '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Exploratory Figure 2 G</title><style>body{margin:20px auto;max-width:850px;padding:0 18px;background:white;color:#161616}svg{display:block;width:100%;height:auto}figcaption{font:14px/1.55 Georgia,serif}figure{margin:0}@media print{body{margin:0;padding:0;max-width:none}svg{width:183mm;height:122mm}}</style></head><body><figure>' + svg.decode() + '<figcaption>' + paragraphs + '</figcaption></figure></body></html>'
+    if preview:
+        from classical_conditioning.figures.preview import write_preview
+        return write_preview(svg,legend,out,inputs=ticket['inputs'],sources=sources,
+            command='build_exploratory_presentation.py render --preview',parameters={'asterisks':asterisks})
     check_records(ticket['protected'] + ticket['inputs']); check_records(sources)
     with state_lock(out / 'render'):
         for name in OUTPUTS:
@@ -354,7 +358,12 @@ if __name__ == '__main__':
     parser.add_argument('stage', choices=['render', 'publish'])
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--asterisks', action='store_true', help='Additional variant using binary joint-interval exclusion marks')
+    parser.add_argument('--preview',action='store_true')
+    parser.add_argument('--inputs-dir',type=Path)
     args = parser.parse_args()
+    if args.preview:
+        if args.stage!='render' or not args.inputs_dir:parser.error('--preview requires render and --inputs-dir')
+        print(render(args.output_dir,asterisks=args.asterisks,preview=True,inputs_dir=args.inputs_dir));raise SystemExit(0)
     if not args.output_dir.resolve().is_relative_to('/Volumes/JOAQUIM') or not Path('/Volumes/JOAQUIM').is_mount():
         raise ValueError('Use mounted JOAQUIM and a new explicit destination')
     if args.stage == 'render': render(args.output_dir.resolve(), asterisks=args.asterisks)

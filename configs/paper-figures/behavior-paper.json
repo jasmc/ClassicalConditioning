@@ -66,7 +66,7 @@
       "freeze_scope_status": "author-approved retained frozen panel"
     },
     "fig-1B": {
-      "role": "within-trial CS–US protocol contingencies: Delay, 3sTrace, 10sTrace and unpaired control",
+      "role": "within-trial CS\u2013US protocol contingencies: Delay, 3sTrace, 10sTrace and unpaired control",
       "source_artifacts": [
         "configs/paper-figures/selections/figure1-freeze.json"
       ],
@@ -253,12 +253,12 @@
       "presentation_mapping": {
         "display_panel": "H",
         "source_panel": "G",
-        "condition": "3 s Trace",
-        "fish_id": "20230307_12"
+        "condition": "3sTrace",
+        "fish_id": "20230419_10"
       }
     },
     "fig-2A": {
-      "role": "Control versus Delay equal-fish pooled signed bout-log-vigor heatmaps, managua_r at −0.25 to +0.25",
+      "role": "Control versus Delay equal-fish pooled signed bout-log-vigor heatmaps, managua_r at \u22120.25 to +0.25",
       "source_artifacts": [
         "reviewed Delay cohort",
         "corrected candidate metrics",
@@ -309,7 +309,7 @@
       "freeze_scope_status": "frozen via explicit gate"
     },
     "fig-2F": {
-      "role": "10sTrace block CR ratios at trials 10–14, 65–69, 90–94; inconclusive",
+      "role": "10sTrace block CR ratios at trials 10\u201314, 65\u201369, 90\u201394; inconclusive",
       "source_artifacts": [
         "reviewed 10sTrace cohort",
         "selected-block ratio",

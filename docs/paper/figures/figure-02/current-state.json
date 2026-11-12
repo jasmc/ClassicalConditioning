@@ -24,33 +24,22 @@
     "status": "scoped A, D/E and G freezes; no whole-figure freeze"
   },
   "draft": {
-    "status": "C/F/I common61 approved10sTrace fish; D/E/F separate Holm18 with min3; unfrozen scientific drafts",
+    "status": "Unfrozen scientific draft; A\u2013C robust baseline z-scores after equal-fish pooling; D\u2013I unchanged",
     "working_svg": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/current/figure2-current-minimal.svg",
-      "sha256": "9523a63afb17b8af0ed8af9d18e8821f5023b4bc6bfe286741f3efe52d95b064"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/figure.svg",
+      "sha256": "07ae96d0e49c1cb8122a93fe6bd897ad7043c52e475ed41da6337e221bf3ae3c"
     },
     "review": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/current/figure2-current-minimal.html",
-      "sha256": "0ef0f279fb65952eba368d36fcc2de07b978ecd8ee712fa38c13e18ec04c60a8"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/figure.html",
+      "sha256": "1d800a89c2c5ccbabf3845b01bbf36897422a4f1874a1a523e4f510ccb6a73f1"
     },
     "legend": {
-      "path": "/Users/joaquim/Documents/Codex/2026-09-15/clo/ClassicalConditioning/docs/paper/figures/figure-02/legend.md",
-      "sha256": "cb477693c012f9264f87c2f3e5f6245da29896e21a6d15675098295855732a31",
-      "panel_ids": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I"
-      ]
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/legend.md",
+      "sha256": "72316ad3202eff50bedc8c1986560a33a55f052ac887f93fd099c82010b901cf"
     },
     "semantic_registry": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panels-c-f-i/versions/figure-02-10strace-20261020/final-spacing/semantic-registry.json",
-      "sha256": "166c0e5df9a46738b9392f0a07a3c04b39625eda30f14de8e6327517f278b7e1"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/semantic-registry.json",
+      "sha256": "8c3fab447aa0079c2c12e8351a8125ddcf2d0c486ce5c30b0130d2349d0c8ea2"
     },
     "consistency_requests": [
       {
@@ -154,7 +143,7 @@
           "E",
           "F"
         ],
-        "author_direction": "2026-10-15: move n=29/29/29-like counts and Fish median/IQR · Holm36; dagger versus zero sign/BM methods to legend",
+        "author_direction": "2026-10-15: move n=29/29/29-like counts and Fish median/IQR \u00b7 Holm36; dagger versus zero sign/BM methods to legend",
         "status": "verified",
         "properties": [
           "cohort block counts and method captions in legend",
@@ -416,7 +405,7 @@
             },
             "role": "axis.title",
             "renderer_artist": "edit-D-axis-title__d-delay__y",
-            "text": "(response − baseline)",
+            "text": "(response \u2212 baseline)",
             "expected": {
               "family": "DejaVu Sans",
               "size_pt": 8.0,
@@ -469,7 +458,7 @@
             },
             "role": "axis.title",
             "renderer_artist": "fig2__g__native__label-y",
-            "text": "(response − baseline)",
+            "text": "(response \u2212 baseline)",
             "expected": {
               "family": "DejaVu Sans",
               "size_pt": 8.0,
@@ -560,7 +549,7 @@
               "edit-D-axes__d-control__main",
               "edit-D-axes__d-delay__main"
             ],
-            "between_condition_annotations": "Symmetric ET–ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
+            "between_condition_annotations": "Symmetric ET\u2013ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
           },
           {
             "display_panel": "E",
@@ -576,7 +565,7 @@
               "edit-E-axes__e-control__main",
               "edit-E-axes__e-trace__main"
             ],
-            "between_condition_annotations": "Symmetric ET–ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
+            "between_condition_annotations": "Symmetric ET\u2013ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
           },
           {
             "display_panel": "F",
@@ -742,6 +731,113 @@
           "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/panels-c-f-i/versions/figure-02-10strace-20261020/final-spacing/layout-evidence.json",
           "sha256": "b0100a0666f688b049118643351cd4a4cf35d8260232a2291e19e24b43b4877f"
         }
+      },
+      {
+        "id": "fig2-three-column-centres-20261029",
+        "type": "layout",
+        "panels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I"
+        ],
+        "properties": [
+          "A/D/G, B/E/H and C/F/I data-body centres aligned",
+          "panel letters share column left edges"
+        ],
+        "columns": [
+          [
+            "A-pair",
+            "D-pair",
+            "G-observed"
+          ],
+          [
+            "B-pair",
+            "E-pair",
+            "H-observed"
+          ],
+          [
+            "C-pair",
+            "F-pair",
+            "I-observed"
+          ]
+        ],
+        "centres_mm": [
+          32.0,
+          80.0,
+          128.0
+        ],
+        "tolerance_mm": 0.02,
+        "status": "verified",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-three-columns-20261029-v2/layout-evidence.json",
+          "sha256": "9cc53af1ae3f9738f2705fba9b633ac80e9705b8737a664fa975a46f6f5029ad"
+        },
+        "artifact_sha256": "ecce42bd25e3a5c14783828ba6e7e03d594db68f34a2fe36f3e4ff82552369aa"
+      },
+      {
+        "id": "fig2-statistics-trial-registration-20261029",
+        "type": "layout",
+        "panels": [
+          "G",
+          "H",
+          "I"
+        ],
+        "properties": [
+          "statistical marks and phase headers use the trajectory global-CS-trial mapping",
+          "row explanations moved to matching legend"
+        ],
+        "source_definition": "Observed SVG trial ticks 5/94; saved producer phase centres 9.5+10*i and shared (4,95) trial limits",
+        "tolerance_mm": 0.02,
+        "status": "verified",
+        "artifact_sha256": "051fc2584fd3b6f7e4fab0cea87dca485d48e7a0c23c188c60d4c12470eedb3e",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-trial-aligned-stats-20261029/layout-evidence.json",
+          "sha256": "92d6cc04d9f759eb0a4f4c8d6acee25ae7da49c8908623e2379d7026b5b0d807"
+        }
+      },
+      {
+        "id": "fig2-statistical-trial-markers-and-phase-guides-20261029",
+        "type": "layout",
+        "panels": [
+          "G",
+          "H",
+          "I"
+        ],
+        "properties": [
+          "all saved significance marks mapped to observed global-CS-trial coordinates",
+          "Pre/Train and Train/Test guides at 14.5 and 64.5 across all statistical rows"
+        ],
+        "source_definition": "Hash-bound saved D/MR/phase CSVs, observed ticks 5/94 and recorded trial phases",
+        "status": "verified",
+        "tolerance_mm": 0.02,
+        "artifact_sha256": "77ab024fdd88ff198a4b4ca62666835cff8a019f75145fa57325520a86c66d9c",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-stats-separators-20261029/layout-evidence.json",
+          "sha256": "95de93adc996b4bedc74a758e095bbc371fe3f6a68bc87d9f9883a0dfdf79836"
+        }
+      },
+      {
+        "id": "heatmap-CS-guide-emphasis-20261031",
+        "scope": "heatmap CS guides",
+        "properties": {
+          "width_pt": 1,
+          "stroke_opacity": 1
+        },
+        "status": "verified for scoped guides; inherited broader coverage unchanged",
+        "evidence": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/evidence.json",
+          "sha256": "e389681cd16749d407e26b319eb8c89c384d45174246bf85b1f9c475cf769081"
+        },
+        "visual_review": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/visual-review.json",
+          "sha256": "fd4ad9de6f535263549d0d2fe6b5c41c370dd972c0fe38e3ef9013b4431248e8"
+        }
       }
     ],
     "reproduction": {
@@ -770,17 +866,17 @@
       }
     },
     "assembly_scale": {
-      "final_width_mm": 156.0,
+      "final_width_mm": 159.0,
       "final_height_mm": 156.46844886241252,
       "A_native_scale": 1
     },
     "layout_frames": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-02-layout-evidence.json",
-      "sha256": "f17b067aef34eeec8e4902fdb31d6ae5b586c9cea2c8e0d19f7000cc90741701"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-stats-separators-20261029/layout-evidence.json",
+      "sha256": "95de93adc996b4bedc74a758e095bbc371fe3f6a68bc87d9f9883a0dfdf79836"
     },
     "effective_presentation": {
-      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/cross-figure-reviews/authority-reconciliation-20261025/figure-02-effective-presentation.json",
-      "sha256": "197b863763d06c03995516d12d9d4c0bae773e095fae336d1fecb1b5d7847dc8"
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/effective-presentation.json",
+      "sha256": "047f3ddba93c730729994f2a7e8af008a951f2c971558020dcdbbd81fd74b241"
     },
     "condition_order": [
       {
@@ -797,7 +893,7 @@
           "edit-D-axes__d-control__main",
           "edit-D-axes__d-delay__main"
         ],
-        "between_condition_annotations": "Symmetric ET–ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
+        "between_condition_annotations": "Symmetric ET\u2013ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
       },
       {
         "display_panel": "E",
@@ -813,7 +909,7 @@
           "edit-E-axes__e-control__main",
           "edit-E-axes__e-trace__main"
         ],
-        "between_condition_annotations": "Symmetric ET–ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
+        "between_condition_annotations": "Symmetric ET\u2013ET comparison endpoints remain fixed; within-condition and zero annotations move with their condition"
       },
       {
         "display_panel": "F",
@@ -877,7 +973,23 @@
         "status": "performed",
         "note": "Inspected the exact saved full Figure 2 render: C control/10sTrace heatmaps replace placeholders with correct trial orientation and shared scale; F paired fish and median/IQR use separate Holm18 and min3; I trajectories, phase headers and statistical rows match G/H dimensions. Corrected D/E annotations and matching readable legend are visible. A/B/G/H subtree bytes are unchanged. The canvas expands to156 mm without scaling existing panels; I content spacing matches G/H. Independent C pooling/counts, D preservation, E eligibility, separate D/E/F tests, I family sizes and excluded-fish sensitivity passed. Exact600dpi painted/unclipped frame checks passed. This is a scientific draft, not a freeze; production and influence audits remain separate."
       },
-      "coverage": "Numerical identity, common roster, separate families, preserved A/B/G/H, exact600dpi paint/unclipped frame checks. Production font/PDF/accessibility and influence audits remain separate."
+      "coverage": "Numerical identity, common roster, separate families, preserved A/B/G/H, exact600dpi paint/unclipped frame checks. Production font/PDF/accessibility and influence audits remain separate.",
+      "canvas_visibility_repair": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-row2-canvas-repair-20261028/publication-evidence.json",
+        "sha256": "740a290b3d4f1ef3b425c775389afb7f8600852ce46e61821c7eb082d68bbb62"
+      },
+      "three_columns": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-three-columns-20261029-v2/layout-evidence.json",
+        "sha256": "9cc53af1ae3f9738f2705fba9b633ac80e9705b8737a664fa975a46f6f5029ad"
+      },
+      "statistics_trial_registration": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-trial-aligned-stats-20261029/layout-evidence.json",
+        "sha256": "92d6cc04d9f759eb0a4f4c8d6acee25ae7da49c8908623e2379d7026b5b0d807"
+      },
+      "statistics_phase_guides_and_marker_positions": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-stats-separators-20261029/layout-evidence.json",
+        "sha256": "95de93adc996b4bedc74a758e095bbc371fe3f6a68bc87d9f9883a0dfdf79836"
+      }
     },
     "axis_refinement": {
       "evidence": {
@@ -1163,6 +1275,55 @@
         "Paper scientific gates and complete production/accessibility checks remain open",
         "Historical source-machine generator references are retained, not claimed executable on this Mac"
       ]
+    },
+    "robust_heatmap_normalization": {
+      "recipe": "baseline-mad-robust-z-v1",
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-robust-baseline-20261031/evidence.json",
+        "sha256": "735fbcffaf8f1ed281fa39aa35d92c2d3cec64b825c3f6de7522c05abec14048"
+      },
+      "data": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-robust-baseline-20261031/normalized-bins.parquet",
+        "sha256": "0b439a1b3942f50038b17bba7a7e5b3de907d9558e7d07ed059b0b514b4ba478"
+      },
+      "visual_review": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-robust-baseline-20261031/visual-review.json",
+        "sha256": "0e3d15a9f41ae178628bb7efb5d3b334b02bf1ca081ebc15a36634cb34a7c7fe"
+      },
+      "previous_state": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-robust-baseline-20261031/starting-state.json",
+        "sha256": "0f87f870ce014d4374e02e58a4840e50ed228ffe63a0a65e5373361a59ab4b0b"
+      },
+      "scope": [
+        "A",
+        "B",
+        "C"
+      ],
+      "scientific_freezes_replaced": false
+    },
+    "cs_guide_emphasis": {
+      "evidence": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/evidence.json",
+        "sha256": "e389681cd16749d407e26b319eb8c89c384d45174246bf85b1f9c475cf769081"
+      },
+      "previous_state": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/figure-02-cs-guides-20261031/starting-state.json",
+        "sha256": "01d60fb757358c4cf42293f6d4fd2f4d5efa3d4b9c1eb41a54cd9c5317860537"
+      }
+    }
+  },
+  "presentation_lock": {
+    "status": "unlocked-new-scientific-draft",
+    "previous_lock": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-02/assembly/versions/locked-current-20261029/version-lock.json",
+      "sha256": "afa66eb02abadb38af1e88dda8677c49aa0d0cbf5941fd626cb9cbe5327691dc",
+      "status": "locked",
+      "kind": "provisional-presentation-lock",
+      "date": "2026-10-29",
+      "scope": "Current full presentation and matching PNG-based PDF",
+      "retain_other_versions": true,
+      "future_edits_require_new_version": true,
+      "publication_freeze_completed": false
     }
   }
 }

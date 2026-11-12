@@ -150,14 +150,28 @@ def render(figures):
 
 
 def display_target(state_path=STATE):
-    state,snapshot,figures=resolve(state_path)
-    if state.get('inputs')!=snapshot_inputs(snapshot,state_path,state['html']['path']):raise StaleFigureState('Collection is stale; run build or recover its authenticated saved wrapper')
-    authenticate(state['html'],snapshot)
-    if state.get('verification'):
-        verification=json.loads(authenticate(state['verification'],snapshot))
-        if verification.get('html_sha256')!=state['html']['sha256']:raise StaleFigureState('Stale collection verification')
-    snapshot.check()
-    return {'html':{**state['html'],'path':str(resolve_artifact(state['html']['path'],expected_sha256=state['html']['sha256'],repo=ROOT))},'figures':[f['id'] for f in figures],'open_target':'built-in-browser','whole_figure_freeze_created':False}
+    """Authenticate the saved collection without rebuilding or auditing current code."""
+    from classical_conditioning.external_artifacts import ResolutionSession
+    with ResolutionSession():
+        raw=Path(state_path).read_bytes();state=json.loads(raw)
+        snapshot=Snapshot([]);snapshot.hashes[str(Path(state_path).resolve())]=sha(raw)
+        for selected in state['figures']:
+            path=ROOT/selected['state'];source=path.read_bytes()
+            key=normalized_reference(path,ROOT)
+            if state.get('inputs',{}).get(key)!=sha(source):
+                raise StaleFigureState('Collection source state advanced; run build explicitly')
+            snapshot.hashes[str(path.resolve())]=sha(source)
+            scoped=json.loads(source);active=scoped[scoped.get('default_display','draft')]
+            for name in ('working_svg','review','legend'):
+                authenticate(active[name],snapshot,allow_historical=scoped.get('default_display','draft')!='draft')
+            for ref in scoped.get('scientific_selection',{}).get('records',[]):authenticate(ref,snapshot)
+        authenticate(state['html'],snapshot)
+        if state.get('verification'):
+            verification=json.loads(authenticate(state['verification'],snapshot))
+            if verification.get('html_sha256')!=state['html']['sha256']:raise StaleFigureState('Stale collection verification')
+        snapshot.check()
+        return {'html':state['html'],'figures':[f['figure_id'] for f in state['figures']],
+                'open_target':'built-in-browser','whole_figure_freeze_created':False}
 
 
 def snapshot_inputs(snapshot,state_path,output_path=OUTPUT):

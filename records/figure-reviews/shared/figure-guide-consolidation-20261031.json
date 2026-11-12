@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-31",
+  "scope": "author-requested one figure guide and one current contract",
+  "status": "consolidation complete; follow-up tests, repository structure and synthetic raster equivalence passed; browser-only QA unavailable",
+  "starting_sha256": {
+    "AGENTS.md": "52629908ad1cfa1c784594ff55dc5155b8182d4f1f56c74ca66f63d0812ecfa8",
+    ".agents/skills/paper-figures/SKILL.md": "15c6b6d87fd20532c8778b0a286fda6b92f0b18bb506c3d0f69691cd52ab9411",
+    "docs/paper/figures/shared/iteration-workflow.md": "e29194a8f7d969b5c3cae46a341915502ff1b19e662dda5c4cc360330274d3c0",
+    "docs/paper/figures/shared/nature-style.md": "1d68d86e8da84dfc87ec08a79f9ea289aa5535c8abcbf62ecb823530b0fcc229",
+    "docs/paper/figures/shared/figure-element-specification.md": "3dbfc556d382f223ee3dd563b777af5d0050d9fea7379919cbfbc36439a7d0bb",
+    "configs/paper-figures/figure-elements.json": "61c9407cdf18b052798fba99ba3935615c8cb0bf4fc4ca7f40a80d210e66bf24",
+    "configs/paper-figures/nature-main.json": "a2941821c8873f1559efe200b72467f84376e53dc08232c6438e496ef6b39732",
+    "configs/paper-figures/layout-frames.json": "d77e8b94880f60d255ecd2772043b67414bad0ce7b08a297aeee01e6c632db3c"
+  },
+  "compatibility_root": "records/figure-history/shared/contracts/2026-10-31",
+  "archive_manifest": "records/repository-archive/figure-guide-consolidation-20261031/transfer-inventory.json",
+  "disposition": {
+    "authority_and_protection": "AGENTS.md and single guide authority/publication sections",
+    "routes": "single guide task routes; skill is an entrypoint",
+    "semantic_roles_and_representations": "guide semantic registry plus unified contract roles; historical specifications immutable",
+    "nature_layout_and_production": "guide presentation sections; unified contract values and rule origins",
+    "freeze": "single guide complete panel/assembly/letter procedure and validator",
+    "legacy": "exact configuration set in dated local compatibility home; original guidance in verified archive",
+    "science": "methods, decisions, selection records, scoped states and frozen originals preserved",
+    "historical_recipes": "Original pre-consolidation workflow in verified archive; current guide links its receipt; supported commands remain in tool catalogue.",
+    "scoped_relationships": "Figure 1 and Figure 2 existing assembly guidance; scientific selections and displayed source mappings retained.",
+    "source_capture": "Study builder snapshots unified guide once; nature source key aliases that snapshot for existing templates."
+  },
+  "validation": {
+    "tests": {
+      "focused": 167,
+      "additional_figure_consumers": 27,
+      "distinct_total_passed": 194,
+      "fixtures": "synthetic; no selected artwork regenerated or scientific analysis executed"
+    },
+    "equivalence": "All resolved styles, roles, typography, colors, plot families, shared theme parameters, journal constraints and layout-policy values match pre-consolidation resolution.",
+    "exact_recovery": {
+      "verified_originals": 53,
+      "legacy_configuration_versions": 3,
+      "standalone_guidance_originals": "hash-authenticated SSD archive; no redirect stubs"
+    },
+    "selection_state_and_original_specification_hashes": {
+      "checked": 26,
+      "unchanged": true
+    },
+    "structure": {
+      "protected_entries_checked": 369,
+      "scoped_states_checked": 10,
+      "issues": "Only the same two pre-existing missing-audit relocation/hash issues; no new structure/link issues."
+    },
+    "changed_document_links": {
+      "checked": 202,
+      "issues": []
+    },
+    "skill": "official quick_validate.py passed; PyYAML installed only in temporary validation directory",
+    "saved_display_targets": {
+      "figure-1": {
+        "authenticated": true,
+        "svg_sha256": "74d9c2e55479eecc6f4a67ab3c9324d22a1884a1ee70fcfd9ffe400608dd48b0"
+      },
+      "figure-2": {
+        "authenticated": true,
+        "svg_sha256": "77ab024fdd88ff198a4b4ca62666835cff8a019f75145fa57325520a86c66d9c"
+      },
+      "collection": {
+        "authenticated": false,
+        "issue": "Collection source state advanced; run build explicitly"
+      }
+    },
+    "collection_limit": "Source-state mismatch pre-exists this task: collection and selected scoped-state bytes are unchanged from the starting snapshot. No collection rebuilt.",
+    "browser": {
+      "status": "blocked",
+      "reason": "Browser security policy rejects file:// fixture URLs; no alternate route attempted after rejection.",
+      "synthetic_svg_identity": "Byte-identical pre/post-contract SVGs prepared at 89, 136 and 183 mm; actual browser paint/print review not performed."
+    },
+    "whitespace": "Passed with CRLF-aware Git whitespace rules; original source line endings preserved.",
+    "unrelated_concurrent_edits": "cohort_outcomes.py, inference/model_input.py and test_cohort_outcomes.py changed independently during this task; left untouched."
+  },
+  "source_snapshot_manifest": "records/repository-archive/figure-guide-consolidation-20261031/source-snapshots.json",
+  "preserved_additional_originals": 45,
+  "retired_active_files": [
+    "docs/paper/figures/shared/nature-style.md",
+    "docs/paper/figures/shared/figure-element-specification.md",
+    "configs/paper-figures/nature-main.json",
+    "configs/paper-figures/layout-frames.json"
+  ],
+  "current_guide": "docs/paper/figures/shared/iteration-workflow.md",
+  "current_contract": {
+    "path": "configs/paper-figures/figure-elements.json",
+    "schema_version": 2,
+    "specification_version": "2.0.0",
+    "sha256": "a0da5630a013b747677400f9af92360793163fe7ca4c12f5972ad9ed7b8bf87d"
+  },
+  "completion_followup": {
+    "tests_passed": 194,
+    "structure": {
+      "issues": [],
+      "unavailable_external_evidence": [],
+      "protected_files_checked": 369,
+      "current_states_checked": 10,
+      "verified_transactions": [],
+      "external_verification": "not-requested"
+    },
+    "audit_restoration": {
+      "path": "records/scientific-evidence/audits/fish-selection-policy-review-2026-10-11.md",
+      "source": "HEAD blob matched immutable migration record",
+      "sha256": "3913af082071c09ca4f182dffb86047afeebe705de48e7fa374fe129a9e52133"
+    },
+    "catalogue": "Added the two concurrently introduced robust-normalization scripts to scripts/README.md; scripts not executed.",
+    "raster_verification": {
+      "renderer": "Matplotlib Agg at 300 dpi; synthetic data only",
+      "results": [
+        {
+          "width_mm": 89,
+          "pixel_identical": true,
+          "size_px": [
+            1039,
+            401
+          ]
+        },
+        {
+          "width_mm": 136,
+          "pixel_identical": true,
+          "size_px": [
+            1594,
+            401
+          ]
+        },
+        {
+          "width_mm": 183,
+          "pixel_identical": true,
+          "size_px": [
+            2149,
+            401
+          ]
+        }
+      ],
+      "actual_browser_or_print_review": false
+    },
+    "collection": "Saved wrapper SVGs, legends and source states differ from both selected figures; pointer-only recovery would be invalid. Refresh requires a separate artwork build/review, explicitly excluded by the consolidation plan.",
+    "browser": "The prior file:// security rejection remains respected; no alternative browser route attempted.",
+    "selected_artwork_or_scientific_state_changed_by_followup": false
+  }
+}

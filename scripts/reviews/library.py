@@ -276,9 +276,15 @@ def main():
     parser.add_argument("--output-root", type=Path, default=OUTPUTS)
     parser.add_argument("--archive-root", type=Path, default=ARCHIVE)
     parser.add_argument("--external", action="store_true")
+    parser.add_argument("--changed",type=Path,action="append",default=[])
+    parser.add_argument("--scope",action="append",default=[])
     args = parser.parse_args()
     catalogue = json.loads(args.catalogue.read_text(encoding='utf-8'))
-    if args.command == "build":
+    if args.changed:
+        if args.command!="build":parser.error("--changed applies to build")
+        from scripts.reviews.incremental import build_changed
+        result=build_changed(args.output_root,args.archive_root,ROOT,args.changed,args.scope)
+    elif args.command == "build":
         result = build(catalogue, args.output_root, args.archive_root)
     else:
         result = check(catalogue, ROOT, args.output_root, args.archive_root, external=args.external)

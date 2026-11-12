@@ -1,62 +1,47 @@
-# Figure iteration, semantic mapping and chat handoff
+# Figure guide
 
-Standing author directions: 2026-10-09 through 2026-10-13. The repository
-[AGENTS.md](../../../../AGENTS.md) contains the concise rules; this document
-contains procedures. Neither creates a scientific selection or an implicit freeze.
+This is the single maintained guide for figure display, saved-input previews,
+scientific element mappings, Nature presentation, layout, publication and freeze.
+[AGENTS.md](../../../../AGENTS.md) owns essential repository protections; the
+[paper-figures skill](../../../../.agents/skills/paper-figures/SKILL.md) routes requests here.
+The [unified contract](../../../../configs/paper-figures/figure-elements.json) supplies
+machine-readable roles, current style values, rule origins and frame policy.
+Scoped scientific selections and presentation states remain separate authorities.
+Read only the task route and relevant sections; neither this guide nor contract
+resolution selects science, edits artwork or creates a freeze.
 
-The repository [paper-figures skill](../../../../.agents/skills/paper-figures/SKILL.md)
-routes figure requests to this workflow and the supported tools. It can be
-selected automatically or invoked explicitly as `$paper-figures`. Root
-instructions require reading it for figure work even if discovery is unavailable.
-Keep the workflow here as the single procedural authority; the skill is an
-entrypoint, not another scientific selection or style specification.
+For new heatmaps, apply the standing [robust baseline normalization decision](../../decisions.md#2026-10-31--robust-baseline-normalization-for-all-heatmaps)
+and its recorded aggregation order. This scientific method change does not
+rewrite selected/frozen artwork or turn a display request into recomputation.
 
 ## Task routes
 
-For every figure task, read **Two separate current states** and resolve the
-requested scope's state, selection and legend. Then read the applicable sections:
+For selected artwork, read **Two separate current states** and resolve only the
+requested scope's state, scientific selections, legend and consumed bindings.
+For a disposable preview from explicit saved inputs, start with **Lightweight work**.
+Choose the smallest route that covers the request; expand it when the change
+actually affects another relationship. The checks below preserve source
+identity and publication safeguards without turning each edit into a freeze.
 
-- Display: **Display and working formats**; plural paper display also needs
-  **Main-paper collection**. Version comparison uses **Ordered version browsing**
-  and the maintained [review library](../review-library.md).
-- Draft/legend edits: **Operational commands and concurrency**, **Verification
-  before accepting a candidate** and **Linked panels and legends**.
-- Style/consistency/layout: the edit route plus the relevant **Semantic registry**,
-  **Invisible layout frames**, axis/annotation or Nature migration sections.
-- Explicit freeze: **What happens when the author freezes** and its linked
-  specification. Do not load or execute this route for ordinary edits/exports.
+| Request | Inputs and sections | Required checks and outcome |
+|---|---|---|
+| Display a figure/panel | Selected SVG/legend; **Display and working formats** | Authenticate saved bytes and inspect the exact rendered scope. No restyling or state selection. Plural main-paper display uses **Main-paper collection** and its guarded build. |
+| Compare retained versions | Requested bundles; **Ordered version browsing** and the [review library](../review-library.md) | Preserve each legend/source binding; browsing does not change selection. |
+| Disposable preview | Explicit saved inputs; **Lightweight work** | Verify hashes, units/interpretation and provisional status; retain the complete recovery bundle. No state bootstrap, full registry, journal audit or global navigation refresh. |
+| Legend-only edit | Selected artwork, candidate legend and starting ticket; **Operational commands and concurrency**, **Linked panels and legends** | Check affected definitions and rendered legend; preserve SVG bytes. A scientific interpretation change uses the scientific route. |
+| Presentation edit | Selected bundle, starting ticket and declared candidate changes; **Operational commands and concurrency**, **Verification before accepting a candidate** | Check the change boundary, scientific payload and affected final-scale properties; inspect the saved candidate. SVG publication requires fresh bound frame evidence; legend-only publication does not. |
+| Consistency or layout | Edit inputs plus named roles/relationships; **Semantic registry and linked-panel checks**, relevant frame/axis sections | Update scoped registry/evidence, measure affected relationships and report partial coverage. Whole-layout work also uses **Composition review**. |
+| Scientific work | Claim/estimand, selected definitions and affected input chain; [governance](../../../project-maintenance/governance.md), [decisions](../../decisions.md) and [methods](../../methods/README.md) | Resolve relevant open decisions before execution; use scientific validation and reconcile methods/legend. Styling permission does not select a method. |
+| Explicit freeze | Exact approved candidate/bundle; **What happens when the author freezes** and its specification | Complete mappings, genuine reviews and check-only gate, then guarded publication of the complete required panel/assembly/letter set. Ordinary edits/exports never invoke this route. |
 
-Use section headings to make bounded reads; follow a cross-reference when the
-task depends on it. Detailed procedures remain here. Source authentication,
-manual-edit protection and required scientific/render checks are not optional
-because a smaller route was chosen. Plans own future work, not current state.
-
-## Nature target and migration status
-
-Author direction, 2026-10-16: use Nature's figure guidance for the next
-paper-figure presentation revision, including the complete element registry,
-scientific identities, typography, layout, captions and delivery checks.
-The [maintained Nature target](nature-style.md) owns the selected rules and
-exact project choices. The [Nature implementation checklist](../../../../Plans/07_FIGURE_BUILD_TOOLS.md#5-nature-main-figure-presentation-profile)
-owns remaining code/artwork work, known fixes and sequence;
-the [source comparison](../../../../records/figure-reviews/nature-guidance-20261016.md)
-links the official guidance. Track implementation in the existing plan index.
-
-The `nature-main` profile resolver, shared-theme adapter and scoped Figure 1/2
-migration tooling are implemented; final migration publication and broader
-renderer/production integration remain pending.
-Use the coding entry point in the maintained guidance for exact values and input
-hashes. Profile lookup does not publish state or execute the freeze gate.
-Author direction, 2026-10-17: pre-Nature styling is retired for new paper work.
-Its numerical instructions have been removed from current procedures and
-[archived with their original bytes](../../../../records/repository-archive/2026-10-17-retired-styling/README.md).
-Unprofiled renderers and historical contracts remain compatibility/reproduction
-dependencies, not alternative paper styling targets. Resolve new typography and
-stroke values through the Nature profile. Preserve compatible
-author rules, including invisible frames, absolute axis spacing, right-aligned
-keys and typed panel/scientific relationships. Current saved drafts remain
-authoritative until replacements pass scoped guarded publication. This direction
-does not select new science, freeze a figure or authorize historical cleanup.
+Use headings for bounded reads. Read **Requirements, choices and precedence** for new styling or requested
+journal verification, and the frame sections for layout work. Source authentication,
+manual-edit protection and applicable scientific/render checks remain required.
+An unavailable source or publication conflict stops dependent publication; continue
+independent code/doc work and report the concrete limitation. Ask only about
+unresolved scientific choices, conflicting author directions or proposed changes
+to standing design preferences. Existing scoped approvals remain in force.
+Plans own future work; scoped state and exact bindings own current presentation.
 
 ## Two separate current states
 
@@ -84,12 +69,13 @@ scientific definitions or create several competing “latest” manifests.
 
 ## Display and working formats
 
-Author direction on 2026-10-13: maintain one active Figure 1 working SVG and its matching review, resolved from current state. The initial v10 selection has been superseded by the author-requested edits. Update the same active pair with `scripts/paper/shared/build_legend_review.py --update-current`; do not accumulate working versions. The approved v15 freeze candidate remains preserved separately.
-“Show Figure 1” follows `default_display` in state, now `draft`, and opens its
-authenticated HTML review (`default_display_format: html-svg-and-legend`). The author
-authorized removal of the other standalone working SVGs; historical HTML
-reviews and scientific freezes remain preserved. Requesting frozen selections
-explicitly does not change the working version or imply a whole-figure freeze.
+Follow the scoped state's `default_display` and `default_display_format`.
+Figure 1's author-selected single-draft policy maintains one active SVG and
+matching review; update that pair through guarded presentation publication.
+Preserved freeze candidates, historical HTML and scientific freezes remain
+separate. An explicit frozen view never resets the draft or implies a whole-figure
+freeze. Exact versions and approved dispositions resolve through state and
+[Figure 1 guidance](../figure-01/README.md), not a procedural handoff summary.
 
 Opening a specific figure or panel displays only its selected working SVG and
 associated legend, in minimal self-contained HTML in the built-in browser. The
@@ -157,6 +143,61 @@ record aliases, supporting illustrations, historical gaps and unresolved items.
 This expanded browser is requested discovery/comparison; it does not replace
 minimal scoped display, select a version, restyle artwork or create a freeze.
 
+## Lightweight work
+
+Choose the smallest applicable route. Display authenticates the requested saved
+view; it does not restyle, rebuild or certify it against a newer contract.
+`figure_working_copy.py display-target --state <state.json>` supports nested
+working states and flat exploratory states. `verify` retains comprehensive
+verification. Inspect the actual saved browser rendering before claiming an open.
+
+Disposable exploration requires explicit saved inputs, units/interpretation,
+a matching legend and provisional status. Use the shared `write_preview` helper
+in `classical_conditioning.figures.preview`, or the assembler's
+`--preview --output <fresh-task-directory> --legend <legend.md>` route.
+Preview output stays outside the repository and cannot overwrite an iteration.
+It requires no new paper state, publication ticket, complete role registry,
+journal-compliance audit, analysis rerun or global navigation update. The shared
+theme remains the styling entry point when plotting new numerical artwork.
+
+Figure 2G supports `render --preview --inputs-dir <saved-ticket-directory>
+--output-dir <fresh-task-directory>` without paper-state checks or numerical
+refitting. The Figure 3 atlas supports `render --preview --inputs-dir
+<saved-atlas-directory> --fish <ID> --output-dir <fresh-task-directory>`; repeat
+`--fish` to render selected cards only. Saved input hashes are still checked.
+
+The helper stores native SVG, minimal self-contained HTML, input/output hashes,
+renderer identity and source snapshots. Its compact registry sidecar is required
+for scientific editing/recovery, but visual display remains self-contained.
+`read_registry` accepts both inline legacy and compact sidecar representations.
+Historical reproduction remains embedded and unchanged. Do not retrofit selected
+artwork. Do not subset fonts needed for future text edits.
+
+When continuing an iteration, carry forward its accepted edits and all referenced
+resources, including a registry sidecar referenced by the SVG metadata. Verify
+the resulting bundle can resolve those resources from its own directory; copying
+the SVG alone is insufficient. Reuse the current review tab where practical and
+authenticate the served bytes after replacement, accounting for browser caching.
+On requested retention or freeze, preserve the final bundle and required recovery
+inputs on JOAQUIM. Keep recovery/intermediate inputs identified as dependencies,
+separate from the author-selected versions in navigation.
+
+Retain only versions requested for saving, comparison or promotion:
+`figure_working_copy.py retain-preview --manifest <preview.json>
+--output-dir <existing-SSD-version-directory> --scope <scope>`.
+Retention preserves the bundle without selecting or freezing it. Finish retention
+by registering all chosen bundles in one browser update:
+`review_library.py build --changed <bundle-directory> --scope figure-02`.
+Repeat `--changed` and `--scope` for multiple bundles/figures. This incremental
+route preserves existing inventory and records partial coverage. Changed sources
+require exact authenticated historical recovery; absent that recovery, reconcile
+and use an explicit full build; a missing full publication never triggers an implicit drive-wide scan.
+Display and scratch previews do not refresh navigation. Keep task previews while
+needed; do not delete user material as housekeeping.
+
+For managed presentation publication, follow **Operational commands and concurrency**.
+Retention is distinct from selecting a managed draft or completing a formal freeze.
+
 ## Operational commands and concurrency
 
 The author requested consolidation of the former Mac source cache into the SSD
@@ -166,37 +207,50 @@ figure's active presentation pointer or mirror raw analysis dependencies. A futu
 offline copy must bind its source/state hashes; publishing a derivative still
 requires the scoped guards.
 
-The supported [working-copy tool](../../../../scripts/figure_working_copy.py)
-creates vector-native frozen/draft copies from the authenticated existing review,
-checks selected scientific records, imports available frozen registries and
-measures the resulting SVGs. Bootstrap, with an existing external directory:
+For ordinary edits, use selected artwork and the presentation-only branch of
+[the review builder](../../../../scripts/paper/shared/build_legend_review.py).
+Maintain the scope's one active SVG/HTML pair rather than competing current files.
+Capture a ticket before changing code or candidate inputs:
+
+```sh
+.venv/bin/python scripts/figure_working_copy.py begin --state <state.json> --ticket <fresh-ticket.json>
+.venv/bin/python scripts/paper/shared/build_legend_review.py --state <state.json> --baseline <fresh-ticket.json> --candidate-legend <candidate-legend.md> --update-current
+```
+
+For an SVG edit, supply `--candidate-svg <candidate.svg>`,
+`--presentation-changes <changes.json>`, `--candidate-layout-evidence <evidence.json>`
+and `--visual-review-note <actual-review>`; `--candidate-legend` is optional then.
+The change list names stable `element_id` values and permitted `attributes` or
+`text: true`. The generic route permits typography and text positioning, including
+transforms on text-only groups. It rejects coordinate edits to data graphics and
+their ancestors. Use the existing scoped mapping-aware assembly/layout tools for
+those edits; preserve values, axis mappings, clips and associated scientific marks.
+Changing scientific units, definitions or interpretation requires the scientific
+route even when expressed as text. Data paths/resources cannot be edited through
+the generic route. It preserves previous selected bytes, binds measurements to
+the SVG's native physical width and publishes state last without reconstruction.
+
+### Bootstrap and historical reconstruction
+
+Only a missing working state calls for the supported working-copy bootstrap,
+using an existing external destination:
 
 ```sh
 .venv/bin/python scripts/figure_working_copy.py prepare --output-dir '<existing-external-figure-01-assembly-current-directory>' --revision <revision>
 .venv/bin/python scripts/figure_working_copy.py verify
 ```
 
-`prepare` reuses existing verified copies. Under Figure 1’s single-draft policy
-it returns the selected copy and rejects `--refresh`; it must not recreate a
-frozen working copy. Other bootstrap states may use `--refresh` to create
-versioned copies while preserving older ones. It refuses changed/missing bound
-artifacts instead of discarding edits. `verify` is read-only. Bootstrap does not
-recompute science, style a frozen source or create a freeze.
+`prepare` reuses verified copies and refuses changed/missing inputs. Under Figure
+1's single-draft policy it rejects `--refresh`; other supported bootstrap states
+may preserve versioned copies. It does not restyle or recompute science.
+Working-copy `verify` is read-only; similarly named commands elsewhere may
+recompute statistics, so consult their documented behavior before execution.
 
-Before editing, capture a starting ticket:
-
-```sh
-.venv/bin/python scripts/figure_working_copy.py begin --ticket /tmp/figure-01-edit-start.json
-```
-
-The [legend/layout generator](../../../../scripts/paper/shared/build_legend_review.py)
-now checks state/working-copy/source hashes, makes a new external HTML plus
-editable draft SVG, measures the final SVG and updates state under an exclusive
-lock. It also updates the version-bound text mapping within that transaction.
-
-```sh
-.venv/bin/python scripts/paper/shared/build_legend_review.py --baseline /tmp/figure-01-edit-start.json --output '<exact-draft.review.path-from-current-state>' --update-current
-```
+The review builder without candidate SVG/legend arguments enters **Figure 1
+numerical reconstruction**, requiring `--output`. That branch rejects other scoped
+states before importing numerical dependencies. It is a reproduction/scientific
+operation, not the command for an ordinary display, legend or presentation edit.
+Keep historical reconstruction commands and dependencies available separately.
 
 Capture starting hashes before editing code or candidate inputs, not only when
 running a generator. At publication recheck them as well as the generator's
@@ -229,79 +283,29 @@ resources and ancestor transforms must be accounted for. Intentional display
 transforms need named mapping/review evidence; an unchanged path alone cannot
 prove its coordinate meaning is unchanged.
 
-Check relevant tests, then inspect the exact saved rendering at final assembly
-scale. Record only reviews actually performed. An SVG editing handle is not a
-scientific classification; legacy elements without authenticated mappings stay
-unresolved for any new freeze.
-
-## What happens when the author freezes
-
-1. Resolve the exact selected candidate, panel scope, scientific definitions and
-   inputs. Preserve previous frozen bytes/hashes. A scientific change requires a
-   selected scientific source, not a presentation exception.
-2. Build/verify the semantic element registry from named renderer inputs and
-   existing authenticated mappings. Assign unique IDs and record SVG/Matplotlib
-   types, scientific role, quantity/units, data/event source, normalization,
-   coordinate system, tick values and composite/mappable relationships. Record
-   explicit/high classification evidence and a protection class. Never infer a
-   role from colour, position or artist order without renderer/source evidence.
-3. Style a separate candidate using the resolved current Nature profile at the
-   intended final width; historical compatibility typography is not the target.
-   Preserve scientific inputs/results. Record each approved exception's ID,
-   element role, property/value, reason, scope and actual approval evidence.
-   The freeze request authorizes freezing; ask only about unresolved decisions
-   after independent candidate work is complete.
-4. Perform scientific-mapping, structure and visual reviews. Check effective
-   opacity, stacking, shared axes, clipping, colourbar meaning and raster pixels.
-   Record real evidence for renderer properties the SVG cannot prove.
-5. Run the explicit [freeze gate](../../../../scripts/freeze_figure.py) in
-   `--check-only` mode. Resolve every issue before running with `--output` to
-   publish a new manifest. The gate checks ID coverage, compatible roles/types,
-   mapped scientific geometry/text/resources/ancestor transforms, style values,
-   final-scale fonts/strokes/tick lengths, visibility and hashes. Unsupported
-   transforms/CSS or missing evidence fail; noninteractive cases cannot invent
-   approval. Ordinary rendering never invokes this gate.
-6. The gate rehashes inputs and exclusively writes the new manifest with the
-   specification version/hash, registry/resolved styles, scoped exceptions,
-   scale, source/data/export hashes, checks and authorization. It records
-   already-created exports; it neither styles them nor guesses their meanings.
-7. Update scoped current-selection/navigation records and current display state
-   for the accepted scope. A panel freeze does not approve the full assembly.
-   Then inventory earlier versions and dependencies, with keep/archive/delete
-   recommendations. The author must review and choose which previous versions
-   to retain, archive or delete. Keep all pending originals until those choices
-   are recorded; freezing alone is not disposal approval. Execute only approved
-   dispositions, verify external copies before pruning, preserve frozen bytes
-   and shared active reviews, and update indexes/navigation. Report completed
-   and pending dispositions. Check-only runs or rule edits do not trigger cleanup.
-
-
-The [element/style specification](figure-element-specification.md) and
-[versioned role contract](../../../../configs/paper-figures/figure-elements.json)
-remain the detailed freeze authority. The gate validates the registry prepared
-by the agent/renderer; it does not itself establish scientific truth or conduct
-visual review. The [archive procedure](../../../../records/repository-archive/README.md)
-governs verified transfer and pruning.
-
-## Current Figure 1 handoff
-
-A–D, E and F–H have scoped freezes; the current F–H selection is the author-frozen 2026-10-13 historical-fish 1 s direct log-frame median managua_r version (Trace 20230307_12). V12 remains preserved as superseded F–H evidence; no whole-figure freeze is recorded.
-The active unfrozen draft is the pair selected by state; its bound profile and
-measurement evidence record current presentation coverage.
-Figure 2 is preserved. The current D/E working pair uses the same D measured frame table, named semantic
-artists, matching axis rectangles and the D block labels (trial 9: Pre-Train).
-E’s accepted 2026-10-13 scoped freeze uses D’s stored vigor with the inherited bout mask: unbinned raw baseline and scaling, no black-trace log, 0–5 display, no baseline reference, exact frozen source F bands/shared color legend (Delay displayed as G), and two continuous CS boundaries. Older E/V12 freezes remain preserved. D and whole-figure draft approval remain separate. The author resolved the arrow relationship on 2026-10-13: the five arrows
-are attached to the Delay source panel F, now displayed as G after the
-recorded control-first reorder. They mark the five trials shown in D/E.
-See state for exact copies/hashes and evidence, and the editable
-[Figure 1 legend](../figure-01/legend.md),
-[editorial notes](review.md) and
-[style audit](../../../../records/figure-reviews/panel-style-consistency-audit.json) for context.
-
-A new chat needs only the active figure/panels, this workflow/state link and any
-new author comments or storage limitation; read the saved records before work.
+Choose tests and measurements for the affected behavior and relationships, then
+inspect the exact saved rendering at its native physical assembly size. A local
+label edit does not require redesigning other panels or completing a freeze
+registry. Fresh frame evidence remains required for managed SVG publication.
+Measure current candidates at their declared native width, cross-checking frame
+dimensions; the low-level historical measurement API retains its explicit/default
+width for reproduction only. Record only reviews actually performed. An SVG
+editing handle is not a scientific classification; legacy elements without
+authenticated mappings stay unresolved for any new freeze.
 
 ## Semantic registry and linked-panel checks
+
+### Scientific element identities
+
+Map stable element IDs to quantities, units, source/data hashes, transformations,
+timing, eligibility, normalization, coordinate systems and relationships from
+authenticated inputs. Structural XML IDs, colors and appearance do not establish
+scientific identity. Keep original source-panel identifiers when display order changes.
+`trace.scaled_vigor_series` supports framewise vigor with explicit baseline/scaling
+context; `heatmap.vigor` supports direct SVG rectangles or explicitly mapped cell
+groups. These representations do not change scientific definitions.
+Historical [1.1.1 specification](../../../analysis/figures/FIGURE_ELEMENT_SPECIFICATION.md)
+and frozen contract copies remain immutable reproduction dependencies.
 
 ### Where consistency is established
 
@@ -313,10 +317,10 @@ new author comments or storage limitation; read the saved records before work.
 - **Shared presentation contract:**
   [figure-elements.json](../../../../configs/paper-figures/figure-elements.json)
   owns reusable role IDs, compatible representations and historical defaults.
-  New presentation values come from the resolved [Nature profile](nature-style.md#coding-entry-point-and-exact-values),
+  New presentation values come from the resolved [current presentation values](#coding-entry-point-and-exact-values),
   preserving scientific definitions rather than inheriting historical estimator
   choices from plot-family fields. The
-  [element specification](figure-element-specification.md)
+  [scientific element identities](#scientific-element-identities)
   explains them. These apply to separate future freeze candidates on explicit
   freeze requests, with author-approved exceptions limited to recorded scopes.
 - **Rendering foundation:**
@@ -331,10 +335,9 @@ new author comments or storage limitation; read the saved records before work.
   visible-element mappings, protected science, styles, evidence and hashes
   against the versioned contract before a new freeze can be published.
 
-Current coverage is partial: Figure 1 state records explicit D/E relationships
-and selected F annotations; legacy A–D lack a complete new-freeze registry.
-Historical style audits do not certify current artifacts. Consult the exact
-state and evidence before claiming any panel or whole-figure consistency.
+Read coverage from the exact scoped state and version-bound evidence. Legacy
+or partial mappings remain unresolved for a new freeze; historical style audits
+do not certify a later artifact or whole-figure consistency.
 
 ### When the author asks to “ensure consistency”
 
@@ -435,13 +438,266 @@ units and essential scientific marks in the figure, moving method explanations
 and unnecessary identifiers into the legend. Show the scoped legend with its SVG in the minimal HTML. Full
 legends, notes and comparisons beyond that scope require an explicit request.
 
+## Nature target and migration status
+
+New presentation work uses `nature-main` from the unified contract through the
+shared theme. Existing artwork remains selected until scoped guarded publication.
+Read actual coverage from state-bound evidence; implementation progress belongs
+in the existing [plan index](../../../../Plans/IMPLEMENTATION_STEP_INDEX.md).
+Historical compatibility styles are reproduction dependencies only.
+
+## Requirements, choices and precedence
+
+Bind each rule to its origin: journal requirement/recommendation, standing
+author rule, project default or scoped exception. The
+[Nature specifications](https://research-figure-guide.nature.com/figures/preparing-figures-our-specifications/)
+cover visible axes/ticks, units in parentheses, editable type, 5–7 pt ordinary
+text and 8 pt bold upright lowercase panel letters. The
+[production guide](https://research-figure-guide.nature.com/figures/building-and-exporting-figure-panels/)
+sets 89/183 mm widths and a 170 mm artwork-height limit.
+Nature's [final-submission page](https://www.nature.com/nature/for-authors/final-submission)
+also allows 120–136 mm widths where necessary and asks authors to identify
+essential panel alignments; its final stroke range is 0.25–1 pt.
+Choose the smallest appropriate width for content and legibility; 183 mm is
+an available double-column size, not a requirement for every figure. Never
+spread uniformly reduced panels apart just to fill that width. On 2026-10-17
+the author selected compact 136-mm compositions where feasible for the current
+Figure 1/2 revision. Record each native width in its SVG, frames and state;
+retain physical text/tick/stroke sizes when changing the canvas. Intermediate
+widths remain an explicit composition choice, not a claim of editorial approval.
+
+Specific editorial instructions override generic web guidance for that
+submission. Keep main/Extended Data and review/production requirements distinct.
+Source conflicts are recorded in the source review. No promise of automatic
+compliance follows from choosing a font or citing this page.
+
+For substantial design work, use the workflow's
+[composition review](iteration-workflow.md#composition-review) to assess purpose,
+panel proportions, reading order and final-size readability together. Journal
+ranges constrain the design; they do not choose the best composition. A local
+edit checks affected properties and relationships. Preserve author-selected
+spacing/frames; present a concrete alternative for choice if a preference causes
+a demonstrated problem. Do not add numerical aesthetic thresholds that the
+profile or an approved scoped relationship does not establish.
+
+## Coding entry point and exact values
+
+The [unified contract](../../../../configs/paper-figures/figure-elements.json)
+owns exact resolved styles, semantic roles, rule origins and embedded frame policy.
+The `nature-main` profile name is a supported view of that single contract; it
+does not overlay another active configuration. Use this small lookup rather than re-reading plans,
+copying numbers into a renderer or introducing another theme/exporter:
+
+```bash
+.venv/bin/python -m classical_conditioning.figures.presentation_profiles
+.venv/bin/python -m classical_conditioning.figures.presentation_profiles --role axis.tick
+```
+
+Other sections are `typography`, `colors`, `roles`, `rules` and `theme`.
+Use `--section styles` for all resolved style roles, or `--role <canonical-id>`
+for one existing element role and its applicable axis-geometry rules.
+Output includes the contract input hash and explicitly requires render evidence.
+Historical evidence retains its original configuration and implementation hashes;
+it is not rewritten to certify the unified contract. Saved display remains
+authenticated by scoped state. New publication requires fresh relevant evidence
+bound to the unified contract, even when its numerical policy values are unchanged.
+For new or author-requested presentation candidates, opt in through the existing
+shared API; legacy calls keep their original defaults:
+
+```python
+import matplotlib as mpl
+
+from classical_conditioning.figures.presentation_profiles import load_presentation_profile
+from classical_conditioning.figures.theme import apply_theme, style_axes
+
+profile = load_presentation_profile("nature-main")
+with mpl.rc_context():
+    theme = apply_theme(profile=profile)
+    # Construct, style and export the figure inside this context.
+    # style_axes(ax, theme=theme, xlabel="Time (s)", ylabel="Activity")
+    # Non-theme artists use identified role values from profile.contract["styles"].
+```
+
+Load once per build and reuse the same snapshot for role values and evidence.
+`get_theme(profile=profile)` also accepts that resolved object without re-reading
+files; `apply_theme(profile="nature-main")` is the shorter option when a build
+needs only the theme. Passing both `theme` and `profile` is rejected. No global
+profile cache can hide an edited config; a later build resolves fresh bytes.
+
+The selected Arial face must be available; a paper-wide alternative requires
+an explicit recorded profile change, not machine-dependent fallback. SVG/PDF
+embedding and glyph checks remain separate. Theme adaptation handles shared
+Matplotlib parameters; it does not restyle every existing artist or convert a
+historical freeze contract into a newly approved candidate. Bind profile inputs
+and code hashes to the existing evidence before guarded publication.
+The resolved view retains historical plot-family fields for compatibility;
+these do not select current estimators, cohorts or scientific axes. Resolve
+those through scoped selections, including the ratio/log-difference distinction.
+
+The contract separates journal ranges from our exact role sizes, stroke hierarchy,
+black text, tick geometry, caption-review styling and author-selected spacing.
+The cited Nature guidance does not prescribe universal tick direction/count,
+glyph gaps, marker diameter or right-key alignment. The active frame inset is
+read from the contract’s `layout_frames.policy` section, not copied into another competing policy.
+For routine edits, use the recorded version and query the relevant section.
+Recheck official guidance when the target journal/stage changes or before actual
+submission; a local role change does not require repeating the full research.
+
+## Axes, ticks and labels
+
+Apply these rules to ordinary X/Y axes and the applicable components of
+colorbars, shared axes, secondary/twin axes and inset axes. Schematic coordinates
+are identified separately. Register affected components and visibility decisions
+in the scoped draft evidence; complete visible-element coverage belongs to the
+explicit freeze route. Report the actual coverage of a requested journal review.
+
+- **Meaning:** record quantity, units or dimensionless status, coordinate
+  transform/scale, limits, inversion, category order and source values. Preserve
+  numerical definitions: log differences and ratios are distinct. Styling does
+  not authorize starting every axis at zero, taking another logarithm, changing
+  a reference from one to zero, or changing limits to match another panel.
+- **Sides:** ordinary plots use left/bottom spines at the data-rectangle edge;
+  top/right are off unless a registered family needs them, such as boxed
+  heatmaps. Default spine outward offset is zero. Keep local spines/ticks when
+  numerical labels or quantity titles are shared, including Figure 2 E.
+- **Major/minor ticks:** retain authenticated tick values and categories.
+  Minor ticks are off by default; logarithmic/other exceptions specify values,
+  lengths and widths explicitly. Do not generate dense minor ticks merely by
+  switching a renderer style. Endpoint ticks and marks must remain unclipped.
+- **Positions and alignment:** X tick labels are horizontal and centered on
+  their ticks; left Y labels have aligned right edges and centers aligned to
+  their ticks. Other sides/rotations need an explicit role-specific rule.
+  Center axis titles on the relevant data-axis extent; quantity titles on Y
+  are vertical. Condition headings center on their own data rectangles and
+  share a baseline within their named group. Multiline titles need line-spacing
+  and visual-center checks, not only matching text anchors.
+- **Gaps:** measure along the appropriate outward axis normal: painted tick
+  end to nearest label glyph edge, then the outer tick-label envelope to the
+  nearest axis-title glyph edge. Include minus signs, exponents, scientific
+  offset text and multiline labels in the envelope. Allocate exponent/offset
+  text explicitly so that it neither collides with a title nor detaches from
+  its axis. A Matplotlib `pad=3` or `labelpad=3` is only an input; it does not
+  establish the required physical gap.
+- **Number/text formatting:** use sentence case without a terminal full stop,
+  quantities with units in parentheses, SI number–unit spacing in numeric
+  expressions, a readable minus sign, and consistent precision for a quantity.
+  Do not add unsupported digits or invent a unit for a dimensionless measure.
+  Preserve exact categorical names `3sTrace`/`10sTrace`; durations remain
+  `3 s`/`10 s`. Define phase abbreviations and unusual units in the caption.
+- **Sharing:** name members, property shared, reference axis/label and reason
+  for each suppressed component. Distinguish sharing coordinates, labels,
+  normalization and cohorts. Equal colors/ranges do not prove equivalent
+  estimators. Colorbars carry quantity, units, ticks, limits, normalization,
+  missing/out-of-range meaning and explicit mappable ownership.
+- **Evidence:** measure the exact saved SVG through all transforms, with
+  unclipped painted bounds and resolved fonts at publication scale. Use the
+  applicable bound measurement tolerance; do not treat tolerance as a new
+  target gap. Recheck after embedding/export. A nominal style dictionary,
+  screenshot or partial axis inventory cannot establish full compliance.
+
+These retained defaults must be reconciled with each existing scientific plot
+family; no source selection, tick value or scientific exception is inferred.
+
+`style_axes` styles ordinary axes; pass `show_yticklabels=False` while retaining
+`show_yticks=True` to keep local ticks/spines with shared numerical labels.
+The equivalent X flags are independent too. Quantity-title sharing remains an
+explicit group/caller decision. Existing profile-styled axes receive the declared
+font, colors, spine widths and tick caps as well as sizes. The stimulus-window
+helper uses the CS/US role widths and layer order without changing event timing.
+
+## Strokes, colors, fonts and physical sizes
+
+Check effective final stroke widths, including marker edges, colorbar outlines,
+arrow stems, schematics and statistical lines through nested transforms. Resolve
+line caps/joins, physical dash arrays and offsets, marker/arrowhead sizes and
+error-bar cap dimensions by role; the profile names measurements still needed
+in the pilot. Fill-only bands/cells need no artificial border. An alpha of 0.2
+is opacity, not a 0.2-pt stroke. Keep meaningful translucent layers distinct and
+inspect their composite against the actual background.
+
+Use the bound CS/US, condition and colormap tokens; a palette example is not an
+instruction to recolor selected scientific data. Inspect color-vision confusion,
+contrast, print/grayscale legibility where relevant, zero/missing/saturated colors
+and uncertainty-band visibility. Distinguish recommendations from hard numerical
+checks: there is no universal Nature data-line contrast ratio, marker diameter,
+opacity or dash spacing. Recheck the same semantic role across panels/figures.
+
+Resolve normal/bold faces, Symbol/Greek and mathematical glyphs, minus signs,
+superscripts/subscripts and multiline leading explicitly. Text stays editable;
+font outlines or visually plausible fallback are insufficient. Check actual PDF
+font types and resource embedding, not only `pdf.fonttype=42`/`svg.fonttype=none`.
+Rasterized axis labels cannot pass an editable-text requirement by nominal size.
+
+Artwork dimensions include all painted letters, ticks, keys, colorbars and
+strokes; captions stay outside. Preserve natural image/data ratios and compensate
+fonts/strokes after uniform resizing. Use alphabetical, logically related panels
+and efficient whitespace without abandoning registered physical frames.
+
+## Related content and delivery
+
+Keep typed layout, presentation-style and scientific relationships in the
+existing registry. Retain right-aligned `legend.key` groups with represented
+series and a named right edge. Keep experiment headings distinct from condition
+headings; move cohort counts and explanatory clutter to captions. Preserve
+related-panel alignments and data-body spacing, natural aspect ratios and all
+authentic raster content. Frames alone do not certify good use of whitespace.
+
+Inspect color accessibility, label collisions and scientific data visibility.
+Avoid decorative grids, hatching and shadows; meaningful guides/dashes remain
+identified. Define every error bar/band, sample unit, relevant n, comparison and
+statistical symbol using source evidence. Detailed methods remain recoverable
+when captions are shortened. Never invent missing results to fill a panel.
+
+Keep editable native SVG and production vector output with embedded resources,
+fonts and RGB content. Inspect PDF font types/editability separately from browser
+appearance; do not outline or flatten text. Native photographic resolution,
+scale bars, image integrity and source-data checks apply by asset type, not by
+blindly upsampling discrete heatmaps. Record any asset/source conflict.
+
+The [formatting guide](https://www.nature.com/nature/for-authors/formatting-guide)
+distinguishes final captions from artwork and Extended Data from Supplementary
+Information. Use separate delivery rules for those scopes. Include concise
+production instructions for essential named alignments in the delivery evidence,
+without adding visible review notes to the SVG/legend collection.
+
+## Conditional content and policy coverage
+
+The maintained source review covers the figure guide's specifications,
+production, integrity and Extended Data sections plus Nature's formatting and
+final-submission guidance. The following rules apply only when that content is
+introduced; they are not excuses to apply a main-artwork profile to other media:
+
+- Sequences use the guide's monospaced one-letter format; chemical structures
+  require its dedicated structure guide/template, not guessed plot styling.
+- Gels/blots require original uncropped evidence; document composites/splices,
+  mark boundaries and intentional duplication, and apply adjustments equally
+  to controls. Preserve authenticated sources for all other image types too.
+- Extended Data has a separate delivery target: 180 × 170 mm, one figure per
+  page, JPEG/TIFF/EPS, RGB and at most 10 MB. Its raster-resolution advice differs
+  from main photographs. Keep editable masters; flatten only the requested
+  delivery derivative. An exceptionally long legend can occupy a second page.
+- Extended Data tables need their own formatting: 7-pt type, restrained rules,
+  legible footnotes and single-page composition. They are not ordinary plot axes.
+
+The [Extended Data guide](https://research-figure-guide.nature.com/figures/extended-data-formatting-guidelines/)
+and the dated source review retain conflicts and exact stage-specific details.
+No complete ED exporter/profile is implemented by the main-theme adapter.
+
+The [figure integrity page](https://research-figure-guide.nature.com/figures/image-integrity/)
+has broad wording against generative imagery; the current
+[AI policy](https://www.nature.com/nature-portfolio/editorial-policies/ai)
+uses a risk/verification framework. Record this evolving policy distinction.
+Coding assistance must preserve inspectable source, reproducibility, human
+scientific decisions and required disclosure. It is not authority to invent
+scientific imagery, alter authenticated raster content or supply missing results.
+
 ## Invisible layout frames (author direction 2026-10-15)
 
 This ordinary-draft layout requirement applies to future main, supplementary
 and analysis figures. It does not change scientific definitions or historical
 freezes. The author selected **1.0 mm** (tighter) on 2026-10-15 after the
 calibration review. The active numerical authority and author evidence are in
-`configs/paper-figures/layout-frames.json`; the former 1.5 mm recommendation
+the unified contract’s `layout_frames.policy` section; the former 1.5 mm recommendation
 was not selected. New freezes using the current style contract require this
 active policy and fresh frame evidence. Earlier calibration reports retain
 their original pre-activation policy hashes as historical review evidence.
@@ -454,6 +710,59 @@ contents. Positive extra gaps require named grouping reasons and measured widths
 Standalone figures/panel exports have one outside strip. Associated HTML legends
 are outside the artwork and are not included in its physical bounds.
 
+### Design frames and letters first
+
+Author direction, 2026-10-30: when designing a new figure or a new figure
+layout, start at the intended final physical size. Allocate the figure, panel
+and shared-element frames first, using placeholders for panel contents. Place
+the panel letters in their owning frames before adding the actual panel artwork.
+Use consistent letter placement relative to the corresponding frame edges,
+and align baselines across panels in the same row. Follow the selected inset,
+outside-margin and inter-panel rules above. Placeholders and any visible frame
+outlines are layout aids only; remove them from the finished artwork, whose
+frames remain invisible. A display-only request does not create a new layout.
+
+Then insert authenticated panel artwork into its allocated frame, preserving
+scientific coordinates, aspect ratios, typography and ownership. Design shared
+elements such as colour bars with explicit allocations and mappings; use one
+bar for multiple panels only when their quantities, normalization, palette,
+limits and interpretation match. Revise the scaffold if the actual content
+needs more space rather than stretching or cropping scientific artwork.
+
+Review the composition as a whole at the selected Nature physical dimensions.
+Use named alignment targets for the requested relationships: row content tops
+and bottoms, common left/right content edges, comparable letter-to-content
+offsets, and the true data-area widths/heights. Heterogeneous panels can have
+different internal whitespace; equal outer boxes do not establish these content
+relationships. Rebalance schematic sizes, card widths, allocations and shared
+elements together when needed, rather than moving letters alone. With an
+explicit request to widen a plot, adjust its display-coordinate mapping and
+associated axes, ticks, guides, clipping and colour bands consistently; preserve
+the underlying values/estimand and physical text/stroke sizes. Uniformly enlarge
+schematic artwork when its natural proportions need to be retained.
+
+For an existing figure, retain its selected artwork and use its recorded frames
+as the starting scaffold when a scoped layout edit or freeze is requested; do
+not rebuild or retrofit it merely to satisfy the order of operations. Before
+freezing a whole figure, measure letter anchors relative to the final frame
+edges and row baselines, inspect rendered glyph bounds and clipping, and check
+the actual data axes, content and shared elements against their allocations.
+Record any intended exception and its approval; a passing containment check
+alone does not establish letter alignment. Bind the measurements and visual
+review to the exact candidate SVG. If a required relationship cannot be
+measured or justified, leave it unresolved rather than asserting a pass.
+
+Use rendered painted/glyph bounds for claims about visible content alignment.
+A nested SVG viewport or `getBoundingClientRect()` of a container can include
+blank space and is not itself proof of a visible top/bottom edge. For plot-size
+claims, measure the actual data-axis rectangles or endpoints, excluding Y titles,
+tick labels and trial descriptions. Explicit layout guides may support frame
+measurement only when their agreement with the actual plotted axes is verified;
+measuring an intended guide alone does not verify the plot. Recheck affected
+relationships after resizing and record what was actually measured, its final
+physical units, scope and tolerance. A general frame-containment pass does not
+certify every editorial alignment.
+
 Include panel letters, axis labels/ticks, titles, annotations, strokes, markers
 and images in explicit owning panel groups. Shared colourbars and annotations
 have their own figure-level `shared` allocation. Identify background surfaces by
@@ -461,6 +770,31 @@ explicit IDs; never discard white marks by appearance. Align actual data-axis
 rectangles as well as named content edges. Natural aspect ratios and internal
 whitespace are allowed: do not stretch science, crop marks, change scientific
 coordinates or reduce established font sizes just to fill the available space.
+
+### Composition review
+
+For a new assembly or substantial layout revision, establish the figure's
+scientific purpose and reading order from its owning guidance before arranging
+panels. Keep the intended panel set unless a scope change is requested. At the
+selected final physical size, use the frame-first scaffold above, then review:
+
+- Panel proportions and density against their scientific purpose; allocate more
+  room to dense evidence while preserving natural image/schematic proportions.
+- Actual content/data-axis edges, letter offsets, shared elements and intentional
+  grouping whitespace. Equal frames alone do not establish visual balance.
+- Readability of the smallest ticks, labels and statistical marks; the hierarchy
+  should guide the reader without obscuring data, uncertainty or event timing.
+- Color accessibility, meaningful missing/zero/saturated values, and the legend's
+  explanation of sample units, uncertainty and statistical comparisons.
+
+Inspect the whole saved composition and its densest areas at native publication
+size; responsive browser enlargement is not evidence of print legibility.
+After revision, recheck affected relationships and the resulting composition.
+For a small local edit, inspect its context and dependent relationships instead
+of repeating this full review. Keep journal requirements, recommendations and
+author choices distinct using the maintained [presentation guidance](#requirements-choices-and-precedence).
+If a standing preference creates a demonstrated design problem, show the concrete
+tradeoff and alternative for the author's choice; do not silently change defaults.
 
 ### Interfaces and supported routes
 
@@ -492,7 +826,7 @@ unsupported and unmeasured content remains unresolved.
 
 Existing direct `savefig`/SVG-writing scripts, including specialised Figure 2–4
 and legacy analysis routes, are not automatically frame-aware. The route inventory
-in `records/figure-reviews/layout-frame-implementation.json` lists those entrypoints.
+in `records/figure-reviews/shared/layout-frame-implementation.json` lists those entrypoints.
 Future work must use the supported adapters or report incomplete coverage; a
 missing frame mapping/evidence cannot pass a new freeze. No current draft was
 converted as part of introducing these tools.
@@ -577,236 +911,149 @@ individual figure state or recomputes science.
 
 ### Current assemblies: explicitly authorized layout migration
 
-The same author request explicitly authorizes applying the active 1.0 mm policy
-to both current assemblies. `scripts/paper/shared/layout.py` provides
-`initialize`, `arrange`, `refine` and `publish`. Capture the source ticket before
-implementation/edits, binding both scoped states, selected SVG/HTML/legend files,
-scientific selections and the layout policy. Supply it to `initialize --ticket
-<ticket.json> --directory <existing-external-directory>`. The tool adds explicit
-panel/shared ownership; it never classifies scientific roles from appearance.
-
-For browser geometry bootstrap, serve only the external reviews directory on
-localhost port 8766 and use `scripts/paper/shared/measure_layout.cjs` with its
-measurement input, bounds output and installed Chromium-family executable.
-The browser helpers require Playwright available through Node's module lookup.
-Run `arrange --directory <directory>`, then
-`scripts/paper/shared/collect_layout_evidence.cjs <directory> <browser-executable>
-<temporary-screenshot-directory>` to collect exact browser reports. `refine`
-can use those measured painted/unclipped bounds to repack, followed by another
-`arrange` and fresh browser collection. The generic `check_layout_frames.py`
-remains the assessment authority. Inspect exact saved renderings at final scale.
-
-The migration retains 183 mm width and translates explicitly owned content;
-it does not resize plots or their typography. Rows retain their inherited
-vertical relationships. Allocations touch, with a 1 mm required inset and a
-0.05 mm rendering reserve per content edge; intrinsic whitespace is allowed.
-Source data-axis clipPaths remain explicitly bound by ID, source SVG and
-clip-definition hash. Incidental nested viewport cropping is removed, and the
-legacy Figure 2 top-row canvas background is painted before subsequent rows.
-Named checks cover Figure 1 D/E row geometry and F/G/H heatmaps, and Figure 2
-A/B/C heatmaps and D/E plot-body geometry. Other existing scientific/presentation
-coverage remains partial; this is not whole-figure scientific certification.
-
-Only after passing assessments and visual review, run `publish --directory
-<directory> --visual-review-note <actual-review-description>`. It authenticates
-the pre-edit source ticket, preserves the previous selected state/HTML/SVG under
-the explicit external task directory, checks every drawable's attributes/text,
-publishes fresh registry/presentation/frame evidence and updates the same active
-SVG/HTML pairs under their scoped state guards. Existing immutable scientific
-selections and freezes remain unchanged. Old measurement reports remain
-historical evidence; collector fixes require fresh reports for current artifacts.
-
-Collection rendering QA is repeatable with
-`scripts/paper/shared/verify_collection.cjs <repository-root> <browser-executable>
-<temporary-output-directory>` against that external-only local server. It checks
-publication width, figure/legend placement, responsive overflow and page errors,
-and writes temporary screenshots, standalone comparison renders, a browser JSON
-report and a print PDF for page-by-page inspection. Keep the final hash-bound
-verification record under `records/figure-reviews/`; remove temporary media after
-review. A refreshed collection clears the previous verification reference.
+This is a historical recipe, not a standing instruction to migrate current work.
+The exact pre-consolidation guide is preserved through the
+[consolidation receipt](../../../../records/figure-reviews/shared/figure-guide-consolidation-20261031.json).
+Use the [tool catalogue](../../../../scripts/README.md) for supported command usage;
+resolve selected state and capture pre-edit tickets before any scoped migration.
 
 ### Typed panel relationships and related-panel spacing
 
-Author correction, 2026-10-15: containment and matching axis sizes alone do not
-establish a correct layout. Register relationships with explicit types:
-
-- **Layout:** Figure 1 F/G/H share the displayed-trial Y coordinate and require
-  equal gaps between heatmap data-axis rectangles. Figure 2 A/B/C require equal
-  gaps between their two-heatmap data bodies; preserve equal spacing within each
-  pair. Figure 2 D/E/F and G/H/I require equal outer panel-content gaps while
-  retaining their different plot structures and natural sizes.
-- **Scientific:** Figure 1 D/E/F share the example fish/trial data relationship:
-  D/E common stored inputs and measured times, E's documented raw-frame
-  normalization, and the exact selected F rows used in E's color bands. This
-  relationship does not imply that D/E/F belong to one layout row or share a
-  normalization. Retain authenticated frame/trial/source mappings.
-- **Presentation style:** Register axis-title text artists separately from tick,
-  condition and panel titles. Resolve the Nature profile's `axis.label` role
-  for new axis-title edits, including colorbar quantity labels and Figure 2 H;
-  query `--role axis.label` for the current value. Existing state-bound
-  pre-Nature measurements remain historical evidence. Wording, units and scientific scales
-  are unchanged. This does not certify all remaining typography or science.
-
-Keep these in each current draft's existing semantic registry and
-`consistency_requests`, with source identities, exact artifact hashes and fresh
-measurements. Never infer shared controls, experiments, estimators or outcomes
-from a layout group. Figure 2 H retains its different ratio outcome; C/F/I are
-placeholders. Any future scientific group needs actual source mappings, not an
-appearance-based identity. A freeze must resolve required element and scientific
-relationship coverage within its requested scope.
-
-SVG frame metadata `spacing_groups` declares stable group IDs, ordered target
-IDs, `target: data_axes|content`, `axis: x|y` and `minimum_gap_mm`. The checker
-compares consecutive edge-to-edge gaps at final scale within the active 0.1 mm
-measurement tolerance, checking painted and unclipped content separately.
-Composite data bodies use explicit `data_axes.element_ids` lists; the browser
-measures their union. Equal allocation widths or equal panel-letter positions
-are not substitutes for the declared spacing target.
-
-The earlier `correct_panel_relationships.py` correction recipe is retained for
-reproduction of its recorded pre-Nature candidates. For new selected Figure 1/2
-presentation work, use the Nature migration route below with the same typed
-relationships and exact browser measurements. Do not run the historical recipe
-to restore retired typography. Recollect evidence after affected edits and
-refresh the collection only after guarded publication.
+Record layout, scientific and presentation-style relationships separately in the
+scoped registry and `consistency_requests`. Named scientific relationships require
+source/data mappings; a layout group does not imply shared cohorts or estimators.
+Figure-specific relationships live with [Figure 1 assembly](../figure-01/assembly.md)
+and [Figure 2 assembly](../figure-02/assembly.md). Register spacing targets as data
+axes or painted content, measure actual gaps at final size and recheck after edits.
 
 ### Physical axis geometry and related example labels
 
-Author direction, 2026-10-15: axis typography and spacing must agree in absolute
-publication units across horizontal/vertical axes, panels and figures. Use the
-resolved Nature roles `axis.tick`, `axis.tick_label` and `axis.label` for
-tick strokes, typography and physical inputs; do not use the unoverlaid
-historical contract as the presentation target.
-Compensate for every assembly transform; equal source attributes are not proof.
-Measure 3 pt from the outward tick endpoint to the nearest tick-label geometric
-glyph edge, and 3 pt from the outer tick-label envelope to the nearest axis-title
-edge. These edge gaps are distinct from renderer anchor/baseline padding.
-Keep each tick and label's scientific coordinate fixed along the axis. Shared
-titles use the envelope of their explicitly registered labels. Retain intentional
-tickless categorical/statistical axes and register the inapplicable tick-gap check.
-
-Figure 1 D/E example block/trial labels use their profile-bound annotation roles,
-with matching declared fonts/weights and a separate column outside the Y title.
-Do not let row descriptions
-occupy the title-to-tick-label strip. Reallocate/translate whole panels and canvas
-space as needed, preserving data shapes, scientific clipping and related-panel
-alignments/spacing. Record requirements in the existing draft's
-`presentation_styles.axis_geometry`, example-label group and consistency request,
-with exact saved-SVG measurements and explicit partial scientific coverage.
-`apply_axis_geometry.cjs` stages registered leaf changes and `verify_axis_geometry.cjs` measures
-the saved candidate without editing it; `scripts/paper/shared/publish_axis_geometry.py` protects all
-other scientific payloads and uses the guarded state publisher after passing
-physical geometry, invisible-frame and visual checks. Refresh the collection
-after publication. Recheck these groups after subsequent affected edits.
-
-Author additions, 2026-10-15: every plot color/stimulus key has the canonical
-`legend.key` role and a specific `plot.legend.condition-key` or
-`plot.legend.stimulus-key` tag in the existing draft registry and SVG. Align
-the whole key's right edge to its explicitly named data-axis/reference right
-edge, within 0.01 mm at publication size; resolve typography through `legend.key`
-in the Nature profile.
-Direct schematic labels next to a stimulus are annotations, not color keys.
-Keep sample/cohort counts in the caption rather than in key text or headings.
-Use the displayed condition names `3sTrace` and `10sTrace` everywhere.
-
-Distinguish `heading.condition` (canonical `title.condition`) from experiment
-scope: center each D/E condition heading over its own data rectangle, with a
-common baseline within the panel. The Delay experiment contains both Control
-and Delay conditions; a mixed-condition trajectory must not carry an ambiguous
-top "Delay" heading. Its key identifies the conditions; its caption identifies
-the experiment and cohort counts. Keep E's own shared-scale Y spine and ticks;
-its numerical labels and quantity title may remain shared with D, as heatmap
-panels retain local ticks while sharing trial labels. Register the restored
-artists and their authenticated common-scale mapping explicitly.
-
-The supported annotation stage is `scripts/paper/shared/stage_annotations.py`, followed by
-`apply_annotation_alignment.cjs`; `verify_annotations.cjs` measures the saved candidate.
-This stage may reposition the categorical statistical rows and the complete G
-trajectory plot to keep full-size labels separate, preserving data paths,
-values, text and markers. It does not recompute hypotheses or statistics.
-
+Use profile roles and rendered glyph bounds for absolute physical gaps, preserving
+tick coordinates. Register intentional tickless axes and inapplicable gap checks.
+Keys carry canonical `legend.key` and specific condition/stimulus-key tags; align
+their right edge to a named reference within 0.01 mm. Direct schematic labels are
+annotations. Keep cohort counts in captions and preserve `3sTrace`/`10sTrace` names.
+Figure-specific example-label/heading relationships belong in the assembly guides.
 
 ### Nature presentation migration of selected main drafts
 
-For an explicit migration request, `scripts/paper/shared/stage_nature.py` stages the
-selected Figure 1/2 SVGs and uses the existing physical-axis, annotation and frame
-checks, then `publish_state` for scoped guarded publication. It does not execute
-historical plotting code or select cached panels. `prepare --directory <existing
-external directory>` captures the states, sources, legends, registries, selections,
-profile inputs and implementation hashes before artwork edits. A changed manual
-source fails publication; implementation revisions are recorded explicitly.
-Never reuse a source ticket to authorize changes in scientific inputs.
+Use supported staging, exact browser measurement and guarded publication tools
+from the [catalogue](../../../../scripts/README.md). Historical compact/repacking
+sequences and one-time corrections remain in the archived pre-consolidation guide;
+do not run them merely to resume a selected draft. Verify tools are read-only by
+default; `--apply` and `--center-labels` are explicit edits and conflict with `--verify`.
+Existing raster data, scientific text, statistics, source mappings and coordinate
+meaning remain protected; no migration or production-compliance claim is inferred.
 
-The supported sequence is: prepare; `apply_axis_geometry.cjs`; then
-`apply_annotation_alignment.cjs`. The scoped `scripts/paper/shared/refine_composition.cjs` is a one-time
-composition refinement of those candidates: Figure 1 fish/condition headings are
-separated, and Figure 2 G is enlarged uniformly. Reapply the axis/annotation
-helpers after refinement. `--center-labels` on the axis helper centers actual
-glyphs and, for profile-bound inputs, title groups on their registered axis
-extent. It does not change tick values or data coordinates.
+## What happens when the author freezes
 
-Generate check pages using `publish_axis_geometry.py pages`. Collect exact
-browser bounds with `check_main_paper_layout.cjs`; use `nature_main_figures.py
-repack --exact --directory ...` to pack those measurements. A geometric packing
-bootstrap (`measure_nature_packing.cjs`) is explicitly nonpublication evidence
-and can overestimate unpainted content; it must never replace the exact collector.
-The 2026-10-17 author-selected compact route uses `compact --directory ...`
-once, preserving the preceding candidates and their presentation maps. It
-uniformly reduces Figure 2 A/B/C and the empty I placeholder, compensates text,
-and retains G's larger statistical inset. Rerun axis/annotation/stroke helpers
-and exact bounds, then `repack --exact --width-mm 136 --directory ...`.
-After the initial compact exact render, `pair-spacing --directory ...` transfers
-1 mm into each Figure 2 Control/condition pair so the unchanged 6-pt endpoint
-labels remain separate. It records the complete moved axis and heading groups;
-its exact-derived packing estimate is provisional, never publication evidence.
-Recenter shared X titles and collect fresh exact bounds after this step.
-Changing the root width also changes its viewBox width at the same physical
-unit scale; source protection rejects a global shrink of data/font units.
-Repacking prepares both candidates before writing either and fails at the Nature
-height limit. The per-owner resizes are uniform; all selected raster bytes,
-data paths, timing, values and scientific texts remain protected.
+### Freeze readiness and completion
 
-`style_nature_presentation.cjs` applies profile-resolved physical stroke roles
-and checks every mapped visible text and stroke; `verify_nature_presentation.cjs` is read-only for SVGs. Named
-renderer roles identify spines, traces, median/IQR, stimulus and boundary marks;
-unclassified strokes retain their inherited hierarchy within the journal range
-and remain explicitly unclassified scientifically. Physical stroke compensation
-uses non-scaling strokes to avoid directional distortion from historical nested
-axis transforms. Tick geometry remains with the existing axis checker. This is
-not complete scientific registration or a production PDF-font/accessibility gate.
+Once an explicit freeze is requested, inspect the scoped registry, source
+bindings and validator compatibility early, alongside the layout work. A valid
+scientific registry for a panel or an older style profile does not establish
+whole-assembly coverage under the current Nature profile. Classify failures by
+cause: incomplete source-grounded mappings/reviews, actual artwork defects,
+validator limitations, or author decisions. Complete mappings and reviews from
+the authenticated renderer/data evidence where available. Diagnose and repair
+applicable tooling incompatibilities with focused validation; do not change
+scientific definitions, weaken the gate, invent evidence or approve exceptions
+merely to obtain a pass. Recheck after relevant fixes rather than repeatedly
+reporting the same known failure count as the outcome of a freeze request.
 
-After the last change, regenerate pages and collect fresh exact painted/unclipped
-frame reports, axis `--verify`, annotation `--verify` and Nature `--verify` reports.
-Inspect both exact candidates at their native publication size and the dense G inset. Only then run
-`nature_main_figures.py publish --directory ... --visual-review-note <actual
-review>`. It authenticates all inputs, checks the source/candidate scientific
-payload, saves prior artwork/captions/state and verified evidence, then updates
-the same selected SVG/HTML pairs through scoped locks and atomic pointers.
-Concise captions remain below 300 whitespace-delimited words; detailed previous
-wording is retained in [figure-specific Methods](figure-specific-methods.md).
-Refresh the authenticated collection last and inspect browser and print output.
+The final freeze request binds the exact author-approved assembly and legend.
+Preserve those bytes before further work. Revisions that change visible artwork
+need a new review; changes confined to mappings, evidence or supported validation
+must still bind the same artifact hashes. Author approval or a preserved
+presentation checkpoint is not a completed formal freeze. If completion remains
+blocked by unavailable evidence or unresolved validation, report the concrete
+remaining work and the actual saved/selected status without claiming a freeze.
+Record any authorized presentation selection separately; it does not discharge
+the outstanding freeze request.
 
-The HTML renderer uses each SVG’s native millimetre dimensions for its inner
-sheet inside an outer responsive transform. This uniformly scales text, markers and non-scaling SVG strokes on
-narrow screens; printing restores the native publication scale. No scientific
-freeze, missing-panel approval or full Nature/submission-readiness follows.
+### Candidate verification and publication
 
-Dense G annotations use explicitly registered phase-header artists rather than
-the empty historical X-axis container. Redundant D/M/R prefixes may be omitted
-from significance glyphs only through recorded source/display aliases: every
-star and its unchanged labeled hypothesis row are preserved and guarded. Shared
-tick path definitions delegate width to their registered instances using
-`stroke-width:inherit`; a definition’s specified width must not silently override
-the measured instance width. Ordinary and non-scaling stroke measurement have
-separate tested paths. Pure measurement/CLI imports do not load unrelated
-scientific parquet inputs.
+Author direction, 2026-10-30: a request to freeze a whole figure assembly also
+requests a freeze of each constituent panel as it appears in that assembly,
+including the panel letters and their positions. This applies to the pending
+Figure 1 whole-assembly request. Treat the assembly and its panels as one
+version-bound freeze set:
 
-The 2026-10-16/17 migration was interrupted by disconnected storage before
-publication; [resume evidence](../../../../records/figure-reviews/nature-main-migration-20261017.md)
-records the exact status. Read selected state before treating any candidate as
-current.
+- Bind each panel's content, scientific definitions/inputs, scoped legend,
+  final physical size, frame allocation, placement and ancestor transforms to
+  the exact approved assembly hash. Preserve original source-panel identifiers
+  when displayed lettering differs. Freeze each panel's as-assembled version;
+  an older panel freeze alone does not certify later content or presentation.
+- Bind every panel letter's identity, text/style, owning panel, final canvas
+  position and offsets from its frame and named plot/schematic reference edges.
+  Record anchors and rendered glyph bounds distinctly in physical units. These
+  positions are frozen properties, not merely a passing alignment observation.
+- Prepare and validate the panel candidates and the whole-assembly candidate
+  through the explicit gate. Use source-bound panel isolation at the assembly's
+  final scale, with its required resources and coordinate mappings; do not
+  redraw science or reflow a standalone panel during extraction. Keep shared
+  colour bars/keys under their assembly ownership and link them from the panels
+  they explain. Reference joint scientific records and dependencies rather
+  than duplicating them as purported independent scientific analyses.
+- Preserve prior freezes and publish all validated panel/assembly manifests
+  before committing the complete freeze-set selection under the publication
+  guards. Record panel-manifest references in the assembly record and each
+  panel's parent-assembly identity. Report a whole-figure freeze complete only
+  when both the assembly and every required panel/letter binding have passed.
+  A failed panel check leaves the complete set pending; partial success must
+  be identified as partial. Later changes to content, size, placement or letter
+  geometry require an explicitly revised version and its affected checks.
 
-Browser presentation tools verify saved candidates by default. Use `--apply`
-explicitly for styling/alignment; `--center-labels` explicitly edits centering.
-`--verify` cannot be combined with either modifying flag. Verification writes
-its evidence report but does not modify SVG artwork.
+1. Resolve the exact selected candidate, panel scope, scientific definitions and
+   inputs. Preserve previous frozen bytes/hashes. A scientific change requires a
+   selected scientific source, not a presentation exception.
+2. Build/verify the semantic element registry from named renderer inputs and
+   existing authenticated mappings. Assign unique IDs and record SVG/Matplotlib
+   types, scientific role, quantity/units, data/event source, normalization,
+   coordinate system, tick values and composite/mappable relationships. Record
+   explicit/high classification evidence and a protection class. Never infer a
+   role from colour, position or artist order without renderer/source evidence.
+3. Verify the candidate against the resolved current Nature profile at the
+   intended final width; historical compatibility typography is not the target.
+   If style changes are needed, prepare a separate revised candidate for review
+   and preserve the previously approved artwork. Preserve scientific inputs/results.
+   Record each approved exception's ID,
+   element role, property/value, reason, scope and actual approval evidence.
+   The freeze request authorizes freezing; ask only about unresolved decisions
+   after independent candidate work is complete.
+4. Perform scientific-mapping, structure and visual reviews. Check effective
+   opacity, stacking, shared axes, clipping, colourbar meaning and raster pixels.
+   Record real evidence for renderer properties the SVG cannot prove.
+5. Run the explicit [freeze gate](../../../../scripts/freeze_figure.py) in
+   `--check-only` mode. Resolve every issue before running with `--output` to
+   publish a new manifest. The gate checks ID coverage, compatible roles/types,
+   mapped scientific geometry/text/resources/ancestor transforms, style values,
+   final-scale fonts/strokes/tick lengths, visibility and hashes. Unsupported
+   transforms/CSS or missing evidence fail; noninteractive cases cannot invent
+   approval. Ordinary rendering never invokes this gate.
+6. The gate rehashes inputs and exclusively writes the new manifest with the
+   specification version/hash, registry/resolved styles, scoped exceptions,
+   scale, source/data/export hashes, checks and authorization. It records
+   already-created exports; it neither styles them nor guesses their meanings.
+7. Update scoped current-selection/navigation records and current display state
+   for the accepted scope. A panel freeze does not approve the full assembly.
+   Then inventory earlier versions and dependencies, with keep/archive/delete
+   recommendations. The author must review and choose which previous versions
+   to retain, archive or delete. Keep all pending originals until those choices
+   are recorded; freezing alone is not disposal approval. Execute only approved
+   dispositions, verify external copies before pruning, preserve frozen bytes
+   and shared active reviews, and update indexes/navigation. Report completed
+   and pending dispositions. Check-only runs or rule edits do not trigger cleanup.
+
+
+The [scientific mapping requirements](#scientific-element-identities) and
+[versioned role contract](../../../../configs/paper-figures/figure-elements.json)
+remain the detailed freeze authority. The gate validates the registry prepared
+by the agent/renderer; it does not itself establish scientific truth or conduct
+visual review. The [archive procedure](../../../../records/repository-archive/README.md)
+governs verified transfer and pruning.
+
+## Current Figure 1 handoff
+
+Use [Figure 1 guidance](../figure-01/README.md), its scoped state and legend.
+Current versions, approvals and unresolved coverage do not live in this guide.

@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 loader = importlib.util.spec_from_file_location("figure_freeze", ROOT/"src/classical_conditioning/figure_freeze.py")
 freeze = importlib.util.module_from_spec(loader)
 loader.loader.exec_module(freeze)
-SPEC = json.loads(freeze.DEFAULT_SPECIFICATION.read_text(encoding="utf-8"))
+SPEC = json.loads((ROOT/"records/figure-history/shared/contracts/2026-10-31/configs/paper-figures/figure-elements.json").read_text(encoding="utf-8"))
 
 
 class FigureFreezeTests(unittest.TestCase):
@@ -99,6 +99,41 @@ class FigureFreezeTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             freeze.freeze_candidate(self.candidate_path, output, self.specification_path)
         self.assertEqual(output.read_bytes(), before)
+
+    def prepare_unified_candidate(self):
+        from classical_conditioning.figures import layout_frames as frames
+        from tests.test_layout_frames import browser
+        current = json.loads(freeze.DEFAULT_SPECIFICATION.read_bytes())
+        self.specification_path.write_text(json.dumps(current))
+        raw = self.svg.read_bytes().replace(b"8px 'DejaVu Sans'", b"7px 'Arial'")
+        size = [183., 100 * 183 / 518.740157480315]
+        spec = dict(scope='figure', final_size_mm=size, inset_mm=1,
+                    allocations=[dict(id='a', kind='panel', box_mm=[0, 0, *size],
+                                      group_ids=['reference', 'trace', 'label'])], background_ids=[])
+        raw = frames.embed_spec(raw, spec)
+        self.svg.write_bytes(raw)
+        self.original.write_bytes(raw)
+        self.candidate['source_artifacts'][0]['sha256'] = freeze.digest(self.original)
+        for record in self.candidate['element_registry'].values():
+            record['resolved_style'] = copy.deepcopy(current['styles'][record['style_role']])
+        report = frames.assess(raw, browser(raw), policy_path=self.specification_path)
+        report['browser'] = browser(raw)
+        path = self.folder/'frames.json'
+        path.write_text(json.dumps(report))
+        self.candidate['verification']['layout_frames'] = dict(path=str(path), sha256=freeze.digest(path))
+
+    def test_unified_freeze_and_layout_bind_the_same_contract(self):
+        self.prepare_unified_candidate()
+        report = self.check()
+        self.assertTrue(report['valid'], report)
+        self.assertEqual(report['specification_version'], '2.0.0')
+        self.assertIn({'path': str(self.specification_path.resolve()),
+                       'sha256': freeze.digest(self.specification_path)}, report['checked_artifacts'])
+
+    def test_unified_freeze_never_falls_back_to_legacy_typography(self):
+        self.prepare_unified_candidate()
+        self.svg.write_bytes(self.svg.read_bytes().replace(b"7px 'Arial'", b"8px 'DejaVu Sans'"))
+        self.assert_invalid('font')
 
     def test_actual_style_checked_not_just_declarations(self):
         self.svg.write_text(self.svg.read_text().replace("stroke-width:0.6", "stroke-width:2.4", 1))

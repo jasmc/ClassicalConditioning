@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "figure_id": "fig4",
+  "scope": "Delay and 3sTrace full [-20,20) analysis; two panels; common axes; PNG-based PDF",
+  "default_display": "draft",
+  "default_display_format": "html-svg-and-legend",
+  "whole_figure_frozen": false,
+  "scientific_selection": {
+    "status": "Exploratory full-window refit, no method or learner approval",
+    "records": []
+  },
+  "draft": {
+    "status": "Author-locked provisional presentation",
+    "working_svg": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/figure-04.svg",
+      "sha256": "74eec889c2b27c88a0f47df7eeaaba56aed996621582053bc5c78fbb61847c0b"
+    },
+    "review": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/figure-04.html",
+      "sha256": "1954a673b97cebd881e2adc367b9c6069dcf9b340401d94fc158b6ccc6ddccc1"
+    },
+    "legend": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/legend.md",
+      "sha256": "3f39f9f226101f69d642956976b563f84ca5f4ec5dd61d76197606c8d61cd1ec"
+    },
+    "exports": {
+      "png": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/figure-04-600dpi.png",
+        "sha256": "4cbed71875e110facfa0f1b9c0640b9361e1b25a8e16693c86ecc0b36057f0e8"
+      },
+      "pdf": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/figure-04.pdf",
+        "sha256": "2f1f3d96bb8ccd0b56dc45dcafef5e0443984c80d6fadae847efc9a6bccfcb4f"
+      },
+      "artwork_png": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/figure-04-artwork-600dpi.png",
+        "sha256": "65ef93c224510b6ae66c90a9d0a11554fdf933abb5e8027991e1789eb3d357cf"
+      }
+    },
+    "analysis": {
+      "delay": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-20261029/delay/analysis-summary.json",
+        "sha256": "a9ce652a2c8c4c30b9cd5faeb3a648aaf04588bdc1a9847e79037d7d73cfad4d"
+      },
+      "3strace": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-20261029/3strace/analysis-summary.json",
+        "sha256": "e3eafb14f463d9839141b63a2c13122b064f9ed365141e864c39cd205a9e74eb"
+      }
+    },
+    "verification": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/visual-review.json",
+      "sha256": "f6878076b708c0f3d7fbf1c5d25fff962bf4c821b599bd7aa774e039a3218792"
+    },
+    "presentation_evidence": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-20261029/presentation-evidence.json",
+      "sha256": "2b7cc2f78c3ab9941856b32c44198947825298628b21d9ce16d9262da2349458"
+    },
+    "geometry_verification": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-20261029-verification/geometry-verification.json",
+      "sha256": "bee99d4d337838293035714fec6689be89991513183079bfdeabea361d8c6db3"
+    }
+  },
+  "presentation_lock": {
+    "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-with-legend-20261101/version-lock.json",
+    "sha256": "cdfef5e44ce60591b7d3f6759b87a4591a721486af1a3014c9f40ee0aea197f6",
+    "status": "locked",
+    "kind": "provisional-presentation-lock",
+    "date": "2026-11-01",
+    "scope": "Delay and 3sTrace full [-20,20) analysis; two panels; common axes; PNG-based PDF; pooled catch-trial caption included",
+    "retain_other_versions": true,
+    "future_edits_require_new_version": true,
+    "publication_freeze_completed": false,
+    "previous_lock": {
+      "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/full-window-20261029/version-lock.json",
+      "sha256": "d83c76315dbe7d2b9831b0f4604592d6de89f29e5335b71fc5d861d47f16293e",
+      "status": "locked",
+      "kind": "provisional-presentation-lock",
+      "date": "2026-10-29",
+      "scope": "Delay and 3sTrace full [-20,20) analysis; two panels; common axes; PNG-based PDF",
+      "retain_other_versions": true,
+      "future_edits_require_new_version": true,
+      "publication_freeze_completed": false,
+      "previous_lock": {
+        "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029-x20/version-lock.json",
+        "sha256": "eaaf9ea32bd677744d18d7a95fb7324c1479d4ef899289a85c72ff9f428b86fc",
+        "status": "locked",
+        "kind": "provisional-presentation-lock",
+        "date": "2026-10-29",
+        "scope": "Delay and 3sTrace panel-a views; x range -20 to +20 s; common y range -0.30 to +0.15; PNG-based PDF",
+        "retain_other_versions": true,
+        "future_edits_require_new_version": true,
+        "publication_freeze_completed": false,
+        "previous_lock": {
+          "path": "/Volumes/JOAQUIM/ClassicalConditioning Outputs/figures/figure-04/assembly/versions/locked-current-20261029/version-lock.json",
+          "sha256": "da221a2a2af7364b8b9f068d6296e1d4796ca3bdb30f3660bb563e8da2424a95",
+          "status": "locked",
+          "kind": "provisional-presentation-lock",
+          "date": "2026-10-29",
+          "scope": "Delay and 3sTrace panel-a views only; shared signed-bout-vigor range -0.30 to +0.15; matching PNG-based PDF",
+          "retain_other_versions": true,
+          "future_edits_require_new_version": true,
+          "publication_freeze_completed": false
+        }
+      }
+    }
+  }
+}

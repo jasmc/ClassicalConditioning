@@ -14,3 +14,8 @@ Figure 2 G/H/I, Figure 3 and Figure 4 HTML, Markdown and alternatives on JOAQUIM
 
 Permanent media remain on JOAQUIM. Exact accepted definitions remain in the
 [freeze index](../frozen-analyses/selections.md).
+
+- [Shared cross-figure review evidence](shared/). Bound and protected records keep
+  their required paths; these records do not select scientific or presentation work.
+  The [workflow optimization receipt](shared/workflow-optimization-20261030.json)
+  records requirement disposition and focused validation for the instruction/tool revision.

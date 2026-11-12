@@ -162,7 +162,7 @@ class Guide:
         selection = json.loads(self.source("selection", "Current scoped scientific selection of G", selection_path))
         state = json.loads(self.source("figure-state", "Current Figure 2 presentation state", REPO / "docs/paper/figures/figure-02/current-state.json"))
         self.source("workflow", "Authoritative figure workflow", REPO / "docs/paper/figures/shared/iteration-workflow.md")
-        self.source("nature", "Maintained Nature presentation guidance", REPO / "docs/paper/figures/shared/nature-style.md")
+        self.sources["nature"] = {**self.sources["workflow"], "title": "Nature presentation section of the figure guide"}
         for rec in state["scientific_selection"]["records"]:
             if Path(rec["path"]).name == selection_path.name:
                 assert digest(selection_path.read_bytes()) == rec["sha256"]

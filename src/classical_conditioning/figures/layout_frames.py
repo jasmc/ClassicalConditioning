@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-POLICY = ROOT / 'configs/paper-figures/layout-frames.json'
+POLICY = ROOT / 'configs/paper-figures/figure-elements.json'
 COLLECTOR = Path(__file__).with_name('layout_frames_browser.js')
 SVG = '{http://www.w3.org/2000/svg}'
 
@@ -28,6 +28,14 @@ def object_sha(value):
 def load_policy(path=POLICY):
     raw = Path(path).read_bytes()
     policy = json.loads(raw)
+    if policy.get('schema_version') == 2:
+        policy = policy['layout_frames']['policy']
+    validate_policy(policy)
+    return policy, sha(raw)
+
+
+def validate_policy(policy):
+    """Validate an already loaded policy without reading a second snapshot."""
     if policy.get('units') != 'mm' or policy.get('outside_edges') != 'shared-not-additive':
         raise ValueError('Unsupported frame policy')
     if not finite(policy.get('tolerance_mm')) or policy['tolerance_mm'] <= 0:
@@ -36,7 +44,7 @@ def load_policy(path=POLICY):
     if policy.get('activation') == 'active':
         if not finite(selected) or selected <= 0 or not policy.get('author_selection'):
             raise ValueError('Active inset requires a positive value and author selection evidence')
-    return policy, sha(raw)
+    return policy
 
 
 def finite(value):

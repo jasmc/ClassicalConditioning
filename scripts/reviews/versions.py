@@ -73,7 +73,7 @@ def source_files(outputs, archive):
             # not another artwork tree. Their original inventories remain evidence.
             dirs[:]=sorted(d for d in dirs if d not in {'.git','review-library'} and
                           not (storage=='archive' and Path(base)==root/'repository-history' and
-                               d.startswith(('storage-consolidation-','ordered-figure-library-'))))
+                               (d.startswith(('storage-consolidation-','ordered-figure-library-')) or d=='incremental-browser')))
             for name in sorted(names):
                 p=Path(base)/name
                 if p.is_symlink():raise ValueError('Source symlink requires review: '+str(p))
@@ -197,12 +197,13 @@ def panel_views(raw):
 
 
 class Catalogue:
-    def __init__(self,outputs,archive,repo,stage):
+    def __init__(self,outputs,archive,repo,stage, *, load_history=True):
         self.outputs=relocated_external_directory(outputs);self.archive=relocated_external_directory(archive);self.repo=Path(repo);self.stage=Path(stage)
         self.roots={'outputs':self.outputs,'archive':self.archive,'repo':self.repo}
         self.guards={};self.inventory=[];self.entries=[];self.issues=[];self.payloads={}
         self.path_rows={};self.physical={};self.figures=defaultdict(set);self.current={};self.review_companions={}
         self.reading_derivatives={};self.origins={};self.derivative_records={};self.repair_originals={};self.migration=None
+        if not load_history:return
         w=self.archive/'repository-history/storage-consolidation-2026-10-26'
         if (w/'manifest-v3.json').is_file():
             self.migration=json.loads(self.read(w/'manifest-v3.json'))
@@ -241,8 +242,8 @@ class Catalogue:
             if not p.exists():p.write_bytes(raw)
             self.payloads[key]=dict(path=key,source=str(p),sha256=h,bytes=len(raw))
         return key
-    def discover_states(self):
-        for p in sorted((self.repo/'docs/paper/figures').rglob('*state.json')):
+    def discover_states(self, state_paths=None):
+        for p in sorted((self.repo/'docs/paper/figures').rglob('*state.json') if state_paths is None else state_paths):
             d=json.loads(self.read(p));fig=d.get('figure_id','')
             m=re.match(r'fig(?:ure-)?0*(\d+)(?:$|[-_])',fig)
             if not m:continue
@@ -409,8 +410,9 @@ class Catalogue:
                     self.add(path,storage,owner,scope,raw=value,ext=Path(info.filename).suffix.lower(),
                              title=info.filename,locator=locator+'/'+info.filename,family='Archive · '+path.stem,member=info.filename)
         except zipfile.BadZipFile as error:raise ValueError('Invalid archive: '+str(path)) from error
-    def discover(self):
-        self.discover_states();source_list=source_files(self.outputs,self.archive)
+    def discover(self, *, source_list=None, include_states=True, reconcile=True, state_paths=None):
+        if include_states:self.discover_states(state_paths)
+        if source_list is None:source_list=source_files(self.outputs,self.archive)
         self.known_files={str(p) for _,p in source_list};self.source_names={(storage,str(p)) for storage,p in source_list if p.name not in GENERATED}
         for storage,path in source_list:
             relative=path.relative_to(self.roots[storage]);owner,scope=location(path,self.roots[storage]);ext=path.suffix.lower()
@@ -493,7 +495,7 @@ class Catalogue:
         used={e['preview'] for e in self.entries if not Path(e['preview']).is_absolute()}
         for key in list(self.payloads):
             if key not in used:Path(self.payloads.pop(key)['source']).unlink()
-        self.reconcile()
+        if reconcile:self.reconcile()
         for entry in self.entries:
             if not entry['legend']['text'] and entry['role']=='version':
                 self.issues.append(dict(source=entry['source']['path'],id=entry['id'],reason='No saved legend association'))

@@ -18,6 +18,13 @@ The [panels d e definition](panels-d-e/README.md#frozen-scientific-definition) o
 
 The [panel g definition](panel-g/README.md#frozen-scientific-definition) owns the exact accepted outcome, inference and limitations.
 
+## Current robust-normalized draft
+
+The 31 October working assembly applies the [standing robust normalization decision](../../decisions.md#2026-10-31--robust-baseline-normalization-for-all-heatmaps)
+to A–C after equal-fish pooling, with shared dimensionless colour limits ±2.
+D–I outcomes/statistics are unchanged. Earlier scoped freezes remain immutable;
+the new A heatmap is an unfrozen scientific derivative, not a replacement freeze.
+
 ## Panel composition
 
 These roles describe the current unfrozen working composition. Accepted scoped
@@ -27,7 +34,7 @@ it does not approve or replace a scientific freeze.
 
 | Panel | Purpose |
 |---|---|
-| A | Control versus Delay, direct 1 s log-frame medians centred within each fish/trial, pooled with equal fish weight; managua_r at −0.25 to +0.25 |
+| A | Control versus Delay, direct 1 s log-frame medians centred within each fish/trial, pooled with equal fish weight, then robust baseline z-scored; managua_r at −2 to +2 |
 | B | Control versus 3sTrace population heatmaps; expanded 179-fish draft |
 | C | Control versus fixed 10sTrace population heatmaps; common 61-fish draft |
 | D | Delay selected-block log-vigor differences; draft uses separate Holm18/min3, retained frozen B remains authoritative |
@@ -38,7 +45,7 @@ it does not approve or replace a scientific freeze.
 | I | 10sTrace observed log-vigor differences and matched exploratory model families; unfrozen |
 
 
-Current display: [Figure 2 state](current-state.json). [A scientific definition and scoped state](panel-a/README.md). The top row contains A/B/C with two heatmaps each and one shared colourbar at the far right. A remains frozen. B/C now contain the saved expanded 3sTrace and fixed-10sTrace
+Current display: [Figure 2 state](current-state.json). [A scientific definition and scoped state](panel-a/README.md). The top row contains A/B/C with two heatmaps each and one shared colourbar at the far right. The accepted original A remains frozen; its current robust-normalized derivative is unfrozen. B/C contain the saved expanded 3sTrace and fixed-10sTrace
 draft results. D/E/F use separate Holm18 families and minimum-three-trial
 eligibility in this draft. H/I are log differences, distinct from older ratio
 iterations. Their numerical, roster, visual and exact-layout evidence is bound
