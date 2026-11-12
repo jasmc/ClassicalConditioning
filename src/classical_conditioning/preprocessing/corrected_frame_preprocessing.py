@@ -365,6 +365,7 @@ def build_corrected_preprocessing(
     recording_id: str,
     *,
     config: CorrectedPreprocessConfig | None = None,
+    experiment_name: str | None = None,
     batch_size: int = 250_000,
     overwrite: bool = False,
 ) -> CorrectedPreprocessResult:
@@ -401,6 +402,9 @@ def build_corrected_preprocessing(
         project_dir,
         recording_id,
     )
+
+    from classical_conditioning.ingestion.protocol_verification import verify_recording_protocol
+    verify_recording_protocol(project_dir, recording_id, experiment_name=experiment_name)
 
     frames_path = source_dir / ARTIFACT_NAME
     summary_path = (

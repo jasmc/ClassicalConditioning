@@ -42,6 +42,7 @@ from classical_conditioning.figures.temporal_profiles import (
     build_candidate_profile_figure,
 )
 from classical_conditioning.intake import IntakeBatchResult, intake_recordings
+from classical_conditioning.ingestion.stimulus_timing import run_protocol_timing
 from classical_conditioning.inventory import build_recording_inventory
 from classical_conditioning.progress import PipelineProgress, default_progress
 from classical_conditioning.run_config import PipelineRunConfig, pipeline_config_to_dict
@@ -80,12 +81,14 @@ def resolve_pipeline_recording_ids(
     inventory = inventory or build_recording_inventory(config.raw_dir, hash_files=True)
     if config.recording_ids is not None:
         return config.recording_ids
-    keep = set(config.keep_conditions or ())
+    from classical_conditioning.config.experiments import condition_aliases
+    aliases = condition_aliases(config.experiment)
+    keep = {aliases.get(c, c) for c in (config.keep_conditions or ())}
     selected = tuple(dict.fromkeys(
         str(record["recording_id"])
         for record in inventory["records"]
         if record.get("recording_id") is not None
-        and (not keep or record.get("condition_id") in keep)
+        and (not keep or aliases.get(str(record.get("condition_id")).lower(), record.get("condition_id")) in keep)
     ))
     if not selected:
         raise ConfigurationError("No raw recordings matched the requested filters.")
@@ -181,9 +184,11 @@ def run_pipeline(
     paper_panels: dict[str, dict[str, Any]] = {}
     inventory: dict[str, Any] | None = None
     selection_assessment: Path | None = None
+    assessment_status: dict[str, Any] = {"status": "not_run", "mode": "observation_only"}
     stage_errors: list[str] = []
     figure_paths: list[Path] = []
     pending: dict[Future[Any], str] = {}
+    stimulus_timing: dict[str, Any] = {"status": "not_run"}
 
     # Record unavailable figures with a reason for the run summary.
     def blocked(key: str, reason: str) -> None:
@@ -293,26 +298,38 @@ def run_pipeline(
                 _successful: tuple[str, ...],
                 steps: dict[str, dict[str, str]],
             ) -> None:
-                nonlocal selection_assessment
-                ledger = json.loads(intake.ledger_path.read_text(encoding="utf-8"))
-                statuses = {
-                    name: value.get("status", "unknown")
-                    for name, value in ledger["recordings"].items()
-                }
-                for name, stage in steps.items():
-                    if stage.get("failed"):
-                        statuses[name] = "candidate_failed"
-                with progress.stage_timer("Technical and exploratory discarding assessment"):
-                    assessment = assess_discarding(
-                        config.raw_dir, config.save_dir,
-                        analysis_id=config.analysis_id, experiment=config.experiment,
-                        metric_id=config.assessment_metric or config.metric or DEFAULT_METRIC,
-                        technical_policy_path=config.technical_policy,
-                        disabled_rules=config.disabled_discard_checks,
-                        recording_ids=selected, inventory=inventory,
-                        processing_statuses=statuses,
-                    )
+                nonlocal selection_assessment, assessment_status
+                if not config.assessment_enabled:
+                    assessment_status = {"status": "disabled", "mode": "observation_only"}
+                    return
+                try:
+                    ledger = json.loads(intake.ledger_path.read_text(encoding="utf-8"))
+                    statuses = {
+                        name: value.get("status", "unknown")
+                        for name, value in ledger["recordings"].items()
+                    }
+                    for name, stage in steps.items():
+                        if stage.get("failed"):
+                            statuses[name] = "candidate_failed"
+                    with progress.stage_timer("Observation-only fish assessment"):
+                        assessment = assess_discarding(
+                            config.raw_dir, config.save_dir,
+                            analysis_id=config.analysis_id, experiment=config.experiment,
+                            metric_id=config.assessment_metric or config.metric or DEFAULT_METRIC,
+                            technical_policy_path=config.technical_policy,
+                            disabled_rules=config.disabled_discard_checks,
+                            recording_ids=selected, inventory=inventory,
+                            processing_statuses=statuses,
+                            expected_recording_ids=config.expected_recording_ids,
+                            observation_only=config.observation_only,
+                        )
                     selection_assessment = assessment.summary_path
+                    assessment_status = {"status": "complete", "mode": "observation_only",
+                                         "observation": assessment.observation}
+                except Exception as error:
+                    # Audit failure is visible, but must not suppress comparison.
+                    assessment_status = {"status": "failed", "mode": "observation_only",
+                                         "error": f"{type(error).__name__}: {error}"}
 
             if active:
                 try:
@@ -341,7 +358,31 @@ def run_pipeline(
                     stage_errors.append(f"candidate runner: {error}")
             else:
                 stage_errors.append("No recordings have verified intake.")
-            if selection_assessment is None:
+            # Raw-log diagnostics remain available even when tracking/behavior fails.
+            # Run after the candidate stage so newly saved alignment is compared too.
+            try:
+                with progress.stage_timer("Stimulus timing diagnostics"):
+                    stimulus_timing = run_protocol_timing(
+                        config.save_dir, selected, experiment_name=config.experiment,
+                        config_path=config.protocol_timing_config, raw_dir=config.raw_dir,
+                        analysis_id=config.analysis_id,
+                        expected_recording_ids=config.expected_recording_ids,
+                    )
+                for output in stimulus_timing["outputs"]:
+                    if output.endswith(".png"):
+                        figure_paths.append(Path(output))
+                figures["stimulus-timing"] = {
+                    "status": "completed" if stimulus_timing["status"] == "complete" else "failed",
+                    "outputs": [p for p in stimulus_timing["outputs"] if p.endswith(".png")],
+                    "reason": None if not stimulus_timing["errors"] else str(stimulus_timing["errors"]),
+                }
+                if stimulus_timing["errors"]:
+                    stage_errors.append("stimulus timing: " + str(stimulus_timing["errors"]))
+            except Exception as error:
+                stimulus_timing = {"status": "failed", "error": str(error)}
+                figures["stimulus-timing"] = {"status": "failed", "reason": str(error), "outputs": []}
+                stage_errors.append(f"stimulus timing: {error}")
+            if assessment_status["status"] == "not_run":
                 try:
                     assess_after_fish((), {})
                 except Exception as error:
@@ -533,7 +574,13 @@ def run_pipeline(
             "intake_failed_skipped": list(intake.failed_skipped) if intake else [],
             "intake_status_ledger": str(intake.ledger_path) if intake else None,
             "selection_assessment": str(selection_assessment) if selection_assessment else None,
+            "assessment_status": assessment_status,
             "candidate_runner_status": candidate_status,
+            "stimulus_timing": stimulus_timing,
+            "protocol_verification": {rid: {"path": str(path),
+                "status": json.loads(path.read_text())["status"]}
+                for rid in active
+                if (path := config.save_dir / "Quality checks" / rid / "protocol_verification.json").is_file()},
             "figures": figures,
             "paper_panels": paper_panels,
             "paper_registry": str(PAPER_REGISTRY),

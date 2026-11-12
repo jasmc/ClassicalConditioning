@@ -19,6 +19,7 @@ from classical_conditioning.analysis.metric_comparison import (
 from classical_conditioning.analysis.temporal_profiles import METRIC_IDS
 from classical_conditioning.artifacts import sha256_file
 from classical_conditioning.cli import build_parser
+from classical_conditioning.config.trial_map import trial_map_sha256
 from classical_conditioning.exceptions import SchemaValidationError
 
 
@@ -152,6 +153,8 @@ class MetricComparisonTests(unittest.TestCase):
                 json.dumps(
                     {
                         "recipe": "candidate-temporal-outcomes",
+                        "experiment": "allDelay",
+                        "trial_map_sha256": trial_map_sha256("allDelay"),
                         "recording_id": recording_id,
                         "artifact": {"sha256": profiles_hash},
                     }

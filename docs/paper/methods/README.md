@@ -1,6 +1,6 @@
 # Shared scientific methods
 
-A method is stored once and linked from the figures that use it. No method gets a special workstream folder.
+Scientific definitions are stored once and linked from their figures. Figure procedures, element mappings and presentation rules belong in the [single figure guide](../figures/shared/iteration-workflow.md); this index owns methods discovery.
 
 For the currently selected Figure 2 presentation, use the
 [working-draft methods and historical differences](../figures/figure-02/current-methods.md).
@@ -10,6 +10,7 @@ on 16 October; scoped accepted freezes remain scientific authority.
 - [Activity measures and bout detection](activity-and-bouts.md)
 - [Recording quality and cohorts](recording-quality-and-cohorts.md)
 - [Population aggregation](population-aggregation.md)
+- [Robust baseline normalization for all heatmaps](../decisions.md#2026-10-31--robust-baseline-normalization-for-all-heatmaps): author-approved median/MAD recipe and aggregation order for new work; existing freezes remain preserved.
 - [Individual learning and validation](individual-learning.md)
 - [Implemented learning-model contract](learning-model-contract.md): exploratory mathematics, distinct from frozen Figure 2 inference
 - [Glossary](glossary.md)

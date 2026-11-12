@@ -8,8 +8,10 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import inspect
 import json
 import sys
+from functools import wraps
 from dataclasses import asdict
 from pathlib import Path
 
@@ -22,6 +24,63 @@ SCRIPTS = {
     "legacy-improved": "6_LearnersQuantification_improved.py",
     "legacy-wip": "6_LearnersQuantification_WIP.py",
 }
+
+
+def install_observers(module, *, input_path: Path, output_path: Path, variant: str):
+    """Observe calls made by the unchanged algorithm, never rerun a preparation."""
+    from classical_conditioning.analysis.observation import observe_contributions, observe_tables, try_observation
+    from classical_conditioning.artifacts import sha256_file, write_json_atomic
+
+    references = []
+    identity = {"variant": variant, "input_sha256": sha256_file(input_path),
+                "source_sha256": sha256_file(Path(module.__file__)),
+                "config": asdict(module.analysis_cfg)}
+
+    def wrap(name):
+        original = getattr(module, name)
+
+        @wraps(original)
+        def observed(*args, **kwargs):
+            try:
+                bound = inspect.signature(original).bind(*args, **kwargs)
+                data = next(iter(bound.arguments.values()))
+                before = data.copy(deep=True)
+            except Exception as error:
+                references.append({"stage": name, "status": "failed", "error": str(error)})
+                return original(*args, **kwargs)
+            result = original(*args, **kwargs)
+            def record():
+                keys = [key for key in ("Fish_ID", "Condition", "Trial number") if key in before and key in result]
+                # A feature table can change observation units; retain exact
+                # output evidence rather than claiming a trial-level join.
+                if not isinstance(result, pd.DataFrame) or not keys or before.duplicated(keys).any() or result.duplicated(keys).any():
+                    return observe_tables(output_path.parent, output_path.parent / "observations" / variant / name,
+                                          tables={"input": before, "output": result} if isinstance(result, pd.DataFrame) else {"input": before},
+                                          identity={**identity, "stage": name})
+                renamed_before = before.rename(columns={"Fish_ID": "fish_id", "Condition": "condition_id"})
+                renamed_result = result.rename(columns={"Fish_ID": "fish_id", "Condition": "condition_id"})
+                keys = [{"Fish_ID": "fish_id", "Condition": "condition_id"}.get(key, key) for key in keys]
+                return observe_contributions(
+                    output_path.parent, output_path.parent / "observations" / variant / name,
+                    candidates=renamed_before, contributors=renamed_result, keys=keys,
+                    consumer=f"{variant}:{name}", identity={**identity, "stage": name})
+            references.append({"stage": name, **try_observation(record)})
+            return result
+        setattr(module, name, observed)
+
+    for name in ("prepare_data", "_filter_fish_by_trials", "extract_change_feature"):
+        if hasattr(module, name):
+            wrap(name)
+
+    def finish(error=None):
+        # Persist pending/failed model status even if the historical fit raises.
+        reference = observe_tables(
+            output_path.parent, output_path.parent / "observations" / variant / "execution",
+            tables={"stages": pd.DataFrame(references)},
+            identity={**identity, "model_status": "failed" if error else "completed",
+                      "error": str(error) if error else None})
+        write_json_atomic(output_path.with_suffix(".observation.json"), reference)
+    return finish
 
 
 def execute(
@@ -66,7 +125,25 @@ def execute(
             if hasattr(module, flag):
                 setattr(module, flag, True)
 
-    result = module.run_multivariate_lme_pipeline(module.analysis_cfg)
+    try:
+        finish_observation = install_observers(module, input_path=input_path, output_path=output_path, variant=variant)
+    except Exception as error:
+        # Instrumentation is optional evidence, never a model prerequisite.
+        from classical_conditioning.artifacts import write_json_atomic
+        from classical_conditioning.analysis.observation import try_observation
+        failure = {"status": "failed", "mode": "observation_only", "error": str(error)}
+        try_observation(lambda: write_json_atomic(output_path.with_suffix(".observation.json"), failure))
+        finish_observation = lambda error=None: failure
+    try:
+        result = module.run_multivariate_lme_pipeline(module.analysis_cfg)
+    except Exception as error:
+        # Observation errors themselves must not replace the model's exception.
+        from classical_conditioning.analysis.observation import try_observation
+        try_observation(lambda: finish_observation(error))
+        raise
+    else:
+        from classical_conditioning.analysis.observation import try_observation
+        try_observation(finish_observation)
     if isinstance(result, tuple):
         classification, columns = result
         if figures:
@@ -109,6 +186,15 @@ def execute(
         raise ValueError("Historical algorithm returned duplicate fish keys")
     out.to_parquet(output_path, index=False)
     settings = {"analysis_cfg": asdict(module.analysis_cfg)}
+    from classical_conditioning.analysis.observation import observe_contributions, try_observation
+    from classical_conditioning.artifacts import sha256_file
+    settings["observation"] = try_observation(lambda: observe_contributions(
+        output_path.parent, output_path.parent / "observations" / variant / "final-features",
+        candidates=frame[["Fish", "Exp."]].drop_duplicates().rename(columns={"Fish": "fish_id", "Exp.": "condition_id"}),
+        contributors=out.rename(columns={"Fish_ID": "fish_id", "Condition": "condition_id"}),
+        keys=["fish_id", "condition_id"], consumer=f"{variant}:final_features",
+        identity={"input_sha256": sha256_file(input_path), "source_sha256": sha256_file(script),
+                  "config": asdict(module.analysis_cfg)}))
     for name in ("ALPHA_TARGET", "USE_PER_FISH_SE_IN_SCORING", "USE_LOG_TRANSFORM",
                  "MIN_FISH_WITH_ALL_FEATURES"):
         if hasattr(module, name):

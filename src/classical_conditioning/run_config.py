@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import json
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
-from classical_conditioning.config.experiments import get_experiment_spec
+from classical_conditioning.config.experiments import get_experiment_spec, resolve_condition
 from classical_conditioning.analysis.movement_state import METRIC_IDS
 from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.paths import assert_project_dir_allowed
@@ -21,6 +21,8 @@ _FIELDS = frozenset({
     "figure_mode", "show_progress", "cohort_id", "metric",
     "learner_representation_id",
     "assessment_metric", "technical_policy", "disabled_discard_checks",
+    "assessment_enabled", "observation_only", "expected_recording_ids",
+    "protocol_timing_config",
 })
 _OBSOLETE = frozenset({
     "routes", "candidate_runner_recipe", "candidate_analysis_id",
@@ -81,6 +83,10 @@ class PipelineRunConfig:
     assessment_metric: str | None = PAPER_METRIC_ID
     technical_policy: Path | None = None
     disabled_discard_checks: tuple[str, ...] = ()
+    assessment_enabled: bool = True
+    observation_only: bool = True
+    expected_recording_ids: tuple[str, ...] = ()
+    protocol_timing_config: Path | None = None
 
     # Expose the current raw directory under the older input-dir API name.
     @property
@@ -125,14 +131,16 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
     batch_size = payload.get("batch_size", 250_000)
     if isinstance(batch_size, bool) or not isinstance(batch_size, int) or batch_size <= 0:
         raise ConfigurationError("batch_size must be a positive integer.")
-    for field in ("overwrite", "continue_on_error", "show_progress"):
+    for field in ("overwrite", "continue_on_error", "show_progress", "assessment_enabled", "observation_only"):
         if field in payload and not isinstance(payload[field], bool):
             raise ConfigurationError(f"{field} must be a boolean.")
-    if "technical_policy" in payload and payload["technical_policy"] is not None and (
-        not isinstance(payload["technical_policy"], str)
-        or not payload["technical_policy"].strip()
-    ):
-        raise ConfigurationError("technical_policy must be a non-empty path or null.")
+    if payload.get("observation_only", True) is not True:
+        raise ConfigurationError("Only observation_only=true is supported; exclusions cannot be activated.")
+    for field in ("technical_policy", "protocol_timing_config"):
+        if field in payload and payload[field] is not None and (
+            not isinstance(payload[field], str) or not payload[field].strip()
+        ):
+            raise ConfigurationError(f"{field} must be a non-empty path or null.")
     config = PipelineRunConfig(
         raw_dir=Path(payload["raw_dir"]).expanduser().resolve(),
         save_dir=Path(payload["save_dir"]).expanduser().resolve(),
@@ -157,6 +165,11 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
         disabled_discard_checks=_optional_list(
             payload.get("disabled_discard_checks"), "disabled_discard_checks"
         ) or (),
+        assessment_enabled=payload.get("assessment_enabled", True),
+        observation_only=True,
+        expected_recording_ids=_optional_list(payload.get("expected_recording_ids"), "expected_recording_ids") or (),
+        protocol_timing_config=(Path(payload["protocol_timing_config"]).expanduser().resolve()
+                                if payload.get("protocol_timing_config") else None),
     )
     if config.metric and config.metric not in METRIC_IDS.values():
         raise ConfigurationError(
@@ -167,6 +180,9 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
             f"Routine analysis uses the frozen paper metric {PAPER_METRIC_ID}; "
             "use dedicated sensitivity/comparison commands for other metrics."
         )
+    if config.keep_conditions:
+        config = replace(config, keep_conditions=tuple(dict.fromkeys(
+            resolve_condition(experiment, c) for c in config.keep_conditions)))
     valid_conditions = {
         condition.condition_id for condition in get_experiment_spec(experiment).conditions
     }
@@ -175,6 +191,10 @@ def load_pipeline_run_config(path: Path) -> PipelineRunConfig:
             f"keep_conditions must be chosen from {sorted(valid_conditions)}."
         )
     assert_project_dir_allowed(config.raw_dir, config.save_dir)
+    if config.protocol_timing_config:
+        from classical_conditioning.config.protocol_timing import load_timing_config
+        if load_timing_config(config.protocol_timing_config).experiment_id != experiment:
+            raise ConfigurationError("Timing configuration experiment must match the pipeline experiment")
     return config
 
 
@@ -198,4 +218,8 @@ def pipeline_config_to_dict(config: PipelineRunConfig) -> dict[str, Any]:
         "assessment_metric": config.assessment_metric,
         "technical_policy": str(config.technical_policy) if config.technical_policy else None,
         "disabled_discard_checks": list(config.disabled_discard_checks),
+        "assessment_enabled": config.assessment_enabled,
+        "observation_only": config.observation_only,
+        "expected_recording_ids": list(config.expected_recording_ids),
+        "protocol_timing_config": str(config.protocol_timing_config) if config.protocol_timing_config else None,
     }

@@ -56,6 +56,23 @@ def sha256_file(path: Path, block_size: int = 8 * 1024 * 1024) -> str:
     return digest.hexdigest()
 
 
+def write_parquet_table(path: Path, frame) -> dict[str, Any]:
+    """Write the existing lossless Arrow table/receipt contract, without publishing it."""
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+
+    table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
+    pq.write_table(table, path, compression="zstd", write_statistics=True)
+    return {
+        "path": str(path),
+        "sha256": sha256_file(path),
+        "rows": len(frame),
+        "columns": len(table.column_names),
+        "size_bytes": path.stat().st_size,
+        "compression": "zstd",
+        "compression_lossless": True,
+    }
+
 def write_json_atomic(path: Path, payload: dict[str, Any]) -> None:
     # Write beside the target, then replace it atomically to avoid half-written
     # JSON being observed by a resumed pipeline stage.

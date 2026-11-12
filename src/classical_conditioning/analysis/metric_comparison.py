@@ -175,6 +175,8 @@ def _verify_temporal_profiles(
         raise ArtifactIntegrityError(
             f"Candidate temporal lineage is invalid for {recording_id}."
         )
+    from classical_conditioning.config.trial_map import require_current_trial_map
+    require_current_trial_map(summary, summary.get("experiment"))
     stat = path.stat()
     return _VerifiedTemporalProfiles(
         path=path,
@@ -190,6 +192,7 @@ def summarize_candidate_metric_windows(
     profiles: pd.DataFrame,
     *,
     config: MetricComparisonConfig = MetricComparisonConfig(),
+    observation_rows: list[dict[str, Any]] | None = None,
 ) -> pd.DataFrame:
     """Build equal-trial recording summaries for every metric and outcome."""
     required = {
@@ -285,6 +288,15 @@ def summarize_candidate_metric_windows(
             trials = pd.DataFrame(trial_rows)
             complete = trials["baseline"].notna() & trials["response"].notna()
             paired_trials = trials.loc[complete]
+            if observation_rows is not None:
+                observation_rows.extend({
+                    "recording_id": recording_id, "alignment": alignment,
+                    "metric_id": metric_id, "outcome_id": outcome_id,
+                    "trial_number": int(trial.trial_number),
+                    "contributed": bool(complete.iloc[i]),
+                    "reason": "" if complete.iloc[i] else "missing_baseline_or_response",
+                    "baseline": trial.baseline, "response": trial.response,
+                } for i, trial in enumerate(trials.itertuples(index=False)))
             baseline_mean = float(paired_trials["baseline"].mean())
             response_mean = float(paired_trials["response"].mean())
             baseline_sd = float(paired_trials["baseline"].std(ddof=1))
@@ -487,9 +499,11 @@ def build_candidate_metric_comparison(
         [bout_only_profiles(pq.read_table(source.path).to_pandas()) for source in sources.values()],
         ignore_index=True,
     )
+    observation_rows: list[dict[str, Any]] = []
     recording_summary = summarize_candidate_metric_windows(
         profiles,
         config=config,
+        observation_rows=observation_rows,
     )
     recording_summary["Condition ID"] = recording_summary["Recording ID"].map(
         lambda recording_id: _condition_for_recording(project_dir, str(recording_id))
@@ -540,7 +554,14 @@ def build_candidate_metric_comparison(
 
         staged_summary = staging_root / summary_path.name
         staged_marker = staging_root / marker_path.name
+        from classical_conditioning.analysis.observation import observe_tables
         summary = {
+            "observation": observe_tables(
+                project_dir, output_dir / "observations" / recipe_id,
+                tables={"trial-contributions": pd.DataFrame(observation_rows),
+                        "recording-contributions": recording_summary},
+                identity={"consumer": recipe_id, "inputs": {rid: source.digest for rid, source in sources.items()},
+                          "config": asdict(config)}),
             "recipe": recipe_id,
             "scientific_status": route.scientific_status,
             "metric_recipe": route.metric_recipe,

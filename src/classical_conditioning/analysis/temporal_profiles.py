@@ -34,6 +34,7 @@ from classical_conditioning.analysis.movement_state import (
     resolve_candidate_metric_source,
 )
 from classical_conditioning.config import get_trial_block_lookup
+from classical_conditioning.config.trial_map import trial_map_sha256
 from classical_conditioning.preprocessing.candidate_metric_kernel import CANDIDATE_COLUMNS
 
 @dataclass(frozen=True)
@@ -767,6 +768,7 @@ def build_candidate_temporal_profiles(
             "movement_source_recipe": source.movement_recipe,
             "recording_id": recording_id,
             "experiment": experiment_name,
+            "trial_map_sha256": trial_map_sha256(experiment_name),
             "generated_at_utc": datetime.now(timezone.utc).isoformat(),
             "config": asdict(config),
             "row_count": len(profiles),

@@ -93,18 +93,9 @@ def _validate_identifier(value: str, label: str) -> None:
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
-    # Write one lossless table and return path/hash metadata for its parent summary.
-    table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
-    pq.write_table(table, path, compression="zstd", write_statistics=True)
-    return {
-        "path": str(path),
-        "sha256": sha256_file(path),
-        "rows": len(frame),
-        "columns": len(table.column_names),
-        "size_bytes": path.stat().st_size,
-        "compression": "zstd",
-        "compression_lossless": True,
-    }
+    # Compatibility callable; the shared writer preserves its exact table/receipt contract.
+    from classical_conditioning.artifacts import write_parquet_table
+    return write_parquet_table(path, frame)
 
 
 def _cohort_paths(project_dir: Path, cohort_id: str) -> tuple[Path, Path, Path, Path]:
@@ -294,7 +285,12 @@ def build_cohort_trial_outcomes(
                 "condition_id", observed=True
             ).size().items()
         }
+        from classical_conditioning.analysis.observation import observe_tables
         summary = {
+            "observation": observe_tables(
+                project_dir, outcomes_path.parent / "observations" / RECIPE_ID,
+                tables={"sample-flow": sample_flow},
+                identity={"cohort_hash": cohort_hash, "inputs": inputs}),
             "recipe": RECIPE_ID,
             "scientific_status": "cohort_population_boundary",
             "paper_approved": False,
@@ -413,6 +409,8 @@ def load_cohort_trial_outcomes(
             source_summary = json.loads(source_summary_path.read_text(encoding="utf-8"))
             source_marker = json.loads(source_marker_path.read_text(encoding="utf-8"))
             expected_config = trial_outcome_settings_for_experiment(str(row.experiment_id))
+            from classical_conditioning.config.trial_map import require_current_trial_map
+            require_current_trial_map(source_summary, str(row.experiment_id))
             if (
                 source.get("recipe") != route.trial_recipe
                 or source.get("sha256") != sha256_file(source_path)
@@ -623,7 +621,12 @@ def build_analysis_eligibility_artifact(
             .size()
             .items()
         }
+        from classical_conditioning.analysis.observation import observe_tables
         summary = {
+            "observation": observe_tables(
+                project_dir, output_dir / "observations" / ELIGIBILITY_RECIPE_ID,
+                tables={"eligibility": eligibility},
+                identity={"cohort_hash": cohort_hash, "cohort_outcomes": cohort_summary["artifacts"]["outcomes"]["sha256"]}),
             "recipe": ELIGIBILITY_RECIPE_ID,
             "scientific_status": "analysis_eligibility_not_cohort_membership",
             "paper_approved": False,

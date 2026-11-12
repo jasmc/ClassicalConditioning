@@ -1,5 +1,21 @@
 # 3sTrace response-profile model draft
 
+The corrected two-panel export is selected separately by
+[export state](../paper/figures/figure-04/export-current-state.json). Its
+2026-10-29 full-window recipe authenticates the saved 80-bin trial tables,
+recomputes identical fish medians and refits over [−20,20) s: 10,093 observed
+bins from the same 129 modeled fish, with 398/399 accepted intercept/time-slope
+bootstrap refits. Every group has observations in every bin (84–90 controls,
+14–16 learner-flagged and 20–23 nonlearner-flagged fish). The six-df spline's
+internal knots move from 0.25/5.25/10.75 s to −10.25/−0.25/9.75 s; this changes
+local smoothing and can alter curves inside the old window. Residual excess
+kurtosis is 3.44 and adjacent-bin residual correlation is 0.131. Bootstrap
+stability does not establish spline adequacy or calibrated uncertainty.
+The old pilot below remains preserved; neither version approves learner labels
+or freezes science. The axis-only `locked-current-20261029-x20` export does not
+contain a full-window fit. Numerical mappings, support, diagnostics, the editable
+SVG and lossless 600-effective-dpi PNG-based PDF are bound by the export state.
+
 This exploratory implementation follows the [Delay pilot](figure4-delay-model-draft.md)
 under [Plan 5.1](../../Plans/05.1_FIGURE_4_BOUT_AVAILABILITY_AND_POOLING.md).
 The separate [scoped state](../paper/figures/figure-04/3strace-model-draft-state.json)
@@ -102,7 +118,7 @@ availability and temporal residual-dependence calibration remain unresolved.
 
 ## Build and review
 
-The [builder](../../scripts/build_figure4_3strace_model_draft.py) runs sequential
+The [builder](../../scripts/paper/figure_04/trace3_model_draft/build_figure4_3strace_model_draft.py) runs sequential
 `extract`, `model`, `render` and `publish` stages. The ticket belongs to this run;
 it is not authority to overwrite a manually edited or subsequently selected
 draft. The Delay builder, adapter, state and external artifacts are protected.
@@ -111,7 +127,7 @@ opts into explicit bounds while reusing Delay's contrast, prediction-design,
 peak, resampling and Gaussian likelihood helpers. The original Delay adapter
 remains unchanged so its bound implementation hashes remain valid.
 
-The [browser checker](../../scripts/check_figure4_3strace_model_draft.cjs) accepts
+The [browser checker](../../scripts/paper/figure_04/trace3_model_draft/check_figure4_3strace_model_draft.cjs) accepts
 the external directory and a temporary PNG path. It collects the exact SVG's
 600-dpi layout-frame measurements and checks the minimal HTML scope. The build
 uses one resolved `nature-main` snapshot, scoped rc settings, a native

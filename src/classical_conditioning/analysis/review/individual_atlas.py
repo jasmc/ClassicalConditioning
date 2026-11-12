@@ -11,7 +11,6 @@ import sys
 import numpy as np
 import pandas as pd
 
-from classical_conditioning.figures.pooled_log_heatmap import read_windows
 
 METRIC = "legacy_distal_angular_speed"
 VARIANTS = ("legacy-nominal", "legacy-new", "legacy-improved", "legacy-wip")
@@ -81,6 +80,12 @@ def bin_trial(times, values, valid, moving, duration_ms, onset_ms):
     baseline = baseline[np.isfinite(baseline)]
     centre = float(np.median(baseline)) if len(baseline) else np.nan
     return log_bins-centre, occurrence, coverage, counts, centre
+
+
+def read_windows(path, columns, intervals):
+    """Retain the helper import surface without selecting a backend on import."""
+    from classical_conditioning.figures.pooled_log_heatmap import read_windows as read
+    return read(path, columns, intervals)
 
 
 def prepare(g_root, output):

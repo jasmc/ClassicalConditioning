@@ -52,6 +52,10 @@ trial traces from authenticated corrected artifacts; it is not scheduled by
    `analysis/discarding.py` assesses all inventory records, including
    processing failures, before cohort comparison. Its technical and
    exploratory outputs do not make a reviewed inclusion decision.
+   Assessment is observation-only. `assessment_status` records incomplete or
+   failed observation separately; failure does not interrupt the population
+   comparison or alter its inputs. Expected IDs supplied in the routine config
+   remain in assessment without becoming processing requests.
 3. `candidate_runner.py` authenticates each upstream stage and reruns a stale
    stage at its stable path. Corrected preprocessing uses measured timestamps,
    frame gaps and valid-point masks; the metric kernel calculates three
@@ -91,3 +95,16 @@ baseline-centered learner timing must be defined independently of classifier
 features. See the [draft comparison](../../records/figure-history/shared/draft-comparison.md) for
 panel-level gaps and the [cohort plan](../../Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md)
 for remaining assessment gates.
+
+## Observation evidence
+
+Assessment summaries and consumer summaries reference immutable evidence
+snapshots; keep the referenced path/hash when retaining a result. The stable
+`observation-current.json` pointer is navigation only. CSV copies support review;
+Parquet carries the machine-readable tables. New decisions stay pending, and
+existing reviewed cohorts continue to govern their own analyses.
+
+See [fish assessment and contribution records](../paper/methods/recording-quality-and-cohorts.md#reading-and-retaining-the-evidence)
+for outputs, expected-recording arguments and the optional saved legacy-table
+audit. Contribution observers describe existing filtering; they do not change
+scientific masks, numerical results or fish membership.

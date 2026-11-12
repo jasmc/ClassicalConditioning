@@ -152,7 +152,7 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="corrected",
         help="Corrected frame preparation (the only supported preprocessing mode).",
     )
-    preprocess.add_argument("--experiment", default="allDelay")
+    preprocess.add_argument("--experiment", help="Assay context for protocol verification; omitted means filename-only checks.")
     preprocess.add_argument("--batch-size", type=int, default=250_000)
     preprocess.add_argument("--overwrite", action="store_true")
 
@@ -967,6 +967,16 @@ def build_parser() -> argparse.ArgumentParser:
         help="Optional JSON report path; omit to print the summary.",
     )
     validate_raw.add_argument("--overwrite", action="store_true")
+    validate_raw.add_argument("--experiment")
+
+    verify_protocol = subparsers.add_parser("verify-protocol", help="Audit authenticated intake without rerunning numerical analysis.")
+    verify_protocol.add_argument("--project-dir", type=Path, required=True)
+    verify_protocol.add_argument("--recording-id", action="append", help="Repeat to select recordings; omit for all discovered recordings.")
+    verify_protocol.add_argument("--experiment")
+    verify_protocol.add_argument("--raw-dir", type=Path, help="Authentic raw logs; permits timing analysis before behavioral intake.")
+    verify_protocol.add_argument("--timing-config", type=Path, help="Configurable timing protocol, including future experiments.")
+    verify_protocol.add_argument("--analysis-id", default="protocol-timing")
+    verify_protocol.add_argument("--timing-only", action="store_true", help="Run stimulus diagnostics without the fixed-assay verifier.")
 
     environment = subparsers.add_parser(
         "environment-report",
@@ -1009,6 +1019,14 @@ def build_parser() -> argparse.ArgumentParser:
     discarding.add_argument("--technical-policy", type=Path)
     discarding.add_argument("--disable-check", action="append", default=[])
     discarding.add_argument("--recording-id", action="append")
+    discarding.add_argument("--expected-recording-id", action="append", default=[],
+                            help="Retain an expected recording in the audit even if absent or not processed.")
+    discarding.add_argument("--observation-only", action="store_true", default=True,
+                            help="Evidence only (always enabled); never applies fish exclusions.")
+    discarding.add_argument("--legacy-pooled-input", type=Path,
+                            help="Optional saved CSV/Parquet after original metadata scope and block remapping.")
+    discarding.add_argument("--legacy-required-block", action="append", default=[],
+                            help="Original selected block for the optional saved-input statistical audit; repeat for each block.")
 
     legacy_learners = subparsers.add_parser(
         "compare-legacy-learners",
@@ -1224,11 +1242,25 @@ def main(argv: Sequence[str] | None = None) -> None:
             metric_id=args.metric, metric_recipe=args.metric_recipe,
             technical_policy_path=args.technical_policy,
             disabled_rules=args.disable_check, recording_ids=args.recording_id,
+            expected_recording_ids=args.expected_recording_id,
+            observation_only=args.observation_only,
         )
         print(f"Technical assessment: {result.technical_path}")
         print(f"Exploratory assessment: {result.exploratory_path}")
         print(f"Rule-by-rule flow: {result.flow_path}")
         print(f"Assessment hash: {result.assessment_hash}")
+        print(f"Observation evidence: {result.observation}")
+        if args.legacy_pooled_input:
+            from classical_conditioning.analysis.selection_observation import observe_normalized_input
+            from classical_conditioning.analysis.observation import try_observation
+            observation = try_observation(lambda: observe_normalized_input(
+                args.project_dir.resolve(), result.output_dir / "legacy-pooled-observation",
+                args.legacy_pooled_input.resolve(), args.legacy_required_block))
+            # Independent evidence may be unavailable without invalidating the
+            # inventory audit. Persist its status as well as printing it.
+            from classical_conditioning.artifacts import write_json_atomic
+            write_json_atomic(result.output_dir / "legacy-pooled-observation-status.json", observation)
+            print(f"Saved-input statistical audit: {observation}")
         return
 
     if args.command == "environment-report":
@@ -1313,6 +1345,25 @@ def main(argv: Sequence[str] | None = None) -> None:
             print(f"Tracking audit: {output}")
         return
 
+    if args.command == "verify-protocol":
+        import json
+        from classical_conditioning.ingestion.protocol_verification import verify_recording_protocol
+        from classical_conditioning.ingestion.stimulus_timing import run_protocol_timing
+        timing = run_protocol_timing(args.project_dir, args.recording_id,
+            experiment_name=args.experiment, config_path=args.timing_config,
+            raw_dir=args.raw_dir, analysis_id=args.analysis_id)
+        legacy = []
+        if not args.timing_only and args.timing_config is None:
+            for rid in timing["completed"]:
+                if (args.project_dir/"Metadata"/f"{rid}_source_manifest.json").is_file():
+                    legacy.append(verify_recording_protocol(args.project_dir, rid, experiment_name=args.experiment))
+        payload = legacy[0] if len(legacy) == 1 else {"protocol_verification": legacy}
+        payload["stimulus_timing"] = timing
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        if timing["status"] != "complete":
+            raise RuntimeError(f"Stimulus timing {timing['status']}; see {timing['summary_path']}")
+        return
+
     if args.command == "validate-raw":
         import json
 
@@ -1320,6 +1371,7 @@ def main(argv: Sequence[str] | None = None) -> None:
 
         result = validate_raw_triplet(
             args.input_dir,
+            experiment_name=args.experiment,
             output=args.output,
             overwrite=args.overwrite,
         )
@@ -1419,6 +1471,7 @@ def main(argv: Sequence[str] | None = None) -> None:
         result = build_corrected_preprocessing(
             args.project_dir,
             args.recording_id,
+            experiment_name=args.experiment,
             batch_size=args.batch_size,
             overwrite=args.overwrite,
         )

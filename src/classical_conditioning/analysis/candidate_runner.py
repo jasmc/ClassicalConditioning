@@ -39,6 +39,8 @@ from classical_conditioning.exceptions import (
     ArtifactIntegrityError,
     ConfigurationError,
 )
+from classical_conditioning.config.trial_map import require_current_trial_map
+from classical_conditioning.ingestion.protocol_verification import verify_recording_protocol, REPORT_NAME
 from classical_conditioning.preprocessing.candidate_metrics_from_corrected_frames import (
     build_candidate_activity_metrics_from_corrected,
 )
@@ -335,6 +337,7 @@ def _verify_temporal(
         raise ArtifactIntegrityError(
             f"Temporal outcomes use stale candidate inputs for {recording_id}."
         )
+    require_current_trial_map(summary, experiment_name)
     return marker_digest
 
 
@@ -422,6 +425,15 @@ def _run_recording_candidate_stages(
     from classical_conditioning.progress import default_progress
 
     progress = progress or default_progress(enabled=False)
+    audit = verify_recording_protocol(project_dir, recording_id, experiment_name=experiment_name)
+    progress.step("protocol-verification", status=audit["status"])
+    if "count_checks" in audit:
+        progress.info("Protocol totals: " + "; ".join(
+            f"{kind} {check['observed']}/{check['expected']}"
+            for kind, check in audit["count_checks"].items()))
+    steps[recording_id]["protocol-verification"] = audit["status"]
+    lineage[f"{recording_id}:protocol-verification"] = sha256_file(
+        project_dir / "Quality checks" / recording_id / REPORT_NAME)
     changed = overwrite
 
     def reusable(marker: Path, verify: Callable[[], str]) -> bool:
@@ -453,6 +465,7 @@ def _run_recording_candidate_stages(
                     project_dir,
                     recording_id,
                     batch_size=batch_size,
+                    experiment_name=experiment_name,
                     overwrite=True,
                 )
             state = "completed"

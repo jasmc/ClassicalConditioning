@@ -1,5 +1,21 @@
 # Delay response-profile model draft
 
+The corrected two-panel export is selected separately by
+[export state](../paper/figures/figure-04/export-current-state.json). Its
+2026-10-29 full-window recipe authenticates the saved 80-bin trial tables,
+recomputes identical fish medians and refits over [−20,20) s: 4,123 observed
+bins from the same 54 modeled fish. The slope structure passed only 239/399
+bootstrap refits; the complete intercept-only restart passed 399/399. Every
+group has observations in every bin (24–28 controls, 14–16 learner-flagged and
+8–10 nonlearner-flagged fish). Residual excess kurtosis is 5.41 and adjacent-bin
+residual correlation is 0.171. Keeping six spline degrees of freedom across the
+wider window changes local smoothing; bootstrap stability does not establish
+spline adequacy or calibrated uncertainty. The old pilot below remains
+preserved. The axis-only `locked-current-20261029-x20` export does not contain
+a full-window fit. Numerical mappings, support, diagnostics, the editable SVG
+and lossless 600-effective-dpi PNG-based PDF are bound by the export state;
+this is a provisional presentation lock, not a scientific freeze.
+
 The 2026-10-22 exploratory pilot implements part of
 [Plan 5.1](../../Plans/05.1_FIGURE_4_BOUT_AVAILABILITY_AND_POOLING.md).
 Its [scoped draft state](../paper/figures/figure-04/delay-model-draft-state.json)
@@ -55,11 +71,11 @@ remain limitations; a penalized GAMM comparison has not been run.
 
 ## Build and review
 
-The [builder](../../scripts/build_figure4_delay_model_draft.py) has sequential
+The [builder](../../scripts/paper/figure_04/delay_model_draft/build_figure4_delay_model_draft.py) has sequential
 `extract`, `model`, `render` and `publish` stages, with source/output guards.
 The committed ticket describes this specific run; it is not a generic permission
 to overwrite a selected draft. Existing cache files authenticate before reuse.
-The [browser checker](../../scripts/check_figure4_delay_model_draft.cjs) accepts
+The [browser checker](../../scripts/paper/figure_04/delay_model_draft/check_figure4_delay_model_draft.cjs) accepts
 the external draft directory and a temporary PNG destination. It measures the
 saved SVG through the shared layout collector at 600 dpi. Temporary inspection
 images are removed after review.

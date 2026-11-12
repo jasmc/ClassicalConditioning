@@ -1,5 +1,77 @@
 # Consolidated scientific and scope decisions
 
+## 2026-10-31 — universal last-US assessment and visual exclusion review
+
+Author direction: assess last-US timing and the bout response after the last US
+for every fish, including already-flagged, pending and unavailable recordings.
+Failures and unevaluable checks require explicit warnings. For a fish flagged
+by either last-US check, show one shared tail-angle-over-time plot around that
+stimulus, with timing, bout interval and missing/invalid tracking identified.
+Every proposed exclusion or failed check must be presented for the author's
+visual review, during assessment or at its conclusion; unavailable plotting
+inputs remain an explicit unresolved case.
+
+The [editable combined rule worksheet](study-sources.json)
+resolves through the study-source registry to JOAQUIM. It collects the legacy
+stages, AI recommendations and per-step author input. The inherited 0.4 s and
+0–5 s settings, exact trace/window and final exclusion actions remain for
+review. This author direction establishes assessment/review requirements; it
+does not approve automatic exclusions, freeze membership, claim a completed
+paper-scale check or certify that the dedicated warning/plot workflow is
+already implemented. Current technical-primary boundaries remain in force.
+
+## 2026-10-31 — robust baseline normalization for all heatmaps
+
+**Author-approved standing direction:** from now on, use median/MAD robust
+z-scoring across all heatmaps, including single-fish, population and stratified
+heatmaps. This replaces Q10 scaling and baseline-subtraction-only normalization
+for new heatmap work. The choice follows the Figure 2 B comparison: the broad
+patterns were similar, and the author selected the symmetric, general-purpose
+baseline-spread definition rather than a lower-tail-specific reference.
+
+The approved recipe is `baseline-mad-robust-z-v1`. For each displayed time row,
+use its finite baseline-bin values over **[−15,0) s relative to CS onset**:
+
+```text
+B   = median(baseline bins)
+MAD = median(abs(baseline bins - B))
+S   = MAD / 0.6744897501960817
+Z(t) = (P(t) - B) / S
+```
+
+The factor is approximately 1.4826 times MAD. Output is dimensionless, with
+baseline median zero and normal-calibrated MAD one; neither baseline Q10 = −1
+nor ordinary standard deviation = 1 is required. This is a baseline-relative
+descriptive score, not a significance statistic or a normality transformation.
+
+Preserve the upstream metric, bout eligibility, log transform, bin estimator,
+timing, cohort and aggregation. For single-fish heatmaps, apply the recipe to
+each fish/trial's binned log-vigor row. For population heatmaps, retain individual
+fish/trial baseline centring and equal-fish pooling, then apply the recipe
+separately to each pooled condition/trial row, as in the reviewed Figure 2 B
+alternative. Do not move robust scaling before fish pooling. Stratified
+population heatmaps use the same order within each declared group. Other
+heatmap structures must explicitly map their rows and baseline reference before
+using this rule; do not invent a baseline or reinterpret a non-vigor quantity.
+
+Use finite bins only; preserve missing cells, contributing-fish counts and
+coverage. A missing baseline or nonfinite/nonpositive S makes the whole row
+undefined. Do not insert an epsilon, fill missing values or numerically clip
+scores. Record baseline-bin counts and S for each row, and inspect small scales;
+no new minimum-bin or small-scale threshold is approved by this decision.
+Verify baseline median zero and normal-calibrated MAD one on defined rows.
+Legends/colourbars must identify robust normalization and dimensionless units;
+colour limits are a separate scoped choice (the B comparison used ±2).
+
+This approves the method for future heatmap work, not a retroactive rewrite of
+accepted freezes or an automatic selection of the exploratory B artwork.
+Existing frozen bytes and reproduction recipes remain immutable; current
+selected artwork/legends continue to describe their actual saved method until
+new versions are computed, verified and published through the scientific route.
+Implementation is not claimed paper-wide by this decision record. In particular,
+stability under whole-fish resampling has not been established by the visual
+comparison, and normalization does not change non-heatmap outcomes or inference.
+
 ## 2026-10-12 — frozen versions define current
 
 Author instruction: the current versions are the frozen versions. The latest explicitly accepted freeze governs its own scope; an earlier accepted panel remains current until replaced. Other recipes are legacy or proposed. Scientific definitions and accepted limitations stay exactly as frozen; a panel freeze does not automatically approve the full assembly or first release.
@@ -84,30 +156,21 @@ not change other panels, the separate onset/trajectory review, or literal
 
 ## Figure element identities and future freezes (2026-10-09)
 
-The author selected a uniform paper style and requested a durable repository
-contract for **every panel or whole-figure freeze**. Its scientific role catalog,
-Matplotlib/SVG identities, current Figure 1-2 source inventory and shared styles
-are in the [element specification](figures/shared/figure-element-specification.md)
-and [versioned machine specification](../../configs/paper-figures/figure-elements.json).
-The [root repository instructions](../../AGENTS.md) require applying these rules
-to a reviewable candidate, checking final assembly scale, and asking targeted
-questions only about unresolved exceptions. Explicit prior approvals remain
-authorized within their recorded scope; do not ask again or silently broaden
-them. Record approved departures separately from scientific definitions.
-
-Freeze records must bind the specification version/hash, element registry,
-resolved styles, scoped exceptions, source/data hashes and final exports.
-Existing frozen figures and data remain unchanged. The author subsequently
-selected **code-enforced checks only at freeze time**. Version 1.1.0 adds the
-[explicit freeze command](../../scripts/freeze_figure.py): it checks candidate
-SVG presentation at final size, identity coverage, scoped exceptions, protected
-geometry and hashes, then publishes a new manifest without overwriting a freeze.
-Scientific mappings, plot-family structure and unmeasurable renderer properties
-require recorded completed review evidence. Ordinary rendering/export does not
-invoke the gate. The [SciFigEditor review](../analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md)
-records the useful confidence/protection/physical-scale ideas and integration
-limits. This is a concrete figure-element use case, not a
-reactivation of the deferred general artifact-schema registry below.
+The author selected a uniform paper style and a durable scientific element
+contract for each explicit panel/assembly freeze. The
+[single figure guide](figures/shared/iteration-workflow.md#what-happens-when-the-author-freezes)
+owns the procedure; the [unified contract](../../configs/paper-figures/figure-elements.json)
+owns current machine-readable roles and presentation values. Freeze records bind
+the contract version/hash, registry, resolved styles, scoped exceptions, source/data
+hashes and final exports. Explicit prior approvals persist within recorded scope;
+unresolved exceptions need actual author decisions, distinct from scientific definitions.
+The author selected code-enforced checks **only at explicit freeze time**; ordinary
+rendering/export does not invoke the gate. Scientific mappings, structure and
+unmeasurable renderer properties still require genuine completed review evidence.
+The [SciFigEditor review](../analysis/figures/SCIFIGEDITOR_REVIEW_2026-10-09.md)
+retains the historical integration rationale. Existing frozen figures, data and
+specifications remain unchanged; this does not reactivate the deferred general
+artifact-schema registry below.
 
 ## What is deferred or minimized in the current priority lane
 
@@ -147,4 +210,37 @@ Keep supported pipeline/tests/tools and exact frozen definitions/settings/manife
 
 ## Fish-selection review scope — 2026-10-11
 
-The author requested: “combine all steps of discarding from legacy.... we will review them later”. [Plan 02](../../Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) is the single owner, before Analysis and Statistics. The [combined legacy review](../../records/scientific-evidence/audits/fish-selection-policy-review-2026-10-11.md) includes preprocessing screening, discard-list propagation, normalized-vigor plotting/model filters, paired-block eligibility and all learner variants. Collection does not authorize applying all rules jointly, change any threshold or freeze paper membership. The label-independent technical primary boundary remains decided; C0 numerical criteria and C1 reviewed paper cohort remain open pending later review.
+The author requested: “combine all steps of discarding from legacy.... we will review them later”. [Plan 02](../../Plans/02_DISCARDING_AND_COHORT_IMPLEMENTATION.md) is the single owner, before Analysis and Statistics. Its combined legacy review includes preprocessing screening, discard-list propagation, normalized-vigor plotting/model filters, paired-block eligibility and all learner variants. Collection does not authorize applying all rules jointly, change any threshold or freeze paper membership. The label-independent technical primary boundary remains decided; C0 numerical criteria and C1 reviewed paper cohort remain open pending later review.
+
+
+## Training US numbering and protocol verification — 2026-10-31
+
+The author confirmed that all 18 pre-training USs are retained and the 19th US
+starts training. Active one-based training US IDs are 19–64; legacy 18–63 labels
+must not select events in new analysis. No first-US discard is introduced.
+New temporal/trial outcomes bind the corrected trial map; prior frozen results
+and legacy source remain immutable. Protocol verification uses ±0.2 s for CS
+and paired-US timing and warns while continuing, without changing cohort
+membership. Shared acquisition facts and diagnostic settings live in
+`src/classical_conditioning/config/protocols.py`; operational behavior and
+rebuild requirements are in [the pipeline guide](../running-analysis/run-pipeline.md#automatic-protocol-verification).
+
+Read-only source check: Delay `20221115_04` (stimulus-log SHA-256
+`2a24ffa397fc089196784de42c869983aaf30d4df8405c8938257f006df8d21f`)
+and fixed 3sTrace `20230306_01` (`e443d70e499098e450bd5689b42b9cd356143e48cfa0607a6f4cd191a591db54`)
+on JOAQUIM each contain 94 CSs and 79 USs, with 46 matched training pairings
+beginning at US 19. One control from each assay remained unpaired-compatible;
+recorded pulse-duration deviations were retained as warnings. Fixed 10sTrace
+coverage for this code change is synthetic; no paper dataset was regenerated.
+
+
+### Exact stimulus totals — author clarification, 2026-10-31
+
+For the supported Delay, fixed 3sTrace and fixed 10sTrace assays and their
+controls, every complete recording must contain exactly 94 CS events and 79 US
+events (78 regular plus the final viability pulse). There is no minimum-count
+acceptance rule. Both totals must always be confirmed against the configured
+expectation, including resumed preprocessing. Missing and additional events are
+reported as discrepancies under the existing warn-and-continue policy. Runtime
+configuration and exports use `expected_cs_count` and `expected_us_count`;
+legacy minimum-count names/values remain only in historical reproduction inputs.

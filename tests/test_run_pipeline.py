@@ -315,10 +315,11 @@ class PipelineRunConfigTests(unittest.TestCase):
             first_summary = json.loads(first.summary_path.read_text(encoding="utf-8"))
             self.assertEqual(first_summary["status"], "complete")
             self.assertEqual(len(first_summary["paper_panels"]), 27)
-            self.assertEqual(len(first_summary["figures"]), 32)
+            self.assertEqual(len(first_summary["figures"]), 33)
+            self.assertEqual(first_summary["stimulus_timing"]["status"], "complete")
             self.assertEqual(
                 sum(item["status"] == "completed" for item in first_summary["figures"].values()),
-                23,
+                24,
             )
             self.assertNotIn("20260101_01:profile:US:signed-log-vigor", first_summary["figures"])
             self.assertTrue(all(
@@ -367,7 +368,7 @@ class PipelineRunConfigTests(unittest.TestCase):
             )
             self.assertEqual(
                 sum(item["status"] == "completed" for item in second_summary["figures"].values()),
-                23,
+                24,
             )
             self.assertTrue(all(
                 item["status"] in {"completed", "blocked", "failed"}
@@ -439,7 +440,7 @@ class PipelineRunConfigTests(unittest.TestCase):
             self.assertEqual(summary["figures"]["20260101_01:profile:CS:bout-outcomes"]["status"], "failed")
             self.assertIn("renderer unavailable", summary["figures"]["20260101_01:profile:CS:bout-outcomes"]["reason"])
             self.assertEqual(summary["figures"]["metric-comparison:CS:total-activity"]["status"], "completed")
-            self.assertEqual(len(summary["figures"]), 32)
+            self.assertEqual(len(summary["figures"]), 33)
 
     def test_interrupted_run_settles_already_submitted_figures(self) -> None:
         class ImmediatePool:

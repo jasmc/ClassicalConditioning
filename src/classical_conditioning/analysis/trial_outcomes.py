@@ -36,6 +36,8 @@ from classical_conditioning.artifacts import (
     write_json_atomic,
 )
 from classical_conditioning.config import get_experiment_spec
+from classical_conditioning.config.experiments import resolve_condition
+from classical_conditioning.config.trial_map import trial_map_sha256, require_current_trial_map
 from classical_conditioning.exceptions import (
     ArtifactIntegrityError,
     ConfigurationError,
@@ -104,28 +106,18 @@ def parse_recording_identity(
         )
     condition_source = parts[2].lower()
     experiment = get_experiment_spec(experiment_name)
-    condition_by_source = {
-        condition.source_name.lower(): condition.condition_id
-        for condition in experiment.conditions
-    }
-    if experiment_name == "all10sTrace":
-        # Authenticated fixed-10s acquisitions use both historical spellings.
-        # Preserve source recording_name; publish the canonical outcome label.
-        condition_by_source.update({"10strace": "trace", "trace": "trace"})
-    if experiment_name == "all3sTrace":
-        # These explicit source aliases identify untreated acquisitions in the
-        # MK801 experiment. Keep their raw names and canonical outcome roles.
-        condition_by_source.update({"tracenomk801": "trace", "controlnomk801": "control"})
-    if condition_source not in condition_by_source:
+    try:
+        condition_id = resolve_condition(experiment_name, condition_source)
+    except ConfigurationError as exc:
         raise SchemaValidationError(
             f"Recording condition is not configured for {experiment_name}: "
             f"{condition_source!r}"
-        )
+        ) from exc
     return {
         "experiment_id": experiment.experiment_id,
         "recording_id": f"{parts[0]}_{parts[1]}",
         "fish_id": f"{parts[0]}_{parts[1]}",
-        "condition_id": condition_by_source[condition_source],
+        "condition_id": condition_id,
         "day": parts[0],
         "fish_number": parts[1],
     }
@@ -542,6 +534,7 @@ def verify_candidate_trial_outcomes(
         raise ArtifactIntegrityError(
             f"{source.trial_recipe} uses stale upstream artifacts for {recording_id}."
         )
+    require_current_trial_map(verified.summary, experiment_name)
     return verified
 
 
@@ -648,6 +641,7 @@ def build_candidate_trial_outcomes(
                 "recording_id": recording_id,
                 "recording_name": recording_name,
                 "experiment": experiment_name,
+                "trial_map_sha256": trial_map_sha256(experiment_name),
                 "identity": identity,
                 "generated_at_utc": datetime.now(timezone.utc).isoformat(),
                 "config": asdict(config),

@@ -910,6 +910,9 @@ def _write_html_report(
   <h2>Warnings</h2><ul>{warning_items}</ul>
   <h2>Camera timing</h2><img src="figures/camera_timing.png" alt="Camera timing">
   <h2>Tracking overview</h2><img src="figures/tracking_overview.png" alt="Tracking overview">
+  <h2>Protocol verification</h2>
+  <pre>{html.escape(json.dumps(summary.get("protocol_verification", {}), indent=2))}</pre>
+  <p><a href="protocol_verification.html">Latest verification with experiment context</a></p>
   <h2>Protocol</h2><img src="figures/protocol_timeline.png" alt="Protocol timeline">
 </body>
 </html>
@@ -1017,7 +1020,14 @@ def _stage_and_publish_intake(
             ),
         },
     }
+    from classical_conditioning.ingestion.protocol_verification import evaluate_protocol
+    summary["protocol_verification"] = evaluate_protocol(
+        protocol_sample, sources.recording_name,
+        acquisition_bounds_ms=(acquisition_start, acquisition_end))
     status, warnings = _quality_status(summary)
+    if summary["protocol_verification"]["status"] != "pass":
+        status = "REVIEW"
+        warnings.append("protocol verification: " + summary["protocol_verification"]["status"])
     summary["status"] = status
     summary["warnings"] = warnings
 

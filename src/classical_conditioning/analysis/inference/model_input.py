@@ -200,6 +200,8 @@ def load_authenticated_trial_outcomes(
             raise ArtifactIntegrityError(
                 f"Trial outcome lineage is invalid for {recording_id}."
             )
+        from classical_conditioning.config.trial_map import require_current_trial_map
+        require_current_trial_map(summary, experiment_name)
         from classical_conditioning.analysis.bout_vigor import bout_only_trial_outcomes
         frames.append(bout_only_trial_outcomes(pq.read_table(outcomes_path).to_pandas()))
         inputs[recording_id] = {
@@ -321,6 +323,42 @@ def model_input_coverage(model_input: pd.DataFrame) -> dict[str, Any]:
     }
 
 
+def observe_model_input(project_dir, output_dir, outcomes, model_input, *, config, identity):
+    """Audit the existing model transform, including observations it omitted."""
+    from classical_conditioning.analysis.observation import observe_contributions, try_observation
+
+    def record():
+        candidates = []
+        for outcome_id, (response_column, baseline_column) in OUTCOME_SPECS.items():
+            part = outcomes.copy()
+            response = part[response_column].to_numpy(dtype=float)
+            baseline = part[baseline_column].to_numpy(dtype=float)
+            offset = 0.0 if outcome_id == "conditional-intensity" else config.activity_offset
+            reasons = [[] for _ in range(len(part))]
+            for mask, reason in (
+                (~part["alignment"].eq(config.alignment).to_numpy(), "alignment_outside_analysis"),
+                (part["response_valid_sample_count"].to_numpy() < config.min_response_valid_samples, "missing_response_samples"),
+                (part["baseline_valid_sample_count"].to_numpy() < config.min_baseline_valid_samples, "missing_baseline_samples"),
+                (~np.isfinite(response), "nonfinite_response"),
+                (~np.isfinite(baseline), "nonfinite_baseline"),
+                (response + offset <= 0, "nonpositive_response_transform"),
+                (baseline + offset <= 0, "nonpositive_baseline_transform"),
+                (part["block_10_name"].isna().to_numpy() & config.require_block_label, "missing_block_label"),
+            ):
+                for i in np.flatnonzero(mask):
+                    reasons[i].append(reason)
+            part["reason"] = [";".join(items) for items in reasons]
+            part["outcome_id"] = outcome_id
+            candidates.append(part)
+        candidates = pd.concat(candidates, ignore_index=True)
+        return observe_contributions(
+            project_dir, output_dir, candidates=candidates, contributors=model_input,
+            keys=["experiment_id", "recording_id", "fish_id", "condition_id", "trial_id", "metric_id", "outcome_id"],
+            consumer=identity.get("consumer", RECIPE_ID), reasons=candidates["reason"], identity=identity,
+        )
+    return try_observation(record)
+
+
 def empty_fit_diagnostics_frame() -> pd.DataFrame:
     """Canonical diagnostic columns for population-fit recipes."""
     return pd.DataFrame(
@@ -339,18 +377,9 @@ def empty_fit_diagnostics_frame() -> pd.DataFrame:
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
-    # Save the table losslessly and provide the checksummed facts for a manifest.
-    table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
-    pq.write_table(table, path, compression="zstd", write_statistics=True)
-    return {
-        "path": str(path),
-        "sha256": sha256_file(path),
-        "rows": len(frame),
-        "columns": len(table.column_names),
-        "size_bytes": path.stat().st_size,
-        "compression": "zstd",
-        "compression_lossless": True,
-    }
+    # Compatibility callable; the shared writer preserves its exact table/receipt contract.
+    from classical_conditioning.artifacts import write_parquet_table
+    return write_parquet_table(path, frame)
 
 
 def build_candidate_model_input_artifact(
@@ -401,6 +430,10 @@ def build_candidate_model_input_artifact(
         record = _write_parquet(staged_table, model_input)
         record["path"] = str(model_input_path)
         summary = {
+            "observation": observe_model_input(
+                project_dir, output_dir / "observations" / RECIPE_ID,
+                outcomes, model_input, config=config,
+                identity={"inputs": inputs, "config": asdict(config)}),
             "vigor_sample_policy": "valid-bout-frames-only-v1",
             "recipe": RECIPE_ID,
             "scientific_status": "exploratory_model_input",

@@ -24,7 +24,8 @@ from classical_conditioning.analysis.movement_state import (
 from classical_conditioning.analysis.temporal_profiles import TemporalProfileConfig
 from classical_conditioning.analysis.trial_outcomes import trial_outcome_config_for_experiment
 from classical_conditioning.artifacts import write_json_atomic
-from classical_conditioning.config.experiments import get_experiment_spec
+from classical_conditioning.config.experiments import get_experiment_spec, condition_aliases
+from classical_conditioning.config.protocols import protocol_settings
 from classical_conditioning.config.trial_map import get_experiment_trial_map
 from classical_conditioning.exceptions import ConfigurationError
 from classical_conditioning.preprocessing.candidate_metric_kernel import CandidateMetricConfig
@@ -82,6 +83,8 @@ def export_resolved_config(
             "trial_recipe": route.trial_recipe,
             "comparison_recipe": route.comparison_recipe,
             "experiment": experiment,
+            "protocol": protocol_settings(),
+            "filename_aliases": condition_aliases(experiment_name),
             "corrected_preprocess": CorrectedPreprocessConfig(),
             "candidate_metrics": CandidateMetricConfig(),
             "movement": MovementCalibrationConfig(),

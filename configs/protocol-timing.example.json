@@ -1,0 +1,21 @@
+{
+  "experiment_id": "example-future-protocol",
+  "event_types": {"CS": "Cycle", "US": "Reinforcer"},
+  "phases": [
+    {"name": "baseline", "cs_count": 2, "us_count": 1, "us_role": "maintenance", "us_duration_ms": 50},
+    {"name": "training", "cs_count": 3, "us_count": 2, "us_role": "training", "us_duration_ms": 100, "block_size": 2},
+    {"name": "test", "cs_count": 2, "us_count": 1, "us_role": "maintenance", "us_duration_ms": 50},
+    {"name": "final_check", "cs_count": 0, "us_count": 1, "us_role": "viability", "us_duration_ms": 500}
+  ],
+  "conditions": {
+    "conditioned": {"role": "conditioned", "aliases": ["novel"], "catch_cs": [4],
+      "pairings": [{"cs": 3, "us": 2, "latency_s": 12}, {"cs": 5, "us": 3, "latency_s": 15}]},
+    "control": {"role": "control"}
+  },
+  "cs_duration_ms": 10000,
+  "timing_tolerance_ms": 200,
+  "local_window_s": [-30, 30],
+  "lag_views": [{"horizon_s": 30, "bin_s": 1}, {"horizon_s": 300, "bin_s": 5}],
+  "target_latencies_s": [12, 15],
+  "recordings": {}
+}

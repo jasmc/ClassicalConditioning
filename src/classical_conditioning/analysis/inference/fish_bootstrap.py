@@ -169,18 +169,9 @@ def bootstrap_mean_effect(
 
 
 def _write_parquet(path: Path, frame: pd.DataFrame) -> dict[str, Any]:
-    # Write a lossless table and return the facts needed for its manifest entry.
-    table = pa.Table.from_pandas(frame, preserve_index=False, safe=True)
-    pq.write_table(table, path, compression="zstd", write_statistics=True)
-    return {
-        "path": str(path),
-        "sha256": sha256_file(path),
-        "rows": len(frame),
-        "columns": len(table.column_names),
-        "size_bytes": path.stat().st_size,
-        "compression": "zstd",
-        "compression_lossless": True,
-    }
+    # Compatibility callable; the shared writer preserves its exact table/receipt contract.
+    from classical_conditioning.artifacts import write_parquet_table
+    return write_parquet_table(path, frame)
 
 
 def build_candidate_fish_bootstrap(
@@ -260,7 +251,13 @@ def build_candidate_fish_bootstrap(
         }
         records["fish_effects"]["path"] = str(fish_effects_path)
         records["population"]["path"] = str(population_path)
+        from classical_conditioning.analysis.inference.model_input import observe_model_input
         summary = {
+            "observation": observe_model_input(
+                project_dir, output_dir / "observations" / RECIPE_ID,
+                outcomes, model_input,
+                config=ModelInputConfig(alignment=config.alignment, activity_offset=config.activity_offset, require_block_label=True),
+                identity={"inputs": inputs, "config": asdict(config), "consumer": RECIPE_ID}),
             "recipe": RECIPE_ID,
             "scientific_status": "exploratory_fish_bootstrap",
             "paper_approved": False,

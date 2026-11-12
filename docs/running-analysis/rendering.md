@@ -23,7 +23,7 @@ in their paths.
 
 ## Shared visual specification
 
-New paper artwork uses the [Nature presentation target](../paper/figures/shared/nature-style.md)
+New paper artwork uses the [Nature presentation target](../paper/figures/shared/iteration-workflow.md#requirements-choices-and-precedence)
 through `figures/theme.py`. Resolve `nature-main` once per build, apply it inside
 `matplotlib.rc_context()`, and pass that same theme to `style_axes()` and other
 helpers. Resolve numerical values from the profile rather than copying an old

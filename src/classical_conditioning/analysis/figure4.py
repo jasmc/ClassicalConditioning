@@ -20,9 +20,9 @@ from classical_conditioning.artifacts import artifact_staging, publish_transacti
 from classical_conditioning.config import Alignment, get_experiment_spec
 from classical_conditioning.config.domain import ConditionRole, Phase
 from classical_conditioning.exceptions import ConfigurationError, SchemaValidationError
-from classical_conditioning.figures.cohort_response import _load_primary_cohort
-from classical_conditioning.figures.example_traces import METRIC_COLUMNS
-from classical_conditioning.figures.signed_bout_heatmap import (
+from classical_conditioning.analysis.cohort_selection import load_primary_cohort as _load_primary_cohort
+from classical_conditioning.analysis.movement_state import METRIC_COLUMNS
+from classical_conditioning.analysis.signed_bout_heatmap import (
     BIN_WIDTH_S, SIGNAL, WINDOW_S, calculate_fish_heatmaps,
 )
 
@@ -389,7 +389,12 @@ def analyze_figure4(
         for name, frame in tables.items():
             pq.write_table(pa.Table.from_pandas(frame, preserve_index=False), staged[name], compression="zstd")
         table_hashes = {name: sha256_file(path) for name, path in staged.items()}
+        from classical_conditioning.analysis.observation import observe_tables
         summary = {
+            "observation": observe_tables(
+                project_dir.resolve(), root / "observations",
+                tables={"sample-flow": flow},
+                identity={"consumer": RECIPE, "inputs": inputs, "cohort_hashes": classifier["cohort_hashes"]}),
             "recipe": RECIPE, "analysis_id": analysis_id, "metric_id": metric_id,
             "signal": SIGNAL, "window_s": list(WINDOW_S), "bin_width_s": BIN_WIDTH_S,
             "baseline_s": [-20.0, 0.0], "minimum_coverage": MINIMUM_COVERAGE,

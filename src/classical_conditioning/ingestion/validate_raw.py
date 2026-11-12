@@ -33,6 +33,7 @@ def validate_raw_triplet(
     input_dir: Path,
     *,
     output: Path | None = None,
+    experiment_name: str | None = None,
     overwrite: bool = False,
 ) -> RawValidationResult:
     """Read and validate one camera/tracking/protocol triplet locally."""
@@ -59,11 +60,18 @@ def validate_raw_triplet(
             ).sum()
         )
 
+    from classical_conditioning.ingestion.protocol_verification import evaluate_protocol
+    audit = evaluate_protocol(protocol.frame, sources.recording_name,
+                              experiment_name=experiment_name,
+                              acquisition_bounds_ms=(int(camera.frame.AbsoluteTime.min()),
+                                                     int(camera.frame.AbsoluteTime.max())))
+
     # Assemble a self-contained JSON-ready report with reader decisions and QC.
     summary: dict[str, Any] = {
         "artifact_kind": "raw-acquisition-validation",
         "recording_id": sources.recording_id,
         "recording_name": sources.recording_name,
+        "protocol_verification": audit,
         "camera": {
             "path": str(camera.source_path),
             "separator": camera.separator,
@@ -100,6 +108,7 @@ def validate_raw_triplet(
                 and frame_report.reverse_event_count == 0
                 and frame_report.non_finite_elapsed_count == 0
                 and protocol.invalid_duration_count == 0
+                and audit["status"] == "pass"
             )
             else "WARN"
         ),

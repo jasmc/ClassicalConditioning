@@ -219,8 +219,11 @@ def read_protocol(path: Path) -> ProtocolReadResult:
     # Select canonical fields and convert event times/labels to explicit types.
     working = frame.loc[:, list(PROTOCOL_COLUMNS)].copy()
     working["Type"] = working["Type"].astype("string")
-    working["Beg"] = pd.to_numeric(working["Beg"], errors="raise").astype("int64")
-    working["End"] = pd.to_numeric(working["End"], errors="raise").astype("int64")
+    for column in ("Beg", "End"):
+        values = pd.to_numeric(working[column], errors="raise")
+        if not np.isfinite(values).all() or (values % 1 != 0).any():
+            raise SchemaValidationError("Protocol timestamps must be finite integer milliseconds.")
+        working[column] = values.astype("int64")
     if working.empty:
         raise SchemaValidationError("Protocol table is empty.")
     if working["Type"].isna().any():

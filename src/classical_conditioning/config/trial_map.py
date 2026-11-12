@@ -7,8 +7,10 @@ that explicitly state every expected trial and its analytical grouping.
 from __future__ import annotations
 
 from typing import Any
+import hashlib
+import json
 
-from classical_conditioning.config.domain import Alignment, ExperimentSpec, TrialSpec
+from classical_conditioning.config.domain import Alignment, ExperimentSpec, TrialSpec, Phase, ConditionRole
 from classical_conditioning.config.experiments import get_experiment_spec
 from classical_conditioning.exceptions import ConfigurationError
 
@@ -72,11 +74,21 @@ def build_trial_map(experiment: ExperimentSpec) -> dict[str, Any]:
             "start_s": experiment.conditioned_response_window.start_s,
             "end_s": experiment.conditioned_response_window.end_s,
         },
-        "minimum_cs_trials": experiment.minimum_cs_trials,
-        "minimum_us_trials": experiment.minimum_us_trials,
+        "expected_cs_count": experiment.expected_cs_count,
+        "expected_us_count": experiment.expected_us_count,
         "row_count": len(rows),
         "cs_trial_count": cs_count,
         "us_trial_count": us_count,
+        "conditioned_pairings": [
+            {"cs_trial": cs.trial_number, "us_trial": us.trial_number,
+             "us_latency_s": latency}
+            for cs, us, latency in zip(
+                [t for t in experiment.analysis_trials if t.alignment is Alignment.CS
+                 and t.phase is Phase.TRAIN and not t.catch],
+                [t for t in experiment.analysis_trials if t.alignment is Alignment.US],
+                next(c.us_latency_s for c in experiment.conditions
+                     if c.role is ConditionRole.CONDITIONED), strict=True)
+        ] if any(c.role is ConditionRole.CONDITIONED for c in experiment.conditions) else [],
         "rows": rows,
     }
 
@@ -84,3 +96,20 @@ def build_trial_map(experiment: ExperimentSpec) -> dict[str, Any]:
 def get_experiment_trial_map(experiment_name: str) -> dict[str, Any]:
     # Resolve first so unrecognised experiment names fail consistently.
     return build_trial_map(get_experiment_spec(experiment_name))
+
+
+def trial_map_sha256(experiment_name: str) -> str:
+    """Bind saved analysis labels to the exact configured trial mapping."""
+    return hashlib.sha256(json.dumps(get_experiment_trial_map(experiment_name),
+                                     sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
+def require_current_trial_map(summary: dict, experiment_name: str) -> None:
+    from classical_conditioning.exceptions import ArtifactIntegrityError
+    if not isinstance(experiment_name, str):
+        raise ArtifactIntegrityError("Saved trial mapping has no experiment context.")
+    if summary.get("trial_map_sha256") != trial_map_sha256(experiment_name):
+        raise ArtifactIntegrityError(
+            "Saved trial mapping is missing or superseded (training US is now 19–64); "
+            "rebuild affected temporal/trial outcomes and downstream analyses."
+        )

@@ -21,6 +21,7 @@ from classical_conditioning.analysis.movement_state import (
 from classical_conditioning.analysis.inference.model_input import load_authenticated_trial_outcomes
 from classical_conditioning.analysis.trial_outcomes import trial_outcome_settings_for_experiment
 from classical_conditioning.artifacts import sha256_file
+from classical_conditioning.config.trial_map import trial_map_sha256
 from classical_conditioning.cohort import freeze_cohort_manifest
 from classical_conditioning.exceptions import ArtifactIntegrityError
 
@@ -94,6 +95,7 @@ def write_authenticated_trial_outcomes(
         "recipe": route.trial_recipe,
         "recording_id": recording_id,
         "experiment": experiment,
+        "trial_map_sha256": trial_map_sha256(experiment),
         "config": config or trial_outcome_settings_for_experiment(experiment),
         "artifacts": {"outcomes": {"sha256": digest}},
     }

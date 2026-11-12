@@ -4,6 +4,34 @@
 
 Figure 4A–C are descriptive Delay, 3sTrace and 10sTrace profiles. Each figure has the nine CS ten-trial blocks from `ExperimentSpec` and one pooled-catch row. The five individual catch trials, movement probability and signed-signal fish coverage are supplementary figures for both main and individual-catch groups. The older condition-wide 0–1 scaled activity plots remain distinct outputs.
 
+## Full-window spline comparison (2026-10-29)
+
+The author-requested comparison uses authenticated Delay/3sTrace full-window
+fish medians and identical five-fold whole-fish holdouts. It compares fixed cubic
+splines with 6/12/20 basis columns, group-specific REML penalized cubic GAMMs with
+k=20/30, and k=20 with AR(1), retaining each assay's current fish-effects family.
+The [R implementation](../../scripts/paper/figure_04/exports/compare_splines.R)
+runs through the [local WebR runner](../../scripts/paper/figure_04/exports/run_spline_comparison.mjs).
+Numerical records, full models, statuses and sources are on JOAQUIM under
+`ClassicalConditioning Outputs/figures/figure-04/assembly/versions/spline-comparison-20261029/`;
+`comparison-summary.json` binds exact outputs.
+
+Penalized k=20/30 curves are stable across basis size (maximum changes 0.00126
+for Delay and 0.000393 for 3sTrace). Equal-fish held-out RMSE is very similar to
+the six-df reference: 0.14158 vs 0.14167 for Delay and 0.15651 vs 0.15637 for
+3sTrace. Larger fixed bases perform slightly worse. AR(1) reduces normalized
+adjacent residual correlation to about −0.02/−0.03, but one Delay CV fit fails
+and that candidate is not ranked. Some GAMM variance-parameter covariance
+estimates are non-positive, including near-linear smoothing limits; exploratory
+point predictions do not certify uncertainty. All 72 attempts are retained,
+including the failure. Independent R reference curves reproduce Python within
+1.6e−9; twelve numerical checks pass.
+
+No model is adopted and the current presentation lock is unchanged. This is
+retrospective prediction conditional on saved labels, not independent learner
+validation. Full-refit uncertainty, peak timing, simulation calibration, group
+construction and informative availability remain unresolved.
+
 ## Required inputs
 
 Obtain these from the approved workstreams; do not create substitute labels or change hashes to make a run pass:

@@ -18,6 +18,10 @@ Set these in [`configs/example-run.json`](../../configs/example-run.json) and ru
 | `analysis_id` | required | Stable output identity for this run. |
 | `keep_conditions` | all | Condition IDs retained from inventory. |
 | `recording_ids` | all matching | Explicit fish subset. |
+| `expected_recording_ids` | empty | Additional expected recording IDs retained in assessment even if absent; does not select them for processing. |
+| `protocol_timing_config` | `null` | Optional stimulus-diagnostic JSON matching the assay; absent uses its approved built-in timing definition. See [timing plots](run-pipeline.md#stimulus-timing-plots). |
+| `assessment_enabled` | `true` | Run observation-only fish assessment. Disabling it leaves analysis membership and calculations unchanged. |
+| `observation_only` | `true` | Only `true` is accepted; this infrastructure cannot activate exclusions. |
 | `overwrite` | `false` | Rebuild otherwise reusable derived stages. |
 | `continue_on_error` | `true` | Continue other fish after an individual failure; required-stage failure still fails the invocation. |
 | `batch_size` | `250000` | Intake and candidate-metric processing rows per chunk. |
@@ -34,7 +38,7 @@ Use `classical-conditioning resolve-config --experiment <id> --project-dir <save
 
 ## 2. Experiment and trial definition
 
-[`experiments.py`](../../src/classical_conditioning/config/experiments.py) fixes these values; they are **not JSON overrides**. All assays require at least 94 CS cycles and 78 US cycles, use a 10 s CS, CS blocks 5–14 Pre-train, 15–64 Train 1–5, and 65–94 Test 1–3. CS catch global trials are 25, 39, 53, 59, and 65. The selected paper block comparison uses the final Pre-train 10–14, Early Test 65–69, and Late Test 90–94; these five-trial subsets are distinct from the ten-trial model blocks.
+[`experiments.py`](../../src/classical_conditioning/config/experiments.py) fixes these values; they are **not JSON overrides**. Complete recordings require exactly 94 CS events and 79 US events (including the final viability event), use a 10 s CS, CS blocks 5–14 Pre-train, 15–64 Train 1–5, and 65–94 Test 1–3. CS catch global trials are 25, 39, 53, 59, and 65. The selected paper block comparison uses the final Pre-train 10–14, Early Test 65–69, and Late Test 90–94; these five-trial subsets are distinct from the ten-trial model blocks.
 
 | Assay | Condition IDs | Conditioned response window, s | Configured paired US latency, s |
 | --- | --- | ---: | ---: |
@@ -72,6 +76,8 @@ The compact list below includes every dataclass field in the current per-recordi
 | `TemporalProfileConfig` | `window_start_s=-45.0`; `window_end_s=45.0`; `bin_width_s=0.5`; `interval_closure=left`; `aggregation=mean_total_activity`; `scaling_baseline_end_s=-15.0`; `scaling_onset_s=0.0`; `scaling_lower_quantile=0.1`; `scaling_upper_quantile=0.9`; `scaling_clip=(0.0,1.0)`. |
 | `TrialOutcomeConfig` | `baseline_window_s=(-15.0,0.0)`; `response_window_s=(0.0,9.0)` class default for Delay, replaced by `trial_outcome_config_for_experiment()` with the experiment's conditioned-response window; `interval_closure=left`. |
 | `MetricComparisonConfig` | `baseline_window_s=(-15.0,0.0)`; `response_window_s=(0.0,9.0)` class default, replaced by the experiment response window during the normal run; `interval_closure=left`; `recording_aggregation=equal_trial_weight`; `cohort_aggregation=equal_recording_weight`. |
+
+**Protocol verification and numbering:** Shared acquisition counts, pulse roles, control constraints and ±0.2 s warn-and-continue policy are exported from `config/protocols.py`. The first US is retained. Training US IDs are 19–64 (18 events precede training); corrected temporal/trial mappings invalidate old active labels. See [automatic verification](run-pipeline.md#automatic-protocol-verification).
 
 **Response-window provenance:** `ExperimentSpec.conditioned_response_window` defines 9/13/20 s for Delay/3sTrace/10sTrace. Both [`comparison_config_for_experiment`](../../src/classical_conditioning/analysis/metric_comparison.py) and [`trial_outcome_config_for_experiment`](../../src/classical_conditioning/analysis/trial_outcomes.py) now apply those values. Older Trace trial-outcome artifacts may contain the former 9 s default; current per-fish and cohort loaders reject their mismatched saved configs. Rerun the corrected candidate stages and rebuild cohort outcomes, learning analyses, and ratio figures from the updated artifacts. Check `config.response_window_s` in each recording's trial-outcome summary.
 

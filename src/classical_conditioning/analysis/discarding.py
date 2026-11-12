@@ -34,7 +34,7 @@ from classical_conditioning.artifacts import (
     sha256_file,
     write_json_atomic,
 )
-from classical_conditioning.config.experiments import get_experiment_spec
+from classical_conditioning.config.experiments import get_experiment_spec, condition_aliases
 from classical_conditioning.exceptions import ClassicalConditioningError, ConfigurationError
 from classical_conditioning.inventory import build_recording_inventory
 from classical_conditioning.paths import assert_project_dir_allowed
@@ -93,6 +93,7 @@ class DiscardAssessmentResult:
     flow_path: Path
     summary_path: Path
     assessment_hash: str
+    observation: dict[str, Any] | None = None
 
 
 # Hash canonical JSON so equivalent assessment data has the same identity.
@@ -261,10 +262,7 @@ def _technical_row(
     processing_status: str | None,
 ) -> tuple[dict[str, Any], dict[str, str]]:
     recording_id = record.get("recording_id")
-    condition_by_source = {
-        item.source_name.lower(): item.condition_id
-        for item in get_experiment_spec(experiment).conditions
-    }
+    condition_by_source = condition_aliases(experiment)
     source_condition = str(record.get("condition_id") or "").lower()
     # Record independent intake and processing failures before inspecting derived data.
     reasons = []
@@ -295,12 +293,22 @@ def _technical_row(
                 timing = summary.get("protocol_timing", {})
                 protocol_event_count = int(timing.get("event_count", 0))
                 protocol_outside_count = int(timing.get("events_outside_acquisition", 0))
+        except (ClassicalConditioningError, FileNotFoundError, ValueError, KeyError, OSError) as error:
+            reasons.append("missing_or_invalid_derived_artifact")
+            lineage["preprocess_error"] = str(error)
+        # Independent downstream evidence is authenticated even when another
+        # prerequisite failed; readiness and scientific membership are separate.
+        try:
             lineage["temporal"] = _verify_temporal(project_dir, recording_id, experiment, source)
+        except (ClassicalConditioningError, FileNotFoundError, ValueError, KeyError, OSError) as error:
+            reasons.append("missing_or_invalid_derived_artifact")
+            lineage["temporal_error"] = str(error)
+        try:
             verified = verify_candidate_trial_outcomes(project_dir, recording_id, metric_recipe=metric_recipe)
             lineage["trial_outcomes"] = sha256_file(verified.marker_path)
         except (ClassicalConditioningError, FileNotFoundError, ValueError, KeyError, OSError) as error:
             reasons.append("missing_or_invalid_derived_artifact")
-            lineage["error"] = str(error)
+            lineage["outcomes_error"] = str(error)
     if matched is not None and matched < policy["min_matched_frames"]:
         reasons.append("too_few_matched_frames")
     if valid_fraction is not None and valid_fraction < policy["min_valid_frame_fraction"]:
@@ -320,11 +328,12 @@ def _technical_row(
         "tracking_header_ok": None if schema is None else bool(schema.get("ok")),
         "matched_frame_count": matched,
         "valid_frame_fraction": valid_fraction,
+        "protocol_verification": str(project_dir / "Quality checks" / (recording_id or "") / "protocol_verification.json"),
         "protocol_event_count": protocol_event_count,
         "protocol_events_outside_acquisition": protocol_outside_count,
         "technical_ready": ready,
         "technical_reason": ";".join(dict.fromkeys(reasons)),
-        "primary_candidate": ready if policy["approval_status"] == "approved" else None,
+        "primary_candidate": None,
         "policy_status": policy["approval_status"],
     }
     return row, lineage
@@ -338,8 +347,12 @@ def assess_discarding(
     recording_ids: Iterable[str] | None = None,
     inventory: dict[str, Any] | None = None,
     processing_statuses: dict[str, str] | None = None,
+    expected_recording_ids: Iterable[str] = (),
+    observation_only: bool = True,
 ) -> DiscardAssessmentResult:
     """Run both stages in order and replace one authenticated audit bundle."""
+    if observation_only is not True:
+        raise ConfigurationError("Only observation_only=True is supported; no exclusions can be activated.")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*", analysis_id):
         raise ConfigurationError("analysis_id must be a path-safe identifier.")
     raw_dir = raw_dir.resolve()
@@ -358,7 +371,8 @@ def assess_discarding(
     }
     records = list(inventory["records"])
     discovered = {record.get("recording_id") for record in records}
-    for missing_id in sorted(selected - discovered):
+    expected = set(expected_recording_ids)
+    for missing_id in sorted((selected | expected) - discovered):
         records.append({
             "recording_id": missing_id, "recording_name": missing_id,
             "condition_id": None, "status": "NOT_DISCOVERED",
@@ -372,6 +386,7 @@ def assess_discarding(
     rule_rows: list[dict[str, Any]] = []
     details: list[dict[str, Any]] = []
     lineage: dict[str, Any] = {}
+    observed_outcomes: dict[str, pd.DataFrame] = {}
     for record in records:
         rid = record.get("recording_id")
         is_selected = rid in selected
@@ -384,12 +399,14 @@ def assess_discarding(
         lineage[record["recording_name"]] = hashes
         outcomes = None
         checks: dict[str, tuple[str, str]] = {}
-        if technical["technical_ready"]:
+        # Readiness thresholds do not suppress independent evidence collection.
+        if hashes.get("trial_outcomes"):
             try:
                 base = project_dir / "Processed data" / str(rid)
+                outcomes = bout_only_trial_outcomes(pq.read_table(base / source.trial_outcomes_name).to_pandas())
+                observed_outcomes[str(rid)] = outcomes
                 movement = pq.read_table(base / source.movement_artifact_name).to_pandas()
                 protocol = pq.read_table(base / "stimulus_events.parquet").to_pandas()
-                outcomes = bout_only_trial_outcomes(pq.read_table(base / source.trial_outcomes_name).to_pandas())
                 checks, bout_details = evaluate_legacy_bouts(movement, protocol, experiment=experiment)
                 details.extend({"recording_name": record["recording_name"], **item} for item in bout_details)
             except (ClassicalConditioningError, FileNotFoundError, ValueError, KeyError, OSError) as error:
@@ -421,6 +438,7 @@ def assess_discarding(
                 "selected_for_run": is_selected,
                 "rule_id": rule_id, "source": LEGACY_SOURCES[rule_id],
                 "enabled": enabled, "status": status if enabled else "disabled",
+                "evaluated_status": status, "evaluated_reason": reason,
                 "reason": reason if enabled else "disabled_for_exploration",
                 "cumulative_pass": cumulative,
             })
@@ -448,7 +466,18 @@ def assess_discarding(
         "disabled_rules": sorted(disabled),
         "inventory_hash": inventory["records_sha256"], "lineage": lineage,
         "selected_recording_ids": sorted(selected), "processing_statuses": statuses,
+        "expected_recording_ids": sorted(expected), "mode": "observation_only",
+        "implementation_sha256": sha256_file(Path(__file__)),
     }
+    from classical_conditioning.analysis.observation import try_observation
+    from classical_conditioning.analysis.selection_observation import publish_selection_observation
+    observation = try_observation(lambda: publish_selection_observation(
+        project_dir, project_dir / "Processed data" / "Discarding" / analysis_id,
+        inventory=pd.DataFrame(technical_rows), historical_rules=pd.DataFrame(rule_rows),
+        details=pd.DataFrame(details) if details else pd.DataFrame(columns=["recording_name", "rule_id"]),
+        outcomes_by_recording=observed_outcomes, metric_id=metric_id, identity=source_identity,
+    ))
+    source_identity["observation"] = observation
     assessment_hash = _digest(source_identity)
     # Input identity lives in the summary, not in a path suffix. A changed
     # assessment replaces the same derived paths; reviewed cohorts stay separate.
@@ -469,7 +498,7 @@ def assess_discarding(
                 for name, path in paths.items() if name != "summary"
             ):
                 return DiscardAssessmentResult(output_dir, paths["technical"], paths["exploratory"],
-                                               paths["rules"], paths["flow"], paths["summary"], assessment_hash)
+                                               paths["rules"], paths["flow"], paths["summary"], assessment_hash, observation)
             raise ConfigurationError("Existing discarding assessment failed integrity checks.")
     technical_df = pd.DataFrame(technical_rows)
     exploratory_df = pd.DataFrame(exploratory_rows)
@@ -507,6 +536,8 @@ def assess_discarding(
         write_json_atomic(staged["summary"], {
             "generated_at_utc": datetime.now(timezone.utc).isoformat(),
             "assessment_hash": assessment_hash, "scientific_status": "exploratory",
+            "mode": "observation_only", "membership_decisions_applied": False,
+            "observation": observation,
             "primary_cohort_changed": False, "policy": policy,
             "selected_metric": metric_id, "enabled_rules": [r for r in RULE_ORDER if r not in disabled],
             "legacy_sources": LEGACY_SOURCES, "input_identity": source_identity,
@@ -520,4 +551,4 @@ def assess_discarding(
             overwrite=True,
         )
     return DiscardAssessmentResult(output_dir, paths["technical"], paths["exploratory"],
-                                   paths["rules"], paths["flow"], paths["summary"], assessment_hash)
+                                   paths["rules"], paths["flow"], paths["summary"], assessment_hash, observation)

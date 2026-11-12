@@ -1987,7 +1987,12 @@ def build_learning_onset_analysis(
             records[name]["path"] = str(path)
         staged_summary = staging_root / summary_path.name
         staged_marker = staging_root / marker_path.name
+        from classical_conditioning.analysis.observation import observe_tables
         summary = {
+            "observation": observe_tables(
+                project_dir, summary_path.parent / "observations" / analysis_id,
+                tables={"eligibility": eligibility, "diagnostics": diagnostics, "model-input": model_input},
+                identity={"consumer": RECIPE_ID, "cohort_hash": cohort_hash, "config": asdict(config)}),
             "vigor_sample_policy": VIGOR_SAMPLE_POLICY,
             "recipe": RECIPE_ID,
             "scientific_status": "implemented_not_paper_approved",

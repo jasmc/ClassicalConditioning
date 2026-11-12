@@ -136,17 +136,32 @@ def compare_legacy_learners(
     legacy_input.to_parquet(input_path, index=False)
     merged = selected.copy()
     status = []
+    observation_status = {}
     for variant, filename in SCRIPTS.items():
         result_path = output_dir / f"{variant}.parquet"
         command = [sys.executable, "-m", "classical_conditioning.analysis.legacy_learner_worker",
                    variant, str(input_path), str(result_path)]
         run = subprocess.run(command, capture_output=True, text=True, check=False)
         (output_dir / f"{variant}.log").write_text(run.stdout + "\n[stderr]\n" + run.stderr)
+        observer_path = result_path.with_suffix(".observation.json")
+        try:
+            observation_status[variant] = (
+                json.loads(observer_path.read_text()) if observer_path.is_file()
+                else {"status": "not_available", "mode": "observation_only"}
+            )
+        except (OSError, ValueError) as error:
+            observation_status[variant] = {"status": "failed", "mode": "observation_only", "error": str(error)}
         if run.returncode:
             status.append({"variant": variant, "status": "failed", "exit_code": run.returncode,
                            "log": f"{variant}.log"})
             continue
         result = pd.read_parquet(result_path)
+        try:
+            observation_status[variant]["feature_contributions"] = json.loads(
+                result_path.with_suffix(".config.json").read_text()
+            ).get("observation", {"status": "not_available"})
+        except (OSError, ValueError, TypeError) as error:
+            observation_status[variant] = {"status": "failed", "error": str(error)}
         if result.duplicated(["Fish_ID", "Condition"]).any():
             raise SchemaValidationError(f"{variant} returned duplicate fish keys")
         result["Condition"] = result["Condition"].replace({"delay": conditioned_id})
@@ -197,6 +212,7 @@ def compare_legacy_learners(
             for name in ("numpy", "pandas", "statsmodels", "scikit-learn", "seaborn")
         }},
         "variants": status,
+        "observations": observation_status,
     }
     commit = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=Path(__file__).resolve().parents[3],

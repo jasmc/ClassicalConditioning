@@ -18,6 +18,18 @@ from classical_conditioning.exceptions import ArtifactIntegrityError
 
 
 class CandidateRunnerTests(unittest.TestCase):
+    def setUp(self):
+        # These orchestration tests mock all data stages. Supply the new
+        # diagnostic stage too; real intake/audit coverage lives separately.
+        def audit(project_dir, recording_id, **kwargs):
+            target = project_dir / "Quality checks" / recording_id / "protocol_verification.json"
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(json.dumps({"status": "warn"}))
+            return {"status": "warn"}
+        self.protocol_audit = self.enterContext(patch(
+            "classical_conditioning.analysis.candidate_runner.verify_recording_protocol",
+            side_effect=audit))
+
     @patch(
         "classical_conditioning.analysis.candidate_runner._verify_comparison",
         return_value="comparison-marker",
@@ -80,6 +92,7 @@ class CandidateRunnerTests(unittest.TestCase):
             self.assertEqual(mock_temporal.call_count, 2)
             self.assertEqual(mock_trial.call_count, 2)
             self.assertEqual(mock_comparison.call_count, 1)
+            self.assertEqual(self.protocol_audit.call_count, 2)
             manifest = json.loads(result.manifest_path.read_text(encoding="utf-8"))
             self.assertFalse(manifest["paper_approved"])
             self.assertEqual(
@@ -163,6 +176,7 @@ class CandidateRunnerTests(unittest.TestCase):
             self.assertEqual(
                 result.step_status["recording-a"],
                 {
+                    "protocol-verification": "warn",
                     "activity-metrics": "existing",
                     "movement-state": "existing",
                     "temporal-profiles": "existing",

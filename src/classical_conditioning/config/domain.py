@@ -127,8 +127,8 @@ class ExperimentSpec:
     paradigm: Paradigm
     conditions: tuple[ConditionSpec, ...]
     analysis_trials: tuple[TrialSpec, ...]
-    minimum_cs_trials: int
-    minimum_us_trials: int
+    expected_cs_count: int
+    expected_us_count: int
     cs_duration_s: float
     conditioned_response_window: TimeWindow
 
@@ -138,8 +138,8 @@ class ExperimentSpec:
             raise ConfigurationError("Experiment ID cannot be empty.")
         if not isinstance(self.paradigm, Paradigm):
             raise ConfigurationError(f"Unknown experiment paradigm: {self.paradigm!r}")
-        if self.minimum_cs_trials < 1 or self.minimum_us_trials < 1:
-            raise ConfigurationError("Minimum trial counts must be positive.")
+        if self.expected_cs_count < 1 or self.expected_us_count < 1:
+            raise ConfigurationError("Expected event counts must be positive.")
         if not math.isfinite(self.cs_duration_s) or self.cs_duration_s <= 0:
             raise ConfigurationError("CS duration must be finite and positive.")
 
