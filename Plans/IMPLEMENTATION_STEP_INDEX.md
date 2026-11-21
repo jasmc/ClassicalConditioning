@@ -20,6 +20,7 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 10 | [Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
 | 12 | [Study/discussion reader verification](12_STUDY_ARTIFACT_STORAGE.md) | Source migration implemented; [current catalogue](../docs/paper/figures/review-library.md) owns discovery. Browser/notebook/responsive/print QA for the G/H/I audit and BLUP study remains open. Full original requirements and source identities are preserved. |
+| 17 | [Project-scoped Codex workflow](17_CODEX_WORKFLOW.md) | Implementation and verification |
 
 Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 
