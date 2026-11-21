@@ -44,10 +44,7 @@ it does not choose an analysis or replace scoped presentation state. Its
 generated `review-library/<identity>/reading/` files are dated convenience
 snapshots, not canonical manuscripts to edit.
 
-The personal `analysis-review-guide` skill owns reusable teaching, comparison,
-notebook and revision behavior. This policy owns this repository's storage
-choice. Keep the personal skill outside the repository; no additional agent
-or second project skill is required for this division of work.
+The [project study skill](../../.agents/skills/analysis-review-guide/SKILL.md) owns teaching, comparison, notebook and revision behavior. This policy owns storage. Use a notebook when it serves the requested guide and preserve the notebook contract on revisions.
 
 Open questions, recommendations and provisional choices stay in the external
 study. After an explicit author decision, record the concise agreed choice,

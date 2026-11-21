@@ -20,7 +20,6 @@ The only live workstream-status board. A scoped panel freeze is not whole-figure
 | 10 | [Tail mechanisms](backlog/10_TAIL_MECHANISTIC_ANALYSES.md) | Design / validation open |
 | 11 | [Behavior/imaging integration](backlog/11_BEHAVIOR_IMAGING_INTEGRATION.md) | Design / validation open |
 | 12 | [Study/discussion reader verification](12_STUDY_ARTIFACT_STORAGE.md) | Source migration implemented; [current catalogue](../docs/paper/figures/review-library.md) owns discovery. Browser/notebook/responsive/print QA for the G/H/I audit and BLUP study remains open. Full original requirements and source identities are preserved. |
-| 17 | [Project-scoped Codex workflow](17_CODEX_WORKFLOW.md) | Evidence-review pilot and Paper instructions implemented. Study-skill migration pending resolution of the replacement personal-skill instruction. |
 
 Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering](../records/repository-archive/plan-renumbering-20261012/record.json). Old identifiers in the historical tables below refer to their original numbering.
 
@@ -28,6 +27,7 @@ Renumbered consecutively on 2026-10-12. The map is recorded in [plan renumbering
 
 | Identifier | Record | Completion |
 |---|---|---|
+| 17 | [Project-scoped Codex workflow](../records/repository-history/README.md#project-scoped-codex-workflow) | Verified project discovery, notebook compatibility, saved-result review and Paper handoff. |
 | 16 | [Repository retention and scoped organization](../records/repository-archive/repository-organization-20261029/receipt.json) | Implemented: 26 redundant reports/stubs retained in Git, 51 scoped commands, nine shared evidence moves and three scoped tests; exact recovery and current targeted regressions verified. The receipt separates full-run outcomes and the concurrent collection-verification limit. |
 | 13 | [Script command organization](../records/repository-history/2026-10-24-scripts-audit/completed-script-command-organization-plan.md) | Completed account preserved; later folder-audit recommendations belong to Plan 15. |
 | 15 | [Repository folder audit follow-up](../records/repository-history/2026-10-28-folder-audit-implementation/completed-plan-15.md) | Implemented on 29 October 2026: maintained rules/folder guides, eight scoped successors with retained compatibility/source originals, tested helper/style/writer repairs, complete plan preservation and source reconstruction. [Verification](../records/repository-history/2026-10-28-folder-audit-implementation/README.md) records limits; scientific/Plan 12 gates remain open. |

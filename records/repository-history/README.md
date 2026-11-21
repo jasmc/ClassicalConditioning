@@ -54,3 +54,11 @@ Additional retired completed-report paths at the same preservation commit:
 - `records/repository-history/2026-10-27-storage-consolidation/README.md`
 - `Plans/13_SCRIPT_COMMAND_ORGANIZATION.md`
 - `Plans/15_REPOSITORY_FOLDER_AUDIT_FOLLOW_UP.md`
+
+## Project-scoped Codex workflow
+
+21 November 2026. Recover Plan 17 from commit `38081ab`, path `Plans/17_CODEX_WORKFLOW.md`. Fresh Codex sessions found both project skills through ClassicalConditioning and its Analysis alias and neither in Paper or an unrelated checkout. Paper companion instructions are in that repository at commit `b054d4a`.
+
+The G/H/I and BLUP historical guide manifests bind `~/.codex/skills/analysis-review-guide/assets/review-notebook.js` (SHA-256 `a218c508cf20877828378e8486c3f463504aa64f3be5e7e10d3b537a6e51b036`). Only this compatibility asset remains at the old location. The original package, personal instructions and hashes are in `JOAQUIM/ClassicalConditioning-Archive/workflow-20261121/`. New builds use the repository asset. For recovery compare the inventory first and restore the package and corresponding instructions together if rolling back discovery.
+
+The [evidence-review pilot](</Volumes/JOAQUIM/ClassicalConditioning Outputs/shared/workflow-20261121/pilot.json>) traced three saved claims and detected two altered fixture claims. Nine reader/source tests passed, both builders rejected an incorrect notebook hash, and both historical notebook bindings verified. The local structure check retained its two previously uncatalogued scripts. Scientific, rendered-reader and manuscript release checks retain their own scopes.

@@ -16,7 +16,7 @@ their owners; this page is navigation, not a second scientific decision register
 | Running code, parameters and outputs | [Running-analysis](../running-analysis/README.md) |
 | Future work and progress | [Plans](../../Plans/README.md), [sole status index](../../Plans/IMPLEMENTATION_STEP_INDEX.md) |
 | Storage, exact recovery and historical disposition | [Storage](storage.md), [archive records](../../records/repository-archive/README.md) |
-| Study/discussion Markdown and HTML; reusable guide workflow | [Study-artifact policy](review-artifacts.md), personal `analysis-review-guide`; [migration plan](../../Plans/12_STUDY_ARTIFACT_STORAGE.md) |
+| Study/discussion Markdown and HTML; reusable guide workflow | [Study-artifact policy](review-artifacts.md), project `analysis-review-guide`; [migration plan](../../Plans/12_STUDY_ARTIFACT_STORAGE.md) |
 | Supported versus historical tools | [Script lifecycle](script-lifecycle.md), [tool catalogue](../../scripts/README.md) |
 
 Scientific selection, presentation selection and storage location are separate.
@@ -52,17 +52,7 @@ For a requested claim check, use the [output-review checklist](../running-analys
 
 ## Repository and personal customization
 
-Repository skills belong in `.agents/skills/`; this repository's `paper-figures`
-skill stays here. Its procedures live in the figure workflow. Root `AGENTS.md`
-supplies instructions; it is not a custom-agent definition.
-
-Personal skills and agent configuration live outside this repository. In the
-author's current installation, `analysis-review-guide` is discovered from
-`~/.codex/skills/`. Do not copy personal or bundled/plugin skills into the paper
-repository merely because they are available during a task. Custom agents, when
-needed, have separate project or personal configuration; this maintenance does
-not introduce any. The [dated reconciliation](../../records/repository-history/README.md#retired-maintenance-prose)
-records the inventory and implementation boundary.
+The project skills are [paper-figures](../../.agents/skills/paper-figures/SKILL.md) for artwork and [analysis-review-guide](../../.agents/skills/analysis-review-guide/SKILL.md) for requested substantial study artifacts. Routine explanations stay in the reply. Plans follow the [plan lifecycle](../../Plans/README.md#placement-and-lifecycle).
 
 ## Routine checks
 

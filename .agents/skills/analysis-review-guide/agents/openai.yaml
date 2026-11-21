@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analysis Review Guide"
+  short_description: "Explain analyses for independent review and decisions"
+  default_prompt: "Use $analysis-review-guide to build a layered HTML guide to the existing analyses, outputs, alternatives and unresolved decisions so I can review them independently."

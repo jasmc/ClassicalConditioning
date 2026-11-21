@@ -10,7 +10,7 @@ The [current methods reference](current-methods.md) separates selected working
 definitions from preserved historical Methods. Reproduction uses
 `scripts/paper/figure_02/panels_g_h_i/audit_saved_statistics.py --manifest
 <authenticated audit-inputs.json> --output-dir <new external directory>
---notebook-script <personal helper> --notebook-sha256 <exact hash>`.
+--notebook-script .agents/skills/analysis-review-guide/assets/review-notebook.js --notebook-sha256 <exact hash>`.
 The command replays saved arithmetic and bootstrap indices, preserves current
 state, and publishes a new audit bundle transactionally. It never refits models,
 draws new resamples, overwrites an existing study or selects science. Keep manual

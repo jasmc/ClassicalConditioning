@@ -29,9 +29,7 @@ biological classifier, missingness mechanism or full-Trace validity.
 ## Study build and revision
 
 `scripts/paper/figure_03/build_blup_study.py` accepts `--analysis-dir`, a new
-`--output-dir`, and the personal review notebook script plus its exact hash.
-The notebook remains a personal skill asset; it is inlined into the external
-HTML and is not vendored into this repository. The builder verifies the complete
+`--output-dir`, and the project notebook via `--notebook-script .agents/skills/analysis-review-guide/assets/review-notebook.js` and `--notebook-sha256 <reviewed hash>`. The builder embeds those authenticated bytes in the HTML. The builder verifies the complete
 numerical manifest, includes all fish and source identities, and preserves state.
 
 For a reviewed manuscript revision, pass `--manuscript`,

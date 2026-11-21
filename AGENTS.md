@@ -71,8 +71,9 @@ of manual-review holds follows from these rules.
   scoped authority and compact recovery metadata in their owning homes. Resolve
   migrated sources through [study-sources.json](docs/paper/study-sources.json) and
   the supported artifact resolver; a navigation pointer is not the manuscript.
-  Use personal `analysis-review-guide` for substantial study artifacts when
-  available; do not vendor it into this repository.
+  Use the project [analysis-review-guide](.agents/skills/analysis-review-guide/SKILL.md)
+  for a requested substantial study artifact. For a claim check, use the
+  [output-review checklist](docs/running-analysis/outputs-and-provenance.md#output-review-checklist).
 - Permanent media, reviews, numerical payloads and superseded candidate code
   belong at explicit JOAQUIM destinations. Use supported archive/migration tools
   and exact relocation resolution; preserve frozen bytes, aliases, saved notes
