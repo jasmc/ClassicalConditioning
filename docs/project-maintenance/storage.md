@@ -1,5 +1,7 @@
 # External storage and archive procedure
 
+Open `ClassicalConditioning/START-HERE.html` from the JOAQUIM drive entry for all five storage roles. Its figure-library link opens the generated version browser. Follow the linked physical roots when resolving existing records.
+
 Permanent media, HTML reviews, numerical payloads and superseded candidate code belong on JOAQUIM. One self-contained review embeds requested versions, legends and provenance; one recorded working SVG per frozen/draft state is permitted by the figure workflow. Temporary previews are removed after verification.
 
 Editable study/discussion/comparison Markdown also belongs beside its HTML on
