@@ -74,6 +74,10 @@ before rebuilding downstream cohort, LME, and ratio-figure artifacts.
 5. Treat figures as views; use the Parquet table and QC summary as the review
    source when a visual result is surprising.
 
+When asked to verify a reported result, quote the claim and locate its exact saved result row, output version, input identities and measure or comparator. Check units, biological replication, cohort and relevant scope against Methods and the applicable scientific selection. Check claims about execution against the recorded run ledger, diagnostics or audit output. Report the producer, command and environment to the extent recorded. A reproduction recipe alone establishes only how to run the work.
+
+Return each statement with its source, scientific status and finding (supported, contradicted, or insufficient evidence). Identify the specific missing record or mismatch. Use existing manifests and exact recovery. Refit or rerun only when separately requested. Routine figure display follows its scoped route.
+
 For filename examples and the directory table, see the [directory contract](#directory-contract). The exact recipe-bearing suffix
 is intentionally variable and should be read from the marker rather than
 guessed from this guide.

@@ -48,6 +48,8 @@ maintains version links without printing the catalogue into model responses.
 This reduces instruction/context overhead; output-token use depends on the
 response and tool reporting, not the number of generated links alone.
 
+For a requested claim check, use the [output-review checklist](../running-analysis/outputs-and-provenance.md#output-review-checklist). ClassicalConditioning owns the science, including on computers where the checkout is named Analysis. The Paper repository consumes its scoped selections and methods.
+
 ## Repository and personal customization
 
 Repository skills belong in `.agents/skills/`; this repository's `paper-figures`
